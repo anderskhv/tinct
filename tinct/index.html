@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinct — A New Way to Read</title>
+<style>
+/* ===== Variables ===== */
+:root, [data-theme="light"] {
+  --bg-primary: #faf8f5; --bg-secondary: #f3efe9; --bg-panel: #f7f4ef;
+  --bg-hover: #ede8e0; --bg-chat-user: #e8e2d8; --bg-highlight: #f5e6c8;
+  --bg-card: #ffffff; --bg-overlay: rgba(44,36,23,0.5);
+  --text-primary: #2c2417; --text-secondary: #6b5d4f; --text-tertiary: #9a8b7a;
+  --text-inverse: #faf8f5;
+  --border-color: #e0d8cc; --border-light: #ebe5db;
+  --accent: #8b6b3a; --accent-hover: #a07b42; --accent-subtle: #d4b882;
+  --shadow-sm: 0 1px 3px rgba(44,36,23,0.06); --shadow-lg: 0 8px 24px rgba(44,36,23,0.12);
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --panel-width: 380px;
+}
+[data-theme="dark"] {
+  --bg-primary: #1a1612; --bg-secondary: #231f19; --bg-panel: #1f1b16;
+  --bg-hover: #2e2820; --bg-chat-user: #2e2820; --bg-highlight: #3d3222;
+  --bg-card: #262118; --bg-overlay: rgba(0,0,0,0.6);
+  --text-primary: #e8e0d4; --text-secondary: #a89a8a; --text-tertiary: #756858;
+  --text-inverse: #1a1612;
+  --border-color: #332d24; --border-light: #2a251e;
+  --accent: #c9a45c; --accent-hover: #d9b76e; --accent-subtle: #5c4a2e;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2); --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* ===== Reset ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow:hidden;height:100vh}
+#root{height:100vh}
+::selection{background:var(--bg-highlight);color:var(--text-primary)}
+
+/* ===== Welcome Screen ===== */
+.welcome{height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg-primary)}
+.welcome-card{max-width:480px;width:90%;text-align:center;padding:48px 40px}
+.welcome-logo{font-family:var(--font-serif);font-size:2rem;font-weight:600;color:var(--accent);letter-spacing:-0.03em;margin-bottom:4px}
+.welcome-tagline{font-size:0.9rem;color:var(--text-tertiary);margin-bottom:36px}
+.welcome-book{font-family:var(--font-serif);font-size:1.3rem;color:var(--text-primary);margin-bottom:4px}
+.welcome-author{font-size:0.85rem;color:var(--text-tertiary);margin-bottom:28px}
+.welcome-label{font-size:0.75rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.edition-cards{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.edition-card{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:10px;cursor:pointer;transition:all .15s;text-align:left}
+.edition-card:hover{background:var(--bg-hover);border-color:var(--accent-subtle)}
+.edition-card.selected{border-color:var(--accent);background:var(--bg-highlight)}
+.edition-radio{width:18px;height:18px;border:2px solid var(--border-color);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.edition-card.selected .edition-radio{border-color:var(--accent)}
+.edition-card.selected .edition-radio::after{content:'';width:10px;height:10px;background:var(--accent);border-radius:50%}
+.edition-card-text{flex:1}
+.edition-card-name{font-size:0.9rem;font-weight:500;color:var(--text-primary)}
+.edition-card-desc{font-size:0.78rem;color:var(--text-tertiary)}
+.edition-card-ai{font-size:0.68rem;color:var(--accent);font-style:italic}
+.welcome-start{background:var(--accent);color:white;border:none;padding:12px 36px;border-radius:8px;font-size:0.95rem;font-family:var(--font-sans);cursor:pointer;transition:background .15s;margin-top:8px}
+.welcome-start:hover{background:var(--accent-hover)}
+
+/* ===== App Layout ===== */
+.app{display:flex;height:100vh}
+.reader-area{flex:1;display:flex;overflow:hidden;position:relative}
+
+/* ===== Kindle-style Reader ===== */
+.reader{flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.reader-page-container{flex:1;position:relative;overflow:hidden}
+
+/* Pages with slide animation */
+.page{position:absolute;inset:0;padding:48px 80px 60px;overflow-y:auto;display:flex;justify-content:center;transition:transform .3s ease,opacity .3s ease}
+.page-entering-right{transform:translateX(40px);opacity:0}
+.page-entering-left{transform:translateX(-40px);opacity:0}
+.page-exiting-right{transform:translateX(-40px);opacity:0}
+.page-exiting-left{transform:translateX(40px);opacity:0}
+
+.page-content{max-width:620px;width:100%}
+.chapter-header{margin-bottom:36px;text-align:center}
+.chapter-title{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--text-primary);margin-bottom:6px;letter-spacing:-0.01em}
+.chapter-subtitle{font-size:0.82rem;color:var(--text-tertiary);font-style:italic}
+.text-body{font-family:var(--font-serif);font-size:1.08rem;line-height:1.9;color:var(--text-primary)}
+.text-paragraph{margin-bottom:1.15em;text-indent:1.5em}
+.text-paragraph:first-child{text-indent:0}
+
+/* Click zones (invisible) */
+.click-zone{position:absolute;top:0;bottom:60px;z-index:10;cursor:pointer}
+.click-zone-left{left:0;width:15%}
+.click-zone-right{right:0;width:15%}
+.click-zone-center{left:15%;right:15%;z-index:5}
+
+/* Bottom bar - always visible, minimal */
+.reader-bar{position:absolute;bottom:0;left:0;right:0;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--bg-primary);border-top:1px solid var(--border-light);z-index:20;font-size:0.78rem;color:var(--text-tertiary)}
+.reader-bar-left{display:flex;align-items:center;gap:12px}
+.reader-bar-center{font-family:var(--font-serif);font-style:italic}
+.reader-bar-right{display:flex;align-items:center;gap:8px}
+.bar-btn{background:none;border:none;color:var(--text-tertiary);cursor:pointer;padding:4px 8px;border-radius:4px;font-size:0.78rem;font-family:var(--font-sans);transition:all .15s}
+.bar-btn:hover{color:var(--text-primary);background:var(--bg-hover)}
+
+/* Top toolbar - appears on center click */
+.toolbar{position:absolute;top:0;left:0;right:0;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--bg-secondary);border-bottom:1px solid var(--border-color);z-index:30;transform:translateY(-100%);transition:transform .2s ease;gap:12px}
+.toolbar.visible{transform:translateY(0)}
+.toolbar-left{display:flex;align-items:center;gap:10px}
+.toolbar-logo{font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--accent)}
+.toolbar-title{font-family:var(--font-serif);font-size:0.88rem;font-style:italic;color:var(--text-secondary)}
+.toolbar-right{display:flex;align-items:center;gap:6px}
+.tool-btn{background:none;border:1px solid var(--border-color);color:var(--text-secondary);height:30px;padding:0 10px;border-radius:4px;cursor:pointer;font-size:0.78rem;font-family:var(--font-sans);display:flex;align-items:center;gap:4px;transition:all .15s}
+.tool-btn:hover{background:var(--bg-hover);color:var(--text-primary)}
+.tool-btn.active{background:var(--bg-highlight);border-color:var(--accent-subtle);color:var(--accent)}
+.tool-icon{width:28px;height:28px;border:1px solid var(--border-color);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-secondary);background:none;font-size:0.9rem;transition:all .15s}
+.tool-icon:hover{background:var(--bg-hover);color:var(--text-primary)}
+
+/* Chapter navigation drawer */
+.chapter-drawer{position:absolute;top:0;left:0;bottom:0;width:280px;background:var(--bg-panel);border-right:1px solid var(--border-color);z-index:40;transform:translateX(-100%);transition:transform .25s ease;display:flex;flex-direction:column}
+.chapter-drawer.open{transform:translateX(0)}
+.drawer-overlay{position:absolute;inset:0;background:var(--bg-overlay);z-index:35;opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer-overlay.visible{opacity:1;pointer-events:auto}
+.drawer-header{padding:16px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between}
+.drawer-header h3{font-family:var(--font-serif);font-size:1rem;font-weight:500}
+.drawer-close{background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:1.2rem;padding:4px}
+.drawer-list{flex:1;overflow-y:auto;padding:8px}
+.drawer-item{padding:10px 16px;border-radius:6px;cursor:pointer;font-size:0.88rem;color:var(--text-secondary);transition:all .12s;display:flex;align-items:center;gap:8px}
+.drawer-item:hover{background:var(--bg-hover);color:var(--text-primary)}
+.drawer-item.current{background:var(--bg-highlight);color:var(--accent);font-weight:500}
+.drawer-item-num{font-size:0.75rem;color:var(--text-tertiary);min-width:20px}
+
+/* Loading */
+.loading-indicator{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;color:var(--text-tertiary);gap:16px}
+.loading-spinner{width:24px;height:24px;border:2px solid var(--border-color);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== Side Panel ===== */
+.side-panel{width:var(--panel-width);border-left:1px solid var(--border-color);background:var(--bg-panel);flex-shrink:0;overflow:hidden;display:flex;flex-direction:column;transition:width .25s ease,opacity .2s}
+.side-panel-closed{width:0;border-left:none;opacity:0}
+
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border-color);flex-shrink:0}
+.panel-header h3{font-family:var(--font-serif);font-size:0.95rem;font-weight:500}
+.panel-close{background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:1rem;padding:2px 6px}
+.panel-tabs{display:flex;border-bottom:1px solid var(--border-color);flex-shrink:0}
+.panel-tab{flex:1;padding:9px 8px;background:none;border:none;border-bottom:2px solid transparent;color:var(--text-tertiary);font-size:0.75rem;font-family:var(--font-sans);cursor:pointer;text-transform:uppercase;letter-spacing:0.06em;transition:all .15s}
+.panel-tab:hover{color:var(--text-secondary);background:var(--bg-hover)}
+.panel-tab-active{color:var(--accent);border-bottom-color:var(--accent)}
+
+.panel-body{flex:1;overflow-y:auto;min-width:var(--panel-width)}
+.context-section{padding:16px}
+.context-section h4{font-family:var(--font-serif);font-size:0.88rem;font-weight:500;color:var(--text-primary);margin-bottom:8px}
+.page-summary{font-size:0.85rem;line-height:1.6;color:var(--text-secondary);margin-bottom:14px}
+.page-summary.loading{color:var(--text-tertiary);font-style:italic}
+
+.characters-grid{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.character-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;font-size:0.78rem;color:var(--text-secondary);cursor:pointer;transition:all .15s}
+.character-chip:hover{background:var(--bg-highlight);border-color:var(--accent-subtle);color:var(--text-primary)}
+.character-chip .role{font-size:0.68rem;color:var(--text-tertiary)}
+
+.highlight-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:12px;margin-bottom:10px;animation:slideIn .2s ease}
+@keyframes slideIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.highlight-quote{font-family:var(--font-serif);font-size:0.82rem;font-style:italic;color:var(--text-secondary);border-left:2px solid var(--accent-subtle);padding-left:10px;margin-bottom:8px}
+.highlight-explanation{font-size:0.82rem;line-height:1.55;color:var(--text-primary)}
+.highlight-explanation.loading{color:var(--text-tertiary);font-style:italic}
+
+/* Chat */
+.chat-section{display:flex;flex-direction:column;height:100%;min-width:var(--panel-width)}
+.chat-messages{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px}
+.chat-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:20px}
+.chat-empty-title{font-family:var(--font-serif);font-size:0.9rem;color:var(--text-secondary);margin-bottom:4px}
+.chat-empty-hint{font-size:0.8rem;color:var(--text-tertiary);line-height:1.5}
+.chat-message-user{background:var(--bg-chat-user);padding:8px 12px;border-radius:10px;border-bottom-right-radius:3px;margin-left:24px;font-size:0.85rem}
+.chat-message-assistant{padding:6px 0;font-size:0.85rem;line-height:1.6}
+.chat-message-assistant p{margin-bottom:4px}
+.chat-message-assistant p:last-child{margin-bottom:0}
+.chat-typing{display:flex;gap:4px;padding:4px 0}
+.chat-typing span{width:5px;height:5px;background:var(--text-tertiary);border-radius:50%;animation:typing 1.2s ease-in-out infinite}
+.chat-typing span:nth-child(2){animation-delay:.2s}
+.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+.chat-input-form{padding:10px 12px;border-top:1px solid var(--border-color)}
+.chat-input-row{display:flex;gap:6px;align-items:flex-end}
+.chat-input{flex:1;background:var(--bg-primary);border:1px solid var(--border-color);color:var(--text-primary);padding:8px 10px;border-radius:8px;font-size:0.83rem;font-family:var(--font-sans);resize:none;line-height:1.4;max-height:100px}
+.chat-input:focus{outline:none;border-color:var(--accent)}
+.chat-input::placeholder{color:var(--text-tertiary)}
+.chat-send{background:var(--accent);border:none;color:white;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chat-send:hover{background:var(--accent-hover)}
+.chat-send:disabled{opacity:.4;cursor:not-allowed}
+
+/* Split view */
+.reader-area.split-view .reader{border-right:1px solid var(--border-color)}
+.reader-area.split-view .reader:last-of-type{border-right:none}
+.reader-area.split-view .page{padding:36px 48px 56px}
+.reader-area.split-view .page-content{max-width:500px}
+.reader-area.split-view .chapter-title{font-size:1.3rem}
+.reader-area.split-view .text-body{font-size:0.95rem;line-height:1.75}
+.split-pane-bar{display:flex;align-items:center;justify-content:center;padding:5px 10px;border-bottom:1px solid var(--border-light);background:var(--bg-secondary);flex-shrink:0;gap:6px}
+.split-pane-bar select{background:var(--bg-primary);border:1px solid var(--border-color);color:var(--text-primary);padding:2px 6px;border-radius:4px;font-size:0.72rem;font-family:var(--font-sans);cursor:pointer}
+
+/* Scrollbar */
+.page::-webkit-scrollbar,.panel-body::-webkit-scrollbar,.chat-messages::-webkit-scrollbar,.drawer-list::-webkit-scrollbar{width:5px}
+.page::-webkit-scrollbar-track,.panel-body::-webkit-scrollbar-track,.chat-messages::-webkit-scrollbar-track,.drawer-list::-webkit-scrollbar-track{background:transparent}
+.page::-webkit-scrollbar-thumb,.panel-body::-webkit-scrollbar-thumb,.chat-messages::-webkit-scrollbar-thumb,.drawer-list::-webkit-scrollbar-thumb{background:var(--border-color);border-radius:3px}
+
+/* Settings modal */
+.settings-overlay{position:fixed;inset:0;background:var(--bg-overlay);z-index:50;display:flex;align-items:center;justify-content:center}
+.settings-modal{background:var(--bg-primary);border:1px solid var(--border-color);border-radius:12px;padding:28px;max-width:440px;width:90%;box-shadow:var(--shadow-lg)}
+.settings-modal h3{font-family:var(--font-serif);font-size:1.1rem;margin-bottom:16px}
+
+/* ===== Highlight Popup ===== */
+.highlight-popup{position:absolute;z-index:25;background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:8px 10px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);animation:slideIn .15s ease}
+.hl-color{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .12s;flex-shrink:0}
+.hl-color:hover{transform:scale(1.15);border-color:var(--text-tertiary)}
+.hl-color-yellow{background:#f5e6c8}
+.hl-color-orange{background:#f5d0a0}
+.hl-color-blue{background:#c8ddf5}
+.hl-ask{background:none;border:1px solid var(--border-color);color:var(--text-secondary);padding:3px 10px;border-radius:6px;font-size:0.72rem;font-family:var(--font-sans);cursor:pointer;transition:all .12s;white-space:nowrap}
+.hl-ask:hover{background:var(--bg-hover);color:var(--text-primary)}
+.hl-divider{width:1px;height:16px;background:var(--border-color)}
+mark.hl-yellow{background:#f5e6c8;border-radius:2px;padding:0 1px}
+mark.hl-orange{background:#f5d0a0;border-radius:2px;padding:0 1px}
+mark.hl-blue{background:#c8ddf5;border-radius:2px;padding:0 1px}
+.highlight-card.hl-border-yellow{border-left:3px solid #d4b882}
+.highlight-card.hl-border-orange{border-left:3px solid #d4a862}
+.highlight-card.hl-border-blue{border-left:3px solid #82a8d4}
+
+/* ===== Notes Section ===== */
+.notes-section{display:flex;flex-direction:column;height:100%;min-width:var(--panel-width)}
+.notes-input-area{padding:12px;border-bottom:1px solid var(--border-color);flex-shrink:0}
+.notes-input{width:100%;background:var(--bg-primary);border:1px solid var(--border-color);color:var(--text-primary);padding:8px 10px;border-radius:8px;font-size:0.83rem;font-family:var(--font-sans);resize:none;line-height:1.4;min-height:56px}
+.notes-input:focus{outline:none;border-color:var(--accent)}
+.notes-add-btn{margin-top:6px;background:var(--accent);color:white;border:none;padding:5px 14px;border-radius:6px;font-size:0.75rem;font-family:var(--font-sans);cursor:pointer}
+.notes-add-btn:hover{background:var(--accent-hover)}
+.notes-list{flex:1;overflow-y:auto;padding:12px}
+.note-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:10px 12px;margin-bottom:8px;animation:slideIn .2s ease}
+.note-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.note-ref{font-size:0.68rem;color:var(--text-tertiary)}
+.note-delete{background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:0.78rem;padding:0 4px}
+.note-delete:hover{color:var(--text-primary)}
+.note-content{font-size:0.82rem;line-height:1.5;color:var(--text-primary);white-space:pre-wrap}
+.note-type{font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:2px}
+.notes-empty{padding:16px 12px;text-align:center;color:var(--text-tertiary);font-size:0.82rem}
+
+/* Chat save to notes */
+.chat-save-bar{padding:6px 12px;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:flex-end;flex-shrink:0;position:relative}
+.chat-save-btn{background:none;border:1px solid var(--border-color);color:var(--text-tertiary);padding:3px 10px;border-radius:5px;font-size:0.7rem;font-family:var(--font-sans);cursor:pointer;transition:all .12s}
+.chat-save-btn:hover{color:var(--text-primary);background:var(--bg-hover)}
+.chat-save-dropdown{position:absolute;top:100%;right:12px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;box-shadow:var(--shadow-lg);z-index:10;overflow:hidden;min-width:180px}
+.chat-save-option{display:block;width:100%;padding:8px 14px;background:none;border:none;text-align:left;font-size:0.78rem;font-family:var(--font-sans);color:var(--text-primary);cursor:pointer}
+.chat-save-option:hover{background:var(--bg-hover)}
+.chat-save-option span{display:block;font-size:0.68rem;color:var(--text-tertiary)}
+
+/* ===== Onboarding Screen ===== */
+.onboarding{height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg-primary)}
+.onboarding-card{max-width:520px;width:90%;padding:48px 40px}
+.onboarding-title{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;color:var(--text-primary);margin-bottom:6px;text-align:center}
+.onboarding-subtitle{font-size:0.85rem;color:var(--text-tertiary);text-align:center;margin-bottom:28px;line-height:1.5}
+.onboarding-label{font-size:0.78rem;color:var(--text-secondary);margin-bottom:6px;font-weight:500;display:block}
+.onboarding-textarea{width:100%;background:var(--bg-secondary);border:1px solid var(--border-color);color:var(--text-primary);padding:10px 12px;border-radius:8px;font-size:0.88rem;font-family:var(--font-sans);resize:none;line-height:1.5;min-height:70px;margin-bottom:18px}
+.onboarding-textarea:focus{outline:none;border-color:var(--accent)}
+.onboarding-textarea::placeholder{color:var(--text-tertiary)}
+.onboarding-actions{text-align:center;margin-top:8px}
+.onboarding-start{width:100%;background:var(--accent);color:white;border:none;padding:12px 24px;border-radius:8px;font-size:0.88rem;font-family:var(--font-sans);cursor:pointer;margin-bottom:8px}
+.onboarding-start:hover{background:var(--accent-hover)}
+.onboarding-skip{background:none;border:none;color:var(--text-tertiary);font-size:0.82rem;cursor:pointer;margin-top:12px;font-family:var(--font-sans)}
+.onboarding-skip:hover{color:var(--text-secondary);text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Local text data (generated by download.sh) -->
+<script src="data/butler.js" onerror="console.warn('butler.js not found, will try fetching')"></script>
+<script src="data/pope.js" onerror="console.warn('pope.js not found, will try fetching')"></script>
+<script src="data/modern.js" onerror="console.warn('modern.js not found')"></script>
+<script src="data/kids.js" onerror="console.warn('kids.js not found')"></script>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel" data-type="module">
+const { useState, useEffect, useCallback, useRef, useMemo } = React;
+
+// ===== CONFIG =====
+const API_KEY = 'REDACTED';
+const BUTLER_RAW_URL = 'https://www.gutenberg.org/cache/epub/1727/pg1727.txt';
+const POPE_RAW_URL = 'https://www.gutenberg.org/cache/epub/3160/pg3160.txt';
+
+const SYSTEM_PROMPT = `You are a literary companion embedded in a reading app for Homer's Odyssey. You help readers deeply engage with the text.
+
+Your personality: warm, knowledgeable, conversational — like a well-read friend. Not academic or lecturing.
+
+You have several roles:
+1. PAGE SUMMARY: When given a page of text, provide a 2-3 sentence summary of what's happening.
+2. CHARACTER IDENTIFICATION: List the key characters appearing on the current page with very brief roles (2-4 words each).
+3. HIGHLIGHT EXPLANATION: When a reader highlights text, immediately explain it — what it means, why it matters, any context.
+4. CONVERSATION: Answer any questions about the text, themes, characters, history, mythology.
+
+Always be concise. Use short paragraphs. Make the ancient text feel alive and accessible.`;
+
+const ROMANS = ['','I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX','XXI','XXII','XXIII','XXIV'];
+const ROMAN_MAP = {};
+ROMANS.forEach((r,i) => { if(r) ROMAN_MAP[r] = i; });
+
+const EDITIONS = [
+  { id: 'butler', label: 'Original (Butler, 1900)', desc: 'Faithful prose translation', ai: false },
+  { id: 'pope', label: 'Classic Verse (Pope, 1726)', desc: 'Poetic translation in heroic couplets', ai: false },
+  { id: 'modern', label: 'Modern English', desc: 'Clear, contemporary retelling', ai: true },
+  { id: 'kids', label: "Young Reader's Edition", desc: 'Simplified for ages 10-14', ai: true },
+];
+
+// ===== TEXT PARSING =====
+function parseGutenbergText(raw) {
+  // Normalize all line endings to \n (critical for paragraph splitting / pagination)
+  raw = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const startM = '*** START OF THE PROJECT GUTENBERG EBOOK';
+  const endM = '*** END OF THE PROJECT GUTENBERG EBOOK';
+  let si = raw.indexOf(startM);
+  si = si !== -1 ? raw.indexOf('\n', si) + 1 : 0;
+  let ei = raw.indexOf(endM);
+  if (ei === -1) ei = raw.length;
+  const body = raw.slice(si, ei).trim();
+
+  // Match only non-indented BOOK headings (skip Table of Contents entries which are indented)
+  const bookPattern = /\r?\nBOOK\s+([IVXLC]+)\.?\s*\r?\n/gi;
+  const matches = [...body.matchAll(bookPattern)];
+  if (matches.length === 0) return [{ number: 1, title: 'The Odyssey', text: body.slice(0, 20000) }];
+
+  const chapters = [];
+  for (let i = 0; i < matches.length; i++) {
+    const match = matches[i];
+    const next = matches[i + 1];
+    const startPos = (match.index || 0) + match[0].length;
+    const endPos = next ? (next.index || body.length) : body.length;
+    const chText = body.slice(startPos, endPos).trim();
+    const roman = match[1].toUpperCase();
+    const num = ROMAN_MAP[roman] || (i + 1);
+    const lines = chText.split('\n');
+    let title = 'Book ' + roman;
+    let textStart = 0;
+    let titleParts = [];
+    for (let j = 0; j < Math.min(8, lines.length); j++) {
+      const line = lines[j].trim();
+      if (line.length === 0) {
+        if (titleParts.length > 0) { textStart = j + 1; break; }
+        textStart = j + 1;
+        continue;
+      }
+      if (line === line.toUpperCase() && line.length < 120 && !/^BOOK\s/.test(line)) {
+        titleParts.push(line);
+        textStart = j + 1;
+      } else break;
+    }
+    if (titleParts.length > 0) {
+      const fullTitle = titleParts.join(' ').replace(/\s+/g, ' ');
+      title = 'Book ' + roman + ' \u2014 ' + fullTitle.charAt(0) + fullTitle.slice(1).toLowerCase();
+    }
+    while (textStart < lines.length && lines[textStart].trim() === '') textStart++;
+    chapters.push({ number: num, title, text: lines.slice(textStart).join('\n').trim() });
+  }
+  return chapters;
+}
+
+function paginateText(text, charsPerPage = 1500) {
+  if (!text) return [''];
+  const paragraphs = text.split(/\n\n+/).filter(p => p.trim());
+  const pages = [];
+  let current = [];
+  let currentLen = 0;
+  for (const para of paragraphs) {
+    if (currentLen > 0 && currentLen + para.length > charsPerPage) {
+      pages.push(current.join('\n\n'));
+      current = [para];
+      currentLen = para.length;
+    } else {
+      current.push(para);
+      currentLen += para.length;
+    }
+  }
+  if (current.length > 0) pages.push(current.join('\n\n'));
+  return pages.length > 0 ? pages : [''];
+}
+
+// Load text: prefer local window globals, then localStorage, then fetch
+async function loadTranslation(key) {
+  // 1. Check window globals (from data/*.js files)
+  if (key === 'butler' && window.BUTLER_TEXT) return parseGutenbergText(window.BUTLER_TEXT);
+  if (key === 'pope' && window.POPE_TEXT) return parseGutenbergText(window.POPE_TEXT);
+  // Pre-generated AI editions (from generate-editions.js)
+  if (key === 'modern' && window.MODERN_CHAPTERS) return window.MODERN_CHAPTERS;
+  if (key === 'kids' && window.KIDS_CHAPTERS) return window.KIDS_CHAPTERS;
+  // 2. Check localStorage
+  const cached = localStorage.getItem('tinct-raw-' + key);
+  if (cached) return parseGutenbergText(cached);
+  // 3. Fetch from Gutenberg (with CORS proxy fallbacks)
+  const rawUrl = key === 'butler' ? BUTLER_RAW_URL : POPE_RAW_URL;
+  const strategies = [rawUrl, 'https://corsproxy.io/?' + encodeURIComponent(rawUrl), 'https://api.allorigins.win/raw?url=' + encodeURIComponent(rawUrl)];
+  for (const url of strategies) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
+      if (!res.ok) continue;
+      const text = await res.text();
+      if (text.length > 1000) {
+        localStorage.setItem('tinct-raw-' + key, text);
+        return parseGutenbergText(text);
+      }
+    } catch(e) { console.warn('Fetch failed:', url, e.message); }
+  }
+  return [{ number: 1, title: 'Book I', text: 'Could not load text.\n\nRun ./download.sh in the tinct folder to download the texts locally, then refresh.' }];
+}
+
+// ===== CLAUDE API =====
+async function callClaude(messages, systemOverride) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1024, system: systemOverride || SYSTEM_PROMPT, messages }),
+  });
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message || 'API error');
+  return data.content?.[0]?.text || '';
+}
+
+// Streaming Claude API for chat
+async function callClaudeStream(messages, onChunk, systemOverride) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1024, system: systemOverride || SYSTEM_PROMPT, messages, stream: true }),
+  });
+  if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error?.message || 'API error ' + res.status); }
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let fullText = '', buffer = '';
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split('\n');
+    buffer = lines.pop();
+    for (const line of lines) {
+      if (!line.startsWith('data: ')) continue;
+      const json = line.slice(6);
+      if (json === '[DONE]') continue;
+      try {
+        const evt = JSON.parse(json);
+        if (evt.type === 'content_block_delta' && evt.delta?.text) {
+          fullText += evt.delta.text;
+          onChunk(fullText);
+        }
+      } catch(e) {}
+    }
+  }
+  return fullText;
+}
+
+// Page context (summary + characters)
+async function getPageContext(pageText, bookTitle) {
+  try {
+    const raw = await callClaude([{ role: 'user', content: `Here is a page from ${bookTitle} of Homer's Odyssey:\n\n"""\n${pageText}\n"""\n\nRespond in this exact JSON format (no markdown, just raw JSON):\n{"summary":"2-3 sentence summary of what happens on this page","characters":[{"name":"Name","role":"2-4 word role"}]}` }]);
+    const m = raw.match(/\{[\s\S]*\}/);
+    if (m) return JSON.parse(m[0]);
+  } catch(e) { console.warn('Context failed:', e); }
+  return { summary: '', characters: [] };
+}
+
+async function explainHighlight(text, pageText, bookTitle) {
+  try {
+    return await callClaude([{ role: 'user', content: `The reader highlighted this from ${bookTitle}:\n\n"${text}"\n\nPage context:\n"""\n${pageText.slice(0,600)}\n"""\n\nExplain in 2-4 warm, conversational sentences: what this means, why it matters, any useful context.` }]);
+  } catch(e) { return 'Could not explain. ' + e.message; }
+}
+
+async function generateEdition(pageText, edition, bookTitle) {
+  const style = edition === 'modern'
+    ? 'Rewrite in clear, contemporary English. Modern vocabulary, no archaisms. Keep the meaning and drama.'
+    : "Rewrite for a young reader (10-14). Simple, vivid language. Keep the excitement. Add brief parenthetical explanations for mythology.";
+  try {
+    return await callClaude([{ role: 'user', content: `${style}\n\nFrom ${bookTitle} of Homer's Odyssey:\n"""\n${pageText}\n"""\n\nReturn ONLY the rewritten text.` }]);
+  } catch(e) { return 'Could not generate. ' + e.message; }
+}
+
+// ===== WELCOME SCREEN =====
+function WelcomeScreen({ onStart }) {
+  const [selected, setSelected] = useState('butler');
+  return (
+    <div className="welcome">
+      <div className="welcome-card">
+        <div className="welcome-logo">Tinct</div>
+        <div className="welcome-tagline">A new way to read</div>
+        <div className="welcome-book">The Odyssey</div>
+        <div className="welcome-author">Homer</div>
+        <div className="welcome-label">Choose your edition</div>
+        <div className="edition-cards">
+          {EDITIONS.map(ed => (
+            <div key={ed.id} className={'edition-card' + (selected === ed.id ? ' selected' : '')} onClick={() => setSelected(ed.id)}>
+              <div className="edition-radio"></div>
+              <div className="edition-card-text">
+                <div className="edition-card-name">{ed.label}</div>
+                <div className="edition-card-desc">{ed.desc}</div>
+                {ed.ai && <div className="edition-card-ai">AI-generated edition</div>}
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="welcome-start" onClick={() => onStart(selected)}>Begin Reading</button>
+      </div>
+    </div>
+  );
+}
+
+// ===== ONBOARDING SCREEN =====
+function OnboardingScreen({ onComplete, onSkip }) {
+  const [goals, setGoals] = useState('');
+  const [interests, setInterests] = useState('');
+  return (
+    <div className="onboarding">
+      <div className="onboarding-card">
+        <h1 className="onboarding-title">Before you begin...</h1>
+        <p className="onboarding-subtitle">Help us tailor your reading experience. This is completely optional.</p>
+        <label className="onboarding-label">What are you hoping to get from reading The Odyssey?</label>
+        <textarea className="onboarding-textarea" value={goals} onChange={e => setGoals(e.target.value)} placeholder="Just curious, want to understand the classics, studying mythology..." />
+        <label className="onboarding-label">Any particular angles or interests?</label>
+        <textarea className="onboarding-textarea" value={interests} onChange={e => setInterests(e.target.value)} placeholder="e.g., Philosophy of homecoming, leadership lessons, parallels to modern storytelling..." />
+        <div className="onboarding-actions">
+          <button className="onboarding-start" onClick={() => onComplete({ goals: goals.trim(), interests: interests.trim() })}>Begin Reading</button>
+          <button className="onboarding-skip" onClick={onSkip}>Skip for now</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ===== NOTES SECTION =====
+function NotesSection({ notes, chapter, page, onAddNote, onDeleteNote }) {
+  const [input, setInput] = useState('');
+  const handleAdd = () => {
+    if (!input.trim()) return;
+    onAddNote({ id: Date.now(), timestamp: new Date().toISOString(), type: 'manual', content: input.trim(), chapter, page });
+    setInput('');
+  };
+  const formatTime = (ts) => {
+    const diff = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+    if (diff < 60) return 'just now';
+    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    return Math.floor(diff / 86400) + 'd ago';
+  };
+  return (
+    <div className="notes-section">
+      <div className="notes-input-area">
+        <textarea className="notes-input" value={input} onChange={e => setInput(e.target.value)} placeholder="Add a note..." onKeyDown={e => { if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); handleAdd(); }}} />
+        <button className="notes-add-btn" onClick={handleAdd}>Add Note</button>
+      </div>
+      <div className="notes-list">
+        {notes.length === 0 && <div className="notes-empty">No notes yet. Add one above or save a chat conversation.</div>}
+        {[...notes].reverse().map(note => (
+          <div key={note.id} className="note-card">
+            <div className="note-meta">
+              <div>
+                <div className="note-type">{note.type === 'chat-full' ? 'Chat' : note.type === 'chat-summary' ? 'Insights' : 'Note'}</div>
+                <div className="note-ref">{formatTime(note.timestamp)} &middot; Book {ROMANS[note.chapter]}, p{note.page}</div>
+              </div>
+              <button className="note-delete" onClick={() => onDeleteNote(note.id)}>&times;</button>
+            </div>
+            <div className="note-content">{note.content}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ===== KINDLE-STYLE READER PANE =====
+function ReaderPane({ pageText, chapterTitle, editionLabel, loading, onHighlight, onAskAbout, highlights, page, totalPages, onPage, chapter, totalChapters, onChapter, panelOpen, onTogglePanel, dark, onDark, splitView, onSplitView, edition, onEdition, showSplitBar, onShowSettings }) {
+  const [toolbarVisible, setToolbarVisible] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [animDir, setAnimDir] = useState(null);
+  const [displayPage, setDisplayPage] = useState(page);
+  const animTimer = useRef(null);
+
+  // Sync displayPage with page (with animation)
+  useEffect(() => {
+    if (page !== displayPage) {
+      const dir = page > displayPage ? 'right' : 'left';
+      setAnimDir('exiting-' + dir);
+      clearTimeout(animTimer.current);
+      animTimer.current = setTimeout(() => {
+        setDisplayPage(page);
+        setAnimDir('entering-' + dir);
+        setTimeout(() => setAnimDir(null), 20);
+      }, 200);
+    }
+  }, [page]);
+
+  // Click zone handlers
+  const goNext = useCallback(() => { if (page < totalPages) onPage(page + 1); else if (chapter < totalChapters) { onChapter(chapter + 1); } }, [page, totalPages, chapter, totalChapters, onPage, onChapter]);
+  const goPrev = useCallback(() => { if (page > 1) onPage(page - 1); else if (chapter > 1) { onChapter(chapter - 1); } }, [page, chapter, onPage, onChapter]);
+  const toggleToolbar = useCallback(() => setToolbarVisible(v => !v), []);
+
+  // Keyboard nav
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+      if (e.key === 'Escape') { setToolbarVisible(false); setDrawerOpen(false); }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [goNext, goPrev]);
+
+  // Selection -> show popup
+  const [selPopup, setSelPopup] = useState(null);
+  const handleMouseUp = useCallback((e) => {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) return;
+    const selected = sel.toString().trim();
+    if (selected.length < 5) return;
+    const range = sel.getRangeAt(0);
+    const rect = range.getBoundingClientRect();
+    const pane = e.currentTarget;
+    const paneRect = pane.getBoundingClientRect();
+    setSelPopup({ text: selected, x: rect.left - paneRect.left + rect.width / 2 - 75, y: rect.top - paneRect.top - 44 + pane.scrollTop });
+  }, []);
+
+  const handleColorPick = useCallback((color) => {
+    if (selPopup) { onHighlight(selPopup.text, color); setSelPopup(null); window.getSelection()?.removeAllRanges(); }
+  }, [selPopup, onHighlight]);
+
+  const handleAsk = useCallback(() => {
+    if (selPopup) { onAskAbout(selPopup.text); setSelPopup(null); window.getSelection()?.removeAllRanges(); }
+  }, [selPopup, onAskAbout]);
+
+  // Close popup on scroll or click outside
+  useEffect(() => {
+    const close = () => setSelPopup(null);
+    window.addEventListener('scroll', close, true);
+    return () => window.removeEventListener('scroll', close, true);
+  }, []);
+
+  // Render paragraph with inline highlight marks
+  const renderParaHtml = useCallback((text) => {
+    if (!highlights || highlights.length === 0) return text;
+    let html = text;
+    const sorted = [...highlights].sort((a, b) => b.text.length - a.text.length);
+    for (const hl of sorted) {
+      const escaped = hl.text.replace(/[.*+?^${}()|\\[\]\\\\]/g, '\\$&');
+      try {
+        const regex = new RegExp(escaped.slice(0, 200), 'gi');
+        html = html.replace(regex, match => `<mark class="hl-${hl.color}">${match}</mark>`);
+      } catch(e) {}
+    }
+    return html;
+  }, [highlights]);
+
+  const paragraphs = pageText ? pageText.split('\n\n').filter(p => p.trim()) : [];
+  const pageClass = 'page' + (animDir ? ' page-' + animDir : '');
+
+  return (
+    <div className="reader">
+      {showSplitBar && (
+        <div className="split-pane-bar">
+          <select value={edition} onChange={e => onEdition(e.target.value)}>
+            {EDITIONS.map(ed => <option key={ed.id} value={ed.id}>{ed.label}</option>)}
+          </select>
+        </div>
+      )}
+
+      <div className="reader-page-container">
+        {/* Click zones */}
+        <div className="click-zone click-zone-left" onClick={goPrev} />
+        <div className="click-zone click-zone-center" onClick={toggleToolbar} />
+        <div className="click-zone click-zone-right" onClick={goNext} />
+
+        {/* Toolbar (hidden by default, shows on center click) */}
+        <div className={'toolbar' + (toolbarVisible ? ' visible' : '')}>
+          <div className="toolbar-left">
+            <span className="toolbar-logo">Tinct</span>
+            <span className="toolbar-title">The Odyssey</span>
+          </div>
+          <div className="toolbar-right">
+            <button className="tool-btn" onClick={() => { setDrawerOpen(true); setToolbarVisible(false); }}>Chapters</button>
+            <button className={'tool-btn' + (splitView ? ' active' : '')} onClick={onSplitView}>Compare</button>
+            <button className="tool-btn" onClick={onShowSettings}>Edition</button>
+            <button className="tool-icon" onClick={onDark}>{dark ? '\u2600' : '\u263D'}</button>
+            <button className="tool-icon" onClick={onTogglePanel}>{panelOpen ? '\u25B6' : '\u25C0'}</button>
+          </div>
+        </div>
+
+        {/* Chapter drawer */}
+        <div className={'drawer-overlay' + (drawerOpen ? ' visible' : '')} onClick={() => setDrawerOpen(false)} />
+        <div className={'chapter-drawer' + (drawerOpen ? ' open' : '')}>
+          <div className="drawer-header">
+            <h3>Chapters</h3>
+            <button className="drawer-close" onClick={() => setDrawerOpen(false)}>&times;</button>
+          </div>
+          <div className="drawer-list">
+            {Array.from({ length: totalChapters }, (_, i) => (
+              <div key={i + 1} className={'drawer-item' + (chapter === i + 1 ? ' current' : '')} onClick={() => { onChapter(i + 1); setDrawerOpen(false); setToolbarVisible(false); }}>
+                <span className="drawer-item-num">{ROMANS[i + 1]}</span>
+                Book {ROMANS[i + 1]}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Page content */}
+        <div className={pageClass} onMouseUp={handleMouseUp} style={{position:'relative'}}>
+          <div className="page-content">
+            {displayPage === 1 && (
+              <div className="chapter-header">
+                <h2 className="chapter-title">{chapterTitle}</h2>
+                <p className="chapter-subtitle">{editionLabel}</p>
+              </div>
+            )}
+            {loading ? (
+              <div className="loading-indicator"><div className="loading-spinner" /><p>Loading...</p></div>
+            ) : (
+              <div className="text-body">
+                {paragraphs.map((p, i) => <p key={i} className="text-paragraph" dangerouslySetInnerHTML={{__html: renderParaHtml(p.trim())}} />)}
+              </div>
+            )}
+          </div>
+          {selPopup && (
+            <div className="highlight-popup" style={{left: Math.max(10, selPopup.x) + 'px', top: Math.max(10, selPopup.y) + 'px'}} onClick={e => e.stopPropagation()}>
+              <button className="hl-color hl-color-yellow" onClick={() => handleColorPick('yellow')} title="Yellow" />
+              <button className="hl-color hl-color-orange" onClick={() => handleColorPick('orange')} title="Orange" />
+              <button className="hl-color hl-color-blue" onClick={() => handleColorPick('blue')} title="Blue" />
+              <div className="hl-divider" />
+              <button className="hl-ask" onClick={handleAsk}>Ask</button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="reader-bar">
+        <div className="reader-bar-left">
+          <span>Book {ROMANS[chapter]}</span>
+        </div>
+        <div className="reader-bar-center">{editionLabel}</div>
+        <div className="reader-bar-right">
+          <span>{page} of {totalPages}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ===== CONTEXT PANEL =====
+function ContextPanel({ summary, characters, highlights, loading, onCharacterClick }) {
+  return (
+    <div className="context-section">
+      <h4>On This Page</h4>
+      {loading ? <p className="page-summary loading">Reading this page...</p> : summary ? <p className="page-summary">{summary}</p> : <p className="page-summary loading">Turn to a page to see context.</p>}
+      {characters.length > 0 && (<><h4>Characters</h4><div className="characters-grid">{characters.map((ch, i) => (<button key={i} className="character-chip" onClick={() => onCharacterClick(ch.name)}>{ch.name} <span className="role">{ch.role}</span></button>))}</div></>)}
+      {highlights.length > 0 && (<><h4>Your Highlights</h4>{highlights.map((hl, i) => (<div key={hl.id || i} className={'highlight-card' + (hl.color ? ' hl-border-' + hl.color : '')}><div className="highlight-quote">"{hl.text.length > 120 ? hl.text.slice(0,120)+'...' : hl.text}"</div>{hl.loading ? <div className="highlight-explanation loading">Thinking...</div> : <div className="highlight-explanation">{hl.explanation}</div>}</div>))}</>)}
+    </div>
+  );
+}
+
+// ===== CHAT =====
+function ChatSection({ messages, loading, onSend, chatPrefill, onClearPrefill, onSaveToNotes }) {
+  const [input, setInput] = useState('');
+  const [saveOpen, setSaveOpen] = useState(false);
+  const endRef = useRef(null);
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, loading]);
+  const handleSubmit = (e) => { e.preventDefault(); if (!input.trim() || loading) return; onSend(input.trim()); setInput(''); };
+  return (
+    <div className="chat-section">
+      {messages.length > 0 && (
+        <div className="chat-save-bar">
+          <button className="chat-save-btn" onClick={() => setSaveOpen(v => !v)}>Save to Notes &#9662;</button>
+          {saveOpen && (
+            <div className="chat-save-dropdown">
+              <button className="chat-save-option" onClick={() => { onSaveToNotes('full'); setSaveOpen(false); }}>Full conversation<span>Save the entire chat</span></button>
+              <button className="chat-save-option" onClick={() => { onSaveToNotes('summary'); setSaveOpen(false); }}>Key insights<span>AI summary of key points</span></button>
+            </div>
+          )}
+        </div>
+      )}
+      <div className="chat-messages">
+        {chatPrefill && (
+          <div style={{margin:'0 12px 8px',padding:'8px 10px',background:'var(--bg-secondary)',borderLeft:'2px solid var(--accent-subtle)',borderRadius:'0 6px 6px 0',fontSize:'0.78rem',fontStyle:'italic',color:'var(--text-secondary)',display:'flex',alignItems:'flex-start',gap:'8px'}}>
+            <div style={{flex:1}}>Regarding: "{chatPrefill.length > 100 ? chatPrefill.slice(0,100) + '...' : chatPrefill}"</div>
+            <button onClick={onClearPrefill} style={{background:'none',border:'none',color:'var(--text-tertiary)',cursor:'pointer',fontSize:'0.8rem',flexShrink:0}}>&times;</button>
+          </div>
+        )}
+        {messages.length === 0 && !chatPrefill && <div className="chat-empty"><p className="chat-empty-title">Ask anything</p><p className="chat-empty-hint">Ask about characters, themes, mythology, or anything in The Odyssey.</p></div>}
+        {messages.map((msg, i) => <div key={i} className={'chat-message-' + msg.role}>{msg.role === 'user' ? msg.content : <div>{msg.content.split('\n').map((l, j) => <p key={j}>{l || '\u00A0'}</p>)}</div>}</div>)}
+        {loading && <div className="chat-message-assistant"><div className="chat-typing"><span/><span/><span/></div></div>}
+        <div ref={endRef} />
+      </div>
+      <form className="chat-input-form" onSubmit={handleSubmit}><div className="chat-input-row"><textarea className="chat-input" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => { if (e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleSubmit(e);} }} placeholder={chatPrefill ? "Type your question about this passage..." : "Ask about The Odyssey..."} rows={1} disabled={loading} /><button type="submit" className="chat-send" disabled={loading||!input.trim()}>&uarr;</button></div></form>
+    </div>
+  );
+}
+
+// ===== EDITION PAGE RESOLVER =====
+function useEditionPage(edition, chapter, page, butlerCh, popeCh, modernCh, kidsCh, generatedPages, setGeneratedPages) {
+  const src = edition === 'modern' ? modernCh : edition === 'kids' ? kidsCh : edition === 'pope' ? popeCh : butlerCh;
+  const ch = src.find(c => c.number === chapter);
+  const pages = useMemo(() => paginateText(ch?.text || ''), [ch?.text]);
+  const total = pages.length || 1;
+  const srcPage = pages[Math.min(page - 1, pages.length - 1)] || '';
+  const isAI = edition === 'modern' || edition === 'kids';
+  const hasPregenerated = (edition === 'modern' && modernCh.length > 0) || (edition === 'kids' && kidsCh.length > 0);
+  const gk = edition + '-' + chapter + '-' + page;
+  const text = (isAI && !hasPregenerated) ? (generatedPages[gk] || '') : srcPage;
+  const generating = isAI && !hasPregenerated && !generatedPages[gk] && !!butlerCh.find(c => c.number === chapter)?.text;
+
+  useEffect(() => {
+    if (!isAI || hasPregenerated || !generating) return;
+    let cancelled = false;
+    const butlerPage = paginateText(butlerCh.find(c => c.number === chapter)?.text || '')[page-1] || '';
+    if (!butlerPage) return;
+    const cached = localStorage.getItem('tinct-ai-' + gk);
+    if (cached) { setGeneratedPages(prev => ({...prev, [gk]: cached})); return; }
+    generateEdition(butlerPage, edition, ch?.title || 'Book ' + ROMANS[chapter])
+      .then(t => { if (!cancelled) { setGeneratedPages(prev => ({...prev, [gk]: t})); localStorage.setItem('tinct-ai-' + gk, t); } });
+    return () => { cancelled = true; };
+  }, [gk, isAI, hasPregenerated, generating]);
+
+  return { ch, pages, total, srcPage: text, text, generating, label: EDITIONS.find(e => e.id === edition)?.label || '' };
+}
+
+// ===== MAIN APP =====
+function App() {
+  const [screen, setScreen] = useState('welcome'); // 'welcome' | 'onboarding' | 'reading'
+  const [dark, setDark] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(true);
+  const [panelTab, setPanelTab] = useState('context');
+  const [edition, setEdition] = useState('butler');
+  const [chapter, setChapter] = useState(1);
+  const [page, setPage] = useState(1);
+  const [splitView, setSplitView] = useState(false);
+  const [rightEdition, setRightEdition] = useState('pope');
+  const [showSettings, setShowSettings] = useState(false);
+
+  const [butlerCh, setButlerCh] = useState([]);
+  const [popeCh, setPopeCh] = useState([]);
+  const [modernCh, setModernCh] = useState([]);
+  const [kidsCh, setKidsCh] = useState([]);
+  const [textLoading, setTextLoading] = useState(true);
+  const [generatedPages, setGeneratedPages] = useState({});
+
+  const [pageSummary, setPageSummary] = useState('');
+  const [pageCharacters, setPageCharacters] = useState([]);
+  const [contextLoading, setContextLoading] = useState(false);
+  const [highlights, setHighlights] = useState([]);
+  const [notes, setNotes] = useState([]);
+  const [readerProfile, setReaderProfile] = useState(null);
+  const [chatPrefill, setChatPrefill] = useState(null);
+
+  const [chatMessages, setChatMessages] = useState([]);
+  const [chatLoading, setChatLoading] = useState(false);
+
+  const contextCache = useRef({});
+  const preloadQueue = useRef(null);
+
+  // Load persisted data on mount
+  useEffect(() => {
+    try {
+      const savedProfile = localStorage.getItem('tinct-profile-odyssey');
+      if (savedProfile) setReaderProfile(JSON.parse(savedProfile));
+      const savedNotes = localStorage.getItem('tinct-notes-odyssey');
+      if (savedNotes) setNotes(JSON.parse(savedNotes));
+    } catch(e) {}
+  }, []);
+
+  // Persist notes
+  useEffect(() => { localStorage.setItem('tinct-notes-odyssey', JSON.stringify(notes)); }, [notes]);
+
+  // Load/save highlights per chapter
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('tinct-highlights-' + chapter);
+      if (saved) setHighlights(JSON.parse(saved));
+      else setHighlights([]);
+    } catch(e) { setHighlights([]); }
+  }, [chapter]);
+  useEffect(() => { if (highlights.length > 0) localStorage.setItem('tinct-highlights-' + chapter, JSON.stringify(highlights)); }, [highlights, chapter]);
+
+  // Load texts
+  useEffect(() => {
+    if (screen !== 'reading') return;
+    (async () => {
+      setTextLoading(true);
+      const [b, p] = await Promise.all([loadTranslation('butler'), loadTranslation('pope')]);
+      setButlerCh(b); setPopeCh(p);
+      // Load pre-generated AI editions
+      const [m, k] = await Promise.all([loadTranslation('modern'), loadTranslation('kids')]);
+      setModernCh(m); setKidsCh(k);
+      setTextLoading(false);
+    })();
+  }, [screen === 'reading']);
+
+  useEffect(() => { document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light'); }, [dark]);
+
+  // Build interest-aware system prompt
+  const enhancedSystemPrompt = useMemo(() => {
+    if (!readerProfile?.interests && !readerProfile?.goals) return SYSTEM_PROMPT;
+    let extra = '\n\n';
+    if (readerProfile.interests) extra += `The reader has shared their interests: "${readerProfile.interests}"\n`;
+    if (readerProfile.goals) extra += `Their goals for reading: "${readerProfile.goals}"\n`;
+    extra += `When you notice something on the page that genuinely connects to their interests, briefly mention it. Be subtle — only when there's a real connection. A light touch like "You may find it interesting that..." Keep it to one sentence maximum. Don't force connections.`;
+    return SYSTEM_PROMPT + extra;
+  }, [readerProfile]);
+
+  // Resolve pages
+  const left = useEditionPage(edition, chapter, page, butlerCh, popeCh, modernCh, kidsCh, generatedPages, setGeneratedPages);
+  const right = useEditionPage(rightEdition, chapter, page, butlerCh, popeCh, modernCh, kidsCh, generatedPages, setGeneratedPages);
+  const totalPages = left.total;
+  const currentPageText = left.text;
+  const currentChapter = left.ch;
+
+  // Pre-generate all page contexts for current chapter
+  useEffect(() => {
+    if (!currentPageText || textLoading) return;
+    // Cancel any previous preload
+    if (preloadQueue.current) preloadQueue.current.cancelled = true;
+    const ctrl = { cancelled: false };
+    preloadQueue.current = ctrl;
+
+    // Load current page context first
+    const cacheKey = chapter + '-' + page + '-' + edition;
+    if (contextCache.current[cacheKey]) {
+      setPageSummary(contextCache.current[cacheKey].summary);
+      setPageCharacters(contextCache.current[cacheKey].characters);
+    } else {
+      setContextLoading(true);
+      setPageSummary(''); setPageCharacters([]);
+      getPageContext(currentPageText, currentChapter?.title || 'Book ' + ROMANS[chapter])
+        .then(ctx => {
+          if (ctrl.cancelled) return;
+          setPageSummary(ctx.summary); setPageCharacters(ctx.characters || []);
+          contextCache.current[cacheKey] = ctx;
+          setContextLoading(false);
+        });
+    }
+
+    // Then preload remaining pages in background
+    (async () => {
+      for (let p = 1; p <= totalPages; p++) {
+        if (ctrl.cancelled) return;
+        const pk = chapter + '-' + p + '-' + edition;
+        if (contextCache.current[pk]) continue;
+        const pText = left.pages[p - 1];
+        if (!pText) continue;
+        try {
+          const ctx = await getPageContext(pText, currentChapter?.title || 'Book ' + ROMANS[chapter]);
+          if (!ctrl.cancelled) contextCache.current[pk] = ctx;
+        } catch(e) {}
+        // Small delay between API calls to be nice
+        await new Promise(r => setTimeout(r, 500));
+      }
+    })();
+
+    return () => { ctrl.cancelled = true; };
+  }, [chapter, edition, textLoading, left.pages.length > 0]);
+
+  // Update context when page changes (from cache if available)
+  useEffect(() => {
+    const ck = chapter + '-' + page + '-' + edition;
+    if (contextCache.current[ck]) {
+      setPageSummary(contextCache.current[ck].summary);
+      setPageCharacters(contextCache.current[ck].characters);
+      setContextLoading(false);
+    } else if (currentPageText && !textLoading) {
+      setContextLoading(true); setPageSummary(''); setPageCharacters([]);
+      getPageContext(currentPageText, currentChapter?.title || 'Book ' + ROMANS[chapter])
+        .then(ctx => { contextCache.current[ck] = ctx; setPageSummary(ctx.summary); setPageCharacters(ctx.characters || []); setContextLoading(false); });
+    }
+  }, [page]);
+
+  useEffect(() => { setPage(1); }, [chapter]);
+
+  const handleHighlight = useCallback((text, color) => {
+    const hlId = Date.now();
+    setHighlights(prev => [{ id: hlId, text, color: color || 'yellow', explanation: '', loading: true }, ...prev]);
+    setPanelTab('context');
+    if (!panelOpen) setPanelOpen(true);
+    explainHighlight(text, currentPageText, currentChapter?.title || 'Book ' + ROMANS[chapter])
+      .then(explanation => { setHighlights(prev => prev.map(h => h.id === hlId ? { ...h, explanation, loading: false } : h)); });
+  }, [currentPageText, currentChapter, chapter, panelOpen]);
+
+  const handleAskAbout = useCallback((text) => {
+    setChatPrefill(text);
+    setPanelTab('chat');
+    if (!panelOpen) setPanelOpen(true);
+  }, [panelOpen]);
+
+  const handleCharacterClick = useCallback((name) => {
+    setPanelTab('chat');
+    const msg = { role: 'user', content: `Tell me about ${name} — who are they and what's their role here?` };
+    const msgs = [...chatMessages, msg];
+    setChatMessages(msgs); setChatLoading(true);
+    const api = msgs.map(m => ({...m}));
+    api[api.length-1].content += `\n\n[Page context: ${currentPageText.slice(0,400)}]`;
+    callClaude(api).then(r => { setChatMessages(prev => [...prev, {role:'assistant',content:r}]); setChatLoading(false); }).catch(e => { setChatMessages(prev => [...prev, {role:'assistant',content:'Error: '+e.message}]); setChatLoading(false); });
+  }, [chatMessages, currentPageText]);
+
+  const handleChatSend = useCallback((content) => {
+    let fullContent = content;
+    if (chatPrefill) {
+      fullContent = `About this passage: "${chatPrefill}"\n\nQuestion: ${content}`;
+      setChatPrefill(null);
+    }
+    const msg = { role: 'user', content: fullContent };
+    const msgs = [...chatMessages, msg];
+    setChatMessages(msgs); setChatLoading(true);
+    const api = msgs.map(m => ({...m}));
+    api[api.length-1].content += `\n\n[Reading ${currentChapter?.title || 'Book '+ROMANS[chapter]}, page ${page}: "${currentPageText.slice(0,500)}"]`;
+    // Streaming response
+    const assistantIdx = msgs.length;
+    setChatMessages(prev => [...prev, {role:'assistant', content:''}]);
+    callClaudeStream(api, (chunk) => {
+      setChatMessages(prev => { const n = [...prev]; n[assistantIdx] = {role:'assistant', content: chunk}; return n; });
+    }, enhancedSystemPrompt).then(() => { setChatLoading(false); }).catch(e => {
+      setChatMessages(prev => { const n = [...prev]; n[assistantIdx] = {role:'assistant', content:'Error: '+e.message}; return n; }); setChatLoading(false);
+    });
+  }, [chatMessages, currentChapter, chapter, page, currentPageText, chatPrefill, enhancedSystemPrompt]);
+
+  const handleSaveToNotes = useCallback(async (mode) => {
+    if (chatMessages.length === 0) return;
+    let content = '';
+    if (mode === 'full') {
+      content = chatMessages.filter(m => m.content).map(m => `${m.role === 'user' ? 'You' : 'Companion'}: ${m.content}`).join('\n\n');
+    } else {
+      // Summarize via Claude
+      const conversation = chatMessages.filter(m => m.content).map(m => `${m.role === 'user' ? 'Reader' : 'Companion'}: ${m.content}`).join('\n\n');
+      try {
+        content = await callClaude([{ role: 'user', content: `Summarize the key insights from this conversation about The Odyssey into 3-5 concise bullet points:\n\n${conversation}` }]);
+      } catch(e) { content = 'Could not generate summary.'; }
+    }
+    const note = { id: Date.now(), timestamp: new Date().toISOString(), type: mode === 'full' ? 'chat-full' : 'chat-summary', content, chapter, page };
+    setNotes(prev => [...prev, note]);
+    setPanelTab('notes');
+  }, [chatMessages, chapter, page]);
+
+  const handleStart = (ed) => {
+    setEdition(ed);
+    // Check if profile already exists (returning user)
+    const savedProfile = localStorage.getItem('tinct-profile-odyssey');
+    if (savedProfile) { setScreen('reading'); }
+    else { setScreen('onboarding'); }
+  };
+
+  const handleOnboardingComplete = (profile) => {
+    if (profile.goals || profile.interests) {
+      setReaderProfile(profile);
+      localStorage.setItem('tinct-profile-odyssey', JSON.stringify(profile));
+    }
+    setScreen('reading');
+  };
+
+  // Welcome screen
+  if (screen === 'welcome') return <WelcomeScreen onStart={handleStart} />;
+  if (screen === 'onboarding') return <OnboardingScreen onComplete={handleOnboardingComplete} onSkip={() => setScreen('reading')} />;
+
+  const srcChapters = edition === 'pope' ? popeCh : butlerCh;
+  const totalChapters = srcChapters.length || 24;
+  const showLeftLoading = textLoading || left.generating;
+  const showRightLoading = textLoading || right.generating;
+
+  return (
+    <div className="app">
+      <div className={'reader-area' + (splitView ? ' split-view' : '')}>
+        <ReaderPane
+          pageText={left.text} chapterTitle={currentChapter?.title || 'Book ' + ROMANS[chapter]} editionLabel={left.label}
+          loading={showLeftLoading} onHighlight={handleHighlight} onAskAbout={handleAskAbout} highlights={highlights}
+          page={page} totalPages={totalPages} onPage={setPage}
+          chapter={chapter} totalChapters={totalChapters} onChapter={setChapter}
+          panelOpen={panelOpen} onTogglePanel={() => setPanelOpen(p => !p)}
+          dark={dark} onDark={() => setDark(d => !d)}
+          splitView={splitView} onSplitView={() => setSplitView(s => !s)}
+          edition={edition} onEdition={setEdition}
+          showSplitBar={splitView} onShowSettings={() => setShowSettings(true)}
+        />
+        {splitView && (
+          <ReaderPane
+            pageText={right.text} chapterTitle={currentChapter?.title || 'Book ' + ROMANS[chapter]} editionLabel={right.label}
+            loading={showRightLoading} onHighlight={handleHighlight} onAskAbout={handleAskAbout} highlights={highlights}
+            page={page} totalPages={totalPages} onPage={setPage}
+            chapter={chapter} totalChapters={totalChapters} onChapter={setChapter}
+            panelOpen={panelOpen} onTogglePanel={() => setPanelOpen(p => !p)}
+            dark={dark} onDark={() => setDark(d => !d)}
+            splitView={splitView} onSplitView={() => setSplitView(s => !s)}
+            edition={rightEdition} onEdition={setRightEdition}
+            showSplitBar={true} onShowSettings={() => setShowSettings(true)}
+          />
+        )}
+      </div>
+
+      <aside className={'side-panel' + (panelOpen ? '' : ' side-panel-closed')}>
+        {panelOpen && (<>
+          <div className="panel-header">
+            <h3>Companion</h3>
+            <button className="panel-close" onClick={() => setPanelOpen(false)}>&times;</button>
+          </div>
+          <div className="panel-tabs">
+            <button className={'panel-tab' + (panelTab === 'context' ? ' panel-tab-active' : '')} onClick={() => setPanelTab('context')}>Context</button>
+            <button className={'panel-tab' + (panelTab === 'chat' ? ' panel-tab-active' : '')} onClick={() => setPanelTab('chat')}>Chat</button>
+            <button className={'panel-tab' + (panelTab === 'notes' ? ' panel-tab-active' : '')} onClick={() => setPanelTab('notes')}>Notes</button>
+          </div>
+          {panelTab === 'context' && <div className="panel-body"><ContextPanel summary={pageSummary} characters={pageCharacters} highlights={highlights} loading={contextLoading} onCharacterClick={handleCharacterClick} /></div>}
+          {panelTab === 'chat' && <ChatSection messages={chatMessages} loading={chatLoading} onSend={handleChatSend} chatPrefill={chatPrefill} onClearPrefill={() => setChatPrefill(null)} onSaveToNotes={handleSaveToNotes} />}
+          {panelTab === 'notes' && <NotesSection notes={notes} chapter={chapter} page={page} onAddNote={(note) => setNotes(prev => [...prev, note])} onDeleteNote={(id) => setNotes(prev => prev.filter(n => n.id !== id))} />}
+        </>)}
+      </aside>
+
+      {/* Edition settings modal */}
+      {showSettings && (
+        <div className="settings-overlay" onClick={() => setShowSettings(false)}>
+          <div className="settings-modal" onClick={e => e.stopPropagation()}>
+            <h3>Change Edition</h3>
+            <div className="edition-cards">
+              {EDITIONS.map(ed => (
+                <div key={ed.id} className={'edition-card' + (edition === ed.id ? ' selected' : '')} onClick={() => { setEdition(ed.id); setShowSettings(false); }}>
+                  <div className="edition-radio"></div>
+                  <div className="edition-card-text">
+                    <div className="edition-card-name">{ed.label}</div>
+                    <div className="edition-card-desc">{ed.desc}</div>
+                    {ed.ai && <div className="edition-card-ai">AI-generated edition</div>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
+
