@@ -17,14 +17,51 @@ When Anders says "consult the design lead" or "what would marketing say?", load 
 
 ---
 
+## API Cost Rule — HARD BAN
+
+**ZERO Anthropic API spend during development. No exceptions.**
+
+All content generation — book editions, translations, chapter summaries, any text produced by Claude — must happen through the CLI conversation and be written to files. **Never** run scripts that call `api.anthropic.com` during development.
+
+**`generate-editions.cjs` must NOT be used for development.** To generate modern/kids editions: read each chapter in the CLI conversation, generate the translation, and write it to the JSON file. This is how Sojourners generated 21 event summaries, 33 character bios, and 12 era rewrites — all through CLI, zero API cost.
+
+The API key exists **ONLY** for production user-facing features: the reader chat when a real user asks a question after deployment. Development-time content generation through API calls burns budget that funds the entire operation.
+
+**Violating this rule is a firing offense for the CEO.**
+
+---
+
 ## Auto-Documentation Rule
 
 **Automatically update this file** when making decisions during conversations. When we settle on a design choice, product direction, architecture decision, or project standard, append it to the Decisions Log at the bottom. Use judgment — log things useful for future sessions, skip trivial one-off choices.
 
 ---
 
+## Decision Logging
+
+Every time you encounter a decision that requires Anders's input — or that you *choose* to escalate rather than handle yourself — log it to `DECISIONS.md` in this project root.
+
+Format (append a new row each time):
+
+| Date | Decision | Category | Escalated? | Reasoning |
+
+**Categories:** `architecture`, `design`, `content`, `deploy`, `delete`, `scope`, `external`, `spend`
+
+**Rules:**
+- Log BEFORE asking Anders. The act of logging forces you to articulate what you need and why.
+- If you decide something yourself within your existing permissions, still log it as `Escalated? No` — we want to see the full decision landscape, not just escalations.
+- One line per decision. Keep it tight.
+- "Reasoning" = why you escalated (or why you felt safe deciding alone).
+
+This log will be reviewed weekly by Group CEO and Anders to tune your autonomy level.
+
+---
+
 ## Project Overview
-An AI-enhanced reading platform (desktop-first, mobile later) for engaging deeply with literary classics. Starting with The Odyssey. Features include: multiple reading styles/translations (original, modern, kids; in English + Danish), collapsible side panel with standard analysis content, Claude-powered chat for discussing highlighted passages, annotation system, chapter synopses (spoiler/no-spoiler), voice input, and a "takeaways" file. Long-term: custom e-reader hardware with voice interface + EPUB bookstore.
+A content-agnostic deep reading platform. Not passive consumption — active wrestling with texts. Users read in multiple versions (original, modern, kids) and languages (English, Danish), debate and question through AI chat, highlight and annotate, and build understanding over time. Starting with The Odyssey, expanding to 10-20 Western classics + Bible.
+
+**Full strategy:** See `STRATEGY.md`
+**Prioritized work:** See `BACKLOG.md`
 
 ---
 
@@ -119,34 +156,27 @@ Not everyone reads classics to extract "key takeaways." Many read for aesthetic 
 ## Current State (March 2026)
 
 ### What Exists
-- Basic React + TypeScript + Vite project scaffolded
+- React 18 + TypeScript + Vite project scaffolded
 - Components: Header, Reader, SidePanel, Chat
 - Custom hook: `useClaude.ts` for Claude API communication
-- The Odyssey text: Butler (1900) and Pope (1726) translations indexed by chapter
-- Design direction: warm, literary, inspired by Poetry Editor
+- The Odyssey: Butler (1900) and Pope (1726) translations, parsed from Project Gutenberg
+- Warm literary CSS design (dark/light mode, chapter nav, translation switcher)
+- Text selection popup ("Explain this" / "Ask about this")
+- Annotation type defined but not implemented
+- Playwright visual QA partially set up
 
-### What Does NOT Exist Yet
-- No deployed version
-- No product name or domain decided
-- No strategy document
-- No annotation system
-- No reading journal / takeaways feature
-- No voice input
-- No mobile design
+### Strategic Decisions Made (2026-03-16)
+All blocking questions answered — see `STRATEGY.md`:
+- **Name/domain:** Tinct / tinct.app
+- **Target audience:** Book club readers, classics-intimidated readers, serious deep readers
+- **Content scope:** The Odyssey first → 10-20 Western classics + Bible
+- **Revenue model:** Free reading, token-based AI pricing (cost-plus markup)
+- **Ambition:** Commercial — sustainable business, not charity
+- **Positioning:** "No Fear Shakespeare for everything, with an AI companion" — deep not wide (vs. Readwise)
 
-### Blocking Decision
-The Popperian Critique (above) raised fundamental questions that remain unanswered:
-- Target audience?
-- Content scope (1 book vs. canon starter pack)?
-- Revenue model?
-- Personal project vs. commercial ambition?
-
-**These decisions must be made before significant development resumes.**
-
-## Next Steps (Post-Critique)
-1. Decide on product name + domain
-2. Create strategy document answering the blocking questions above
-3. Build desktop prototype with The Odyssey
+### Current Phase: 1a — The Odyssey Experience
+**Target: mid-April 2026** (Anders's book club deadline)
+See `BACKLOG.md` for full task list.
 
 ---
 
@@ -206,6 +236,30 @@ The Popperian Critique (above) raised fundamental questions that remain unanswer
 
 ---
 
+## Autonomy Framework
+
+**Pre-authorized (just do it):**
+- Git commits — if build passes, commit
+- Git push — if commit is clean, push to remote
+- Bug fixes and code corrections — just fix them
+- Running and acting on test results — fix what fails
+- Content generation within established patterns (book text versions, chapter metadata)
+- Prioritization between backlog items
+- Routine refactoring that doesn't change behavior
+
+**Still escalate:**
+- Deleting books or features (reducing scope)
+- Changing the reading experience UX paradigm (split pane, chat placement)
+- Database schema changes
+- Spending money (Claude API calls beyond dev/test, services)
+- New external dependencies
+- Changes to pricing model or content strategy
+- Show mockups before building UI-heavy features
+
+**The rule:** If the backlog says do it, the tests pass, and the pattern is established — execute and report results. Don't ask.
+
+---
+
 ## Collaboration Preferences
 
 - **The user (Anders) is the product owner**: He has strong opinions about UX and product direction. Respect his instincts.
@@ -230,3 +284,94 @@ The Popperian Critique (above) raised fundamental questions that remain unanswer
 **[Voice Input 2026-03]**: Downgraded to nice-to-have. Not a core feature. Reading is typically silent/private.
 
 **[Popperian Critique 2026-03-05]**: 10-point critique written challenging project assumptions. Counter-arguments documented. Blocking decisions identified. Project paused for strategic reflection.
+
+**[Strategy Locked 2026-03-16]**: All blocking questions resolved. Tinct is a content-agnostic deep reading platform. Free reading + token-based AI pricing. The Odyssey first, then 10-20 classics + Bible. STRATEGY.md and BACKLOG.md created.
+
+**[Content Model 2026-03-16]**: Pre-compute all versions via Claude (modern EN, kids EN, modern DA, kids DA). Store as static data. ~$200-350 for 20 books. One-time cost, lowest per-user cost long-term.
+
+**[Split Pane 2026-03-16]**: Paragraph-level alignment required (No Fear Shakespeare style). Hard but non-negotiable.
+
+**[Notes System 2026-03-16]**: Full scope: highlighting (4-5 colors), auto-explain on highlight, copy-from-chat, freeform notes, AI cleanup (light/aggressive), end-of-book summary. No simplification.
+
+**[Chapter Reflection 2026-03-16]**: Subtle inline button at end of chapter text + small prompt in chat. Never a modal, never pushy. Chat always easy to hide.
+
+**[Persistence 2026-03-16]**: Phase 1a = localStorage. Code through abstraction layer for easy Supabase migration. Supabase + auth in Phase 1b.
+
+**[Mobile 2026-03-16]**: Not Phase 1a. Code mobile-ready. Mobile UX = four swipeable views: text, split pane, chat, notes.
+
+**[Pricing 2026-03-16]**: Phase 1a free. Phase 1b adds Stripe with transparent token-based metered billing. No usage caps — but don't stay free too long. Readwise at $10/month is the competitive gap.
+
+**[QA Standard 2026-03-16]**: Every book, every version must be visually QA'd page by page via screenshots before shipping. Non-negotiable.
+
+**[Domain 2026-03-16]**: tinct.app (already purchased).
+
+**[Onboarding 2026-03-17]**: Single-screen overlay (not wizard). Explains features, collects optional reading angle. Feeds into AI system prompt. Editable post-onboarding from chat welcome.
+
+**[Chat Markdown 2026-03-17]**: Full markdown rendering in chat and notes — headings (h1-h3), bold, italic, bullet lists, numbered lists. Claude responses look formatted, not raw.
+
+**[Page-Aware Chat 2026-03-17]**: System prompt includes visible text from current page. Chat knows what the reader is looking at without being asked.
+
+**[Proactive Insights 2026-03-17]**: AI checks for connections to reading angle on page turns. Rate-limited (5min gap, max 3/session, 25% probability). Non-intrusive bottom-right notification with Discuss/dismiss.
+
+**[Split Pane Pagination 2026-03-17]**: Split reader now paginates like single reader (CSS multi-column, page arrows, keyboard nav, click zones). No more infinite scroll.
+
+**[Prose Newlines 2026-03-17]**: Butler prose text had embedded \n from Project Gutenberg. Auto-detected as prose (avg line >60 chars) and collapsed to spaces. Pope verse preserved. Fixed highlight offset matching too.
+
+**[Panel UX 2026-03-17]**: Removed redundant "Chat" header inside Chat component — panel tabs (Chat | Notes) are the navigation. "Clear" button only shows when messages exist.
+
+**[Deep Cleanup 2026-03-17]**: Changed from "restructure and condense" to "synthesize to 30-50% length". Light cleanup keeps structure; deep cleanup is a true synthesis.
+
+**[Threads Feature 2026-03-19]**: Character tracker called "Threads" — third tab in side panel alongside Chat and Notes. Per-character, per-chapter summaries in 4 editions (modern-en, kids-en, modern-da, kids-da). Spoiler-aware: shows only up to current reading chapter, with "reveal later" toggle. Runtime mention scanning from loaded edition text. Wikipedia links per character. 25 characters for The Odyssey including gods, mortals, and creatures. All content generated via CLI, zero API calls. Filter by role (All/Mortals/Gods/Creatures). Click chapter labels to navigate. Data stored in odyssey-threads.json, lazy-loaded.
+
+---
+
+## Book Addition Checklist
+
+When adding a new book to the library, ALL of the following must be completed before considering the book "done":
+
+### 1. Source Text
+- [ ] Obtain original text (Project Gutenberg or equivalent public domain source)
+- [ ] Parse into edition JSON format: `{bookId}-original-en.json`
+- [ ] Verify chapter/episode structure, titles, and paragraph count
+- [ ] Remove Project Gutenberg metadata/boilerplate from text
+
+### 2. All Editions (generated via CLI — ZERO API spend)
+- [ ] `{bookId}-modern-en.json` — Modern English (accessible contemporary prose)
+- [ ] `{bookId}-kids-en.json` — Kids English (ages 10-14, simplified, age-appropriate)
+- [ ] `{bookId}-modern-da.json` — Modern Danish (Moderne Dansk)
+- [ ] `{bookId}-kids-da.json` — Kids Danish (Dansk for Børn)
+- [ ] All editions paragraph-aligned with original (same paragraph count per chapter)
+
+### 3. Book Registry
+- [ ] Book registered in `bookRegistry.ts` with all editions listed
+- [ ] Edition metadata correct (key, language, style, label, aligned flag)
+- [ ] `BOOKS` array includes the new book
+
+### 4. Threads (Character Tracker)
+- [ ] `{bookId}-threads.json` created with all major characters
+- [ ] Each character has: id, name (en/da), epithet (en/da), role, wikipediaUrl, searchNames
+- [ ] Per-chapter summaries in all 4 editions (modern-en, kids-en, modern-da, kids-da)
+- [ ] `useThreads.ts` updated to load the new book's threads data
+
+### 5. App Integration
+- [ ] Book selectable in the UI (Header book selector)
+- [ ] Chapter navigation works (correct labels, correct count)
+- [ ] Edition switching works (language + style dropdowns)
+- [ ] Split pane works with aligned editions
+- [ ] Reading position persistence works per book
+- [ ] Chat context uses correct book title/author
+- [ ] Onboarding/reading angle works per book
+
+### 6. Visual QA (Non-negotiable)
+- [ ] Every edition, every chapter visually checked via dev server screenshots
+- [ ] Text renders correctly (no missing content, no broken paragraphs)
+- [ ] Chapter navigation works end-to-end
+- [ ] Split pane alignment verified
+- [ ] Dark mode checked
+
+### The Rule
+**Do not mark a book as "added" until every checkbox is complete.** Partial additions (e.g., original text only) are work-in-progress, not done.
+
+**[Ulysses Added 2026-03-19]**: James Joyce's Ulysses added as the second book. 18 episodes, 7,148 paragraphs. 5 editions (original-en, modern-en, kids-en, modern-da, kids-da), all paragraph-aligned. 20 characters in threads. Book selector in header. Visual QA passed (34 Playwright tests). All content generated via CLI, zero API spend.
+
+**[Monetization Infrastructure 2026-03-20]**: Full billing stack implemented. Supabase auth (email + Google OAuth), token-based balance system ($2 free tier, $5/$10/$20 top-ups), Stripe Checkout integration, usage tracking with atomic balance deduction. API endpoints: chat.ts (auth + balance check + rate limiting), create-checkout.ts, webhook.ts, balance.ts. Frontend: AuthModal, BalanceIndicator (header), UsageDashboard (top-up flow). Supabase migration SQL created. Storage abstraction updated for conditional localStorage/Supabase. Dev mode works without Supabase configured (all free). Env vars needed for production: VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET.

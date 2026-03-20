@@ -1,35 +1,95 @@
-import type { TranslationKey } from '../types'
+import type { Book, Language, Style } from '../types'
+import type { User } from '@supabase/supabase-js'
+import { BalanceIndicator } from './BalanceIndicator'
 
 interface HeaderProps {
-  currentTranslation: TranslationKey
-  onTranslationChange: (t: TranslationKey) => void
+  bookTitle: string
+  bookAuthor: string
+  books: Book[]
+  currentBookId: string
+  onBookChange: (bookId: string) => void
+  language: Language
+  onLanguageChange: (lang: Language) => void
+  style: Style
+  onStyleChange: (style: Style) => void
+  /** Editions available for the current language */
+  availableStyles: { style: Style; label: string }[]
   currentChapter: number
   totalChapters: number
+  chapterLabels: string[]
   onChapterChange: (n: number) => void
+  splitView: boolean
+  onToggleSplitView: () => void
+  /** Whether split view is available (needs aligned editions) */
+  splitViewAvailable: boolean
   darkMode: boolean
   onToggleDarkMode: () => void
   onTogglePanel: () => void
   panelOpen: boolean
+  /** Reading progress 0-100 */
+  readingProgress?: number
+  // Auth & billing
+  user: User | null
+  messagesRemaining: number
+  hasBalance: boolean
+  isAnonymous: boolean
+  onSignIn: () => void
+  onSignOut: () => void
+  onOpenUsage: () => void
 }
 
 export function Header({
-  currentTranslation,
-  onTranslationChange,
+  bookTitle,
+  bookAuthor,
+  books,
+  currentBookId,
+  onBookChange,
+  language,
+  onLanguageChange,
+  style,
+  onStyleChange,
+  availableStyles,
   currentChapter,
   totalChapters,
+  chapterLabels,
   onChapterChange,
+  splitView,
+  onToggleSplitView,
+  splitViewAvailable,
   darkMode,
   onToggleDarkMode,
   onTogglePanel,
   panelOpen,
+  readingProgress,
+  user,
+  messagesRemaining,
+  hasBalance,
+  isAnonymous,
+  onSignIn,
+  onSignOut,
+  onOpenUsage,
 }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-left">
         <h1 className="logo">Tinct</h1>
-        <span className="book-title">The Odyssey</span>
-        <span className="separator">·</span>
-        <span className="author">Homer</span>
+        {books.length > 1 ? (
+          <select
+            className="book-select"
+            value={currentBookId}
+            onChange={e => onBookChange(e.target.value)}
+          >
+            {books.map(b => (
+              <option key={b.id} value={b.id}>{b.title} — {b.author}</option>
+            ))}
+          </select>
+        ) : (
+          <>
+            <span className="book-title">{bookTitle}</span>
+            <span className="separator">&middot;</span>
+            <span className="author">{bookAuthor}</span>
+          </>
+        )}
       </div>
 
       <div className="header-center">
@@ -47,7 +107,7 @@ export function Header({
           onChange={e => onChapterChange(Number(e.target.value))}
         >
           {Array.from({ length: totalChapters }, (_, i) => (
-            <option key={i + 1} value={i + 1}>Book {toRoman(i + 1)}</option>
+            <option key={i + 1} value={i + 1}>{chapterLabels[i] || `Chapter ${i + 1}`}</option>
           ))}
         </select>
         <button
@@ -61,14 +121,43 @@ export function Header({
       </div>
 
       <div className="header-right">
+        {/* Language toggle */}
+        <div className="lang-toggle">
+          <button
+            className={`lang-button ${language === 'en' ? 'lang-active' : ''}`}
+            onClick={() => onLanguageChange('en')}
+          >
+            EN
+          </button>
+          <button
+            className={`lang-button ${language === 'da' ? 'lang-active' : ''}`}
+            onClick={() => onLanguageChange('da')}
+          >
+            DA
+          </button>
+        </div>
+
+        {/* Style dropdown */}
         <select
           className="translation-select"
-          value={currentTranslation}
-          onChange={e => onTranslationChange(e.target.value as TranslationKey)}
+          value={style}
+          onChange={e => onStyleChange(e.target.value as Style)}
         >
-          <option value="butler">Butler (Prose, 1900)</option>
-          <option value="pope">Pope (Verse, 1726)</option>
+          {availableStyles.map(s => (
+            <option key={s.style} value={s.style}>{s.label}</option>
+          ))}
         </select>
+
+        {/* Split view toggle */}
+        {splitViewAvailable && (
+          <button
+            className={`icon-button ${splitView ? 'icon-button-active' : ''}`}
+            onClick={onToggleSplitView}
+            title={splitView ? 'Single view' : 'Split view'}
+          >
+            {splitView ? '⊡' : '⊞'}
+          </button>
+        )}
 
         <button
           className="icon-button"
@@ -78,6 +167,33 @@ export function Header({
           {darkMode ? '☀' : '☽'}
         </button>
 
+        {/* Balance indicator */}
+        <BalanceIndicator
+          messagesRemaining={messagesRemaining}
+          hasBalance={hasBalance}
+          isAnonymous={isAnonymous}
+          onTopUp={onOpenUsage}
+          onSignIn={onSignIn}
+        />
+
+        {/* Auth button */}
+        {user ? (
+          <button
+            className="user-avatar"
+            onClick={onSignOut}
+            title={`Signed in as ${user.email}. Click to sign out.`}
+          >
+            {(user.email || 'U')[0].toUpperCase()}
+          </button>
+        ) : (
+          <button
+            className="auth-button"
+            onClick={onSignIn}
+          >
+            Sign in
+          </button>
+        )}
+
         <button
           className="icon-button panel-toggle"
           onClick={onTogglePanel}
@@ -86,20 +202,12 @@ export function Header({
           {panelOpen ? '▷' : '◁'}
         </button>
       </div>
+
+      {readingProgress != null && readingProgress > 0 && (
+        <div className="reading-progress-bar" title={`${readingProgress}% complete`}>
+          <div className="reading-progress-fill" style={{ width: `${readingProgress}%` }} />
+        </div>
+      )}
     </header>
   )
-}
-
-function toRoman(num: number): string {
-  const romans: [number, string][] = [
-    [24, 'XXIV'], [23, 'XXIII'], [22, 'XXII'], [21, 'XXI'], [20, 'XX'],
-    [19, 'XIX'], [18, 'XVIII'], [17, 'XVII'], [16, 'XVI'], [15, 'XV'],
-    [14, 'XIV'], [13, 'XIII'], [12, 'XII'], [11, 'XI'], [10, 'X'],
-    [9, 'IX'], [8, 'VIII'], [7, 'VII'], [6, 'VI'], [5, 'V'],
-    [4, 'IV'], [3, 'III'], [2, 'II'], [1, 'I'],
-  ]
-  for (const [value, roman] of romans) {
-    if (num === value) return roman
-  }
-  return String(num)
 }

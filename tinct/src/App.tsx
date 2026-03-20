@@ -1,92 +1,643 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { Header } from './components/Header'
 import { Reader } from './components/Reader'
+import { SplitReader } from './components/SplitReader'
 import { SidePanel } from './components/SidePanel'
-import { fetchOdysseyText } from './data/odyssey'
+import { Onboarding } from './components/Onboarding'
+import { ProactiveInsight } from './components/ProactiveInsight'
+import { AuthModal } from './components/AuthModal'
+import { UsageDashboard } from './components/UsageDashboard'
+import { ReadingProgressBar } from './components/ReadingProgressBar'
+import { BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
+import { loadEdition } from './data/editionLoader'
+import { usePreferences } from './hooks/usePreferences'
+import { useHighlights } from './hooks/useHighlights'
+import { useNotes } from './hooks/useNotes'
+import { useReadingPosition, getSavedPosition, getReadingProgress } from './hooks/useReadingPosition'
 import { useClaude } from './hooks/useClaude'
-import type { TranslationKey } from './types'
+import { useProactiveInsight } from './hooks/useProactiveInsight'
+import { useThreads } from './hooks/useThreads'
+import { useAuth } from './hooks/useAuth'
+import { useBalance } from './hooks/useBalance'
+import { useReadingSpeed } from './hooks/useReadingSpeed'
+import { storage } from './services/storage'
+import type { EditionData, HighlightColor, Style, EditionKey } from './types'
+import { makeEditionKey } from './types'
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false)
-  const [panelOpen, setPanelOpen] = useState(true)
-  const [currentTranslation, setCurrentTranslation] = useState<TranslationKey>('butler')
-  const [currentChapter, setCurrentChapter] = useState(1)
+  const [currentBookId, setCurrentBookId] = useState(() => {
+    return storage.get<string>('tinct-current-book') || ODYSSEY.id
+  })
+  const book = getBook(currentBookId) || ODYSSEY
+
+  // Auth & billing
+  const { user, profile, session, signUp, signIn, signInWithGoogle, signOut, refreshProfile } = useAuth()
+  const { messagesRemaining, hasBalance, deductUsage, isAnonymous } = useBalance(session, profile)
+  const [showAuthModal, setShowAuthModal] = useState(false)
+  const [showUsageDashboard, setShowUsageDashboard] = useState(false)
+
+  const {
+    preferences,
+    setLanguage,
+    setStyle,
+    toggleSplitView,
+    toggleDarkMode,
+    setPanelTab,
+    togglePanel,
+    setSplitEditionKey,
+    setReadingObjective,
+    setOnboardingComplete,
+  } = usePreferences()
+
+  // Restore last reading position on mount or book change
+  const savedPos = useRef(getSavedPosition(book.id))
+  const [currentChapter, setCurrentChapter] = useState(() => {
+    return savedPos.current?.chapterNumber || 1
+  })
+  const [primaryData, setPrimaryData] = useState<EditionData | null>(null)
+  const [splitData, setSplitData] = useState<EditionData | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
+  const [isCleaningUp, setIsCleaningUp] = useState(false)
+  const [currentPage, setCurrentPage] = useState(0)
+  const [totalPages, setTotalPages] = useState(1)
 
-  // Chapter data per translation
-  const [butlerChapters, setButlerChapters] = useState<{ number: number; title: string; text: string }[]>([])
-  const [popeChapters, setPopeChapters] = useState<{ number: number; title: string; text: string }[]>([])
-  const [textLoading, setTextLoading] = useState(true)
+  const readerRef = useRef<HTMLDivElement>(null)
 
-  const { messages, isLoading: chatLoading, sendMessage, clearMessages } = useClaude()
+  // Get current chapter data early so we can pass context to chat
+  const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
+  const primaryChapter = primaryData?.chapters.find(c => c.number === currentChapter)
+  const chapterTitle = primaryChapter?.title || `Chapter ${currentChapter}`
+  const totalChapters = primaryData?.chapters.length || book.editions.length
 
-  // Fetch texts on mount
-  useEffect(() => {
-    async function loadTexts() {
-      setTextLoading(true)
-      const [butler, pope] = await Promise.all([
-        fetchOdysseyText('butler'),
-        fetchOdysseyText('pope'),
-      ])
-      setButlerChapters(butler)
-      setPopeChapters(pope)
-      setTextLoading(false)
+  // Short labels for chapter dropdown
+  const chapterLabels = useMemo(() => {
+    if (!primaryData) return []
+    return primaryData.chapters.map(c => {
+      const parts = c.title.split(' — ')
+      return parts[0]
+    })
+  }, [primaryData])
+
+  // Approximate visible text based on current page position
+  const visibleText = useMemo(() => {
+    const paras = primaryChapter?.paragraphs || []
+    if (paras.length === 0 || totalPages <= 0) return ''
+    const startIdx = Math.floor((currentPage / Math.max(totalPages, 1)) * paras.length)
+    const endIdx = Math.min(startIdx + Math.ceil(paras.length / Math.max(totalPages, 1)) + 1, paras.length)
+    return paras.slice(startIdx, endIdx).join(' ')
+  }, [primaryChapter?.paragraphs, currentPage, totalPages])
+
+  // Handle insufficient balance
+  const handleInsufficientBalance = useCallback(() => {
+    if (isAnonymous) {
+      setShowAuthModal(true)
+    } else {
+      setShowUsageDashboard(true)
     }
-    loadTexts()
+  }, [isAnonymous])
+
+  // Handle Stripe top-up
+  const handleTopUp = useCallback(async (amountCents: number) => {
+    if (!session?.access_token) return
+
+    try {
+      const response = await fetch('/api/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ amount_cents: amountCents }),
+      })
+      const data = await response.json()
+      if (data.url) {
+        window.location.href = data.url
+      }
+    } catch (err) {
+      console.error('Checkout failed:', err)
+    }
+  }, [session])
+
+  // Check for payment success on URL params
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('payment') === 'success') {
+      // Refresh profile to get updated balance
+      refreshProfile()
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname)
+    }
+  }, [refreshProfile])
+
+  const { messages, isLoading: chatLoading, sendMessage, clearMessages } = useClaude({
+    bookTitle: book.title,
+    bookAuthor: book.author,
+    chapterTitle,
+    readingObjective: preferences.readingObjective,
+    visibleText,
+    authToken: session?.access_token,
+    onInsufficientBalance: handleInsufficientBalance,
+    onUsage: deductUsage,
+  })
+
+  // Handle book change
+  const handleBookChange = useCallback((bookId: string) => {
+    storage.set('tinct-current-book', bookId)
+    setCurrentBookId(bookId)
+    const pos = getSavedPosition(bookId)
+    setCurrentChapter(pos?.chapterNumber || 1)
+    savedPos.current = pos
+    clearMessages()
+  }, [clearMessages])
+
+  const { highlights, addHighlight, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
+  const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter)
+  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters)
+
+  const { threadsData, getMentions } = useThreads(book.id, primaryData)
+
+  // All chapter paragraphs for word counting (reading speed model)
+  const allParagraphs = useMemo(() => {
+    if (!primaryData) return null
+    return primaryData.chapters.map(c => c.paragraphs)
+  }, [primaryData])
+
+  const {
+    percentComplete: readingPercent,
+    timeRemainingLabel,
+    isLearned: isSpeedLearned,
+    trackPageView,
+  } = useReadingSpeed(book.id, currentChapter, currentPage, totalPages, totalChapters, allParagraphs)
+
+  const { insight, checkForInsight, dismiss: dismissInsight, getInsightForDiscussion } = useProactiveInsight({
+    readingObjective: preferences.readingObjective,
+    bookTitle: book.title,
+    bookAuthor: book.author,
+    chapterTitle,
+    paragraphs: primaryChapter?.paragraphs || [],
+  })
+
+  // Handle page changes from Reader — also trigger proactive insights and track speed
+  const handlePageChange = useCallback((page: number, total: number) => {
+    // Track reading speed before updating page
+    if (primaryChapter && total > 0) {
+      const wordsOnPage = Math.ceil(
+        primaryChapter.paragraphs.reduce((s, p) => s + p.split(/\s+/).length, 0) / Math.max(total, 1)
+      )
+      trackPageView(wordsOnPage)
+    }
+    setCurrentPage(page)
+    setTotalPages(total)
+    checkForInsight(page, total)
+  }, [checkForInsight, primaryChapter, trackPageView])
+
+  // Onboarding complete handler
+  const handleOnboardingComplete = useCallback((objective: string) => {
+    setReadingObjective(objective)
+    setOnboardingComplete(true)
+  }, [setReadingObjective, setOnboardingComplete])
+
+  // Edit objective from chat welcome
+  const [editingObjective, setEditingObjective] = useState(false)
+  const handleEditObjective = useCallback(() => {
+    setEditingObjective(true)
   }, [])
 
-  // Apply dark mode class
+  // Discuss proactive insight
+  const handleDiscussInsight = useCallback(() => {
+    const text = getInsightForDiscussion()
+    if (text) {
+      setPanelTab('chat')
+      if (!preferences.panelOpen) togglePanel()
+      sendMessage(`The AI noticed a connection to my reading angle: "${text}". Can you elaborate on this?`)
+    }
+  }, [getInsightForDiscussion, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
+
+  // Split edition key
+  const splitEditionKey = preferences.splitEditionKey
+
+  // Load primary edition
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light')
-  }, [darkMode])
+    setIsLoading(true)
+    loadEdition(book.id, primaryEditionKey).then(data => {
+      setPrimaryData(data)
+      setIsLoading(false)
+    })
+  }, [primaryEditionKey])
 
-  const chapters = currentTranslation === 'butler' ? butlerChapters : popeChapters
-  const currentChapterData = chapters.find(c => c.number === currentChapter)
-  const translationInfo = currentTranslation === 'butler'
-    ? 'Translated by Samuel Butler (1900) · Prose'
-    : 'Translated by Alexander Pope (1726) · Verse'
+  // Load split edition when split view is on
+  useEffect(() => {
+    if (preferences.splitView) {
+      loadEdition(book.id, splitEditionKey).then(setSplitData)
+    }
+  }, [splitEditionKey, preferences.splitView])
 
+  const splitChapter = splitData?.chapters.find(c => c.number === currentChapter)
+
+  // Get available styles for current language
+  const availableStyles = useMemo(() => {
+    return book.editions
+      .filter(ed => ed.language === preferences.language)
+      .map(ed => ({ style: ed.style, label: ed.label }))
+  }, [preferences.language])
+
+  // Get aligned editions for split pane (excluding current primary)
+  const alignedEditions = useMemo(() => {
+    return book.editions.filter(ed => ed.aligned && ed.key !== primaryEditionKey)
+  }, [primaryEditionKey])
+
+  // Check if split view is available
+  const splitViewAvailable = alignedEditions.length > 0
+
+  // Get edition label
+  const primaryEdition = book.editions.find(ed => ed.key === primaryEditionKey)
+  const editionLabel = primaryEdition?.label || primaryEditionKey
+
+  // Clear chat when changing chapters (chat is chapter-scoped)
+  const prevChapterRef = useRef(currentChapter)
+  useEffect(() => {
+    if (prevChapterRef.current !== currentChapter) {
+      clearMessages()
+    }
+    prevChapterRef.current = currentChapter
+  }, [currentChapter, clearMessages])
+
+  // When language changes, check if current style is available
+  useEffect(() => {
+    const hasStyle = book.editions.some(
+      ed => ed.language === preferences.language && ed.style === preferences.style
+    )
+    if (!hasStyle) {
+      const fallback = book.editions.find(ed => ed.language === preferences.language)
+      if (fallback) setStyle(fallback.style)
+    }
+  }, [preferences.language, preferences.style, setStyle])
+
+  // Handle text selection → chat
   const handleTextSelect = useCallback((text: string) => {
     setPendingHighlight(text)
-    if (!panelOpen) setPanelOpen(true)
-  }, [panelOpen])
+    if (preferences.panelTab !== 'chat') setPanelTab('chat')
+    if (!preferences.panelOpen) togglePanel()
+  }, [preferences.panelTab, preferences.panelOpen, setPanelTab, togglePanel])
 
+  // Handle highlighting in single reader
+  const handleHighlight = useCallback((
+    paragraphIndex: number,
+    startOffset: number,
+    endOffset: number,
+    text: string,
+    color: HighlightColor,
+  ) => {
+    addHighlight(primaryEditionKey, paragraphIndex, startOffset, endOffset, text, color)
+  }, [addHighlight, primaryEditionKey])
+
+  // Handle highlighting in split reader
+  const handleSplitHighlight = useCallback((
+    paragraphIndex: number,
+    startOffset: number,
+    endOffset: number,
+    text: string,
+    color: HighlightColor,
+    side: 'left' | 'right',
+  ) => {
+    const edKey = side === 'left' ? primaryEditionKey : splitEditionKey
+    addHighlight(edKey, paragraphIndex, startOffset, endOffset, text, color)
+  }, [addHighlight, primaryEditionKey, splitEditionKey])
+
+  // Chat message handler
   const handleSendMessage = useCallback((content: string, highlightedText?: string) => {
     sendMessage(content, highlightedText)
   }, [sendMessage])
 
+  // Copy to notes from chat
+  const handleCopyToNotes = useCallback((content: string) => {
+    addNote(content, 'from-chat')
+    setPanelTab('notes')
+  }, [addNote, setPanelTab])
+
+  // AI note cleanup
+  const handleCleanupNotes = useCallback(async (aggressive: boolean) => {
+    if (notes.length === 0) return
+    setIsCleaningUp(true)
+
+    const allContent = notes.map(n => n.content).join('\n\n---\n\n')
+    const prompt = aggressive
+      ? `Synthesize these reading notes into a brief, dense summary — the essential insights only. Target 30-50% of the original length. Organize by theme, not chronologically. Cut anything redundant or peripheral. Use **bold** for key terms.\n\nNotes:\n${allContent}`
+      : `Clean up these reading notes: fix any typos, remove redundancies, and improve clarity. Keep the original structure and voice. Use **bold** for key terms and section headings.\n\nNotes:\n${allContent}`
+
+    try {
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`
+      }
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 4096,
+          system: 'You are a helpful editor. Return only the cleaned-up text, nothing else.',
+          messages: [{ role: 'user', content: prompt }],
+        }),
+      })
+
+      if (response.status === 402) {
+        handleInsufficientBalance()
+        return
+      }
+
+      const data = await response.json()
+      const cleanedText = data.content?.[0]?.text
+
+      // Track usage
+      if (data.usage) {
+        deductUsage(data.usage.input_tokens || 0, data.usage.output_tokens || 0)
+      }
+
+      if (cleanedText) {
+        replaceAllNotes([{
+          id: `note_${Date.now()}_cleaned`,
+          bookId: book.id,
+          chapterNumber: currentChapter,
+          content: cleanedText,
+          sourceType: 'freeform',
+          timestamp: Date.now(),
+        }])
+      }
+    } catch (err) {
+      console.error('Note cleanup failed:', err)
+    } finally {
+      setIsCleaningUp(false)
+    }
+  }, [notes, currentChapter, replaceAllNotes, session, handleInsufficientBalance, deductUsage])
+
+  // End-of-book summary generation
+  const [isGeneratingSummary, setIsGeneratingSummary] = useState(false)
+
+  const handleGenerateSummary = useCallback(async () => {
+    setIsGeneratingSummary(true)
+    try {
+      const allHighlights = getAllBookHighlights()
+      const allNotes = getAllBookNotes()
+
+      const highlightTexts = allHighlights
+        .sort((a, b) => a.chapterNumber - b.chapterNumber || a.paragraphIndex - b.paragraphIndex)
+        .map(h => `[Book ${h.chapterNumber}] "${h.text}"${h.note ? ` — Note: ${h.note}` : ''}`)
+        .join('\n')
+
+      const noteTexts = allNotes
+        .sort((a, b) => a.chapterNumber - b.chapterNumber)
+        .map(n => `[Book ${n.chapterNumber}] ${n.content}`)
+        .join('\n')
+
+      const hasContent = highlightTexts || noteTexts
+      const readingAngle = preferences.readingObjective
+        ? `\n\nThe reader's reading angle was: "${preferences.readingObjective}". Weave this perspective into the summary where it naturally connects.`
+        : ''
+
+      const prompt = hasContent
+        ? `The reader has finished The Odyssey by Homer. Here are all their highlights and notes from across the book:\n\n${highlightTexts ? `HIGHLIGHTS:\n${highlightTexts}\n\n` : ''}${noteTexts ? `NOTES:\n${noteTexts}\n\n` : ''}Create a rich, personal reading journal summary that:\n1. Reflects back the reader's journey through the book based on what they highlighted and noted\n2. Identifies the themes and passages that clearly mattered most to them\n3. Connects their observations across chapters into larger patterns\n4. Adds 2-3 deeper insights the reader might not have explicitly noted but that emerge from their pattern of attention\n\nWrite in second person ("You were drawn to..."). Be warm and literary, not academic. Keep it to 400-600 words.${readingAngle}`
+        : `The reader has finished The Odyssey by Homer but didn't leave highlights or notes. Write a brief, warm reflection on completing The Odyssey — what makes this journey meaningful, and what they might notice on a re-read. Keep it to 200 words.${readingAngle}`
+
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`
+      }
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 2048,
+          system: 'You are a thoughtful literary companion creating a personal reading journal summary. Be warm, specific, and insightful.',
+          messages: [{ role: 'user', content: prompt }],
+        }),
+      })
+
+      if (response.status === 402) {
+        handleInsufficientBalance()
+        return
+      }
+
+      const data = await response.json()
+      const summaryText = data.content?.[0]?.text
+
+      if (data.usage) {
+        deductUsage(data.usage.input_tokens || 0, data.usage.output_tokens || 0)
+      }
+
+      if (summaryText) {
+        addNote(`READING JOURNAL — The Odyssey\n\n${summaryText}`, 'freeform')
+        setPanelTab('notes')
+        if (!preferences.panelOpen) togglePanel()
+      }
+    } catch (err) {
+      console.error('Summary generation failed:', err)
+    } finally {
+      setIsGeneratingSummary(false)
+    }
+  }, [getAllBookHighlights, getAllBookNotes, preferences.readingObjective, preferences.panelOpen, addNote, setPanelTab, togglePanel, session, handleInsufficientBalance, deductUsage])
+
+  // Chapter reflection
+  const handleReflect = useCallback(() => {
+    const chapterTitle = primaryChapter?.title || `Book ${currentChapter}`
+    const reflectPrompt = `I've just finished reading ${chapterTitle} of The Odyssey. Help me reflect on the key themes, memorable moments, and anything I might have missed.`
+    setPanelTab('chat')
+    if (!preferences.panelOpen) togglePanel()
+    sendMessage(reflectPrompt)
+  }, [primaryChapter, currentChapter, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
+
+  // Handle style change with fallback for split edition
+  const handleStyleChange = useCallback((newStyle: Style) => {
+    setStyle(newStyle)
+    const newPrimaryKey = makeEditionKey(newStyle, preferences.language)
+    if (newPrimaryKey === splitEditionKey) {
+      const alt = alignedEditions.find(ed => ed.key !== newPrimaryKey)
+      if (alt) setSplitEditionKey(alt.key)
+    }
+  }, [setStyle, preferences.language, splitEditionKey, alignedEditions, setSplitEditionKey])
+
+  // Inline objective editor state
+  const [inlineObjective, setInlineObjective] = useState(preferences.readingObjective)
+  useEffect(() => {
+    if (editingObjective) setInlineObjective(preferences.readingObjective)
+  }, [editingObjective, preferences.readingObjective])
+
   return (
     <div className="app">
+      {!preferences.onboardingComplete && (
+        <Onboarding onComplete={handleOnboardingComplete} />
+      )}
+
+      {showAuthModal && (
+        <AuthModal
+          onClose={() => setShowAuthModal(false)}
+          onSignIn={async (email, password) => {
+            const result = await signIn(email, password)
+            if (!result.error) setShowAuthModal(false)
+            return result
+          }}
+          onSignUp={signUp}
+          onGoogleSignIn={signInWithGoogle}
+        />
+      )}
+
+      {showUsageDashboard && (
+        <UsageDashboard
+          profile={profile}
+          onClose={() => setShowUsageDashboard(false)}
+          onTopUp={handleTopUp}
+          isAnonymous={isAnonymous}
+          onSignIn={() => { setShowUsageDashboard(false); setShowAuthModal(true) }}
+        />
+      )}
+
+      {editingObjective && (
+        <div className="objective-editor-overlay" onClick={() => setEditingObjective(false)}>
+          <div className="objective-editor-card" onClick={e => e.stopPropagation()}>
+            <h3 className="objective-editor-title">Edit your reading angle</h3>
+            <textarea
+              className="objective-editor-input"
+              value={inlineObjective}
+              onChange={e => setInlineObjective(e.target.value)}
+              rows={3}
+              autoFocus
+            />
+            <div className="objective-editor-actions">
+              <button className="objective-editor-cancel" onClick={() => setEditingObjective(false)}>Cancel</button>
+              <button className="objective-editor-save" onClick={() => {
+                setReadingObjective(inlineObjective.trim())
+                setEditingObjective(false)
+              }}>Save</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Header
-        currentTranslation={currentTranslation}
-        onTranslationChange={setCurrentTranslation}
+        bookTitle={book.title}
+        bookAuthor={book.author}
+        books={BOOKS}
+        currentBookId={book.id}
+        onBookChange={handleBookChange}
+        language={preferences.language}
+        onLanguageChange={setLanguage}
+        style={preferences.style}
+        onStyleChange={handleStyleChange}
+        availableStyles={availableStyles}
         currentChapter={currentChapter}
-        totalChapters={chapters.length || 24}
+        totalChapters={totalChapters}
+        chapterLabels={chapterLabels}
         onChapterChange={setCurrentChapter}
-        darkMode={darkMode}
-        onToggleDarkMode={() => setDarkMode(d => !d)}
-        onTogglePanel={() => setPanelOpen(p => !p)}
-        panelOpen={panelOpen}
+        splitView={preferences.splitView}
+        onToggleSplitView={toggleSplitView}
+        splitViewAvailable={splitViewAvailable}
+        darkMode={preferences.darkMode}
+        onToggleDarkMode={toggleDarkMode}
+        onTogglePanel={togglePanel}
+        panelOpen={preferences.panelOpen}
+        readingProgress={getReadingProgress(book.id)?.percent}
+        user={user}
+        messagesRemaining={messagesRemaining}
+        hasBalance={hasBalance}
+        isAnonymous={isAnonymous}
+        onSignIn={() => setShowAuthModal(true)}
+        onSignOut={signOut}
+        onOpenUsage={() => setShowUsageDashboard(true)}
       />
 
       <main className="main-layout">
-        <Reader
-          text={currentChapterData?.text || ''}
-          chapterTitle={currentChapterData?.title || `Book ${currentChapter}`}
-          translatorInfo={translationInfo}
-          isLoading={textLoading}
-          onTextSelect={handleTextSelect}
-        />
+        {preferences.splitView && splitChapter ? (
+          <SplitReader
+            leftParagraphs={primaryChapter?.paragraphs || []}
+            rightParagraphs={splitChapter?.paragraphs || []}
+            chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+            leftLabel={editionLabel}
+            rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+            isLoading={isLoading}
+            leftHighlights={getEditionHighlights(primaryEditionKey)}
+            rightHighlights={getEditionHighlights(splitEditionKey)}
+            alignedEditions={alignedEditions}
+            currentRightEditionKey={splitEditionKey}
+            onRightEditionChange={setSplitEditionKey}
+            onHighlight={handleSplitHighlight}
+            onTextSelect={handleTextSelect}
+            onReflect={handleReflect}
+            onGenerateSummary={handleGenerateSummary}
+            isGeneratingSummary={isGeneratingSummary}
+            isFinalChapter={currentChapter === totalChapters}
+            readerRef={readerRef}
+          />
+        ) : (
+          <Reader
+            paragraphs={primaryChapter?.paragraphs || []}
+            chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+            editionLabel={editionLabel}
+            isLoading={isLoading}
+            highlights={getEditionHighlights(primaryEditionKey)}
+            onHighlight={handleHighlight}
+            onTextSelect={handleTextSelect}
+            onReflect={handleReflect}
+            onGenerateSummary={handleGenerateSummary}
+            isGeneratingSummary={isGeneratingSummary}
+            isFinalChapter={currentChapter === totalChapters}
+            readerRef={readerRef}
+            onPageChange={handlePageChange}
+            initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+          />
+        )}
+
         <SidePanel
-          isOpen={panelOpen}
+          isOpen={preferences.panelOpen}
+          activeTab={preferences.panelTab}
+          onTabChange={setPanelTab}
           messages={messages}
-          isLoading={chatLoading}
+          isChatLoading={chatLoading}
           onSendMessage={handleSendMessage}
-          onClear={clearMessages}
+          onClearChat={clearMessages}
           pendingHighlight={pendingHighlight}
           onClearHighlight={() => setPendingHighlight(null)}
+          bookTitle={book.title}
+          chapterTitle={chapterTitle}
+          readingObjective={preferences.readingObjective}
+          onEditObjective={handleEditObjective}
+          notes={notes}
+          highlights={highlights}
+          onAddNote={addNote}
+          onDeleteNote={deleteNote}
+          onUpdateNote={updateNote}
+          onCopyToNotes={handleCopyToNotes}
+          onCleanupNotes={handleCleanupNotes}
+          isCleaningUp={isCleaningUp}
+          allBookHighlights={getAllBookHighlights()}
+          chapterLabels={chapterLabels}
+          threadCharacters={threadsData?.characters || []}
+          currentChapter={currentChapter}
+          editionKey={primaryEditionKey}
+          language={preferences.language}
+          getMentions={getMentions}
+          onNavigateToChapter={setCurrentChapter}
         />
       </main>
+
+      <ReadingProgressBar
+        percentComplete={readingPercent}
+        timeRemainingLabel={timeRemainingLabel}
+        isLearned={isSpeedLearned}
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
+
+      {insight && (
+        <ProactiveInsight
+          text={insight}
+          onDiscuss={handleDiscussInsight}
+          onDismiss={dismissInsight}
+        />
+      )}
     </div>
   )
 }

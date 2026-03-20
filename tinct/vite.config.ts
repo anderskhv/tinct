@@ -1,8 +1,11 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import type { IncomingMessage, ServerResponse } from 'http'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
   plugins: [
     react(),
     {
@@ -15,7 +18,12 @@ export default defineConfig({
             return
           }
 
-          const apiKey = process.env.VITE_ANTHROPIC_API_KEY || ''
+          const apiKey = env.VITE_ANTHROPIC_API_KEY || env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY || ''
+          if (!apiKey) {
+            res.writeHead(500, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: { message: 'API key not configured. Set VITE_ANTHROPIC_API_KEY in .env' } }))
+            return
+          }
 
           let body = ''
           req.on('data', (chunk: Buffer) => { body += chunk.toString() })
@@ -46,10 +54,28 @@ export default defineConfig({
             }
           })
         })
+
+        // Dev stub for create-checkout (returns mock URL)
+        server.middlewares.use('/api/create-checkout', async (req: IncomingMessage, res: ServerResponse) => {
+          if (req.method !== 'POST') {
+            res.writeHead(405)
+            res.end('Method not allowed')
+            return
+          }
+          res.writeHead(200, { 'Content-Type': 'application/json' })
+          res.end(JSON.stringify({ url: null, message: 'Stripe checkout not available in dev mode. Configure Supabase and Stripe for production.' }))
+        })
+
+        // Dev stub for balance
+        server.middlewares.use('/api/balance', async (req: IncomingMessage, res: ServerResponse) => {
+          res.writeHead(200, { 'Content-Type': 'application/json' })
+          res.end(JSON.stringify({ balance_cents: 200, total_tokens_used: 0 }))
+        })
       },
     },
   ],
   server: {
     port: 3001,
   },
+}
 })

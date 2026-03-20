@@ -1,169 +1,241 @@
 /**
- * Visual QA Screenshot Script — Tinct
+ * Visual QA: Screenshot every chapter of every available edition.
+ * Run with: npx playwright test e2e/visual-qa.spec.ts
  *
- * Takes screenshots of the reader at different states and viewports.
- * Run with: npx playwright test e2e/visual-qa.spec.ts --reporter=list
- *
- * Environment variables:
- *   BASE_URL   — dev server URL (default: http://localhost:5173)
- *   QA_PAGES   — comma-separated page keys (default: all)
- *               Valid: reader, translation, chat, dark-mode, light-mode
+ * Screenshots saved to e2e/screenshots/
  */
+import { test } from '@playwright/test'
+import type { Page } from '@playwright/test'
+import * as path from 'path'
+import * as fs from 'fs'
+import { fileURLToPath } from 'url'
 
-import { test, expect, type Page } from '@playwright/test';
-import * as path from 'path';
-import * as fs from 'fs';
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:5173';
-const SCREENSHOT_DIR = path.resolve(__dirname, 'screenshots');
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3001'
+const SCREENSHOT_DIR = path.resolve(__dirname, 'screenshots')
+const TOTAL_CHAPTERS = 24
 
-const VIEWPORTS = [
-  { name: 'desktop', width: 1440, height: 900 },
-  { name: 'tablet', width: 768, height: 1024 },
-];
+// Editions to test — only those with real content
+const EDITIONS = [
+  { key: 'original-en', langBtn: null, styleValue: 'original', label: 'butler' },
+  { key: 'verse-en', langBtn: null, styleValue: 'verse', label: 'pope' },
+  { key: 'modern-en', langBtn: null, styleValue: 'modern', label: 'modern-en' },
+  { key: 'kids-en', langBtn: null, styleValue: 'kids', label: 'kids-en' },
+  { key: 'modern-da', langBtn: 'DA', styleValue: 'modern', label: 'modern-da' },
+  { key: 'kids-da', langBtn: 'DA', styleValue: 'kids', label: 'kids-da' },
+]
 
-const ALL_PAGE_KEYS = ['reader', 'translation', 'chat', 'dark-mode', 'light-mode'];
-const selectedPages = process.env.QA_PAGES
-  ? process.env.QA_PAGES.split(',').map(s => s.trim())
-  : ALL_PAGE_KEYS;
+// Split-pane combos to test — primary left, secondary right (all aligned editions)
+const SPLIT_COMBOS = [
+  { label: 'split-butler-vs-modern', langBtn: null, leftStyle: 'original', rightEditionKey: 'modern-en' },
+  { label: 'split-butler-vs-kids', langBtn: null, leftStyle: 'original', rightEditionKey: 'kids-en' },
+  { label: 'split-modern-vs-kids', langBtn: null, leftStyle: 'modern', rightEditionKey: 'kids-en' },
+  { label: 'split-da-modern-vs-kids', langBtn: 'DA', leftStyle: 'modern', rightEditionKey: 'kids-da' },
+]
 
-let screenshotCount = 0;
-
-function shouldRun(key: string): boolean {
-  return selectedPages.includes(key);
+/** Dismiss the onboarding overlay if present */
+async function dismissOnboarding(page: Page) {
+  const startBtn = page.locator('.onboarding-start')
+  if (await startBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+    await startBtn.click()
+    await page.waitForTimeout(300)
+  }
 }
 
-async function takeScreenshot(page: Page, name: string) {
-  const filePath = path.join(SCREENSHOT_DIR, `${name}.png`);
-  await page.screenshot({ path: filePath, fullPage: false });
-  screenshotCount++;
+/** Set preferences via localStorage before navigating, to skip onboarding */
+async function setPreferencesBeforeLoad(page: Page, overrides: Record<string, unknown> = {}) {
+  const prefs = {
+    language: 'en',
+    style: 'original',
+    splitView: false,
+    splitEditionKey: 'modern-en',
+    darkMode: false,
+    panelTab: 'chat',
+    panelOpen: true,
+    readingObjective: '',
+    onboardingComplete: true,
+    ...overrides,
+  }
+  // Storage service uses 'tinct:' prefix
+  await page.addInitScript((p) => {
+    localStorage.setItem('tinct:preferences', JSON.stringify(p))
+  }, prefs)
 }
 
 test.beforeAll(async () => {
-  if (!fs.existsSync(SCREENSHOT_DIR)) {
-    fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
+  fs.mkdirSync(SCREENSHOT_DIR, { recursive: true })
+})
+
+// ── Onboarding screenshot ──
+test('onboarding overlay', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+  })
+  const page = await context.newPage()
+  // Don't set preferences — let onboarding show
+  await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(800)
+
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, 'onboarding.png'),
+    fullPage: false,
+  })
+  await context.close()
+})
+
+// ── Chat welcome with suggestion chips ──
+test('chat-welcome Book 1', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+  })
+  const page = await context.newPage()
+  await setPreferencesBeforeLoad(page, { readingObjective: 'Leadership and decision-making' })
+  await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(800)
+
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, 'chat-welcome-book01.png'),
+    fullPage: false,
+  })
+  await context.close()
+})
+
+// ── Single-edition: all chapters × all editions ──
+for (const edition of EDITIONS) {
+  for (let ch = 1; ch <= TOTAL_CHAPTERS; ch++) {
+    test(`${edition.label} Book ${ch}`, async ({ browser }) => {
+      const context = await browser.newContext({
+        viewport: { width: 1440, height: 900 },
+      })
+      const page = await context.newPage()
+      await setPreferencesBeforeLoad(page, {
+        language: edition.langBtn === 'DA' ? 'da' : 'en',
+        style: edition.styleValue,
+      })
+      await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(800)
+
+      // Navigate to chapter
+      await page.selectOption('.chapter-select', String(ch))
+      await page.waitForTimeout(600)
+
+      // Screenshot
+      const filename = `${edition.label}-book${String(ch).padStart(2, '0')}.png`
+      await page.screenshot({
+        path: path.join(SCREENSHOT_DIR, filename),
+        fullPage: false,
+      })
+
+      await context.close()
+    })
   }
-  const existing = fs.readdirSync(SCREENSHOT_DIR).filter(f => f.endsWith('.png'));
-  for (const f of existing) {
-    fs.unlinkSync(path.join(SCREENSHOT_DIR, f));
+}
+
+// ── Split-pane: all chapters × key combos ──
+for (const combo of SPLIT_COMBOS) {
+  for (let ch = 1; ch <= TOTAL_CHAPTERS; ch++) {
+    test(`${combo.label} Book ${ch}`, async ({ browser }) => {
+      const context = await browser.newContext({
+        viewport: { width: 1440, height: 900 },
+      })
+      const page = await context.newPage()
+      await setPreferencesBeforeLoad(page, {
+        language: combo.langBtn === 'DA' ? 'da' : 'en',
+        style: combo.leftStyle,
+        splitView: true,
+        splitEditionKey: combo.rightEditionKey,
+        panelOpen: false, // Close panel to give split pane full width
+      })
+      await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(1000) // Extra time for two editions to load
+
+      // Navigate to chapter
+      await page.selectOption('.chapter-select', String(ch))
+      await page.waitForTimeout(800)
+
+      // Screenshot
+      const filename = `${combo.label}-book${String(ch).padStart(2, '0')}.png`
+      await page.screenshot({
+        path: path.join(SCREENSHOT_DIR, filename),
+        fullPage: false,
+      })
+
+      await context.close()
+    })
   }
-});
-
-test.afterAll(async () => {
-  console.log(`\n=== Visual QA Summary ===`);
-  console.log(`Screenshots taken: ${screenshotCount}`);
-  console.log(`Saved to: ${SCREENSHOT_DIR}`);
-  console.log(`=========================\n`);
-});
-
-// --- Main Reader (light mode, Butler translation — default state) ---
-for (const vp of VIEWPORTS) {
-  test(`reader-${vp.name}-${vp.width}`, async ({ browser }) => {
-    if (!shouldRun('reader')) return test.skip();
-    const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
-    const page = await context.newPage();
-    await page.goto(BASE_URL, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500); // wait for text to load
-    await takeScreenshot(page, `reader-light-butler-${vp.name}-${vp.width}`);
-    await context.close();
-  });
 }
 
-// --- Translation Toggle (switch to Pope) ---
-for (const vp of VIEWPORTS) {
-  test(`translation-pope-${vp.name}-${vp.width}`, async ({ browser }) => {
-    if (!shouldRun('translation')) return test.skip();
-    const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
-    const page = await context.newPage();
-    await page.goto(BASE_URL, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500);
+// ── Dark mode ──
+test('dark-mode Book 1', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+  })
+  const page = await context.newPage()
+  await setPreferencesBeforeLoad(page, { darkMode: true })
+  await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(800)
 
-    // Look for translation toggle/select in the header
-    // The Header component has onTranslationChange — find the control
-    const translationBtn = page.locator('button:has-text("Pope"), select, [data-translation]').first();
-    if (await translationBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await translationBtn.click();
-      await page.waitForTimeout(1000);
-    } else {
-      // Try finding any select element or dropdown that might control translation
-      const select = page.locator('select').first();
-      if (await select.isVisible({ timeout: 2000 }).catch(() => false)) {
-        await select.selectOption({ label: /pope/i }).catch(() => {});
-        await page.waitForTimeout(1000);
-      }
-    }
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, 'dark-mode-book01.png'),
+    fullPage: false,
+  })
+  await context.close()
+})
 
-    await takeScreenshot(page, `reader-pope-${vp.name}-${vp.width}`);
-    await context.close();
-  });
-}
+// ── Dark mode split pane ──
+test('dark-mode-split Book 1', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+  })
+  const page = await context.newPage()
+  await setPreferencesBeforeLoad(page, {
+    darkMode: true,
+    splitView: true,
+    splitEditionKey: 'modern-en',
+    panelOpen: false,
+  })
+  await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(1000)
 
-// --- Chat Panel with a Message ---
-for (const vp of VIEWPORTS) {
-  test(`chat-panel-${vp.name}-${vp.width}`, async ({ browser }) => {
-    if (!shouldRun('chat')) return test.skip();
-    const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
-    const page = await context.newPage();
-    await page.goto(BASE_URL, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500);
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, 'dark-mode-split-book01.png'),
+    fullPage: false,
+  })
+  await context.close()
+})
 
-    // The side panel with chat should be open by default (panelOpen = true)
-    // Find the chat input and type a message
-    const chatInput = page.locator('textarea, input[type="text"]').last();
-    if (await chatInput.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await chatInput.fill('What is the significance of Odysseus leaving Calypso?');
-      await page.waitForTimeout(500);
-    }
+// ── Chat panel open ──
+test('chat-panel Book 1', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+  })
+  const page = await context.newPage()
+  await setPreferencesBeforeLoad(page)
+  await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(800)
 
-    await takeScreenshot(page, `chat-panel-${vp.name}-${vp.width}`);
-    await context.close();
-  });
-}
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, 'chat-panel-book01.png'),
+    fullPage: false,
+  })
+  await context.close()
+})
 
-// --- Dark Mode ---
-for (const vp of VIEWPORTS) {
-  test(`dark-mode-${vp.name}-${vp.width}`, async ({ browser }) => {
-    if (!shouldRun('dark-mode')) return test.skip();
-    const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
-    const page = await context.newPage();
-    await page.goto(BASE_URL, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500);
+// ── Notes tab ──
+test('notes-tab Book 1', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+  })
+  const page = await context.newPage()
+  await setPreferencesBeforeLoad(page, { panelTab: 'notes' })
+  await page.goto(BASE_URL, { waitUntil: 'networkidle' })
+  await page.waitForTimeout(800)
 
-    // Find and click the dark mode toggle
-    // Header has onToggleDarkMode
-    const darkToggle = page.locator('button:has-text("Dark"), button:has-text("dark"), [data-theme-toggle], button[aria-label*="dark" i], button[aria-label*="theme" i]').first();
-    if (await darkToggle.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await darkToggle.click();
-      await page.waitForTimeout(500);
-    } else {
-      // Fallback: set dark mode via DOM
-      await page.evaluate(() => {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      });
-      await page.waitForTimeout(500);
-    }
-
-    await takeScreenshot(page, `dark-mode-${vp.name}-${vp.width}`);
-    await context.close();
-  });
-}
-
-// --- Light Mode (explicit — same as reader but labeled for clarity) ---
-for (const vp of VIEWPORTS) {
-  test(`light-mode-${vp.name}-${vp.width}`, async ({ browser }) => {
-    if (!shouldRun('light-mode')) return test.skip();
-    const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
-    const page = await context.newPage();
-    await page.goto(BASE_URL, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500);
-
-    // Ensure light mode is active
-    await page.evaluate(() => {
-      document.documentElement.setAttribute('data-theme', 'light');
-    });
-    await page.waitForTimeout(300);
-
-    await takeScreenshot(page, `light-mode-${vp.name}-${vp.width}`);
-    await context.close();
-  });
-}
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, 'notes-tab-book01.png'),
+    fullPage: false,
+  })
+  await context.close()
+})

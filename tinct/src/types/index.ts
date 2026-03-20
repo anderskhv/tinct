@@ -1,22 +1,46 @@
-export type TranslationKey = 'butler' | 'pope'
+// === Languages & Styles ===
 
-export interface BookChapter {
+export type Language = 'en' | 'da'
+export type Style = 'original' | 'modern' | 'kids' | 'verse'
+
+/** Composite key identifying an edition, e.g. 'modern-en', 'kids-da' */
+export type EditionKey = string
+
+export function makeEditionKey(style: Style, language: Language): EditionKey {
+  return `${style}-${language}`
+}
+
+// === Books & Editions ===
+
+export interface Edition {
+  key: EditionKey
+  language: Language
+  style: Style
+  label: string
+  translator?: string
+  year?: number
+  /** Whether paragraphs align 1:1 with the canonical (Butler) edition */
+  aligned: boolean
+}
+
+export interface Chapter {
   number: number
   title: string
-  text: string
+  paragraphs: string[]
+}
+
+export interface EditionData {
+  chapters: Chapter[]
 }
 
 export interface Book {
   id: string
   title: string
   author: string
-  translations: Record<TranslationKey, {
-    translator: string
-    year: number
-    type: 'prose' | 'verse'
-    chapters: BookChapter[]
-  }>
+  editions: Edition[]
 }
+
+// === Chat ===
 
 export interface ChatMessage {
   id: string
@@ -24,15 +48,137 @@ export interface ChatMessage {
   content: string
   timestamp: number
   highlightedText?: string
+  /** Track token usage for future billing */
+  tokenCount?: number
 }
 
-export interface Annotation {
+// === Highlights & Annotations ===
+
+export type HighlightColor = 'gold' | 'rose' | 'sage' | 'sky' | 'lavender'
+
+export const HIGHLIGHT_COLORS: { key: HighlightColor; label: string; hex: string }[] = [
+  { key: 'gold', label: 'Gold', hex: '#f5e6c8' },
+  { key: 'rose', label: 'Rose', hex: '#f5d0d0' },
+  { key: 'sage', label: 'Sage', hex: '#d0e8d0' },
+  { key: 'sky', label: 'Sky', hex: '#d0e0f5' },
+  { key: 'lavender', label: 'Lavender', hex: '#e0d0f5' },
+]
+
+export interface Highlight {
   id: string
+  bookId: string
+  editionKey: EditionKey
   chapterNumber: number
+  paragraphIndex: number
   startOffset: number
   endOffset: number
   text: string
-  note: string
-  color: string
+  color: HighlightColor
+  note?: string
   timestamp: number
+}
+
+// === Notes ===
+
+export interface Note {
+  id: string
+  bookId: string
+  chapterNumber: number
+  content: string
+  sourceType: 'freeform' | 'from-chat' | 'from-highlight'
+  sourceId?: string
+  timestamp: number
+}
+
+// === Panel Tabs ===
+
+export type PanelTab = 'chat' | 'notes' | 'highlights' | 'threads'
+
+// === Threads (Character Tracker) ===
+
+export interface ThreadCharacter {
+  id: string
+  name: Record<string, string>
+  epithet: Record<string, string>
+  role: 'mortal' | 'god' | 'creature'
+  wikipediaUrl?: string
+  searchNames: string[]
+  chapters: Record<string, Record<string, string>>
+}
+
+export interface ThreadsData {
+  bookId: string
+  characters: ThreadCharacter[]
+}
+
+export interface CharacterMention {
+  chapter: number
+  paragraphIndex: number
+  excerpt: string
+}
+
+// === User Profile (Supabase) ===
+
+export interface UserProfile {
+  id: string
+  email: string
+  stripe_customer_id: string | null
+  token_balance_cents: number
+  total_tokens_used: number
+  created_at: string
+}
+
+export interface TokenUsage {
+  id: string
+  user_id: string
+  input_tokens: number
+  output_tokens: number
+  cost_cents: number
+  feature: string
+  book_id: string | null
+  chapter: number | null
+  created_at: string
+}
+
+// === User State ===
+
+export interface UserPreferences {
+  language: Language
+  style: Style
+  splitView: boolean
+  splitEditionKey: EditionKey
+  darkMode: boolean
+  panelTab: PanelTab
+  panelOpen: boolean
+  readingObjective: string
+  onboardingComplete: boolean
+}
+
+export const DEFAULT_PREFERENCES: UserPreferences = {
+  language: 'en',
+  style: 'original',
+  splitView: false,
+  splitEditionKey: 'modern-en',
+  darkMode: false,
+  panelTab: 'chat',
+  panelOpen: true,
+  readingObjective: '',
+  onboardingComplete: false,
+}
+
+export interface ReadingPosition {
+  bookId: string
+  chapterNumber: number
+  currentPage: number
+  totalPages: number
+}
+
+export interface ReadingProgress {
+  bookId: string
+  /** Highest chapter number fully completed (reached last page) */
+  highestCompletedChapter: number
+  /** Total chapters in book */
+  totalChapters: number
+  /** Percentage 0-100 */
+  percent: number
 }

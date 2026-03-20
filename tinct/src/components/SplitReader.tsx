@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
-import type { Highlight, HighlightColor } from '../types'
+import type { Highlight, HighlightColor, Edition, EditionKey } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
 
 interface SelectionInfo {
@@ -10,21 +10,30 @@ interface SelectionInfo {
   paragraphIndex: number
   startOffset: number
   endOffset: number
+  side: 'left' | 'right'
   showBelow?: boolean
 }
 
-interface ReaderProps {
-  paragraphs: string[]
+interface SplitReaderProps {
+  leftParagraphs: string[]
+  rightParagraphs: string[]
   chapterTitle: string
-  editionLabel: string
+  leftLabel: string
+  rightLabel: string
   isLoading: boolean
-  highlights: Highlight[]
+  leftHighlights: Highlight[]
+  rightHighlights: Highlight[]
+  /** Aligned editions available for the right column */
+  alignedEditions: Edition[]
+  currentRightEditionKey: EditionKey
+  onRightEditionChange: (key: EditionKey) => void
   onHighlight: (
     paragraphIndex: number,
     startOffset: number,
     endOffset: number,
     text: string,
     color: HighlightColor,
+    side: 'left' | 'right',
   ) => void
   onTextSelect: (text: string) => void
   onReflect?: () => void
@@ -32,18 +41,20 @@ interface ReaderProps {
   isGeneratingSummary?: boolean
   isFinalChapter?: boolean
   readerRef: React.RefObject<HTMLDivElement>
-  /** Called when page changes with (currentPage, totalPages) */
-  onPageChange?: (page: number, total: number) => void
-  /** Initial page to restore on mount */
-  initialPage?: number
 }
 
-export function Reader({
-  paragraphs,
+export function SplitReader({
+  leftParagraphs,
+  rightParagraphs,
   chapterTitle,
-  editionLabel,
+  leftLabel,
+  rightLabel,
   isLoading,
-  highlights,
+  leftHighlights,
+  rightHighlights,
+  alignedEditions,
+  currentRightEditionKey,
+  onRightEditionChange,
   onHighlight,
   onTextSelect,
   onReflect,
@@ -51,30 +62,27 @@ export function Reader({
   isGeneratingSummary,
   isFinalChapter,
   readerRef,
-  onPageChange,
-  initialPage,
-}: ReaderProps) {
+}: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
+  const gridRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+
+  // === Pagination (CSS multi-column, same as Reader) ===
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
-
   const GAP = 60
-  const PAD_X = 60 // horizontal padding on each side
+  const PAD_X = 24
 
-  // Set column-width CSS property to match container
   const updateColumnWidth = useCallback(() => {
     const container = readerRef.current
     const content = contentRef.current
     if (!container || !content) return
-    // Column width = container width minus left+right padding
     const colW = container.clientWidth - PAD_X * 2
     if (colW > 0) {
       content.style.columnWidth = `${colW}px`
     }
   }, [readerRef])
 
-  // CSS multi-column pagination: count columns from scrollWidth
   const recalcPages = useCallback(() => {
     const content = contentRef.current
     const container = readerRef.current
@@ -82,60 +90,46 @@ export function Reader({
     updateColumnWidth()
     const colWidth = container.clientWidth - PAD_X * 2
     if (colWidth <= 0) return
-    // Total scrollWidth includes all columns and gaps between them
     const pages = Math.max(1, Math.round((content.scrollWidth + GAP) / (colWidth + GAP)))
     setTotalPages(pages)
   }, [readerRef, updateColumnWidth])
 
+  // Track chapter title to know when chapter actually changes (vs edition swap)
+  const prevChapterTitle = useRef(chapterTitle)
+
   useEffect(() => {
+    // Save current page before recalc
+    const savedPage = currentPage
     recalcPages()
-    // Recalc after fonts load and layout settles
-    const timer1 = setTimeout(recalcPages, 100)
+    const timer1 = setTimeout(() => {
+      recalcPages()
+      // After recalc, clamp to saved page (don't reset on edition change)
+      setCurrentPage(prev => Math.min(prev, Math.max(0, totalPages - 1)))
+    }, 100)
     const timer2 = setTimeout(recalcPages, 500)
     const container = readerRef.current
     const observer = container ? new ResizeObserver(recalcPages) : null
     if (container && observer) observer.observe(container)
     return () => { clearTimeout(timer1); clearTimeout(timer2); observer?.disconnect() }
-  }, [paragraphs, chapterTitle, recalcPages])
+  }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages])
 
-  // Report page changes to parent
+  // Reset page only on actual chapter change, not on edition swap
   useEffect(() => {
-    onPageChange?.(currentPage, totalPages)
-  }, [currentPage, totalPages, onPageChange])
-
-  // Track actual chapter changes (not just title text changes from loading)
-  const prevChapterTitle = useRef(chapterTitle)
-  const hasRestoredInitial = useRef(false)
-
-  useEffect(() => {
-    // On first render, restore initial page if provided
-    if (!hasRestoredInitial.current && initialPage != null) {
-      setCurrentPage(initialPage)
-      hasRestoredInitial.current = true
-      prevChapterTitle.current = chapterTitle
-      return
-    }
-    // Only reset to 0 when chapter actually changes (user navigated)
     if (chapterTitle !== prevChapterTitle.current) {
       setCurrentPage(0)
       prevChapterTitle.current = chapterTitle
     }
-  }, [chapterTitle, initialPage])
+  }, [chapterTitle])
 
   const goToPage = useCallback((page: number) => {
-    const container = readerRef.current
-    if (!container) return
-    const clamped = Math.max(0, Math.min(page, totalPages - 1))
-    setCurrentPage(clamped)
-  }, [totalPages, readerRef])
+    setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)))
+  }, [totalPages])
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't capture keys when typing in input/textarea
       const tag = (e.target as HTMLElement).tagName
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return
-
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return
       if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault()
         goToPage(currentPage + 1)
@@ -152,15 +146,12 @@ export function Reader({
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
-    if ((e.target as HTMLElement).closest('button, .selection-popup, mark')) return
-
+    if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
     const container = readerRef.current
     if (!container) return
-
     const rect = container.getBoundingClientRect()
     const clickX = e.clientX - rect.left
-    const zone = rect.width * 0.25
-
+    const zone = rect.width * 0.2
     if (clickX < zone) {
       goToPage(currentPage - 1)
     } else if (clickX > rect.width - zone) {
@@ -168,6 +159,14 @@ export function Reader({
     }
   }, [currentPage, goToPage, readerRef])
 
+  const getTranslateX = () => {
+    const container = readerRef.current
+    if (!container) return 0
+    const colWidth = container.clientWidth - PAD_X * 2
+    return -(currentPage * (colWidth + GAP))
+  }
+
+  // === Selection / Highlight ===
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()
     if (!selection || selection.isCollapsed || !selection.toString().trim()) {
@@ -189,19 +188,16 @@ export function Reader({
     if (!paragraphEl) return
 
     const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
-
-    const paragraphText = paragraphs[paragraphIndex] || ''
-    // Normalize newlines → spaces for matching (prose text has embedded \n)
+    const side = paragraphEl.closest('.split-left') ? 'left' as const : 'right' as const
+    const sourceParagraphs = side === 'left' ? leftParagraphs : rightParagraphs
+    const paragraphText = sourceParagraphs[paragraphIndex] || ''
     const normalizedPara = paragraphText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
     const normalizedSelection = selectedText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
     let startOffset = normalizedPara.indexOf(normalizedSelection)
     let endOffset: number
     if (startOffset >= 0) {
-      // Map back to original text offsets by counting characters
-      // The normalized positions correspond to original positions when \n→space
       endOffset = startOffset + normalizedSelection.length
     } else {
-      // Fallback: try original text directly
       startOffset = paragraphText.indexOf(selectedText)
       endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
     }
@@ -211,7 +207,6 @@ export function Reader({
     const readerRect = readerRef.current.getBoundingClientRect()
 
     const popupY = rect.top - readerRect.top - 10
-    // If popup would be clipped at top, show below selection instead
     const showBelow = popupY < 50
     setSelectionPopup({
       x: rect.left - readerRect.left + rect.width / 2,
@@ -220,9 +215,10 @@ export function Reader({
       paragraphIndex,
       startOffset: Math.max(0, startOffset),
       endOffset: Math.max(0, endOffset),
+      side,
       showBelow,
     })
-  }, [paragraphs, readerRef])
+  }, [leftParagraphs, rightParagraphs, readerRef])
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
@@ -232,6 +228,7 @@ export function Reader({
       selectionPopup.endOffset,
       selectionPopup.text,
       color,
+      selectionPopup.side,
     )
     onTextSelect(selectionPopup.text)
     setSelectionPopup(null)
@@ -246,13 +243,7 @@ export function Reader({
     }
   }
 
-  // Compute translateX for current page
-  const getTranslateX = () => {
-    const container = readerRef.current
-    if (!container) return 0
-    const colWidth = container.clientWidth - PAD_X * 2
-    return -(currentPage * (colWidth + GAP))
-  }
+  const maxParagraphs = Math.max(leftParagraphs.length, rightParagraphs.length)
 
   return (
     <div
@@ -262,46 +253,80 @@ export function Reader({
       onClick={handleReaderClick}
     >
       <div
-        className="reader-columns"
+        className="reader-columns split-reader-columns"
         ref={contentRef}
         style={{ transform: `translateX(${getTranslateX()}px)` }}
       >
         <div className="chapter-header">
           <h2 className="chapter-title">{chapterTitle}</h2>
-          <p className="translator-info">{editionLabel}</p>
+        </div>
+
+        {/* Column headers */}
+        <div className="split-column-headers">
+          <div className="split-column-label">{leftLabel}</div>
+          <div className="split-column-label">
+            <select
+              className="split-edition-select"
+              value={currentRightEditionKey}
+              onChange={e => onRightEditionChange(e.target.value)}
+            >
+              {alignedEditions.map(ed => (
+                <option key={ed.key} value={ed.key}>{ed.label}</option>
+              ))}
+            </select>
+          </div>
         </div>
 
         {isLoading ? (
           <div className="loading-indicator">
             <div className="loading-spinner" />
-            <p>Loading text...</p>
+            <p>Loading texts...</p>
           </div>
         ) : (
-          <div className="text-body">
-            {paragraphs.map((para, i) => (
-              <ParagraphRenderer
-                key={i}
-                text={para}
-                paragraphIndex={i}
-                highlights={highlights}
-              />
+          <div className="split-reader-grid" ref={gridRef}>
+            {Array.from({ length: maxParagraphs }, (_, i) => (
+              <div className="split-row" key={i}>
+                <div className="split-left" data-paragraph-index={i}>
+                  {leftParagraphs[i] && (
+                    <ParagraphRenderer
+                      text={leftParagraphs[i]}
+                      paragraphIndex={i}
+                      highlights={leftHighlights}
+                    />
+                  )}
+                </div>
+                <div className="split-right" data-paragraph-index={i}>
+                  {rightParagraphs[i] && (
+                    <ParagraphRenderer
+                      text={rightParagraphs[i]}
+                      paragraphIndex={i}
+                      highlights={rightHighlights}
+                    />
+                  )}
+                </div>
+              </div>
             ))}
 
-            {paragraphs.length > 0 && onReflect && (
-              <div className="chapter-end">
-                <div className="chapter-end-ornament">* * *</div>
-                <button className="chapter-reflect-button" onClick={onReflect}>
-                  Reflect on this chapter
-                </button>
-                {isFinalChapter && onGenerateSummary && (
-                  <button
-                    className="chapter-summary-button"
-                    onClick={onGenerateSummary}
-                    disabled={isGeneratingSummary}
-                  >
-                    {isGeneratingSummary ? 'Generating summary...' : 'Generate reading journal'}
-                  </button>
-                )}
+            {maxParagraphs > 0 && onReflect && (
+              <div className="split-row">
+                <div className="split-left">
+                  <div className="chapter-end">
+                    <div className="chapter-end-ornament">* * *</div>
+                    <button className="chapter-reflect-button" onClick={onReflect}>
+                      Reflect on this chapter
+                    </button>
+                    {isFinalChapter && onGenerateSummary && (
+                      <button
+                        className="chapter-summary-button"
+                        onClick={onGenerateSummary}
+                        disabled={isGeneratingSummary}
+                      >
+                        {isGeneratingSummary ? 'Generating summary...' : 'Generate reading journal'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div className="split-right" />
               </div>
             )}
           </div>
