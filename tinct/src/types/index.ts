@@ -38,6 +38,12 @@ export interface Book {
   title: string
   author: string
   editions: Edition[]
+  /** Short description for the store */
+  description?: string
+  /** Year of original publication */
+  year?: number
+  /** Word count (approximate) for reading time estimates */
+  wordCount?: number
 }
 
 // === Chat ===

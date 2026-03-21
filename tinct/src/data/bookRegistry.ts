@@ -4,6 +4,9 @@ export const ODYSSEY: Book = {
   id: 'odyssey',
   title: 'The Odyssey',
   author: 'Homer',
+  description: 'The epic journey of Odysseus as he struggles to return home after the Trojan War. Monsters, gods, and the endurance of the human spirit across twenty years of wandering.',
+  year: -800,
+  wordCount: 130000,
   editions: [
     {
       key: 'original-en',
@@ -58,6 +61,9 @@ export const ULYSSES: Book = {
   id: 'ulysses',
   title: 'Ulysses',
   author: 'James Joyce',
+  description: 'One day in Dublin, June 16, 1904. Leopold Bloom wanders through the city in a modern retelling of The Odyssey — stream of consciousness, parody, and the ordinary made extraordinary.',
+  year: 1922,
+  wordCount: 265000,
   editions: [
     {
       key: 'original-en',

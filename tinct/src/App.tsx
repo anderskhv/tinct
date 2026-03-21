@@ -8,6 +8,7 @@ import { ProactiveInsight } from './components/ProactiveInsight'
 import { AuthModal } from './components/AuthModal'
 import { UsageDashboard } from './components/UsageDashboard'
 import { ReadingProgressBar } from './components/ReadingProgressBar'
+import { BookStore } from './components/BookStore'
 import { BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition } from './data/editionLoader'
 import { usePreferences } from './hooks/usePreferences'
@@ -20,6 +21,8 @@ import { useThreads } from './hooks/useThreads'
 import { useAuth } from './hooks/useAuth'
 import { useBalance } from './hooks/useBalance'
 import { useReadingSpeed } from './hooks/useReadingSpeed'
+import { useMobile } from './hooks/useMobile'
+import { useLibrary } from './hooks/useLibrary'
 import { storage } from './services/storage'
 import type { EditionData, HighlightColor, Style, EditionKey } from './types'
 import { makeEditionKey } from './types'
@@ -35,6 +38,10 @@ export default function App() {
   const { messagesRemaining, hasBalance, deductUsage, isAnonymous } = useBalance(session, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
+  const [showStore, setShowStore] = useState(false)
+
+  // Library
+  const { libraryIds, addBook, isEmpty: libraryEmpty } = useLibrary()
 
   const {
     preferences,
@@ -48,6 +55,15 @@ export default function App() {
     setReadingObjective,
     setOnboardingComplete,
   } = usePreferences()
+
+  // Library books (filtered to what user has added)
+  const libraryBooks = useMemo(() => {
+    if (libraryIds.length === 0) return BOOKS // fallback: show all if library empty
+    return BOOKS.filter(b => libraryIds.includes(b.id))
+  }, [libraryIds])
+
+  // Mobile
+  const { isMobile, activeView, setActiveView, swipeHandlers } = useMobile(preferences.splitView)
 
   // Restore last reading position on mount or book change
   const savedPos = useRef(getSavedPosition(book.id))
@@ -468,7 +484,20 @@ export default function App() {
 
   return (
     <div className="app">
-      {!preferences.onboardingComplete && (
+      {/* New user: show store first, then onboarding after picking a book */}
+      {(libraryEmpty || showStore) && (
+        <BookStore
+          books={libraryBooks}
+          libraryIds={libraryIds}
+          onAddBook={addBook}
+          onSelectBook={(bookId) => {
+            handleBookChange(bookId)
+            setShowStore(false)
+          }}
+        />
+      )}
+
+      {!libraryEmpty && !showStore && !preferences.onboardingComplete && (
         <Onboarding onComplete={handleOnboardingComplete} />
       )}
 
@@ -520,7 +549,7 @@ export default function App() {
       <Header
         bookTitle={book.title}
         bookAuthor={book.author}
-        books={BOOKS}
+        books={libraryBooks}
         currentBookId={book.id}
         onBookChange={handleBookChange}
         language={preferences.language}
@@ -547,81 +576,195 @@ export default function App() {
         onSignIn={() => setShowAuthModal(true)}
         onSignOut={signOut}
         onOpenUsage={() => setShowUsageDashboard(true)}
+        onOpenStore={() => setShowStore(true)}
+        isMobile={isMobile}
       />
 
-      <main className="main-layout">
-        {preferences.splitView && splitChapter ? (
-          <SplitReader
-            leftParagraphs={primaryChapter?.paragraphs || []}
-            rightParagraphs={splitChapter?.paragraphs || []}
-            chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
-            leftLabel={editionLabel}
-            rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
-            isLoading={isLoading}
-            leftHighlights={getEditionHighlights(primaryEditionKey)}
-            rightHighlights={getEditionHighlights(splitEditionKey)}
-            alignedEditions={alignedEditions}
-            currentRightEditionKey={splitEditionKey}
-            onRightEditionChange={setSplitEditionKey}
-            onHighlight={handleSplitHighlight}
-            onTextSelect={handleTextSelect}
-            onReflect={handleReflect}
-            onGenerateSummary={handleGenerateSummary}
-            isGeneratingSummary={isGeneratingSummary}
-            isFinalChapter={currentChapter === totalChapters}
-            readerRef={readerRef}
-          />
+      <main
+        className={`main-layout ${isMobile ? 'main-layout-mobile' : ''}`}
+        {...(isMobile ? swipeHandlers : {})}
+      >
+        {isMobile ? (
+          <div
+            className="mobile-views"
+            style={{ transform: `translateX(-${activeView * 100}vw)` }}
+          >
+            {/* View 0: Reader */}
+            <div className="mobile-view">
+              <Reader
+                paragraphs={primaryChapter?.paragraphs || []}
+                chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                editionLabel={editionLabel}
+                isLoading={isLoading}
+                highlights={getEditionHighlights(primaryEditionKey)}
+                onHighlight={handleHighlight}
+                onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
+                onReflect={handleReflect}
+                onGenerateSummary={handleGenerateSummary}
+                isGeneratingSummary={isGeneratingSummary}
+                isFinalChapter={currentChapter === totalChapters}
+                readerRef={readerRef}
+                onPageChange={handlePageChange}
+                initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+              />
+            </div>
+            {/* View 1: Compare */}
+            <div className="mobile-view">
+              {preferences.splitView && splitChapter ? (
+                <SplitReader
+                  leftParagraphs={primaryChapter?.paragraphs || []}
+                  rightParagraphs={splitChapter?.paragraphs || []}
+                  chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                  leftLabel={editionLabel}
+                  rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                  isLoading={isLoading}
+                  leftHighlights={getEditionHighlights(primaryEditionKey)}
+                  rightHighlights={getEditionHighlights(splitEditionKey)}
+                  alignedEditions={alignedEditions}
+                  currentRightEditionKey={splitEditionKey}
+                  onRightEditionChange={setSplitEditionKey}
+                  onHighlight={handleSplitHighlight}
+                  onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
+                  onReflect={handleReflect}
+                  onGenerateSummary={handleGenerateSummary}
+                  isGeneratingSummary={isGeneratingSummary}
+                  isFinalChapter={currentChapter === totalChapters}
+                  readerRef={readerRef}
+                />
+              ) : (
+                <div className="mobile-view-placeholder">
+                  <p>Enable Compare view from the menu to see two editions side by side.</p>
+                </div>
+              )}
+            </div>
+            {/* View 2: Panel */}
+            <div className="mobile-view">
+              <SidePanel
+                isOpen={true}
+                activeTab={preferences.panelTab}
+                onTabChange={setPanelTab}
+                messages={messages}
+                isChatLoading={chatLoading}
+                onSendMessage={handleSendMessage}
+                onClearChat={clearMessages}
+                pendingHighlight={pendingHighlight}
+                onClearHighlight={() => setPendingHighlight(null)}
+                bookTitle={book.title}
+                chapterTitle={chapterTitle}
+                readingObjective={preferences.readingObjective}
+                onEditObjective={handleEditObjective}
+                notes={notes}
+                highlights={highlights}
+                onAddNote={addNote}
+                onDeleteNote={deleteNote}
+                onUpdateNote={updateNote}
+                onCopyToNotes={handleCopyToNotes}
+                onCleanupNotes={handleCleanupNotes}
+                isCleaningUp={isCleaningUp}
+                allBookHighlights={getAllBookHighlights()}
+                chapterLabels={chapterLabels}
+                threadCharacters={threadsData?.characters || []}
+                currentChapter={currentChapter}
+                editionKey={primaryEditionKey}
+                language={preferences.language}
+                getMentions={getMentions}
+                onNavigateToChapter={(ch) => { setCurrentChapter(ch); setActiveView(0) }}
+              />
+            </div>
+          </div>
         ) : (
-          <Reader
-            paragraphs={primaryChapter?.paragraphs || []}
-            chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
-            editionLabel={editionLabel}
-            isLoading={isLoading}
-            highlights={getEditionHighlights(primaryEditionKey)}
-            onHighlight={handleHighlight}
-            onTextSelect={handleTextSelect}
-            onReflect={handleReflect}
-            onGenerateSummary={handleGenerateSummary}
-            isGeneratingSummary={isGeneratingSummary}
-            isFinalChapter={currentChapter === totalChapters}
-            readerRef={readerRef}
-            onPageChange={handlePageChange}
-            initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
-          />
-        )}
+          <>
+            {preferences.splitView && splitChapter ? (
+              <SplitReader
+                leftParagraphs={primaryChapter?.paragraphs || []}
+                rightParagraphs={splitChapter?.paragraphs || []}
+                chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                leftLabel={editionLabel}
+                rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                isLoading={isLoading}
+                leftHighlights={getEditionHighlights(primaryEditionKey)}
+                rightHighlights={getEditionHighlights(splitEditionKey)}
+                alignedEditions={alignedEditions}
+                currentRightEditionKey={splitEditionKey}
+                onRightEditionChange={setSplitEditionKey}
+                onHighlight={handleSplitHighlight}
+                onTextSelect={handleTextSelect}
+                onReflect={handleReflect}
+                onGenerateSummary={handleGenerateSummary}
+                isGeneratingSummary={isGeneratingSummary}
+                isFinalChapter={currentChapter === totalChapters}
+                readerRef={readerRef}
+              />
+            ) : (
+              <Reader
+                paragraphs={primaryChapter?.paragraphs || []}
+                chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                editionLabel={editionLabel}
+                isLoading={isLoading}
+                highlights={getEditionHighlights(primaryEditionKey)}
+                onHighlight={handleHighlight}
+                onTextSelect={handleTextSelect}
+                onReflect={handleReflect}
+                onGenerateSummary={handleGenerateSummary}
+                isGeneratingSummary={isGeneratingSummary}
+                isFinalChapter={currentChapter === totalChapters}
+                readerRef={readerRef}
+                onPageChange={handlePageChange}
+                initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+              />
+            )}
 
-        <SidePanel
-          isOpen={preferences.panelOpen}
-          activeTab={preferences.panelTab}
-          onTabChange={setPanelTab}
-          messages={messages}
-          isChatLoading={chatLoading}
-          onSendMessage={handleSendMessage}
-          onClearChat={clearMessages}
-          pendingHighlight={pendingHighlight}
-          onClearHighlight={() => setPendingHighlight(null)}
-          bookTitle={book.title}
-          chapterTitle={chapterTitle}
-          readingObjective={preferences.readingObjective}
-          onEditObjective={handleEditObjective}
-          notes={notes}
-          highlights={highlights}
-          onAddNote={addNote}
-          onDeleteNote={deleteNote}
-          onUpdateNote={updateNote}
-          onCopyToNotes={handleCopyToNotes}
-          onCleanupNotes={handleCleanupNotes}
-          isCleaningUp={isCleaningUp}
-          allBookHighlights={getAllBookHighlights()}
-          chapterLabels={chapterLabels}
-          threadCharacters={threadsData?.characters || []}
-          currentChapter={currentChapter}
-          editionKey={primaryEditionKey}
-          language={preferences.language}
-          getMentions={getMentions}
-          onNavigateToChapter={setCurrentChapter}
-        />
+            <SidePanel
+              isOpen={preferences.panelOpen}
+              activeTab={preferences.panelTab}
+              onTabChange={setPanelTab}
+              messages={messages}
+              isChatLoading={chatLoading}
+              onSendMessage={handleSendMessage}
+              onClearChat={clearMessages}
+              pendingHighlight={pendingHighlight}
+              onClearHighlight={() => setPendingHighlight(null)}
+              bookTitle={book.title}
+              chapterTitle={chapterTitle}
+              readingObjective={preferences.readingObjective}
+              onEditObjective={handleEditObjective}
+              notes={notes}
+              highlights={highlights}
+              onAddNote={addNote}
+              onDeleteNote={deleteNote}
+              onUpdateNote={updateNote}
+              onCopyToNotes={handleCopyToNotes}
+              onCleanupNotes={handleCleanupNotes}
+              isCleaningUp={isCleaningUp}
+              allBookHighlights={getAllBookHighlights()}
+              chapterLabels={chapterLabels}
+              threadCharacters={threadsData?.characters || []}
+              currentChapter={currentChapter}
+              editionKey={primaryEditionKey}
+              language={preferences.language}
+              getMentions={getMentions}
+              onNavigateToChapter={setCurrentChapter}
+            />
+          </>
+        )}
       </main>
+
+      {/* Mobile bottom navigation */}
+      {isMobile && (
+        <nav className="mobile-nav">
+          <button className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
+            Read
+          </button>
+          {preferences.splitView && (
+            <button className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
+              Compare
+            </button>
+          )}
+          <button className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(2)}>
+            Chat
+          </button>
+        </nav>
+      )}
 
       <ReadingProgressBar
         percentComplete={readingPercent}

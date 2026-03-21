@@ -60,32 +60,39 @@ export function Reader({
   const [totalPages, setTotalPages] = useState(1)
 
   const GAP = 60
-  const PAD_X = 60 // horizontal padding on each side
+
+  // Get actual padding from DOM (adapts to mobile CSS)
+  const getColWidth = useCallback(() => {
+    const container = readerRef.current
+    const content = contentRef.current
+    if (!container || !content) return 0
+    const style = getComputedStyle(content)
+    const padLeft = parseFloat(style.paddingLeft) || 0
+    const padRight = parseFloat(style.paddingRight) || 0
+    return container.clientWidth - padLeft - padRight
+  }, [readerRef])
 
   // Set column-width CSS property to match container
   const updateColumnWidth = useCallback(() => {
-    const container = readerRef.current
     const content = contentRef.current
-    if (!container || !content) return
-    // Column width = container width minus left+right padding
-    const colW = container.clientWidth - PAD_X * 2
+    if (!content) return
+    const colW = getColWidth()
     if (colW > 0) {
       content.style.columnWidth = `${colW}px`
     }
-  }, [readerRef])
+  }, [getColWidth])
 
   // CSS multi-column pagination: count columns from scrollWidth
   const recalcPages = useCallback(() => {
     const content = contentRef.current
-    const container = readerRef.current
-    if (!content || !container) return
+    if (!content) return
     updateColumnWidth()
-    const colWidth = container.clientWidth - PAD_X * 2
+    const colWidth = getColWidth()
     if (colWidth <= 0) return
     // Total scrollWidth includes all columns and gaps between them
     const pages = Math.max(1, Math.round((content.scrollWidth + GAP) / (colWidth + GAP)))
     setTotalPages(pages)
-  }, [readerRef, updateColumnWidth])
+  }, [updateColumnWidth, getColWidth])
 
   useEffect(() => {
     recalcPages()
@@ -248,9 +255,8 @@ export function Reader({
 
   // Compute translateX for current page
   const getTranslateX = () => {
-    const container = readerRef.current
-    if (!container) return 0
-    const colWidth = container.clientWidth - PAD_X * 2
+    const colWidth = getColWidth()
+    if (colWidth <= 0) return 0
     return -(currentPage * (colWidth + GAP))
   }
 
