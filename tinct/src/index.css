@@ -2552,6 +2552,83 @@ body {
   }
 }
 
+/* ===== Audio Player ===== */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.audio-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.audio-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.audio-play {
+  width: 36px;
+  height: 36px;
+  font-size: 0.85rem;
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.audio-play:hover {
+  background: var(--accent-hover);
+  color: white;
+}
+
+.audio-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.audio-progress-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.audio-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s linear;
+}
+
+.audio-time {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* ===== Book Store ===== */
 .store {
   position: fixed;
@@ -2848,12 +2925,15 @@ body {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .mobile-view-active {
-    display: flex;
-    flex-direction: column;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
   }
 
   /* Reader adjustments */
@@ -2863,7 +2943,7 @@ body {
   }
 
   .reader-columns {
-    padding: 20px 16px 48px;
+    padding: 20px 16px 100px;
     column-gap: 40px;
     max-width: 100vw;
     overflow: hidden;
@@ -2878,9 +2958,9 @@ body {
     font-size: 1.2rem;
   }
 
-  /* Page nav — prominent on mobile */
+  /* Page nav — above the reading tracker + bottom nav */
   .page-nav {
-    bottom: 8px;
+    bottom: 84px;
     left: 0;
     right: 0;
     transform: none;
@@ -2889,11 +2969,12 @@ body {
   }
 
   .page-nav-arrow {
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
   }
 
   .page-nav-arrow:active {
@@ -2901,8 +2982,12 @@ body {
   }
 
   .page-nav-label {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     min-width: 70px;
+    background: var(--bg-secondary);
+    padding: 6px 12px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
   }
 
   /* Side panel — full width on mobile */
@@ -2931,10 +3016,9 @@ body {
     min-width: 0;
   }
 
-  /* Panel tabs — smaller on mobile */
-  .panel-tab {
-    padding: 8px 4px;
-    font-size: 0.75rem;
+  /* Hide panel tabs on mobile — bottom nav handles view switching */
+  .panel-tabs {
+    display: none;
   }
 
   /* Chat input safe area */

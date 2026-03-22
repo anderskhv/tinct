@@ -751,18 +751,13 @@ export default function App() {
           <button className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
             Read
           </button>
-          {preferences.splitView && (
-            <button className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
-              Compare
-            </button>
-          )}
+          <button className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => { setActiveView(1) }}>
+            Compare
+          </button>
           <button className={`mobile-nav-btn ${activeView === 2 && preferences.panelTab === 'chat' ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
             Chat
           </button>
-          <button className={`mobile-nav-btn ${activeView === 2 && preferences.panelTab === 'notes' ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(2) }}>
-            Notes
-          </button>
-          <button className={`mobile-nav-btn ${activeView === 2 && (preferences.panelTab === 'highlights' || preferences.panelTab === 'threads') ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('highlights'); setActiveView(2) }}>
+          <button className={`mobile-nav-btn ${activeView === 2 && (preferences.panelTab === 'notes' || preferences.panelTab === 'highlights' || preferences.panelTab === 'threads') ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(2) }}>
             More
           </button>
         </nav>
