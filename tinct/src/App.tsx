@@ -23,9 +23,19 @@ import { useBalance } from './hooks/useBalance'
 import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useLibrary } from './hooks/useLibrary'
-import { storage } from './services/storage'
-import type { EditionData, HighlightColor, Style, EditionKey } from './types'
+import { storage, setStorageProvider, localStorageProvider } from './services/storage'
+import { SupabaseStorageProvider } from './services/supabaseStorage'
+import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition } from './types'
 import { makeEditionKey } from './types'
+
+/** Pick whichever position is furthest in the book (higher chapter, or higher page within same chapter) */
+function pickFurthest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
+  if (!a) return b
+  if (!b) return a
+  if (a.chapterNumber > b.chapterNumber) return a
+  if (b.chapterNumber > a.chapterNumber) return b
+  return (a.currentPage || 0) >= (b.currentPage || 0) ? a : b
+}
 
 export default function App() {
   const [currentBookId, setCurrentBookId] = useState(() => {
@@ -39,6 +49,28 @@ export default function App() {
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
   const [showStore, setShowStore] = useState(false)
+
+  // Swap storage provider when user signs in/out — enables cross-device sync
+  const [storageReady, setStorageReady] = useState(!user)
+  useEffect(() => {
+    if (user) {
+      const provider = new SupabaseStorageProvider(user.id)
+      provider.init().then(() => {
+        // Migrate any existing localStorage data to Supabase
+        const localData = localStorageProvider.getAllData()
+        for (const [key, value] of Object.entries(localData)) {
+          if (!provider.get(key)) {
+            provider.set(key, value)
+          }
+        }
+        setStorageProvider(provider)
+        setStorageReady(true)
+      })
+    } else {
+      setStorageProvider(localStorageProvider)
+      setStorageReady(true)
+    }
+  }, [user])
 
   // Library
   const { libraryIds, addBook, isEmpty: libraryEmpty } = useLibrary()
@@ -75,9 +107,30 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
   const [isCleaningUp, setIsCleaningUp] = useState(false)
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(() => savedPos.current?.currentPage || 0)
   const [totalPages, setTotalPages] = useState(1)
   const readerRef = useRef<HTMLDivElement>(null)
+  const compareReaderRef = useRef<HTMLDivElement>(null)
+  const [readerKey, setReaderKey] = useState(0)
+
+  // Re-read position from cloud storage once Supabase syncs — pick furthest position
+  const hasRestoredFromCloud = useRef(false)
+  useEffect(() => {
+    if (storageReady && user && !hasRestoredFromCloud.current) {
+      hasRestoredFromCloud.current = true
+      const cloudPos = getSavedPosition(book.id)
+      if (cloudPos) {
+        const localPos = savedPos.current
+        const winner = pickFurthest(localPos, cloudPos)
+        if (winner) {
+          savedPos.current = winner
+          setCurrentChapter(winner.chapterNumber)
+          setCurrentPage(winner.currentPage || 0)
+          setReaderKey(k => k + 1) // force Reader remount with correct initialPage
+        }
+      }
+    }
+  }, [storageReady, user, book.id])
 
   // Get current chapter data early so we can pass context to chat
   const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
@@ -162,8 +215,11 @@ export default function App() {
     setCurrentBookId(bookId)
     const pos = getSavedPosition(bookId)
     setCurrentChapter(pos?.chapterNumber || 1)
+    setCurrentPage(pos?.currentPage || 0)
+    setTotalPages(1) // Reset so useReadingPosition guard (totalPages <= 1) prevents stale saves
     savedPos.current = pos
     clearMessages()
+    setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages])
 
   const { highlights, addHighlight, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
@@ -589,6 +645,7 @@ export default function App() {
             {/* View 0: Reader */}
             <div className={`mobile-view ${activeView === 0 ? 'mobile-view-active' : ''}`}>
               <Reader
+                key={`${currentChapter}-${readerKey}`}
                 paragraphs={primaryChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
                 editionLabel={editionLabel}
@@ -603,35 +660,38 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
-
               />
             </div>
-            {/* View 1: Compare */}
+            {/* View 1: Compare — shows alternate edition full-width on mobile */}
             <div className={`mobile-view ${activeView === 1 ? 'mobile-view-active' : ''}`}>
               {preferences.splitView && splitChapter ? (
-                <SplitReader
-                  leftParagraphs={primaryChapter?.paragraphs || []}
-                  rightParagraphs={splitChapter?.paragraphs || []}
-                  chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
-                  leftLabel={editionLabel}
-                  rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
-                  isLoading={isLoading}
-                  leftHighlights={getEditionHighlights(primaryEditionKey)}
-                  rightHighlights={getEditionHighlights(splitEditionKey)}
-                  alignedEditions={alignedEditions}
-                  currentRightEditionKey={splitEditionKey}
-                  onRightEditionChange={setSplitEditionKey}
-                  onHighlight={handleSplitHighlight}
-                  onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
-                  onReflect={handleReflect}
-                  onGenerateSummary={handleGenerateSummary}
-                  isGeneratingSummary={isGeneratingSummary}
-                  isFinalChapter={currentChapter === totalChapters}
-                  readerRef={readerRef}
-                />
+                <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <div className="mobile-compare-header">
+                    <select
+                      className="split-edition-select"
+                      value={splitEditionKey}
+                      onChange={e => setSplitEditionKey(e.target.value)}
+                    >
+                      {alignedEditions.map(ed => (
+                        <option key={ed.key} value={ed.key}>{ed.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <Reader
+                    paragraphs={splitChapter?.paragraphs || []}
+                    chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                    editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                    isLoading={isLoading}
+                    highlights={getEditionHighlights(splitEditionKey)}
+                    onHighlight={handleHighlight}
+                    onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
+                    isFinalChapter={currentChapter === totalChapters}
+                    readerRef={compareReaderRef}
+                  />
+                </div>
               ) : (
                 <div className="mobile-view-placeholder">
-                  <p>Enable Compare view from the menu to see two editions side by side.</p>
+                  <p>Enable Compare view from the menu to see another edition.</p>
                 </div>
               )}
             </div>
@@ -695,6 +755,7 @@ export default function App() {
               />
             ) : (
               <Reader
+                key={`${currentChapter}-${readerKey}`}
                 paragraphs={primaryChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
                 editionLabel={editionLabel}
@@ -709,7 +770,6 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
-
               />
             )}
 

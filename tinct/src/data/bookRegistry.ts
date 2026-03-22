@@ -104,8 +104,56 @@ export const ULYSSES: Book = {
   ],
 }
 
+export const WAR_AND_PEACE: Book = {
+  id: 'war-and-peace',
+  title: 'War and Peace',
+  author: 'Leo Tolstoy',
+  description: 'The sweeping epic of Russian society during the Napoleonic Wars. Five aristocratic families navigate love, death, and the search for meaning across battlefields and ballrooms.',
+  year: 1869,
+  wordCount: 561695,
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Maude Translation (1922)',
+      translator: 'Aylmer & Louise Maude',
+      year: 1922,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'kids-en',
+      language: 'en',
+      style: 'kids',
+      label: 'Kids English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+    {
+      key: 'kids-da',
+      language: 'da',
+      style: 'kids',
+      label: 'Dansk for Børn',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE]
 
 export function getBook(id: string): Book | undefined {
   return BOOKS.find(b => b.id === id)

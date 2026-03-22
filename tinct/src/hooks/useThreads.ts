@@ -9,6 +9,7 @@ export function useThreads(bookId: string, editionData: EditionData | null) {
     const loaders: Record<string, () => Promise<unknown>> = {
       odyssey: () => import('../data/editions/odyssey-threads.json'),
       ulysses: () => import('../data/editions/ulysses-threads.json'),
+      'war-and-peace': () => import('../data/editions/war-and-peace-threads.json'),
     }
     const loader = loaders[bookId]
     if (loader) {

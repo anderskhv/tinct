@@ -70,8 +70,14 @@ export function SplitReader({
   // === Pagination (CSS multi-column, same as Reader) ===
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
-  const GAP = 60
   const PAD_X = 24
+
+  // Read actual column-gap from CSS (60px desktop, 40px mobile)
+  const getGap = useCallback(() => {
+    const content = contentRef.current
+    if (!content) return 60
+    return parseFloat(getComputedStyle(content).columnGap) || 60
+  }, [])
 
   const updateColumnWidth = useCallback(() => {
     const container = readerRef.current
@@ -90,9 +96,10 @@ export function SplitReader({
     updateColumnWidth()
     const colWidth = container.clientWidth - PAD_X * 2
     if (colWidth <= 0) return
-    const pages = Math.max(1, Math.round((content.scrollWidth + GAP) / (colWidth + GAP)))
+    const gap = getGap()
+    const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
     setTotalPages(pages)
-  }, [readerRef, updateColumnWidth])
+  }, [readerRef, updateColumnWidth, getGap])
 
   // Track chapter title to know when chapter actually changes (vs edition swap)
   const prevChapterTitle = useRef(chapterTitle)
@@ -163,7 +170,7 @@ export function SplitReader({
     const container = readerRef.current
     if (!container) return 0
     const colWidth = container.clientWidth - PAD_X * 2
-    return -(currentPage * (colWidth + GAP))
+    return -(currentPage * (colWidth + getGap()))
   }
 
   // === Selection / Highlight ===

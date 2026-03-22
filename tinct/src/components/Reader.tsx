@@ -56,10 +56,15 @@ export function Reader({
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(initialPage || 0)
   const [totalPages, setTotalPages] = useState(1)
 
-  const GAP = 60
+  // Read actual column-gap from CSS (60px desktop, 40px mobile)
+  const getGap = useCallback(() => {
+    const content = contentRef.current
+    if (!content) return 60
+    return parseFloat(getComputedStyle(content).columnGap) || 60
+  }, [])
 
   // Get actual padding from DOM (adapts to mobile CSS)
   const getColWidth = useCallback(() => {
@@ -89,10 +94,11 @@ export function Reader({
     updateColumnWidth()
     const colWidth = getColWidth()
     if (colWidth <= 0) return
+    const gap = getGap()
     // Total scrollWidth includes all columns and gaps between them
-    const pages = Math.max(1, Math.round((content.scrollWidth + GAP) / (colWidth + GAP)))
+    const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
     setTotalPages(pages)
-  }, [updateColumnWidth, getColWidth])
+  }, [updateColumnWidth, getColWidth, getGap])
 
   useEffect(() => {
     recalcPages()
@@ -111,24 +117,6 @@ export function Reader({
     onPageChange?.(currentPage, totalPages)
   }, [currentPage, totalPages, onPageChange])
 
-  // Track actual chapter changes (not just title text changes from loading)
-  const prevChapterTitle = useRef(chapterTitle)
-  const hasRestoredInitial = useRef(false)
-
-  useEffect(() => {
-    // On first render, restore initial page if provided
-    if (!hasRestoredInitial.current && initialPage != null) {
-      setCurrentPage(initialPage)
-      hasRestoredInitial.current = true
-      prevChapterTitle.current = chapterTitle
-      return
-    }
-    // Only reset to 0 when chapter actually changes (user navigated)
-    if (chapterTitle !== prevChapterTitle.current) {
-      setCurrentPage(0)
-      prevChapterTitle.current = chapterTitle
-    }
-  }, [chapterTitle, initialPage])
 
   const goToPage = useCallback((page: number) => {
     const container = readerRef.current
@@ -258,7 +246,7 @@ export function Reader({
   const getTranslateX = () => {
     const colWidth = getColWidth()
     if (colWidth <= 0) return 0
-    return -(currentPage * (colWidth + GAP))
+    return -(currentPage * (colWidth + getGap()))
   }
 
   return (

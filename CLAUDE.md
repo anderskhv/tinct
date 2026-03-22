@@ -190,7 +190,41 @@ See `BACKLOG.md` for full task list.
 
 - **Be autonomous** — don't ask permission on routine decisions
 - **Be concise** — short answers, no fluff
-- **Keep momentum** — complete the requested task fully before stopping
+- **Verify before presenting** — never tell Anders something works unless you've tested it yourself. `vite build` passing is NOT testing. Testing means running the app and checking the actual behavior.
+
+---
+
+## Pre-Deploy Checklist (MANDATORY — never skip)
+
+Every deploy MUST follow this sequence. No exceptions.
+
+1. `cd tinct && npm run dev` — open localhost:3001 in browser, manually verify the change works
+2. `npx vite build` — must pass with zero errors
+3. After any variable/function removal: `grep -r "removedThing" src/` — verify no stale references
+4. `npx wrangler deploy` — from the `tinct/` directory
+5. `curl -s https://tinct.ahvelplund.workers.dev/ | head -5` — verify 200 + HTML
+6. Open production URL — verify no white screen, test the specific change
+
+**If you deployed a broken site:** revert the code change, rebuild, redeploy IMMEDIATELY. Fix second, restore service first.
+
+---
+
+## Bug Fix Protocol (MANDATORY for any bug that has failed a fix attempt before)
+
+1. **NEVER attempt a fix without first understanding the full data flow.** Trace the actual execution path — don't pattern-match a plausible fix.
+2. **Write a test (Playwright or manual verification steps) that reproduces the bug BEFORE writing any fix code.**
+3. **After editing: grep for ALL references to any removed/renamed variable, function, or type.** The most common bug is removing a declaration but leaving references in dependency arrays, imports, or other files.
+4. **Run the reproduction test — it must pass before deploying.**
+5. **If 2 fix attempts have failed on the same bug: STOP.** Enter plan mode. Re-trace the full data flow from scratch. Do not attempt a third fix without a new analysis.
+
+---
+
+## When Stuck (>2 failed attempts on same problem)
+
+- **STOP coding immediately.** More code changes will make it worse.
+- Add `console.log` at every stage of the data flow and read the actual browser console output.
+- Document in a plan: what you tried, what happened, why it failed.
+- If still stuck: tell Anders honestly. Say "I've tried X and Y, both failed because Z. I need to approach this differently." Do NOT try a third variation of the same approach.
 
 ---
 
@@ -209,7 +243,7 @@ See `BACKLOG.md` for full task list.
 
 ### 4. Verification Before Done
 - Never mark a task complete without proving it works
-- Test in browser before claiming done
+- **"Proving it works" means:** running the dev server, navigating to the feature, and confirming the expected behavior with your own eyes (screenshot or curl). A passing build is necessary but NOT sufficient.
 
 ### 5. Demand Elegance (Balanced)
 - For non-trivial changes: pause and ask "is there a more elegant way?"
@@ -217,6 +251,7 @@ See `BACKLOG.md` for full task list.
 
 ### 6. Autonomous Bug Fixing
 - When given a bug report: just fix it
+- But ALWAYS verify the fix works before telling Anders it's done
 - Zero context switching required from the user
 
 ## Task Management
@@ -233,15 +268,18 @@ See `BACKLOG.md` for full task list.
 - **Simplicity First**: Make every change as simple as possible.
 - **No Guesswork**: Find root causes. No temporary fixes.
 - **Minimal Impact**: Changes should only touch what's necessary.
+- **Grep after deletion**: Every time you remove a variable, function, type, or import — grep the entire `src/` directory for remaining references before building.
+- **Test before deploy**: Every single time. No exceptions. Ever.
 
 ---
 
 ## Autonomy Framework
 
 **Pre-authorized (just do it):**
-- Git commits — if build passes, commit
+- Git commits — if build passes AND you've verified the change works locally, commit
 - Git push — if commit is clean, push to remote
-- Bug fixes and code corrections — just fix them
+- Bug fixes and code corrections — fix them, but verify locally before telling Anders
+- Deploy — ONLY after completing the Pre-Deploy Checklist above (all 6 steps)
 - Running and acting on test results — fix what fails
 - Content generation within established patterns (book text versions, chapter metadata)
 - Prioritization between backlog items
