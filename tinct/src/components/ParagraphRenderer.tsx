@@ -85,6 +85,11 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp 
     .filter(h => h.paragraphIndex === paragraphIndex)
     .sort((a, b) => a.startOffset - b.startOffset)
 
+  // Normalize prose text the same way handleMouseUp does when computing offsets.
+  // Offsets are calculated on normalized text, so we must slice the same string.
+  const verse = isVerse(text)
+  const sliceText = verse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
+
   if (paraHighlights.length === 0) {
     return (
       <p className="text-paragraph" data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
@@ -93,7 +98,7 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp 
     )
   }
 
-  // Build segments
+  // Build segments from the normalized text (same string offsets were computed against)
   const segments: TextSegment[] = []
   let pos = 0
 
@@ -103,18 +108,18 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp 
 
     // Text before highlight
     if (hl.startOffset > pos) {
-      segments.push({ text: text.slice(pos, hl.startOffset) })
+      segments.push({ text: sliceText.slice(pos, hl.startOffset) })
     }
 
     // Highlighted text
-    const end = Math.min(hl.endOffset, text.length)
-    segments.push({ text: text.slice(hl.startOffset, end), highlight: hl })
+    const end = Math.min(hl.endOffset, sliceText.length)
+    segments.push({ text: sliceText.slice(hl.startOffset, end), highlight: hl })
     pos = end
   }
 
   // Remaining text after last highlight
-  if (pos < text.length) {
-    segments.push({ text: text.slice(pos) })
+  if (pos < sliceText.length) {
+    segments.push({ text: sliceText.slice(pos) })
   }
 
   return (
@@ -127,10 +132,10 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp 
             data-highlight-id={seg.highlight.id}
             title={seg.highlight.note || undefined}
           >
-            {renderFormattedText(seg.text)}
+            {renderFormattedText(seg.text, verse)}
           </mark>
         ) : (
-          <span key={i}>{renderFormattedText(seg.text)}</span>
+          <span key={i}>{renderFormattedText(seg.text, verse)}</span>
         )
       )}
     </p>
