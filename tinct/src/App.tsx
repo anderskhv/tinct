@@ -77,7 +77,6 @@ export default function App() {
   const [isCleaningUp, setIsCleaningUp] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
-
   const readerRef = useRef<HTMLDivElement>(null)
 
   // Get current chapter data early so we can pass context to chat
@@ -604,6 +603,7 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+
               />
             </div>
             {/* View 1: Compare */}
@@ -709,6 +709,7 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+
               />
             )}
 
