@@ -29,7 +29,11 @@ export function Threads({
   }, [editionKey, language])
 
   const filtered = useMemo(() => {
-    let chars = characters
+    // Only show characters who have appeared up to the current chapter
+    let chars = characters.filter(c => {
+      const chapterNums = Object.keys(c.chapters).map(Number)
+      return chapterNums.some(n => n <= currentChapter)
+    })
     if (filter !== 'all') chars = chars.filter(c => c.role === filter)
     return [...chars].sort((a, b) => {
       const aChapters = Object.keys(a.chapters).map(Number).filter(n => n <= currentChapter)
@@ -54,7 +58,7 @@ export function Threads({
   return (
     <div className="threads">
       <div className="threads-header">
-        <h3>Threads</h3>
+        <h3>Cast</h3>
         <div className="threads-filters">
           {(['all', 'mortal', 'god', 'creature'] as const).map(f => (
             <button

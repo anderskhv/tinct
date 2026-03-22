@@ -107,7 +107,7 @@ export function SidePanel({
               className={`panel-tab ${activeTab === 'threads' ? 'panel-tab-active' : ''}`}
               onClick={() => onTabChange('threads')}
             >
-              Threads
+              Cast
             </button>
           </div>
 
