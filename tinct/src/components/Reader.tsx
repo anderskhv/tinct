@@ -34,7 +34,7 @@ interface ReaderProps {
   readerRef: React.RefObject<HTMLDivElement>
   /** Called when page changes with (currentPage, totalPages) */
   onPageChange?: (page: number, total: number) => void
-  /** Initial page to restore on mount */
+  /** Initial scroll fraction (0–1) to restore on mount, or absolute page number (>1) for backwards compat */
   initialPage?: number
 }
 
@@ -56,8 +56,9 @@ export function Reader({
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const [currentPage, setCurrentPage] = useState(initialPage || 0)
+  const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
+  const initialPageRef = useRef(initialPage)
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
   const getGap = useCallback(() => {
@@ -111,6 +112,16 @@ export function Reader({
     if (container && observer) observer.observe(container)
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); observer?.disconnect() }
   }, [paragraphs, chapterTitle, recalcPages])
+
+  // Restore position from initialPage fraction after layout settles
+  useEffect(() => {
+    const frac = initialPageRef.current
+    if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
+      const targetPage = Math.round(frac * (totalPages - 1))
+      setCurrentPage(targetPage)
+      initialPageRef.current = undefined // only restore once
+    }
+  }, [totalPages])
 
   // Report page changes to parent
   useEffect(() => {

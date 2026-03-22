@@ -29,6 +29,7 @@ export function useReadingPosition(
       chapterNumber,
       currentPage,
       totalPages,
+      scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
     }
     storage.set(positionKey(bookId), position)
   }, [bookId, chapterNumber, currentPage, totalPages])

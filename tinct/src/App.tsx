@@ -28,13 +28,15 @@ import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition } from './types'
 import { makeEditionKey } from './types'
 
-/** Pick whichever position is furthest in the book (higher chapter, or higher page within same chapter) */
+/** Pick whichever position is furthest in the book (higher chapter, or higher fraction within same chapter) */
 function pickFurthest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
   if (!a) return b
   if (!b) return a
   if (a.chapterNumber > b.chapterNumber) return a
   if (b.chapterNumber > a.chapterNumber) return b
-  return (a.currentPage || 0) >= (b.currentPage || 0) ? a : b
+  const fracA = a.scrollFraction ?? (a.totalPages > 1 ? a.currentPage / (a.totalPages - 1) : 0)
+  const fracB = b.scrollFraction ?? (b.totalPages > 1 ? b.currentPage / (b.totalPages - 1) : 0)
+  return fracA >= fracB ? a : b
 }
 
 export default function App() {
@@ -107,7 +109,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
   const [isCleaningUp, setIsCleaningUp] = useState(false)
-  const [currentPage, setCurrentPage] = useState(() => savedPos.current?.currentPage || 0)
+  const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
   const readerRef = useRef<HTMLDivElement>(null)
   const compareReaderRef = useRef<HTMLDivElement>(null)
@@ -125,7 +127,7 @@ export default function App() {
         if (winner) {
           savedPos.current = winner
           setCurrentChapter(winner.chapterNumber)
-          setCurrentPage(winner.currentPage || 0)
+          setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
           setReaderKey(k => k + 1) // force Reader remount with correct initialPage
         }
       }
@@ -215,7 +217,7 @@ export default function App() {
     setCurrentBookId(bookId)
     const pos = getSavedPosition(bookId)
     setCurrentChapter(pos?.chapterNumber || 1)
-    setCurrentPage(pos?.currentPage || 0)
+    setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
     setTotalPages(1) // Reset so useReadingPosition guard (totalPages <= 1) prevents stale saves
     savedPos.current = pos
     clearMessages()
@@ -659,7 +661,7 @@ export default function App() {
                 isFinalChapter={currentChapter === totalChapters}
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
-                initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+                initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
               />
             </div>
             {/* View 1: Compare — shows alternate edition full-width on mobile */}
@@ -769,7 +771,7 @@ export default function App() {
                 isFinalChapter={currentChapter === totalChapters}
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
-                initialPage={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.currentPage : undefined}
+                initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
               />
             )}
 

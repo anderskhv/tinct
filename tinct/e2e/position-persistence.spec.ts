@@ -35,8 +35,8 @@ function defaultSeeds(): Record<string, unknown> {
   }
 }
 
-// --- Test 1: Save position to localStorage ---
-test('saves reading position to localStorage after navigating', async ({ page }) => {
+// --- Test 1: Save position with scrollFraction ---
+test('saves reading position with scrollFraction to localStorage', async ({ page }) => {
   await seedStorage(page, defaultSeeds())
   await page.goto(BASE, { waitUntil: 'networkidle' })
 
@@ -68,10 +68,13 @@ test('saves reading position to localStorage after navigating', async ({ page })
   expect(saved.chapterNumber).toBe(3)
   expect(saved.currentPage).toBe(2)
   expect(saved.totalPages).toBeGreaterThan(2)
+  // scrollFraction must be present and between 0 and 1
+  expect(saved.scrollFraction).toBeGreaterThanOrEqual(0)
+  expect(saved.scrollFraction).toBeLessThanOrEqual(1)
 })
 
-// --- Test 2: Restore position from localStorage ---
-test('restores saved position on page load', async ({ page }) => {
+// --- Test 2: Restore position from scrollFraction ---
+test('restores saved position from scrollFraction on page load', async ({ page }) => {
   const seeds = {
     ...defaultSeeds(),
     'tinct:position:odyssey': {
@@ -79,6 +82,7 @@ test('restores saved position on page load', async ({ page }) => {
       chapterNumber: 5,
       currentPage: 3,
       totalPages: 10,
+      scrollFraction: 0.3, // ~30% through the chapter
     },
   }
   await seedStorage(page, seeds)
@@ -88,9 +92,16 @@ test('restores saved position on page load', async ({ page }) => {
   // Wait for pagination to settle
   await page.waitForTimeout(2000)
 
-  // Check the page nav shows page 4 (currentPage 3 = display "4")
+  // Read current position — should be approximately 30% through
   const label = await page.locator('.page-nav-label').textContent()
-  expect(label).toMatch(/^4\s*\//)
+  const match = label?.match(/(\d+)\s*\/\s*(\d+)/)
+  expect(match).not.toBeNull()
+  const currentDisplay = parseInt(match![1])
+  const totalDisplay = parseInt(match![2])
+  // 30% of totalPages should land roughly at the right spot (allow ±2 pages for rounding)
+  const expectedPage = Math.round(0.3 * (totalDisplay - 1)) + 1 // +1 for display (1-indexed)
+  expect(currentDisplay).toBeGreaterThanOrEqual(expectedPage - 2)
+  expect(currentDisplay).toBeLessThanOrEqual(expectedPage + 2)
 })
 
 // --- Test 3: Restore current book from localStorage ---
@@ -104,6 +115,7 @@ test('restores selected book from localStorage', async ({ page }) => {
       chapterNumber: 1,
       currentPage: 0,
       totalPages: 1,
+      scrollFraction: 0,
     },
   }
   await seedStorage(page, seeds)
@@ -148,7 +160,7 @@ test('position survives page refresh', async ({ page }) => {
 })
 
 // --- Test 5: Book switch doesn't corrupt the new book's position ---
-test('switching books does not save stale page from previous book', async ({ page }) => {
+test('switching books does not corrupt scrollFraction', async ({ page }) => {
   const seeds = {
     ...defaultSeeds(),
     'tinct:library': ['odyssey', 'war-and-peace'],
@@ -157,12 +169,14 @@ test('switching books does not save stale page from previous book', async ({ pag
       chapterNumber: 5,
       currentPage: 8,
       totalPages: 12,
+      scrollFraction: 0.727,
     },
     'tinct:position:war-and-peace': {
       bookId: 'war-and-peace',
       chapterNumber: 1,
       currentPage: 0,
       totalPages: 1,
+      scrollFraction: 0,
     },
   }
   await seedStorage(page, seeds)
@@ -176,15 +190,15 @@ test('switching books does not save stale page from previous book', async ({ pag
   await bookSelect.selectOption('war-and-peace')
   await page.waitForTimeout(2000)
 
-  // Check that War and Peace position was NOT corrupted with Odyssey's page 8
+  // Check that War and Peace position was NOT corrupted with Odyssey's fraction
   const saved = await page.evaluate(() => {
     const raw = localStorage.getItem('tinct:position:war-and-peace')
     return raw ? JSON.parse(raw) : null
   })
 
-  // The saved position should show chapter 1, page 0 (or at most page 0-1 from recalc)
-  // It should NOT be page 8 from the odyssey
+  // The saved position should show chapter 1, small fraction (not Odyssey's 0.727)
   if (saved) {
     expect(saved.currentPage).toBeLessThan(3)
+    expect(saved.scrollFraction).toBeLessThan(0.2)
   }
 })

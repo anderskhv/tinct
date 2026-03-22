@@ -177,6 +177,7 @@ export interface ReadingPosition {
   chapterNumber: number
   currentPage: number
   totalPages: number
+  scrollFraction: number // 0.0–1.0, viewport-independent canonical position
 }
 
 export interface ReadingProgress {
