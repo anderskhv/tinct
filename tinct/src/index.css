@@ -2958,14 +2958,16 @@ body {
     font-size: 1.2rem;
   }
 
-  /* Page nav — above the reading tracker + bottom nav */
+  /* Page nav — fixed position on mobile, above bottom bar */
   .page-nav {
-    bottom: 84px;
+    position: fixed;
+    bottom: 80px;
     left: 0;
     right: 0;
     transform: none;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
+    z-index: 50;
   }
 
   .page-nav-arrow {
@@ -2974,11 +2976,14 @@ body {
     font-size: 1.2rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    -webkit-tap-highlight-color: transparent;
   }
 
   .page-nav-arrow:active {
-    background: var(--bg-hover);
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
   }
 
   .page-nav-label {
@@ -2988,6 +2993,7 @@ body {
     padding: 6px 12px;
     border-radius: 16px;
     border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
   }
 
   /* Side panel — full width on mobile */

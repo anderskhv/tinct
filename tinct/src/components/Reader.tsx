@@ -266,6 +266,24 @@ export function Reader({
       ref={readerRef}
       onMouseUp={handleMouseUp}
       onClick={handleReaderClick}
+      onTouchEnd={(e) => {
+        // Mobile tap-to-turn: check if it's a simple tap (not a selection)
+        const selection = window.getSelection()
+        if (selection && !selection.isCollapsed) return
+        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
+        const container = readerRef.current
+        if (!container) return
+        const rect = container.getBoundingClientRect()
+        const touch = e.changedTouches[0]
+        if (!touch) return
+        const touchX = touch.clientX - rect.left
+        const zone = rect.width * 0.3
+        if (touchX < zone) {
+          goToPage(currentPage - 1)
+        } else if (touchX > rect.width - zone) {
+          goToPage(currentPage + 1)
+        }
+      }}
     >
       <div
         className="reader-columns"

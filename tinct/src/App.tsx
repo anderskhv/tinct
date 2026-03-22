@@ -577,6 +577,8 @@ export default function App() {
         onSignOut={signOut}
         onOpenUsage={() => setShowUsageDashboard(true)}
         onOpenStore={() => setShowStore(true)}
+        onOpenNotes={() => { setPanelTab('notes'); setActiveView(2) }}
+        onOpenCast={() => { setPanelTab('threads'); setActiveView(2) }}
         isMobile={isMobile}
       />
 
@@ -751,14 +753,11 @@ export default function App() {
           <button className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
             Read
           </button>
-          <button className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => { setActiveView(1) }}>
+          <button className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
             Compare
           </button>
-          <button className={`mobile-nav-btn ${activeView === 2 && preferences.panelTab === 'chat' ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
+          <button className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
             Chat
-          </button>
-          <button className={`mobile-nav-btn ${activeView === 2 && (preferences.panelTab === 'notes' || preferences.panelTab === 'highlights' || preferences.panelTab === 'threads') ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(2) }}>
-            More
           </button>
         </nav>
       )}

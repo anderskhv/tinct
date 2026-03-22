@@ -35,6 +35,8 @@ interface HeaderProps {
   onSignOut: () => void
   onOpenUsage: () => void
   onOpenStore: () => void
+  onOpenNotes?: () => void
+  onOpenCast?: () => void
   // Mobile
   isMobile?: boolean
 }
@@ -70,6 +72,8 @@ export function Header({
   onSignOut,
   onOpenUsage,
   onOpenStore,
+  onOpenNotes,
+  onOpenCast,
   isMobile,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -178,6 +182,24 @@ export function Header({
                   {darkMode ? 'On' : 'Off'}
                 </button>
               </div>
+
+              {/* Notes */}
+              {onOpenNotes && (
+                <div className="mobile-menu-item">
+                  <button className="mobile-menu-auth" onClick={() => { onOpenNotes(); setMobileMenuOpen(false) }}>
+                    Notes & Highlights
+                  </button>
+                </div>
+              )}
+
+              {/* Cast */}
+              {onOpenCast && (
+                <div className="mobile-menu-item">
+                  <button className="mobile-menu-auth" onClick={() => { onOpenCast(); setMobileMenuOpen(false) }}>
+                    Cast
+                  </button>
+                </div>
+              )}
 
               {/* Balance */}
               <div className="mobile-menu-item">
