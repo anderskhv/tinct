@@ -582,15 +582,11 @@ export default function App() {
 
       <main
         className={`main-layout ${isMobile ? 'main-layout-mobile' : ''}`}
-        {...(isMobile ? swipeHandlers : {})}
       >
         {isMobile ? (
-          <div
-            className="mobile-views"
-            style={{ transform: `translateX(-${activeView * 100}vw)` }}
-          >
+          <div className="mobile-views">
             {/* View 0: Reader */}
-            <div className="mobile-view">
+            <div className={`mobile-view ${activeView === 0 ? 'mobile-view-active' : ''}`}>
               <Reader
                 paragraphs={primaryChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
@@ -609,7 +605,7 @@ export default function App() {
               />
             </div>
             {/* View 1: Compare */}
-            <div className="mobile-view">
+            <div className={`mobile-view ${activeView === 1 ? 'mobile-view-active' : ''}`}>
               {preferences.splitView && splitChapter ? (
                 <SplitReader
                   leftParagraphs={primaryChapter?.paragraphs || []}
@@ -638,7 +634,7 @@ export default function App() {
               )}
             </div>
             {/* View 2: Panel */}
-            <div className="mobile-view">
+            <div className={`mobile-view ${activeView === 2 ? 'mobile-view-active' : ''}`}>
               <SidePanel
                 isOpen={true}
                 activeTab={preferences.panelTab}
@@ -760,8 +756,14 @@ export default function App() {
               Compare
             </button>
           )}
-          <button className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(2)}>
+          <button className={`mobile-nav-btn ${activeView === 2 && preferences.panelTab === 'chat' ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
             Chat
+          </button>
+          <button className={`mobile-nav-btn ${activeView === 2 && preferences.panelTab === 'notes' ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(2) }}>
+            Notes
+          </button>
+          <button className={`mobile-nav-btn ${activeView === 2 && (preferences.panelTab === 'highlights' || preferences.panelTab === 'threads') ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('highlights'); setActiveView(2) }}>
+            More
           </button>
         </nav>
       )}
