@@ -96,13 +96,14 @@ export function Reader({
 
   useEffect(() => {
     recalcPages()
-    // Recalc after fonts load and layout settles
+    // Recalc after fonts load and layout settles — multiple attempts for mobile
     const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
+    const timer3 = setTimeout(recalcPages, 1500)
     const container = readerRef.current
     const observer = container ? new ResizeObserver(recalcPages) : null
     if (container && observer) observer.observe(container)
-    return () => { clearTimeout(timer1); clearTimeout(timer2); observer?.disconnect() }
+    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); observer?.disconnect() }
   }, [paragraphs, chapterTitle, recalcPages])
 
   // Report page changes to parent
@@ -332,26 +333,24 @@ export function Reader({
         )}
       </div>
 
-      {/* Page indicator & nav */}
-      {totalPages > 1 && (
-        <div className="page-nav">
-          <button
-            className="page-nav-arrow"
-            onClick={(e) => { e.stopPropagation(); goToPage(currentPage - 1) }}
-            disabled={currentPage <= 0}
-          >
-            &larr;
-          </button>
-          <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
-          <button
-            className="page-nav-arrow"
-            onClick={(e) => { e.stopPropagation(); goToPage(currentPage + 1) }}
-            disabled={currentPage >= totalPages - 1}
-          >
-            &rarr;
-          </button>
-        </div>
-      )}
+      {/* Page indicator & nav — always visible */}
+      <div className="page-nav">
+        <button
+          className="page-nav-arrow"
+          onClick={(e) => { e.stopPropagation(); goToPage(currentPage - 1) }}
+          disabled={currentPage <= 0}
+        >
+          &larr;
+        </button>
+        <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
+        <button
+          className="page-nav-arrow"
+          onClick={(e) => { e.stopPropagation(); goToPage(currentPage + 1) }}
+          disabled={currentPage >= totalPages - 1}
+        >
+          &rarr;
+        </button>
+      </div>
 
       {selectionPopup && (
         <div
