@@ -156,7 +156,6 @@ export default function App() {
           currentPage,
           totalPages,
           scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
-          timestamp: Date.now(),
         }
         const winner = pickFurthest(localPos, cloudPos)
         if (winner && (winner.chapterNumber !== currentChapter ||
