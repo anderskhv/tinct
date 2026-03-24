@@ -201,11 +201,14 @@ Every deploy MUST follow this sequence. No exceptions.
 1. `cd tinct && npm run dev` — open localhost:3001 in browser, manually verify the change works
 2. `npx vite build` — must pass with zero errors
 3. After any variable/function removal: `grep -r "removedThing" src/` — verify no stale references
-4. `npx wrangler deploy` — from the `tinct/` directory
-5. `curl -s https://tinct.ahvelplund.workers.dev/ | head -5` — verify 200 + HTML
-6. Open production URL — verify no white screen, test the specific change
+4. **Before committing:** run `git status` and check for untracked files that your code imports. If `src/` imports a file that shows as "untracked" or "not staged", you MUST add it. The local build passes because the file exists on disk — but the remote build will fail because it's not in git. **This has broken production before.**
+5. **Before pushing:** run `git stash && npx vite build && git stash pop` to verify the build passes with ONLY committed files. If this fails, you have a missing file.
+6. `npx wrangler deploy` — from the `tinct/` directory
+7. `curl -s https://tinct.ahvelplund.workers.dev/ | head -5` — verify 200 + HTML
+8. Open production URL — verify no white screen, test the specific change
 
 **If you deployed a broken site:** revert the code change, rebuild, redeploy IMMEDIATELY. Fix second, restore service first.
+**If a remote build fails (Cloudflare):** the cause is almost always a file that exists locally but wasn't committed. Run `git status` and check imports.
 
 ---
 

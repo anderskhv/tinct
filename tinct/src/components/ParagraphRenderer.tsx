@@ -6,6 +6,8 @@ interface ParagraphRendererProps {
   paragraphIndex: number
   highlights: Highlight[]
   onMouseUp?: () => void
+  /** Whether this edition is verse (preserve newlines) — determined from edition metadata */
+  isVerse?: boolean
 }
 
 interface TextSegment {
@@ -13,17 +15,6 @@ interface TextSegment {
   highlight?: Highlight
 }
 
-/**
- * Detect whether text is verse (short lines) or prose with embedded line breaks.
- * Verse: average line < 60 chars. Prose: longer lines broken for print layout.
- */
-function isVerse(text: string): boolean {
-  if (!text.includes('\n')) return false
-  const lines = text.split('\n').filter(l => l.trim())
-  if (lines.length < 2) return false
-  const avgLen = lines.reduce((sum, l) => sum + l.length, 0) / lines.length
-  return avgLen < 60
-}
 
 /**
  * Renders inline text with formatting support:
@@ -37,7 +28,7 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
 
   // For prose text, collapse newlines to spaces before rendering
   let processedText = text
-  if (!preserveNewlines && text.includes('\n') && !isVerse(text)) {
+  if (!preserveNewlines && text.includes('\n')) {
     processedText = text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
   }
 
@@ -79,7 +70,7 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
  * and renders as alternating <span> and <mark> elements.
  * Preserves \n as <br /> for verse editions.
  */
-export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp }: ParagraphRendererProps) {
+export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp, isVerse = false }: ParagraphRendererProps) {
   // Filter highlights for this paragraph and sort by start offset
   const paraHighlights = highlights
     .filter(h => h.paragraphIndex === paragraphIndex)
@@ -87,8 +78,7 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp 
 
   // Normalize prose text the same way handleMouseUp does when computing offsets.
   // Offsets are calculated on normalized text, so we must slice the same string.
-  const verse = isVerse(text)
-  const sliceText = verse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
+  const sliceText = isVerse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
 
   if (paraHighlights.length === 0) {
     return (
@@ -132,10 +122,10 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp 
             data-highlight-id={seg.highlight.id}
             title={seg.highlight.note || undefined}
           >
-            {renderFormattedText(seg.text, verse)}
+            {renderFormattedText(seg.text, isVerse)}
           </mark>
         ) : (
-          <span key={i}>{renderFormattedText(seg.text, verse)}</span>
+          <span key={i}>{renderFormattedText(seg.text, isVerse)}</span>
         )
       )}
     </p>

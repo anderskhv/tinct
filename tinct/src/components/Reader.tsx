@@ -36,6 +36,8 @@ interface ReaderProps {
   onPageChange?: (page: number, total: number) => void
   /** Initial scroll fraction (0–1) to restore on mount, or absolute page number (>1) for backwards compat */
   initialPage?: number
+  /** Whether this edition is verse (preserve line breaks) */
+  isVerse?: boolean
 }
 
 export function Reader({
@@ -53,6 +55,7 @@ export function Reader({
   readerRef,
   onPageChange,
   initialPage,
+  isVerse,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -308,6 +311,7 @@ export function Reader({
                 text={para}
                 paragraphIndex={i}
                 highlights={highlights}
+                isVerse={isVerse}
               />
             ))}
 

@@ -41,6 +41,10 @@ interface SplitReaderProps {
   isGeneratingSummary?: boolean
   isFinalChapter?: boolean
   readerRef: React.RefObject<HTMLDivElement>
+  /** Whether the left (primary) edition is verse */
+  isLeftVerse?: boolean
+  /** Whether the right (split) edition is verse */
+  isRightVerse?: boolean
 }
 
 export function SplitReader({
@@ -62,6 +66,8 @@ export function SplitReader({
   isGeneratingSummary,
   isFinalChapter,
   readerRef,
+  isLeftVerse,
+  isRightVerse,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
@@ -299,6 +305,7 @@ export function SplitReader({
                       text={leftParagraphs[i]}
                       paragraphIndex={i}
                       highlights={leftHighlights}
+                      isVerse={isLeftVerse}
                     />
                   )}
                 </div>
@@ -308,6 +315,7 @@ export function SplitReader({
                       text={rightParagraphs[i]}
                       paragraphIndex={i}
                       highlights={rightHighlights}
+                      isVerse={isRightVerse}
                     />
                   )}
                 </div>

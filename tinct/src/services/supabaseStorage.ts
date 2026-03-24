@@ -69,4 +69,20 @@ export class SupabaseStorageProvider implements StorageProvider {
     }
     return results
   }
+
+  /** Re-fetch all user data from Supabase (same as init, but callable repeatedly) */
+  async refresh(): Promise<void> {
+    if (!supabase) return
+    const { data } = await supabase
+      .from('user_data')
+      .select('key, value')
+      .eq('user_id', this.userId)
+
+    if (data) {
+      this.cache.clear()
+      for (const row of data) {
+        this.cache.set(row.key, row.value)
+      }
+    }
+  }
 }

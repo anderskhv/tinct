@@ -54,6 +54,7 @@ export default function App() {
 
   // Swap storage provider when user signs in/out — enables cross-device sync
   const [storageReady, setStorageReady] = useState(!user)
+  const supabaseProviderRef = useRef<SupabaseStorageProvider | null>(null)
   useEffect(() => {
     if (user) {
       const provider = new SupabaseStorageProvider(user.id)
@@ -66,10 +67,12 @@ export default function App() {
           }
         }
         setStorageProvider(provider)
+        supabaseProviderRef.current = provider
         setStorageReady(true)
       })
     } else {
       setStorageProvider(localStorageProvider)
+      supabaseProviderRef.current = null
       setStorageReady(true)
     }
   }, [user])
@@ -133,6 +136,41 @@ export default function App() {
       }
     }
   }, [storageReady, user, book.id])
+
+  // Re-sync from Supabase when tab regains focus (cross-device sync)
+  const lastSyncRef = useRef(0)
+  useEffect(() => {
+    const handleVisibility = async () => {
+      if (document.visibilityState !== 'visible') return
+      const provider = supabaseProviderRef.current
+      if (!provider || !user) return
+      const now = Date.now()
+      if (now - lastSyncRef.current < 5000) return // debounce 5s
+      lastSyncRef.current = now
+      await provider.refresh()
+      const cloudPos = getSavedPosition(book.id)
+      if (cloudPos) {
+        const localPos: ReadingPosition = {
+          bookId: book.id,
+          chapterNumber: currentChapter,
+          currentPage,
+          totalPages,
+          scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
+          timestamp: Date.now(),
+        }
+        const winner = pickFurthest(localPos, cloudPos)
+        if (winner && (winner.chapterNumber !== currentChapter ||
+            (winner.scrollFraction ?? 0) > (localPos.scrollFraction ?? 0) + 0.01)) {
+          savedPos.current = winner
+          setCurrentChapter(winner.chapterNumber)
+          setCurrentPage(0)
+          setReaderKey(k => k + 1)
+        }
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility)
+    return () => document.removeEventListener('visibilitychange', handleVisibility)
+  }, [user, book.id, currentChapter, currentPage, totalPages])
 
   // Get current chapter data early so we can pass context to chat
   const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
@@ -286,6 +324,13 @@ export default function App() {
       sendMessage(`The AI noticed a connection to my reading angle: "${text}". Can you elaborate on this?`)
     }
   }, [getInsightForDiscussion, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
+
+  // Determine if editions are verse (for ParagraphRenderer)
+  const primaryIsVerse = preferences.style === 'verse'
+  const splitIsVerse = (() => {
+    const splitEd = book.editions.find(ed => ed.key === preferences.splitEditionKey)
+    return splitEd?.style === 'verse'
+  })()
 
   // Split edition key
   const splitEditionKey = preferences.splitEditionKey
@@ -662,6 +707,7 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
+                isVerse={primaryIsVerse}
               />
             </div>
             {/* View 1: Compare — shows alternate edition full-width on mobile */}
@@ -689,6 +735,7 @@ export default function App() {
                     onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
                     isFinalChapter={currentChapter === totalChapters}
                     readerRef={compareReaderRef}
+                    isVerse={splitIsVerse}
                   />
                 </div>
               ) : (
@@ -754,6 +801,8 @@ export default function App() {
                 isGeneratingSummary={isGeneratingSummary}
                 isFinalChapter={currentChapter === totalChapters}
                 readerRef={readerRef}
+                isLeftVerse={primaryIsVerse}
+                isRightVerse={splitIsVerse}
               />
             ) : (
               <Reader
@@ -772,6 +821,7 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
+                isVerse={primaryIsVerse}
               />
             )}
 
