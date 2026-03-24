@@ -45,6 +45,10 @@ interface SplitReaderProps {
   isLeftVerse?: boolean
   /** Whether the right (split) edition is verse */
   isRightVerse?: boolean
+  /** Called when page changes with (currentPage, totalPages) */
+  onPageChange?: (page: number, total: number) => void
+  /** Initial scroll fraction (0–1) to restore on mount */
+  initialPage?: number
 }
 
 export function SplitReader({
@@ -68,6 +72,8 @@ export function SplitReader({
   readerRef,
   isLeftVerse,
   isRightVerse,
+  onPageChange,
+  initialPage,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
@@ -77,6 +83,7 @@ export function SplitReader({
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
   const PAD_X = 24
+  const initialPageRef = useRef(initialPage)
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
   const getGap = useCallback(() => {
@@ -133,6 +140,21 @@ export function SplitReader({
       prevChapterTitle.current = chapterTitle
     }
   }, [chapterTitle])
+
+  // Restore position from initialPage fraction after layout settles
+  useEffect(() => {
+    const frac = initialPageRef.current
+    if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
+      const targetPage = Math.round(frac * (totalPages - 1))
+      setCurrentPage(targetPage)
+      initialPageRef.current = undefined
+    }
+  }, [totalPages])
+
+  // Report page changes to parent
+  useEffect(() => {
+    onPageChange?.(currentPage, totalPages)
+  }, [currentPage, totalPages, onPageChange])
 
   const goToPage = useCallback((page: number) => {
     setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)))

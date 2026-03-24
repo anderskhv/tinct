@@ -117,6 +117,9 @@ export default function App() {
   const readerRef = useRef<HTMLDivElement>(null)
   const compareReaderRef = useRef<HTMLDivElement>(null)
   const [readerKey, setReaderKey] = useState(0)
+  const targetParagraphRef = useRef<number | undefined>(undefined)
+  const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: 'en' | 'da' } | null>(null)
+  const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Re-read position from cloud storage once Supabase syncs — pick furthest position
   const hasRestoredFromCloud = useRef(false)
@@ -288,6 +291,58 @@ export default function App() {
     paragraphs: primaryChapter?.paragraphs || [],
   })
 
+  // Navigate to a chapter (and optionally a paragraph/edition) from side panel
+  const handleNavigateToChapter = useCallback((chapter: number, paragraphIndex?: number, editionKey?: string) => {
+    // Save current position + edition for "back" button
+    const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+    setBackPosition({
+      chapter: currentChapter,
+      scrollFraction: frac,
+      style: preferences.style,
+      language: preferences.language,
+    })
+    // Auto-dismiss after 10s
+    if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
+    backTimeoutRef.current = setTimeout(() => setBackPosition(null), 10000)
+
+    // Switch edition if highlight was made in a different one
+    if (editionKey) {
+      const parts = editionKey.split('-')
+      const hlStyle = parts[0] as Style
+      const hlLang = parts.slice(1).join('-') as 'en' | 'da'
+      if (hlStyle !== preferences.style) setStyle(hlStyle)
+      if (hlLang !== preferences.language) setLanguage(hlLang)
+    }
+
+    targetParagraphRef.current = paragraphIndex
+    if (chapter !== currentChapter) {
+      setCurrentChapter(chapter)
+    }
+    setReaderKey(k => k + 1)
+  }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage])
+
+  // Go back to saved position (restores edition + chapter + page)
+  const handleBackToPosition = useCallback(() => {
+    if (!backPosition) return
+    targetParagraphRef.current = undefined
+    // Restore edition
+    if (backPosition.style !== preferences.style) setStyle(backPosition.style)
+    if (backPosition.language !== preferences.language) setLanguage(backPosition.language)
+    savedPos.current = {
+      bookId: book.id,
+      chapterNumber: backPosition.chapter,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: backPosition.scrollFraction,
+    }
+    if (backPosition.chapter !== currentChapter) {
+      setCurrentChapter(backPosition.chapter)
+    }
+    setReaderKey(k => k + 1)
+    setBackPosition(null)
+    if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
+  }, [backPosition, currentChapter, book.id, preferences.style, preferences.language, setStyle, setLanguage])
+
   // Handle page changes from Reader — also trigger proactive insights and track speed
   const handlePageChange = useCallback((page: number, total: number) => {
     // Track reading speed before updating page
@@ -300,7 +355,12 @@ export default function App() {
     setCurrentPage(page)
     setTotalPages(total)
     checkForInsight(page, total)
-  }, [checkForInsight, primaryChapter, trackPageView])
+    // Dismiss back-to-position on manual page turn (but not on initial layout)
+    if (backPosition && total > 1) {
+      setBackPosition(null)
+      if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
+    }
+  }, [checkForInsight, primaryChapter, trackPageView, backPosition])
 
   // Onboarding complete handler
   const handleOnboardingComplete = useCallback((objective: string) => {
@@ -567,6 +627,21 @@ export default function App() {
     sendMessage(reflectPrompt)
   }, [primaryChapter, currentChapter, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
 
+  // Wrap split view toggle to preserve position
+  const handleToggleSplitView = useCallback(() => {
+    // Save current scroll fraction before toggling
+    const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+    savedPos.current = {
+      bookId: book.id,
+      chapterNumber: currentChapter,
+      currentPage,
+      totalPages,
+      scrollFraction: frac,
+    }
+    toggleSplitView()
+    setReaderKey(k => k + 1)
+  }, [toggleSplitView, currentPage, totalPages, currentChapter, book.id])
+
   // Handle style change with fallback for split edition
   const handleStyleChange = useCallback((newStyle: Style) => {
     setStyle(newStyle)
@@ -663,7 +738,7 @@ export default function App() {
         chapterLabels={chapterLabels}
         onChapterChange={setCurrentChapter}
         splitView={preferences.splitView}
-        onToggleSplitView={toggleSplitView}
+        onToggleSplitView={handleToggleSplitView}
         splitViewAvailable={splitViewAvailable}
         darkMode={preferences.darkMode}
         onToggleDarkMode={toggleDarkMode}
@@ -707,6 +782,7 @@ export default function App() {
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                 isVerse={primaryIsVerse}
+                targetParagraphIndex={targetParagraphRef.current}
               />
             </div>
             {/* View 1: Compare — shows alternate edition full-width on mobile */}
@@ -774,7 +850,7 @@ export default function App() {
                 editionKey={primaryEditionKey}
                 language={preferences.language}
                 getMentions={getMentions}
-                onNavigateToChapter={(ch) => { setCurrentChapter(ch); setActiveView(0) }}
+                onNavigateToChapter={(ch, pi, ek) => { handleNavigateToChapter(ch, pi, ek); setActiveView(0) }}
               />
             </div>
           </div>
@@ -782,6 +858,7 @@ export default function App() {
           <>
             {preferences.splitView && splitChapter ? (
               <SplitReader
+                key={`split-${currentChapter}-${readerKey}`}
                 leftParagraphs={primaryChapter?.paragraphs || []}
                 rightParagraphs={splitChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
@@ -802,6 +879,8 @@ export default function App() {
                 readerRef={readerRef}
                 isLeftVerse={primaryIsVerse}
                 isRightVerse={splitIsVerse}
+                onPageChange={handlePageChange}
+                initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
               />
             ) : (
               <Reader
@@ -821,6 +900,7 @@ export default function App() {
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                 isVerse={primaryIsVerse}
+                targetParagraphIndex={targetParagraphRef.current}
               />
             )}
 
@@ -853,7 +933,7 @@ export default function App() {
               editionKey={primaryEditionKey}
               language={preferences.language}
               getMentions={getMentions}
-              onNavigateToChapter={setCurrentChapter}
+              onNavigateToChapter={handleNavigateToChapter}
             />
           </>
         )}
@@ -872,6 +952,12 @@ export default function App() {
             Chat
           </button>
         </nav>
+      )}
+
+      {backPosition && (
+        <button className="back-to-position" onClick={handleBackToPosition}>
+          &larr; Back to reading position
+        </button>
       )}
 
       <ReadingProgressBar

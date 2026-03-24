@@ -34,12 +34,19 @@
   --panel-width: 400px;
   --reader-max-width: 780px;
 
-  /* Highlight colors */
+  /* Highlight colors (text background — muted) */
   --highlight-gold: #f5e6c8;
   --highlight-rose: #f5d0d0;
   --highlight-sage: #d0e8d0;
   --highlight-sky: #d0e0f5;
   --highlight-lavender: #e0d0f5;
+
+  /* Popup dot colors (brighter, more saturated) */
+  --highlight-popup-gold: #e6b84d;
+  --highlight-popup-rose: #e66b6b;
+  --highlight-popup-sage: #5cb85c;
+  --highlight-popup-sky: #5b9bd5;
+  --highlight-popup-lavender: #9b6bcc;
 }
 
 [data-theme="dark"] {
@@ -73,6 +80,12 @@
   --highlight-sage: #2e4a2e;
   --highlight-sky: #2e3a5c;
   --highlight-lavender: #3a2e5c;
+
+  --highlight-popup-gold: #d4a843;
+  --highlight-popup-rose: #d45858;
+  --highlight-popup-sage: #4da84d;
+  --highlight-popup-sky: #4d8bc4;
+  --highlight-popup-lavender: #8a5bbb;
 }
 
 /* ===== Reset & Base ===== */
@@ -496,11 +509,11 @@ body {
   border-color: rgba(255,255,255,0.5);
 }
 
-.popup-color-dot.highlight-gold { background: var(--highlight-gold); }
-.popup-color-dot.highlight-rose { background: var(--highlight-rose); }
-.popup-color-dot.highlight-sage { background: var(--highlight-sage); }
-.popup-color-dot.highlight-sky { background: var(--highlight-sky); }
-.popup-color-dot.highlight-lavender { background: var(--highlight-lavender); }
+.popup-color-dot.highlight-gold { background: var(--highlight-popup-gold); }
+.popup-color-dot.highlight-rose { background: var(--highlight-popup-rose); }
+.popup-color-dot.highlight-sage { background: var(--highlight-popup-sage); }
+.popup-color-dot.highlight-sky { background: var(--highlight-popup-sky); }
+.popup-color-dot.highlight-lavender { background: var(--highlight-popup-lavender); }
 
 .popup-divider {
   width: 1px;
@@ -2543,6 +2556,30 @@ body {
   color: var(--text-secondary);
   margin-bottom: 16px;
   line-height: 1.5;
+}
+
+/* ===== Back to Position Bar ===== */
+.back-to-position {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-popup);
+  color: var(--text-inverse);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  z-index: 200;
+  box-shadow: var(--shadow-lg);
+  border: none;
+  animation: fadeSlideUp 0.3s ease;
+  transition: opacity 0.2s;
+}
+
+.back-to-position:hover {
+  opacity: 0.9;
 }
 
 /* ===== Shared Animation ===== */

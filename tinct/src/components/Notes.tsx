@@ -77,6 +77,11 @@ interface NotesProps {
   onCleanupNotes: (aggressive: boolean) => void
   onScrollToHighlight?: (paragraphIndex: number) => void
   isCleaningUp?: boolean
+  // All-book highlights (merged from Highlights tab)
+  allBookHighlights?: Highlight[]
+  chapterLabels?: string[]
+  currentChapter?: number
+  onNavigateToChapter?: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
 }
 
 export function Notes({
@@ -88,6 +93,10 @@ export function Notes({
   onCleanupNotes,
   onScrollToHighlight,
   isCleaningUp,
+  allBookHighlights = [],
+  chapterLabels = [],
+  currentChapter,
+  onNavigateToChapter,
 }: NotesProps) {
   const [newNote, setNewNote] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -135,7 +144,7 @@ export function Notes({
                   <div
                     key={hl.id}
                     className="highlight-entry"
-                    onClick={() => onScrollToHighlight?.(hl.paragraphIndex)}
+                    onClick={() => onNavigateToChapter ? onNavigateToChapter(hl.chapterNumber, hl.paragraphIndex, hl.editionKey) : onScrollToHighlight?.(hl.paragraphIndex)}
                   >
                     <div className={`highlight-dot highlight-${hl.color}`} />
                     <div className="highlight-entry-content">
@@ -177,8 +186,56 @@ export function Notes({
           </div>
         )}
 
+        {/* All-book highlights (other chapters) */}
+        {(() => {
+          const otherHighlights = allBookHighlights.filter(h => h.chapterNumber !== currentChapter)
+          if (otherHighlights.length === 0) return null
+          const byChapter = new Map<number, Highlight[]>()
+          for (const hl of otherHighlights) {
+            const existing = byChapter.get(hl.chapterNumber) || []
+            existing.push(hl)
+            byChapter.set(hl.chapterNumber, existing)
+          }
+          const chapters = Array.from(byChapter.entries()).sort((a, b) => a[0] - b[0])
+          return (
+            <div className="notes-section">
+              <h4 className="notes-section-title">All Highlights</h4>
+              {chapters.map(([chapterNum, chapterHighlights]) => (
+                <div key={chapterNum} className="highlights-chapter-group" style={{ marginBottom: 12 }}>
+                  <button
+                    className="highlights-chapter-label"
+                    onClick={() => onNavigateToChapter?.(chapterNum)}
+                  >
+                    {chapterLabels[chapterNum - 1] || `Chapter ${chapterNum}`}
+                    <span className="highlights-chapter-count">{chapterHighlights.length}</span>
+                  </button>
+                  <div className="highlights-chapter-items">
+                    {chapterHighlights
+                      .sort((a, b) => a.paragraphIndex - b.paragraphIndex || a.startOffset - b.startOffset)
+                      .map(hl => (
+                        <div
+                          key={hl.id}
+                          className="highlight-entry"
+                          onClick={() => onNavigateToChapter?.(hl.chapterNumber, hl.paragraphIndex, hl.editionKey)}
+                        >
+                          <div className={`highlight-dot highlight-${hl.color}`} />
+                          <div className="highlight-entry-content">
+                            <p className="highlight-text">
+                              &ldquo;{hl.text.length > 120 ? hl.text.slice(0, 120) + '...' : hl.text}&rdquo;
+                            </p>
+                            {hl.note && <p className="highlight-note">{hl.note}</p>}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )
+        })()}
+
         {/* Empty state */}
-        {highlightsByColor.length === 0 && notes.length === 0 && (
+        {highlightsByColor.length === 0 && notes.length === 0 && allBookHighlights.length === 0 && (
           <div className="notes-empty">
             <p className="notes-empty-title">No notes yet</p>
             <p className="notes-empty-hint">

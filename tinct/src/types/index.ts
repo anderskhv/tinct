@@ -98,7 +98,7 @@ export interface Note {
 
 // === Panel Tabs ===
 
-export type PanelTab = 'chat' | 'notes' | 'highlights' | 'threads'
+export type PanelTab = 'chat' | 'notes' | 'threads'
 
 // === Threads (Character Tracker) ===
 

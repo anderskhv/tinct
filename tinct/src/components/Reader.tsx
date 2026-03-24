@@ -38,6 +38,8 @@ interface ReaderProps {
   initialPage?: number
   /** Whether this edition is verse (preserve line breaks) */
   isVerse?: boolean
+  /** Target paragraph to scroll to after layout (from highlight/thread navigation) */
+  targetParagraphIndex?: number
 }
 
 export function Reader({
@@ -56,6 +58,7 @@ export function Reader({
   onPageChange,
   initialPage,
   isVerse,
+  targetParagraphIndex,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -116,15 +119,33 @@ export function Reader({
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); observer?.disconnect() }
   }, [paragraphs, chapterTitle, recalcPages])
 
-  // Restore position from initialPage fraction after layout settles
+  // Restore position from initialPage fraction or targetParagraphIndex after layout settles
+  const targetParagraphRef = useRef(targetParagraphIndex)
   useEffect(() => {
+    // targetParagraphIndex takes priority over initialPage
+    if (targetParagraphRef.current !== undefined && totalPages > 1) {
+      const content = contentRef.current
+      if (!content) return
+      const el = content.querySelector(`[data-paragraph-index="${targetParagraphRef.current}"]`) as HTMLElement
+      if (el) {
+        const colWidth = getColWidth()
+        const gap = getGap()
+        if (colWidth > 0) {
+          const page = Math.floor(el.offsetLeft / (colWidth + gap))
+          setCurrentPage(Math.min(page, totalPages - 1))
+        }
+      }
+      targetParagraphRef.current = undefined
+      initialPageRef.current = undefined
+      return
+    }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
       const targetPage = Math.round(frac * (totalPages - 1))
       setCurrentPage(targetPage)
       initialPageRef.current = undefined // only restore once
     }
-  }, [totalPages])
+  }, [totalPages, getColWidth, getGap])
 
   // Report page changes to parent
   useEffect(() => {

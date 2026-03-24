@@ -7,7 +7,10 @@ const STORAGE_KEY = 'preferences'
 
 export function usePreferences() {
   const [preferences, setPreferencesState] = useState<UserPreferences>(() => {
-    return storage.get<UserPreferences>(STORAGE_KEY) || DEFAULT_PREFERENCES
+    const saved = storage.get<UserPreferences>(STORAGE_KEY) || DEFAULT_PREFERENCES
+    // Migrate removed 'highlights' tab → 'notes'
+    if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
+    return saved
   })
 
   // Persist on change

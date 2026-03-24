@@ -7,7 +7,7 @@ interface ThreadsProps {
   editionKey: string
   language: Language
   getMentions: (char: ThreadCharacter, upToChapter?: number) => CharacterMention[]
-  onNavigateToChapter: (chapter: number) => void
+  onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
 }
 
 export function Threads({
@@ -187,7 +187,7 @@ export function Threads({
                           <div
                             key={i}
                             className="thread-mention"
-                            onClick={e => { e.stopPropagation(); onNavigateToChapter(m.chapter) }}
+                            onClick={e => { e.stopPropagation(); onNavigateToChapter(m.chapter, m.paragraphIndex) }}
                           >
                             <span className="thread-mention-chapter">Book {m.chapter}</span>
                             <span className="thread-mention-text">&ldquo;{m.excerpt}&rdquo;</span>

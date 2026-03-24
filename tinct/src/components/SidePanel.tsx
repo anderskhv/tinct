@@ -1,6 +1,5 @@
 import { Chat } from './Chat'
 import { Notes } from './Notes'
-import { Highlights } from './Highlights'
 import { Threads } from './Threads'
 import type { ChatMessage, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language } from '../types'
 
@@ -39,7 +38,7 @@ interface SidePanelProps {
   editionKey: string
   language: Language
   getMentions: (char: ThreadCharacter, upToChapter?: number) => CharacterMention[]
-  onNavigateToChapter: (chapter: number) => void
+  onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
 }
 
 export function SidePanel({
@@ -90,17 +89,8 @@ export function SidePanel({
               onClick={() => onTabChange('notes')}
             >
               Notes
-              {notes.length > 0 && (
-                <span className="panel-tab-badge">{notes.length}</span>
-              )}
-            </button>
-            <button
-              className={`panel-tab ${activeTab === 'highlights' ? 'panel-tab-active' : ''}`}
-              onClick={() => onTabChange('highlights')}
-            >
-              Highlights
-              {allBookHighlights.length > 0 && (
-                <span className="panel-tab-badge">{allBookHighlights.length}</span>
+              {(notes.length + allBookHighlights.length) > 0 && (
+                <span className="panel-tab-badge">{notes.length + allBookHighlights.length}</span>
               )}
             </button>
             <button
@@ -135,12 +125,10 @@ export function SidePanel({
               onCleanupNotes={onCleanupNotes}
               isCleaningUp={isCleaningUp}
               onScrollToHighlight={onScrollToHighlight}
-            />
-          ) : activeTab === 'highlights' ? (
-            <Highlights
-              highlights={allBookHighlights}
-              onNavigateToChapter={onNavigateToChapter}
+              allBookHighlights={allBookHighlights}
               chapterLabels={chapterLabels}
+              currentChapter={currentChapter}
+              onNavigateToChapter={onNavigateToChapter}
             />
           ) : (
             <Threads
