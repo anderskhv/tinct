@@ -8,6 +8,8 @@ interface ParagraphRendererProps {
   onMouseUp?: () => void
   /** Whether this edition is verse (preserve newlines) — determined from edition metadata */
   isVerse?: boolean
+  /** Additional CSS class name */
+  className?: string
 }
 
 interface TextSegment {
@@ -70,7 +72,7 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
  * and renders as alternating <span> and <mark> elements.
  * Preserves \n as <br /> for verse editions.
  */
-export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp, isVerse = false }: ParagraphRendererProps) {
+export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp, isVerse = false, className }: ParagraphRendererProps) {
   // Filter highlights for this paragraph and sort by start offset
   const paraHighlights = highlights
     .filter(h => h.paragraphIndex === paragraphIndex)
@@ -80,9 +82,11 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
   // Offsets are calculated on normalized text, so we must slice the same string.
   const sliceText = isVerse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
 
+  const pClass = className ? `text-paragraph ${className}` : 'text-paragraph'
+
   if (paraHighlights.length === 0) {
     return (
-      <p className="text-paragraph" data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
+      <p className={pClass} data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
         {renderFormattedText(text)}
       </p>
     )
@@ -113,7 +117,7 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
   }
 
   return (
-    <p className="text-paragraph" data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
+    <p className={pClass} data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
       {segments.map((seg, i) =>
         seg.highlight ? (
           <mark

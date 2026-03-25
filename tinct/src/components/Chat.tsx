@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { ChatMessage } from '../types'
+import { BalanceIndicator } from './BalanceIndicator'
 
 /** Render inline markdown: **bold**, *italic* */
 function renderInline(text: string): React.ReactNode {
@@ -91,9 +92,15 @@ interface ChatProps {
   chapterTitle?: string
   readingObjective?: string
   onEditObjective?: () => void
+  // Balance indicator
+  messagesRemaining?: number
+  hasBalance?: boolean
+  isAnonymous?: boolean
+  onTopUp?: () => void
+  onSignIn?: () => void
 }
 
-export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, readingObjective, onEditObjective }: ChatProps) {
+export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, readingObjective, onEditObjective, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn }: ChatProps) {
   const [input, setInput] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -173,6 +180,17 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                 What should I watch for?
               </button>
             </div>
+            {messagesRemaining != null && onTopUp && onSignIn && (
+              <div style={{ animationDelay: '0.3s' }}>
+                <BalanceIndicator
+                  messagesRemaining={messagesRemaining}
+                  hasBalance={hasBalance ?? true}
+                  isAnonymous={isAnonymous ?? true}
+                  onTopUp={onTopUp}
+                  onSignIn={onSignIn}
+                />
+              </div>
+            )}
           </div>
         )}
 

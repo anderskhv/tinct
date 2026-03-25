@@ -1,6 +1,36 @@
 # Tinct — Session State
 
-## Last session: 2026-03-16 (Monday)
+## Last session: 2026-03-25 (Wednesday)
+
+### What happened — Email, Privacy, Launch Prep, UI Work
+
+**From Group CEO window:**
+1. Brevo set up for transactional email (domain verified, DNS auto-configured)
+2. Supabase SMTP configured (smtp-relay.brevo.com:587, noreply@tinct.app)
+3. 6 branded email templates created with Tinct palette + tagline "A new way to read"
+4. Privacy policy generated at `public/privacy-policy.html`
+5. Tinct Kids concept doc at `TINCT-KIDS-CONCEPT.md`
+
+**Critical security issues found:**
+- `VITE_ANTHROPIC_API_KEY` exposed in client bundle — rename to server-side only, rotate key
+- `/api/chat` has no authentication — add Supabase session check
+- No server-side rate limiting
+
+**Still needs doing (CEO tasks):**
+- [ ] Fix API key exposure + rotate key
+- [ ] Add auth to /api/chat
+- [ ] Add signup consent checkboxes to AuthModal
+- [ ] Deploy privacy policy
+- [ ] Set up contact@tinct.app forwarding (Cloudflare Email Routing)
+- [ ] Paste email templates into Supabase dashboard
+- [ ] SEO: sitemap.xml, robots.txt, meta/OG tags, Google Search Console
+- [ ] Add analytics_events tracking
+- [ ] Mobile responsiveness pass
+- [ ] Full checklist: `/Documents/monitoring/LAUNCH-CHECKLIST.md`
+
+---
+
+## Previous session: 2026-03-16 (Monday)
 
 ### What happened
 - Full strategy conversation → STRATEGY.md + BACKLOG.md created

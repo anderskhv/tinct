@@ -34,12 +34,20 @@ interface ReaderProps {
   readerRef: React.RefObject<HTMLDivElement>
   /** Called when page changes with (currentPage, totalPages) */
   onPageChange?: (page: number, total: number) => void
+  /** Called with the index of the first paragraph visible on the current page */
+  onFirstVisibleParagraph?: (paragraphIndex: number) => void
   /** Initial scroll fraction (0–1) to restore on mount, or absolute page number (>1) for backwards compat */
   initialPage?: number
   /** Whether this edition is verse (preserve line breaks) */
   isVerse?: boolean
   /** Target paragraph to scroll to after layout (from highlight/thread navigation) */
   targetParagraphIndex?: number
+  /** Index of the paragraph currently being played by AudioPlayer */
+  playingParagraphIndex?: number
+  /** Called when user clicks a paragraph to start audio from there */
+  onParagraphClick?: (paragraphIndex: number) => void
+  /** Whether audio is currently available/active */
+  hasAudio?: boolean
 }
 
 export function Reader({
@@ -56,14 +64,22 @@ export function Reader({
   isFinalChapter,
   readerRef,
   onPageChange,
+  onFirstVisibleParagraph,
   initialPage,
   isVerse,
   targetParagraphIndex,
+  playingParagraphIndex,
+  onParagraphClick,
+  hasAudio,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
+  const currentPageRef = useRef(currentPage)
+  currentPageRef.current = currentPage
+  const totalPagesRef = useRef(totalPages)
+  totalPagesRef.current = totalPages
   const initialPageRef = useRef(initialPage)
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
@@ -152,6 +168,44 @@ export function Reader({
     onPageChange?.(currentPage, totalPages)
   }, [currentPage, totalPages, onPageChange])
 
+  // Report first visible paragraph on current page
+  useEffect(() => {
+    if (!onFirstVisibleParagraph) return
+    const content = contentRef.current
+    if (!content) return
+    const colWidth = getColWidth()
+    const gap = getGap()
+    if (colWidth <= 0) return
+    const pageLeft = currentPage * (colWidth + gap)
+    const pageRight = pageLeft + colWidth
+    const paraEls = content.querySelectorAll('[data-paragraph-index]')
+    for (const el of paraEls) {
+      const htmlEl = el as HTMLElement
+      // Element is visible if it starts within the current page column
+      if (htmlEl.offsetLeft < pageRight && htmlEl.offsetLeft + htmlEl.offsetWidth > pageLeft) {
+        const idx = parseInt(htmlEl.getAttribute('data-paragraph-index') || '0', 10)
+        onFirstVisibleParagraph(idx)
+        return
+      }
+    }
+  }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
+
+  // Auto-scroll to playing paragraph when audio advances
+  useEffect(() => {
+    if (playingParagraphIndex === undefined || totalPagesRef.current <= 1) return
+    const content = contentRef.current
+    if (!content) return
+    const el = content.querySelector(`[data-paragraph-index="${playingParagraphIndex}"]`) as HTMLElement
+    if (!el) return
+    const colWidth = getColWidth()
+    const gap = getGap()
+    if (colWidth <= 0) return
+    const page = Math.floor(el.offsetLeft / (colWidth + gap))
+    const clamped = Math.min(page, totalPagesRef.current - 1)
+    if (clamped !== currentPageRef.current) {
+      setCurrentPage(clamped)
+    }
+  }, [playingParagraphIndex, getColWidth, getGap])
 
   const goToPage = useCallback((page: number) => {
     const container = readerRef.current
@@ -160,7 +214,9 @@ export function Reader({
     setCurrentPage(clamped)
   }, [totalPages, readerRef])
 
-  // Keyboard navigation
+  // Keyboard navigation — use refs to avoid re-attaching on every page change
+  const goToPageRef = useRef(goToPage)
+  goToPageRef.current = goToPage
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't capture keys when typing in input/textarea
@@ -169,17 +225,17 @@ export function Reader({
 
       if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault()
-        goToPage(currentPage + 1)
+        goToPageRef.current(currentPageRef.current + 1)
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault()
-        goToPage(currentPage - 1)
+        goToPageRef.current(currentPageRef.current - 1)
       }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [currentPage, goToPage])
+  }, [])
 
-  // Click on left/right edge to turn pages
+  // Click on left/right edge to turn pages, or click paragraph for audio
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
@@ -196,8 +252,16 @@ export function Reader({
       goToPage(currentPage - 1)
     } else if (clickX > rect.width - zone) {
       goToPage(currentPage + 1)
+    } else if (hasAudio && onParagraphClick) {
+      // Middle zone: check if click is on a paragraph for audio playback
+      const target = e.target as HTMLElement
+      const paraEl = target.closest?.('[data-paragraph-index]')
+      if (paraEl) {
+        const idx = parseInt(paraEl.getAttribute('data-paragraph-index') || '0', 10)
+        onParagraphClick(idx)
+      }
     }
-  }, [currentPage, goToPage, readerRef])
+  }, [currentPage, goToPage, readerRef, hasAudio, onParagraphClick])
 
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()
@@ -316,7 +380,6 @@ export function Reader({
       >
         <div className="chapter-header">
           <h2 className="chapter-title">{chapterTitle}</h2>
-          <p className="translator-info">{editionLabel}</p>
         </div>
 
         {isLoading ? (
@@ -333,6 +396,7 @@ export function Reader({
                 paragraphIndex={i}
                 highlights={highlights}
                 isVerse={isVerse}
+                className={playingParagraphIndex === i ? 'paragraph-playing' : undefined}
               />
             ))}
 

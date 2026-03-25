@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import type { Book, Language, Style } from '../types'
+import { useState, useRef, useEffect } from 'react'
+import type { Book, Language, Style, FontSize, FontFamily } from '../types'
 import type { User } from '@supabase/supabase-js'
 import { BalanceIndicator } from './BalanceIndicator'
 
@@ -23,7 +23,6 @@ interface HeaderProps {
   splitViewAvailable: boolean
   darkMode: boolean
   onToggleDarkMode: () => void
-  onTogglePanel: () => void
   panelOpen: boolean
   readingProgress?: number
   // Auth & billing
@@ -37,9 +36,25 @@ interface HeaderProps {
   onOpenStore: () => void
   onOpenNotes?: () => void
   onOpenCast?: () => void
+  onResetPassword?: (email: string) => Promise<{ error?: string }>
+  onDeleteAccount?: () => void
+  // Format
+  fontSize: FontSize
+  onFontSizeChange: (size: FontSize) => void
+  fontFamily: FontFamily
+  onFontFamilyChange: (family: FontFamily) => void
+  // Reading angle
+  readingObjective: string
+  onEditObjective: () => void
+  // ToC
+  onOpenToc: () => void
+  // Settings (opens onboarding/settings modal)
+  onOpenSettings: () => void
   // Mobile
   isMobile?: boolean
 }
+
+type MenuOpen = null | 'format' | 'account'
 
 export function Header({
   bookTitle,
@@ -61,7 +76,6 @@ export function Header({
   splitViewAvailable,
   darkMode,
   onToggleDarkMode,
-  onTogglePanel,
   panelOpen,
   readingProgress,
   user,
@@ -74,9 +88,35 @@ export function Header({
   onOpenStore,
   onOpenNotes,
   onOpenCast,
+  onResetPassword,
+  onDeleteAccount,
+  fontSize,
+  onFontSizeChange,
+  fontFamily,
+  onFontFamilyChange,
+  readingObjective,
+  onEditObjective,
+  onOpenToc,
+  onOpenSettings,
   isMobile,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState<MenuOpen>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const [resetSent, setResetSent] = useState(false)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(null)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [menuOpen])
 
   if (isMobile) {
     return (
@@ -120,7 +160,6 @@ export function Header({
         {mobileMenuOpen && (
           <div className="mobile-menu" onClick={() => setMobileMenuOpen(false)}>
             <div className="mobile-menu-content" onClick={e => e.stopPropagation()}>
-              {/* Book selector */}
               {books.length > 1 && (
                 <div className="mobile-menu-item">
                   <label className="mobile-menu-label">Book</label>
@@ -136,7 +175,6 @@ export function Header({
                 </div>
               )}
 
-              {/* Language */}
               <div className="mobile-menu-item">
                 <label className="mobile-menu-label">Language</label>
                 <div className="lang-toggle">
@@ -145,7 +183,6 @@ export function Header({
                 </div>
               </div>
 
-              {/* Style */}
               <div className="mobile-menu-item">
                 <label className="mobile-menu-label">Edition</label>
                 <select
@@ -159,7 +196,6 @@ export function Header({
                 </select>
               </div>
 
-              {/* Split view */}
               {splitViewAvailable && (
                 <div className="mobile-menu-item">
                   <label className="mobile-menu-label">Compare view</label>
@@ -172,7 +208,6 @@ export function Header({
                 </div>
               )}
 
-              {/* Dark mode */}
               <div className="mobile-menu-item">
                 <label className="mobile-menu-label">Dark mode</label>
                 <button
@@ -183,7 +218,6 @@ export function Header({
                 </button>
               </div>
 
-              {/* Notes */}
               {onOpenNotes && (
                 <div className="mobile-menu-item">
                   <button className="mobile-menu-auth" onClick={() => { onOpenNotes(); setMobileMenuOpen(false) }}>
@@ -192,7 +226,6 @@ export function Header({
                 </div>
               )}
 
-              {/* Cast */}
               {onOpenCast && (
                 <div className="mobile-menu-item">
                   <button className="mobile-menu-auth" onClick={() => { onOpenCast(); setMobileMenuOpen(false) }}>
@@ -201,7 +234,6 @@ export function Header({
                 </div>
               )}
 
-              {/* Balance */}
               <div className="mobile-menu-item">
                 <BalanceIndicator
                   messagesRemaining={messagesRemaining}
@@ -212,14 +244,12 @@ export function Header({
                 />
               </div>
 
-              {/* Browse store */}
               <div className="mobile-menu-item">
                 <button className="mobile-menu-auth" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
                   Browse books
                 </button>
               </div>
 
-              {/* Auth */}
               <div className="mobile-menu-item">
                 {user ? (
                   <button className="mobile-menu-auth" onClick={() => { onSignOut(); setMobileMenuOpen(false) }}>
@@ -244,88 +274,166 @@ export function Header({
     )
   }
 
-  // Desktop header (unchanged)
+  // Desktop header — new menu bar design
   return (
-    <header className="header">
+    <header className="header" ref={menuRef}>
       <div className="header-left">
         <h1 className="logo">Tinct</h1>
-        {books.length > 1 ? (
-          <select
-            className="book-select"
-            value={currentBookId}
-            onChange={e => onBookChange(e.target.value)}
-          >
-            {books.map(b => (
-              <option key={b.id} value={b.id}>{b.title} — {b.author}</option>
-            ))}
-          </select>
-        ) : (
-          <>
-            <span className="book-title">{bookTitle}</span>
-            <span className="separator">&middot;</span>
-            <span className="author">{bookAuthor}</span>
-          </>
-        )}
+        <span className="separator">&middot;</span>
+        <span className="book-title">{bookTitle}</span>
+        <span className="separator">&middot;</span>
+        <span className="author">{bookAuthor}</span>
       </div>
 
-      <div className="header-center">
-        <button
-          className="chapter-nav"
-          disabled={currentChapter <= 1}
-          onClick={() => onChapterChange(currentChapter - 1)}
-          aria-label="Previous chapter"
-        >&larr;</button>
-        <select
-          className="chapter-select"
-          value={currentChapter}
-          onChange={e => onChapterChange(Number(e.target.value))}
-        >
-          {Array.from({ length: totalChapters }, (_, i) => (
-            <option key={i + 1} value={i + 1}>{chapterLabels[i] || `Chapter ${i + 1}`}</option>
-          ))}
-        </select>
-        <button
-          className="chapter-nav"
-          disabled={currentChapter >= totalChapters}
-          onClick={() => onChapterChange(currentChapter + 1)}
-          aria-label="Next chapter"
-        >&rarr;</button>
-      </div>
-
-      <div className="header-right">
-        <div className="lang-toggle">
-          <button className={`lang-button ${language === 'en' ? 'lang-active' : ''}`} onClick={() => onLanguageChange('en')}>EN</button>
-          <button className={`lang-button ${language === 'da' ? 'lang-active' : ''}`} onClick={() => onLanguageChange('da')}>DA</button>
-        </div>
-        <select className="translation-select" value={style} onChange={e => onStyleChange(e.target.value as Style)}>
-          {availableStyles.map(s => (<option key={s.style} value={s.style}>{s.label}</option>))}
-        </select>
+      <nav className="menu-bar">
+        {/* Icon buttons */}
         {splitViewAvailable && (
-          <button className={`icon-button ${splitView ? 'icon-button-active' : ''}`} onClick={onToggleSplitView} title={splitView ? 'Single view' : 'Split view'}>
-            {splitView ? '⊡' : '⊞'}
+          <button
+            className={`menu-icon-btn ${splitView ? 'menu-icon-active' : ''}`}
+            onClick={onToggleSplitView}
+            title={splitView ? 'Single view' : 'Compare editions'}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="1" y="2" width="14" height="12" rx="1.5" />
+              <line x1="8" y1="2" x2="8" y2="14" />
+            </svg>
           </button>
         )}
-        <button className="icon-button" onClick={onToggleDarkMode} title={darkMode ? 'Light mode' : 'Dark mode'}>
-          {darkMode ? '☀' : '☽'}
-        </button>
-        <BalanceIndicator messagesRemaining={messagesRemaining} hasBalance={hasBalance} isAnonymous={isAnonymous} onTopUp={onOpenUsage} onSignIn={onSignIn} />
-        {user ? (
-          <button className="user-avatar" onClick={onSignOut} title={`Signed in as ${user.email}. Click to sign out.`}>
-            {(user.email || 'U')[0].toUpperCase()}
-          </button>
-        ) : (
-          <button className="auth-button" onClick={onSignIn}>Sign in</button>
-        )}
-        <button className="icon-button panel-toggle" onClick={onTogglePanel} title={panelOpen ? 'Close panel' : 'Open panel'}>
-          {panelOpen ? '▷' : '◁'}
-        </button>
-      </div>
 
-      {readingProgress != null && readingProgress > 0 && (
-        <div className="reading-progress-bar" title={`${readingProgress}% complete`}>
-          <div className="reading-progress-fill" style={{ width: `${readingProgress}%` }} />
+        <button className="menu-icon-btn" onClick={onOpenToc} title="Table of contents">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <line x1="3" y1="4" x2="13" y2="4" />
+            <line x1="3" y1="8" x2="11" y2="8" />
+            <line x1="3" y1="12" x2="9" y2="12" />
+          </svg>
+        </button>
+
+        <span className="menu-divider" />
+
+        {/* Text buttons */}
+        <div className="menu-item-wrapper">
+          <button
+            className={`menu-item ${menuOpen === 'format' ? 'menu-item-active' : ''}`}
+            onClick={() => setMenuOpen(menuOpen === 'format' ? null : 'format')}
+          >
+            Format
+          </button>
+          {menuOpen === 'format' && (
+            <div className="menu-dropdown">
+              <div className="menu-dropdown-section">
+                <span className="menu-dropdown-label">Theme</span>
+                <div className="menu-dropdown-row">
+                  <button
+                    className={`menu-toggle-btn ${!darkMode ? 'menu-toggle-active' : ''}`}
+                    onClick={() => { if (darkMode) onToggleDarkMode() }}
+                  >Light</button>
+                  <button
+                    className={`menu-toggle-btn ${darkMode ? 'menu-toggle-active' : ''}`}
+                    onClick={() => { if (!darkMode) onToggleDarkMode() }}
+                  >Dark</button>
+                </div>
+              </div>
+              <div className="menu-dropdown-section">
+                <span className="menu-dropdown-label">Font size</span>
+                <div className="menu-dropdown-row">
+                  {(['small', 'medium', 'large', 'xlarge'] as FontSize[]).map(s => (
+                    <button
+                      key={s}
+                      className={`menu-toggle-btn ${fontSize === s ? 'menu-toggle-active' : ''}`}
+                      onClick={() => onFontSizeChange(s)}
+                    >
+                      {s === 'small' ? 'S' : s === 'medium' ? 'M' : s === 'large' ? 'L' : 'XL'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="menu-dropdown-section">
+                <span className="menu-dropdown-label">Font</span>
+                <div className="menu-dropdown-row">
+                  {(['garamond', 'baskerville', 'sourceserif'] as FontFamily[]).map(f => (
+                    <button
+                      key={f}
+                      className={`menu-toggle-btn ${fontFamily === f ? 'menu-toggle-active' : ''}`}
+                      onClick={() => onFontFamilyChange(f)}
+                    >
+                      {f === 'garamond' ? 'Garamond' : f === 'baskerville' ? 'Baskerville' : 'Source Serif'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+
+        <button className="menu-item" onClick={onOpenStore}>Library</button>
+
+        <button className="menu-item" onClick={onOpenSettings}>Settings</button>
+
+        {/* Account / Sign in */}
+        <div className="menu-item-wrapper">
+          {user ? (
+            <>
+              <button
+                className={`menu-item ${menuOpen === 'account' ? 'menu-item-active' : ''}`}
+                onClick={() => setMenuOpen(menuOpen === 'account' ? null : 'account')}
+              >
+                Account
+              </button>
+              {menuOpen === 'account' && (
+                <div className="menu-dropdown menu-dropdown-account">
+                  <div className="menu-dropdown-section">
+                    <span className="menu-dropdown-label">{user.email}</span>
+                  </div>
+                  <button className="menu-dropdown-link" onClick={() => { onOpenUsage(); setMenuOpen(null) }}>
+                    Credits & usage
+                  </button>
+                  {onResetPassword && user.email && (
+                    resetSent ? (
+                      <span className="menu-dropdown-label" style={{ padding: '6px 12px', color: 'var(--accent)', fontSize: '0.85rem' }}>
+                        Reset email sent
+                      </span>
+                    ) : (
+                      <button className="menu-dropdown-link" onClick={async () => {
+                        await onResetPassword(user.email!)
+                        setResetSent(true)
+                        setTimeout(() => setResetSent(false), 5000)
+                      }}>
+                        Change password
+                      </button>
+                    )
+                  )}
+                  <button className="menu-dropdown-link menu-dropdown-signout" onClick={() => { onSignOut(); setMenuOpen(null) }}>
+                    Sign out
+                  </button>
+                  {onDeleteAccount && (
+                    showDeleteConfirm ? (
+                      <div style={{ padding: '8px 12px', borderTop: '1px solid var(--border)' }}>
+                        <p style={{ fontSize: '0.8rem', margin: '0 0 8px', color: 'var(--text-secondary)' }}>
+                          Permanently delete your account and all data?
+                        </p>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                          <button className="menu-dropdown-link" onClick={() => setShowDeleteConfirm(false)} style={{ flex: 1, textAlign: 'center' }}>
+                            Cancel
+                          </button>
+                          <button className="menu-dropdown-link menu-dropdown-signout" onClick={() => { onDeleteAccount(); setMenuOpen(null); setShowDeleteConfirm(false) }} style={{ flex: 1, textAlign: 'center', color: '#c0392b' }}>
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <button className="menu-dropdown-link" onClick={() => setShowDeleteConfirm(true)} style={{ color: 'var(--text-secondary)' }}>
+                        Delete account
+                      </button>
+                    )
+                  )}
+                </div>
+              )}
+            </>
+          ) : (
+            <button className="menu-item" onClick={onSignIn}>Sign in</button>
+          )}
+        </div>
+      </nav>
     </header>
   )
 }

@@ -6,34 +6,39 @@
 
 ## Vision
 
-Tinct is a reading platform that transforms how people engage with books. Not passive consumption — active wrestling. You read, you question, you debate, you annotate, you reflect. Every time you read, you learn more.
+Tinct is the reading platform for people who take books seriously. You already bought the book — Tinct gives you every way to experience it: read, listen, translate, annotate, discuss, reflect. One book, every format, every language, every device.
 
-The platform is **content-agnostic**. It works with classics, the Bible, philosophy, poetry — anything worth reading deeply. The text is the starting point. The AI, the translations, the notes, and the reading modes are the tools that help you go deeper.
+The platform is **content-agnostic**. It works with classics, the Bible, philosophy, contemporary fiction — anything worth reading deeply. A massive free library of public domain masterworks is the front door. Any EPUB you own is welcome.
 
-**One sentence:** Tinct makes deep reading accessible, interactive, and personal.
+**One sentence:** Your book, your way — read, listen, translate, and understand any book more deeply.
+
+**Root mission connection:** Tinct serves Anders's core mission of spreading optimism about humanity by making the Western canon — the great works that shaped civilization — accessible, engaging, and alive for modern readers. The platform embodies the Deutsch principle that knowledge should be open and growing, not locked behind barriers.
 
 ---
 
 ## Positioning
 
 ### What Tinct Is
-- A purpose-built deep reading experience
-- AI as a reading companion (not a summarizer)
-- Multiple versions of the same text (original, modern, kids) in multiple languages
-- A place to build understanding over time (highlights, notes, reflections)
-- Free or near-free access to the world's greatest books
+- The best way to read any book — read, listen, translate, annotate, discuss
+- A massive free library of public domain classics (70,000+ books, zero cost)
+- AI-powered book enhancement: editions, audiobook, character tracking, chat companion
+- A place to build understanding over time (highlights, notes, reflections, reading journal)
+- Open to any EPUB you own — "your book, your way"
 
 ### What Tinct Is NOT
+- An ebook store (not Kindle — we don't sell books, we make them better)
 - A read-it-later app (not Readwise — we go deep, not wide)
-- A generic ebook reader (not Kindle — we're interactive, not passive)
 - A knowledge management system (not Notion — we serve the reading experience)
 - A social platform (not Goodreads — this is personal)
 
 ### Nearest Comparison
-**No Fear Shakespeare** — original text on the left, modern English on the right, paragraph-aligned. Tinct takes that concept and extends it to all classics, all languages, with AI chat and annotation. No Fear Shakespeare for everything, with an AI companion.
+**No Fear Shakespeare meets Audible meets Calibre.** Original text alongside modern/kids translations. AI audiobook generation. Works with books you already own. No Fear Shakespeare for everything, with an AI companion and an audiobook in every book.
 
-### Key Differentiator vs. Readwise Reader ($10/month)
-Tinct is free for public domain books. You pay only for AI token usage, transparently priced at a modest markup over cost. The reading experience itself has no paywall.
+### Key Differentiators
+- **vs. Kindle:** Tinct enhances books — editions, translations, audiobook, AI companion. Kindle just displays them.
+- **vs. Audible ($15-30/book):** Tinct generates audiobooks for $5-10 from any EPUB you own.
+- **vs. Readwise ($10/month):** Tinct is free for public domain. Pay only per-book for AI enhancement.
+- **vs. Calibre:** Calibre converts and manages. Tinct *understands* — editions, character tracking, chat, audiobook.
 
 ---
 
@@ -261,10 +266,81 @@ Swipe left/right to move between them. Reading progress syncs across all views. 
 
 ---
 
+## BYOB Model — "Your Book, Your Way" (2026-03-24 Strategy Session)
+
+A potential pivot/expansion from "curated classics platform" to "the reading platform for any book."
+
+### The Three-Tier Library
+
+**Tier 1 — Free Library (public domain)**
+- Project Gutenberg, Standard Ebooks, Internet Archive
+- 70,000+ books. One-click add to library. Zero cost.
+- Enhancement (AI editions, audiobook, threads) available for a fee.
+
+**Tier 2 — Buy DRM-Free (legal, frictionless)**
+- Search finds DRM-free editions available from Google Play, Smashwords/D2D, publisher-direct stores (Tor, etc.)
+- "Available DRM-free from [store] for $X" → user buys → imports EPUB → Tinct enhances
+- Affiliate revenue (5-7%) on referral
+
+**Tier 3 — DRM'd Books (user's responsibility)**
+- Affiliate links to Kindle/Kobo/Apple Books (5-7% commission)
+- Tinct accepts any EPUB file. No questions asked.
+- Tinct does NOT strip DRM, does NOT encourage circumvention, DOES link to Calibre as a general ebook management tool
+
+### Revenue: Enhancement Layer (Per-Book)
+
+Users pay for AI processing, not for content access:
+
+| Enhancement | Cost to us | Charge to user |
+|---|---|---|
+| 4 AI editions (modern/kids × EN/DA) | ~$3-8 | $5-10 |
+| AI audiobook (TTS generation) | ~$2-7 | $5-10 |
+| Character tracker / threads | ~$0.50-1 | Included |
+| AI chat | ~$0.01-0.03/msg | Included in tier or per-message |
+
+Per-book "full enhancement" bundle: $8-15 to user, $5-10 cost. 30-60% gross margin.
+
+### Audiobook Generation
+
+- OpenAI TTS or Google WaveNet. Near-human quality. ~$2-7 per book.
+- Generation takes 5-9 hours (background processing). Chapter-by-chapter delivery — Ch1 ready in ~30 min, rest follows.
+- vs. Audible at $15-30/book — significant price advantage.
+
+### Why This Works
+
+1. **Solves the licensing problem entirely.** User owns the book. Tinct is a tool, not a distributor.
+2. **Infinite catalog instantly.** Every EPUB ever published is compatible.
+3. **Moat through accumulated data.** Editions, audiobook, notes, reading history — all private to the user, all sticky.
+4. **Legal position is strong.** Same category as Calibre, Google Translate, a photo editor. Processing a file the user owns.
+
+### Why This Might Not Work
+
+1. **EPUB import friction.** Getting an EPUB file is not one-click for most people.
+2. **Front-loaded cost.** User pays $8-15 before experiencing the value. Mitigation: "first chapter free."
+3. **AI edition quality varies.** Pre-computed Odyssey editions are QA'd. Random user uploads won't be.
+4. **Market size uncertainty.** Intersection of "reads ebooks" + "wants enhancement" + "can get EPUB" is unclear.
+
+### Positioning Shift
+
+From: "No Fear Shakespeare for everything, with an AI companion" (curated, controlled)
+To: "The reading platform that works with books you already own" (open, user-driven)
+
+These are not mutually exclusive. The curated public domain library IS Tier 1. BYOB is Tier 2-3 on top.
+
+### Open Questions
+
+1. How good is AI-generated audiobook quality for a full book? Need to prototype one.
+2. What's the EPUB parsing reliability across sources? How messy is the real world?
+3. Can we build a good search that finds EPUBs across free + DRM-free sources?
+4. Pricing: per-book enhancement vs. subscription vs. hybrid?
+5. RSVP should probably be dropped from backlog (research shows it doesn't work — no retention, comprehension drops at speed).
+
+---
+
 ## Open Questions (To Revisit)
 
-1. **Bookstore feasibility:** What does it actually take? Publisher relationships, DRM, rights management, payment splits. Needs a dedicated strategy session.
+1. **BYOB feasibility:** Prototype the full flow — EPUB upload → parse → generate one edition + audiobook chapter. Test quality and timing.
 2. **Book selection for Phase 1b:** Which 10-20 Western classics + Bible? Curate list.
-3. **Deployment platform:** Vercel vs. Cloudflare Pages. Decide when deploying.
-4. **Audio implementation:** Web Speech API vs. cloud TTS (ElevenLabs, etc.). Cost and quality tradeoffs.
-5. **RSVP implementation:** Existing libraries vs. custom. UX for toggling between modes.
+3. **Deployment platform:** Cloudflare Workers (current).
+4. **Audio implementation:** OpenAI TTS vs. Google WaveNet. Cost/quality tradeoff. Need prototype.
+5. **Search/discovery:** How to build a meta-search across PG, Standard Ebooks, DRM-free stores.

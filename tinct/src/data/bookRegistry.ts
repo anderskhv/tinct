@@ -7,6 +7,8 @@ export const ODYSSEY: Book = {
   description: 'The epic journey of Odysseus as he struggles to return home after the Trojan War. Monsters, gods, and the endurance of the human spirit across twenty years of wandering.',
   year: -800,
   wordCount: 130000,
+  coverColor: '#1a3a5c',
+  coverAccent: '#c9a45c',
   editions: [
     {
       key: 'original-en',
@@ -16,6 +18,7 @@ export const ODYSSEY: Book = {
       translator: 'Samuel Butler',
       year: 1900,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'verse-en',
@@ -32,26 +35,13 @@ export const ODYSSEY: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
-    {
-      key: 'kids-en',
-      language: 'en',
-      style: 'kids',
-      label: 'Kids English',
-      aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
-    },
-    {
-      key: 'kids-da',
-      language: 'da',
-      style: 'kids',
-      label: 'Dansk for Børn',
       aligned: true,
     },
   ],
@@ -64,6 +54,8 @@ export const ULYSSES: Book = {
   description: 'One day in Dublin, June 16, 1904. Leopold Bloom wanders through the city in a modern retelling of The Odyssey — stream of consciousness, parody, and the ordinary made extraordinary.',
   year: 1922,
   wordCount: 265000,
+  coverColor: '#2c1810',
+  coverAccent: '#d4a843',
   editions: [
     {
       key: 'original-en',
@@ -81,24 +73,10 @@ export const ULYSSES: Book = {
       aligned: true,
     },
     {
-      key: 'kids-en',
-      language: 'en',
-      style: 'kids',
-      label: 'Kids English',
-      aligned: true,
-    },
-    {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
-    },
-    {
-      key: 'kids-da',
-      language: 'da',
-      style: 'kids',
-      label: 'Dansk for Børn',
       aligned: true,
     },
   ],
@@ -111,6 +89,8 @@ export const WAR_AND_PEACE: Book = {
   description: 'The sweeping epic of Russian society during the Napoleonic Wars. Five aristocratic families navigate love, death, and the search for meaning across battlefields and ballrooms.',
   year: 1869,
   wordCount: 561695,
+  coverColor: '#3c1a1a',
+  coverAccent: '#c9a45c',
   editions: [
     {
       key: 'original-en',
@@ -129,24 +109,10 @@ export const WAR_AND_PEACE: Book = {
       aligned: true,
     },
     {
-      key: 'kids-en',
-      language: 'en',
-      style: 'kids',
-      label: 'Kids English',
-      aligned: true,
-    },
-    {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
-    },
-    {
-      key: 'kids-da',
-      language: 'da',
-      style: 'kids',
-      label: 'Dansk for Børn',
       aligned: true,
     },
   ],

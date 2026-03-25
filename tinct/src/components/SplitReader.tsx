@@ -49,6 +49,12 @@ interface SplitReaderProps {
   onPageChange?: (page: number, total: number) => void
   /** Initial scroll fraction (0–1) to restore on mount */
   initialPage?: number
+  /** Index of the paragraph currently being played by audio */
+  playingParagraphIndex?: number
+  /** Called when a paragraph is clicked (tap-to-play) */
+  onParagraphClick?: (index: number) => void
+  /** Whether audio is available for the current edition */
+  hasAudio?: boolean
 }
 
 export function SplitReader({
@@ -74,6 +80,9 @@ export function SplitReader({
   isRightVerse,
   onPageChange,
   initialPage,
+  playingParagraphIndex,
+  onParagraphClick,
+  hasAudio,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
@@ -121,11 +130,7 @@ export function SplitReader({
     // Save current page before recalc
     const savedPage = currentPage
     recalcPages()
-    const timer1 = setTimeout(() => {
-      recalcPages()
-      // After recalc, clamp to saved page (don't reset on edition change)
-      setCurrentPage(prev => Math.min(prev, Math.max(0, totalPages - 1)))
-    }, 100)
+    const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
     const container = readerRef.current
     const observer = container ? new ResizeObserver(recalcPages) : null
@@ -155,6 +160,24 @@ export function SplitReader({
   useEffect(() => {
     onPageChange?.(currentPage, totalPages)
   }, [currentPage, totalPages, onPageChange])
+
+  // Auto-advance page when audio plays a paragraph not visible on current page
+  useEffect(() => {
+    if (playingParagraphIndex === undefined || totalPages <= 1) return
+    const content = contentRef.current
+    const container = readerRef.current
+    if (!content || !container) return
+    const el = content.querySelector(`[data-paragraph-index="${playingParagraphIndex}"]`) as HTMLElement
+    if (!el) return
+    const colWidth = container.clientWidth - PAD_X * 2
+    const gap = getGap()
+    if (colWidth <= 0) return
+    const page = Math.floor(el.offsetLeft / (colWidth + gap))
+    const clamped = Math.min(page, totalPages - 1)
+    if (clamped !== currentPage) {
+      setCurrentPage(clamped)
+    }
+  }, [playingParagraphIndex, totalPages, getGap, currentPage, readerRef])
 
   const goToPage = useCallback((page: number) => {
     setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)))
@@ -296,22 +319,6 @@ export function SplitReader({
           <h2 className="chapter-title">{chapterTitle}</h2>
         </div>
 
-        {/* Column headers */}
-        <div className="split-column-headers">
-          <div className="split-column-label">{leftLabel}</div>
-          <div className="split-column-label">
-            <select
-              className="split-edition-select"
-              value={currentRightEditionKey}
-              onChange={e => onRightEditionChange(e.target.value)}
-            >
-              {alignedEditions.map(ed => (
-                <option key={ed.key} value={ed.key}>{ed.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-
         {isLoading ? (
           <div className="loading-indicator">
             <div className="loading-spinner" />
@@ -321,7 +328,12 @@ export function SplitReader({
           <div className="split-reader-grid" ref={gridRef}>
             {Array.from({ length: maxParagraphs }, (_, i) => (
               <div className="split-row" key={i}>
-                <div className="split-left" data-paragraph-index={i}>
+                <div
+                  className={`split-left${playingParagraphIndex === i ? ' paragraph-playing' : ''}`}
+                  data-paragraph-index={i}
+                  onClick={hasAudio && onParagraphClick ? () => onParagraphClick(i) : undefined}
+                  style={hasAudio && onParagraphClick ? { cursor: 'pointer' } : undefined}
+                >
                   {leftParagraphs[i] && (
                     <ParagraphRenderer
                       text={leftParagraphs[i]}

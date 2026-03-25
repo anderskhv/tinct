@@ -1,6 +1,8 @@
 import { Chat } from './Chat'
 import { Notes } from './Notes'
 import { Threads } from './Threads'
+import { UpgradePrompt } from './UpgradePrompt'
+import { useTierContext } from '../contexts/TierContext'
 import type { ChatMessage, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language } from '../types'
 
 interface SidePanelProps {
@@ -39,6 +41,14 @@ interface SidePanelProps {
   language: Language
   getMentions: (char: ThreadCharacter, upToChapter?: number) => CharacterMention[]
   onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
+  // Balance (shown in chat welcome)
+  messagesRemaining?: number
+  hasBalance?: boolean
+  isAnonymous?: boolean
+  onTopUp?: () => void
+  onSignIn?: () => void
+  // Pricing
+  onShowPricing?: () => void
 }
 
 export function SidePanel({
@@ -72,17 +82,27 @@ export function SidePanel({
   language,
   getMentions,
   onNavigateToChapter,
+  messagesRemaining,
+  hasBalance,
+  isAnonymous,
+  onTopUp,
+  onSignIn,
+  onShowPricing,
 }: SidePanelProps) {
+  const { canUse } = useTierContext()
+  const canChat = canUse('ai-chat')
+  const canCast = canUse('cast')
+
   return (
     <aside className={`side-panel ${isOpen ? 'side-panel-open' : 'side-panel-closed'}`}>
       {isOpen && (
         <div className="side-panel-inner">
           <div className="panel-tabs">
             <button
-              className={`panel-tab ${activeTab === 'chat' ? 'panel-tab-active' : ''}`}
+              className={`panel-tab ${activeTab === 'chat' ? 'panel-tab-active' : ''} ${!canChat ? 'panel-tab-locked' : ''}`}
               onClick={() => onTabChange('chat')}
             >
-              Chat
+              Chat {!canChat && <span className="panel-tab-lock">&#9733;</span>}
             </button>
             <button
               className={`panel-tab ${activeTab === 'notes' ? 'panel-tab-active' : ''}`}
@@ -94,27 +114,36 @@ export function SidePanel({
               )}
             </button>
             <button
-              className={`panel-tab ${activeTab === 'threads' ? 'panel-tab-active' : ''}`}
+              className={`panel-tab ${activeTab === 'threads' ? 'panel-tab-active' : ''} ${!canCast ? 'panel-tab-locked' : ''}`}
               onClick={() => onTabChange('threads')}
             >
-              Cast
+              Cast {!canCast && <span className="panel-tab-lock">&#9733;</span>}
             </button>
           </div>
 
           {activeTab === 'chat' ? (
-            <Chat
-              messages={messages}
-              isLoading={isChatLoading}
-              onSendMessage={onSendMessage}
-              onClear={onClearChat}
-              pendingHighlight={pendingHighlight}
-              onClearHighlight={onClearHighlight}
-              onCopyToNotes={onCopyToNotes}
-              bookTitle={bookTitle}
-              chapterTitle={chapterTitle}
-              readingObjective={readingObjective}
-              onEditObjective={onEditObjective}
-            />
+            canChat ? (
+              <Chat
+                messages={messages}
+                isLoading={isChatLoading}
+                onSendMessage={onSendMessage}
+                onClear={onClearChat}
+                pendingHighlight={pendingHighlight}
+                onClearHighlight={onClearHighlight}
+                onCopyToNotes={onCopyToNotes}
+                bookTitle={bookTitle}
+                chapterTitle={chapterTitle}
+                readingObjective={readingObjective}
+                onEditObjective={onEditObjective}
+                messagesRemaining={messagesRemaining}
+                hasBalance={hasBalance}
+                isAnonymous={isAnonymous}
+                onTopUp={onTopUp}
+                onSignIn={onSignIn}
+              />
+            ) : (
+              <UpgradePrompt feature="AI chat" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
+            )
           ) : activeTab === 'notes' ? (
             <Notes
               notes={notes}
@@ -131,14 +160,18 @@ export function SidePanel({
               onNavigateToChapter={onNavigateToChapter}
             />
           ) : (
-            <Threads
-              characters={threadCharacters}
-              currentChapter={currentChapter}
-              editionKey={editionKey}
-              language={language}
-              getMentions={getMentions}
-              onNavigateToChapter={onNavigateToChapter}
-            />
+            canCast ? (
+              <Threads
+                characters={threadCharacters}
+                currentChapter={currentChapter}
+                editionKey={editionKey}
+                language={language}
+                getMentions={getMentions}
+                onNavigateToChapter={onNavigateToChapter}
+              />
+            ) : (
+              <UpgradePrompt feature="Cast tracker" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
+            )
           )}
         </div>
       )}

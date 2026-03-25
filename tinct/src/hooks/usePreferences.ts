@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import { storage } from '../services/storage'
-import type { Language, Style, EditionKey, UserPreferences, PanelTab } from '../types'
+import type { Language, Style, EditionKey, UserPreferences, PanelTab, FontSize, FontFamily } from '../types'
 import { DEFAULT_PREFERENCES } from '../types'
 
 const STORAGE_KEY = 'preferences'
@@ -23,6 +23,26 @@ export function usePreferences() {
     document.documentElement.setAttribute('data-theme', preferences.darkMode ? 'dark' : 'light')
   }, [preferences.darkMode])
 
+  // Apply font size and font family as CSS variables
+  useEffect(() => {
+    const sizeMap: Record<FontSize, string> = {
+      small: '1rem',
+      medium: '1.1rem',
+      large: '1.25rem',
+      xlarge: '1.4rem',
+    }
+    const familyMap: Record<FontFamily, string> = {
+      garamond: "'EB Garamond', var(--font-serif)",
+      baskerville: "'Libre Baskerville', var(--font-serif)",
+      sourceserif: "'Source Serif 4', var(--font-serif)",
+    }
+    const appEl = document.querySelector('.app') as HTMLElement | null
+    if (appEl) {
+      appEl.style.setProperty('--font-size-reader', sizeMap[preferences.fontSize])
+      appEl.style.setProperty('--font-family-reader', familyMap[preferences.fontFamily])
+    }
+  }, [preferences.fontSize, preferences.fontFamily])
+
   const update = useCallback((partial: Partial<UserPreferences>) => {
     setPreferencesState(prev => ({ ...prev, ...partial }))
   }, [])
@@ -42,6 +62,9 @@ export function usePreferences() {
   const setSplitEditionKey = useCallback((splitEditionKey: EditionKey) => update({ splitEditionKey }), [update])
   const setReadingObjective = useCallback((readingObjective: string) => update({ readingObjective }), [update])
   const setOnboardingComplete = useCallback((onboardingComplete: boolean) => update({ onboardingComplete }), [update])
+  const setFontSize = useCallback((fontSize: FontSize) => update({ fontSize }), [update])
+  const setFontFamily = useCallback((fontFamily: FontFamily) => update({ fontFamily }), [update])
+  const setAccountDecisionSeen = useCallback((accountDecisionSeen: boolean) => update({ accountDecisionSeen }), [update])
 
   return {
     preferences,
@@ -54,6 +77,9 @@ export function usePreferences() {
     setSplitEditionKey,
     setReadingObjective,
     setOnboardingComplete,
+    setFontSize,
+    setFontFamily,
+    setAccountDecisionSeen,
     update,
   }
 }

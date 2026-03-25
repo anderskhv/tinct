@@ -1,208 +1,152 @@
-# Tinct — Backlog
+# Tinct — Launch Backlog
 
-**Last updated:** 2026-03-17
+**Last updated:** 2026-03-24
 
-Items are grouped by phase and roughly priority-ordered within each group.
-
----
-
-## Phase 1a — The Odyssey (Target: mid-April 2026)
-
-### Infrastructure
-- [x] Git init repository
-- [x] Generalize data model: Book → chapters → versions (not hardcoded to Odyssey)
-- [x] Multi-version architecture: original, modern EN, kids EN, modern DA, kids DA per book
-- [x] Language switcher (English / Danish)
-- [x] Version switcher (Original / Modern / Kids)
-- [x] Static data storage for pre-computed versions
-- [ ] Deploy to tinct.app
-
-### Pre-computation (The Odyssey)
-- [x] Download Butler (prose) and Pope (verse) originals
-- [x] Generate modern English translation (chapter by chapter via Claude)
-- [x] Generate kids English version
-- [x] Generate modern Danish translation
-- [x] Generate kids Danish version
-- [x] Visual QA: screenshot every chapter × every version, review and fix
-- [x] Fix generation failures (Ch4 all editions, Danish editions 50-64% missing → all fixed)
-- [x] Fix Ch11 title parsing artifact (".88" removed)
-
-### Reader
-- [x] Split pane: original left, chosen version right, paragraph-aligned
-- [x] Paragraph-level alignment between versions (mapping paragraphs across translations)
-- [x] Clean typography
-- [x] Chapter navigation (dropdown, arrows)
-- [x] "Reflect on this chapter" inline button at end of chapter text
-- [x] Scroll position persistence (localStorage)
-- [x] Reading progress tracking per book (hook + header progress bar)
-- [x] Split-pane pagination (page arrows, keyboard nav, click zones — matches single reader)
-- [x] Prose newline normalization (Butler text no longer wraps word-by-word in split view)
-- [x] Wider reading area (680px → 780px) with responsive chapter titles
-
-### AI Chat
-- [x] Context-aware: knows current book, chapter, translation
-- [x] Auto-explain on highlight: when user highlights text, chat explains it automatically
-- [x] Chapter reflection prompt support
-- [x] Chat panel easy to show/hide
-- [x] "Copy to notes" button on every assistant message
-- [x] Page-aware: system prompt includes visible text on current page
-- [x] Reading lens: user's reading objective woven into system prompt
-- [x] Markdown rendering in chat (headings, bold, italic, bullet/numbered lists)
-- [x] Warm welcome with chapter-specific greeting and suggestion chips
-- [x] Proactive AI insights on page turns (rate-limited, probability-gated)
-
-### Notes & Annotations
-- [x] Text highlighting with color picker (5 colors)
-- [x] Annotation: attach a note to a highlight
-- [x] Notes panel (tab in right side panel)
-- [x] View all highlights + notes for current chapter
-- [x] Freeform note-taking (not tied to highlights)
-- [x] AI note cleanup: light mode (fix writing, remove redundancy)
-- [x] AI note cleanup: aggressive mode (synthesis to 30-50% length)
-- [x] End-of-book summary generated from accumulated highlights/notes
-- [x] Markdown rendering in notes (headings, bold, italic, lists)
-- [x] Highlight offset fix (text matching now works with embedded newlines)
-
-### Onboarding
-- [x] Welcome overlay explaining features + reading angle input
-- [x] Reading objective persists and feeds into AI system prompt
-- [x] Objective editable post-onboarding via chat welcome
-
-### Persistence (Phase 1a = localStorage)
-- [x] Save highlights to localStorage
-- [x] Save notes to localStorage
-- [x] Save reading position to localStorage
-- [x] Save preferences (language, version, dark mode) to localStorage
-- [x] Code all persistence through an abstraction layer (easy swap to Supabase later)
-
-### QA
-- [x] Playwright visual QA setup (246 tests: 6 editions × 24 ch + 4 split combos × 24 ch + specials)
-- [x] Page-by-page screenshot review for every version of The Odyssey (all pass)
-- [x] Split-pane alignment verification (4 combos × 24 chapters = 96 screenshots, all pass)
-- [x] Dark mode verification (single + split)
-- [x] Onboarding overlay visual QA
-- [x] Chat welcome with suggestion chips visual QA
-
-### Security Audit Fixes (2026-03-20) — DO BEFORE DEPLOY
-
-**Critical:**
-- [ ] **Rename `VITE_ANTHROPIC_API_KEY` → `ANTHROPIC_API_KEY`** — `VITE_` prefix exposes to client bundle. One wrong import = key shipped to every browser.
-- [ ] **Rotate Anthropic API key** — treat current key as compromised.
-- [ ] **Delete or gitignore `Passwords/Passwords`** — contains Supabase DB password in plaintext, NOT gitignored.
-- [ ] **Move `.env` to root `.gitignore`** — currently only in inner `.gitignore`.
-
-**High:**
-- [ ] **Add auth to `/api/chat`** — currently anonymous users can hit it and run up Anthropic bill.
-- [ ] **Fix rate limiting** — in-memory rate limit resets on every Vercel cold start (effectively none). Use Redis or Supabase.
-- [ ] **Separate service role key** — Supabase service role key (bypasses RLS) mixed with `VITE_` vars in same `.env`.
-
-**Medium:**
-- [ ] Add Content Security Policy headers
-- [ ] Fix open redirect in Stripe checkout URLs
-- [ ] Reduce error message verbosity (leaks internal details)
-
-Full report: `SECURITY-AUDIT.md`
-
-### Remaining for Phase 1a completion
-1. **Deploy to tinct.app** — Vercel project setup, env vars for API key, push
-2. **Polish pass** — test the full reading experience end-to-end as a real user:
-   - Chapter titles: long titles on Butler could be shortened (e.g. "Book I — The Gods in Council")
-   - Selection popup clipping: verify on all page positions
-   - Chat/Notes tab visibility after extended use
-   - Test on a second browser / incognito to verify fresh-user flow
+Gap analysis between the mission statement and what's built. Ordered by launch-critical first, then nice-to-have.
 
 ---
 
-## Phase 1b — Multi-Book + Auth (Target: May-June 2026)
+## What's Built
 
-### Content
-- [ ] Curate list of 10-20 Western classics + Bible
-- [ ] Download source texts from PG mirrors / Internet Archive
-- [ ] Build chapter parsers per book (or generalize the parser)
-- [ ] Pre-compute all versions for each book (modern EN, kids EN, modern DA, kids DA)
-- [ ] Visual QA for every book (page-by-page screenshots)
-
-### Library UI
-- [ ] Book shelf / library view (home screen)
-- [ ] Book detail page (description, available versions, start reading)
-- [ ] Continue reading (jump back to last position)
-- [ ] Search across library
-
-### Auth & Database
-- [ ] Supabase project setup
-- [ ] Auth: email/password + magic link
-- [ ] Migrate persistence layer from localStorage to Supabase
-- [ ] Sync: highlights, notes, reading progress, preferences
-- [ ] Cross-device sync
-
-### Payments
-- [ ] Stripe integration
-- [ ] Token usage tracking per user
-- [ ] Transparent pricing page (show cost breakdown)
-- [ ] Metered billing: charge based on AI token consumption + modest markup
-- [ ] Free tier: reading without AI chat costs nothing
-- [ ] Usage dashboard: show users their AI spend
+| Feature | Status |
+|---|---|
+| Multiple editions (original, modern, kids, verse) | Done (Odyssey: 6 editions, Ulysses: 5 editions) |
+| Side-by-side reading (paragraph-aligned) | Done |
+| AI chat (page-aware, reading-objective-aware) | Done |
+| Cast (character tracker, spoiler-aware) | Done (Odyssey: 25 chars, Ulysses: 20 chars) |
+| Highlights (5 colors, cross-edition navigation) | Done |
+| Notes (freeform, from-chat, AI cleanup) | Done |
+| Reading journal (end-of-book AI summary) | Done |
+| Chapter reflection prompts | Done |
+| Onboarding (reading angle) | Done |
+| Dark mode | Done |
+| Cross-device sync (Supabase) | Done |
+| Auth (email + Google OAuth) | Done |
+| Mobile responsive | Done |
+| Deployed to tinct.ahvelplund.workers.dev | Done |
 
 ---
 
-## Phase 2 — Content Expansion & Mobile (Post-summer 2026)
+## Launch-Critical
 
-### Content
-- [ ] Expand to 50-100+ public domain books
-- [ ] Bookstore exploration: what does it take? (dedicated strategy session)
-  - Publisher relationships
-  - DRM requirements
-  - Rights management
-  - Payment splits
-  - EPUB/format support
+### 1. Security Fixes (BLOCKING — do before any public launch)
+- [ ] Rename `VITE_ANTHROPIC_API_KEY` → `ANTHROPIC_API_KEY` (VITE_ prefix exposes to client)
+- [ ] Rotate Anthropic API key (treat current as compromised)
+- [ ] Delete or gitignore `Passwords/Passwords` (plaintext Supabase DB password)
+- [ ] Move `.env` to root `.gitignore`
+- [ ] Add auth to `/api/chat` (currently anonymous users can run up bill)
+- [ ] Fix rate limiting (in-memory resets on cold start = no rate limiting)
+- [ ] Separate service role key from VITE_ vars
 
-### User Uploads
-- [ ] Markdown file import
-- [ ] PDF text extraction (not rendering)
-- [ ] Chapter/heading detection from uploaded files
-- [ ] AI chat integration with user-uploaded content
+### 2. Pricing Infrastructure (replace current top-up model)
+- [ ] Per-book Premium purchase ($3/book via Stripe Checkout)
+- [ ] First-book-free logic (auto-grant Premium on first book added to library)
+- [ ] Feature gating: free users see editions/highlights/sync, Premium features locked with upgrade prompt
+- [ ] 200-message counter per book (decrement on each AI interaction)
+- [ ] Message pack purchase ($3/100 messages, account-level balance)
+- [ ] Usage UI: show remaining messages, prompt to top up when low
+- [ ] Remove old top-up model ($2/$5/$10/$20 balance system)
 
-### Mobile
-- [ ] Responsive design (already coded mobile-ready)
-- [ ] Four swipeable views: Text, Split Pane, Chat, Notes
-- [ ] Touch-friendly highlighting
-- [ ] Mobile-optimized typography
-- [ ] Seamless desktop ↔ mobile experience (sync via Supabase)
+### 3. Content — Minimum Library (at least 5-8 books at launch)
+Currently: Odyssey (complete), Ulysses (complete), War and Peace (original only — no editions, no threads complete)
 
-### Reading Modes
-- [ ] RSVP (Rapid Serial Visual Presentation) — one word at a time with emphasis
-- [ ] Audio: text-to-speech with text/audio position sync
-- [ ] Seamless toggle between text and audio (continue where you left off)
+Books to add (all public domain, all need 5 editions + threads):
+- [ ] War and Peace — complete remaining editions (modern-en, kids-en, modern-da, kids-da) + threads
+- [ ] Dante — Inferno (or full Divine Comedy)
+- [ ] Dostoevsky — Crime and Punishment or Brothers Karamazov
+- [ ] Austen — Pride and Prejudice
+- [ ] Plato — The Republic
+- [ ] Shakespeare — Hamlet or Macbeth
+- [ ] Bible — Genesis (or a larger selection)
+- [ ] Brontë — Jane Eyre or Wuthering Heights
 
-### Reading Journal
-- [ ] Cross-book reading journal
-- [ ] End-of-book summaries collected across all books read
-- [ ] Reading statistics (books read, time spent, highlights made)
+Each book requires: source text parsing, 4 edition generations (via CLI), threads data, book registry entry, visual QA. See Book Addition Checklist in CLAUDE.md.
+
+### 4. Deploy to tinct.app
+- [ ] DNS: point tinct.app to Cloudflare Workers (currently on workers.dev subdomain)
+- [ ] SSL/TLS configured
+- [ ] Verify production env vars (Supabase, Stripe, Anthropic)
+- [ ] Test full user flow on production domain
+
+### 5. Landing Page
+- [ ] Marketing landing page at tinct.app (before the reader UI)
+- [ ] Mission statement content adapted for web
+- [ ] Feature showcase (screenshots/demo of editions, cast, AI chat)
+- [ ] Pricing table (Free vs Premium)
+- [ ] "Start reading" CTA → book store → onboarding
+- [ ] SEO basics: meta tags, Open Graph, structured data
 
 ---
 
-## Phase 3 — Hardware (Long-term, Parked)
+## Launch-Important (should have, but won't block launch)
 
-- [ ] Research e-reader hardware market
-- [ ] Voice interaction design (talk to your book)
-- [ ] Offline-first architecture with sync
-- [ ] E-ink display optimization
-- [ ] Hardware partnerships or custom manufacturing
+### 6. Flashcards & Spaced Repetition
+- [ ] Per-book flashcard generation (key characters, themes, vocabulary)
+- [ ] AI-generated flashcards from highlights and notes
+- [ ] Manual flashcard creation
+- [ ] Spaced repetition scheduler (SM-2 or similar)
+- [ ] Review UI (card flip, confidence rating)
+- [ ] Gated behind Premium
 
-**Not actionable until software product is validated.**
+### 7. Audiobook with Position Sync
+- [ ] TTS generation per chapter per edition (or use browser TTS as MVP)
+- [ ] Audio player UI (play/pause, scrub, speed control) — partially built
+- [ ] Position sync: audio playback updates reading position and vice versa
+- [ ] Paragraph-level sync markers
+- [ ] Gated behind Premium
+
+### 8. Offline Mode (PWA)
+- [ ] Service Worker: cache app shell (HTML, CSS, JS, fonts)
+- [ ] "Download for offline" button per book — caches all edition JSONs for that book
+- [ ] Optional audio download — pre-cache audio files (warn about size: 50-200 MB/book)
+- [ ] Download progress indicator + "Available offline" badge on book cards
+- [ ] Offline-aware UI: chat tab shows "Offline — available when connected", hide sign-in
+- [ ] Background sync: queue highlights/notes/position changes made offline, sync when reconnected
+- [ ] Storage management UI: show cached books + size, ability to remove offline data
+- [ ] `manifest.json` + install prompt ("Add to Home Screen") for mobile PWA experience
+
+### 9. Android App (for e-readers)
+- [ ] Capacitor or Android WebView wrapper around web app
+- [ ] E-ink optimizations (no animations, high contrast, physical button support)
+- [ ] Play Store listing
+- [ ] Or: PWA with install prompt (lighter lift, works on Boox etc.)
 
 ---
 
-## Ideas Parking Lot
+## Post-Launch
 
-Items captured but not yet prioritized or committed:
+### 10. Content Expansion
+- [ ] Expand to 20-50 public domain books
+- [ ] Copyrighted book strategy (publisher partnerships or user EPUB upload)
+- [ ] More languages beyond English and Danish
 
-- Additional languages beyond English and Danish
-- Community features (shared annotations, book clubs)
-- Reading challenges / gamification
-- Integration with external note-taking tools (Obsidian, Notion)
-- Spaced repetition for key passages
-- Author/character bios and relationship maps
-- Timeline visualizations (especially for Bible, historical texts)
-- Comparison mode: read same passage across 3+ translations
-- Export highlights/notes as Markdown or PDF
+### 11. B2B / Education
+- [ ] Teacher landing page ("Assign The Odyssey on Tinct")
+- [ ] Classroom pricing (per-student-per-book)
+- [ ] Bulk book activation
+- [ ] Reading progress dashboard for teachers
+
+### 12. Social & Community
+- [ ] Book clubs (shared reading, group highlights)
+- [ ] Export highlights/notes as Markdown or PDF
+- [ ] Reading statistics (books read, time spent)
+
+### 13. Additional Reading Modes
+- [ ] Bionic reading (bold first syllable)
+- [ ] RSVP (rapid serial visual presentation)
+- [ ] 3+ translation comparison mode
+
+---
+
+## Estimated Launch Effort
+
+| Category | Items | Effort estimate |
+|---|---|---|
+| Security fixes | 7 items | 1-2 days |
+| Pricing infrastructure | 7 items | 3-5 days |
+| Content (5-6 more books) | ~6 books × editions + threads | 2-3 days per book (CLI generation) |
+| Deploy to tinct.app | 4 items | Half day |
+| Landing page | 6 items | 1-2 days |
+| **Total to launch** | | **~3-4 weeks** |
+
+Flashcards, audiobook, and Android app are launch-important but can follow in the first weeks after launch without embarrassment.

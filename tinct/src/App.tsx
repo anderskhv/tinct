@@ -7,8 +7,14 @@ import { Onboarding } from './components/Onboarding'
 import { ProactiveInsight } from './components/ProactiveInsight'
 import { AuthModal } from './components/AuthModal'
 import { UsageDashboard } from './components/UsageDashboard'
-import { ReadingProgressBar } from './components/ReadingProgressBar'
 import { BookStore } from './components/BookStore'
+import { AccountDecision } from './components/AccountDecision'
+import { PricingModal } from './components/PricingModal'
+import { BottomBar } from './components/BottomBar'
+import type { BottomBarHandle } from './components/BottomBar'
+import { PanelToggleTab } from './components/PanelToggleTab'
+import { TocOverlay } from './components/TocOverlay'
+import { TierProvider } from './contexts/TierContext'
 import { BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition } from './data/editionLoader'
 import { usePreferences } from './hooks/usePreferences'
@@ -46,11 +52,18 @@ export default function App() {
   const book = getBook(currentBookId) || ODYSSEY
 
   // Auth & billing
-  const { user, profile, session, signUp, signIn, signInWithGoogle, signOut, refreshProfile } = useAuth()
+  const { user, profile, session, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
   const { messagesRemaining, hasBalance, deductUsage, isAnonymous } = useBalance(session, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
+  const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
   const [showStore, setShowStore] = useState(false)
+  const [showSettings, setShowSettings] = useState(false)
+  const [showPricingModal, setShowPricingModal] = useState(false)
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [resetError, setResetError] = useState('')
+  const [resetSuccess, setResetSuccess] = useState(false)
 
   // Swap storage provider when user signs in/out — enables cross-device sync
   const [storageReady, setStorageReady] = useState(!user)
@@ -91,6 +104,9 @@ export default function App() {
     setSplitEditionKey,
     setReadingObjective,
     setOnboardingComplete,
+    setFontSize,
+    setFontFamily,
+    setAccountDecisionSeen,
   } = usePreferences()
 
   // Library books (filtered to what user has added)
@@ -120,6 +136,15 @@ export default function App() {
   const targetParagraphRef = useRef<number | undefined>(undefined)
   const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: 'en' | 'da' } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Audio state
+  const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
+  const [hasAudio, setHasAudio] = useState(false)
+  const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
+  const bottomBarRef = useRef<BottomBarHandle>(null)
+
+  // ToC overlay state
+  const [showToc, setShowToc] = useState(false)
 
   // Re-read position from cloud storage once Supabase syncs — pick furthest position
   const hasRestoredFromCloud = useRef(false)
@@ -233,9 +258,7 @@ export default function App() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     if (params.get('payment') === 'success') {
-      // Refresh profile to get updated balance
       refreshProfile()
-      // Clean URL
       window.history.replaceState({}, '', window.location.pathname)
     }
   }, [refreshProfile])
@@ -627,6 +650,24 @@ export default function App() {
     sendMessage(reflectPrompt)
   }, [primaryChapter, currentChapter, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
 
+  // Audio paragraph change handler
+  const handleAudioParagraphChange = useCallback((paragraphIndex: number) => {
+    setAudioPlayingParagraph(paragraphIndex)
+  }, [])
+
+  // Audio paragraph click handler (tap-to-play)
+  const handleParagraphClick = useCallback((paragraphIndex: number) => {
+    bottomBarRef.current?.seekToParagraph(paragraphIndex)
+  }, [])
+
+  // Detect if audio is available for current edition — check on edition/chapter change
+  useEffect(() => {
+    const url = `/audio/${book.id}/${primaryEditionKey}/ch${currentChapter}/manifest.json`
+    fetch(url, { method: 'HEAD' })
+      .then(res => setHasAudio(res.ok))
+      .catch(() => setHasAudio(false))
+  }, [book.id, primaryEditionKey, currentChapter])
+
   // Wrap split view toggle to preserve position
   const handleToggleSplitView = useCallback(() => {
     // Save current scroll fraction before toggling
@@ -658,23 +699,76 @@ export default function App() {
     if (editingObjective) setInlineObjective(preferences.readingObjective)
   }, [editingObjective, preferences.readingObjective])
 
+  // Auto-set accountDecisionSeen for existing users with accounts
+  useEffect(() => {
+    if (user && !preferences.accountDecisionSeen) {
+      setAccountDecisionSeen(true)
+    }
+  }, [user, preferences.accountDecisionSeen, setAccountDecisionSeen])
+
+  // Show account decision: after picking a book, before onboarding, if not yet seen and no user
+  const showAccountDecision = !libraryEmpty && !showStore && !preferences.accountDecisionSeen && !user
+
   return (
-    <div className="app">
+    <TierProvider user={user} profile={profile}>
+    <div className={`app ${hasAudio ? 'has-audio' : ''}`}>
       {/* New user: show store first, then onboarding after picking a book */}
       {(libraryEmpty || showStore) && (
         <BookStore
-          books={libraryBooks}
+          books={BOOKS}
           libraryIds={libraryIds}
           onAddBook={addBook}
           onSelectBook={(bookId) => {
             handleBookChange(bookId)
             setShowStore(false)
           }}
+          onClose={!libraryEmpty ? () => setShowStore(false) : undefined}
         />
       )}
 
-      {!libraryEmpty && !showStore && !preferences.onboardingComplete && (
+      {showAccountDecision && (
+        <AccountDecision
+          bookTitle={book.title}
+          bookAuthor={book.author}
+          onCreateAccount={() => {
+            setAuthModalMode('signup')
+            setShowAuthModal(true)
+          }}
+          onSkip={() => {
+            setAccountDecisionSeen(true)
+          }}
+          onShowPricing={() => setShowPricingModal(true)}
+        />
+      )}
+
+      {!libraryEmpty && !showStore && !showAccountDecision && !preferences.onboardingComplete && (
         <Onboarding onComplete={handleOnboardingComplete} />
+      )}
+
+      {showSettings && (
+        <Onboarding
+          isSettings
+          onComplete={(obj) => { setReadingObjective(obj) }}
+          onClose={() => setShowSettings(false)}
+          allEditions={book.editions}
+          primaryEditionKey={primaryEditionKey}
+          onPrimaryEditionChange={(key) => {
+            const parts = key.split('-')
+            const newStyle = parts[0] as Style
+            const newLang = parts.slice(1).join('-') as 'en' | 'da'
+            if (newLang !== preferences.language) setLanguage(newLang)
+            if (newStyle !== preferences.style) handleStyleChange(newStyle)
+          }}
+          initialObjective={preferences.readingObjective}
+          splitEditionKey={preferences.splitEditionKey}
+          onSplitEditionChange={setSplitEditionKey}
+          alignedEditions={alignedEditions}
+          splitView={preferences.splitView}
+          onToggleSplitView={handleToggleSplitView}
+          audioEditions={book.editions.filter(ed => ed.hasAudio)}
+          audioEditionKey={primaryEditionKey}
+          onAudioEditionChange={() => {/* TODO: wire audio edition preference */}}
+        />
       )}
 
       {showAuthModal && (
@@ -687,7 +781,85 @@ export default function App() {
           }}
           onSignUp={signUp}
           onGoogleSignIn={signInWithGoogle}
+          onResetPassword={resetPassword}
+          defaultMode={authModalMode}
         />
+      )}
+
+      {showPricingModal && (
+        <PricingModal
+          onClose={() => setShowPricingModal(false)}
+          onCreateAccount={() => {
+            setShowPricingModal(false)
+            setAuthModalMode('signup')
+            setShowAuthModal(true)
+          }}
+        />
+      )}
+
+      {isPasswordRecovery && (
+        <div className="password-reset-page">
+          <div className="password-reset-card">
+            <h1 className="password-reset-title">Set new password</h1>
+            <p className="password-reset-subtitle">Choose a new password for your account.</p>
+            {resetSuccess ? (
+              <div style={{ textAlign: 'center', padding: '20px 0' }}>
+                <p style={{ color: 'var(--accent)', marginBottom: 16 }}>Password updated successfully.</p>
+                <button className="onboarding-start" onClick={() => { clearPasswordRecovery(); setResetSuccess(false); setNewPassword(''); setConfirmPassword('') }}>
+                  Continue reading
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={async (e) => {
+                e.preventDefault()
+                if (newPassword !== confirmPassword) {
+                  setResetError('Passwords do not match')
+                  return
+                }
+                if (newPassword.length < 6) return
+                const result = await updatePassword(newPassword)
+                if (result.error) setResetError(result.error)
+                else setResetSuccess(true)
+              }}>
+                <div className="password-reset-field">
+                  <label className="onboarding-label" htmlFor="new-password">New password</label>
+                  <input
+                    id="new-password"
+                    type="password"
+                    className="auth-input"
+                    value={newPassword}
+                    onChange={e => { setNewPassword(e.target.value); setResetError('') }}
+                    placeholder="Minimum 6 characters"
+                    required
+                    minLength={6}
+                    autoFocus
+                  />
+                </div>
+                <div className="password-reset-field">
+                  <label className="onboarding-label" htmlFor="confirm-password">Confirm password</label>
+                  <input
+                    id="confirm-password"
+                    type="password"
+                    className="auth-input"
+                    value={confirmPassword}
+                    onChange={e => { setConfirmPassword(e.target.value); setResetError('') }}
+                    placeholder="Repeat your new password"
+                    required
+                    minLength={6}
+                  />
+                </div>
+                {resetError && <p className="auth-error">{resetError}</p>}
+                <button
+                  className="onboarding-start"
+                  type="submit"
+                  disabled={newPassword.length < 6 || confirmPassword.length < 6}
+                >
+                  Update password
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
       )}
 
       {showUsageDashboard && (
@@ -742,19 +914,31 @@ export default function App() {
         splitViewAvailable={splitViewAvailable}
         darkMode={preferences.darkMode}
         onToggleDarkMode={toggleDarkMode}
-        onTogglePanel={togglePanel}
         panelOpen={preferences.panelOpen}
         readingProgress={getReadingProgress(book.id)?.percent}
         user={user}
         messagesRemaining={messagesRemaining}
         hasBalance={hasBalance}
         isAnonymous={isAnonymous}
-        onSignIn={() => setShowAuthModal(true)}
+        onSignIn={() => { setAuthModalMode('signin'); setShowAuthModal(true) }}
         onSignOut={signOut}
+        onResetPassword={resetPassword}
+        onDeleteAccount={user ? async () => {
+          await signOut()
+          // TODO: call Supabase admin API to delete user data
+        } : undefined}
         onOpenUsage={() => setShowUsageDashboard(true)}
         onOpenStore={() => setShowStore(true)}
         onOpenNotes={() => { setPanelTab('notes'); setActiveView(2) }}
         onOpenCast={() => { setPanelTab('threads'); setActiveView(2) }}
+        fontSize={preferences.fontSize}
+        onFontSizeChange={setFontSize}
+        fontFamily={preferences.fontFamily}
+        onFontFamilyChange={setFontFamily}
+        readingObjective={preferences.readingObjective}
+        onEditObjective={handleEditObjective}
+        onOpenToc={() => setShowToc(true)}
+        onOpenSettings={() => setShowSettings(true)}
         isMobile={isMobile}
       />
 
@@ -780,9 +964,13 @@ export default function App() {
                 isFinalChapter={currentChapter === totalChapters}
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
+                onFirstVisibleParagraph={setFirstVisibleParagraph}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                 isVerse={primaryIsVerse}
                 targetParagraphIndex={targetParagraphRef.current}
+                playingParagraphIndex={audioPlayingParagraph}
+                onParagraphClick={handleParagraphClick}
+                hasAudio={hasAudio}
               />
             </div>
             {/* View 1: Compare — shows alternate edition full-width on mobile */}
@@ -851,6 +1039,8 @@ export default function App() {
                 language={preferences.language}
                 getMentions={getMentions}
                 onNavigateToChapter={(ch, pi, ek) => { handleNavigateToChapter(ch, pi, ek); setActiveView(0) }}
+                onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
+                onShowPricing={() => setShowPricingModal(true)}
               />
             </div>
           </div>
@@ -881,6 +1071,9 @@ export default function App() {
                 isRightVerse={splitIsVerse}
                 onPageChange={handlePageChange}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
+                playingParagraphIndex={audioPlayingParagraph}
+                onParagraphClick={handleParagraphClick}
+                hasAudio={hasAudio}
               />
             ) : (
               <Reader
@@ -898,11 +1091,17 @@ export default function App() {
                 isFinalChapter={currentChapter === totalChapters}
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
+                onFirstVisibleParagraph={setFirstVisibleParagraph}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                 isVerse={primaryIsVerse}
                 targetParagraphIndex={targetParagraphRef.current}
+                playingParagraphIndex={audioPlayingParagraph}
+                onParagraphClick={handleParagraphClick}
+                hasAudio={hasAudio}
               />
             )}
+
+            <PanelToggleTab isOpen={preferences.panelOpen} onClick={togglePanel} />
 
             <SidePanel
               isOpen={preferences.panelOpen}
@@ -934,10 +1133,25 @@ export default function App() {
               language={preferences.language}
               getMentions={getMentions}
               onNavigateToChapter={handleNavigateToChapter}
+              messagesRemaining={messagesRemaining}
+              hasBalance={hasBalance}
+              isAnonymous={isAnonymous}
+              onTopUp={() => setShowUsageDashboard(true)}
+              onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
+              onShowPricing={() => setShowPricingModal(true)}
             />
           </>
         )}
       </main>
+
+      {showToc && primaryData && (
+        <TocOverlay
+          chapters={primaryData.chapters.map(c => ({ number: c.number, title: c.title }))}
+          currentChapter={currentChapter}
+          onSelectChapter={setCurrentChapter}
+          onClose={() => setShowToc(false)}
+        />
+      )}
 
       {/* Mobile bottom navigation */}
       {isMobile && (
@@ -960,12 +1174,18 @@ export default function App() {
         </button>
       )}
 
-      <ReadingProgressBar
+      <BottomBar
+        ref={bottomBarRef}
         percentComplete={readingPercent}
         timeRemainingLabel={timeRemainingLabel}
         isLearned={isSpeedLearned}
         currentPage={currentPage}
         totalPages={totalPages}
+        bookId={book.id}
+        editionKey={primaryEditionKey}
+        chapterNumber={currentChapter}
+        onParagraphChange={handleAudioParagraphChange}
+        firstVisibleParagraph={firstVisibleParagraph}
       />
 
       {insight && (
@@ -976,5 +1196,6 @@ export default function App() {
         />
       )}
     </div>
+    </TierProvider>
   )
 }

@@ -1,14 +1,68 @@
 import { useState } from 'react'
+import type { Language, Style, Edition, EditionKey } from '../types'
 
 interface OnboardingProps {
   onComplete: (objective: string) => void
+  /** When true, shows as settings modal with close button and pre-populated values */
+  isSettings?: boolean
+  onClose?: () => void
+  // All editions for the current book (settings mode)
+  allEditions?: Edition[]
+  // Current selections
+  primaryEditionKey?: EditionKey
+  onPrimaryEditionChange?: (key: EditionKey) => void
+  // Legacy props (still used for non-settings onboarding flow)
+  language?: Language
+  onLanguageChange?: (lang: Language) => void
+  style?: Style
+  onStyleChange?: (style: Style) => void
+  availableStyles?: { style: Style; label: string }[]
+  initialObjective?: string
+  // Split pane
+  splitEditionKey?: EditionKey
+  onSplitEditionChange?: (key: EditionKey) => void
+  alignedEditions?: Edition[]
+  splitView?: boolean
+  onToggleSplitView?: () => void
+  // Audiobook
+  audioEditions?: Edition[]
+  audioEditionKey?: EditionKey
+  onAudioEditionChange?: (key: EditionKey) => void
 }
 
-export function Onboarding({ onComplete }: OnboardingProps) {
-  const [objective, setObjective] = useState('')
+const LANG_LABELS: Record<string, string> = { en: 'English', da: 'Danish' }
+
+function editionDisplayLabel(ed: Edition): string {
+  return `${ed.label} — ${LANG_LABELS[ed.language] || ed.language}`
+}
+
+export function Onboarding({
+  onComplete,
+  isSettings,
+  onClose,
+  allEditions,
+  primaryEditionKey,
+  onPrimaryEditionChange,
+  language,
+  onLanguageChange,
+  style,
+  onStyleChange,
+  availableStyles,
+  initialObjective,
+  splitEditionKey,
+  onSplitEditionChange,
+  alignedEditions,
+  splitView,
+  onToggleSplitView,
+  audioEditions,
+  audioEditionKey,
+  onAudioEditionChange,
+}: OnboardingProps) {
+  const [objective, setObjective] = useState(initialObjective || '')
 
   const handleStart = () => {
     onComplete(objective.trim())
+    if (isSettings && onClose) onClose()
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -18,31 +72,149 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     }
   }
 
+  // Group editions by language for the dropdown
+  const groupedEditions = allEditions
+    ? Object.entries(
+        allEditions.reduce((acc, ed) => {
+          const lang = LANG_LABELS[ed.language] || ed.language
+          if (!acc[lang]) acc[lang] = []
+          acc[lang].push(ed)
+          return acc
+        }, {} as Record<string, Edition[]>)
+      )
+    : []
+
+  // Aligned editions for side-by-side (exclude current primary)
+  const splitOptions = alignedEditions?.filter(ed => ed.key !== primaryEditionKey) || []
+
   return (
-    <div className="onboarding">
-      <div className="onboarding-card">
-        <h1 className="onboarding-heading">Welcome to Tinct</h1>
+    <div className="onboarding" onClick={isSettings ? onClose : undefined}>
+      <div className="onboarding-card" onClick={e => e.stopPropagation()}>
+        {isSettings && onClose && (
+          <button className="onboarding-close" onClick={onClose}>&times;</button>
+        )}
 
-        <div className="onboarding-features">
-          <p className="onboarding-intro">
-            A reading companion for deep engagement with literary classics.
-          </p>
+        <h1 className="onboarding-heading">
+          {isSettings ? 'Settings' : 'Welcome to Tinct'}
+        </h1>
 
-          <ul className="onboarding-list">
-            <li>
-              <strong>Multiple versions</strong> — read in the original, modern English, a kids' edition, or Danish. Switch anytime.
-            </li>
-            <li>
-              <strong>Split-pane view</strong> — compare two versions side by side, paragraph by paragraph, like No Fear Shakespeare.
-            </li>
-            <li>
-              <strong>AI companion</strong> — highlight any passage to get context, explanation, and connections. Or just ask a question.
-            </li>
-            <li>
-              <strong>Highlights & notes</strong> — mark passages in five colors, take notes, and build a reading journal as you go.
-            </li>
-          </ul>
-        </div>
+        {!isSettings && (
+          <div className="onboarding-features">
+            <p className="onboarding-intro">
+              A reading companion for deep engagement with literary classics.
+            </p>
+
+            <ul className="onboarding-list">
+              <li>
+                <strong>Multiple versions</strong> — read in the original, modern English, or Danish. Switch anytime.
+              </li>
+              <li>
+                <strong>Side-by-side view</strong> — compare two versions paragraph by paragraph, like No Fear Shakespeare.
+              </li>
+              <li>
+                <strong>AI companion</strong> — highlight any passage to get context, explanation, and connections. Or just ask a question.
+              </li>
+              <li>
+                <strong>Highlights & notes</strong> — mark passages in five colors, take notes, and build a reading journal as you go.
+              </li>
+            </ul>
+          </div>
+        )}
+
+        {/* Settings mode: unified edition dropdowns */}
+        {isSettings && allEditions && onPrimaryEditionChange && (
+          <div className="onboarding-settings-section">
+            <div className="onboarding-setting">
+              <label className="onboarding-label">Primary edition</label>
+              <select
+                className="onboarding-select"
+                value={primaryEditionKey}
+                onChange={e => onPrimaryEditionChange(e.target.value)}
+              >
+                {groupedEditions.map(([lang, editions]) => (
+                  <optgroup key={lang} label={lang}>
+                    {editions.map(ed => (
+                      <option key={ed.key} value={ed.key}>{ed.label}</option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+
+            {/* Side-by-side edition */}
+            {splitOptions.length > 0 && onSplitEditionChange && onToggleSplitView && (
+              <div className="onboarding-setting">
+                <label className="onboarding-label">Side-by-side edition</label>
+                <div className="onboarding-split-row">
+                  <select
+                    className="onboarding-select"
+                    value={splitEditionKey}
+                    onChange={e => onSplitEditionChange(e.target.value)}
+                    style={{ flex: 1 }}
+                  >
+                    {splitOptions.map(ed => (
+                      <option key={ed.key} value={ed.key}>{editionDisplayLabel(ed)}</option>
+                    ))}
+                  </select>
+                  <button
+                    className={`onboarding-toggle-btn onboarding-toggle-match ${splitView ? 'onboarding-toggle-active' : ''}`}
+                    onClick={onToggleSplitView}
+                  >
+                    {splitView ? 'On' : 'Off'}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Audiobook edition */}
+            {audioEditions && audioEditions.length > 0 && onAudioEditionChange && (
+              <div className="onboarding-setting">
+                <label className="onboarding-label">Audiobook edition</label>
+                <select
+                  className="onboarding-select"
+                  value={audioEditionKey}
+                  onChange={e => onAudioEditionChange(e.target.value)}
+                >
+                  {audioEditions.map(ed => (
+                    <option key={ed.key} value={ed.key}>{editionDisplayLabel(ed)}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Non-settings onboarding: legacy language/style (kept for first-time flow) */}
+        {!isSettings && onLanguageChange && onStyleChange && availableStyles && (
+          <div className="onboarding-settings-section">
+            <div className="onboarding-setting">
+              <label className="onboarding-label">Language</label>
+              <div className="onboarding-toggle-row">
+                <button
+                  className={`onboarding-toggle-btn ${language === 'en' ? 'onboarding-toggle-active' : ''}`}
+                  onClick={() => onLanguageChange('en')}
+                >English</button>
+                <button
+                  className={`onboarding-toggle-btn ${language === 'da' ? 'onboarding-toggle-active' : ''}`}
+                  onClick={() => onLanguageChange('da')}
+                >Danish</button>
+              </div>
+            </div>
+
+            <div className="onboarding-setting">
+              <label className="onboarding-label">Primary edition</label>
+              <select
+                className="onboarding-select"
+                value={style}
+                onChange={e => onStyleChange(e.target.value as Style)}
+              >
+                {availableStyles.map(s => (
+                  <option key={s.style} value={s.style}>{s.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        )}
 
         <div className="onboarding-objective">
           <label className="onboarding-label" htmlFor="reading-objective">
@@ -63,7 +235,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
         </div>
 
         <button className="onboarding-start" onClick={handleStart}>
-          Start reading
+          {isSettings ? 'Save' : 'Start reading'}
         </button>
       </div>
     </div>

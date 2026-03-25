@@ -273,6 +273,7 @@ Every deploy MUST follow this sequence. No exceptions.
 - **Minimal Impact**: Changes should only touch what's necessary.
 - **Grep after deletion**: Every time you remove a variable, function, type, or import — grep the entire `src/` directory for remaining references before building.
 - **Test before deploy**: Every single time. No exceptions. Ever.
+- **Never lose reading position**: Any view change (single↔split, edition change, language change, font change) must preserve the reader's current position. Save scrollFraction before the change and restore it after. This is non-negotiable — losing someone's place in a book is the worst UX failure a reader app can have.
 
 ---
 
@@ -416,3 +417,7 @@ When adding a new book to the library, ALL of the following must be completed be
 **[Ulysses Added 2026-03-19]**: James Joyce's Ulysses added as the second book. 18 episodes, 7,148 paragraphs. 5 editions (original-en, modern-en, kids-en, modern-da, kids-da), all paragraph-aligned. 20 characters in threads. Book selector in header. Visual QA passed (34 Playwright tests). All content generated via CLI, zero API spend.
 
 **[Monetization Infrastructure 2026-03-20]**: Full billing stack implemented. Supabase auth (email + Google OAuth), token-based balance system ($2 free tier, $5/$10/$20 top-ups), Stripe Checkout integration, usage tracking with atomic balance deduction. API endpoints: chat.ts (auth + balance check + rate limiting), create-checkout.ts, webhook.ts, balance.ts. Frontend: AuthModal, BalanceIndicator (header), UsageDashboard (top-up flow). Supabase migration SQL created. Storage abstraction updated for conditional localStorage/Supabase. Dev mode works without Supabase configured (all free). Env vars needed for production: VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET.
+
+**[Pricing Model Revised 2026-03-24]**: Two tiers, per-book. First book = Premium free. Free: all editions, side-by-side, highlights, cross-device sync. Premium ($3/book): cast, 200 AI messages, intelligent notes, audiobook, reading journal, flashcards, chapter reflection prompts. Beyond 200 messages: $3 per 100 extra messages (account-level balance, carries across books). At ~$0.02/message API cost, that's ~50% markup. Replaces previous token-balance top-up model. Billing infrastructure needs update: per-book purchase flow via Stripe, 200-message counter per book, message pack purchases, first-book-free logic.
+
+**[Features To Build 2026-03-24]**: Flashcards & spaced repetition (per-book vocabulary/concepts, review scheduling). Audiobook with position sync (TTS or pre-generated, syncs to reading position). Chapter reflection prompts (AI-generated prompts gated behind Premium tier). Per-book purchase flow (replace top-up model with $3/book Stripe checkout). Message pack purchase ($3/100 messages, account-level balance).

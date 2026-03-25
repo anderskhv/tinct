@@ -8,11 +8,15 @@ interface UseAuthReturn {
   profile: UserProfile | null
   session: Session | null
   isLoading: boolean
+  isPasswordRecovery: boolean
   signUp: (email: string, password: string) => Promise<{ error?: string }>
   signIn: (email: string, password: string) => Promise<{ error?: string }>
   signInWithGoogle: () => Promise<void>
   signOut: () => Promise<void>
   refreshProfile: () => Promise<void>
+  resetPassword: (email: string) => Promise<{ error?: string }>
+  updatePassword: (newPassword: string) => Promise<{ error?: string }>
+  clearPasswordRecovery: () => void
 }
 
 export function useAuth(): UseAuthReturn {
@@ -20,6 +24,7 @@ export function useAuth(): UseAuthReturn {
   const [session, setSession] = useState<Session | null>(null)
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [isPasswordRecovery, setIsPasswordRecovery] = useState(false)
 
   const fetchProfile = useCallback(async (userId: string) => {
     if (!supabase) return
@@ -54,11 +59,14 @@ export function useAuth(): UseAuthReturn {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, s) => {
+      (event, s) => {
         setSession(s)
         setUser(s?.user ?? null)
         if (s?.user) fetchProfile(s.user.id)
         else setProfile(null)
+        if (event === 'PASSWORD_RECOVERY') {
+          setIsPasswordRecovery(true)
+        }
       }
     )
 
@@ -95,15 +103,37 @@ export function useAuth(): UseAuthReturn {
     setProfile(null)
   }, [])
 
+  const resetPassword = useCallback(async (email: string) => {
+    if (!supabase) return { error: 'Auth not configured' }
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}?reset-password=true`,
+    })
+    if (error) return { error: error.message }
+    return {}
+  }, [])
+
+  const updatePassword = useCallback(async (newPassword: string) => {
+    if (!supabase) return { error: 'Auth not configured' }
+    const { error } = await supabase.auth.updateUser({ password: newPassword })
+    if (error) return { error: error.message }
+    return {}
+  }, [])
+
+  const clearPasswordRecovery = useCallback(() => setIsPasswordRecovery(false), [])
+
   return {
     user,
     profile,
     session,
     isLoading,
+    isPasswordRecovery,
     signUp,
     signIn,
     signInWithGoogle,
     signOut,
     refreshProfile,
+    resetPassword,
+    updatePassword,
+    clearPasswordRecovery,
   }
 }
