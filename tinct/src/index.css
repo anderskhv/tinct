@@ -522,6 +522,68 @@ body {
   line-height: 1.4;
 }
 
+/* --- Hierarchical sections --- */
+.toc-section {
+  padding-left: calc(var(--toc-depth, 0) * 16px);
+}
+
+.toc-section-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.toc-section-header:hover {
+  background: var(--bg-hover);
+}
+
+.toc-section-expanded {
+  color: var(--text-primary);
+}
+
+.toc-section-arrow {
+  display: inline-block;
+  width: 12px;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  transition: transform 0.15s ease;
+}
+
+.toc-arrow-expanded {
+  transform: rotate(90deg);
+}
+
+.toc-section-title {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toc-section-children {
+  animation: tocFadeIn 0.15s ease;
+}
+
+@keyframes tocFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.toc-item-nested {
+  padding-left: calc(var(--toc-depth, 0) * 16px + 12px);
+}
+
 /* ===== Bottom Bar ===== */
 .bottom-bar {
   position: fixed;

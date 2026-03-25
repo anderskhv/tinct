@@ -118,8 +118,51 @@ export const WAR_AND_PEACE: Book = {
   ],
 }
 
+export const BIBLE: Book = {
+  id: 'bible',
+  title: 'The Bible',
+  author: 'Various',
+  description: 'The foundational text of Western civilization. 66 books spanning creation, law, history, poetry, prophecy, gospels, and revelation — the story of God and humanity across thousands of years.',
+  year: -1400,
+  wordCount: 783000,
+  coverColor: '#2a1a0e',
+  coverAccent: '#d4a843',
+  editions: [
+    {
+      key: 'kjv-en',
+      language: 'en',
+      style: 'kjv',
+      label: 'King James Version (1611)',
+      year: 1611,
+      aligned: true,
+    },
+    {
+      key: 'web-en',
+      language: 'en',
+      style: 'web',
+      label: 'World English Bible',
+      year: 2000,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE]
 
 export function getBook(id: string): Book | undefined {
   return BOOKS.find(b => b.id === id)

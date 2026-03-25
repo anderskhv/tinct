@@ -1,7 +1,7 @@
 // === Languages & Styles ===
 
 export type Language = 'en' | 'da'
-export type Style = 'original' | 'modern' | 'verse'
+export type Style = 'original' | 'modern' | 'verse' | 'kjv' | 'web'
 
 /** Composite key identifying an edition, e.g. 'modern-en', 'kids-da' */
 export type EditionKey = string
@@ -29,10 +29,23 @@ export interface Chapter {
   number: number
   title: string
   paragraphs: string[]
+  /** Section path this chapter belongs to, e.g. "Old Testament — Genesis" */
+  section?: string
+}
+
+/** Hierarchical section for table of contents (e.g., Testament → Book → Chapter) */
+export interface Section {
+  title: string
+  /** Nested sub-sections */
+  sections?: Section[]
+  /** Leaf sections reference chapter numbers */
+  chapters?: number[]
 }
 
 export interface EditionData {
   chapters: Chapter[]
+  /** Optional hierarchical section structure for ToC (e.g., Bible) */
+  sections?: Section[]
 }
 
 export interface Book {

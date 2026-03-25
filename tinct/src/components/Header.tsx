@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import type { Book, Language, Style, FontSize, FontFamily } from '../types'
+import type { Book, Language, Style, FontSize, FontFamily, Section } from '../types'
 import type { User } from '@supabase/supabase-js'
 import { BalanceIndicator } from './BalanceIndicator'
 
@@ -50,11 +50,32 @@ interface HeaderProps {
   onOpenToc: () => void
   // Settings (opens onboarding/settings modal)
   onOpenSettings: () => void
+  // Sections (hierarchical ToC)
+  sections?: Section[]
   // Mobile
   isMobile?: boolean
 }
 
 type MenuOpen = null | 'format' | 'account'
+
+/** Flatten sections into optgroup-friendly groups (uses innermost section as group label) */
+function flattenSectionsForSelect(
+  sections: Section[],
+  chapterLabels: string[],
+): { label: string; chapters: number[] }[] {
+  const groups: { label: string; chapters: number[] }[] = []
+  function walk(secs: Section[]) {
+    for (const sec of secs) {
+      if (sec.sections && sec.sections.length > 0) {
+        walk(sec.sections)
+      } else if (sec.chapters && sec.chapters.length > 0) {
+        groups.push({ label: sec.title, chapters: sec.chapters })
+      }
+    }
+  }
+  walk(sections)
+  return groups
+}
 
 export function Header({
   bookTitle,
@@ -98,6 +119,7 @@ export function Header({
   onEditObjective,
   onOpenToc,
   onOpenSettings,
+  sections,
   isMobile,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -136,9 +158,19 @@ export function Header({
             value={currentChapter}
             onChange={e => onChapterChange(Number(e.target.value))}
           >
-            {Array.from({ length: totalChapters }, (_, i) => (
-              <option key={i + 1} value={i + 1}>{chapterLabels[i] || `Ch ${i + 1}`}</option>
-            ))}
+            {sections && sections.length > 0 ? (
+              flattenSectionsForSelect(sections, chapterLabels).map(group => (
+                <optgroup key={group.label} label={group.label}>
+                  {group.chapters.map(n => (
+                    <option key={n} value={n}>{chapterLabels[n - 1] || `Ch ${n}`}</option>
+                  ))}
+                </optgroup>
+              ))
+            ) : (
+              Array.from({ length: totalChapters }, (_, i) => (
+                <option key={i + 1} value={i + 1}>{chapterLabels[i] || `Ch ${i + 1}`}</option>
+              ))
+            )}
           </select>
           <button
             className="chapter-nav"

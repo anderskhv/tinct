@@ -33,6 +33,7 @@ import { storage, setStorageProvider, localStorageProvider } from './services/st
 import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition } from './types'
 import { makeEditionKey } from './types'
+import { trackPageview } from './utils/analytics'
 
 /** Pick whichever position is furthest in the book (higher chapter, or higher fraction within same chapter) */
 function pickFurthest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
@@ -145,6 +146,19 @@ export default function App() {
 
   // ToC overlay state
   const [showToc, setShowToc] = useState(false)
+
+  // Analytics: track pageviews on book/chapter/view changes
+  useEffect(() => {
+    let path: string
+    if (showStore) {
+      path = '/store'
+    } else if (showUsageDashboard) {
+      path = '/usage'
+    } else {
+      path = `/read/${currentBookId}/${currentChapter}`
+    }
+    trackPageview(path, user?.id)
+  }, [currentBookId, currentChapter, showStore, showUsageDashboard, user?.id])
 
   // Re-read position from cloud storage once Supabase syncs — pick furthest position
   const hasRestoredFromCloud = useRef(false)
@@ -426,12 +440,10 @@ export default function App() {
     })
   }, [primaryEditionKey])
 
-  // Load split edition when split view is on
+  // Preload split edition so it's ready when toggle happens
   useEffect(() => {
-    if (preferences.splitView) {
-      loadEdition(book.id, splitEditionKey).then(setSplitData)
-    }
-  }, [splitEditionKey, preferences.splitView])
+    loadEdition(book.id, splitEditionKey).then(setSplitData)
+  }, [splitEditionKey, book.id])
 
   const splitChapter = splitData?.chapters.find(c => c.number === currentChapter)
 
@@ -939,6 +951,7 @@ export default function App() {
         onEditObjective={handleEditObjective}
         onOpenToc={() => setShowToc(true)}
         onOpenSettings={() => setShowSettings(true)}
+        sections={primaryData?.sections}
         isMobile={isMobile}
       />
 
@@ -1150,6 +1163,7 @@ export default function App() {
           currentChapter={currentChapter}
           onSelectChapter={setCurrentChapter}
           onClose={() => setShowToc(false)}
+          sections={primaryData.sections}
         />
       )}
 

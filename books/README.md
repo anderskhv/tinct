@@ -1,25 +1,31 @@
-# Books — Preparation Workspace
+# Book Factory — Tinct
 
-Each book gets a subfolder here with everything needed to prepare it for Tinct.
+This folder is the preparation workspace for adding new books to Tinct. Each book goes through a standardized pipeline from raw source text to fully registered, translated, audio-ready edition.
 
-## Workflow
+## Quick Start
 
-1. **Download** source text from Project Gutenberg → `raw.txt`
-2. **Parse** into edition JSON → `parse.cjs` generates `{bookId}-original-en.json`
-3. **Review** chapter structure → `CHAPTERS.md` (editorial review)
-4. **Generate editions** via CLI conversation (ZERO API spend):
-   - `modern-en` — Modern English
-   - `kids-en` — Kids English (ages 10-14)
-   - `modern-da` — Moderne Dansk
-   - `kids-da` — Dansk for Børn
-5. **Generate threads** (character summaries per chapter) via CLI
-6. **Register** in `bookRegistry.ts` and `useThreads.ts`
-7. **Visual QA** — every edition, every chapter
+Open Claude from this folder and say: **"add [book name]"**
+
+The CLAUDE.md will guide the full pipeline:
+
+1. **Structure discussion** — chapter division, editions, metadata (requires approval)
+2. **Download source** — from Project Gutenberg or equivalent
+3. **Parse to JSON** — using `parse-gutenberg.py` or custom parser
+4. **Generate translations** — modern English + modern Danish via CLI (zero API spend)
+5. **Register in app** — add to `bookRegistry.ts`
+6. **Generate audio** — Edge TTS (free, no API key)
+7. **Visual QA** — verify every chapter renders correctly
+
+## Tools
+
+- `parse-gutenberg.py` — Parses Gutenberg plain text into edition JSON. Run with `--help` for usage.
+- `raw/` — Raw downloaded source texts go here, one subfolder per book.
+- Per-book subfolders (e.g., `war-and-peace/`) — Custom parsers and editorial notes.
 
 ## Status
 
-| Book | Source | Parsed | Registered | modern-en | kids-en | modern-da | kids-da | Threads | QA |
-|------|--------|--------|-----------|-----------|---------|-----------|---------|---------|-----|
-| The Odyssey | done | done | done | done | done | done | done | done | done |
-| Ulysses | done | done | done | done | done | done | done | done | done |
-| War and Peace | done | done | done | pending | pending | pending | pending | skeleton | pending |
+| Book | ID | Chapters | Editions | Status |
+|------|----|----------|----------|--------|
+| The Odyssey | odyssey | 24 | original-en, verse-en, modern-en, modern-da | Complete |
+| Ulysses | ulysses | 18 | original-en, modern-en, modern-da | Complete |
+| War and Peace | war-and-peace | 239 | original-en, modern-en (in progress) | In progress |
