@@ -34,15 +34,21 @@ import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition } from './types'
 import { makeEditionKey } from './types'
 import { trackPageview } from './utils/analytics'
+import { AUDIO_BASE_URL } from './utils/audioUrl'
 
-/** Pick whichever position is furthest in the book (higher chapter, or higher fraction within same chapter) */
-function pickFurthest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
+/** Pick the most recently updated position. Falls back to furthest if no timestamps. */
+function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
   if (!a) return b
   if (!b) return a
+  // Prefer most recent timestamp
+  if (a.updatedAt && b.updatedAt) return a.updatedAt >= b.updatedAt ? a : b
+  if (a.updatedAt) return a
+  if (b.updatedAt) return b
+  // No timestamps — fall back to furthest (legacy data)
   if (a.chapterNumber > b.chapterNumber) return a
   if (b.chapterNumber > a.chapterNumber) return b
-  const fracA = a.scrollFraction ?? (a.totalPages > 1 ? a.currentPage / (a.totalPages - 1) : 0)
-  const fracB = b.scrollFraction ?? (b.totalPages > 1 ? b.currentPage / (b.totalPages - 1) : 0)
+  const fracA = a.scrollFraction ?? 0
+  const fracB = b.scrollFraction ?? 0
   return fracA >= fracB ? a : b
 }
 
@@ -82,12 +88,21 @@ export default function App() {
         }
         setStorageProvider(provider)
         supabaseProviderRef.current = provider
+        // Start real-time sync for cross-device updates
+        provider.subscribe()
         setStorageReady(true)
       })
     } else {
+      // Clean up previous subscription
+      if (supabaseProviderRef.current) {
+        supabaseProviderRef.current.unsubscribe()
+      }
       setStorageProvider(localStorageProvider)
       supabaseProviderRef.current = null
       setStorageReady(true)
+    }
+    return () => {
+      supabaseProviderRef.current?.unsubscribe()
     }
   }, [user])
 
@@ -108,6 +123,7 @@ export default function App() {
     setFontSize,
     setFontFamily,
     setAccountDecisionSeen,
+    refreshFromStorage,
   } = usePreferences()
 
   // Library books (filtered to what user has added)
@@ -160,24 +176,41 @@ export default function App() {
     trackPageview(path, user?.id)
   }, [currentBookId, currentChapter, showStore, showUsageDashboard, user?.id])
 
-  // Re-read position from cloud storage once Supabase syncs — pick furthest position
+  // Re-read position and preferences from cloud storage once Supabase syncs
   const hasRestoredFromCloud = useRef(false)
   useEffect(() => {
     if (storageReady && user && !hasRestoredFromCloud.current) {
       hasRestoredFromCloud.current = true
+      // Refresh preferences from Supabase (may have newer data than localStorage)
+      refreshFromStorage()
+      // Restore reading position — pick furthest between local and cloud
       const cloudPos = getSavedPosition(book.id)
       if (cloudPos) {
         const localPos = savedPos.current
-        const winner = pickFurthest(localPos, cloudPos)
+        const winner = pickLatest(localPos, cloudPos)
         if (winner) {
           savedPos.current = winner
           setCurrentChapter(winner.chapterNumber)
-          setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
-          setReaderKey(k => k + 1) // force Reader remount with correct initialPage
+          setCurrentPage(0)
+          setReaderKey(k => k + 1)
         }
       }
     }
-  }, [storageReady, user, book.id])
+  }, [storageReady, user, book.id, refreshFromStorage])
+
+  // Real-time cross-device sync: listen for remote preference changes
+  // Note: position sync is handled on refresh/focus, not real-time,
+  // to avoid two devices fighting over the same position key
+  useEffect(() => {
+    const provider = supabaseProviderRef.current
+    if (!provider) return
+    const unsubscribe = provider.onChange((key, _value) => {
+      if (key === 'preferences') {
+        refreshFromStorage()
+      }
+    })
+    return unsubscribe
+  }, [refreshFromStorage])
 
   // Re-sync from Supabase when tab regains focus (cross-device sync)
   const lastSyncRef = useRef(0)
@@ -199,7 +232,7 @@ export default function App() {
           totalPages,
           scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
         }
-        const winner = pickFurthest(localPos, cloudPos)
+        const winner = pickLatest(localPos, cloudPos)
         if (winner && (winner.chapterNumber !== currentChapter ||
             (winner.scrollFraction ?? 0) > (localPos.scrollFraction ?? 0) + 0.01)) {
           savedPos.current = winner
@@ -228,14 +261,16 @@ export default function App() {
     })
   }, [primaryData])
 
-  // Approximate visible text based on current page position
-  const visibleText = useMemo(() => {
+  // Approximate visible paragraphs based on current page position
+  const visibleParagraphs = useMemo(() => {
     const paras = primaryChapter?.paragraphs || []
-    if (paras.length === 0 || totalPages <= 0) return ''
+    if (paras.length === 0 || totalPages <= 0) return [] as string[]
     const startIdx = Math.floor((currentPage / Math.max(totalPages, 1)) * paras.length)
     const endIdx = Math.min(startIdx + Math.ceil(paras.length / Math.max(totalPages, 1)) + 1, paras.length)
-    return paras.slice(startIdx, endIdx).join(' ')
+    return paras.slice(startIdx, endIdx)
   }, [primaryChapter?.paragraphs, currentPage, totalPages])
+
+  const visibleText = useMemo(() => visibleParagraphs.join(' '), [visibleParagraphs])
 
   // Handle insufficient balance
   const handleInsufficientBalance = useCallback(() => {
@@ -301,7 +336,7 @@ export default function App() {
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages])
 
-  const { highlights, addHighlight, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
+  const { highlights, addHighlight, removeHighlight, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
   const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter)
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters)
 
@@ -428,8 +463,19 @@ export default function App() {
     return splitEd?.style === 'verse'
   })()
 
-  // Split edition key
-  const splitEditionKey = preferences.splitEditionKey
+  // Get aligned editions for split pane (excluding current primary)
+  const alignedEditions = useMemo(() => {
+    return book.editions.filter(ed => ed.aligned && ed.key !== primaryEditionKey)
+  }, [primaryEditionKey, book.editions])
+
+  // Split edition key — validate against current book's editions, fall back if stale
+  const splitEditionKey = useMemo(() => {
+    const preferred = preferences.splitEditionKey
+    const exists = alignedEditions.some(ed => ed.key === preferred)
+    if (exists) return preferred
+    // Fall back to first aligned edition, or 'modern-en'
+    return alignedEditions[0]?.key || 'modern-en'
+  }, [preferences.splitEditionKey, alignedEditions])
 
   // Load primary edition
   useEffect(() => {
@@ -454,11 +500,6 @@ export default function App() {
       .map(ed => ({ style: ed.style, label: ed.label }))
   }, [preferences.language])
 
-  // Get aligned editions for split pane (excluding current primary)
-  const alignedEditions = useMemo(() => {
-    return book.editions.filter(ed => ed.aligned && ed.key !== primaryEditionKey)
-  }, [primaryEditionKey])
-
   // Check if split view is available
   const splitViewAvailable = alignedEditions.length > 0
 
@@ -469,11 +510,8 @@ export default function App() {
   // Clear chat when changing chapters (chat is chapter-scoped)
   const prevChapterRef = useRef(currentChapter)
   useEffect(() => {
-    if (prevChapterRef.current !== currentChapter) {
-      clearMessages()
-    }
     prevChapterRef.current = currentChapter
-  }, [currentChapter, clearMessages])
+  }, [currentChapter])
 
   // When language changes, check if current style is available
   useEffect(() => {
@@ -674,11 +712,19 @@ export default function App() {
 
   // Detect if audio is available for current edition — check on edition/chapter change
   useEffect(() => {
-    const url = `/audio/${book.id}/${primaryEditionKey}/ch${currentChapter}/manifest.json`
+    const url = `${AUDIO_BASE_URL}/${book.id}/${primaryEditionKey}/ch${currentChapter}/manifest.json`
     fetch(url, { method: 'HEAD' })
       .then(res => setHasAudio(res.ok))
       .catch(() => setHasAudio(false))
   }, [book.id, primaryEditionKey, currentChapter])
+
+  // Chapter navigation from page arrows
+  const handleNextChapter = useCallback(() => {
+    if (currentChapter < totalChapters) setCurrentChapter(currentChapter + 1)
+  }, [currentChapter, totalChapters])
+  const handlePrevChapter = useCallback(() => {
+    if (currentChapter > 1) setCurrentChapter(currentChapter - 1)
+  }, [currentChapter])
 
   // Wrap split view toggle to preserve position
   const handleToggleSplitView = useCallback(() => {
@@ -956,7 +1002,7 @@ export default function App() {
       />
 
       <main
-        className={`main-layout ${isMobile ? 'main-layout-mobile' : ''}`}
+        className={`main-layout ${isMobile ? 'main-layout-mobile' : ''} ${!preferences.panelOpen ? 'panel-closed' : ''}`}
       >
         {isMobile ? (
           <div className="mobile-views">
@@ -984,6 +1030,7 @@ export default function App() {
                 playingParagraphIndex={audioPlayingParagraph}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
+                panelOpen={preferences.panelOpen}
               />
             </div>
             {/* View 1: Compare — shows alternate edition full-width on mobile */}
@@ -1040,6 +1087,7 @@ export default function App() {
                 highlights={highlights}
                 onAddNote={addNote}
                 onDeleteNote={deleteNote}
+                onDeleteHighlight={removeHighlight}
                 onUpdateNote={updateNote}
                 onCopyToNotes={handleCopyToNotes}
                 onCleanupNotes={handleCleanupNotes}
@@ -1051,6 +1099,7 @@ export default function App() {
                 editionKey={primaryEditionKey}
                 language={preferences.language}
                 getMentions={getMentions}
+                visibleParagraphs={visibleParagraphs}
                 onNavigateToChapter={(ch, pi, ek) => { handleNavigateToChapter(ch, pi, ek); setActiveView(0) }}
                 onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
                 onShowPricing={() => setShowPricingModal(true)}
@@ -1111,6 +1160,9 @@ export default function App() {
                 playingParagraphIndex={audioPlayingParagraph}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
+                panelOpen={preferences.panelOpen}
+                onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
+                onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
               />
             )}
 
@@ -1145,6 +1197,7 @@ export default function App() {
               editionKey={primaryEditionKey}
               language={preferences.language}
               getMentions={getMentions}
+              visibleParagraphs={visibleParagraphs}
               onNavigateToChapter={handleNavigateToChapter}
               messagesRemaining={messagesRemaining}
               hasBalance={hasBalance}
@@ -1199,6 +1252,7 @@ export default function App() {
         editionKey={primaryEditionKey}
         chapterNumber={currentChapter}
         onParagraphChange={handleAudioParagraphChange}
+        onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         firstVisibleParagraph={firstVisibleParagraph}
       />
 

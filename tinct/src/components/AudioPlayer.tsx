@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
+import { AUDIO_BASE_URL } from '../utils/audioUrl'
 
 interface ParagraphAudio {
   paragraph: number
@@ -40,7 +41,7 @@ export const AudioPlayer = forwardRef<AudioPlayerHandle, AudioPlayerProps>(
 
     // Load manifest for this chapter
     useEffect(() => {
-      const url = `/audio/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
+      const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
       fetch(url)
         .then(res => {
           if (!res.ok) throw new Error('No audio')
@@ -65,7 +66,7 @@ export const AudioPlayer = forwardRef<AudioPlayerHandle, AudioPlayerProps>(
       const para = manifest.paragraphs[index]
       if (!para) return
 
-      const url = `/audio/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
+      const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
 
       if (audioRef.current) {
         audioRef.current.pause()

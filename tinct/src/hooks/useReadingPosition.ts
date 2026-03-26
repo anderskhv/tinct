@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { storage } from '../services/storage'
 import type { ReadingPosition, ReadingProgress } from '../types'
 
@@ -21,15 +21,21 @@ export function useReadingPosition(
   totalPages: number,
   totalChapters: number,
 ) {
-  // Save position whenever page or chapter changes — skip while content is loading (totalPages <= 1)
+  // Save position whenever page or chapter changes
+  // Always save chapter changes; only save page changes once layout is done (totalPages > 1)
+  const prevChapterRef = useRef(chapterNumber)
   useEffect(() => {
-    if (totalPages <= 1) return
+    const isChapterChange = chapterNumber !== prevChapterRef.current
+    prevChapterRef.current = chapterNumber
+    // Skip page-level saves during layout (totalPages <= 1), but always save chapter changes
+    if (totalPages <= 1 && !isChapterChange) return
     const position: ReadingPosition = {
       bookId,
       chapterNumber,
       currentPage,
       totalPages,
       scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
+      updatedAt: Date.now(),
     }
     storage.set(positionKey(bookId), position)
   }, [bookId, chapterNumber, currentPage, totalPages])

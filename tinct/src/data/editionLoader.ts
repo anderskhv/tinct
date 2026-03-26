@@ -15,9 +15,9 @@ export async function loadEdition(bookId: string, editionKey: EditionKey): Promi
   }
 
   try {
-    // Vite handles JSON dynamic imports with code splitting
-    const module = await import(`./editions/${bookId}-${editionKey}.json`)
-    const data: EditionData = module.default || module
+    const response = await fetch(`/data/editions/${bookId}-${editionKey}.json`)
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    const data: EditionData = await response.json()
     cache.set(cacheKey, data)
     return data
   } catch (err) {

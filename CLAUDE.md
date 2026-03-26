@@ -151,7 +151,7 @@ Not everyone reads classics to extract "key takeaways." Many read for aesthetic 
 - React + TypeScript + Vite (same stack as Poetry Editor)
 - Claude API for chat features
 - Public domain texts from Project Gutenberg / Internet Archive
-- Deployed via Vercel (like Poetry Editor)
+- Deployed via Cloudflare Workers
 
 ## Current State (March 2026)
 
@@ -204,7 +204,14 @@ Every deploy MUST follow this sequence. No exceptions.
 4. **Before committing:** run `git status` and check for untracked files that your code imports. If `src/` imports a file that shows as "untracked" or "not staged", you MUST add it. The local build passes because the file exists on disk — but the remote build will fail because it's not in git. **This has broken production before.**
 5. **Before pushing:** run `git stash && npx vite build && git stash pop` to verify the build passes with ONLY committed files. If this fails, you have a missing file.
 6. `npx wrangler deploy` — from the `tinct/` directory
-7. `curl -s https://tinct.ahvelplund.workers.dev/ | head -5` — verify 200 + HTML
+7. **Run the post-deploy smoke test:** `./scripts/smoke-test.sh` — this verifies 8 critical checks:
+   - Homepage loads
+   - JS bundle contains Supabase URL (auth works)
+   - JS bundle contains R2 URL (audio works)
+   - `/api/chat` endpoint responds (chat works)
+   - Audio manifest and sample file load from R2
+   - CSS loads
+   **If any test fails, revert and fix before moving on.**
 8. Open production URL — verify no white screen, test the specific change
 
 **If you deployed a broken site:** revert the code change, rebuild, redeploy IMMEDIATELY. Fix second, restore service first.
@@ -240,6 +247,7 @@ Every deploy MUST follow this sequence. No exceptions.
 ### 2. Subagent Strategy
 - Use subagents to keep main context window clean
 - Offload research and exploration to subagents
+- **Subagents must never stop on permission errors.** If a tool is denied, the agent must try alternative tools (Read/Write instead of Bash, `python3 -c` instead of scripts, Glob/Grep instead of find/rg). If truly stuck after 2 alternatives, explain what was tried and ask Anders for help — don't just report "I need permission" and stop.
 
 ### 3. Self-Improvement Loop
 - After ANY correction from the user, update the Decisions Log with the pattern
@@ -283,7 +291,7 @@ Every deploy MUST follow this sequence. No exceptions.
 - Git commits — if build passes AND you've verified the change works locally, commit
 - Git push — if commit is clean, push to remote
 - Bug fixes and code corrections — fix them, but verify locally before telling Anders
-- Deploy — ONLY after completing the Pre-Deploy Checklist above (all 6 steps)
+- Deploy — ONLY after completing the Pre-Deploy Checklist above (all 8 steps including smoke test)
 - Running and acting on test results — fix what fails
 - Content generation within established patterns (book text versions, chapter metadata)
 - Prioritization between backlog items

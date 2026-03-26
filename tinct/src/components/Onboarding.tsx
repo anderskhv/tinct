@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { Language, Style, Edition, EditionKey } from '../types'
 
 interface OnboardingProps {
@@ -59,6 +59,10 @@ export function Onboarding({
   onAudioEditionChange,
 }: OnboardingProps) {
   const [objective, setObjective] = useState(initialObjective || '')
+  // Sync if initialObjective arrives later (e.g., after Supabase loads)
+  useEffect(() => {
+    if (initialObjective && !objective) setObjective(initialObjective)
+  }, [initialObjective])
 
   const handleStart = () => {
     onComplete(objective.trim())

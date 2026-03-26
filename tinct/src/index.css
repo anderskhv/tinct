@@ -409,6 +409,11 @@ body {
   right: 0;
 }
 
+/* Add right margin to reader when panel is closed so Tinct tab doesn't overlap text */
+.panel-closed .reader-columns {
+  padding-right: 90px;
+}
+
 .panel-toggle-tab-text {
   display: block;
 }
@@ -1291,6 +1296,10 @@ body {
 /* ===== Split Reader ===== */
 .split-reader-columns {
   padding: 48px 24px 60px;
+  font-family: var(--font-family-reader, var(--font-serif));
+  font-size: var(--font-size-reader, 1.05rem);
+  line-height: 1.85;
+  color: var(--text-primary);
 }
 
 .split-reader-columns .split-reader-grid,
@@ -1328,10 +1337,14 @@ body {
 }
 
 .split-reader-grid {
-  font-family: var(--font-family-reader, var(--font-serif));
-  font-size: var(--font-size-reader, 1.05rem);
-  line-height: 1.85;
-  color: var(--text-primary);
+  display: contents;
+}
+
+.split-row {
+  break-inside: avoid;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .split-row {
@@ -2327,6 +2340,14 @@ body {
 
 .thread-card-expanded {
   border-color: var(--accent-subtle);
+}
+
+.thread-card-offpage {
+  opacity: 0.4;
+}
+
+.thread-card-offpage:hover {
+  opacity: 0.7;
 }
 
 .thread-card-header {

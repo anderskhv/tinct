@@ -10,6 +10,8 @@ export function usePreferences() {
     const saved = storage.get<UserPreferences>(STORAGE_KEY) || DEFAULT_PREFERENCES
     // Migrate removed 'highlights' tab → 'notes'
     if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
+    // Migrate removed kids editions → modern
+    if (saved.splitEditionKey?.includes('kids')) saved.splitEditionKey = 'modern-en'
     return saved
   })
 
@@ -66,6 +68,16 @@ export function usePreferences() {
   const setFontFamily = useCallback((fontFamily: FontFamily) => update({ fontFamily }), [update])
   const setAccountDecisionSeen = useCallback((accountDecisionSeen: boolean) => update({ accountDecisionSeen }), [update])
 
+  // Re-read preferences from storage (called after storage provider swap)
+  const refreshFromStorage = useCallback(() => {
+    const saved = storage.get<UserPreferences>(STORAGE_KEY)
+    if (saved) {
+      if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
+      if (saved.splitEditionKey?.includes('kids')) saved.splitEditionKey = 'modern-en'
+      setPreferencesState(saved)
+    }
+  }, [])
+
   return {
     preferences,
     setLanguage,
@@ -80,6 +92,7 @@ export function usePreferences() {
     setFontSize,
     setFontFamily,
     setAccountDecisionSeen,
+    refreshFromStorage,
     update,
   }
 }

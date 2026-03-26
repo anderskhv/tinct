@@ -73,6 +73,7 @@ interface NotesProps {
   highlights: Highlight[]
   onAddNote: (content: string, sourceType?: Note['sourceType'], sourceId?: string) => void
   onDeleteNote: (id: string) => void
+  onDeleteHighlight?: (id: string) => void
   onUpdateNote: (id: string, content: string) => void
   onCleanupNotes: (aggressive: boolean) => void
   onScrollToHighlight?: (paragraphIndex: number) => void
@@ -89,6 +90,7 @@ export function Notes({
   highlights,
   onAddNote,
   onDeleteNote,
+  onDeleteHighlight,
   onUpdateNote,
   onCleanupNotes,
   onScrollToHighlight,
@@ -153,6 +155,15 @@ export function Notes({
                       </p>
                       {hl.note && <p className="highlight-note">{hl.note}</p>}
                     </div>
+                    {onDeleteHighlight && (
+                      <button
+                        className="note-delete"
+                        onClick={(e) => { e.stopPropagation(); onDeleteHighlight(hl.id) }}
+                        title="Delete highlight"
+                      >
+                        &times;
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>

@@ -1,6 +1,8 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import type { IncomingMessage, ServerResponse } from 'http'
+import fs from 'fs'
+import path from 'path'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -64,6 +66,23 @@ export default defineConfig(({ mode }) => {
           }
           res.writeHead(200, { 'Content-Type': 'application/json' })
           res.end(JSON.stringify({ url: null, message: 'Stripe checkout not available in dev mode. Configure Supabase and Stripe for production.' }))
+        })
+
+        // Serve audio files from project-root audio/ directory (not in public/ to avoid bloating dist/)
+        server.middlewares.use('/audio', (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          const filePath = path.join(process.cwd(), 'audio', decodeURIComponent(req.url || ''))
+          if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+            const ext = path.extname(filePath).toLowerCase()
+            const mimeTypes: Record<string, string> = {
+              '.mp3': 'audio/mpeg',
+              '.wav': 'audio/wav',
+              '.json': 'application/json',
+            }
+            res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'application/octet-stream' })
+            fs.createReadStream(filePath).pipe(res)
+          } else {
+            next()
+          }
         })
 
         // Dev stub for balance

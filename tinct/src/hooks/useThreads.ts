@@ -6,15 +6,15 @@ export function useThreads(bookId: string, editionData: EditionData | null) {
 
   useEffect(() => {
     setThreadsData(null)
-    const loaders: Record<string, () => Promise<unknown>> = {
-      odyssey: () => import('../data/editions/odyssey-threads.json'),
-      ulysses: () => import('../data/editions/ulysses-threads.json'),
-      'war-and-peace': () => import('../data/editions/war-and-peace-threads.json'),
+    const loaders: Record<string, () => Promise<ThreadsData>> = {
+      odyssey: () => fetch('/data/editions/odyssey-threads.json').then(r => r.json()),
+      ulysses: () => fetch('/data/editions/ulysses-threads.json').then(r => r.json()),
+      'war-and-peace': () => fetch('/data/editions/war-and-peace-threads.json').then(r => r.json()),
     }
     const loader = loaders[bookId]
     if (loader) {
       loader()
-        .then(m => setThreadsData(((m as Record<string, unknown>).default || m) as unknown as ThreadsData))
+        .then(data => setThreadsData(data))
         .catch(() => setThreadsData(null))
     }
   }, [bookId])

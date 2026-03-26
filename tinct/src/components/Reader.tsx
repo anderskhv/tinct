@@ -48,6 +48,11 @@ interface ReaderProps {
   onParagraphClick?: (paragraphIndex: number) => void
   /** Whether audio is currently available/active */
   hasAudio?: boolean
+  /** Navigate to next/previous chapter */
+  onNextChapter?: () => void
+  onPrevChapter?: () => void
+  /** Whether side panel is open — triggers column recalc on change */
+  panelOpen?: boolean
 }
 
 export function Reader({
@@ -71,6 +76,9 @@ export function Reader({
   playingParagraphIndex,
   onParagraphClick,
   hasAudio,
+  onNextChapter,
+  onPrevChapter,
+  panelOpen,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -133,7 +141,7 @@ export function Reader({
     const observer = container ? new ResizeObserver(recalcPages) : null
     if (container && observer) observer.observe(container)
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); observer?.disconnect() }
-  }, [paragraphs, chapterTitle, recalcPages])
+  }, [paragraphs, chapterTitle, recalcPages, panelOpen])
 
   // Restore position from initialPage fraction or targetParagraphIndex after layout settles
   const targetParagraphRef = useRef(targetParagraphIndex)
@@ -425,16 +433,16 @@ export function Reader({
       <div className="page-nav">
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); goToPage(currentPage - 1) }}
-          disabled={currentPage <= 0}
+          onClick={(e) => { e.stopPropagation(); currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
+          disabled={currentPage <= 0 && !onPrevChapter}
         >
           &larr;
         </button>
         <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); goToPage(currentPage + 1) }}
-          disabled={currentPage >= totalPages - 1}
+          onClick={(e) => { e.stopPropagation(); currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
+          disabled={currentPage >= totalPages - 1 && !onNextChapter}
         >
           &rarr;
         </button>

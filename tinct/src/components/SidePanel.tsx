@@ -26,6 +26,7 @@ interface SidePanelProps {
   highlights: Highlight[]
   onAddNote: (content: string, sourceType?: Note['sourceType'], sourceId?: string) => void
   onDeleteNote: (id: string) => void
+  onDeleteHighlight?: (id: string) => void
   onUpdateNote: (id: string, content: string) => void
   onCopyToNotes: (content: string) => void
   onCleanupNotes: (aggressive: boolean) => void
@@ -41,6 +42,7 @@ interface SidePanelProps {
   language: Language
   getMentions: (char: ThreadCharacter, upToChapter?: number) => CharacterMention[]
   onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
+  visibleParagraphs?: string[]
   // Balance (shown in chat welcome)
   messagesRemaining?: number
   hasBalance?: boolean
@@ -69,6 +71,7 @@ export function SidePanel({
   highlights,
   onAddNote,
   onDeleteNote,
+  onDeleteHighlight,
   onUpdateNote,
   onCopyToNotes,
   onCleanupNotes,
@@ -82,6 +85,7 @@ export function SidePanel({
   language,
   getMentions,
   onNavigateToChapter,
+  visibleParagraphs,
   messagesRemaining,
   hasBalance,
   isAnonymous,
@@ -150,6 +154,7 @@ export function SidePanel({
               highlights={highlights}
               onAddNote={onAddNote}
               onDeleteNote={onDeleteNote}
+              onDeleteHighlight={onDeleteHighlight}
               onUpdateNote={onUpdateNote}
               onCleanupNotes={onCleanupNotes}
               isCleaningUp={isCleaningUp}
@@ -168,6 +173,7 @@ export function SidePanel({
                 language={language}
                 getMentions={getMentions}
                 onNavigateToChapter={onNavigateToChapter}
+                visibleParagraphs={visibleParagraphs}
               />
             ) : (
               <UpgradePrompt feature="Cast tracker" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />

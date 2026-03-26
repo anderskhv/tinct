@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
+import { AUDIO_BASE_URL } from '../utils/audioUrl'
 
 interface ParagraphAudio {
   paragraph: number
@@ -28,6 +29,8 @@ interface BottomBarProps {
   editionKey: string
   chapterNumber: number
   onParagraphChange?: (paragraphIndex: number) => void
+  /** Called when audio reaches the end of the chapter */
+  onChapterEnd?: () => void
   /** Index of the first paragraph visible on the current reader page */
   firstVisibleParagraph?: number
 }
@@ -37,7 +40,7 @@ const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
 export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
   function BottomBar({
     percentComplete, timeRemainingLabel, isLearned, currentPage, totalPages,
-    bookId, editionKey, chapterNumber, onParagraphChange, firstVisibleParagraph,
+    bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
     const [isPlaying, setIsPlaying] = useState(false)
@@ -51,7 +54,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
     // Load manifest
     useEffect(() => {
-      const url = `/audio/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
+      const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
       fetch(url)
         .then(res => {
           if (!res.ok) throw new Error('No audio')
@@ -74,7 +77,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       if (!manifest) return
       const para = manifest.paragraphs[index]
       if (!para) return
-      const url = `/audio/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
+      const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
       if (audioRef.current) {
         audioRef.current.pause()
         audioRef.current.removeAttribute('src')
@@ -92,8 +95,10 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           onParagraphChange?.(manifest.paragraphs[nextIndex].paragraph)
           playParagraph(nextIndex)
         } else {
+          // Chapter audio finished — advance to next chapter
           setIsPlaying(false)
           setProgress(0)
+          onChapterEnd?.()
         }
       })
       audio.play()

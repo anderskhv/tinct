@@ -8,6 +8,8 @@ interface ThreadsProps {
   language: Language
   getMentions: (char: ThreadCharacter, upToChapter?: number) => CharacterMention[]
   onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
+  /** Paragraphs currently visible on the page, for page-level character detection */
+  visibleParagraphs?: string[]
 }
 
 export function Threads({
@@ -17,6 +19,7 @@ export function Threads({
   language,
   getMentions,
   onNavigateToChapter,
+  visibleParagraphs,
 }: ThreadsProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [spoilerIds, setSpoilerIds] = useState<Set<string>>(new Set())
@@ -28,6 +31,22 @@ export function Threads({
     return language === 'da' ? 'modern-da' : 'modern-en'
   }, [editionKey, language])
 
+  // Detect which characters are mentioned on the currently visible page
+  const onPageCharIds = useMemo(() => {
+    if (!visibleParagraphs || visibleParagraphs.length === 0) return new Set<string>()
+    const pageText = visibleParagraphs.join(' ').toLowerCase()
+    const ids = new Set<string>()
+    for (const char of characters) {
+      for (const name of char.searchNames) {
+        if (pageText.includes(name.toLowerCase())) {
+          ids.add(char.id)
+          break
+        }
+      }
+    }
+    return ids
+  }, [visibleParagraphs, characters])
+
   const filtered = useMemo(() => {
     // Only show characters who have appeared up to the current chapter
     let chars = characters.filter(c => {
@@ -35,12 +54,16 @@ export function Threads({
       return chapterNums.some(n => n <= currentChapter)
     })
     if (filter !== 'all') chars = chars.filter(c => c.role === filter)
+    // Sort: on-page characters first, then by appearance count
     return [...chars].sort((a, b) => {
+      const aOnPage = onPageCharIds.has(a.id) ? 1 : 0
+      const bOnPage = onPageCharIds.has(b.id) ? 1 : 0
+      if (aOnPage !== bOnPage) return bOnPage - aOnPage
       const aChapters = Object.keys(a.chapters).map(Number).filter(n => n <= currentChapter)
       const bChapters = Object.keys(b.chapters).map(Number).filter(n => n <= currentChapter)
       return bChapters.length - aChapters.length
     })
-  }, [characters, filter, currentChapter])
+  }, [characters, filter, currentChapter, onPageCharIds])
 
   const toggleExpand = (id: string) => {
     setExpandedId(prev => prev === id ? null : id)
@@ -87,9 +110,10 @@ export function Threads({
             const mentions = isExpanded ? getMentions(char, showSpoilers ? undefined : currentChapter) : []
             const displayName = char.name[language] || char.name.en
             const displayEpithet = char.epithet[language] || char.epithet.en
+            const isOnPage = onPageCharIds.has(char.id)
 
             return (
-              <div key={char.id} className={`thread-card ${isExpanded ? 'thread-card-expanded' : ''}`}>
+              <div key={char.id} className={`thread-card ${isExpanded ? 'thread-card-expanded' : ''} ${!isOnPage && visibleParagraphs && visibleParagraphs.length > 0 ? 'thread-card-offpage' : ''}`}>
                 <div className="thread-card-header" onClick={() => toggleExpand(char.id)}>
                   <div className="thread-card-title">
                     <span className="thread-name">{displayName}</span>
@@ -115,7 +139,7 @@ export function Threads({
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Read on Wikipedia \u2192
+                        Read more on Wikipedia
                       </a>
                     )}
 

@@ -241,6 +241,7 @@ export interface ReadingPosition {
   currentPage: number
   totalPages: number
   scrollFraction: number // 0.0–1.0, viewport-independent canonical position
+  updatedAt?: number // epoch ms — used to pick most recent across devices
 }
 
 export interface ReadingProgress {

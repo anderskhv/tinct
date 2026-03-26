@@ -55,6 +55,8 @@ interface SplitReaderProps {
   onParagraphClick?: (index: number) => void
   /** Whether audio is available for the current edition */
   hasAudio?: boolean
+  /** Whether side panel is open — triggers column recalc on change */
+  panelOpen?: boolean
 }
 
 export function SplitReader({
@@ -83,6 +85,7 @@ export function SplitReader({
   playingParagraphIndex,
   onParagraphClick,
   hasAudio,
+  panelOpen,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
@@ -91,7 +94,6 @@ export function SplitReader({
   // === Pagination (CSS multi-column, same as Reader) ===
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
-  const PAD_X = 24
   const initialPageRef = useRef(initialPage)
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
@@ -101,27 +103,36 @@ export function SplitReader({
     return parseFloat(getComputedStyle(content).columnGap) || 60
   }, [])
 
-  const updateColumnWidth = useCallback(() => {
+  // Get column width from actual padding (matches Reader approach)
+  const getColWidth = useCallback(() => {
     const container = readerRef.current
     const content = contentRef.current
-    if (!container || !content) return
-    const colW = container.clientWidth - PAD_X * 2
+    if (!container || !content) return 0
+    const style = getComputedStyle(content)
+    const padLeft = parseFloat(style.paddingLeft) || 0
+    const padRight = parseFloat(style.paddingRight) || 0
+    return container.clientWidth - padLeft - padRight
+  }, [readerRef])
+
+  const updateColumnWidth = useCallback(() => {
+    const content = contentRef.current
+    if (!content) return
+    const colW = getColWidth()
     if (colW > 0) {
       content.style.columnWidth = `${colW}px`
     }
-  }, [readerRef])
+  }, [getColWidth])
 
   const recalcPages = useCallback(() => {
     const content = contentRef.current
-    const container = readerRef.current
-    if (!content || !container) return
+    if (!content) return
     updateColumnWidth()
-    const colWidth = container.clientWidth - PAD_X * 2
+    const colWidth = getColWidth()
     if (colWidth <= 0) return
     const gap = getGap()
     const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
     setTotalPages(pages)
-  }, [readerRef, updateColumnWidth, getGap])
+  }, [updateColumnWidth, getColWidth, getGap])
 
   // Track chapter title to know when chapter actually changes (vs edition swap)
   const prevChapterTitle = useRef(chapterTitle)
@@ -136,7 +147,7 @@ export function SplitReader({
     const observer = container ? new ResizeObserver(recalcPages) : null
     if (container && observer) observer.observe(container)
     return () => { clearTimeout(timer1); clearTimeout(timer2); observer?.disconnect() }
-  }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages])
+  }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages, panelOpen])
 
   // Reset page only on actual chapter change, not on edition swap
   useEffect(() => {
@@ -169,7 +180,7 @@ export function SplitReader({
     if (!content || !container) return
     const el = content.querySelector(`[data-paragraph-index="${playingParagraphIndex}"]`) as HTMLElement
     if (!el) return
-    const colWidth = container.clientWidth - PAD_X * 2
+    const colWidth = getColWidth()
     const gap = getGap()
     if (colWidth <= 0) return
     const page = Math.floor(el.offsetLeft / (colWidth + gap))
@@ -218,9 +229,8 @@ export function SplitReader({
   }, [currentPage, goToPage, readerRef])
 
   const getTranslateX = () => {
-    const container = readerRef.current
-    if (!container) return 0
-    const colWidth = container.clientWidth - PAD_X * 2
+    const colWidth = getColWidth()
+    if (colWidth <= 0) return 0
     return -(currentPage * (colWidth + getGap()))
   }
 
