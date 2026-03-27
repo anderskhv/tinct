@@ -289,7 +289,7 @@ Every deploy MUST follow this sequence. No exceptions.
 
 **Pre-authorized (just do it):**
 - Git commits — if build passes AND you've verified the change works locally, commit
-- Git push — if commit is clean, push to remote
+- **"Push" always means: git push + `cd tinct && npx wrangler deploy`.** Never push to GitHub without also deploying to Cloudflare Workers. They are one action.
 - Bug fixes and code corrections — fix them, but verify locally before telling Anders
 - Deploy — ONLY after completing the Pre-Deploy Checklist above (all 8 steps including smoke test)
 - Running and acting on test results — fix what fails
