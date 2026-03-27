@@ -89,6 +89,7 @@ export function Reader({
   const totalPagesRef = useRef(totalPages)
   totalPagesRef.current = totalPages
   const initialPageRef = useRef(initialPage)
+  const userNavigatedRef = useRef(false)
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
   const getGap = useCallback(() => {
@@ -204,8 +205,10 @@ export function Reader({
   }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
 
   // Auto-scroll to playing paragraph when audio advances
+  // Skip if user manually navigated away — don't snap back
   useEffect(() => {
     if (playingParagraphIndex === undefined || totalPagesRef.current <= 1) return
+    if (userNavigatedRef.current) return
     const content = contentRef.current
     if (!content) return
     const el = content.querySelector(`[data-paragraph-index="${playingParagraphIndex}"]`) as HTMLElement
@@ -220,9 +223,17 @@ export function Reader({
     }
   }, [playingParagraphIndex, getColWidth, getGap])
 
+  // Reset userNavigated flag when audio stops
+  useEffect(() => {
+    if (playingParagraphIndex === undefined) {
+      userNavigatedRef.current = false
+    }
+  }, [playingParagraphIndex])
+
   const goToPage = useCallback((page: number) => {
     const container = readerRef.current
     if (!container) return
+    userNavigatedRef.current = true
     const clamped = Math.max(0, Math.min(page, totalPages - 1))
     setCurrentPage(clamped)
   }, [totalPages, readerRef])

@@ -95,6 +95,7 @@ export function SplitReader({
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
   const initialPageRef = useRef(initialPage)
+  const userNavigatedRef = useRef(false) // true when user manually changed page
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
   const getGap = useCallback(() => {
@@ -176,8 +177,10 @@ export function SplitReader({
   }, [currentPage, totalPages, onPageChange])
 
   // Auto-advance page when audio plays a paragraph not visible on current page
+  // Only auto-advance if the user hasn't manually navigated away
   useEffect(() => {
     if (playingParagraphIndex === undefined || totalPages <= 1) return
+    if (userNavigatedRef.current) return // user browsed away — don't snap back
     const content = contentRef.current
     const container = readerRef.current
     if (!content || !container) return
@@ -193,7 +196,15 @@ export function SplitReader({
     }
   }, [playingParagraphIndex, totalPages, getGap, currentPage, readerRef])
 
+  // Reset userNavigated flag when audio stops or catches up to user's page
+  useEffect(() => {
+    if (playingParagraphIndex === undefined) {
+      userNavigatedRef.current = false
+    }
+  }, [playingParagraphIndex])
+
   const goToPage = useCallback((page: number) => {
+    userNavigatedRef.current = true
     setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)))
   }, [totalPages])
 
