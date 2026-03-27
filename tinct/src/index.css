@@ -156,6 +156,7 @@ body {
   flex-shrink: 0;
   gap: 16px;
   position: relative;
+  z-index: 10;
 }
 
 .header-left {
@@ -1295,11 +1296,15 @@ body {
 
 /* ===== Split Reader ===== */
 .split-reader-columns {
+  height: 100%;
   padding: 48px 24px 60px;
+  column-fill: auto;
+  column-gap: 60px;
   font-family: var(--font-family-reader, var(--font-serif));
   font-size: var(--font-size-reader, 1.05rem);
   line-height: 1.85;
   color: var(--text-primary);
+  transition: transform 0.3s ease;
 }
 
 .split-reader-columns .split-reader-grid,

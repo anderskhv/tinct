@@ -146,7 +146,7 @@ export function SplitReader({
     let resizeTimer: ReturnType<typeof setTimeout>
     const observer = container ? new ResizeObserver(() => {
       clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(recalcPages, 300)
+      resizeTimer = setTimeout(recalcPages, 350)
     }) : null
     if (container && observer) observer.observe(container)
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(resizeTimer); observer?.disconnect() }
