@@ -75,6 +75,27 @@ export interface ChatMessage {
   highlightedText?: string
   /** Track token usage for future billing */
   tokenCount?: number
+  /** Book where this message was sent */
+  bookId?: string
+  /** Chapter number where this message was sent */
+  chapterNumber?: number
+  /** First visible paragraph index when message was sent */
+  paragraphIndex?: number
+}
+
+/** A group of chat messages from a single session/chapter */
+export interface ChatConversation {
+  id: string
+  bookId: string
+  chapterNumber: number
+  paragraphIndex?: number
+  startTimestamp: number
+  endTimestamp: number
+  messages: ChatMessage[]
+  /** First user message, truncated for preview */
+  preview: string
+  /** AI-generated summary (replaces full messages in display when present) */
+  summary?: string
 }
 
 // === Highlights & Annotations ===

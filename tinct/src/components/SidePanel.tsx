@@ -3,7 +3,7 @@ import { Notes } from './Notes'
 import { Threads } from './Threads'
 import { UpgradePrompt } from './UpgradePrompt'
 import { useTierContext } from '../contexts/TierContext'
-import type { ChatMessage, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language } from '../types'
+import type { ChatMessage, ChatConversation, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language } from '../types'
 
 interface SidePanelProps {
   isOpen: boolean
@@ -51,6 +51,10 @@ interface SidePanelProps {
   onSignIn?: () => void
   // Pricing
   onShowPricing?: () => void
+  // Chat history
+  chatConversations?: ChatConversation[]
+  onSummarizeChat?: (convId: string) => void
+  summarizingId?: string | null
 }
 
 export function SidePanel({
@@ -92,6 +96,9 @@ export function SidePanel({
   onTopUp,
   onSignIn,
   onShowPricing,
+  chatConversations = [],
+  onSummarizeChat,
+  summarizingId,
 }: SidePanelProps) {
   const { canUse } = useTierContext()
   const canChat = canUse('ai-chat')
@@ -163,6 +170,9 @@ export function SidePanel({
               chapterLabels={chapterLabels}
               currentChapter={currentChapter}
               onNavigateToChapter={onNavigateToChapter}
+              chatConversations={chatConversations}
+              onSummarizeChat={onSummarizeChat}
+              summarizingId={summarizingId}
             />
           ) : (
             canCast ? (

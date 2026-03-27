@@ -138,15 +138,18 @@ export function SplitReader({
   const prevChapterTitle = useRef(chapterTitle)
 
   useEffect(() => {
-    // Save current page before recalc
-    const savedPage = currentPage
     recalcPages()
     const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
     const container = readerRef.current
-    const observer = container ? new ResizeObserver(recalcPages) : null
+    // Debounce ResizeObserver to avoid mid-transition recalcs when panel toggles
+    let resizeTimer: ReturnType<typeof setTimeout>
+    const observer = container ? new ResizeObserver(() => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(recalcPages, 300)
+    }) : null
     if (container && observer) observer.observe(container)
-    return () => { clearTimeout(timer1); clearTimeout(timer2); observer?.disconnect() }
+    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(resizeTimer); observer?.disconnect() }
   }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages, panelOpen])
 
   // Reset page only on actual chapter change, not on edition swap
@@ -319,6 +322,23 @@ export function SplitReader({
       ref={readerRef}
       onMouseUp={handleMouseUp}
       onClick={handleReaderClick}
+      onTouchEnd={(e) => {
+        const selection = window.getSelection()
+        if (selection && !selection.isCollapsed) return
+        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
+        const container = readerRef.current
+        if (!container) return
+        const rect = container.getBoundingClientRect()
+        const touch = e.changedTouches[0]
+        if (!touch) return
+        const touchX = touch.clientX - rect.left
+        const zone = rect.width * 0.3
+        if (touchX < zone) {
+          goToPage(currentPage - 1)
+        } else if (touchX > rect.width - zone) {
+          goToPage(currentPage + 1)
+        }
+      }}
     >
       <div
         className="reader-columns split-reader-columns"
@@ -392,26 +412,24 @@ export function SplitReader({
         )}
       </div>
 
-      {/* Page indicator & nav */}
-      {totalPages > 1 && (
-        <div className="page-nav">
-          <button
-            className="page-nav-arrow"
-            onClick={(e) => { e.stopPropagation(); goToPage(currentPage - 1) }}
-            disabled={currentPage <= 0}
-          >
-            &larr;
-          </button>
-          <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
-          <button
-            className="page-nav-arrow"
-            onClick={(e) => { e.stopPropagation(); goToPage(currentPage + 1) }}
-            disabled={currentPage >= totalPages - 1}
-          >
-            &rarr;
-          </button>
-        </div>
-      )}
+      {/* Page indicator & nav — always visible */}
+      <div className="page-nav">
+        <button
+          className="page-nav-arrow"
+          onClick={(e) => { e.stopPropagation(); goToPage(currentPage - 1) }}
+          disabled={currentPage <= 0}
+        >
+          &larr;
+        </button>
+        <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
+        <button
+          className="page-nav-arrow"
+          onClick={(e) => { e.stopPropagation(); goToPage(currentPage + 1) }}
+          disabled={currentPage >= totalPages - 1}
+        >
+          &rarr;
+        </button>
+      </div>
 
       {selectionPopup && (
         <div

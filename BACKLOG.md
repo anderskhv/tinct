@@ -1,6 +1,6 @@
 # Tinct — Launch Backlog
 
-**Last updated:** 2026-03-24
+**Last updated:** 2026-03-26
 
 Gap analysis between the mission statement and what's built. Ordered by launch-critical first, then nice-to-have.
 
@@ -22,8 +22,17 @@ Gap analysis between the mission statement and what's built. Ordered by launch-c
 | Dark mode | Done |
 | Cross-device sync (Supabase) | Done |
 | Auth (email + Google OAuth) | Done |
-| Mobile responsive | Done |
+| Mobile responsive | Done (improved 2026-03-26: grouped settings menu, 4-tab nav, trimmer bottom bar) |
+| Audiobook player (R2-hosted, paragraph-sync) | Done |
+| Build pipeline (sub-2s builds, editions as static assets) | Done |
 | Deployed to tinct.ahvelplund.workers.dev | Done |
+
+## Tomorrow's Focus (2026-03-27)
+
+1. **Commit mobile UI changes** — deployed but not yet in git
+2. **Visual check mobile on real device** — verify hamburger menu, 4-tab nav, bottom bar feel right
+3. **Clean up dual .git repo** — `tinct/` has its own inner repo causing confusion with stash tests
+4. Pick up next backlog item (security fixes or content)
 
 ---
 

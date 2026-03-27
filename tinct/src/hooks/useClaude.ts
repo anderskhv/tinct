@@ -44,6 +44,8 @@ interface UseClaudeOptions {
   onInsufficientBalance?: () => void
   /** Callback with usage data after successful response */
   onUsage?: (inputTokens: number, outputTokens: number) => void
+  /** Summary of past chat discussions for the current chapter */
+  chatMemory?: string
 }
 
 export function useClaude(options?: UseClaudeOptions) {
@@ -77,7 +79,8 @@ export function useClaude(options?: UseClaudeOptions) {
       const basePrompt = opts
         ? buildSystemPrompt(opts.bookTitle, opts.bookAuthor, opts.chapterTitle, opts.readingObjective)
         : 'You are a literary companion helping a reader deeply engage with what they\'re reading. Be conversational and warm. Keep responses concise.'
-      const systemPrompt = basePrompt + buildVisibleTextContext(opts?.visibleText)
+      const memoryContext = opts?.chatMemory ? `\n\n[${opts.chatMemory}]` : ''
+      const systemPrompt = basePrompt + memoryContext + buildVisibleTextContext(opts?.visibleText)
 
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',

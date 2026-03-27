@@ -138,9 +138,14 @@ export function Reader({
     const timer2 = setTimeout(recalcPages, 500)
     const timer3 = setTimeout(recalcPages, 1500)
     const container = readerRef.current
-    const observer = container ? new ResizeObserver(recalcPages) : null
+    // Debounce ResizeObserver to avoid mid-transition recalcs when panel toggles
+    let resizeTimer: ReturnType<typeof setTimeout>
+    const observer = container ? new ResizeObserver(() => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(recalcPages, 300)
+    }) : null
     if (container && observer) observer.observe(container)
-    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); observer?.disconnect() }
+    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); clearTimeout(resizeTimer); observer?.disconnect() }
   }, [paragraphs, chapterTitle, recalcPages, panelOpen])
 
   // Restore position from initialPage fraction or targetParagraphIndex after layout settles

@@ -28,6 +28,7 @@ import { useAuth } from './hooks/useAuth'
 import { useBalance } from './hooks/useBalance'
 import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
+import { useChatHistory } from './hooks/useChatHistory'
 import { useLibrary } from './hooks/useLibrary'
 import { storage, setStorageProvider, localStorageProvider } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
@@ -246,6 +247,7 @@ export default function App() {
     return () => document.removeEventListener('visibilitychange', handleVisibility)
   }, [user, book.id, currentChapter, currentPage, totalPages])
 
+
   // Get current chapter data early so we can pass context to chat
   const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
   const primaryChapter = primaryData?.chapters.find(c => c.number === currentChapter)
@@ -312,6 +314,45 @@ export default function App() {
     }
   }, [refreshProfile])
 
+  const { conversations: chatConversations, recordMessage, getChapterChatSummary, setSummary: setChatSummary } = useChatHistory(book.id)
+  const [summarizingChatId, setSummarizingChatId] = useState<string | null>(null)
+
+  const handleSummarizeChat = useCallback(async (convId: string) => {
+    const conv = chatConversations.find(c => c.id === convId)
+    if (!conv || conv.messages.length < 4) return
+
+    setSummarizingChatId(convId)
+    try {
+      const transcript = conv.messages.map(m =>
+        `${m.role === 'user' ? 'Reader' : 'Tinct'}: ${m.content}`
+      ).join('\n\n')
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session?.access_token ? { 'Authorization': `Bearer ${session.access_token}` } : {}),
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 512,
+          system: 'Summarize this reading discussion into 2-4 concise bullet points. Preserve all specific insights, character references, and thematic observations. Do not lose context that would be valuable to revisit later. Be concise but complete.',
+          messages: [{ role: 'user', content: transcript }],
+        }),
+      })
+
+      const data = await response.json()
+      const summary = data.content?.[0]?.text
+      if (summary) {
+        setChatSummary(convId, summary)
+      }
+    } catch {
+      // Silent fail — conversation stays unsummarized
+    } finally {
+      setSummarizingChatId(null)
+    }
+  }, [chatConversations, session?.access_token, setChatSummary])
+
   const { messages, isLoading: chatLoading, sendMessage, clearMessages } = useClaude({
     bookTitle: book.title,
     bookAuthor: book.author,
@@ -321,6 +362,7 @@ export default function App() {
     authToken: session?.access_token,
     onInsufficientBalance: handleInsufficientBalance,
     onUsage: deductUsage,
+    chatMemory: getChapterChatSummary(currentChapter) || undefined,
   })
 
   // Handle book change
@@ -555,10 +597,29 @@ export default function App() {
     addHighlight(edKey, paragraphIndex, startOffset, endOffset, text, color)
   }, [addHighlight, primaryEditionKey, splitEditionKey])
 
-  // Chat message handler
+  // Record assistant messages to chat history when they arrive
+  const lastRecordedMsgRef = useRef<string | null>(null)
+  useEffect(() => {
+    if (messages.length === 0) return
+    const last = messages[messages.length - 1]
+    if (last.role === 'assistant' && last.id !== lastRecordedMsgRef.current) {
+      lastRecordedMsgRef.current = last.id
+      recordMessage(last, currentChapter, firstVisibleParagraph)
+    }
+  }, [messages, recordMessage, currentChapter, firstVisibleParagraph])
+
+  // Chat message handler — also records to chat history
   const handleSendMessage = useCallback((content: string, highlightedText?: string) => {
+    // Record user message to history
+    recordMessage({
+      id: `msg_${Date.now()}`,
+      role: 'user',
+      content,
+      timestamp: Date.now(),
+      highlightedText,
+    }, currentChapter, firstVisibleParagraph)
     sendMessage(content, highlightedText)
-  }, [sendMessage])
+  }, [sendMessage, recordMessage, currentChapter, firstVisibleParagraph])
 
   // Copy to notes from chat
   const handleCopyToNotes = useCallback((content: string) => {
@@ -987,8 +1048,8 @@ export default function App() {
         } : undefined}
         onOpenUsage={() => setShowUsageDashboard(true)}
         onOpenStore={() => setShowStore(true)}
-        onOpenNotes={() => { setPanelTab('notes'); setActiveView(2) }}
-        onOpenCast={() => { setPanelTab('threads'); setActiveView(2) }}
+        onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
+        onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
         fontSize={preferences.fontSize}
         onFontSizeChange={setFontSize}
         fontFamily={preferences.fontFamily}
@@ -1033,78 +1094,92 @@ export default function App() {
                 panelOpen={preferences.panelOpen}
               />
             </div>
-            {/* View 1: Compare — shows alternate edition full-width on mobile */}
+            {/* View 1: Compare (SplitReader) */}
             <div className={`mobile-view ${activeView === 1 ? 'mobile-view-active' : ''}`}>
-              {preferences.splitView && splitChapter ? (
-                <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                  <div className="mobile-compare-header">
-                    <select
-                      className="split-edition-select"
-                      value={splitEditionKey}
-                      onChange={e => setSplitEditionKey(e.target.value)}
-                    >
-                      {alignedEditions.map(ed => (
-                        <option key={ed.key} value={ed.key}>{ed.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <Reader
-                    paragraphs={splitChapter?.paragraphs || []}
-                    chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
-                    editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
-                    isLoading={isLoading}
-                    highlights={getEditionHighlights(splitEditionKey)}
-                    onHighlight={handleHighlight}
-                    onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
-                    isFinalChapter={currentChapter === totalChapters}
-                    readerRef={compareReaderRef}
-                    isVerse={splitIsVerse}
-                  />
-                </div>
+              {splitViewAvailable && splitChapter ? (
+                <SplitReader
+                  key={`mobile-split-${currentChapter}-${readerKey}`}
+                  leftParagraphs={primaryChapter?.paragraphs || []}
+                  rightParagraphs={splitChapter?.paragraphs || []}
+                  chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                  leftLabel={editionLabel}
+                  rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                  isLoading={isLoading}
+                  leftHighlights={getEditionHighlights(primaryEditionKey)}
+                  rightHighlights={getEditionHighlights(splitEditionKey)}
+                  alignedEditions={alignedEditions}
+                  currentRightEditionKey={splitEditionKey}
+                  onRightEditionChange={setSplitEditionKey}
+                  onHighlight={handleSplitHighlight}
+                  onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
+                  onReflect={handleReflect}
+                  onGenerateSummary={handleGenerateSummary}
+                  isGeneratingSummary={isGeneratingSummary}
+                  isFinalChapter={currentChapter === totalChapters}
+                  readerRef={compareReaderRef}
+                  isLeftVerse={primaryIsVerse}
+                  isRightVerse={splitIsVerse}
+                  onPageChange={handlePageChange}
+                  initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
+                  playingParagraphIndex={audioPlayingParagraph}
+                  onParagraphClick={handleParagraphClick}
+                  hasAudio={hasAudio}
+                  panelOpen={false}
+                />
               ) : (
                 <div className="mobile-view-placeholder">
-                  <p>Enable Compare view from the menu to see another edition.</p>
+                  <p style={{ padding: 24, color: 'var(--text-tertiary)', textAlign: 'center' }}>
+                    No aligned editions available for comparison.
+                  </p>
                 </div>
               )}
             </div>
-            {/* View 2: Panel */}
-            <div className={`mobile-view ${activeView === 2 ? 'mobile-view-active' : ''}`}>
-              <SidePanel
-                isOpen={true}
-                activeTab={preferences.panelTab}
-                onTabChange={setPanelTab}
-                messages={messages}
-                isChatLoading={chatLoading}
-                onSendMessage={handleSendMessage}
-                onClearChat={clearMessages}
-                pendingHighlight={pendingHighlight}
-                onClearHighlight={() => setPendingHighlight(null)}
-                bookTitle={book.title}
-                chapterTitle={chapterTitle}
-                readingObjective={preferences.readingObjective}
-                onEditObjective={handleEditObjective}
-                notes={notes}
-                highlights={highlights}
-                onAddNote={addNote}
-                onDeleteNote={deleteNote}
-                onDeleteHighlight={removeHighlight}
-                onUpdateNote={updateNote}
-                onCopyToNotes={handleCopyToNotes}
-                onCleanupNotes={handleCleanupNotes}
-                isCleaningUp={isCleaningUp}
-                allBookHighlights={getAllBookHighlights()}
-                chapterLabels={chapterLabels}
-                threadCharacters={threadsData?.characters || []}
-                currentChapter={currentChapter}
-                editionKey={primaryEditionKey}
-                language={preferences.language}
-                getMentions={getMentions}
-                visibleParagraphs={visibleParagraphs}
-                onNavigateToChapter={(ch, pi, ek) => { handleNavigateToChapter(ch, pi, ek); setActiveView(0) }}
-                onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
-                onShowPricing={() => setShowPricingModal(true)}
-              />
-            </div>
+            {/* Views 2-4: SidePanel tabs (Chat, Notes, Cast) */}
+            {([2, 3, 4] as const).map(viewIndex => (
+              <div key={viewIndex} className={`mobile-view ${activeView === viewIndex ? 'mobile-view-active' : ''}`}>
+                <SidePanel
+                  isOpen={true}
+                  activeTab={viewIndex === 2 ? 'chat' : viewIndex === 3 ? 'notes' : 'threads'}
+                  onTabChange={(tab) => {
+                    setPanelTab(tab)
+                    setActiveView(tab === 'chat' ? 2 : tab === 'notes' ? 3 : 4)
+                  }}
+                  messages={messages}
+                  isChatLoading={chatLoading}
+                  onSendMessage={handleSendMessage}
+                  onClearChat={clearMessages}
+                  pendingHighlight={pendingHighlight}
+                  onClearHighlight={() => setPendingHighlight(null)}
+                  bookTitle={book.title}
+                  chapterTitle={chapterTitle}
+                  readingObjective={preferences.readingObjective}
+                  onEditObjective={handleEditObjective}
+                  notes={notes}
+                  highlights={highlights}
+                  onAddNote={addNote}
+                  onDeleteNote={deleteNote}
+                  onDeleteHighlight={removeHighlight}
+                  onUpdateNote={updateNote}
+                  onCopyToNotes={handleCopyToNotes}
+                  onCleanupNotes={handleCleanupNotes}
+                  isCleaningUp={isCleaningUp}
+                  allBookHighlights={getAllBookHighlights()}
+                  chapterLabels={chapterLabels}
+                  threadCharacters={threadsData?.characters || []}
+                  currentChapter={currentChapter}
+                  editionKey={primaryEditionKey}
+                  language={preferences.language}
+                  getMentions={getMentions}
+                  visibleParagraphs={visibleParagraphs}
+                  onNavigateToChapter={(ch, pi, ek) => { handleNavigateToChapter(ch, pi, ek); setActiveView(0) }}
+                  onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
+                  onShowPricing={() => setShowPricingModal(true)}
+                  chatConversations={chatConversations}
+                  onSummarizeChat={handleSummarizeChat}
+                  summarizingId={summarizingChatId}
+                />
+              </div>
+            ))}
           </div>
         ) : (
           <>
@@ -1136,6 +1211,7 @@ export default function App() {
                 playingParagraphIndex={audioPlayingParagraph}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
+                panelOpen={preferences.panelOpen}
               />
             ) : (
               <Reader
@@ -1205,6 +1281,7 @@ export default function App() {
               onTopUp={() => setShowUsageDashboard(true)}
               onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
               onShowPricing={() => setShowPricingModal(true)}
+              chatConversations={chatConversations}
             />
           </>
         )}
@@ -1232,6 +1309,12 @@ export default function App() {
           <button className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
             Chat
           </button>
+          <button className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
+            Notes
+          </button>
+          <button className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
+            Cast
+          </button>
         </nav>
       )}
 
@@ -1254,6 +1337,7 @@ export default function App() {
         onParagraphChange={handleAudioParagraphChange}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         firstVisibleParagraph={firstVisibleParagraph}
+        compact={isMobile}
       />
 
       {insight && (
@@ -1263,6 +1347,7 @@ export default function App() {
           onDismiss={dismissInsight}
         />
       )}
+
     </div>
     </TierProvider>
   )

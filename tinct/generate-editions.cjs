@@ -48,97 +48,44 @@ const EDITION_PROMPTS = {
   },
 };
 
-async function callClaude(system, userMessage, retries = 3) {
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 600000); // 10 min timeout
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        signal: controller.signal,
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 16384,
-          system,
-          messages: [{ role: 'user', content: userMessage }],
-        }),
-      });
-      clearTimeout(timeout);
-      const data = await res.json();
-      if (data.error) {
-        if (data.error.type === 'overloaded_error' || data.error.type === 'rate_limit_error') {
-          console.log(`    Rate limited (attempt ${attempt}/${retries}), waiting 30s...`);
-          await new Promise(r => setTimeout(r, 30000));
-          continue;
-        }
-        throw new Error(data.error.message);
-      }
-      const tokenCount = (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
-      return { text: data.content?.[0]?.text || '', tokenCount };
-    } catch (e) {
-      if (attempt < retries) {
-        console.log(`    Attempt ${attempt} failed: ${e.message}. Retrying in 10s...`);
-        await new Promise(r => setTimeout(r, 10000));
-      } else {
-        throw e;
-      }
-    }
-  }
+async function callClaude(system, userMessage) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': API_KEY,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 16384,
+      system,
+      messages: [{ role: 'user', content: userMessage }],
+    }),
+  });
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message);
+  const tokenCount = (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
+  return { text: data.content?.[0]?.text || '', tokenCount };
 }
-
-async function generateBatch(paragraphs, chapterTitle, editionKey, batchLabel) {
-  const config = EDITION_PROMPTS[editionKey];
-  const inputText = paragraphs.join('\n|||PARAGRAPH|||\n');
-  const prompt = `${config.instruction}\n\nChapter: ${chapterTitle} (${batchLabel})\nExpected paragraph count: ${paragraphs.length}\n\n"""\n${inputText}\n"""`;
-  const { text, tokenCount } = await callClaude(config.system, prompt);
-  const outputParagraphs = text.split('|||PARAGRAPH|||').map(p => p.trim()).filter(p => p.length > 0);
-  return { paragraphs: outputParagraphs, tokenCount };
-}
-
-const MAX_PARAGRAPHS_PER_BATCH = 25;
 
 async function generateChapter(chapter, editionKey) {
-  let allParagraphs = [];
-  let totalTokens = 0;
+  const config = EDITION_PROMPTS[editionKey];
+  const inputText = chapter.paragraphs.join('\n|||PARAGRAPH|||\n');
 
-  if (chapter.paragraphs.length <= MAX_PARAGRAPHS_PER_BATCH) {
-    // Small enough for single call
-    const result = await generateBatch(chapter.paragraphs, chapter.title, editionKey, 'full');
-    allParagraphs = result.paragraphs;
-    totalTokens = result.tokenCount;
-  } else {
-    // Split into batches
-    const batches = [];
-    for (let i = 0; i < chapter.paragraphs.length; i += MAX_PARAGRAPHS_PER_BATCH) {
-      batches.push(chapter.paragraphs.slice(i, i + MAX_PARAGRAPHS_PER_BATCH));
-    }
-    console.log(`    Splitting into ${batches.length} batches: ${batches.map(b => b.length).join(' + ')} paragraphs`);
+  const prompt = `${config.instruction}\n\nChapter: ${chapter.title}\nExpected paragraph count: ${chapter.paragraphs.length}\n\n"""\n${inputText}\n"""`;
 
-    for (let i = 0; i < batches.length; i++) {
-      const label = `part ${i + 1}/${batches.length}`;
-      console.log(`    Generating ${label} (${batches[i].length} paragraphs)...`);
-      const result = await generateBatch(batches[i], chapter.title, editionKey, label);
-      allParagraphs.push(...result.paragraphs);
-      totalTokens += result.tokenCount;
-      if (i < batches.length - 1) {
-        await new Promise(r => setTimeout(r, 2000)); // pause between batches
-      }
-    }
-  }
+  const { text, tokenCount } = await callClaude(config.system, prompt);
 
-  const outputParagraphs = allParagraphs;
+  // Parse output back into paragraph array
+  const outputParagraphs = text.split('|||PARAGRAPH|||').map(p => p.trim()).filter(p => p.length > 0);
 
   // Validate paragraph count
   if (outputParagraphs.length !== chapter.paragraphs.length) {
     console.warn(`    WARNING: Expected ${chapter.paragraphs.length} paragraphs, got ${outputParagraphs.length}`);
   }
 
-  return { paragraphs: outputParagraphs, tokenCount: totalTokens };
+  return { paragraphs: outputParagraphs, tokenCount };
 }
 
 async function generateEdition(editionKey) {

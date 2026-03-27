@@ -33,6 +33,8 @@ interface BottomBarProps {
   onChapterEnd?: () => void
   /** Index of the first paragraph visible on the current reader page */
   firstVisibleParagraph?: number
+  /** Compact mode: show only percentage, hide page count and time */
+  compact?: boolean
 }
 
 const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
@@ -40,7 +42,7 @@ const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
 export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
   function BottomBar({
     percentComplete, timeRemainingLabel, isLearned, currentPage, totalPages,
-    bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph,
+    bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
     const [isPlaying, setIsPlaying] = useState(false)
@@ -48,95 +50,202 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     const [progress, setProgress] = useState(0)
     const [hasAudio, setHasAudio] = useState(false)
     const [speed, setSpeed] = useState(1)
+
+    // Single reusable Audio element — avoids listener accumulation and stale closures
     const audioRef = useRef<HTMLAudioElement | null>(null)
     const speedRef = useRef(speed)
     speedRef.current = speed
 
-    // Load manifest
+    // Use refs to avoid stale closures in audio event handlers
+    const manifestRef = useRef(manifest)
+    manifestRef.current = manifest
+    const currentParagraphRef = useRef(currentParagraph)
+    currentParagraphRef.current = currentParagraph
+    const onParagraphChangeRef = useRef(onParagraphChange)
+    onParagraphChangeRef.current = onParagraphChange
+    const onChapterEndRef = useRef(onChapterEnd)
+    onChapterEndRef.current = onChapterEnd
+    // Track whether we should auto-resume after chapter change
+    const shouldResumeRef = useRef(false)
+
+    // Create and configure the single Audio element once
     useEffect(() => {
+      const audio = new Audio()
+      audioRef.current = audio
+
+      const handleTimeUpdate = () => {
+        if (audio.duration > 0) setProgress(audio.currentTime / audio.duration)
+      }
+
+      const handleEnded = () => {
+        const m = manifestRef.current
+        if (!m) return
+        const nextIndex = currentParagraphRef.current + 1
+        if (nextIndex < m.paragraphs.length) {
+          // Play next paragraph
+          const nextPara = m.paragraphs[nextIndex]
+          setCurrentParagraph(nextIndex)
+          currentParagraphRef.current = nextIndex
+          onParagraphChangeRef.current?.(nextPara.paragraph)
+          const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
+          audio.src = url
+          audio.playbackRate = speedRef.current
+          audio.play().catch(() => {
+            setIsPlaying(false)
+          })
+        } else {
+          // Chapter finished — auto-advance
+          setIsPlaying(false)
+          setProgress(0)
+          shouldResumeRef.current = true
+          onChapterEndRef.current?.()
+        }
+      }
+
+      const handleError = () => {
+        // Audio failed to load — try next paragraph or stop
+        const m = manifestRef.current
+        if (!m) { setIsPlaying(false); return }
+        const nextIndex = currentParagraphRef.current + 1
+        if (nextIndex < m.paragraphs.length) {
+          // Skip broken paragraph, try next
+          const nextPara = m.paragraphs[nextIndex]
+          setCurrentParagraph(nextIndex)
+          currentParagraphRef.current = nextIndex
+          onParagraphChangeRef.current?.(nextPara.paragraph)
+          const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
+          audio.src = url
+          audio.playbackRate = speedRef.current
+          audio.play().catch(() => { setIsPlaying(false) })
+        } else {
+          setIsPlaying(false)
+        }
+      }
+
+      audio.addEventListener('timeupdate', handleTimeUpdate)
+      audio.addEventListener('ended', handleEnded)
+      audio.addEventListener('error', handleError)
+
+      return () => {
+        audio.removeEventListener('timeupdate', handleTimeUpdate)
+        audio.removeEventListener('ended', handleEnded)
+        audio.removeEventListener('error', handleError)
+        audio.pause()
+        audio.removeAttribute('src')
+      }
+    // Re-create audio element when book/edition/chapter changes
+    // so event handler closures capture correct URL base
+    }, [bookId, editionKey, chapterNumber])
+
+    // Load manifest — stop audio on chapter change
+    useEffect(() => {
+      // Stop current audio immediately on chapter change
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.removeAttribute('src')
+      }
+      setIsPlaying(false)
+      setProgress(0)
+
+      const controller = new AbortController()
       const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
-      fetch(url)
+      fetch(url, { signal: controller.signal })
         .then(res => {
           if (!res.ok) throw new Error('No audio')
           return res.json()
         })
         .then((data: AudioManifest) => {
           setManifest(data)
+          manifestRef.current = data
           setHasAudio(true)
           setCurrentParagraph(0)
-          setIsPlaying(false)
-          setProgress(0)
+          currentParagraphRef.current = 0
+
+          // Auto-resume if chapter changed due to audio finishing previous chapter
+          if (shouldResumeRef.current) {
+            shouldResumeRef.current = false
+            // Small delay to let the Audio element be ready after re-creation
+            setTimeout(() => {
+              const audio = audioRef.current
+              if (!audio || !data.paragraphs[0]) return
+              const paraUrl = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`
+              audio.src = paraUrl
+              audio.playbackRate = speedRef.current
+              audio.play().then(() => {
+                setIsPlaying(true)
+                onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
+              }).catch(() => {
+                // Autoplay blocked (iOS) — user will need to tap play
+                setIsPlaying(false)
+              })
+            }, 100)
+          }
         })
-        .catch(() => {
-          setManifest(null)
-          setHasAudio(false)
+        .catch((err) => {
+          if (err.name !== 'AbortError') {
+            setManifest(null)
+            manifestRef.current = null
+            setHasAudio(false)
+          }
         })
+
+      return () => controller.abort()
     }, [bookId, editionKey, chapterNumber])
 
     const playParagraph = useCallback((index: number) => {
-      if (!manifest) return
-      const para = manifest.paragraphs[index]
+      const m = manifestRef.current
+      if (!m) return
+      const para = m.paragraphs[index]
       if (!para) return
+      const audio = audioRef.current
+      if (!audio) return
+
       const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current.removeAttribute('src')
-      }
-      const audio = new Audio(url)
+      audio.src = url
       audio.playbackRate = speedRef.current
-      audioRef.current = audio
-      audio.addEventListener('timeupdate', () => {
-        if (audio.duration > 0) setProgress(audio.currentTime / audio.duration)
+      audio.play().then(() => {
+        setCurrentParagraph(index)
+        currentParagraphRef.current = index
+        setIsPlaying(true)
+        onParagraphChange?.(para.paragraph)
+      }).catch(() => {
+        // Autoplay blocked or network error
+        setIsPlaying(false)
       })
-      audio.addEventListener('ended', () => {
-        const nextIndex = index + 1
-        if (nextIndex < manifest.paragraphs.length) {
-          setCurrentParagraph(nextIndex)
-          onParagraphChange?.(manifest.paragraphs[nextIndex].paragraph)
-          playParagraph(nextIndex)
-        } else {
-          // Chapter audio finished — advance to next chapter
-          setIsPlaying(false)
-          setProgress(0)
-          onChapterEnd?.()
-        }
-      })
-      audio.play()
-      setCurrentParagraph(index)
-      setIsPlaying(true)
-      onParagraphChange?.(para.paragraph)
-    }, [manifest, bookId, editionKey, chapterNumber, onParagraphChange])
+    }, [bookId, editionKey, chapterNumber, onParagraphChange])
 
     useImperativeHandle(ref, () => ({
       seekToParagraph(paragraphIndex: number) {
-        if (!manifest) return
-        const idx = manifest.paragraphs.findIndex(p => p.paragraph === paragraphIndex)
+        const m = manifestRef.current
+        if (!m) return
+        const idx = m.paragraphs.findIndex(p => p.paragraph === paragraphIndex)
         if (idx >= 0) playParagraph(idx)
       }
-    }), [manifest, playParagraph])
+    }), [playParagraph])
 
     const togglePlay = useCallback(() => {
       if (isPlaying) {
         audioRef.current?.pause()
         setIsPlaying(false)
       } else {
+        const m = manifestRef.current
         // Resume from the reader's current visible position, not where audio left off
-        if (manifest && firstVisibleParagraph !== undefined) {
-          const idx = manifest.paragraphs.findIndex(p => p.paragraph === firstVisibleParagraph)
+        if (m && firstVisibleParagraph !== undefined) {
+          const idx = m.paragraphs.findIndex(p => p.paragraph === firstVisibleParagraph)
           if (idx >= 0) {
             playParagraph(idx)
             return
           }
           // If exact paragraph not in manifest, find the closest one at or after visible
-          const closestIdx = manifest.paragraphs.findIndex(p => p.paragraph >= firstVisibleParagraph)
+          const closestIdx = m.paragraphs.findIndex(p => p.paragraph >= firstVisibleParagraph)
           if (closestIdx >= 0) {
             playParagraph(closestIdx)
             return
           }
         }
-        playParagraph(currentParagraph)
+        playParagraph(currentParagraphRef.current)
       }
-    }, [isPlaying, currentParagraph, playParagraph, manifest, firstVisibleParagraph])
+    }, [isPlaying, playParagraph, firstVisibleParagraph])
 
     const cycleSpeed = useCallback(() => {
       setSpeed(prev => {
@@ -145,10 +254,6 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         if (audioRef.current) audioRef.current.playbackRate = next
         return next
       })
-    }, [])
-
-    useEffect(() => {
-      return () => { audioRef.current?.pause() }
     }, [])
 
     const formatTime = (seconds: number) => {
@@ -230,14 +335,16 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           </div>
         </div>
         <div className="reading-tracker-info">
-          {totalPages > 1 && (
+          {!compact && totalPages > 1 && (
             <span className="reading-tracker-page">{currentPage + 1}/{totalPages}</span>
           )}
           <span className="reading-tracker-percent">{percentComplete}%</span>
-          <span className="reading-tracker-time">
-            {timeRemainingLabel}
-            {!isLearned && percentComplete > 0 && <span className="reading-tracker-est" title="Based on average reading speed of 250 wpm"> (est.)</span>}
-          </span>
+          {!compact && (
+            <span className="reading-tracker-time">
+              {timeRemainingLabel}
+              {!isLearned && percentComplete > 0 && <span className="reading-tracker-est" title="Based on average reading speed of 250 wpm"> (est.)</span>}
+            </span>
+          )}
         </div>
         <button
           className="reading-tracker-nav"

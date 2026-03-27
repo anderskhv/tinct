@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-export type MobileView = 0 | 1 | 2 // 0=reader, 1=compare, 2=panel
+export type MobileView = 0 | 1 | 2 | 3 | 4 // 0=reader, 1=compare, 2=chat, 3=notes, 4=cast
 
 interface UseMobileReturn {
   isMobile: boolean
@@ -33,14 +33,13 @@ export function useMobile(splitViewEnabled: boolean): UseMobileReturn {
     if (!isMobile) setActiveView(0)
   }, [isMobile])
 
-  // Available views: skip compare (1) if split view is off
   const getNextView = useCallback((current: MobileView, direction: 1 | -1): MobileView => {
-    const views: MobileView[] = splitViewEnabled ? [0, 1, 2] : [0, 2]
+    const views: MobileView[] = [0, 1, 2, 3, 4]
     const idx = views.indexOf(current)
     const nextIdx = idx + direction
     if (nextIdx < 0 || nextIdx >= views.length) return current
     return views[nextIdx]
-  }, [splitViewEnabled])
+  }, [])
 
   // Touch tracking
   const touchStart = useRef<{ x: number; y: number } | null>(null)

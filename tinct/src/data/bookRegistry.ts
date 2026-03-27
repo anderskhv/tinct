@@ -28,6 +28,7 @@ export const ODYSSEY: Book = {
       translator: 'Alexander Pope',
       year: 1726,
       aligned: false,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -43,6 +44,7 @@ export const ODYSSEY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -64,6 +66,7 @@ export const ULYSSES: Book = {
       label: 'Original (1922)',
       year: 1922,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -71,6 +74,7 @@ export const ULYSSES: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -78,6 +82,7 @@ export const ULYSSES: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -107,6 +112,7 @@ export const WAR_AND_PEACE: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -114,6 +120,7 @@ export const WAR_AND_PEACE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }

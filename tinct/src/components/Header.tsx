@@ -192,6 +192,9 @@ export function Header({
         {mobileMenuOpen && (
           <div className="mobile-menu" onClick={() => setMobileMenuOpen(false)}>
             <div className="mobile-menu-content" onClick={e => e.stopPropagation()}>
+              {/* --- READING --- */}
+              <div className="mobile-menu-section-header">Reading</div>
+
               {books.length > 1 && (
                 <div className="mobile-menu-item">
                   <label className="mobile-menu-label">Book</label>
@@ -241,30 +244,60 @@ export function Header({
               )}
 
               <div className="mobile-menu-item">
-                <label className="mobile-menu-label">Dark mode</label>
-                <button
-                  className={`mobile-menu-toggle ${darkMode ? 'mobile-menu-toggle-on' : ''}`}
-                  onClick={onToggleDarkMode}
-                >
-                  {darkMode ? 'On' : 'Off'}
+                <button className="mobile-menu-auth" onClick={() => { onOpenToc(); setMobileMenuOpen(false) }}>
+                  Table of Contents
                 </button>
               </div>
 
-              {onOpenNotes && (
-                <div className="mobile-menu-item">
-                  <button className="mobile-menu-auth" onClick={() => { onOpenNotes(); setMobileMenuOpen(false) }}>
-                    Notes & Highlights
-                  </button>
-                </div>
-              )}
+              {/* --- FORMAT --- */}
+              <div className="mobile-menu-section-header">Format</div>
 
-              {onOpenCast && (
-                <div className="mobile-menu-item">
-                  <button className="mobile-menu-auth" onClick={() => { onOpenCast(); setMobileMenuOpen(false) }}>
-                    Cast
-                  </button>
+              <div className="mobile-menu-item">
+                <label className="mobile-menu-label">Theme</label>
+                <div className="mobile-menu-row">
+                  <button
+                    className={`mobile-menu-toggle-btn ${!darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
+                    onClick={() => { if (darkMode) onToggleDarkMode() }}
+                  >Light</button>
+                  <button
+                    className={`mobile-menu-toggle-btn ${darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
+                    onClick={() => { if (!darkMode) onToggleDarkMode() }}
+                  >Dark</button>
                 </div>
-              )}
+              </div>
+
+              <div className="mobile-menu-item">
+                <label className="mobile-menu-label">Font size</label>
+                <div className="mobile-menu-row">
+                  {(['small', 'medium', 'large', 'xlarge'] as FontSize[]).map(s => (
+                    <button
+                      key={s}
+                      className={`mobile-menu-toggle-btn ${fontSize === s ? 'mobile-menu-toggle-btn-active' : ''}`}
+                      onClick={() => onFontSizeChange(s)}
+                    >
+                      {s === 'small' ? 'S' : s === 'medium' ? 'M' : s === 'large' ? 'L' : 'XL'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mobile-menu-item">
+                <label className="mobile-menu-label">Font</label>
+                <div className="mobile-menu-row">
+                  {(['garamond', 'baskerville', 'sourceserif'] as FontFamily[]).map(f => (
+                    <button
+                      key={f}
+                      className={`mobile-menu-toggle-btn ${fontFamily === f ? 'mobile-menu-toggle-btn-active' : ''}`}
+                      onClick={() => onFontFamilyChange(f)}
+                    >
+                      {f === 'garamond' ? 'Garamond' : f === 'baskerville' ? 'Baskerville' : 'Source'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* --- ACCOUNT --- */}
+              <div className="mobile-menu-section-header">Account</div>
 
               <div className="mobile-menu-item">
                 <BalanceIndicator
@@ -274,6 +307,12 @@ export function Header({
                   onTopUp={onOpenUsage}
                   onSignIn={onSignIn}
                 />
+              </div>
+
+              <div className="mobile-menu-item">
+                <button className="mobile-menu-auth" onClick={() => { onOpenSettings(); setMobileMenuOpen(false) }}>
+                  Reading angle
+                </button>
               </div>
 
               <div className="mobile-menu-item">
