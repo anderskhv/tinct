@@ -2658,7 +2658,7 @@ body {
   border: 1px solid var(--border-light);
   border-radius: 8px;
   margin-bottom: 6px;
-  overflow: hidden;
+  overflow: visible;
   transition: border-color 0.15s;
 }
 
@@ -4199,8 +4199,9 @@ body {
   flex-direction: column;
   gap: 10px;
   box-shadow: var(--shadow-lg);
-  max-height: calc(100vh - var(--header-height) - 60px);
+  max-height: calc(100dvh - var(--header-height) - 60px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu-item {
@@ -4337,7 +4338,7 @@ body {
     overflow: hidden;
     position: relative;
     /* Account for bottom nav + reading tracker */
-    padding-bottom: 56px;
+    padding-bottom: 44px;
   }
 
   .mobile-views {
@@ -4451,7 +4452,7 @@ body {
     z-index: 60;
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
-    height: 56px;
+    height: 44px;
     align-items: stretch;
     justify-content: stretch;
     padding-bottom: env(safe-area-inset-bottom);
@@ -4463,11 +4464,11 @@ body {
     border: none;
     border-top: 2px solid transparent;
     color: var(--text-tertiary);
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-family: var(--font-sans);
     font-weight: 500;
     cursor: pointer;
-    padding: 8px 4px;
+    padding: 4px 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4487,8 +4488,9 @@ body {
   /* Reading tracker / bottom bar above bottom nav */
   .reading-tracker,
   .bottom-bar {
-    bottom: 56px;
+    bottom: 44px;
     z-index: 70;
+    padding: 4px 12px;
   }
 
   .reading-tracker-nav {

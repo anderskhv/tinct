@@ -1060,6 +1060,10 @@ export default function App() {
         onOpenSettings={() => setShowSettings(true)}
         sections={primaryData?.sections}
         isMobile={isMobile}
+        splitEditionKey={preferences.splitEditionKey}
+        onSplitEditionChange={setSplitEditionKey}
+        alignedEditions={alignedEditions.map(ed => ({ key: ed.key, label: ed.label }))}
+        audioEditions={book.editions.filter(ed => ed.hasAudio).map(ed => ({ key: ed.key, label: ed.label }))}
       />
 
       <main
@@ -1094,37 +1098,28 @@ export default function App() {
                 panelOpen={preferences.panelOpen}
               />
             </div>
-            {/* View 1: Compare (SplitReader) */}
+            {/* View 1: Compare — shows secondary edition full-width on mobile */}
             <div className={`mobile-view ${activeView === 1 ? 'mobile-view-active' : ''}`}>
               {splitViewAvailable && splitChapter ? (
-                <SplitReader
-                  key={`mobile-split-${currentChapter}-${readerKey}`}
-                  leftParagraphs={primaryChapter?.paragraphs || []}
-                  rightParagraphs={splitChapter?.paragraphs || []}
-                  chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
-                  leftLabel={editionLabel}
-                  rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                <Reader
+                  key={`mobile-compare-${currentChapter}-${splitEditionKey}-${readerKey}`}
+                  paragraphs={splitChapter.paragraphs}
+                  chapterTitle={`${splitChapter.title || `Book ${currentChapter}`}`}
                   isLoading={isLoading}
-                  leftHighlights={getEditionHighlights(primaryEditionKey)}
-                  rightHighlights={getEditionHighlights(splitEditionKey)}
-                  alignedEditions={alignedEditions}
-                  currentRightEditionKey={splitEditionKey}
-                  onRightEditionChange={setSplitEditionKey}
-                  onHighlight={handleSplitHighlight}
+                  highlights={getEditionHighlights(splitEditionKey)}
+                  onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color)}
                   onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
                   onReflect={handleReflect}
                   onGenerateSummary={handleGenerateSummary}
                   isGeneratingSummary={isGeneratingSummary}
                   isFinalChapter={currentChapter === totalChapters}
                   readerRef={compareReaderRef}
-                  isLeftVerse={primaryIsVerse}
-                  isRightVerse={splitIsVerse}
+                  isVerse={splitIsVerse}
                   onPageChange={handlePageChange}
                   initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
                   playingParagraphIndex={audioPlayingParagraph}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
-                  panelOpen={false}
                 />
               ) : (
                 <div className="mobile-view-placeholder">

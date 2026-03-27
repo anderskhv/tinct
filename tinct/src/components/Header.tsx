@@ -54,6 +54,12 @@ interface HeaderProps {
   sections?: Section[]
   // Mobile
   isMobile?: boolean
+  // Split edition (for mobile compare picker)
+  splitEditionKey?: string
+  onSplitEditionChange?: (key: string) => void
+  alignedEditions?: { key: string; label: string }[]
+  // Audio editions
+  audioEditions?: { key: string; label: string; hasAudio?: boolean }[]
 }
 
 type MenuOpen = null | 'format' | 'account'
@@ -121,6 +127,10 @@ export function Header({
   onOpenSettings,
   sections,
   isMobile,
+  splitEditionKey,
+  onSplitEditionChange,
+  alignedEditions,
+  audioEditions,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState<MenuOpen>(null)
@@ -181,11 +191,19 @@ export function Header({
 
         <div className="header-right">
           <button
+            className="icon-button"
+            onClick={onOpenToc}
+            aria-label="Table of Contents"
+            style={{ fontSize: '1.1rem' }}
+          >
+            ☰
+          </button>
+          <button
             className="icon-button mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu"
+            aria-label="Settings"
           >
-            {mobileMenuOpen ? '✕' : '☰'}
+            {mobileMenuOpen ? '✕' : '⚙'}
           </button>
         </div>
 
@@ -243,11 +261,35 @@ export function Header({
                 </div>
               )}
 
-              <div className="mobile-menu-item">
-                <button className="mobile-menu-auth" onClick={() => { onOpenToc(); setMobileMenuOpen(false) }}>
-                  Table of Contents
-                </button>
-              </div>
+              {splitView && alignedEditions && alignedEditions.length > 0 && (
+                <div className="mobile-menu-item">
+                  <label className="mobile-menu-label">Compare edition</label>
+                  <select
+                    className="mobile-menu-select"
+                    value={splitEditionKey || ''}
+                    onChange={e => onSplitEditionChange?.(e.target.value)}
+                  >
+                    {alignedEditions.map(ed => (
+                      <option key={ed.key} value={ed.key}>{ed.label}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {audioEditions && audioEditions.length > 0 && (
+                <div className="mobile-menu-item">
+                  <label className="mobile-menu-label">Audiobook</label>
+                  <select
+                    className="mobile-menu-select"
+                    value={style + '-' + language}
+                    disabled
+                  >
+                    {audioEditions.map(ed => (
+                      <option key={ed.key} value={ed.key}>{ed.label}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               {/* --- FORMAT --- */}
               <div className="mobile-menu-section-header">Format</div>
@@ -317,7 +359,7 @@ export function Header({
 
               <div className="mobile-menu-item">
                 <button className="mobile-menu-auth" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
-                  Browse books
+                  Library
                 </button>
               </div>
 

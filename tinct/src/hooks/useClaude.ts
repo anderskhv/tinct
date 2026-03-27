@@ -89,34 +89,47 @@ export function useClaude(options?: UseClaudeOptions) {
         headers['Authorization'] = `Bearer ${opts.authToken}`
       }
 
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1024,
-          system: systemPrompt,
-          messages: apiMessages,
-        }),
+      const requestBody = JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1024,
+        system: systemPrompt,
+        messages: apiMessages,
       })
 
-      // Handle insufficient balance
-      if (response.status === 402) {
-        opts?.onInsufficientBalance?.()
-        const errorMessage: ChatMessage = {
-          id: generateId(),
-          role: 'assistant',
-          content: 'Your AI chat balance is empty. Top up to continue our conversation.',
-          timestamp: Date.now(),
+      // Retry loop for overloaded errors (up to 3 attempts)
+      let data: any
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers,
+          body: requestBody,
+        })
+
+        // Handle insufficient balance
+        if (response.status === 402) {
+          opts?.onInsufficientBalance?.()
+          const errorMessage: ChatMessage = {
+            id: generateId(),
+            role: 'assistant',
+            content: 'Your AI chat balance is empty. Top up to continue our conversation.',
+            timestamp: Date.now(),
+          }
+          setMessages(prev => [...prev, errorMessage])
+          return
         }
-        setMessages(prev => [...prev, errorMessage])
-        return
-      }
 
-      const data = await response.json()
+        data = await response.json()
 
-      if (data.error) {
-        throw new Error(data.error.message || 'API error')
+        if (data.error) {
+          const msg = (data.error.message || '').toLowerCase()
+          if ((msg.includes('overloaded') || response.status === 529) && attempt < 2) {
+            // Wait 2s before retrying
+            await new Promise(r => setTimeout(r, 2000))
+            continue
+          }
+          throw new Error(data.error.message || 'API error')
+        }
+        break // success
       }
 
       const assistantText = data.content?.[0]?.text || 'Sorry, I could not generate a response.'
