@@ -526,7 +526,7 @@ export default function App() {
       setPrimaryData(data)
       setIsLoading(false)
     })
-  }, [primaryEditionKey])
+  }, [book.id, primaryEditionKey])
 
   // Preload split edition so it's ready when toggle happens
   useEffect(() => {
