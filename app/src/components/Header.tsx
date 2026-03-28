@@ -46,6 +46,7 @@ interface HeaderProps {
   // Reading angle
   readingObjective: string
   onEditObjective: () => void
+  onSaveObjective?: (objective: string) => void
   // ToC
   onOpenToc: () => void
   // Settings (opens onboarding/settings modal)
@@ -123,6 +124,7 @@ export function Header({
   onFontFamilyChange,
   readingObjective,
   onEditObjective,
+  onSaveObjective,
   onOpenToc,
   onOpenSettings,
   sections,
@@ -133,6 +135,8 @@ export function Header({
   audioEditions,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileSections, setMobileSections] = useState<{ format: boolean; reading: boolean; account: boolean }>({ format: true, reading: false, account: false })
+  const [localObjective, setLocalObjective] = useState(readingObjective)
   const [menuOpen, setMenuOpen] = useState<MenuOpen>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const [resetSent, setResetSent] = useState(false)
@@ -150,11 +154,21 @@ export function Header({
     return () => document.removeEventListener('mousedown', handleClick)
   }, [menuOpen])
 
+  // Sync local objective when prop changes or menu opens
+  useEffect(() => {
+    setLocalObjective(readingObjective)
+  }, [readingObjective, mobileMenuOpen])
+
+  // Get current book for all-editions picker
+  const currentBook = books.find(b => b.id === currentBookId)
+  const allEditions = currentBook?.editions || []
+  const currentEditionKey = `${style}-${language}`
+
   if (isMobile) {
     return (
       <header className="header header-mobile">
         <div className="header-left">
-          <h1 className="logo">Tinct</h1>
+          <span className="mobile-book-title">{bookTitle}</span>
         </div>
 
         <div className="header-center">
@@ -203,177 +217,200 @@ export function Header({
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Settings"
           >
-            {mobileMenuOpen ? '✕' : '⚙'}
+            {mobileMenuOpen ? '✕' : '⋮'}
           </button>
         </div>
 
         {mobileMenuOpen && (
           <div className="mobile-menu" onClick={() => setMobileMenuOpen(false)}>
             <div className="mobile-menu-content" onClick={e => e.stopPropagation()}>
-              {/* --- READING --- */}
-              <div className="mobile-menu-section-header">Reading</div>
-
-              {books.length > 1 && (
-                <div className="mobile-menu-item">
-                  <label className="mobile-menu-label">Book</label>
-                  <select
-                    className="mobile-menu-select"
-                    value={currentBookId}
-                    onChange={e => { onBookChange(e.target.value); setMobileMenuOpen(false) }}
-                  >
-                    {books.map(b => (
-                      <option key={b.id} value={b.id}>{b.title}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              <div className="mobile-menu-item">
-                <label className="mobile-menu-label">Language</label>
-                <div className="lang-toggle">
-                  <button className={`lang-button ${language === 'en' ? 'lang-active' : ''}`} onClick={() => onLanguageChange('en')}>EN</button>
-                  <button className={`lang-button ${language === 'da' ? 'lang-active' : ''}`} onClick={() => onLanguageChange('da')}>DA</button>
-                </div>
+              {/* --- FORMAT (open by default) --- */}
+              <div
+                className="mobile-menu-section-header mobile-menu-collapsible"
+                onClick={() => setMobileSections(s => ({ ...s, format: !s.format }))}
+              >
+                <span>Format</span>
+                <span className="mobile-menu-chevron">{mobileSections.format ? '▾' : '▸'}</span>
               </div>
 
-              <div className="mobile-menu-item">
-                <label className="mobile-menu-label">Edition</label>
-                <select
-                  className="mobile-menu-select"
-                  value={style}
-                  onChange={e => onStyleChange(e.target.value as Style)}
-                >
-                  {availableStyles.map(s => (
-                    <option key={s.style} value={s.style}>{s.label}</option>
-                  ))}
-                </select>
+              {mobileSections.format && (
+                <>
+                  <div className="mobile-menu-item">
+                    <label className="mobile-menu-label">Theme</label>
+                    <div className="mobile-menu-row">
+                      <button
+                        className={`mobile-menu-toggle-btn ${!darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
+                        onClick={() => { if (darkMode) onToggleDarkMode() }}
+                      >Light</button>
+                      <button
+                        className={`mobile-menu-toggle-btn ${darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
+                        onClick={() => { if (!darkMode) onToggleDarkMode() }}
+                      >Dark</button>
+                    </div>
+                  </div>
+
+                  <div className="mobile-menu-item">
+                    <label className="mobile-menu-label">Font size</label>
+                    <div className="mobile-menu-row">
+                      {(['small', 'medium', 'large', 'xlarge'] as FontSize[]).map(s => (
+                        <button
+                          key={s}
+                          className={`mobile-menu-toggle-btn ${fontSize === s ? 'mobile-menu-toggle-btn-active' : ''}`}
+                          onClick={() => onFontSizeChange(s)}
+                        >
+                          {s === 'small' ? 'S' : s === 'medium' ? 'M' : s === 'large' ? 'L' : 'XL'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mobile-menu-item">
+                    <label className="mobile-menu-label">Font</label>
+                    <div className="mobile-menu-row">
+                      {(['garamond', 'baskerville', 'sourceserif'] as FontFamily[]).map(f => (
+                        <button
+                          key={f}
+                          className={`mobile-menu-toggle-btn ${fontFamily === f ? 'mobile-menu-toggle-btn-active' : ''}`}
+                          onClick={() => onFontFamilyChange(f)}
+                        >
+                          {f === 'garamond' ? 'Garamond' : f === 'baskerville' ? 'Baskerville' : 'Source'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* --- READING (closed by default) --- */}
+              <div
+                className="mobile-menu-section-header mobile-menu-collapsible"
+                onClick={() => setMobileSections(s => ({ ...s, reading: !s.reading }))}
+              >
+                <span>Reading</span>
+                <span className="mobile-menu-chevron">{mobileSections.reading ? '▾' : '▸'}</span>
               </div>
 
-              {splitViewAvailable && (
-                <div className="mobile-menu-item">
-                  <label className="mobile-menu-label">Compare view</label>
-                  <button
-                    className={`mobile-menu-toggle ${splitView ? 'mobile-menu-toggle-on' : ''}`}
-                    onClick={onToggleSplitView}
-                  >
-                    {splitView ? 'On' : 'Off'}
-                  </button>
-                </div>
-              )}
-
-              {splitView && alignedEditions && alignedEditions.length > 0 && (
-                <div className="mobile-menu-item">
-                  <label className="mobile-menu-label">Compare edition</label>
-                  <select
-                    className="mobile-menu-select"
-                    value={splitEditionKey || ''}
-                    onChange={e => onSplitEditionChange?.(e.target.value)}
-                  >
-                    {alignedEditions.map(ed => (
-                      <option key={ed.key} value={ed.key}>{ed.label}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              {audioEditions && audioEditions.length > 0 && (
-                <div className="mobile-menu-item">
-                  <label className="mobile-menu-label">Audiobook</label>
-                  <select
-                    className="mobile-menu-select"
-                    value={style + '-' + language}
-                    disabled
-                  >
-                    {audioEditions.map(ed => (
-                      <option key={ed.key} value={ed.key}>{ed.label}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              {/* --- FORMAT --- */}
-              <div className="mobile-menu-section-header">Format</div>
-
-              <div className="mobile-menu-item">
-                <label className="mobile-menu-label">Theme</label>
-                <div className="mobile-menu-row">
-                  <button
-                    className={`mobile-menu-toggle-btn ${!darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
-                    onClick={() => { if (darkMode) onToggleDarkMode() }}
-                  >Light</button>
-                  <button
-                    className={`mobile-menu-toggle-btn ${darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
-                    onClick={() => { if (!darkMode) onToggleDarkMode() }}
-                  >Dark</button>
-                </div>
-              </div>
-
-              <div className="mobile-menu-item">
-                <label className="mobile-menu-label">Font size</label>
-                <div className="mobile-menu-row">
-                  {(['small', 'medium', 'large', 'xlarge'] as FontSize[]).map(s => (
-                    <button
-                      key={s}
-                      className={`mobile-menu-toggle-btn ${fontSize === s ? 'mobile-menu-toggle-btn-active' : ''}`}
-                      onClick={() => onFontSizeChange(s)}
+              {mobileSections.reading && (
+                <>
+                  <div className="mobile-menu-item">
+                    <label className="mobile-menu-label">Edition</label>
+                    <select
+                      className="mobile-menu-select"
+                      value={currentEditionKey}
+                      onChange={e => {
+                        const ed = allEditions.find(ed => ed.key === e.target.value)
+                        if (ed) {
+                          onLanguageChange(ed.language)
+                          onStyleChange(ed.style)
+                        }
+                      }}
                     >
-                      {s === 'small' ? 'S' : s === 'medium' ? 'M' : s === 'large' ? 'L' : 'XL'}
+                      {allEditions.map(ed => (
+                        <option key={ed.key} value={ed.key}>{ed.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {splitViewAvailable && (
+                    <div className="mobile-menu-item">
+                      <label className="mobile-menu-label">Compare view</label>
+                      <button
+                        className={`mobile-menu-toggle ${splitView ? 'mobile-menu-toggle-on' : ''}`}
+                        onClick={onToggleSplitView}
+                      >
+                        {splitView ? 'On' : 'Off'}
+                      </button>
+                    </div>
+                  )}
+
+                  {splitView && alignedEditions && alignedEditions.length > 0 && (
+                    <div className="mobile-menu-item">
+                      <label className="mobile-menu-label">Compare edition</label>
+                      <select
+                        className="mobile-menu-select"
+                        value={splitEditionKey || ''}
+                        onChange={e => onSplitEditionChange?.(e.target.value)}
+                      >
+                        {alignedEditions.map(ed => (
+                          <option key={ed.key} value={ed.key}>{ed.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
+                  {audioEditions && audioEditions.length > 0 && (
+                    <div className="mobile-menu-item">
+                      <label className="mobile-menu-label">Audiobook</label>
+                      <select
+                        className="mobile-menu-select"
+                        value={style + '-' + language}
+                        disabled
+                      >
+                        {audioEditions.map(ed => (
+                          <option key={ed.key} value={ed.key}>{ed.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
+                  <div className="mobile-menu-item mobile-menu-item-col">
+                    <label className="mobile-menu-label">Reading angle</label>
+                    <textarea
+                      className="mobile-menu-textarea"
+                      value={localObjective}
+                      onChange={e => setLocalObjective(e.target.value)}
+                      onBlur={() => {
+                        if (localObjective.trim() !== readingObjective) {
+                          onSaveObjective?.(localObjective.trim())
+                        }
+                      }}
+                      placeholder="e.g. Leadership lessons, mythology connections..."
+                      rows={2}
+                    />
+                  </div>
+                </>
+              )}
+
+              {/* --- ACCOUNT (closed by default) --- */}
+              <div
+                className="mobile-menu-section-header mobile-menu-collapsible"
+                onClick={() => setMobileSections(s => ({ ...s, account: !s.account }))}
+              >
+                <span>Account</span>
+                <span className="mobile-menu-chevron">{mobileSections.account ? '▾' : '▸'}</span>
+              </div>
+
+              {mobileSections.account && (
+                <>
+                  <div className="mobile-menu-item">
+                    <BalanceIndicator
+                      messagesRemaining={messagesRemaining}
+                      hasBalance={hasBalance}
+                      isAnonymous={isAnonymous}
+                      onTopUp={onOpenUsage}
+                      onSignIn={onSignIn}
+                    />
+                  </div>
+
+                  <div className="mobile-menu-item">
+                    <button className="mobile-menu-library-btn" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
+                      Browse Library
                     </button>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              <div className="mobile-menu-item">
-                <label className="mobile-menu-label">Font</label>
-                <div className="mobile-menu-row">
-                  {(['garamond', 'baskerville', 'sourceserif'] as FontFamily[]).map(f => (
-                    <button
-                      key={f}
-                      className={`mobile-menu-toggle-btn ${fontFamily === f ? 'mobile-menu-toggle-btn-active' : ''}`}
-                      onClick={() => onFontFamilyChange(f)}
-                    >
-                      {f === 'garamond' ? 'Garamond' : f === 'baskerville' ? 'Baskerville' : 'Source'}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* --- ACCOUNT --- */}
-              <div className="mobile-menu-section-header">Account</div>
-
-              <div className="mobile-menu-item">
-                <BalanceIndicator
-                  messagesRemaining={messagesRemaining}
-                  hasBalance={hasBalance}
-                  isAnonymous={isAnonymous}
-                  onTopUp={onOpenUsage}
-                  onSignIn={onSignIn}
-                />
-              </div>
-
-              <div className="mobile-menu-item">
-                <button className="mobile-menu-auth" onClick={() => { onOpenSettings(); setMobileMenuOpen(false) }}>
-                  Reading angle
-                </button>
-              </div>
-
-              <div className="mobile-menu-item">
-                <button className="mobile-menu-auth" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
-                  Library
-                </button>
-              </div>
-
-              <div className="mobile-menu-item">
-                {user ? (
-                  <button className="mobile-menu-auth" onClick={() => { onSignOut(); setMobileMenuOpen(false) }}>
-                    Sign out ({user.email})
-                  </button>
-                ) : (
-                  <button className="mobile-menu-auth" onClick={() => { onSignIn(); setMobileMenuOpen(false) }}>
-                    Sign in
-                  </button>
-                )}
-              </div>
+                  <div className="mobile-menu-item">
+                    {user ? (
+                      <button className="mobile-menu-auth" onClick={() => { onSignOut(); setMobileMenuOpen(false) }}>
+                        Sign out ({user.email})
+                      </button>
+                    ) : (
+                      <button className="mobile-menu-auth" onClick={() => { onSignIn(); setMobileMenuOpen(false) }}>
+                        Sign in
+                      </button>
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         )}

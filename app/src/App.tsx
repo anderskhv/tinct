@@ -1056,6 +1056,7 @@ export default function App() {
         onFontFamilyChange={setFontFamily}
         readingObjective={preferences.readingObjective}
         onEditObjective={handleEditObjective}
+        onSaveObjective={setReadingObjective}
         onOpenToc={() => setShowToc(true)}
         onOpenSettings={() => setShowSettings(true)}
         sections={primaryData?.sections}
