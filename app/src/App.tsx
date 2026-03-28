@@ -1120,6 +1120,7 @@ export default function App() {
                   playingParagraphIndex={audioPlayingParagraph}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
+                  editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                 />
               ) : (
                 <div className="mobile-view-placeholder">
