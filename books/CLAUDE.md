@@ -11,11 +11,11 @@ This is the Book Factory for Tinct. When Anders opens Claude from this folder, h
 The Tinct project settings (`.claude/settings.json`) already allow `python3`, `cp`, `mkdir`, `Read`, `Write`, `Edit`, `Glob`, `Grep`, and git commands. No special flags needed when launching from this folder.
 
 **Always use absolute paths** instead of `cd`. The working directory is `/Users/andershvelplund/Documents/Projects/Tinct/books`. Key absolute paths:
-- TTS script: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/tts/generate-audio-edge.py`
-- Manifest script: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/tts/generate-manifests-edge.py`
-- Edition files: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/public/data/editions/`
-- Public audio: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/public/audio/`
-- Staging audio: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/tts/audio/`
+- TTS script: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py`
+- Manifest script: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py`
+- Edition files: `/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions/`
+- Public audio: `/Users/andershvelplund/Documents/Projects/Tinct/app/public/audio/`
+- Staging audio: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/audio/`
 
 ---
 
@@ -30,6 +30,10 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 7. **Never flag scale as a problem.** Don't say "this is a huge task" or "this will be very difficult." Break every task into agent-sized chunks and execute. The architecture handles scale — just decompose and go.
 8. **Use parallel agents.** Translations, audio generation, and threads are independent per book×language. Spin up background agents for each chunk. Typical agent unit = 1 book × 1 language × 10-20 chapters.
 9. **Agent permissions.** Agents must use the Read tool (not Bash/python3) to read source JSON files, and the Write tool to write output JSON files. Do NOT use Bash heredocs (`python3 << 'EOF'`) — they may not match permission patterns. Use `python3 -c "..."` for validation only.
+9b. **Avoid security prompt triggers.** Three patterns cause hardcoded security warnings that Anders must manually approve — avoid all of them:
+   - **`cd <path> && git ...`** — use `git -C <path> ...` instead.
+   - **Multiline Bash with `#` comments** — strips comments from inline Python, or use the Write tool to create a `/tmp/script.py` file then `python3 /tmp/script.py` via Bash.
+   - **Heredocs (`cat << 'EOF'`)** — use the Write tool to create the file, then Bash to run it. Two tool calls, zero prompts.
 10. **Self-direct on bottlenecks.** While a conversation is open, continuously monitor what's blocked and what can be unblocked. After completing any task or while waiting for a background process, immediately ask: "What is the current bottleneck? Can I start working on it now?" Don't wait for Anders to notice or ask — proactively identify the next constraint, communicate what you're doing, and start. If multiple things are blocked, work the dependency chain: unblock translations before audio, unblock parsing before translations. If you launched an agent that failed, retry with a different approach immediately — don't wait for the next prompt.
 11. **Never stop on permission failures.** If a tool call is denied or a permission error blocks progress, do NOT give up and report "I need permission." Instead: (a) try an alternative tool that achieves the same result (e.g., Read/Write instead of Bash, or `python3 -c` instead of a script), (b) restructure the approach to avoid the blocked tool, (c) if truly stuck after 2 alternative attempts, explain to Anders what you tried, what failed, and ask him to grant the specific permission or suggest a workaround. The same applies to subagents — if an agent can't use Bash, it should use Read/Write/Glob/Grep tools instead, not stop and report failure.
 12. **Bible translation: fresh conversation required.** Both subagents and bloated main conversations hit Anthropic's content filter on Bible text. The filter triggers when accumulated context + output is too large. **Start a dedicated fresh conversation** for Bible translation work — open Claude from the `books/` folder and say "continue Bible modern-da translation." Process one book at a time: read source → translate → write into `bible-modern-da.json` → validate → next book. For large books (100+ paragraphs): read source in 50-paragraph chunks. When context gets large, start a new conversation.
@@ -39,218 +43,196 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 
 ## The Pipeline
 
-### Step 1: Structure Discussion (ALWAYS first — requires approval)
+The pipeline has two phases: **automated** (Steps 1–6, 8–10) and **manual** (Step 7). The goal is that Anders says "add [book name]", approves the structure in Step 1, then everything runs without stops until Step 7 where he listens to Danish audio samples. After approving the pronunciation map, the rest is automated again.
+
+### Step 1: Structure Discussion (REQUIRES approval — the ONLY stop before Step 7)
 
 Before downloading anything, discuss with Anders:
 
-- **Chapter division:** How should the book be split? Examples:
-  - Novel: existing chapter structure (Chapter 1, 2, 3...)
-  - Epic poem: books/cantos (Book I, Book II...)
-  - Bible: each biblical book = 1 chapter (66 total)
-  - Play: acts and scenes
-- **Hierarchical sections?** Some books need a section tree for the ToC:
-  ```json
-  "sections": [
-    { "title": "Part One", "sections": [
-      { "title": "Book One", "chapters": [1, 2, 3] }
-    ]}
-  ]
-  ```
-  Most novels don't need this. Bible, Divine Comedy, Canterbury Tales do.
-- **Which editions?** Standard: original-en, modern-en, modern-da. Discuss extras:
-  - `verse-en` — for books with a notable verse translation (like Pope's Odyssey)
-  - `web-en` — for Bible (World English Bible, a modern public domain translation)
-- **Paragraph grouping:** How should source text be chunked? For prose, natural paragraphs. For verse, stanzas or verse groups. For Bible, verse ranges.
+- **Chapter division:** Novel = chapters. Epic = books/cantos. Bible = biblical books. Play = acts/scenes.
+- **Hierarchical sections?** Most novels: no. Bible, Divine Comedy, Canterbury Tales: yes.
+- **Which editions?** Standard: original-en, modern-en, modern-da. Discuss extras (verse-en, web-en).
+- **Paragraph grouping:** Prose = natural paragraphs. Verse = stanzas. Bible = verse ranges.
 - **Book metadata:** title, author, year, wordCount, coverColor, coverAccent, description
 
-**NEVER proceed past this step without explicit approval from Anders.**
+**After approval, everything through Step 6 runs without stopping.**
 
-### Step 2: Download Source Text
+### Step 2: Download & Parse Source Text (automated)
 
-- **Primary sources:** Project Gutenberg (gutenberg.org), Standard Ebooks (standardebooks.org), Internet Archive (archive.org)
-- **Public domain only.** Check copyright status.
-- Download the English original as plain text
-- Save to `books/raw/{book-id}/raw.txt`
-- Also save the source URL in `books/raw/{book-id}/SOURCE.md`
-
-### Step 3: Parse into Edition JSON
-
-Use the parse helper script or do it manually:
-
-```bash
-python3 books/parse-gutenberg.py books/raw/{book-id}/raw.txt --book-id {book-id} --output ../app/src/data/editions/{book-id}-original-en.json
-```
-
-Or for complex books, write a custom `parse.cjs` in the book's prep folder (like `books/war-and-peace/parse.cjs`).
+1. Download English original from Project Gutenberg / Standard Ebooks / Internet Archive (public domain only)
+2. Save to `books/raw/{book-id}/raw.txt` and source URL to `books/raw/{book-id}/SOURCE.md`
+3. Parse into edition JSON at `../app/public/data/editions/{book-id}-original-en.json`
+4. Validate: `python3 -c "import json; d=json.load(open('file.json')); print(f'{len(d[\"chapters\"])} chapters, {sum(len(c[\"paragraphs\"]) for c in d[\"chapters\"])} paragraphs')"`
+5. Run source quality check (stray numbers, Gutenberg boilerplate, short paragraphs, title repeats) — fix any issues found
 
 **Target format:**
 ```json
 {
   "chapters": [
-    {
-      "number": 1,
-      "title": "Chapter Title",
-      "paragraphs": ["First paragraph...", "Second paragraph..."]
-    }
+    { "number": 1, "title": "Chapter Title", "paragraphs": ["First paragraph...", "Second..."] }
   ],
   "sections": []
 }
 ```
 
-The `sections` field is optional — only include for hierarchical books.
+### Step 3: Generate Modern English + QA (automated)
 
-After writing, verify:
+Translate original → modern-en via CLI conversation. ZERO API spend.
+
+- Natural, contemporary English. Accessible but not dumbed down.
+- Paragraph count must match original exactly.
+- Sentence length: target max ~25 words. Break long sentences at natural clause boundaries.
+- Two-pass: Sonnet generates, Opus reviews and corrects.
+- Write to `../app/public/data/editions/{book-id}-modern-en.json`
+
+**Modern English QA (automated, mandatory — this edition is the foundation for everything else):**
+
+After generating modern-en, run these checks before proceeding:
+
+1. **Paragraph alignment:** Verify every chapter has identical paragraph count to original-en.
+   ```python
+   orig = json.load(open('{book-id}-original-en.json'))
+   mod = json.load(open('{book-id}-modern-en.json'))
+   for o, m in zip(orig['chapters'], mod['chapters']):
+       if len(o['paragraphs']) != len(m['paragraphs']):
+           print(f"MISMATCH ch{o['number']}: orig={len(o['paragraphs'])} modern={len(m['paragraphs'])}")
+   ```
+2. **Empty/stub paragraphs:** Flag any paragraph under 20 characters (likely a generation failure).
+3. **Name consistency:** Extract all proper nouns from ch1 and ch_last. Verify the same characters use the same names throughout (no mid-book switches between e.g., "Natasha" and "Natalya").
+4. **Sentence length audit:** Sample 5 random chapters, check average sentence length stays under 25 words. Flag any sentence over 50 words.
+5. **Spot-read:** Read the first 3 paragraphs of chapters 1, middle, and last. Do they read like a contemporary novel or a Wikipedia summary? If the latter, rewrite.
+
+**If any QA check fails, fix before proceeding.** Modern-en errors cascade into Danish translation and both audio editions.
+
+### Step 4: Generate English Audio (automated)
+
+Run immediately after modern-en QA passes — no need to wait for Danish.
+
 ```bash
-python3 -c "import json; d=json.load(open('file.json')); print(f'{len(d[\"chapters\"])} chapters, {sum(len(c[\"paragraphs\"]) for c in d[\"chapters\"])} paragraphs')"
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py {book-id} modern-en 1 {end_ch} --voice en-US-GuyNeural
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py {book-id} modern-en
 ```
 
-### Step 3b: Source Text Quality Check (MANDATORY before translations)
+English Edge TTS handles character names correctly — no pronunciation map needed.
 
-Before generating any translations or audio, run a quality check on the parsed original text. Gutenberg texts often contain artifacts: page numbers, printer marks, OCR errors, repeated headers, or metadata that leaked into the body text. These errors propagate into every translation and every audio file, making them expensive to fix later.
+### Step 5: Generate Modern Danish + QA (automated)
 
-**Checks to run:**
-```python
-import json, re
-d = json.load(open('{book-id}-original-en.json'))
-for ch in d['chapters']:
-    for i, p in enumerate(ch['paragraphs']):
-        # 1. Stray numbers (page/line numbers from Gutenberg)
-        nums = re.findall(r'(?:^|\s)(\d{1,5})(?:\s|$)', p)
-        if nums:
-            print(f'STRAY NUMBER ch{ch["number"]}/p{i}: {nums}')
-        # 2. Gutenberg boilerplate
-        if any(x in p.lower() for x in ['project gutenberg', 'end of the project', 'small print', 'public domain']):
-            print(f'BOILERPLATE ch{ch["number"]}/p{i}')
-        # 3. Very short paragraphs that might be artifacts
-        if len(p.strip()) < 10 and not p.strip() == '':
-            print(f'SHORT ch{ch["number"]}/p{i}: "{p.strip()}"')
-        # 4. Repeated content (headers leaking in)
-        if p.strip() == ch.get('title', ''):
-            print(f'TITLE REPEAT ch{ch["number"]}/p{i}')
-```
+Translate from **modern-en** (NOT original). ZERO API spend.
 
-**Fix any issues found before proceeding to Step 4.** Every error in the original cascades into 2+ translations and 3+ audio editions.
+- Translate the MEANING, not the words. No translationese.
+- Paragraph count must match modern-en exactly.
+- Two-pass: Sonnet generates, Sonnet reviews in a fresh pass.
+- Character names must match threads/cast. Greek names stay Greek, not Roman.
+- Write to `../app/public/data/editions/{book-id}-modern-da.json`
 
-**Lesson learned (Odyssey, March 2026):** 9 Gutenberg page numbers leaked into `odyssey-original-en.json`, propagated into audio, and required per-paragraph audio regeneration to fix.
+**Translation quality rules:**
+- No false cognates / wrong register
+- No dropped/wrong verb prefixes
+- No English grammar leaking through
+- No invented compound words
+- Re-read asking: "Would a Danish native speaker actually write it this way?"
 
-### Step 4: Generate Translations (via CLI — ZERO API spend)
+**Reader aids:** On first occurrence per chapter, clarify non-obvious name variants in parentheses. Keep short.
 
-This is the most time-consuming step. For each chapter:
+**Danish QA (automated, mandatory):**
 
-1. Read the original chapter text
-2. Generate **modern-en**: Natural, contemporary English. Accessible but not dumbed down. Preserve the author's meaning and structure. Keep paragraph count identical.
-3. Generate **modern-da** (and any future non-English languages): Translate from **modern-en**, NOT from original-en. The modern English edition is the source for all non-English translations. This prevents archaic phrasing, Victorian sentence structures, and wrong name conventions from leaking through.
-4. Write each edition to `../app/public/data/editions/{book-id}-{edition-key}.json`
+1. **Paragraph alignment:** Verify every chapter matches modern-en paragraph count.
+2. **Empty/stub paragraphs:** Flag any paragraph under 20 characters.
+3. **Name consistency:** Verify character names match across all chapters and match the threads/cast file.
+4. **Translationese scan:** Sample 5 chapters. Grep for common Danish translationese markers:
+   - English word order in subordinate clauses
+   - Overuse of "der" (relative pronoun) where Danish would use different constructions
+   - Cognate words that exist in Danish but aren't the natural choice
+5. **Spot-read:** First 3 paragraphs of chapters 1, middle, and last. Does it read like natural Danish?
 
-**Sentence length rule:** Target max ~25 words per sentence in modern editions. Break long sentences at natural clause boundaries. The whole point of modern editions is readability — a 60-word sentence defeats the purpose. Prefer two clear sentences over one complex one.
+### Step 6: Register in bookRegistry.ts (automated)
 
-**Model tiering (token budget optimization):**
-- **Modern English:** Two-pass — Sonnet generates (`claude --model sonnet`), then Opus reviews and corrects. English is the primary reading experience and warrants the Opus quality check.
-- **Modern Danish (and any future languages):** Two-pass — Sonnet generates, Sonnet reviews in a fresh pass. Two different passes catch attention errors (wrong word sense, register drift, compound words) without the Opus token cost.
-- **Review pass instructions:** Read the source text and the first-pass translation together. Fix: wrong word sense, register drift, unnatural phrasing, translationese, dropped/wrong verb prefixes, invented compounds. Preserve paragraph alignment. Only output corrected paragraphs — skip paragraphs that need no changes.
-- **Reserve Opus for:** writing (books), architectural decisions, complex debugging. Not bulk translation.
+Add book to `../app/src/data/bookRegistry.ts` with all editions. Verify: `npx tsc --noEmit`
 
-**For large books (100+ chapters):** Work in batches. Do 5-10 chapters per session. Update the progress tracker after each batch.
+### Step 7: Danish Audio Pronunciation Check (⚠️ MANUAL — requires Anders)
 
-**For very large books (War and Peace, Bible):** May need batch files: `{book-id}-modern-en-batch01.json` etc., later merged.
+**This is the only manual step after Step 1.**
 
-**Translation quality guidelines:**
-- Modern English should read like a contemporary novel, not a Wikipedia summary
-- Preserve dialogue, drama, humor, and emotional tone
-- Keep proper nouns consistent across chapters
-- **All non-English translations: translate the MEANING, not the words.** Claude's default behavior is "translationese" — mapping English words to target-language cognates instead of expressing the meaning naturally. This produces text that looks correct but reads wrong to native speakers. Specific pitfalls:
-  - **False cognates / wrong register:** Don't pick the cognate — pick the word a native speaker would use in context. Example (Danish): "guilds" meaning groups → "grupper" or "hold", NOT "gilder" (archaic/wrong context)
-  - **Dropped/wrong verb prefixes:** Many languages have essential verb prefixes. Don't truncate them. Example (Danish): "forankrede" NOT "ankrede" (not a word)
-  - **English grammar leaking through:** Article placement, word order, preposition choice must follow target language patterns, not English. Example (Danish): "skibet" NOT "der skib"
-  - **Invented compound words:** Don't create plausible-looking but non-existent words. If unsure, use a simpler phrasing
-- **Quality check:** After generating any non-English translation, re-read the output asking: "Would a native speaker of this language actually write it this way?" If a phrase sounds like translated English, rewrite it
-- **Character name consistency across editions and cast.** All modern translations (every language) must use the same character names as the Threads/Cast feature. Original editions keep their own names (e.g., Butler's Odyssey uses "Ulysses"), but all modern editions and the cast must align. For Greek works: use Greek names (Odysseus, Athena, Poseidon, Zeus, Hermes), not Roman (Ulysses, Minerva, Neptune, Jupiter, Mercury). For Russian works: use consistent transliterations across all editions. When in doubt, the threads JSON file is the authority for character names.
+Edge TTS Danish voice mispronounces foreign character names (wrong stress, wrong vowels). English is fine. Locations are generally fine. This step builds a pronunciation map.
 
-**Reader aids in parentheses (name clarifications):**
-- On **first occurrence per chapter only**, clarify non-obvious name variants in parentheses
-- **Do clarify:** diminutives → full name ("Natashka (Natasha)"), patronymic-only → first name ("Ilyinichna (Natasha's mother)"), ambiguous titles ("the old count (Count Rostov)"), epithets → name ("the grey-eyed goddess (Athena)"), name changes ("Abram (later Abraham)", "Simon (later called Peter)")
-- **Don't clarify:** obvious first name ↔ surname pairs where context is clear, names already established earlier in the same chapter
-- **Keep it short:** just the name — `(Natasha)` not `(this is the diminutive form of Natalia Rostova)`
-- **Format:** simple parenthetical inline. No brackets, no footnotes, no italics
-- This applies to all modern editions (EN and DA). Original editions are never modified.
+**Process:**
+1. Extract all character names from the modern-da edition text
+2. Generate a single test audio file with all character names in Danish sentences
+3. **Anders listens** and flags which names sound wrong
+4. For each wrong name: generate 3-5 phonetic spelling variants, Anders picks the best
+5. Save the final map to `app/tts/pronunciations/{book-id}-da.json`
 
-### Step 5: Register in bookRegistry.ts
-
-Add the book to `../app/src/data/bookRegistry.ts`:
-
-```typescript
-export const BOOK_NAME: Book = {
-  id: 'book-id',
-  title: 'Book Title',
-  author: 'Author Name',
-  description: 'One-sentence description.',
-  year: 1900,
-  wordCount: 100000,
-  coverColor: '#hex',
-  coverAccent: '#hex',
-  editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Label (Year)', translator: 'Name', year: 1900, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
-  ],
+**Pronunciation map format:**
+```json
+{
+  "Odysseus": "Åhdýssøvs",
+  "Athene": "Atéhne"
 }
 ```
 
-Add to the `BOOKS` array. Then verify: `cd ../tinct && npx tsc --noEmit`
+**Patterns that work (from Odyssey testing, March 2026):**
+- Accent marks (é, ó, ý) reliably control stress placement
+- Double consonants shorten the preceding vowel
+- Danish "eu" diphthong → "øvs" with stød
+- "h" after a vowel adds a soft glide without a real pause
+- Names ending in "-os" are generally fine without fixes
+- Names ending in "-eus" need the øvs treatment
+- Common European names (Russian, French, English) are usually fine — Greek/Hebrew names need the most work
 
-### Step 6: Generate Audio (Edge TTS)
+**Reuse across books:** If a book shares characters with an existing book (e.g., Ulysses shares Greek names with Odyssey), copy the relevant entries from the existing map. Only test new characters.
 
-Uses free Microsoft Edge TTS voices. No API key needed.
+The script `generate-audio-edge.py` automatically loads `app/tts/pronunciations/{book-id}-{lang}.json` if it exists and applies substitutions before generating audio.
 
-**Generate audio:**
+### Step 8: Generate Danish Audio (automated, after Step 7)
+
 ```bash
-cd ../app/tts
-python3 generate-audio-edge.py {book-id} {edition-key} {start_ch} {end_ch} --voice {voice}
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py {book-id} modern-da 1 {end_ch} --voice da-DK-ChristelNeural
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py {book-id} modern-da
 ```
 
-**Common voices:**
-| Voice | Language | Gender | Notes |
-|-------|----------|--------|-------|
-| `en-US-AriaNeural` | English | Female | Clear, warm — good default |
-| `en-US-GuyNeural` | English | Male | Calm, natural |
-| `en-GB-SoniaNeural` | English | Female | British accent |
-| `en-GB-RyanNeural` | English | Male | British accent |
-| `da-DK-ChristelNeural` | Danish | Female | Only Danish female option |
-| `da-DK-JeppeNeural` | Danish | Male | Only Danish male option |
+The pronunciation map from Step 7 is loaded automatically.
 
-**Chapter titles in audio:** Every audiobook must include chapter title audio. When the reader transitions to a new chapter, the title should be read aloud before the chapter text begins. Generate a separate audio file for each chapter title (e.g., `ch{N}/title.mp3`) using the same voice as the chapter text. Include the title file in the manifest so the player knows to play it first. This applies to ALL books, ALL editions with audio.
+### Step 8b: Upload Audio to R2 (MANDATORY — autonomous after generation)
 
-**Generate manifests (after audio):**
+**Every time audio generation completes for a book×edition, immediately upload to R2.** Do not wait for Anders to ask. Do not wait for all editions to be done. Upload as soon as manifests are generated.
+
 ```bash
-python3 generate-manifests-edge.py {book-id} {edition-key}
+cd /Users/andershvelplund/Documents/Projects/Tinct/app/tts
+bash /Users/andershvelplund/Documents/Projects/Tinct/app/scripts/upload-audio-r2.sh {book-id} {edition-key}
 ```
 
-**Copy to public:**
+If the upload script doesn't support per-book arguments, upload the specific files directly:
+
 ```bash
-cp -r audio/{book-id}/{edition-key} ../public/audio/{book-id}/{edition-key}
+cd /Users/andershvelplund/Documents/Projects/Tinct/app/tts
+find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.json" \) | \
+  xargs -P 20 -I {} bash -c 'npx wrangler r2 object put "tinct-audio/${1#audio/}" --file="$1" --content-type="$(case "$1" in *.mp3) echo audio/mpeg;; *.json) echo application/json;; esac)" 2>/dev/null' _ {}
 ```
 
-**Mark edition as audio-ready** in bookRegistry.ts: add `hasAudio: true` to the edition.
+**Verify after upload:** `curl -sf "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/{book-id}/{edition-key}/ch1/manifest.json" | head -c 50`
 
-### Step 7: Visual QA
+**This step is non-negotiable.** Audio that exists only in `tts/audio/` (staging) is invisible to users. The app loads from R2.
 
-1. Start dev server: `cd ../tinct && npm run dev`
-2. Open in browser
-3. Select the new book
-4. Navigate through every chapter in every edition
-5. Verify: text renders, chapters load, edition switching works, split pane aligns
-6. Check dark mode
-7. Report any issues
+### Step 9: Visual QA (automated)
 
-### Step 8: Publish (autonomous — no approval needed)
+1. Start dev server, open in browser
+2. Navigate every chapter in every edition
+3. Verify: text renders, chapters load, edition switching works, split pane aligns
+4. Check dark mode
+5. Report any issues
 
-When a book is **fully complete**, publish it immediately. Do not ask Anders. A book is fully complete when ALL of the following are true:
+### Step 10: Publish (autonomous — no approval needed)
+
+A book is fully complete when ALL of the following are true:
 
 - [ ] All 3 standard editions exist and are paragraph-aligned (original-en, modern-en, modern-da)
-- [ ] All editions have audio generated, manifests created, and copied to `public/audio/`
+- [ ] All editions have audio generated with manifests
+- [ ] Danish pronunciation map exists at `app/tts/pronunciations/{book-id}-da.json`
 - [ ] Book is registered in `bookRegistry.ts` with all editions and `hasAudio: true`
 - [ ] Threads file exists with characters
-- [ ] Visual QA passed (Step 7)
+- [ ] Visual QA passed
+
+**Policy:** Never publish a partially complete book.
 
 **Publish sequence:**
 ```bash
@@ -361,6 +343,7 @@ Target: 10-20 books total. List is not locked — Anders decides.
 | Type definitions | `../app/src/types/index.ts` |
 | TTS generation script | `../app/tts/generate-audio-edge.py` |
 | TTS manifest script | `../app/tts/generate-manifests-edge.py` |
+| Pronunciation maps | `../app/tts/pronunciations/` |
 | Generated audio (staging) | `../app/tts/audio/` |
 | Public audio | `../app/public/audio/` |
 | Raw source texts | `raw/` |
@@ -463,13 +446,13 @@ Copy this template when starting a new book:
 | **Odyssey** (24 ch) | Complete (4: original, verse, modern-en, modern-da) | Complete | Complete | Complete (all 4 editions, 24 ch each) | On R2 (not in public/) | 26 chars |
 | **Ulysses** (18 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | Complete (all 3 editions, 18 ch each) | On R2 (not in public/) | 20 chars |
 | **W&P** (365 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | modern-en: 365, modern-da: 51, original-en: 113 | modern-en: 365, modern-da: 40 | 30 chars |
-| **Bible** (66 ch) | 3 originals (kjv, web, modern-en) + modern-da partial | Complete (66/66) | 4/66 (Gen, Prov, Eccl, Song) | None | None | None |
+| **Bible** (66 ch) | 3 originals (kjv, web, modern-en) + modern-da partial | Complete (66/66) | 42/66 (24 remaining incl. Lev-Deut, Judg, 1-2Sam, 1-2Kgs, 1-2Chr, Ezra, Job, Pss, Isa, Jer, Ezek, Dan, Gospels, Acts, Heb, Rev) | None | None | None |
 
 ### What's left to do
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Bible modern-da translation | 4/66 books done | Biggest remaining effort. Fresh conversations from books/ folder. |
+| Bible modern-da translation | 42/66 books done (24 remaining) | Biggest remaining effort. Fresh conversations from books/ folder. |
 | Bible modern-en audio | Not started | All 66 books ready for TTS generation |
 | Bible modern-da audio | Blocked | Needs modern-da translations first |
 | Bible threads | Not started | Need character list |
