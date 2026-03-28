@@ -264,6 +264,21 @@ export function Header({
 
               {mobileSections.reading && (
                 <>
+                  {books.length > 1 && (
+                    <div className="mobile-menu-item">
+                      <label className="mobile-menu-label">Book</label>
+                      <select
+                        className="mobile-menu-select"
+                        value={currentBookId}
+                        onChange={e => { onBookChange(e.target.value); setMobileMenuOpen(false) }}
+                      >
+                        {books.map(b => (
+                          <option key={b.id} value={b.id}>{b.title}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
                   <div className="mobile-menu-item">
                     <label className="mobile-menu-label">Edition</label>
                     <select
