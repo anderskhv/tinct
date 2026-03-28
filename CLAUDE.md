@@ -17,6 +17,17 @@ When Anders says "consult the design lead" or "what would marketing say?", load 
 
 ---
 
+## Working Directory — CRITICAL
+
+**Git root:** `/Users/andershvelplund/Documents/Projects/Tinct` — ALL git commands run here.
+**Build/deploy root:** `/Users/andershvelplund/Documents/Projects/Tinct/app` — `npx vite build` and `npx wrangler deploy` run here.
+
+The git repo is at `Tinct/` and the app source code is in `Tinct/app/`. One repo, one remote (`https://github.com/anderskhv/tinct.git`).
+
+**Rule:** `git *` → run from `Tinct/`. `npm *`, `npx *`, `wrangler *` → run from `Tinct/app/`.
+
+---
+
 ## API Cost Rule — HARD BAN
 
 **ZERO Anthropic API spend during development. No exceptions.**
@@ -203,7 +214,7 @@ Every deploy MUST follow this sequence. No exceptions.
 3. After any variable/function removal: `grep -r "removedThing" src/` — verify no stale references
 4. **Before committing:** run `git status` and check for untracked files that your code imports. If `src/` imports a file that shows as "untracked" or "not staged", you MUST add it. The local build passes because the file exists on disk — but the remote build will fail because it's not in git. **This has broken production before.**
 5. **Before pushing:** run `git stash && npx vite build && git stash pop` to verify the build passes with ONLY committed files. If this fails, you have a missing file.
-6. `npx wrangler deploy` — from the `tinct/` directory
+6. `npx wrangler deploy` — from the `app/` directory
 7. **Run the post-deploy smoke test:** `./scripts/smoke-test.sh` — this verifies 8 critical checks:
    - Homepage loads
    - JS bundle contains Supabase URL (auth works)

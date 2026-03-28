@@ -6,6 +6,19 @@ This is the Book Factory for Tinct. When Anders opens Claude from this folder, h
 
 ---
 
+## Permissions & Paths
+
+The Tinct project settings (`.claude/settings.json`) already allow `python3`, `cp`, `mkdir`, `Read`, `Write`, `Edit`, `Glob`, `Grep`, and git commands. No special flags needed when launching from this folder.
+
+**Always use absolute paths** instead of `cd`. The working directory is `/Users/andershvelplund/Documents/Projects/Tinct/books`. Key absolute paths:
+- TTS script: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/tts/generate-audio-edge.py`
+- Manifest script: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/tts/generate-manifests-edge.py`
+- Edition files: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/public/data/editions/`
+- Public audio: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/public/audio/`
+- Staging audio: `/Users/andershvelplund/Documents/Projects/Tinct/tinct/tts/audio/`
+
+---
+
 ## HARD RULES
 
 1. **ZERO Anthropic API spend.** All translations generated via CLI conversation. Never run scripts that call `api.anthropic.com`. See parent CLAUDE.md for full explanation.
@@ -19,7 +32,8 @@ This is the Book Factory for Tinct. When Anders opens Claude from this folder, h
 9. **Agent permissions.** Agents must use the Read tool (not Bash/python3) to read source JSON files, and the Write tool to write output JSON files. Do NOT use Bash heredocs (`python3 << 'EOF'`) — they may not match permission patterns. Use `python3 -c "..."` for validation only.
 10. **Self-direct on bottlenecks.** While a conversation is open, continuously monitor what's blocked and what can be unblocked. After completing any task or while waiting for a background process, immediately ask: "What is the current bottleneck? Can I start working on it now?" Don't wait for Anders to notice or ask — proactively identify the next constraint, communicate what you're doing, and start. If multiple things are blocked, work the dependency chain: unblock translations before audio, unblock parsing before translations. If you launched an agent that failed, retry with a different approach immediately — don't wait for the next prompt.
 11. **Never stop on permission failures.** If a tool call is denied or a permission error blocks progress, do NOT give up and report "I need permission." Instead: (a) try an alternative tool that achieves the same result (e.g., Read/Write instead of Bash, or `python3 -c` instead of a script), (b) restructure the approach to avoid the blocked tool, (c) if truly stuck after 2 alternative attempts, explain to Anders what you tried, what failed, and ask him to grant the specific permission or suggest a workaround. The same applies to subagents — if an agent can't use Bash, it should use Read/Write/Glob/Grep tools instead, not stop and report failure.
-11. **Bible translation: fresh conversation required.** Both subagents and bloated main conversations hit Anthropic's content filter on Bible text. The filter triggers when accumulated context + output is too large. **Start a dedicated fresh conversation** for Bible translation work — open Claude from the `books/` folder and say "continue Bible modern-en translation." Process one book at a time: read source → translate → write `bible-modern-en-ch{N}.json` → validate → next book. For large books (100+ paragraphs): read source in 50-paragraph chunks. When context gets large, start a new conversation.
+12. **Bible translation: fresh conversation required.** Both subagents and bloated main conversations hit Anthropic's content filter on Bible text. The filter triggers when accumulated context + output is too large. **Start a dedicated fresh conversation** for Bible translation work — open Claude from the `books/` folder and say "continue Bible modern-da translation." Process one book at a time: read source → translate → write into `bible-modern-da.json` → validate → next book. For large books (100+ paragraphs): read source in 50-paragraph chunks. When context gets large, start a new conversation.
+13. **Update status before ending.** Before ending any session that generated content (translations, audio, threads), run `python3 check-status.py` and update the Current Status table at the bottom of this file to match. This has caused major confusion — the status table said Bible modern-en was 12/66 when it was actually 66/66 complete.
 
 ---
 
@@ -64,7 +78,7 @@ Before downloading anything, discuss with Anders:
 Use the parse helper script or do it manually:
 
 ```bash
-python3 books/parse-gutenberg.py books/raw/{book-id}/raw.txt --book-id {book-id} --output ../tinct/src/data/editions/{book-id}-original-en.json
+python3 books/parse-gutenberg.py books/raw/{book-id}/raw.txt --book-id {book-id} --output ../app/src/data/editions/{book-id}-original-en.json
 ```
 
 Or for complex books, write a custom `parse.cjs` in the book's prep folder (like `books/war-and-peace/parse.cjs`).
@@ -125,8 +139,10 @@ This is the most time-consuming step. For each chapter:
 
 1. Read the original chapter text
 2. Generate **modern-en**: Natural, contemporary English. Accessible but not dumbed down. Preserve the author's meaning and structure. Keep paragraph count identical.
-3. Generate **modern-da**: Natural modern Danish. Same rules.
-4. Write each edition to `../tinct/src/data/editions/{book-id}-{edition-key}.json`
+3. Generate **modern-da** (and any future non-English languages): Translate from **modern-en**, NOT from original-en. The modern English edition is the source for all non-English translations. This prevents archaic phrasing, Victorian sentence structures, and wrong name conventions from leaking through.
+4. Write each edition to `../app/public/data/editions/{book-id}-{edition-key}.json`
+
+**Sentence length rule:** Target max ~25 words per sentence in modern editions. Break long sentences at natural clause boundaries. The whole point of modern editions is readability — a 60-word sentence defeats the purpose. Prefer two clear sentences over one complex one.
 
 **Model tiering (token budget optimization):**
 - **Modern English:** Two-pass — Sonnet generates (`claude --model sonnet`), then Opus reviews and corrects. English is the primary reading experience and warrants the Opus quality check.
@@ -160,7 +176,7 @@ This is the most time-consuming step. For each chapter:
 
 ### Step 5: Register in bookRegistry.ts
 
-Add the book to `../tinct/src/data/bookRegistry.ts`:
+Add the book to `../app/src/data/bookRegistry.ts`:
 
 ```typescript
 export const BOOK_NAME: Book = {
@@ -188,7 +204,7 @@ Uses free Microsoft Edge TTS voices. No API key needed.
 
 **Generate audio:**
 ```bash
-cd ../tinct/tts
+cd ../app/tts
 python3 generate-audio-edge.py {book-id} {edition-key} {start_ch} {end_ch} --voice {voice}
 ```
 
@@ -238,7 +254,7 @@ When a book is **fully complete**, publish it immediately. Do not ask Anders. A 
 
 **Publish sequence:**
 ```bash
-cd /Users/andershvelplund/Documents/Projects/Tinct/tinct
+cd /Users/andershvelplund/Documents/Projects/Tinct/app
 
 # 1. Build
 npx vite build
@@ -340,13 +356,13 @@ Target: 10-20 books total. List is not locked — Anders decides.
 
 | What | Path (relative to this folder) |
 |------|------|
-| Edition JSON files | `../tinct/public/data/editions/` |
-| Book registry | `../tinct/src/data/bookRegistry.ts` |
-| Type definitions | `../tinct/src/types/index.ts` |
-| TTS generation script | `../tinct/tts/generate-audio-edge.py` |
-| TTS manifest script | `../tinct/tts/generate-manifests-edge.py` |
-| Generated audio (staging) | `../tinct/tts/audio/` |
-| Public audio | `../tinct/public/audio/` |
+| Edition JSON files | `../app/public/data/editions/` |
+| Book registry | `../app/src/data/bookRegistry.ts` |
+| Type definitions | `../app/src/types/index.ts` |
+| TTS generation script | `../app/tts/generate-audio-edge.py` |
+| TTS manifest script | `../app/tts/generate-manifests-edge.py` |
+| Generated audio (staging) | `../app/tts/audio/` |
+| Public audio | `../app/public/audio/` |
 | Raw source texts | `raw/` |
 | Parse helper | `parse-gutenberg.py` |
 
@@ -439,31 +455,34 @@ Copy this template when starting a new book:
 
 ## Current Status
 
-| Book | Editions | Modern EN | Modern DA | Audio | Threads |
-|------|----------|-----------|-----------|-------|---------|
-| **The Odyssey** (24 ch) | Complete | Complete | Complete | Complete (all 4 editions) | Complete (25 chars) |
-| **Ulysses** (18 ch) | Complete | Complete | Complete | Complete (all 3 editions) | Complete (20 chars) |
-| **War and Peace** (365 ch) | Complete | Complete (merged, all 365 ch aligned) | Complete (all 365 ch, 11,340 paragraphs aligned) | Complete — modern-en only. Modern-da audio not yet generated. Original-en audio not yet generated. | Complete |
-| **The Bible** (66 ch) | Not complete — modern-en/da in progress | Not complete — 12/66 books (~19%, 1,284 p) | Not complete — ~0.3% (17/6,704 p) | Not complete — none | Not complete — none |
+**Last verified:** 2026-03-28 via `python3 check-status.py`
+**To refresh:** Run `python3 check-status.py` from this folder. Always trust the script over this table.
 
-### War and Peace modern-da progress
-**Complete:** All 365 chapters, 11,340 paragraphs, fully aligned with original. File: `public/data/editions/war-and-peace-modern-da.json`
-**Audio remaining:** modern-da and original-en audio not yet generated.
+| Book | Editions | Modern EN | Modern DA | Audio (staging) | Audio (public/R2) | Threads |
+|------|----------|-----------|-----------|-----------------|-------------------|---------|
+| **Odyssey** (24 ch) | Complete (4: original, verse, modern-en, modern-da) | Complete | Complete | Complete (all 4 editions, 24 ch each) | On R2 (not in public/) | 26 chars |
+| **Ulysses** (18 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | Complete (all 3 editions, 18 ch each) | On R2 (not in public/) | 20 chars |
+| **W&P** (365 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | modern-en: 365, modern-da: 51, original-en: 113 | modern-en: 365, modern-da: 40 | 30 chars |
+| **Bible** (66 ch) | 3 originals (kjv, web, modern-en) + modern-da partial | Complete (66/66) | 4/66 (Gen, Prov, Eccl, Song) | None | None | None |
 
-### Bible modern-en progress detail
-**Done (12 books, all merged into main file):** Genesis(1), Exodus(2), Leviticus(3), Numbers(4), Deuteronomy(5), Obadiah(31), Nahum(34), Haggai(37), Philemon(57), 2John(63), 3John(64), Jude(65)
-All 12 books are in `bible-modern-en.json` (per-book files merged and deleted 2026-03-26).
+### What's left to do
 
-**Next to translate:** Joshua(6) — 140 paragraphs
+| Task | Status | Notes |
+|------|--------|-------|
+| Bible modern-da translation | 4/66 books done | Biggest remaining effort. Fresh conversations from books/ folder. |
+| Bible modern-en audio | Not started | All 66 books ready for TTS generation |
+| Bible modern-da audio | Blocked | Needs modern-da translations first |
+| Bible threads | Not started | Need character list |
+| W&P modern-da audio | 51/365 in staging, 40 in public | Need to complete remaining 314 chapters |
+| W&P original-en audio | 113/365 in staging | Not published, not marked hasAudio |
 
-**Remaining (54 books):** 6-8, 9-12, 13-22, 23-30, 32-33, 35-36, 38-39, 40-56, 58-62, 66
-
-### Bible translation session instructions
-To continue, start a fresh conversation from `books/` and say "continue Bible modern-en translation." The CEO will:
-1. Read the main `bible-modern-en.json` to check which books have content (paragraphs > 0)
-2. Pick the next untranslated book (currently: Joshua, ch 6)
-3. Read KJV source from `bible-kjv-en.json`, translate to modern English, write paragraphs directly into the main file
-4. Validate paragraph count matches KJV source
+### Bible translation session instructions (modern-da)
+To continue, start a fresh conversation from `books/` and say "continue Bible modern-da translation." The CEO will:
+1. Run `python3 check-status.py` or read `bible-modern-da.json` to check which books have content
+2. Pick the next untranslated book
+3. Read modern-en source, translate to modern Danish, write paragraphs directly into the main file
+4. Validate paragraph count matches modern-en source
 5. Repeat until context gets large, then start a new conversation
+6. **Before ending:** run `python3 check-status.py` and update this status table
 
-**Important:** Edition files are now at `public/data/editions/`, NOT `src/data/editions/` (moved during project restructure).
+**Important:** Edition files are at `public/data/editions/`, NOT `src/data/editions/`.

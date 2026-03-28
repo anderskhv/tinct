@@ -31,7 +31,7 @@ Gap analysis between the mission statement and what's built. Ordered by launch-c
 
 1. **Commit mobile UI changes** — deployed but not yet in git
 2. **Visual check mobile on real device** — verify hamburger menu, 4-tab nav, bottom bar feel right
-3. **Clean up dual .git repo** — `tinct/` has its own inner repo causing confusion with stash tests
+3. ~~**Clean up dual .git repo**~~ — DONE. Removed inner `.git`, renamed `tinct/` to `app/`
 4. Pick up next backlog item (security fixes or content)
 
 ---

@@ -1,7 +1,7 @@
 # Tinct Security Audit
 
 **Date:** 2026-03-20
-**Scope:** Full codebase at `/Users/andershvelplund/Documents/Projects/Tinct/tinct/`
+**Scope:** Full codebase at `/Users/andershvelplund/Documents/Projects/Tinct/app/`
 **Stack:** React 18 + TypeScript + Vite + Claude API + Supabase + Stripe
 
 ---
@@ -23,7 +23,7 @@ The Tinct codebase has **3 Critical**, **2 High**, **3 Medium**, and **2 Low** s
 
 ### 1. CRITICAL: Anthropic API Key Uses `VITE_` Prefix (Client Exposure Risk)
 
-**File:** `tinct/.env` line 1
+**File:** `app/.env` line 1
 ```
 VITE_ANTHROPIC_API_KEY=sk-ant-api03-OUJBPRgsUMrgRdnKpxP6KVz-...
 ```
@@ -43,32 +43,32 @@ This is a ticking time bomb. One accidental reference and the key ships to every
 
 ### 2. CRITICAL: Plaintext Secrets in `.env` File
 
-**File:** `tinct/.env`
+**File:** `app/.env`
 
 The `.env` file contains real, usable credentials in plaintext:
 - **Anthropic API key** (`sk-ant-api03-...`) -- full production key
 - **Supabase URL and anon key** -- public-facing but still sensitive
 - **Supabase service role key** (`sb_secret_...`) -- this is an admin key that bypasses Row Level Security
 
-While `.env` is listed in `tinct/.gitignore`, it is NOT listed in the parent `.gitignore` at `Projects/Tinct/.gitignore`. If any git operation runs from the parent directory, the `.env` could be committed.
+While `.env` is listed in `app/.gitignore`, it is NOT listed in the parent `.gitignore` at `Projects/Tinct/.gitignore`. If any git operation runs from the parent directory, the `.env` could be committed.
 
 **Fix:**
 1. Rotate the Anthropic API key immediately (it was visible in this audit and may have been exposed in chat history).
 2. Rotate the Supabase service role key.
 3. Add `.env` to the parent `.gitignore` at `Projects/Tinct/.gitignore`.
-4. Verify the key was never committed: `git log --all --diff-filter=A -- tinct/.env`.
+4. Verify the key was never committed: `git log --all --diff-filter=A -- app/.env`.
 
 ---
 
 ### 3. CRITICAL: Password File on Disk, Possibly Git-Tracked
 
-**File:** `tinct/Passwords/Passwords`
+**File:** `app/Passwords/Passwords`
 ```
 Supabase database: f6uTkHGLeqk1oVBw
 ```
 
 A plaintext file containing the Supabase database password. This directory is:
-- NOT in `tinct/.gitignore`
+- NOT in `app/.gitignore`
 - NOT in `Projects/Tinct/.gitignore`
 
 If this has been committed to git, the password is permanently in the repository history.
@@ -107,7 +107,7 @@ The `/api/chat` endpoint allows unauthenticated requests. When no auth header is
 
 ### 5. HIGH: Supabase Service Role Key in VITE-Prefixed Env Var Context
 
-**File:** `tinct/.env` line 6
+**File:** `app/.env` line 6
 ```
 SUPABASE_SERVICE_ROLE_KEY=<REDACTED>
 ```
