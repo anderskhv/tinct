@@ -168,39 +168,11 @@ export function Header({
     return (
       <header className="header header-mobile">
         <div className="header-left">
+          <h1 className="logo">Tinct</h1>
+          <span className="separator">&middot;</span>
           <span className="mobile-book-title">{bookTitle}</span>
-        </div>
-
-        <div className="header-center">
-          <button
-            className="chapter-nav"
-            disabled={currentChapter <= 1}
-            onClick={() => onChapterChange(currentChapter - 1)}
-          >&larr;</button>
-          <select
-            className="chapter-select"
-            value={currentChapter}
-            onChange={e => onChapterChange(Number(e.target.value))}
-          >
-            {sections && sections.length > 0 ? (
-              flattenSectionsForSelect(sections, chapterLabels).map(group => (
-                <optgroup key={group.label} label={group.label}>
-                  {group.chapters.map(n => (
-                    <option key={n} value={n}>{chapterLabels[n - 1] || `Ch ${n}`}</option>
-                  ))}
-                </optgroup>
-              ))
-            ) : (
-              Array.from({ length: totalChapters }, (_, i) => (
-                <option key={i + 1} value={i + 1}>{chapterLabels[i] || `Ch ${i + 1}`}</option>
-              ))
-            )}
-          </select>
-          <button
-            className="chapter-nav"
-            disabled={currentChapter >= totalChapters}
-            onClick={() => onChapterChange(currentChapter + 1)}
-          >&rarr;</button>
+          <span className="separator">&middot;</span>
+          <span className="mobile-book-author">{bookAuthor}</span>
         </div>
 
         <div className="header-right">
@@ -343,8 +315,14 @@ export function Header({
                       <label className="mobile-menu-label">Audiobook</label>
                       <select
                         className="mobile-menu-select"
-                        value={style + '-' + language}
-                        disabled
+                        value={currentEditionKey}
+                        onChange={e => {
+                          const ed = allEditions.find(ed => ed.key === e.target.value)
+                          if (ed) {
+                            onLanguageChange(ed.language)
+                            onStyleChange(ed.style)
+                          }
+                        }}
                       >
                         {audioEditions.map(ed => (
                           <option key={ed.key} value={ed.key}>{ed.label}</option>
