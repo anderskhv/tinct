@@ -285,7 +285,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             &larr;
           </button>
           <button className="bottom-bar-play" onClick={togglePlay} title="Pause">
-            ⏸
+            <span className="icon-pause" />
           </button>
           <div className="bottom-bar-progress">
             <div className="reading-tracker-bar">
@@ -326,7 +326,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         </button>
         {hasAudio && (
           <button className="bottom-bar-play" onClick={togglePlay} title="Play audiobook">
-            ▶
+            <span className="icon-play" />
           </button>
         )}
         <div className="bottom-bar-progress">
