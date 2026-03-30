@@ -4514,14 +4514,16 @@ body {
     display: none;
   }
 
-  /* Side panel — full width on mobile */
+  /* Side panel — full width on mobile, explicit height for scroll chain */
   .side-panel {
     width: 100%;
+    height: 100%;
     border-left: none;
   }
 
   .side-panel-inner {
     min-width: 0;
+    overflow: hidden;
   }
 
   .chat {
