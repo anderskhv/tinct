@@ -61,6 +61,8 @@ interface HeaderProps {
   alignedEditions?: { key: string; label: string }[]
   // Audio editions
   audioEditions?: { key: string; label: string; hasAudio?: boolean }[]
+  audioEditionKey?: string
+  onAudioEditionChange?: (key: string) => void
 }
 
 type MenuOpen = null | 'format' | 'account'
@@ -133,6 +135,8 @@ export function Header({
   onSplitEditionChange,
   alignedEditions,
   audioEditions,
+  audioEditionKey,
+  onAudioEditionChange,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSections, setMobileSections] = useState<{ format: boolean; reading: boolean; account: boolean }>({ format: true, reading: false, account: false })
@@ -196,6 +200,13 @@ export function Header({
         {mobileMenuOpen && (
           <div className="mobile-menu" onClick={() => setMobileMenuOpen(false)}>
             <div className="mobile-menu-content" onClick={e => e.stopPropagation()}>
+              {/* --- BROWSE LIBRARY (always visible) --- */}
+              <div className="mobile-menu-item">
+                <button className="mobile-menu-library-btn" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
+                  Browse Library
+                </button>
+              </div>
+
               {/* --- FORMAT (open by default) --- */}
               <div
                 className="mobile-menu-section-header mobile-menu-collapsible"
@@ -264,21 +275,6 @@ export function Header({
 
               {mobileSections.reading && (
                 <>
-                  {books.length > 1 && (
-                    <div className="mobile-menu-item">
-                      <label className="mobile-menu-label">Book</label>
-                      <select
-                        className="mobile-menu-select"
-                        value={currentBookId}
-                        onChange={e => { onBookChange(e.target.value); setMobileMenuOpen(false) }}
-                      >
-                        {books.map(b => (
-                          <option key={b.id} value={b.id}>{b.title}</option>
-                        ))}
-                      </select>
-                    </div>
-                  )}
-
                   <div className="mobile-menu-item">
                     <label className="mobile-menu-label">Edition</label>
                     <select
@@ -298,19 +294,7 @@ export function Header({
                     </select>
                   </div>
 
-                  {splitViewAvailable && (
-                    <div className="mobile-menu-item">
-                      <label className="mobile-menu-label">Compare view</label>
-                      <button
-                        className={`mobile-menu-toggle ${splitView ? 'mobile-menu-toggle-on' : ''}`}
-                        onClick={onToggleSplitView}
-                      >
-                        {splitView ? 'On' : 'Off'}
-                      </button>
-                    </div>
-                  )}
-
-                  {splitView && alignedEditions && alignedEditions.length > 0 && (
+                  {alignedEditions && alignedEditions.length > 0 && (
                     <div className="mobile-menu-item">
                       <label className="mobile-menu-label">Compare edition</label>
                       <select
@@ -330,14 +314,8 @@ export function Header({
                       <label className="mobile-menu-label">Audiobook</label>
                       <select
                         className="mobile-menu-select"
-                        value={currentEditionKey}
-                        onChange={e => {
-                          const ed = allEditions.find(ed => ed.key === e.target.value)
-                          if (ed) {
-                            onLanguageChange(ed.language)
-                            onStyleChange(ed.style)
-                          }
-                        }}
+                        value={audioEditionKey || currentEditionKey}
+                        onChange={e => onAudioEditionChange?.(e.target.value)}
                       >
                         {audioEditions.map(ed => (
                           <option key={ed.key} value={ed.key}>{ed.label}</option>
@@ -383,12 +361,6 @@ export function Header({
                       onTopUp={onOpenUsage}
                       onSignIn={onSignIn}
                     />
-                  </div>
-
-                  <div className="mobile-menu-item">
-                    <button className="mobile-menu-library-btn" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
-                      Browse Library
-                    </button>
                   </div>
 
                   <div className="mobile-menu-item">

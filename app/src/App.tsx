@@ -158,6 +158,7 @@ export default function App() {
   // Audio state
   const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
   const [hasAudio, setHasAudio] = useState(false)
+  const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
   const bottomBarRef = useRef<BottomBarHandle>(null)
 
@@ -544,6 +545,14 @@ export default function App() {
 
   // Check if split view is available
   const splitViewAvailable = alignedEditions.length > 0
+
+  // Effective audio edition — separate from primary, falls back to primary
+  const effectiveAudioEditionKey = useMemo(() => {
+    if (audioEditionKey && book.editions.some(ed => ed.hasAudio && ed.key === audioEditionKey)) {
+      return audioEditionKey
+    }
+    return primaryEditionKey
+  }, [audioEditionKey, primaryEditionKey, book.editions])
 
   // Get edition label
   const primaryEdition = book.editions.find(ed => ed.key === primaryEditionKey)
@@ -1063,8 +1072,10 @@ export default function App() {
         isMobile={isMobile}
         splitEditionKey={preferences.splitEditionKey}
         onSplitEditionChange={setSplitEditionKey}
-        alignedEditions={alignedEditions.map(ed => ({ key: ed.key, label: ed.label }))}
+        alignedEditions={book.editions.filter(ed => ed.aligned).map(ed => ({ key: ed.key, label: ed.label }))}
         audioEditions={book.editions.filter(ed => ed.hasAudio).map(ed => ({ key: ed.key, label: ed.label }))}
+        audioEditionKey={effectiveAudioEditionKey}
+        onAudioEditionChange={setAudioEditionKey}
       />
 
       <main
@@ -1329,7 +1340,7 @@ export default function App() {
         currentPage={currentPage}
         totalPages={totalPages}
         bookId={book.id}
-        editionKey={primaryEditionKey}
+        editionKey={effectiveAudioEditionKey}
         chapterNumber={currentChapter}
         onParagraphChange={handleAudioParagraphChange}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
