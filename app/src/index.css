@@ -4553,7 +4553,7 @@ body {
 
   /* Chat input safe area — must clear fixed bottom bar (32px) + mobile nav (32px) */
   .chat-input-form {
-    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
   }
 
   .chat-input {
@@ -4561,7 +4561,7 @@ body {
   }
 
   .notes-input-area {
-    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
   }
 
   /* Ensure side panel content doesn't get clipped by fixed bottom bars */
