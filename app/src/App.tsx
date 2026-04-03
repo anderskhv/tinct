@@ -30,6 +30,7 @@ import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
 import { useLibrary } from './hooks/useLibrary'
+import { useReadingLog } from './hooks/useReadingLog'
 import { storage, setStorageProvider, localStorageProvider } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition } from './types'
@@ -60,7 +61,7 @@ export default function App() {
   const book = getBook(currentBookId) || ODYSSEY
 
   // Auth & billing
-  const { user, profile, session, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
+  const { user, profile, session, isLoading: authLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
   const { messagesRemaining, hasBalance, deductUsage, isAnonymous } = useBalance(session, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
@@ -74,9 +75,12 @@ export default function App() {
   const [resetSuccess, setResetSuccess] = useState(false)
 
   // Swap storage provider when user signs in/out — enables cross-device sync
-  const [storageReady, setStorageReady] = useState(!user)
+  // Start false to prevent hooks from writing defaults before cloud data loads
+  const [storageReady, setStorageReady] = useState(false)
   const supabaseProviderRef = useRef<SupabaseStorageProvider | null>(null)
   useEffect(() => {
+    // Wait for auth to resolve before deciding on storage provider
+    if (authLoading) return
     if (user) {
       const provider = new SupabaseStorageProvider(user.id)
       provider.init().then(() => {
@@ -105,10 +109,10 @@ export default function App() {
     return () => {
       supabaseProviderRef.current?.unsubscribe()
     }
-  }, [user])
+  }, [user, authLoading])
 
   // Library
-  const { libraryIds, addBook, isEmpty: libraryEmpty } = useLibrary()
+  const { libraryIds, addBook, isEmpty: libraryEmpty, refreshFromStorage: refreshLibrary } = useLibrary(storageReady)
 
   const {
     preferences,
@@ -125,7 +129,7 @@ export default function App() {
     setFontFamily,
     setAccountDecisionSeen,
     refreshFromStorage,
-  } = usePreferences()
+  } = usePreferences(storageReady)
 
   // Library books (filtered to what user has added)
   const libraryBooks = useMemo(() => {
@@ -178,15 +182,22 @@ export default function App() {
     trackPageview(path, user?.id)
   }, [currentBookId, currentChapter, showStore, showUsageDashboard, user?.id])
 
-  // Re-read position and preferences from cloud storage once Supabase syncs
+  // Re-read position, preferences, and library from cloud storage once Supabase syncs
   const hasRestoredFromCloud = useRef(false)
   useEffect(() => {
     if (storageReady && user && !hasRestoredFromCloud.current) {
       hasRestoredFromCloud.current = true
-      // Refresh preferences from Supabase (may have newer data than localStorage)
+      // Refresh preferences and library from Supabase
       refreshFromStorage()
-      // Restore reading position — pick furthest between local and cloud
-      const cloudPos = getSavedPosition(book.id)
+      refreshLibrary()
+      // Restore current book from cloud (may differ from default)
+      const cloudBookId = storage.get<string>('tinct-current-book')
+      const targetBookId = cloudBookId || book.id
+      if (cloudBookId && cloudBookId !== currentBookId) {
+        setCurrentBookId(cloudBookId)
+      }
+      // Restore reading position for the correct book
+      const cloudPos = getSavedPosition(targetBookId)
       if (cloudPos) {
         const localPos = savedPos.current
         const winner = pickLatest(localPos, cloudPos)
@@ -198,7 +209,7 @@ export default function App() {
         }
       }
     }
-  }, [storageReady, user, book.id, refreshFromStorage])
+  }, [storageReady, user, book.id, currentBookId, refreshFromStorage, refreshLibrary])
 
   // Real-time cross-device sync: listen for remote preference changes
   // Note: position sync is handled on refresh/focus, not real-time,
@@ -381,7 +392,14 @@ export default function App() {
 
   const { highlights, addHighlight, removeHighlight, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
   const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter)
-  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters)
+
+  // Effective paragraph: audio position takes priority over reading position
+  const effectiveParagraph = audioPlayingParagraph ?? firstVisibleParagraph
+  const chapterParagraphCount = primaryChapter?.paragraphs.length
+
+  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph)
+  const isAudioActive = audioPlayingParagraph !== undefined
+  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive)
 
   const { threadsData, getMentions } = useThreads(book.id, primaryData)
 
@@ -546,12 +564,18 @@ export default function App() {
   // Check if split view is available
   const splitViewAvailable = alignedEditions.length > 0
 
-  // Effective audio edition — separate from primary, falls back to primary
+  // Effective audio edition — separate from primary, falls back to first edition with audio
   const effectiveAudioEditionKey = useMemo(() => {
     if (audioEditionKey && book.editions.some(ed => ed.hasAudio && ed.key === audioEditionKey)) {
       return audioEditionKey
     }
-    return primaryEditionKey
+    // Use primary if it has audio
+    if (book.editions.some(ed => ed.hasAudio && ed.key === primaryEditionKey)) {
+      return primaryEditionKey
+    }
+    // Fall back to any edition that has audio
+    const audioEd = book.editions.find(ed => ed.hasAudio)
+    return audioEd?.key || primaryEditionKey
   }, [audioEditionKey, primaryEditionKey, book.editions])
 
   // Get edition label
@@ -764,11 +788,15 @@ export default function App() {
   // Chapter reflection
   const handleReflect = useCallback(() => {
     const chapterTitle = primaryChapter?.title || `Book ${currentChapter}`
-    const reflectPrompt = `I've just finished reading ${chapterTitle} of The Odyssey. Help me reflect on the key themes, memorable moments, and anything I might have missed.`
+    const reflectPrompt = `I've just finished reading ${chapterTitle} of ${book.title}. Help me reflect on the key themes, memorable moments, and anything I might have missed.`
     setPanelTab('chat')
-    if (!preferences.panelOpen) togglePanel()
+    if (isMobile) {
+      setActiveView(2)
+    } else if (!preferences.panelOpen) {
+      togglePanel()
+    }
     sendMessage(reflectPrompt)
-  }, [primaryChapter, currentChapter, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
+  }, [primaryChapter, currentChapter, book.title, setPanelTab, isMobile, setActiveView, preferences.panelOpen, togglePanel, sendMessage])
 
   // Audio paragraph change handler
   const handleAudioParagraphChange = useCallback((paragraphIndex: number) => {
@@ -788,10 +816,24 @@ export default function App() {
       .catch(() => setHasAudio(false))
   }, [book.id, primaryEditionKey, currentChapter])
 
-  // Chapter navigation from page arrows
+  // Chapter navigation from page arrows or audio chapter-end
+  // When advancing forward, mark the current chapter as completed in progress
+  // (covers the audio case where page never reaches the last page)
   const handleNextChapter = useCallback(() => {
-    if (currentChapter < totalChapters) setCurrentChapter(currentChapter + 1)
-  }, [currentChapter, totalChapters])
+    if (currentChapter < totalChapters) {
+      const existing = getReadingProgress(book.id)
+      const prev = existing?.highestCompletedChapter || 0
+      if (currentChapter > prev) {
+        storage.set(`progress:${book.id}`, {
+          bookId: book.id,
+          highestCompletedChapter: currentChapter,
+          totalChapters,
+          percent: Math.round((currentChapter / totalChapters) * 100),
+        })
+      }
+      setCurrentChapter(currentChapter + 1)
+    }
+  }, [currentChapter, totalChapters, book.id])
   const handlePrevChapter = useCallback(() => {
     if (currentChapter > 1) setCurrentChapter(currentChapter - 1)
   }, [currentChapter])
@@ -836,6 +878,17 @@ export default function App() {
 
   // Show account decision: after picking a book, before onboarding, if not yet seen and no user
   const showAccountDecision = !libraryEmpty && !showStore && !preferences.accountDecisionSeen && !user
+
+  // Show loading skeleton while auth + storage are resolving (prevents writing defaults to cloud)
+  if (!storageReady) {
+    return (
+      <div className="app">
+        <div className="loading-shell">
+          <div className="loading-spinner" />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <TierProvider user={user} profile={profile}>
@@ -1060,9 +1113,31 @@ export default function App() {
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
         fontSize={preferences.fontSize}
-        onFontSizeChange={setFontSize}
+        onFontSizeChange={(size: string) => {
+          const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+          savedPos.current = {
+            bookId: book.id,
+            chapterNumber: currentChapter,
+            currentPage,
+            totalPages,
+            scrollFraction: frac,
+          }
+          setFontSize(size)
+          setReaderKey(k => k + 1)
+        }}
         fontFamily={preferences.fontFamily}
-        onFontFamilyChange={setFontFamily}
+        onFontFamilyChange={(family: string) => {
+          const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+          savedPos.current = {
+            bookId: book.id,
+            chapterNumber: currentChapter,
+            currentPage,
+            totalPages,
+            scrollFraction: frac,
+          }
+          setFontFamily(family)
+          setReaderKey(k => k + 1)
+        }}
         readingObjective={preferences.readingObjective}
         onEditObjective={handleEditObjective}
         onSaveObjective={setReadingObjective}
@@ -1169,10 +1244,11 @@ export default function App() {
                   onDeleteHighlight={removeHighlight}
                   onUpdateNote={updateNote}
                   onCopyToNotes={handleCopyToNotes}
-                  onCleanupNotes={handleCleanupNotes}
-                  isCleaningUp={isCleaningUp}
                   allBookHighlights={getAllBookHighlights()}
+                  allBookNotes={getAllBookNotes()}
                   chapterLabels={chapterLabels}
+                  readingLog={readingLog}
+                  totalChapters={totalChapters}
                   threadCharacters={threadsData?.characters || []}
                   currentChapter={currentChapter}
                   editionKey={primaryEditionKey}
@@ -1270,12 +1346,14 @@ export default function App() {
               highlights={highlights}
               onAddNote={addNote}
               onDeleteNote={deleteNote}
+              onDeleteHighlight={removeHighlight}
               onUpdateNote={updateNote}
               onCopyToNotes={handleCopyToNotes}
-              onCleanupNotes={handleCleanupNotes}
-              isCleaningUp={isCleaningUp}
               allBookHighlights={getAllBookHighlights()}
+              allBookNotes={getAllBookNotes()}
               chapterLabels={chapterLabels}
+              readingLog={readingLog}
+              totalChapters={totalChapters}
               threadCharacters={threadsData?.characters || []}
               currentChapter={currentChapter}
               editionKey={primaryEditionKey}
@@ -1346,6 +1424,9 @@ export default function App() {
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         firstVisibleParagraph={firstVisibleParagraph}
         compact={isMobile}
+        onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
+        onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+        initialAudioParagraph={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.lastParagraphIndex : undefined}
       />
 
       {insight && (

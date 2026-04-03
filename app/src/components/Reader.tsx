@@ -241,6 +241,10 @@ export function Reader({
   // Keyboard navigation — use refs to avoid re-attaching on every page change
   const goToPageRef = useRef(goToPage)
   goToPageRef.current = goToPage
+  const onNextChapterRef = useRef(onNextChapter)
+  onNextChapterRef.current = onNextChapter
+  const onPrevChapterRef = useRef(onPrevChapter)
+  onPrevChapterRef.current = onPrevChapter
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't capture keys when typing in input/textarea
@@ -249,10 +253,18 @@ export function Reader({
 
       if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault()
-        goToPageRef.current(currentPageRef.current + 1)
+        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+          onNextChapterRef.current()
+        } else {
+          goToPageRef.current(currentPageRef.current + 1)
+        }
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault()
-        goToPageRef.current(currentPageRef.current - 1)
+        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+          onPrevChapterRef.current()
+        } else {
+          goToPageRef.current(currentPageRef.current - 1)
+        }
       }
     }
     window.addEventListener('keydown', handleKeyDown)
@@ -273,9 +285,17 @@ export function Reader({
     const zone = rect.width * 0.25
 
     if (clickX < zone) {
-      goToPage(currentPage - 1)
+      if (currentPage <= 0 && onPrevChapter) {
+        onPrevChapter()
+      } else {
+        goToPage(currentPage - 1)
+      }
     } else if (clickX > rect.width - zone) {
-      goToPage(currentPage + 1)
+      if (currentPage >= totalPages - 1 && onNextChapter) {
+        onNextChapter()
+      } else {
+        goToPage(currentPage + 1)
+      }
     } else if (hasAudio && onParagraphClick) {
       // Middle zone: check if click is on a paragraph for audio playback
       const target = e.target as HTMLElement
@@ -391,9 +411,17 @@ export function Reader({
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
         if (touchX < zone) {
-          goToPage(currentPage - 1)
+          if (currentPage <= 0 && onPrevChapter) {
+            onPrevChapter()
+          } else {
+            goToPage(currentPage - 1)
+          }
         } else if (touchX > rect.width - zone) {
-          goToPage(currentPage + 1)
+          if (currentPage >= totalPages - 1 && onNextChapter) {
+            onNextChapter()
+          } else {
+            goToPage(currentPage + 1)
+          }
         }
       }}
     >

@@ -35,6 +35,11 @@ interface BottomBarProps {
   firstVisibleParagraph?: number
   /** Compact mode: show only percentage, hide page count and time */
   compact?: boolean
+  /** Navigate to next/previous chapter (enables nav buttons on last/first page) */
+  onNextChapter?: () => void
+  onPrevChapter?: () => void
+  /** Initial paragraph to resume audio from (restored from saved position) */
+  initialAudioParagraph?: number
 }
 
 const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
@@ -43,6 +48,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
   function BottomBar({
     percentComplete, timeRemainingLabel, isLearned, currentPage, totalPages,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
+    onNextChapter, onPrevChapter, initialAudioParagraph,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
     const [isPlaying, setIsPlaying] = useState(false)
@@ -67,6 +73,8 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     onChapterEndRef.current = onChapterEnd
     // Track whether we should auto-resume after chapter change
     const shouldResumeRef = useRef(false)
+    const initialAudioParagraphRef = useRef(initialAudioParagraph)
+    initialAudioParagraphRef.current = initialAudioParagraph
 
     // Create and configure the single Audio element once
     useEffect(() => {
@@ -158,8 +166,15 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           setManifest(data)
           manifestRef.current = data
           setHasAudio(true)
-          setCurrentParagraph(0)
-          currentParagraphRef.current = 0
+          // Restore to saved audio position if available
+          const initPara = initialAudioParagraphRef.current
+          let startIdx = 0
+          if (initPara !== undefined && initPara > 0) {
+            const found = data.paragraphs.findIndex(p => p.paragraph >= initPara)
+            if (found >= 0) startIdx = found
+          }
+          setCurrentParagraph(startIdx)
+          currentParagraphRef.current = startIdx
 
           // Auto-resume if chapter changed due to audio finishing previous chapter
           if (shouldResumeRef.current) {
@@ -268,9 +283,9 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         + (manifest.paragraphs[currentParagraph]?.duration || 0) * progress
       : 0
 
-    // Mobile nav
-    const canGoPrev = currentPage > 0
-    const canGoNext = currentPage < totalPages - 1
+    // Mobile nav — allow chapter advance when on first/last page
+    const canGoPrev = currentPage > 0 || !!onPrevChapter
+    const canGoNext = currentPage < totalPages - 1 || !!onNextChapter
 
     if (isPlaying) {
       // Audio mode
