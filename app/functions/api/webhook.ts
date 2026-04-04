@@ -20,6 +20,44 @@ async function computeHmac(secret: string, payload: string): Promise<string> {
     .join('')
 }
 
+async function supabaseRpc(env: Env, fn: string, params: Record<string, unknown>) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/rpc/${fn}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+    },
+    body: JSON.stringify(params),
+  })
+}
+
+async function supabaseUpdate(env: Env, table: string, id: string, data: Record<string, unknown>) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'return=minimal',
+    },
+    body: JSON.stringify(data),
+  })
+}
+
+async function supabaseInsert(env: Env, table: string, data: Record<string, unknown>) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'return=minimal',
+    },
+    body: JSON.stringify(data),
+  })
+}
+
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request, env } = context
 
@@ -53,44 +91,110 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   const event = JSON.parse(rawBody) as {
     type: string
-    data: { object: { metadata?: { supabase_user_id?: string; credit_cents?: string }; id: string } }
+    data: {
+      object: {
+        id: string
+        metadata?: Record<string, string>
+        customer?: string
+        subscription?: string
+        current_period_end?: number
+        status?: string
+      }
+    }
   }
 
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object
-    const userId = session.metadata?.supabase_user_id
-    const creditCents = parseInt(session.metadata?.credit_cents || '0', 10)
+  const obj = event.data.object
 
-    if (userId && creditCents > 0) {
-      // Credit balance via Supabase RPC
-      await fetch(`${env.SUPABASE_URL}/rest/v1/rpc/credit_balance`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-          'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        },
-        body: JSON.stringify({
-          p_user_id: userId,
-          p_amount_cents: creditCents,
-        }),
-      })
+  switch (event.type) {
+    case 'checkout.session.completed': {
+      const type = obj.metadata?.type
+      const userId = obj.metadata?.supabase_user_id
+
+      if (!userId) break
+
+      if (type === 'subscription') {
+        // Subscription purchased — update profile
+        await supabaseUpdate(env, 'profiles', userId, {
+          subscription_status: 'active',
+          stripe_customer_id: obj.customer,
+          messages_used_this_period: 0,
+          period_start: new Date().toISOString(),
+        })
+
+        // If we have a subscription ID, fetch period end from Stripe
+        if (obj.subscription && env.STRIPE_SECRET_KEY) {
+          const subRes = await fetch(`https://api.stripe.com/v1/subscriptions/${obj.subscription}`, {
+            headers: { 'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}` },
+          })
+          const sub = await subRes.json() as { current_period_end?: number }
+          if (sub.current_period_end) {
+            await supabaseUpdate(env, 'profiles', userId, {
+              subscription_period_end: new Date(sub.current_period_end * 1000).toISOString(),
+            })
+          }
+        }
+      } else if (type === 'chat_pack') {
+        // Chat pack purchased — credit message balance
+        const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
+        if (messageCount > 0) {
+          await supabaseRpc(env, 'credit_messages', {
+            p_user_id: userId,
+            p_count: messageCount,
+          })
+        }
+      }
 
       // Log payment
-      await fetch(`${env.SUPABASE_URL}/rest/v1/payments`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-          'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        },
-        body: JSON.stringify({
-          user_id: userId,
-          stripe_session_id: session.id,
-          amount_cents: creditCents,
-          status: 'completed',
-        }),
+      await supabaseInsert(env, 'payments', {
+        user_id: userId,
+        stripe_session_id: obj.id,
+        amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
+        type: type || 'unknown',
+        status: 'completed',
       })
+      break
+    }
+
+    case 'customer.subscription.updated': {
+      // Subscription renewed or changed — update status and period
+      const userId = obj.metadata?.supabase_user_id
+      if (!userId) break
+
+      const updates: Record<string, unknown> = {
+        subscription_status: obj.status === 'active' ? 'active' : obj.status,
+      }
+
+      if (obj.current_period_end) {
+        updates.subscription_period_end = new Date(obj.current_period_end * 1000).toISOString()
+        // Reset monthly message count on renewal (new period)
+        updates.messages_used_this_period = 0
+        updates.period_start = new Date().toISOString()
+      }
+
+      await supabaseUpdate(env, 'profiles', userId, updates)
+      break
+    }
+
+    case 'customer.subscription.deleted': {
+      // Subscription canceled — mark as canceled but keep access until period end
+      const userId = obj.metadata?.supabase_user_id
+      if (!userId) break
+
+      await supabaseUpdate(env, 'profiles', userId, {
+        subscription_status: 'canceled',
+      })
+      break
+    }
+
+    case 'invoice.payment_failed': {
+      // Payment failed on renewal — mark as past_due
+      const userId = obj.metadata?.supabase_user_id
+      if (!userId) break
+
+      await supabaseUpdate(env, 'profiles', userId, {
+        subscription_status: 'past_due',
+      })
+      break
     }
   }
 

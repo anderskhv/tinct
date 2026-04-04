@@ -44,6 +44,19 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
       }
     }
 
+    // Canceled subscription but still within paid period → premium
+    if (profile?.subscription_status === 'canceled' && profile?.subscription_period_end) {
+      const periodEnd = new Date(profile.subscription_period_end)
+      if (periodEnd > new Date()) {
+        return {
+          tier: 'premium' as Tier,
+          isTrial: false,
+          trialDaysRemaining: 0,
+          canUse: () => true,
+        }
+      }
+    }
+
     // Check trial: account created within 30 days
     const createdAt = user.created_at ? new Date(user.created_at) : null
     if (createdAt) {

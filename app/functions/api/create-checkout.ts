@@ -1,8 +1,13 @@
 interface Env {
   STRIPE_SECRET_KEY?: string
+  STRIPE_PRICE_PREMIUM?: string
+  STRIPE_PRICE_CHAT_100?: string
+  STRIPE_PRICE_CHAT_200?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
 }
+
+type CheckoutType = 'subscription' | 'chat_pack_100' | 'chat_pack_200'
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request, env } = context
@@ -29,33 +34,91 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   }
   const user = await userRes.json() as { id: string; email: string }
 
-  const body = await request.json() as { amount_cents: number }
-  const validAmounts = [500, 1000, 2000]
-  if (!validAmounts.includes(body.amount_cents)) {
-    return Response.json({ error: 'Invalid amount' }, { status: 400 })
+  const body = await request.json() as { type: CheckoutType }
+  const origin = request.headers.get('origin') || 'https://tinct.app'
+
+  // Look up existing stripe_customer_id from profile
+  const profileRes = await fetch(
+    `${env.SUPABASE_URL}/rest/v1/profiles?id=eq.${user.id}&select=stripe_customer_id`,
+    {
+      headers: {
+        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
+        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+      },
+    }
+  )
+  const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
+  let customerId = profiles?.[0]?.stripe_customer_id || null
+
+  // Create Stripe customer if needed (required for subscriptions, good for all)
+  if (!customerId) {
+    const customerParams = new URLSearchParams()
+    customerParams.set('email', user.email)
+    customerParams.set('metadata[supabase_user_id]', user.id)
+
+    const customerRes = await fetch('https://api.stripe.com/v1/customers', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: customerParams.toString(),
+    })
+    const customer = await customerRes.json() as { id: string }
+    customerId = customer.id
+
+    // Save customer ID to profile
+    await fetch(`${env.SUPABASE_URL}/rest/v1/profiles?id=eq.${user.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
+        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify({ stripe_customer_id: customerId }),
+    })
   }
 
   try {
-    // Create Stripe Checkout session via API
-    const amountLabels: Record<number, string> = {
-      500: '$5 — ~150 messages',
-      1000: '$10 — ~300 messages',
-      2000: '$20 — ~600 messages',
-    }
-
-    const origin = request.headers.get('origin') || 'https://tinct.app'
     const params = new URLSearchParams()
-    params.set('payment_method_types[]', 'card')
-    params.set('line_items[0][price_data][currency]', 'usd')
-    params.set('line_items[0][price_data][product_data][name]', 'Tinct AI Chat Credits')
-    params.set('line_items[0][price_data][product_data][description]', amountLabels[body.amount_cents])
-    params.set('line_items[0][price_data][unit_amount]', String(body.amount_cents))
-    params.set('line_items[0][quantity]', '1')
-    params.set('mode', 'payment')
+    params.set('customer', customerId)
     params.set('success_url', `${origin}?payment=success`)
     params.set('cancel_url', `${origin}?payment=cancelled`)
     params.set('metadata[supabase_user_id]', user.id)
-    params.set('metadata[credit_cents]', String(body.amount_cents))
+
+    if (body.type === 'subscription') {
+      if (!env.STRIPE_PRICE_PREMIUM) {
+        return Response.json({ error: 'Subscription price not configured' }, { status: 500 })
+      }
+      params.set('mode', 'subscription')
+      params.set('line_items[0][price]', env.STRIPE_PRICE_PREMIUM)
+      params.set('line_items[0][quantity]', '1')
+      params.set('metadata[type]', 'subscription')
+      params.set('subscription_data[metadata][supabase_user_id]', user.id)
+    } else if (body.type === 'chat_pack_100') {
+      if (!env.STRIPE_PRICE_CHAT_100) {
+        return Response.json({ error: 'Chat pack price not configured' }, { status: 500 })
+      }
+      params.set('mode', 'payment')
+      params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_100)
+      params.set('line_items[0][quantity]', '1')
+      params.set('metadata[type]', 'chat_pack')
+      params.set('metadata[message_count]', '100')
+      params.set('metadata[amount_cents]', '300')
+    } else if (body.type === 'chat_pack_200') {
+      if (!env.STRIPE_PRICE_CHAT_200) {
+        return Response.json({ error: 'Chat pack price not configured' }, { status: 500 })
+      }
+      params.set('mode', 'payment')
+      params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_200)
+      params.set('line_items[0][quantity]', '1')
+      params.set('metadata[type]', 'chat_pack')
+      params.set('metadata[message_count]', '200')
+      params.set('metadata[amount_cents]', '500')
+    } else {
+      return Response.json({ error: 'Invalid checkout type' }, { status: 400 })
+    }
 
     const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',
@@ -66,7 +129,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       body: params.toString(),
     })
 
-    const session = await stripeRes.json() as { url: string }
+    const session = await stripeRes.json() as { url: string; error?: { message: string } }
+    if (session.error) {
+      return Response.json({ error: session.error.message }, { status: 400 })
+    }
     return Response.json({ url: session.url })
   } catch (err) {
     return Response.json({

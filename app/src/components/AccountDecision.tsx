@@ -19,7 +19,7 @@ export function AccountDecision({ bookTitle, bookAuthor, onCreateAccount, onSkip
         </h2>
 
         <p className="account-decision-subtitle">
-          Create a free account and get the full Premium experience for your first 30 days. No credit card, no auto-renew.
+          Create a free account and get the full Premium experience for your first 30 days. No credit card, no auto-renew. After your trial: $5/month.
         </p>
 
         <ul className="account-decision-features">

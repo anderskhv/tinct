@@ -62,7 +62,7 @@ export default function App() {
 
   // Auth & billing
   const { user, profile, session, isLoading: authLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
-  const { messagesRemaining, hasBalance, deductUsage, isAnonymous } = useBalance(session, profile)
+  const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
@@ -295,8 +295,8 @@ export default function App() {
     }
   }, [isAnonymous])
 
-  // Handle Stripe top-up
-  const handleTopUp = useCallback(async (amountCents: number) => {
+  // Handle Stripe checkout (subscription or chat packs)
+  const handleCheckout = useCallback(async (type: 'subscription' | 'chat_pack_100' | 'chat_pack_200') => {
     if (!session?.access_token) return
 
     try {
@@ -306,7 +306,7 @@ export default function App() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.access_token}`,
         },
-        body: JSON.stringify({ amount_cents: amountCents }),
+        body: JSON.stringify({ type }),
       })
       const data = await response.json()
       if (data.url) {
@@ -314,6 +314,27 @@ export default function App() {
       }
     } catch (err) {
       console.error('Checkout failed:', err)
+    }
+  }, [session])
+
+  // Handle Stripe Customer Portal (manage subscription)
+  const handleManageSubscription = useCallback(async () => {
+    if (!session?.access_token) return
+
+    try {
+      const response = await fetch('/api/create-portal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+      })
+      const data = await response.json()
+      if (data.url) {
+        window.location.href = data.url
+      }
+    } catch (err) {
+      console.error('Portal failed:', err)
     }
   }, [session])
 
@@ -1047,9 +1068,14 @@ export default function App() {
         <UsageDashboard
           profile={profile}
           onClose={() => setShowUsageDashboard(false)}
-          onTopUp={handleTopUp}
+          onCheckout={handleCheckout}
+          onManageSubscription={handleManageSubscription}
           isAnonymous={isAnonymous}
+          isSubscribed={isSubscribed}
           onSignIn={() => { setShowUsageDashboard(false); setShowAuthModal(true) }}
+          messagesRemaining={messagesRemaining}
+          monthlyRemaining={monthlyRemaining}
+          messageBalance={messageBalance}
         />
       )}
 

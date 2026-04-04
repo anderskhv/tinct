@@ -178,20 +178,33 @@ Deliverables:
 
 ## Revenue Model
 
-### Phase 1a: Free
-No payments. No auth. Just the reading experience.
+### Free Tier (no account needed)
+- All books, all editions, all languages — **free forever**
+- Side-by-side reading, highlights, notes — free
+- No AI chat, no Cast, no audiobook, no sync
 
-### Phase 1b: Token-based AI pricing
-- Reading experience: **free** for all public domain books
-- AI chat usage: **transparent cost-plus markup** on token consumption
-- No subscription wall. No $10/month barrier.
-- Users see what they're spending. We're honest about costs.
-- Goal: sustainability, not profit maximization
+### Free Trial (30 days, account required)
+- Full Premium experience for 30 days
+- No credit card required, no auto-renew
 
-### Phase 2+ (if bookstore):
-- Modest margin on book sales (not competing on price, not gouging)
-- Same token markup on AI features
-- Explore but not committed
+### Premium Subscription — $5/month
+- 100 AI chat messages per month (included)
+- Audiobook for every book
+- Cast — spoiler-free character tracker
+- Intelligent notes with AI cleanup
+- Cross-device sync
+- Reading journal and export
+
+### Chat Packs (when monthly quota runs out)
+- $3 for 100 messages
+- $5 for 200 messages
+- Account-level balance, carries across months
+- Available to subscribers and non-subscribers
+
+### Unit Economics (at ~$0.014/msg API cost)
+- Monthly subscription: $5 revenue, ~$1.40 API cost (100 msgs at 70% utilization), ~$0.40 Stripe → ~$3.20 gross margin
+- Chat pack ($3/100): $3 revenue, ~$1.40 API cost, ~$0.40 Stripe → ~$1.20 gross margin
+- Target: $1.15-1.50 net per subscriber per month after all costs and taxes
 
 ---
 

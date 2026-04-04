@@ -205,8 +205,11 @@ export interface UserProfile {
   token_balance_cents: number
   total_tokens_used: number
   created_at: string
-  subscription_status: 'active' | 'canceled' | null
+  subscription_status: 'active' | 'canceled' | 'past_due' | null
   subscription_period_end: string | null
+  messages_used_this_period: number
+  message_balance: number
+  period_start: string | null
 }
 
 export interface TokenUsage {
@@ -263,6 +266,7 @@ export interface ReadingPosition {
   totalPages: number
   scrollFraction: number // 0.0–1.0, viewport-independent canonical position
   updatedAt?: number // epoch ms — used to pick most recent across devices
+  lastParagraphIndex?: number // last visible paragraph (reading) or last played paragraph (audio)
 }
 
 export interface ReadingProgress {
@@ -273,4 +277,44 @@ export interface ReadingProgress {
   totalChapters: number
   /** Percentage 0-100 */
   percent: number
+}
+
+/** How an edition was consumed */
+export interface EditionUsage {
+  key: string
+  mode: 'read' | 'listened'
+  /** Progress 0-100 for this edition in this chapter */
+  percent?: number
+}
+
+/** Per-chapter reading record for the Feed */
+export interface ChapterReadingRecord {
+  chapterNumber: number
+  /** Edition keys the user has read this chapter in, ordered by first use */
+  editions: string[]
+  /** Detailed per-edition usage (mode + progress). Going forward only. */
+  editionUsage?: EditionUsage[]
+  /** Total number of reading sessions (each chapter visit = 1) */
+  readCount: number
+  /** Epoch ms of first read */
+  firstReadAt: number
+  /** Epoch ms of most recent read */
+  lastReadAt: number
+  /** Whether the user reached the last page at least once */
+  completed: boolean
+  /** Last paragraph the user read or listened to in this chapter */
+  lastParagraphIndex?: number
+  /** Total paragraphs in this chapter (for progress display) */
+  totalParagraphs?: number
+  /** Cumulative seconds spent reading/listening to this chapter */
+  timeSpentSeconds?: number
+}
+
+/** Full reading log for a book — powers the Reading Feed */
+export interface BookReadingLog {
+  bookId: string
+  /** Keyed by chapter number for O(1) lookup */
+  chapters: Record<number, ChapterReadingRecord>
+  /** Last updated timestamp for sync conflict resolution */
+  updatedAt: number
 }
