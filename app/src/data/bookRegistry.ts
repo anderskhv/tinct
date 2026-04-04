@@ -21,16 +21,6 @@ export const ODYSSEY: Book = {
       hasAudio: true,
     },
     {
-      key: 'verse-en',
-      language: 'en',
-      style: 'verse',
-      label: 'Pope (Verse, 1726)',
-      translator: 'Alexander Pope',
-      year: 1726,
-      aligned: false,
-      hasAudio: true,
-    },
-    {
       key: 'modern-en',
       language: 'en',
       style: 'modern',
@@ -44,7 +34,7 @@ export const ODYSSEY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -82,7 +72,7 @@ export const ULYSSES: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -120,7 +110,7 @@ export const WAR_AND_PEACE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -168,8 +158,44 @@ export const BIBLE: Book = {
   ],
 }
 
+export const GILGAMESH: Book = {
+  id: 'gilgamesh',
+  title: 'The Epic of Gilgamesh',
+  author: 'Anonymous',
+  description: 'The oldest surviving great work of literature. A king and a wild man become brothers, slay monsters, and defy the gods — then face the one enemy no mortal can defeat.',
+  year: -2100,
+  wordCount: 30000,
+  coverColor: '#4a3728',
+  coverAccent: '#c9963a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Prose Compilation',
+      aligned: true,
+      hasAudio: false,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH]
 
 export function getBook(id: string): Book | undefined {
   return BOOKS.find(b => b.id === id)
