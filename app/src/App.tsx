@@ -1396,7 +1396,7 @@ export default function App() {
             Chat
           </button>
           <button className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
-            Notes
+            Feed
           </button>
           <button className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
             Cast

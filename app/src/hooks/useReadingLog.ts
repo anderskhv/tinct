@@ -264,8 +264,9 @@ export function useReadingLog(
     setLog(prev => {
       const existing = prev.chapters[currentChapter]
       if (!existing) return prev
-      // Only update if further than before (don't go backwards on re-reads)
-      if (existing.lastParagraphIndex !== undefined && lastParagraphIndex <= existing.lastParagraphIndex) return prev
+      const isNewHighWater = existing.lastParagraphIndex === undefined || lastParagraphIndex > existing.lastParagraphIndex
+      // Always update editionUsage (tracks read vs listened mode), but only
+      // advance lastParagraphIndex if it's a new high water mark
       return {
         ...prev,
         updatedAt: Date.now(),
@@ -273,7 +274,7 @@ export function useReadingLog(
           ...prev.chapters,
           [currentChapter]: {
             ...existing,
-            lastParagraphIndex,
+            lastParagraphIndex: isNewHighWater ? lastParagraphIndex : existing.lastParagraphIndex,
             totalParagraphs: totalParagraphs ?? existing.totalParagraphs,
             editionUsage: upsertUsage(existing.editionUsage, editionKey, mode, pct),
           },
