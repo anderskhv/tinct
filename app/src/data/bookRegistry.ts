@@ -356,6 +356,13 @@ export const THE_ART_OF_WAR: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
