@@ -194,8 +194,173 @@ export const GILGAMESH: Book = {
   ],
 }
 
+export const HAMLET: Book = {
+  id: 'hamlet',
+  title: 'Hamlet',
+  author: 'William Shakespeare',
+  description: 'A prince haunted by his father\'s ghost, paralyzed by doubt, driven toward revenge. The play that invented the modern mind — and the question that never stops: to be, or not to be.',
+  year: 1600,
+  wordCount: 30000,
+  coverColor: '#1a1a2e',
+  coverAccent: '#8a7fb5',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original Text',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+  ],
+}
+
+export const MACBETH: Book = {
+  id: 'macbeth',
+  title: 'Macbeth',
+  author: 'William Shakespeare',
+  description: 'A warrior seduced by prophecy and ambition murders his king — then watches his world unravel. Shakespeare\'s darkest, fastest tragedy: blood, guilt, and the wages of unchecked power.',
+  year: 1606,
+  wordCount: 17000,
+  coverColor: '#2a0a0a',
+  coverAccent: '#b53a3a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original Text',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const MIDSUMMER: Book = {
+  id: 'midsummer',
+  title: 'A Midsummer Night\'s Dream',
+  author: 'William Shakespeare',
+  description: 'Lovers lost in an enchanted forest, fairies at war, and a weaver turned into a donkey. Shakespeare\'s most magical comedy — where love is ridiculous, wonderful, and completely out of anyone\'s control.',
+  year: 1595,
+  wordCount: 16000,
+  coverColor: '#0e2a1a',
+  coverAccent: '#6abf8a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original Text',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const ROMEO_AND_JULIET: Book = {
+  id: 'romeo-and-juliet',
+  title: 'Romeo and Juliet',
+  author: 'William Shakespeare',
+  description: 'Two teenagers fall in love across a blood feud and burn through five days that end in a tomb. The original star-crossed lovers — and the play that made tragedy feel like poetry.',
+  year: 1597,
+  wordCount: 25000,
+  coverColor: '#2e1020',
+  coverAccent: '#d4667a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original Text',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const THE_TEMPEST: Book = {
+  id: 'the-tempest',
+  title: 'The Tempest',
+  author: 'William Shakespeare',
+  description: 'A sorcerer on a remote island conjures a storm to shipwreck his enemies — then chooses mercy over revenge. Shakespeare\'s farewell to the stage: magic, forgiveness, and letting go.',
+  year: 1611,
+  wordCount: 17000,
+  coverColor: '#0e1a2e',
+  coverAccent: '#5a9abf',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original Text',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const THE_ART_OF_WAR: Book = {
+  id: 'the-art-of-war',
+  title: 'The Art of War',
+  author: 'Sun Tzu',
+  description: 'Thirteen chapters on strategy, deception, and the nature of conflict — written 2,500 years ago, still the sharpest manual on how to win without fighting.',
+  year: -500,
+  wordCount: 13000,
+  coverColor: '#2a1a0a',
+  coverAccent: '#c4a035',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Giles Translation (1910)',
+      translator: 'Lionel Giles',
+      year: 1910,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR]
 
 export function getBook(id: string): Book | undefined {
   return BOOKS.find(b => b.id === id)

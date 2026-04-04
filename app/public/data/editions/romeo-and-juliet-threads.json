@@ -1,0 +1,419 @@
+{
+  "bookId": "romeo-and-juliet",
+  "characters": [
+    {
+      "id": "romeo",
+      "name": { "en": "Romeo" },
+      "epithet": { "en": "Son of Montague" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Romeo_Montague",
+      "searchNames": ["Romeo", "Romeo Montague"],
+      "chapters": {
+        "2": {
+          "modern-en": "Introduced pining for Rosaline, wandering the streets melancholy. Confides in Benvolio about his unrequited love."
+        },
+        "3": {
+          "modern-en": "Reads the Capulet guest list by chance and discovers Rosaline will be at the feast. Agrees to attend in disguise."
+        },
+        "5": {
+          "modern-en": "Expresses foreboding about the night ahead. Mercutio tries to cheer him with the Queen Mab speech."
+        },
+        "6": {
+          "modern-en": "At the Capulet ball, sees Juliet and instantly forgets Rosaline. They share their first words and a kiss before learning each is from the enemy family."
+        },
+        "7": {
+          "modern-en": "Climbs the wall into the Capulet orchard, unable to leave Juliet behind."
+        },
+        "8": {
+          "modern-en": "The balcony scene. Declares his love to Juliet and they exchange vows. They agree to marry the next day."
+        },
+        "9": {
+          "modern-en": "Asks Friar Lawrence to marry them. The Friar agrees, hoping the union will end the feud."
+        },
+        "10": {
+          "modern-en": "Encounters Mercutio and Benvolio in high spirits. The Nurse arrives and Romeo gives her the message about the secret wedding."
+        },
+        "12": {
+          "modern-en": "Marries Juliet in Friar Lawrence's cell."
+        },
+        "13": {
+          "modern-en": "Refuses to fight Tybalt because they are now secretly related. When Tybalt kills Mercutio, Romeo kills Tybalt in a fury and flees, crying 'I am fortune's fool.'"
+        },
+        "15": {
+          "modern-en": "Hides at Friar Lawrence's cell, distraught at his banishment. Threatens suicide. The Friar and Nurse talk him into going to Juliet before fleeing to Mantua."
+        },
+        "17": {
+          "modern-en": "Spends his wedding night with Juliet. At dawn they part, knowing he must leave for Mantua or die."
+        },
+        "23": {
+          "modern-en": "In Mantua, hears from Balthasar that Juliet is dead. Buys poison from an apothecary, determined to die beside her."
+        },
+        "25": {
+          "modern-en": "Arrives at the Capulet tomb. Kills Paris who tries to stop him. Drinks poison beside Juliet's body and dies just before she wakes."
+        }
+      }
+    },
+    {
+      "id": "juliet",
+      "name": { "en": "Juliet" },
+      "epithet": { "en": "Daughter of Capulet" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Juliet_Capulet",
+      "searchNames": ["Juliet", "Juliet Capulet"],
+      "chapters": {
+        "4": {
+          "modern-en": "Introduced as nearly fourteen. Her mother raises the subject of marriage to Paris; Juliet agrees to consider him."
+        },
+        "6": {
+          "modern-en": "Meets Romeo at the ball and falls in love. Discovers he is a Montague after the dance."
+        },
+        "8": {
+          "modern-en": "The balcony scene. Confesses her love for Romeo, unaware he is listening. They exchange vows and plan their secret marriage."
+        },
+        "11": {
+          "modern-en": "Waits impatiently for the Nurse to return with Romeo's message. Learns the wedding is arranged for that afternoon."
+        },
+        "12": {
+          "modern-en": "Arrives at Friar Lawrence's cell and marries Romeo."
+        },
+        "14": {
+          "modern-en": "Learns from the Nurse that Tybalt is dead and Romeo is banished. Torn between grief for her cousin and love for her husband, ultimately sides with Romeo."
+        },
+        "17": {
+          "modern-en": "After the wedding night, parts from Romeo at dawn. Refuses her father's order to marry Paris. Is threatened with disownment. The Nurse advises her to marry Paris; Juliet resolves to seek the Friar's help."
+        },
+        "18": {
+          "modern-en": "Goes to Friar Lawrence. He gives her a potion that will make her appear dead for forty-two hours, during which Romeo will be sent for."
+        },
+        "19": {
+          "modern-en": "Returns home and pretends to agree to the marriage with Paris."
+        },
+        "20": {
+          "modern-en": "Alone, overcomes her fears and drinks the potion."
+        },
+        "22": {
+          "modern-en": "Found apparently dead by the Nurse and her family. The wedding turns to a funeral."
+        },
+        "25": {
+          "modern-en": "Wakes in the tomb to find Romeo dead beside her. Kisses his poisoned lips, then stabs herself with his dagger."
+        }
+      }
+    },
+    {
+      "id": "mercutio",
+      "name": { "en": "Mercutio" },
+      "epithet": { "en": "Romeo's friend, kinsman of the Prince" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Mercutio",
+      "searchNames": ["Mercutio"],
+      "chapters": {
+        "5": {
+          "modern-en": "Delivers the famous Queen Mab speech, a dazzling, increasingly dark fantasy about the fairy queen who brings dreams. Tries to shake Romeo out of his melancholy."
+        },
+        "7": {
+          "modern-en": "Calls for Romeo in the dark after the feast, mocking his lovesickness for Rosaline."
+        },
+        "10": {
+          "modern-en": "Teases Romeo about his overnight disappearance. Engages in witty wordplay with the Nurse."
+        },
+        "13": {
+          "modern-en": "Provokes Tybalt when Romeo refuses to fight. Is fatally stabbed under Romeo's arm when Romeo tries to intervene. Dies cursing both houses: 'A plague on both your houses!'"
+        }
+      }
+    },
+    {
+      "id": "tybalt",
+      "name": { "en": "Tybalt" },
+      "epithet": { "en": "Juliet's cousin, a fierce fighter" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Tybalt",
+      "searchNames": ["Tybalt", "King of Cats"],
+      "chapters": {
+        "2": {
+          "modern-en": "Draws his sword eagerly in the opening street brawl, ready to fight any Montague."
+        },
+        "6": {
+          "modern-en": "Recognizes Romeo at the Capulet ball by his voice. Capulet forbids him from causing a scene, but Tybalt vows future revenge."
+        },
+        "13": {
+          "modern-en": "Challenges Romeo to a duel. When Romeo refuses, fights Mercutio instead and kills him. Returns and is killed by Romeo."
+        }
+      }
+    },
+    {
+      "id": "friar-lawrence",
+      "name": { "en": "Friar Lawrence" },
+      "epithet": { "en": "A Franciscan friar, Romeo's confessor" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Friar_Laurence",
+      "searchNames": ["Friar Lawrence", "Friar", "Friar Laurence"],
+      "chapters": {
+        "9": {
+          "modern-en": "Introduced gathering herbs at dawn. Agrees to marry Romeo and Juliet, hoping it will reconcile the feuding families."
+        },
+        "12": {
+          "modern-en": "Performs the secret wedding ceremony for Romeo and Juliet."
+        },
+        "15": {
+          "modern-en": "Tells Romeo his banishment is mercy, not punishment. Devises a plan: Romeo will go to Juliet, then flee to Mantua until the marriage can be revealed."
+        },
+        "18": {
+          "modern-en": "Gives Juliet the sleeping potion and promises to send a message to Romeo in Mantua explaining the plan."
+        },
+        "22": {
+          "modern-en": "Arrives at the Capulet house to find the family mourning Juliet's apparent death."
+        },
+        "24": {
+          "modern-en": "Learns that his letter to Romeo never reached Mantua because Friar John was quarantined. Rushes to the tomb."
+        },
+        "25": {
+          "modern-en": "Arrives at the tomb too late. Finds Romeo dead and tries to convince the waking Juliet to leave. Flees when the watch approaches. Later confesses everything to the Prince."
+        }
+      }
+    },
+    {
+      "id": "nurse",
+      "name": { "en": "Nurse" },
+      "epithet": { "en": "Juliet's devoted nurse and confidante" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Nurse_(Romeo_and_Juliet)",
+      "searchNames": ["Nurse"],
+      "chapters": {
+        "4": {
+          "modern-en": "Rambles affectionately about Juliet's childhood. Supports Lady Capulet's suggestion that Juliet consider Paris."
+        },
+        "6": {
+          "modern-en": "Identifies Romeo as a Montague for Juliet after the ball."
+        },
+        "10": {
+          "modern-en": "Goes to Romeo to arrange the wedding details. Endures Mercutio's teasing. Returns with the message for Juliet."
+        },
+        "11": {
+          "modern-en": "Torments Juliet by delaying the good news. Finally tells her to go to Friar Lawrence's cell to be married."
+        },
+        "14": {
+          "modern-en": "Brings Juliet news of Tybalt's death and Romeo's banishment. Agrees to bring Romeo to Juliet's chamber."
+        },
+        "15": {
+          "modern-en": "Comes to Friar Lawrence's cell to fetch Romeo for Juliet."
+        },
+        "17": {
+          "modern-en": "Warns the lovers that Lady Capulet is coming. Later advises Juliet to forget Romeo and marry Paris, losing Juliet's trust."
+        },
+        "19": {
+          "modern-en": "Helps Juliet prepare for the supposed wedding to Paris."
+        },
+        "20": {
+          "modern-en": "Present when Juliet asks to be left alone for the night."
+        },
+        "21": {
+          "modern-en": "Helps with wedding preparations through the night."
+        },
+        "22": {
+          "modern-en": "Discovers Juliet apparently dead in her bed and raises the alarm."
+        }
+      }
+    },
+    {
+      "id": "capulet",
+      "name": { "en": "Capulet" },
+      "epithet": { "en": "Head of the Capulet family, Juliet's father" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Capulet_(Romeo_and_Juliet)",
+      "searchNames": ["Capulet", "Lord Capulet", "Old Capulet"],
+      "chapters": {
+        "2": {
+          "modern-en": "Enters the street brawl calling for his sword. Restrained by his wife."
+        },
+        "3": {
+          "modern-en": "Tells Paris that Juliet is young but invites him to the feast to begin his courtship."
+        },
+        "6": {
+          "modern-en": "Hosts the ball. Stops Tybalt from attacking Romeo, insisting on civil behavior under his roof."
+        },
+        "16": {
+          "modern-en": "Arranges Juliet's marriage to Paris for Thursday, hoping it will lift her spirits after Tybalt's death."
+        },
+        "17": {
+          "modern-en": "Furiously threatens to disown Juliet when she refuses to marry Paris."
+        },
+        "19": {
+          "modern-en": "Overjoyed when Juliet appears to consent. Moves the wedding up to Wednesday."
+        },
+        "21": {
+          "modern-en": "Stays up all night overseeing wedding preparations."
+        },
+        "22": {
+          "modern-en": "Devastated to find Juliet dead on her wedding morning."
+        },
+        "25": {
+          "modern-en": "At the tomb, learns the full truth. Offers his hand to Montague, ending the feud."
+        }
+      }
+    },
+    {
+      "id": "lady-capulet",
+      "name": { "en": "Lady Capulet" },
+      "epithet": { "en": "Wife of Capulet, Juliet's mother" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Lady_Capulet",
+      "searchNames": ["Lady Capulet"],
+      "chapters": {
+        "2": {
+          "modern-en": "Tries to hold Capulet back from joining the street brawl."
+        },
+        "4": {
+          "modern-en": "Broaches the subject of marriage to Paris with Juliet, praising his qualities."
+        },
+        "16": {
+          "modern-en": "Tells Juliet about the planned marriage to Paris."
+        },
+        "17": {
+          "modern-en": "Refuses to intercede with Capulet on Juliet's behalf when she protests the marriage."
+        },
+        "20": {
+          "modern-en": "Bids Juliet goodnight before the supposed wedding day."
+        },
+        "21": {
+          "modern-en": "Helps with the wedding preparations."
+        },
+        "22": {
+          "modern-en": "Mourns Juliet's apparent death."
+        },
+        "25": {
+          "modern-en": "Present at the tomb for the final revelations."
+        }
+      }
+    },
+    {
+      "id": "montague",
+      "name": { "en": "Montague" },
+      "epithet": { "en": "Head of the Montague family, Romeo's father" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/House_of_Montague",
+      "searchNames": ["Montague", "Lord Montague", "Old Montague"],
+      "chapters": {
+        "2": {
+          "modern-en": "Enters the street brawl. Afterwards, worries about Romeo's melancholy and asks Benvolio to find out what troubles him."
+        },
+        "13": {
+          "modern-en": "Present at the Prince's judgment after the deaths of Mercutio and Tybalt."
+        },
+        "25": {
+          "modern-en": "Arrives at the tomb. Reveals his wife has died of grief over Romeo's banishment. Offers to raise a golden statue of Juliet, making peace with Capulet."
+        }
+      }
+    },
+    {
+      "id": "benvolio",
+      "name": { "en": "Benvolio" },
+      "epithet": { "en": "Romeo's cousin and peacemaker" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Benvolio",
+      "searchNames": ["Benvolio"],
+      "chapters": {
+        "2": {
+          "modern-en": "Tries to stop the opening street brawl. Afterwards, promises Montague he will find out what troubles Romeo."
+        },
+        "3": {
+          "modern-en": "Encourages Romeo to attend the Capulet feast to see other beauties and forget Rosaline."
+        },
+        "5": {
+          "modern-en": "Accompanies Romeo and Mercutio to the Capulet ball."
+        },
+        "7": {
+          "modern-en": "Calls for Romeo after the feast, then gives up and leaves."
+        },
+        "10": {
+          "modern-en": "Banters with Mercutio while waiting for Romeo."
+        },
+        "13": {
+          "modern-en": "Witnesses Mercutio's death and Romeo's killing of Tybalt. Gives the Prince an account of what happened."
+        }
+      }
+    },
+    {
+      "id": "paris",
+      "name": { "en": "Paris" },
+      "epithet": { "en": "A nobleman, suitor to Juliet" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Paris_(Romeo_and_Juliet)",
+      "searchNames": ["Paris", "Count Paris"],
+      "chapters": {
+        "3": {
+          "modern-en": "Asks Capulet for Juliet's hand. Capulet says she is too young but invites him to the feast."
+        },
+        "16": {
+          "modern-en": "Meets Capulet to discuss the marriage, which is now arranged for Thursday."
+        },
+        "18": {
+          "modern-en": "Encounters Juliet at Friar Lawrence's cell. She avoids his advances."
+        },
+        "22": {
+          "modern-en": "Arrives for the wedding to find Juliet apparently dead. Mourns her alongside the family."
+        },
+        "25": {
+          "modern-en": "Stands watch at Juliet's tomb to mourn. Confronts Romeo when he arrives and is killed in the fight."
+        }
+      }
+    },
+    {
+      "id": "prince-escalus",
+      "name": { "en": "Prince Escalus" },
+      "epithet": { "en": "Prince of Verona" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Prince_Escalus",
+      "searchNames": ["Prince", "Prince Escalus", "Escalus"],
+      "chapters": {
+        "2": {
+          "modern-en": "Arrives to stop the street brawl. Declares that the next outbreak of violence between the families will be punished by death."
+        },
+        "13": {
+          "modern-en": "Pronounces judgment after Tybalt's death: Romeo is banished from Verona rather than executed, because Tybalt killed first."
+        },
+        "25": {
+          "modern-en": "Arrives at the tomb, hears Friar Lawrence's confession, and declares that all are punished by the tragedy. Brokers the peace between the families."
+        }
+      }
+    },
+    {
+      "id": "rosaline",
+      "name": { "en": "Rosaline" },
+      "epithet": { "en": "Romeo's first love, never seen on stage" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Rosaline_(Romeo_and_Juliet)",
+      "searchNames": ["Rosaline"],
+      "chapters": {
+        "2": {
+          "modern-en": "The unseen object of Romeo's lovesickness. She has sworn to live chaste, which leaves Romeo despairing."
+        }
+      }
+    },
+    {
+      "id": "friar-john",
+      "name": { "en": "Friar John" },
+      "epithet": { "en": "A Franciscan friar" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Friar_Laurence",
+      "searchNames": ["Friar John"],
+      "chapters": {
+        "24": {
+          "modern-en": "Returns to tell Friar Lawrence that he was quarantined due to plague fears and could not deliver the crucial letter to Romeo in Mantua."
+        }
+      }
+    },
+    {
+      "id": "apothecary",
+      "name": { "en": "Apothecary" },
+      "epithet": { "en": "A poor seller of drugs in Mantua" },
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Romeo_and_Juliet",
+      "searchNames": ["Apothecary"],
+      "chapters": {
+        "23": {
+          "modern-en": "Reluctantly sells Romeo a deadly poison for forty ducats, despite it being illegal, because he is desperately poor."
+        }
+      }
+    }
+  ]
+}
