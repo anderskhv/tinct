@@ -311,9 +311,13 @@ export default function App() {
       const data = await response.json()
       if (data.url) {
         window.location.href = data.url
+      } else {
+        console.error('Checkout error:', data)
+        alert(`Checkout failed: ${data.error || 'Unknown error'}${data.details ? '\n' + JSON.stringify(data.details) : ''}`)
       }
     } catch (err) {
       console.error('Checkout failed:', err)
+      alert('Checkout failed — check console for details')
     }
   }, [session])
 

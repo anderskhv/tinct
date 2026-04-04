@@ -272,9 +272,13 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
       },
       body: params.toString(),
     })
-    const session = await stripeRes.json() as { url: string; error?: { message: string } }
-    if (session.error) return Response.json({ error: session.error.message }, { status: 400 })
-    return Response.json({ url: session.url })
+    const stripeData = await stripeRes.json() as Record<string, unknown>
+    if (!stripeRes.ok || stripeData.error) {
+      return Response.json({ error: 'Stripe error', details: stripeData }, { status: 400 })
+    }
+    const checkoutUrl = (stripeData as { url: string }).url
+    if (!checkoutUrl) return Response.json({ error: 'No checkout URL returned', details: stripeData }, { status: 500 })
+    return Response.json({ url: checkoutUrl })
   } catch (err) {
     return Response.json({ error: 'Checkout creation failed', details: err instanceof Error ? err.message : String(err) }, { status: 500 })
   }
