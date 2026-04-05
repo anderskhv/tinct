@@ -8,6 +8,7 @@ interface UseTierReturn {
   tier: Tier
   isTrial: boolean
   trialDaysRemaining: number
+  trialExpired: boolean
   canUse: (feature: Feature) => boolean
 }
 
@@ -19,6 +20,7 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
         tier: 'premium' as Tier,
         isTrial: false,
         trialDaysRemaining: 0,
+        trialExpired: false,
         canUse: () => true,
       }
     }
@@ -30,6 +32,7 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
         tier,
         isTrial: false,
         trialDaysRemaining: 0,
+        trialExpired: false,
         canUse: (feature: Feature) => FEATURE_ACCESS[feature].includes(tier),
       }
     }
@@ -40,6 +43,7 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
         tier: 'premium' as Tier,
         isTrial: false,
         trialDaysRemaining: 0,
+        trialExpired: false,
         canUse: () => true,
       }
     }
@@ -52,6 +56,7 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
           tier: 'premium' as Tier,
           isTrial: false,
           trialDaysRemaining: 0,
+          trialExpired: false,
           canUse: () => true,
         }
       }
@@ -68,6 +73,7 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
           tier: 'premium' as Tier,
           isTrial: true,
           trialDaysRemaining: remaining,
+          trialExpired: false,
           canUse: () => true,
         }
       }
@@ -79,6 +85,7 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
       tier,
       isTrial: false,
       trialDaysRemaining: 0,
+      trialExpired: true,
       canUse: (feature: Feature) => FEATURE_ACCESS[feature].includes(tier),
     }
   }, [user, profile])

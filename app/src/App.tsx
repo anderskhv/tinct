@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { Header } from './components/Header'
+import { TrialBanner } from './components/TrialBanner'
 import { Reader } from './components/Reader'
 import { SplitReader } from './components/SplitReader'
 import { SidePanel } from './components/SidePanel'
@@ -1182,6 +1183,8 @@ export default function App() {
         audioEditionKey={effectiveAudioEditionKey}
         onAudioEditionChange={setAudioEditionKey}
       />
+
+      <TrialBanner onSubscribe={() => handleCheckout('subscription')} />
 
       <main
         className={`main-layout ${isMobile ? 'main-layout-mobile' : ''} ${!preferences.panelOpen ? 'panel-closed' : ''}`}

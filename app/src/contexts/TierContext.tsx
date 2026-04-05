@@ -7,6 +7,7 @@ interface TierContextValue {
   tier: Tier
   isTrial: boolean
   trialDaysRemaining: number
+  trialExpired: boolean
   canUse: (feature: Feature) => boolean
 }
 
@@ -14,6 +15,7 @@ const TierContext = createContext<TierContextValue>({
   tier: 'none',
   isTrial: false,
   trialDaysRemaining: 0,
+  trialExpired: false,
   canUse: () => false,
 })
 
