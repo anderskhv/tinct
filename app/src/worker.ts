@@ -418,6 +418,101 @@ async function handleCreatePortal(request: Request, env: Env): Promise<Response>
   }
 }
 
+// ===== API: Cancel Subscription =====
+
+async function handleCancelSubscription(request: Request, env: Env): Promise<Response> {
+  if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
+  if (!env.STRIPE_SECRET_KEY) return Response.json({ error: 'Stripe not configured' }, { status: 500 })
+
+  const user = await verifyUser(env, request)
+  if (!user) return Response.json({ error: 'Authentication required' }, { status: 401 })
+
+  // Get stripe_customer_id
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
+  const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
+  const customerId = profiles?.[0]?.stripe_customer_id
+  if (!customerId) return Response.json({ error: 'No subscription found' }, { status: 404 })
+
+  try {
+    // List active subscriptions for this customer
+    const listRes = await fetch(`https://api.stripe.com/v1/subscriptions?customer=${customerId}&status=active&limit=1`, {
+      headers: { 'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}` },
+    })
+    const listData = await listRes.json() as { data: { id: string }[] }
+    const subscriptionId = listData.data?.[0]?.id
+    if (!subscriptionId) return Response.json({ error: 'No active subscription' }, { status: 404 })
+
+    // Cancel at period end (not immediately)
+    const cancelRes = await fetch(`https://api.stripe.com/v1/subscriptions/${subscriptionId}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: 'cancel_at_period_end=true',
+    })
+    const sub = await cancelRes.json() as { id: string; cancel_at_period_end: boolean; current_period_end: number; error?: { message: string } }
+    if (sub.error) return Response.json({ error: sub.error.message }, { status: 400 })
+
+    // Update profile
+    await supabaseUpdate(env, 'profiles', user.id, {
+      subscription_status: 'canceled',
+      subscription_period_end: new Date(sub.current_period_end * 1000).toISOString(),
+    })
+
+    return Response.json({
+      canceled: true,
+      access_until: new Date(sub.current_period_end * 1000).toISOString(),
+    })
+  } catch (err) {
+    return Response.json({ error: 'Cancellation failed', details: err instanceof Error ? err.message : String(err) }, { status: 500 })
+  }
+}
+
+// ===== API: Subscription Info =====
+
+async function handleSubscriptionInfo(request: Request, env: Env): Promise<Response> {
+  if (request.method !== 'GET') return Response.json({ error: 'Method not allowed' }, { status: 405 })
+
+  const user = await verifyUser(env, request)
+  if (!user) return Response.json({ error: 'Authentication required' }, { status: 401 })
+
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start`)
+  const profiles = await profileRes.json() as Record<string, unknown>[]
+  const profile = profiles?.[0]
+  if (!profile) return Response.json({ error: 'Profile not found' }, { status: 404 })
+
+  // If subscribed, fetch live subscription details from Stripe
+  let stripeSubscription: Record<string, unknown> | null = null
+  if (profile.stripe_customer_id && env.STRIPE_SECRET_KEY) {
+    try {
+      const listRes = await fetch(`https://api.stripe.com/v1/subscriptions?customer=${profile.stripe_customer_id}&limit=1`, {
+        headers: { 'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}` },
+      })
+      const listData = await listRes.json() as { data: { id: string; status: string; current_period_end: number; cancel_at_period_end: boolean }[] }
+      if (listData.data?.[0]) {
+        const sub = listData.data[0]
+        stripeSubscription = {
+          status: sub.status,
+          currentPeriodEnd: new Date(sub.current_period_end * 1000).toISOString(),
+          cancelAtPeriodEnd: sub.cancel_at_period_end,
+        }
+      }
+    } catch {
+      // Non-critical — return profile data without Stripe details
+    }
+  }
+
+  return Response.json({
+    subscription_status: profile.subscription_status,
+    subscription_period_end: profile.subscription_period_end,
+    messages_used_this_period: profile.messages_used_this_period,
+    message_balance: profile.message_balance,
+    period_start: profile.period_start,
+    stripe: stripeSubscription,
+  })
+}
+
 // ===== Router =====
 
 export default {
@@ -430,6 +525,8 @@ export default {
       case '/api/create-checkout': return handleCreateCheckout(request, env)
       case '/api/webhook': return handleWebhook(request, env)
       case '/api/create-portal': return handleCreatePortal(request, env)
+      case '/api/cancel-subscription': return handleCancelSubscription(request, env)
+      case '/api/subscription-info': return handleSubscriptionInfo(request, env)
     }
 
     // Fall through to static assets

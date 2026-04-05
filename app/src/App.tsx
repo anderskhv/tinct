@@ -322,12 +322,12 @@ export default function App() {
     }
   }, [session])
 
-  // Handle Stripe Customer Portal (manage subscription)
-  const handleManageSubscription = useCallback(async () => {
+  // Handle subscription cancellation (cancel at period end)
+  const handleCancelSubscription = useCallback(async () => {
     if (!session?.access_token) return
 
     try {
-      const response = await fetch('/api/create-portal', {
+      const response = await fetch('/api/cancel-subscription', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -335,13 +335,15 @@ export default function App() {
         },
       })
       const data = await response.json()
-      if (data.url) {
-        window.location.href = data.url
+      if (data.canceled) {
+        refreshProfile()
+      } else if (data.error) {
+        alert(`Cancellation failed: ${data.error}`)
       }
     } catch (err) {
-      console.error('Portal failed:', err)
+      console.error('Cancel failed:', err)
     }
-  }, [session])
+  }, [session, refreshProfile])
 
   // Check for payment success on URL params
   useEffect(() => {
@@ -1074,13 +1076,15 @@ export default function App() {
           profile={profile}
           onClose={() => setShowUsageDashboard(false)}
           onCheckout={handleCheckout}
-          onManageSubscription={handleManageSubscription}
+          onCancelSubscription={handleCancelSubscription}
           isAnonymous={isAnonymous}
           isSubscribed={isSubscribed}
+          isCanceled={profile?.subscription_status === 'canceled'}
           onSignIn={() => { setShowUsageDashboard(false); setShowAuthModal(true) }}
           messagesRemaining={messagesRemaining}
           monthlyRemaining={monthlyRemaining}
           messageBalance={messageBalance}
+          session={session}
         />
       )}
 

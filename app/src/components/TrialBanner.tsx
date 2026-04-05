@@ -29,7 +29,7 @@ export function TrialBanner({ onSubscribe }: TrialBannerProps) {
     return (
       <div className="trial-banner trial-banner-expired">
         <span className="trial-banner-text">
-          Your free trial has ended. Subscribe to restore AI chat, audiobook, Cast, and more.
+          Your free trial has ended. Reading stays free forever — subscribe for $5/mo to restore AI chat, audiobook, and Cast.
         </span>
         <button className="trial-banner-cta" onClick={onSubscribe}>Subscribe — $5/mo</button>
         <button className="trial-banner-dismiss" onClick={() => setDismissed(true)}>&times;</button>

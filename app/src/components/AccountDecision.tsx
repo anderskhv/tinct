@@ -71,6 +71,10 @@ export function AccountDecision({ bookTitle, bookAuthor, onCreateAccount, onSkip
           Continue without account
         </button>
 
+        <p className="account-decision-free-note">
+          No account? No problem. Reading is always free — all books, all editions, highlights, and notes work without signing in.
+        </p>
+
         <button className="account-decision-pricing" onClick={onShowPricing}>
           See full pricing &rarr;
         </button>
