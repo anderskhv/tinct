@@ -12,6 +12,7 @@ interface Env {
   STRIPE_PRICE_CHAT_200?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
+  BREVO_API_KEY?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -513,6 +514,88 @@ async function handleSubscriptionInfo(request: Request, env: Env): Promise<Respo
   })
 }
 
+// ===== Email: Send via Brevo =====
+
+async function sendEmail(env: Env, to: string, subject: string, html: string): Promise<boolean> {
+  if (!env.BREVO_API_KEY) return false
+  try {
+    const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': env.BREVO_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: { name: 'Tinct', email: 'contact@tinct.app' },
+        to: [{ email: to }],
+        subject,
+        htmlContent: html,
+      }),
+    })
+    return res.ok
+  } catch {
+    return false
+  }
+}
+
+function trialReminderEmail(daysLeft: number): { subject: string; html: string } {
+  return {
+    subject: `Your Tinct trial ends in ${daysLeft} day${daysLeft !== 1 ? 's' : ''}`,
+    html: `
+      <div style="font-family: Georgia, serif; max-width: 520px; margin: 0 auto; color: #2a2a2a;">
+        <h2 style="font-weight: 400;">Your free trial is ending soon</h2>
+        <p>You have <strong>${daysLeft} day${daysLeft !== 1 ? 's' : ''}</strong> left of Premium on Tinct.</p>
+        <p>To keep AI chat, audiobook, Cast, and all Premium features, subscribe for <strong>$5/month</strong>.</p>
+        <p style="margin: 24px 0;">
+          <a href="https://tinct.app?action=subscribe" style="background: #b8960c; color: #fff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-size: 16px;">Subscribe — $5/month</a>
+        </p>
+        <p style="color: #777; font-size: 14px;">Reading is always free. All books, editions, highlights, and notes stay yours regardless. Premium just adds AI chat, audiobook, and Cast.</p>
+        <p style="color: #777; font-size: 14px;">Can't afford it? Just reply to this email — we'll work something out.</p>
+        <p style="color: #aaa; font-size: 12px; margin-top: 32px;">— Tinct, a new way to read<br>
+        <a href="https://tinct.app" style="color: #aaa;">tinct.app</a></p>
+      </div>
+    `,
+  }
+}
+
+// ===== Cron: Trial Expiry Reminders =====
+
+async function handleScheduled(env: Env): Promise<void> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY || !env.BREVO_API_KEY) return
+
+  // Find users whose trial ends in exactly 3 days:
+  // - Account created 27 days ago (trial = 30 days)
+  // - No active subscription
+  // - Not already canceled (they chose to leave)
+  const now = new Date()
+  const targetCreatedBefore = new Date(now.getTime() - 27 * 24 * 60 * 60 * 1000)
+  const targetCreatedAfter = new Date(now.getTime() - 28 * 24 * 60 * 60 * 1000)
+
+  // Query auth.users joined with profiles
+  // Using the profiles table which has created_at from the user
+  const query = `profiles?select=id,email,subscription_status&subscription_status=is.null&or=(subscription_status.is.null,subscription_status.eq.)&created_at=gte.${targetCreatedAfter.toISOString()}&created_at=lt.${targetCreatedBefore.toISOString()}`
+
+  try {
+    const res = await fetch(`${env.SUPABASE_URL}/rest/v1/${query}`, {
+      headers: {
+        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
+        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+      },
+    })
+    const users = await res.json() as { id: string; email: string; subscription_status: string | null }[]
+
+    if (!Array.isArray(users)) return
+
+    for (const user of users) {
+      if (!user.email) continue
+      const { subject, html } = trialReminderEmail(3)
+      await sendEmail(env, user.email, subject, html)
+    }
+  } catch {
+    // Cron failures are silent — logged by Cloudflare
+  }
+}
+
 // ===== Router =====
 
 export default {
@@ -531,5 +614,9 @@ export default {
 
     // Fall through to static assets
     return env.ASSETS.fetch(request)
+  },
+
+  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
+    ctx.waitUntil(handleScheduled(env))
   },
 }
