@@ -57,6 +57,9 @@ interface SplitReaderProps {
   hasAudio?: boolean
   /** Whether side panel is open — triggers column recalc on change */
   panelOpen?: boolean
+  /** Navigate to next/previous chapter */
+  onNextChapter?: () => void
+  onPrevChapter?: () => void
 }
 
 export function SplitReader({
@@ -86,6 +89,8 @@ export function SplitReader({
   onParagraphClick,
   hasAudio,
   panelOpen,
+  onNextChapter,
+  onPrevChapter,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
@@ -427,16 +432,16 @@ export function SplitReader({
       <div className="page-nav">
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); goToPage(currentPage - 1) }}
-          disabled={currentPage <= 0}
+          onClick={(e) => { e.stopPropagation(); currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
+          disabled={currentPage <= 0 && !onPrevChapter}
         >
           &larr;
         </button>
         <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); goToPage(currentPage + 1) }}
-          disabled={currentPage >= totalPages - 1}
+          onClick={(e) => { e.stopPropagation(); currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
+          disabled={currentPage >= totalPages - 1 && !onNextChapter}
         >
           &rarr;
         </button>

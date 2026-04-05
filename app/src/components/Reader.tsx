@@ -403,6 +403,19 @@ export function Reader({
         const selection = window.getSelection()
         if (selection && !selection.isCollapsed) return
         if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
+
+        // Audio mode: tap on a paragraph to play from there (no page turning)
+        if (playingParagraphIndex !== undefined && onParagraphClick) {
+          const target = e.target as HTMLElement
+          const paraEl = target.closest?.('[data-paragraph-index]')
+          if (paraEl) {
+            const idx = parseInt(paraEl.getAttribute('data-paragraph-index') || '0', 10)
+            onParagraphClick(idx)
+          }
+          return
+        }
+
+        // Reading mode: left/right edge tap for page/chapter navigation
         const container = readerRef.current
         if (!container) return
         const rect = container.getBoundingClientRect()

@@ -1213,6 +1213,8 @@ export default function App() {
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 panelOpen={preferences.panelOpen}
+                onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
+                onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
               />
             </div>
             {/* View 1: Compare — shows secondary edition full-width on mobile */}
@@ -1238,6 +1240,8 @@ export default function App() {
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                  onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
+                  onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
                 />
               ) : (
                 <div className="mobile-view-placeholder">
@@ -1326,6 +1330,8 @@ export default function App() {
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 panelOpen={preferences.panelOpen}
+                onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
+                onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
               />
             ) : (
               <Reader
