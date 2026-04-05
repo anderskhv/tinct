@@ -21,7 +21,23 @@ export function UsageDashboard({
   messagesRemaining, monthlyRemaining, messageBalance,
 }: UsageDashboardProps) {
   const monthlyUsed = 100 - monthlyRemaining
-  const isTrial = !isSubscribed && profile?.subscription_status == null
+
+  // Calculate reset date (period_start + 30 days, or subscription_period_end)
+  const resetDate = (() => {
+    if (profile?.subscription_period_end) {
+      return new Date(profile.subscription_period_end)
+    }
+    if (profile?.period_start) {
+      const d = new Date(profile.period_start)
+      d.setDate(d.getDate() + 30)
+      return d
+    }
+    return null
+  })()
+
+  const resetLabel = resetDate
+    ? resetDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+    : null
 
   return (
     <div className="auth-overlay" onClick={onClose}>
@@ -42,7 +58,7 @@ export function UsageDashboard({
             {/* Monthly quota */}
             <div className="usage-quota">
               <div className="usage-quota-header">
-                <span className="usage-quota-label">Monthly messages</span>
+                <span className="usage-quota-label">Monthly messages{resetLabel ? ` — resets ${resetLabel}` : ''}</span>
                 <span className="usage-quota-count">{monthlyRemaining} of 100 remaining</span>
               </div>
               <div className="usage-progress-bar">
