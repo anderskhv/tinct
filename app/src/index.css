@@ -5562,6 +5562,142 @@ body {
   opacity: 1;
 }
 
+/* ===== Offline Banner ===== */
+.offline-banner {
+  padding: 6px 16px;
+  background: #2a2010;
+  color: #d4a843;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+/* ===== Download Manager ===== */
+.download-card {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.download-offline-notice {
+  padding: 8px 12px;
+  background: #2a2010;
+  color: #d4a843;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.download-active {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.download-active-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.download-cancel {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.download-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.download-item-cached {
+  border-left: 3px solid var(--accent);
+}
+
+.download-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.download-item-title {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+}
+
+.download-item-meta {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.download-item-status {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+.download-btn {
+  padding: 6px 14px;
+  background: var(--accent);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: var(--accent-hover);
+}
+
+.download-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.download-remove {
+  padding: 6px 14px;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 5px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.download-remove:hover {
+  border-color: #e85050;
+  color: #e85050;
+}
+
+.download-storage {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+
 .upgrade-prompt {
   display: flex;
   flex-direction: column;

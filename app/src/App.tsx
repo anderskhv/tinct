@@ -27,6 +27,8 @@ import { useProactiveInsight } from './hooks/useProactiveInsight'
 import { useThreads } from './hooks/useThreads'
 import { useAuth } from './hooks/useAuth'
 import { useBalance } from './hooks/useBalance'
+import { useOffline } from './hooks/useOffline'
+import { DownloadManager } from './components/DownloadManager'
 import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
@@ -70,6 +72,8 @@ export default function App() {
   const [showStore, setShowStore] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
   const [showPricingModal, setShowPricingModal] = useState(false)
+  const [showDownloadManager, setShowDownloadManager] = useState(false)
+  const { isOnline, offlineMeta, downloadState, storageMB, downloadBook, downloadChapter, removeDownload, cancelDownload, isBookDownloaded } = useOffline()
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [resetError, setResetError] = useState('')
@@ -1088,6 +1092,21 @@ export default function App() {
         />
       )}
 
+      {showDownloadManager && (
+        <DownloadManager
+          books={libraryBooks}
+          offlineMeta={offlineMeta}
+          downloadState={downloadState}
+          storageMB={storageMB}
+          isOnline={isOnline}
+          onDownloadBook={downloadBook}
+          onDownloadChapter={(book, ch) => downloadChapter(book, ch)}
+          onRemove={removeDownload}
+          onCancel={cancelDownload}
+          onClose={() => setShowDownloadManager(false)}
+        />
+      )}
+
       {editingObjective && (
         <div className="objective-editor-overlay" onClick={() => setEditingObjective(false)}>
           <div className="objective-editor-card" onClick={e => e.stopPropagation()}>
@@ -1145,6 +1164,8 @@ export default function App() {
         } : undefined}
         onOpenUsage={() => setShowUsageDashboard(true)}
         onOpenStore={() => setShowStore(true)}
+        onOpenDownloads={() => setShowDownloadManager(true)}
+        isBookDownloaded={isBookDownloaded(book.id)}
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
         fontSize={preferences.fontSize}
@@ -1189,6 +1210,12 @@ export default function App() {
       />
 
       <TrialBanner onSubscribe={() => handleCheckout('subscription')} />
+
+      {!isOnline && (
+        <div className="offline-banner">
+          You're offline — reading and audio work for downloaded books. Chat is unavailable.
+        </div>
+      )}
 
       <main
         className={`main-layout ${isMobile ? 'main-layout-mobile' : ''} ${!preferences.panelOpen ? 'panel-closed' : ''}`}

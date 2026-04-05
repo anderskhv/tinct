@@ -34,6 +34,8 @@ interface HeaderProps {
   onSignOut: () => void
   onOpenUsage: () => void
   onOpenStore: () => void
+  onOpenDownloads?: () => void
+  isBookDownloaded?: boolean
   onOpenNotes?: () => void
   onOpenCast?: () => void
   onResetPassword?: (email: string) => Promise<{ error?: string }>
@@ -116,6 +118,8 @@ export function Header({
   onSignOut,
   onOpenUsage,
   onOpenStore,
+  onOpenDownloads,
+  isBookDownloaded,
   onOpenNotes,
   onOpenCast,
   onResetPassword,
@@ -206,6 +210,14 @@ export function Header({
                   Browse Library
                 </button>
               </div>
+
+              {onOpenDownloads && (
+                <div className="mobile-menu-item">
+                  <button className="mobile-menu-library-btn" onClick={() => { onOpenDownloads(); setMobileMenuOpen(false) }}>
+                    Offline Reading {isBookDownloaded ? '✓' : ''}
+                  </button>
+                </div>
+              )}
 
               {/* --- FORMAT (open by default) --- */}
               <div
@@ -481,6 +493,12 @@ export function Header({
         </div>
 
         <button className="menu-item" onClick={onOpenStore}>Library</button>
+
+        {onOpenDownloads && (
+          <button className="menu-item" onClick={onOpenDownloads}>
+            Offline {isBookDownloaded ? '(saved)' : ''}
+          </button>
+        )}
 
         <button className="menu-item" onClick={onOpenSettings}>Settings</button>
 
