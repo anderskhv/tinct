@@ -11,7 +11,9 @@ This is the Book Factory for Tinct. When Anders opens Claude from this folder, h
 The Tinct project settings (`.claude/settings.json`) already allow `python3`, `cp`, `mkdir`, `Read`, `Write`, `Edit`, `Glob`, `Grep`, and git commands. No special flags needed when launching from this folder.
 
 **Always use absolute paths** instead of `cd`. The working directory is `/Users/andershvelplund/Documents/Projects/Tinct/books`. Key absolute paths:
-- TTS script: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py`
+- TTS script (Kokoro, for ALL English audio): `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-kokoro.py`
+- TTS script (Edge, for Danish audio ONLY): `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py`
+- TTS script (Kokoro, Odyssey-only legacy): `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-odyssey-audio.py`
 - Manifest script: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py`
 - Edition files: `/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions/`
 - Public audio: `/Users/andershvelplund/Documents/Projects/Tinct/app/public/audio/`
@@ -25,7 +27,7 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 2. **Always discuss structure BEFORE downloading.** Step 1 is mandatory and requires human approval.
 3. **Maintain paragraph alignment** across all editions. Same number of paragraphs per chapter in every edition.
 4. **Verify JSON validity** after every file write (`python3 -c "import json; json.load(open('file.json'))"`)
-5. **No kids editions.** Standard set is: original-en, modern-en, modern-da. Special editions (verse-en, web-en) only when discussed.
+5. **No kids editions.** Standard text set is: original-en, modern-en, modern-da. Special editions (verse-en, web-en) only when discussed. Audio is English-only (see rule 14).
 6. **Track progress.** Large books take multiple sessions. Always update the progress tracker below.
 7. **Never flag scale as a problem.** Don't say "this is a huge task" or "this will be very difficult." Break every task into agent-sized chunks and execute. The architecture handles scale — just decompose and go.
 8. **Use parallel agents.** Translations, audio generation, and threads are independent per book×language. Spin up background agents for each chunk. Typical agent unit = 1 book × 1 language × 10-20 chapters.
@@ -38,14 +40,18 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 11. **Never stop on permission failures.** If a tool call is denied or a permission error blocks progress, do NOT give up and report "I need permission." Instead: (a) try an alternative tool that achieves the same result (e.g., Read/Write instead of Bash, or `python3 -c` instead of a script), (b) restructure the approach to avoid the blocked tool, (c) if truly stuck after 2 alternative attempts, explain to Anders what you tried, what failed, and ask him to grant the specific permission or suggest a workaround. The same applies to subagents — if an agent can't use Bash, it should use Read/Write/Glob/Grep tools instead, not stop and report failure.
 12. **Bible translation: fresh conversation required.** Both subagents and bloated main conversations hit Anthropic's content filter on Bible text. The filter triggers when accumulated context + output is too large. **Start a dedicated fresh conversation** for Bible translation work — open Claude from the `books/` folder and say "continue Bible modern-da translation." Process one book at a time: read source → translate → write into `bible-modern-da.json` → validate → next book. For large books (100+ paragraphs): read source in 50-paragraph chunks. When context gets large, start a new conversation.
 13. **Update status before ending.** Before ending any session that generated content (translations, audio, threads), run `python3 check-status.py` and update the Current Status table at the bottom of this file to match. This has caused major confusion — the status table said Bible modern-en was 12/66 when it was actually 66/66 complete.
+14. **Audio engine rules — NEVER MIX THESE UP.**
+    - **English audio → Kokoro** (`generate-audio-kokoro.py`). NEVER use Edge TTS for English.
+    - **Danish audio → Edge TTS** (`generate-audio-edge.py` with `--voice da-DK-ChristelNeural` and rate `-8%`). Kokoro does not support Danish.
+    - This mistake was made once and affected 8 books. Do not repeat it.
 
 ---
 
 ## The Pipeline
 
-The pipeline has two phases: **automated** (Steps 1–6, 8–10) and **manual** (Step 7). The goal is that Anders says "add [book name]", approves the structure in Step 1, then everything runs without stops until Step 7 where he listens to Danish audio samples. After approving the pronunciation map, the rest is automated again.
+The pipeline is fully automated after Step 1. Anders says "add [book name]", approves the structure in Step 1, then everything runs without stops through to publication.
 
-### Step 1: Structure Discussion (REQUIRES approval — the ONLY stop before Step 7)
+### Step 1: Structure Discussion (REQUIRES approval — the ONLY manual stop)
 
 Before downloading anything, discuss with Anders:
 
@@ -102,18 +108,18 @@ After generating modern-en, run these checks before proceeding:
 4. **Sentence length audit:** Sample 5 random chapters, check average sentence length stays under 25 words. Flag any sentence over 50 words.
 5. **Spot-read:** Read the first 3 paragraphs of chapters 1, middle, and last. Do they read like a contemporary novel or a Wikipedia summary? If the latter, rewrite.
 
-**If any QA check fails, fix before proceeding.** Modern-en errors cascade into Danish translation and both audio editions.
+**If any QA check fails, fix before proceeding.** Modern-en errors cascade into Danish translation and audio.
 
 ### Step 4: Generate English Audio (automated)
 
-Run immediately after modern-en QA passes — no need to wait for Danish.
+Run immediately after modern-en QA passes.
 
 ```bash
-python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py {book-id} modern-en 1 {end_ch} --voice en-US-GuyNeural
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-odyssey-audio.py {book-id} modern-en 1 {end_ch}
 python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py {book-id} modern-en
 ```
 
-English Edge TTS handles character names correctly — no pronunciation map needed.
+Uses Kokoro TTS (Bella voice) by default. Use Edge TTS only if Kokoro is unavailable or if instructed. Audio is English-only — do not generate Danish audio (see Hard Rule 14).
 
 ### Step 5: Generate Modern Danish + QA (automated)
 
@@ -149,50 +155,7 @@ Translate from **modern-en** (NOT original). ZERO API spend.
 
 Add book to `../app/src/data/bookRegistry.ts` with all editions. Verify: `npx tsc --noEmit`
 
-### Step 7: Danish Audio Pronunciation Check (⚠️ MANUAL — requires Anders)
-
-**This is the only manual step after Step 1.**
-
-Edge TTS Danish voice mispronounces foreign character names (wrong stress, wrong vowels). English is fine. Locations are generally fine. This step builds a pronunciation map.
-
-**Process:**
-1. Extract all character names from the modern-da edition text
-2. Generate a single test audio file with all character names in Danish sentences
-3. **Anders listens** and flags which names sound wrong
-4. For each wrong name: generate 3-5 phonetic spelling variants, Anders picks the best
-5. Save the final map to `app/tts/pronunciations/{book-id}-da.json`
-
-**Pronunciation map format:**
-```json
-{
-  "Odysseus": "Åhdýssøvs",
-  "Athene": "Atéhne"
-}
-```
-
-**Patterns that work (from Odyssey testing, March 2026):**
-- Accent marks (é, ó, ý) reliably control stress placement
-- Double consonants shorten the preceding vowel
-- Danish "eu" diphthong → "øvs" with stød
-- "h" after a vowel adds a soft glide without a real pause
-- Names ending in "-os" are generally fine without fixes
-- Names ending in "-eus" need the øvs treatment
-- Common European names (Russian, French, English) are usually fine — Greek/Hebrew names need the most work
-
-**Reuse across books:** If a book shares characters with an existing book (e.g., Ulysses shares Greek names with Odyssey), copy the relevant entries from the existing map. Only test new characters.
-
-The script `generate-audio-edge.py` automatically loads `app/tts/pronunciations/{book-id}-{lang}.json` if it exists and applies substitutions before generating audio.
-
-### Step 8: Generate Danish Audio (automated, after Step 7)
-
-```bash
-python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py {book-id} modern-da 1 {end_ch} --voice da-DK-ChristelNeural
-python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py {book-id} modern-da
-```
-
-The pronunciation map from Step 7 is loaded automatically.
-
-### Step 8b: Upload Audio to R2 (MANDATORY — autonomous after generation)
+### Step 7: Upload Audio to R2 (MANDATORY — autonomous after generation)
 
 **Every time audio generation completes for a book×edition, immediately upload to R2.** Do not wait for Anders to ask. Do not wait for all editions to be done. Upload as soon as manifests are generated.
 
@@ -213,7 +176,7 @@ find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.j
 
 **This step is non-negotiable.** Audio that exists only in `tts/audio/` (staging) is invisible to users. The app loads from R2.
 
-### Step 9: Visual QA (automated)
+### Step 8: Visual QA (automated)
 
 1. Start dev server, open in browser
 2. Navigate every chapter in every edition
@@ -221,14 +184,13 @@ find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.j
 4. Check dark mode
 5. Report any issues
 
-### Step 10: Publish (autonomous — no approval needed)
+### Step 9: Publish (autonomous — no approval needed)
 
 A book is fully complete when ALL of the following are true:
 
 - [ ] All 3 standard editions exist and are paragraph-aligned (original-en, modern-en, modern-da)
-- [ ] All editions have audio generated with manifests
-- [ ] Danish pronunciation map exists at `app/tts/pronunciations/{book-id}-da.json`
-- [ ] Book is registered in `bookRegistry.ts` with all editions and `hasAudio: true`
+- [ ] English audio generated with manifests and uploaded to R2
+- [ ] Book is registered in `bookRegistry.ts` with all editions and `hasAudio: true` on English editions
 - [ ] Threads file exists with characters
 - [ ] Visual QA passed
 
@@ -258,7 +220,7 @@ npx wrangler deploy
 curl -s https://tinct.ahvelplund.workers.dev/ | head -5
 ```
 
-**Policy:** Never publish a partially complete book. A book with modern-en but no modern-da is NOT ready. A book with editions but no audio is NOT ready. The reader should never encounter a book that's missing pieces.
+**Policy:** Never publish a partially complete book. A book with modern-en but no modern-da text is NOT ready. A book with editions but no English audio is NOT ready. The reader should never encounter a book that's missing pieces.
 
 **After publishing:** Update the Current Status table in this file to mark the book as Complete across all columns.
 
@@ -341,9 +303,9 @@ Target: 10-20 books total. List is not locked — Anders decides.
 | Edition JSON files | `../app/public/data/editions/` |
 | Book registry | `../app/src/data/bookRegistry.ts` |
 | Type definitions | `../app/src/types/index.ts` |
-| TTS generation script | `../app/tts/generate-audio-edge.py` |
+| TTS generation script (Kokoro) | `../app/tts/generate-odyssey-audio.py` |
+| TTS generation script (Edge, fallback) | `../app/tts/generate-audio-edge.py` |
 | TTS manifest script | `../app/tts/generate-manifests-edge.py` |
-| Pronunciation maps | `../app/tts/pronunciations/` |
 | Generated audio (staging) | `../app/tts/audio/` |
 | Public audio | `../app/public/audio/` |
 | Raw source texts | `raw/` |
@@ -423,10 +385,9 @@ Copy this template when starting a new book:
 - [ ] Registered in bookRegistry.ts
 - [ ] Modern English: 0/[n] chapters
 - [ ] Modern Danish: 0/[n] chapters
-- [ ] Audio generated (English)
-- [ ] Audio generated (Danish)
-- [ ] Audio manifests created
-- [ ] Audio copied to public/
+- [ ] English audio generated
+- [ ] English audio manifests created
+- [ ] English audio uploaded to R2
 - [ ] Visual QA passed
 
 ### Session Log
@@ -438,25 +399,32 @@ Copy this template when starting a new book:
 
 ## Current Status
 
-**Last verified:** 2026-03-28 via `python3 check-status.py`
+**Last verified:** 2026-03-30 (manual update)
 **To refresh:** Run `python3 check-status.py` from this folder. Always trust the script over this table.
 
-| Book | Editions | Modern EN | Modern DA | Audio (staging) | Audio (public/R2) | Threads |
-|------|----------|-----------|-----------|-----------------|-------------------|---------|
-| **Odyssey** (24 ch) | Complete (4: original, verse, modern-en, modern-da) | Complete | Complete | Complete (all 4 editions, 24 ch each) | On R2 (not in public/) | 26 chars |
-| **Ulysses** (18 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | Complete (all 3 editions, 18 ch each) | On R2 (not in public/) | 20 chars |
-| **W&P** (365 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | modern-en: 365, modern-da: 51, original-en: 113 | modern-en: 365, modern-da: 40 | 30 chars |
-| **Bible** (66 ch) | 3 originals (kjv, web, modern-en) + modern-da partial | Complete (66/66) | 42/66 (24 remaining incl. Lev-Deut, Judg, 1-2Sam, 1-2Kgs, 1-2Chr, Ezra, Job, Pss, Isa, Jer, Ezek, Dan, Gospels, Acts, Heb, Rev) | None | None | None |
+**Note:** Danish audio has been discontinued. Edge TTS Danish quality is insufficient for production. Audio is English-only going forward. All Danish audio files have been deleted from staging. Danish audio on R2 still needs manual deletion (see R2 cleanup note below).
+
+| Book | Editions | Modern EN | Modern DA | EN Audio (staging) | EN Audio (R2) | Threads |
+|------|----------|-----------|-----------|-------------------|---------------|---------|
+| **Odyssey** (24 ch) | Complete (4: original, verse, modern-en, modern-da) | Complete | Complete | Complete (24 ch) | On R2 | 26 chars |
+| **Ulysses** (18 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | Complete (18 ch) | On R2 | 20 chars |
+| **W&P** (365 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | modern-en: 365, original-en: 113 | modern-en: 365 | 30 chars |
+| **Bible** (66 ch) | 3 originals (kjv, web, modern-en) + modern-da partial | Complete (66/66) | 46/66 (20 remaining) | None | None | None |
+
+### R2 Danish audio cleanup (manual)
+
+The following R2 paths contain obsolete Danish audio that should be deleted from the `tinct-audio` bucket:
+- `odyssey/modern-da/`
+- `ulysses/modern-da/`
+- `war-and-peace/modern-da/`
 
 ### What's left to do
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Bible modern-da translation | 42/66 books done (24 remaining) | Biggest remaining effort. Fresh conversations from books/ folder. |
+| Bible modern-da translation | 46/66 books done (20 remaining) | Biggest remaining effort. Fresh conversations from books/ folder. |
 | Bible modern-en audio | Not started | All 66 books ready for TTS generation |
-| Bible modern-da audio | Blocked | Needs modern-da translations first |
 | Bible threads | Not started | Need character list |
-| W&P modern-da audio | 51/365 in staging, 40 in public | Need to complete remaining 314 chapters |
 | W&P original-en audio | 113/365 in staging | Not published, not marked hasAudio |
 
 ### Bible translation session instructions (modern-da)

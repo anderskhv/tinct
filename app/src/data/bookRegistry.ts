@@ -34,7 +34,7 @@ export const ODYSSEY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false,
+      hasAudio: true,
     },
   ],
 }
@@ -330,6 +330,21 @@ export const THE_TEMPEST: Book = {
   ],
 }
 
+export const PRIDE_AND_PREJUDICE: Book = {
+  id: 'pride-and-prejudice',
+  title: 'Pride and Prejudice',
+  author: 'Jane Austen',
+  description: 'A sharp-tongued woman and a proud gentleman circle each other through balls, misunderstandings, and pride — until they don\'t. The novel that invented the romantic comedy.',
+  year: 1813,
+  wordCount: 122000,
+  coverColor: '#2e2014',
+  coverAccent: '#d4a86a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1813)', year: 1813, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+  ],
+}
+
 export const THE_ART_OF_WAR: Book = {
   id: 'the-art-of-war',
   title: 'The Art of War',
@@ -366,8 +381,66 @@ export const THE_ART_OF_WAR: Book = {
   ],
 }
 
+export const CRIME_AND_PUNISHMENT: Book = {
+  id: 'crime-and-punishment',
+  title: 'Crime and Punishment',
+  author: 'Fyodor Dostoevsky',
+  description: 'A brilliant student commits the perfect murder — then discovers that guilt is a punishment no logic can escape. Dostoevsky\'s masterpiece of conscience, paranoia, and redemption.',
+  year: 1866,
+  wordCount: 211000,
+  coverColor: '#1a1a1a',
+  coverAccent: '#8b4513',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Garnett Translation (1914)',
+      translator: 'Constance Garnett',
+      year: 1914,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const THE_REPUBLIC: Book = {
+  id: 'the-republic',
+  title: 'The Republic',
+  author: 'Plato',
+  description: 'Socrates and his friends spend one long night asking the hardest question: what is justice? Along the way they build a city in words, discover the Forms, and descend into a cave. Philosophy begins here.',
+  year: -375,
+  wordCount: 120000,
+  coverColor: '#1a2a3a',
+  coverAccent: '#c9b896',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Jowett Translation (1871)',
+      translator: 'Benjamin Jowett',
+      year: 1871,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC]
 
 export function getBook(id: string): Book | undefined {
   return BOOKS.find(b => b.id === id)
