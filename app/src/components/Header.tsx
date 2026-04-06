@@ -36,6 +36,7 @@ interface HeaderProps {
   onOpenStore: () => void
   onOpenDownloads?: () => void
   isBookDownloaded?: boolean
+  onOpenSearch?: () => void
   onOpenNotes?: () => void
   onOpenCast?: () => void
   onResetPassword?: (email: string) => Promise<{ error?: string }>
@@ -120,6 +121,7 @@ export function Header({
   onOpenStore,
   onOpenDownloads,
   isBookDownloaded,
+  onOpenSearch,
   onOpenNotes,
   onOpenCast,
   onResetPassword,
@@ -184,6 +186,16 @@ export function Header({
         </div>
 
         <div className="header-right">
+          {onOpenSearch && (
+            <button
+              className="icon-button"
+              onClick={onOpenSearch}
+              aria-label="Search"
+              style={{ fontSize: '1rem' }}
+            >
+              &#x1F50D;
+            </button>
+          )}
           <button
             className="icon-button"
             onClick={onOpenToc}
@@ -423,6 +435,15 @@ export function Header({
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="1" y="2" width="14" height="12" rx="1.5" />
               <line x1="8" y1="2" x2="8" y2="14" />
+            </svg>
+          </button>
+        )}
+
+        {onOpenSearch && (
+          <button className="menu-icon-btn" onClick={onOpenSearch} title="Search in book">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="7" cy="7" r="4" />
+              <line x1="10" y1="10" x2="14" y2="14" />
             </svg>
           </button>
         )}

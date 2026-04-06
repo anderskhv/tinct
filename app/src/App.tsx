@@ -29,6 +29,7 @@ import { useAuth } from './hooks/useAuth'
 import { useBalance } from './hooks/useBalance'
 import { useOffline } from './hooks/useOffline'
 import { DownloadManager } from './components/DownloadManager'
+import { SearchOverlay } from './components/SearchOverlay'
 import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
@@ -73,6 +74,7 @@ export default function App() {
   const [showSettings, setShowSettings] = useState(false)
   const [showPricingModal, setShowPricingModal] = useState(false)
   const [showDownloadManager, setShowDownloadManager] = useState(false)
+  const [showSearch, setShowSearch] = useState(false)
   const { isOnline, offlineMeta, downloadState, storageMB, downloadBook, downloadChapter, removeDownload, cancelDownload, isBookDownloaded } = useOffline()
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -133,6 +135,7 @@ export default function App() {
     setFontSize,
     setFontFamily,
     setAccountDecisionSeen,
+    setProgressDisplay,
     refreshFromStorage,
   } = usePreferences(storageReady)
 
@@ -981,6 +984,8 @@ export default function App() {
           audioEditions={book.editions.filter(ed => ed.hasAudio)}
           audioEditionKey={primaryEditionKey}
           onAudioEditionChange={() => {/* TODO: wire audio edition preference */}}
+          progressDisplay={preferences.progressDisplay}
+          onProgressDisplayChange={setProgressDisplay}
         />
       )}
 
@@ -1166,6 +1171,7 @@ export default function App() {
         onOpenStore={() => setShowStore(true)}
         onOpenDownloads={() => setShowDownloadManager(true)}
         isBookDownloaded={isBookDownloaded(book.id)}
+        onOpenSearch={() => setShowSearch(true)}
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
         fontSize={preferences.fontSize}
@@ -1453,6 +1459,20 @@ export default function App() {
         />
       )}
 
+      {showSearch && primaryData && (
+        <SearchOverlay
+          chapters={primaryData.chapters}
+          sections={primaryData.sections}
+          currentChapter={currentChapter}
+          onNavigate={(chapter, paragraphIndex) => {
+            targetParagraphRef.current = paragraphIndex
+            setCurrentChapter(chapter)
+            setReaderKey(k => k + 1)
+          }}
+          onClose={() => setShowSearch(false)}
+        />
+      )}
+
       {/* Mobile bottom navigation */}
       {isMobile && (
         <nav className="mobile-nav">
@@ -1487,6 +1507,16 @@ export default function App() {
         isLearned={isSpeedLearned}
         currentPage={currentPage}
         totalPages={totalPages}
+        chapterPercentComplete={totalPages > 1 ? Math.round(((currentPage + 1) / totalPages) * 100) : 100}
+        chapterTimeLabel={(() => {
+          if (totalPages <= 1) return 'Done'
+          const pagesLeft = totalPages - currentPage - 1
+          const minsLeft = Math.ceil(pagesLeft * 0.5)
+          return minsLeft < 1 ? '<1min left' : `${minsLeft}min left`
+        })()}
+        locationCurrent={primaryData ? primaryData.chapters.slice(0, currentChapter - 1).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0) : 0}
+        locationTotal={primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0}
+        progressDisplay={preferences.progressDisplay}
         bookId={book.id}
         editionKey={effectiveAudioEditionKey}
         chapterNumber={currentChapter}

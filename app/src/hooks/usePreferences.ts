@@ -1,11 +1,11 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { storage } from '../services/storage'
 import type { Language, Style, EditionKey, UserPreferences, PanelTab, FontSize, FontFamily } from '../types'
 import { DEFAULT_PREFERENCES } from '../types'
 
 const STORAGE_KEY = 'preferences'
 
-export function usePreferences() {
+export function usePreferences(storageReady = true) {
   const [preferences, setPreferencesState] = useState<UserPreferences>(() => {
     const saved = storage.get<UserPreferences>(STORAGE_KEY) || DEFAULT_PREFERENCES
     // Migrate removed 'highlights' tab → 'notes'
@@ -15,10 +15,18 @@ export function usePreferences() {
     return saved
   })
 
-  // Persist on change
+  // Persist on change — skip the very first write when storageReady transitions
+  // to true, because at that point preferences are stale defaults and the cloud
+  // restore effect hasn't run yet. Writing here would overwrite Supabase data.
+  const writeUnlockedRef = useRef(false)
   useEffect(() => {
+    if (!storageReady) return
+    if (!writeUnlockedRef.current) {
+      writeUnlockedRef.current = true
+      return
+    }
     storage.set(STORAGE_KEY, preferences)
-  }, [preferences])
+  }, [preferences, storageReady])
 
   // Apply dark mode
   useEffect(() => {
@@ -67,6 +75,7 @@ export function usePreferences() {
   const setFontSize = useCallback((fontSize: FontSize) => update({ fontSize }), [update])
   const setFontFamily = useCallback((fontFamily: FontFamily) => update({ fontFamily }), [update])
   const setAccountDecisionSeen = useCallback((accountDecisionSeen: boolean) => update({ accountDecisionSeen }), [update])
+  const setProgressDisplay = useCallback((progressDisplay: UserPreferences['progressDisplay']) => update({ progressDisplay }), [update])
 
   // Re-read preferences from storage (called after storage provider swap)
   const refreshFromStorage = useCallback(() => {
@@ -92,6 +101,7 @@ export function usePreferences() {
     setFontSize,
     setFontFamily,
     setAccountDecisionSeen,
+    setProgressDisplay,
     refreshFromStorage,
     update,
   }

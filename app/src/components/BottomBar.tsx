@@ -17,6 +17,11 @@ export interface BottomBarHandle {
   seekToParagraph: (index: number) => void
 }
 
+interface ProgressDisplay {
+  metric: 'percent' | 'time' | 'page' | 'location'
+  scope: 'book' | 'section' | 'chapter'
+}
+
 interface BottomBarProps {
   // Reading progress
   percentComplete: number
@@ -24,6 +29,16 @@ interface BottomBarProps {
   isLearned: boolean
   currentPage: number
   totalPages: number
+  // Scoped progress (for section/chapter display)
+  chapterPercentComplete?: number
+  chapterTimeLabel?: string
+  sectionPercentComplete?: number
+  sectionTimeLabel?: string
+  /** Kindle-style location (paragraph index across entire book) */
+  locationCurrent?: number
+  locationTotal?: number
+  /** Progress display preference */
+  progressDisplay?: ProgressDisplay
   // Audio
   bookId: string
   editionKey: string
@@ -47,6 +62,8 @@ const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
 export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
   function BottomBar({
     percentComplete, timeRemainingLabel, isLearned, currentPage, totalPages,
+    chapterPercentComplete, chapterTimeLabel, sectionPercentComplete, sectionTimeLabel,
+    locationCurrent, locationTotal, progressDisplay,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
     onNextChapter, onPrevChapter, initialAudioParagraph,
   }, ref) {
@@ -350,16 +367,38 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           </div>
         </div>
         <div className="reading-tracker-info">
-          {!compact && totalPages > 1 && (
-            <span className="reading-tracker-page">{currentPage + 1}/{totalPages}</span>
-          )}
-          <span className="reading-tracker-percent">{percentComplete}%</span>
-          {!compact && (
-            <span className="reading-tracker-time">
-              {timeRemainingLabel}
-              {!isLearned && percentComplete > 0 && <span className="reading-tracker-est" title="Based on average reading speed of 250 wpm"> (est.)</span>}
-            </span>
-          )}
+          {(() => {
+            const pd = progressDisplay || { metric: 'percent', scope: 'book' }
+            const scope = pd.scope
+            const metric = pd.metric
+
+            // Pick the right values based on scope
+            const pct = scope === 'chapter' ? (chapterPercentComplete ?? Math.round(((currentPage + 1) / Math.max(totalPages, 1)) * 100))
+              : scope === 'section' ? (sectionPercentComplete ?? percentComplete)
+              : percentComplete
+            const time = scope === 'chapter' ? (chapterTimeLabel ?? timeRemainingLabel)
+              : scope === 'section' ? (sectionTimeLabel ?? timeRemainingLabel)
+              : timeRemainingLabel
+            const scopeLabel = scope === 'chapter' ? 'ch' : scope === 'section' ? 'sec' : ''
+
+            if (metric === 'page') {
+              return <span className="reading-tracker-percent">{currentPage + 1}/{totalPages}</span>
+            }
+            if (metric === 'location' && locationCurrent !== undefined && locationTotal) {
+              return <span className="reading-tracker-percent">Loc {locationCurrent}/{locationTotal}</span>
+            }
+            if (metric === 'time') {
+              return (
+                <span className="reading-tracker-time">
+                  {time}
+                  {scopeLabel ? ` (${scopeLabel})` : ''}
+                  {!isLearned && percentComplete > 0 && <span className="reading-tracker-est"> (est.)</span>}
+                </span>
+              )
+            }
+            // Default: percent
+            return <span className="reading-tracker-percent">{pct}%{scopeLabel ? ` ${scopeLabel}` : ''}</span>
+          })()}
         </div>
         <button
           className="reading-tracker-nav"

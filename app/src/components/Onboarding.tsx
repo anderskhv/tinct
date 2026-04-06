@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Language, Style, Edition, EditionKey } from '../types'
+import type { Language, Style, Edition, EditionKey, ProgressDisplay, ProgressMetric, ProgressScope } from '../types'
 
 interface OnboardingProps {
   onComplete: (objective: string) => void
@@ -28,6 +28,9 @@ interface OnboardingProps {
   audioEditions?: Edition[]
   audioEditionKey?: EditionKey
   onAudioEditionChange?: (key: EditionKey) => void
+  // Progress display
+  progressDisplay?: ProgressDisplay
+  onProgressDisplayChange?: (pd: ProgressDisplay) => void
 }
 
 const LANG_LABELS: Record<string, string> = { en: 'English', da: 'Danish' }
@@ -57,6 +60,8 @@ export function Onboarding({
   audioEditions,
   audioEditionKey,
   onAudioEditionChange,
+  progressDisplay,
+  onProgressDisplayChange,
 }: OnboardingProps) {
   const [objective, setObjective] = useState(initialObjective || '')
   // Sync if initialObjective arrives later (e.g., after Supabase loads)
@@ -183,6 +188,36 @@ export function Onboarding({
                     <option key={ed.key} value={ed.key}>{editionDisplayLabel(ed)}</option>
                   ))}
                 </select>
+              </div>
+            )}
+
+            {/* Progress display */}
+            {progressDisplay && onProgressDisplayChange && (
+              <div className="onboarding-setting">
+                <label className="onboarding-label">Reading progress</label>
+                <div className="onboarding-progress-row">
+                  <select
+                    className="onboarding-select"
+                    value={progressDisplay.metric}
+                    onChange={e => onProgressDisplayChange({ ...progressDisplay, metric: e.target.value as ProgressMetric })}
+                    style={{ flex: 1 }}
+                  >
+                    <option value="percent">Percentage</option>
+                    <option value="time">Time remaining</option>
+                    <option value="page">Page number</option>
+                    <option value="location">Location</option>
+                  </select>
+                  <select
+                    className="onboarding-select"
+                    value={progressDisplay.scope}
+                    onChange={e => onProgressDisplayChange({ ...progressDisplay, scope: e.target.value as ProgressScope })}
+                    style={{ flex: 1 }}
+                  >
+                    <option value="book">of book</option>
+                    <option value="section">of section</option>
+                    <option value="chapter">of chapter</option>
+                  </select>
+                </div>
               </div>
             )}
           </div>

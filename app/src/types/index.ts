@@ -229,6 +229,14 @@ export interface TokenUsage {
 export type FontSize = 'small' | 'medium' | 'large' | 'xlarge'
 export type FontFamily = 'garamond' | 'baskerville' | 'sourceserif'
 
+export type ProgressMetric = 'percent' | 'time' | 'page' | 'location'
+export type ProgressScope = 'book' | 'section' | 'chapter'
+
+export interface ProgressDisplay {
+  metric: ProgressMetric
+  scope: ProgressScope
+}
+
 export interface UserPreferences {
   language: Language
   style: Style
@@ -242,6 +250,7 @@ export interface UserPreferences {
   fontSize: FontSize
   fontFamily: FontFamily
   accountDecisionSeen: boolean
+  progressDisplay: ProgressDisplay
 }
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
@@ -257,6 +266,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   fontSize: 'medium',
   fontFamily: 'garamond',
   accountDecisionSeen: false,
+  progressDisplay: { metric: 'percent', scope: 'book' },
 }
 
 export interface ReadingPosition {
