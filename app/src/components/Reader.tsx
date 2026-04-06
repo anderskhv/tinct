@@ -42,6 +42,8 @@ interface ReaderProps {
   isVerse?: boolean
   /** Target paragraph to scroll to after layout (from highlight/thread navigation) */
   targetParagraphIndex?: number
+  /** Change this value to force re-sync to targetParagraphIndex even if the index is the same */
+  targetParagraphNonce?: number
   /** Index of the paragraph currently being played by AudioPlayer */
   playingParagraphIndex?: number
   /** Called when user clicks a paragraph to start audio from there */
@@ -73,6 +75,7 @@ export function Reader({
   initialPage,
   isVerse,
   targetParagraphIndex,
+  targetParagraphNonce,
   playingParagraphIndex,
   onParagraphClick,
   hasAudio,
@@ -176,6 +179,25 @@ export function Reader({
       initialPageRef.current = undefined // only restore once
     }
   }, [totalPages, getColWidth, getGap])
+
+  // Respond to targetParagraphIndex prop changes after mount (e.g. mobile tab sync)
+  // targetParagraphNonce forces re-sync even when the paragraph index hasn't changed
+  useEffect(() => {
+    if (targetParagraphNonce === undefined) return
+    if (targetParagraphIndex === undefined || totalPages <= 1) return
+    const content = contentRef.current
+    if (!content) return
+    const el = content.querySelector(`[data-paragraph-index="${targetParagraphIndex}"]`) as HTMLElement
+    if (el) {
+      const colWidth = getColWidth()
+      const gap = getGap()
+      if (colWidth > 0) {
+        const page = Math.floor(el.offsetLeft / (colWidth + gap))
+        setCurrentPage(Math.min(page, totalPages - 1))
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [targetParagraphNonce])
 
   // Report page changes to parent
   useEffect(() => {

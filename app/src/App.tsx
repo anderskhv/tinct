@@ -172,7 +172,17 @@ export default function App() {
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
+  const [compareSyncSignal, setCompareSyncSignal] = useState<{ paragraph: number; nonce: number } | undefined>(undefined)
   const bottomBarRef = useRef<BottomBarHandle>(null)
+
+  // Sync Compare reader to Read reader's position when switching to Compare tab
+  const firstVisibleParagraphRef = useRef(firstVisibleParagraph)
+  firstVisibleParagraphRef.current = firstVisibleParagraph
+  useEffect(() => {
+    if (activeView === 1) {
+      setCompareSyncSignal({ paragraph: firstVisibleParagraphRef.current, nonce: Date.now() })
+    }
+  }, [activeView])
 
   // ToC overlay state
   const [showToc, setShowToc] = useState(false)
@@ -1276,6 +1286,8 @@ export default function App() {
                   isVerse={splitIsVerse}
                   onPageChange={handlePageChange}
                   initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
+                  targetParagraphIndex={compareSyncSignal?.paragraph}
+                  targetParagraphNonce={compareSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
