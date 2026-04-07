@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import type { Book, Language, Style, FontSize, FontFamily, Section } from '../types'
+import type { Book, Language, Style, FontSize, FontFamily, Section, ProgressDisplay, ProgressMetric, ProgressScope } from '../types'
 import type { User } from '@supabase/supabase-js'
 import { BalanceIndicator } from './BalanceIndicator'
 
@@ -56,6 +56,9 @@ interface HeaderProps {
   onOpenSettings: () => void
   // Sections (hierarchical ToC)
   sections?: Section[]
+  // Progress display
+  progressDisplay?: ProgressDisplay
+  onProgressDisplayChange?: (pd: ProgressDisplay) => void
   // Mobile
   isMobile?: boolean
   // Split edition (for mobile compare picker)
@@ -136,6 +139,8 @@ export function Header({
   onOpenToc,
   onOpenSettings,
   sections,
+  progressDisplay,
+  onProgressDisplayChange,
   isMobile,
   splitEditionKey,
   onSplitEditionChange,
@@ -363,6 +368,35 @@ export function Header({
                       rows={2}
                     />
                   </div>
+
+                  {progressDisplay && onProgressDisplayChange && (
+                    <div className="mobile-menu-item">
+                      <label className="mobile-menu-label">Reading progress</label>
+                      <div className="mobile-menu-row">
+                        <select
+                          className="mobile-menu-select"
+                          value={progressDisplay.metric}
+                          onChange={e => onProgressDisplayChange({ ...progressDisplay, metric: e.target.value as ProgressMetric })}
+                          style={{ flex: 1 }}
+                        >
+                          <option value="percent">Percentage</option>
+                          <option value="time">Time left</option>
+                          <option value="page">Page</option>
+                          <option value="location">Location</option>
+                        </select>
+                        <select
+                          className="mobile-menu-select"
+                          value={progressDisplay.scope}
+                          onChange={e => onProgressDisplayChange({ ...progressDisplay, scope: e.target.value as ProgressScope })}
+                          style={{ flex: 1 }}
+                        >
+                          <option value="book">of book</option>
+                          <option value="section">of section</option>
+                          <option value="chapter">of chapter</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
 
@@ -458,7 +492,9 @@ export function Header({
 
         <span className="menu-divider" />
 
-        {/* Text buttons */}
+        {/* Text buttons — order: Library, Format, Settings */}
+        <button className="menu-item" onClick={onOpenStore}>Library</button>
+
         <div className="menu-item-wrapper">
           <button
             className={`menu-item ${menuOpen === 'format' ? 'menu-item-active' : ''}`}
@@ -513,15 +549,17 @@ export function Header({
           )}
         </div>
 
-        <button className="menu-item" onClick={onOpenStore}>Library</button>
+        <button className="menu-item" onClick={onOpenSettings}>Settings</button>
 
         {onOpenDownloads && (
-          <button className="menu-item" onClick={onOpenDownloads}>
-            Offline {isBookDownloaded ? '(saved)' : ''}
+          <button className="menu-icon-btn" onClick={onOpenDownloads} title={isBookDownloaded ? 'Downloaded for offline' : 'Download for offline'}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M8 2v8M5 7l3 3 3-3" />
+              <path d="M2 12v2h12v-2" />
+            </svg>
+            {isBookDownloaded && <span className="menu-icon-dot" />}
           </button>
         )}
-
-        <button className="menu-item" onClick={onOpenSettings}>Settings</button>
 
         {/* Account / Sign in */}
         <div className="menu-item-wrapper">

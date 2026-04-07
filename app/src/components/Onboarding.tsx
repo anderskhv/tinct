@@ -223,11 +223,14 @@ export function Onboarding({
           </div>
         )}
 
-        {/* Non-settings onboarding: legacy language/style (kept for first-time flow) */}
+        {/* Non-settings onboarding: edition picker */}
         {!isSettings && onLanguageChange && onStyleChange && availableStyles && (
           <div className="onboarding-settings-section">
             <div className="onboarding-setting">
-              <label className="onboarding-label">Language</label>
+              <label className="onboarding-label">Which edition would you like to read?</label>
+              <p className="onboarding-sublabel">
+                Pick your main reading language and style. You can switch anytime, or compare editions side-by-side in Settings.
+              </p>
               <div className="onboarding-toggle-row">
                 <button
                   className={`onboarding-toggle-btn ${language === 'en' ? 'onboarding-toggle-active' : ''}`}
@@ -241,7 +244,6 @@ export function Onboarding({
             </div>
 
             <div className="onboarding-setting">
-              <label className="onboarding-label">Primary edition</label>
               <select
                 className="onboarding-select"
                 value={style}

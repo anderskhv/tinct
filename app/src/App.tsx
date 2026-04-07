@@ -1216,6 +1216,8 @@ export default function App() {
         onOpenToc={() => setShowToc(true)}
         onOpenSettings={() => setShowSettings(true)}
         sections={primaryData?.sections}
+        progressDisplay={preferences.progressDisplay}
+        onProgressDisplayChange={setProgressDisplay}
         isMobile={isMobile}
         splitEditionKey={preferences.splitEditionKey}
         onSplitEditionChange={setSplitEditionKey}

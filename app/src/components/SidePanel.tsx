@@ -1,9 +1,9 @@
 import { Chat } from './Chat'
-import { Notes } from './Notes'
+import { Feed } from './Feed'
 import { Threads } from './Threads'
 import { UpgradePrompt } from './UpgradePrompt'
 import { useTierContext } from '../contexts/TierContext'
-import type { ChatMessage, ChatConversation, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language } from '../types'
+import type { ChatMessage, ChatConversation, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language, BookReadingLog } from '../types'
 
 interface SidePanelProps {
   isOpen: boolean
@@ -21,7 +21,7 @@ interface SidePanelProps {
   chapterTitle?: string
   readingObjective?: string
   onEditObjective?: () => void
-  // Notes
+  // Feed (replaces Notes)
   notes: Note[]
   highlights: Highlight[]
   onAddNote: (content: string, sourceType?: Note['sourceType'], sourceId?: string) => void
@@ -29,12 +29,11 @@ interface SidePanelProps {
   onDeleteHighlight?: (id: string) => void
   onUpdateNote: (id: string, content: string) => void
   onCopyToNotes: (content: string) => void
-  onCleanupNotes: (aggressive: boolean) => void
-  isCleaningUp?: boolean
-  onScrollToHighlight?: (paragraphIndex: number) => void
-  // Highlights (all book)
   allBookHighlights: Highlight[]
+  allBookNotes: Note[]
   chapterLabels: string[]
+  readingLog: BookReadingLog
+  totalChapters: number
   // Threads
   threadCharacters: ThreadCharacter[]
   currentChapter: number
@@ -78,11 +77,11 @@ export function SidePanel({
   onDeleteHighlight,
   onUpdateNote,
   onCopyToNotes,
-  onCleanupNotes,
-  isCleaningUp,
-  onScrollToHighlight,
   allBookHighlights,
+  allBookNotes,
   chapterLabels,
+  readingLog,
+  totalChapters,
   threadCharacters,
   currentChapter,
   editionKey,
@@ -119,7 +118,7 @@ export function SidePanel({
               className={`panel-tab ${activeTab === 'notes' ? 'panel-tab-active' : ''}`}
               onClick={() => onTabChange('notes')}
             >
-              Notes
+              Feed
               {(notes.length + allBookHighlights.length) > 0 && (
                 <span className="panel-tab-badge">{notes.length + allBookHighlights.length}</span>
               )}
@@ -156,21 +155,21 @@ export function SidePanel({
               <UpgradePrompt feature="AI chat" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
             )
           ) : activeTab === 'notes' ? (
-            <Notes
+            <Feed
+              readingLog={readingLog}
+              totalChapters={totalChapters}
+              currentChapter={currentChapter}
+              chapterLabels={chapterLabels}
               notes={notes}
               highlights={highlights}
+              allBookHighlights={allBookHighlights}
+              allBookNotes={allBookNotes}
+              chatConversations={chatConversations}
               onAddNote={onAddNote}
               onDeleteNote={onDeleteNote}
               onDeleteHighlight={onDeleteHighlight}
               onUpdateNote={onUpdateNote}
-              onCleanupNotes={onCleanupNotes}
-              isCleaningUp={isCleaningUp}
-              onScrollToHighlight={onScrollToHighlight}
-              allBookHighlights={allBookHighlights}
-              chapterLabels={chapterLabels}
-              currentChapter={currentChapter}
               onNavigateToChapter={onNavigateToChapter}
-              chatConversations={chatConversations}
               onSummarizeChat={onSummarizeChat}
               summarizingId={summarizingId}
             />

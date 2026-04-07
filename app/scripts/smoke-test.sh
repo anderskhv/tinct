@@ -51,18 +51,15 @@ else
   fail "JS bundle not found in HTML"
 fi
 
-# 5. Chat API endpoint responds
+# 5. Chat API endpoint responds (expects 401 for unauthenticated, which proves the endpoint is alive)
 echo "5. Chat API"
-CHAT_RESPONSE=$(curl -sf -X POST "$URL/api/chat" \
+CHAT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL/api/chat" \
   -H "Content-Type: application/json" \
-  -d '{"messages":[{"role":"user","content":"ping"}]}' 2>/dev/null || echo "FAIL")
-if echo "$CHAT_RESPONSE" | grep -q '"content"'; then
-  pass "Chat API responds with Claude content"
-elif echo "$CHAT_RESPONSE" | grep -q '"error"'; then
-  # An error response is still a working endpoint (might be rate limit, etc.)
-  pass "Chat API responds (with error message)"
+  -d '{"messages":[{"role":"user","content":"ping"}]}' 2>/dev/null || echo "000")
+if [ "$CHAT_STATUS" = "401" ] || [ "$CHAT_STATUS" = "200" ] || [ "$CHAT_STATUS" = "429" ]; then
+  pass "Chat API responds (HTTP $CHAT_STATUS)"
 else
-  fail "Chat API did not respond correctly"
+  fail "Chat API returned unexpected HTTP $CHAT_STATUS"
 fi
 
 # 6. Audio manifest accessible from R2

@@ -7,7 +7,7 @@ const STORAGE_KEY = 'preferences'
 
 export function usePreferences(storageReady = true) {
   const [preferences, setPreferencesState] = useState<UserPreferences>(() => {
-    const saved = storage.get<UserPreferences>(STORAGE_KEY) || DEFAULT_PREFERENCES
+    const saved = { ...DEFAULT_PREFERENCES, ...storage.get<UserPreferences>(STORAGE_KEY) }
     // Migrate removed 'highlights' tab → 'notes'
     if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
     // Migrate removed kids editions → modern
@@ -79,8 +79,9 @@ export function usePreferences(storageReady = true) {
 
   // Re-read preferences from storage (called after storage provider swap)
   const refreshFromStorage = useCallback(() => {
-    const saved = storage.get<UserPreferences>(STORAGE_KEY)
-    if (saved) {
+    const raw = storage.get<UserPreferences>(STORAGE_KEY)
+    if (raw) {
+      const saved = { ...DEFAULT_PREFERENCES, ...raw }
       if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
       if (saved.splitEditionKey?.includes('kids')) saved.splitEditionKey = 'modern-en'
       setPreferencesState(saved)

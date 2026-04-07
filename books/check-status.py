@@ -8,10 +8,10 @@ import json
 import os
 from pathlib import Path
 
-EDITIONS_DIR = Path(__file__).parent / "../tinct/public/data/editions"
-STAGING_AUDIO = Path(__file__).parent / "../tinct/tts/audio"
-PUBLIC_AUDIO = Path(__file__).parent / "../tinct/public/audio"
-REGISTRY = Path(__file__).parent / "../tinct/src/data/bookRegistry.ts"
+EDITIONS_DIR = Path(__file__).parent / "../app/public/data/editions"
+STAGING_AUDIO = Path(__file__).parent / "../app/tts/audio"
+PUBLIC_AUDIO = Path(__file__).parent / "../app/public/audio"
+REGISTRY = Path(__file__).parent / "../app/src/data/bookRegistry.ts"
 
 BOOKS = ["odyssey", "ulysses", "war-and-peace", "bible"]
 

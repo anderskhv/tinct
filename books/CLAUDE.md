@@ -191,7 +191,7 @@ A book is fully complete when ALL of the following are true:
 - [ ] All 3 standard editions exist and are paragraph-aligned (original-en, modern-en, modern-da)
 - [ ] English audio generated with manifests and uploaded to R2
 - [ ] Book is registered in `bookRegistry.ts` with all editions and `hasAudio: true` on English editions
-- [ ] Threads file exists with characters
+- [ ] Threads file exists with characters (narrative/dialogue books only — skip for treatises and journals like Art of War, Meditations)
 - [ ] Visual QA passed
 
 **Policy:** Never publish a partially complete book.

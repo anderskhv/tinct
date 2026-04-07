@@ -8,6 +8,9 @@
     "not_found_handling": "single-page-application",
     "binding": "ASSETS"
   },
+  "kv_namespaces": [
+    { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }
+  ],
   "triggers": {
     "crons": ["0 9 * * *"]
   }

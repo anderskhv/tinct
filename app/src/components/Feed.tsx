@@ -266,31 +266,77 @@ export function Feed({
       ? `~${Math.ceil(record.totalParagraphs / 10)} pages`
       : undefined
 
+    // Colors for edition+mode segments
+    const SEGMENT_COLORS: Record<string, string> = {
+      'read:original-en': 'var(--accent)',
+      'read:modern-en': '#5b8a72',
+      'read:modern-da': '#6b7ea8',
+      'read:kjv-en': '#a0845b',
+      'read:web-en': '#7a6b8a',
+      'listened:original-en': '#c9a45c',
+      'listened:modern-en': '#82b89a',
+      'listened:modern-da': '#8b9ec8',
+      'listened:kjv-en': '#c0a47b',
+      'listened:web-en': '#9a8baa',
+    }
+
+    function segmentColor(mode: string, key: string): string {
+      return SEGMENT_COLORS[`${mode}:${key}`] || (mode === 'listened' ? '#a08850' : 'var(--accent)')
+    }
+
     return (
-      <div className="feed-detail">
-        {progress !== undefined && (
-          <span className="feed-detail-item">{progress}% read</span>
-        )}
-        {pages && <span className="feed-detail-item">{pages}</span>}
-        {record.timeSpentSeconds && record.timeSpentSeconds > 0 && (
-          <span className="feed-detail-item">{formatDuration(record.timeSpentSeconds)}</span>
-        )}
+      <div className="feed-detail-block">
+        {/* Progress bar with edition+mode segments */}
         {usage && usage.length > 0 && (
-          <span className="feed-detail-editions">
-            {usage.map((u, i) => (
-              <span key={`${u.key}-${u.mode}-${i}`} className="feed-edition-badge">
-                {u.mode === 'listened' ? '\uD83C\uDFA7' : '\uD83D\uDCD6'} {editionLabel(u.key)}
-              </span>
-            ))}
-          </span>
+          <div className="feed-progress-bar-container">
+            <div className="feed-progress-bar">
+              {usage.map((u, i) => (
+                <div
+                  key={`${u.key}-${u.mode}-${i}`}
+                  className="feed-progress-segment"
+                  style={{
+                    width: `${u.percent || 0}%`,
+                    background: segmentColor(u.mode, u.key),
+                    opacity: u.mode === 'listened' ? 0.7 : 1,
+                  }}
+                  title={`${u.mode === 'listened' ? '🎧 Listened' : '📖 Read'}: ${editionLabel(u.key)} — ${u.percent || 0}%`}
+                />
+              ))}
+            </div>
+            <div className="feed-progress-legend">
+              {usage.map((u, i) => (
+                <span key={`leg-${u.key}-${u.mode}-${i}`} className="feed-legend-item">
+                  <span
+                    className="feed-legend-dot"
+                    style={{
+                      background: segmentColor(u.mode, u.key),
+                      opacity: u.mode === 'listened' ? 0.7 : 1,
+                    }}
+                  />
+                  {u.mode === 'listened' ? '🎧' : '📖'} {editionLabel(u.key)} {u.percent ? `${u.percent}%` : ''}
+                </span>
+              ))}
+            </div>
+          </div>
         )}
-        {!usage && record.editions.length > 0 && (
-          <span className="feed-detail-editions">
-            {record.editions.map(ed => (
-              <span key={ed} className="feed-edition-badge">{editionLabel(ed)}</span>
-            ))}
-          </span>
-        )}
+
+        {/* Stats row */}
+        <div className="feed-detail">
+          {progress !== undefined && (
+            <span className="feed-detail-item">{progress}% read</span>
+          )}
+          {pages && <span className="feed-detail-item">{pages}</span>}
+          {record.timeSpentSeconds && record.timeSpentSeconds > 0 && (
+            <span className="feed-detail-item">{formatDuration(record.timeSpentSeconds)}</span>
+          )}
+          {!usage && record.editions.length > 0 && (
+            <span className="feed-detail-editions">
+              {record.editions.map(ed => (
+                <span key={ed} className="feed-edition-badge">{editionLabel(ed)}</span>
+              ))}
+            </span>
+          )}
+        </div>
       </div>
     )
   }

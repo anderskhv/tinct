@@ -26,6 +26,8 @@ The git repo is at `Tinct/` and the app source code is in `Tinct/app/`. One repo
 
 **Rule:** `git *` → run from `Tinct/`. `npm *`, `npx *`, `wrangler *` → run from `Tinct/app/`.
 
+**IMPORTANT:** Never use `cd <path> && git ...` — this triggers a security prompt Anders must approve. Use `git -C /Users/andershvelplund/Documents/Projects/Tinct ...` instead. For inline Python, avoid `#` comments in multiline strings (write to a temp file instead).
+
 ---
 
 ## API Cost Rule — HARD BAN

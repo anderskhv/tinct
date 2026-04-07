@@ -20,10 +20,10 @@ export default defineConfig(({ mode }) => {
             return
           }
 
-          const apiKey = env.VITE_ANTHROPIC_API_KEY || env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY || ''
+          const apiKey = env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY || ''
           if (!apiKey) {
             res.writeHead(500, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ error: { message: 'API key not configured. Set VITE_ANTHROPIC_API_KEY in .env' } }))
+            res.end(JSON.stringify({ error: { message: 'API key not configured. Set ANTHROPIC_API_KEY in .env' } }))
             return
           }
 
@@ -40,10 +40,10 @@ export default defineConfig(({ mode }) => {
                   'anthropic-version': '2023-06-01',
                 },
                 body: JSON.stringify({
-                  model: parsed.model || 'claude-sonnet-4-20250514',
-                  max_tokens: parsed.max_tokens || 1024,
-                  system: parsed.system || '',
-                  messages: parsed.messages || [],
+                  model: 'claude-sonnet-4-20250514',
+                  max_tokens: Math.min(parsed.max_tokens || 1024, 2048),
+                  system: typeof parsed.system === 'string' ? parsed.system.slice(0, 4000) : '',
+                  messages: Array.isArray(parsed.messages) ? parsed.messages.slice(0, 50) : [],
                 }),
               })
 

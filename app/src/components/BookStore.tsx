@@ -181,16 +181,26 @@ export function BookStore({ books, libraryIds, onAddBook, onSelectBook, onClose 
             <div className="store-grid">
               {myBooks.map(book => {
                 const progress = getReadingProgress(book.id)
+                const hasProgress = progress && progress.percent > 0
                 return (
-                  <div key={book.id} className="store-book" onClick={() => onSelectBook(book.id)}>
+                  <div
+                    key={book.id}
+                    className="store-book"
+                    onClick={() => hasProgress ? onSelectBook(book.id) : setSelectedBook(book)}
+                  >
                     <BookCover book={book} />
-                    {progress && progress.percent > 0 && (
+                    {hasProgress && (
                       <div className="store-book-progress">
                         <div className="store-book-progress-fill" style={{ width: `${progress.percent}%` }} />
                       </div>
                     )}
                     <p className="store-book-title">{book.title}</p>
-                    <p className="store-book-author">{book.author}</p>
+                    <p className="store-book-author">
+                      {book.author}
+                      {hasProgress && (
+                        <span className="store-book-percent"> · {progress.percent}%</span>
+                      )}
+                    </p>
                   </div>
                 )
               })}

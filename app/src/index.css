@@ -238,6 +238,20 @@ body {
   border-color: var(--border-color);
 }
 
+.menu-icon-btn {
+  position: relative;
+}
+
+.menu-icon-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
 .menu-divider {
   width: 1px;
   height: 20px;
@@ -4507,14 +4521,57 @@ body {
   padding: 2px 8px 8px 22px;
 }
 
+.feed-detail-block {
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.feed-progress-bar-container {
+  margin-bottom: 6px;
+}
+
+.feed-progress-bar {
+  height: 6px;
+  background: var(--bg-primary);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+}
+
+.feed-progress-segment {
+  height: 100%;
+  min-width: 2px;
+  transition: width 0.3s ease;
+}
+
+.feed-progress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.feed-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+}
+
+.feed-legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 .feed-detail {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   align-items: center;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .feed-detail-item {

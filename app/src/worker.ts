@@ -13,26 +13,96 @@ interface Env {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
+  RATE_LIMIT?: KVNamespace
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
-// ===== Rate Limiting =====
+// ===== Security Constants =====
 
-const RATE_LIMIT_WINDOW_MS = 60_000
+const ALLOWED_ORIGINS = ['https://tinct.app', 'https://tinct.ahvelplund.workers.dev']
+const CHAT_MODEL = 'claude-sonnet-4-20250514'
+const MAX_TOKENS_CAP = 2048
+const MAX_REQUEST_BODY_BYTES = 100_000 // 100KB
+const MAX_SYSTEM_PROMPT_LENGTH = 4000
+const MAX_MESSAGES = 50
+const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
+
+// ===== Rate Limiting (KV-backed, persistent across cold starts) =====
+
+const RATE_LIMIT_WINDOW_SECONDS = 60
 const RATE_LIMIT_MAX = 10
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
 const MONTHLY_MESSAGE_LIMIT = 100
 
-function checkRateLimit(key: string): boolean {
-  const now = Date.now()
-  const entry = rateLimitMap.get(key)
-  if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+async function checkRateLimit(key: string, kv?: KVNamespace): Promise<boolean> {
+  if (!kv) return true // Graceful degradation if KV not configured
+
+  try {
+    const kvKey = `rl:${key}`
+    const entry = await kv.get<{ count: number; resetAt: number }>(kvKey, 'json')
+    const now = Date.now()
+
+    if (!entry || now > entry.resetAt) {
+      await kv.put(kvKey, JSON.stringify({ count: 1, resetAt: now + RATE_LIMIT_WINDOW_SECONDS * 1000 }), {
+        expirationTtl: RATE_LIMIT_WINDOW_SECONDS * 2,
+      })
+      return true
+    }
+
+    if (entry.count >= RATE_LIMIT_MAX) return false
+
+    await kv.put(kvKey, JSON.stringify({ count: entry.count + 1, resetAt: entry.resetAt }), {
+      expirationTtl: Math.max(1, Math.ceil((entry.resetAt - now) / 1000) + 1),
+    })
     return true
+  } catch {
+    return true // If KV fails, allow the request (fail open — quota check is the real guard)
   }
-  if (entry.count >= RATE_LIMIT_MAX) return false
-  entry.count++
-  return true
+}
+
+// ===== CORS =====
+
+function corsHeaders(request: Request): Record<string, string> {
+  const origin = request.headers.get('origin') || ''
+  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0]
+  return {
+    'Access-Control-Allow-Origin': allowed,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Max-Age': '86400',
+  }
+}
+
+function handleOptions(request: Request): Response {
+  return new Response(null, { status: 204, headers: corsHeaders(request) })
+}
+
+function jsonResponse(data: unknown, status: number, request: Request): Response {
+  return Response.json(data, { status, headers: corsHeaders(request) })
+}
+
+// ===== Origin Validation =====
+
+function getAllowedOrigin(request: Request): string {
+  const origin = request.headers.get('origin') || ''
+  return ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0]
+}
+
+// ===== Constant-Time String Comparison =====
+
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false
+  let result = 0
+  for (let i = 0; i < a.length; i++) {
+    result |= a.charCodeAt(i) ^ b.charCodeAt(i)
+  }
+  return result === 0
+}
+
+// ===== UUID Validation =====
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+function isValidUUID(s: string): boolean {
+  return UUID_RE.test(s)
 }
 
 // ===== Supabase Helpers =====
@@ -109,22 +179,32 @@ async function computeHmac(secret: string, payload: string): Promise<string> {
 // ===== API: Chat =====
 
 async function handleChat(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const apiKey = env.ANTHROPIC_API_KEY
-  if (!apiKey) return Response.json({ error: 'API key not configured' }, { status: 500 })
+  if (!apiKey) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
+  // Rate limit by IP (KV-backed, persistent across cold starts)
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!checkRateLimit(clientIP)) {
-    return Response.json({ error: 'Rate limit exceeded. Max 10 requests/minute.' }, { status: 429 })
+  if (!await checkRateLimit(clientIP, env.RATE_LIMIT)) {
+    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
 
-  // Check auth and message quota
-  let userId: string | null = null
-  const user = await verifyUser(env, request)
+  // Request size check
+  const contentLength = parseInt(request.headers.get('content-length') || '0', 10)
+  if (contentLength > MAX_REQUEST_BODY_BYTES) {
+    return jsonResponse({ error: 'Request too large' }, 413, request)
+  }
 
-  if (user && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-    userId = user.id
+  // Authentication required
+  const user = await verifyUser(env, request)
+  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
+
+  const userId = user.id
+
+  // Check message quota
+  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
     const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end`)
     const profiles = await profileRes.json() as {
       messages_used_this_period: number
@@ -143,14 +223,27 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
       const hasMessages = (isSubscribed && monthlyRemaining > 0) || (profile.message_balance || 0) > 0
 
       if (!hasMessages) {
-        return Response.json({ error: 'No messages remaining. Buy a chat pack to continue.' }, { status: 402 })
+        return jsonResponse({ error: 'No messages remaining. Buy a chat pack to continue.' }, 402, request)
       }
     }
   }
 
   try {
     const body = await request.json() as {
-      model?: string; max_tokens?: number; system?: string; messages?: unknown[]
+      max_tokens?: number; system?: string; messages?: unknown[]
+    }
+
+    // Validate input
+    const system = typeof body.system === 'string' ? body.system.slice(0, MAX_SYSTEM_PROMPT_LENGTH) : ''
+    const messages = Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
+    const maxTokens = Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
+
+    // Validate message structure
+    for (const msg of messages) {
+      if (typeof msg !== 'object' || msg === null) return jsonResponse({ error: 'Invalid message format' }, 400, request)
+      const m = msg as Record<string, unknown>
+      if (m.role !== 'user' && m.role !== 'assistant') return jsonResponse({ error: 'Invalid message role' }, 400, request)
+      if (typeof m.content !== 'string') return jsonResponse({ error: 'Invalid message content' }, 400, request)
     }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -161,50 +254,49 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: body.model || 'claude-sonnet-4-20250514',
-        max_tokens: body.max_tokens || 1024,
-        system: body.system || '',
-        messages: body.messages || [],
+        model: CHAT_MODEL,
+        max_tokens: maxTokens,
+        system,
+        messages,
       }),
     })
 
     const data = await response.json()
 
     // Deduct message on success
-    if (response.ok && userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    if (response.ok && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
       await supabaseRpc(env, 'use_message', { p_user_id: userId })
     }
 
-    return Response.json(data, { status: response.status })
-  } catch (err) {
-    return Response.json({
-      error: 'Proxy error',
-      details: err instanceof Error ? err.message : String(err),
-    }, { status: 500 })
+    return jsonResponse(data, response.status, request)
+  } catch {
+    return jsonResponse({ error: 'Chat request failed' }, 500, request)
   }
 }
 
 // ===== API: Balance =====
 
 async function handleBalance(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'GET') return Response.json({ error: 'Method not allowed' }, { status: 405 })
+  if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const user = await verifyUser(env, request)
-  if (!user) return Response.json({ token_balance_cents: 200, total_tokens_used: 0 })
+  if (!user) return jsonResponse({ token_balance_cents: 200, total_tokens_used: 0 }, 200, request)
 
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
   const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=token_balance_cents,total_tokens_used,messages_used_this_period,message_balance`)
   const profiles = await profileRes.json() as Record<string, unknown>[]
-  return Response.json(profiles?.[0] || { token_balance_cents: 0, total_tokens_used: 0, messages_used_this_period: 0, message_balance: 0 })
+  return jsonResponse(profiles?.[0] || { token_balance_cents: 0, total_tokens_used: 0, messages_used_this_period: 0, message_balance: 0 }, 200, request)
 }
 
 // ===== API: Create Checkout =====
 
 async function handleCreateCheckout(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
-  if (!env.STRIPE_SECRET_KEY) return Response.json({ error: 'Stripe not configured' }, { status: 500 })
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
   const user = await verifyUser(env, request)
-  if (!user) return Response.json({ error: 'Authentication required' }, { status: 401 })
+  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
   // Get or create Stripe customer
   const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
@@ -229,7 +321,7 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
   }
 
   const body = await request.json() as { type: string }
-  const origin = request.headers.get('origin') || 'https://tinct.app'
+  const origin = getAllowedOrigin(request)
 
   try {
     const params = new URLSearchParams()
@@ -239,14 +331,14 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
     params.set('metadata[supabase_user_id]', user.id)
 
     if (body.type === 'subscription') {
-      if (!env.STRIPE_PRICE_PREMIUM) return Response.json({ error: 'Price not configured' }, { status: 500 })
+      if (!env.STRIPE_PRICE_PREMIUM) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'subscription')
       params.set('line_items[0][price]', env.STRIPE_PRICE_PREMIUM)
       params.set('line_items[0][quantity]', '1')
       params.set('metadata[type]', 'subscription')
       params.set('subscription_data[metadata][supabase_user_id]', user.id)
     } else if (body.type === 'chat_pack_100') {
-      if (!env.STRIPE_PRICE_CHAT_100) return Response.json({ error: 'Price not configured' }, { status: 500 })
+      if (!env.STRIPE_PRICE_CHAT_100) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
       params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_100)
       params.set('line_items[0][quantity]', '1')
@@ -254,7 +346,7 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
       params.set('metadata[message_count]', '100')
       params.set('metadata[amount_cents]', '300')
     } else if (body.type === 'chat_pack_200') {
-      if (!env.STRIPE_PRICE_CHAT_200) return Response.json({ error: 'Price not configured' }, { status: 500 })
+      if (!env.STRIPE_PRICE_CHAT_200) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
       params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_200)
       params.set('line_items[0][quantity]', '1')
@@ -262,7 +354,7 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
       params.set('metadata[message_count]', '200')
       params.set('metadata[amount_cents]', '500')
     } else {
-      return Response.json({ error: 'Invalid checkout type' }, { status: 400 })
+      return jsonResponse({ error: 'Invalid checkout type' }, 400, request)
     }
 
     const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
@@ -275,13 +367,13 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
     })
     const stripeData = await stripeRes.json() as Record<string, unknown>
     if (!stripeRes.ok || stripeData.error) {
-      return Response.json({ error: 'Stripe error', details: stripeData }, { status: 400 })
+      return jsonResponse({ error: 'Payment processing failed' }, 400, request)
     }
     const checkoutUrl = (stripeData as { url: string }).url
-    if (!checkoutUrl) return Response.json({ error: 'No checkout URL returned', details: stripeData }, { status: 500 })
-    return Response.json({ url: checkoutUrl })
-  } catch (err) {
-    return Response.json({ error: 'Checkout creation failed', details: err instanceof Error ? err.message : String(err) }, { status: 500 })
+    if (!checkoutUrl) return jsonResponse({ error: 'Payment processing failed' }, 500, request)
+    return jsonResponse({ url: checkoutUrl }, 200, request)
+  } catch {
+    return jsonResponse({ error: 'Payment processing failed' }, 500, request)
   }
 }
 
@@ -290,7 +382,7 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
 async function handleWebhook(request: Request, env: Env): Promise<Response> {
   if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
   if (!env.STRIPE_WEBHOOK_SECRET || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    return Response.json({ error: 'Server misconfigured' }, { status: 500 })
+    return Response.json({ error: 'Service unavailable' }, { status: 500 })
   }
 
   const signature = request.headers.get('stripe-signature') || ''
@@ -307,8 +399,15 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
     return Response.json({ error: 'Invalid signature' }, { status: 400 })
   }
 
+  // Reject stale webhooks (replay protection)
+  const webhookAge = Math.abs(Math.floor(Date.now() / 1000) - parseInt(parts.timestamp, 10))
+  if (isNaN(webhookAge) || webhookAge > WEBHOOK_TOLERANCE_SECONDS) {
+    return Response.json({ error: 'Webhook too old' }, { status: 400 })
+  }
+
+  // Constant-time signature comparison
   const expectedSig = await computeHmac(env.STRIPE_WEBHOOK_SECRET, `${parts.timestamp}.${rawBody}`)
-  if (!parts.signatures.some(sig => sig === expectedSig)) {
+  if (!parts.signatures.some(sig => timingSafeEqual(sig, expectedSig))) {
     return Response.json({ error: 'Invalid signature' }, { status: 400 })
   }
 
@@ -322,7 +421,7 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
     case 'checkout.session.completed': {
       const type = obj.metadata?.type
       const userId = obj.metadata?.supabase_user_id
-      if (!userId) break
+      if (!userId || !isValidUUID(userId)) break
 
       if (type === 'subscription') {
         await supabaseUpdate(env, 'profiles', userId, {
@@ -344,7 +443,7 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
         }
       } else if (type === 'chat_pack') {
         const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
-        if (messageCount > 0) await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
+        if (messageCount > 0 && messageCount <= 1000) await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
       }
 
       await supabaseInsert(env, 'payments', {
@@ -357,7 +456,7 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
 
     case 'customer.subscription.updated': {
       const userId = obj.metadata?.supabase_user_id
-      if (!userId) break
+      if (!userId || !isValidUUID(userId)) break
       const updates: Record<string, unknown> = { subscription_status: obj.status === 'active' ? 'active' : obj.status }
       if (obj.current_period_end) {
         updates.subscription_period_end = new Date(obj.current_period_end * 1000).toISOString()
@@ -370,13 +469,13 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
 
     case 'customer.subscription.deleted': {
       const userId = obj.metadata?.supabase_user_id
-      if (userId) await supabaseUpdate(env, 'profiles', userId, { subscription_status: 'canceled' })
+      if (userId && isValidUUID(userId)) await supabaseUpdate(env, 'profiles', userId, { subscription_status: 'canceled' })
       break
     }
 
     case 'invoice.payment_failed': {
       const userId = obj.metadata?.supabase_user_id
-      if (userId) await supabaseUpdate(env, 'profiles', userId, { subscription_status: 'past_due' })
+      if (userId && isValidUUID(userId)) await supabaseUpdate(env, 'profiles', userId, { subscription_status: 'past_due' })
       break
     }
   }
@@ -387,18 +486,19 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
 // ===== API: Customer Portal =====
 
 async function handleCreatePortal(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
-  if (!env.STRIPE_SECRET_KEY) return Response.json({ error: 'Stripe not configured' }, { status: 500 })
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
   const user = await verifyUser(env, request)
-  if (!user) return Response.json({ error: 'Authentication required' }, { status: 401 })
+  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
   const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
   const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
   const customerId = profiles?.[0]?.stripe_customer_id
-  if (!customerId) return Response.json({ error: 'No subscription found' }, { status: 404 })
+  if (!customerId) return jsonResponse({ error: 'No subscription found' }, 404, request)
 
-  const origin = request.headers.get('origin') || 'https://tinct.app'
+  const origin = getAllowedOrigin(request)
   try {
     const params = new URLSearchParams()
     params.set('customer', customerId)
@@ -412,27 +512,28 @@ async function handleCreatePortal(request: Request, env: Env): Promise<Response>
       body: params.toString(),
     })
     const session = await portalRes.json() as { url: string; error?: { message: string } }
-    if (session.error) return Response.json({ error: session.error.message }, { status: 400 })
-    return Response.json({ url: session.url })
-  } catch (err) {
-    return Response.json({ error: 'Portal creation failed', details: err instanceof Error ? err.message : String(err) }, { status: 500 })
+    if (session.error) return jsonResponse({ error: 'Billing portal unavailable' }, 400, request)
+    return jsonResponse({ url: session.url }, 200, request)
+  } catch {
+    return jsonResponse({ error: 'Billing portal unavailable' }, 500, request)
   }
 }
 
 // ===== API: Cancel Subscription =====
 
 async function handleCancelSubscription(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
-  if (!env.STRIPE_SECRET_KEY) return Response.json({ error: 'Stripe not configured' }, { status: 500 })
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
   const user = await verifyUser(env, request)
-  if (!user) return Response.json({ error: 'Authentication required' }, { status: 401 })
+  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
   // Get stripe_customer_id
   const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
   const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
   const customerId = profiles?.[0]?.stripe_customer_id
-  if (!customerId) return Response.json({ error: 'No subscription found' }, { status: 404 })
+  if (!customerId) return jsonResponse({ error: 'No subscription found' }, 404, request)
 
   try {
     // List active subscriptions for this customer
@@ -441,7 +542,7 @@ async function handleCancelSubscription(request: Request, env: Env): Promise<Res
     })
     const listData = await listRes.json() as { data: { id: string }[] }
     const subscriptionId = listData.data?.[0]?.id
-    if (!subscriptionId) return Response.json({ error: 'No active subscription' }, { status: 404 })
+    if (!subscriptionId) return jsonResponse({ error: 'No active subscription' }, 404, request)
 
     // Cancel at period end (not immediately)
     const cancelRes = await fetch(`https://api.stripe.com/v1/subscriptions/${subscriptionId}`, {
@@ -453,7 +554,7 @@ async function handleCancelSubscription(request: Request, env: Env): Promise<Res
       body: 'cancel_at_period_end=true',
     })
     const sub = await cancelRes.json() as { id: string; cancel_at_period_end: boolean; current_period_end: number; error?: { message: string } }
-    if (sub.error) return Response.json({ error: sub.error.message }, { status: 400 })
+    if (sub.error) return jsonResponse({ error: 'Cancellation failed' }, 400, request)
 
     // Update profile
     await supabaseUpdate(env, 'profiles', user.id, {
@@ -461,27 +562,28 @@ async function handleCancelSubscription(request: Request, env: Env): Promise<Res
       subscription_period_end: new Date(sub.current_period_end * 1000).toISOString(),
     })
 
-    return Response.json({
+    return jsonResponse({
       canceled: true,
       access_until: new Date(sub.current_period_end * 1000).toISOString(),
-    })
-  } catch (err) {
-    return Response.json({ error: 'Cancellation failed', details: err instanceof Error ? err.message : String(err) }, { status: 500 })
+    }, 200, request)
+  } catch {
+    return jsonResponse({ error: 'Cancellation failed' }, 500, request)
   }
 }
 
 // ===== API: Subscription Info =====
 
 async function handleSubscriptionInfo(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'GET') return Response.json({ error: 'Method not allowed' }, { status: 405 })
+  if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const user = await verifyUser(env, request)
-  if (!user) return Response.json({ error: 'Authentication required' }, { status: 401 })
+  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
   const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start`)
   const profiles = await profileRes.json() as Record<string, unknown>[]
   const profile = profiles?.[0]
-  if (!profile) return Response.json({ error: 'Profile not found' }, { status: 404 })
+  if (!profile) return jsonResponse({ error: 'Profile not found' }, 404, request)
 
   // If subscribed, fetch live subscription details from Stripe
   let stripeSubscription: Record<string, unknown> | null = null
@@ -504,14 +606,14 @@ async function handleSubscriptionInfo(request: Request, env: Env): Promise<Respo
     }
   }
 
-  return Response.json({
+  return jsonResponse({
     subscription_status: profile.subscription_status,
     subscription_period_end: profile.subscription_period_end,
     messages_used_this_period: profile.messages_used_this_period,
     message_balance: profile.message_balance,
     period_start: profile.period_start,
     stripe: stripeSubscription,
-  })
+  }, 200, request)
 }
 
 // ===== Email: Send via Brevo =====
@@ -596,11 +698,26 @@ async function handleScheduled(env: Env): Promise<void> {
   }
 }
 
+// ===== Security Headers =====
+
+const SECURITY_HEADERS: Record<string, string> = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; frame-src https://js.stripe.com",
+}
+
 // ===== Router =====
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url)
+
+    // Handle CORS preflight for all /api/ routes
+    if (request.method === 'OPTIONS' && url.pathname.startsWith('/api/')) {
+      return handleOptions(request)
+    }
 
     switch (url.pathname) {
       case '/api/chat': return handleChat(request, env)
@@ -612,8 +729,17 @@ export default {
       case '/api/subscription-info': return handleSubscriptionInfo(request, env)
     }
 
-    // Fall through to static assets
-    return env.ASSETS.fetch(request)
+    // Fall through to static assets, add security headers to HTML responses
+    const response = await env.ASSETS.fetch(request)
+    const contentType = response.headers.get('content-type') || ''
+    if (contentType.includes('text/html')) {
+      const newResponse = new Response(response.body, response)
+      for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+        newResponse.headers.set(key, value)
+      }
+      return newResponse
+    }
+    return response
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
