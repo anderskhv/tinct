@@ -219,6 +219,13 @@ export const HAMLET: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -244,6 +251,14 @@ export const MACBETH: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
       aligned: true,
     },
   ],
@@ -272,6 +287,14 @@ export const MIDSUMMER: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
@@ -298,6 +321,14 @@ export const ROMEO_AND_JULIET: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
       aligned: true,
     },
   ],
@@ -326,6 +357,14 @@ export const THE_TEMPEST: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
@@ -341,7 +380,7 @@ export const PRIDE_AND_PREJUDICE: Book = {
   coverAccent: '#d4a86a',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1813)', year: 1813, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
   ],
 }
 
@@ -439,8 +478,187 @@ export const THE_REPUBLIC: Book = {
   ],
 }
 
+export const MEDITATIONS: Book = {
+  id: 'meditations',
+  title: 'Meditations',
+  author: 'Marcus Aurelius',
+  description: 'A Roman emperor\'s private journal — written on campaign, never meant to be read. No self-help platitudes, just a man wrestling with duty, mortality, and how to be good when the world isn\'t.',
+  year: 180,
+  wordCount: 45000,
+  coverColor: '#2a2018',
+  coverAccent: '#9a8a6a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Long Translation (1862)',
+      translator: 'George Long',
+      year: 1862,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const DIVINE_COMEDY: Book = {
+  id: 'divine-comedy',
+  title: 'The Divine Comedy',
+  author: 'Dante Alighieri',
+  description: 'A poet walks through Hell, climbs the mountain of Purgatory, and ascends into Paradise — guided first by reason, then by love. The journey that mapped the afterlife and invented Italian literature.',
+  year: 1320,
+  wordCount: 110000,
+  coverColor: '#1a0a0a',
+  coverAccent: '#d4a030',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Longfellow Translation (1867)',
+      translator: 'Henry Wadsworth Longfellow',
+      year: 1867,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const JANE_EYRE: Book = {
+  id: 'jane-eyre',
+  title: 'Jane Eyre',
+  author: 'Charlotte Brontë',
+  description: 'An orphan with a fierce will and a quiet voice fights her way from cruelty to independence — then falls in love with a man hiding a terrible secret. "Reader, I married him."',
+  year: 1847,
+  wordCount: 188000,
+  coverColor: '#2a1a2a',
+  coverAccent: '#b87aa0',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1847)',
+      year: 1847,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const THE_AENEID: Book = {
+  id: 'the-aeneid',
+  title: 'The Aeneid',
+  author: 'Virgil',
+  description: 'A Trojan prince flees the ruins of his city, wanders the Mediterranean for seven years, and fights to found a new homeland in Italy. The epic that gave Rome its origin story — and Latin literature its masterpiece.',
+  year: -19,
+  wordCount: 110000,
+  coverColor: '#1a1a0a',
+  coverAccent: '#c4a035',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Dryden Translation (1697)',
+      translator: 'John Dryden',
+      year: 1697,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const PARADISE_LOST: Book = {
+  id: 'paradise-lost',
+  title: 'Paradise Lost',
+  author: 'John Milton',
+  description: 'Satan rebels against Heaven, corrupts humanity, and loses everything — but never stops talking. Milton\'s blind epic of free will, disobedience, and the cost of knowledge.',
+  year: 1667,
+  wordCount: 80000,
+  coverColor: '#0a0a1a',
+  coverAccent: '#a0a0d4',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1674)',
+      year: 1674,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const FRANKENSTEIN: Book = {
+  id: 'frankenstein',
+  title: 'Frankenstein',
+  author: 'Mary Shelley',
+  description: 'A young scientist creates life from dead flesh — then abandons it. The creature, articulate and desperate, wants only to be loved. The novel that invented science fiction and never lets you decide who the real monster is.',
+  year: 1818,
+  wordCount: 75000,
+  coverColor: '#0a1a0a',
+  coverAccent: '#6ab56a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1831)',
+      year: 1831,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN]
 
 export function getBook(id: string): Book | undefined {
   return BOOKS.find(b => b.id === id)
