@@ -327,71 +327,62 @@ export function Feed({
       ? `~${Math.ceil(record.totalParagraphs / 10)} pages`
       : undefined
 
-    // Colors for edition+mode segments
-    const SEGMENT_COLORS: Record<string, string> = {
-      'read:original-en': 'var(--accent)',
-      'read:modern-en': '#5b8a72',
-      'read:modern-da': '#6b7ea8',
-      'read:kjv-en': '#a0845b',
-      'read:web-en': '#7a6b8a',
-      'listened:original-en': '#c9a45c',
-      'listened:modern-en': '#82b89a',
-      'listened:modern-da': '#8b9ec8',
-      'listened:kjv-en': '#c0a47b',
-      'listened:web-en': '#9a8baa',
-    }
+    // Overall progress = furthest point reached across all modes
+    const overallPercent = usage && usage.length > 0
+      ? Math.max(...usage.map(u => u.percent || 0))
+      : progress
 
-    function segmentColor(mode: string, key: string): string {
-      return SEGMENT_COLORS[`${mode}:${key}`] || (mode === 'listened' ? '#a08850' : 'var(--accent)')
-    }
+    // Mode distribution: each mode's share of total coverage, adds to 100%
+    // e.g. listened=89%, read=89% → 50% listened, 50% read
+    // e.g. listened=89%, read=40% → 69% listened, 31% read
+    const totalWeight = usage ? usage.reduce((s, u) => s + (u.percent || 0), 0) : 0
+    const modeShares = usage && totalWeight > 0
+      ? usage.map(u => ({
+          mode: u.mode,
+          key: u.key,
+          share: Math.round((u.percent || 0) / totalWeight * 100),
+        }))
+      : null
 
-    // Determine whether to show edition names in legend (only when >1 distinct edition)
-    const distinctEditions = usage ? [...new Set(usage.map(u => u.key))] : []
-    const showEditionInLegend = distinctEditions.length > 1
+    // Collapse rounding errors so shares always sum exactly to 100
+    if (modeShares && modeShares.length > 0) {
+      const diff = 100 - modeShares.reduce((s, m) => s + m.share, 0)
+      modeShares[modeShares.length - 1].share += diff
+    }
 
     return (
       <div className="feed-detail-block">
-        {/* Progress bar with edition+mode segments */}
-        {usage && usage.length > 0 && (
+        {/* Single progress bar showing overall reach */}
+        {overallPercent !== undefined && overallPercent > 0 && (
           <div className="feed-progress-bar-container">
             <div className="feed-progress-bar">
-              {usage.map((u, i) => (
-                <div
-                  key={`${u.key}-${u.mode}-${i}`}
-                  className="feed-progress-segment"
-                  style={{
-                    width: `${u.percent || 0}%`,
-                    background: segmentColor(u.mode, u.key),
-                    opacity: u.mode === 'listened' ? 0.7 : 1,
-                  }}
-                  title={`${u.mode === 'listened' ? '🎧 Listened' : '📖 Read'}: ${editionLabel(u.key)} — ${u.percent || 0}%`}
-                />
-              ))}
-            </div>
-            <div className="feed-progress-legend">
-              {usage.map((u, i) => (
-                <span key={`leg-${u.key}-${u.mode}-${i}`} className="feed-legend-item">
-                  <span
-                    className="feed-legend-dot"
-                    style={{
-                      background: segmentColor(u.mode, u.key),
-                      opacity: u.mode === 'listened' ? 0.7 : 1,
-                    }}
-                  />
-                  {u.mode === 'listened' ? '🎧' : '📖'}{' '}
-                  {u.percent ? `${u.percent}% ` : ''}
-                  {u.mode === 'listened' ? 'listened' : 'read'}
-                  {showEditionInLegend ? ` (${editionLabel(u.key)})` : ''}
-                </span>
-              ))}
+              <div
+                className="feed-progress-segment"
+                style={{ width: `${overallPercent}%`, background: 'var(--accent)' }}
+              />
             </div>
           </div>
         )}
 
-        {/* Stats row — show read/listened % only when there's no usage bar already showing them */}
+        {/* Stats row */}
         <div className="feed-detail">
-          {progress !== undefined && !usage && (
-            <span className="feed-detail-item">{progress}% read</span>
+          {overallPercent !== undefined && (
+            <span className="feed-detail-item">{overallPercent}% through</span>
+          )}
+          {modeShares && modeShares.length > 1 && (
+            <span className="feed-detail-item">
+              {modeShares.map((m, i) => (
+                <span key={`${m.mode}-${m.key}`}>
+                  {i > 0 && ' · '}
+                  {m.mode === 'listened' ? '🎧' : '📖'} {m.share}%
+                </span>
+              ))}
+            </span>
+          )}
+          {modeShares && modeShares.length === 1 && (
+            <span className="feed-detail-item">
+              {modeShares[0].mode === 'listened' ? '🎧 listened' : '📖 read'}
+            </span>
           )}
           {pages && <span className="feed-detail-item">{pages}</span>}
           {record.timeSpentSeconds && record.timeSpentSeconds > 0 && (
