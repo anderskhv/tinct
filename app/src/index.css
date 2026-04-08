@@ -4414,6 +4414,82 @@ body {
   padding: 4px 12px 12px;
 }
 
+/* ===== Feed Sections (collapsible groups) ===== */
+.feed-section {
+  margin-bottom: 2px;
+}
+
+.feed-section--unread {
+  opacity: 0.4;
+}
+
+.feed-section-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 6px 6px 6px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 600;
+  gap: 4px;
+}
+
+.feed-section--depth-0 > .feed-section-header {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  padding-top: 10px;
+}
+
+.feed-section--depth-1 > .feed-section-header {
+  font-size: 0.82em;
+  padding-left: 8px;
+}
+
+.feed-section--depth-2 > .feed-section-header {
+  font-size: 0.8em;
+  font-weight: 500;
+  padding-left: 16px;
+}
+
+.feed-section-chevron {
+  width: 14px;
+  flex-shrink: 0;
+  font-size: 0.75em;
+}
+
+.feed-section-title {
+  flex: 1;
+}
+
+.feed-section-progress {
+  font-size: 0.75em;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-left: auto;
+}
+
+.feed-section-children {
+  /* Indent children slightly */
+}
+
+.feed-section--depth-0 > .feed-section-children {
+  padding-left: 4px;
+}
+
+.feed-section--depth-1 > .feed-section-children {
+  padding-left: 8px;
+}
+
+.feed-section--depth-2 > .feed-section-children {
+  padding-left: 4px;
+}
+
 .feed-row {
   border-left: 2px solid var(--border-color);
   margin-left: 8px;

@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import type { Note, Highlight, ChatConversation, BookReadingLog, ChapterReadingRecord } from '../types'
+import { useState, useRef, useEffect, useMemo } from 'react'
+import type { Note, Highlight, ChatConversation, BookReadingLog, ChapterReadingRecord, Section } from '../types'
 
 /** Render inline markdown: **bold**, *italic* */
 function renderInline(text: string): React.ReactNode {
@@ -113,6 +113,8 @@ interface FeedProps {
   totalChapters: number
   currentChapter: number
   chapterLabels: string[]
+  /** Hierarchical sections from edition data (e.g., Bible: Old Testament > Pentateuch > Genesis) */
+  sections?: Section[]
   notes: Note[]
   highlights: Highlight[]
   allBookHighlights: Highlight[]
@@ -152,14 +154,42 @@ function chapterArtifactCount(
   return count
 }
 
+/** Collect all chapter numbers from a section tree */
+function collectChapters(section: Section): number[] {
+  const chs: number[] = []
+  if (section.chapters) chs.push(...section.chapters)
+  if (section.sections) section.sections.forEach(s => chs.push(...collectChapters(s)))
+  return chs
+}
+
 export function Feed({
-  readingLog, totalChapters, currentChapter, chapterLabels,
+  readingLog, totalChapters, currentChapter, chapterLabels, sections,
   notes, highlights, allBookHighlights, allBookNotes, chatConversations,
   onAddNote, onDeleteNote, onDeleteHighlight, onUpdateNote,
   onNavigateToChapter, onSummarizeChat, summarizingId,
 }: FeedProps) {
   const [expanded, setExpanded] = useState<Set<number>>(() => new Set([currentChapter]))
   const [expandedConvs, setExpandedConvs] = useState<Set<string>>(new Set())
+  // Track which sections are expanded (by title path, e.g. "Old Testament" or "Old Testament/The Pentateuch")
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(() => {
+    if (!sections) return new Set()
+    // Auto-expand sections containing the current chapter
+    const expanded = new Set<string>()
+    const findPath = (secs: Section[], prefix: string): boolean => {
+      for (const sec of secs) {
+        const path = prefix ? `${prefix}/${sec.title}` : sec.title
+        const chs = collectChapters(sec)
+        if (chs.includes(currentChapter)) {
+          expanded.add(path)
+          if (sec.sections) findPath(sec.sections, path)
+          return true
+        }
+      }
+      return false
+    }
+    findPath(sections, '')
+    return expanded
+  })
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
   const [newNote, setNewNote] = useState('')
@@ -179,6 +209,37 @@ export function Feed({
       return new Set([...prev, currentChapter])
     })
   }, [currentChapter])
+
+  const toggleSection = (path: string) => {
+    setExpandedSections(prev => {
+      const next = new Set(prev)
+      if (next.has(path)) next.delete(path)
+      else next.add(path)
+      return next
+    })
+  }
+
+  // When current chapter changes, auto-expand its section
+  useEffect(() => {
+    if (!sections) return
+    setExpandedSections(prev => {
+      const next = new Set(prev)
+      const findPath = (secs: Section[], prefix: string): boolean => {
+        for (const sec of secs) {
+          const path = prefix ? `${prefix}/${sec.title}` : sec.title
+          const chs = collectChapters(sec)
+          if (chs.includes(currentChapter)) {
+            next.add(path)
+            if (sec.sections) findPath(sec.sections, path)
+            return true
+          }
+        }
+        return false
+      }
+      findPath(sections, '')
+      return next
+    })
+  }, [currentChapter, sections])
 
   const toggleChapter = (ch: number) => {
     setExpanded(prev => {
@@ -357,52 +418,53 @@ export function Feed({
       </div>
 
       <div className="feed-chapters">
-        {Array.from({ length: totalChapters }, (_, i) => {
-          const ch = i + 1
-          const record = readingLog.chapters[ch]
-          const isCurrent = ch === currentChapter
-          const isExpanded = expanded.has(ch)
-          const isUnread = !record
-          const title = chapterLabels[i] || `Chapter ${ch}`
-          const artifactCount = chapterArtifactCount(ch, currentChapter, highlights, allBookHighlights, notes, allBookNotes, chatConversations, filter)
-          const items = isExpanded && !isUnread ? getChapterItems(ch) : []
+        {(() => {
+          // Render a single chapter row
+          const renderChapterRow = (ch: number) => {
+            const record = readingLog.chapters[ch]
+            const isCurrent = ch === currentChapter
+            const isChExpanded = expanded.has(ch)
+            const isUnread = !record
+            const title = chapterLabels[ch - 1] || `Chapter ${ch}`
+            const artifactCount = chapterArtifactCount(ch, currentChapter, highlights, allBookHighlights, notes, allBookNotes, chatConversations, filter)
+            const items = isChExpanded && !isUnread ? getChapterItems(ch) : []
 
-          return (
-            <div
-              key={ch}
-              ref={isCurrent ? currentRef : undefined}
-              className={`feed-row ${isCurrent ? 'feed-row--current' : ''} ${isUnread ? 'feed-row--unread' : ''} ${isExpanded && !isUnread ? 'feed-row--expanded' : ''}`}
-            >
-              <button
-                className="feed-row-header"
-                onClick={() => {
-                  if (isUnread) return
-                  toggleChapter(ch)
-                }}
+            return (
+              <div
+                key={ch}
+                ref={isCurrent ? currentRef : undefined}
+                className={`feed-row ${isCurrent ? 'feed-row--current' : ''} ${isUnread ? 'feed-row--unread' : ''} ${isChExpanded && !isUnread ? 'feed-row--expanded' : ''}`}
               >
-                <span className="feed-row-check">
-                  {record?.completed ? (
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6L5 9L10 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  ) : isCurrent ? (
-                    <span className="feed-row-dot" />
-                  ) : null}
-                </span>
-                <span className="feed-row-title">{title}</span>
-                {isCurrent && <span className="feed-current-badge">Now</span>}
-                {!isCurrent && !isUnread && record?.lastParagraphIndex !== undefined && !record?.completed && (
-                  <button
-                    className="feed-resume"
-                    onClick={(e) => { e.stopPropagation(); onNavigateToChapter(ch, record.lastParagraphIndex) }}
-                  >
-                    Resume
-                  </button>
-                )}
-                {artifactCount > 0 && (
-                  <span className="feed-artifact-count">{artifactCount}</span>
-                )}
-              </button>
+                <button
+                  className="feed-row-header"
+                  onClick={() => {
+                    if (isUnread) return
+                    toggleChapter(ch)
+                  }}
+                >
+                  <span className="feed-row-check">
+                    {record?.completed ? (
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M2 6L5 9L10 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    ) : isCurrent ? (
+                      <span className="feed-row-dot" />
+                    ) : null}
+                  </span>
+                  <span className="feed-row-title">{title}</span>
+                  {isCurrent && <span className="feed-current-badge">Now</span>}
+                  {!isCurrent && !isUnread && record?.lastParagraphIndex !== undefined && !record?.completed && (
+                    <button
+                      className="feed-resume"
+                      onClick={(e) => { e.stopPropagation(); onNavigateToChapter(ch, record.lastParagraphIndex) }}
+                    >
+                      Resume
+                    </button>
+                  )}
+                  {artifactCount > 0 && (
+                    <span className="feed-artifact-count">{artifactCount}</span>
+                  )}
+                </button>
 
               {isExpanded && !isUnread && (
                 <div className="feed-expanded">
@@ -538,7 +600,47 @@ export function Feed({
               )}
             </div>
           )
-        })}
+          }
+
+          // Render a section group with its children
+          const renderSection = (sec: Section, prefix: string, depth: number): React.ReactNode => {
+            const path = prefix ? `${prefix}/${sec.title}` : sec.title
+            const allChs = collectChapters(sec)
+            const hasAnyRead = allChs.some(ch => readingLog.chapters[ch])
+            const containsCurrent = allChs.includes(currentChapter)
+            const isSectionExpanded = expandedSections.has(path)
+            const readCount = allChs.filter(ch => readingLog.chapters[ch]?.completed).length
+
+            return (
+              <div key={path} className={`feed-section feed-section--depth-${depth} ${!hasAnyRead && !containsCurrent ? 'feed-section--unread' : ''}`}>
+                <button
+                  className={`feed-section-header ${isSectionExpanded ? 'feed-section-header--expanded' : ''}`}
+                  onClick={() => toggleSection(path)}
+                >
+                  <span className="feed-section-chevron">{isSectionExpanded ? '\u25BE' : '\u25B8'}</span>
+                  <span className="feed-section-title">{sec.title}</span>
+                  {readCount > 0 && (
+                    <span className="feed-section-progress">{readCount}/{allChs.length}</span>
+                  )}
+                </button>
+                {isSectionExpanded && (
+                  <div className="feed-section-children">
+                    {sec.sections
+                      ? sec.sections.map(child => renderSection(child, path, depth + 1))
+                      : (sec.chapters || []).map(ch => renderChapterRow(ch))
+                    }
+                  </div>
+                )}
+              </div>
+            )
+          }
+
+          // Render: sections if available, otherwise flat list
+          if (sections && sections.length > 0) {
+            return sections.map(sec => renderSection(sec, '', 0))
+          }
+          return Array.from({ length: totalChapters }, (_, i) => renderChapterRow(i + 1))
+        })()}
       </div>
 
       {/* Note input */}

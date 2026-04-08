@@ -1358,6 +1358,7 @@ export default function App() {
                   chapterLabels={chapterLabels}
                   readingLog={readingLog}
                   totalChapters={totalChapters}
+                  sections={primaryData?.sections}
                   threadCharacters={threadsData?.characters || []}
                   currentChapter={currentChapter}
                   editionKey={primaryEditionKey}
@@ -1465,6 +1466,7 @@ export default function App() {
               chapterLabels={chapterLabels}
               readingLog={readingLog}
               totalChapters={totalChapters}
+              sections={primaryData?.sections}
               threadCharacters={threadsData?.characters || []}
               currentChapter={currentChapter}
               editionKey={primaryEditionKey}

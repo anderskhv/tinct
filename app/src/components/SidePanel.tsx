@@ -3,7 +3,7 @@ import { Feed } from './Feed'
 import { Threads } from './Threads'
 import { UpgradePrompt } from './UpgradePrompt'
 import { useTierContext } from '../contexts/TierContext'
-import type { ChatMessage, ChatConversation, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language, BookReadingLog } from '../types'
+import type { ChatMessage, ChatConversation, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language, BookReadingLog, Section } from '../types'
 
 interface SidePanelProps {
   isOpen: boolean
@@ -34,6 +34,8 @@ interface SidePanelProps {
   chapterLabels: string[]
   readingLog: BookReadingLog
   totalChapters: number
+  /** Hierarchical sections for Feed grouping (e.g., Bible sections) */
+  sections?: Section[]
   // Threads
   threadCharacters: ThreadCharacter[]
   currentChapter: number
@@ -82,6 +84,7 @@ export function SidePanel({
   chapterLabels,
   readingLog,
   totalChapters,
+  sections,
   threadCharacters,
   currentChapter,
   editionKey,
@@ -160,6 +163,7 @@ export function SidePanel({
               totalChapters={totalChapters}
               currentChapter={currentChapter}
               chapterLabels={chapterLabels}
+              sections={sections}
               notes={notes}
               highlights={highlights}
               allBookHighlights={allBookHighlights}
