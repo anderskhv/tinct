@@ -345,6 +345,10 @@ export function Feed({
       return SEGMENT_COLORS[`${mode}:${key}`] || (mode === 'listened' ? '#a08850' : 'var(--accent)')
     }
 
+    // Determine whether to show edition names in legend (only when >1 distinct edition)
+    const distinctEditions = usage ? [...new Set(usage.map(u => u.key))] : []
+    const showEditionInLegend = distinctEditions.length > 1
+
     return (
       <div className="feed-detail-block">
         {/* Progress bar with edition+mode segments */}
@@ -374,16 +378,19 @@ export function Feed({
                       opacity: u.mode === 'listened' ? 0.7 : 1,
                     }}
                   />
-                  {u.mode === 'listened' ? '🎧' : '📖'} {editionLabel(u.key)} {u.percent ? `${u.percent}%` : ''}
+                  {u.mode === 'listened' ? '🎧' : '📖'}{' '}
+                  {u.percent ? `${u.percent}% ` : ''}
+                  {u.mode === 'listened' ? 'listened' : 'read'}
+                  {showEditionInLegend ? ` (${editionLabel(u.key)})` : ''}
                 </span>
               ))}
             </div>
           </div>
         )}
 
-        {/* Stats row */}
+        {/* Stats row — show read/listened % only when there's no usage bar already showing them */}
         <div className="feed-detail">
-          {progress !== undefined && (
+          {progress !== undefined && !usage && (
             <span className="feed-detail-item">{progress}% read</span>
           )}
           {pages && <span className="feed-detail-item">{pages}</span>}
