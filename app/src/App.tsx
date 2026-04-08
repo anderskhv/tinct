@@ -91,11 +91,21 @@ export default function App() {
     if (user) {
       const provider = new SupabaseStorageProvider(user.id)
       provider.init().then(() => {
-        // Migrate any existing localStorage data to Supabase
+        // Migrate any existing localStorage data to Supabase.
+        // For position keys, prefer whichever has the more recent updatedAt timestamp.
+        // For all other keys, only write to Supabase if it has no value yet.
         const localData = localStorageProvider.getAllData()
         for (const [key, value] of Object.entries(localData)) {
-          if (!provider.get(key)) {
+          const cloudValue = provider.get(key)
+          if (!cloudValue) {
             provider.set(key, value)
+          } else if (key.startsWith('position:')) {
+            // Prefer the more recently updated position (cross-device conflict resolution)
+            const local = value as { updatedAt?: number }
+            const cloud = cloudValue as { updatedAt?: number }
+            if (local?.updatedAt && cloud?.updatedAt && local.updatedAt > cloud.updatedAt) {
+              provider.set(key, value)
+            }
           }
         }
         setStorageProvider(provider)

@@ -170,9 +170,11 @@ export function Reader({
           const page = Math.floor(el.offsetLeft / (colWidth + gap))
           setCurrentPage(Math.min(page, totalPages - 1))
         }
+        targetParagraphRef.current = undefined
+        initialPageRef.current = undefined
+        return
       }
-      targetParagraphRef.current = undefined
-      initialPageRef.current = undefined
+      // Element not found yet — keep targetParagraphRef set so we retry on next totalPages change
       return
     }
     const frac = initialPageRef.current
