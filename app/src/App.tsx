@@ -215,12 +215,16 @@ export default function App() {
         setCurrentBookId(cloudBookId)
       }
       // Restore reading position for the correct book
+      // Use lastParagraphIndex for device-independent restore (paragraph-anchored)
       const cloudPos = getSavedPosition(targetBookId)
       if (cloudPos) {
         const localPos = savedPos.current
         const winner = pickLatest(localPos, cloudPos)
         if (winner) {
           savedPos.current = winner
+          if (winner.lastParagraphIndex !== undefined) {
+            targetParagraphRef.current = winner.lastParagraphIndex
+          }
           setCurrentChapter(winner.chapterNumber)
           setCurrentPage(0)
           setReaderKey(k => k + 1)
@@ -267,6 +271,9 @@ export default function App() {
         if (winner && (winner.chapterNumber !== currentChapter ||
             (winner.scrollFraction ?? 0) > (localPos.scrollFraction ?? 0) + 0.01)) {
           savedPos.current = winner
+          if (winner.lastParagraphIndex !== undefined) {
+            targetParagraphRef.current = winner.lastParagraphIndex
+          }
           setCurrentChapter(winner.chapterNumber)
           setCurrentPage(0)
           setReaderKey(k => k + 1)
@@ -283,6 +290,18 @@ export default function App() {
   const primaryChapter = primaryData?.chapters.find(c => c.number === currentChapter)
   const chapterTitle = primaryChapter?.title || `Chapter ${currentChapter}`
   const totalChapters = primaryData?.chapters.length || book.editions.length
+
+  // Absolute page numbers: content-based, device-independent (~1500 chars per page)
+  const CHARS_PER_PAGE = 1500
+  const absolutePage = useMemo(() => {
+    if (!primaryChapter) return { current: 1, total: 1 }
+    const paras = primaryChapter.paragraphs
+    const totalChars = paras.reduce((s, p) => s + p.length, 0)
+    const total = Math.max(1, Math.ceil(totalChars / CHARS_PER_PAGE))
+    const charsBeforeCurrent = paras.slice(0, firstVisibleParagraph).reduce((s, p) => s + p.length, 0)
+    const current = Math.min(Math.floor(charsBeforeCurrent / CHARS_PER_PAGE) + 1, total)
+    return { current, total }
+  }, [primaryChapter, firstVisibleParagraph])
 
   // Short labels for chapter dropdown
   const chapterLabels = useMemo(() => {
@@ -1267,6 +1286,7 @@ export default function App() {
                 panelOpen={preferences.panelOpen}
                 onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
                 onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                disableHighlight
               />
             </div>
             {/* View 1: Compare — shows secondary edition full-width on mobile */}
@@ -1296,6 +1316,7 @@ export default function App() {
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                   onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
                   onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                  disableHighlight
                 />
               ) : (
                 <div className="mobile-view-placeholder">
@@ -1521,6 +1542,8 @@ export default function App() {
         isLearned={isSpeedLearned}
         currentPage={currentPage}
         totalPages={totalPages}
+        absoluteCurrentPage={absolutePage.current}
+        absoluteTotalPages={absolutePage.total}
         chapterPercentComplete={totalPages > 1 ? Math.round(((currentPage + 1) / totalPages) * 100) : 100}
         chapterTimeLabel={(() => {
           if (totalPages <= 1) return 'Done'

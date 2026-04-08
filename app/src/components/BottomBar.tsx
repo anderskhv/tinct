@@ -29,6 +29,9 @@ interface BottomBarProps {
   isLearned: boolean
   currentPage: number
   totalPages: number
+  /** Content-based absolute page (device-independent, ~1500 chars/page) */
+  absoluteCurrentPage?: number
+  absoluteTotalPages?: number
   // Scoped progress (for section/chapter display)
   chapterPercentComplete?: number
   chapterTimeLabel?: string
@@ -62,6 +65,7 @@ const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
 export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
   function BottomBar({
     percentComplete, timeRemainingLabel, isLearned, currentPage, totalPages,
+    absoluteCurrentPage, absoluteTotalPages,
     chapterPercentComplete, chapterTimeLabel, sectionPercentComplete, sectionTimeLabel,
     locationCurrent, locationTotal, progressDisplay,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
@@ -382,7 +386,9 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             const scopeLabel = scope === 'chapter' ? 'ch' : scope === 'section' ? 'sec' : ''
 
             if (metric === 'page') {
-              return <span className="reading-tracker-percent">{currentPage + 1}/{totalPages}</span>
+              const pg = absoluteCurrentPage ?? (currentPage + 1)
+              const tot = absoluteTotalPages ?? totalPages
+              return <span className="reading-tracker-percent">{pg}/{tot}</span>
             }
             if (metric === 'location' && locationCurrent !== undefined && locationTotal) {
               return <span className="reading-tracker-percent">Loc {locationCurrent}/{locationTotal}</span>

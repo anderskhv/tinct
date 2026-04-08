@@ -55,6 +55,8 @@ interface ReaderProps {
   onPrevChapter?: () => void
   /** Whether side panel is open — triggers column recalc on change */
   panelOpen?: boolean
+  /** Disable highlight selection popup (e.g. on mobile) */
+  disableHighlight?: boolean
 }
 
 export function Reader({
@@ -82,6 +84,7 @@ export function Reader({
   onNextChapter,
   onPrevChapter,
   panelOpen,
+  disableHighlight,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -336,6 +339,8 @@ export function Reader({
       return
     }
 
+    if (disableHighlight) return
+
     const selectedText = selection.toString().trim()
     if (selectedText.length < 3) return
 
@@ -355,17 +360,44 @@ export function Reader({
     // Normalize newlines → spaces for matching (prose text has embedded \n)
     const normalizedPara = paragraphText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
     const normalizedSelection = selectedText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
-    let startOffset = normalizedPara.indexOf(normalizedSelection)
-    let endOffset: number
-    if (startOffset >= 0) {
-      // Map back to original text offsets by counting characters
-      // The normalized positions correspond to original positions when \n→space
-      endOffset = startOffset + normalizedSelection.length
-    } else {
-      // Fallback: try original text directly
-      startOffset = paragraphText.indexOf(selectedText)
-      endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
+
+    // Primary: use DOM-based offset calculation (works regardless of text normalization)
+    let startOffset = -1
+    let endOffset = 0
+    try {
+      const range = selection.getRangeAt(0)
+      // Walk text nodes inside the paragraph element to compute character offsets
+      const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
+      let charCount = 0
+      let foundStart = false
+      let node: Node | null
+      while ((node = walker.nextNode())) {
+        const nodeLen = (node.textContent || '').length
+        if (!foundStart && node === range.startContainer) {
+          startOffset = charCount + range.startOffset
+          foundStart = true
+        }
+        if (node === range.endContainer) {
+          endOffset = charCount + range.endOffset
+          break
+        }
+        charCount += nodeLen
+      }
+    } catch {
+      // Fallback: indexOf on normalized text
     }
+
+    // Fallback: indexOf if DOM walk failed
+    if (startOffset < 0 || endOffset <= startOffset) {
+      startOffset = normalizedPara.indexOf(normalizedSelection)
+      if (startOffset >= 0) {
+        endOffset = startOffset + normalizedSelection.length
+      } else {
+        startOffset = paragraphText.indexOf(selectedText)
+        endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
+      }
+    }
+    console.log('[Highlight] selection:', { paragraphIndex, startOffset, endOffset, selectedText: selectedText.slice(0, 40), found: startOffset >= 0 })
 
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
@@ -383,10 +415,16 @@ export function Reader({
       endOffset: Math.max(0, endOffset),
       showBelow,
     })
-  }, [paragraphs, readerRef])
+  }, [paragraphs, readerRef, disableHighlight])
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
+    // Guard: don't create zero-length highlights (indexOf failed)
+    if (selectionPopup.startOffset >= selectionPopup.endOffset) {
+      console.warn('[Highlight] Blocked zero-length highlight', selectionPopup)
+      return
+    }
+    console.log('[Highlight] Creating:', { color, paragraphIndex: selectionPopup.paragraphIndex, start: selectionPopup.startOffset, end: selectionPopup.endOffset })
     onHighlight(
       selectionPopup.paragraphIndex,
       selectionPopup.startOffset,

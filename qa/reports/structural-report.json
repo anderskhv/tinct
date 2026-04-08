@@ -1,0 +1,1401 @@
+{
+  "timestamp": "2026-04-08T07:55:46.542Z",
+  "summary": {
+    "total_books": 1,
+    "passed": 0,
+    "warnings": 1,
+    "failed": 0
+  },
+  "books": {
+    "crime-and-punishment": {
+      "status": "warn",
+      "editionsFound": [
+        "original-en",
+        "modern-en",
+        "modern-da"
+      ],
+      "editionsMissing": [],
+      "chapterCounts": {
+        "original-en": 41,
+        "modern-en": 41,
+        "modern-da": 41
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch3/p19",
+          "message": "Very short paragraph (9 chars): \"“Work...”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch6/p18",
+          "message": "Very short paragraph (7 chars): \"“Well?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch6/p23",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch7/p46",
+          "message": "Very short paragraph (5 chars): \"“Oh!”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch7/p52",
+          "message": "Very short paragraph (7 chars): \"“What?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch7/p58",
+          "message": "Very short paragraph (7 chars): \"“Well?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch7/p60",
+          "message": "Very short paragraph (7 chars): \"“Well?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch7/p64",
+          "message": "Very short paragraph (7 chars): \"“What?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch8/p159",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch8/p161",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch10/p42",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch10/p52",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch13/p63",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch13/p133",
+          "message": "Very short paragraph (5 chars): \"“No.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch13/p139",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch13/p141",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch13/p143",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch13/p172",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch16/p37",
+          "message": "Very short paragraph (7 chars): \"“What?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch17/p120",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch17/p135",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch18/p13",
+          "message": "Very short paragraph (6 chars): \"“Why?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch18/p41",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch18/p51",
+          "message": "Very short paragraph (6 chars): \"“Why?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch18/p59",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch18/p92",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch18/p124",
+          "message": "Very short paragraph (6 chars): \"“Pig!”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch19/p31",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch21/p63",
+          "message": "Very short paragraph (5 chars): \"“No!”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch21/p124",
+          "message": "Very short paragraph (7 chars): \"“Here?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch21/p125",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch22/p55",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch23/p4",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch24/p24",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch24/p28",
+          "message": "Very short paragraph (9 chars): \"“Yes....”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch24/p32",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch24/p40",
+          "message": "Very short paragraph (7 chars): \"“Whom?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch24/p83",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch26/p79",
+          "message": "Very short paragraph (6 chars): \"“How?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch26/p93",
+          "message": "Very short paragraph (9 chars): \"“To-day?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch30/p51",
+          "message": "Very short paragraph (9 chars): \"“I know.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch30/p54",
+          "message": "Very short paragraph (5 chars): \"“No.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch31/p109",
+          "message": "Very short paragraph (6 chars): \"“You?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch32/p29",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch36/p4",
+          "message": "Very short paragraph (7 chars): \"“What?”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch36/p120",
+          "message": "Very short paragraph (8 chars): \"“Never!”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch38/p22",
+          "message": "Very short paragraph (6 chars): \"“Yes.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch38/p32",
+          "message": "Very short paragraph (5 chars): \"“No!”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch39/p52",
+          "message": "Very short paragraph (5 chars): \"“No.”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "original-en",
+          "location": "ch39/p54",
+          "message": "Very short paragraph (9 chars): \"“N-no...”\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch3/p19",
+          "message": "Very short paragraph (9 chars): \"\"Work...\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch6/p23",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch7/p46",
+          "message": "Very short paragraph (5 chars): \"\"Oh!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch7/p58",
+          "message": "Very short paragraph (5 chars): \"\"So?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch7/p60",
+          "message": "Very short paragraph (5 chars): \"\"So?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch7/p64",
+          "message": "Very short paragraph (7 chars): \"\"What?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch7/p69",
+          "message": "Very short paragraph (6 chars): \"\"Why?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch8/p159",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch8/p161",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch10/p42",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch10/p52",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p34",
+          "message": "Very short paragraph (7 chars): \"\"What?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p63",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p133",
+          "message": "Very short paragraph (5 chars): \"\"No.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p139",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p141",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p143",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch13/p172",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch14/p138",
+          "message": "Very short paragraph (7 chars): \"\"What?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch16/p37",
+          "message": "Very short paragraph (7 chars): \"\"What?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch17/p120",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch17/p135",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch18/p13",
+          "message": "Very short paragraph (6 chars): \"\"Why?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch18/p41",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch18/p51",
+          "message": "Very short paragraph (6 chars): \"\"Why?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch18/p59",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch18/p92",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch18/p110",
+          "message": "Translation is 29% of original length (13 vs 45 chars). Possibly truncated.",
+          "preview": "\"Then don't.\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch18/p124",
+          "message": "Very short paragraph (6 chars): \"\"Pig!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch19/p31",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch21/p49",
+          "message": "Very short paragraph (9 chars): \"\"Do you?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch21/p63",
+          "message": "Very short paragraph (5 chars): \"\"No!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch21/p124",
+          "message": "Very short paragraph (7 chars): \"\"Here?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch21/p125",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch22/p55",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch23/p4",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch24/p24",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch24/p28",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch24/p32",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch24/p40",
+          "message": "Very short paragraph (7 chars): \"\"Whom?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch24/p83",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch25/p30",
+          "message": "Very short paragraph (8 chars): \"\"I was.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch26/p79",
+          "message": "Very short paragraph (6 chars): \"\"How?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch26/p93",
+          "message": "Very short paragraph (8 chars): \"\"Today?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch30/p51",
+          "message": "Very short paragraph (9 chars): \"\"I know.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch30/p54",
+          "message": "Very short paragraph (5 chars): \"\"No.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch31/p109",
+          "message": "Very short paragraph (6 chars): \"\"You?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch32/p29",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch32/p55",
+          "message": "Very short paragraph (8 chars): \"He left.\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch36/p4",
+          "message": "Very short paragraph (7 chars): \"\"What?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch36/p74",
+          "message": "Very short paragraph (8 chars): \"\"Where?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-en",
+          "location": "ch36/p89",
+          "message": "Translation is 589% of original length (560 vs 95 chars). Possibly hallucinated content.",
+          "preview": "\"You said 'a trap,' Avdotya Romanovna. If it is a trap, you should know I've tak"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p90",
+          "message": "Translation is 16% of original length (31 vs 198 chars). Possibly truncated.",
+          "preview": "\"You villain!\" Dunya whispered."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-en",
+          "location": "ch36/p92",
+          "message": "Translation is 333% of original length (140 vs 42 chars). Possibly hallucinated content.",
+          "preview": "Svidrigailov sat down on the sofa, about eight paces from Dunya. She had no doub"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p93",
+          "message": "Translation is 25% of original length (134 vs 530 chars). Possibly truncated.",
+          "preview": "Suddenly she pulled a revolver from her pocket, cocked it, and steadied it on th"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p96",
+          "message": "Translation is 22% of original length (55 vs 255 chars). Possibly truncated.",
+          "preview": "Dunya was beside herself. She held the revolver steady."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p114",
+          "message": "Translation is 30% of original length (85 vs 284 chars). Possibly truncated.",
+          "preview": "\"You didn't load it properly. Never mind! You have one cap left. Fix it — I'll w"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p116",
+          "message": "Translation is 17% of original length (37 vs 223 chars). Possibly truncated.",
+          "preview": "Suddenly she threw the revolver away."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-en",
+          "location": "ch36/p117",
+          "message": "Translation is 340% of original length (299 vs 88 chars). Possibly hallucinated content.",
+          "preview": "\"She dropped it!\" Svidrigailov said with surprise, and drew a deep breath. Somet"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-en",
+          "location": "ch36/p118",
+          "message": "Translation is 332% of original length (216 vs 65 chars). Possibly hallucinated content.",
+          "preview": "He went to Dunya and gently put his arm around her waist. She didn't resist, but"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-en",
+          "location": "ch36/p120",
+          "message": "Translation is 1000% of original length (80 vs 8 chars). Possibly hallucinated content.",
+          "preview": "Svidrigailov shuddered. That \"you\" was spoken differently from the previous one."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p121",
+          "message": "Translation is 16% of original length (37 vs 228 chars). Possibly truncated.",
+          "preview": "\"So you don't love me?\" he whispered."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-en",
+          "location": "ch36/p126",
+          "message": "Translation is 14% of original length (22 vs 156 chars). Possibly truncated.",
+          "preview": "Another moment passed."
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch38/p22",
+          "message": "Very short paragraph (6 chars): \"\"Yes.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch38/p32",
+          "message": "Very short paragraph (5 chars): \"\"No!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch39/p52",
+          "message": "Very short paragraph (5 chars): \"\"No.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-en",
+          "location": "ch39/p54",
+          "message": "Very short paragraph (9 chars): \"\"N-no...\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch1/p38",
+          "message": "Very short paragraph (8 chars): \"\"Netop.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch6/p18",
+          "message": "Very short paragraph (9 chars): \"\"Værsgo.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch6/p23",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch7/p46",
+          "message": "Very short paragraph (6 chars): \"\"Nåh!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch7/p58",
+          "message": "Very short paragraph (9 chars): \"\"Ja, og?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch7/p60",
+          "message": "Very short paragraph (9 chars): \"\"Ja, og?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch7/p64",
+          "message": "Very short paragraph (7 chars): \"\"Hvad?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch8/p159",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch8/p161",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch10/p42",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch10/p44",
+          "message": "Very short paragraph (7 chars): \"\"Godt.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch10/p52",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p34",
+          "message": "Very short paragraph (7 chars): \"»Hvad?«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p63",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p133",
+          "message": "Very short paragraph (6 chars): \"»Nej.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p139",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p141",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p143",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch13/p172",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch14/p138",
+          "message": "Very short paragraph (7 chars): \"»Hvad?«\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch15/p33",
+          "message": "Translation is 26% of original length (521 vs 1981 chars). Possibly truncated.",
+          "preview": "Denne samtale fandt sted på afsatsen lige uden for værtindens dør. Nastasja lyst"
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch16/p37",
+          "message": "Very short paragraph (7 chars): \"\"Hvad?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch17/p120",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch17/p135",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch18/p41",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch18/p59",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch18/p92",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch18/p124",
+          "message": "Very short paragraph (7 chars): \"\"Svin!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch19/p31",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch19/p63",
+          "message": "Translation is 13% of original length (296 vs 2343 chars). Possibly truncated.",
+          "preview": "»Det værste er, at de ikke engang gider skjule det! De holder ikke på formerne! "
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch19/p116",
+          "message": "Very short paragraph (6 chars): \"»Tak.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch20/p62",
+          "message": "Translation is 23% of original length (1101 vs 4719 chars). Possibly truncated.",
+          "preview": "Han mistede bevidstheden. Det forekom ham mærkeligt, at han ikke kunne huske, hv"
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch21/p49",
+          "message": "Very short paragraph (9 chars): \"»Gør De?«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch21/p63",
+          "message": "Very short paragraph (6 chars): \"»Nej!«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch21/p124",
+          "message": "Very short paragraph (6 chars): \"»Her?«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch21/p125",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch22/p55",
+          "message": "Very short paragraph (5 chars): \"»Ja.«\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch23/p4",
+          "message": "Very short paragraph (5 chars): \"*****\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch24/p24",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch24/p28",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch24/p32",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch24/p40",
+          "message": "Very short paragraph (7 chars): \"\"Hvem?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch24/p83",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch26/p93",
+          "message": "Very short paragraph (8 chars): \"\"I dag?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch30/p54",
+          "message": "Very short paragraph (6 chars): \"\"Nej.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch31/p79",
+          "message": "Translation is 15% of original length (33 vs 213 chars). Possibly truncated.",
+          "preview": "Hun betragtede hende med lidelse."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch31/p80",
+          "message": "Translation is 636% of original length (210 vs 33 chars). Possibly hallucinated content.",
+          "preview": "\"Vi har ødelagt dig, Sonja. Polenka, Lida, Kolja — kom her! Nå, her er de, Sonja"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch31/p81",
+          "message": "Translation is 17% of original length (33 vs 197 chars). Possibly truncated.",
+          "preview": "De lagde hende ned på puden igen."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch31/p84",
+          "message": "Translation is 700% of original length (217 vs 31 chars). Possibly hallucinated content.",
+          "preview": "\"Jeg sagde til ham, 'Deres Excellence...'\" gispede hun og kæmpede for hvert ord."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch31/p89",
+          "message": "Translation is 15% of original length (36 vs 236 chars). Possibly truncated.",
+          "preview": "\"I middagsheden, i Dagestans dal...\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch31/p92",
+          "message": "Translation is 25% of original length (71 vs 286 chars). Possibly truncated.",
+          "preview": "\"I middagsheden!... i dalen!... i Dagestan!... Med bly i mit bryst!...\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch31/p93",
+          "message": "Translation is 326% of original length (424 vs 130 chars). Possibly hallucinated content.",
+          "preview": "\"Deres Excellence!\" skreg hun pludselig med et hjerteskærende skrig og en strøm "
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch31/p109",
+          "message": "Very short paragraph (5 chars): \"\"De?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch32/p29",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch32/p55",
+          "message": "Very short paragraph (8 chars): \"Han gik.\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch35/p8",
+          "message": "Translation is 19% of original length (1497 vs 7804 chars). Possibly truncated.",
+          "preview": "\"Ja, det var. Jeg kan se, at De er overordentlig nysgerrig efter alt dette, og j"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch35/p23",
+          "message": "Translation is 17% of original length (727 vs 4230 chars). Possibly truncated.",
+          "preview": "\"Overhovedet ikke? Vi får se. Jeg tager Dem med derhen — jeg viser Dem min brud "
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch36/p4",
+          "message": "Very short paragraph (7 chars): \"\"Hvad?\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch36/p89",
+          "message": "Translation is 603% of original length (573 vs 95 chars). Possibly hallucinated content.",
+          "preview": "\"De sagde 'en fælde,' Avdotja Romanovna. Hvis det er en fælde, bør De vide, at j"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch36/p90",
+          "message": "Translation is 12% of original length (24 vs 198 chars). Possibly truncated.",
+          "preview": "\"Skurk!\" hviskede Dunya."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch36/p92",
+          "message": "Translation is 348% of original length (146 vs 42 chars). Possibly hallucinated content.",
+          "preview": "Svidrigajlov satte sig på sofaen, omkring tre meter fra Dunya. Hun havde ingen t"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch36/p93",
+          "message": "Translation is 24% of original length (125 vs 530 chars). Possibly truncated.",
+          "preview": "Pludselig trak hun en revolver op af lommen, spændte hanen og holdt den mod det "
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch36/p96",
+          "message": "Translation is 21% of original length (53 vs 255 chars). Possibly truncated.",
+          "preview": "Dunya var ude af sig selv. Hun holdt revolveren fast."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch36/p116",
+          "message": "Translation is 18% of original length (41 vs 223 chars). Possibly truncated.",
+          "preview": "Pludselig kastede hun revolveren fra sig."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch36/p117",
+          "message": "Translation is 359% of original length (316 vs 88 chars). Possibly hallucinated content.",
+          "preview": "\"Hun kastede den!\" sagde Svidrigajlov overrasket og trak vejret dybt. Noget synt"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch36/p118",
+          "message": "Translation is 368% of original length (239 vs 65 chars). Possibly hallucinated content.",
+          "preview": "Han gik hen til Dunya og lagde forsigtigt armen om hendes talje. Hun gjorde ikke"
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-high",
+          "edition": "modern-da",
+          "location": "ch36/p120",
+          "message": "Translation is 875% of original length (70 vs 8 chars). Possibly hallucinated content.",
+          "preview": "Svidrigajlov skælvede. Det \"De\" var udtalt anderledes end det forrige."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch36/p121",
+          "message": "Translation is 17% of original length (38 vs 228 chars). Possibly truncated.",
+          "preview": "\"Så De elsker mig ikke?\" hviskede han."
+        },
+        {
+          "severity": "warning",
+          "check": "length-ratio-low",
+          "edition": "modern-da",
+          "location": "ch36/p126",
+          "message": "Translation is 13% of original length (21 vs 156 chars). Possibly truncated.",
+          "preview": "Endnu et øjeblik gik."
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch37/p21",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch37/p26",
+          "message": "Very short paragraph (8 chars): \"\"Intet.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch38/p22",
+          "message": "Very short paragraph (5 chars): \"\"Ja.\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch38/p32",
+          "message": "Very short paragraph (6 chars): \"\"Nej!\"\""
+        },
+        {
+          "severity": "warning",
+          "check": "short-paragraph",
+          "edition": "modern-da",
+          "location": "ch39/p52",
+          "message": "Very short paragraph (6 chars): \"\"Nej.\"\""
+        }
+      ],
+      "tier": "library"
+    }
+  }
+}
