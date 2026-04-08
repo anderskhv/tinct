@@ -466,7 +466,7 @@ export function Feed({
                   )}
                 </button>
 
-              {isExpanded && !isUnread && (
+              {isChExpanded && !isUnread && (
                 <div className="feed-expanded">
                   {record && renderChapterDetail(record)}
 

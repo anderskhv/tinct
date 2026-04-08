@@ -16,7 +16,7 @@ import type { BottomBarHandle } from './components/BottomBar'
 import { PanelToggleTab } from './components/PanelToggleTab'
 import { TocOverlay } from './components/TocOverlay'
 import { TierProvider } from './contexts/TierContext'
-import { BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
+import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition } from './data/editionLoader'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
@@ -37,7 +37,7 @@ import { useLibrary } from './hooks/useLibrary'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage, setStorageProvider, localStorageProvider } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
-import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition } from './types'
+import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition, FontSize, FontFamily } from './types'
 import { makeEditionKey } from './types'
 import { trackPageview } from './utils/analytics'
 import { AUDIO_BASE_URL } from './utils/audioUrl'
@@ -761,7 +761,7 @@ export default function App() {
 
       // Track usage
       if (data.usage) {
-        deductUsage(data.usage.input_tokens || 0, data.usage.output_tokens || 0)
+        deductUsage()
       }
 
       if (cleanedText) {
@@ -834,7 +834,7 @@ export default function App() {
       const summaryText = data.content?.[0]?.text
 
       if (data.usage) {
-        deductUsage(data.usage.input_tokens || 0, data.usage.output_tokens || 0)
+        deductUsage()
       }
 
       if (summaryText) {
@@ -1213,7 +1213,7 @@ export default function App() {
             totalPages,
             scrollFraction: frac,
           }
-          setFontSize(size)
+          setFontSize(size as FontSize)
           setReaderKey(k => k + 1)
         }}
         fontFamily={preferences.fontFamily}
@@ -1226,7 +1226,7 @@ export default function App() {
             totalPages,
             scrollFraction: frac,
           }
-          setFontFamily(family)
+          setFontFamily(family as FontFamily)
           setReaderKey(k => k + 1)
         }}
         readingObjective={preferences.readingObjective}
