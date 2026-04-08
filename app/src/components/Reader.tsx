@@ -296,8 +296,16 @@ export function Reader({
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  // Track whether onTouchEnd already handled a tap (avoid double page turn on mobile)
+  const touchHandledRef = useRef(false)
+
   // Click on left/right edge to turn pages, or click paragraph for audio
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
+    // Skip if touch already handled this interaction (mobile fires both touchend + click)
+    if (touchHandledRef.current) {
+      touchHandledRef.current = false
+      return
+    }
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
     if ((e.target as HTMLElement).closest('button, .selection-popup, mark')) return
@@ -484,12 +492,14 @@ export function Reader({
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
         if (touchX < zone) {
+          touchHandledRef.current = true
           if (currentPage <= 0 && onPrevChapter) {
             onPrevChapter()
           } else {
             goToPage(currentPage - 1)
           }
         } else if (touchX > rect.width - zone) {
+          touchHandledRef.current = true
           if (currentPage >= totalPages - 1 && onNextChapter) {
             onNextChapter()
           } else {
