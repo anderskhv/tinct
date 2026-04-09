@@ -912,9 +912,17 @@ export default function App() {
   const handlePrevChapter = useCallback(() => {
     if (currentChapter > 1) {
       targetParagraphRef.current = undefined
+      // Navigate to last page of previous chapter
+      savedPos.current = {
+        bookId: book.id,
+        chapterNumber: currentChapter - 1,
+        currentPage: 0,
+        totalPages: 1,
+        scrollFraction: 1,
+      }
       setCurrentChapter(currentChapter - 1)
     }
-  }, [currentChapter])
+  }, [currentChapter, book.id])
 
   // Wrap split view toggle to preserve position
   const handleToggleSplitView = useCallback(() => {
