@@ -196,6 +196,10 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           }
           setCurrentParagraph(startIdx)
           currentParagraphRef.current = startIdx
+          // Tell the Reader where the audio is cued so it navigates to the right paragraph
+          if (startIdx > 0) {
+            onParagraphChangeRef.current?.(data.paragraphs[startIdx].paragraph)
+          }
 
           // Auto-resume if chapter changed due to audio finishing previous chapter
           if (shouldResumeRef.current) {
