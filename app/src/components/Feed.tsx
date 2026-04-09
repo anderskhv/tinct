@@ -438,6 +438,7 @@ export function Feed({
                   onClick={() => {
                     if (isUnread) return
                     toggleChapter(ch)
+                    if (!isCurrent) onNavigateToChapter(ch)
                   }}
                 >
                   <span className="feed-row-check">
@@ -542,7 +543,7 @@ export function Feed({
                             <div key={`chat-${conv.id}`} className="timeline-item timeline-chat">
                               <div className="timeline-icon timeline-icon-chat">&#128172;</div>
                               <div className="timeline-body">
-                                <button className="timeline-chat-header" onClick={() => toggleConv(conv.id)}>
+                                <button className="timeline-chat-header" onClick={() => { toggleConv(conv.id); onNavigateToChapter(conv.chapterNumber, conv.paragraphIndex) }}>
                                   <span className="timeline-chat-preview">
                                     {conv.summary
                                       ? conv.summary.slice(0, 80) + (conv.summary.length > 80 ? '...' : '')
@@ -571,9 +572,6 @@ export function Feed({
                                       ))
                                     )}
                                     <div className="timeline-chat-actions">
-                                      <button className="timeline-chat-navigate" onClick={() => onNavigateToChapter(conv.chapterNumber, conv.paragraphIndex)}>
-                                        Go to passage
-                                      </button>
                                       {!conv.summary && onSummarizeChat && msgCount >= 4 && (
                                         <button
                                           className="timeline-chat-summarize"
