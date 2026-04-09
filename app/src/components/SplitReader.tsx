@@ -49,6 +49,10 @@ interface SplitReaderProps {
   onPageChange?: (page: number, total: number) => void
   /** Initial scroll fraction (0–1) to restore on mount */
   initialPage?: number
+  /** Paragraph index to restore to (takes priority over initialPage) */
+  targetParagraphIndex?: number
+  /** Called when the first visible paragraph changes */
+  onFirstVisibleParagraph?: (index: number) => void
   /** Index of the paragraph currently being played by audio */
   playingParagraphIndex?: number
   /** Called when a paragraph is clicked (tap-to-play) */
@@ -85,6 +89,8 @@ export function SplitReader({
   isRightVerse,
   onPageChange,
   initialPage,
+  targetParagraphIndex,
+  onFirstVisibleParagraph,
   playingParagraphIndex,
   onParagraphClick,
   hasAudio,
@@ -166,20 +172,60 @@ export function SplitReader({
     }
   }, [chapterTitle])
 
-  // Restore position from initialPage fraction after layout settles
+  // Restore position from targetParagraphIndex (paragraph-anchored) or initialPage fraction
+  const targetParagraphRef = useRef(targetParagraphIndex)
   useEffect(() => {
+    if (targetParagraphRef.current !== undefined && totalPages > 1) {
+      const content = contentRef.current
+      if (!content) return
+      const el = content.querySelector(`.split-left[data-paragraph-index="${targetParagraphRef.current}"]`) as HTMLElement
+      if (el) {
+        const colWidth = getColWidth()
+        const gap = getGap()
+        if (colWidth > 0) {
+          const page = Math.floor(el.offsetLeft / (colWidth + gap))
+          setCurrentPage(Math.min(page, totalPages - 1))
+        }
+        targetParagraphRef.current = undefined
+        initialPageRef.current = undefined
+        return
+      }
+      // Element not found yet — retry on next totalPages change
+      return
+    }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
       const targetPage = Math.round(frac * (totalPages - 1))
       setCurrentPage(targetPage)
       initialPageRef.current = undefined
     }
-  }, [totalPages])
+  }, [totalPages, getColWidth, getGap])
 
   // Report page changes to parent
   useEffect(() => {
     onPageChange?.(currentPage, totalPages)
   }, [currentPage, totalPages, onPageChange])
+
+  // Report first visible paragraph (left column) so App.tsx location stays accurate in split mode
+  useEffect(() => {
+    if (!onFirstVisibleParagraph) return
+    const content = contentRef.current
+    if (!content) return
+    const colWidth = getColWidth()
+    const gap = getGap()
+    if (colWidth <= 0) return
+    const pageLeft = currentPage * (colWidth + gap)
+    const pageRight = pageLeft + colWidth
+    const paraEls = content.querySelectorAll('.split-left[data-paragraph-index]')
+    for (const el of paraEls) {
+      const htmlEl = el as HTMLElement
+      if (htmlEl.offsetLeft < pageRight && htmlEl.offsetLeft + htmlEl.offsetWidth > pageLeft) {
+        const idx = parseInt(htmlEl.getAttribute('data-paragraph-index') || '0', 10)
+        onFirstVisibleParagraph(idx)
+        return
+      }
+    }
+  }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
 
   // Auto-advance page when audio plays a paragraph not visible on current page
   // Only auto-advance if the user hasn't manually navigated away

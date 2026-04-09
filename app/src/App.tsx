@@ -914,7 +914,8 @@ export default function App() {
 
   // Wrap split view toggle to preserve position
   const handleToggleSplitView = useCallback(() => {
-    // Save current scroll fraction before toggling
+    // Anchor restore by paragraph index — page counts differ between single and split
+    targetParagraphRef.current = firstVisibleParagraph
     const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
     savedPos.current = {
       bookId: book.id,
@@ -922,10 +923,11 @@ export default function App() {
       currentPage,
       totalPages,
       scrollFraction: frac,
+      lastParagraphIndex: firstVisibleParagraph,
     }
     toggleSplitView()
     setReaderKey(k => k + 1)
-  }, [toggleSplitView, currentPage, totalPages, currentChapter, book.id])
+  }, [toggleSplitView, currentPage, totalPages, currentChapter, book.id, firstVisibleParagraph])
 
   // Handle style change with fallback for split edition
   const handleStyleChange = useCallback((newStyle: Style) => {
@@ -1411,7 +1413,9 @@ export default function App() {
                 isLeftVerse={primaryIsVerse}
                 isRightVerse={splitIsVerse}
                 onPageChange={handlePageChange}
+                onFirstVisibleParagraph={setFirstVisibleParagraph}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
+                targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
