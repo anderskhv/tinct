@@ -321,7 +321,12 @@ export function SplitReader({
     if (!paragraphEl) return
 
     const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
+    // Only allow highlighting in the primary (left) edition — right column is compare-only
     const side = paragraphEl.closest('.split-left') ? 'left' as const : 'right' as const
+    if (side === 'right') {
+      setTimeout(() => setSelectionPopup(null), 200)
+      return
+    }
     const sourceParagraphs = side === 'left' ? leftParagraphs : rightParagraphs
     const paragraphText = sourceParagraphs[paragraphIndex] || ''
     const normalizedPara = paragraphText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
