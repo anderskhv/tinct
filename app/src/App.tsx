@@ -905,11 +905,15 @@ export default function App() {
           percent: Math.round((currentChapter / totalChapters) * 100),
         })
       }
+      targetParagraphRef.current = undefined
       setCurrentChapter(currentChapter + 1)
     }
   }, [currentChapter, totalChapters, book.id])
   const handlePrevChapter = useCallback(() => {
-    if (currentChapter > 1) setCurrentChapter(currentChapter - 1)
+    if (currentChapter > 1) {
+      targetParagraphRef.current = undefined
+      setCurrentChapter(currentChapter - 1)
+    }
   }, [currentChapter])
 
   // Wrap split view toggle to preserve position

@@ -5277,9 +5277,14 @@ body {
     min-width: 0;
   }
 
-  /* Hide panel tabs and panel toggle on mobile — bottom nav handles view switching */
+  /* Panel tabs visible on mobile — user must be able to switch Chat/Feed/Cast */
   .panel-tabs {
-    display: none;
+    display: flex;
+  }
+
+  .panel-tab {
+    padding: 7px 4px;
+    font-size: 0.72rem;
   }
 
   .panel-toggle-tab {
