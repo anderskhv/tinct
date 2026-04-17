@@ -155,3 +155,32 @@ The `write-paragraph.py` script validates invariants before writing. Can be resu
 2. `<checkpoint>` — Translation QA infrastructure + quote style migration to »…« (22 books)
 3. `e70f097` — Fix 9 truncated paragraphs in odyssey modern-da
 4. `c198400` — Fix severe truncations in frankenstein, gilgamesh, phaedo
+5. Session notes + apology fixes
+
+---
+
+## CRITICAL FINDING: enchiridion data mix-up
+
+The enchiridion regen agent (run April 17) stopped before destructive action and reported:
+
+- `enchiridion-original-en.json` contains **Nathaniel Hawthorne's "Earth's Holocaust"** (1844 allegorical short story), 42 chapters, 84 paragraphs.
+- `enchiridion-modern-en.json` and `enchiridion-modern-da.json` contain the **actual Epictetus Enchiridion**, 53 chapters, 73 paragraphs each.
+
+Root cause: wrong Gutenberg ID was downloaded during the original parse step for this book. The parse completed structurally but with entirely the wrong source text.
+
+**Implication:**
+- The 20 "truncation" flags I reported for enchiridion in the earlier diagnostic are bogus — the audit was comparing Hawthorne ch1 to Epictetus ch1, etc.
+- Real Epictetus modern-en quality is unknown until the correct original is in place.
+- No files were corrupted; the agent detected the mismatch on read and aborted.
+
+**Fix (needs human decision, not autonomous):**
+1. Download correct Epictetus source — Elizabeth Carter 1758 translation, Project Gutenberg ID likely 45109. Save to `books/raw/enchiridion/raw.txt`.
+2. Re-parse into `enchiridion-original-en.json` targeting 53 chapters aligned with the existing modern-en structure (or derive structure fresh).
+3. Re-run truncation audit with correct comparison.
+4. Then regeneration can be meaningful if needed.
+
+## Agent status (in flight at session wrap)
+
+- `a546ef7ea2b092197` — enchiridion regen — **stopped, data mismatch, no writes**
+- `a3fc7bd2bbe1f6bbc` — the-aeneid regen — running (aligned source verified)
+- `a3847e2e293b1b2da` — meditations regen — running (aligned source verified)

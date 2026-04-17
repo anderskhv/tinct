@@ -301,7 +301,10 @@ This skips Steps 1-3 of the main pipeline since the original is already parsed.
 
 ### Agent Chunking — Model Rules
 
-**Translation (EN and DA):** Do NOT delegate to agents. Generate in the main Opus conversation. Translation quality requires Opus. For large books, work chapter by chapter in the main conversation; start a new conversation when context gets large.
+**Translation (EN and DA):**
+- **Incremental work (fixes, small patches):** Generate in the main Opus conversation. Translation quality requires Opus and the full context of the conversation.
+- **Bulk regeneration of severely broken books:** Parallel Opus subagents are permitted via `Agent(model: "opus", ...)`. Each agent regenerates one book end-to-end, working chapter-by-chapter with `read-chapter.py` + `write-chapter.py`, self-auditing with `audit-truncation.py`, retrying any paragraph flagged <0.75. The main conversation does a post-hoc quality gate: spot-samples 3 paragraphs per regenerated book and runs the full audit. If quality fails, re-launch the agent with tightened constraints.
+- Sonnet agents remain forbidden for translation. Translation is Opus-only.
 
 **Non-translation agents (threads, parsing, QA):** Use `model: "sonnet"` to preserve Opus quota.
 
