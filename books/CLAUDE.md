@@ -31,11 +31,18 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 6. **Track progress.** Large books take multiple sessions. Always update the progress tracker below.
 7. **Never flag scale as a problem.** Don't say "this is a huge task" or "this will be very difficult." Break every task into agent-sized chunks and execute. The architecture handles scale — just decompose and go.
 8. **Use parallel agents.** Translations, audio generation, and threads are independent per book×language. Spin up background agents for each chunk. Typical agent unit = 1 book × 1 language × 10-20 chapters.
-9. **Agent permissions.** Agents must use the Read tool (not Bash/python3) to read source JSON files, and the Write tool to write output JSON files. Do NOT use Bash heredocs (`python3 << 'EOF'`) — they may not match permission patterns. Use `python3 -c "..."` for validation only.
-9b. **Avoid security prompt triggers.** Three patterns cause hardcoded security warnings that Anders must manually approve — avoid all of them:
+8b. **Model allocation — preserve Opus quota.** Opus tokens are shared across all of Anders's projects. Non-translation work MUST run on Sonnet via `Agent(model: "sonnet", ...)`. This is not optional.
+   - **Sonnet (`model: "sonnet"`):** Threads generation, source text parsing, QA/structural checks, file operations, status checks, any mechanical/rule-following work.
+   - **Opus (main conversation, no model flag):** Translation (EN and DA), translation review, complex editorial judgment, bug diagnosis.
+   - **No model cost:** Audio generation (local TTS), R2 uploads, git operations, `python3` scripts.
+   - **Why:** Anders's "All models" quota covers Opus. "Sonnet only" is a separate, unused pool. Every threads generation or parsing job run on Opus wastes premium quota on work Sonnet handles fine. `/fast` mode does NOT help — it's still Opus.
+9. **Agent file writes.** Subagents' Write tool is often blocked by permissions. **Always write files via python scripts instead:** use `Write` to create `/tmp/scriptname.py`, then `Bash(python3 /tmp/scriptname.py)` to execute. Both tools are pre-approved. This pattern is mandatory for all agents that produce JSON output (threads, editions, etc.). Agents can use Read/Glob/Grep freely.
+9b. **Avoid security prompt triggers.** These patterns cause security warnings Anders must manually approve — avoid all of them:
    - **`cd <path> && git ...`** — use `git -C <path> ...` instead.
    - **Multiline Bash with `#` comments** — strips comments from inline Python, or use the Write tool to create a `/tmp/script.py` file then `python3 /tmp/script.py` via Bash.
    - **Heredocs (`cat << 'EOF'`)** — use the Write tool to create the file, then Bash to run it. Two tool calls, zero prompts.
+9c. **Never use Explore/subagents for status checks.** Run `python3 check-status.py` directly via Bash — it's pre-approved and zero-permission. Subagents trigger their own permission prompts for every tool call. Direct Bash is always faster and quieter.
+9d. **R2 uploads require `--remote` flag.** Without it, `npx wrangler r2 object put` writes to a local emulator and silently "succeeds." Always use `--remote`.
 10. **Self-direct on bottlenecks.** While a conversation is open, continuously monitor what's blocked and what can be unblocked. After completing any task or while waiting for a background process, immediately ask: "What is the current bottleneck? Can I start working on it now?" Don't wait for Anders to notice or ask — proactively identify the next constraint, communicate what you're doing, and start. If multiple things are blocked, work the dependency chain: unblock translations before audio, unblock parsing before translations. If you launched an agent that failed, retry with a different approach immediately — don't wait for the next prompt.
 11. **Never stop on permission failures.** If a tool call is denied or a permission error blocks progress, do NOT give up and report "I need permission." Instead: (a) try an alternative tool that achieves the same result (e.g., Read/Write instead of Bash, or `python3 -c` instead of a script), (b) restructure the approach to avoid the blocked tool, (c) if truly stuck after 2 alternative attempts, explain to Anders what you tried, what failed, and ask him to grant the specific permission or suggest a workaround. The same applies to subagents — if an agent can't use Bash, it should use Read/Write/Glob/Grep tools instead, not stop and report failure.
 12. **Bible translation: fresh conversation required.** Both subagents and bloated main conversations hit Anthropic's content filter on Bible text. The filter triggers when accumulated context + output is too large. **Start a dedicated fresh conversation** for Bible translation work — open Claude from the `books/` folder and say "continue Bible modern-da translation." Process one book at a time: read source → translate → write into `bible-modern-da.json` → validate → next book. For large books (100+ paragraphs): read source in 50-paragraph chunks. When context gets large, start a new conversation.
@@ -44,6 +51,7 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
     - **English audio → Kokoro** (`generate-audio-kokoro.py`). NEVER use Edge TTS for English.
     - **Danish audio → Edge TTS** (`generate-audio-edge.py` with `--voice da-DK-ChristelNeural` and rate `-8%`). Kokoro does not support Danish.
     - This mistake was made once and affected 8 books. Do not repeat it.
+15. **Truncation audit after every chapter batch.** Run `python3 books/audit-truncation.py {book-id}` after generating any batch of chapters (EN or DA). Every paragraph flagged must be inspected by eye — genuine content loss is fixed on the spot, natural compression is skipped. Never ship a chapter batch without running the audit. This caught 2,513 truncated paragraphs across 28 books in April 2026 — a failure that cost weeks of rework. The filter is conservative; the judgment is human. Use `show-paragraph.py` to inspect and `write-paragraph.py` to fix individual paragraphs without loading whole edition files.
 
 ---
 
@@ -88,7 +96,7 @@ Translate original → modern-en via CLI conversation. ZERO API spend.
 - Natural, contemporary English. Accessible but not dumbed down.
 - Paragraph count must match original exactly.
 - Sentence length: target max ~25 words. Break long sentences at natural clause boundaries.
-- Two-pass: Sonnet generates, Opus reviews and corrects.
+- Generate in the main Opus conversation (translation quality requires Opus — do NOT delegate to Sonnet agents).
 - Write to `../app/public/data/editions/{book-id}-modern-en.json`
 
 **Modern English QA (automated, mandatory — this edition is the foundation for everything else):**
@@ -108,18 +116,42 @@ After generating modern-en, run these checks before proceeding:
 4. **Sentence length audit:** Sample 5 random chapters, check average sentence length stays under 25 words. Flag any sentence over 50 words.
 5. **Spot-read:** Read the first 3 paragraphs of chapters 1, middle, and last. Do they read like a contemporary novel or a Wikipedia summary? If the latter, rewrite.
 
+6. **Content alignment spot-check (not just counts):** For 3 randomly selected chapters, compare the first sentence of each paragraph in the translation against the first sentence of the corresponding original paragraph. If they don't match, the content has drifted — the paragraph contains content from a neighboring original paragraph. This is the most common failure mode for verse-to-prose conversions and is invisible to count checks.
+7. **Truncation audit (MANDATORY, automated):** Run `python3 books/audit-truncation.py {book-id} en` after every chapter batch. Every paragraph flagged (ratio < 0.75, source ≥ 20 words) must be inspected by eye. Genuine truncation (sentences, clauses, or named entities missing) MUST be fixed before moving on. Natural modernization compression (same content, fewer words) is acceptable — the human judges, the script only filters. Zero tolerance for ratios below 0.5: those are ALWAYS content loss, never compression.
+8. **Preserve allusions verbatim:** For allusion-heavy texts (Ulysses, Divine Comedy, Paradise Lost, The Republic), the generation prompt must include: "If the original contains a quotation, allusion, or proper name you are uncertain about, preserve it verbatim from the original rather than paraphrasing or replacing it." After generation, grep for proper nouns in the original that don't appear in the translation.
+
 **If any QA check fails, fix before proceeding.** Modern-en errors cascade into Danish translation and audio.
+
+**Generation prompt must include these anti-truncation instructions (non-negotiable):**
+1. "Translate the COMPLETE content of each paragraph. Do not summarize, condense, or omit any arguments, examples, dialogue, or descriptive detail. If a paragraph contains five sentences in the source, your translation must contain five semantically equivalent sentences."
+2. "Preserve every quotation, allusion, proper noun, place name, and specific detail verbatim. If uncertain, copy from the source rather than paraphrase."
+3. "Paragraph N must start with content equivalent to the first sentence of source paragraph N. Do not merge content across paragraph boundaries."
+4. "Output length per paragraph should be ≥75% of the source word count. If your draft falls below that, you have dropped content — re-translate before outputting."
+
+**Verse-to-prose books are highest risk.** Generate chapter by chapter (not in bulk) with an explicit anchor instruction: "Translate paragraph N of N. The first words of the original paragraph are: '...'. Your translation must start with equivalent content."
 
 ### Step 4: Generate English Audio (automated)
 
-Run immediately after modern-en QA passes.
+Run immediately after modern-en QA passes. **Three sub-steps — all mandatory:**
 
+**4a. Paragraph audio (Kokoro):**
 ```bash
-python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-odyssey-audio.py {book-id} modern-en 1 {end_ch}
-python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py {book-id} modern-en
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-kokoro.py {book-id} modern-en 1 {end_ch}
 ```
 
-Uses Kokoro TTS (Bella voice) by default. Use Edge TTS only if Kokoro is unavailable or if instructed. Audio is English-only — do not generate Danish audio (see Hard Rule 14).
+**4b. Convert WAV → MP3 + generate manifests:**
+```bash
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/convert-and-manifest.py
+```
+Or use the per-book convert script pattern (see `/tmp/convert_and_upload.py` for reference).
+
+**4c. Chapter title audio (Kokoro) — MANDATORY, do NOT skip:**
+```bash
+python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-title-audio.py {book-id} modern-en --upload
+```
+This reads chapter titles from the edition JSON, generates `title.mp3` per chapter, prepends it to the manifest as `paragraph: -1`, and uploads both `title.mp3` and updated `manifest.json` to R2. Without this step, audiobook chapters start abruptly without announcing the chapter name.
+
+Uses Kokoro TTS (Bella voice). Danish audio uses Google Chirp (`generate-audio-chirp.py`).
 
 ### Step 5: Generate Modern Danish + QA (automated)
 
@@ -127,7 +159,7 @@ Translate from **modern-en** (NOT original). ZERO API spend.
 
 - Translate the MEANING, not the words. No translationese.
 - Paragraph count must match modern-en exactly.
-- Two-pass: Sonnet generates, Sonnet reviews in a fresh pass.
+- Generate in the main Opus conversation (Danish quality requires Opus — do NOT delegate to Sonnet agents).
 - Character names must match threads/cast. Greek names stay Greek, not Roman.
 - Write to `../app/public/data/editions/{book-id}-modern-da.json`
 
@@ -150,6 +182,19 @@ Translate from **modern-en** (NOT original). ZERO API spend.
    - Overuse of "der" (relative pronoun) where Danish would use different constructions
    - Cognate words that exist in Danish but aren't the natural choice
 5. **Spot-read:** First 3 paragraphs of chapters 1, middle, and last. Does it read like natural Danish?
+6. **Content alignment spot-check:** Same as Step 3 rule 6 — compare first sentences of 3 random chapters against modern-en to verify content hasn't drifted between paragraphs.
+7. **Truncation audit (MANDATORY, automated):** Run `python3 books/audit-truncation.py {book-id} da` after every chapter batch. Every paragraph flagged (ratio < 0.75, source ≥ 20 words) must be inspected by eye. Genuine truncation must be fixed; natural Danish compression (genitive compounds like "havets stemme" for "the voice of the sea" naturally shed words) is acceptable. Zero tolerance for ratios below 0.5: those are ALWAYS content loss. The generation prompt must include the same anti-truncation instructions listed in Step 3.
+8. **Hallucination check for allusion-heavy texts:** Grep for proper nouns and quotations in modern-en that don't appear in the DA translation. The model may replace uncertain allusions with fabricated content — this is the most dangerous error because it's invisible to structural checks.
+
+### Audio implications of text fixes
+
+**Any time a paragraph is changed in an edition that has audio generated from it, the corresponding audio paragraph(s) are stale.** After fixing text:
+1. Note which book/edition/chapter/paragraphs changed
+2. Re-generate audio for those specific paragraphs
+3. Re-generate the chapter manifest
+4. Re-upload to R2
+
+For small fixes (1-5 paragraphs), regenerate just those files. For full re-generations, regenerate the entire book's audio.
 
 ### Step 6: Register in bookRegistry.ts (automated)
 
@@ -169,8 +214,10 @@ If the upload script doesn't support per-book arguments, upload the specific fil
 ```bash
 cd /Users/andershvelplund/Documents/Projects/Tinct/app/tts
 find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.json" \) | \
-  xargs -P 20 -I {} bash -c 'npx wrangler r2 object put "tinct-audio/${1#audio/}" --file="$1" --content-type="$(case "$1" in *.mp3) echo audio/mpeg;; *.json) echo application/json;; esac)" 2>/dev/null' _ {}
+  xargs -P 20 -I {} bash -c 'ct="audio/mpeg"; case "$1" in *.json) ct="application/json";; esac; npx wrangler r2 object put "tinct-audio/${1#audio/}" --file="$1" --content-type="$ct" --remote 2>/dev/null' _ {}
 ```
+
+**CRITICAL: Always use `--remote` flag.** Without it, wrangler writes to a local emulator and silently "succeeds." This has caused entire uploads to be lost.
 
 **Verify after upload:** `curl -sf "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/{book-id}/{edition-key}/ch1/manifest.json" | head -c 50`
 
@@ -238,24 +285,20 @@ When adding a language (e.g., Spanish) to all books that already have original-e
 
 This skips Steps 1-3 of the main pipeline since the original is already parsed.
 
-### Agent Chunking for Translations
+### Agent Chunking — Model Rules
 
-Each translation agent handles one self-contained batch:
-- **Small books (< 30 chapters):** 1 agent = entire book
-- **Medium books (30-100 chapters):** 1 agent = 20-30 chapters
-- **Large books (100+ chapters):** 1 agent = 10-15 chapters
+**Translation (EN and DA):** Do NOT delegate to agents. Generate in the main Opus conversation. Translation quality requires Opus. For large books, work chapter by chapter in the main conversation; start a new conversation when context gets large.
 
-All agents for a book×language can run in parallel. All book×language pairs are independent.
+**Non-translation agents (threads, parsing, QA):** Use `model: "sonnet"` to preserve Opus quota.
 
 ```
-Example: "Add Spanish to everything"
-→ Agent 1: odyssey modern-es ch1-24 (all)
-→ Agent 2: ulysses modern-es ch1-18 (all)
-→ Agent 3: war-and-peace modern-es ch1-15
-→ Agent 4: war-and-peace modern-es ch16-30
-→ ... (etc)
-→ Agent N: bible modern-es ch60-66
-All run in parallel.
+Example: "Generate threads for 5 books"
+→ Agent(model: "sonnet"): frankenstein threads
+→ Agent(model: "sonnet"): jane-eyre threads
+→ Agent(model: "sonnet"): paradise-lost threads
+→ Agent(model: "sonnet"): the-aeneid threads
+→ Agent(model: "sonnet"): divine-comedy threads
+All run in parallel on Sonnet quota.
 ```
 
 ---
@@ -291,6 +334,11 @@ Books to add (from STRATEGY.md / BACKLOG.md). No fixed order — follows the fun
 | 10 | Jane Eyre (or Wuthering Heights) | Brontë | 1847/1847 | TBD which one |
 | 11 | The Aeneid | Virgil | ~19 BC | From canon suggestion |
 | 12 | Paradise Lost | Milton | 1667 | Epic poem |
+| 13 | The Histories | Herodotus | ~440 BC | Rawlinson 1858 translation (public domain). 9 books ~200 chapters |
+| 14 | Niels Lyhne | J.P. Jacobsen | 1880 | Original Danish (public domain). EN: Larsen 1919 translation. First Danish-origin book in library |
+| 15 | Symposium | Plato | ~385 BC | On love & beauty. Jowett 1871 translation. Short dialogue |
+| 16 | Phaedo | Plato | ~385 BC | On the soul & death. Jowett 1871 translation. Medium dialogue |
+| 17 | Apology | Plato | ~399 BC | Socrates' trial & defense. Jowett 1871 translation. Short |
 
 Target: 10-20 books total. List is not locked — Anders decides.
 
@@ -397,43 +445,82 @@ Copy this template when starting a new book:
 
 ---
 
+## How to Check Status — IMPORTANT
+
+**The single source of truth is the `check-status.py` script.** Never trust this table over the script output.
+
+```bash
+# Fast local check (no permissions needed, runs in 1 second):
+python3 check-status.py
+
+# Full check including R2 verification (takes ~10 seconds, uses curl):
+python3 check-status.py --r2
+```
+
+**For Claude sessions:** Always use `python3 check-status.py` via Bash — it runs from the `books/` working directory and requires only the `python3` permission (already allowed in project settings). Do NOT use subagents or Explore agents for status checks — they trigger unnecessary permission prompts. Direct Bash + the script = zero permission prompts.
+
+**The script checks:** All 20 books, editions on disk, audio in staging (chapters + manifests), hasAudio flags in registry, threads files, junk files, and (with `--r2`) actual R2 availability via curl. It auto-detects issues and prints them at the bottom.
+
+**After any session that generates content:** Run the script and update the table below to match.
+
+---
+
 ## Current Status
 
-**Last verified:** 2026-03-30 (manual update)
-**To refresh:** Run `python3 check-status.py` from this folder. Always trust the script over this table.
+**Last verified:** 2026-04-11 (via `check-status.py`)
 
-**Note:** Danish audio has been discontinued. Edge TTS Danish quality is insufficient for production. Audio is English-only going forward. All Danish audio files have been deleted from staging. Danish audio on R2 still needs manual deletion (see R2 cleanup note below).
+| Book | Editions | EN Audio | DA Audio | hasAudio flags | Threads |
+|------|----------|----------|----------|----------------|---------|
+| **Odyssey** (24 ch) | 3 eds OK | R2 OK | R2 OK | original-en, modern-en, modern-da | 26 chars |
+| **Ulysses** (18 ch) | 3 eds OK | R2 OK | R2 OK | original-en, modern-en | 20 chars |
+| **W&P** (365 ch) | 3 eds OK | R2 OK | 51ch staging, not on R2 | modern-en | 30 chars |
+| **Bible** (1189 ch) | 4 eds OK | 1173ch staging (no manifests for 91-1189) | None | modern-en | 30 chars |
+| **Gilgamesh** (12 ch) | 3 eds OK | R2 OK | None | modern-en | 16 chars |
+| **Hamlet** (28 ch) | 3 eds OK | R2 OK | None | modern-en | 13 chars |
+| **Macbeth** (56 ch) | 3 eds OK | R2 OK | None | modern-en | 13 chars |
+| **Midsummer** (10 ch) | 3 eds OK | R2 OK | None | modern-en | 16 chars |
+| **Romeo & Juliet** (50 ch) | 3 eds OK | R2 OK | None | modern-en | 15 chars |
+| **The Tempest** (18 ch) | 3 eds OK | R2 OK | None | modern-en | 12 chars |
+| **Pride & Prejudice** (61 ch) | 3 eds OK | R2 OK | None | modern-en | 15 chars |
+| **Art of War** (13 ch) | 3 eds OK | R2 OK | None | modern-en | N/A |
+| **Crime & Punishment** (44 ch) | 3 eds OK | R2 OK (41 manifests) | None | modern-en | 14 chars |
+| **The Republic** (10 ch) | 3 eds OK | R2 OK | None | modern-en | 6 chars |
+| **Meditations** (12 ch) | 3 eds OK | R2 OK | None | modern-en | N/A |
+| **Divine Comedy** (100 ch) | 3 eds OK | R2 OK | None | modern-en | 22 chars |
+| **Jane Eyre** (38 ch) | 3 eds OK | R2 OK | None | modern-en | 16 chars |
+| **The Aeneid** (12 ch) | 3 eds OK | R2 OK | None | modern-en | 15 chars |
+| **Paradise Lost** (12 ch) | 3 eds OK | R2 OK | None | modern-en | 15 chars |
+| **Frankenstein** (28 ch) | 3 eds OK | R2 OK | None | modern-en | 12 chars |
+| **The Manual** (52 ch) | 3 eds OK | R2 OK | None | modern-en | N/A |
+| **Apology** (3 ch) | 3 eds OK | 3ch staging (mp3+manifests) | None | modern-en | N/A |
+| **Symposium** (8 ch) | 3 eds OK | Staging (mp3+manifests) | None | modern-en | None |
+| **Phaedo** (9 ch) | 3 eds OK | Staging (original-en, wavs) | None | None | None |
+| **Moby Dick** (136 ch) | 1 ed (orig-en) | None | None | None | None |
+| **Great Expectations** (59 ch) | 1 ed (orig-en) | None | None | None | None |
+| **The Histories** (1525 ch) | 1 ed (orig-en) | None | None | None | None |
+| **Niels Lyhne** (14 ch) | 2 eds (orig-da, orig-en) | None | None | None | None |
 
-| Book | Editions | Modern EN | Modern DA | EN Audio (staging) | EN Audio (R2) | Threads |
-|------|----------|-----------|-----------|-------------------|---------------|---------|
-| **Odyssey** (24 ch) | Complete (4: original, verse, modern-en, modern-da) | Complete | Complete | Complete (24 ch) | On R2 | 26 chars |
-| **Ulysses** (18 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | Complete (18 ch) | On R2 | 20 chars |
-| **W&P** (365 ch) | Complete (3: original, modern-en, modern-da) | Complete | Complete | modern-en: 365, original-en: 113 | modern-en: 365 | 30 chars |
-| **Bible** (66 ch) | 3 originals (kjv, web, modern-en) + modern-da partial | Complete (66/66) | 46/66 (20 remaining) | None | None | None |
+### Open Issues
 
-### R2 Danish audio cleanup (manual)
+| Issue | Details |
+|-------|---------|
+| Bible audio manifests | 1173+ chapters of wav audio, only ch1-90 have manifests. Need wav→mp3 conversion + manifests for ch91-1189 |
+| Bible audio still generating | ~16 chapters remaining (Kokoro running in background) |
+| Crime & Punishment audio | 44ch but only 41 manifests |
+| Junk files | the-manual-modern-da 2.json |
+| Moby Dick modern-en partial | Ch1-2 translated (27/2432, 1%). Temp files at /tmp/moby_en_ch{1,2}.json |
+| 4 new books need translations | Moby Dick (1% en), Great Expectations, The Histories, Niels Lyhne all need modern-en + modern-da |
+| Apology audio needs R2 upload | mp3 + manifests in staging, not on R2 yet |
+| Symposium audio generating | Kokoro running, ch5/8 in progress |
+| Bible audio needs R2 upload | 1189 chapters with mp3+manifests in staging, need R2 upload for ch91-1189 |
 
-The following R2 paths contain obsolete Danish audio that should be deleted from the `tinct-audio` bucket:
-- `odyssey/modern-da/`
-- `ulysses/modern-da/`
-- `war-and-peace/modern-da/`
-
-### What's left to do
-
-| Task | Status | Notes |
-|------|--------|-------|
-| Bible modern-da translation | 46/66 books done (20 remaining) | Biggest remaining effort. Fresh conversations from books/ folder. |
-| Bible modern-en audio | Not started | All 66 books ready for TTS generation |
-| Bible threads | Not started | Need character list |
-| W&P original-en audio | 113/365 in staging | Not published, not marked hasAudio |
-
-### Bible translation session instructions (modern-da)
-To continue, start a fresh conversation from `books/` and say "continue Bible modern-da translation." The CEO will:
-1. Run `python3 check-status.py` or read `bible-modern-da.json` to check which books have content
-2. Pick the next untranslated book
-3. Read modern-en source, translate to modern Danish, write paragraphs directly into the main file
-4. Validate paragraph count matches modern-en source
-5. Repeat until context gets large, then start a new conversation
-6. **Before ending:** run `python3 check-status.py` and update this status table
-
-**Important:** Edition files are at `public/data/editions/`, NOT `src/data/editions/`.
+### Notes
+- 28 total books (21 existing + 7 new from 2026-04-10 session)
+- First 21 books: all editions complete, all have EN audio on R2
+- 7 new books: originals parsed, registered in bookRegistry.ts
+- **Apology is the first fully complete new book** (3 editions + audio with manifests)
+- Symposium modern-en translation 47% done (102/217 paras, only Ch7 remains)
+- Bible audio generation went from 90→1173+ chapters this session
+- **Edition files are at `public/data/editions/`, NOT `src/data/editions/`**
+- **R2 uploads require `--remote` flag** with wrangler r2 object put
+- Translated chapter files for Symposium saved in /tmp/sym_ch{1-6,8}.json
