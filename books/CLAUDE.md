@@ -99,6 +99,12 @@ Translate original → modern-en via CLI conversation. ZERO API spend.
 - Generate in the main Opus conversation (translation quality requires Opus — do NOT delegate to Sonnet agents).
 - Write to `../app/public/data/editions/{book-id}-modern-en.json`
 
+**HOUSE STYLE — locked decisions (April 2026):**
+- **Preserve all exclamation marks** from the source unless the sentence is restructured. Don't silently soften emphatic punctuation to periods.
+- **Preserve proper noun accents verbatim**: `Chênière`, `Léonce`, `Chätelet`, etc. Never strip diacritics.
+- **Quote style: curly `"..."`** matches the original Gutenberg typography across the existing 22 books — keep using curly.
+- **Translate the COMPLETE content of every paragraph.** If a paragraph below 75% of the source word count, you have dropped content — re-translate. Paragraph-level summarization is the single biggest failure mode.
+
 **Modern English QA (automated, mandatory — this edition is the foundation for everything else):**
 
 After generating modern-en, run these checks before proceeding:
@@ -163,11 +169,19 @@ Translate from **modern-en** (NOT original). ZERO API spend.
 - Character names must match threads/cast. Greek names stay Greek, not Roman.
 - Write to `../app/public/data/editions/{book-id}-modern-da.json`
 
+**HOUSE STYLE — locked decisions (April 2026):**
+- **Honorifics from 19th-century Anglo sources (`Mrs.`, `Mr.`) stay in English form** — not translated to `fru` / `hr.`. This is the convention across all Tinct Danish editions.
+- **Dialogue quotes use guillemets `»...«`** (pointing inward at the text). Never straight `"..."`. Never the low-9 form `„..."`.
+- **Apostrophes in possessives/contractions use straight `'`**, not curly `'`.
+- **Em dashes `—` for interruptions and parentheticals.** Matches source typography.
+- **Proper nouns preserve source accents** — `Chênière` not `Chêniere`, `Léonce` not `Leonce`, `Zürich` not `Zurich`. Never strip diacritics.
+
 **Translation quality rules:**
-- No false cognates / wrong register
+- No false cognates / wrong register (e.g. `pretentioner` is English-as-Danish — use `prætentioner` or rephrase)
 - No dropped/wrong verb prefixes
 - No English grammar leaking through
 - No invented compound words
+- No verbatim calques of English idioms (`til en sprøde`, `sådan en ting`, `have været i stand til`)
 - Re-read asking: "Would a Danish native speaker actually write it this way?"
 
 **Reader aids:** On first occurrence per chapter, clarify non-obvious name variants in parentheses. Keep short.
