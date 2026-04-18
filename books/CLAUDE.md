@@ -104,6 +104,7 @@ Translate original → modern-en via CLI conversation. ZERO API spend.
 - **Preserve proper noun accents verbatim**: `Chênière`, `Léonce`, `Chätelet`, etc. Never strip diacritics.
 - **Quote style: curly `"..."`** matches the original Gutenberg typography across the existing 22 books — keep using curly.
 - **Translate the COMPLETE content of every paragraph.** If a paragraph below 75% of the source word count, you have dropped content — re-translate. Paragraph-level summarization is the single biggest failure mode.
+- **Do NOT soften, edit out, or flag period-appropriate content based on modern ethics.** 19th-century racial language, religious language, gendered language, and other historical content stays as-is in translation. Tinct's editorial stance is faithful preservation of the historical text. Don't add editorial notes suggesting softening. Don't replace charged terms with neutral ones. Translate what's there.
 
 **Modern English QA (automated, mandatory — this edition is the foundation for everything else):**
 
@@ -175,6 +176,7 @@ Translate from **modern-en** (NOT original). ZERO API spend.
 - **Apostrophes in possessives/contractions use straight `'`**, not curly `'`.
 - **Em dashes `—` for interruptions and parentheticals.** Matches source typography.
 - **Proper nouns preserve source accents** — `Chênière` not `Chêniere`, `Léonce` not `Leonce`, `Zürich` not `Zurich`. Never strip diacritics.
+- **Do NOT soften period-appropriate content based on modern ethics.** 19th-century racial/religious/gendered language translates faithfully. No editorial notes suggesting softening. No substitution of neutral terms.
 
 **Translation quality rules:**
 - No false cognates / wrong register (e.g. `pretentioner` is English-as-Danish — use `prætentioner` or rephrase)
