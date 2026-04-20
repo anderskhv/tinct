@@ -305,6 +305,10 @@ export default function App() {
     return unsubscribe
   }, [refreshFromStorage])
 
+  // Hoisted derivations needed by the visibility effect below.
+  // Defined here (not lower down) to avoid TDZ in dep arrays.
+  const totalChapters = primaryData?.chapters.length || book.editions.length
+
   // Re-sync from Supabase when tab regains focus (cross-device sync)
   const lastSyncRef = useRef(0)
   useEffect(() => {
@@ -350,7 +354,6 @@ export default function App() {
 
   // Get current chapter data early so we can pass context to chat
   const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
-  const totalChapters = primaryData?.chapters.length || book.editions.length
   // Bounds check: clamp chapter to valid range after data loads
   if (currentChapter > totalChapters && totalChapters > 0) {
     setCurrentChapter(totalChapters)
