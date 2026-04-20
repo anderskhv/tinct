@@ -7319,21 +7319,21 @@ body {
 
 .progress-footer-tick {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: -2px;
   width: 1px;
-  height: 8px;
-  background: rgba(0, 0, 0, 0.2);
+  height: 6px;
+  background: rgba(0, 0, 0, 0.18);
 }
 
 [data-theme="dark"] .progress-footer-tick {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .progress-footer-tick.progress-footer-tick-current {
   background: var(--accent);
-  height: 10px;
-  width: 2px;
+  height: 8px;
+  width: 1px;
+  top: -3px;
 }
 
 /* ===== Chapter Nav (prev/next book labels) ===== */

@@ -1797,11 +1797,48 @@ export default function App() {
           if (!primaryData || primaryData.chapters.length <= 1) return undefined
           const total = primaryData.chapters.reduce((s, c) => s + c.paragraphs.length, 0)
           if (total === 0) return undefined
+
+          // For books with sections (e.g. Bible, Plato), show section boundaries.
+          // For everything else, show chapter boundaries — but cap so the bar
+          // doesn't read as a solid comb on long books.
+          const sections = primaryData.sections
+          if (sections && sections.length > 1) {
+            // Sum paragraphs per top-level section by walking chapters in order.
+            const sectionEnds: number[] = []
+            let accum = 0
+            for (const sec of sections) {
+              const collect = (s: typeof sec): number[] => {
+                if (s.chapters && s.chapters.length) return s.chapters
+                if (s.sections) return s.sections.flatMap(collect)
+                return []
+              }
+              const chapterNumbers = collect(sec)
+              for (const chN of chapterNumbers) {
+                const ch = primaryData.chapters.find(c => c.number === chN)
+                if (ch) accum += ch.paragraphs.length
+              }
+              sectionEnds.push(accum / total)
+            }
+            // Drop the last (always 1.0)
+            return sectionEnds.slice(0, -1)
+          }
+
+          // No sections: chapter ticks, capped at 16 so they read as discrete marks.
+          const chapterCount = primaryData.chapters.length
+          const MAX = 16
+          if (chapterCount - 1 <= MAX) {
+            const ticks: number[] = []
+            let accum2 = 0
+            for (let i = 0; i < chapterCount - 1; i++) {
+              accum2 += primaryData.chapters[i].paragraphs.length
+              ticks.push(accum2 / total)
+            }
+            return ticks
+          }
+          // Sample evenly when too many chapters
           const ticks: number[] = []
-          let accum = 0
-          for (let i = 0; i < primaryData.chapters.length - 1; i++) {
-            accum += primaryData.chapters[i].paragraphs.length
-            ticks.push(accum / total)
+          for (let i = 1; i <= MAX; i++) {
+            ticks.push(i / (MAX + 1))
           }
           return ticks
         })()}
