@@ -8037,3 +8037,486 @@ body {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   E-INK MODE — design refresh overrides (2026-04)
+
+   The e-ink design philosophy from the design ref:
+     "Pure black on pure white. No sepia, no grey body text — e-ink
+     anti-aliases thin strokes into ghosts. Commit to ink."
+
+   Greyscale only. The new teal accent and warm paper tones don't
+   exist on a Boox; everything collapses to ink (#000), paper
+   (#fff), one dim grey (#5a5a5a) and one faint grey (#9e9e9e).
+   Highlights are the only surviving marginalia, rendered as a
+   soft grey block-background.
+   ═══════════════════════════════════════════════════════════════ */
+
+[data-eink] {
+  /* Override every named design token */
+  --paper: #fff;
+  --paper-warm: #fff;
+  --paper-deep: #f5f5f5;
+  --ink: #000;
+  --dim: #5a5a5a;
+  --faint: #9e9e9e;
+
+  --bg-primary: #fff;
+  --bg-secondary: #fff;
+  --bg-panel: #fff;
+  --bg-hover: #eee;
+  --bg-chat-user: #eee;
+  --bg-highlight: #d9d9d9;
+  --bg-popup: #000;
+
+  --text-primary: #000;
+  --text-secondary: #5a5a5a;
+  --text-tertiary: #9e9e9e;
+  --text-inverse: #fff;
+
+  --border-color: #000;
+  --border-light: #5a5a5a;
+
+  --accent: #000;
+  --accent-hover: #000;
+  --accent-subtle: #d9d9d9;
+}
+
+/* Header / top bar — heavier rule, ink icons */
+[data-eink] .header {
+  border-bottom: 1px solid #000;
+  background: #fff;
+}
+
+[data-eink] .logo::after {
+  color: #000;
+}
+
+[data-eink] .menu-icon-btn {
+  border-color: #000;
+  color: #000;
+  width: 38px;
+  height: 32px;
+}
+
+[data-eink] .menu-icon-btn:hover {
+  background: #eee;
+}
+
+[data-eink] .menu-icon-active {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .menu-divider {
+  background: #000;
+}
+
+/* Chapter stamp — black box with white text instead of small caps */
+[data-eink] .chapter-stamp {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 10px;
+  letter-spacing: 0.25em;
+}
+
+/* Decorative diamond rule — replace with a flat ink rule */
+[data-eink] .chapter-rule {
+  margin-top: 16px;
+}
+
+[data-eink] .chapter-rule-line {
+  background: #000;
+  height: 2px;
+  width: 60px;
+}
+
+[data-eink] .chapter-rule-diamond {
+  background: #000;
+  width: 4px;
+  height: 4px;
+}
+
+/* Chapter title — no italic (italic anti-aliases poorly on e-ink) */
+[data-eink] .chapter-title {
+  font-style: normal;
+  font-weight: 700;
+  color: #000;
+}
+
+/* Drop cap — solid ink */
+[data-eink] .text-paragraph.drop-cap::first-letter {
+  color: #000;
+}
+
+/* Verse numbers — solid ink, slightly larger for readability */
+[data-eink] .verse-num {
+  color: #000;
+  font-size: 0.7em;
+  letter-spacing: 0.05em;
+}
+
+/* Playing-paragraph highlight — soft grey block, not teal */
+[data-eink] .paragraph-playing {
+  background: #d9d9d9;
+  border-left: 3px solid #000;
+}
+
+/* Pane tabs (Read | Compare) — ink underline, no teal */
+[data-eink] .pane-tabs {
+  border-bottom: 1px solid #000;
+}
+
+[data-eink] .pane-tab {
+  color: #5a5a5a;
+}
+
+[data-eink] .pane-tab.pane-tab-active {
+  color: #000;
+  border-bottom-color: #000;
+  border-bottom-width: 3px;
+}
+
+/* Bottom bar / progress footer — flat ink, no teal */
+[data-eink] .bottom-bar {
+  background: #fff;
+  border-top: 1px solid #000;
+  bottom: 48px;
+  padding: 10px 20px;
+}
+
+[data-eink] .reading-tracker-bar {
+  background: #d9d9d9;
+  height: 2px;
+}
+
+[data-eink] .reading-tracker-fill {
+  background: #000;
+}
+
+[data-eink] .reading-tracker-percent,
+[data-eink] .reading-tracker-time {
+  color: #000;
+  letter-spacing: 0.12em;
+}
+
+[data-eink] .progress-footer-tick {
+  background: #5a5a5a;
+}
+
+[data-eink] .progress-footer-tick.progress-footer-tick-current {
+  background: #000;
+  height: 8px;
+  width: 2px;
+}
+
+/* Audio strip — flat white with ink rule, ink play button */
+[data-eink] .audio-strip {
+  background: #fff;
+  border-bottom: 1px solid #000;
+  animation: none !important;
+}
+
+[data-eink] .audio-strip-btn {
+  color: #000;
+}
+
+[data-eink] .audio-strip-play {
+  background: #000;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+}
+
+[data-eink] .audio-strip-play:hover {
+  background: #000;
+}
+
+[data-eink] .audio-strip-meta-left {
+  color: #000;
+}
+
+[data-eink] .audio-strip-meta-right {
+  color: #5a5a5a;
+}
+
+[data-eink] .audio-strip-preview {
+  color: #000;
+  font-style: normal;
+}
+
+[data-eink] .audio-strip-scrub {
+  background: #d9d9d9;
+}
+
+[data-eink] .audio-strip-scrub-fill,
+[data-eink] .audio-strip-scrub-thumb {
+  background: #000;
+}
+
+[data-eink] .audio-strip-speed,
+[data-eink] .audio-strip-voice {
+  border-color: #000;
+  color: #000;
+  background: #fff;
+}
+
+[data-eink] .audio-strip-close {
+  color: #000;
+  font-size: 1.2rem;
+}
+
+/* Bottom-bar audio mode — ink play button, no warm tint */
+[data-eink] .bottom-bar-audio {
+  background: #fff;
+  border-top-color: #000;
+}
+
+[data-eink] .bottom-bar-play {
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+}
+
+[data-eink] .bottom-bar-speed {
+  border-color: #000;
+  color: #000;
+  background: #fff;
+}
+
+/* Mobile nav — ink underline on active, larger tap targets */
+[data-eink] .mobile-nav {
+  background: #fff;
+  border-top: 1px solid #000;
+  height: 48px;
+}
+
+[data-eink] .mobile-nav-btn {
+  color: #5a5a5a;
+  font-weight: 500;
+  border-top-width: 3px;
+}
+
+[data-eink] .mobile-nav-active {
+  color: #000;
+  border-top-color: #000;
+}
+
+/* Card-stack side panel — flat white, ink dividers */
+[data-eink] .card-rail,
+[data-eink] .card-rail-chat,
+[data-eink] .card-rail-feed,
+[data-eink] .card-rail-cast {
+  background: #fff;
+  border-left: 1px solid #000;
+}
+
+[data-eink] .card-rail-spine {
+  color: #000;
+  border-right-color: #000;
+}
+
+[data-eink] .card-rail.card-rail-open .card-rail-spine {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .card-rail-spine-badge {
+  background: #000;
+  color: #fff;
+}
+
+/* Settings sheet — flat white, ink rules, no teal */
+[data-eink] .ss-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[data-eink] .ss-sheet {
+  background: #fff;
+  box-shadow: none;
+}
+
+[data-eink] .ss-nav {
+  background: #fff;
+  border-right: 1px solid #000;
+}
+
+[data-eink] .ss-nav-head {
+  border-bottom: 1px solid #000;
+}
+
+[data-eink] .ss-nav-title-dot {
+  color: #000;
+}
+
+[data-eink] .ss-nav-item {
+  border-left: 3px solid transparent;
+}
+
+[data-eink] .ss-nav-item-active {
+  background: #000;
+  border-left-color: #000;
+}
+
+[data-eink] .ss-nav-item-active .ss-nav-item-label {
+  color: #fff;
+}
+
+[data-eink] .ss-nav-item-active .ss-nav-item-sub {
+  color: #d9d9d9;
+}
+
+[data-eink] .ss-main-head {
+  border-bottom: 2px solid #000;
+}
+
+[data-eink] .ss-row {
+  border-bottom-color: #5a5a5a;
+}
+
+[data-eink] .ss-seg {
+  border-color: #000;
+}
+
+[data-eink] .ss-seg-item {
+  border-left-color: #000;
+  color: #000;
+  font-weight: 500;
+  background: #fff;
+}
+
+[data-eink] .ss-seg-item-active {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .ss-toggle {
+  background: #d9d9d9;
+}
+
+[data-eink] .ss-toggle-on {
+  background: #000;
+}
+
+[data-eink] .ss-select,
+[data-eink] .ss-angle-textarea {
+  background: #fff;
+  border-color: #000;
+  color: #000;
+}
+
+[data-eink] .ss-action-btn {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .ss-action-btn:hover {
+  background: #000;
+}
+
+[data-eink] .ss-link-btn {
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-eink] .ss-balance-row {
+  background: #f5f5f5;
+  border-left-color: #000;
+}
+
+[data-eink] .ss-close {
+  color: #000;
+  font-size: 1.6rem;
+}
+
+/* ToC overlay — match e-ink "Chapters" view from the design ref */
+[data-eink] .toc-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[data-eink] .toc-panel {
+  background: #fff;
+  border-right: 1px solid #000;
+}
+
+[data-eink] .toc-header {
+  background: #fff;
+  border-bottom: 1px solid #000;
+}
+
+[data-eink] .toc-header::before {
+  color: #000;
+}
+
+[data-eink] .toc-title {
+  color: #000;
+}
+
+[data-eink] .toc-item {
+  color: #5a5a5a;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+[data-eink] .toc-active {
+  background: #000;
+  color: #fff;
+  border-left-color: #000;
+}
+
+[data-eink] .toc-active .toc-item-number {
+  color: #fff;
+}
+
+[data-eink] .toc-item-number {
+  color: #5a5a5a;
+}
+
+/* Chapter end / reflect button — ink only */
+[data-eink] .chapter-reflect-button {
+  border-color: #000;
+  color: #000;
+}
+
+[data-eink] .chapter-reflect-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .chapter-end-ornament {
+  color: #5a5a5a;
+}
+
+/* Edition load error banner — ink on grey for e-ink */
+[data-eink] .edition-error-banner {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .edition-error-retry {
+  border-color: #fff;
+  color: #fff;
+}
+
+[data-eink] .edition-error-retry:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Side-panel inner panel-tabs (mobile) */
+[data-eink] .panel-tab {
+  color: #5a5a5a;
+}
+
+[data-eink] .panel-tab-active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+[data-eink] .panel-tab-badge {
+  background: #000;
+  color: #fff;
+}
+
+
