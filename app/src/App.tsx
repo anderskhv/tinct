@@ -19,6 +19,7 @@ import { ShareModal } from './components/ShareModal'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition, reloadEdition } from './data/editionLoader'
+import { AudioStrip } from './components/AudioStrip'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
@@ -198,6 +199,7 @@ export default function App() {
   // Audio state
   const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
   const [audioIsPlaying, setAudioIsPlaying] = useState(false)
+  const [audioStripOpen, setAudioStripOpen] = useState(false)
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
@@ -1455,8 +1457,8 @@ export default function App() {
         onOpenDownloads={() => setShowDownloadManager(true)}
         isBookDownloaded={isBookDownloaded(book.id)}
         hasAudio={hasAudio}
-        isAudioPlaying={audioIsPlaying}
-        onToggleAudio={() => bottomBarRef.current?.togglePlay()}
+        isAudioPlaying={audioStripOpen || audioIsPlaying}
+        onToggleAudio={() => setAudioStripOpen(o => !o)}
         onOpenSearch={() => setShowSearch(true)}
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
@@ -1505,6 +1507,20 @@ export default function App() {
       />
 
       <TrialBanner onSubscribe={() => handleCheckout('subscription')} />
+
+      <AudioStrip
+        isOpen={audioStripOpen}
+        onClose={() => setAudioStripOpen(false)}
+        isPlaying={audioIsPlaying}
+        playingParagraphIndex={audioPlayingParagraph}
+        chapterTitle={chapterTitle}
+        paragraphPreview={
+          audioPlayingParagraph != null && primaryChapter
+            ? primaryChapter.paragraphs[audioPlayingParagraph]
+            : undefined
+        }
+        audioRef={bottomBarRef}
+      />
 
       {!isOnline && (
         <div className="offline-banner">

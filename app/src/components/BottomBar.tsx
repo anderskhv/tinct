@@ -16,6 +16,10 @@ interface AudioManifest {
 export interface BottomBarHandle {
   seekToParagraph: (index: number) => void
   togglePlay: () => void
+  cycleSpeed: () => void
+  getSpeed: () => number
+  /** Skip relative to the current paragraph: positive forward, negative backward. */
+  skipParagraphs: (delta: number) => void
 }
 
 interface ProgressDisplay {
@@ -294,6 +298,18 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       togglePlay() {
         togglePlayRef.current()
       },
+      cycleSpeed() {
+        cycleSpeedRef.current()
+      },
+      getSpeed() {
+        return speedRef.current
+      },
+      skipParagraphs(delta: number) {
+        const m = manifestRef.current
+        if (!m) return
+        const next = Math.max(0, Math.min(m.paragraphs.length - 1, currentParagraphRef.current + delta))
+        playParagraph(next)
+      },
     }), [playParagraph])
 
     const togglePlayRef = useRef<() => void>(() => {})
@@ -322,6 +338,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     }, [isPlaying, playParagraph, firstVisibleParagraph])
     togglePlayRef.current = togglePlay
 
+    const cycleSpeedRef = useRef<() => void>(() => {})
     const cycleSpeed = useCallback(() => {
       setSpeed(prev => {
         const idx = SPEED_OPTIONS.indexOf(prev)
@@ -330,6 +347,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         return next
       })
     }, [])
+    cycleSpeedRef.current = cycleSpeed
 
     const formatTime = (seconds: number) => {
       const m = Math.floor(seconds / 60)

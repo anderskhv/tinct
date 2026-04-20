@@ -196,267 +196,54 @@ export function Header({
           <h1 className="logo">Tinct</h1>
           <span className="separator">&middot;</span>
           <span className="mobile-book-title">{bookTitle}</span>
-          <span className="separator">&middot;</span>
-          <span className="mobile-book-author">{bookAuthor}</span>
         </div>
 
-        <div className="header-right">
+        <nav className="menu-bar">
+          <button className="menu-icon-btn" onClick={onOpenStore} aria-label="Library">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+          </button>
+
+          {onOpenSearch && (
+            <button className="menu-icon-btn" onClick={onOpenSearch} aria-label="Search">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="7" cy="7" r="4" />
+                <line x1="10" y1="10" x2="14" y2="14" />
+              </svg>
+            </button>
+          )}
+
+          <button className="menu-icon-btn" onClick={onOpenToc} aria-label="Table of contents">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <line x1="3" y1="4" x2="13" y2="4" />
+              <line x1="3" y1="8" x2="11" y2="8" />
+              <line x1="3" y1="12" x2="9" y2="12" />
+            </svg>
+          </button>
+
           {hasAudio && onToggleAudio && (
             <button
-              className={`icon-button header-audio-btn ${isAudioPlaying ? 'header-audio-playing' : ''}`}
+              className={`menu-icon-btn ${isAudioPlaying ? 'menu-icon-active' : ''}`}
               onClick={onToggleAudio}
-              aria-label={isAudioPlaying ? 'Pause audiobook' : 'Play audiobook'}
+              aria-label={isAudioPlaying ? 'Hide audio player' : 'Show audio player'}
             >
-              {isAudioPlaying ? <span className="icon-pause-sm" /> : <span className="icon-play-sm" />}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+                <rect x="3" y="14" width="4" height="6" />
+                <rect x="17" y="14" width="4" height="6" />
+              </svg>
             </button>
           )}
-          {onOpenSearch && (
-            <button
-              className="icon-button"
-              onClick={onOpenSearch}
-              aria-label="Search"
-              style={{ fontSize: '1rem' }}
-            >
-              &#x1F50D;
-            </button>
-          )}
-          <button
-            className="icon-button"
-            onClick={onOpenToc}
-            aria-label="Table of Contents"
-            style={{ fontSize: '1.1rem' }}
-          >
-            ☰
+
+          <button className="menu-icon-btn" onClick={onOpenSettings} aria-label="Settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
           </button>
-          <button
-            className="icon-button mobile-menu-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Settings"
-          >
-            {mobileMenuOpen ? '✕' : '⋮'}
-          </button>
-        </div>
-
-        {mobileMenuOpen && (
-          <div className="mobile-menu" onClick={() => setMobileMenuOpen(false)}>
-            <div className="mobile-menu-content" onClick={e => e.stopPropagation()}>
-              {/* --- BROWSE LIBRARY (always visible) --- */}
-              <div className="mobile-menu-item">
-                <button className="mobile-menu-library-btn" onClick={() => { onOpenStore(); setMobileMenuOpen(false) }}>
-                  Browse Library
-                </button>
-              </div>
-
-              {onOpenDownloads && (
-                <div className="mobile-menu-item">
-                  <button className="mobile-menu-library-btn" onClick={() => { onOpenDownloads(); setMobileMenuOpen(false) }}>
-                    Offline Reading {isBookDownloaded ? '✓' : ''}
-                  </button>
-                </div>
-              )}
-
-              {/* --- FORMAT (open by default) --- */}
-              <div
-                className="mobile-menu-section-header mobile-menu-collapsible"
-                onClick={() => setMobileSections(s => ({ ...s, format: !s.format }))}
-              >
-                <span>Format</span>
-                <span className="mobile-menu-chevron">{mobileSections.format ? '▾' : '▸'}</span>
-              </div>
-
-              {mobileSections.format && (
-                <>
-                  <div className="mobile-menu-item theme-toggle-section">
-                    <label className="mobile-menu-label">Theme</label>
-                    <div className="mobile-menu-row">
-                      <button
-                        className={`mobile-menu-toggle-btn ${!darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
-                        onClick={() => { if (darkMode) onToggleDarkMode() }}
-                      >Light</button>
-                      <button
-                        className={`mobile-menu-toggle-btn ${darkMode ? 'mobile-menu-toggle-btn-active' : ''}`}
-                        onClick={() => { if (!darkMode) onToggleDarkMode() }}
-                      >Dark</button>
-                    </div>
-                  </div>
-
-                  <div className="mobile-menu-item">
-                    <label className="mobile-menu-label">Font size</label>
-                    <div className="mobile-menu-row">
-                      {(['small', 'medium', 'large', 'xlarge'] as FontSize[]).map(s => (
-                        <button
-                          key={s}
-                          className={`mobile-menu-toggle-btn ${fontSize === s ? 'mobile-menu-toggle-btn-active' : ''}`}
-                          onClick={() => onFontSizeChange(s)}
-                        >
-                          {s === 'small' ? 'S' : s === 'medium' ? 'M' : s === 'large' ? 'L' : 'XL'}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mobile-menu-item">
-                    <label className="mobile-menu-label">Font</label>
-                    <div className="mobile-menu-row">
-                      {(['garamond', 'baskerville', 'sourceserif'] as FontFamily[]).map(f => (
-                        <button
-                          key={f}
-                          className={`mobile-menu-toggle-btn ${fontFamily === f ? 'mobile-menu-toggle-btn-active' : ''}`}
-                          onClick={() => onFontFamilyChange(f)}
-                        >
-                          {f === 'garamond' ? 'Garamond' : f === 'baskerville' ? 'Baskerville' : 'Source'}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* --- READING (closed by default) --- */}
-              <div
-                className="mobile-menu-section-header mobile-menu-collapsible"
-                onClick={() => setMobileSections(s => ({ ...s, reading: !s.reading }))}
-              >
-                <span>Reading</span>
-                <span className="mobile-menu-chevron">{mobileSections.reading ? '▾' : '▸'}</span>
-              </div>
-
-              {mobileSections.reading && (
-                <>
-                  <div className="mobile-menu-item">
-                    <label className="mobile-menu-label">Edition</label>
-                    <select
-                      className="mobile-menu-select"
-                      value={currentEditionKey}
-                      onChange={e => {
-                        const ed = allEditions.find(ed => ed.key === e.target.value)
-                        if (ed) {
-                          onLanguageChange(ed.language)
-                          onStyleChange(ed.style)
-                        }
-                      }}
-                    >
-                      {allEditions.map(ed => (
-                        <option key={ed.key} value={ed.key}>{ed.label}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {alignedEditions && alignedEditions.length > 0 && (
-                    <div className="mobile-menu-item">
-                      <label className="mobile-menu-label">Compare edition</label>
-                      <select
-                        className="mobile-menu-select"
-                        value={splitEditionKey || ''}
-                        onChange={e => onSplitEditionChange?.(e.target.value)}
-                      >
-                        {alignedEditions.map(ed => (
-                          <option key={ed.key} value={ed.key}>{ed.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                  )}
-
-                  {audioEditions && audioEditions.length > 0 && (
-                    <div className="mobile-menu-item">
-                      <label className="mobile-menu-label">Audiobook</label>
-                      <select
-                        className="mobile-menu-select"
-                        value={audioEditionKey || currentEditionKey}
-                        onChange={e => onAudioEditionChange?.(e.target.value)}
-                      >
-                        <option value="none">No audiobook</option>
-                        {audioEditions.map(ed => (
-                          <option key={ed.key} value={ed.key}>{ed.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                  )}
-
-                  <div className="mobile-menu-item mobile-menu-item-col">
-                    <label className="mobile-menu-label">Reading angle</label>
-                    <textarea
-                      className="mobile-menu-textarea"
-                      value={localObjective}
-                      onChange={e => setLocalObjective(e.target.value)}
-                      onBlur={() => {
-                        if (localObjective.trim() !== readingObjective) {
-                          onSaveObjective?.(localObjective.trim())
-                        }
-                      }}
-                      placeholder="e.g. Leadership lessons, mythology connections..."
-                      rows={2}
-                    />
-                  </div>
-
-                  {progressDisplay && onProgressDisplayChange && (
-                    <div className="mobile-menu-item">
-                      <label className="mobile-menu-label">Reading progress</label>
-                      <div className="mobile-menu-row">
-                        <select
-                          className="mobile-menu-select"
-                          value={progressDisplay.metric}
-                          onChange={e => onProgressDisplayChange({ ...progressDisplay, metric: e.target.value as ProgressMetric })}
-                          style={{ flex: 1 }}
-                        >
-                          <option value="percent">Percentage</option>
-                          <option value="time">Time left</option>
-                          <option value="page">Page</option>
-                          <option value="location">Location</option>
-                        </select>
-                        <select
-                          className="mobile-menu-select"
-                          value={progressDisplay.scope}
-                          onChange={e => onProgressDisplayChange({ ...progressDisplay, scope: e.target.value as ProgressScope })}
-                          style={{ flex: 1 }}
-                        >
-                          <option value="book">of book</option>
-                          {hasSections && <option value="section">of section</option>}
-                          <option value="chapter">of chapter</option>
-                        </select>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-
-              {/* --- ACCOUNT (closed by default) --- */}
-              <div
-                className="mobile-menu-section-header mobile-menu-collapsible"
-                onClick={() => setMobileSections(s => ({ ...s, account: !s.account }))}
-              >
-                <span>Account</span>
-                <span className="mobile-menu-chevron">{mobileSections.account ? '▾' : '▸'}</span>
-              </div>
-
-              {mobileSections.account && (
-                <>
-                  <div className="mobile-menu-item">
-                    <BalanceIndicator
-                      messagesRemaining={messagesRemaining}
-                      hasBalance={hasBalance}
-                      isAnonymous={isAnonymous}
-                      onTopUp={onOpenUsage}
-                      onSignIn={onSignIn}
-                    />
-                  </div>
-
-                  <div className="mobile-menu-item">
-                    {user ? (
-                      <button className="mobile-menu-auth" onClick={() => { onSignOut(); setMobileMenuOpen(false) }}>
-                        Sign out ({user.email})
-                      </button>
-                    ) : (
-                      <button className="mobile-menu-auth" onClick={() => { onSignIn(); setMobileMenuOpen(false) }}>
-                        Sign in
-                      </button>
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        )}
+        </nav>
 
         {readingProgress != null && readingProgress > 0 && (
           <div className="reading-progress-bar" title={`${readingProgress}% complete`}>
@@ -479,6 +266,13 @@ export function Header({
       </div>
 
       <nav className="menu-bar">
+        <button className="menu-icon-btn" onClick={onOpenStore} title="Library">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+        </button>
+
         {onOpenSearch && (
           <button className="menu-icon-btn" onClick={onOpenSearch} title="Search in book">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -492,7 +286,7 @@ export function Header({
           <button
             className={`menu-icon-btn ${isAudioPlaying ? 'menu-icon-active' : ''}`}
             onClick={onToggleAudio}
-            title={isAudioPlaying ? 'Pause audiobook' : 'Listen'}
+            title={isAudioPlaying ? 'Hide audio player' : 'Show audio player'}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 14v-2a8 8 0 0 1 16 0v2" />

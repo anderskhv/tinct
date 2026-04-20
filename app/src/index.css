@@ -4778,11 +4778,17 @@ body {
   padding-bottom: 100px;
 }
 
-/* Paragraph currently being read aloud */
+/* Paragraph currently being read aloud — soft accent background + rule */
 .paragraph-playing {
-  border-left: 3px solid var(--accent);
-  padding-left: 12px;
-  transition: border-color 0.3s, padding-left 0.3s;
+  background: rgba(31, 74, 92, 0.08);
+  border-left: 2px solid var(--accent);
+  padding: 4px 12px;
+  margin-left: -14px;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+[data-theme="dark"] .paragraph-playing {
+  background: rgba(90, 157, 181, 0.12);
 }
 
 /* ===== Book Store ===== */

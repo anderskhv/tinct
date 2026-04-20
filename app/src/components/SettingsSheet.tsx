@@ -351,35 +351,52 @@ export function SettingsSheet(props: SettingsSheetProps) {
       {audioEditions.length === 0 ? (
         <div className="ss-empty">No audiobook is available for this book yet.</div>
       ) : (
-        <Row
-          label="Narrator"
-          hint="Which edition's audio to use."
-          control={
-            <select
-              className="ss-select"
-              value={audioEditionKey ?? 'none'}
-              onChange={(e) => onAudioEditionChange(e.target.value as EditionKey)}
-            >
-              <option value="none">No audiobook</option>
-              {audioEditions.map(ed => (
-                <option key={ed.key} value={ed.key}>{ed.label}</option>
-              ))}
-            </select>
-          }
-        />
+        <>
+          <div className="ss-row-hint" style={{ padding: '14px 0 18px' }}>
+            Tap the headphones icon in the top bar to open the player. Audio
+            plays paragraph by paragraph; the one being read is highlighted
+            in the reader so you can switch between listening and reading
+            without losing your place. The narrator edition is set under
+            <strong> Editions</strong>.
+          </div>
+          <Row
+            label="Auto-advance to next chapter"
+            hint="When a chapter ends, the next one starts automatically."
+            control={<span className="ss-text-value" style={{ color: 'var(--accent)' }}>On</span>}
+          />
+          <Row
+            label="Highlight currently-playing paragraph"
+            hint="Soft accent background under the paragraph the narrator is on."
+            control={<span className="ss-text-value" style={{ color: 'var(--accent)' }}>On</span>}
+          />
+        </>
       )}
     </>
   )
 
   const OfflineSection = () => (
-    <div className="ss-offline">
+    <>
       <div className="ss-row-hint" style={{ padding: '14px 0 16px' }}>
-        Keep this book on your device for trains and cabins. Audio and text each count separately.
+        Keep this book on your device for trains and cabins. Text and
+        audio download separately so you only carry what you need.
       </div>
-      <button className="ss-action-btn" onClick={() => { onOpenDownloads() }}>
-        {isBookDownloaded ? 'Manage downloads' : 'Download this book'}
-      </button>
-    </div>
+      <Row
+        label="This book"
+        hint={isBookDownloaded
+          ? 'Saved to this device for offline reading.'
+          : 'Not yet downloaded.'}
+        control={
+          <Toggle
+            on={isBookDownloaded}
+            onClick={() => onOpenDownloads()}
+          />
+        }
+      />
+      <div className="ss-row-hint" style={{ padding: '18px 0 0' }}>
+        For audio, downloaded chapters, or to manage all of your offline
+        books at once, open the <button className="ss-link-btn" style={{ display: 'inline' }} onClick={() => onOpenDownloads()}>full download manager &rarr;</button>
+      </div>
+    </>
   )
 
   const AccountSection = () => (
