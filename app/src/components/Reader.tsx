@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, useEffect } from 'react'
+import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
@@ -123,6 +123,7 @@ export function Reader({
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const popupRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
@@ -306,6 +307,33 @@ export function Reader({
       userNavigatedRef.current = false
     }
   }, [playingParagraphIndex])
+
+  // Keep the selection popup inside the viewport. The initial position
+  // is a best-effort (we pick above/below the selection based on room),
+  // but the popup's size isn't known until it has rendered — especially
+  // in the issue-form state where the Submit button used to fall off the
+  // bottom of mobile screens. One post-render nudge. The ref-flag guards
+  // against a re-render loop: once clamped, the next pass is in bounds
+  // and the effect becomes a no-op.
+  useLayoutEffect(() => {
+    if (!selectionPopup) return
+    const el = popupRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const vw = window.innerWidth
+    const vh = window.innerHeight
+    const margin = 8
+
+    let dx = 0
+    let dy = 0
+    if (rect.left < margin) dx = margin - rect.left
+    else if (rect.right > vw - margin) dx = (vw - margin) - rect.right
+    if (rect.top < margin) dy = margin - rect.top
+    else if (rect.bottom > vh - margin) dy = (vh - margin) - rect.bottom
+
+    if (dx === 0 && dy === 0) return
+    setSelectionPopup(sp => sp ? { ...sp, x: sp.x + dx, y: sp.y + dy } : null)
+  }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, issueTag])
 
   const goToPage = useCallback((page: number) => {
     const container = readerRef.current
@@ -492,7 +520,12 @@ export function Reader({
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
 
-    const showBelow = rect.top < 120
+    // Pick the side with more room. The issue-form state can be ~220px tall,
+    // so we need to be deliberate — a naive "show below if near the top"
+    // rule left the submit button off-screen on mobile.
+    const spaceAbove = rect.top
+    const spaceBelow = window.innerHeight - rect.bottom
+    const showBelow = spaceBelow >= spaceAbove
     setPopupMode('main')
     setIssueTag('')
     setIssueComment('')
@@ -601,9 +634,15 @@ export function Reader({
       onMouseUp={handleMouseUp}
       onClick={handleReaderClick}
       onTouchEnd={(e) => {
-        // Mobile tap-to-turn: check if it's a simple tap (not a selection)
+        // Mobile text selection: iOS fires touchend, not mouseup, when the
+        // user releases a selection drag. If we return early here we lose
+        // the chance to show our own popup and Safari's native menu wins.
+        // Tiny delay so iOS has finalized the selection + its handles.
         const selection = window.getSelection()
-        if (selection && !selection.isCollapsed) return
+        if (selection && !selection.isCollapsed && (selection.toString().trim().length >= 3)) {
+          setTimeout(handleMouseUp, 50)
+          return
+        }
         if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
 
         // Audio mode: tap on a paragraph to play from there (no page turning)
@@ -725,6 +764,7 @@ export function Reader({
 
       {selectionPopup && (
         <div
+          ref={popupRef}
           className={`selection-popup ${selectionPopup.showBelow ? 'selection-popup-below' : ''}`}
           style={{ left: selectionPopup.x, top: selectionPopup.y, position: 'fixed' }}
           onClick={e => e.stopPropagation()}

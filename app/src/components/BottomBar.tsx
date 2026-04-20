@@ -375,75 +375,16 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     }, [])
     cycleSpeedRef.current = cycleSpeed
 
-    const formatTime = (seconds: number) => {
-      const m = Math.floor(seconds / 60)
-      const s = Math.floor(seconds % 60)
-      return `${m}:${s.toString().padStart(2, '0')}`
-    }
-
-    const totalDuration = manifest?.paragraphs.reduce((sum, p) => sum + p.duration, 0) || 0
-    const elapsedDuration = manifest
-      ? manifest.paragraphs.slice(0, currentParagraph).reduce((sum, p) => sum + p.duration, 0)
-        + (manifest.paragraphs[currentParagraph]?.duration || 0) * progress
-      : 0
-
     // Mobile nav — allow chapter advance when on first/last page
     const canGoPrev = currentPage > 0 || !!onPrevChapter
     const canGoNext = currentPage < totalPages - 1 || !!onNextChapter
 
-    if (isPlaying) {
-      // Audio mode
-      return (
-        <div className="bottom-bar bottom-bar-audio">
-          <button
-            className="reading-tracker-nav"
-            onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))}
-            disabled={!canGoPrev}
-            aria-label="Previous page"
-          >
-            &larr;
-          </button>
-          <button className="bottom-bar-play" onClick={togglePlay} title="Pause">
-            <span className="icon-pause" />
-          </button>
-          <div className="bottom-bar-progress">
-            <div className="reading-tracker-bar">
-              <div
-                className="reading-tracker-fill"
-                style={{ width: `${totalDuration > 0 ? (elapsedDuration / totalDuration) * 100 : 0}%` }}
-              />
-              {chapterTicks && chapterTicks.length > 0 && (
-                <div className="progress-footer-ticks">
-                  {chapterTicks.map((p, i) => (
-                    <div
-                      key={i}
-                      className={`progress-footer-tick ${currentChapterIndex === i + 1 ? 'progress-footer-tick-current' : ''}`}
-                      style={{ left: `${p * 100}%` }}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-          <span className="bottom-bar-time">
-            {formatTime(elapsedDuration)} / {formatTime(totalDuration)}
-          </span>
-          <button className="bottom-bar-speed" onClick={cycleSpeed} title="Playback speed">
-            {speed}x
-          </button>
-          <button
-            className="reading-tracker-nav"
-            onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))}
-            disabled={!canGoNext}
-            aria-label="Next page"
-          >
-            &rarr;
-          </button>
-        </div>
-      )
-    }
+    // Audio controls live in the AudioStrip at the top of the reader when
+    // the headphones icon is open. BottomBar is now reading-progress only,
+    // regardless of playback state — keeps the two UIs from competing.
+    // cycleSpeed + togglePlay are still exposed via the imperative handle
+    // so AudioStrip can drive the engine.
 
-    // Reading mode
     return (
       <div className="bottom-bar">
         <button
@@ -455,8 +396,8 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           &larr;
         </button>
         {hasAudio && (
-          <button className="bottom-bar-play" onClick={togglePlay} title="Play audiobook">
-            <span className="icon-play" />
+          <button className="bottom-bar-play" onClick={togglePlay} title={isPlaying ? 'Pause audiobook' : 'Play audiobook'}>
+            <span className={isPlaying ? 'icon-pause' : 'icon-play'} />
           </button>
         )}
         <div className="bottom-bar-progress">

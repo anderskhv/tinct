@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, useEffect } from 'react'
+import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor, Edition, EditionKey } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
@@ -129,6 +129,7 @@ export function SplitReader({
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const popupRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -288,6 +289,29 @@ export function SplitReader({
     }
   }, [playingParagraphIndex])
 
+  // Keep the selection popup inside the viewport after it renders. Same
+  // pattern as Reader.tsx — the popup's height changes between "main" and
+  // "issue" modes, so we need to re-measure when mode changes too.
+  useLayoutEffect(() => {
+    if (!selectionPopup) return
+    const el = popupRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const vw = window.innerWidth
+    const vh = window.innerHeight
+    const margin = 8
+
+    let dx = 0
+    let dy = 0
+    if (rect.left < margin) dx = margin - rect.left
+    else if (rect.right > vw - margin) dx = (vw - margin) - rect.right
+    if (rect.top < margin) dy = margin - rect.top
+    else if (rect.bottom > vh - margin) dy = (vh - margin) - rect.bottom
+
+    if (dx === 0 && dy === 0) return
+    setSelectionPopup(sp => sp ? { ...sp, x: sp.x + dx, y: sp.y + dy } : null)
+  }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, issueTag])
+
   const goToPage = useCallback((page: number) => {
     userNavigatedRef.current = true
     setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)))
@@ -443,7 +467,10 @@ export function SplitReader({
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
 
-    const showBelow = rect.top < 120
+    // Pick the side with more room — see matching comment in Reader.tsx.
+    const spaceAbove = rect.top
+    const spaceBelow = window.innerHeight - rect.bottom
+    const showBelow = spaceBelow >= spaceAbove
     setPopupMode('main')
     setIssueTag('')
     setIssueComment('')
@@ -543,7 +570,13 @@ export function SplitReader({
       onClick={handleReaderClick}
       onTouchEnd={(e) => {
         const selection = window.getSelection()
-        if (selection && !selection.isCollapsed) return
+        // On mobile, iOS fires touchend (not mouseup) after a selection
+        // drag — if we return early here, Safari's native menu wins and
+        // our popup never appears. 50ms lets the selection finalize.
+        if (selection && !selection.isCollapsed && selection.toString().trim().length >= 3) {
+          setTimeout(handleMouseUp, 50)
+          return
+        }
         if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
         const container = readerRef.current
         if (!container) return
@@ -668,6 +701,7 @@ export function SplitReader({
 
       {selectionPopup && (
         <div
+          ref={popupRef}
           className={`selection-popup ${selectionPopup.showBelow ? 'selection-popup-below' : ''}`}
           style={{ left: selectionPopup.x, top: selectionPopup.y, position: 'fixed' }}
           onClick={e => e.stopPropagation()}

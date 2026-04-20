@@ -1232,6 +1232,13 @@ body {
   z-index: 100;
   animation: fadeIn 0.15s ease;
   white-space: nowrap;
+  /* Never exceed the viewport — the post-render clamp in Reader.tsx
+     shifts x/y, but these caps make sure the popup can physically fit
+     in the first place (especially in the issue-form state). */
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .selection-popup-below {
