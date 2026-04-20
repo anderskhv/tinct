@@ -15,6 +15,7 @@ interface AudioManifest {
 
 export interface BottomBarHandle {
   seekToParagraph: (index: number) => void
+  togglePlay: () => void
 }
 
 interface ProgressDisplay {
@@ -42,6 +43,12 @@ interface BottomBarProps {
   locationTotal?: number
   /** Progress display preference */
   progressDisplay?: ProgressDisplay
+  /** Book-level absolute pages (scope='book' for page metric) */
+  bookCurrentPage?: number
+  bookTotalPages?: number
+  /** Chapter-level location (paragraph position within chapter) */
+  locationCurrentChapter?: number
+  locationTotalChapter?: number
   // Audio
   bookId: string
   editionKey: string
@@ -58,6 +65,12 @@ interface BottomBarProps {
   onPrevChapter?: () => void
   /** Initial paragraph to resume audio from (restored from saved position) */
   initialAudioParagraph?: number
+  /** Called whenever play/pause state changes */
+  onPlayStateChange?: (isPlaying: boolean) => void
+  /** Chapter start positions as fractions (0-1) across the book — rendered as ticks */
+  chapterTicks?: number[]
+  /** Current chapter index (1-based) — used to highlight the current tick */
+  currentChapterIndex?: number
 }
 
 const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
@@ -68,15 +81,24 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     absoluteCurrentPage, absoluteTotalPages,
     chapterPercentComplete, chapterTimeLabel, sectionPercentComplete, sectionTimeLabel,
     locationCurrent, locationTotal, progressDisplay,
+    bookCurrentPage, bookTotalPages, locationCurrentChapter, locationTotalChapter,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
-    onNextChapter, onPrevChapter, initialAudioParagraph,
+    onNextChapter, onPrevChapter, initialAudioParagraph, onPlayStateChange,
+    chapterTicks, currentChapterIndex,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [isPlaying, setIsPlayingRaw] = useState(false)
     const [currentParagraph, setCurrentParagraph] = useState(0)
     const [progress, setProgress] = useState(0)
     const [hasAudio, setHasAudio] = useState(false)
     const [speed, setSpeed] = useState(1)
+
+    const onPlayStateChangeRef = useRef(onPlayStateChange)
+    onPlayStateChangeRef.current = onPlayStateChange
+    const setIsPlaying = useCallback((playing: boolean) => {
+      setIsPlayingRaw(playing)
+      onPlayStateChangeRef.current?.(playing)
+    }, [])
 
     // Single reusable Audio element — avoids listener accumulation and stale closures
     const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -168,13 +190,25 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
     // Load manifest — stop audio on chapter change
     useEffect(() => {
-      // Stop current audio immediately on chapter change
-      if (audioRef.current) {
+      const isAutoResume = shouldResumeRef.current
+
+      // Stop current audio on chapter change — but keep element alive if auto-resuming
+      if (audioRef.current && !isAutoResume) {
         audioRef.current.pause()
         audioRef.current.removeAttribute('src')
       }
-      setIsPlaying(false)
+      if (!isAutoResume) {
+        setIsPlaying(false)
+      }
       setProgress(0)
+
+      // 'none' means user has disabled audio
+      if (editionKey === 'none') {
+        setManifest(null)
+        manifestRef.current = null
+        setHasAudio(false)
+        return
+      }
 
       const controller = new AbortController()
       const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
@@ -194,31 +228,27 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             const found = data.paragraphs.findIndex(p => p.paragraph >= initPara)
             if (found >= 0) startIdx = found
           }
-          setCurrentParagraph(startIdx)
-          currentParagraphRef.current = startIdx
-          // Tell the Reader where the audio is cued so it navigates to the right paragraph
-          if (startIdx > 0) {
+          setCurrentParagraph(isAutoResume ? 0 : startIdx)
+          currentParagraphRef.current = isAutoResume ? 0 : startIdx
+
+          if (!isAutoResume && startIdx > 0) {
             onParagraphChangeRef.current?.(data.paragraphs[startIdx].paragraph)
           }
 
-          // Auto-resume if chapter changed due to audio finishing previous chapter
-          if (shouldResumeRef.current) {
+          // Auto-resume: directly swap src — no pause, no timeout, preserves iOS audio unlock
+          if (isAutoResume) {
             shouldResumeRef.current = false
-            // Small delay to let the Audio element be ready after re-creation
-            setTimeout(() => {
-              const audio = audioRef.current
-              if (!audio || !data.paragraphs[0]) return
-              const paraUrl = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`
-              audio.src = paraUrl
-              audio.playbackRate = speedRef.current
-              audio.play().then(() => {
-                setIsPlaying(true)
-                onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
-              }).catch(() => {
-                // Autoplay blocked (iOS) — user will need to tap play
-                setIsPlaying(false)
-              })
-            }, 100)
+            const audio = audioRef.current
+            if (!audio || !data.paragraphs[0]) return
+            const paraUrl = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`
+            audio.src = paraUrl
+            audio.playbackRate = speedRef.current
+            audio.play().then(() => {
+              setIsPlaying(true)
+              onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
+            }).catch(() => {
+              setIsPlaying(false)
+            })
           }
         })
         .catch((err) => {
@@ -260,9 +290,13 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         if (!m) return
         const idx = m.paragraphs.findIndex(p => p.paragraph === paragraphIndex)
         if (idx >= 0) playParagraph(idx)
-      }
+      },
+      togglePlay() {
+        togglePlayRef.current()
+      },
     }), [playParagraph])
 
+    const togglePlayRef = useRef<() => void>(() => {})
     const togglePlay = useCallback(() => {
       if (isPlaying) {
         audioRef.current?.pause()
@@ -286,6 +320,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         playParagraph(currentParagraphRef.current)
       }
     }, [isPlaying, playParagraph, firstVisibleParagraph])
+    togglePlayRef.current = togglePlay
 
     const cycleSpeed = useCallback(() => {
       setSpeed(prev => {
@@ -333,6 +368,17 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
                 className="reading-tracker-fill"
                 style={{ width: `${totalDuration > 0 ? (elapsedDuration / totalDuration) * 100 : 0}%` }}
               />
+              {chapterTicks && chapterTicks.length > 0 && (
+                <div className="progress-footer-ticks">
+                  {chapterTicks.map((p, i) => (
+                    <div
+                      key={i}
+                      className={`progress-footer-tick ${currentChapterIndex === i + 1 ? 'progress-footer-tick-current' : ''}`}
+                      style={{ left: `${p * 100}%` }}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           <span className="bottom-bar-time">
@@ -372,6 +418,17 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         <div className="bottom-bar-progress">
           <div className="reading-tracker-bar">
             <div className="reading-tracker-fill" style={{ width: `${percentComplete}%` }} />
+            {chapterTicks && chapterTicks.length > 0 && (
+              <div className="progress-footer-ticks">
+                {chapterTicks.map((p, i) => (
+                  <div
+                    key={i}
+                    className={`progress-footer-tick ${currentChapterIndex === i + 1 ? 'progress-footer-tick-current' : ''}`}
+                    style={{ left: `${p * 100}%` }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div className="reading-tracker-info">
@@ -390,12 +447,20 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             const scopeLabel = scope === 'chapter' ? 'ch' : scope === 'section' ? 'sec' : ''
 
             if (metric === 'page') {
+              if (scope === 'book' && bookCurrentPage && bookTotalPages) {
+                return <span className="reading-tracker-percent">{bookCurrentPage}/{bookTotalPages}</span>
+              }
               const pg = absoluteCurrentPage ?? (currentPage + 1)
               const tot = absoluteTotalPages ?? totalPages
-              return <span className="reading-tracker-percent">{pg}/{tot}</span>
+              return <span className="reading-tracker-percent">{pg}/{tot}{scope === 'chapter' ? ' ch' : ''}</span>
             }
-            if (metric === 'location' && locationCurrent !== undefined && locationTotal) {
-              return <span className="reading-tracker-percent">Loc {locationCurrent}/{locationTotal}</span>
+            if (metric === 'location') {
+              if (scope === 'chapter' && locationCurrentChapter !== undefined && locationTotalChapter) {
+                return <span className="reading-tracker-percent">§{locationCurrentChapter}/{locationTotalChapter}</span>
+              }
+              if (locationCurrent !== undefined && locationTotal) {
+                return <span className="reading-tracker-percent">Loc {locationCurrent}/{locationTotal}</span>
+              }
             }
             if (metric === 'time') {
               return (

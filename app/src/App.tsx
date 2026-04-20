@@ -13,8 +13,8 @@ import { AccountDecision } from './components/AccountDecision'
 import { PricingModal } from './components/PricingModal'
 import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
-import { PanelToggleTab } from './components/PanelToggleTab'
 import { TocOverlay } from './components/TocOverlay'
+import { ShareModal } from './components/ShareModal'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition } from './data/editionLoader'
@@ -39,6 +39,7 @@ import { storage, setStorageProvider, localStorageProvider } from './services/st
 import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition, FontSize, FontFamily } from './types'
 import { makeEditionKey } from './types'
+import { apiUrl } from './utils/apiUrl'
 import { trackPageview } from './utils/analytics'
 import { AUDIO_BASE_URL } from './utils/audioUrl'
 
@@ -70,6 +71,7 @@ export default function App() {
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
+  const [fixesCount, setFixesCount] = useState<number | undefined>(undefined)
   const [showStore, setShowStore] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
   const [showPricingModal, setShowPricingModal] = useState(false)
@@ -90,7 +92,13 @@ export default function App() {
     if (authLoading) return
     if (user) {
       const provider = new SupabaseStorageProvider(user.id)
+      // Timeout: if Supabase init takes >5s, proceed with localStorage (don't block the app)
+      const initTimeout = setTimeout(() => {
+        console.warn('[App] Supabase init timeout — proceeding with localStorage')
+        setStorageReady(true)
+      }, 5000)
       provider.init().then(() => {
+        clearTimeout(initTimeout)
         // Migrate any existing localStorage data to Supabase.
         // For position keys, prefer whichever has the more recent updatedAt timestamp.
         // For all other keys, only write to Supabase if it has no value yet.
@@ -113,6 +121,10 @@ export default function App() {
         // Start real-time sync for cross-device updates
         provider.subscribe()
         setStorageReady(true)
+      }).catch((err) => {
+        console.error('[App] Supabase init failed:', err)
+        clearTimeout(initTimeout)
+        setStorageReady(true) // Proceed with localStorage fallback
       })
     } else {
       // Clean up previous subscription
@@ -161,24 +173,29 @@ export default function App() {
   // Restore last reading position on mount or book change
   const savedPos = useRef(getSavedPosition(book.id))
   const [currentChapter, setCurrentChapter] = useState(() => {
-    return savedPos.current?.chapterNumber || 1
+    const ch = savedPos.current?.chapterNumber || 1
+    // Bounds check: chapter must be positive (full bounds check happens after data loads)
+    return ch >= 1 ? ch : 1
   })
   const [primaryData, setPrimaryData] = useState<EditionData | null>(null)
   const [splitData, setSplitData] = useState<EditionData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
+  const [shareText, setShareText] = useState<string | null>(null)
+  const [toastMessage, setToastMessage] = useState<string | null>(null)
   const [isCleaningUp, setIsCleaningUp] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
   const readerRef = useRef<HTMLDivElement>(null)
   const compareReaderRef = useRef<HTMLDivElement>(null)
   const [readerKey, setReaderKey] = useState(0)
-  const targetParagraphRef = useRef<number | undefined>(undefined)
+  const targetParagraphRef = useRef<number | undefined>(savedPos.current?.lastParagraphIndex)
   const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: 'en' | 'da' } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Audio state
   const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
+  const [audioIsPlaying, setAudioIsPlaying] = useState(false)
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
@@ -192,10 +209,30 @@ export default function App() {
     if (activeView === 1) {
       setCompareSyncSignal({ paragraph: firstVisibleParagraphRef.current, nonce: Date.now() })
     }
+    // Reader stays mounted (CSS hidden) — no remount needed, position preserved naturally
   }, [activeView])
 
   // ToC overlay state
   const [showToc, setShowToc] = useState(false)
+
+  // Issue report toast listener
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const msg = (e as CustomEvent<{ message: string }>).detail.message
+      setToastMessage(msg)
+      setTimeout(() => setToastMessage(null), 5000)
+    }
+    window.addEventListener('tinct:toast', handler)
+    return () => window.removeEventListener('tinct:toast', handler)
+  }, [])
+
+  // Issue fix confirmation modal
+  const [showFixModal, setShowFixModal] = useState(false)
+  useEffect(() => {
+    const handler = () => setShowFixModal(true)
+    window.addEventListener('tinct:issue-fixed', handler)
+    return () => window.removeEventListener('tinct:issue-fixed', handler)
+  }, [])
 
   // Analytics: track pageviews on book/chapter/view changes
   useEffect(() => {
@@ -210,6 +247,15 @@ export default function App() {
     trackPageview(path, user?.id)
   }, [currentBookId, currentChapter, showStore, showUsageDashboard, user?.id])
 
+  // Fetch user's confirmed fixes count when dashboard opens
+  useEffect(() => {
+    if (!showUsageDashboard || !session?.access_token) return
+    fetch(apiUrl('/api/fixes-count'), { headers: { Authorization: `Bearer ${session.access_token}` } })
+      .then(r => r.json())
+      .then((d: { count: number }) => setFixesCount(d.count))
+      .catch(() => {})
+  }, [showUsageDashboard, session?.access_token])
+
   // Re-read position, preferences, and library from cloud storage once Supabase syncs
   const hasRestoredFromCloud = useRef(false)
   useEffect(() => {
@@ -219,9 +265,11 @@ export default function App() {
       refreshFromStorage()
       refreshLibrary()
       // Restore current book from cloud (may differ from default)
+      // Guard: only switch if the book actually exists in the registry
       const cloudBookId = storage.get<string>('tinct-current-book')
-      const targetBookId = cloudBookId || book.id
-      if (cloudBookId && cloudBookId !== currentBookId) {
+      const validCloudBook = cloudBookId && !!getBook(cloudBookId)
+      const targetBookId = validCloudBook ? cloudBookId : book.id
+      if (validCloudBook && cloudBookId !== currentBookId) {
         setCurrentBookId(cloudBookId)
       }
       // Restore reading position for the correct book
@@ -270,6 +318,10 @@ export default function App() {
       await provider.refresh()
       const cloudPos = getSavedPosition(book.id)
       if (cloudPos) {
+        // Don't sync if layout hasn't settled (totalPages=1 means stale state)
+        if (totalPages <= 1) return
+        // Bounds check: chapter must be valid for this book
+        if (cloudPos.chapterNumber < 1 || cloudPos.chapterNumber > totalChapters) return
         const localPos: ReadingPosition = {
           bookId: book.id,
           chapterNumber: currentChapter,
@@ -278,7 +330,8 @@ export default function App() {
           scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
         }
         const winner = pickLatest(localPos, cloudPos)
-        if (winner && (winner.chapterNumber !== currentChapter ||
+        if (winner && winner.chapterNumber >= 1 && winner.chapterNumber <= totalChapters &&
+            (winner.chapterNumber !== currentChapter ||
             (winner.scrollFraction ?? 0) > (localPos.scrollFraction ?? 0) + 0.01)) {
           savedPos.current = winner
           if (winner.lastParagraphIndex !== undefined) {
@@ -292,14 +345,18 @@ export default function App() {
     }
     document.addEventListener('visibilitychange', handleVisibility)
     return () => document.removeEventListener('visibilitychange', handleVisibility)
-  }, [user, book.id, currentChapter, currentPage, totalPages])
+  }, [user, book.id, currentChapter, currentPage, totalPages, totalChapters])
 
 
   // Get current chapter data early so we can pass context to chat
   const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
+  const totalChapters = primaryData?.chapters.length || book.editions.length
+  // Bounds check: clamp chapter to valid range after data loads
+  if (currentChapter > totalChapters && totalChapters > 0) {
+    setCurrentChapter(totalChapters)
+  }
   const primaryChapter = primaryData?.chapters.find(c => c.number === currentChapter)
   const chapterTitle = primaryChapter?.title || `Chapter ${currentChapter}`
-  const totalChapters = primaryData?.chapters.length || book.editions.length
 
   // Absolute page numbers: content-based, device-independent (~1500 chars per page)
   const CHARS_PER_PAGE = 1500
@@ -312,6 +369,21 @@ export default function App() {
     const current = Math.min(Math.floor(charsBeforeCurrent / CHARS_PER_PAGE) + 1, total)
     return { current, total }
   }, [primaryChapter, firstVisibleParagraph])
+
+  // Book-level absolute pages (scope='book' for page metric)
+  const bookAbsolutePage = useMemo(() => {
+    if (!primaryData) return { current: 1, total: 1 }
+    let totalChars = 0, charsBefore = 0
+    primaryData.chapters.forEach((ch, i) => {
+      const chChars = ch.paragraphs.reduce((s, p) => s + p.length, 0)
+      if (i < currentChapter - 1) charsBefore += chChars
+      else if (i === currentChapter - 1)
+        charsBefore += ch.paragraphs.slice(0, firstVisibleParagraph).reduce((s, p) => s + p.length, 0)
+      totalChars += chChars
+    })
+    const total = Math.max(1, Math.ceil(totalChars / CHARS_PER_PAGE))
+    return { current: Math.min(Math.floor(charsBefore / CHARS_PER_PAGE) + 1, total), total }
+  }, [primaryData, currentChapter, firstVisibleParagraph])
 
   // Short labels for chapter dropdown
   const chapterLabels = useMemo(() => {
@@ -347,7 +419,7 @@ export default function App() {
     if (!session?.access_token) return
 
     try {
-      const response = await fetch('/api/create-checkout', {
+      const response = await fetch(apiUrl('/api/create-checkout'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -373,7 +445,7 @@ export default function App() {
     if (!session?.access_token) return
 
     try {
-      const response = await fetch('/api/cancel-subscription', {
+      const response = await fetch(apiUrl('/api/cancel-subscription'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -400,7 +472,7 @@ export default function App() {
     }
   }, [refreshProfile])
 
-  const { conversations: chatConversations, recordMessage, getChapterChatSummary, setSummary: setChatSummary } = useChatHistory(book.id)
+  const { conversations: chatConversations, recordMessage, getChapterChatSummary, getChapterConversations, setSummary: setChatSummary } = useChatHistory(book.id)
   const [summarizingChatId, setSummarizingChatId] = useState<string | null>(null)
 
   const handleSummarizeChat = useCallback(async (convId: string) => {
@@ -413,7 +485,7 @@ export default function App() {
         `${m.role === 'user' ? 'Reader' : 'Tinct'}: ${m.content}`
       ).join('\n\n')
 
-      const response = await fetch('/api/chat', {
+      const response = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -439,7 +511,7 @@ export default function App() {
     }
   }, [chatConversations, session?.access_token, setChatSummary])
 
-  const { messages, isLoading: chatLoading, sendMessage, clearMessages } = useClaude({
+  const { messages, isLoading: chatLoading, sendMessage, clearMessages, loadMessages } = useClaude({
     bookTitle: book.title,
     bookAuthor: book.author,
     chapterTitle,
@@ -450,6 +522,53 @@ export default function App() {
     onUsage: deductUsage,
     chatMemory: getChapterChatSummary(currentChapter) || undefined,
   })
+
+  // Load chat history on mount — get recent messages across all chapters
+  const chatLoadedRef = useRef(false)
+  useEffect(() => {
+    if (chatLoadedRef.current) return
+    if (chatConversations.length === 0) return // wait for storage to load
+    chatLoadedRef.current = true
+    // Load the last few conversations (across chapters) as initial chat history
+    const allConvs = chatConversations.slice(-5) // last 5 conversations
+    if (allConvs.length > 0) {
+      const allMsgs: ChatMessage[] = []
+      let lastChapter = -1
+      for (const conv of allConvs) {
+        if (conv.chapterNumber !== lastChapter && lastChapter !== -1) {
+          // Insert chapter divider
+          allMsgs.push({
+            id: `divider-${conv.chapterNumber}`,
+            role: 'assistant' as const,
+            content: '',
+            timestamp: conv.startTimestamp - 1,
+            chapterDivider: conv.chapterNumber,
+          })
+        }
+        lastChapter = conv.chapterNumber
+        allMsgs.push(...conv.messages)
+      }
+      loadMessages(allMsgs)
+    }
+  }, [chatConversations, loadMessages])
+
+  // Insert chapter divider when chapter changes (after initial load)
+  const prevChapterForChat = useRef(currentChapter)
+  useEffect(() => {
+    if (prevChapterForChat.current !== currentChapter && chatLoadedRef.current) {
+      prevChapterForChat.current = currentChapter
+      // Don't clear — just add a divider if there are existing messages
+      if (messages.length > 0) {
+        loadMessages([...messages, {
+          id: `divider-${currentChapter}-${Date.now()}`,
+          role: 'assistant' as const,
+          content: '',
+          timestamp: Date.now(),
+          chapterDivider: currentChapter,
+        }])
+      }
+    }
+  }, [currentChapter, messages, loadMessages])
 
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
@@ -464,7 +583,7 @@ export default function App() {
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages])
 
-  const { highlights, addHighlight, removeHighlight, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
+  const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
   const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter)
 
   // Effective paragraph: audio position takes priority over reading position
@@ -487,6 +606,7 @@ export default function App() {
     percentComplete: readingPercent,
     timeRemainingLabel,
     isLearned: isSpeedLearned,
+    wordsPerMinute,
     trackPageView,
   } = useReadingSpeed(book.id, currentChapter, currentPage, totalPages, totalChapters, allParagraphs)
 
@@ -523,10 +643,17 @@ export default function App() {
 
     targetParagraphRef.current = paragraphIndex
     if (chapter !== currentChapter) {
+      savedPos.current = {
+        bookId: book.id,
+        chapterNumber: chapter,
+        currentPage: 0,
+        totalPages: 1,
+        scrollFraction: paragraphIndex !== undefined ? -1 : 0,
+      }
       setCurrentChapter(chapter)
     }
     setReaderKey(k => k + 1)
-  }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage])
+  }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, book.id])
 
   // Go back to saved position (restores edition + chapter + page)
   const handleBackToPosition = useCallback(() => {
@@ -618,6 +745,14 @@ export default function App() {
     loadEdition(book.id, primaryEditionKey).then(data => {
       setPrimaryData(data)
       setIsLoading(false)
+      // Safety: if the saved chapter doesn't exist or has no content, reset to chapter 1
+      if (data) {
+        const ch = data.chapters.find(c => c.number === currentChapter)
+        if (!ch || ch.paragraphs.length === 0) {
+          setCurrentChapter(1)
+          setCurrentPage(0)
+        }
+      }
     })
   }, [book.id, primaryEditionKey])
 
@@ -750,7 +885,7 @@ export default function App() {
         headers['Authorization'] = `Bearer ${session.access_token}`
       }
 
-      const response = await fetch('/api/chat', {
+      const response = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -824,7 +959,7 @@ export default function App() {
         headers['Authorization'] = `Bearer ${session.access_token}`
       }
 
-      const response = await fetch('/api/chat', {
+      const response = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -884,11 +1019,12 @@ export default function App() {
 
   // Detect if audio is available for current edition — check on edition/chapter change
   useEffect(() => {
+    if (audioEditionKey === 'none') { setHasAudio(false); return }
     const url = `${AUDIO_BASE_URL}/${book.id}/${primaryEditionKey}/ch${currentChapter}/manifest.json`
     fetch(url, { method: 'HEAD' })
       .then(res => setHasAudio(res.ok))
       .catch(() => setHasAudio(false))
-  }, [book.id, primaryEditionKey, currentChapter])
+  }, [book.id, primaryEditionKey, currentChapter, audioEditionKey])
 
   // Chapter navigation from page arrows or audio chapter-end
   // When advancing forward, mark the current chapter as completed in progress
@@ -906,6 +1042,13 @@ export default function App() {
         })
       }
       targetParagraphRef.current = undefined
+      savedPos.current = {
+        bookId: book.id,
+        chapterNumber: currentChapter + 1,
+        currentPage: 0,
+        totalPages: 1,
+        scrollFraction: 0,
+      }
       setCurrentChapter(currentChapter + 1)
     }
   }, [currentChapter, totalChapters, book.id])
@@ -926,8 +1069,25 @@ export default function App() {
 
   // Wrap split view toggle to preserve position
   const handleToggleSplitView = useCallback(() => {
+    // Compute first visible paragraph directly from the DOM to avoid stale state
+    let visiblePara = firstVisibleParagraph
+    const content = readerRef.current?.querySelector('.reader-columns') as HTMLElement | null
+    if (content) {
+      const colWidth = content.offsetWidth
+      const gap = parseInt(getComputedStyle(content).columnGap || '0', 10)
+      const pageLeft = currentPage * (colWidth + gap)
+      const pageRight = pageLeft + colWidth
+      const paraEls = content.querySelectorAll('[data-paragraph-index]')
+      for (const el of paraEls) {
+        const htmlEl = el as HTMLElement
+        if (htmlEl.offsetLeft < pageRight && htmlEl.offsetLeft + htmlEl.offsetWidth > pageLeft) {
+          visiblePara = parseInt(htmlEl.getAttribute('data-paragraph-index') || '0', 10)
+          break
+        }
+      }
+    }
     // Anchor restore by paragraph index — page counts differ between single and split
-    targetParagraphRef.current = firstVisibleParagraph
+    targetParagraphRef.current = visiblePara
     const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
     savedPos.current = {
       bookId: book.id,
@@ -935,7 +1095,7 @@ export default function App() {
       currentPage,
       totalPages,
       scrollFraction: frac,
-      lastParagraphIndex: firstVisibleParagraph,
+      lastParagraphIndex: visiblePara,
     }
     toggleSplitView()
     setReaderKey(k => k + 1)
@@ -974,6 +1134,15 @@ export default function App() {
         <div className="loading-shell">
           <div className="loading-spinner" />
         </div>
+      </div>
+    )
+  }
+
+  // Wait for cloud storage to load before rendering (prevents flash of ch1 on fresh installs)
+  if (user && !storageReady) {
+    return (
+      <div className="app" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', fontFamily: 'var(--font-serif)', color: 'var(--text-secondary)' }}>
+        <p>Loading your library...</p>
       </div>
     )
   }
@@ -1039,6 +1208,7 @@ export default function App() {
           onAudioEditionChange={() => {/* TODO: wire audio edition preference */}}
           progressDisplay={preferences.progressDisplay}
           onProgressDisplayChange={setProgressDisplay}
+          hasSections={!!(primaryData?.sections?.length)}
         />
       )}
 
@@ -1147,6 +1317,7 @@ export default function App() {
           monthlyRemaining={monthlyRemaining}
           messageBalance={messageBalance}
           session={session}
+          fixesCount={fixesCount}
         />
       )}
 
@@ -1157,7 +1328,7 @@ export default function App() {
           downloadState={downloadState}
           storageMB={storageMB}
           isOnline={isOnline}
-          onDownloadBook={downloadBook}
+          onDownloadBook={(b) => downloadBook(b, effectiveAudioEditionKey)}
           onDownloadChapter={(book, ch) => downloadChapter(book, ch)}
           onRemove={removeDownload}
           onCancel={cancelDownload}
@@ -1224,6 +1395,9 @@ export default function App() {
         onOpenStore={() => setShowStore(true)}
         onOpenDownloads={() => setShowDownloadManager(true)}
         isBookDownloaded={isBookDownloaded(book.id)}
+        hasAudio={hasAudio}
+        isAudioPlaying={audioIsPlaying}
+        onToggleAudio={() => bottomBarRef.current?.togglePlay()}
         onOpenSearch={() => setShowSearch(true)}
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
@@ -1268,6 +1442,7 @@ export default function App() {
         audioEditions={book.editions.filter(ed => ed.hasAudio).map(ed => ({ key: ed.key, label: ed.label }))}
         audioEditionKey={effectiveAudioEditionKey}
         onAudioEditionChange={setAudioEditionKey}
+        hasSections={!!(primaryData?.sections?.length)}
       />
 
       <TrialBanner onSubscribe={() => handleCheckout('subscription')} />
@@ -1310,7 +1485,6 @@ export default function App() {
                 panelOpen={preferences.panelOpen}
                 onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
                 onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
-                disableHighlight
               />
             </div>
             {/* View 1: Compare — shows secondary edition full-width on mobile */}
@@ -1340,7 +1514,6 @@ export default function App() {
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                   onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
                   onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
-                  disableHighlight
                 />
               ) : (
                 <div className="mobile-view-placeholder">
@@ -1354,6 +1527,7 @@ export default function App() {
             {([2, 3, 4] as const).map(viewIndex => (
               <div key={viewIndex} className={`mobile-view ${activeView === viewIndex ? 'mobile-view-active' : ''}`}>
                 <SidePanel
+                  isMobile={true}
                   isOpen={true}
                   activeTab={viewIndex === 2 ? 'chat' : viewIndex === 3 ? 'notes' : 'threads'}
                   onTabChange={(tab) => {
@@ -1431,9 +1605,18 @@ export default function App() {
                 playingParagraphIndex={audioPlayingParagraph}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
+                isAudioPlaying={audioIsPlaying}
                 panelOpen={preferences.panelOpen}
                 onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
                 onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                onDeleteHighlight={removeHighlight}
+                onUpdateHighlightNote={updateHighlightNote}
+                onUpdateHighlightColor={updateHighlightColor}
+                onShare={setShareText}
+                bookId={book.id}
+                primaryEditionKey={primaryEditionKey}
+                currentChapter={currentChapter}
+                authToken={session?.access_token}
               />
             ) : (
               <Reader
@@ -1458,18 +1641,27 @@ export default function App() {
                 playingParagraphIndex={audioPlayingParagraph}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
+                isAudioPlaying={audioIsPlaying}
                 panelOpen={preferences.panelOpen}
                 onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
                 onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                onDeleteHighlight={removeHighlight}
+                onUpdateHighlightNote={updateHighlightNote}
+                onUpdateHighlightColor={updateHighlightColor}
+                onShare={setShareText}
+                bookId={book.id}
+                editionKey={primaryEditionKey}
+                currentChapter={currentChapter}
+                authToken={session?.access_token}
               />
             )}
-
-            <PanelToggleTab isOpen={preferences.panelOpen} onClick={togglePanel} />
 
             <SidePanel
               isOpen={preferences.panelOpen}
               activeTab={preferences.panelTab}
               onTabChange={setPanelTab}
+              onOpenPanel={() => { if (!preferences.panelOpen) togglePanel() }}
+              onClosePanel={() => { if (preferences.panelOpen) togglePanel() }}
               messages={messages}
               isChatLoading={chatLoading}
               onSendMessage={handleSendMessage}
@@ -1572,26 +1764,45 @@ export default function App() {
         totalPages={totalPages}
         absoluteCurrentPage={absolutePage.current}
         absoluteTotalPages={absolutePage.total}
+        bookCurrentPage={bookAbsolutePage.current}
+        bookTotalPages={bookAbsolutePage.total}
         chapterPercentComplete={totalPages > 1 ? Math.round(((currentPage + 1) / totalPages) * 100) : 100}
         chapterTimeLabel={(() => {
           if (totalPages <= 1) return 'Done'
-          const pagesLeft = totalPages - currentPage - 1
-          const minsLeft = Math.ceil(pagesLeft * 0.5)
+          const chapterWords = primaryChapter?.paragraphs.reduce((s, p) => s + p.split(/\s+/).length, 0) || 0
+          const wordsLeft = Math.ceil(chapterWords * (totalPages - currentPage - 1) / totalPages)
+          const minsLeft = wordsPerMinute > 0 ? Math.ceil(wordsLeft / wordsPerMinute) : Math.ceil((totalPages - currentPage - 1) * 0.5)
           return minsLeft < 1 ? '<1min left' : `${minsLeft}min left`
         })()}
         locationCurrent={primaryData ? primaryData.chapters.slice(0, currentChapter - 1).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0) : 0}
         locationTotal={primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0}
+        locationCurrentChapter={firstVisibleParagraph}
+        locationTotalChapter={primaryChapter?.paragraphs.length}
         progressDisplay={preferences.progressDisplay}
         bookId={book.id}
         editionKey={effectiveAudioEditionKey}
         chapterNumber={currentChapter}
         onParagraphChange={handleAudioParagraphChange}
+        onPlayStateChange={setAudioIsPlaying}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         firstVisibleParagraph={firstVisibleParagraph}
         compact={isMobile}
         onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
         onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
         initialAudioParagraph={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.lastParagraphIndex : undefined}
+        chapterTicks={(() => {
+          if (!primaryData || primaryData.chapters.length <= 1) return undefined
+          const total = primaryData.chapters.reduce((s, c) => s + c.paragraphs.length, 0)
+          if (total === 0) return undefined
+          const ticks: number[] = []
+          let accum = 0
+          for (let i = 0; i < primaryData.chapters.length - 1; i++) {
+            accum += primaryData.chapters[i].paragraphs.length
+            ticks.push(accum / total)
+          }
+          return ticks
+        })()}
+        currentChapterIndex={currentChapter}
       />
 
       {insight && (
@@ -1603,6 +1814,36 @@ export default function App() {
       )}
 
     </div>
+
+      {/* Share modal */}
+      {shareText && (
+        <ShareModal
+          text={shareText}
+          author={book.author}
+          bookTitle={book.title}
+          theme={preferences.theme === 'dark' ? 'dark' : 'light'}
+          onClose={() => setShareText(null)}
+        />
+      )}
+
+      {/* Toast notification */}
+      {toastMessage && (
+        <div className="tinct-toast" onClick={() => setToastMessage(null)}>
+          {toastMessage}
+        </div>
+      )}
+
+      {showFixModal && (
+        <div className="fix-modal-overlay" onClick={() => setShowFixModal(false)}>
+          <div className="fix-modal" onClick={e => e.stopPropagation()}>
+            <div className="fix-modal-icon">&#10003;</div>
+            <h3>Issue fixed</h3>
+            <p>Thank you — the fix you pointed out has been deployed. The text has been updated. For every 5 approved fixes, you earn a free month of Premium.</p>
+            <button className="fix-modal-btn" onClick={() => setShowFixModal(false)}>OK</button>
+          </div>
+        </div>
+      )}
+
     </TierProvider>
   )
 }

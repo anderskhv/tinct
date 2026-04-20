@@ -36,6 +36,10 @@ interface HeaderProps {
   onOpenStore: () => void
   onOpenDownloads?: () => void
   isBookDownloaded?: boolean
+  // E-ink audio
+  hasAudio?: boolean
+  isAudioPlaying?: boolean
+  onToggleAudio?: () => void
   onOpenSearch?: () => void
   onOpenNotes?: () => void
   onOpenCast?: () => void
@@ -69,6 +73,8 @@ interface HeaderProps {
   audioEditions?: { key: string; label: string; hasAudio?: boolean }[]
   audioEditionKey?: string
   onAudioEditionChange?: (key: string) => void
+  // Whether this book has sections (hides 'of section' scope option if false)
+  hasSections?: boolean
 }
 
 type MenuOpen = null | 'format' | 'account'
@@ -124,6 +130,9 @@ export function Header({
   onOpenStore,
   onOpenDownloads,
   isBookDownloaded,
+  hasAudio,
+  isAudioPlaying,
+  onToggleAudio,
   onOpenSearch,
   onOpenNotes,
   onOpenCast,
@@ -148,6 +157,7 @@ export function Header({
   audioEditions,
   audioEditionKey,
   onAudioEditionChange,
+  hasSections,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSections, setMobileSections] = useState<{ format: boolean; reading: boolean; account: boolean }>({ format: true, reading: false, account: false })
@@ -191,6 +201,15 @@ export function Header({
         </div>
 
         <div className="header-right">
+          {hasAudio && onToggleAudio && (
+            <button
+              className={`icon-button header-audio-btn ${isAudioPlaying ? 'header-audio-playing' : ''}`}
+              onClick={onToggleAudio}
+              aria-label={isAudioPlaying ? 'Pause audiobook' : 'Play audiobook'}
+            >
+              {isAudioPlaying ? <span className="icon-pause-sm" /> : <span className="icon-play-sm" />}
+            </button>
+          )}
           {onOpenSearch && (
             <button
               className="icon-button"
@@ -247,7 +266,7 @@ export function Header({
 
               {mobileSections.format && (
                 <>
-                  <div className="mobile-menu-item">
+                  <div className="mobile-menu-item theme-toggle-section">
                     <label className="mobile-menu-label">Theme</label>
                     <div className="mobile-menu-row">
                       <button
@@ -346,6 +365,7 @@ export function Header({
                         value={audioEditionKey || currentEditionKey}
                         onChange={e => onAudioEditionChange?.(e.target.value)}
                       >
+                        <option value="none">No audiobook</option>
                         {audioEditions.map(ed => (
                           <option key={ed.key} value={ed.key}>{ed.label}</option>
                         ))}
@@ -391,7 +411,7 @@ export function Header({
                           style={{ flex: 1 }}
                         >
                           <option value="book">of book</option>
-                          <option value="section">of section</option>
+                          {hasSections && <option value="section">of section</option>}
                           <option value="chapter">of chapter</option>
                         </select>
                       </div>
@@ -490,6 +510,20 @@ export function Header({
           </svg>
         </button>
 
+        {hasAudio && onToggleAudio && (
+          <button
+            className={`menu-icon-btn ${isAudioPlaying ? 'menu-icon-active' : ''}`}
+            onClick={onToggleAudio}
+            title={isAudioPlaying ? 'Pause audiobook' : 'Listen'}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+              <rect x="3" y="14" width="4" height="6" />
+              <rect x="17" y="14" width="4" height="6" />
+            </svg>
+          </button>
+        )}
+
         <span className="menu-divider" />
 
         {/* Text buttons — order: Library, Format, Settings */}
@@ -504,7 +538,7 @@ export function Header({
           </button>
           {menuOpen === 'format' && (
             <div className="menu-dropdown">
-              <div className="menu-dropdown-section">
+              <div className="menu-dropdown-section theme-toggle-section">
                 <span className="menu-dropdown-label">Theme</span>
                 <div className="menu-dropdown-row">
                   <button
