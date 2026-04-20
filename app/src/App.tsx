@@ -18,7 +18,7 @@ import { TocOverlay } from './components/TocOverlay'
 import { ShareModal } from './components/ShareModal'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
-import { loadEdition } from './data/editionLoader'
+import { loadEdition, reloadEdition } from './data/editionLoader'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
@@ -179,6 +179,7 @@ export default function App() {
     return ch >= 1 ? ch : 1
   })
   const [primaryData, setPrimaryData] = useState<EditionData | null>(null)
+  const [primaryLoadError, setPrimaryLoadError] = useState<string | null>(null)
   const [splitData, setSplitData] = useState<EditionData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
@@ -308,7 +309,13 @@ export default function App() {
 
   // Hoisted derivations needed by the visibility effect below.
   // Defined here (not lower down) to avoid TDZ in dep arrays.
-  const totalChapters = primaryData?.chapters.length || book.editions.length
+  //
+  // IMPORTANT: do NOT fall back to book.editions.length when chapters
+  // is empty. Editions and chapters are unrelated — falling back would
+  // make Feed render N "chapters" that don't exist and TOC look broken.
+  // 0 here is a load-in-progress / load-failed signal that downstream
+  // components handle (Feed renders empty, TOC is gated behind primaryData).
+  const totalChapters = primaryData?.chapters.length ?? 0
 
   // Re-sync from Supabase when tab regains focus (cross-device sync)
   const lastSyncRef = useRef(0)
@@ -746,23 +753,33 @@ export default function App() {
   // Load primary edition
   useEffect(() => {
     setIsLoading(true)
-    loadEdition(book.id, primaryEditionKey).then(data => {
-      setPrimaryData(data)
-      setIsLoading(false)
-      // Safety: if the saved chapter doesn't exist or has no content, reset to chapter 1
-      if (data) {
+    setPrimaryLoadError(null)
+    loadEdition(book.id, primaryEditionKey)
+      .then(data => {
+        setPrimaryData(data)
+        setIsLoading(false)
+        // Safety: if the saved chapter doesn't exist or has no content, reset to chapter 1
         const ch = data.chapters.find(c => c.number === currentChapter)
         if (!ch || ch.paragraphs.length === 0) {
           setCurrentChapter(1)
           setCurrentPage(0)
         }
-      }
-    })
+      })
+      .catch(err => {
+        console.error(`[App] Failed to load primary edition ${book.id}/${primaryEditionKey}:`, err)
+        setPrimaryData(null)
+        setPrimaryLoadError(err?.message || 'Could not load this edition.')
+        setIsLoading(false)
+      })
   }, [book.id, primaryEditionKey])
 
-  // Preload split edition so it's ready when toggle happens
+  // Preload split edition so it's ready when toggle happens.
+  // Failures here are non-fatal — Compare just won't render — so we
+  // swallow the rejection rather than surfacing it.
   useEffect(() => {
-    loadEdition(book.id, splitEditionKey).then(setSplitData)
+    loadEdition(book.id, splitEditionKey)
+      .then(setSplitData)
+      .catch(() => setSplitData(null))
   }, [splitEditionKey, book.id])
 
   const splitChapter = splitData?.chapters.find(c => c.number === currentChapter)
@@ -1492,6 +1509,29 @@ export default function App() {
       {!isOnline && (
         <div className="offline-banner">
           You're offline — reading and audio work for downloaded books. Chat is unavailable.
+        </div>
+      )}
+
+      {primaryLoadError && (
+        <div className="edition-error-banner">
+          <span>This book didn&rsquo;t load correctly: {primaryLoadError}</span>
+          <button
+            className="edition-error-retry"
+            onClick={async () => {
+              setPrimaryLoadError(null)
+              setIsLoading(true)
+              try {
+                const fresh = await reloadEdition(book.id, primaryEditionKey)
+                setPrimaryData(fresh)
+              } catch (err) {
+                setPrimaryLoadError((err as Error).message || 'Could not load this edition.')
+              } finally {
+                setIsLoading(false)
+              }
+            }}
+          >
+            Retry
+          </button>
         </div>
       )}
 

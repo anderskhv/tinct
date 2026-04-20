@@ -6596,6 +6596,38 @@ body {
   text-align: center;
 }
 
+/* ===== Edition Load Error Banner ===== */
+.edition-error-banner {
+  padding: 8px 18px;
+  background: #5c1f1f;
+  color: #f5d0d0;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.edition-error-retry {
+  background: transparent;
+  color: #f5d0d0;
+  border: 1px solid #f5d0d0;
+  padding: 3px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.edition-error-retry:hover {
+  background: #f5d0d0;
+  color: #5c1f1f;
+}
+
 /* ===== Download Manager ===== */
 .download-card {
   background: var(--bg-primary);
