@@ -105,6 +105,7 @@ Translate original → modern-en via CLI conversation. ZERO API spend.
 - **Quote style: curly `"..."`** matches the original Gutenberg typography across the existing 22 books — keep using curly.
 - **Translate the COMPLETE content of every paragraph.** If a paragraph below 75% of the source word count, you have dropped content — re-translate. Paragraph-level summarization is the single biggest failure mode.
 - **Do NOT soften, edit out, or flag period-appropriate content based on modern ethics.** 19th-century racial language, religious language, gendered language, and other historical content stays as-is in translation. Tinct's editorial stance is faithful preservation of the historical text. Don't add editorial notes suggesting softening. Don't replace charged terms with neutral ones. Translate what's there.
+- **Shakespeare and other play texts: keep the ALL-CAPS speaker tag + period convention** (`MACBETH.`, `LADY MACBETH.`, `FIRST WITCH.`). Stage directions in brackets with character names also in ALL CAPS: `[Enter MACBETH]`. The Kokoro audio pipeline handles this transparently in `clean_text()` — Roman numerals in titles and ALL-CAPS words are converted for TTS. Don't use Title Case or prose-dialogue format for plays.
 
 **Modern English QA (automated, mandatory — this edition is the foundation for everything else):**
 
