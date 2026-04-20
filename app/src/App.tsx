@@ -200,6 +200,10 @@ export default function App() {
   const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
   const [audioIsPlaying, setAudioIsPlaying] = useState(false)
   const [audioStripOpen, setAudioStripOpen] = useState(false)
+  // Fraction (0-1) through the paragraph currently being narrated. Bubbled
+  // from BottomBar at ~3 Hz so the Reader can keep the visible page in sync
+  // even when a single paragraph spans a page break.
+  const [audioProgress, setAudioProgress] = useState(0)
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
@@ -1578,6 +1582,7 @@ export default function App() {
                 isVerse={primaryIsVerse}
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
+                playingParagraphProgress={audioProgress}
                 isAudioPlaying={audioIsPlaying}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
@@ -1608,6 +1613,7 @@ export default function App() {
                   targetParagraphIndex={compareSyncSignal?.paragraph}
                   targetParagraphNonce={compareSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
+                  playingParagraphProgress={audioProgress}
                   isAudioPlaying={audioIsPlaying}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
@@ -1703,6 +1709,7 @@ export default function App() {
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
+                playingParagraphProgress={audioProgress}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
@@ -1739,6 +1746,7 @@ export default function App() {
                 isVerse={primaryIsVerse}
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
+                playingParagraphProgress={audioProgress}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
@@ -1884,6 +1892,7 @@ export default function App() {
         chapterNumber={currentChapter}
         onParagraphChange={handleAudioParagraphChange}
         onPlayStateChange={setAudioIsPlaying}
+        onProgressChange={setAudioProgress}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         firstVisibleParagraph={firstVisibleParagraph}
         compact={isMobile}

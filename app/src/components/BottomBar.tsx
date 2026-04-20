@@ -71,6 +71,13 @@ interface BottomBarProps {
   initialAudioParagraph?: number
   /** Called whenever play/pause state changes */
   onPlayStateChange?: (isPlaying: boolean) => void
+  /**
+   * Fires as the audio progresses through the current paragraph's MP3
+   * (fraction 0-1). Throttled at ~3 Hz so it's safe to wire into React
+   * state. Used by the Reader to auto-flip the page mid-paragraph on
+   * paragraphs that span a page break.
+   */
+  onProgressChange?: (progress: number) => void
   /** Chapter start positions as fractions (0-1) across the book — rendered as ticks */
   chapterTicks?: number[]
   /** Current chapter index (1-based) — used to highlight the current tick */
@@ -87,7 +94,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     locationCurrent, locationTotal, progressDisplay,
     bookCurrentPage, bookTotalPages, locationCurrentChapter, locationTotalChapter,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
-    onNextChapter, onPrevChapter, initialAudioParagraph, onPlayStateChange,
+    onNextChapter, onPrevChapter, initialAudioParagraph, onPlayStateChange, onProgressChange,
     chapterTicks, currentChapterIndex,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
@@ -103,6 +110,12 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       setIsPlayingRaw(playing)
       onPlayStateChangeRef.current?.(playing)
     }, [])
+
+    // Throttled progress callback — `timeupdate` fires 2-4 Hz natively but
+    // we re-sample to ~3 Hz to keep the consumer's React state quiet.
+    const onProgressChangeRef = useRef(onProgressChange)
+    onProgressChangeRef.current = onProgressChange
+    const lastProgressFireRef = useRef(0)
 
     // Single reusable Audio element — avoids listener accumulation and stale closures
     const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -129,7 +142,16 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       audioRef.current = audio
 
       const handleTimeUpdate = () => {
-        if (audio.duration > 0) setProgress(audio.currentTime / audio.duration)
+        if (audio.duration <= 0) return
+        const frac = audio.currentTime / audio.duration
+        setProgress(frac)
+        // Throttle bubble-up to ~3 Hz — plenty for page-flip sync,
+        // avoids hammering the consumer's render cycle.
+        const now = performance.now()
+        if (now - lastProgressFireRef.current > 300) {
+          lastProgressFireRef.current = now
+          onProgressChangeRef.current?.(frac)
+        }
       }
 
       const handleEnded = () => {
@@ -142,6 +164,10 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           setCurrentParagraph(nextIndex)
           currentParagraphRef.current = nextIndex
           onParagraphChangeRef.current?.(nextPara.paragraph)
+          // Reset progress so the Reader doesn't briefly reuse the previous
+          // paragraph's fraction before the new audio starts reporting.
+          lastProgressFireRef.current = 0
+          onProgressChangeRef.current?.(0)
           const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
           audio.src = url
           audio.playbackRate = speedRef.current

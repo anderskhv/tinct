@@ -58,6 +58,8 @@ interface SplitReaderProps {
   onFirstVisibleParagraph?: (index: number) => void
   /** Index of the paragraph currently being played by audio */
   playingParagraphIndex?: number
+  /** Fraction (0-1) through the currently-playing paragraph's audio. */
+  playingParagraphProgress?: number
   /** Called when a paragraph is clicked (tap-to-play) */
   onParagraphClick?: (index: number) => void
   /** Whether audio is available for the current edition */
@@ -105,6 +107,7 @@ export function SplitReader({
   targetParagraphIndex,
   onFirstVisibleParagraph,
   playingParagraphIndex,
+  playingParagraphProgress,
   onParagraphClick,
   hasAudio,
   panelOpen,
@@ -254,8 +257,10 @@ export function SplitReader({
     }
   }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
 
-  // Auto-advance page when audio plays a paragraph not visible on current page
-  // Only auto-advance if the user hasn't manually navigated away
+  // Auto-advance page when audio plays a paragraph not visible on current
+  // page. Interpolates across the paragraph's visual width so the page
+  // also flips mid-paragraph when a long paragraph spans two pages.
+  // Only auto-advance if the user hasn't manually navigated away.
   useEffect(() => {
     if (playingParagraphIndex === undefined || totalPages <= 1) return
     if (userNavigatedRef.current) return // user browsed away — don't snap back
@@ -267,12 +272,14 @@ export function SplitReader({
     const colWidth = getColWidth()
     const gap = getGap()
     if (colWidth <= 0) return
-    const page = Math.floor(el.offsetLeft / (colWidth + gap))
+    const progress = Math.max(0, Math.min(1, playingParagraphProgress ?? 0))
+    const currentX = el.offsetLeft + progress * el.offsetWidth
+    const page = Math.floor(currentX / (colWidth + gap))
     const clamped = Math.min(page, totalPages - 1)
     if (clamped !== currentPage) {
       setCurrentPage(clamped)
     }
-  }, [playingParagraphIndex, totalPages, getGap, currentPage, readerRef])
+  }, [playingParagraphIndex, playingParagraphProgress, totalPages, getGap, currentPage, readerRef])
 
   // Reset userNavigated flag when audio stops or catches up to user's page
   useEffect(() => {

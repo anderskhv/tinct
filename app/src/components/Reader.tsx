@@ -49,6 +49,13 @@ interface ReaderProps {
   targetParagraphNonce?: number
   /** Index of the paragraph currently being played by AudioPlayer */
   playingParagraphIndex?: number
+  /**
+   * Fraction (0-1) through the currently-playing paragraph's audio.
+   * Used to keep the visible page in sync when a single paragraph
+   * wraps across a page break — interpolates linearly across the
+   * paragraph's visual width.
+   */
+  playingParagraphProgress?: number
   /** Called when user clicks a paragraph to start audio from there */
   onParagraphClick?: (paragraphIndex: number) => void
   /** Whether audio is currently available/active */
@@ -93,6 +100,7 @@ export function Reader({
   targetParagraphIndex,
   targetParagraphNonce,
   playingParagraphIndex,
+  playingParagraphProgress,
   onParagraphClick,
   hasAudio,
   onNextChapter,
@@ -266,8 +274,11 @@ export function Reader({
     }
   }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
 
-  // Auto-scroll to playing paragraph when audio advances
-  // Skip if user manually navigated away — don't snap back
+  // Auto-scroll to keep the playing paragraph visible as the audio
+  // progresses. Interpolates across the paragraph's visual width so the
+  // page also flips mid-paragraph when a long paragraph spans two pages
+  // (otherwise the reader visibly stalls while the audio keeps reading).
+  // Skip if user manually navigated away — don't snap back.
   useEffect(() => {
     if (playingParagraphIndex === undefined || totalPagesRef.current <= 1) return
     if (userNavigatedRef.current) return
@@ -278,12 +289,16 @@ export function Reader({
     const colWidth = getColWidth()
     const gap = getGap()
     if (colWidth <= 0) return
-    const page = Math.floor(el.offsetLeft / (colWidth + gap))
+
+    // Where within the paragraph is the audio right now?
+    const progress = Math.max(0, Math.min(1, playingParagraphProgress ?? 0))
+    const currentX = el.offsetLeft + progress * el.offsetWidth
+    const page = Math.floor(currentX / (colWidth + gap))
     const clamped = Math.min(page, totalPagesRef.current - 1)
     if (clamped !== currentPageRef.current) {
       setCurrentPage(clamped)
     }
-  }, [playingParagraphIndex, getColWidth, getGap])
+  }, [playingParagraphIndex, playingParagraphProgress, getColWidth, getGap])
 
   // Reset userNavigated flag when audio stops
   useEffect(() => {
