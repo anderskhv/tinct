@@ -420,6 +420,20 @@ export function Reader({
 
     if ((e.target as HTMLElement).closest('button, .selection-popup')) return
 
+    // Audio is playing: a click on the reader should play the clicked
+    // paragraph, never turn the page. Page navigation in this state has to
+    // go through the explicit arrows (or keyboard ← / →). Matches the
+    // mobile touchend behavior so the two platforms feel the same.
+    if (isAudioPlaying && playingParagraphIndex !== undefined && onParagraphClick) {
+      const target = e.target as HTMLElement
+      const paraEl = target.closest?.('[data-paragraph-index]')
+      if (paraEl) {
+        const idx = parseInt(paraEl.getAttribute('data-paragraph-index') || '0', 10)
+        onParagraphClick(idx)
+      }
+      return
+    }
+
     const container = readerRef.current
     if (!container) return
 
@@ -440,7 +454,8 @@ export function Reader({
         goToPage(currentPage + 1)
       }
     } else if (hasAudio && onParagraphClick) {
-      // Middle zone: check if click is on a paragraph for audio playback
+      // Middle zone when audio isn't playing: clicking a paragraph starts
+      // playback from there.
       const target = e.target as HTMLElement
       const paraEl = target.closest?.('[data-paragraph-index]')
       if (paraEl) {
@@ -448,7 +463,7 @@ export function Reader({
         onParagraphClick(idx)
       }
     }
-  }, [currentPage, goToPage, readerRef, hasAudio, onParagraphClick])
+  }, [currentPage, goToPage, readerRef, hasAudio, onParagraphClick, isAudioPlaying, playingParagraphIndex, onNextChapter, onPrevChapter, totalPages])
 
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()

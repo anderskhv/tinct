@@ -63,6 +63,12 @@ export interface Book {
   coverColor?: string
   /** CSS cover: accent/text color */
   coverAccent?: string
+  /**
+   * Local-only books are never committed to git, never deployed, never uploaded to R2.
+   * They exist only on the local dev machine for personal reading.
+   * Edition files for local-only books are listed in .gitignore.
+   */
+  localOnly?: boolean
 }
 
 // === Chat ===
@@ -81,6 +87,10 @@ export interface ChatMessage {
   chapterNumber?: number
   /** First visible paragraph index when message was sent */
   paragraphIndex?: number
+  /** Show a "Refresh page" action button on this message */
+  refreshAction?: boolean
+  /** Chapter divider marker — if set, this message renders as a divider, not a chat bubble */
+  chapterDivider?: number
 }
 
 /** A group of chat messages from a single session/chapter */
@@ -138,7 +148,7 @@ export interface Note {
 
 // === Panel Tabs ===
 
-export type PanelTab = 'chat' | 'notes' | 'threads'
+export type PanelTab = 'chat' | 'notes' | 'threads' | 'compare'
 
 // === Threads (Character Tracker) ===
 
@@ -285,8 +295,10 @@ export interface ReadingProgress {
   highestCompletedChapter: number
   /** Total chapters in book */
   totalChapters: number
-  /** Percentage 0-100 */
+  /** Percentage 0-100 (based on completed chapters) */
   percent: number
+  /** Current position percentage 0-100 (based on chapter + page) */
+  positionPercent?: number
 }
 
 /** How an edition was consumed */

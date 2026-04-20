@@ -1807,6 +1807,9 @@ export default function App() {
               onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
               onShowPricing={() => setShowPricingModal(true)}
               chatConversations={chatConversations}
+              compareParagraphs={splitChapter?.paragraphs}
+              compareLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label}
+              compareIsVerse={splitIsVerse}
             />
           </>
         )}

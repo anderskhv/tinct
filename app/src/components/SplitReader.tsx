@@ -388,6 +388,19 @@ export function SplitReader({
     }
 
     if ((e.target as HTMLElement).closest('button, select, .selection-popup')) return
+
+    // Audio is playing: clicks play the paragraph, not turn the page.
+    // Page navigation in this state goes through the explicit arrows.
+    if (isAudioPlaying && playingParagraphIndex !== undefined && onParagraphClick) {
+      const target = e.target as HTMLElement
+      const paraEl = target.closest?.('[data-paragraph-index]')
+      if (paraEl) {
+        const idx = parseInt(paraEl.getAttribute('data-paragraph-index') || '0', 10)
+        onParagraphClick(idx)
+      }
+      return
+    }
+
     const container = readerRef.current
     if (!container) return
     const rect = container.getBoundingClientRect()
@@ -406,7 +419,7 @@ export function SplitReader({
         goToPage(currentPage + 1)
       }
     }
-  }, [currentPage, totalPages, goToPage, readerRef, leftHighlights, onNextChapter, onPrevChapter])
+  }, [currentPage, totalPages, goToPage, readerRef, leftHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
 
   const getTranslateX = () => {
     const colWidth = getColWidth()

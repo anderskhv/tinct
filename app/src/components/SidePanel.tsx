@@ -62,20 +62,28 @@ interface SidePanelProps {
   chatConversations?: ChatConversation[]
   onSummarizeChat?: (convId: string) => void
   summarizingId?: string | null
+  // Compare rail — the compare edition's chapter text rendered alongside
+  // the reader. Only rendered when both compareParagraphs and compareLabel
+  // are provided (the book has aligned editions and the user picked one).
+  compareParagraphs?: string[]
+  compareLabel?: string
+  compareIsVerse?: boolean
 }
 
-type RailKey = 'chat' | 'feed' | 'cast'
+type RailKey = 'chat' | 'feed' | 'cast' | 'compare'
 
 const TAB_TO_RAIL: Record<PanelTab, RailKey> = {
   chat: 'chat',
   notes: 'feed',
   threads: 'cast',
+  compare: 'compare',
 }
 
 const RAIL_TO_TAB: Record<RailKey, PanelTab> = {
   chat: 'chat',
   feed: 'notes',
   cast: 'threads',
+  compare: 'compare',
 }
 
 export function SidePanel(props: SidePanelProps) {
@@ -125,6 +133,9 @@ export function SidePanel(props: SidePanelProps) {
     chatConversations = [],
     onSummarizeChat,
     summarizingId,
+    compareParagraphs,
+    compareLabel,
+    compareIsVerse,
   } = props
 
   const { canUse } = useTierContext()
@@ -150,6 +161,7 @@ export function SidePanel(props: SidePanelProps) {
       isAnonymous={isAnonymous}
       onTopUp={onTopUp}
       onSignIn={onSignIn}
+      chatConversations={chatConversations}
     />
   ) : (
     <UpgradePrompt feature="AI chat" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
@@ -191,6 +203,29 @@ export function SidePanel(props: SidePanelProps) {
     <UpgradePrompt feature="Cast tracker" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
   )
 
+  const renderCompare = () => (
+    <div className="compare-rail">
+      <div className="compare-rail-head">
+        <span className="compare-rail-eyebrow">&sect; Compare</span>
+        <div className="compare-rail-title">{compareLabel}</div>
+        {chapterTitle && <div className="compare-rail-chapter">{chapterTitle}</div>}
+      </div>
+      <div className="compare-rail-body">
+        {(compareParagraphs ?? []).map((p, i) => (
+          <p
+            key={i}
+            className={`compare-rail-para ${i === 0 ? '' : 'compare-rail-para-indent'} ${compareIsVerse ? 'compare-rail-para-verse' : ''}`}
+          >
+            {p}
+          </p>
+        ))}
+        {(!compareParagraphs || compareParagraphs.length === 0) && (
+          <p className="compare-rail-empty">No compare edition for this chapter.</p>
+        )}
+      </div>
+    </div>
+  )
+
   // Mobile: render only the active tab's content, full width. No rails.
   if (isMobile) {
     return (
@@ -228,8 +263,13 @@ export function SidePanel(props: SidePanelProps) {
     )
   }
 
-  // Desktop: card-stack pattern — three rails, one expanded, others collapsed.
+  // Desktop: card-stack pattern — rails, one expanded, others collapsed.
   const activeRail: RailKey | null = isOpen ? TAB_TO_RAIL[activeTab] : null
+
+  // The Compare rail is only shown when the book has an aligned edition
+  // selected. When none is picked, the rail disappears entirely — matches
+  // the user's expectation that the pane is just gone for that book.
+  const hasCompare = !!(compareParagraphs && compareLabel)
 
   const rails: { key: RailKey; label: string; badge?: number | null }[] = [
     { key: 'chat', label: 'Chat', badge: null },
@@ -239,6 +279,7 @@ export function SidePanel(props: SidePanelProps) {
       badge: notes.length + allBookHighlights.length > 0 ? notes.length + allBookHighlights.length : null,
     },
     { key: 'cast', label: 'Cast', badge: null },
+    ...(hasCompare ? [{ key: 'compare' as RailKey, label: 'Compare', badge: null }] : []),
   ]
 
   const handleSpineClick = (rail: RailKey) => {
@@ -278,6 +319,7 @@ export function SidePanel(props: SidePanelProps) {
                   {r.key === 'chat' && renderChat()}
                   {r.key === 'feed' && renderFeed()}
                   {r.key === 'cast' && renderCast()}
+                  {r.key === 'compare' && renderCompare()}
                 </div>
               )}
             </div>
