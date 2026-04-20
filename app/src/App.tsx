@@ -1578,6 +1578,7 @@ export default function App() {
                 isVerse={primaryIsVerse}
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
+                isAudioPlaying={audioIsPlaying}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 panelOpen={preferences.panelOpen}
@@ -1607,6 +1608,7 @@ export default function App() {
                   targetParagraphIndex={compareSyncSignal?.paragraph}
                   targetParagraphNonce={compareSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
+                  isAudioPlaying={audioIsPlaying}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
