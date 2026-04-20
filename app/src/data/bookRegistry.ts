@@ -147,6 +147,7 @@ export const BIBLE: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -381,6 +382,7 @@ export const PRIDE_AND_PREJUDICE: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1813)', year: 1813, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
   ],
 }
 
@@ -409,6 +411,7 @@ export const THE_ART_OF_WAR: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -713,9 +716,467 @@ export const FRANKENSTEIN: Book = {
   ],
 }
 
+export const THE_MANUAL: Book = {
+  id: 'the-manual',
+  title: 'The Manual',
+  author: 'Epictetus',
+  description: 'The essential handbook of Stoic philosophy. In 52 short sections, Epictetus sets out the single most important idea in Stoicism: distinguish what is in your power from what is not, and concern yourself only with the former.',
+  year: 125,
+  wordCount: 10000,
+  coverColor: '#2c2c1e',
+  coverAccent: '#c8b87a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Long (1877)',
+      translator: 'George Long',
+      year: 1877,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const CONFESSIONS: Book = {
+  id: 'confessions',
+  title: 'Confessions',
+  author: 'Augustine',
+  description: 'The first great spiritual autobiography. Augustine traces his journey from youthful sin through Manichaean philosophy to Christian conversion — wrestling with desire, will, and the nature of God across thirteen searingly honest books.',
+  year: 397,
+  wordCount: 100000,
+  coverColor: '#3a2a1a',
+  coverAccent: '#c8a060',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Pusey (1838)',
+      translator: 'Edward Bouverie Pusey',
+      year: 1838,
+      aligned: true,
+    },
+  ],
+}
+
+export const IMITATION_OF_CHRIST: Book = {
+  id: 'imitation-of-christ',
+  title: 'The Imitation of Christ',
+  author: 'Thomas à Kempis',
+  description: 'The most widely read Christian devotional work after the Bible. In 114 short chapters, Thomas à Kempis counsels the reader toward humility, inner peace, and the practice of following Christ in daily life.',
+  year: 1418,
+  wordCount: 60000,
+  coverColor: '#2a2a3a',
+  coverAccent: '#a0a0c8',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Benham (1886)',
+      year: 1886,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const ENCHIRIDION: Book = {
+  id: 'enchiridion',
+  title: 'Enchiridion',
+  author: 'Augustine',
+  description: 'Augustine\'s handbook on faith, hope, and love — a concise summary of Christian doctrine written as a letter to Laurentius. In 42 short chapters, the essence of Augustine\'s theology.',
+  year: 421,
+  wordCount: 25000,
+  coverColor: '#3a2a1a',
+  coverAccent: '#d4b080',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Shaw (1887)',
+      year: 1887,
+      aligned: true,
+    },
+  ],
+}
+
+export const JERUSALEM: Book = {
+  id: 'jerusalem',
+  title: 'Jerusalem',
+  author: 'Selma Lagerlöf',
+  description: 'A Swedish farming community is torn apart when a charismatic preacher leads half its people on a pilgrimage to the Holy Land. Lagerlöf\'s Nobel Prize-winning novel of faith, land, and the cost of conviction.',
+  year: 1901,
+  wordCount: 90000,
+  coverColor: '#4a3a2a',
+  coverAccent: '#c8b878',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Howard (1915)',
+      translator: 'Velma Swanston Howard',
+      year: 1915,
+      aligned: true,
+    },
+  ],
+}
+
+export const APOLOGY: Book = {
+  id: 'apology',
+  title: 'Apology',
+  author: 'Plato',
+  description: 'Socrates stands trial for his life in Athens. Accused of corrupting the youth and denying the gods, he mounts a fearless defense — not of himself, but of the examined life.',
+  year: -399,
+  wordCount: 14000,
+  coverColor: '#3a2f2f',
+  coverAccent: '#c4a35a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Jowett (1871)',
+      translator: 'Benjamin Jowett',
+      year: 1871,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const SYMPOSIUM: Book = {
+  id: 'symposium',
+  title: 'Symposium',
+  author: 'Plato',
+  description: 'At a dinner party in Athens, seven men take turns praising Love. From Aristophanes\' comic myth of split souls to Socrates\' account of Diotima\'s ladder of beauty — the Western world\'s founding text on love and desire.',
+  year: -385,
+  wordCount: 23000,
+  coverColor: '#4a2040',
+  coverAccent: '#d4a0b0',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Jowett (1871)',
+      translator: 'Benjamin Jowett',
+      year: 1871,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const PHAEDO: Book = {
+  id: 'phaedo',
+  title: 'Phaedo',
+  author: 'Plato',
+  description: 'The last hours of Socrates. In prison awaiting execution, he argues for the immortality of the soul — not from fear, but from philosophical conviction. His friends weep; he drinks the hemlock calmly.',
+  year: -385,
+  wordCount: 40000,
+  coverColor: '#1e2a3a',
+  coverAccent: '#8ab4d4',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Jowett (1871)',
+      translator: 'Benjamin Jowett',
+      year: 1871,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const MOBY_DICK: Book = {
+  id: 'moby-dick',
+  title: 'Moby Dick',
+  author: 'Herman Melville',
+  description: 'Call me Ishmael. A young sailor boards the whaling ship Pequod, captained by the monomaniac Ahab, who will hunt the great white whale to the ends of the earth — and beyond reason.',
+  year: 1851,
+  wordCount: 210000,
+  coverColor: '#1a2a3e',
+  coverAccent: '#a8c8d8',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1851)',
+      year: 1851,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const GREAT_EXPECTATIONS: Book = {
+  id: 'great-expectations',
+  title: 'Great Expectations',
+  author: 'Charles Dickens',
+  description: 'Pip, an orphan in the Kent marshes, receives a mysterious fortune that transforms his life. But his great expectations carry a price — and the truth about his benefactor will shatter everything he believes.',
+  year: 1861,
+  wordCount: 185000,
+  coverColor: '#3a2a1a',
+  coverAccent: '#d4b896',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1861)',
+      year: 1861,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const THE_HISTORIES: Book = {
+  id: 'the-histories',
+  title: 'The Histories',
+  author: 'Herodotus',
+  description: 'The first great work of history in the Western world. Herodotus travels the ancient world — Egypt, Persia, Scythia, Greece — recording customs, wars, and wonders, building toward the epic clash between Greece and Persia.',
+  year: -440,
+  wordCount: 280000,
+  coverColor: '#4a3a2a',
+  coverAccent: '#c8a860',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Macaulay (1890)',
+      translator: 'George Campbell Macaulay',
+      year: 1890,
+      aligned: true,
+    },
+  ],
+}
+
+export const NIELS_LYHNE: Book = {
+  id: 'niels-lyhne',
+  title: 'Niels Lyhne',
+  author: 'J.P. Jacobsen',
+  description: 'A young Danish dreamer searches for meaning through art, love, and atheism in nineteenth-century Denmark. Jacobsen\'s masterpiece — the novel Rilke called "the most important book in the world."',
+  year: 1880,
+  wordCount: 65000,
+  coverColor: '#2a3a2e',
+  coverAccent: '#a8b89a',
+  editions: [
+    {
+      key: 'original-da',
+      language: 'da',
+      style: 'original',
+      label: 'Original (1880)',
+      year: 1880,
+      aligned: true,
+    },
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Larsen (1919)',
+      translator: 'Hanna Astrup Larsen',
+      year: 1919,
+      aligned: true,
+    },
+  ],
+}
+
+export const THE_AWAKENING: Book = {
+  id: 'the-awakening',
+  title: 'The Awakening',
+  author: 'Kate Chopin',
+  description: 'A young mother on a Louisiana island begins to feel the pull of the sea — and of a life entirely her own. Chopin\'s 1899 novel scandalized its readers and was forgotten for decades. It is now recognized as one of the first great feminist novels in American literature.',
+  year: 1899,
+  wordCount: 49000,
+  coverColor: '#0d2233',
+  coverAccent: '#6aabcc',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1899)',
+      year: 1899,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+      hasAudio: true,
+    },
+  ],
+}
+
+export const BROTHERS_KARAMAZOV: Book = {
+  id: 'brothers-karamazov',
+  title: 'The Brothers Karamazov',
+  author: 'Fyodor Dostoevsky',
+  description: 'Dostoevsky\'s final novel: three brothers and their father, a murder, a trial, and the deepest questions of faith, doubt, and human freedom. Includes the legendary parable "The Grand Inquisitor."',
+  year: 1880,
+  wordCount: 360000,
+  coverColor: '#5a1a1a',
+  coverAccent: '#d4a843',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Garnett (1912)',
+      translator: 'Constance Garnett',
+      year: 1912,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV]
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LOCAL-ONLY BOOKS
+// These books are under copyright and exist only for personal reading on
+// localhost. Edition files are in .gitignore. Never deploy, never upload to R2.
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const MARKINGS: Book = {
+  id: 'markings',
+  title: 'Markings',
+  author: 'Dag Hammarskjöld',
+  description: 'The posthumously published journal of UN Secretary-General Dag Hammarskjöld — a private record of spiritual struggle, solitude, and the search for meaning across two decades of public life.',
+  year: 1963,
+  wordCount: 50000,
+  coverColor: '#2c3e50',
+  coverAccent: '#bdc3c7',
+  localOnly: true,
+  editions: [
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Auden/Sjöberg (1964)',
+      translator: 'Leif Sjöberg & W.H. Auden',
+      year: 1964,
+      aligned: false,
+      hasAudio: false,
+    },
+  ],
+}
+
+/**
+ * Local-only books — copyright-protected texts for personal reading on localhost.
+ * Edition files are gitignored. Never appear in production builds.
+ */
+export const LOCAL_BOOKS: Book[] = [MARKINGS]
+
+/**
+ * All books visible in the current environment.
+ * In production (import.meta.env.PROD) local-only books are excluded.
+ */
+export const ALL_BOOKS: Book[] = import.meta.env.PROD
+  ? BOOKS
+  : [...BOOKS, ...LOCAL_BOOKS]
 
 export function getBook(id: string): Book | undefined {
-  return BOOKS.find(b => b.id === id)
+  return ALL_BOOKS.find(b => b.id === id)
 }
