@@ -5,6 +5,7 @@ import { Reader } from './components/Reader'
 import { SplitReader } from './components/SplitReader'
 import { SidePanel } from './components/SidePanel'
 import { Onboarding } from './components/Onboarding'
+import { SettingsSheet } from './components/SettingsSheet'
 import { ProactiveInsight } from './components/ProactiveInsight'
 import { AuthModal } from './components/AuthModal'
 import { UsageDashboard } from './components/UsageDashboard'
@@ -1186,34 +1187,72 @@ export default function App() {
         <Onboarding onComplete={handleOnboardingComplete} />
       )}
 
-      {showSettings && (
-        <Onboarding
-          isSettings
-          onComplete={(obj) => { setReadingObjective(obj) }}
-          onClose={() => setShowSettings(false)}
-          allEditions={book.editions}
-          primaryEditionKey={primaryEditionKey}
-          onPrimaryEditionChange={(key) => {
-            const parts = key.split('-')
-            const newStyle = parts[0] as Style
-            const newLang = parts.slice(1).join('-') as 'en' | 'da'
-            if (newLang !== preferences.language) setLanguage(newLang)
-            if (newStyle !== preferences.style) handleStyleChange(newStyle)
-          }}
-          initialObjective={preferences.readingObjective}
-          splitEditionKey={preferences.splitEditionKey}
-          onSplitEditionChange={setSplitEditionKey}
-          alignedEditions={alignedEditions}
-          splitView={preferences.splitView}
-          onToggleSplitView={handleToggleSplitView}
-          audioEditions={book.editions.filter(ed => ed.hasAudio)}
-          audioEditionKey={primaryEditionKey}
-          onAudioEditionChange={() => {/* TODO: wire audio edition preference */}}
-          progressDisplay={preferences.progressDisplay}
-          onProgressDisplayChange={setProgressDisplay}
-          hasSections={!!(primaryData?.sections?.length)}
-        />
-      )}
+      <SettingsSheet
+        isOpen={showSettings}
+        onClose={() => setShowSettings(false)}
+        darkMode={preferences.darkMode}
+        onToggleDarkMode={toggleDarkMode}
+        fontSize={preferences.fontSize}
+        onFontSizeChange={(size) => {
+          const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+          savedPos.current = {
+            bookId: book.id,
+            chapterNumber: currentChapter,
+            currentPage,
+            totalPages,
+            scrollFraction: frac,
+          }
+          setFontSize(size)
+          setReaderKey(k => k + 1)
+        }}
+        fontFamily={preferences.fontFamily}
+        onFontFamilyChange={(family) => {
+          const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+          savedPos.current = {
+            bookId: book.id,
+            chapterNumber: currentChapter,
+            currentPage,
+            totalPages,
+            scrollFraction: frac,
+          }
+          setFontFamily(family)
+          setReaderKey(k => k + 1)
+        }}
+        allEditions={book.editions}
+        primaryEditionKey={primaryEditionKey}
+        language={preferences.language}
+        style={preferences.style}
+        onLanguageChange={setLanguage}
+        onStyleChange={handleStyleChange}
+        alignedEditions={book.editions.filter(ed => ed.aligned)}
+        splitEditionKey={preferences.splitEditionKey}
+        onSplitEditionChange={setSplitEditionKey}
+        splitView={preferences.splitView}
+        onToggleSplitView={handleToggleSplitView}
+        audioEditions={book.editions.filter(ed => ed.hasAudio)}
+        audioEditionKey={effectiveAudioEditionKey}
+        onAudioEditionChange={setAudioEditionKey}
+        progressDisplay={preferences.progressDisplay}
+        onProgressDisplayChange={setProgressDisplay}
+        hasSections={!!(primaryData?.sections?.length)}
+        readingObjective={preferences.readingObjective}
+        onSaveObjective={setReadingObjective}
+        isBookDownloaded={isBookDownloaded(book.id)}
+        onOpenDownloads={() => setShowDownloadManager(true)}
+        user={user}
+        messagesRemaining={messagesRemaining}
+        hasBalance={hasBalance}
+        isAnonymous={isAnonymous}
+        onSignIn={() => { setAuthModalMode('signin'); setShowAuthModal(true) }}
+        onSignOut={signOut}
+        onOpenUsage={() => setShowUsageDashboard(true)}
+        onResetPassword={resetPassword}
+        onDeleteAccount={user ? async () => {
+          await signOut()
+        } : undefined}
+        onOpenStore={() => setShowStore(true)}
+      />
+
 
       {showAuthModal && (
         <AuthModal

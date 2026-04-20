@@ -18,15 +18,45 @@ interface TextSegment {
 }
 
 
+// Unicode superscript digits come from two different blocks (Latin-1 for ¹²³,
+// Superscripts and Subscripts for ⁰⁴⁵⁶⁷⁸⁹). EB Garamond covers ¹²³ but
+// many fonts fall back for the others, producing inconsistent weight. We
+// normalize them all into <sup> with regular digits so they render uniformly.
+const SUP_MAP: Record<string, string> = {
+  '\u2070': '0', '\u00B9': '1', '\u00B2': '2', '\u00B3': '3', '\u2074': '4',
+  '\u2075': '5', '\u2076': '6', '\u2077': '7', '\u2078': '8', '\u2079': '9',
+}
+const SUP_RE = /[\u00B2\u00B3\u00B9\u2070\u2074\u2075\u2076\u2077\u2078\u2079]+/g
+
+function renderWithSuperscripts(text: string, keyOffset: number): React.ReactNode[] {
+  if (!SUP_RE.test(text)) return [text]
+  SUP_RE.lastIndex = 0
+  const out: React.ReactNode[] = []
+  let last = 0
+  let k = keyOffset
+  let m: RegExpExecArray | null
+  while ((m = SUP_RE.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index))
+    const digits = Array.from(m[0]).map(c => SUP_MAP[c] ?? c).join('')
+    out.push(<sup key={`s${k++}`} className="verse-num">{digits}</sup>)
+    last = m.index + m[0].length
+  }
+  if (last < text.length) out.push(text.slice(last))
+  return out
+}
+
 /**
  * Renders inline text with formatting support:
  * - \n → <br /> (for verse) or space (for prose with embedded breaks)
  * - **bold** → <strong>
  * - *italic* → <em>
+ * - Unicode superscript digits → <sup> with regular digits (Bible verse numbers)
  */
 function renderFormattedText(text: string, preserveNewlines?: boolean): React.ReactNode {
+  const hasSup = SUP_RE.test(text)
+  SUP_RE.lastIndex = 0
   // Fast path: no markers at all
-  if (!text.includes('\n') && !text.includes('*')) return text
+  if (!text.includes('\n') && !text.includes('*') && !hasSup) return text
 
   // For prose text, collapse newlines to spaces before rendering
   let processedText = text
@@ -34,7 +64,9 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
     processedText = text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
   }
 
-  if (!processedText.includes('\n') && !processedText.includes('*')) return processedText
+  if (!processedText.includes('\n') && !processedText.includes('*') && !hasSup) {
+    return processedText
+  }
 
   // Split on inline formatting patterns
   const parts: React.ReactNode[] = []
@@ -43,24 +75,31 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
   let match: RegExpExecArray | null
   let key = 0
 
+  const pushPlain = (s: string) => {
+    if (!s) return
+    const nodes = renderWithSuperscripts(s, key)
+    key += nodes.filter(n => typeof n !== 'string').length
+    parts.push(...nodes)
+  }
+
   while ((match = regex.exec(processedText)) !== null) {
     if (match.index > lastIndex) {
-      parts.push(processedText.slice(lastIndex, match.index))
+      pushPlain(processedText.slice(lastIndex, match.index))
     }
 
     if (match[0] === '\n') {
-      parts.push(<br key={key++} />)
+      parts.push(<br key={`br${key++}`} />)
     } else if (match[2]) {
-      parts.push(<strong key={key++}>{match[2]}</strong>)
+      parts.push(<strong key={`b${key++}`}>{renderWithSuperscripts(match[2], key)}</strong>)
     } else if (match[3]) {
-      parts.push(<em key={key++}>{match[3]}</em>)
+      parts.push(<em key={`i${key++}`}>{renderWithSuperscripts(match[3], key)}</em>)
     }
 
     lastIndex = match.index + match[0].length
   }
 
   if (lastIndex < processedText.length) {
-    parts.push(processedText.slice(lastIndex))
+    pushPlain(processedText.slice(lastIndex))
   }
 
   return parts.length === 1 && typeof parts[0] === 'string' ? parts[0] : <>{parts}</>

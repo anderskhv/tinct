@@ -479,20 +479,6 @@ export function Header({
       </div>
 
       <nav className="menu-bar">
-        {/* Icon buttons */}
-        {splitViewAvailable && (
-          <button
-            className={`menu-icon-btn ${splitView ? 'menu-icon-active' : ''}`}
-            onClick={onToggleSplitView}
-            title={splitView ? 'Single view' : 'Compare editions'}
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="1" y="2" width="14" height="12" rx="1.5" />
-              <line x1="8" y1="2" x2="8" y2="14" />
-            </svg>
-          </button>
-        )}
-
         {onOpenSearch && (
           <button className="menu-icon-btn" onClick={onOpenSearch} title="Search in book">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -501,14 +487,6 @@ export function Header({
             </svg>
           </button>
         )}
-
-        <button className="menu-icon-btn" onClick={onOpenToc} title="Table of contents">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="3" y1="4" x2="13" y2="4" />
-            <line x1="3" y1="8" x2="11" y2="8" />
-            <line x1="3" y1="12" x2="9" y2="12" />
-          </svg>
-        </button>
 
         {hasAudio && onToggleAudio && (
           <button
@@ -524,141 +502,12 @@ export function Header({
           </button>
         )}
 
-        <span className="menu-divider" />
-
-        {/* Text buttons — order: Library, Format, Settings */}
-        <button className="menu-item" onClick={onOpenStore}>Library</button>
-
-        <div className="menu-item-wrapper">
-          <button
-            className={`menu-item ${menuOpen === 'format' ? 'menu-item-active' : ''}`}
-            onClick={() => setMenuOpen(menuOpen === 'format' ? null : 'format')}
-          >
-            Format
-          </button>
-          {menuOpen === 'format' && (
-            <div className="menu-dropdown">
-              <div className="menu-dropdown-section theme-toggle-section">
-                <span className="menu-dropdown-label">Theme</span>
-                <div className="menu-dropdown-row">
-                  <button
-                    className={`menu-toggle-btn ${!darkMode ? 'menu-toggle-active' : ''}`}
-                    onClick={() => { if (darkMode) onToggleDarkMode() }}
-                  >Light</button>
-                  <button
-                    className={`menu-toggle-btn ${darkMode ? 'menu-toggle-active' : ''}`}
-                    onClick={() => { if (!darkMode) onToggleDarkMode() }}
-                  >Dark</button>
-                </div>
-              </div>
-              <div className="menu-dropdown-section">
-                <span className="menu-dropdown-label">Font size</span>
-                <div className="menu-dropdown-row">
-                  {(['small', 'medium', 'large', 'xlarge'] as FontSize[]).map(s => (
-                    <button
-                      key={s}
-                      className={`menu-toggle-btn ${fontSize === s ? 'menu-toggle-active' : ''}`}
-                      onClick={() => onFontSizeChange(s)}
-                    >
-                      {s === 'small' ? 'S' : s === 'medium' ? 'M' : s === 'large' ? 'L' : 'XL'}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="menu-dropdown-section">
-                <span className="menu-dropdown-label">Font</span>
-                <div className="menu-dropdown-row">
-                  {(['garamond', 'baskerville', 'sourceserif'] as FontFamily[]).map(f => (
-                    <button
-                      key={f}
-                      className={`menu-toggle-btn ${fontFamily === f ? 'menu-toggle-active' : ''}`}
-                      onClick={() => onFontFamilyChange(f)}
-                    >
-                      {f === 'garamond' ? 'Garamond' : f === 'baskerville' ? 'Baskerville' : 'Source Serif'}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <button className="menu-item" onClick={onOpenSettings}>Settings</button>
-
-        {onOpenDownloads && (
-          <button className="menu-icon-btn" onClick={onOpenDownloads} title={isBookDownloaded ? 'Downloaded for offline' : 'Download for offline'}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M8 2v8M5 7l3 3 3-3" />
-              <path d="M2 12v2h12v-2" />
-            </svg>
-            {isBookDownloaded && <span className="menu-icon-dot" />}
-          </button>
-        )}
-
-        {/* Account / Sign in */}
-        <div className="menu-item-wrapper">
-          {user ? (
-            <>
-              <button
-                className={`menu-item ${menuOpen === 'account' ? 'menu-item-active' : ''}`}
-                onClick={() => setMenuOpen(menuOpen === 'account' ? null : 'account')}
-              >
-                Account
-              </button>
-              {menuOpen === 'account' && (
-                <div className="menu-dropdown menu-dropdown-account">
-                  <div className="menu-dropdown-section">
-                    <span className="menu-dropdown-label">{user.email}</span>
-                  </div>
-                  <button className="menu-dropdown-link" onClick={() => { onOpenUsage(); setMenuOpen(null) }}>
-                    Credits & usage
-                  </button>
-                  {onResetPassword && user.email && (
-                    resetSent ? (
-                      <span className="menu-dropdown-label" style={{ padding: '6px 12px', color: 'var(--accent)', fontSize: '0.85rem' }}>
-                        Reset email sent
-                      </span>
-                    ) : (
-                      <button className="menu-dropdown-link" onClick={async () => {
-                        await onResetPassword(user.email!)
-                        setResetSent(true)
-                        setTimeout(() => setResetSent(false), 5000)
-                      }}>
-                        Change password
-                      </button>
-                    )
-                  )}
-                  <button className="menu-dropdown-link menu-dropdown-signout" onClick={() => { onSignOut(); setMenuOpen(null) }}>
-                    Sign out
-                  </button>
-                  {onDeleteAccount && (
-                    showDeleteConfirm ? (
-                      <div style={{ padding: '8px 12px', borderTop: '1px solid var(--border)' }}>
-                        <p style={{ fontSize: '0.8rem', margin: '0 0 8px', color: 'var(--text-secondary)' }}>
-                          Permanently delete your account and all data?
-                        </p>
-                        <div style={{ display: 'flex', gap: '8px' }}>
-                          <button className="menu-dropdown-link" onClick={() => setShowDeleteConfirm(false)} style={{ flex: 1, textAlign: 'center' }}>
-                            Cancel
-                          </button>
-                          <button className="menu-dropdown-link menu-dropdown-signout" onClick={() => { onDeleteAccount(); setMenuOpen(null); setShowDeleteConfirm(false) }} style={{ flex: 1, textAlign: 'center', color: '#c0392b' }}>
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <button className="menu-dropdown-link" onClick={() => setShowDeleteConfirm(true)} style={{ color: 'var(--text-secondary)' }}>
-                        Delete account
-                      </button>
-                    )
-                  )}
-                </div>
-              )}
-            </>
-          ) : (
-            <button className="menu-item" onClick={onSignIn}>Sign in</button>
-          )}
-        </div>
+        <button className="menu-icon-btn" onClick={onOpenSettings} title="Settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </button>
       </nav>
     </header>
   )
