@@ -821,6 +821,14 @@ export const ENCHIRIDION: Book = {
       year: 1887,
       aligned: true,
     },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -842,6 +850,14 @@ export const JERUSALEM: Book = {
       translator: 'Velma Swanston Howard',
       year: 1915,
       aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1031,6 +1047,14 @@ export const THE_HISTORIES: Book = {
       year: 1890,
       aligned: true,
     },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -1060,6 +1084,14 @@ export const NIELS_LYHNE: Book = {
       translator: 'Hanna Astrup Larsen',
       year: 1919,
       aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
     },
   ],
 }
