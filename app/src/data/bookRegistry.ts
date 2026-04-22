@@ -1259,6 +1259,43 @@ export const THE_PRINCE: Book = {
   ],
 }
 
+export const BEOWULF: Book = {
+  id: 'beowulf',
+  title: 'Beowulf',
+  author: 'Anonymous',
+  description: 'The oldest surviving epic in English. A Geatish warrior crosses the sea to fight three monsters across a lifetime — Grendel, Grendel\'s mother, and a dragon — in a poem about courage, kingship, and the long defeat that all heroes face.',
+  year: 1000,
+  wordCount: 24000,
+  coverColor: '#1a2332',
+  coverAccent: '#a89060',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Hall (1892)',
+      translator: 'J. Lesslie Hall',
+      year: 1892,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
 export const BEYOND_GOOD_AND_EVIL: Book = {
   id: 'beyond-good-and-evil',
   title: 'Beyond Good and Evil',
@@ -1290,7 +1327,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF]
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LOCAL-ONLY BOOKS
