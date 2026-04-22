@@ -1259,6 +1259,43 @@ export const THE_PRINCE: Book = {
   ],
 }
 
+export const CANDIDE: Book = {
+  id: 'candide',
+  title: 'Candide',
+  author: 'Voltaire',
+  description: 'Voltaire\'s attack on Leibnizian optimism. A young man is tutored in the belief that this is "the best of all possible worlds" — then the world systematically dismantles that belief through earthquake, war, plague, Inquisition, and the slave trade. Ends with the most famous closing line in the Enlightenment: "we must cultivate our garden."',
+  year: 1759,
+  wordCount: 32000,
+  coverColor: '#8b2c1e',
+  coverAccent: '#d4a574',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Fleming (1901)',
+      translator: 'William F. Fleming',
+      year: 1901,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
 export const BEOWULF: Book = {
   id: 'beowulf',
   title: 'Beowulf',
@@ -1328,7 +1365,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE]
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LOCAL-ONLY BOOKS
