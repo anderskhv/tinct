@@ -1033,6 +1033,13 @@ export const GREAT_EXPECTATIONS: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1100,6 +1107,13 @@ export const NIELS_LYHNE: Book = {
       label: 'Modern English',
       aligned: true,
       hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
