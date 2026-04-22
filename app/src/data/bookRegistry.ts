@@ -859,6 +859,14 @@ export const JERUSALEM: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -1191,8 +1199,98 @@ export const ILIAD: Book = {
   ],
 }
 
+export const NICOMACHEAN_ETHICS: Book = {
+  id: 'nicomachean-ethics',
+  title: 'Nicomachean Ethics',
+  author: 'Aristotle',
+  description: 'The foundational work of virtue ethics. Aristotle asks what the good life is for a human being, and answers: flourishing (eudaimonia), achieved through practical wisdom, moral virtue, and contemplation. The golden mean, friendship, justice, and the nature of happiness — the vocabulary ethics has used ever since.',
+  year: -350,
+  wordCount: 92000,
+  coverColor: '#2a2a1a',
+  coverAccent: '#b89a4a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Chase (1847) / Ross tradition',
+      translator: 'D.P. Chase',
+      year: 1847,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+  ],
+}
+
+export const THE_PRINCE: Book = {
+  id: 'the-prince',
+  title: 'The Prince',
+  author: 'Niccolò Machiavelli',
+  description: 'The coldest clear-eyed book about power ever written. Machiavelli, exiled from Florence, drafted a manual for the ruler who would unify Italy — and in the process invented modern political realism. Fortune, virtù, the fox and the lion, and whether it is better to be loved or feared.',
+  year: 1532,
+  wordCount: 32000,
+  coverColor: '#3a2018',
+  coverAccent: '#b8804a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Marriott (1908)',
+      translator: 'W.K. Marriott',
+      year: 1908,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+  ],
+}
+
+export const BEYOND_GOOD_AND_EVIL: Book = {
+  id: 'beyond-good-and-evil',
+  title: 'Beyond Good and Evil',
+  author: 'Friedrich Nietzsche',
+  description: 'Nietzsche at his most corrosive and most exhilarating. A frontal attack on the dogmas of philosophers, the pieties of Christianity, and the democratic instinct — and a sketch of the "free spirit" who would live beyond the old moral categories. Master-morality, slave-morality, the will to power, and the question: what is noble?',
+  year: 1886,
+  wordCount: 63000,
+  coverColor: '#1a1a1a',
+  coverAccent: '#8b5a3c',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Zimmern (1907)',
+      translator: 'Helen Zimmern',
+      year: 1907,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+      hasAudio: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, CONFESSIONS, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL]
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LOCAL-ONLY BOOKS
