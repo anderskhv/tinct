@@ -27,7 +27,7 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 2. **Always discuss structure BEFORE downloading.** Step 1 is mandatory and requires human approval.
 3. **Maintain paragraph alignment** across all editions. Same number of paragraphs per chapter in every edition.
 4. **Verify JSON validity** after every file write (`python3 -c "import json; json.load(open('file.json'))"`)
-5. **No kids editions.** Standard text set is: original-en, modern-en, modern-da. Special editions (verse-en, web-en) only when discussed. Audio is English-only (see rule 14).
+5. **Publishing minimum = original-en + modern-en.** Modern Danish is **optional**, generated on an occasional basis, never required for launch. A book without modern-en MUST NOT appear in the public `BOOKS` array in `bookRegistry.ts`. No kids editions — ever. Special editions (verse-en, web-en) only when discussed. Audio is English-only by default; Danish audio only when modern-da exists (see rule 14).
 6. **Track progress.** Large books take multiple sessions. Always update the progress tracker below.
 7. **Never flag scale as a problem.** Don't say "this is a huge task" or "this will be very difficult." Break every task into agent-sized chunks and execute. The architecture handles scale — just decompose and go.
 8. **Use parallel agents.** Translations, audio generation, and threads are independent per book×language. Spin up background agents for each chunk. Typical agent unit = 1 book × 1 language × 10-20 chapters.
@@ -250,15 +250,18 @@ find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.j
 
 ### Step 9: Publish (autonomous — no approval needed)
 
-A book is fully complete when ALL of the following are true:
+A book is ready to publish when ALL of the following are true:
 
-- [ ] All 3 standard editions exist and are paragraph-aligned (original-en, modern-en, modern-da)
+- [ ] **original-en + modern-en** exist and are paragraph-aligned (publishing minimum)
 - [ ] English audio generated with manifests and uploaded to R2
-- [ ] Book is registered in `bookRegistry.ts` with all editions and `hasAudio: true` on English editions
+- [ ] Book is registered in `bookRegistry.ts` with all editions, `hasAudio: true` on English, AND **listed in the public `BOOKS` array**
 - [ ] Threads file exists with characters (narrative/dialogue books only — skip for treatises and journals like Art of War, Meditations)
 - [ ] Visual QA passed
 
-**Policy:** Never publish a partially complete book.
+**Optional (not required to publish):**
+- `modern-da` text + Danish Chirp audio — generated on an occasional basis when we have time and budget. Never a blocker for launch.
+
+**Policy:** Never publish a book that lacks modern-en. A book with only `original-en` stays out of the public `BOOKS` array until modern-en is done. The `Book` constant may live in `bookRegistry.ts` as a staged definition, but must not reach production until modern-en exists.
 
 **Publish sequence:**
 ```bash
@@ -330,7 +333,7 @@ When Anders asks for "status" / "overview" / "where are we", present a **single 
 | Book | Editions | Modern EN | Modern DA | Audio | Threads |
 |------|----------|-----------|-----------|-------|---------|
 
-- **Editions complete = 3** (original + modern-en + modern-da). Bonus editions (verse-en, web-en, kjv-en) don't change the threshold.
+- **Publishing threshold = original-en + modern-en** (2 editions). Modern-da is optional. Bonus editions (verse-en, web-en, kjv-en) don't change the threshold.
 - Every cell: **Complete** or **Not complete** (with short note on gap).
 - As more languages are added, add columns.
 
