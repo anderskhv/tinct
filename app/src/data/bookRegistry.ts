@@ -1292,6 +1292,7 @@ export const BEOWULF: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
