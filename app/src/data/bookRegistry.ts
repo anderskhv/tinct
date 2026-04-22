@@ -1306,6 +1306,7 @@ export const CANDIDE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
