@@ -61,6 +61,7 @@ interface SettingsSheetProps {
   // Reading angle
   readingObjective: string
   onSaveObjective: (obj: string) => void
+  onRedoOnboarding?: () => void
 
   // Offline
   isBookDownloaded: boolean
@@ -152,7 +153,7 @@ export function SettingsSheet(props: SettingsSheetProps) {
     splitView, onToggleSplitView,
     audioEditions, audioEditionKey, onAudioEditionChange,
     progressDisplay, onProgressDisplayChange, hasSections,
-    readingObjective, onSaveObjective,
+    readingObjective, onSaveObjective, onRedoOnboarding,
     isBookDownloaded, onOpenDownloads,
     user, messagesRemaining, hasBalance, isAnonymous,
     onSignIn, onSignOut, onOpenUsage, onResetPassword, onDeleteAccount,
@@ -387,6 +388,16 @@ export function SettingsSheet(props: SettingsSheetProps) {
       <div className="ss-angle-counter">
         {localObjective.length} / 2,000 characters
       </div>
+      {onRedoOnboarding && (
+        <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid var(--paper-deep)' }}>
+          <button className="ss-link-btn" onClick={() => { onRedoOnboarding(); }}>
+            Redo reading setup →
+          </button>
+          <div className="ss-row-hint" style={{ marginTop: 6 }}>
+            Re-run edition and angle selection for this book.
+          </div>
+        </div>
+      )}
     </div>
   )
 

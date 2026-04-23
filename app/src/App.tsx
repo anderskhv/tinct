@@ -1450,6 +1450,12 @@ export default function App() {
           await signOut()
         } : undefined}
         onOpenStore={() => setShowStore(true)}
+        onRedoOnboarding={() => {
+          storage.delete(`book-onboarded:${book.id}`)
+          try { localStorage.removeItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
+          setShowSettings(false)
+          setShowBookOnboarding(true)
+        }}
       />
 
 
