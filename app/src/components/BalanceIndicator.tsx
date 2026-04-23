@@ -32,7 +32,7 @@ export function BalanceIndicator({
         onClick={isAnonymous ? onSignIn : onTopUp}
         title={isAnonymous ? 'Sign in to continue chatting' : 'Top up your balance'}
       >
-        0 msgs — {isAnonymous ? 'Sign in' : 'Top up'}
+        0 msgs · {isAnonymous ? 'Sign in' : 'Top up'}
       </button>
     )
   }

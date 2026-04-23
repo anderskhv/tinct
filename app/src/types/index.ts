@@ -148,7 +148,7 @@ export interface Note {
 
 // === Panel Tabs ===
 
-export type PanelTab = 'chat' | 'notes' | 'threads' | 'compare'
+export type PanelTab = 'chat' | 'notes' | 'threads'
 
 // === Threads (Character Tracker) ===
 
@@ -261,6 +261,14 @@ export interface UserPreferences {
   fontFamily: FontFamily
   accountDecisionSeen: boolean
   progressDisplay: ProgressDisplay
+  /** Per-feature tab visibility. Only honoured for Premium users; lower tiers
+   * hide Premium-gated features regardless of these flags. */
+  chatHidden: boolean
+  feedHidden: boolean
+  castHidden: boolean
+  /** Languages the reader wants to see editions in. Inferred from browser locale
+   * on first visit; filterable inline in BookOnboarding; editable in Settings. */
+  readingLanguages: Language[]
 }
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
@@ -277,6 +285,10 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   fontFamily: 'garamond',
   accountDecisionSeen: false,
   progressDisplay: { metric: 'percent', scope: 'book' },
+  chatHidden: false,
+  feedHidden: false,
+  castHidden: false,
+  readingLanguages: ['en'],
 }
 
 export interface ReadingPosition {

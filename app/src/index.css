@@ -1093,14 +1093,21 @@ body {
   /* Prevent text from breaking across columns mid-element */
 }
 
-/* Keep chapter header and end section together */
+/* Keep chapter header internally intact, but let text flow starting in the
+ * same column. `break-after: avoid` previously forced the browser to bump
+ * the first paragraph to column 2, leaving column 1 containing only the
+ * header. Removing it lets the first paragraph start immediately below. */
 .reader-columns .chapter-header {
   break-inside: avoid;
-  break-after: avoid;
 }
 
 .reader-columns .chapter-end {
   break-inside: avoid;
+}
+
+/* Pull the first paragraph tight against the header — no orphaned column. */
+.reader-columns .chapter-header + .text-body {
+  break-before: avoid;
 }
 
 .reader-content {
@@ -1154,7 +1161,7 @@ body {
 }
 
 .chapter-header {
-  margin-bottom: 36px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -5044,6 +5051,38 @@ body {
   opacity: 0.82;
 }
 
+.store-book-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease;
+  z-index: 3;
+}
+
+.store-book:hover .store-book-remove,
+.store-book-remove:focus-visible {
+  opacity: 1;
+}
+
+.store-book-remove:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (hover: none) {
+  .store-book-remove { opacity: 0.85; }
+}
+
 .store-close {
   position: absolute;
   top: 0;
@@ -6365,6 +6404,29 @@ body {
     gap: 10px;
   }
 
+  /* Audio strip pinned just above the bottom bar on mobile so it doesn't
+     duplicate the reading-progress row at the top. */
+  .audio-strip {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: calc(38px + 34px); /* mobile bottom nav + bottom-bar height */
+    z-index: 71;
+    border-top: 1px solid rgba(0, 0, 0, 0.14);
+    border-bottom: none;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+    padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 10px;
+    animation: audioStripUp 0.2s ease;
+  }
+  @keyframes audioStripUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  [data-theme="dark"] .audio-strip {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
   /* Audio mode on mobile gets a bit more vertical breathing room */
   .bottom-bar-audio {
     padding: 8px 12px 9px;
@@ -6411,17 +6473,11 @@ body {
     cursor: default;
   }
 
-  /* Selection popup — fixed at bottom on mobile */
+  /* Selection popup on mobile: keep the computed position (close to the
+     selection) — post-render viewport clamp in Reader.tsx handles overflow.
+     Cap width so long toolbars never exceed the screen. */
   .selection-popup {
-    position: fixed;
-    bottom: 120px;
-    left: 50%;
-    top: auto !important;
-    transform: translateX(-50%) !important;
-  }
-
-  .selection-popup-below {
-    transform: translateX(-50%) !important;
+    max-width: calc(100vw - 12px);
   }
 
   /* Proactive insight above bottom nav */
@@ -6801,6 +6857,19 @@ body {
 .trial-banner-info {
   background: var(--bg-secondary);
   color: var(--text-secondary);
+}
+
+.trial-banner-anon {
+  background: var(--paper-deep);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--paper-alt);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.trial-banner-anon .trial-banner-text strong {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .trial-banner-warning {
@@ -7397,16 +7466,122 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* ===== Audio Strip (slides down from top bar) ===== */
-.audio-strip {
-  padding: 8px 18px 10px;
+/* ===== Home Role prompt (Capacitor Android first-run) ===== */
+.home-role-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(11, 11, 11, 0.55);
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.18s ease;
+}
+
+.home-role-modal {
+  background: var(--paper);
+  max-width: 420px;
+  width: 100%;
+  padding: 28px 26px 22px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .home-role-modal {
+  background: #1f1b16;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.home-role-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+
+.home-role-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.home-role-body {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+}
+
+.home-role-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.home-role-primary,
+.home-role-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.home-role-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.home-role-primary:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+.home-role-primary:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.home-role-secondary {
+  background: transparent;
+  color: var(--dim);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.home-role-secondary:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+[data-theme="dark"] .home-role-secondary {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ===== Audio Strip (slides down from top bar) ===== */
+.audio-strip {
+  padding: 10px 18px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   background: var(--paper-warm);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   animation: audioStripDown 0.25s ease;
+}
+
+.audio-strip-spacer {
+  flex: 1;
 }
 
 @keyframes audioStripDown {
@@ -8222,11 +8397,22 @@ body {
 @media (max-width: 768px) {
   .ss-overlay {
     background: var(--paper);
+    /* Use dynamic viewport height so the sheet fits inside Safari's URL bar
+       and home-indicator chrome. Without this, the bottom of .ss-main-body
+       falls below the visible area and can't be scrolled to. */
+    height: 100dvh;
   }
   .ss-sheet {
     flex-direction: column;
     max-width: 100%;
     height: 100%;
+    min-height: 0;
+  }
+  .ss-main {
+    min-height: 0;
+  }
+  .ss-main-body {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
   }
   .ss-nav {
     width: 100%;
@@ -8862,3 +9048,1637 @@ body {
 }
 
 
+
+/* ═══ Tier Chooser ═══ */
+.tier-chooser-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(11, 11, 11, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tier-chooser-card {
+  background: var(--paper);
+  max-width: 420px;
+  width: 100%;
+  padding: 28px 26px 24px;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.tier-chooser-card::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--accent);
+  margin: -28px -26px 20px;
+}
+
+.tier-chooser-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  z-index: 2;
+}
+.tier-chooser-close:hover { color: var(--text-primary); }
+
+.tier-chooser-book {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.tier-chooser-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.tier-chooser-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tier-chooser-option {
+  background: transparent;
+  border: 1px solid var(--paper-deep);
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  font-family: inherit;
+  color: inherit;
+}
+
+.tier-chooser-option:hover {
+  border-color: var(--text-secondary);
+}
+
+.tier-chooser-option.selected {
+  border: 2px solid var(--accent);
+  background: var(--accent-subtle);
+  padding: 13px 15px;
+}
+
+.tier-chooser-option.selected::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  bottom: -2px;
+  width: 3px;
+  background: var(--accent);
+}
+
+.tier-chooser-option-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.tier-chooser-option-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.tier-chooser-option.selected .tier-chooser-option-name {
+  color: var(--accent);
+}
+
+.tier-chooser-option-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a4f2e;
+  background: rgba(122, 79, 46, 0.12);
+  padding: 2px 7px;
+}
+
+.tier-chooser-option-desc {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.tier-chooser-option-desc strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tier-chooser-cta {
+  width: 100%;
+  padding: 13px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tier-chooser-cta:hover {
+  background: var(--accent);
+}
+
+[data-theme='dark'] .tier-chooser-card {
+  background: var(--paper);
+}
+
+/* ═══ Progress Prompt (end of chapter 1) ═══ */
+.progress-prompt-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 16px 24px 24px;
+  pointer-events: none;
+  animation: progress-prompt-slide 0.3s ease-out;
+}
+
+@keyframes progress-prompt-slide {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.progress-prompt-card {
+  background: var(--paper);
+  border: 1px solid var(--paper-deep);
+  border-left: 3px solid var(--accent);
+  padding: 18px 22px;
+  max-width: 440px;
+  width: 100%;
+  pointer-events: auto;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.progress-prompt-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.progress-prompt-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.progress-prompt-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.progress-prompt-body {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0 0 14px;
+}
+
+.progress-prompt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.progress-prompt-primary,
+.progress-prompt-secondary {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.progress-prompt-primary {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+
+.progress-prompt-primary:hover {
+  background: var(--accent-hover);
+}
+
+.progress-prompt-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--paper-deep);
+}
+
+.progress-prompt-secondary:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+/* ═══ Contextual Angle Prompt (inline in Chat) ═══ */
+.ctx-angle-card {
+  background: var(--paper);
+  border: 1px solid var(--paper-deep);
+  border-left: 3px solid var(--accent);
+  padding: 16px 18px;
+  margin: 12px 0;
+}
+
+.ctx-angle-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+}
+
+.ctx-angle-body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+.ctx-angle-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ctx-angle-primary,
+.ctx-angle-secondary {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.ctx-angle-primary {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+
+.ctx-angle-primary:hover {
+  background: var(--accent-hover);
+}
+
+.ctx-angle-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--paper-deep);
+}
+
+.ctx-angle-secondary:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+/* ═══ Book Onboarding ═══ */
+.book-onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #b8b0a0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.book-onboarding-bg {
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 40px;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.book-onboarding-bg-inner {
+  max-width: 580px;
+  text-align: left;
+}
+
+.book-onboarding-bg-chapter {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  opacity: 0.4;
+}
+
+.book-onboarding-bg-text {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--text-primary);
+  filter: blur(2px);
+  opacity: 0.35;
+  user-select: none;
+}
+
+.book-onboarding-modal {
+  position: relative;
+  z-index: 10;
+  background: var(--paper);
+  width: 100%;
+  max-width: 580px;
+  max-height: 88vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.book-onboarding-modal-accent {
+  height: 3px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.book-onboarding-head {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--text-primary);
+  flex-shrink: 0;
+}
+
+.book-onboarding-head-left {
+  flex: 1;
+  padding: 18px 24px;
+  border-right: 1px solid var(--paper-deep);
+}
+
+.book-onboarding-head-book {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.book-onboarding-head-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.book-onboarding-head-author {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.book-onboarding-head-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(31, 74, 92, 0.3);
+  padding: 2px 8px;
+}
+
+.book-onboarding-head-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 14px 18px;
+  gap: 10px;
+}
+
+.book-onboarding-step-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.book-onboarding-step-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--paper-deep);
+  transition: background 0.2s, width 0.2s;
+}
+
+.book-onboarding-step-dot.done {
+  background: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.book-onboarding-step-dot.active {
+  background: var(--accent);
+  width: 18px;
+}
+
+.book-onboarding-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.book-onboarding-close:hover {
+  color: var(--text-primary);
+}
+
+.book-onboarding-body {
+  padding: 28px 28px 20px;
+  flex: 1;
+}
+
+.book-onboarding-step {
+  animation: book-onboarding-fade 0.2s ease-out;
+}
+
+@keyframes book-onboarding-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.book-onboarding-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.book-onboarding-step-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.book-onboarding-step-sub {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 22px;
+}
+
+.book-onboarding-about {
+  padding: 14px 16px;
+  border-left: 3px solid var(--paper-deep);
+  background: rgba(11, 11, 11, 0.02);
+  margin: 20px 0 24px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Edition blocks */
+.book-onboarding-edition-block {
+  margin-bottom: 20px;
+}
+
+.book-onboarding-edition-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.book-onboarding-edition-label-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.book-onboarding-edition-label-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.book-onboarding-edition-rows {
+  border: 1px solid var(--paper-deep);
+}
+
+.book-onboarding-edition-row {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px solid var(--paper-deep);
+  transition: background 0.12s;
+  position: relative;
+  font-family: inherit;
+  color: inherit;
+}
+
+.book-onboarding-edition-row:last-child {
+  border-bottom: none;
+}
+
+.book-onboarding-edition-row:hover {
+  background: rgba(11, 11, 11, 0.03);
+}
+
+.book-onboarding-edition-row.selected {
+  background: rgba(31, 74, 92, 0.05);
+}
+
+.book-onboarding-edition-row.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+.book-onboarding-er-lang {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  width: 70px;
+  flex-shrink: 0;
+  padding: 11px 0 11px 14px;
+}
+
+.book-onboarding-er-lang.dim,
+.book-onboarding-er-name.dim {
+  color: var(--text-secondary);
+  opacity: 0.6;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.book-onboarding-er-name {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 11px 12px;
+}
+
+.book-onboarding-er-name-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.book-onboarding-er-desc {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  padding: 11px 14px 11px 0;
+  white-space: nowrap;
+}
+
+/* Angle */
+.book-onboarding-angle-why {
+  padding: 14px 16px;
+  background: rgba(31, 74, 92, 0.05);
+  border-left: 3px solid var(--accent);
+  margin-bottom: 22px;
+}
+
+.book-onboarding-angle-why p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.book-onboarding-angle-why strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.book-onboarding-angle-field-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.book-onboarding-angle-textarea-wrap {
+  border: 1px solid var(--paper-deep);
+  background: rgba(255, 255, 255, 0.4);
+  transition: border-color 0.15s;
+  margin-bottom: 20px;
+}
+
+.book-onboarding-angle-textarea-wrap:focus-within {
+  border-color: var(--text-primary);
+}
+
+.book-onboarding-angle-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  resize: none;
+  min-height: 80px;
+}
+
+.book-onboarding-angle-textarea::placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.book-onboarding-angle-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.book-onboarding-angle-or-line {
+  flex: 1;
+  height: 1px;
+  background: var(--paper-deep);
+}
+
+.book-onboarding-angle-or-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.book-onboarding-angle-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.book-onboarding-angle-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--paper-deep);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: border-color 0.12s, background 0.12s;
+  position: relative;
+  font-family: inherit;
+  color: inherit;
+}
+
+.book-onboarding-angle-card:hover {
+  border-color: var(--text-secondary);
+}
+
+.book-onboarding-angle-card.selected {
+  border-color: var(--accent);
+  background: rgba(31, 74, 92, 0.05);
+}
+
+.book-onboarding-angle-card.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+.book-onboarding-angle-n {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  padding-top: 3px;
+  width: 20px;
+}
+
+.book-onboarding-angle-card.selected .book-onboarding-angle-n {
+  color: var(--accent);
+}
+
+.book-onboarding-angle-card-text {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.book-onboarding-angle-card-text em {
+  font-style: italic;
+}
+
+/* Cast */
+.book-onboarding-cast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-deep);
+}
+
+.book-onboarding-cast-card {
+  background: var(--paper);
+  padding: 14px 16px;
+  transition: background 0.12s;
+}
+
+.book-onboarding-cast-card:hover {
+  background: var(--paper-warm);
+}
+
+.book-onboarding-cast-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1px;
+  color: var(--text-primary);
+}
+
+.book-onboarding-cast-role {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.book-onboarding-cast-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* Footer */
+.book-onboarding-foot {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-top: 1px solid var(--text-primary);
+  flex-shrink: 0;
+}
+
+.book-onboarding-foot-primary,
+.book-onboarding-foot-ghost {
+  padding: 16px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.12s, color 0.12s;
+}
+
+.book-onboarding-foot-primary {
+  background: var(--text-primary);
+  color: var(--paper);
+  padding: 16px 28px;
+}
+
+.book-onboarding-foot-primary:hover {
+  background: var(--accent);
+}
+
+.book-onboarding-foot-ghost {
+  color: var(--text-secondary);
+  margin-left: auto;
+  border-left: 1px solid var(--paper-deep);
+}
+
+.book-onboarding-foot-ghost:hover {
+  color: var(--text-primary);
+  background: rgba(11, 11, 11, 0.04);
+}
+
+@media (max-width: 520px) {
+  .book-onboarding-cast-grid {
+    grid-template-columns: 1fr;
+  }
+  .book-onboarding-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .book-onboarding-head-left {
+    border-right: none;
+    border-bottom: 1px solid var(--paper-deep);
+  }
+  .book-onboarding-head-right {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ═══ Focus Mode ═══ */
+/* Hides chrome for immersive reading. Toggled via the floating button or F key. */
+.app.focus-mode .header,
+.app.focus-mode .bottom-bar,
+.app.focus-mode .side-panel,
+.app.focus-mode .card-stack,
+.app.focus-mode .trial-banner,
+.app.focus-mode .offline-banner {
+  display: none !important;
+}
+
+/* Focus toggle lives in the header as a regular menu icon — no floating button. */
+
+/* Small exit button shown only in focus mode — chrome is hidden so we still
+ * need a visible way out for users who don't know the F/Esc shortcut. */
+.focus-exit {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  color: var(--text-tertiary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  transition: opacity 0.15s, color 0.15s;
+}
+.focus-exit:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+/* ═══ Book cover art (shared library + onboarding) ═══ */
+.book-cover-art {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-display, Georgia, serif);
+}
+.book-cover-art-small { width: 108px; }
+.book-cover-art-medium { width: 168px; }
+
+.book-cover-art-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 8px;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.book-cover-art-frame {
+  position: absolute;
+  inset: 12px 10px 14px 18px;
+  border: 1px solid;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.book-cover-art-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.book-cover-art-small .book-cover-art-title {
+  font-size: 0.82rem;
+}
+
+.book-cover-art-rule {
+  width: 30px;
+  height: 1px;
+  opacity: 0.6;
+  margin: 2px 0;
+}
+
+.book-cover-art-author {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.book-cover-art-small .book-cover-art-author {
+  font-size: 0.55rem;
+}
+
+.book-cover-art-year {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  opacity: 0.75;
+}
+
+/* Override the old in-modal mini-cover used by BookOnboarding hero */
+.book-onboarding-cover { display: none; }
+
+/* ═══ Angle chat ═══ */
+.angle-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.angle-chat-messages {
+  max-height: 260px;
+  min-height: 120px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid var(--paper-deep, #d9d1ba);
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.angle-chat-seed {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.55;
+  padding: 8px 4px;
+}
+
+.angle-chat-msg {
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 2px;
+  max-width: 92%;
+  white-space: pre-wrap;
+}
+
+.angle-chat-msg-user {
+  align-self: flex-end;
+  background: rgba(31, 74, 92, 0.08);
+  border-left: 3px solid var(--accent);
+  color: var(--text-primary);
+}
+
+.angle-chat-msg-assistant {
+  align-self: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--paper-deep);
+  color: var(--text-primary);
+}
+
+.angle-chat-loading {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.angle-chat-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.angle-chat-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--paper-deep);
+  background: var(--paper);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  resize: none;
+  outline: none;
+}
+.angle-chat-input:focus {
+  border-color: var(--text-primary);
+}
+.angle-chat-input::placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.angle-chat-send {
+  width: 44px;
+  background: var(--text-primary);
+  color: var(--paper);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.angle-chat-send:hover:not(:disabled) {
+  background: var(--accent);
+}
+.angle-chat-send:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.angle-chat-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.angle-chat-lock {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--paper);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.angle-chat-lock:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+.angle-chat-lock:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.angle-chat-skip {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 10px 8px;
+}
+.angle-chat-skip:hover {
+  color: var(--text-primary);
+}
+
+/* ═══ Account step (rebalanced) ═══ */
+.book-onboarding-step-account .book-onboarding-premium-card {
+  background: rgba(31, 74, 92, 0.06);
+  border-left: 3px solid var(--accent);
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+
+.book-onboarding-step-account .book-onboarding-premium-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.book-onboarding-step-account .book-onboarding-premium-body {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.book-onboarding-account-primary {
+  width: 100%;
+  padding: 18px;
+  background: var(--text-primary);
+  color: var(--paper);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 8px;
+}
+.book-onboarding-account-primary:hover {
+  background: var(--accent);
+}
+
+.book-onboarding-account-skip {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 14px 8px 4px;
+}
+.book-onboarding-account-skip:hover {
+  color: var(--text-primary);
+}
+
+/* Replace the default horizontal hero with a nicer stacked layout */
+.book-onboarding-hero {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.book-onboarding-hero-text { flex: 1; min-width: 0; }
+
+@media (max-width: 520px) {
+  .book-onboarding-hero { flex-direction: column; align-items: center; text-align: center; }
+  .book-cover-art-small { width: 96px; }
+}
+
+/* ═══ BookOnboarding hero (tightened layout, library-matched cover) ═══ */
+.book-cover-onboarding {
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.book-onboarding-hero {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.book-onboarding-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.book-onboarding-book-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.book-onboarding-book-byline {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.book-onboarding-about-text {
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .book-onboarding-hero { flex-direction: row; gap: 14px; }
+  .book-cover-onboarding { width: 88px; }
+  .book-onboarding-book-title { font-size: 22px; }
+}
+
+/* Hide the old italic quote-style about */
+.book-onboarding-about { display: none; }
+
+/* ═══ AngleChat bubbles — refined to read as a real chat ═══ */
+.angle-chat-messages {
+  /* Replace the old seed div; seed is now the first assistant bubble */
+}
+
+.angle-chat-msg-assistant {
+  background: var(--paper-warm, #e5decb);
+  border: none;
+  border-left: none;
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: 2px 14px 14px 14px;
+}
+
+.angle-chat-msg-assistant p {
+  margin: 0 0 6px;
+}
+.angle-chat-msg-assistant p:last-child { margin-bottom: 0; }
+
+.angle-chat-msg-assistant strong { font-weight: 600; color: var(--text-primary); }
+.angle-chat-msg-assistant em { font-style: italic; }
+
+.angle-chat-msg-assistant .angle-md-list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.angle-chat-msg-assistant .angle-md-list li {
+  margin-bottom: 4px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.angle-chat-msg-user {
+  background: var(--accent);
+  color: var(--text-inverse, #fff);
+  border-left: none;
+  padding: 10px 14px;
+  border-radius: 14px 2px 14px 14px;
+}
+
+.angle-chat-input::placeholder {
+  opacity: 0.5;
+}
+
+/* ═══ Angle confirm step ═══ */
+.book-onboarding-angle-display {
+  padding: 14px 16px;
+  background: rgba(31, 74, 92, 0.08);
+  border-left: 3px solid var(--accent);
+  margin: 16px 0 24px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.book-onboarding-notes-heading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.book-onboarding-notes {
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  min-height: 80px;
+}
+
+.book-onboarding-notes-loading {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+.book-onboarding-notes-empty {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.book-onboarding-notes-body p {
+  margin: 0 0 10px;
+}
+
+.book-onboarding-notes-body ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+.book-onboarding-notes-body ul li {
+  margin-bottom: 8px;
+}
+.book-onboarding-notes-body strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ═══ Unified chat window (messages + input in one bordered container) ═══ */
+.angle-chat-window {
+  border: 1px solid var(--paper-deep, #d9d1ba);
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.angle-chat-window .angle-chat-messages {
+  border: none;
+  background: transparent;
+  max-height: 260px;
+  min-height: 140px;
+  padding: 14px;
+}
+
+.angle-chat-window .angle-chat-input-row {
+  border-top: 1px solid var(--paper-deep, #d9d1ba);
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  background: var(--paper);
+}
+
+.angle-chat-window .angle-chat-input {
+  border: none;
+  background: transparent;
+  padding: 12px 14px;
+  font-size: 15px;
+  min-height: 48px;
+}
+.angle-chat-window .angle-chat-input:focus {
+  outline: none;
+  background: var(--paper);
+}
+
+.angle-chat-window .angle-chat-send {
+  border: none;
+  border-left: 1px solid var(--paper-deep, #d9d1ba);
+  width: 56px;
+  border-radius: 0;
+}
+
+/* ═══ Back to library button ═══ */
+.book-onboarding-back-to-library {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.book-onboarding-back-to-library:hover {
+  color: var(--text-primary);
+}
+
+/* ═══ Bigger onboarding cover + refined hero spacing ═══ */
+.book-cover-onboarding {
+  width: 160px;
+}
+
+@media (max-width: 520px) {
+  .book-cover-onboarding { width: 120px; }
+}
+
+/* Plain-language edition label — no "sub" subtitle needed anymore */
+.book-onboarding-edition-label-text .book-onboarding-edition-label-sub {
+  margin-left: 4px;
+}
+
+/* ═══ Angle-confirm calibrating state ═══ */
+.book-onboarding-calibrating {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 18px;
+  margin: 12px 0;
+  background: rgba(31, 74, 92, 0.04);
+  border-left: 3px solid var(--accent);
+}
+
+.book-onboarding-calibrating p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.book-onboarding-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--paper-deep);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: book-onboarding-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes book-onboarding-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ═══ Promoted edition heading (replaces old mono "label-text") ═══ */
+.book-onboarding-edition-heading {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.book-onboarding-edition-heading-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.book-onboarding-edition-heading-note {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: -4px 0 10px;
+  line-height: 1.5;
+}
+
+.book-onboarding-er-ai-badge {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border: 1px solid currentColor;
+  padding: 1px 4px;
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+  opacity: 0.65;
+}
+
+.book-onboarding-ai-disclaimer {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: rgba(11, 11, 11, 0.04);
+  border-radius: 4px;
+  line-height: 1.55;
+}
+
+/* ═══ Language chips in BookOnboarding ═══ */
+.book-onboarding-lang-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  flex-wrap: wrap;
+}
+
+.book-onboarding-lang-chips-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.book-onboarding-lang-chip {
+  background: transparent;
+  border: 1px solid var(--paper-deep);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.book-onboarding-lang-chip:hover {
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.book-onboarding-lang-chip.selected {
+  background: var(--accent);
+  color: var(--text-inverse, #fff);
+  border-color: var(--accent);
+}
+
+.book-onboarding-no-lang-note {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding: 10px 14px;
+  background: rgba(122, 79, 46, 0.08);
+  border-left: 3px solid var(--premium, #7a4f2e);
+  margin: 0 0 18px;
+}

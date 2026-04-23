@@ -63,6 +63,11 @@ export class SupabaseStorageProvider implements StorageProvider {
   delete(key: string): void {
     if (!supabase) return
     this.cache.delete(key)
+    // Also delete from localStorage — parity with set() which writes to both.
+    // Without this, the session-startup migration reads the stale localStorage
+    // value and writes it back to Supabase, resurrecting deleted data.
+    localStorageProvider.delete(key)
+    this.recentLocalWrites.set(key, Date.now())
     supabase
       .from('user_data')
       .delete()
@@ -117,7 +122,7 @@ export class SupabaseStorageProvider implements StorageProvider {
           if (!row.key) return
           // Ignore echoes from our own writes (within 2 seconds)
           const lastWrite = this.recentLocalWrites.get(row.key)
-          if (lastWrite && Date.now() - lastWrite < 2000) {
+          if (lastWrite && Date.now() - lastWrite < 4000) {
             this.recentLocalWrites.delete(row.key)
             return
           }

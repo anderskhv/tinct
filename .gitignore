@@ -1,6 +1,11 @@
 # OS
 .DS_Store
 
+# macOS / iCloud / Dropbox sync-conflict duplicates
+*\ 2.*
+*\ copy.*
+*\ copy
+
 # IDE
 .vscode/
 .idea/
@@ -11,9 +16,16 @@ node_modules/
 # Claude Code
 .claude/
 
-# Large binary/generated assets
+# Large binary/generated assets (audio is on R2 CDN, regeneratable from scripts)
 models/
 test.wav
 app/public/audio/
-app/tts/
+app/audio/
+app/audio-backup/
+app/public-audio-backup/
+app/tts/audio/
 app/src/data/editions/
+
+# Local-only books (copyright-protected, personal reading only)
+app/public/data/editions/markings-*.json
+books/raw/markings/

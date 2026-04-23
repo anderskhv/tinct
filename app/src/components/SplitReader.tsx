@@ -2,6 +2,7 @@ import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor, Edition, EditionKey } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
+import { apiUrl } from '../utils/apiUrl'
 
 interface SelectionInfo {
   x: number
@@ -282,11 +283,11 @@ export function SplitReader({
     }
   }, [playingParagraphIndex, playingParagraphProgress, totalPages, getGap, currentPage, readerRef])
 
-  // Reset userNavigated flag when audio stops or catches up to user's page
+  // Reset userNavigated flag on every paragraph change. Ties the user's
+  // "stay here" intent to the current paragraph — auto-follow re-engages on
+  // the next paragraph rather than staying dead for the rest of the chapter.
   useEffect(() => {
-    if (playingParagraphIndex === undefined) {
-      userNavigatedRef.current = false
-    }
+    userNavigatedRef.current = false
   }, [playingParagraphIndex])
 
   // Keep the selection popup inside the viewport after it renders. Same
@@ -348,12 +349,44 @@ export function SplitReader({
         }
       }
     }
+    // Custom page-nav event: used by on-screen nav buttons (BottomBar,
+    // ReadingProgressBar). Synthetic KeyboardEvents don't fire reliably in
+    // Capacitor Android WebView, so we use a CustomEvent instead.
+    const handlePageNav = (e: Event) => {
+      const direction = (e as CustomEvent<{ direction: 'next' | 'prev' }>).detail?.direction
+      if (direction === 'next') {
+        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+          onNextChapterRef.current()
+        } else {
+          goToPageRef.current(currentPageRef.current + 1)
+        }
+      } else if (direction === 'prev') {
+        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+          onPrevChapterRef.current()
+        } else {
+          goToPageRef.current(currentPageRef.current - 1)
+        }
+      }
+    }
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    window.addEventListener('tinct:page-nav', handlePageNav)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('tinct:page-nav', handlePageNav)
+    }
   }, [])
+
+  // Track whether onTouchEnd already handled a tap (avoid double page turn on mobile
+  // where a single touch fires both touchend AND click).
+  const touchHandledRef = useRef(false)
 
   // Click on left/right edge to turn pages
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
+    // Skip if touch already handled this interaction (mobile fires both touchend + click)
+    if (touchHandledRef.current) {
+      touchHandledRef.current = false
+      return
+    }
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
 
@@ -497,7 +530,35 @@ export function SplitReader({
       side,
       showBelow,
     })
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
+    }
   }, [leftParagraphs, rightParagraphs, readerRef])
+
+  const handleCopy = useCallback(() => {
+    if (!selectionPopup) return
+    const text = selectionPopup.text
+    const done = () => {
+      setSelectionPopup(null)
+      window.getSelection()?.removeAllRanges()
+    }
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).finally(done)
+    } else {
+      try {
+        const ta = document.createElement('textarea')
+        ta.value = text
+        ta.style.position = 'fixed'
+        ta.style.opacity = '0'
+        document.body.appendChild(ta)
+        ta.select()
+        document.execCommand('copy')
+        document.body.removeChild(ta)
+      } catch { /* noop */ }
+      done()
+    }
+  }, [selectionPopup])
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
@@ -532,7 +593,7 @@ export function SplitReader({
     try {
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (authToken) headers['Authorization'] = `Bearer ${authToken}`
-      const res = await fetch('/api/report-issue', {
+      const res = await fetch(apiUrl('/api/report-issue'), {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -547,14 +608,14 @@ export function SplitReader({
       })
       if (!res.ok) throw new Error(`${res.status}`)
       const data = await res.json() as { reportId?: string }
-      window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Thank you — we\'re reviewing your report now. For every 5 approved fixes, you get a free month.' } }))
+      window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Thank you. We\'re reviewing your report now. For every 5 approved fixes, you get a free month.' } }))
       if (data.reportId) {
         let attempts = 0
         const poll = setInterval(async () => {
           attempts++
           if (attempts > 20) { clearInterval(poll); return }
           try {
-            const statusRes = await fetch(`/api/report-status?id=${data.reportId}`)
+            const statusRes = await fetch(apiUrl(`/api/report-status?id=${data.reportId}`))
             const statusData = await statusRes.json() as { status: string }
             if (statusData.status === 'confirmed') {
               clearInterval(poll)
@@ -599,12 +660,14 @@ export function SplitReader({
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
         if (touchX < zone) {
+          touchHandledRef.current = true
           if (currentPage <= 0 && onPrevChapter) {
             onPrevChapter()
           } else {
             goToPage(currentPage - 1)
           }
         } else if (touchX > rect.width - zone) {
+          touchHandledRef.current = true
           if (currentPage >= totalPages - 1 && onNextChapter) {
             onNextChapter()
           } else {
@@ -817,6 +880,14 @@ export function SplitReader({
                   <circle cx="8" cy="13" r="1" fill="currentColor" stroke="none" />
                 </svg>
                 <span className="popup-icon-label">Issue</span>
+              </button>
+              <div className="popup-divider" />
+              <button className="popup-icon-btn" onClick={handleCopy} title="Copy text">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="5" y="5" width="9" height="9" rx="1" />
+                  <path d="M11 5 V3 a1 1 0 0 0 -1 -1 H3 a1 1 0 0 0 -1 1 v7 a1 1 0 0 0 1 1 h2" />
+                </svg>
+                <span className="popup-icon-label">Copy</span>
               </button>
               <div className="popup-divider" />
               <button className="popup-icon-btn" onClick={() => { onShare?.(selectionPopup.text); setSelectionPopup(null); window.getSelection()?.removeAllRanges() }} title="Share this quote">

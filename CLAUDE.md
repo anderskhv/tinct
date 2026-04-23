@@ -36,7 +36,7 @@ The git repo is at `Tinct/` and the app source code is in `Tinct/app/`. One repo
 
 All content generation — book editions, translations, chapter summaries, any text produced by Claude — must happen through the CLI conversation and be written to files. **Never** run scripts that call `api.anthropic.com` during development.
 
-**`generate-editions.cjs` must NOT be used for development.** To generate modern/kids editions: read each chapter in the CLI conversation, generate the translation, and write it to the JSON file. This is how Sojourners generated 21 event summaries, 33 character bios, and 12 era rewrites — all through CLI, zero API cost.
+**`generate-editions.cjs` must NOT be used for development.** To generate modern editions (modern-en, modern-da): read each chapter in the CLI conversation, generate the translation, and write it to the JSON file. This is how Sojourners generated 21 event summaries, 33 character bios, and 12 era rewrites — all through CLI, zero API cost.
 
 The API key exists **ONLY** for production user-facing features: the reader chat when a real user asks a question after deployment. Development-time content generation through API calls burns budget that funds the entire operation.
 
@@ -47,6 +47,13 @@ The API key exists **ONLY** for production user-facing features: the reader chat
 ## Auto-Documentation Rule
 
 **Automatically update this file** when making decisions during conversations. When we settle on a design choice, product direction, architecture decision, or project standard, append it to the Decisions Log at the bottom. Use judgment — log things useful for future sessions, skip trivial one-off choices.
+
+**Process rules (added 2026-04-20 after a stale-docs incident):**
+- Log decisions at the moment they are made, not at end of day.
+- SESSION.md is a **current-state snapshot**, not a changelog. Fully overwrite it at end of each session.
+- The "Current State" section below has a "Last verified" date. If it is more than 7 days old, read the actual code before trusting it — don't rely on docs alone.
+- When Anders confirms a change (pricing, scope, feature), update the relevant memory file in the same turn.
+- **If a session ends without updating SESSION.md and this Current State section, the next session MUST do it before any other work. A stale SESSION.md is a bug.**
 
 ---
 
@@ -71,94 +78,21 @@ This log will be reviewed weekly by Group CEO and Anders to tune your autonomy l
 ---
 
 ## Project Overview
-A content-agnostic deep reading platform. Not passive consumption — active wrestling with texts. Users read in multiple versions (original, modern, kids) and languages (English, Danish), debate and question through AI chat, highlight and annotate, and build understanding over time. Starting with The Odyssey, expanding to 10-20 Western classics + Bible.
+A content-agnostic deep reading platform. Not passive consumption — active wrestling with texts. Users read in multiple editions (original, modern EN, modern DA) and debate through AI chat, highlight and annotate, and build understanding over time. 33 books live as of April 2026, expanding to 100+ Western classics + Bible.
 
 **Full strategy:** See `STRATEGY.md`
 **Prioritized work:** See `BACKLOG.md`
 
 ---
 
-## Popperian Critique — March 5, 2026
-
-### Critique 1: The Zero-Moat Problem
-Public domain books are free and available everywhere. Project Gutenberg, Standard Ebooks, Internet Archive, and dozens of beautiful reader apps already serve this content. The *text itself* cannot be your competitive advantage because anyone can offer the same books. Your moat has to come entirely from the AI layer — and that layer is trivially replicable. Any competitor can wrap Claude or GPT around the same texts within a week.
-
-**Implication**: The product must create value through *experience design* and *accumulated user data* (annotations, chats, takeaways), not through content access. Think hard about what makes the experience sticky enough that users wouldn't just paste a passage into ChatGPT.
-
-### Critique 2: You May Be Solving a Problem Readers Don't Have
-The Kindle's simplicity is a feature, not a bug. Deep reading requires sustained focus. A side panel with chat, analysis, annotations, multiple versions, and voice input could turn reading into a *fragmented, distracted* experience. Most serious readers of classics specifically seek *immersion*, not interruption.
-
-**Counter-question**: Is your target user someone who *already reads* classics and wants more depth? Or someone who *doesn't yet* read them and needs the support? These are very different products. The first group may resent the scaffolding; the second may not be willing to read The Odyssey even with it.
-
-### Critique 3: LLM Translations Are Not Good Enough (Yet)
-Literary translation is one of the hardest creative tasks. Professional translators of The Odyssey (Fagles, Lattimore, Wilson) spend years on a single work, making deliberate choices about tone, register, rhythm, and cultural nuance. Current LLMs produce *functional* translations but not *literary* ones. A "contemporary English" version via Claude will read like a Wikipedia summary of Homer, not like Emily Wilson's Odyssey.
-
-**Risk**: If users compare your LLM translation to a real one, your product loses credibility. The "kids version" is more defensible because no one expects literary artistry there, but the "modern English" version sets expectations it may not meet.
-
-### Critique 4: Starting With One Book Makes the Product Unjustifiable
-Who downloads an app to read one book? The Odyssey is ~130,000 words — a committed reader finishes it in a week or two. Then what? Even if the reading experience is magical, the product becomes useless after one book. You need at minimum 10-20 books ready at launch to give users a reason to *stay*.
-
-**Suggestion**: Consider launching with a curated "canon starter pack" — perhaps 10 works across different eras: Homer, Virgil, Dante, Shakespeare (a play), Austen, Dostoevsky, a philosophical text (Plato's Republic), a religious text (Book of Genesis), an epic poem (Paradise Lost), and one more. This gives users a journey, not a one-off.
-
-### Critique 5: The Revenue Model Is Absent
-- Free books → no content revenue
-- AI chat costs *you* money (Claude API calls per user)
-- Hardware is capital-intensive with razor-thin margins
-- EPUB bookstore means competing with Amazon, Apple, and Kobo simultaneously
-
-You're building something that costs you money for every engaged user. The more someone uses the chat, the more it costs you. This is the classic AI product trap: your best users are your most expensive users.
-
-**Question**: Is this a subscription product? An ad-supported product? A loss leader for hardware? The answer shapes everything about how you build it.
-
-### Critique 6: The Hardware Vision Is a Distraction (For Now)
-Building consumer electronics requires: industrial design, supply chain management, FCC certification, firmware engineering, manufacturing relationships, inventory management, and customer support infrastructure. Each of these is a company-sized problem. History is littered with failed e-readers (Nook, Kobo Aura, Remarkable's pivot struggles).
-
-**Recommendation**: Keep this in the long-term vision document but do not let it influence any near-term decisions. Build a *software* product that works beautifully in a browser. If it succeeds, the hardware conversation becomes meaningful. If it doesn't, you've saved yourself millions.
-
-### Critique 7: Dual-Version Display May Confuse More Than Clarify
-Showing two versions of the text side by side (e.g., original + modern) sounds great in theory, but in practice: (a) it halves your readable area, (b) the eye constantly jumps between versions creating fatigue, (c) scholarly parallel-text editions exist and are used almost exclusively by academics, not general readers.
-
-**Suggestion**: Make this a power-user feature, hidden by default. The default should be one version, beautifully displayed, with a quick-toggle to switch between versions rather than showing both.
-
-### Critique 8: "Chat With Your Book" Already Exists
-Readwise Reader, Kindle + ChatGPT, Notion AI + epub imports, and dozens of Chrome extensions already let you highlight text and ask an AI about it. The standalone chat-with-a-book experience is not novel. You need to articulate what makes *your* version 10x better.
-
-**Possible differentiators that might actually work**:
-- Pre-computed, book-specific analysis that's *always there* (not just on-demand)
-- An annotation system that builds a personal "reading journal" over time
-- The style/translation flexibility (if quality is high enough)
-- A curated, opinionated experience rather than a generic AI wrapper
-
-### Critique 9: Voice Input for Reading Is Awkward
-Reading is typically done in silent, private contexts: bed, libraries, cafes, commutes. Speaking to your book is socially awkward in most reading contexts. The Kindle's lack of voice input is not a shortcoming — it reflects how people actually read.
-
-**Counter-argument**: There are contexts where voice works — reading at home alone, studying at a desk. But this is a nice-to-have, not a core feature. Don't let it drive design decisions.
-
-### Critique 10: The "Takeaways" Feature Assumes a Utilitarian View of Reading
-Not everyone reads classics to extract "key takeaways." Many read for aesthetic pleasure, for the experience of encountering beautiful language, for escapism, or for the slow accumulation of wisdom that resists bullet-point summarization. A takeaways-oriented design might attract productivity-minded readers but alienate literary ones.
-
-**Suggestion**: Frame this as a "reading journal" rather than "takeaways." The former invites reflection; the latter implies optimization.
-
----
-
-## Strongest Counter-Arguments (Why It Might Work Anyway)
-
-1. **The existing tools are all generic**: Nobody has built a *purpose-designed, book-specific* AI reading companion. The difference between "paste into ChatGPT" and a deeply integrated reading experience is the difference between a text editor and Google Docs.
-
-2. **Classics are intimidating**: There's a real market of people who *want* to read The Odyssey but find it impenetrable. The kids/modern versions + contextual chat could genuinely unlock these texts for new audiences.
-
-3. **The annotation/journal system could be genuinely sticky**: If you build something that accumulates value over time (your reading history, your annotations, your conversations with books), it becomes hard to leave.
-
-4. **Personal project first = no market pressure**: Since you're building this for yourself initially, you can focus entirely on making the experience *right* without worrying about monetization or scale. Many great products started this way.
-
----
-
 ## Design Direction
-- Inspired by Poetry Editor (poetryeditor.com) — warm, literary, clean
-- Light mode default, dark mode available
-- Free system fonts (no paid fonts)
-- Collapsible right panel (like Poetry Editor's Analysis panel)
-- Desktop-first
+- Warm, literary, clean aesthetic — light mode default, dark mode available
+- Desktop-first, mobile 5-tab swipeable layout
+- **New design system (2026-04-20):** Playfair Display (headlines), EB Garamond (body), IBM Plex Mono (UI chrome) — loaded via Google Fonts
+- **New palette:** `--paper: #ece7db`, `--ink: #0b0b0b`, `--accent: #1f4a5c` (deep teal replaces previous gold `#8b6b3a`)
+- Design references: `Design refs/Tinct Landing v2.html` (landing) + `Design refs/Reader Variations.html` (reader)
+- Canonical reader pattern: Variant D "The Hybrid" from Reader Variations.html
+- Collapsible right panel (Chat | Feed | Cast tabs)
 
 ## Tech Stack
 - React + TypeScript + Vite (same stack as Poetry Editor)
@@ -166,30 +100,37 @@ Not everyone reads classics to extract "key takeaways." Many read for aesthetic 
 - Public domain texts from Project Gutenberg / Internet Archive
 - Deployed via Cloudflare Workers
 
-## Current State (March 2026)
+## Current State (April 2026)
+**Last verified against codebase: 2026-04-20**
 
-### What Exists
-- React 18 + TypeScript + Vite project scaffolded
-- Components: Header, Reader, SidePanel, Chat
-- Custom hook: `useClaude.ts` for Claude API communication
-- The Odyssey: Butler (1900) and Pope (1726) translations, parsed from Project Gutenberg
-- Warm literary CSS design (dark/light mode, chapter nav, translation switcher)
-- Text selection popup ("Explain this" / "Ask about this")
-- Annotation type defined but not implemented
-- Playwright visual QA partially set up
+### What's Built & Deployed
+- **33 public books** registered in `bookRegistry.ts` (+ 1 copyright-protected local-only)
+- **3 editions per book:** original-en, modern-en, modern-da (kids editions permanently dropped)
+- Fully paginated reader (CSS multi-column) + split pane (paragraph-aligned)
+- Side panel: **Chat | Feed | Cast** (3 tabs — Feed = reading journal + highlights + notes + chats; Cast = character tracker)
+- Audio: paragraph-level playback, speed control, auto-advance, R2-hosted
+- Auth: Supabase email + Google OAuth
+- Billing: Stripe Checkout, 30-day free trial, Premium $3/mo (see Decisions Log)
+- Offline: DownloadManager.tsx, service worker caching
+- Android: Capacitor build in `app/android/`, Play Store listing drafted
+- Landing page: static `app/public/landing.html` (served at `/`, logged-out users only)
+- Mobile: 5-view swipeable layout (Read / Compare / Chat / Feed / Cast)
+- Highlights (5 colors), notes, reading journal, proactive AI insights
+- Dark mode, e-ink mode, font/size selector
 
-### Strategic Decisions Made (2026-03-16)
-All blocking questions answered — see `STRATEGY.md`:
-- **Name/domain:** Tinct / tinct.app
-- **Target audience:** Book club readers, classics-intimidated readers, serious deep readers
-- **Content scope:** The Odyssey first → 10-20 Western classics + Bible
-- **Revenue model:** Free reading, token-based AI pricing (cost-plus markup)
-- **Ambition:** Commercial — sustainable business, not charity
-- **Positioning:** "No Fear Shakespeare for everything, with an AI companion" — deep not wide (vs. Readwise)
+### Deployed
+- Production: https://tinct.app (and https://tinct.ahvelplund.workers.dev)
+- Last confirmed deploy: 2026-03-26
 
-### Current Phase: 1a — The Odyssey Experience
-**Target: mid-April 2026** (Anders's book club deadline)
-See `BACKLOG.md` for full task list.
+### Current Sprint (April 2026)
+Design refresh — landing page + reader UX rebuild to match new design system.
+See `Design refs/` folder at project root.
+
+### Known Code Gaps
+- Account deletion backend stub (TODO comment in App.tsx)
+- Audio edition preference callback stub (TODO in App.tsx ~line 1193)
+- Stripe keys not in .env (commented out) — production checkout may need re-verify
+- AccountDecision.tsx retained but no longer rendered — clean up in a later pass
 
 ---
 
@@ -212,7 +153,8 @@ See `BACKLOG.md` for full task list.
 Every deploy MUST follow this sequence. No exceptions.
 
 1. `cd tinct && npm run dev` — open localhost:3001 in browser, manually verify the change works
-2. `npx vite build` — must pass with zero errors
+2. `npx vite build` — must pass with zero errors. **Check the output for any stack traces or errors even if exit code is 0.** A build that prints errors but still exits 0 can leave stale files in `dist/`.
+2b. **Verify build is fresh:** `ls -la dist/assets/index-*.js` — the timestamp must match the build you just ran. If it's old, `rm -rf dist && npx vite build` and try again.
 3. After any variable/function removal: `grep -r "removedThing" src/` — verify no stale references
 4. **Before committing:** run `git status` and check for untracked files that your code imports. If `src/` imports a file that shows as "untracked" or "not staged", you MUST add it. The local build passes because the file exists on disk — but the remote build will fail because it's not in git. **This has broken production before.**
 5. **Before pushing:** run `git stash && npx vite build && git stash pop` to verify the build passes with ONLY committed files. If this fails, you have a missing file.
@@ -238,16 +180,7 @@ Every deploy MUST follow this sequence. No exceptions.
 2. **Write a test (Playwright or manual verification steps) that reproduces the bug BEFORE writing any fix code.**
 3. **After editing: grep for ALL references to any removed/renamed variable, function, or type.** The most common bug is removing a declaration but leaving references in dependency arrays, imports, or other files.
 4. **Run the reproduction test — it must pass before deploying.**
-5. **If 2 fix attempts have failed on the same bug: STOP.** Enter plan mode. Re-trace the full data flow from scratch. Do not attempt a third fix without a new analysis.
-
----
-
-## When Stuck (>2 failed attempts on same problem)
-
-- **STOP coding immediately.** More code changes will make it worse.
-- Add `console.log` at every stage of the data flow and read the actual browser console output.
-- Document in a plan: what you tried, what happened, why it failed.
-- If still stuck: tell Anders honestly. Say "I've tried X and Y, both failed because Z. I need to approach this differently." Do NOT try a third variation of the same approach.
+5. **If 2 fix attempts have failed on the same bug: STOP.** Add `console.log` at every stage of the data flow and read the actual browser console output. Enter plan mode and document what you tried, what happened, why it failed. If still stuck, tell Anders honestly: "I've tried X and Y, both failed because Z. I need to approach this differently." Do NOT try a third variation of the same approach.
 
 ---
 
@@ -277,15 +210,6 @@ Every deploy MUST follow this sequence. No exceptions.
 - When given a bug report: just fix it
 - But ALWAYS verify the fix works before telling Anders it's done
 - Zero context switching required from the user
-
-## Task Management
-
-1. **Plan First**: Write plan before starting implementation
-2. **Verify Plan**: Check in before starting
-3. **Track Progress**: Mark items complete as you go
-4. **Explain Changes**: High-level summary at each step
-5. **Document Results**: Note what was done
-6. **Capture Lessons**: Update Decisions Log after corrections
 
 ## Core Principles
 
@@ -320,16 +244,6 @@ Every deploy MUST follow this sequence. No exceptions.
 - Show mockups before building UI-heavy features
 
 **The rule:** If the backlog says do it, the tests pass, and the pattern is established — execute and report results. Don't ask.
-
----
-
-## Collaboration Preferences
-
-- **The user (Anders) is the product owner**: He has strong opinions about UX and product direction. Respect his instincts.
-- **Show mockups before building**: For UI-heavy features, create an HTML mockup and iterate on feedback before writing production code.
-- **Plan before code**: Enter plan mode for non-trivial tasks. Show the plan. Get approval. Then build.
-- **Don't ask unnecessary questions**: Be autonomous on routine decisions.
-- **Deep root-cause analysis before fixing**: Don't patch symptoms.
 
 ---
 
@@ -400,32 +314,55 @@ When adding a new book to the library, ALL of the following must be completed be
 
 ### 2. All Editions (generated via CLI — ZERO API spend)
 - [ ] `{bookId}-modern-en.json` — Modern English (accessible contemporary prose)
-- [ ] `{bookId}-kids-en.json` — Kids English (ages 10-14, simplified, age-appropriate)
 - [ ] `{bookId}-modern-da.json` — Modern Danish (Moderne Dansk)
-- [ ] `{bookId}-kids-da.json` — Kids Danish (Dansk for Børn)
 - [ ] All editions paragraph-aligned with original (same paragraph count per chapter)
+
+**Kids editions are permanently out of scope. Never add kids-en or kids-da.**
 
 ### 3. Book Registry
 - [ ] Book registered in `bookRegistry.ts` with all editions listed
 - [ ] Edition metadata correct (key, language, style, label, aligned flag)
 - [ ] `BOOKS` array includes the new book
 
-### 4. Threads (Character Tracker)
+### 4. Book Onboarding Content (required for every book)
+The onboarding modal shows for all entry points — direct navigation, SEO traffic, everything. It is the product's first impression and the mechanism that drives completion. Every book must have this content defined before it ships.
+
+**Content to write (generate via CLI conversation, never via API script):**
+- [ ] **About text** — 2 paragraphs: what the book is actually about, plainly stated
+- [ ] **Why it still matters** — 3 items: specific to this book, no generic observations. Each item must have an *italic title* and 2–3 sentences of substance.
+- [ ] **Reading angles** — 4 suggested angles shown as clickable cards in Step 3. Each is derived from the "why it matters" items. Format: `italic title + 2 sentences explaining what the reader will notice with this angle`. These are free for all users.
+- [ ] **Cast** — 6 key figures: name, role tag (mono uppercase), 2-sentence description. No spoilers beyond what's established early. Characters + concepts both allowed (e.g. "The Inner Citadel" for Meditations).
+- [ ] **Pre-reading chat responses** — 3 themed responses keyed to likely reader questions (each 3–5 substantial paragraphs, book-specific, at the quality level of the Odyssey Greek/Christian ethics response) + 1 fallback response. Topics should match what real readers bring to this particular book.
+- [ ] **Opening background text** — The actual opening lines of the book (shown blurred behind the modal). 3–5 sentences.
+- [ ] **HTML onboarding file** — Written to `Design refs/Book Onboarding - [Title].html` using the Odyssey file as template.
+
+**The reading angle is free for everyone.** It is not a premium feature. It is the core mechanism that increases completion rates. The extended pre-reading chat (Step 5) is premium.
+
+**Flow order:**
+1. Edition setup (mandatory)
+2. What you're about to read + Why it matters
+3. Your reading angle (free — 4 suggested cards + custom text)
+4. Meet the cast
+5. Extended pre-reading chat (premium)
+
+### 5. Threads (Character Tracker)
 - [ ] `{bookId}-threads.json` created with all major characters
 - [ ] Each character has: id, name (en/da), epithet (en/da), role, wikipediaUrl, searchNames
-- [ ] Per-chapter summaries in all 4 editions (modern-en, kids-en, modern-da, kids-da)
+- [ ] Per-chapter summaries in 2 editions (modern-en, modern-da)
 - [ ] `useThreads.ts` updated to load the new book's threads data
 
-### 5. App Integration
+### 6. App Integration
 - [ ] Book selectable in the UI (Header book selector)
 - [ ] Chapter navigation works (correct labels, correct count)
 - [ ] Edition switching works (language + style dropdowns)
 - [ ] Split pane works with aligned editions
 - [ ] Reading position persistence works per book
 - [ ] Chat context uses correct book title/author
-- [ ] Onboarding/reading angle works per book
+- [ ] **Onboarding modal fires for all entry points** (direct nav, SEO landing, share links)
+- [ ] Reading angle stored in user session and injected into AI system prompt
+- [ ] Onboarding can be dismissed at any step ("Start reading now →")
 
-### 6. Visual QA (Non-negotiable)
+### 7. Visual QA (Non-negotiable)
 - [ ] Every edition, every chapter visually checked via dev server screenshots
 - [ ] Text renders correctly (no missing content, no broken paragraphs)
 - [ ] Chapter navigation works end-to-end
@@ -442,3 +379,50 @@ When adding a new book to the library, ALL of the following must be completed be
 **[Pricing Model Revised 2026-03-24]**: Two tiers, per-book. First book = Premium free. Free: all editions, side-by-side, highlights, cross-device sync. Premium ($3/book): cast, 200 AI messages, intelligent notes, audiobook, reading journal, flashcards, chapter reflection prompts. Beyond 200 messages: $3 per 100 extra messages (account-level balance, carries across books). At ~$0.02/message API cost, that's ~50% markup. Replaces previous token-balance top-up model. Billing infrastructure needs update: per-book purchase flow via Stripe, 200-message counter per book, message pack purchases, first-book-free logic.
 
 **[Features To Build 2026-03-24]**: Flashcards & spaced repetition (per-book vocabulary/concepts, review scheduling). Audiobook with position sync (TTS or pre-generated, syncs to reading position). Chapter reflection prompts (AI-generated prompts gated behind Premium tier). Per-book purchase flow (replace top-up model with $3/book Stripe checkout). Message pack purchase ($3/100 messages, account-level balance).
+
+**[Kids Editions Dropped 2026-03-25]**: Kids editions (kids-en, kids-da) permanently removed from scope for all books. Never discuss, generate, or reference. Editions are now 3 per book: original-en, modern-en, modern-da. All checklists and scripts updated accordingly.
+
+**[Pricing Final 2026-04-20]**: Premium is $3/month (confirmed by Anders). Replaces all previous pricing discussions ($5/mo, per-book $3, etc.). PricingModal.tsx and landing.html still show $5/mo — needs code update.
+
+**[Subscription Model 2026-04-20]**: Three tiers in PricingModal: (1) No account — read only, (2) Free account — reading features + 30-day Premium trial, (3) Premium $3/mo — AI chat (200 msgs/mo), audiobook, Cast, offline, reading journal.
+
+**[Content Expansion 2026-04-20]**: 33 public books registered in bookRegistry.ts as of April 2026. Target is 100+ books. "Content Expansion" sprint is complete for the initial push; ongoing as new books are added.
+
+**[Android App 2026-04]**: Capacitor build started, `app/android/` directory exists. Play Store listing drafted (PLAY-STORE-LISTING.md). E-ink optimizations in scope for Android.
+
+**[Offline Mode 2026-04]**: DownloadManager.tsx built, service worker caching implemented. Offline sprint is done.
+
+**[Reading Angle — Core Feature 2026-04-20]**: Reading angle is free for all users (not premium). It fires on all entry points including SEO traffic. It is the primary completion-rate mechanism — research confirms personal connection before reading begins is the #1 driver of book completion. The extended pre-reading chat (Step 5) remains premium. Angle is stored in session and injected into AI system prompt so mid-read chat references it. Book Addition Checklist updated to require 4 angle cards per book.
+
+**[Onboarding Entry Point 2026-04-20]**: Onboarding modal shows for ALL entry points — direct navigation, SEO landing pages, share links, everything. Users can dismiss at any step with "Start reading now →". This is intentional: Tinct's differentiation is the onboarding experience, not just text access. SEO visitors who see it immediately understand they are somewhere different from Project Gutenberg.
+
+**[Design Refresh 2026-04-20]**: Full design system refresh in progress. New design refs at `Design refs/` folder. Landing page: `Tinct Landing v2.html`. Reader: `Reader Variations.html`, canonical = Variant D "The Hybrid". New palette: --paper #ece7db, --ink #0b0b0b, --accent #1f4a5c. New fonts: Playfair Display, EB Garamond, IBM Plex Mono (Google Fonts). Accent color changes everywhere — reader and landing must be consistent.
+
+**[Account Onboarding Rewrite 2026-04-21]**: Account Onboarding reduced to 6 steps, copy rewritten in manifesto voice. Step sequence: (1) Your angle — "What draws you in?", (2) Modern/original/both with split-pane toggle note, (3) The guide — "Who was Menelaus again?" (Chat + Cast folded into one step), (4) Audiobook continuity — "Pick up where you stopped reading" (NEW step; audiobook gets its own beat per manifesto), (5) The journal — highlights + Feed, (6) Preferences + pricing close — "The books are still here" with $3/mo + first-month-free beat. Old "Welcome to Tinct" dead-end step removed; pricing merged into final preferences step. Ref: `Design refs/Account Onboarding.html`.
+
+**[Angle Skip Option 2026-04-21]**: Reading angle remains the pitched default but must never feel imposed. Two moves: (a) Account Onboarding Step 1 copy ends with "Or skip — the book works either way"; (b) Book Onboarding angle step gets a fifth equal-weight card "Just start reading" that clears the angle. Reading angle stays free for all users and remains the #1 completion-rate mechanism.
+
+**[Angle Iteration Feature — FUTURE 2026-04-21]**: New feature idea (not yet built): when the user submits a reading angle, the AI responds conversationally ("That's a strong angle — here's what you might notice...") and iterates across a few turns before the angle is locked in. Gives the user a chance to refine before reading starts. **Free tier gets this specific chat** (capped at ~5 messages) as a taste of the AI companion — cost is low, conversion signal is high. In-book chat remains Premium. Logged to BACKLOG.md.
+
+**[User Journeys v1 — Approved 2026-04-21]**: Two-path user flow spec approved. Ref: `Design refs/User Journeys.html`. Journey A (Direct-to-Book, SEO/shared links): one-screen edition picker (reuse Book Onboarding Step 1) → reader → state-aware top banner → progress prompt at end of Chapter 1 (or page 20 if long) → sign-up modal → TierChooser. Journey B (Library-First): landing → library → full 3-step Book Onboarding → TierChooser (if no account) → reader. Four locked-in principles: no hard gates, don't describe local storage, no-downside Premium (defaulted), three tiers always (Premium/Free/Anonymous). Sign-up supports Google (live), Apple (deferred — needs Apple Developer config), Email magic link. Account Onboarding (the 6-step tour) is NOT the critical path — optional from Settings only.
+
+**[Landing Page Auth Redirect — CRITICAL 2026-04-21]**: Signed-in users must NEVER see the landing page. Added auth-check script at top of `app/public/landing.html` that inspects localStorage for a valid Supabase session token and redirects to `/read` before the page renders. This is a hard rule — any regression is a P0 bug.
+
+**[Pricing Consolidated 2026-04-21]**: All $5/mo references updated to $3/mo across `TrialBanner.tsx`, `PricingModal.tsx`, `AccountDecision.tsx`, `UsageDashboard.tsx`, `worker.ts`. Chat pack $5/200 messages stays (separate product). Landing.html already clean.
+
+**[TierChooser Component 2026-04-21]**: New `app/src/components/TierChooser.tsx` replaces the AccountDecision modal in `App.tsx`. Three options: Premium (pre-selected, 30 days free, auto-cancels), Free account, Anonymous. Wired to route both Premium and Free selections through AuthModal signup — the existing TierContext defaults all new accounts to the 30-day trial. AccountDecision.tsx file retained but no longer rendered; clean up in a later pass. CSS appended to `index.css`.
+
+**[Security & Efficiency Audit — 2026-04-21]**: Full security + efficiency scan completed by parallel agents. Low-risk fixes shipped:
+- **Anti-scrape**: Rate-limiting added to `/data/*.json` (30 req/60s per IP), `/api/audio-manifest`, `/api/audio-file`, `/api/edition-patches`. Path validation added to audio proxies (rejects path traversal, only `{bookId}/{edition}/{file}` pattern). `bookId`/`editionKey` whitelisted on patches endpoint against injection via Supabase `eq.` filter.
+- **robots.txt**: Created with AI-training crawler opt-outs (GPTBot, ClaudeBot, CCBot, Google-Extended, PerplexityBot, etc.). Disallows `/data/`, `/api/`, `/audio/`.
+- **Cleanup**: Deleted 31 macOS/iCloud sync-conflict duplicates (26 in `app/src/`, 5 at `app/` root: capacitor/vite/wrangler/package config dupes). Added `*\ 2.*` glob to `.gitignore`.
+- **Open items** (need Anders): (1) Make R2 bucket `pub-c34df89c...` private and bind to worker via `env.R2_BUCKET.get()` to close direct-access bypass — requires Cloudflare dashboard change. (2) Hero images (`hero-bg.png` 3.5 MB, `hero-devices.png` 361 KB) → convert to WebP for ~800 KB+ gzip savings on landing. (3) Lazy-load SettingsSheet/PricingModal/UsageDashboard/BookStore/TierChooser via `React.lazy()` — ~30-40 KB JS gzip deferred. (4) Minify static JSON via Vite plugin — ~10-15 KB gzip on edition loads.
+
+**[User-Journey Build Phase 2 — 2026-04-21]**: Core components for the new journey flow are built and wired:
+- `BookOnboarding.tsx` — 3-step modal (edition → angle → cast). Supports `mode='full'` and `mode='edition-only'` for direct-to-book users. Loads per-book JSON from `/data/onboarding/{bookId}.json`. Blurred opening text behind the modal. Dismissible at any step via "Start reading now ×".
+- `ProgressPrompt.tsx` — inline floating card that appears for anonymous users at end of Chapter 1 (or page 20 fallback). Triggers sign-up modal. Dismissal persists per-book via localStorage.
+- `ContextualAnglePrompt.tsx` — renders inline in the Chat welcome state when no reading angle is set. Wired through `SidePanel.tsx` → `Chat.tsx`.
+- `TrialBanner.tsx` — extended with anonymous-state banner ("Save your place across devices — AI companion, audiobook, Feed. Free account →"), no pricing. Premium-trial state updated to "Cancels automatically."
+- **Deep-link URL parsing** added to `App.tsx` mount — `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Worker's existing SPA fallback already serves these paths.
+- Per-book content for all 33 books extracted from `Design refs/Book Onboarding - *.html` into `/data/onboarding/{bookId}.json` via CLI agent. Zero API spend. Each file has: title, author, era, length, estimatedTime, openingChapterLabel, openingText, about, 4 angleCards, 6 cast.
+- Apple OAuth deferred pending Apple Developer Program + Supabase config.

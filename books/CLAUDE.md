@@ -10,14 +10,21 @@ This is the Book Factory for Tinct. When Anders opens Claude from this folder, h
 
 The Tinct project settings (`.claude/settings.json`) already allow `python3`, `cp`, `mkdir`, `Read`, `Write`, `Edit`, `Glob`, `Grep`, and git commands. No special flags needed when launching from this folder.
 
-**Always use absolute paths** instead of `cd`. The working directory is `/Users/andershvelplund/Documents/Projects/Tinct/books`. Key absolute paths:
-- TTS script (Kokoro, for ALL English audio): `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-kokoro.py`
-- TTS script (Edge, for Danish audio ONLY): `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-edge.py`
-- TTS script (Kokoro, Odyssey-only legacy): `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-odyssey-audio.py`
-- Manifest script: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py`
-- Edition files: `/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions/`
-- Public audio: `/Users/andershvelplund/Documents/Projects/Tinct/app/public/audio/`
-- Staging audio: `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/audio/`
+**Always use absolute paths** instead of `cd`. Working directory: `/Users/andershvelplund/Documents/Projects/Tinct/books`.
+
+| What | Absolute path |
+|------|---------------|
+| Edition JSON files | `/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions/` |
+| Book registry | `/Users/andershvelplund/Documents/Projects/Tinct/app/src/data/bookRegistry.ts` |
+| Type definitions | `/Users/andershvelplund/Documents/Projects/Tinct/app/src/types/index.ts` |
+| TTS — Kokoro (English) | `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-kokoro.py` |
+| TTS — Chirp (Danish only) | `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-audio-chirp.py` |
+| TTS — chapter title audio | `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-title-audio.py` |
+| TTS — manifests | `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-manifests-edge.py` |
+| Audio staging | `/Users/andershvelplund/Documents/Projects/Tinct/app/tts/audio/` |
+| Audio public | `/Users/andershvelplund/Documents/Projects/Tinct/app/public/audio/` |
+| Raw source texts | `/Users/andershvelplund/Documents/Projects/Tinct/books/raw/` |
+| Parse helper | `/Users/andershvelplund/Documents/Projects/Tinct/books/parse-gutenberg.py` |
 
 ---
 
@@ -36,6 +43,7 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
    - **Opus (main conversation, no model flag):** Translation (EN and DA), translation review, complex editorial judgment, bug diagnosis.
    - **No model cost:** Audio generation (local TTS), R2 uploads, git operations, `python3` scripts.
    - **Why:** Anders's "All models" quota covers Opus. "Sonnet only" is a separate, unused pool. Every threads generation or parsing job run on Opus wastes premium quota on work Sonnet handles fine. `/fast` mode does NOT help — it's still Opus.
+   - **Bulk regeneration exception:** For severely broken books, parallel Opus agents via `Agent(model: "opus", ...)` are permitted. Each agent regenerates one book end-to-end using `read-chapter.py` + `write-chapter.py`, self-audits with `audit-truncation.py`, and retries any paragraph flagged <0.75. Main conversation does a post-hoc quality gate (spot-sample 3 paragraphs per book, run full audit). If quality fails, re-launch with tightened constraints.
 9. **Agent file writes.** Subagents' Write tool is often blocked by permissions. **Always write files via python scripts instead:** use `Write` to create `/tmp/scriptname.py`, then `Bash(python3 /tmp/scriptname.py)` to execute. Both tools are pre-approved. This pattern is mandatory for all agents that produce JSON output (threads, editions, etc.). Agents can use Read/Glob/Grep freely.
 9b. **Avoid security prompt triggers.** These patterns cause security warnings Anders must manually approve — avoid all of them:
    - **`cd <path> && git ...`** — use `git -C <path> ...` instead.
@@ -48,8 +56,8 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 12. **Bible translation: fresh conversation required.** Both subagents and bloated main conversations hit Anthropic's content filter on Bible text. The filter triggers when accumulated context + output is too large. **Start a dedicated fresh conversation** for Bible translation work — open Claude from the `books/` folder and say "continue Bible modern-da translation." Process one book at a time: read source → translate → write into `bible-modern-da.json` → validate → next book. For large books (100+ paragraphs): read source in 50-paragraph chunks. When context gets large, start a new conversation.
 13. **Update status before ending.** Before ending any session that generated content (translations, audio, threads), run `python3 check-status.py` and update the Current Status table at the bottom of this file to match. This has caused major confusion — the status table said Bible modern-en was 12/66 when it was actually 66/66 complete.
 14. **Audio engine rules — NEVER MIX THESE UP.**
-    - **English audio → Kokoro** (`generate-audio-kokoro.py`). NEVER use Edge TTS for English.
-    - **Danish audio → Edge TTS** (`generate-audio-edge.py` with `--voice da-DK-ChristelNeural` and rate `-8%`). Kokoro does not support Danish.
+    - **English audio → Kokoro** (`generate-audio-kokoro.py`). NEVER use Chirp for English.
+    - **Danish audio → Google Chirp** (`generate-audio-chirp.py`). Kokoro does not support Danish.
     - This mistake was made once and affected 8 books. Do not repeat it.
 15. **Truncation audit after every chapter batch.** Run `python3 books/audit-truncation.py {book-id}` after generating any batch of chapters (EN or DA). Every paragraph flagged must be inspected by eye — genuine content loss is fixed on the spot, natural compression is skipped. Never ship a chapter batch without running the audit. This caught 2,513 truncated paragraphs across 28 books in April 2026 — a failure that cost weeks of rework. The filter is conservative; the judgment is human. Use `show-paragraph.py` to inspect and `write-paragraph.py` to fix individual paragraphs without loading whole edition files.
 
@@ -159,7 +167,7 @@ python3 /Users/andershvelplund/Documents/Projects/Tinct/app/tts/generate-title-a
 ```
 This reads chapter titles from the edition JSON, generates `title.mp3` per chapter, prepends it to the manifest as `paragraph: -1`, and uploads both `title.mp3` and updated `manifest.json` to R2. Without this step, audiobook chapters start abruptly without announcing the chapter name.
 
-Uses Kokoro TTS (Bella voice). Danish audio uses Google Chirp (`generate-audio-chirp.py`).
+Uses Kokoro TTS (Bella voice). Danish audio uses Google Chirp (`generate-audio-chirp.py`). See Rule 14.
 
 ### Step 5: Generate Modern Danish + QA (automated)
 
@@ -274,8 +282,8 @@ npx vite build
 echo "BUILD: $?"
 
 # 3. Commit all new/changed files for this book
-git add src/data/editions/{book-id}-*.json
-git add src/data/editions/{book-id}-threads.json
+git add public/data/editions/{book-id}-*.json
+git add public/data/editions/{book-id}-threads.json
 git add src/data/bookRegistry.ts
 git add public/audio/{book-id}/
 git commit -m "Add {book title} to library (all editions + audio + threads)"
@@ -287,7 +295,7 @@ npx wrangler deploy
 curl -s https://tinct.ahvelplund.workers.dev/ | head -5
 ```
 
-**Policy:** Never publish a partially complete book. A book with modern-en but no modern-da text is NOT ready. A book with editions but no English audio is NOT ready. The reader should never encounter a book that's missing pieces.
+**Policy:** Never publish a partially complete book. A book with editions but no English audio is NOT ready. The reader should never encounter a book that's missing pieces.
 
 **After publishing:** Update the Current Status table in this file to mark the book as Complete across all columns.
 
@@ -304,25 +312,6 @@ When adding a language (e.g., Spanish) to all books that already have original-e
 5. Visual QA
 
 This skips Steps 1-3 of the main pipeline since the original is already parsed.
-
-### Agent Chunking — Model Rules
-
-**Translation (EN and DA):**
-- **Incremental work (fixes, small patches):** Generate in the main Opus conversation. Translation quality requires Opus and the full context of the conversation.
-- **Bulk regeneration of severely broken books:** Parallel Opus subagents are permitted via `Agent(model: "opus", ...)`. Each agent regenerates one book end-to-end, working chapter-by-chapter with `read-chapter.py` + `write-chapter.py`, self-auditing with `audit-truncation.py`, retrying any paragraph flagged <0.75. The main conversation does a post-hoc quality gate: spot-samples 3 paragraphs per regenerated book and runs the full audit. If quality fails, re-launch the agent with tightened constraints.
-- Sonnet agents remain forbidden for translation. Translation is Opus-only.
-
-**Non-translation agents (threads, parsing, QA):** Use `model: "sonnet"` to preserve Opus quota.
-
-```
-Example: "Generate threads for 5 books"
-→ Agent(model: "sonnet"): frankenstein threads
-→ Agent(model: "sonnet"): jane-eyre threads
-→ Agent(model: "sonnet"): paradise-lost threads
-→ Agent(model: "sonnet"): the-aeneid threads
-→ Agent(model: "sonnet"): divine-comedy threads
-All run in parallel on Sonnet quota.
-```
 
 ---
 
@@ -364,23 +353,6 @@ Books to add (from STRATEGY.md / BACKLOG.md). No fixed order — follows the fun
 | 17 | Apology | Plato | ~399 BC | Socrates' trial & defense. Jowett 1871 translation. Short |
 
 Target: 10-20 books total. List is not locked — Anders decides.
-
----
-
-## Reference Paths
-
-| What | Path (relative to this folder) |
-|------|------|
-| Edition JSON files | `../app/public/data/editions/` |
-| Book registry | `../app/src/data/bookRegistry.ts` |
-| Type definitions | `../app/src/types/index.ts` |
-| TTS generation script (Kokoro) | `../app/tts/generate-odyssey-audio.py` |
-| TTS generation script (Edge, fallback) | `../app/tts/generate-audio-edge.py` |
-| TTS manifest script | `../app/tts/generate-manifests-edge.py` |
-| Generated audio (staging) | `../app/tts/audio/` |
-| Public audio | `../app/public/audio/` |
-| Raw source texts | `raw/` |
-| Parse helper | `parse-gutenberg.py` |
 
 ---
 

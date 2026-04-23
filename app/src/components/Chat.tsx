@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import type { ChatMessage, ChatConversation } from '../types'
 import { BalanceIndicator } from './BalanceIndicator'
+import { ContextualAnglePrompt } from './ContextualAnglePrompt'
 
 /** Human-readable "3 min ago" / "Yesterday" / "Apr 12". */
 function formatRelativeTime(ts: number): string {
@@ -128,6 +129,7 @@ interface ChatProps {
   chapterLabels?: Record<number, string>
   readingObjective?: string
   onEditObjective?: () => void
+  bookId?: string
   messagesRemaining?: number
   hasBalance?: boolean
   isAnonymous?: boolean
@@ -141,7 +143,7 @@ interface ChatProps {
   chatConversations?: ChatConversation[]
 }
 
-export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, readingObjective, onEditObjective, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
+export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
   const [input, setInput] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
@@ -311,7 +313,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                 ? `I'm here as you read ${chapterTitle}. Highlight a passage, or ask me anything.`
                 : 'Your reading companion'}
             </p>
-            {readingObjective && (
+            {readingObjective ? (
               <div className="chat-welcome-objective" style={{ animationDelay: '0.1s' }}>
                 <span className="chat-welcome-objective-label">Your angle:</span>
                 <span className="chat-welcome-objective-text">{readingObjective}</span>
@@ -319,6 +321,16 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                   <button className="chat-welcome-edit" onClick={onEditObjective}>edit</button>
                 )}
               </div>
+            ) : (
+              bookId && onEditObjective && (
+                <div style={{ animationDelay: '0.1s' }}>
+                  <ContextualAnglePrompt
+                    bookId={bookId}
+                    onSetAngle={onEditObjective}
+                    onSkip={() => { /* remembered in localStorage by the component */ }}
+                  />
+                </div>
+              )
             )}
             <div className="chat-suggestion-chips" style={{ animationDelay: '0.2s' }}>
               <button

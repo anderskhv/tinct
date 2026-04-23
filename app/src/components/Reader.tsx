@@ -2,6 +2,7 @@ import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
+import { apiUrl } from '../utils/apiUrl'
 
 interface SelectionInfo {
   x: number
@@ -301,11 +302,13 @@ export function Reader({
     }
   }, [playingParagraphIndex, playingParagraphProgress, getColWidth, getGap])
 
-  // Reset userNavigated flag when audio stops
+  // Reset userNavigated flag when audio moves to a new paragraph, or stops.
+  // Rationale: the user's "I want to stay on this page" intent is scoped to
+  // the paragraph currently being read. When the reader moves on, follow
+  // should re-engage — otherwise a single arrow press kills auto-follow for
+  // the rest of the chapter.
   useEffect(() => {
-    if (playingParagraphIndex === undefined) {
-      userNavigatedRef.current = false
-    }
+    userNavigatedRef.current = false
   }, [playingParagraphIndex])
 
   // Keep the selection popup inside the viewport. The initial position
@@ -372,8 +375,31 @@ export function Reader({
         }
       }
     }
+    // Custom page-nav event: used by on-screen nav buttons (BottomBar,
+    // ReadingProgressBar). Synthetic KeyboardEvents don't fire reliably in
+    // Capacitor Android WebView, so we use a CustomEvent instead.
+    const handlePageNav = (e: Event) => {
+      const direction = (e as CustomEvent<{ direction: 'next' | 'prev' }>).detail?.direction
+      if (direction === 'next') {
+        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+          onNextChapterRef.current()
+        } else {
+          goToPageRef.current(currentPageRef.current + 1)
+        }
+      } else if (direction === 'prev') {
+        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+          onPrevChapterRef.current()
+        } else {
+          goToPageRef.current(currentPageRef.current - 1)
+        }
+      }
+    }
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    window.addEventListener('tinct:page-nav', handlePageNav)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('tinct:page-nav', handlePageNav)
+    }
   }, [])
 
   // Track whether onTouchEnd already handled a tap (avoid double page turn on mobile)
@@ -553,7 +579,38 @@ export function Reader({
       endOffset: Math.max(0, endOffset),
       showBelow,
     })
+
+    // Mobile: clear the native selection so Safari's edit menu doesn't
+    // compete with ours. Text is captured in popup state; user acts through
+    // our UI (Copy, Highlight, Chat, etc.).
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
+    }
   }, [paragraphs, readerRef, disableHighlight])
+
+  const handleCopy = useCallback(() => {
+    if (!selectionPopup) return
+    const text = selectionPopup.text
+    const done = () => {
+      setSelectionPopup(null)
+      window.getSelection()?.removeAllRanges()
+    }
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).finally(done)
+    } else {
+      try {
+        const ta = document.createElement('textarea')
+        ta.value = text
+        ta.style.position = 'fixed'
+        ta.style.opacity = '0'
+        document.body.appendChild(ta)
+        ta.select()
+        document.execCommand('copy')
+        document.body.removeChild(ta)
+      } catch { /* noop */ }
+      done()
+    }
+  }, [selectionPopup])
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
@@ -593,7 +650,7 @@ export function Reader({
     try {
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (authToken) headers['Authorization'] = `Bearer ${authToken}`
-      const res = await fetch('/api/report-issue', {
+      const res = await fetch(apiUrl('/api/report-issue'), {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -608,7 +665,7 @@ export function Reader({
       })
       if (!res.ok) throw new Error(`${res.status}`)
       const data = await res.json() as { reportId?: string }
-      window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Thank you — we\'re reviewing your report now. For every 5 approved fixes, you get a free month.' } }))
+      window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Thank you. We\'re reviewing your report now. For every 5 approved fixes, you get a free month.' } }))
       // Poll for evaluation result
       if (data.reportId) {
         let attempts = 0
@@ -616,7 +673,7 @@ export function Reader({
           attempts++
           if (attempts > 20) { clearInterval(poll); return } // stop after ~60s
           try {
-            const statusRes = await fetch(`/api/report-status?id=${data.reportId}`)
+            const statusRes = await fetch(apiUrl(`/api/report-status?id=${data.reportId}`))
             const statusData = await statusRes.json() as { status: string }
             if (statusData.status === 'confirmed') {
               clearInterval(poll)
@@ -887,6 +944,16 @@ export function Reader({
                   <circle cx="8" cy="13" r="1" fill="currentColor" stroke="none" />
                 </svg>
                 <span className="popup-icon-label">Issue</span>
+              </button>
+
+              <div className="popup-divider" />
+
+              <button className="popup-icon-btn" onClick={handleCopy} title="Copy text">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="5" y="5" width="9" height="9" rx="1" />
+                  <path d="M11 5 V3 a1 1 0 0 0 -1 -1 H3 a1 1 0 0 0 -1 1 v7 a1 1 0 0 0 1 1 h2" />
+                </svg>
+                <span className="popup-icon-label">Copy</span>
               </button>
 
               <div className="popup-divider" />

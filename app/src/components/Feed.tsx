@@ -436,8 +436,7 @@ export function Feed({
                 <button
                   className="feed-row-header"
                   onClick={() => {
-                    if (isUnread) return
-                    toggleChapter(ch)
+                    if (!isUnread) toggleChapter(ch)
                     if (!isCurrent) onNavigateToChapter(ch)
                   }}
                 >

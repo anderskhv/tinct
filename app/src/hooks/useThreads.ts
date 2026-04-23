@@ -10,6 +10,21 @@ export function useThreads(bookId: string, editionData: EditionData | null) {
       odyssey: () => fetch('/data/editions/odyssey-threads.json').then(r => r.json()),
       ulysses: () => fetch('/data/editions/ulysses-threads.json').then(r => r.json()),
       'war-and-peace': () => fetch('/data/editions/war-and-peace-threads.json').then(r => r.json()),
+      bible: () => fetch('/data/editions/bible-threads.json').then(r => r.json()),
+      gilgamesh: () => fetch('/data/editions/gilgamesh-threads.json').then(r => r.json()),
+      hamlet: () => fetch('/data/editions/hamlet-threads.json').then(r => r.json()),
+      macbeth: () => fetch('/data/editions/macbeth-threads.json').then(r => r.json()),
+      midsummer: () => fetch('/data/editions/midsummer-threads.json').then(r => r.json()),
+      'romeo-and-juliet': () => fetch('/data/editions/romeo-and-juliet-threads.json').then(r => r.json()),
+      'the-tempest': () => fetch('/data/editions/the-tempest-threads.json').then(r => r.json()),
+      'pride-and-prejudice': () => fetch('/data/editions/pride-and-prejudice-threads.json').then(r => r.json()),
+      'crime-and-punishment': () => fetch('/data/editions/crime-and-punishment-threads.json').then(r => r.json()),
+      'the-republic': () => fetch('/data/editions/the-republic-threads.json').then(r => r.json()),
+      'divine-comedy': () => fetch('/data/editions/divine-comedy-threads.json').then(r => r.json()),
+      'jane-eyre': () => fetch('/data/editions/jane-eyre-threads.json').then(r => r.json()),
+      'the-aeneid': () => fetch('/data/editions/the-aeneid-threads.json').then(r => r.json()),
+      'paradise-lost': () => fetch('/data/editions/paradise-lost-threads.json').then(r => r.json()),
+      frankenstein: () => fetch('/data/editions/frankenstein-threads.json').then(r => r.json()),
     }
     const loader = loaders[bookId]
     if (loader) {

@@ -38,7 +38,7 @@ const tiers = [
   },
   {
     name: 'Premium',
-    price: '$5/mo',
+    price: '$3/mo',
     description: 'The full experience',
     features: [
       { label: 'Everything in Free', included: true },

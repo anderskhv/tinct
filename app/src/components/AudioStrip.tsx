@@ -5,12 +5,6 @@ interface AudioStripProps {
   isOpen: boolean
   onClose: () => void
   isPlaying: boolean
-  /** Index of the paragraph the engine is currently playing (in book-local order). */
-  playingParagraphIndex?: number
-  /** Title of the chapter the engine is currently in. */
-  chapterTitle?: string
-  /** Text of the currently-playing paragraph (for the preview line). */
-  paragraphPreview?: string
   /** Imperative handle to the BottomBar's audio engine. */
   audioRef: React.RefObject<BottomBarHandle>
 }
@@ -19,9 +13,6 @@ export function AudioStrip({
   isOpen,
   onClose,
   isPlaying,
-  playingParagraphIndex,
-  chapterTitle,
-  paragraphPreview,
   audioRef,
 }: AudioStripProps) {
   // Local mirror so the speed pill updates immediately on click — the underlying
@@ -35,22 +26,33 @@ export function AudioStrip({
 
   if (!isOpen) return null
 
-  const trimmedPreview = paragraphPreview && paragraphPreview.length > 0
-    ? paragraphPreview.length > 220 ? paragraphPreview.slice(0, 220) + '\u2026' : paragraphPreview
-    : null
-
   return (
     <div className="audio-strip" role="region" aria-label="Audiobook player">
       <button
         type="button"
-        className="audio-strip-btn"
+        className="audio-strip-btn audio-strip-btn-sm"
         onClick={() => audioRef.current?.skipParagraphs(-1)}
         title="Previous paragraph"
         aria-label="Previous paragraph"
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="14 6 8 12 14 18" />
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="19 20 9 12 19 4 19 20" />
+          <line x1="5" y1="19" x2="5" y2="5" />
         </svg>
+      </button>
+
+      <button
+        type="button"
+        className="audio-strip-btn"
+        onClick={() => audioRef.current?.skipSeconds(-15)}
+        title="Back 15 seconds"
+        aria-label="Back 15 seconds"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 12a9 9 0 1 0 2.64-6.36" />
+          <polyline points="3 4 3 10 9 10" />
+        </svg>
+        <span className="audio-strip-seek-label">15</span>
       </button>
 
       <button
@@ -65,27 +67,31 @@ export function AudioStrip({
       <button
         type="button"
         className="audio-strip-btn"
+        onClick={() => audioRef.current?.skipSeconds(15)}
+        title="Forward 15 seconds"
+        aria-label="Forward 15 seconds"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+          <polyline points="21 4 21 10 15 10" />
+        </svg>
+        <span className="audio-strip-seek-label">15</span>
+      </button>
+
+      <button
+        type="button"
+        className="audio-strip-btn audio-strip-btn-sm"
         onClick={() => audioRef.current?.skipParagraphs(1)}
         title="Next paragraph"
         aria-label="Next paragraph"
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="10 6 16 12 10 18" />
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="5 4 15 12 5 20 5 4" />
+          <line x1="19" y1="5" x2="19" y2="19" />
         </svg>
       </button>
 
-      <div className="audio-strip-nowplaying">
-        <div className="audio-strip-meta">
-          <span className="audio-strip-meta-left">
-            {isPlaying ? 'Now playing' : 'Paused'}
-            {chapterTitle ? ` \u00b7 ${chapterTitle}` : ''}
-            {playingParagraphIndex != null ? ` \u00b7 \u00b62 of ${playingParagraphIndex + 1}` : ''}
-          </span>
-        </div>
-        {trimmedPreview && (
-          <div className="audio-strip-preview">&ldquo;{trimmedPreview}&rdquo;</div>
-        )}
-      </div>
+      <div className="audio-strip-spacer" />
 
       <button
         type="button"

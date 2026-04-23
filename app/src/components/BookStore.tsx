@@ -6,6 +6,7 @@ interface BookStoreProps {
   books: Book[]
   libraryIds: string[]
   onAddBook: (bookId: string) => void
+  onRemoveBook?: (bookId: string) => void
   onSelectBook: (bookId: string) => void
   onClose?: () => void
 }
@@ -18,6 +19,26 @@ function isFinished(p: ReadingProgress | null | undefined): boolean {
   if (!p) return false
   if (p.totalChapters > 0 && p.highestCompletedChapter >= p.totalChapters) return true
   return p.percent >= 100
+}
+
+// ── Era grouping ──
+// Books in the "All Books" list are grouped by publication era so the library
+// feels like a library, not a flat pile. Book.year is the publication year of
+// the original work (negative for BCE).
+type Era = 'ancient' | 'medieval' | 'modern' | 'contemporary'
+const ERA_LABELS: Record<Era, string> = {
+  ancient: 'Ancient world',
+  medieval: 'Medieval & Renaissance',
+  modern: '18th–19th century',
+  contemporary: '20th century & beyond',
+}
+const ERA_ORDER: Era[] = ['ancient', 'medieval', 'modern', 'contemporary']
+function eraOf(year?: number): Era {
+  if (year === undefined) return 'contemporary'
+  if (year < 500) return 'ancient'
+  if (year < 1700) return 'medieval'
+  if (year < 1900) return 'modern'
+  return 'contemporary'
 }
 
 function BookCover({ book, size = 'normal' }: { book: Book; size?: 'normal' | 'large' }) {
@@ -50,120 +71,7 @@ function BookCover({ book, size = 'normal' }: { book: Book; size?: 'normal' | 'l
   )
 }
 
-function BookDetail({ book, inLibrary, onAddBook, onSelectBook, onBack }: {
-  book: Book
-  inLibrary: boolean
-  onAddBook: (bookId: string) => void
-  onSelectBook: (bookId: string) => void
-  onBack: () => void
-}) {
-  const languages = [...new Set(book.editions.map(e => e.language))]
-  const langLabels: Record<string, string> = { en: 'English', da: 'Danish' }
-  const progress = getReadingProgress(book.id)
-
-  return (
-    <div className="book-detail">
-      <button className="book-detail-back" onClick={onBack}>
-        &larr; Library
-      </button>
-
-      <div className="book-detail-layout">
-        <div className="book-detail-cover">
-          <BookCover book={book} size="large" />
-        </div>
-
-        <div className="book-detail-info">
-          <h1 className="book-detail-title">{book.title}</h1>
-          <p className="book-detail-author">by {book.author}</p>
-          {book.year && (
-            <p className="book-detail-year">
-              First published {book.year < 0 ? `c. ${Math.abs(book.year)} BC` : book.year}
-            </p>
-          )}
-
-          <p className="book-detail-description">{book.description}</p>
-
-          {progress && (progress.percent > 0 || (progress.positionPercent && progress.positionPercent > 0)) && (
-            <div className="book-detail-progress">
-              <div className="book-detail-progress-bar">
-                <div className="book-detail-progress-fill" style={{ width: `${progress.positionPercent || progress.percent}%` }} />
-                {progress.percent > 0 && progress.percent < (progress.positionPercent || 0) && (
-                  <div className="book-detail-progress-read" style={{ width: `${progress.percent}%` }} />
-                )}
-              </div>
-              <span className="book-detail-progress-text">
-                {progress.positionPercent ? `${progress.positionPercent}% position` : ''}
-                {progress.positionPercent && progress.percent > 0 ? ' · ' : ''}
-                {progress.percent > 0 ? `${progress.percent}% read` : ''}
-              </span>
-            </div>
-          )}
-
-          <div className="book-detail-section">
-            <h3 className="book-detail-section-title">Available editions</h3>
-            <div className="book-detail-editions">
-              {book.editions.map(ed => (
-                <div key={ed.key} className="book-detail-edition">
-                  <div className="book-detail-edition-main">
-                    <span className="book-detail-edition-label">{ed.label}</span>
-                    <span className="book-detail-edition-lang">{langLabels[ed.language] || ed.language}</span>
-                  </div>
-                  <div className="book-detail-edition-formats">
-                    <span className="book-detail-format book-detail-format-text">Text</span>
-                    {ed.hasAudio && (
-                      <span className="book-detail-format book-detail-format-audio">Audiobook</span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="book-detail-section">
-            <h3 className="book-detail-section-title">Languages</h3>
-            <p className="book-detail-languages">
-              {languages.map(l => langLabels[l] || l).join(', ')}
-            </p>
-          </div>
-
-          {book.wordCount && (
-            <div className="book-detail-section">
-              <h3 className="book-detail-section-title">Length</h3>
-              <p className="book-detail-languages">
-                ~{Math.round(book.wordCount / 1000)}k words
-                &middot; ~{Math.round(book.wordCount / 250 / 60)} hours reading time
-              </p>
-            </div>
-          )}
-
-          <div className="book-detail-actions">
-            {inLibrary ? (
-              <button
-                className="book-detail-cta"
-                onClick={() => onSelectBook(book.id)}
-              >
-                Continue reading
-              </button>
-            ) : (
-              <button
-                className="book-detail-cta"
-                onClick={() => {
-                  onAddBook(book.id)
-                  onSelectBook(book.id)
-                }}
-              >
-                Start reading — free
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export function BookStore({ books, libraryIds, onAddBook, onSelectBook, onClose }: BookStoreProps) {
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null)
+export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelectBook, onClose }: BookStoreProps) {
   const [query, setQuery] = useState('')
 
   const q = query.trim().toLowerCase()
@@ -181,32 +89,59 @@ export function BookStore({ books, libraryIds, onAddBook, onSelectBook, onClose 
     [books, libraryIds, q],
   )
 
-  if (selectedBook) {
-    return (
-      <div className="store">
-        <BookDetail
-          book={selectedBook}
-          inLibrary={libraryIds.includes(selectedBook.id)}
-          onAddBook={onAddBook}
-          onSelectBook={onSelectBook}
-          onBack={() => setSelectedBook(null)}
-        />
-      </div>
-    )
+  // Group "All Books" by era, sort within era by title
+  const groupedOther = useMemo(() => {
+    const groups: Record<Era, Book[]> = {
+      ancient: [],
+      medieval: [],
+      modern: [],
+      contemporary: [],
+    }
+    for (const b of otherBooks) {
+      groups[eraOf(b.year)].push(b)
+    }
+    for (const era of ERA_ORDER) {
+      groups[era].sort((a, b) => a.title.localeCompare(b.title))
+    }
+    return groups
+  }, [otherBooks])
+
+  // Handler: tapping a book always opens it. No intermediate BookDetail page —
+  // the new 3-step BookOnboarding carousel handles edition/angle/cast picking.
+  const handlePick = (book: Book) => {
+    if (!libraryIds.includes(book.id)) onAddBook(book.id)
+    onSelectBook(book.id)
   }
 
-  const renderBook = (book: Book, showLang: boolean) => {
+  const handleRemove = (book: Book, e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (!onRemoveBook) return
+    if (window.confirm(`Remove "${book.title}" from your library? Your reading position will be reset — highlights, notes, and chats are kept.`)) {
+      onRemoveBook(book.id)
+    }
+  }
+
+  const renderBook = (book: Book, showLang: boolean, inLibrary: boolean) => {
     const progress = getReadingProgress(book.id)
     const finished = isFinished(progress)
     const hasProgress = !!progress && (progress.percent > 0 || (progress.positionPercent ?? 0) > 0)
     const pct = progress?.positionPercent ?? progress?.percent ?? 0
-    const inLibrary = libraryIds.includes(book.id)
     return (
       <div
         key={book.id}
         className={`store-book ${finished ? 'store-book-finished' : ''}`}
-        onClick={() => (inLibrary && hasProgress) ? onSelectBook(book.id) : setSelectedBook(book)}
+        onClick={() => handlePick(book)}
       >
+        {inLibrary && onRemoveBook && (
+          <button
+            className="store-book-remove"
+            onClick={(e) => handleRemove(book, e)}
+            aria-label={`Remove ${book.title} from library`}
+            title="Remove from library"
+          >
+            &times;
+          </button>
+        )}
         <BookCover book={book} />
         {finished && (
           <span className="store-book-badge">
@@ -234,6 +169,8 @@ export function BookStore({ books, libraryIds, onAddBook, onSelectBook, onClose 
       </div>
     )
   }
+
+  const anyOther = ERA_ORDER.some(era => groupedOther[era].length > 0)
 
   return (
     <div className="store">
@@ -264,7 +201,7 @@ export function BookStore({ books, libraryIds, onAddBook, onSelectBook, onClose 
           )}
         </div>
 
-        {myBooks.length === 0 && otherBooks.length === 0 && (
+        {myBooks.length === 0 && !anyOther && (
           <p className="store-empty">No books match &ldquo;{query}&rdquo;.</p>
         )}
 
@@ -272,21 +209,21 @@ export function BookStore({ books, libraryIds, onAddBook, onSelectBook, onClose 
           <>
             <h2 className="store-section-title">My Library</h2>
             <div className="store-grid">
-              {myBooks.map(b => renderBook(b, false))}
+              {myBooks.map(b => renderBook(b, false, true))}
             </div>
           </>
         )}
 
-        {otherBooks.length > 0 && (
-          <>
-            <h2 className="store-section-title">
-              {myBooks.length > 0 ? 'All Books' : 'Choose a book to begin'}
-            </h2>
-            <div className="store-grid">
-              {otherBooks.map(b => renderBook(b, true))}
-            </div>
-          </>
-        )}
+        {ERA_ORDER.map(era => (
+          groupedOther[era].length > 0 && (
+            <section key={era} className="store-era">
+              <h2 className="store-section-title">{ERA_LABELS[era]}</h2>
+              <div className="store-grid">
+                {groupedOther[era].map(b => renderBook(b, true, false))}
+              </div>
+            </section>
+          )
+        ))}
       </div>
     </div>
   )

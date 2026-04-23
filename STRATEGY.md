@@ -1,359 +1,199 @@
 # Tinct — Strategy
 
-**Last updated:** 2026-03-16
+**Last updated:** 2026-04-21
+
+The full emotional argument is in [MANIFESTO.md](./MANIFESTO.md). The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). This document is the strategic machinery behind both — what we're building, for whom, against whom, and how the economics work.
 
 ---
 
-## Vision
+## 1. Mission
 
-Tinct is the reading platform for people who take books seriously. You already bought the book — Tinct gives you every way to experience it: read, listen, translate, annotate, discuss, reflect. One book, every format, every language, every device.
+The books that shaped the West — Homer, Dante, Dostoevsky, Shakespeare, the Bible — have been passed hand to hand for thirty centuries. They survived because each generation read them, argued with them, and handed them on.
 
-The platform is **content-agnostic**. It works with classics, the Bible, philosophy, contemporary fiction — anything worth reading deeply. A massive free library of public domain masterworks is the front door. Any EPUB you own is welcome.
+That chain is breaking. Not because the books got worse. Because accessing them got harder. The translations are a century old. The names are confusing. Most readers give up in the first fifty pages and go back to a feed that asks nothing of them.
 
-**One sentence:** Your book, your way — read, listen, translate, and understand any book more deeply.
-
-**Root mission connection:** Tinct serves Anders's core mission of spreading optimism about humanity by making the Western canon — the great works that shaped civilization — accessible, engaging, and alive for modern readers. The platform embodies the Deutsch principle that knowledge should be open and growing, not locked behind barriers.
+**Tinct exists to repair this transmission mechanism.** Every classic in an authoritative English translation, with an AI companion and modern comparison translation to help you understand it. A character tracker that never spoils. An audiobook that picks up where you stopped reading. The books remain as interesting as they have always been. Tinct is the way back to them.
 
 ---
 
-## Positioning
+## 2. Product
 
-### What Tinct Is
-- The best way to read any book — read, listen, translate, annotate, discuss
-- A massive free library of public domain classics (70,000+ books, zero cost)
-- AI-powered book enhancement: editions, audiobook, character tracking, chat companion
-- A place to build understanding over time (highlights, notes, reflections, reading journal)
-- Open to any EPUB you own — "your book, your way"
+**One sentence:** A new way to read the classics — every book in an authoritative English translation, with an AI companion, comparison translation, and audiobook that all read with you.
 
-### What Tinct Is NOT
-- An ebook store (not Kindle — we don't sell books, we make them better)
-- A read-it-later app (not Readwise — we go deep, not wide)
-- A knowledge management system (not Notion — we serve the reading experience)
-- A social platform (not Goodreads — this is personal)
+**Free (forever, no account required):**
+- Every classic in an authoritative English translation, with a modern comparison translation for side-by-side comprehension
+- Read on phone, tablet, desktop, or e-reader — cross-device sync with a free account
+- Highlights, notes, reading journal that builds over time
 
-### Nearest Comparison
-**No Fear Shakespeare meets Audible meets Calibre.** Original text alongside modern/kids translations. AI audiobook generation. Works with books you already own. No Fear Shakespeare for everything, with an AI companion and an audiobook in every book.
+**Premium — $3/month (first month free, no card required):**
+- An AI companion that knows your current page and your reading angle
+- A character tracker that shows who everyone is, only as far as you've read
+- A synced audiobook that picks up where you stopped reading
+- Reading journal export and search
+- 200 AI chat messages per month (top-up packs: $3 / 100 messages, account-level balance)
 
-### Key Differentiators
-- **vs. Kindle:** Tinct enhances books — editions, translations, audiobook, AI companion. Kindle just displays them.
-- **vs. Audible ($15-30/book):** Tinct generates audiobooks for $5-10 from any EPUB you own.
-- **vs. Readwise ($10/month):** Tinct is free for public domain. Pay only per-book for AI enhancement.
-- **vs. Calibre:** Calibre converts and manages. Tinct *understands* — editions, character tracking, chat, audiobook.
+**What Tinct is not:**
+- An ebook store — doesn't sell books, doesn't compete with Amazon's catalogue
+- A summary service — doesn't replace reading, supports it
+- A social reading platform — the relationship is between reader and book, not reader and other readers
+- Content-agnostic — built for the Western canon, not for whatever EPUB someone uploads
 
 ---
 
-## Target Users
+## 3. Target reader
 
-### Primary (Phase 1): Anders — book club reader
-Reading The Odyssey with a book club. Wants to understand deeply, toggle between translations, take notes, reflect chapter by chapter. This is the design target.
+Specific and recognisable:
 
-### Secondary: People who want to read classics but find them intimidating
-The Odyssey, the Bible, Dante, Dostoevsky — they want to read these but bounce off the archaic language. Modern translations, kids versions, and an AI companion that explains as you go lower the barrier.
+**They tried to read *War and Peace* and gave up at page seventy.** They want to have read Homer. They respect Dostoevsky without having finished him. They believe there's something in these books they need — and they are tired of the cycle of opening, bouncing, giving up, reaching for the feed instead.
 
-### Tertiary: Serious readers who want more from their reading
-Already read classics. Want to go deeper — annotate, debate, compare translations, build a reading journal over time.
+They are not literature professors. They are not undergraduates getting paid to read. They are adults whose time is constrained, whose attention is contested, and whose intuition keeps pulling them back to the books they couldn't quite finish.
 
----
+**What the data says about the size of this audience:**
+- [37.6% of US adults read a novel in 2022](https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/93659-nea-finds-worrying-drop-in-reading-participation.html) — the lowest rate since tracking began in 1992
+- Daily reading time fell [43% over 20 years](https://pmc.ncbi.nlm.nih.gov/articles/PMC12496190/)
+- English majors [down 33% since 2009](https://hechingerreport.org/proof-points-the-number-of-college-graduates-in-the-humanities-drops-for-the-eighth-consecutive-year)
+- But: [audiobook sales grew 22.5% in 2024](https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/97920-audiobook-sales-rose-13-in-2024-to-2-2-billion.html) — largest jump ever recorded
+- And: BookTok revived *Pride and Prejudice* and *Wuthering Heights* as mainstream reads
 
-## Product Architecture
-
-### Reading Experience (Core)
-
-**Text display:**
-- Clean, beautiful typography (warm literary aesthetic, Poetry Editor lineage)
-- Single-text default view
-- Split pane: original left, chosen version right, paragraph-aligned (desktop)
-- Chapter navigation with progress tracking
-
-**Versions per book (pre-computed via Claude):**
-- Original (public domain source text)
-- Modern English translation
-- Kids version (simplified, accessible)
-- Modern Danish translation
-- Kids Danish version
-- More languages over time
-
-**Reading modes (phased):**
-- Normal text reading (Phase 1)
-- Split pane with paragraph alignment (Phase 1)
-- RSVP — Rapid Serial Visual Presentation (backlog)
-- Audio — text read aloud with seamless text/audio toggle (backlog)
-
-**Dark/light mode.** Desktop-first, coded mobile-ready from day one.
-
-### AI Chat (Side Panel)
-
-The AI is a **reading companion**, not a summarizer. It:
-- Automatically explains highlighted text (assumes the user wants to understand it)
-- Answers questions about the text, characters, themes, historical context
-- Offers chapter reflection when the user turns a chapter (subtle inline button at chapter end + small prompt in chat — never a modal, never pushy)
-- Is aware of which book, chapter, translation, and passage the user is reading
-- Chat panel is always easy to hide/dismiss
-
-### Notes & Annotation System
-
-**Highlighting:**
-- Select text → choose from 4-5 colors
-- Highlighted text auto-triggers chat explanation
-- All highlights visible in a notes panel
-
-**Notes panel (right side, alongside or replacing chat):**
-- View all highlights and annotations for the current chapter
-- Write freeform notes
-- "Copy to notes" button in chat — pushes any chat response into your notes
-- AI cleanup: light (remove redundancies, improve clarity) or aggressive (restructure, condense)
-- End-of-book summary generated from accumulated highlights and notes
-
-**Navigation between panels:**
-- Desktop: chat and notes as tabs or sections in the right panel
-- Mobile (future): swipe between text, chat, notes, and split-pane as four views
-
-### Content Library
-
-**Phase 1:** The Odyssey (all versions) + 10-20 curated Western classics + the Bible
-**Phase 2:** Expanded public domain library sourced from Project Gutenberg mirrors and Internet Archive
-**Phase 2+:** Bookstore for copyrighted books (explore — not committed)
-
-**User uploads (backlog):** Markdown and PDF import. Text extraction from PDFs (not PDF rendering). Chapter/heading detection. Full AI chat integration with uploaded content.
+**Interpretation:** The audience for classics is alive. The access mechanism is broken. The readers who would engage these books if engaging them felt possible are still there, and they are reachable. This is a repair job, not a revival.
 
 ---
 
-## Phases
+## 4. Competitive position
 
-### Phase 1a — The Odyssey Experience (Target: mid-April 2026)
+No competitor offers a reading experience purpose-built for classics + AI + multiple editions at anywhere near Tinct's price.
 
-**Goal:** Anders can read The Odyssey beautifully for his book club.
+| Platform | What they offer | Monthly cost |
+|---|---|---|
+| **Tinct** | Classics in authoritative translation + AI comparison translation, AI companion, audiobook, character tracker | **$3** |
+| Kindle + Audible (full equivalent) | Classics reading + professional audio, no AI, no modern translation | ~$8–21 |
+| Kindle Unlimited | Ebook library, no AI, no translations | $11.99 |
+| Audible Plus | Classic audiobooks in catalogue, no text sync, no AI | $7.95 |
+| Local book platforms (Saxo, Thalia, Fnac, Kobo Plus) | Big libraries including new copyrighted books, no AI, no modern translations | $10–20 |
+| No Fear Shakespeare / SparkNotes | Side-by-side Shakespeare only, no AI | $2.08 annual |
+| **[Rebind](https://rebind.ai/)** | AI companion with celebrity author guides (Atwood, Rushdie) — only true head-to-head competitor | Unlisted |
+| Standard Ebooks / Project Gutenberg | Free public domain text, no reader app, no AI | Free |
+| Library apps (Libby, Ereolen) | Free loans from real libraries | Free |
 
-Deliverables:
-- [ ] Reader with clean typography, chapter navigation
-- [ ] Split pane with paragraph-level alignment (original + chosen version)
-- [ ] Pre-computed versions: modern English, kids English, modern Danish, kids Danish
-- [ ] Translation/version switcher (language + style)
-- [ ] AI chat side panel (context-aware, highlight-to-explain)
-- [ ] Highlighting with 4-5 colors
-- [ ] Notes panel (freeform notes, copy-from-chat, view highlights)
-- [ ] AI note cleanup (light/aggressive)
-- [ ] Chapter reflection (inline button + chat prompt)
-- [ ] Dark/light mode
-- [ ] localStorage for all user data (highlights, notes, reading position)
-- [ ] Deploy to tinct.app
-- [ ] Visual QA: page-by-page screenshot review of every chapter in every version
+**The structural moats:**
 
-**Not in 1a:** Auth, payments, mobile, audio, RSVP, other books, user uploads.
+- **Against free alternatives** (Gutenberg, Standard Ebooks, Libby): Tinct is a reading platform, not a text archive. Free works for the most motivated; it doesn't work for the reader who keeps giving up. The reading angle, the AI companion, the character tracker, the translations — these are the reasons a reader finishes the book at all.
 
-**Code with in mind:** Supabase migration, Stripe integration, mobile responsive, multi-book architecture.
+- **Against Amazon:** Tinct is ~85% cheaper than the Kindle + Audible equivalent and offers what they don't (modern translations, AI companion, reading angle). Amazon has no incentive to build this — their model is selling you the book twice (Kindle + Audible), not helping you finish one.
 
-### Phase 1b — Multi-Book + Auth (Target: May-June 2026)
+- **Against local platforms:** Their advantage is new copyrighted books. The classics reader doesn't need those.
 
-**Goal:** 10-20 books available, user accounts, usage tracking.
+- **Against Rebind:** Tinct covers more books, has modern translations, and costs less. Rebind's advantage is celebrity author voices — a genuine marketing hook, but one that limits catalogue growth. They can only scale as fast as they can record conversations with living authors.
 
-Deliverables:
-- [ ] Supabase: auth, user profiles, highlights/notes/progress sync
-- [ ] 10-20 curated public domain books (all with pre-computed versions)
-- [ ] Book library / shelf UI
-- [ ] Stripe integration for token-based AI usage billing
-- [ ] Transparent pricing (cost-plus markup, clearly communicated)
-- [ ] Visual QA for every book (page-by-page screenshot review)
-- [ ] Cross-device sync (reading position, highlights, notes)
-
-### Phase 2 — Content Expansion (Post-summer 2026)
-
-- Expanded public domain library (50-100+ books)
-- User uploads (Markdown, PDF with text extraction)
-- Bookstore exploration (publisher relationships, DRM, rights — requires dedicated strategy session)
-- Mobile experience (swipe between text/chat/notes/split-pane)
-- RSVP reading mode
-- Audio (text-to-speech with text/audio toggle)
-- End-of-book summary from accumulated notes
-- Reading journal across books
-
-### Phase 3 — Hardware (Long-term vision)
-
-- Custom e-reader with voice interaction
-- Kindle-quality screen + AI conversation
-- Offline reading with sync
-- **Parked until software product is validated.**
+**The AI gap is the structural moat.** Any text reader can add an AI chat button. The moat is the book-specific context: reading angles, character trackers trained per book, chapter-aware responses, cast cards that respect spoilers. These compound with every book we add. A generic "ChatGPT your ebook" alternative will never have this context.
 
 ---
 
-## Revenue Model
+## 5. Revenue model
 
-### Free Tier (no account needed)
-- All books, all editions, all languages — **free forever**
-- Side-by-side reading, highlights, notes — free
-- No AI chat, no Cast, no audiobook, no sync
+**Free** — every book, every edition, cross-device sync, highlights, notes, reading journal.
+**Premium — $3/month** — AI companion (200 messages), audiobook, character tracker, journal export. First month free, no card required. Cancel anytime.
 
-### Free Trial (30 days, account required)
-- Full Premium experience for 30 days
-- No credit card required, no auto-renew
+**Why $3:**
+- **Less than a cup of coffee** — positions the price as trivial in the reader's head
+- **Less than a single ebook on Kindle** — positions it as an obvious bargain
+- 2–3× cheaper than Kindle Unlimited, Audible Plus, Scribd, Readwise
+- 4–7× cheaper than local platforms (Saxo, Thalia, Fnac, Kobo Plus)
+- Technically viable at ~70% chat utilisation (~$2.80 API cost + $0.40 Stripe; thin margin but sustainable)
 
-### Premium Subscription — $5/month
-- 100 AI chat messages per month (included)
-- Audiobook for every book
-- Cast — spoiler-free character tracker
-- Intelligent notes with AI cleanup
-- Cross-device sync
-- Reading journal and export
+**Mission-priced, not profit-maximised.** The lowest defensible price, because the mission is to remove barriers. If AI costs drop (they will), margins expand. If usage patterns require it, tiered pricing comes later. For now, tiny price is the whole point.
 
-### Chat Packs (when monthly quota runs out)
-- $3 for 100 messages
-- $5 for 200 messages
-- Account-level balance, carries across months
-- Available to subscribers and non-subscribers
-
-### Unit Economics (at ~$0.014/msg API cost)
-- Monthly subscription: $5 revenue, ~$1.40 API cost (100 msgs at 70% utilization), ~$0.40 Stripe → ~$3.20 gross margin
-- Chat pack ($3/100): $3 revenue, ~$1.40 API cost, ~$0.40 Stripe → ~$1.20 gross margin
-- Target: $1.15-1.50 net per subscriber per month after all costs and taxes
+**Top-up packs** ($3 / 100 additional messages) handle the heaviest users without forcing a subscription upsell.
 
 ---
 
-## Content Sourcing — Legal & Practical
+## 6. Library
 
-### Project Gutenberg
-- **Legal:** All PG books are public domain. Downloading, storing, redistributing, and even selling them is legal.
-- **Practical:** PG has no public API. Scraping the main site gets your IP blocked. Must use mirrors or offline catalogs for bulk access.
-- **Approach:** Use Gutendex API (gutendex.com) for metadata. Download texts from PG mirrors. Store locally. One-time operation per book.
-- **No rate limit concerns** when using mirrors and offline catalogs.
+**Today: 34 classics.** All with modern English translation, modern Danish translation, and visual QA. All paragraph-aligned for split-pane reading. All with AI companion, character tracker, and audiobook.
 
-### Internet Archive
-- Also hosts public domain texts. Alternative/supplement to PG.
-- Different terms — review before bulk access.
+**End of 2026: 100+ titles.** Expansion across the Western canon — more Plato, more Shakespeare, additional 19th-century fiction (Flaubert, Austen, Dickens), more devotional/philosophical works (Calvin, Aquinas, early Christian writings), more 20th-century modernists where public domain permits.
 
-### Pre-computation Pipeline
-1. Download original text from PG mirror
-2. Parse into chapters (book-specific parser, like the existing Odyssey parsers)
-3. Generate versions via Claude: modern EN, kids EN, modern DA, kids DA
-4. Store all versions as static data
-5. Visual QA: screenshot every page of every version, review for formatting issues
-6. Estimated cost: **$200-350 for 20 books** (all versions, all languages)
+**Long-term: the Western canon end-to-end.** Homer to Kafka, Genesis to the Church Fathers, Greek tragedy to Russian modernism. Anything that has survived a century of readers and still has something to give.
+
+**Out of scope:**
+- **Kids editions** — dropped 2026-03-25. Diluted the product without growing the audience.
+- **Contemporary fiction / nonfiction** — not the mission.
+- **User-uploaded EPUBs (BYOB)** — a separate product if we ever build it. Not a feature on the side.
 
 ---
 
-## Tech Stack
+## 7. Current phase — content expansion + launch
 
-- **Frontend:** React 18 + TypeScript + Vite
-- **Styling:** CSS (custom, warm literary aesthetic)
-- **AI:** Claude API (Sonnet for chat, Sonnet/Haiku for pre-computation)
-- **Auth (Phase 1b):** Supabase Auth
-- **Database (Phase 1b):** Supabase (highlights, notes, reading progress, user profiles)
-- **Payments (Phase 1b):** Stripe (token-based metered billing)
-- **Deployment:** tinct.app (Vercel or Cloudflare Pages — TBD)
-- **QA:** Playwright for visual regression testing
+**Phase 1 (Dec 2025 – March 2026): Product — DONE.**
+Reader, multi-edition, AI chat, highlights, notes, reading journal, character tracker, audiobook, auth (Supabase, Google OAuth), Stripe billing, cross-device sync, offline mode, Android wrap, 34 books live at tinct.app.
+
+**Phase 2 (April 2026 – ongoing): Content expansion + design refresh + launch.**
+- Design refresh per new design system (Playfair Display / EB Garamond / IBM Plex Mono, teal accent, refined layouts) — landing page, reader, onboarding
+- Book additions: 50–100 more titles across the canon
+- Onboarding overhaul centred on the reading angle — research confirmed personal connection before reading begins is the single strongest completion driver
+- Marketing: manifesto goes public at `/about`, elevator pitch for live conversations, landing page aligned with both
+- Growth channel: SEO-driven traffic to per-book landing pages, each with the reading-angle onboarding as conversion mechanism
+- First paying users beyond friends and family
+
+**Phase 3 (late 2026 / 2027): Scale.**
+Decisions deferred until we get there: whether to raise price, introduce tiers, expand translations beyond EN/DA, explore B2B distribution (schools, book clubs). None of these are committed.
 
 ---
 
-## Design Principles
+## 8. Future bets — named, not committed
+
+**BYOB (Bring Your Own Book).** Expand from curated classics to any EPUB. The 2026-03-24 strategy session outlined a three-tier library model (free public domain / DRM-free / user's own files). Revisit only after the classics-only product retains users.
+
+**Hardware.** Custom e-reader with voice interaction. Software must validate first. Currently parked indefinitely — building consumer hardware is company-scale work and a distraction from the real product.
+
+**Additional languages.** French, German, Spanish, Italian. Adds ~$5–10 per book per language in pre-computation costs. Expands addressable market significantly. Revisit after US/UK/Nordic launch.
+
+**School / book-club tier.** Teacher dashboards, group reading, shared notes, angle suggestions for classrooms. Potentially the strongest distribution moat (institutional adoption) but requires a different product surface. The strongest candidate for Phase 3.
+
+**Author-guided editions.** Rebind's celebrity-author approach at lower cost — pay a living author for a 2-hour conversation about a classic that influenced them, generate the AI companion from it. Interesting; distracting until core product is proven.
+
+---
+
+## 9. Open questions
+
+**1. What's the launch floor for book count?**
+Current thinking: 50 titles. Enough to feel like a library; not so many that QA becomes a bottleneck. 100+ by year end.
+
+**2. What's the first real growth channel?**
+- **SEO** — one landing page per book, indexable, converts via reading-angle onboarding. Most defensible long-term.
+- **Twitter/X** — @FallibleMusings audience is the right demographic (Deutsch-adjacent, literary, optimistic-about-civilisation). Slower but pre-qualified.
+- **Paid acquisition** — likely unprofitable at $3/mo. Deprioritised.
+- **Word of mouth** — slow but compounds. Reading angle + character tracker are the kind of features readers tell each other about.
+
+**3. What's the retention mechanism beyond the first book?**
+- Reading journal, highlights, and character tracker build switching costs
+- 50–100 book library gives runway
+- No data yet — retention is the Phase 2 question to answer empirically
+
+**4. What happens when AI costs drop 10×?**
+Unit economics become trivial. $3/mo becomes a ~90% margin product. Good for Tinct. Likely within 18 months.
+
+**5. How do we measure mission success?**
+Not subscriber count alone. The better proxy: books finished per user. If a reader finishes three classics they'd never finished before, the transmission mechanism worked for them. Build telemetry to track this early.
+
+---
+
+## 10. Design principles
 
 1. **Reading comes first.** The text is the hero. Everything else is in service of understanding.
-2. **Available but not pushy.** AI chat, reflection prompts, annotations — all there when you want them, invisible when you don't.
-3. **Beautiful typography.** If the reading experience isn't beautiful, nothing else matters.
-4. **Warm, literary aesthetic.** Inherited from Poetry Editor. Not clinical, not techy.
-5. **Desktop-first, mobile-ready.** Code responsively from day one, ship mobile experience in Phase 2.
-6. **Free at the point of reading.** Never charge for access to public domain text.
+2. **The reading angle is the product.** Not a feature — the mechanism that makes classics completable. Free for everyone. Set before reading begins.
+3. **Available but not pushy.** AI chat, reflection prompts, annotations — present when you want them, invisible when you don't.
+4. **Beautiful typography.** Warm, literary aesthetic. Playfair Display, EB Garamond, IBM Plex Mono. Not clinical, not techy.
+5. **Honest translations.** Modern translations focus on comprehension. They do not editorialise or moralise. Readers get the author's mind, not the translator's.
+6. **Free at the point of reading.** Never charge for access to public domain text. Premium is for the enhancement layer (AI, audio, cast), not the books themselves.
+7. **Cross-device from day one.** Phone, tablet, desktop, e-reader. The reader's place in the book is always preserved.
 
 ---
 
-## Quality Assurance
+## Appendix — Related documents
 
-For every book added to the library:
-1. Pre-compute all versions (modern EN, kids EN, modern DA, kids DA)
-2. Load each version in the reader
-3. Screenshot every chapter, every version
-4. Review for: heading formatting, paragraph breaks, encoding issues, translation quality, split-pane alignment
-5. Fix issues before publishing
-
-This is non-negotiable. No book ships without visual QA.
-
----
-
-## Mobile Vision (Backlog — Not Phase 1)
-
-On mobile, the experience is four swipeable views:
-1. **Text** (single version, full screen)
-2. **Split pane** (original + version, stacked vertically or side by side)
-3. **Chat** (AI companion, full screen)
-4. **Notes** (highlights, annotations, freeform notes)
-
-Swipe left/right to move between them. Reading progress syncs across all views. Seamless toggle between text and audio when audio is available.
-
----
-
-## BYOB Model — "Your Book, Your Way" (2026-03-24 Strategy Session)
-
-A potential pivot/expansion from "curated classics platform" to "the reading platform for any book."
-
-### The Three-Tier Library
-
-**Tier 1 — Free Library (public domain)**
-- Project Gutenberg, Standard Ebooks, Internet Archive
-- 70,000+ books. One-click add to library. Zero cost.
-- Enhancement (AI editions, audiobook, threads) available for a fee.
-
-**Tier 2 — Buy DRM-Free (legal, frictionless)**
-- Search finds DRM-free editions available from Google Play, Smashwords/D2D, publisher-direct stores (Tor, etc.)
-- "Available DRM-free from [store] for $X" → user buys → imports EPUB → Tinct enhances
-- Affiliate revenue (5-7%) on referral
-
-**Tier 3 — DRM'd Books (user's responsibility)**
-- Affiliate links to Kindle/Kobo/Apple Books (5-7% commission)
-- Tinct accepts any EPUB file. No questions asked.
-- Tinct does NOT strip DRM, does NOT encourage circumvention, DOES link to Calibre as a general ebook management tool
-
-### Revenue: Enhancement Layer (Per-Book)
-
-Users pay for AI processing, not for content access:
-
-| Enhancement | Cost to us | Charge to user |
-|---|---|---|
-| 4 AI editions (modern/kids × EN/DA) | ~$3-8 | $5-10 |
-| AI audiobook (TTS generation) | ~$2-7 | $5-10 |
-| Character tracker / threads | ~$0.50-1 | Included |
-| AI chat | ~$0.01-0.03/msg | Included in tier or per-message |
-
-Per-book "full enhancement" bundle: $8-15 to user, $5-10 cost. 30-60% gross margin.
-
-### Audiobook Generation
-
-- OpenAI TTS or Google WaveNet. Near-human quality. ~$2-7 per book.
-- Generation takes 5-9 hours (background processing). Chapter-by-chapter delivery — Ch1 ready in ~30 min, rest follows.
-- vs. Audible at $15-30/book — significant price advantage.
-
-### Why This Works
-
-1. **Solves the licensing problem entirely.** User owns the book. Tinct is a tool, not a distributor.
-2. **Infinite catalog instantly.** Every EPUB ever published is compatible.
-3. **Moat through accumulated data.** Editions, audiobook, notes, reading history — all private to the user, all sticky.
-4. **Legal position is strong.** Same category as Calibre, Google Translate, a photo editor. Processing a file the user owns.
-
-### Why This Might Not Work
-
-1. **EPUB import friction.** Getting an EPUB file is not one-click for most people.
-2. **Front-loaded cost.** User pays $8-15 before experiencing the value. Mitigation: "first chapter free."
-3. **AI edition quality varies.** Pre-computed Odyssey editions are QA'd. Random user uploads won't be.
-4. **Market size uncertainty.** Intersection of "reads ebooks" + "wants enhancement" + "can get EPUB" is unclear.
-
-### Positioning Shift
-
-From: "No Fear Shakespeare for everything, with an AI companion" (curated, controlled)
-To: "The reading platform that works with books you already own" (open, user-driven)
-
-These are not mutually exclusive. The curated public domain library IS Tier 1. BYOB is Tier 2-3 on top.
-
-### Open Questions
-
-1. How good is AI-generated audiobook quality for a full book? Need to prototype one.
-2. What's the EPUB parsing reliability across sources? How messy is the real world?
-3. Can we build a good search that finds EPUBs across free + DRM-free sources?
-4. Pricing: per-book enhancement vs. subscription vs. hybrid?
-5. RSVP should probably be dropped from backlog (research shows it doesn't work — no retention, comprehension drops at speed).
-
----
-
-## Open Questions (To Revisit)
-
-1. **BYOB feasibility:** Prototype the full flow — EPUB upload → parse → generate one edition + audiobook chapter. Test quality and timing.
-2. **Book selection for Phase 1b:** Which 10-20 Western classics + Bible? Curate list.
-3. **Deployment platform:** Cloudflare Workers (current).
-4. **Audio implementation:** OpenAI TTS vs. Google WaveNet. Cost/quality tradeoff. Need prototype.
-5. **Search/discovery:** How to build a meta-search across PG, Standard Ebooks, DRM-free stores.
+- [`MANIFESTO.md`](./MANIFESTO.md) — the public argument for Tinct. Goes live at `/about`.
+- [`ELEVATOR-PITCH.md`](./ELEVATOR-PITCH.md) — 60-second spoken version for conversations.
+- [`BACKLOG.md`](./BACKLOG.md) — current work items and priorities.
+- [`CLAUDE.md`](./CLAUDE.md) — project CEO operating file.
+- [`SESSION.md`](./SESSION.md) — current session state.

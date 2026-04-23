@@ -5,12 +5,15 @@ import { Reader } from './components/Reader'
 import { SplitReader } from './components/SplitReader'
 import { SidePanel } from './components/SidePanel'
 import { Onboarding } from './components/Onboarding'
+import { BookOnboarding, type BookOnboardingResult } from './components/BookOnboarding'
+import { ProgressPrompt } from './components/ProgressPrompt'
 import { SettingsSheet } from './components/SettingsSheet'
 import { ProactiveInsight } from './components/ProactiveInsight'
 import { AuthModal } from './components/AuthModal'
 import { UsageDashboard } from './components/UsageDashboard'
 import { BookStore } from './components/BookStore'
-import { AccountDecision } from './components/AccountDecision'
+import { TierChooser } from './components/TierChooser'
+import { HomeRolePrompt } from './components/HomeRolePrompt'
 import { PricingModal } from './components/PricingModal'
 import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
@@ -39,7 +42,7 @@ import { useLibrary } from './hooks/useLibrary'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage, setStorageProvider, localStorageProvider } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
-import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition, FontSize, FontFamily } from './types'
+import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage } from './types'
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
 import { trackPageview } from './utils/analytics'
@@ -143,7 +146,7 @@ export default function App() {
   }, [user, authLoading])
 
   // Library
-  const { libraryIds, addBook, isEmpty: libraryEmpty, refreshFromStorage: refreshLibrary } = useLibrary(storageReady)
+  const { libraryIds, addBook, removeBook, isEmpty: libraryEmpty, refreshFromStorage: refreshLibrary } = useLibrary(storageReady)
 
   const {
     preferences,
@@ -160,6 +163,10 @@ export default function App() {
     setFontFamily,
     setAccountDecisionSeen,
     setProgressDisplay,
+    setChatHidden,
+    setFeedHidden,
+    setCastHidden,
+    setReadingLanguages,
     refreshFromStorage,
   } = usePreferences(storageReady)
 
@@ -223,6 +230,29 @@ export default function App() {
   // ToC overlay state
   const [showToc, setShowToc] = useState(false)
 
+  // Book Onboarding state
+  const [showBookOnboarding, setShowBookOnboarding] = useState(false)
+  const [bookOnboardingMode, setBookOnboardingMode] = useState<'full' | 'edition-only'>('full')
+  const deepLinkParsedRef = useRef(false)
+
+  // Focus mode: hides header, bottom bar, and side panel for an immersive
+  // reading experience. Toggled via a floating button or the F key. Transient
+  // (not persisted) — each session starts with full chrome.
+  const [focusMode, setFocusMode] = useState(false)
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement).tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return
+      if (e.key === 'Escape' && focusMode) { setFocusMode(false); e.preventDefault() }
+      else if (e.key === 'f' || e.key === 'F') { setFocusMode(v => !v); e.preventDefault() }
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [focusMode])
+
+  // (Tier-chooser modal is retired — account creation is now the final step
+  // of BookOnboarding when the user is anonymous.)
+
   // Issue report toast listener
   useEffect(() => {
     const handler = (e: Event) => {
@@ -269,7 +299,8 @@ export default function App() {
   useEffect(() => {
     if (storageReady && user && !hasRestoredFromCloud.current) {
       hasRestoredFromCloud.current = true
-      // Refresh preferences and library from Supabase
+      // Refresh preferences and library from Supabase. Chat history re-reads
+      // itself via its internal storageReady effect once the cache is warm.
       refreshFromStorage()
       refreshLibrary()
       // Restore current book from cloud (may differ from default)
@@ -489,7 +520,7 @@ export default function App() {
     }
   }, [refreshProfile])
 
-  const { conversations: chatConversations, recordMessage, getChapterChatSummary, getChapterConversations, setSummary: setChatSummary } = useChatHistory(book.id)
+  const { conversations: chatConversations, recordMessage, getChapterChatSummary, getChapterConversations, setSummary: setChatSummary } = useChatHistory(book.id, storageReady)
   const [summarizingChatId, setSummarizingChatId] = useState<string | null>(null)
 
   const handleSummarizeChat = useCallback(async (convId: string) => {
@@ -540,39 +571,45 @@ export default function App() {
     chatMemory: getChapterChatSummary(currentChapter) || undefined,
   })
 
-  // Load chat history on mount — get recent messages across all chapters
-  const chatLoadedRef = useRef(false)
+  // Load chat history when the book changes. Tracks the last book we loaded
+  // history for so switching books re-loads. Loads ALL past conversations
+  // (with chapter dividers) so the reader sees their full thread for a book.
+  const chatLoadedForBookRef = useRef<string | null>(null)
   useEffect(() => {
-    if (chatLoadedRef.current) return
-    if (chatConversations.length === 0) return // wait for storage to load
-    chatLoadedRef.current = true
-    // Load the last few conversations (across chapters) as initial chat history
-    const allConvs = chatConversations.slice(-5) // last 5 conversations
-    if (allConvs.length > 0) {
-      const allMsgs: ChatMessage[] = []
-      let lastChapter = -1
-      for (const conv of allConvs) {
-        if (conv.chapterNumber !== lastChapter && lastChapter !== -1) {
-          // Insert chapter divider
-          allMsgs.push({
-            id: `divider-${conv.chapterNumber}`,
-            role: 'assistant' as const,
-            content: '',
-            timestamp: conv.startTimestamp - 1,
-            chapterDivider: conv.chapterNumber,
-          })
-        }
-        lastChapter = conv.chapterNumber
-        allMsgs.push(...conv.messages)
-      }
-      loadMessages(allMsgs)
+    // On book change, always clear the in-memory thread first so messages
+    // from the previous book never bleed through. Without this, switching to
+    // a book that has no history left the old book's messages on screen.
+    if (chatLoadedForBookRef.current !== book.id) {
+      chatLoadedForBookRef.current = book.id
+      clearMessages()
     }
-  }, [chatConversations, loadMessages])
+    if (chatConversations.length === 0) return
+    const allMsgs: ChatMessage[] = []
+    let lastChapter = -1
+    for (const conv of chatConversations) {
+      // Defensive filter: the storage hook is keyed per book, but legacy
+      // entries or future bugs could mix books. Only show messages whose
+      // bookId matches (or is unset on old records).
+      if (conv.bookId && conv.bookId !== book.id) continue
+      if (conv.chapterNumber !== lastChapter && lastChapter !== -1) {
+        allMsgs.push({
+          id: `divider-${conv.chapterNumber}`,
+          role: 'assistant' as const,
+          content: '',
+          timestamp: conv.startTimestamp - 1,
+          chapterDivider: conv.chapterNumber,
+        })
+      }
+      lastChapter = conv.chapterNumber
+      allMsgs.push(...conv.messages.filter(m => !m.bookId || m.bookId === book.id))
+    }
+    if (allMsgs.length > 0) loadMessages(allMsgs)
+  }, [chatConversations, loadMessages, clearMessages, book.id])
 
   // Insert chapter divider when chapter changes (after initial load)
   const prevChapterForChat = useRef(currentChapter)
   useEffect(() => {
-    if (prevChapterForChat.current !== currentChapter && chatLoadedRef.current) {
+    if (prevChapterForChat.current !== currentChapter && chatLoadedForBookRef.current === book.id) {
       prevChapterForChat.current = currentChapter
       // Don't clear — just add a divider if there are existing messages
       if (messages.length > 0) {
@@ -585,7 +622,7 @@ export default function App() {
         }])
       }
     }
-  }, [currentChapter, messages, loadMessages])
+  }, [currentChapter, messages, loadMessages, book.id])
 
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
@@ -596,6 +633,9 @@ export default function App() {
     setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
     setTotalPages(1) // Reset so useReadingPosition guard (totalPages <= 1) prevents stale saves
     savedPos.current = pos
+    // Reset target paragraph so the previous book's position doesn't leak.
+    // A fresh book (no saved pos) starts on page 1; a returning book uses its own paragraph.
+    targetParagraphRef.current = pos?.lastParagraphIndex
     clearMessages()
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages])
@@ -659,14 +699,18 @@ export default function App() {
     }
 
     targetParagraphRef.current = paragraphIndex
+    // Always reset savedPos so the Reader lands on page 1 of the chosen
+    // chapter (or on the target paragraph if one was passed). Even when the
+    // user taps the current chapter in the TOC, we want to snap to page 1 —
+    // no "smart" restore to their previous position within the chapter.
+    savedPos.current = {
+      bookId: book.id,
+      chapterNumber: chapter,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: paragraphIndex !== undefined ? -1 : 0,
+    }
     if (chapter !== currentChapter) {
-      savedPos.current = {
-        bookId: book.id,
-        chapterNumber: chapter,
-        currentPage: 0,
-        totalPages: 1,
-        scrollFraction: paragraphIndex !== undefined ? -1 : 0,
-      }
       setCurrentChapter(chapter)
     }
     setReaderKey(k => k + 1)
@@ -718,6 +762,87 @@ export default function App() {
     setReadingObjective(objective)
     setOnboardingComplete(true)
   }, [setReadingObjective, setOnboardingComplete])
+
+  // Deep-link URL parser — runs once, determines entry mode + book
+  useEffect(() => {
+    if (deepLinkParsedRef.current || !storageReady) return
+    deepLinkParsedRef.current = true
+    try {
+      const path = window.location.pathname
+      const segments = path.split('/').filter(Boolean)
+      if (segments.length === 0) return
+      const first = segments[0]
+      // `/read` or `/read/{bookId}` — library entry, full mode
+      if (first === 'read') {
+        if (segments[1]) {
+          const target = BOOKS.find(b => b.id === segments[1])
+          if (target) {
+            handleBookChange(target.id)
+            setBookOnboardingMode('full')
+          }
+        }
+        return
+      }
+      // `/{bookId}` — direct deep link, edition-only mode
+      const target = BOOKS.find(b => b.id === first)
+      if (target) {
+        handleBookChange(target.id)
+        setBookOnboardingMode('edition-only')
+      }
+    } catch { /* ignore */ }
+  }, [storageReady])
+
+  // Book Onboarding trigger — fires when current book hasn't been onboarded yet.
+  // No longer gated on an earlier tier chooser; BookOnboarding now contains its
+  // own final-step account-creation pitch for anonymous users.
+  useEffect(() => {
+    if (!storageReady) return
+    if (libraryEmpty || showStore) {
+      setShowBookOnboarding(false)
+      return
+    }
+    // Cloud-synced: onboarded flag lives in the storage abstraction so it
+    // propagates across devices. Fall back to the legacy raw-localStorage key
+    // for users who onboarded before this change.
+    const seen = storage.get<boolean>(`book-onboarded:${book.id}`)
+    let legacy = false
+    try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
+    if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
+    setShowBookOnboarding(!(seen || legacy))
+  }, [book.id, storageReady, libraryEmpty, showStore])
+
+  // Book Onboarding completion — sets edition + angle, marks book as onboarded.
+  // Note: uses primitive setters (setStyle/setLanguage/setSplitEditionKey) rather than
+  // the higher-level handlers, because those are declared later in this component.
+  const handleBookOnboardingComplete = useCallback((result: BookOnboardingResult) => {
+    const chosenEdition = book.editions.find(e => e.key === result.editionKey)
+    if (chosenEdition) {
+      setLanguage(chosenEdition.language)
+      setStyle(chosenEdition.style)
+    }
+    if (result.splitEditionKey) {
+      setSplitEditionKey(result.splitEditionKey)
+      if (!preferences.splitView) toggleSplitView()
+    }
+    if (result.angle) setReadingObjective(result.angle)
+    storage.set(`book-onboarded:${book.id}`, true)
+    setShowBookOnboarding(false)
+    setOnboardingComplete(true)
+  }, [book.id, book.editions, setLanguage, setStyle, setSplitEditionKey, preferences.splitView, toggleSplitView, setReadingObjective, setOnboardingComplete])
+
+  const handleBookOnboardingClose = useCallback(() => {
+    storage.set(`book-onboarded:${book.id}`, true)
+    setShowBookOnboarding(false)
+    setOnboardingComplete(true)
+  }, [book.id, setOnboardingComplete])
+
+  // Progress prompt trigger — anonymous user past end of Chapter 1 or page 20
+  const showProgressPrompt = useMemo(() => {
+    if (user) return false
+    if (showBookOnboarding || showStore) return false
+    const past = currentChapter >= 2 || (currentChapter === 1 && currentPage >= 20)
+    return past
+  }, [user, currentChapter, currentPage, showBookOnboarding, showStore])
 
   // Edit objective from chat welcome
   const [editingObjective, setEditingObjective] = useState(false)
@@ -1044,14 +1169,24 @@ export default function App() {
     bottomBarRef.current?.seekToParagraph(paragraphIndex)
   }, [])
 
-  // Detect if audio is available for current edition — check on edition/chapter change
+  // Detect if audio is available for current edition — check on edition/chapter change.
+  // Short-circuit: if the book has no audio editions at all, or the current
+  // edition isn't marked hasAudio, skip the HEAD request and force false.
   useEffect(() => {
     if (audioEditionKey === 'none') { setHasAudio(false); return }
+    const anyAudioEdition = book.editions.some(e => e.hasAudio)
+    // Only short-circuit on books with zero audio editions. Per-edition
+    // `hasAudio` metadata drifts from reality — the HEAD probe is the source
+    // of truth for whether this specific chapter has audio.
+    if (!anyAudioEdition) {
+      setHasAudio(false)
+      return
+    }
     const url = `${AUDIO_BASE_URL}/${book.id}/${primaryEditionKey}/ch${currentChapter}/manifest.json`
     fetch(url, { method: 'HEAD' })
       .then(res => setHasAudio(res.ok))
       .catch(() => setHasAudio(false))
-  }, [book.id, primaryEditionKey, currentChapter, audioEditionKey])
+  }, [book.id, book.editions, primaryEditionKey, currentChapter, audioEditionKey])
 
   // Chapter navigation from page arrows or audio chapter-end
   // When advancing forward, mark the current chapter as completed in progress
@@ -1069,6 +1204,7 @@ export default function App() {
         })
       }
       targetParagraphRef.current = undefined
+      // Forward across chapter boundary → always first page of next chapter
       savedPos.current = {
         bookId: book.id,
         chapterNumber: currentChapter + 1,
@@ -1077,12 +1213,15 @@ export default function App() {
         scrollFraction: 0,
       }
       setCurrentChapter(currentChapter + 1)
+      setReaderKey(k => k + 1) // Remount so currentPage resets and initialPage re-applies
     }
   }, [currentChapter, totalChapters, book.id])
   const handlePrevChapter = useCallback(() => {
     if (currentChapter > 1) {
       targetParagraphRef.current = undefined
-      // Navigate to last page of previous chapter
+      // Back across chapter boundary → always last page of previous chapter
+      // (scrollFraction: 1 forces last page regardless of any prior reading
+      // position for that chapter)
       savedPos.current = {
         bookId: book.id,
         chapterNumber: currentChapter - 1,
@@ -1091,6 +1230,7 @@ export default function App() {
         scrollFraction: 1,
       }
       setCurrentChapter(currentChapter - 1)
+      setReaderKey(k => k + 1) // Remount so currentPage resets and initialPage re-applies
     }
   }, [currentChapter, book.id])
 
@@ -1151,8 +1291,7 @@ export default function App() {
     }
   }, [user, preferences.accountDecisionSeen, setAccountDecisionSeen])
 
-  // Show account decision: after picking a book, before onboarding, if not yet seen and no user
-  const showAccountDecision = !libraryEmpty && !showStore && !preferences.accountDecisionSeen && !user
+  // (showAccountDecision is declared up top alongside the other modal state.)
 
   // Show loading skeleton while auth + storage are resolving (prevents writing defaults to cloud)
   if (!storageReady) {
@@ -1176,13 +1315,27 @@ export default function App() {
 
   return (
     <TierProvider user={user} profile={profile}>
-    <div className={`app ${hasAudio ? 'has-audio' : ''}`}>
+    <div className={`app ${hasAudio ? 'has-audio' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+      {focusMode && (
+        <button
+          className="focus-exit"
+          onClick={() => setFocusMode(false)}
+          aria-label="Exit focus mode"
+          title="Exit focus (F or Esc)"
+        >
+          ×
+        </button>
+      )}
       {/* New user: show store first, then onboarding after picking a book */}
       {(libraryEmpty || showStore) && (
         <BookStore
           books={BOOKS}
           libraryIds={libraryIds}
           onAddBook={addBook}
+          onRemoveBook={(bookId) => {
+            if (bookId === currentBookId) handleBookChange(libraryIds.find(id => id !== bookId) || BOOKS[0].id)
+            removeBook(bookId)
+          }}
           onSelectBook={(bookId) => {
             handleBookChange(bookId)
             setShowStore(false)
@@ -1191,23 +1344,36 @@ export default function App() {
         />
       )}
 
-      {showAccountDecision && (
-        <AccountDecision
-          bookTitle={book.title}
-          bookAuthor={book.author}
+      {!libraryEmpty && !showStore && showBookOnboarding && (
+        <BookOnboarding
+          book={book}
+          editions={book.editions}
+          mode={bookOnboardingMode}
+          defaultEditionKey={primaryEditionKey}
+          showAccountStep={!user}
+          onComplete={handleBookOnboardingComplete}
+          onClose={handleBookOnboardingClose}
           onCreateAccount={() => {
             setAuthModalMode('signup')
             setShowAuthModal(true)
           }}
-          onSkip={() => {
-            setAccountDecisionSeen(true)
+          onBackToLibrary={() => {
+            setShowBookOnboarding(false)
+            setShowStore(true)
           }}
-          onShowPricing={() => setShowPricingModal(true)}
+          readingLanguages={preferences.readingLanguages}
+          onReadingLanguagesChange={setReadingLanguages}
         />
       )}
 
-      {!libraryEmpty && !showStore && !showAccountDecision && !preferences.onboardingComplete && (
-        <Onboarding onComplete={handleOnboardingComplete} />
+      {showProgressPrompt && (
+        <ProgressPrompt
+          bookId={book.id}
+          onCreateAccount={() => {
+            setAuthModalMode('signup')
+            setShowAuthModal(true)
+          }}
+        />
       )}
 
       <SettingsSheet
@@ -1215,6 +1381,12 @@ export default function App() {
         onClose={() => setShowSettings(false)}
         darkMode={preferences.darkMode}
         onToggleDarkMode={toggleDarkMode}
+        chatHidden={preferences.chatHidden}
+        onToggleChatHidden={() => setChatHidden(!preferences.chatHidden)}
+        feedHidden={preferences.feedHidden}
+        onToggleFeedHidden={() => setFeedHidden(!preferences.feedHidden)}
+        castHidden={preferences.castHidden}
+        onToggleCastHidden={() => setCastHidden(!preferences.castHidden)}
         fontSize={preferences.fontSize}
         onFontSizeChange={(size) => {
           const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
@@ -1393,7 +1565,7 @@ export default function App() {
           downloadState={downloadState}
           storageMB={storageMB}
           isOnline={isOnline}
-          onDownloadBook={(b) => downloadBook(b, effectiveAudioEditionKey)}
+          onDownloadBook={(b) => downloadBook(b)}
           onDownloadChapter={(book, ch) => downloadChapter(book, ch)}
           onRemove={removeDownload}
           onCancel={cancelDownload}
@@ -1497,6 +1669,8 @@ export default function App() {
         onSaveObjective={setReadingObjective}
         onOpenToc={() => setShowToc(true)}
         onOpenSettings={() => setShowSettings(true)}
+        focusMode={focusMode}
+        onToggleFocusMode={() => setFocusMode(v => !v)}
         sections={primaryData?.sections}
         progressDisplay={preferences.progressDisplay}
         onProgressDisplayChange={setProgressDisplay}
@@ -1510,21 +1684,24 @@ export default function App() {
         hasSections={!!(primaryData?.sections?.length)}
       />
 
-      <TrialBanner onSubscribe={() => handleCheckout('subscription')} />
-
-      <AudioStrip
-        isOpen={audioStripOpen}
-        onClose={() => setAudioStripOpen(false)}
-        isPlaying={audioIsPlaying}
-        playingParagraphIndex={audioPlayingParagraph}
-        chapterTitle={chapterTitle}
-        paragraphPreview={
-          audioPlayingParagraph != null && primaryChapter
-            ? primaryChapter.paragraphs[audioPlayingParagraph]
-            : undefined
-        }
-        audioRef={bottomBarRef}
+      <TrialBanner
+        onSubscribe={() => handleCheckout('subscription')}
+        onCreateAccount={() => {
+          setAuthModalMode('signup')
+          setShowAuthModal(true)
+        }}
       />
+
+      <HomeRolePrompt />
+
+      {hasAudio && (
+        <AudioStrip
+          isOpen={audioStripOpen}
+          onClose={() => setAudioStripOpen(false)}
+          isPlaying={audioIsPlaying}
+          audioRef={bottomBarRef}
+        />
+      )}
 
       {!isOnline && (
         <div className="offline-banner">
@@ -1571,7 +1748,7 @@ export default function App() {
                 highlights={getEditionHighlights(primaryEditionKey)}
                 onHighlight={handleHighlight}
                 onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
-                onReflect={handleReflect}
+                onReflect={user ? handleReflect : undefined}
                 onGenerateSummary={handleGenerateSummary}
                 isGeneratingSummary={isGeneratingSummary}
                 isFinalChapter={currentChapter === totalChapters}
@@ -1602,7 +1779,7 @@ export default function App() {
                   highlights={getEditionHighlights(splitEditionKey)}
                   onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color)}
                   onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
-                  onReflect={handleReflect}
+                  onReflect={user ? handleReflect : undefined}
                   onGenerateSummary={handleGenerateSummary}
                   isGeneratingSummary={isGeneratingSummary}
                   isFinalChapter={currentChapter === totalChapters}
@@ -1647,6 +1824,7 @@ export default function App() {
                   pendingHighlight={pendingHighlight}
                   onClearHighlight={() => setPendingHighlight(null)}
                   bookTitle={book.title}
+                  bookId={book.id}
                   chapterTitle={chapterTitle}
                   readingObjective={preferences.readingObjective}
                   onEditObjective={handleEditObjective}
@@ -1675,6 +1853,9 @@ export default function App() {
                   chatConversations={chatConversations}
                   onSummarizeChat={handleSummarizeChat}
                   summarizingId={summarizingChatId}
+                  chatHidden={preferences.chatHidden}
+                  feedHidden={preferences.feedHidden}
+                  castHidden={preferences.castHidden}
                 />
               </div>
             ))}
@@ -1697,7 +1878,7 @@ export default function App() {
                 onRightEditionChange={setSplitEditionKey}
                 onHighlight={handleSplitHighlight}
                 onTextSelect={handleTextSelect}
-                onReflect={handleReflect}
+                onReflect={user ? handleReflect : undefined}
                 onGenerateSummary={handleGenerateSummary}
                 isGeneratingSummary={isGeneratingSummary}
                 isFinalChapter={currentChapter === totalChapters}
@@ -1735,7 +1916,7 @@ export default function App() {
                 highlights={getEditionHighlights(primaryEditionKey)}
                 onHighlight={handleHighlight}
                 onTextSelect={handleTextSelect}
-                onReflect={handleReflect}
+                onReflect={user ? handleReflect : undefined}
                 onGenerateSummary={handleGenerateSummary}
                 isGeneratingSummary={isGeneratingSummary}
                 isFinalChapter={currentChapter === totalChapters}
@@ -1777,6 +1958,7 @@ export default function App() {
               pendingHighlight={pendingHighlight}
               onClearHighlight={() => setPendingHighlight(null)}
               bookTitle={book.title}
+              bookId={book.id}
               chapterTitle={chapterTitle}
               readingObjective={preferences.readingObjective}
               onEditObjective={handleEditObjective}
@@ -1807,9 +1989,9 @@ export default function App() {
               onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
               onShowPricing={() => setShowPricingModal(true)}
               chatConversations={chatConversations}
-              compareParagraphs={splitChapter?.paragraphs}
-              compareLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label}
-              compareIsVerse={splitIsVerse}
+              chatHidden={preferences.chatHidden}
+              feedHidden={preferences.feedHidden}
+              castHidden={preferences.castHidden}
             />
           </>
         )}
@@ -1819,7 +2001,7 @@ export default function App() {
         <TocOverlay
           chapters={primaryData.chapters.map(c => ({ number: c.number, title: c.title }))}
           currentChapter={currentChapter}
-          onSelectChapter={setCurrentChapter}
+          onSelectChapter={(n) => handleNavigateToChapter(n)}
           onClose={() => setShowToc(false)}
           sections={primaryData.sections}
         />
@@ -1970,7 +2152,7 @@ export default function App() {
           text={shareText}
           author={book.author}
           bookTitle={book.title}
-          theme={preferences.theme === 'dark' ? 'dark' : 'light'}
+          theme={preferences.darkMode ? 'dark' : 'light'}
           onClose={() => setShareText(null)}
         />
       )}

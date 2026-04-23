@@ -16,12 +16,13 @@ interface UsageDashboardProps {
   monthlyRemaining: number
   messageBalance: number
   session: { access_token: string } | null
+  fixesCount?: number
 }
 
 export function UsageDashboard({
   profile, onClose, onCheckout, onCancelSubscription,
   isAnonymous, isSubscribed, isCanceled, onSignIn,
-  messagesRemaining, monthlyRemaining, messageBalance, session,
+  messagesRemaining, monthlyRemaining, messageBalance, session, fixesCount,
 }: UsageDashboardProps) {
   const [showCancelConfirm, setShowCancelConfirm] = useState(false)
   const [canceling, setCanceling] = useState(false)
@@ -64,11 +65,11 @@ export function UsageDashboard({
         {isAnonymous ? (
           <div className="usage-anon">
             <p className="usage-anon-text">
-              Create a free account to get 30 days of Premium — AI chat, audiobook, Cast, and more. No credit card needed.
+              Create a free account to get 30 days of Premium: AI chat, audiobook, Cast, and more. No credit card needed.
             </p>
             <button className="auth-submit" onClick={onSignIn}>Create free account</button>
             <p className="usage-free-note">
-              Reading is always free, even without an account. All books, all editions, highlights, and notes — no charge, ever.
+              Reading is always free, even without an account. All books, all editions, highlights, and notes. No charge, ever.
             </p>
           </div>
         ) : isSubscribed ? (
@@ -77,19 +78,32 @@ export function UsageDashboard({
             <div className="usage-status">
               {isCanceled ? (
                 <p className="usage-status-text usage-status-canceled">
-                  Canceled — access until {resetLabel || 'end of period'}
+                  Canceled · access until {resetLabel || 'end of period'}
                 </p>
               ) : (
                 <p className="usage-status-text usage-status-active">
-                  Premium active — renews {resetLabel || 'next month'}
+                  Premium active · renews {resetLabel || 'next month'}
                 </p>
               )}
             </div>
 
+            {/* Rewards from fixes */}
+            {fixesCount != null && fixesCount > 0 && (
+              <div className="usage-rewards">
+                <span className="usage-rewards-icon">&#9733;</span>
+                <span className="usage-rewards-text">
+                  {fixesCount} {fixesCount === 1 ? 'correction' : 'corrections'} made
+                  {Math.floor(fixesCount / 5) > 0
+                    ? ` · ${Math.floor(fixesCount / 5)} free ${Math.floor(fixesCount / 5) === 1 ? 'month' : 'months'} earned`
+                    : ` · ${5 - (fixesCount % 5)} more for a free month`}
+                </span>
+              </div>
+            )}
+
             {/* Monthly quota */}
             <div className="usage-quota">
               <div className="usage-quota-header">
-                <span className="usage-quota-label">Monthly messages{resetLabel ? ` — resets ${resetLabel}` : ''}</span>
+                <span className="usage-quota-label">Monthly messages{resetLabel ? ` · resets ${resetLabel}` : ''}</span>
                 <span className="usage-quota-count">{monthlyRemaining} of 100 remaining</span>
               </div>
               <div className="usage-progress-bar">
@@ -116,7 +130,7 @@ export function UsageDashboard({
             {/* Buy more */}
             <div className="usage-topup-section">
               <h3 className="usage-topup-title">
-                {messagesRemaining < 20 ? 'Running low — buy more messages' : 'Buy extra messages'}
+                {messagesRemaining < 20 ? 'Running low · buy more messages' : 'Buy extra messages'}
               </h3>
               <div className="usage-topup-grid">
                 <button className="usage-topup-button" onClick={() => onCheckout('chat_pack_100')}>
@@ -135,12 +149,12 @@ export function UsageDashboard({
             <div className="usage-subscription-actions">
               {isCanceled ? (
                 <button className="usage-resubscribe" onClick={() => onCheckout('subscription')}>
-                  Resubscribe — $5/month
+                  Resubscribe — $3/month
                 </button>
               ) : showCancelConfirm ? (
                 <div className="usage-cancel-confirm">
                   <p className="usage-cancel-text">
-                    Are you sure? You'll keep Premium until {resetLabel || 'the end of your billing period'}. After that, you can still read for free — all books, editions, highlights, and notes stay yours.
+                    Are you sure? You'll keep Premium until {resetLabel || 'the end of your billing period'}. After that, you can still read for free. All books, editions, highlights, and notes stay yours.
                   </p>
                   <div className="usage-cancel-buttons">
                     <button className="usage-cancel-yes" onClick={handleCancel} disabled={canceling}>
@@ -162,16 +176,16 @@ export function UsageDashboard({
           <>
             {/* Not subscribed — subscribe pitch */}
             <div className="usage-subscribe-pitch">
-              <p className="usage-price">$5 <span className="usage-price-period">/ month</span></p>
+              <p className="usage-price">$3 <span className="usage-price-period">/ month</span></p>
               <ul className="usage-feature-list">
                 <li>100 AI chat messages per month</li>
                 <li>Audiobook for every book</li>
-                <li>Cast — spoiler-free character tracker</li>
+                <li>Cast · spoiler-free character tracker</li>
                 <li>Intelligent notes with AI cleanup</li>
                 <li>Cross-device sync</li>
               </ul>
               <button className="auth-submit" onClick={() => onCheckout('subscription')}>
-                Subscribe — $5/month
+                Subscribe · $3/month
               </button>
             </div>
 
@@ -192,10 +206,10 @@ export function UsageDashboard({
 
             <div className="usage-free-section">
               <p className="usage-free-note">
-                Reading is always free. All books, all editions, highlights, and notes — no charge, ever. Premium adds AI chat, audiobook, and Cast.
+                Reading is always free. All books, all editions, highlights, and notes. No charge, ever. Premium adds AI chat, audiobook, and Cast.
               </p>
               <p className="usage-affordability">
-                Can't afford it? <a href="mailto:anders@tinct.app" className="usage-email-link">Email us</a> — we'll work something out.
+                Can't afford it? <a href="mailto:anders@tinct.app" className="usage-email-link">Email us</a>. We'll work something out.
               </p>
             </div>
           </>

@@ -14,7 +14,7 @@ export function ReadingProgressBar({ percentComplete, timeRemainingLabel, isLear
     <div className="reading-tracker">
       <button
         className="reading-tracker-nav"
-        onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))}
+        onClick={() => window.dispatchEvent(new CustomEvent('tinct:page-nav', { detail: { direction: 'prev' } }))}
         disabled={!canGoPrev}
         aria-label="Previous page"
       >
@@ -35,7 +35,7 @@ export function ReadingProgressBar({ percentComplete, timeRemainingLabel, isLear
       </div>
       <button
         className="reading-tracker-nav"
-        onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))}
+        onClick={() => window.dispatchEvent(new CustomEvent('tinct:page-nav', { detail: { direction: 'next' } }))}
         disabled={!canGoNext}
         aria-label="Next page"
       >

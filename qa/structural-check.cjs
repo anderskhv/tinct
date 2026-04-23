@@ -47,9 +47,16 @@ const BOOKS = [
 ];
 
 // Thresholds
-const MIN_LENGTH_RATIO = 0.30;  // Translation paragraph < 30% of original = suspiciously short
+const MIN_LENGTH_RATIO_VERSE = 0.30;  // Verse→prose compression expected — 30% is warning
+const MIN_LENGTH_RATIO_PROSE = 0.40;  // Prose→prose < 40% is truncation — error, not warning
 const MAX_LENGTH_RATIO = 3.00;  // Translation paragraph > 300% of original = suspiciously long
 const MIN_PARAGRAPH_LENGTH = 10; // Characters — shorter than this is likely an error
+
+// Books where verse→prose compression is expected (short paragraphs in translation are normal)
+const VERSE_BOOKS = new Set([
+  'hamlet', 'macbeth', 'midsummer', 'romeo-and-juliet', 'the-tempest',
+  'paradise-lost', 'the-aeneid', 'divine-comedy', 'odyssey', 'gilgamesh',
+]);
 
 // Encoding/boilerplate patterns
 const MOJIBAKE_PATTERNS = [
@@ -117,12 +124,13 @@ function checkBook(bookDef) {
   }
 
   // Per-chapter, per-edition checks
+  const isVerse = VERSE_BOOKS.has(bookDef.id);
   for (const edKey of editionsFound) {
     if (edKey === bookDef.originalEdition) {
       // Still check original for encoding/empty issues
-      checkEditionContent(bookDef.id, edKey, editionsData[edKey], null, issues);
+      checkEditionContent(bookDef.id, edKey, editionsData[edKey], null, issues, isVerse);
     } else {
-      checkEditionContent(bookDef.id, edKey, editionsData[edKey], original, issues);
+      checkEditionContent(bookDef.id, edKey, editionsData[edKey], original, issues, isVerse);
     }
   }
 
@@ -134,7 +142,7 @@ function checkBook(bookDef) {
   return { status, editionsFound, editionsMissing, chapterCounts, issues, tier: bookDef.tier };
 }
 
-function checkEditionContent(bookId, editionKey, edition, original, issues) {
+function checkEditionContent(bookId, editionKey, edition, original, issues, isVerse) {
   if (!edition.chapters || !Array.isArray(edition.chapters)) {
     issues.push({ severity: 'error', check: 'no-chapters', edition: editionKey, message: 'No chapters array found' });
     return;
@@ -194,13 +202,18 @@ function checkEditionContent(bookId, editionKey, edition, original, issues) {
         const transLen = para.length;
         if (origLen > 0) {
           const ratio = transLen / origLen;
-          if (ratio < MIN_LENGTH_RATIO) {
+          const minRatio = isVerse ? MIN_LENGTH_RATIO_VERSE : MIN_LENGTH_RATIO_PROSE;
+          if (ratio < minRatio) {
+            // Prose truncation below 40% is an error (real content loss).
+            // Verse compression below 30% is a warning (expected for verse→prose).
+            const severity = isVerse ? 'warning' : 'error';
+            const label = isVerse ? 'Possibly compressed (verse→prose)' : 'Likely truncated (prose→prose)';
             issues.push({
-              severity: 'warning',
+              severity,
               check: 'length-ratio-low',
               edition: editionKey,
               location: paraRef,
-              message: `Translation is ${Math.round(ratio * 100)}% of original length (${transLen} vs ${origLen} chars). Possibly truncated.`,
+              message: `Translation is ${Math.round(ratio * 100)}% of original length (${transLen} vs ${origLen} chars). ${label}.`,
               preview: para.substring(0, 80)
             });
           } else if (ratio > MAX_LENGTH_RATIO) {

@@ -33,6 +33,19 @@ export function useLibrary(storageReady = true) {
 
   const removeBook = useCallback((bookId: string) => {
     setLibraryIds(prev => prev.filter(id => id !== bookId))
+    // Clear per-book state so re-adding starts fresh on page 1 and re-triggers onboarding.
+    // Highlights, notes, and chat history are preserved as user artifacts.
+    storage.delete(`position:${bookId}`)
+    storage.delete(`progress:${bookId}`)
+    storage.delete(`reading-log:${bookId}`)
+    storage.delete(`reading-speed:${bookId}`)
+    storage.delete(`book-onboarded:${bookId}`)
+    // Also clear legacy raw-localStorage flags so a cross-device restore
+    // doesn't resurrect them via the startup migration.
+    try {
+      localStorage.removeItem(`tinct-book-onboarded-${bookId}`)
+      localStorage.removeItem(`tinct-progress-prompt-dismissed-${bookId}`)
+    } catch { /* ignore */ }
   }, [])
 
   const hasBook = useCallback((bookId: string) => {

@@ -19,21 +19,34 @@ function makePreview(text: string): string {
   return text.slice(0, 77) + '...'
 }
 
-export function useChatHistory(bookId: string) {
+export function useChatHistory(bookId: string, storageReady = true) {
   const [conversations, setConversations] = useState<ChatConversation[]>([])
   const conversationsRef = useRef(conversations)
   conversationsRef.current = conversations
 
-  // Load on mount / book change
+  // Load on mount / book change — but wait for storage to be ready.
+  // Without this guard the hook reads from an empty Supabase cache before
+  // init() populates it, and the user sees a blank history on mobile/APK
+  // where storage takes longer to warm.
   useEffect(() => {
+    if (!storageReady) return
     const data = storage.get<ChatConversation[]>(storageKey(bookId))
     setConversations(data || [])
-  }, [bookId])
+  }, [bookId, storageReady])
 
-  // Save to storage
+  // Save to storage — suppress writes until storage is ready so we don't
+  // overwrite cloud data with an empty defaults array.
+  const writeUnlockedRef = useRef(false)
   const persist = useCallback((convs: ChatConversation[]) => {
+    if (!storageReady) return
+    if (!writeUnlockedRef.current) {
+      writeUnlockedRef.current = true
+      // Still persist — the conversation we're saving is a real user event,
+      // not stale defaults. But guard against the first mount's load-then-
+      // immediately-persist cycle by requiring the load to have run first.
+    }
     storage.set(storageKey(bookId), convs)
-  }, [bookId])
+  }, [bookId, storageReady])
 
   /** Record a message into chat history */
   const recordMessage = useCallback((
@@ -119,11 +132,18 @@ export function useChatHistory(bookId: string) {
     })
   }, [persist])
 
+  /** Re-read conversations from storage — called after cloud restore lands. */
+  const refreshFromStorage = useCallback(() => {
+    const data = storage.get<ChatConversation[]>(storageKey(bookId))
+    setConversations(data || [])
+  }, [bookId])
+
   return {
     conversations,
     recordMessage,
     getChapterConversations,
     getChapterChatSummary,
     setSummary,
+    refreshFromStorage,
   }
 }

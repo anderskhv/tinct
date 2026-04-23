@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from 'react'
+import { apiUrl } from '../utils/apiUrl'
 
 interface ProactiveInsightState {
   text: string | null
@@ -45,7 +46,7 @@ export function useProactiveInsight(options: UseProactiveInsightOptions) {
       const snippet = opts.paragraphs.slice(paraStart, paraStart + 3).join(' ').slice(0, 500)
       if (!snippet) return
 
-      const response = await fetch('/api/chat', {
+      const response = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

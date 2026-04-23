@@ -31,6 +31,7 @@ interface OnboardingProps {
   // Progress display
   progressDisplay?: ProgressDisplay
   onProgressDisplayChange?: (pd: ProgressDisplay) => void
+  hasSections?: boolean
 }
 
 const LANG_LABELS: Record<string, string> = { en: 'English', da: 'Danish' }
@@ -62,6 +63,7 @@ export function Onboarding({
   onAudioEditionChange,
   progressDisplay,
   onProgressDisplayChange,
+  hasSections,
 }: OnboardingProps) {
   const [objective, setObjective] = useState(initialObjective || '')
   // Sync if initialObjective arrives later (e.g., after Supabase loads)
@@ -214,7 +216,7 @@ export function Onboarding({
                     style={{ flex: 1 }}
                   >
                     <option value="book">of book</option>
-                    <option value="section">of section</option>
+                    {hasSections && <option value="section">of section</option>}
                     <option value="chapter">of chapter</option>
                   </select>
                 </div>

@@ -16,13 +16,22 @@ fail() { TESTS=$((TESTS + 1)); FAILURES=$((FAILURES + 1)); echo "  ✗ $1"; }
 echo "Smoke testing: $URL"
 echo ""
 
-# 1. Homepage loads and contains the app
-echo "1. Homepage"
-HTML=$(curl -sf "$URL/" 2>/dev/null || echo "FAIL")
-if echo "$HTML" | grep -q '<div id="root"'; then
-  pass "HTML loads with root div"
+# 1. Landing page loads
+echo "1. Landing page"
+LANDING=$(curl -sf "$URL/" 2>/dev/null || echo "FAIL")
+if echo "$LANDING" | grep -q 'A new way to read'; then
+  pass "Landing page loads"
 else
-  fail "Homepage did not load"
+  fail "Landing page did not load"
+fi
+
+# 1b. SPA loads at /read
+echo "1b. App"
+HTML=$(curl -sf "$URL/read" 2>/dev/null || echo "FAIL")
+if echo "$HTML" | grep -q '<div id="root"'; then
+  pass "SPA loads at /read with root div"
+else
+  fail "SPA did not load at /read"
 fi
 
 # 2. JS bundle exists and loads
@@ -31,6 +40,13 @@ JS_FILE=$(echo "$HTML" | sed -n 's/.*src="\(\/assets\/index-[^"]*\.js\)".*/\1/p'
 if [ -n "$JS_FILE" ]; then
   pass "JS bundle found: $JS_FILE"
   JS_CONTENT=$(curl -sf "$URL$JS_FILE" 2>/dev/null || echo "")
+
+  # 2b. JS file contains actual JavaScript (not HTML fallback)
+  if echo "$JS_CONTENT" | head -c 100 | grep -q "var \|function \|Object\.\|import "; then
+    pass "JS bundle contains JavaScript code"
+  else
+    fail "JS bundle returns HTML instead of JavaScript — CRITICAL: app will not render"
+  fi
 
   # 3. Supabase URL baked in
   echo "3. Supabase"
@@ -79,8 +95,21 @@ else
   fail "Sample audio file returned $AUDIO_STATUS"
 fi
 
-# 8. CSS loads
-echo "7. CSS"
+# 8. CSP allows R2 media playback (regression guard: without `media-src`, audio
+#    falls back to `default-src 'self'` and R2 MP3s are blocked by the browser,
+#    causing audio play to silently cascade through the chapter.)
+echo "8. CSP audio allowlist"
+CSP_HEADER=$(curl -sI "$URL/read" 2>/dev/null | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" { $1=""; sub(/^ /, ""); print }')
+if [ -z "$CSP_HEADER" ]; then
+  fail "CSP header missing from /read"
+elif echo "$CSP_HEADER" | grep -q "media-src" && echo "$CSP_HEADER" | grep "media-src" | grep -q "r2.dev"; then
+  pass "CSP media-src allows R2"
+else
+  fail "CSP does not permit R2 media — audio playback will fail"
+fi
+
+# 9. CSS loads
+echo "9. CSS"
 CSS_FILE=$(echo "$HTML" | sed -n 's/.*href="\(\/assets\/index-[^"]*\.css\)".*/\1/p' | head -1)
 if [ -n "$CSS_FILE" ]; then
   CSS_STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "$URL$CSS_FILE" 2>/dev/null || echo "000")

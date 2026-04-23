@@ -3,33 +3,267 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Tinct</title>
+  <title>About Tinct — A new way to read the classics</title>
+  <meta name="description" content="The classics have been passed hand to hand for thirty centuries. That chain is breaking. Tinct exists to repair it.">
+  <meta property="og:title" content="About Tinct">
+  <meta property="og:description" content="The classics have been passed hand to hand for thirty centuries. That chain is breaking. Tinct exists to repair it.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <style>
-    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; }
+    :root {
+      --paper: #ece7db;
+      --paper-alt: #dfd8c4;
+      --ink: #0b0b0b;
+      --dim: #6a6555;
+      --accent: #1f4a5c;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-    nav { padding: 20px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    html, body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 3px 3px; mix-blend-mode: multiply;
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 80%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 80%);
+    }
+    .wrap { position: relative; z-index: 2; }
+
+    /* Nav */
+    nav {
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink);
+      line-height: 1;
+    }
     .logo span { color: var(--accent); }
-    .back { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); text-decoration: none; }
+    .back {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
     .back:hover { color: var(--accent); }
-    main { padding: 120px 48px; max-width: 600px; }
-    h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 56px; font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; margin-bottom: 32px; }
-    p { font-size: 15px; color: var(--dim); line-height: 1.7; }
+
+    /* Page */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    h1.headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: 52px;
+    }
+
+    h2.section {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin-top: 72px;
+      margin-bottom: 28px;
+      color: var(--accent);
+    }
+
+    p.body {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    p.body em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--ink);
+      margin: 72px 0;
+    }
+
+    /* Closing line gets its own weight */
+    .closing {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--ink);
+    }
+    .closing p.body {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0;
+    }
+    .closing .cta-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-primary { background: var(--ink); color: var(--paper); }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+    /* Footer */
+    footer {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--ink);
+    }
+    footer a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 20px; }
+
+    /* Mobile */
+    @media (max-width: 720px) {
+      nav { padding: 18px 24px; }
+      .logo { font-size: 26px; }
+      main { padding: 48px 24px 80px; }
+      h2.section { margin-top: 56px; }
+      .divider { margin: 56px 0; }
+      .closing p.body { font-size: 22px; }
+      footer {
+        padding: 20px 24px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
   </style>
 </head>
 <body>
+<div class="wrap">
+
   <nav>
     <a href="/" class="logo">Tinct<span>.</span></a>
     <a href="/" class="back">← Back</a>
   </nav>
+
   <main>
-    <h1>About<br><em style="font-weight:400;font-style:italic">us.</em></h1>
-    <p>Coming soon.</p>
+
+    <div class="eyebrow">A manifesto</div>
+
+    <h1 class="headline">We've lost touch<br>with what made us.</h1>
+
+    <p class="body">Have you felt it too? The intuition that there's something you need, hidden away in Homer, the Bible or Shakespeare? The boredom and confusion when you give them a go? The resignation when you finally give up — and go back to scroll a feed or listen to a low-calorie podcast? The emptiness? The lack of depth?</p>
+
+    <p class="body">The classics are the books that made the West. They have given joy, meaning and guidance to millions of people for thousands of years. They were also old when your great-grandparents read them. And their great-grandparents too. But as of today, this transmission mechanism is broken. The books remain as interesting as they have always been, but we struggle to access their richness.</p>
+
+    <p class="body">We're force-fed them in schools, often by dispassionate and disdainful teachers. We come to share those sentiments. We look up a summary instead of reading, and come away thinking they are flat. We try again, years later, but get stuck on language we don't quite understand. We forget what page we got to. We forget what Rodya has been up to on page 62 and miss that Rodya, Rodion and Raskolnikov are Russian versions of the same name. We fail to see the treasures that await us if we read the book with the right angle.</p>
+
+    <p class="body">This is not a small loss. These treasure troves are incredibly rich and incredibly dense. Each paragraph is dense with knowledge, suspense and fun. When you finish one, you think differently. When a generation finishes them, a civilization thinks differently. Right now, this is not happening enough.</p>
+
+    <div class="divider"></div>
+
+    <h2 class="section">Tinct, a new way to read.</h2>
+
+    <p class="body">Tinct is a new way to read, understand and fall in love with the Classics. It's built for all of us who want to engage them, argue with them, wrestle them, but have struggled with other means. Here's what reading with Tinct is like:</p>
+
+    <p class="body">You open the Odyssey, on your phone, tablet, or e-reader. You read it in an authoritative English translation — the text as it was meant to be read. When a passage gets dense, you open a modern AI-generated comparison alongside. It helps you follow without replacing the original. Close it when you don't need it.</p>
+
+    <p class="body">Tinct then asks you what draws you to that book — the adventure, understanding Greek vs. Christian ethics, whatever interests you. Your answer goes directly into your AI companion that reads the book along with you. It always knows where you are and, combined with your reading angle, it answers your questions with specificity, and helps you find any valuable angles you missed.</p>
+
+    <p class="body">You pick up the phone on the commute. The audiobook picks up exactly where you stopped reading last night.</p>
+
+    <p class="body">You forget who Menelaus is. You tap "Casts", the character tracker, and get a quick overview — only of what you've read about him so far.</p>
+
+    <p class="body">You wonder if Odysseus is telling the truth, or lying, to the Phaeacians? You tap "Chat" and discuss it with the AI companion.</p>
+
+    <p class="body">You finish a chapter. Your thoughts, highlights and chats are stored to a "Feed" that grows as you do. You will never have to rely on your memory to remember which Proverbs you've read and what you thought about them.</p>
+
+    <p class="body">Tinct offers everything Audible and Kindle do — and goes further with an AI companion that knows your page, a modern comparison translation for when it gets dense, and a synced audiobook, at a fraction of the price. Reading is free forever. The premium features (AI companion, Casts, Feed, Synced audiobook) are available for the full library for just 3 dollars/month and free for the first month. Less than a cup of coffee, much less than a single e-book or audiobook.</p>
+
+    <div class="closing">
+      <p class="body">The books are still here. Still ready. Still full of knowledge and fun. It's time to open one.</p>
+      <div class="cta-row">
+        <a href="/read" class="btn btn-primary">Start reading →</a>
+        <a href="/#pricing" class="btn btn-ghost">See pricing</a>
+      </div>
+    </div>
+
   </main>
+
+  <footer>
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/about">About Tinct</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>

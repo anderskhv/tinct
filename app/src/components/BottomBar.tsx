@@ -20,6 +20,14 @@ export interface BottomBarHandle {
   getSpeed: () => number
   /** Skip relative to the current paragraph: positive forward, negative backward. */
   skipParagraphs: (delta: number) => void
+  /**
+   * Seek by a number of seconds within the chapter. Crosses paragraph
+   * boundaries — +15 from the last 5s of one paragraph will land 10s into
+   * the next paragraph. Negative delta seeks backward, clamped at 0.
+   */
+  skipSeconds: (delta: number) => void
+  /** Whether the current book/chapter/edition has audio available. */
+  hasAudio: () => boolean
 }
 
 interface ProgressDisplay {
@@ -140,6 +148,12 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     useEffect(() => {
       const audio = new Audio()
       audioRef.current = audio
+      // Counts consecutive load/decode errors. Reset on any successful play.
+      // Prevents a cascade where a system-wide block (e.g., CSP, network) skips
+      // through the entire chapter's paragraphs and jumps to the next one.
+      let consecutiveErrors = 0
+
+      const handlePlaying = () => { consecutiveErrors = 0 }
 
       const handleTimeUpdate = () => {
         if (audio.duration <= 0) return
@@ -184,9 +198,14 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       }
 
       const handleError = () => {
-        // Audio failed to load — try next paragraph or stop
+        // Audio failed to load — try next paragraph, but bail after a few
+        // consecutive failures to avoid skipping chapters on systemic errors.
+        consecutiveErrors += 1
         const m = manifestRef.current
-        if (!m) { setIsPlaying(false); return }
+        if (!m || consecutiveErrors >= 3) {
+          setIsPlaying(false)
+          return
+        }
         const nextIndex = currentParagraphRef.current + 1
         if (nextIndex < m.paragraphs.length) {
           // Skip broken paragraph, try next
@@ -206,11 +225,13 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       audio.addEventListener('timeupdate', handleTimeUpdate)
       audio.addEventListener('ended', handleEnded)
       audio.addEventListener('error', handleError)
+      audio.addEventListener('playing', handlePlaying)
 
       return () => {
         audio.removeEventListener('timeupdate', handleTimeUpdate)
         audio.removeEventListener('ended', handleEnded)
         audio.removeEventListener('error', handleError)
+        audio.removeEventListener('playing', handlePlaying)
         audio.pause()
         audio.removeAttribute('src')
       }
@@ -336,7 +357,60 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         const next = Math.max(0, Math.min(m.paragraphs.length - 1, currentParagraphRef.current + delta))
         playParagraph(next)
       },
-    }), [playParagraph])
+      skipSeconds(delta: number) {
+        const m = manifestRef.current
+        if (!m) return
+        const audio = audioRef.current
+        if (!audio) return
+        const currentIdx = currentParagraphRef.current
+        // Compute elapsed seconds up to the current position within the chapter.
+        let elapsedBefore = 0
+        for (let i = 0; i < currentIdx; i++) elapsedBefore += m.paragraphs[i].duration
+        const currentElapsed = elapsedBefore + (audio.currentTime || 0)
+        const totalDur = m.paragraphs.reduce((s, p) => s + p.duration, 0)
+        const target = Math.max(0, Math.min(totalDur - 0.1, currentElapsed + delta))
+        // Locate the paragraph that contains `target`.
+        let cumulative = 0
+        let targetIdx = m.paragraphs.length - 1
+        let offsetInPara = m.paragraphs[m.paragraphs.length - 1]?.duration ?? 0
+        for (let i = 0; i < m.paragraphs.length; i++) {
+          const dur = m.paragraphs[i].duration
+          if (cumulative + dur > target) {
+            targetIdx = i
+            offsetInPara = target - cumulative
+            break
+          }
+          cumulative += dur
+        }
+        // Same paragraph — just seek the current element.
+        if (targetIdx === currentIdx && audio.src) {
+          audio.currentTime = Math.max(0, offsetInPara)
+          return
+        }
+        // Different paragraph — swap src, wait for metadata, then seek.
+        const nextPara = m.paragraphs[targetIdx]
+        const wasPlaying = !audio.paused
+        setCurrentParagraph(targetIdx)
+        currentParagraphRef.current = targetIdx
+        onParagraphChangeRef.current?.(nextPara.paragraph)
+        lastProgressFireRef.current = 0
+        onProgressChangeRef.current?.(0)
+        const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
+        const onLoaded = () => {
+          audio.removeEventListener('loadedmetadata', onLoaded)
+          try { audio.currentTime = Math.max(0, offsetInPara) } catch { /* ignore */ }
+        }
+        audio.addEventListener('loadedmetadata', onLoaded)
+        audio.src = url
+        audio.playbackRate = speedRef.current
+        if (wasPlaying) {
+          audio.play().catch(() => setIsPlaying(false))
+        }
+      },
+      hasAudio() {
+        return !!manifestRef.current
+      },
+    }), [playParagraph, bookId, editionKey, chapterNumber])
 
     const togglePlayRef = useRef<() => void>(() => {})
     const togglePlay = useCallback(() => {
@@ -389,17 +463,12 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       <div className="bottom-bar">
         <button
           className="reading-tracker-nav"
-          onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))}
+          onClick={() => window.dispatchEvent(new CustomEvent('tinct:page-nav', { detail: { direction: 'prev' } }))}
           disabled={!canGoPrev}
           aria-label="Previous page"
         >
           &larr;
         </button>
-        {hasAudio && (
-          <button className="bottom-bar-play" onClick={togglePlay} title={isPlaying ? 'Pause audiobook' : 'Play audiobook'}>
-            <span className={isPlaying ? 'icon-pause' : 'icon-play'} />
-          </button>
-        )}
         <div className="bottom-bar-progress">
           <div className="reading-tracker-bar">
             <div className="reading-tracker-fill" style={{ width: `${percentComplete}%` }} />
@@ -462,7 +531,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         </div>
         <button
           className="reading-tracker-nav"
-          onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))}
+          onClick={() => window.dispatchEvent(new CustomEvent('tinct:page-nav', { detail: { direction: 'next' } }))}
           disabled={!canGoNext}
           aria-label="Next page"
         >

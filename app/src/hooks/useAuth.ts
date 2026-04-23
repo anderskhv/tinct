@@ -75,7 +75,14 @@ export function useAuth(): UseAuthReturn {
 
   const signUp = useCallback(async (email: string, password: string) => {
     if (!supabase) return { error: 'Auth not configured' }
-    const { error } = await supabase.auth.signUp({ email, password })
+    // Preserve the user's current page so the email-confirmation link returns
+    // them to their book, not the landing page.
+    const path = window.location.pathname === '/' ? '/read' : window.location.pathname
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}${path}` },
+    })
     if (error) return { error: error.message }
     return {}
   }, [])
@@ -89,9 +96,13 @@ export function useAuth(): UseAuthReturn {
 
   const signInWithGoogle = useCallback(async () => {
     if (!supabase) return
+    // Preserve the user's current location so OAuth doesn't bounce them to the
+    // landing page. The SPA will process Supabase's OAuth URL fragment on
+    // return, populate the session, and the user stays on their book.
+    const path = window.location.pathname === '/' ? '/read' : window.location.pathname
     await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: window.location.origin },
+      options: { redirectTo: `${window.location.origin}${path}` },
     })
   }, [])
 

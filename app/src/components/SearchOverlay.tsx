@@ -175,7 +175,7 @@ export function SearchOverlay({ chapters, sections, currentChapter, onNavigate, 
             <div key={group.chapterNumber} className="search-group">
               <div className="search-group-header">
                 {group.sectionTitle && (
-                  <span className="search-section-label">{group.sectionTitle} — </span>
+                  <span className="search-section-label">{group.sectionTitle} · </span>
                 )}
                 <span className="search-chapter-label">{group.chapterTitle}</span>
                 <span className="search-group-count">{group.results.length}</span>

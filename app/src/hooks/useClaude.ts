@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 import type { ChatMessage } from '../types'
+import { apiUrl } from '../utils/apiUrl'
 
 function buildSystemPrompt(bookTitle: string, bookAuthor: string, chapterTitle: string, readingObjective?: string): string {
   let prompt = `You are the built-in reading companion for Tinct, a deep reading platform at tinct.app. You are part of Tinct — not a third-party tool. When users ask about Tinct's features, answer directly as someone who knows the product.
@@ -110,7 +111,7 @@ export function useClaude(options?: UseClaudeOptions) {
       // Retry loop for overloaded errors (up to 3 attempts)
       let data: any
       for (let attempt = 0; attempt < 3; attempt++) {
-        const response = await fetch('/api/chat', {
+        const response = await fetch(apiUrl('/api/chat'), {
           method: 'POST',
           headers,
           body: requestBody,
@@ -132,13 +133,13 @@ export function useClaude(options?: UseClaudeOptions) {
         data = await response.json()
 
         if (data.error) {
-          const msg = (data.error.message || '').toLowerCase()
-          if ((msg.includes('overloaded') || response.status === 529) && attempt < 2) {
-            // Wait 2s before retrying
-            await new Promise(r => setTimeout(r, 2000))
+          const msg = (data.error.message || data.error || '').toLowerCase()
+          const isRetryable = msg.includes('overloaded') || response.status === 529 || response.status === 500
+          if (isRetryable && attempt < 2) {
+            await new Promise(r => setTimeout(r, 2000 * (attempt + 1)))
             continue
           }
-          throw new Error(data.error.message || 'API error')
+          throw new Error(data.error.message || data.error || 'API error')
         }
         break // success
       }
@@ -162,12 +163,13 @@ export function useClaude(options?: UseClaudeOptions) {
       }
 
       setMessages(prev => [...prev, assistantMessage])
-    } catch (err) {
+    } catch {
       const errorMessage: ChatMessage = {
         id: generateId(),
         role: 'assistant',
-        content: `Something went wrong: ${err instanceof Error ? err.message : 'Unknown error'}. Please try again.`,
+        content: 'Something went wrong. If this keeps happening, a page refresh usually fixes it.',
         timestamp: Date.now(),
+        refreshAction: true,
       }
       setMessages(prev => [...prev, errorMessage])
     } finally {
@@ -179,5 +181,9 @@ export function useClaude(options?: UseClaudeOptions) {
     setMessages([])
   }, [])
 
-  return { messages, isLoading, sendMessage, clearMessages }
+  const loadMessages = useCallback((msgs: ChatMessage[]) => {
+    setMessages(msgs)
+  }, [])
+
+  return { messages, isLoading, sendMessage, clearMessages, loadMessages }
 }

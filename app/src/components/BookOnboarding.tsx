@@ -1,0 +1,747 @@
+import { useState, useEffect, useMemo, useRef } from 'react'
+import type { Book, Edition, EditionKey, Language } from '../types'
+import { apiUrl } from '../utils/apiUrl'
+
+interface AngleCard {
+  title: string
+  text: string
+  angleObjective: string
+}
+
+interface CastMember {
+  name: string
+  role: string
+  description: string
+}
+
+interface OnboardingData {
+  bookId: string
+  title: string
+  author: string
+  era?: string
+  length?: string
+  estimatedTime?: string
+  openingChapterLabel?: string
+  openingText?: string
+  about?: string
+  angleCards?: AngleCard[]
+  cast?: CastMember[]
+}
+
+export interface BookOnboardingResult {
+  editionKey: EditionKey
+  splitEditionKey?: EditionKey
+  angle: string
+}
+
+interface BookOnboardingProps {
+  book: Book
+  editions: Edition[]
+  mode?: 'full' | 'edition-only'
+  defaultEditionKey?: EditionKey
+  showAccountStep?: boolean
+  onComplete: (result: BookOnboardingResult) => void
+  onClose: () => void
+  onCreateAccount?: () => void
+  /** If provided, step 1 shows a "Back to library" link for re-picking a book. */
+  onBackToLibrary?: () => void
+  /** Languages the user reads. Drives which editions show in the picker. */
+  readingLanguages: Language[]
+  onReadingLanguagesChange: (langs: Language[]) => void
+}
+
+const LANG_LABELS: Record<string, string> = { en: 'English', da: 'Danish' }
+
+// ── Minimal markdown renderer (bold, italic, bullet list) ────
+function renderInline(text: string): React.ReactNode {
+  if (!text.includes('*')) return text
+  const parts: React.ReactNode[] = []
+  const regex = /(\*\*(.+?)\*\*|\*(.+?)\*)/g
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  let key = 0
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+    if (match[2]) parts.push(<strong key={key++}>{match[2]}</strong>)
+    else if (match[3]) parts.push(<em key={key++}>{match[3]}</em>)
+    lastIndex = match.index + match[0].length
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+  return parts
+}
+
+function renderMarkdown(text: string): React.ReactNode[] {
+  const lines = text.split('\n')
+  const elements: React.ReactNode[] = []
+  let key = 0
+  let i = 0
+  while (i < lines.length) {
+    const line = lines[i]
+    if (!line.trim()) { i++; continue }
+    // Bullet list
+    if (line.match(/^\s*[-*]\s+/)) {
+      const items: React.ReactNode[] = []
+      while (i < lines.length && lines[i].match(/^\s*[-*]\s+/)) {
+        items.push(<li key={key++}>{renderInline(lines[i].replace(/^\s*[-*]\s+/, ''))}</li>)
+        i++
+      }
+      elements.push(<ul key={key++} className="angle-md-list">{items}</ul>)
+      continue
+    }
+    // Paragraph
+    const paraLines: string[] = []
+    while (i < lines.length && lines[i].trim() && !lines[i].match(/^\s*[-*]\s+/)) {
+      paraLines.push(lines[i])
+      i++
+    }
+    if (paraLines.length > 0) elements.push(<p key={key++}>{renderInline(paraLines.join(' '))}</p>)
+  }
+  return elements
+}
+
+// Book cover — same shape and styling as in the library, just smaller. Shares
+// the .book-cover / .book-cover-inner CSS with BookStore for visual parity.
+function BookCover({ book }: { book: Book }) {
+  const bg = book.coverColor || '#2c2417'
+  const accent = book.coverAccent || '#c9a45c'
+  return (
+    <div className="book-cover book-cover-onboarding" style={{ background: bg }}>
+      <div className="book-cover-spine" style={{ background: accent }} />
+      <div className="book-cover-inner">
+        <div className="book-cover-rule" style={{ borderColor: accent }} />
+        <h3 className="book-cover-title" style={{ color: accent }}>{book.title}</h3>
+        <div className="book-cover-rule" style={{ borderColor: accent }} />
+        <p className="book-cover-author" style={{ color: `${accent}cc` }}>{book.author}</p>
+        {book.year != null && (
+          <p className="book-cover-year" style={{ color: `${accent}88` }}>
+            {book.year < 0 ? `c. ${Math.abs(book.year)} BC` : book.year}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ── Angle chat ────────────────────────────────────────────────
+// Interactive chat to help the reader articulate their reading angle. Uses
+// Claude Sonnet via the shared /api/chat endpoint with a topic-locked system
+// prompt. User can iterate as long as they want, then lock in (uses their last
+// message as the angle) or skip entirely.
+type ChatMsg = { role: 'user' | 'assistant'; content: string }
+
+function AngleChat({ book, messages, setMessages, onSetAngle, onSkip }: {
+  book: Book
+  messages: ChatMsg[]
+  setMessages: React.Dispatch<React.SetStateAction<ChatMsg[]>>
+  /** Receives the conversation so the parent can ask the AI to summarize the
+   * actual angle, not pick the user's last raw message (which could be
+   * "yes" or off-topic). */
+  onSetAngle: (conversation: ChatMsg[]) => void
+  onSkip: () => void
+}) {
+  const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
+  }, [messages])
+
+  // Detect short affirmative replies ("yes", "y", "yeah", "sure", "ok")
+  function isYes(text: string): boolean {
+    const n = text.trim().toLowerCase().replace(/[.!]$/, '')
+    return n === 'yes' || n === 'y' || n === 'yeah' || n === 'yep' || n === 'sure' || n === 'ok' || n === 'okay'
+  }
+
+  function lockInWith(extraMessages: ChatMsg[] = []) {
+    // Pass the full conversation (minus the UI-only seed) so the parent can
+    // call the AI for a final angle summary. Optionally include a trailing
+    // message like "yes" so the summary reflects acceptance context.
+    const conversation = messages.filter((_, i) => i > 0).concat(extraMessages)
+    onSetAngle(conversation)
+  }
+
+  async function send() {
+    const text = input.trim()
+    if (!text || isLoading) return
+
+    // "yes" / "sure" / "ok" shortcut: accept the AI's proposed angle. We
+    // pass the whole conversation plus a trailing "yes" so the summarizer
+    // can see the acceptance context.
+    if (isYes(text) && messages.some(m => m.role === 'user')) {
+      lockInWith([{ role: 'user', content: text }])
+      return
+    }
+
+    const newMessages = [...messages, { role: 'user' as const, content: text }]
+    setMessages(newMessages)
+    setInput('')
+    setIsLoading(true)
+    try {
+      const apiMessages = newMessages.filter((_, i) => i > 0) // strip UI-only seed
+      const res = await fetch(apiUrl('/api/angle-chat'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bookTitle: book.title,
+          bookAuthor: book.author,
+          messages: apiMessages,
+        }),
+      })
+      const data = await res.json()
+      const reply = data.content?.[0]?.text || "I couldn't respond just now. Try again in a moment."
+      setMessages([...newMessages, { role: 'assistant', content: reply }])
+    } catch {
+      setMessages([...newMessages, { role: 'assistant', content: 'Something went wrong. Try again.' }])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      send()
+    }
+  }
+
+  function lockIn() {
+    if (!hasUserMessage) { onSkip(); return }
+    lockInWith()
+  }
+
+  const hasUserMessage = messages.some(m => m.role === 'user')
+
+  return (
+    <div className="angle-chat">
+      {/* Single unified chat window — messages and input share one bordered
+       * container so it reads as one chat surface, not two stacked boxes. */}
+      <div className="angle-chat-window">
+        <div className="angle-chat-messages" ref={scrollRef}>
+          {messages.map((m, i) => (
+            <div key={i} className={`angle-chat-msg angle-chat-msg-${m.role}`}>
+              {m.role === 'assistant' ? renderMarkdown(m.content) : m.content}
+            </div>
+          ))}
+          {isLoading && (
+            <div className="angle-chat-msg angle-chat-msg-assistant angle-chat-loading">Thinking…</div>
+          )}
+        </div>
+
+        <div className="angle-chat-input-row">
+          <textarea
+            className="angle-chat-input"
+            placeholder={`Type your reply, or "yes" to accept…`}
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            rows={1}
+            disabled={isLoading}
+            autoFocus
+          />
+          <button
+            className="angle-chat-send"
+            onClick={send}
+            disabled={!input.trim() || isLoading}
+            aria-label="Send"
+          >→</button>
+        </div>
+      </div>
+
+      <div className="angle-chat-actions">
+        <button
+          className="angle-chat-lock"
+          onClick={lockIn}
+          disabled={!hasUserMessage}
+        >
+          Use this as my angle →
+        </button>
+        <button className="angle-chat-skip" onClick={onSkip}>Skip for now</button>
+      </div>
+    </div>
+  )
+}
+
+// ── Main onboarding component ───────────────────────────────
+type StepKey = 'edition' | 'angle' | 'angle-confirm' | 'cast' | 'account'
+
+export function BookOnboarding({
+  book,
+  editions,
+  mode = 'full',
+  defaultEditionKey,
+  showAccountStep = false,
+  onComplete,
+  onClose,
+  onCreateAccount,
+  onBackToLibrary,
+  readingLanguages,
+  onReadingLanguagesChange,
+}: BookOnboardingProps) {
+  const bookId = book.id
+  const [data, setData] = useState<OnboardingData | null>(null)
+  const [dataLoaded, setDataLoaded] = useState(false)
+  const [stepIdx, setStepIdx] = useState(0)
+  // Primary edition: Original English is always the default for first-time
+  // onboarding. The modern translation is there as a comprehension tool,
+  // not a replacement for the authoritative text.
+  const [editionKey, setEditionKey] = useState<EditionKey>(
+    editions.find(e => e.style === 'original' && e.language === 'en')?.key
+      || defaultEditionKey
+      || editions[0]?.key
+      || ''
+  )
+  const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(undefined)
+  const [angle, setAngle] = useState('')
+  const [angleLocked, setAngleLocked] = useState(false)
+  const [angleNotes, setAngleNotes] = useState<string | null>(null)
+  const [angleNotesLoading, setAngleNotesLoading] = useState(false)
+  // Chat messages lifted out of AngleChat so "Refine angle" returns to the
+  // same conversation instead of a blank slate.
+  const angleSeed: ChatMsg = {
+    role: 'assistant',
+    content: `Tell me what draws you to *${book.title}*. A theme, a question, a tension you want to sit with. I'll help you sharpen it.`,
+  }
+  const [angleMessages, setAngleMessages] = useState<ChatMsg[]>([angleSeed])
+
+  // Load per-book onboarding data
+  useEffect(() => {
+    let cancelled = false
+    fetch(`/data/onboarding/${bookId}.json`)
+      .then(r => (r.ok ? r.json() : null))
+      .then(json => { if (!cancelled) { setData(json); setDataLoaded(true) } })
+      .catch(() => { if (!cancelled) setDataLoaded(true) })
+    return () => { cancelled = true }
+  }, [bookId])
+
+  // Dynamic step list: only include steps that have meaningful content.
+  // Cast is skipped when there's no cast data for this book (avoids the
+  // "Meet the key figures" page with nothing on it).
+  const activeSteps: StepKey[] = useMemo(() => {
+    if (mode === 'edition-only') return ['edition']
+    const steps: StepKey[] = ['edition', 'angle']
+    if (angleLocked) steps.push('angle-confirm')
+    if (dataLoaded && data?.cast && data.cast.length > 0) steps.push('cast')
+    if (showAccountStep) steps.push('account')
+    return steps
+  }, [mode, data?.cast, showAccountStep, dataLoaded, angleLocked])
+
+  const currentStep: StepKey | undefined = activeSteps[stepIdx]
+  const totalSteps = activeSteps.length
+  const isLastStep = stepIdx === totalSteps - 1
+
+  // If the active step list shrinks beneath our current index (e.g., data
+  // loads and there's no cast so totalSteps drops), clamp to the end.
+  useEffect(() => {
+    if (stepIdx >= totalSteps) setStepIdx(Math.max(0, totalSteps - 1))
+  }, [stepIdx, totalSteps])
+
+  // Languages actually present in this book's editions. Drives the chip row.
+  const availableLanguages = useMemo(
+    () => Array.from(new Set(editions.map(e => e.language))),
+    [editions]
+  )
+
+  // Editions matching the reader's language preferences. If the intersection
+  // is empty (e.g. Danish-only reader opens a book with no Danish translation),
+  // fall back to showing all editions with a note.
+  const filteredEditions = useMemo(
+    () => editions.filter(e => readingLanguages.includes(e.language)),
+    [editions, readingLanguages]
+  )
+  const noMatchingLanguage = filteredEditions.length === 0
+  const effectiveEditions = noMatchingLanguage ? editions : filteredEditions
+
+  const sortedEditions = useMemo(() => {
+    return [...effectiveEditions].sort((a, b) => {
+      const score = (e: Edition) => {
+        if (e.style === 'original' && e.language === 'en') return 0
+        if (e.style === 'modern' && e.language === 'en') return 1
+        if (e.language === 'en') return 2
+        if (e.language === 'da') return 3
+        return 4
+      }
+      return score(a) - score(b)
+    })
+  }, [effectiveEditions])
+
+  const alignedEditions = useMemo(
+    () => effectiveEditions.filter(e => e.aligned && e.key !== editionKey),
+    [effectiveEditions, editionKey]
+  )
+
+  function toggleLanguage(lang: Language) {
+    if (readingLanguages.includes(lang)) {
+      // Don't let the reader disable their last remaining language.
+      if (readingLanguages.length === 1) return
+      onReadingLanguagesChange(readingLanguages.filter(l => l !== lang))
+    } else {
+      onReadingLanguagesChange([...readingLanguages, lang])
+    }
+  }
+
+  // If the currently-selected edition disappears from the filtered list
+  // (because the user deselected its language), auto-pick the first remaining.
+  useEffect(() => {
+    if (!sortedEditions.some(e => e.key === editionKey) && sortedEditions.length > 0) {
+      setEditionKey(sortedEditions[0].key)
+    }
+  }, [sortedEditions, editionKey])
+
+  function next() {
+    if (stepIdx < totalSteps - 1) setStepIdx(stepIdx + 1)
+    else finish()
+  }
+
+  function back() {
+    if (stepIdx > 0) setStepIdx(stepIdx - 1)
+  }
+
+  function finish() {
+    onComplete({ editionKey, splitEditionKey, angle: angle.trim() })
+  }
+
+  // Called when the user locks in an angle from the chat. Receives the full
+  // conversation and asks the AI to derive the actual reading angle + three
+  // things to watch for. This avoids "last-user-message = angle" pitfalls
+  // (like off-topic final messages being captured as the angle verbatim).
+  async function handleAngleLockIn(conversation: Array<{ role: 'user' | 'assistant'; content: string }>) {
+    setAngleLocked(true)
+    setStepIdx(idx => idx + 1) // advance to angle-confirm
+    setAngle('') // cleared during the API call; filled in when response arrives
+    setAngleNotes(null)
+    setAngleNotesLoading(true)
+    try {
+      const res = await fetch(apiUrl('/api/angle-chat'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bookTitle: book.title,
+          bookAuthor: book.author,
+          messages: [
+            ...conversation,
+            {
+              role: 'user',
+              content: `Finalize my reading angle based on our conversation above. Respond in this EXACT format, nothing else:
+
+ANGLE: [one clear sentence starting with "I want to…" describing my reading angle for this book. Ignore any off-topic messages in the conversation — only use the genuine reading interest I expressed. If my stated interest is a stretch for this book, frame the angle honestly so the notes below can help me find what's actually there.]
+
+WATCH FOR:
+- **[short bold header]** — [one sentence explaining what to notice]
+- **[short bold header]** — [one sentence explaining what to notice]
+- **[short bold header]** — [one sentence explaining what to notice]`,
+            },
+          ],
+        }),
+      })
+      const data = await res.json()
+      const full = data.content?.[0]?.text || ''
+      const angleMatch = full.match(/ANGLE:\s*([^\n]+)/i)
+      const watchMatch = full.match(/WATCH FOR:\s*([\s\S]+)/i)
+      setAngle(angleMatch ? angleMatch[1].trim() : full.slice(0, 200))
+      setAngleNotes(watchMatch ? watchMatch[1].trim() : null)
+    } catch {
+      setAngle('')
+      setAngleNotes(null)
+    } finally {
+      setAngleNotesLoading(false)
+    }
+  }
+
+  function handleAngleSkip() {
+    setAngleLocked(false)
+    setAngle('')
+    setStepIdx(idx => idx + 1) // advance past angle (angle-confirm won't exist)
+  }
+
+  const displayTitle = data?.title || book.title
+  const displayAuthor = data?.author || book.author
+
+  return (
+    <div className="book-onboarding-overlay" role="dialog" aria-labelledby="book-onboarding-title">
+      <div className="book-onboarding-modal" onClick={e => e.stopPropagation()}>
+        <div className="book-onboarding-modal-accent" />
+
+        <div className="book-onboarding-head">
+          <div className="book-onboarding-step-dots">
+            {Array.from({ length: totalSteps }).map((_, i) => (
+              <div
+                key={i}
+                className={`book-onboarding-step-dot ${
+                  i < stepIdx ? 'done' : i === stepIdx ? 'active' : ''
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="book-onboarding-body">
+
+          {/* Step: edition */}
+          {currentStep === 'edition' && (
+            <div className="book-onboarding-step book-onboarding-step-intro">
+              <div className="book-onboarding-hero">
+                <BookCover book={book} />
+                <div className="book-onboarding-hero-text">
+                  <h1 className="book-onboarding-book-title" id="book-onboarding-title">{displayTitle}</h1>
+                  <p className="book-onboarding-book-byline">
+                    {displayAuthor}
+                    {data?.era && `, ${data.era}`}
+                    {data?.estimatedTime && `, ${data.estimatedTime}`}
+                  </p>
+                  {(data?.about || book.description) && (
+                    <p className="book-onboarding-about-text">{data?.about || book.description}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Language chips — only show when the book has more than one
+                  language so English-only books don't render an empty row. */}
+              {availableLanguages.length > 1 && (
+                <div className="book-onboarding-lang-chips">
+                  <span className="book-onboarding-lang-chips-label">Reading in</span>
+                  {availableLanguages.map(lang => {
+                    const selected = readingLanguages.includes(lang)
+                    return (
+                      <button
+                        key={lang}
+                        type="button"
+                        className={`book-onboarding-lang-chip ${selected ? 'selected' : ''}`}
+                        onClick={() => toggleLanguage(lang)}
+                      >
+                        {LANG_LABELS[lang] || lang} {selected ? '✓' : '+'}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
+
+              {noMatchingLanguage && (
+                <div className="book-onboarding-no-lang-note">
+                  No {readingLanguages.map(l => LANG_LABELS[l] || l).join(' or ')} edition for this book yet. Here's what's available.
+                </div>
+              )}
+
+              <div className="book-onboarding-edition-block">
+                <h3 className="book-onboarding-edition-heading">Pick the version you want to read</h3>
+                <div className="book-onboarding-edition-rows">
+                  {sortedEditions.map(ed => (
+                    <button
+                      key={ed.key}
+                      type="button"
+                      className={`book-onboarding-edition-row ${editionKey === ed.key ? 'selected' : ''}`}
+                      onClick={() => setEditionKey(ed.key)}
+                    >
+                      <span className="book-onboarding-er-lang">{LANG_LABELS[ed.language] || ed.language}</span>
+                      <span className="book-onboarding-er-name">
+                        {ed.label}
+                        {ed.style === 'modern' && <span className="book-onboarding-er-ai-badge">AI</span>}
+                        {ed.translator && <span className="book-onboarding-er-name-sub">{ed.translator}</span>}
+                      </span>
+                      <span className="book-onboarding-er-desc">
+                        {ed.style === 'modern' ? 'Modern prose' : ed.style === 'original' ? 'Original text' : ed.style}
+                        {ed.year ? ` · ${ed.year}` : ''}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+                {sortedEditions.find(e => e.key === editionKey)?.style === 'modern' && (
+                  <p className="book-onboarding-ai-disclaimer">
+                    Generated by AI. Good for following the plot and unlocking unfamiliar references — but may occasionally miss nuance a professional translator would catch.
+                  </p>
+                )}
+              </div>
+
+              {alignedEditions.length > 0 && (
+                <div className="book-onboarding-edition-block">
+                  <h3 className="book-onboarding-edition-heading">
+                    Pick your secondary version for side-by-side reading <span className="book-onboarding-edition-heading-sub">(optional)</span>
+                  </h3>
+                  <p className="book-onboarding-edition-heading-note">Open it when the text gets dense — close it when you don't need it.</p>
+                  <div className="book-onboarding-edition-rows">
+                    <button
+                      type="button"
+                      className={`book-onboarding-edition-row ${splitEditionKey === undefined ? 'selected' : ''}`}
+                      onClick={() => setSplitEditionKey(undefined)}
+                    >
+                      <span className="book-onboarding-er-lang dim">off</span>
+                      <span className="book-onboarding-er-name dim">No side by side</span>
+                      <span className="book-onboarding-er-desc" />
+                    </button>
+                    {alignedEditions.map(ed => (
+                      <button
+                        key={ed.key}
+                        type="button"
+                        className={`book-onboarding-edition-row ${splitEditionKey === ed.key ? 'selected' : ''}`}
+                        onClick={() => setSplitEditionKey(ed.key)}
+                      >
+                        <span className="book-onboarding-er-lang">{LANG_LABELS[ed.language] || ed.language}</span>
+                        <span className="book-onboarding-er-name">
+                          {ed.label}
+                          {ed.style === 'modern' && <span className="book-onboarding-er-ai-badge">AI</span>}
+                        </span>
+                        <span className="book-onboarding-er-desc">
+                          {ed.style === 'modern' ? 'Modern prose' : ed.style === 'original' ? 'Original text' : ed.style}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                  {alignedEditions.find(e => e.key === splitEditionKey)?.style === 'modern' && (
+                    <p className="book-onboarding-ai-disclaimer">
+                      Generated by AI. Good for following the plot and unlocking unfamiliar references — but may occasionally miss nuance a professional translator would catch.
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Step: angle (interactive chat) */}
+          {currentStep === 'angle' && (
+            <div className="book-onboarding-step">
+              <div className="book-onboarding-eyebrow">Optional · free for everyone</div>
+              <h2 className="book-onboarding-step-title">Your reading angle</h2>
+              <p className="book-onboarding-step-sub">
+                A reading angle changes what you notice. Chat with the AI to sharpen yours, or skip and set one later.
+              </p>
+              <AngleChat
+                book={book}
+                messages={angleMessages}
+                setMessages={setAngleMessages}
+                onSetAngle={handleAngleLockIn}
+                onSkip={handleAngleSkip}
+              />
+            </div>
+          )}
+
+          {/* Step: angle confirmation — shows the locked-in angle plus AI-generated
+              "what to watch for" notes, before moving on to cast/account. */}
+          {currentStep === 'angle-confirm' && (
+            <div className="book-onboarding-step">
+              <div className="book-onboarding-eyebrow">Your reading angle</div>
+              <h2 className="book-onboarding-step-title">
+                {angleNotesLoading ? 'Calibrating your angle…' : 'Locked in.'}
+              </h2>
+
+              {angleNotesLoading && (
+                <div className="book-onboarding-calibrating">
+                  <div className="book-onboarding-spinner" aria-hidden="true" />
+                  <p>Reading our conversation and picking out what to watch for. Give us a sec.</p>
+                </div>
+              )}
+
+              {!angleNotesLoading && angle && (
+                <div className="book-onboarding-angle-display">
+                  {angle}
+                </div>
+              )}
+
+              {!angleNotesLoading && (
+                <>
+                  <div className="book-onboarding-notes-heading">What to watch for as you read</div>
+                  <div className="book-onboarding-notes">
+                    {angleNotes && (
+                      <div className="book-onboarding-notes-body">{renderMarkdown(angleNotes)}</div>
+                    )}
+                    {!angleNotes && (
+                      <p className="book-onboarding-notes-empty">The AI will keep your angle in mind as you read. Ask questions in Chat any time.</p>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Step: cast */}
+          {currentStep === 'cast' && (
+            <div className="book-onboarding-step">
+              <div className="book-onboarding-eyebrow">{displayTitle}</div>
+              <h2 className="book-onboarding-step-title">Meet the key figures</h2>
+              <p className="book-onboarding-step-sub">Let them land. You'll meet them properly in the text.</p>
+
+              <div className="book-onboarding-cast-grid">
+                {(data?.cast || []).map((c, i) => (
+                  <div key={i} className="book-onboarding-cast-card">
+                    <div className="book-onboarding-cast-name">{c.name}</div>
+                    <div className="book-onboarding-cast-role">{c.role}</div>
+                    <div className="book-onboarding-cast-desc">{c.description}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step: account — primary CTA dominant, skip as discreet link */}
+          {currentStep === 'account' && (
+            <div className="book-onboarding-step book-onboarding-step-account">
+              <div className="book-onboarding-eyebrow">One last thing</div>
+              <h2 className="book-onboarding-step-title">Save your reading</h2>
+              <p className="book-onboarding-step-sub">
+                Your place, highlights, notes, and angle on every device. Read on your phone, tablet, e-reader, or desktop. Open the full library from anywhere.
+              </p>
+
+              <div className="book-onboarding-premium-card">
+                <div className="book-onboarding-premium-title">
+                  Your first 30 days include Premium.
+                </div>
+                <div className="book-onboarding-premium-body">
+                  AI companion, audiobook, Cast, and Feed. No card. No hooks. After 30 days you roll into the free tier automatically. Reading stays free, forever.
+                </div>
+              </div>
+
+              {onCreateAccount && (
+                <button
+                  type="button"
+                  className="book-onboarding-account-primary"
+                  onClick={() => { onCreateAccount(); onComplete({ editionKey, splitEditionKey, angle: angle.trim() }) }}
+                >
+                  Create a free account
+                </button>
+              )}
+              <button
+                type="button"
+                className="book-onboarding-account-skip"
+                onClick={() => onComplete({ editionKey, splitEditionKey, angle: angle.trim() })}
+              >
+                Skip for now
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Footer: hidden on the angle step (AngleChat provides its own actions)
+         * and on the account step (it has its own primary + skip). */}
+        {currentStep !== 'angle' && currentStep !== 'account' && (
+          <div className="book-onboarding-foot">
+            {currentStep === 'edition' && onBackToLibrary && (
+              <button className="book-onboarding-foot-ghost" onClick={onBackToLibrary}>
+                ← Library
+              </button>
+            )}
+            {stepIdx > 0 && currentStep !== 'angle-confirm' && currentStep !== 'edition' && (
+              <button className="book-onboarding-foot-ghost" onClick={back}>← Back</button>
+            )}
+            {currentStep === 'angle-confirm' && (
+              <button
+                className="book-onboarding-foot-ghost"
+                onClick={() => {
+                  // Keep angleMessages intact — user returns to their chat.
+                  setAngleLocked(false)
+                  setAngle('')
+                  setAngleNotes(null)
+                  const angleIdx = activeSteps.indexOf('angle')
+                  if (angleIdx >= 0) setStepIdx(angleIdx)
+                }}
+              >
+                ← Refine angle
+              </button>
+            )}
+            <button className="book-onboarding-foot-primary" onClick={next}>
+              {isLastStep ? 'Begin reading' : 'Continue'} →
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}

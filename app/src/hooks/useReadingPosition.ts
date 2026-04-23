@@ -52,7 +52,6 @@ export function useReadingPosition(
       lastParagraphIndex: s.lastParagraphIndex,
     }
     storage.set(positionKey(s.bookId), position)
-    storage.set('tinct-current-book', s.bookId)
   }, [])
   const prevChapterRef = useRef(chapterNumber)
   useEffect(() => {
@@ -99,6 +98,10 @@ export function useReadingPosition(
     const existing = storage.get<ReadingProgress>(progressKey(bookId))
     const prev = existing?.highestCompletedChapter || 0
 
+    // Track both "highest completed" and "current position"
+    const pageFraction = totalPages > 1 ? (currentPage + 1) / totalPages : 1
+    const positionPercent = Math.round(((chapterNumber - 1 + pageFraction) / totalChapters) * 100)
+
     // Mark completed if reached last page of current chapter
     if (currentPage >= totalPages - 1 && chapterNumber > prev) {
       storage.set<ReadingProgress>(progressKey(bookId), {
@@ -106,6 +109,7 @@ export function useReadingPosition(
         highestCompletedChapter: chapterNumber,
         totalChapters,
         percent: Math.round((chapterNumber / totalChapters) * 100),
+        positionPercent,
       })
     }
     // Also: if reading chapter N, at minimum chapters 1 through N-1 are done
@@ -115,7 +119,15 @@ export function useReadingPosition(
         highestCompletedChapter: chapterNumber - 1,
         totalChapters,
         percent: Math.round(((chapterNumber - 1) / totalChapters) * 100),
+        positionPercent,
       })
+    }
+    // Always update position percent even if no new chapter completed
+    else {
+      const existing = storage.get<ReadingProgress>(progressKey(bookId))
+      if (existing) {
+        storage.set<ReadingProgress>(progressKey(bookId), { ...existing, positionPercent })
+      }
     }
   }, [bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady])
 }

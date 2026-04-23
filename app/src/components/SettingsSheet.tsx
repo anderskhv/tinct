@@ -29,6 +29,14 @@ interface SettingsSheetProps {
   fontFamily: FontFamily
   onFontFamilyChange: (family: FontFamily) => void
 
+  // Per-tab visibility (Premium features)
+  chatHidden: boolean
+  onToggleChatHidden: () => void
+  feedHidden: boolean
+  onToggleFeedHidden: () => void
+  castHidden: boolean
+  onToggleCastHidden: () => void
+
   // Editions
   allEditions: Edition[]
   primaryEditionKey: EditionKey
@@ -136,6 +144,9 @@ export function SettingsSheet(props: SettingsSheetProps) {
     darkMode, onToggleDarkMode,
     fontSize, onFontSizeChange,
     fontFamily, onFontFamilyChange,
+    chatHidden, onToggleChatHidden,
+    feedHidden, onToggleFeedHidden,
+    castHidden, onToggleCastHidden,
     allEditions, primaryEditionKey, onLanguageChange, onStyleChange,
     alignedEditions, splitEditionKey, onSplitEditionChange,
     splitView, onToggleSplitView,
@@ -209,6 +220,39 @@ export function SettingsSheet(props: SettingsSheetProps) {
             ]}
             active={fontSize}
             onChange={(v) => onFontSizeChange(v as FontSize)}
+          />
+        }
+      />
+      <Row
+        label="Chat tab"
+        hint="The AI companion panel."
+        control={
+          <Seg
+            options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
+            active={chatHidden ? 'off' : 'on'}
+            onChange={(v) => { if ((v === 'off') !== chatHidden) onToggleChatHidden() }}
+          />
+        }
+      />
+      <Row
+        label="Feed tab"
+        hint="Your reading journal of highlights, notes, and chats."
+        control={
+          <Seg
+            options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
+            active={feedHidden ? 'off' : 'on'}
+            onChange={(v) => { if ((v === 'off') !== feedHidden) onToggleFeedHidden() }}
+          />
+        }
+      />
+      <Row
+        label="Cast tab"
+        hint="Spoiler-safe character tracker."
+        control={
+          <Seg
+            options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
+            active={castHidden ? 'off' : 'on'}
+            onChange={(v) => { if ((v === 'off') !== castHidden) onToggleCastHidden() }}
           />
         }
       />

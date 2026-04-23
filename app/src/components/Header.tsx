@@ -58,6 +58,9 @@ interface HeaderProps {
   onOpenToc: () => void
   // Settings (opens onboarding/settings modal)
   onOpenSettings: () => void
+  // Focus mode (hides chrome for immersive reading)
+  focusMode?: boolean
+  onToggleFocusMode?: () => void
   // Sections (hierarchical ToC)
   sections?: Section[]
   // Progress display
@@ -147,6 +150,8 @@ export function Header({
   onSaveObjective,
   onOpenToc,
   onOpenSettings,
+  focusMode,
+  onToggleFocusMode,
   sections,
   progressDisplay,
   onProgressDisplayChange,
@@ -237,6 +242,14 @@ export function Header({
             </button>
           )}
 
+          {onToggleFocusMode && (
+            <button className="menu-icon-btn" onClick={onToggleFocusMode} aria-label={focusMode ? 'Exit focus mode' : 'Focus mode'} title={focusMode ? 'Exit focus (Esc)' : 'Focus mode (F)'}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+              </svg>
+            </button>
+          )}
+
           <button className="menu-icon-btn" onClick={onOpenSettings} aria-label="Settings">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="3" />
@@ -273,6 +286,19 @@ export function Header({
           </svg>
         </button>
 
+        {splitViewAvailable && (
+          <button
+            className={`menu-icon-btn ${splitView ? 'menu-icon-active' : ''}`}
+            onClick={onToggleSplitView}
+            title={splitView ? 'Single view' : 'Compare editions'}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="1" y="2" width="14" height="12" rx="1.5" />
+              <line x1="8" y1="2" x2="8" y2="14" />
+            </svg>
+          </button>
+        )}
+
         {onOpenSearch && (
           <button className="menu-icon-btn" onClick={onOpenSearch} title="Search in book">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -292,6 +318,14 @@ export function Header({
               <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
               <rect x="3" y="14" width="4" height="6" />
               <rect x="17" y="14" width="4" height="6" />
+            </svg>
+          </button>
+        )}
+
+        {onToggleFocusMode && (
+          <button className="menu-icon-btn" onClick={onToggleFocusMode} title={focusMode ? 'Exit focus (Esc)' : 'Focus mode (F)'}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
             </svg>
           </button>
         )}

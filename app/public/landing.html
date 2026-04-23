@@ -2,11 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (k && k.indexOf('sb-') === 0 && k.indexOf('-auth-token') !== -1) {
+            var raw = localStorage.getItem(k);
+            if (!raw) continue;
+            try {
+              var parsed = JSON.parse(raw);
+              var expiresAt = parsed && parsed.expires_at;
+              if (!expiresAt || (expiresAt * 1000) > Date.now()) {
+                window.location.replace('/read');
+                return;
+              }
+            } catch (e) { /* bad JSON, ignore */ }
+          }
+        }
+      } catch (e) { /* storage unavailable, ignore */ }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tinct — A New Way to Read</title>
-  <meta name="description" content="Read 66 classics — original and modern translations. Free. AI companion, audiobook, and character tracker.">
+  <meta name="description" content="A new way to read the classics. Every book in an authoritative English translation. AI companion, modern comparison translation, synced audiobook, character tracker. Reading is free.">
   <meta property="og:title" content="Tinct — A New Way to Read">
-  <meta property="og:description" content="66 classics, every edition, every page.">
+  <meta property="og:description" content="Every classic, every edition. A new way to read.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tinct.app">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -47,8 +68,19 @@
     .toggle-pill button.active { background: var(--ink); color: var(--paper); }
 
     /* ── Hero ── */
-    .hero { border-bottom: 3px solid var(--ink); padding: 28px 48px 36px; }
-    .hero-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    /* Full-viewport hero: user always sees headline + CTA first,
+       must scroll to reveal the features section below. */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      border-bottom: 3px solid var(--ink);
+      padding: 28px 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .hero-nav { display: flex; justify-content: space-between; align-items: center; }
     .hero-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; text-decoration: none; color: var(--ink); }
     .hero-logo .dot { color: var(--accent); }
     .hero-nav-links { display: flex; gap: 24px; }
@@ -194,8 +226,10 @@
 
     /* ── Mobile ── */
     @media (max-width: 900px) {
-      .hero { padding: 24px 24px 28px; }
-      .hero-pitch { grid-template-columns: 1fr; gap: 24px; }
+      .hero { padding: 20px 20px 28px; gap: 20px; }
+      .hero-h1 { font-size: clamp(2.25rem, 11vw, 3.5rem); }
+      .hero-pitch { grid-template-columns: 1fr; gap: 20px; padding-top: 16px; }
+      .hero-sub { font-size: 17px; }
       .hero-nav-links { gap: 14px; font-size: 10px; }
       .features-menu-head { padding: 32px 24px 24px; }
       .features-menu-body { grid-template-columns: 1fr; }
@@ -211,6 +245,13 @@
       .footer-links { justify-content: center; flex-wrap: wrap; }
       .spread-grid { grid-template-columns: 1fr; }
       .spread-grid .spread-col.mod { display: none; }
+    }
+
+    /* Very small phones — hide the in-hero feature lists so the CTA stays in view.
+       The full feature breakdown is one scroll away in "What do you get?". */
+    @media (max-width: 600px) {
+      .hero-pitch > div:first-of-type { display: none; }
+      .hero-pitch { gap: 16px; }
     }
   </style>
 </head>
@@ -229,24 +270,24 @@
       </div>
     </nav>
     <h1 class="hero-h1">
-      Read<br>
-      <em>and wrestle</em><br>
-      <span class="accent">the classics.</span>
+      Read, understand<br>
+      <em>and fall in love</em><br>
+      <span class="accent">with the Classics.</span>
     </h1>
     <div class="hero-pitch">
-      <p class="hero-sub">Finish them. Understand them. Discuss and learn with an AI companion, and listen to synced audiobooks — on your preferred reading platform.</p>
+      <p class="hero-sub">Every classic in an authoritative English translation. An AI companion that reads with you. A modern translation when the text gets dense. An audiobook that picks up where you stopped.</p>
       <div>
         <div class="feature-tier-label">Free, forever</div>
         <ul class="feature-list">
-          <li>66 books &amp; expanding.</li>
-          <li>Parallel modern translation.</li>
-          <li>Read anywhere — phone, desktop, e-reader.</li>
+          <li>34 classics, always expanding.</li>
+          <li>Authoritative translation + modern comparison, side by side.</li>
+          <li>Read on your phone, tablet, desktop, or e-reader.</li>
         </ul>
         <div class="feature-tier-label">Premium · $3/mo</div>
         <ul class="feature-list">
-          <li>AI companion on every page.</li>
-          <li>Character tracker — no spoilers.</li>
-          <li>Synced audiobooks.</li>
+          <li>An AI companion that knows your page.</li>
+          <li>A character tracker that never spoils.</li>
+          <li>An audiobook that picks up where you stopped.</li>
         </ul>
       </div>
       <div class="cta-block">
@@ -277,7 +318,7 @@
         </button>
         <button class="feat-nav-btn" data-target="panel-audio">
           <span class="feat-nav-num">03</span>
-          <span class="feat-nav-name">Audio player</span>
+          <span class="feat-nav-name">Audiobook</span>
         </button>
         <button class="feat-nav-btn" data-target="panel-cast">
           <span class="feat-nav-num">04</span>
@@ -320,7 +361,7 @@
 
         <!-- 02 — AI Companion -->
         <div class="feat-panel" id="panel-ai">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">An AI that has read every page and knows exactly where you are. Ask about any passage. Set a <strong>reading angle</strong> — history, close reading, theory — and every response is shaped around it.</p>
+          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">An AI that has read every page and knows exactly where you are. Ask about any passage. Set a <strong>reading angle</strong>, what draws you to the book, and every response is shaped around it.</p>
           <div class="chat-demo">
             <div class="chat-meta">
               <span>You · Hamlet · Act III, Scene i</span>
@@ -335,7 +376,7 @@
 
         <!-- 03 — Audio -->
         <div class="feat-panel" id="panel-audio">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are — switch between reading and listening without losing your place.</p>
+          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</p>
           <div class="audio-demo">
             <div class="audio-demo-header">
               <span>Paradise Lost · Book I</span>
@@ -352,7 +393,7 @@
 
         <!-- 04 — Cast -->
         <div class="feat-panel" id="panel-cast">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Track every character as they appear — what they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</p>
+          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</p>
           <div class="cast-mini">
             <div class="cast-mini-list" id="cast-mini-list">
               <div class="cast-mini-row" data-char="odysseus"><span class="cast-mini-name">Odysseus</span><span class="cast-mini-tag">Mortal</span></div>
@@ -390,7 +431,7 @@
   <section class="pricing-section" id="pricing">
     <div class="pricing-grid">
       <div>
-        <div class="section-label">§ 06 — Pricing</div>
+        <div class="section-label">§ 06 · Pricing</div>
         <h2 class="pricing-h2">Reading<br>is <em>free.</em><br>Forever.</h2>
       </div>
       <div class="pricing-card">
@@ -402,19 +443,19 @@
         <div class="pricing-badge">First month free</div>
         <div class="pricing-card-label">The Companion</div>
         <div class="pricing-price">$3<span class="unit"> / mo</span></div>
-        <div class="pricing-desc">AI companion · audiobook · character tracker · reading journal. Cancel anytime.</div>
+        <div class="pricing-desc">AI companion · audiobook · character tracker · reading journal. Cancel anytime. Less than a cup of coffee.</div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <span>Tinct — 2026</span>
+    <span>Tinct · 2026</span>
     <div class="footer-links">
       <a href="/read">Library</a>
       <a href="/applications">Applications</a>
       <a href="#pricing">Pricing</a>
-      <a href="/about">About us</a>
+      <a href="/about">About Tinct</a>
       <a href="mailto:contact@tinct.app" class="footer-contact">contact@tinct.app</a>
     </div>
     <a href="https://x.com/FallibleMusings">@FallibleMusings</a>

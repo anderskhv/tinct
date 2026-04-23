@@ -1,72 +1,57 @@
 # Tinct — Session State
+**Last updated: 2026-04-21**
 
-## Last session: 2026-03-26 (Wednesday)
-
-### What happened — Build Fix, Deploy Fix, Mobile UI
-
-**1. Fixed hanging build (critical)**
-- Build was hanging indefinitely during Rollup rendering phase
-- Root cause #1: 3.4GB of audio files (46,016 MP3s) in `public/audio/` — Vite copies all of `public/` to `dist/`
-- Root cause #2: 26MB of edition JSONs in `src/data/editions/` being processed by Rollup
-- Fix: Moved edition JSONs to `public/data/editions/`, changed `editionLoader.ts` and `useThreads.ts` from `import()` to `fetch()`, moved audio out of `public/`
-- Build time: infinite → 1.2 seconds
-
-**2. Fixed deploy (production was serving stale bundle)**
-- First deploy appeared successful but production still served old bundle (`index-Bb-wk_yt.js`)
-- Old bundle had `/audio` fallback (not R2 URL) → play button was gone
-- Second deploy pushed through correctly with R2 URL baked in
-- Play button restored
-
-**3. Mobile UI improvements**
-- Hamburger menu restructured into 3 grouped sections with headers:
-  - **Reading**: Book, Language, Edition, Compare toggle, Table of Contents (new)
-  - **Format** (new): Theme, Font size (S/M/L/XL), Font (Garamond/Baskerville/Source)
-  - **Account**: Balance, Reading angle (new), Browse books, Sign in/out
-- Bottom nav: 4 tabs (Read | Chat | Notes | Cast) — was 3 (Read | Compare | Chat)
-  - Compare moved to hamburger toggle
-  - Notes and Cast now directly accessible
-- Bottom bar trimmed on mobile: shows only percentage, no page count or time remaining
-- `useMobile.ts` updated: MobileView now `0|1|2|3` (reader, chat, notes, cast)
-
-**Git:** 1 commit pushed to remote
-```
-2cc4c02 Move edition JSONs to public/ for static serving, fix build hang
-```
-Mobile UI changes deployed but not yet committed.
-
-### Known issues
-- ~~`tinct/` inner `.git` repo~~ — RESOLVED. Removed inner `.git`, renamed `tinct/` to `app/`.
-- The stash test in pre-deploy checklist doesn't work with dual-repo setup.
-
-### What's deployed
-- https://tinct.ahvelplund.workers.dev — latest build with all changes
-- All 8 smoke tests passing
+> This file is a current-state snapshot, not a changelog. Fully overwrite it at the end of each session. Git log has the history.
 
 ---
 
-## Previous session: 2026-03-25 (Tuesday)
+## Deployed
+- **Production:** https://tinct.app
+- **Dev URL:** https://tinct.ahvelplund.workers.dev
+- **Last confirmed working deploy:** 2026-04-21 (mobile selection popup + audio player cleanup)
+- All 10 smoke tests passing
 
-### What happened — Email, Privacy, Launch Prep, UI Work
+## Last session changes (deployed 2026-04-21)
+Five mobile/audio fixes live in production:
+1. Mobile selection popup now sits close to the text (viewport-clamped) instead of pinned to the bottom of the screen. Native Safari edit menu is suppressed via `selection.removeAllRanges()` on mobile after our popup is captured.
+2. Added **Copy** action to the selection popup (between Issue and Share).
+3. Removed the duplicate bottom-bar play button — audio controls live only in the top AudioStrip now.
+4. Removed the "Now playing · chapter · preview text" block from the AudioStrip (was stealing vertical space).
+5. Fixed audio page-follow (mobile + desktop): reader now re-engages auto-follow on every new paragraph instead of staying stuck once the user manually turns a page.
 
-**From Group CEO window:**
-1. Brevo set up for transactional email (domain verified, DNS auto-configured)
-2. Supabase SMTP configured (smtp-relay.brevo.com:587, noreply@tinct.app)
-3. 6 branded email templates created with Tinct palette + tagline "A new way to read"
-4. Privacy policy generated at `public/privacy-policy.html`
-5. Tinct Kids concept doc at `TINCT-KIDS-CONCEPT.md`
+## Current Sprint
+**Design refresh** — rebuilding landing page and reader UX to match new design system.
+- Design refs: `Design refs/Tinct Landing v2.html` (landing) + `Design refs/Reader Variations.html` (reader)
+- Canonical reader layout: Variant D "The Hybrid"
+- New palette + fonts to apply globally (see Design Direction in CLAUDE.md)
 
-**Critical security issues found:**
-- `VITE_ANTHROPIC_API_KEY` exposed in client bundle — rename to server-side only, rotate key
-- `/api/chat` has no authentication — add Supabase session check
-- No server-side rate limiting
+## What's Built & Deployed
+| Feature | Status |
+|---|---|
+| 33 public books (bookRegistry.ts) | Done |
+| 3 editions per book (original-en, modern-en, modern-da) | Done |
+| Paginated reader + split pane | Done |
+| Side panel: Chat / Feed / Cast | Done |
+| Highlights (5 colors), notes, reading journal | Done |
+| Audiobook (R2-hosted, paragraph-sync, speed control) | Done |
+| Auth (Supabase email + Google OAuth) | Done |
+| Billing (Stripe, 30-day trial, Premium $3/mo) | In code as $5/mo — needs update |
+| Offline mode (DownloadManager + service worker) | Done |
+| Android Capacitor build | In progress (app/android/) |
+| Landing page (app/public/landing.html) | Exists, being redesigned |
+| Mobile 5-tab nav (Read/Compare/Chat/Feed/Cast) | Done |
+| Dark mode, e-ink mode, font/size picker | Done |
+| Cross-device sync (Supabase real-time) | Done |
+| Proactive AI insights | Done |
 
----
+## Known Gaps / Open TODOs
+- **Pricing code still says $5/mo** — PricingModal.tsx + landing.html both need update to $3/mo
+- **Account deletion** not wired backend (UI stub only, TODO in App.tsx)
+- **Audio edition preference** callback stubbed (TODO in App.tsx ~line 1193)
+- **Stripe keys** not in .env (commented out) — production checkout needs re-verify
+- **landing.html** shows 25 books, missing 8 from registry; still uses gold accent (#8b6b3a)
+- **Mobile UI changes** from 2026-03-26 were deployed but not committed to git — check git status
 
-## Previous session: 2026-03-16 (Monday)
-
-### What happened
-- Full strategy conversation → STRATEGY.md + BACKLOG.md created
-- Complete Phase 1a architecture built
-- Reader, SplitReader, Chat, Notes, Header, ParagraphRenderer all built
-- Kindle-style page turning started
-- Visual QA: 51 chapter screenshots + 9 interactive tests all pass
+## Git State
+Last commit: `2cc4c02 Move edition JSONs to public/ for static serving, fix build hang` (2026-03-26)
+Mobile UI changes deployed but possibly not committed — run `git -C /Users/andershvelplund/Documents/Projects/Tinct status` to verify.

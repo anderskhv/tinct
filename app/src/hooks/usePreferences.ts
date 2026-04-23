@@ -5,13 +5,32 @@ import { DEFAULT_PREFERENCES } from '../types'
 
 const STORAGE_KEY = 'preferences'
 
+/** First-visit default for reading languages: infer from browser locale. If
+ * Danish appears anywhere in navigator.languages, include it alongside English
+ * (most Danish readers want both). Otherwise default to English only. */
+function detectDefaultReadingLanguages(): Language[] {
+  if (typeof navigator === 'undefined') return ['en']
+  const langs: string[] = Array.isArray(navigator.languages) && navigator.languages.length > 0
+    ? [...navigator.languages]
+    : [navigator.language || 'en']
+  const hasDanish = langs.some(l => (l || '').toLowerCase().startsWith('da'))
+  return hasDanish ? ['en', 'da'] : ['en']
+}
+
 export function usePreferences(storageReady = true) {
   const [preferences, setPreferencesState] = useState<UserPreferences>(() => {
-    const saved = { ...DEFAULT_PREFERENCES, ...storage.get<UserPreferences>(STORAGE_KEY) }
+    const stored = storage.get<UserPreferences>(STORAGE_KEY)
+    const saved = { ...DEFAULT_PREFERENCES, ...stored }
     // Migrate removed 'highlights' tab → 'notes'
     if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
+    // Migrate removed 'compare' tab (briefly lived as a 4th desktop rail) → chat
+    if ((saved.panelTab as string) === 'compare') saved.panelTab = 'chat'
     // Migrate removed kids editions → modern
     if (saved.splitEditionKey?.includes('kids')) saved.splitEditionKey = 'modern-en'
+    // First-visit reading-languages inference
+    if (!stored || !Array.isArray(stored.readingLanguages) || stored.readingLanguages.length === 0) {
+      saved.readingLanguages = detectDefaultReadingLanguages()
+    }
     return saved
   })
 
@@ -76,6 +95,10 @@ export function usePreferences(storageReady = true) {
   const setFontFamily = useCallback((fontFamily: FontFamily) => update({ fontFamily }), [update])
   const setAccountDecisionSeen = useCallback((accountDecisionSeen: boolean) => update({ accountDecisionSeen }), [update])
   const setProgressDisplay = useCallback((progressDisplay: UserPreferences['progressDisplay']) => update({ progressDisplay }), [update])
+  const setChatHidden = useCallback((chatHidden: boolean) => update({ chatHidden }), [update])
+  const setFeedHidden = useCallback((feedHidden: boolean) => update({ feedHidden }), [update])
+  const setCastHidden = useCallback((castHidden: boolean) => update({ castHidden }), [update])
+  const setReadingLanguages = useCallback((readingLanguages: Language[]) => update({ readingLanguages }), [update])
 
   // Re-read preferences from storage (called after storage provider swap)
   const refreshFromStorage = useCallback(() => {
@@ -83,6 +106,8 @@ export function usePreferences(storageReady = true) {
     if (raw) {
       const saved = { ...DEFAULT_PREFERENCES, ...raw }
       if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
+    // Migrate removed 'compare' tab (briefly lived as a 4th desktop rail) → chat
+    if ((saved.panelTab as string) === 'compare') saved.panelTab = 'chat'
       if (saved.splitEditionKey?.includes('kids')) saved.splitEditionKey = 'modern-en'
       setPreferencesState(saved)
     }
@@ -103,6 +128,10 @@ export function usePreferences(storageReady = true) {
     setFontFamily,
     setAccountDecisionSeen,
     setProgressDisplay,
+    setChatHidden,
+    setFeedHidden,
+    setCastHidden,
+    setReadingLanguages,
     refreshFromStorage,
     update,
   }
