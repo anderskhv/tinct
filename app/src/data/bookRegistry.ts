@@ -799,6 +799,7 @@ export const IMITATION_OF_CHRIST: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -969,6 +970,7 @@ export const PHAEDO: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1004,6 +1006,7 @@ export const MOBY_DICK: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1032,6 +1035,7 @@ export const GREAT_EXPECTATIONS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1180,6 +1184,7 @@ export const BROTHERS_KARAMAZOV: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1209,6 +1214,7 @@ export const ILIAD: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
