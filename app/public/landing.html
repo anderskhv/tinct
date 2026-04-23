@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <script>
+    // Hide the page immediately; reveal only if the user is NOT signed in.
+    // This eliminates any flash of the landing page for signed-in users
+    // before the redirect fires.
+    document.documentElement.style.visibility = 'hidden';
     (function () {
       try {
         for (var i = 0; i < localStorage.length; i++) {
@@ -15,12 +19,14 @@
               var expiresAt = parsed && parsed.expires_at;
               if (!expiresAt || (expiresAt * 1000) > Date.now()) {
                 window.location.replace('/read');
-                return;
+                return; // never reveal landing
               }
             } catch (e) { /* bad JSON, ignore */ }
           }
         }
       } catch (e) { /* storage unavailable, ignore */ }
+      // No valid session found — show the landing page
+      document.documentElement.style.visibility = '';
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -226,7 +232,9 @@
 
     /* ── Mobile ── */
     @media (max-width: 900px) {
-      .hero { padding: 20px 20px 28px; gap: 20px; }
+      /* Pack nav + heading at top; hero-pitch floats to bottom — eliminates dead gap */
+      .hero { padding: 20px 20px 28px; gap: 20px; justify-content: flex-start; }
+      .hero-pitch { margin-top: auto; }
       .hero-h1 { font-size: clamp(2.25rem, 11vw, 3.5rem); }
       .hero-pitch { grid-template-columns: 1fr; gap: 20px; padding-top: 16px; }
       .hero-sub { font-size: 17px; }
@@ -248,10 +256,13 @@
     }
 
     /* Very small phones — hide the in-hero feature lists so the CTA stays in view.
-       The full feature breakdown is one scroll away in "What do you get?". */
+       The full feature breakdown is one scroll away in "What do you get?".
+       Also collapse nav to logo + Sign in only — Library/Pricing not useful for
+       first-time mobile visitors. */
     @media (max-width: 600px) {
       .hero-pitch > div:first-of-type { display: none; }
       .hero-pitch { gap: 16px; }
+      .hero-nav-links a:not(:last-child) { display: none; }
     }
   </style>
 </head>

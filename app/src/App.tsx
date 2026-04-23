@@ -808,7 +808,11 @@ export default function App() {
     let legacy = false
     try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
     if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
-    setShowBookOnboarding(!(seen || legacy))
+    // Also treat users with existing reading progress as already onboarded —
+    // catches readers who started before the onboarding system was introduced.
+    const hasPosition = !!storage.get<object>(`position:${book.id}`)
+    if (hasPosition && !seen && !legacy) storage.set(`book-onboarded:${book.id}`, true)
+    setShowBookOnboarding(!(seen || legacy || hasPosition))
   }, [book.id, storageReady, libraryEmpty, showStore])
 
   // Book Onboarding completion — sets edition + angle, marks book as onboarded.
