@@ -1385,6 +1385,93 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
   ],
 }
 
+export const OEDIPUS_REX: Book = {
+  id: 'oedipus-rex',
+  title: 'Oedipus Rex',
+  author: 'Sophocles',
+  description: 'The king who solved the riddle of the Sphinx saves his city from plague — by discovering that the polluter is himself. Sophocles\' archetypal tragedy of fate, knowledge, and the will to see what the gods have forbidden.',
+  year: -429,
+  wordCount: 17000,
+  coverColor: '#2a1a12',
+  coverAccent: '#c9a04a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Storr (1912)',
+      translator: 'Francis Storr',
+      year: 1912,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const OEDIPUS_AT_COLONUS: Book = {
+  id: 'oedipus-at-colonus',
+  title: 'Oedipus at Colonus',
+  author: 'Sophocles',
+  description: 'Old, blind, and exiled, Oedipus arrives at a grove outside Athens seeking the death the gods have prepared for him. Sophocles\' final play, written at ninety, is a meditation on suffering, reconciliation, and the hero\'s strange blessing on the land that receives him.',
+  year: -406,
+  wordCount: 19000,
+  coverColor: '#1e2a3a',
+  coverAccent: '#a08456',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Storr (1912)',
+      translator: 'Francis Storr',
+      year: 1912,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const ANTIGONE: Book = {
+  id: 'antigone',
+  title: 'Antigone',
+  author: 'Sophocles',
+  description: 'Two brothers have killed each other fighting for Thebes; the new ruler forbids burial to the one who attacked the city. Antigone, sister to both, buries him anyway. Sophocles\' starkest confrontation between the unwritten laws of the gods and the public law of the state.',
+  year: -441,
+  wordCount: 14000,
+  coverColor: '#3a1a1a',
+  coverAccent: '#c9a068',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Storr (1912)',
+      translator: 'Francis Storr',
+      year: 1912,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 export const DEMOCRACY_IN_AMERICA: Book = {
   id: 'democracy-in-america',
   title: 'Democracy in America',
@@ -1415,7 +1502,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
