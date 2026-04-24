@@ -1385,8 +1385,37 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
   ],
 }
 
+export const DEMOCRACY_IN_AMERICA: Book = {
+  id: 'democracy-in-america',
+  title: 'Democracy in America',
+  author: 'Alexis de Tocqueville',
+  description: 'A young French aristocrat travels the United States in 1831 and returns with the first, and still the most penetrating, analysis of democratic life — its equality, its restlessness, its softness, and the strange new tyranny of the majority.',
+  year: 1835,
+  wordCount: 250000,
+  coverColor: '#1f3a5f',
+  coverAccent: '#c9a04a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Reeve / Bowen (1862)',
+      translator: 'Henry Reeve, revised by Francis Bowen',
+      year: 1862,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
