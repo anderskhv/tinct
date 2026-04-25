@@ -1249,6 +1249,64 @@ export const NICOMACHEAN_ETHICS: Book = {
   ],
 }
 
+export const PELOPONNESIAN_WAR: Book = {
+  id: 'peloponnesian-war',
+  title: 'History of the Peloponnesian War',
+  author: 'Thucydides',
+  description: 'The first great work of political history. Thucydides reports the twenty-seven-year war between Athens and Sparta as he saw it — speeches, plagues, betrayals, and the slow corruption of every virtue under the pressure of war. Pericles\' Funeral Oration, the Plague of Athens, the Melian Dialogue, the Sicilian Expedition: the foundations of how the West thinks about power.',
+  year: -400,
+  wordCount: 150000,
+  coverColor: '#1a2a3a',
+  coverAccent: '#9a6a4a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Crawley (1874)',
+      translator: 'Richard Crawley',
+      year: 1874,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const ARISTOTLE_POLITICS: Book = {
+  id: 'aristotle-politics',
+  title: 'Politics',
+  author: 'Aristotle',
+  description: 'The founding text of political science. Aristotle surveys constitutions, citizenship, justice, revolution, and the best possible state — drawing on 158 real constitutions to ask what arrangement of power serves human flourishing. Still the sharpest framework for thinking about democracy, oligarchy, tyranny, and why states rise and fall.',
+  year: -335,
+  wordCount: 90000,
+  coverColor: '#2a1a2a',
+  coverAccent: '#8a6a9a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Jowett (1885)',
+      translator: 'Benjamin Jowett',
+      year: 1885,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 export const THE_PRINCE: Book = {
   id: 'the-prince',
   title: 'The Prince',
@@ -1588,7 +1646,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
