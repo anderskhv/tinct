@@ -1385,6 +1385,92 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
   ],
 }
 
+export const GENEALOGY_OF_MORALS: Book = {
+  id: 'genealogy-of-morals',
+  title: 'On the Genealogy of Morals',
+  author: 'Friedrich Nietzsche',
+  description: 'Three essays asking where our moral concepts actually came from. Nietzsche traces "good," "evil," "guilt," and "bad conscience" back through Greek aristocratic codes, Christian inversion, and the priestly imagination — and finds, beneath every moral judgment, a will to power.',
+  year: 1887,
+  wordCount: 60000,
+  coverColor: '#1a1a1a',
+  coverAccent: '#9a4a4a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Samuel (1913)',
+      translator: 'Horace B. Samuel',
+      year: 1913,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const DESCARTES_MEDITATIONS: Book = {
+  id: 'descartes-meditations',
+  title: 'Meditations on First Philosophy',
+  author: 'René Descartes',
+  description: 'Six meditations in which Descartes resolves to doubt everything he can — and from the wreckage retrieves one indubitable point: the thinking self. From this single foothold he reconstructs God, the world, and the foundations of modern philosophy.',
+  year: 1641,
+  wordCount: 30000,
+  coverColor: '#0e2030',
+  coverAccent: '#c4a85f',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Veitch (1901)',
+      translator: 'John Veitch',
+      year: 1901,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const ON_LIBERTY: Book = {
+  id: 'on-liberty',
+  title: 'On Liberty',
+  author: 'John Stuart Mill',
+  description: 'Mill\'s defense of the individual against the social tyranny he saw rising in democratic societies. The "harm principle," the marketplace of ideas, and the case for eccentricity as a public good — the founding text of modern liberal thought.',
+  year: 1859,
+  wordCount: 35000,
+  coverColor: '#2a2a3a',
+  coverAccent: '#c0c4d0',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1859)',
+      year: 1859,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 export const OEDIPUS_REX: Book = {
   id: 'oedipus-rex',
   title: 'Oedipus Rex',
@@ -1502,7 +1588,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
