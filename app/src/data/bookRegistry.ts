@@ -1249,6 +1249,41 @@ export const NICOMACHEAN_ETHICS: Book = {
   ],
 }
 
+export const FEAR_AND_TREMBLING: Book = {
+  id: 'fear-and-trembling',
+  title: 'Fear and Trembling',
+  author: 'Søren Kierkegaard',
+  description: 'A short, savage book about Abraham — the father of faith — who is told by God to murder his son. Kierkegaard, writing under the name Johannes de Silentio, refuses every comfortable Hegelian explanation and forces the reader to feel what faith actually demands. The "knight of faith" and the "teleological suspension of the ethical" begin here.',
+  year: 1843,
+  wordCount: 40000,
+  coverColor: '#1a1a24',
+  coverAccent: '#a08a4a',
+  editions: [
+    {
+      key: 'original-da',
+      language: 'da',
+      style: 'original',
+      label: 'Original (1843)',
+      year: 1843,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
 export const PELOPONNESIAN_WAR: Book = {
   id: 'peloponnesian-war',
   title: 'History of the Peloponnesian War',
@@ -1646,7 +1681,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
