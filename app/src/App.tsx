@@ -246,28 +246,38 @@ export default function App() {
   // view the user leaves is the source of truth — the incoming view snaps to
   // match. Both Readers report their own firstVisibleParagraph, and a nonce
   // forces re-sync even when the paragraph index hasn't changed.
+  //
+  // Only fires when going DIRECTLY between Read and Compare. Coming back to
+  // Read from Chat/Feed/Cast (views 2-4) used to fire this and reset Read to
+  // Compare's stale paragraph (often 0 if user had never visited Compare, or
+  // whatever Compare last reported). Anders saw "switching to chat then back
+  // resets the page to 1" on Boox specifically — the prevView tracking
+  // restricts the sync to its real purpose: keeping Read and Compare lined up.
   const firstVisibleParagraphRef = useRef(firstVisibleParagraph)
   firstVisibleParagraphRef.current = firstVisibleParagraph
   const compareFirstVisibleParagraphRef = useRef(compareFirstVisibleParagraph)
   compareFirstVisibleParagraphRef.current = compareFirstVisibleParagraph
+  const prevActiveViewRef = useRef(activeView)
   useEffect(() => {
-    if (activeView === 1) {
-      // Switching INTO Compare — snap Compare to Read's position (skip if
-      // they're already aligned; avoids a spurious jump on rapid tab switching
-      // before the destination has reported its first-visible paragraph).
+    const prev = prevActiveViewRef.current
+    prevActiveViewRef.current = activeView
+    if (activeView === 1 && prev === 0) {
+      // Read → Compare — snap Compare to Read's position.
       const source = firstVisibleParagraphRef.current
       const dest = compareFirstVisibleParagraphRef.current
       if (source !== dest) {
         setCompareSyncSignal({ paragraph: source, nonce: Date.now() })
       }
-    } else if (activeView === 0) {
+    } else if (activeView === 0 && prev === 1) {
+      // Compare → Read — snap Read to Compare's position.
       const source = compareFirstVisibleParagraphRef.current
       const dest = firstVisibleParagraphRef.current
       if (source !== dest) {
         setReadSyncSignal({ paragraph: source, nonce: Date.now() })
       }
     }
-    // Readers stay mounted (CSS hidden) — no remount needed, position preserved
+    // Read ↔ Chat/Feed/Cast: do nothing. Readers stay mounted (CSS hidden);
+    // their currentPage state is preserved across the round trip.
   }, [activeView])
 
   // ToC overlay state
