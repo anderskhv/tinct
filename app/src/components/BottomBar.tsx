@@ -225,6 +225,20 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       const handleError = () => {
         // Same skip-during-disclaimer guard as handleEnded.
         if (playingDisclaimerRef.current) return
+        // Capture diagnostic info for B4 — Boox audiobook playback fails
+        // silently while disclaimer audio works. Without this, we have
+        // no way to tell if the failure is a 404, range request rejection,
+        // codec mismatch, or rate-limit. window.__tinctAudioDebug.lastError
+        // surfaces it for the next investigation.
+        const err = audio.error
+        recordAudioDebug({
+          event: 'error',
+          code: err?.code,
+          message: err?.message,
+          src: audio.src,
+          networkState: audio.networkState,
+          readyState: audio.readyState,
+        })
         // Audio failed to load — try next paragraph, but bail after a few
         // consecutive failures to avoid skipping chapters on systemic errors.
         consecutiveErrors += 1

@@ -14,16 +14,35 @@ interface UseMobileReturn {
 
 const SWIPE_THRESHOLD = 50
 
+/**
+ * Treat e-ink (Boox/Onyx) as mobile regardless of viewport width.
+ * Boox 7-8" devices report 1000-1400px logical width — wider than our
+ * 768px mobile breakpoint — so they got desktop layout, which crammed
+ * three columns + side panel into a small e-ink screen and left
+ * Anders's chat input cut off (B23). The mobile single-pane layout is
+ * a much better fit for e-ink ergonomics.
+ *
+ * Detection sources (any one is enough):
+ *   - data-eink attr on <html>, set in main.tsx from Capacitor+Android
+ *     UA, or `boox`/`onyx`/`eink`/`e-ink` substrings, or `?eink=1`
+ *   - viewport ≤ 768px (the standard mobile breakpoint)
+ */
+function detectMobileLike(): boolean {
+  if (typeof window === 'undefined') return false
+  if (window.matchMedia('(max-width: 768px)').matches) return true
+  if (typeof document !== 'undefined' && document.documentElement.hasAttribute('data-eink')) return true
+  return false
+}
+
 export function useMobile(splitViewEnabled: boolean): UseMobileReturn {
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
-  )
+  const [isMobile, setIsMobile] = useState(detectMobileLike)
   const [activeView, setActiveView] = useState<MobileView>(0)
 
-  // Viewport detection
+  // Viewport detection — also re-evaluates if a parent component flips
+  // the data-eink attribute (rare; usually static from main.tsx).
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)')
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    const handler = () => setIsMobile(detectMobileLike())
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)
   }, [])

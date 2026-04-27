@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useTierContext } from '../contexts/TierContext'
+import { storage } from '../services/storage'
 
 interface TrialBannerProps {
   onSubscribe: () => void
   onCreateAccount?: () => void
 }
 
+// Cloud-synced via the storage abstraction. Was previously raw localStorage,
+// which meant dismissing the banner on desktop didn't propagate to mobile or
+// Boox — Anders saw the trial-ended banner reappear only on Boox even after
+// he'd dismissed it elsewhere (B17). Same key name is preserved so existing
+// localStorage entries are read on first load (storage.get falls back to
+// localStorage when the cloud cache is empty).
 const DISMISS_KEY = 'tinct-banner-dismissed'
 
 export function TrialBanner({ onSubscribe, onCreateAccount }: TrialBannerProps) {
@@ -15,10 +22,9 @@ export function TrialBanner({ onSubscribe, onCreateAccount }: TrialBannerProps) 
   // Reset dismissal when the tier state changes — a new banner is a new ask.
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(DISMISS_KEY)
-      if (stored) {
-        const { state, at } = JSON.parse(stored)
-        if (state === bannerState() && Date.now() - at < 24 * 60 * 60 * 1000) {
+      const stored = storage.get<{ state: string; at: number }>(DISMISS_KEY)
+      if (stored && typeof stored === 'object') {
+        if (stored.state === bannerState() && Date.now() - stored.at < 24 * 60 * 60 * 1000) {
           setDismissed(true)
           return
         }
@@ -38,7 +44,7 @@ export function TrialBanner({ onSubscribe, onCreateAccount }: TrialBannerProps) 
   function handleDismiss() {
     setDismissed(true)
     try {
-      localStorage.setItem(DISMISS_KEY, JSON.stringify({ state: bannerState(), at: Date.now() }))
+      storage.set(DISMISS_KEY, { state: bannerState(), at: Date.now() })
     } catch { /* ignore */ }
   }
 

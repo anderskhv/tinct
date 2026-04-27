@@ -111,11 +111,27 @@ export function useClaude(options?: UseClaudeOptions) {
       // Retry loop for overloaded errors (up to 3 attempts)
       let data: any
       for (let attempt = 0; attempt < 3; attempt++) {
-        const response = await fetch(apiUrl('/api/chat'), {
-          method: 'POST',
-          headers,
-          body: requestBody,
-        })
+        // 60-second timeout via AbortController. Without it, a hung
+        // fetch (Boox network blip, worker stall, browser-side socket
+        // sleep on aggressive battery saving) leaves the chat in
+        // "writing..." indefinitely. Anders saw this as "chat
+        // intermittent" on Boox (B3) — the stream never failed
+        // visibly, it just never resolved. The timeout converts
+        // silent-hang into the same error path as any other failure,
+        // which lets the user click "Refresh page" or retry.
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 60_000)
+        let response: Response
+        try {
+          response = await fetch(apiUrl('/api/chat'), {
+            method: 'POST',
+            headers,
+            body: requestBody,
+            signal: controller.signal,
+          })
+        } finally {
+          clearTimeout(timeoutId)
+        }
 
         // Handle insufficient balance
         if (response.status === 402) {
