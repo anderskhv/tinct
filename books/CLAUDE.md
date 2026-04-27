@@ -30,6 +30,22 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 
 ## HARD RULES
 
+0. **SCOPE — content only, never site code.** The Book Factory adds books to the library. It MUST NOT modify any application code, components, hooks, styles, the worker, the build config, or any non-book file. Touching site code from this CEO has repeatedly broken production (today: wiped CSP fixes, position-sync, chat fixes, settings sheet, threads loader — all overwritten by an old bundle the books CEO built and shipped).
+
+   **Allowed write paths — exactly these and nothing else:**
+   - `app/public/data/editions/{book-id}-*.json` (edition text + threads)
+   - `app/public/data/onboarding/{book-id}.json` (onboarding content)
+   - `app/public/audio/{book-id}/**` (audio files + manifests)
+   - `app/src/data/bookRegistry.ts` (single-purpose: register/unregister the book — do NOT change the file's structure, types, or unrelated entries)
+   - `books/**` (raw sources, scripts, logs — your own working directory)
+   - `books/CLAUDE.md` itself (status table updates only)
+
+   **Forbidden:**
+   - Anything in `app/src/components/`, `app/src/hooks/`, `app/src/services/`, `app/src/utils/`, `app/src/contexts/`, `app/src/styles/`, `app/src/index.css`, `app/src/App.tsx`, `app/src/main.tsx`, `app/src/worker.ts`, `app/src/types/index.ts` (except *adding* a new book-related type if needed — discuss first), `app/vite.config.ts`, `app/wrangler.jsonc`, `app/package.json`, `app/scripts/**`, `app/public/landing.html`, `app/public/app.html`, `app/public/about.html`.
+   - The site CEO (Anders working in the parent CLAUDE.md context) owns all of those.
+
+   If a book add genuinely requires a site-code change (new edition style, new metadata field, new feature), STOP and ask Anders to handle it via the site CEO. Do not edit those files yourself.
+
 1. **ZERO Anthropic API spend.** All translations generated via CLI conversation. Never run scripts that call `api.anthropic.com`. See parent CLAUDE.md for full explanation.
 2. **Always discuss structure BEFORE downloading.** Step 1 is mandatory and requires human approval.
 3. **Maintain paragraph alignment** across all editions. Same number of paragraphs per chapter in every edition.
@@ -83,9 +99,15 @@ Before downloading anything, discuss with Anders:
 
 1. Download English original from Project Gutenberg / Standard Ebooks / Internet Archive (public domain only)
 2. Save to `books/raw/{book-id}/raw.txt` and source URL to `books/raw/{book-id}/SOURCE.md`
-3. Parse into edition JSON at `../app/public/data/editions/{book-id}-original-en.json`
-4. Validate: `python3 -c "import json; d=json.load(open('file.json')); print(f'{len(d[\"chapters\"])} chapters, {sum(len(c[\"paragraphs\"]) for c in d[\"chapters\"])} paragraphs')"`
-5. Run source quality check (stray numbers, Gutenberg boilerplate, short paragraphs, title repeats) — fix any issues found
+3. **VALIDATE THE DOWNLOADED TEXT MATCHES THE EXPECTED BOOK BEFORE PARSING.** Every Project Gutenberg `.txt` file has `Title:` and `Author:` headers in the first ~30 lines. After download, grep them out and fail loud if either doesn't match the expected book. This rule exists because of an actual incident (2026-04-27): `books/raw/enchiridion-augustine/SOURCE.md` pointed to PG#9231 (which is "Earth's Holocaust" by Hawthorne, NOT Augustine). The wrong book downloaded silently. The parser saw nothing recognizable, the slot got filled with Epictetus content from the *correct* `enchiridion/` directory, and the registry shipped "Augustine's Enchiridion" with Epictetus's text for weeks. **A wrong Gutenberg ID must fail loud, not silently substitute.**
+   - Example check (paste this after every download):
+     ```bash
+     head -30 books/raw/{book-id}/raw.txt | grep -E "^(Title|Author):"
+     ```
+   - Compare against the expected book's metadata. If `Title:` doesn't contain the expected work's name OR `Author:` doesn't match the expected author, STOP — re-source from the correct ID.
+4. Parse into edition JSON at `../app/public/data/editions/{book-id}-original-en.json`
+5. Validate: `python3 -c "import json; d=json.load(open('file.json')); print(f'{len(d[\"chapters\"])} chapters, {sum(len(c[\"paragraphs\"]) for c in d[\"chapters\"])} paragraphs')"`
+6. Run source quality check (stray numbers, Gutenberg boilerplate, short paragraphs, title repeats) — fix any issues found
 
 **Target format:**
 ```json
@@ -275,24 +297,23 @@ A book is ready to publish when ALL of the following are true:
 ```bash
 cd /Users/andershvelplund/Documents/Projects/Tinct/app
 
-# 1. Build
-npx vite build
+# 1. Commit all new/changed files for this book
+git -C /Users/andershvelplund/Documents/Projects/Tinct add app/public/data/editions/{book-id}-*.json
+git -C /Users/andershvelplund/Documents/Projects/Tinct add app/public/data/editions/{book-id}-threads.json
+git -C /Users/andershvelplund/Documents/Projects/Tinct add app/src/data/bookRegistry.ts
+git -C /Users/andershvelplund/Documents/Projects/Tinct add app/public/audio/{book-id}/
+git -C /Users/andershvelplund/Documents/Projects/Tinct commit -m "Add {book title} to library (all editions + audio + threads)"
 
-# 2. Verify build passes
-echo "BUILD: $?"
+# 2. Deploy via the safe script — chains build → verify-bundle → wrangler deploy.
+#    This is the ONLY allowed deploy command. Do NOT use `npx vite build` or
+#    `npx wrangler deploy` directly — those skip the env-var check, the
+#    landing/app.html swap, and the bundle verification, and have caused
+#    repeated production outages (auth-not-configured, stale CSP, missing
+#    cookie redirect). If `npm run deploy` fails, STOP and ask Anders.
+npm run deploy
 
-# 3. Commit all new/changed files for this book
-git add public/data/editions/{book-id}-*.json
-git add public/data/editions/{book-id}-threads.json
-git add src/data/bookRegistry.ts
-git add public/audio/{book-id}/
-git commit -m "Add {book title} to library (all editions + audio + threads)"
-
-# 4. Deploy
-npx wrangler deploy
-
-# 5. Verify production
-curl -s https://tinct.ahvelplund.workers.dev/ | head -5
+# 3. Verify production
+curl -s https://tinct.app/ | head -5
 ```
 
 **Policy:** Never publish a partially complete book. A book with editions but no English audio is NOT ready. The reader should never encounter a book that's missing pieces.
@@ -462,7 +483,7 @@ python3 check-status.py --r2
 
 ## Current Status
 
-**Last verified:** 2026-04-11 (via `check-status.py`)
+**Last verified:** 2026-04-23 (via `check-status.py`) — table is partial, see `python3 check-status.py` for the full 39-book picture
 
 | Book | Editions | EN Audio | DA Audio | hasAudio flags | Threads |
 |------|----------|----------|----------|----------------|---------|
@@ -492,8 +513,12 @@ python3 check-status.py --r2
 | **Phaedo** (9 ch) | 3 eds OK | Staging (original-en, wavs) | None | None | None |
 | **Moby Dick** (136 ch) | 1 ed (orig-en) | None | None | None | None |
 | **Great Expectations** (59 ch) | 1 ed (orig-en) | None | None | None | None |
-| **The Histories** (1525 ch) | 1 ed (orig-en) | None | None | None | None |
-| **Niels Lyhne** (14 ch) | 2 eds (orig-da, orig-en) | None | None | None | None |
+| **The Histories** (1525 ch) | 2 eds OK | R2 OK | None | modern-en | 7 chars |
+| **Niels Lyhne** (14 ch) | 4 eds OK | R2 OK | None | modern-en | 11 chars |
+| **Imitation of Christ** (114 ch) | 2 eds OK | R2 OK | None | modern-en | 2 chars |
+| **Jerusalem** (18 ch) | 3 eds OK | R2 OK | None | modern-en | 5 chars |
+| **Beowulf** (43 ch) | 3 eds OK | R2 OK | None | modern-en | 9 chars |
+| **Candide** (30 ch) | 3 eds OK | R2 OK | None | modern-en | 7 chars |
 
 ### Open Issues
 
