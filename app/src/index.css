@@ -69,6 +69,13 @@
   --bg-highlight: #3d3222;
   --bg-popup: #f3efe9;
 
+  /* Dark-mode paper surfaces. Without these, .header, .bottom-bar, .audio-strip,
+     card rails, settings sheet, etc. all kept the light-mode cream (#ece7db)
+     and looked completely out of place against the dark reader. */
+  --paper: #1a1612;
+  --paper-warm: #231f19;
+  --paper-deep: #14110e;
+
   --text-primary: #e8e0d4;
   --text-secondary: #a89a8a;
   --text-tertiary: #756858;
@@ -788,7 +795,11 @@ body {
   border-radius: 2px;
 }
 
-/* ===== Bottom Bar / Progress Footer ===== */
+/* ===== Bottom Bar / Progress Footer =====
+   Book-feel chrome: left arrow, chapter title (centered, serif italic),
+   page/position indicator (right, mono), right arrow. Replaced the
+   progress-bar fill + ticks + est-time — those read as "web app" chrome.
+   Pure typographic footer reads as "this is a book". */
 .bottom-bar {
   position: fixed;
   bottom: 0;
@@ -796,15 +807,76 @@ body {
   right: 0;
   z-index: 50;
   background: var(--paper);
-  border-top: 0.5px solid rgba(0, 0, 0, 0.12);
-  padding: 9px 20px 10px;
+  /* No border-top: reads as a printed running footer, not as chrome. The
+     padding alone provides the visual separation from the text above. */
+  padding: 8px 18px 10px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
-[data-theme="dark"] .bottom-bar {
-  border-top-color: rgba(255, 255, 255, 0.1);
+.bottom-bar-arrow {
+  background: none;
+  border: none;
+  color: var(--dim);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 4px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.bottom-bar-arrow:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+.bottom-bar-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.bottom-bar-center {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  overflow: hidden;
+}
+.bottom-bar-chapter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+}
+.bottom-bar-position {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Mobile: keep everything visible but tighten. Center title truncates first
+   when space runs out, position and arrows never collapse.
+   Sits above the mobile-nav (Read/Compare/Chat tabs, 38px tall) so the
+   chapter title actually shows on mobile (B22). Without this offset the
+   bottom-bar was hidden behind .mobile-nav (which has higher z-index). */
+@media (max-width: 768px) {
+  .bottom-bar {
+    padding: 6px 10px 8px;
+    gap: 10px;
+    bottom: 38px;
+  }
+  .bottom-bar-chapter {
+    font-size: 0.82rem;
+  }
+  .bottom-bar-position {
+    font-size: 0.68rem;
+  }
 }
 
 .bottom-bar-audio {
@@ -1285,6 +1357,110 @@ body {
   opacity: 0.9;
 }
 
+/* Dictionary panel (Define popup mode) */
+.popup-define {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+  min-width: 260px;
+  max-width: 320px;
+  /* Cap height so long definitions don't push the popup off-screen; the
+     result area scrolls internally instead. Matches the available space
+     the popup's own max-height of calc(100vh - 16px) leaves for content. */
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+}
+.popup-define-head {
+  flex-shrink: 0;
+}
+.popup-define-result {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  flex: 1 1 auto;
+  min-height: 0;
+  /* Subtle hint that the region scrolls when content exceeds height. */
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), transparent);
+  padding-bottom: 6px;
+}
+.popup-define-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.popup-define-input {
+  flex: 1;
+  background: color-mix(in srgb, var(--text-inverse) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text-inverse) 20%, transparent);
+  color: var(--text-inverse);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+}
+.popup-define-input::placeholder {
+  color: color-mix(in srgb, var(--text-inverse) 45%, transparent);
+}
+.popup-define-status {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--text-inverse) 70%, transparent);
+  padding: 4px 2px;
+}
+.popup-define-empty {
+  /* Warm red that stays readable on both popup backgrounds. */
+  color: #c0392b;
+}
+[data-theme="dark"] .popup-define-empty {
+  /* Popup bg is light cream in dark mode — darker red reads well. */
+  color: #a02a1f;
+}
+.popup-define-result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.popup-define-word {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-inverse);
+}
+.popup-define-note {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--text-inverse) 55%, transparent);
+  text-transform: uppercase;
+}
+.popup-define-list {
+  list-style: decimal inside;
+  padding-left: 2px;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text-inverse);
+  margin: 0;
+}
+.popup-define-list li {
+  padding: 2px 0;
+}
+
+/* Temp mark wrapping the user's selection while the popup is open. Gives a
+   persistent visual anchor after the native selection is cleared (mobile).
+   Removed by Reader.tsx when the popup dismisses. */
+.tinct-selection-preview {
+  background: rgba(245, 230, 200, 0.65);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+[data-theme="dark"] .tinct-selection-preview {
+  background: rgba(245, 230, 200, 0.28);
+}
+
 .popup-icon-btn-delete {
   color: #ff8a8a;
 }
@@ -1351,8 +1527,9 @@ body {
   to { opacity: 1; transform: translate(-50%, -100%) scale(1); }
 }
 
-/* Issue form (expands the popup) */
-.selection-popup:has(.popup-issue-form) {
+/* Issue form + Define panel (both expand the popup to a column layout) */
+.selection-popup:has(.popup-issue-form),
+.selection-popup:has(.popup-define) {
   flex-direction: column;
   align-items: stretch;
   min-width: 260px;
@@ -1819,6 +1996,35 @@ body {
 
 .chat-message-assistant {
   padding: 10px 0;
+}
+
+.chat-message-position {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-end;
+  margin-bottom: 4px;
+  padding: 2px 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: 1px solid var(--border-subtle, rgba(0,0,0,0.08));
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.chat-message-position:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(31, 74, 92, 0.06);
+}
+.chat-message-position:disabled {
+  cursor: default;
+  opacity: 0.6;
 }
 
 .chat-message-content p {
@@ -3366,75 +3572,6 @@ body {
   from { opacity: 0; transform: translateX(-50%) translateY(12px); }
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
-
-/* ===== Proactive Insight ===== */
-.proactive-insight {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  max-width: 360px;
-  background: var(--bg-panel);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 14px 16px;
-  box-shadow: var(--shadow-lg);
-  z-index: 500;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  animation: fadeSlideUp 0.3s ease;
-}
-
-.proactive-insight-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-.proactive-insight-text {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: var(--text-primary);
-}
-
-.proactive-insight-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.proactive-insight-discuss {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 5px 14px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-family: var(--font-sans);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.proactive-insight-discuss:hover {
-  background: var(--accent-hover);
-}
-
-.proactive-insight-dismiss {
-  background: none;
-  border: none;
-  color: var(--text-tertiary);
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 0 4px;
-  margin-left: auto;
-}
-
-.proactive-insight-dismiss:hover {
-  color: var(--text-secondary);
-}
-
 
 /* ===== Objective Editor Overlay ===== */
 .objective-editor-overlay {
@@ -5599,6 +5736,40 @@ body {
   color: white;
 }
 
+/* Explicit "go to" affordance — the only way a Feed click changes book
+   position. Click the row → expand inline; click this arrow → navigate.
+   Same pattern for Feed chapter rows and the items inside (highlight, chat). */
+.feed-go,
+.timeline-go {
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+.feed-go:hover,
+.timeline-go:hover {
+  color: var(--accent);
+  background: rgba(31, 74, 92, 0.06);
+  border-color: var(--accent);
+}
+
+.timeline-chat-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+.timeline-chat-header-row .timeline-chat-header {
+  flex: 1;
+  min-width: 0;
+}
+
 .feed-artifact-count {
   font-size: 0.62rem;
   min-width: 16px;
@@ -6210,8 +6381,9 @@ body {
   .main-layout-mobile {
     overflow: hidden;
     position: relative;
-    /* Account for bottom nav + reading tracker */
-    padding-bottom: 38px;
+    /* Account for both fixed bottom layers: .mobile-nav (38px tabs) +
+       .bottom-bar (~36px chapter/progress strip stacked above it). */
+    padding-bottom: 74px;
   }
 
   .mobile-views {
@@ -6478,14 +6650,20 @@ body {
      Cap width so long toolbars never exceed the screen. */
   .selection-popup {
     max-width: calc(100vw - 12px);
+    padding: 4px 6px;
+    gap: 0;
   }
 
-  /* Proactive insight above bottom nav */
-  .proactive-insight {
-    right: 12px;
-    left: 12px;
-    bottom: 120px;
-    max-width: none;
+  /* Icons-only on mobile — labels disappear below ~480px because the toolbar
+     needs to fit Highlight + Define + Chat + Issue + Copy + Share (+ Note +
+     Delete when editing an existing highlight) on a 375–414px viewport. The
+     button title attribute preserves accessibility; desktop keeps labels. */
+  .popup-icon-btn {
+    min-width: 0;
+    padding: 6px 8px;
+  }
+  .popup-icon-label {
+    display: none;
   }
 
   /* Onboarding — scrollable on small screens */
@@ -7631,8 +7809,12 @@ body {
 }
 
 [data-theme="dark"] .audio-strip-play {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--text-primary); /* #e8e0d4 — readable light circle */
+  color: var(--bg-primary);        /* #1a1612 — dark icon on light circle */
+}
+[data-theme="dark"] .audio-strip-play:hover {
+  background: var(--accent);
+  color: var(--text-primary);
 }
 
 .audio-strip-nowplaying {
@@ -7791,6 +7973,16 @@ body {
 [data-theme="dark"] .card-rail-feed { background: #1f1b16; }
 [data-theme="dark"] .card-rail-cast { background: #2a241c; }
 [data-theme="dark"] .card-rail-compare { background: #1f1b16; }
+
+/* Spine labels (CHAT / FEED / CAST vertical text) were nearly invisible in
+   dark mode because `--dim` is #6a6555 — barely readable on the dark rail
+   backgrounds. Lift to a clearer mid-cream. */
+[data-theme="dark"] .card-rail-spine {
+  color: #b8ae9b;
+}
+[data-theme="dark"] .card-rail-open .card-rail-spine {
+  color: #e8e0d4;
+}
 
 .card-rail-spine {
   position: absolute;
@@ -7987,6 +8179,25 @@ body {
   background: #2a241c;
 }
 
+/* Dark-mode settings sheet.
+   `.ss-sheet` uses `var(--paper)` for its background, but --paper has no
+   dark-mode override — so without explicit overrides here the sheet is a
+   light cream panel that clashes with (and is unreadable against) the
+   dark reader theme. We pin the sheet to the dark primary bg, lift --dim
+   + --text-tertiary so hints read well, and let the default dark
+   --text-primary (#e8e0d4) carry row labels. */
+[data-theme="dark"] .ss-sheet {
+  background: var(--bg-primary);
+  --dim: #b8ae9b;
+  --text-tertiary: #9b8f7c;
+}
+[data-theme="dark"] .ss-main {
+  background: var(--bg-primary);
+}
+[data-theme="dark"] .ss-main-head {
+  background: var(--bg-primary);
+}
+
 .ss-nav-item-label {
   font-family: var(--font-display);
   font-size: 0.95rem;
@@ -8147,12 +8358,132 @@ body {
 
 [data-theme="dark"] .ss-seg-item {
   background: #1f1b16;
+  color: #b8ae9b;
   border-left-color: rgba(255, 255, 255, 0.12);
 }
 
+/* Active state inverts to a light pill for strong contrast against the
+   dark sheet. Explicit hex values — don't rely on var(--paper) which is
+   now dark in dark mode, which would leave text invisible on bg. */
 [data-theme="dark"] .ss-seg-item-active {
-  background: var(--paper);
-  color: var(--ink);
+  background: #e8e0d4;
+  color: #1a1612;
+}
+
+/* Font-size step picker — 5 discrete A's from small to extra-large.
+   Replaced a continuous slider that felt janky: every drag step reflowed
+   the reader text, which looked more like stuttering than scaling. */
+.font-size-steps {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0;
+  border: 1px solid color-mix(in srgb, var(--text-primary) 20%, transparent);
+}
+.font-size-step {
+  background: none;
+  border: none;
+  border-left: 1px solid color-mix(in srgb, var(--text-primary) 12%, transparent);
+  padding: 4px 12px 6px;
+  cursor: pointer;
+  color: var(--dim);
+  line-height: 1;
+  transition: background 0.12s, color 0.12s;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: flex-end;
+}
+.font-size-step:first-child {
+  border-left: none;
+}
+.font-size-step:hover {
+  color: var(--text-primary);
+}
+.font-size-step-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+[data-theme="dark"] .font-size-step-active {
+  background: #e8e0d4;
+  color: #1a1612;
+}
+
+/* Font-size slider (Kindle-style continuous scale) */
+.font-size-slider-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.font-size-slider-marker {
+  font-family: var(--font-serif);
+  color: var(--dim);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.font-size-slider-marker-min { font-size: 0.75rem; }
+.font-size-slider-marker-max { font-size: 1.35rem; }
+
+.font-size-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  /* `pan-y` lets vertical scroll bubble to the settings sheet body while
+     capturing horizontal drags for the slider itself. Without this, some
+     mobile browsers treat any touch as a scroll gesture and the slider
+     only responds to discrete taps. */
+  touch-action: pan-y;
+}
+
+[data-theme="dark"] .font-size-slider {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.font-size-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--paper);
+  cursor: pointer;
+  transition: transform 0.12s;
+}
+
+.font-size-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.font-size-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--paper);
+  cursor: pointer;
+}
+
+/* Mobile: fatter thumb so fingers can actually grab it. */
+@media (max-width: 768px) {
+  .font-size-slider {
+    height: 3px;
+  }
+  .font-size-slider::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+  }
+  .font-size-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Toggle */
@@ -8218,6 +8549,66 @@ body {
 .ss-select:focus {
   outline: none;
   border-color: var(--accent);
+}
+
+/* Reading section (editions + angle + library link) — onboarding-style */
+.ss-reading {
+  display: flex;
+  flex-direction: column;
+}
+
+.ss-reading-angle {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid color-mix(in srgb, var(--text-primary) 14%, transparent);
+}
+
+.ss-reading-footer {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--text-primary) 14%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* Grouped row — a single conceptual setting with 2+ related controls. */
+.ss-row-group {
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 10%, transparent);
+}
+.ss-row-group:last-child {
+  border-bottom: none;
+}
+.ss-row-group-head {
+  margin-bottom: 6px;
+}
+.ss-row-group-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0;
+  gap: 14px;
+}
+.ss-row-group-sublabel {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  flex-shrink: 0;
+  min-width: 32px;
+}
+
+/* Mobile / desktop split for the tab visibility controls in Layout.
+   Mobile: single master toggle (one bottom nav → one knob).
+   Desktop: three individual rail toggles. */
+.ss-layout-tabs-mobile { display: none; }
+.ss-layout-tabs-desktop { display: contents; }
+@media (max-width: 768px) {
+  .ss-layout-tabs-mobile { display: block; }
+  .ss-layout-tabs-desktop { display: none; }
 }
 
 /* Reading angle textarea */
@@ -10681,4 +11072,127 @@ body {
   background: rgba(122, 79, 46, 0.08);
   border-left: 3px solid var(--premium, #7a4f2e);
   margin: 0 0 18px;
+}
+
+/* TopUpModal — focused "you're out" prompt */
+.topup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 24px;
+}
+.topup-card {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+.topup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  line-height: 1;
+}
+.topup-close:hover { color: var(--text-primary); }
+.topup-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+}
+.topup-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0 0 20px;
+}
+.topup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.topup-pack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 18px 12px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color, rgba(0,0,0,0.1));
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 120ms ease, transform 120ms ease;
+  font-family: inherit;
+  color: var(--text-primary);
+}
+.topup-pack:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.topup-pack-best {
+  border-color: var(--accent);
+  background: rgba(31, 74, 92, 0.05);
+}
+.topup-pack-badge {
+  position: absolute;
+  top: -10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bg-primary);
+  background: var(--accent);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.topup-pack-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.topup-pack-msgs {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+.topup-pack-rate {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+.topup-foot {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin: 0 0 14px;
+  line-height: 1.4;
+}
+.topup-secondary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 1px solid var(--border-color, rgba(0,0,0,0.1));
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+.topup-secondary:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
 }

@@ -989,23 +989,11 @@ export function Reader({
         )}
       </div>
 
-      {/* Page indicator & nav — always visible */}
+      {/* Page indicator — read-only label. Navigation lives in the
+          BottomBar (and keyboard / click-edge / page-flip gestures);
+          having arrows here too created a duplicate-control feel (B8). */}
       <div className="page-nav">
-        <button
-          className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); totalPages > 1 && currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
-          disabled={totalPages > 1 && currentPage <= 0 && !onPrevChapter}
-        >
-          &larr;
-        </button>
         <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
-        <button
-          className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
-          disabled={totalPages > 1 && currentPage >= totalPages - 1 && !onNextChapter}
-        >
-          &rarr;
-        </button>
       </div>
 
       {selectionPopup && (
