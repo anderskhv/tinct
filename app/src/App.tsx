@@ -820,7 +820,12 @@ export default function App() {
     const cleaned: ChatConversation[] = []
     for (const conv of chatConversations) {
       const realMsgs = (conv.messages || []).filter(m =>
-        !m.chapterDivider && (m.content || '').trim() !== ''
+        !m.chapterDivider &&
+        (m.content || '').trim() !== '' &&
+        // Strip transient "Something went wrong / Refresh page" error
+        // messages that useClaude.ts wrote into the thread on API failure.
+        // refreshAction=true is the unique flag for those errors.
+        !m.refreshAction
       )
       if (realMsgs.length !== (conv.messages || []).length) dirty = true
       // Drop conversations that became empty after stripping dividers
@@ -829,7 +834,7 @@ export default function App() {
     }
     if (dirty) {
       storage.set(`chat-history:${book.id}`, cleaned)
-      console.log(`[chat] cleaned ${chatConversations.length - cleaned.length} divider-only conversation(s) for ${book.id}`)
+      console.log(`[chat] cleaned ${chatConversations.length - cleaned.length} polluted conversation(s) for ${book.id}`)
     }
   }, [book.id, chatConversations, storageReady])
 
@@ -861,6 +866,10 @@ export default function App() {
         for (const m of (conv.messages || [])) {
           if (m.chapterDivider) continue
           if ((m.content || '').trim() === '') continue
+          // Strip transient API-failure error messages (useClaude.ts adds
+          // them with refreshAction=true). They never should have been
+          // persisted — they're UI affordances, not real assistant turns.
+          if (m.refreshAction) continue
           if (m.id && seenIds.has(m.id)) { dupesRemoved++; continue }
           if (m.id) seenIds.add(m.id)
           realMsgs.push(m)
@@ -1357,6 +1366,11 @@ export default function App() {
     if (
       last.role === 'assistant' &&
       !last.chapterDivider &&
+      // Don't persist transient "Something went wrong" / Refresh-page error
+      // messages from useClaude.ts. Those are UI affordances for the current
+      // session only — recording them was the source of the polluted chat
+      // history Anders found (B25).
+      !last.refreshAction &&
       (last.content || '').trim() !== '' &&
       last.id !== lastRecordedMsgRef.current
     ) {
