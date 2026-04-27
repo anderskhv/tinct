@@ -1187,6 +1187,14 @@ body {
 
 .reader-columns .chapter-end {
   break-inside: avoid;
+  /* Discourage starting a new column for the chapter-end element. When
+     there's room at the bottom of the last text column, the Reflect
+     button sits with the last paragraphs — total page count matches the
+     visible content. Without this, the element sometimes started its own
+     column (page 4 of 4 visible content + page 4/4 of just Reflect),
+     which Anders flagged as confusing. The browser may still force a
+     break if there's truly no room. */
+  break-before: avoid;
 }
 
 /* Pull the first paragraph tight against the header — no orphaned column. */

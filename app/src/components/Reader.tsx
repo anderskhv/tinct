@@ -461,6 +461,17 @@ export function Reader({
       }
     }
     const clamped = Math.max(0, Math.min(page, pages - 1))
+    // CRITICAL: update the ref immediately, before the React state flushes.
+    // The keyboard / page-nav handler computes the next target page via
+    // `currentPageRef.current + 1`. Without immediate ref update, multiple
+    // rapid presses within the same render tick all read the same stale
+    // currentPageRef value and dispatch identical setCurrentPage(N+1) calls
+    // — React bails on equal values, the user perceives "stuck after rapid
+    // forward/back" (Anders's report). With the ref updated here, each
+    // press in a rapid burst sees the just-incremented value and advances
+    // by one. The render-time `currentPageRef.current = currentPage`
+    // assignment is harmless (overwrites with the same value).
+    currentPageRef.current = clamped
     setCurrentPage(clamped)
   }, [totalPages, readerRef, getColWidth, getGap])
 
@@ -630,9 +641,16 @@ export function Reader({
       } else {
         goToPage(currentPage + 1)
       }
-    } else if (hasAudio && onParagraphClick) {
-      // Middle zone when audio isn't playing: clicking a paragraph starts
-      // playback from there.
+    } else if (isAudioPlaying && onParagraphClick) {
+      // Middle zone, audio mode active (strip open OR actively playing):
+      // clicking a paragraph seeks/starts playback from there.
+      //
+      // Previously gated on `hasAudio` (= "this book has audio") which
+      // was too broad — middle-zone clicks on any audio-enabled book
+      // would START playback unprompted. Anders saw this after a burst
+      // of arrow-key navigation: a stray click on the text triggered
+      // audio. Now requires audio mode to be explicitly active first
+      // (audioStripOpen via the headphones toggle, OR already playing).
       const target = e.target as HTMLElement
       const paraEl = target.closest?.('[data-paragraph-index]')
       if (paraEl) {

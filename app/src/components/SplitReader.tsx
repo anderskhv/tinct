@@ -402,7 +402,12 @@ export function SplitReader({
         if (pages !== totalPages) setTotalPages(pages)
       }
     }
-    setCurrentPage(Math.max(0, Math.min(page, pages - 1)))
+    const clamped = Math.max(0, Math.min(page, pages - 1))
+    // Immediate ref update — see Reader.tsx for the rationale (rapid
+    // clicks within a render tick all read currentPageRef and otherwise
+    // collapse to the same setCurrentPage value, freezing navigation).
+    currentPageRef.current = clamped
+    setCurrentPage(clamped)
   }, [totalPages, getColWidth, getGap])
 
   // Keyboard navigation — use refs to avoid re-attaching on every page change
