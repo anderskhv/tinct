@@ -5282,16 +5282,9 @@ body {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* Touch devices have no hover; show the remove icon at a subtle but
-   visible opacity so users have an affordance. (hover: none) covers
-   most touch devices; (pointer: coarse) catches any that slip through.
-   [data-eink] is the explicit Boox/Onyx target — Anders saw the icon
-   completely invisible on his Boox even though hover-none should have
-   matched. Belt-and-suspenders. */
-@media (hover: none), (pointer: coarse) {
+@media (hover: none) {
   .store-book-remove { opacity: 0.85; }
 }
-[data-eink] .store-book-remove { opacity: 0.85; }
 
 .store-close {
   position: absolute;
@@ -7871,13 +7864,6 @@ body {
 .audio-strip-play {
   width: 30px;
   height: 30px;
-  /* aspect-ratio + flex-shrink:0 enforce the circle even when the parent
-     flex container would otherwise squeeze the button into an oval. Anders
-     saw "tall circle / oval" on Boox where the button got compressed
-     horizontally by the flex layout. Without flex-shrink:0, a flex item
-     with explicit width still flexes when content overflows. */
-  aspect-ratio: 1;
-  flex-shrink: 0;
   border-radius: 50%;
   background: var(--ink);
   color: var(--paper);
@@ -10492,21 +10478,6 @@ body {
 .focus-exit:hover {
   opacity: 1;
   color: var(--text-primary);
-}
-
-/* Touch devices have no hover, so the 0.3-opacity baseline never gets
-   the visibility bump from :hover. On Boox e-ink especially, 0.3
-   opacity rendered as nearly invisible — Anders couldn't find the exit
-   affordance and was stuck in focus mode. Bump opacity to 0.7 for
-   touch / e-ink so the X is always visibly present. */
-@media (hover: none), (pointer: coarse) {
-  .focus-exit { opacity: 0.7; }
-}
-[data-eink] .focus-exit {
-  opacity: 0.85;
-  /* Solid border helps on e-ink where shaded transparency renders poorly. */
-  border: 1px solid currentColor;
-  background: var(--paper);
 }
 
 /* ═══ Book cover art (shared library + onboarding) ═══ */
