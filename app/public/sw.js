@@ -12,7 +12,12 @@
 //
 // Cache version is bumped to v2 to evict any v1 entries that were poisoned
 // under the previous cache-first-no-revalidate policy.
-const CACHE_NAME = 'tinct-offline-v2'
+// Bump this version any time stale-cached HTML or JS is causing the
+// browser to serve an old bundle after a deploy. The activation handler
+// below deletes any cache whose name doesn't match CACHE_NAME, so a
+// version bump aggressively wipes the old app.html (which references the
+// old JS bundle hash) and forces a fresh fetch on next navigation.
+const CACHE_NAME = 'tinct-offline-v3'
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
