@@ -5058,14 +5058,15 @@ body {
   color: var(--text-primary);
 }
 
-/* When audio player is visible, push page-nav up and add reader bottom padding */
-.has-audio .page-nav {
-  bottom: 52px;
-}
-
-.has-audio .reader-columns {
-  padding-bottom: 100px;
-}
+/* Removed 2026-04-27: when BottomBar still rendered, an audio control
+   strip lived at the bottom and these rules made room for it (push
+   page-nav up by 52px, add 100px reader padding-bottom). With BottomBar
+   gone and AudioStrip now sliding down from the top of the reader,
+   the bottom of the reader needs no extra reservation — the running
+   footer can sit at its standard 4px from bottom regardless of whether
+   the book has audio. Anders saw a ~80px gap below the footer because
+   .has-audio was still applying to audio-enabled books even when
+   audio wasn't playing. */
 
 /* Paragraph currently being read aloud — soft accent background + rule */
 .paragraph-playing {
