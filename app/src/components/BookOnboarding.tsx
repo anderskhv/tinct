@@ -282,15 +282,20 @@ export function BookOnboarding({
   const [data, setData] = useState<OnboardingData | null>(null)
   const [dataLoaded, setDataLoaded] = useState(false)
   const [stepIdx, setStepIdx] = useState(0)
-  // Primary edition: Original English is always the default for first-time
-  // onboarding. The modern translation is there as a comprehension tool,
-  // not a replacement for the authoritative text.
-  const [editionKey, setEditionKey] = useState<EditionKey>(
-    editions.find(e => e.style === 'original' && e.language === 'en')?.key
-      || defaultEditionKey
-      || editions[0]?.key
-      || ''
-  )
+  // Primary edition default order:
+  //   1. The user's most-recent edition choice (`defaultEditionKey`), IF this
+  //      book has that edition. Carries forward the user's preference across
+  //      books — if they read Modern English on the last book, default to
+  //      Modern English here too. Anders explicitly asked for this consistency.
+  //   2. Original English if available — the authoritative text for new users
+  //      who don't yet have a previous choice on file.
+  //   3. First available edition as final fallback.
+  const [editionKey, setEditionKey] = useState<EditionKey>(() => {
+    if (defaultEditionKey && editions.some(e => e.key === defaultEditionKey)) return defaultEditionKey
+    const origEn = editions.find(e => e.style === 'original' && e.language === 'en')
+    if (origEn) return origEn.key
+    return editions[0]?.key || ''
+  })
   const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(undefined)
   const [angle, setAngle] = useState('')
   const [angleLocked, setAngleLocked] = useState(false)

@@ -443,7 +443,13 @@ export default function App() {
     // (useReadingPosition skips page-level writes when totalPages <= 1).
     setTotalPages(1)
     setReaderKey(k => k + 1)
-  }, [currentBookId])
+    // Reading angle is per-book (B24). Load the new book's angle into
+    // preferences.readingObjective so chat / system-prompt consumers see
+    // the right one. If the new book has no saved angle, clear — never
+    // fall back to the previous book's angle.
+    const savedAngle = storage.get<string>(`reading-angle:${currentBookId}`)
+    setReadingObjective(savedAngle || '')
+  }, [currentBookId, setReadingObjective])
 
   // Hoisted derivations needed by the visibility effect below.
   // Defined here (not lower down) to avoid TDZ in dep arrays.
@@ -1073,8 +1079,19 @@ export default function App() {
   // Onboarding complete handler
   const handleOnboardingComplete = useCallback((objective: string) => {
     setReadingObjective(objective)
+    if (objective) storage.set(`reading-angle:${book.id}`, objective)
     setOnboardingComplete(true)
-  }, [setReadingObjective, setOnboardingComplete])
+  }, [setReadingObjective, setOnboardingComplete, book.id])
+
+  // Per-book wrapper around setReadingObjective. Every "user changed the
+  // reading angle" code path (settings sheet, inline editor, mobile
+  // settings) goes through this so the angle persists keyed by current
+  // book — never leaks to the next book opened (B24).
+  const setReadingAngleForCurrentBook = useCallback((angle: string) => {
+    setReadingObjective(angle)
+    if (angle) storage.set(`reading-angle:${book.id}`, angle)
+    else storage.delete(`reading-angle:${book.id}`)
+  }, [setReadingObjective, book.id])
 
   // Deep-link URL parser — runs once, determines entry mode + book
   useEffect(() => {
@@ -1105,27 +1122,51 @@ export default function App() {
     } catch { /* ignore */ }
   }, [storageReady])
 
+  // One-time migration: grandfather in users who started reading before the
+  // onboarding system existed. For each book in their library that has a
+  // saved position but no onboarded flag, set the flag once. After this
+  // runs, the trigger effect below can use the explicit flag as the only
+  // gate — no more "hasPosition" fallback that gets shadowed by phantom
+  // positions (B10: Anders saw Apology and Peloponnesian War skip
+  // onboarding because phantom cloud positions made hasPosition=true).
+  const onboardingMigrationRanRef = useRef(false)
+  useEffect(() => {
+    if (!storageReady) return
+    if (onboardingMigrationRanRef.current) return
+    onboardingMigrationRanRef.current = true
+    let migrated = 0
+    for (const id of libraryIds) {
+      if (storage.get(`book-onboarded:${id}`)) continue
+      let legacy = false
+      try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${id}`) } catch { /* ignore */ }
+      if (legacy) { storage.set(`book-onboarded:${id}`, true); migrated++; continue }
+      // Heuristic for "user has actually read this book": position exists
+      // AND has either a chapter > 1 OR a non-zero scrollFraction. A
+      // chapter-1 + scrollFraction=0 position is almost certainly a phantom
+      // (or never-actually-read default).
+      const pos = storage.get<{ chapterNumber?: number; scrollFraction?: number }>(`position:${id}`)
+      if (pos && ((pos.chapterNumber ?? 1) > 1 || (pos.scrollFraction ?? 0) > 0.05)) {
+        storage.set(`book-onboarded:${id}`, true)
+        migrated++
+      }
+    }
+    if (migrated > 0) console.log(`[onboarding-migration] grandfathered ${migrated} book(s) with existing reading progress`)
+  }, [storageReady, libraryIds])
+
   // Book Onboarding trigger — fires when current book hasn't been onboarded yet.
-  // No longer gated on an earlier tier chooser; BookOnboarding now contains its
-  // own final-step account-creation pitch for anonymous users.
+  // Uses ONLY the explicit flag (set on completion or close, plus the migration
+  // above for legacy users). Phantom positions no longer suppress onboarding.
   useEffect(() => {
     if (!storageReady) return
     if (libraryEmpty || showStore) {
       setShowBookOnboarding(false)
       return
     }
-    // Cloud-synced: onboarded flag lives in the storage abstraction so it
-    // propagates across devices. Fall back to the legacy raw-localStorage key
-    // for users who onboarded before this change.
     const seen = storage.get<boolean>(`book-onboarded:${book.id}`)
     let legacy = false
     try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
     if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
-    // Also treat users with existing reading progress as already onboarded —
-    // catches readers who started before the onboarding system was introduced.
-    const hasPosition = !!storage.get<object>(`position:${book.id}`)
-    if (hasPosition && !seen && !legacy) storage.set(`book-onboarded:${book.id}`, true)
-    setShowBookOnboarding(!(seen || legacy || hasPosition))
+    setShowBookOnboarding(!(seen || legacy))
   }, [book.id, storageReady, libraryEmpty, showStore])
 
   // Book Onboarding completion — sets edition + angle, marks book as onboarded.
@@ -1141,7 +1182,12 @@ export default function App() {
       setSplitEditionKey(result.splitEditionKey)
       if (!preferences.splitView) toggleSplitView()
     }
-    if (result.angle) setReadingObjective(result.angle)
+    if (result.angle) {
+      setReadingObjective(result.angle)
+      // Persist per-book so it doesn't leak across books (B24). The
+      // bookId-change effect re-loads this key on every book switch.
+      storage.set(`reading-angle:${book.id}`, result.angle)
+    }
     storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(false)
     setOnboardingComplete(true)
@@ -1794,7 +1840,7 @@ export default function App() {
         onProgressDisplayChange={setProgressDisplay}
         hasSections={!!(primaryData?.sections?.length)}
         readingObjective={preferences.readingObjective}
-        onSaveObjective={setReadingObjective}
+        onSaveObjective={setReadingAngleForCurrentBook}
         isBookDownloaded={isBookDownloaded(book.id)}
         onOpenDownloads={() => setShowDownloadManager(true)}
         user={user}
@@ -1965,7 +2011,7 @@ export default function App() {
             <div className="objective-editor-actions">
               <button className="objective-editor-cancel" onClick={() => setEditingObjective(false)}>Cancel</button>
               <button className="objective-editor-save" onClick={() => {
-                setReadingObjective(inlineObjective.trim())
+                setReadingAngleForCurrentBook(inlineObjective.trim())
                 setEditingObjective(false)
               }}>Save</button>
             </div>
@@ -2044,7 +2090,7 @@ export default function App() {
         }}
         readingObjective={preferences.readingObjective}
         onEditObjective={handleEditObjective}
-        onSaveObjective={setReadingObjective}
+        onSaveObjective={setReadingAngleForCurrentBook}
         onOpenToc={() => setShowToc(true)}
         onOpenSettings={() => setShowSettings(true)}
         focusMode={focusMode}
