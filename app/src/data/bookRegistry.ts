@@ -820,34 +820,15 @@ export const IMITATION_OF_CHRIST: Book = {
   ],
 }
 
-export const ENCHIRIDION: Book = {
-  id: 'enchiridion',
-  title: 'Enchiridion',
-  author: 'Augustine',
-  description: 'Augustine\'s handbook on faith, hope, and love — a concise summary of Christian doctrine written as a letter to Laurentius. In 42 short chapters, the essence of Augustine\'s theology.',
-  year: 421,
-  wordCount: 25000,
-  coverColor: '#3a2a1a',
-  coverAccent: '#d4b080',
-  editions: [
-    {
-      key: 'original-en',
-      language: 'en',
-      style: 'original',
-      label: 'Shaw (1887)',
-      year: 1887,
-      aligned: true,
-    },
-    {
-      key: 'modern-en',
-      language: 'en',
-      style: 'modern',
-      label: 'Modern English',
-      aligned: true,
-      hasAudio: true,
-    },
-  ],
-}
+// ENCHIRIDION removed 2026-04-27. The registry slot was labeled
+// "Augustine's Enchiridion" but the actual content was Epictetus's
+// Enchiridion (= same book as the-manual, different translation).
+// Sourcing pipeline used Gutenberg #9231 for the Augustine raw text,
+// but PG#9231 is actually "Earth's Holocaust" by Hawthorne — the wrong
+// ID. The Augustine attempt failed silently; Epictetus content ended
+// up in the slot. To re-add Augustine's real Enchiridion, source from
+// the correct Gutenberg ID (NOT 9231) and validate the Title:/Author:
+// headers match before generating editions.
 
 export const JERUSALEM: Book = {
   id: 'jerusalem',
@@ -1836,7 +1817,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
