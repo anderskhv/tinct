@@ -1230,18 +1230,29 @@ export default function App() {
   })()
 
   // Get aligned editions for split pane (excluding current primary)
+  // All aligned editions (the picker UI uses this list — user can pick the
+  // same edition for both panes if they want; we don't override their intent).
+  // Previous behavior excluded primary here, which silently substituted a
+  // different edition when the user explicitly picked original/original or
+  // modern/modern — the displayed compare pane disagreed with the dropdown.
   const alignedEditions = useMemo(() => {
-    return book.editions.filter(ed => ed.aligned && ed.key !== primaryEditionKey)
-  }, [primaryEditionKey, book.editions])
+    return book.editions.filter(ed => ed.aligned)
+  }, [book.editions])
 
-  // Split edition key — validate against current book's editions, fall back if stale
+  // Split edition key — validate against the full aligned list (including
+  // primary), so the user's choice is always honored. Default fallback when
+  // no preference is set (or when the saved key isn't valid for this book)
+  // prefers a *different* edition for usefulness, but only as a default.
   const splitEditionKey = useMemo(() => {
     const preferred = preferences.splitEditionKey
     const exists = alignedEditions.some(ed => ed.key === preferred)
     if (exists) return preferred
-    // Fall back to first aligned edition, or 'modern-en'
-    return alignedEditions[0]?.key || 'modern-en'
-  }, [preferences.splitEditionKey, alignedEditions])
+    // No saved preference matches: prefer something different from primary
+    // for a useful first-time split-view, then any aligned edition.
+    return alignedEditions.find(ed => ed.key !== primaryEditionKey)?.key
+      || alignedEditions[0]?.key
+      || 'modern-en'
+  }, [preferences.splitEditionKey, alignedEditions, primaryEditionKey])
 
   // Load primary edition
   useEffect(() => {
