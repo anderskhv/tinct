@@ -989,11 +989,16 @@ export function Reader({
         )}
       </div>
 
-      {/* Page indicator — read-only label. Navigation lives in the
-          BottomBar (and keyboard / click-edge / page-flip gestures);
-          having arrows here too created a duplicate-control feel (B8). */}
+      {/* Single-line running footer — replaces the old BottomBar chrome.
+          Format: "Book I — 4 / 15" (chapter title in italic, page in mono).
+          Read-only; navigation goes through keyboard, edge-click, and
+          page-flip gestures. */}
       <div className="page-nav">
-        <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
+        <span className="page-nav-label">
+          {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
+          {chapterTitle && <span className="page-nav-sep"> — </span>}
+          {currentPage + 1} / {totalPages}
+        </span>
       </div>
 
       {selectionPopup && (

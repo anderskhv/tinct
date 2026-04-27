@@ -800,19 +800,12 @@ body {
    page/position indicator (right, mono), right arrow. Replaced the
    progress-bar fill + ticks + est-time — those read as "web app" chrome.
    Pure typographic footer reads as "this is a book". */
+/* BottomBar visual hidden — replaced by the in-page .page-nav running
+   footer ("Book I — 4 / 15"). The component still mounts so AudioStrip's
+   imperative handle works (audio engine, manifest loading, playback rate).
+   We just don't render the chapter/arrows/progress chrome at the bottom. */
 .bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background: var(--paper);
-  /* No border-top: reads as a printed running footer, not as chrome. The
-     padding alone provides the visual separation from the text above. */
-  padding: 8px 18px 10px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: none;
 }
 
 .bottom-bar-arrow {
@@ -1200,11 +1193,23 @@ body {
 }
 
 .page-nav-label {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--text-tertiary);
-  font-family: var(--font-sans);
-  min-width: 60px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
   text-align: center;
+  white-space: nowrap;
+}
+
+/* Running-footer chapter label — italic serif against the mono page count.
+   Mimics a printed book's running header: "Book I — 4 / 15". */
+.page-nav-chapter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  letter-spacing: 0;
+}
+.page-nav-sep {
+  margin: 0 2px;
 }
 
 .page-nav-arrow {
@@ -6381,9 +6386,8 @@ body {
   .main-layout-mobile {
     overflow: hidden;
     position: relative;
-    /* Account for both fixed bottom layers: .mobile-nav (38px tabs) +
-       .bottom-bar (~36px chapter/progress strip stacked above it). */
-    padding-bottom: 74px;
+    /* Account for the mobile-nav tabs only — bottom-bar is hidden now. */
+    padding-bottom: 38px;
   }
 
   .mobile-views {
@@ -7960,7 +7964,10 @@ body {
 }
 
 .card-rail.card-rail-open {
-  width: 400px;
+  /* Wider open rail so chat/feed/cast content has room to breathe before
+     the next rail's spine label intrudes from the right. Anders flagged
+     the chat input felt squeezed by the adjacent FEED spine. */
+  width: 480px;
   cursor: default;
 }
 
