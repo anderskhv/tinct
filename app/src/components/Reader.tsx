@@ -236,9 +236,22 @@ export function Reader({
     // on desktop. The user's currentPage is managed elsewhere; trust it.
   }, [updateColumnWidth, getColWidth, getGap])
 
-  useEffect(() => {
+  // Initial measurement runs synchronously before paint via useLayoutEffect.
+  // Without this, the first paint shows translateX(0) (page 1) because
+  // colWidthState starts at 0 and refs aren't measurable until commit phase.
+  // Then the second paint after observer fires animates to the correct
+  // position — visible flash on every chapter advance, especially in
+  // split-pane where the chapter header is the first column. Running the
+  // measurement in useLayoutEffect lets the first paint already have the
+  // correct transform; no transition-from-page-1 ever happens.
+  useLayoutEffect(() => {
     recalcPages()
-    // Recalc after fonts load and layout settles — multiple attempts for mobile
+  }, [recalcPages, paragraphs, chapterTitle])
+
+  useEffect(() => {
+    // Async recalc retries cover late-arriving font/layout changes (mobile
+    // especially). Initial measurement already happened synchronously
+    // above; these are the safety net.
     const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
     const timer3 = setTimeout(recalcPages, 1500)
@@ -246,9 +259,6 @@ export function Reader({
     // Two recalc passes per observed resize: one immediate (snaps the
     // transform straight away — no visible bleed) and one after the CSS
     // transition settles (~320ms; final value once panel slide is done).
-    // The intermediate frames during the transition look fine because the
-    // immediate recalc already brought the transform into agreement with
-    // the in-flight container width.
     let postTransitionTimer: ReturnType<typeof setTimeout>
     const observer = container ? new ResizeObserver(() => {
       recalcPages()
@@ -410,9 +420,25 @@ export function Reader({
     const container = readerRef.current
     if (!container) return
     userNavigatedRef.current = true
-    const clamped = Math.max(0, Math.min(page, totalPages - 1))
+    // Re-measure pages from the live DOM at click time. Trusting the
+    // totalPages state alone is fragile: scrollWidth / colWidth rounding
+    // can leave the state one short of reality, and goToPage's clamp then
+    // refuses to advance past that wrong value (the "stuck between page
+    // 15 and 16" bug Anders saw on desktop). The live measurement is
+    // authoritative; it also seeds the state in case it was stale.
+    const content = contentRef.current
+    let pages = totalPages
+    if (content) {
+      const cw = getColWidth()
+      const gp = getGap()
+      if (cw > 0) {
+        pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
+        if (pages !== totalPages) setTotalPages(pages)
+      }
+    }
+    const clamped = Math.max(0, Math.min(page, pages - 1))
     setCurrentPage(clamped)
-  }, [totalPages, readerRef])
+  }, [totalPages, readerRef, getColWidth, getGap])
 
   // Keyboard navigation — use refs to avoid re-attaching on every page change
   const goToPageRef = useRef(goToPage)

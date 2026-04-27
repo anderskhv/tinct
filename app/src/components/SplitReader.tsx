@@ -225,14 +225,19 @@ export function SplitReader({
   // Track chapter title to know when chapter actually changes (vs edition swap)
   const prevChapterTitle = useRef(chapterTitle)
 
-  useEffect(() => {
+  // Initial measurement before paint — same fix as Reader.tsx for the
+  // chapter-flash bug. Without this, the first paint of a freshly mounted
+  // SplitReader has colWidthState=0 and shows the chapter header (page 1),
+  // then the second paint after the observer fires animates to the correct
+  // page. useLayoutEffect makes the first paint already correct.
+  useLayoutEffect(() => {
     recalcPages()
+  }, [recalcPages, leftParagraphs, rightParagraphs, chapterTitle])
+
+  useEffect(() => {
     const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
     const container = readerRef.current
-    // Two recalc passes per observed resize: immediate (snaps the transform
-    // straight away — no visible bleed) and post-transition (~320ms after
-    // panel slide settles). See Reader.tsx for the same pattern.
     let postTransitionTimer: ReturnType<typeof setTimeout>
     const observer = container ? new ResizeObserver(() => {
       recalcPages()
@@ -364,8 +369,21 @@ export function SplitReader({
 
   const goToPage = useCallback((page: number) => {
     userNavigatedRef.current = true
-    setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)))
-  }, [totalPages])
+    // Re-measure pages from the live DOM (same pattern as Reader.tsx).
+    // Defends against stale totalPages trapping navigation when scrollWidth
+    // rounding has produced an off-by-one count.
+    const content = contentRef.current
+    let pages = totalPages
+    if (content) {
+      const cw = getColWidth()
+      const gp = getGap()
+      if (cw > 0) {
+        pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
+        if (pages !== totalPages) setTotalPages(pages)
+      }
+    }
+    setCurrentPage(Math.max(0, Math.min(page, pages - 1)))
+  }, [totalPages, getColWidth, getGap])
 
   // Keyboard navigation — use refs to avoid re-attaching on every page change
   const goToPageRef = useRef(goToPage)
