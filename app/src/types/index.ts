@@ -1,6 +1,6 @@
 // === Languages & Styles ===
 
-export type Language = 'en' | 'da'
+export type Language = 'en' | 'da' | 'de'
 export type Style = 'original' | 'modern' | 'verse' | 'kjv' | 'web'
 
 /** Composite key identifying an edition, e.g. 'modern-en', 'kids-da' */
@@ -236,7 +236,14 @@ export interface TokenUsage {
 
 // === User State ===
 
-export type FontSize = 'small' | 'medium' | 'large' | 'xlarge'
+/** Reader font size, stored as a rem value. Continuous slider (Kindle-style)
+ * from 1.0 to 2.4 in 0.05 steps — no discrete buckets so users can
+ * level-set precisely without feeling "too small" or "too big". */
+export type FontSize = number
+export const FONT_SIZE_MIN = 1.0
+export const FONT_SIZE_MAX = 2.4
+export const FONT_SIZE_STEP = 0.05
+export const FONT_SIZE_DEFAULT = 1.3
 export type FontFamily = 'garamond' | 'baskerville' | 'sourceserif'
 
 export type ProgressMetric = 'percent' | 'time' | 'page' | 'location'
@@ -281,10 +288,10 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   panelOpen: true,
   readingObjective: '',
   onboardingComplete: false,
-  fontSize: 'medium',
+  fontSize: FONT_SIZE_DEFAULT,
   fontFamily: 'garamond',
   accountDecisionSeen: false,
-  progressDisplay: { metric: 'percent', scope: 'book' },
+  progressDisplay: { metric: 'page', scope: 'chapter' },
   chatHidden: false,
   feedHidden: false,
   castHidden: false,

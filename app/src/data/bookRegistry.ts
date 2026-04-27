@@ -95,6 +95,7 @@ export const WAR_AND_PEACE: Book = {
       translator: 'Aylmer & Louise Maude',
       year: 1922,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -175,7 +176,7 @@ export const GILGAMESH: Book = {
       style: 'original',
       label: 'Prose Compilation',
       aligned: true,
-      hasAudio: false,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -866,6 +867,7 @@ export const JERUSALEM: Book = {
       translator: 'Velma Swanston Howard',
       year: 1915,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -980,6 +982,7 @@ export const PHAEDO: Book = {
       translator: 'Benjamin Jowett',
       year: 1871,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1016,6 +1019,7 @@ export const MOBY_DICK: Book = {
       label: 'Original (1851)',
       year: 1851,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1045,6 +1049,7 @@ export const GREAT_EXPECTATIONS: Book = {
       label: 'Original (1861)',
       year: 1861,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1082,6 +1087,7 @@ export const THE_HISTORIES: Book = {
       translator: 'George Campbell Macaulay',
       year: 1890,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1120,6 +1126,7 @@ export const NIELS_LYHNE: Book = {
       translator: 'Hanna Astrup Larsen',
       year: 1919,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1266,6 +1273,129 @@ export const NICOMACHEAN_ETHICS: Book = {
       label: 'Modern English',
       aligned: true,
       hasAudio: true,
+    },
+  ],
+}
+
+export const COMMUNIST_MANIFESTO: Book = {
+  id: 'communist-manifesto',
+  title: 'The Communist Manifesto',
+  author: 'Karl Marx & Friedrich Engels',
+  description: 'Twelve thousand words written in 1848 that changed the political vocabulary of the next century. The bourgeoisie has dissolved every old certainty into the cash nexus; the proletariat will dissolve the bourgeoisie. Class struggle, world history, and the call that ends the book: workers of all countries, unite.',
+  year: 1848,
+  wordCount: 12000,
+  coverColor: '#3a0a0a',
+  coverAccent: '#c93a3a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Moore (1888)',
+      translator: 'Samuel Moore (edited by Engels)',
+      year: 1888,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const SECOND_TREATISE: Book = {
+  id: 'second-treatise',
+  title: 'Second Treatise of Government',
+  author: 'John Locke',
+  description: 'The book Mill is responding to. Locke argues that government exists to protect the natural rights of its citizens — life, liberty, property — and that when it ceases to do so, the people may dissolve it. The blueprint for the American revolution and the entire liberal tradition that followed.',
+  year: 1689,
+  wordCount: 70000,
+  coverColor: '#2a3a2a',
+  coverAccent: '#a0c0a0',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1689)',
+      year: 1689,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const SOCIAL_CONTRACT: Book = {
+  id: 'social-contract',
+  title: 'The Social Contract',
+  author: 'Jean-Jacques Rousseau',
+  description: 'Man is born free, and everywhere he is in chains. Rousseau\'s short, dense argument for the only legitimate form of authority: a contract among equals, governed by the general will. The book the French Revolution thought it was reading.',
+  year: 1762,
+  wordCount: 50000,
+  coverColor: '#1a2a3a',
+  coverAccent: '#c0a060',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Cole (1913)',
+      translator: 'G. D. H. Cole',
+      year: 1913,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const FAUST_PART_1: Book = {
+  id: 'faust-part-1',
+  title: 'Faust, Part One',
+  author: 'Johann Wolfgang von Goethe',
+  description: 'The scholar who has mastered every science still finds himself unable to live, makes a pact with Mephistopheles, and is led through pleasure, Walpurgis-Night, and the destruction of Gretchen. The defining work of German literature — and the play that taught the modern world how to talk about ambition, knowledge, and damnation.',
+  year: 1808,
+  wordCount: 30000,
+  coverColor: '#1a0e1a',
+  coverAccent: '#c93a3a',
+  editions: [
+    {
+      key: 'original-de',
+      language: 'de',
+      style: 'original',
+      label: 'Goethe (1808)',
+      year: 1808,
+      aligned: true,
+    },
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Bayard Taylor (1870)',
+      translator: 'Bayard Taylor',
+      year: 1870,
+      aligned: false,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
     },
   ],
 }
@@ -1706,7 +1836,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, ENCHIRIDION, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
