@@ -141,22 +141,47 @@ interface ChatProps {
    * on the user's history instead of a blank welcome.
    */
   chatConversations?: ChatConversation[]
+  /** Click a message's position tag to jump back in the book to where it was sent. */
+  onNavigateToChapter?: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
 }
 
-export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
+export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations, onNavigateToChapter }: ChatProps) {
   const [input, setInput] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
   const [isListening, setIsListening] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const recognitionRef = useRef<SpeechRecognition | null>(null)
   const voiceTranscriptRef = useRef('')
+  // Tracks whether the user is parked near the bottom of the thread. We only
+  // auto-scroll on new messages when this is true — otherwise scrolling
+  // hijacks a reader who's looking at older context.
+  const stickToBottomRef = useRef(true)
 
-  const isEink = typeof document !== 'undefined' && document.documentElement.hasAttribute('data-eink')
-  const hasSpeechRecognition = !isEink && typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition)
+  // Voice input availability — pure feature detection. The earlier
+  // !isEink guard hid the mic on e-ink devices (Boox), but Anders flagged
+  // that voice input is just as useful on Boox as anywhere else. If
+  // window.SpeechRecognition exists at runtime, show the icon — let the
+  // browser tell us. Boox Chromium DOES expose webkitSpeechRecognition,
+  // so the icon will now appear there.
+  const hasSpeechRecognition = typeof window !== 'undefined' && !!(window.SpeechRecognition || window.webkitSpeechRecognition)
+
+  // Watch scroll position so we know whether to follow new messages or stay put.
+  useEffect(() => {
+    const el = messagesContainerRef.current
+    if (!el) return
+    const onScroll = () => {
+      const distFromBottom = el.scrollHeight - el.clientHeight - el.scrollTop
+      stickToBottomRef.current = distFromBottom < 80
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
+    if (!stickToBottomRef.current) return
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
@@ -264,7 +289,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
         </div>
       )}
 
-      <div className="chat-messages">
+      <div className="chat-messages" ref={messagesContainerRef}>
         {messages.length === 0 && !pendingHighlight && sortedHistory.length > 0 && (
           <div className="chat-history">
             <div className="chat-history-head">Past conversations</div>
@@ -367,12 +392,19 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
         )}
 
         {filteredMessages.map(msg => (
-          msg.chapterDivider ? (
-            <div key={msg.id} className="chat-chapter-divider">
-              <span>{getChapterLabel(msg.chapterDivider)}</span>
-            </div>
-          ) : (
+          msg.chapterDivider ? null : (
             <div key={msg.id} className={`chat-message chat-message-${msg.role}`}>
+              {msg.chapterNumber !== undefined && msg.role === 'user' && (
+                <button
+                  className="chat-message-position"
+                  onClick={() => onNavigateToChapter?.(msg.chapterNumber!, msg.paragraphIndex)}
+                  title="Jump to this place in the book"
+                  disabled={!onNavigateToChapter}
+                >
+                  {getChapterLabel(msg.chapterNumber)}
+                  {msg.paragraphIndex !== undefined ? ` · ¶${msg.paragraphIndex + 1}` : ''}
+                </button>
+              )}
               {msg.highlightedText && (
                 <div className="chat-highlight">
                   <span className="chat-highlight-label">Selected passage:</span>
