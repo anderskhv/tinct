@@ -3,6 +3,8 @@ import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
+import { lookup as dictLookup } from '../services/dictionary'
+import type { DictResult } from '../services/dictionary'
 
 interface SelectionInfo {
   x: number
@@ -70,6 +72,12 @@ interface ReaderProps {
   panelOpen?: boolean
   /** Disable highlight selection popup (e.g. on mobile) */
   disableHighlight?: boolean
+  /** Whether this Reader instance should respond to window-level events
+   * (keydown, tinct:page-nav). On mobile, two Readers are mounted at once
+   * (view 0 primary, view 1 compare) — only the active one should listen,
+   * or both would fire onNextChapter/onPrevChapter for every page-nav event.
+   * Defaults to true so desktop (single Reader) works without the prop. */
+  isActive?: boolean
   onDeleteHighlight?: (id: string) => void
   onUpdateHighlightNote?: (id: string, note: string) => void
   onUpdateHighlightColor?: (id: string, color: HighlightColor) => void
@@ -117,17 +125,50 @@ export function Reader({
   editionKey,
   currentChapter,
   authToken,
+  isActive = true,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const [noteInput, setNoteInput] = useState('')
-  const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note'>('main')
+  const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note' | 'define'>('main')
+  const [defineQuery, setDefineQuery] = useState('')
+  const [defineResult, setDefineResult] = useState<DictResult | null>(null)
+  const [defineLoading, setDefineLoading] = useState(false)
+  const [defineNotFound, setDefineNotFound] = useState(false)
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
   const popupRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  // Temp DOM mark that keeps the visual selection highlight visible while the
+  // popup is open, even after we clear the native selection on mobile (which
+  // we do to suppress Safari's edit menu). Removed when the popup dismisses.
+  const selectionPreviewMarkRef = useRef<HTMLElement | null>(null)
+  const clearSelectionPreview = useCallback(() => {
+    const m = selectionPreviewMarkRef.current
+    selectionPreviewMarkRef.current = null
+    if (!m || !m.parentNode) return
+    const parent = m.parentNode
+    while (m.firstChild) parent.insertBefore(m.firstChild, m)
+    parent.removeChild(m)
+    if ((parent as Element).normalize) (parent as Element).normalize()
+  }, [])
+  // Wrapper: dismissing the popup also clears the preview mark.
+  const dismissPopup = useCallback(() => {
+    clearSelectionPreview()
+    setSelectionPopup(null)
+  }, [clearSelectionPreview])
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
+  // Reactive layout metric. Driven by ResizeObserver so any container width
+  // change (panel toggle, split-pane toggle, font-size change, window resize)
+  // forces a React re-render. Without this, `updateColumnWidth` mutated DOM
+  // directly without changing React state — the inline `transform` on the
+  // content element kept its old value while DOM columns had reflowed,
+  // leaving 1-2 paragraphs of bleed on the left edge (B13). Tabbing to
+  // another app triggered a browser-level layout pass that masked the bug.
+  // The fix is structural: derive the transform from a value React owns.
+  const [colWidthState, setColWidthState] = useState(0)
+  const [gapState, setGapState] = useState(60)
   const currentPageRef = useRef(currentPage)
   currentPageRef.current = currentPage
   const totalPagesRef = useRef(totalPages)
@@ -163,7 +204,8 @@ export function Reader({
     }
   }, [getColWidth])
 
-  // CSS multi-column pagination: count columns from scrollWidth
+  // CSS multi-column pagination: count columns from scrollWidth, AND publish
+  // the measured colWidth/gap into React state so the transform stays in sync.
   const recalcPages = useCallback(() => {
     const content = contentRef.current
     if (!content) return
@@ -174,6 +216,16 @@ export function Reader({
     // Total scrollWidth includes all columns and gaps between them
     const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
     setTotalPages(pages)
+    // Drive a re-render whenever measurement changes. setState bails when
+    // the value is unchanged — so on a no-op resize we don't churn.
+    setColWidthState(colWidth)
+    setGapState(gap)
+    // Clamp currentPage to the new page count after a layout shift, so a
+    // resize that produced fewer pages than the user was on doesn't leave
+    // them stranded past the end with no content visible.
+    if (currentPageRef.current >= pages) {
+      setCurrentPage(Math.max(0, pages - 1))
+    }
   }, [updateColumnWidth, getColWidth, getGap])
 
   useEffect(() => {
@@ -183,14 +235,20 @@ export function Reader({
     const timer2 = setTimeout(recalcPages, 500)
     const timer3 = setTimeout(recalcPages, 1500)
     const container = readerRef.current
-    // Debounce ResizeObserver to avoid mid-transition recalcs when panel toggles
-    let resizeTimer: ReturnType<typeof setTimeout>
+    // Two recalc passes per observed resize: one immediate (snaps the
+    // transform straight away — no visible bleed) and one after the CSS
+    // transition settles (~320ms; final value once panel slide is done).
+    // The intermediate frames during the transition look fine because the
+    // immediate recalc already brought the transform into agreement with
+    // the in-flight container width.
+    let postTransitionTimer: ReturnType<typeof setTimeout>
     const observer = container ? new ResizeObserver(() => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(recalcPages, 300)
+      recalcPages()
+      clearTimeout(postTransitionTimer)
+      postTransitionTimer = setTimeout(recalcPages, 320)
     }) : null
     if (container && observer) observer.observe(container)
-    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); clearTimeout(resizeTimer); observer?.disconnect() }
+    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); clearTimeout(postTransitionTimer); observer?.disconnect() }
   }, [paragraphs, chapterTitle, recalcPages, panelOpen])
 
   // Restore position from initialPage fraction or targetParagraphIndex after layout settles
@@ -302,13 +360,15 @@ export function Reader({
     }
   }, [playingParagraphIndex, playingParagraphProgress, getColWidth, getGap])
 
-  // Reset userNavigated flag when audio moves to a new paragraph, or stops.
-  // Rationale: the user's "I want to stay on this page" intent is scoped to
-  // the paragraph currently being read. When the reader moves on, follow
-  // should re-engage — otherwise a single arrow press kills auto-follow for
-  // the rest of the chapter.
+  // Reset userNavigated flag only when audio stops entirely. Rationale:
+  // during playback, the user's manual page turn must stick — otherwise
+  // auto-follow snaps the page back ~300ms later on the next progress
+  // tick, making page-turn buttons appear broken while audio is playing.
+  // A page turn is a page turn, always.
   useEffect(() => {
-    userNavigatedRef.current = false
+    if (playingParagraphIndex === undefined) {
+      userNavigatedRef.current = false
+    }
   }, [playingParagraphIndex])
 
   // Keep the selection popup inside the viewport. The initial position
@@ -353,22 +413,29 @@ export function Reader({
   onNextChapterRef.current = onNextChapter
   const onPrevChapterRef = useRef(onPrevChapter)
   onPrevChapterRef.current = onPrevChapter
+  const isActiveRef = useRef(isActive)
+  isActiveRef.current = isActive
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't capture keys when typing in input/textarea
       const tag = (e.target as HTMLElement).tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA') return
 
+      // Guard: `totalPagesRef.current > 1` prevents the transient post-remount
+      // state (currentPage=0, totalPages=1 before recalcPages runs) from
+      // satisfying the "at last page" condition and firing a spurious
+      // onNextChapter. That transient-state misfire, combined with an e-ink
+      // ghost tap, was causing reliable x → x+2 chapter skipping on Boox.
       if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault()
-        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
           onNextChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current + 1)
         }
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault()
-        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current <= 0 && onPrevChapterRef.current) {
           onPrevChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current - 1)
@@ -376,23 +443,31 @@ export function Reader({
       }
     }
     // Custom page-nav event: used by on-screen nav buttons (BottomBar,
-    // ReadingProgressBar). Synthetic KeyboardEvents don't fire reliably in
-    // Capacitor Android WebView, so we use a CustomEvent instead.
+    // ReadingProgressBar) and the Boox hardware page-turn buttons (via
+    // MainActivity.dispatchKeyEvent). Synthetic KeyboardEvents don't fire
+    // reliably in Capacitor Android WebView, so we use a CustomEvent instead.
     const handlePageNav = (e: Event) => {
       const direction = (e as CustomEvent<{ direction: 'next' | 'prev' }>).detail?.direction
       if (direction === 'next') {
-        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
           onNextChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current + 1)
         }
       } else if (direction === 'prev') {
-        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current <= 0 && onPrevChapterRef.current) {
           onPrevChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current - 1)
         }
       }
+    }
+    // Skip listener registration when this Reader isn't the active one.
+    // On mobile two Readers are mounted at once; without this guard both
+    // fire for every tinct:page-nav event, causing handleNextChapter to
+    // be called twice (and chapter-skip on some races).
+    if (!isActiveRef.current) {
+      return () => { /* noop */ }
     }
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('tinct:page-nav', handlePageNav)
@@ -400,10 +475,16 @@ export function Reader({
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('tinct:page-nav', handlePageNav)
     }
-  }, [])
+  }, [isActive])
 
   // Track whether onTouchEnd already handled a tap (avoid double page turn on mobile)
   const touchHandledRef = useRef(false)
+  // Tracks the start point of the current pointer interaction so a drag
+  // (selection, swipe) is never treated as a page-turn tap on release.
+  // Was causing right-to-left selection drags to end in the left zone and
+  // fire onPrevChapter, even though no selection ultimately registered.
+  const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
+  const DRAG_THRESHOLD_PX = 10
 
   // Click on left/right edge to turn pages, or click paragraph for audio
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -414,6 +495,18 @@ export function Reader({
     }
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
+
+    // Drag guard: if the cursor moved more than DRAG_THRESHOLD_PX between
+    // mousedown and mouseup, treat as a drag-selection (even if the final
+    // selection collapsed) and skip page-turn logic. Prevents right-to-left
+    // drag-highlights from firing the left-zone "previous page" tap.
+    const start = pointerStartRef.current
+    pointerStartRef.current = null
+    if (start) {
+      const dx = Math.abs(e.clientX - start.x)
+      const dy = Math.abs(e.clientY - start.y)
+      if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
+    }
 
     // Click on existing highlight mark — show highlight popup
     const markEl = (e.target as HTMLElement).closest?.('mark[data-highlight-id]') as HTMLElement | null
@@ -468,13 +561,13 @@ export function Reader({
     const zone = rect.width * 0.25
 
     if (clickX < zone) {
-      if (currentPage <= 0 && onPrevChapter) {
+      if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
         onPrevChapter()
       } else {
         goToPage(currentPage - 1)
       }
     } else if (clickX > rect.width - zone) {
-      if (currentPage >= totalPages - 1 && onNextChapter) {
+      if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
         onNextChapter()
       } else {
         goToPage(currentPage + 1)
@@ -494,7 +587,7 @@ export function Reader({
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()
     if (!selection || selection.isCollapsed || !selection.toString().trim()) {
-      setTimeout(() => setSelectionPopup(null), 200)
+      setTimeout(() => dismissPopup(), 200)
       return
     }
 
@@ -580,19 +673,68 @@ export function Reader({
       showBelow,
     })
 
+    // Wrap the selected range in a temp <mark> so the user still sees what
+    // the popup is about after the native selection is cleared (see below).
+    // surroundContents throws when the range spans multiple elements — in
+    // that case we just skip the preview, popup still works.
+    clearSelectionPreview()
+    try {
+      const previewRange = selection.getRangeAt(0).cloneRange()
+      const mark = document.createElement('mark')
+      mark.className = 'tinct-selection-preview'
+      previewRange.surroundContents(mark)
+      selectionPreviewMarkRef.current = mark
+    } catch { /* range crosses element boundaries — skip visual preview */ }
+
     // Mobile: clear the native selection so Safari's edit menu doesn't
-    // compete with ours. Text is captured in popup state; user acts through
-    // our UI (Copy, Highlight, Chat, etc.).
+    // compete with ours. Text is captured in popup state + visible via the
+    // preview mark above; user acts through our UI (Copy, Highlight, etc.).
     if (window.matchMedia('(max-width: 768px)').matches) {
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
-  }, [paragraphs, readerRef, disableHighlight])
+  }, [paragraphs, readerRef, disableHighlight, clearSelectionPreview])
+
+  const handleDefine = useCallback(() => {
+    if (!selectionPopup) return
+    const raw = selectionPopup.text.trim()
+    // Single word → look up directly. Multi-word → open the panel with the
+    // full selected phrase as a starting query the user can edit.
+    const isSingleWord = !/\s/.test(raw)
+    setDefineQuery(isSingleWord ? raw : '')
+    setDefineResult(null)
+    setDefineNotFound(false)
+    setPopupMode('define')
+    if (isSingleWord) {
+      setDefineLoading(true)
+      dictLookup(raw).then(res => {
+        setDefineLoading(false)
+        setDefineResult(res)
+        setDefineNotFound(!res)
+      })
+    }
+  }, [selectionPopup])
+
+  const runDefine = useCallback((q: string) => {
+    const trimmed = q.trim()
+    if (!trimmed) {
+      setDefineResult(null)
+      setDefineNotFound(false)
+      return
+    }
+    setDefineLoading(true)
+    setDefineNotFound(false)
+    dictLookup(trimmed).then(res => {
+      setDefineLoading(false)
+      setDefineResult(res)
+      setDefineNotFound(!res)
+    })
+  }, [])
 
   const handleCopy = useCallback(() => {
     if (!selectionPopup) return
     const text = selectionPopup.text
     const done = () => {
-      setSelectionPopup(null)
+      dismissPopup()
       window.getSelection()?.removeAllRanges()
     }
     if (navigator.clipboard?.writeText) {
@@ -616,7 +758,7 @@ export function Reader({
     if (!selectionPopup) return
     if (selectionPopup.existingHighlightId) {
       onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      setSelectionPopup(null)
+      dismissPopup()
       return
     }
     // Guard: don't create zero-length highlights (indexOf failed)
@@ -632,14 +774,14 @@ export function Reader({
       selectionPopup.text,
       color,
     )
-    setSelectionPopup(null)
+    dismissPopup()
     window.getSelection()?.removeAllRanges()
   }
 
   const handleExplain = () => {
     if (selectionPopup) {
       onTextSelect(selectionPopup.text)
-      setSelectionPopup(null)
+      dismissPopup()
       window.getSelection()?.removeAllRanges()
     }
   }
@@ -688,23 +830,37 @@ export function Reader({
       window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Something went wrong submitting the report. Please try again.' } }))
     }
     setIssueSubmitting(false)
-    setSelectionPopup(null)
+    dismissPopup()
     window.getSelection()?.removeAllRanges()
   }
 
-  // Compute translateX for current page
+  // Compute translateX for current page.
+  //
+  // Reads from React state (colWidthState, gapState) rather than the DOM.
+  // That's deliberate: this transform is rendered into JSX, so it only
+  // updates when React re-renders. By driving from state, every observed
+  // container resize triggers a fresh transform. The fallback to direct
+  // DOM read is for the very first render before the observer has fired.
   const getTranslateX = () => {
-    const colWidth = getColWidth()
+    const colWidth = colWidthState > 0 ? colWidthState : getColWidth()
     if (colWidth <= 0) return 0
-    return -(currentPage * (colWidth + getGap()))
+    const gap = gapState > 0 ? gapState : getGap()
+    return -(currentPage * (colWidth + gap))
   }
 
   return (
     <div
       className="reader reader-paginated"
       ref={readerRef}
+      onMouseDown={(e) => {
+        pointerStartRef.current = { x: e.clientX, y: e.clientY }
+      }}
       onMouseUp={handleMouseUp}
       onClick={handleReaderClick}
+      onTouchStart={(e) => {
+        const t = e.touches[0]
+        if (t) pointerStartRef.current = { x: t.clientX, y: t.clientY }
+      }}
       onTouchEnd={(e) => {
         // Mobile text selection: iOS fires touchend, not mouseup, when the
         // user releases a selection drag. If we return early here we lose
@@ -713,9 +869,29 @@ export function Reader({
         const selection = window.getSelection()
         if (selection && !selection.isCollapsed && (selection.toString().trim().length >= 3)) {
           setTimeout(handleMouseUp, 50)
+          pointerStartRef.current = null
           return
         }
-        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
+        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) {
+          pointerStartRef.current = null
+          return
+        }
+
+        const touch = e.changedTouches[0]
+        const start = pointerStartRef.current
+        pointerStartRef.current = null
+        if (!touch) return
+
+        // Drag guard: if the finger traveled more than DRAG_THRESHOLD_PX
+        // between touchstart and touchend, this was a selection or swipe
+        // attempt — never a page-turn tap. Was causing right-to-left drag
+        // selections to turn the page backward when the selection didn't
+        // fully register.
+        if (start) {
+          const dx = Math.abs(touch.clientX - start.x)
+          const dy = Math.abs(touch.clientY - start.y)
+          if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
+        }
 
         // Audio mode: tap on a paragraph to play from there (no page turning)
         // Only intercept taps when audio is actively playing — not just when a paragraph was previously played
@@ -733,20 +909,18 @@ export function Reader({
         const container = readerRef.current
         if (!container) return
         const rect = container.getBoundingClientRect()
-        const touch = e.changedTouches[0]
-        if (!touch) return
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
         if (touchX < zone) {
           touchHandledRef.current = true
-          if (currentPage <= 0 && onPrevChapter) {
+          if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
             onPrevChapter()
           } else {
             goToPage(currentPage - 1)
           }
         } else if (touchX > rect.width - zone) {
           touchHandledRef.current = true
-          if (currentPage >= totalPages - 1 && onNextChapter) {
+          if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
             onNextChapter()
           } else {
             goToPage(currentPage + 1)
@@ -819,16 +993,16 @@ export function Reader({
       <div className="page-nav">
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
-          disabled={currentPage <= 0 && !onPrevChapter}
+          onClick={(e) => { e.stopPropagation(); totalPages > 1 && currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
+          disabled={totalPages > 1 && currentPage <= 0 && !onPrevChapter}
         >
           &larr;
         </button>
         <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
-          disabled={currentPage >= totalPages - 1 && !onNextChapter}
+          onClick={(e) => { e.stopPropagation(); totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
+          disabled={totalPages > 1 && currentPage >= totalPages - 1 && !onNextChapter}
         >
           &rarr;
         </button>
@@ -858,6 +1032,49 @@ export function Reader({
                 ))}
               </div>
             </>
+          )}
+
+          {/* Dictionary panel */}
+          {popupMode === 'define' && (
+            <div className="popup-define">
+              <div className="popup-define-head">
+                <button className="popup-back-btn" onClick={() => setPopupMode('main')} title="Back">‹</button>
+                <input
+                  className="popup-define-input"
+                  type="text"
+                  value={defineQuery}
+                  onChange={e => setDefineQuery(e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter') runDefine(defineQuery) }}
+                  onBlur={() => runDefine(defineQuery)}
+                  placeholder="Look up a word…"
+                  autoFocus
+                />
+              </div>
+              {defineLoading && <div className="popup-define-status">Looking up…</div>}
+              {!defineLoading && defineResult && (
+                <div className="popup-define-result">
+                  <div className="popup-define-word">{defineResult.word}</div>
+                  {defineResult.resolvedFrom && defineResult.resolvedFrom !== defineResult.word && (
+                    <div className="popup-define-note">from &ldquo;{defineResult.resolvedFrom}&rdquo;</div>
+                  )}
+                  <ol className="popup-define-list">
+                    {defineResult.definitions.map((d, i) => (
+                      <li key={i}>{d}</li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+              {!defineLoading && defineNotFound && (
+                <div className="popup-define-status popup-define-empty">
+                  No definition found for &ldquo;{defineQuery}&rdquo;.
+                </div>
+              )}
+              {!defineLoading && !defineResult && !defineNotFound && !defineQuery && (
+                <div className="popup-define-status">
+                  Type a word and press Enter to look it up.
+                </div>
+              )}
+            </div>
           )}
 
           {/* Issue form */}
@@ -909,7 +1126,7 @@ export function Reader({
                   className="popup-button popup-button-primary"
                   onClick={() => {
                     onUpdateHighlightNote?.(selectionPopup.existingHighlightId!, noteInput.trim())
-                    setSelectionPopup(null)
+                    dismissPopup()
                   }}
                 >Save</button>
               </div>
@@ -925,6 +1142,18 @@ export function Reader({
                   <line x1="8.5" y1="4.5" x2="11.5" y2="7.5" />
                 </svg>
                 <span className="popup-icon-label">Highlight</span>
+              </button>
+
+              <div className="popup-divider" />
+
+              <button className="popup-icon-btn" onClick={handleDefine} title="Define">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 2 H12 A1 1 0 0 1 13 3 V13 A1 1 0 0 1 12 14 H4 A1 1 0 0 1 3 13 Z" />
+                  <line x1="5.5" y1="5" x2="10.5" y2="5" />
+                  <line x1="5.5" y1="8" x2="10.5" y2="8" />
+                  <line x1="5.5" y1="11" x2="8.5" y2="11" />
+                </svg>
+                <span className="popup-icon-label">Define</span>
               </button>
 
               <div className="popup-divider" />
@@ -958,7 +1187,7 @@ export function Reader({
 
               <div className="popup-divider" />
 
-              <button className="popup-icon-btn" onClick={() => { onShare?.(selectionPopup.text); setSelectionPopup(null); window.getSelection()?.removeAllRanges() }} title="Share this quote">
+              <button className="popup-icon-btn" onClick={() => { onShare?.(selectionPopup.text); dismissPopup(); window.getSelection()?.removeAllRanges() }} title="Share this quote">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M8 2 L8 11" />
                   <path d="M5 5 L8 2 L11 5" />
@@ -987,7 +1216,7 @@ export function Reader({
                   <div className="popup-divider" />
                   <button
                     className="popup-icon-btn popup-icon-btn-delete"
-                    onClick={() => { onDeleteHighlight?.(selectionPopup.existingHighlightId!); setSelectionPopup(null) }}
+                    onClick={() => { onDeleteHighlight?.(selectionPopup.existingHighlightId!); dismissPopup() }}
                     title="Delete highlight"
                   >
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">

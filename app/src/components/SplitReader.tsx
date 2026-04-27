@@ -3,6 +3,8 @@ import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor, Edition, EditionKey } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
+import { lookup as dictLookup } from '../services/dictionary'
+import type { DictResult } from '../services/dictionary'
 
 interface SelectionInfo {
   x: number
@@ -78,6 +80,11 @@ interface SplitReaderProps {
   onShare?: (text: string) => void
   bookId?: string
   primaryEditionKey?: string
+  /** Right-pane (comparison) edition key — used to attribute issue reports
+   *  filed from the right side to the correct edition. Without this, those
+   *  reports were saved with edition_key="" and the AI evaluator couldn't
+   *  load the paragraph for context. */
+  splitEditionKey?: string
   currentChapter?: number
   authToken?: string
 }
@@ -121,22 +128,49 @@ export function SplitReader({
   onShare,
   bookId,
   primaryEditionKey,
+  splitEditionKey,
   currentChapter,
   authToken,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const [noteInput, setNoteInput] = useState('')
-  const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note'>('main')
+  const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note' | 'define'>('main')
+  const [defineQuery, setDefineQuery] = useState('')
+  const [defineResult, setDefineResult] = useState<DictResult | null>(null)
+  const [defineLoading, setDefineLoading] = useState(false)
+  const [defineNotFound, setDefineNotFound] = useState(false)
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
   const popupRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  // Visible selection preview: temp <mark> wrapping the selected range.
+  // See Reader.tsx for details — identical pattern.
+  const selectionPreviewMarkRef = useRef<HTMLElement | null>(null)
+  const clearSelectionPreview = useCallback(() => {
+    const m = selectionPreviewMarkRef.current
+    selectionPreviewMarkRef.current = null
+    if (!m || !m.parentNode) return
+    const parent = m.parentNode
+    while (m.firstChild) parent.insertBefore(m.firstChild, m)
+    parent.removeChild(m)
+    if ((parent as Element).normalize) (parent as Element).normalize()
+  }, [])
+  const dismissPopup = useCallback(() => {
+    clearSelectionPreview()
+    setSelectionPopup(null)
+  }, [clearSelectionPreview])
 
   // === Pagination (CSS multi-column, same as Reader) ===
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(1)
+  // Reactive layout metric — same fix as Reader.tsx for B13. Without state-
+  // backed colWidth, panel-toggle resizes mutated DOM column-width directly
+  // but didn't trigger React re-render, leaving the inline `transform`
+  // stale by a fraction of a column → 1.5-paragraph bleed on the left edge.
+  const [colWidthState, setColWidthState] = useState(0)
+  const [gapState, setGapState] = useState(60)
   const initialPageRef = useRef(initialPage)
   const userNavigatedRef = useRef(false) // true when user manually changed page
 
@@ -176,6 +210,11 @@ export function SplitReader({
     const gap = getGap()
     const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
     setTotalPages(pages)
+    setColWidthState(colWidth)
+    setGapState(gap)
+    if (currentPageRef.current >= pages) {
+      setCurrentPage(Math.max(0, pages - 1))
+    }
   }, [updateColumnWidth, getColWidth, getGap])
 
   // Track chapter title to know when chapter actually changes (vs edition swap)
@@ -186,14 +225,17 @@ export function SplitReader({
     const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
     const container = readerRef.current
-    // Debounce ResizeObserver to avoid mid-transition recalcs when panel toggles
-    let resizeTimer: ReturnType<typeof setTimeout>
+    // Two recalc passes per observed resize: immediate (snaps the transform
+    // straight away — no visible bleed) and post-transition (~320ms after
+    // panel slide settles). See Reader.tsx for the same pattern.
+    let postTransitionTimer: ReturnType<typeof setTimeout>
     const observer = container ? new ResizeObserver(() => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(recalcPages, 350)
+      recalcPages()
+      clearTimeout(postTransitionTimer)
+      postTransitionTimer = setTimeout(recalcPages, 320)
     }) : null
     if (container && observer) observer.observe(container)
-    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(resizeTimer); observer?.disconnect() }
+    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(postTransitionTimer); observer?.disconnect() }
   }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages, panelOpen])
 
   // Reset page only on actual chapter change, not on edition swap
@@ -283,11 +325,13 @@ export function SplitReader({
     }
   }, [playingParagraphIndex, playingParagraphProgress, totalPages, getGap, currentPage, readerRef])
 
-  // Reset userNavigated flag on every paragraph change. Ties the user's
-  // "stay here" intent to the current paragraph — auto-follow re-engages on
-  // the next paragraph rather than staying dead for the rest of the chapter.
+  // Reset userNavigated flag only when audio stops entirely. A manual page
+  // turn must stick during playback — otherwise auto-follow fights it on
+  // the next progress tick. A page turn is a page turn, always.
   useEffect(() => {
-    userNavigatedRef.current = false
+    if (playingParagraphIndex === undefined) {
+      userNavigatedRef.current = false
+    }
   }, [playingParagraphIndex])
 
   // Keep the selection popup inside the viewport after it renders. Same
@@ -335,14 +379,14 @@ export function SplitReader({
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return
       if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault()
-        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
           onNextChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current + 1)
         }
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault()
-        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current <= 0 && onPrevChapterRef.current) {
           onPrevChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current - 1)
@@ -355,13 +399,13 @@ export function SplitReader({
     const handlePageNav = (e: Event) => {
       const direction = (e as CustomEvent<{ direction: 'next' | 'prev' }>).detail?.direction
       if (direction === 'next') {
-        if (currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
           onNextChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current + 1)
         }
       } else if (direction === 'prev') {
-        if (currentPageRef.current <= 0 && onPrevChapterRef.current) {
+        if (totalPagesRef.current > 1 && currentPageRef.current <= 0 && onPrevChapterRef.current) {
           onPrevChapterRef.current()
         } else {
           goToPageRef.current(currentPageRef.current - 1)
@@ -379,6 +423,9 @@ export function SplitReader({
   // Track whether onTouchEnd already handled a tap (avoid double page turn on mobile
   // where a single touch fires both touchend AND click).
   const touchHandledRef = useRef(false)
+  // See Reader.tsx: drag guard so selection/swipe drags never fire page turns.
+  const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
+  const DRAG_THRESHOLD_PX = 10
 
   // Click on left/right edge to turn pages
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -389,6 +436,16 @@ export function SplitReader({
     }
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
+
+    // Drag guard: if cursor moved > DRAG_THRESHOLD_PX between down and up,
+    // treat as drag selection (even if it collapsed), skip page turn.
+    const start = pointerStartRef.current
+    pointerStartRef.current = null
+    if (start) {
+      const dx = Math.abs(e.clientX - start.x)
+      const dy = Math.abs(e.clientY - start.y)
+      if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
+    }
 
     // Click on existing highlight mark in the left column — show highlight popup
     const markEl = (e.target as HTMLElement).closest?.('mark[data-highlight-id]') as HTMLElement | null
@@ -440,13 +497,13 @@ export function SplitReader({
     const clickX = e.clientX - rect.left
     const zone = rect.width * 0.2
     if (clickX < zone) {
-      if (currentPage <= 0 && onPrevChapter) {
+      if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
         onPrevChapter()
       } else {
         goToPage(currentPage - 1)
       }
     } else if (clickX > rect.width - zone) {
-      if (currentPage >= totalPages - 1 && onNextChapter) {
+      if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
         onNextChapter()
       } else {
         goToPage(currentPage + 1)
@@ -454,17 +511,21 @@ export function SplitReader({
     }
   }, [currentPage, totalPages, goToPage, readerRef, leftHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
 
+  // Drives from React state (B13 fix — see Reader.tsx for full rationale).
+  // The state-backed value forces re-render whenever container resizes;
+  // direct DOM read is the first-paint fallback before observer fires.
   const getTranslateX = () => {
-    const colWidth = getColWidth()
+    const colWidth = colWidthState > 0 ? colWidthState : getColWidth()
     if (colWidth <= 0) return 0
-    return -(currentPage * (colWidth + getGap()))
+    const gap = gapState > 0 ? gapState : getGap()
+    return -(currentPage * (colWidth + gap))
   }
 
   // === Selection / Highlight ===
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()
     if (!selection || selection.isCollapsed || !selection.toString().trim()) {
-      setTimeout(() => setSelectionPopup(null), 200)
+      setTimeout(() => dismissPopup(), 200)
       return
     }
 
@@ -490,7 +551,7 @@ export function SplitReader({
       const focusSide = focusParagraphEl.closest('.split-left') ? 'left' : 'right'
       if (anchorSide !== focusSide) {
         selection.removeAllRanges()
-        setSelectionPopup(null)
+        dismissPopup()
         return
       }
     }
@@ -531,16 +592,59 @@ export function SplitReader({
       showBelow,
     })
 
+    clearSelectionPreview()
+    try {
+      const previewRange = selection.getRangeAt(0).cloneRange()
+      const mark = document.createElement('mark')
+      mark.className = 'tinct-selection-preview'
+      previewRange.surroundContents(mark)
+      selectionPreviewMarkRef.current = mark
+    } catch { /* range crosses element boundaries — skip visual preview */ }
+
     if (window.matchMedia('(max-width: 768px)').matches) {
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
   }, [leftParagraphs, rightParagraphs, readerRef])
 
+  const handleDefine = useCallback(() => {
+    if (!selectionPopup) return
+    const raw = selectionPopup.text.trim()
+    const isSingleWord = !/\s/.test(raw)
+    setDefineQuery(isSingleWord ? raw : '')
+    setDefineResult(null)
+    setDefineNotFound(false)
+    setPopupMode('define')
+    if (isSingleWord) {
+      setDefineLoading(true)
+      dictLookup(raw).then(res => {
+        setDefineLoading(false)
+        setDefineResult(res)
+        setDefineNotFound(!res)
+      })
+    }
+  }, [selectionPopup])
+
+  const runDefine = useCallback((q: string) => {
+    const trimmed = q.trim()
+    if (!trimmed) {
+      setDefineResult(null)
+      setDefineNotFound(false)
+      return
+    }
+    setDefineLoading(true)
+    setDefineNotFound(false)
+    dictLookup(trimmed).then(res => {
+      setDefineLoading(false)
+      setDefineResult(res)
+      setDefineNotFound(!res)
+    })
+  }, [])
+
   const handleCopy = useCallback(() => {
     if (!selectionPopup) return
     const text = selectionPopup.text
     const done = () => {
-      setSelectionPopup(null)
+      dismissPopup()
       window.getSelection()?.removeAllRanges()
     }
     if (navigator.clipboard?.writeText) {
@@ -564,7 +668,7 @@ export function SplitReader({
     if (!selectionPopup) return
     if (selectionPopup.existingHighlightId) {
       onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      setSelectionPopup(null)
+      dismissPopup()
       return
     }
     onHighlight(
@@ -575,14 +679,14 @@ export function SplitReader({
       color,
       selectionPopup.side,
     )
-    setSelectionPopup(null)
+    dismissPopup()
     window.getSelection()?.removeAllRanges()
   }
 
   const handleExplain = () => {
     if (selectionPopup) {
       onTextSelect(selectionPopup.text)
-      setSelectionPopup(null)
+      dismissPopup()
       window.getSelection()?.removeAllRanges()
     }
   }
@@ -598,7 +702,9 @@ export function SplitReader({
         headers,
         body: JSON.stringify({
           bookId: bookId || '',
-          editionKey: selectionPopup.side === 'left' ? (primaryEditionKey || '') : '',
+          editionKey: selectionPopup.side === 'left'
+            ? (primaryEditionKey || '')
+            : (splitEditionKey || ''),
           chapterNumber: currentChapter ?? 0,
           paragraphIndex: selectionPopup.paragraphIndex,
           selectedText: selectionPopup.text,
@@ -630,7 +736,7 @@ export function SplitReader({
       window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Something went wrong submitting the report. Please try again.' } }))
     }
     setIssueSubmitting(false)
-    setSelectionPopup(null)
+    dismissPopup()
     window.getSelection()?.removeAllRanges()
   }
 
@@ -640,8 +746,15 @@ export function SplitReader({
     <div
       className="reader reader-paginated"
       ref={readerRef}
+      onMouseDown={(e) => {
+        pointerStartRef.current = { x: e.clientX, y: e.clientY }
+      }}
       onMouseUp={handleMouseUp}
       onClick={handleReaderClick}
+      onTouchStart={(e) => {
+        const t = e.touches[0]
+        if (t) pointerStartRef.current = { x: t.clientX, y: t.clientY }
+      }}
       onTouchEnd={(e) => {
         const selection = window.getSelection()
         // On mobile, iOS fires touchend (not mouseup) after a selection
@@ -649,26 +762,40 @@ export function SplitReader({
         // our popup never appears. 50ms lets the selection finalize.
         if (selection && !selection.isCollapsed && selection.toString().trim().length >= 3) {
           setTimeout(handleMouseUp, 50)
+          pointerStartRef.current = null
           return
         }
-        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) return
+        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) {
+          pointerStartRef.current = null
+          return
+        }
+        const touch = e.changedTouches[0]
+        const start = pointerStartRef.current
+        pointerStartRef.current = null
+        if (!touch) return
+
+        // Drag guard: selection or swipe drags must never fire page turns.
+        if (start) {
+          const dx = Math.abs(touch.clientX - start.x)
+          const dy = Math.abs(touch.clientY - start.y)
+          if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
+        }
+
         const container = readerRef.current
         if (!container) return
         const rect = container.getBoundingClientRect()
-        const touch = e.changedTouches[0]
-        if (!touch) return
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
         if (touchX < zone) {
           touchHandledRef.current = true
-          if (currentPage <= 0 && onPrevChapter) {
+          if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
             onPrevChapter()
           } else {
             goToPage(currentPage - 1)
           }
         } else if (touchX > rect.width - zone) {
           touchHandledRef.current = true
-          if (currentPage >= totalPages - 1 && onNextChapter) {
+          if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
             onNextChapter()
           } else {
             goToPage(currentPage + 1)
@@ -760,16 +887,16 @@ export function SplitReader({
       <div className="page-nav">
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
-          disabled={currentPage <= 0 && !onPrevChapter}
+          onClick={(e) => { e.stopPropagation(); totalPages > 1 && currentPage <= 0 && onPrevChapter ? onPrevChapter() : goToPage(currentPage - 1) }}
+          disabled={totalPages > 1 && currentPage <= 0 && !onPrevChapter}
         >
           &larr;
         </button>
         <span className="page-nav-label">{currentPage + 1} / {totalPages}</span>
         <button
           className="page-nav-arrow"
-          onClick={(e) => { e.stopPropagation(); currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
-          disabled={currentPage >= totalPages - 1 && !onNextChapter}
+          onClick={(e) => { e.stopPropagation(); totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter ? onNextChapter() : goToPage(currentPage + 1) }}
+          disabled={totalPages > 1 && currentPage >= totalPages - 1 && !onNextChapter}
         >
           &rarr;
         </button>
@@ -798,6 +925,48 @@ export function SplitReader({
                 ))}
               </div>
             </>
+          )}
+
+          {popupMode === 'define' && (
+            <div className="popup-define">
+              <div className="popup-define-head">
+                <button className="popup-back-btn" onClick={() => setPopupMode('main')} title="Back">‹</button>
+                <input
+                  className="popup-define-input"
+                  type="text"
+                  value={defineQuery}
+                  onChange={e => setDefineQuery(e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter') runDefine(defineQuery) }}
+                  onBlur={() => runDefine(defineQuery)}
+                  placeholder="Look up a word…"
+                  autoFocus
+                />
+              </div>
+              {defineLoading && <div className="popup-define-status">Looking up…</div>}
+              {!defineLoading && defineResult && (
+                <div className="popup-define-result">
+                  <div className="popup-define-word">{defineResult.word}</div>
+                  {defineResult.resolvedFrom && defineResult.resolvedFrom !== defineResult.word && (
+                    <div className="popup-define-note">from &ldquo;{defineResult.resolvedFrom}&rdquo;</div>
+                  )}
+                  <ol className="popup-define-list">
+                    {defineResult.definitions.map((d, i) => (
+                      <li key={i}>{d}</li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+              {!defineLoading && defineNotFound && (
+                <div className="popup-define-status popup-define-empty">
+                  No definition found for &ldquo;{defineQuery}&rdquo;.
+                </div>
+              )}
+              {!defineLoading && !defineResult && !defineNotFound && !defineQuery && (
+                <div className="popup-define-status">
+                  Type a word and press Enter to look it up.
+                </div>
+              )}
+            </div>
           )}
 
           {popupMode === 'issue' && (
@@ -850,7 +1019,7 @@ export function SplitReader({
                     if (selectionPopup.side === 'left') {
                       onUpdateHighlightNote?.(selectionPopup.existingHighlightId!, noteInput.trim())
                     }
-                    setSelectionPopup(null)
+                    dismissPopup()
                   }}
                 >Save</button>
               </div>
@@ -865,6 +1034,16 @@ export function SplitReader({
                   <line x1="8.5" y1="4.5" x2="11.5" y2="7.5" />
                 </svg>
                 <span className="popup-icon-label">Highlight</span>
+              </button>
+              <div className="popup-divider" />
+              <button className="popup-icon-btn" onClick={handleDefine} title="Define">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 2 H12 A1 1 0 0 1 13 3 V13 A1 1 0 0 1 12 14 H4 A1 1 0 0 1 3 13 Z" />
+                  <line x1="5.5" y1="5" x2="10.5" y2="5" />
+                  <line x1="5.5" y1="8" x2="10.5" y2="8" />
+                  <line x1="5.5" y1="11" x2="8.5" y2="11" />
+                </svg>
+                <span className="popup-icon-label">Define</span>
               </button>
               <div className="popup-divider" />
               <button className="popup-icon-btn" onClick={handleExplain} title="Chat about this">
@@ -890,7 +1069,7 @@ export function SplitReader({
                 <span className="popup-icon-label">Copy</span>
               </button>
               <div className="popup-divider" />
-              <button className="popup-icon-btn" onClick={() => { onShare?.(selectionPopup.text); setSelectionPopup(null); window.getSelection()?.removeAllRanges() }} title="Share this quote">
+              <button className="popup-icon-btn" onClick={() => { onShare?.(selectionPopup.text); dismissPopup(); window.getSelection()?.removeAllRanges() }} title="Share this quote">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M8 2 L8 11" />
                   <path d="M5 5 L8 2 L11 5" />
@@ -917,7 +1096,7 @@ export function SplitReader({
                   <div className="popup-divider" />
                   <button
                     className="popup-icon-btn popup-icon-btn-delete"
-                    onClick={() => { onDeleteHighlight?.(selectionPopup.existingHighlightId!); setSelectionPopup(null) }}
+                    onClick={() => { onDeleteHighlight?.(selectionPopup.existingHighlightId!); dismissPopup() }}
                     title="Delete highlight"
                   >
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
