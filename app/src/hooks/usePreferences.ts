@@ -1,9 +1,39 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import { storage } from '../services/storage'
+import { storage, localStorageProvider } from '../services/storage'
 import type { Language, Style, EditionKey, UserPreferences, PanelTab, FontSize, FontFamily } from '../types'
 import { DEFAULT_PREFERENCES } from '../types'
 
+/**
+ * Preferences persistence is split (B9):
+ *
+ * - **Account-synced** keys go to `preferences` via the storage abstraction
+ *   (= Supabase when signed in; localStorage fallback when not). These
+ *   follow the user across devices.
+ *
+ * - **Per-device** keys go to `device-preferences` in localStorage only.
+ *   These are layout/ergonomic choices that legitimately vary by device:
+ *   theme, font size, font family, split-view default, panel-open default.
+ *
+ * The split happens at the persistence layer; React state still holds one
+ * merged UserPreferences object so consumers don't change.
+ */
 const STORAGE_KEY = 'preferences'
+const DEVICE_KEY = 'device-preferences'
+
+/** Fields that vary per device — never sync to cloud. */
+const DEVICE_FIELDS = ['darkMode', 'fontSize', 'fontFamily', 'splitView', 'panelOpen'] as const
+
+function pickDevice(prefs: UserPreferences): Partial<UserPreferences> {
+  const out: Partial<UserPreferences> = {}
+  for (const f of DEVICE_FIELDS) (out as Record<string, unknown>)[f] = prefs[f]
+  return out
+}
+
+function pickAccount(prefs: UserPreferences): Partial<UserPreferences> {
+  const out: Partial<UserPreferences> = { ...prefs }
+  for (const f of DEVICE_FIELDS) delete (out as Record<string, unknown>)[f]
+  return out
+}
 
 /** First-visit default for reading languages: infer from browser locale. If
  * Danish appears anywhere in navigator.languages, include it alongside English
@@ -19,8 +49,12 @@ function detectDefaultReadingLanguages(): Language[] {
 
 export function usePreferences(storageReady = true) {
   const [preferences, setPreferencesState] = useState<UserPreferences>(() => {
+    // Layered load: account from cloud (stripped of any legacy device
+    // fields), device from localStorage (else defaults).
     const stored = storage.get<UserPreferences>(STORAGE_KEY)
-    const saved = { ...DEFAULT_PREFERENCES, ...stored }
+    const accountOnly = stored ? pickAccount(stored as UserPreferences) : {}
+    const device = localStorageProvider.get<Partial<UserPreferences>>(DEVICE_KEY)
+    const saved = { ...DEFAULT_PREFERENCES, ...accountOnly, ...(device || {}) } as UserPreferences
     // Migrate removed 'highlights' tab → 'notes'
     if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
     // Migrate removed 'compare' tab (briefly lived as a 4th desktop rail) → chat
@@ -37,6 +71,9 @@ export function usePreferences(storageReady = true) {
   // Persist on change — skip the very first write when storageReady transitions
   // to true, because at that point preferences are stale defaults and the cloud
   // restore effect hasn't run yet. Writing here would overwrite Supabase data.
+  //
+  // Splits the merged preferences object into account-synced + device-local
+  // before writing to their respective stores.
   const writeUnlockedRef = useRef(false)
   useEffect(() => {
     if (!storageReady) return
@@ -44,7 +81,8 @@ export function usePreferences(storageReady = true) {
       writeUnlockedRef.current = true
       return
     }
-    storage.set(STORAGE_KEY, preferences)
+    storage.set(STORAGE_KEY, pickAccount(preferences))
+    localStorageProvider.set(DEVICE_KEY, pickDevice(preferences))
   }, [preferences, storageReady])
 
   // Apply dark mode
@@ -100,14 +138,17 @@ export function usePreferences(storageReady = true) {
   const setCastHidden = useCallback((castHidden: boolean) => update({ castHidden }), [update])
   const setReadingLanguages = useCallback((readingLanguages: Language[]) => update({ readingLanguages }), [update])
 
-  // Re-read preferences from storage (called after storage provider swap)
+  // Re-read preferences from storage (called after storage provider swap).
+  // Same layered load as initial: cloud account prefs (stripped of device
+  // fields) + localStorage device overlay.
   const refreshFromStorage = useCallback(() => {
     const raw = storage.get<UserPreferences>(STORAGE_KEY)
-    if (raw) {
-      const saved = { ...DEFAULT_PREFERENCES, ...raw }
+    const device = localStorageProvider.get<Partial<UserPreferences>>(DEVICE_KEY)
+    if (raw || device) {
+      const accountOnly = raw ? pickAccount(raw as UserPreferences) : {}
+      const saved = { ...DEFAULT_PREFERENCES, ...accountOnly, ...(device || {}) } as UserPreferences
       if ((saved.panelTab as string) === 'highlights') saved.panelTab = 'notes'
-    // Migrate removed 'compare' tab (briefly lived as a 4th desktop rail) → chat
-    if ((saved.panelTab as string) === 'compare') saved.panelTab = 'chat'
+      if ((saved.panelTab as string) === 'compare') saved.panelTab = 'chat'
       if (saved.splitEditionKey?.includes('kids')) saved.splitEditionKey = 'modern-en'
       setPreferencesState(saved)
     }
