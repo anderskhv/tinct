@@ -449,23 +449,55 @@ export default function App() {
   // components handle (Feed renders empty, TOC is gated behind primaryData).
   const totalChapters = primaryData?.chapters.length ?? 0
 
-  // Chapter bounds validation.
+  // Position validation at book-open time.
   //
-  // After primaryData loads, if currentChapter is out of range for this
-  // book — either < 1 or > totalChapters — clamp to chapter 1. This catches
-  // any historically-corrupted saved position (e.g. Genesis 39 leaked into
-  // a 12-chapter book before the bookId-change effect existed). For books
-  // where the bogus chapter happens to be valid (e.g. Awakening has 39
-  // chapters, cross-book leak from Genesis 39 lands inside its bounds),
-  // this won't help — but the bookId-change effect prevents new leaks at
-  // source, so corruption resolves naturally as the user re-reads.
+  // When primaryData loads we know two things the rest of the app didn't:
+  // the actual chapter count, and the actual paragraph count of each chapter.
+  // Validate the saved position against both. Anything out of bounds is a
+  // pre-Phase-1 cross-book bleed (B1) and gets nuked from storage so it
+  // can't resurrect from cache or sync.
+  //
+  //   1. chapterNumber must be in [1, totalChapters] — catches "Genesis 39
+  //      applied to a 12-chapter book" and similar.
+  //   2. lastParagraphIndex must be < paragraphs.length of the current
+  //      chapter — catches the page-19-of-21 phantom: a paragraph index
+  //      from a longer book's chapter 1 gets applied to a shorter book's
+  //      chapter 1, so the reader scrolled to a paragraph that exists in
+  //      the bleed-source but not the current book. The chapter happens
+  //      to be valid (chapter 1 is always valid), but the paragraph isn't.
+  //
+  // Reset path: clear savedPos.current and targetParagraphRef.current so
+  // Reader doesn't restore to the bad position; setCurrentPage(0) and bump
+  // readerKey to force a clean remount. Storage delete prevents the phantom
+  // from re-appearing on next session via cloud cache.
   useEffect(() => {
     if (!primaryData || totalChapters === 0) return
-    if (currentChapter >= 1 && currentChapter <= totalChapters) return
-    console.warn(`[position] chapter ${currentChapter} out of range for ${book.id} (1..${totalChapters}); clamping to 1`)
-    setCurrentChapter(1)
-    setCurrentPage(0)
-    setReaderKey(k => k + 1)
+
+    // Chapter bounds
+    if (currentChapter < 1 || currentChapter > totalChapters) {
+      console.warn(`[position-cleanup] ${book.id}: chapter ${currentChapter} out of range (1..${totalChapters}); resetting position`)
+      targetParagraphRef.current = undefined
+      savedPos.current = null
+      storage.delete(`position:${book.id}`)
+      setCurrentChapter(1)
+      setCurrentPage(0)
+      setReaderKey(k => k + 1)
+      return
+    }
+
+    // Paragraph bounds — catches cross-book paragraph-index bleed even when
+    // the chapter index happens to be valid for this book.
+    const chapter = primaryData.chapters[currentChapter - 1]
+    const paragraphCount = chapter?.paragraphs.length ?? 0
+    const target = targetParagraphRef.current
+    if (typeof target === 'number' && target >= paragraphCount) {
+      console.warn(`[position-cleanup] ${book.id} ch${currentChapter}: paragraph ${target} out of range (max ${paragraphCount - 1}); resetting position`)
+      targetParagraphRef.current = undefined
+      savedPos.current = null
+      storage.delete(`position:${book.id}`)
+      setCurrentPage(0)
+      setReaderKey(k => k + 1)
+    }
   }, [primaryData, totalChapters, currentChapter, book.id])
 
   // Re-sync from Supabase when tab regains focus (cross-device sync)
