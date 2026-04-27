@@ -1151,11 +1151,10 @@ body {
 
 .reader-columns {
   height: 100%;
-  /* Round 2 (Anders flagged still-wasted space below the footer): top
-     trimmed to 16px (was 24px), bottom to 26px (was 36px) — just enough
-     headroom for the running footer below at bottom: 4px. Net: ~30px
-     more reading area per page. */
-  padding: 16px 60px 26px;
+  /* Top 16px, bottom 32px on desktop — bottom slightly more than mobile
+     (which uses 26px) so the running footer has a hint of breathing
+     room above the screen edge. Mobile overrides below. */
+  padding: 16px 60px 32px;
   column-fill: auto;
   column-gap: 60px;
   /* column-width set dynamically via JS to (containerWidth - 2*padding) */
@@ -1185,14 +1184,14 @@ body {
   margin: 0 auto;
 }
 
-/* Page navigation — running footer. Sits 4px from the bottom of the
-   reader (was 12px). Combined with the tighter .reader-columns
-   padding-bottom of 26px, this puts the footer right where a printed
-   page would have its running header — flush against the bottom margin
-   without a visible gap below. */
+/* Page navigation — running footer. Desktop default has a small
+   breathing margin (10px). Mobile overrides to 4px below since the
+   mobile-nav tab bar sits below the reader and provides its own
+   visual buffer; pinning the footer tight against the reader edge
+   keeps the most reading area on small screens. */
 .page-nav {
   position: absolute;
-  bottom: 4px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -2164,6 +2163,12 @@ body {
 
 .chat-input {
   flex: 1;
+  /* Critical for narrow side-panel widths (iPad portrait, anything that
+     hits the 320px clamp floor): without `min-width: 0`, the textarea
+     defaults to a ~200px intrinsic width and refuses to shrink, which
+     pushes the .chat-send button off the right edge. With it, the input
+     yields width to its siblings as the panel narrows. */
+  min-width: 0;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
@@ -6478,11 +6483,14 @@ body {
     font-size: var(--font-size-reader, 1.2rem);
   }
 
-  /* Page nav (running footer) — visible on mobile too. Sits at bottom: 12px
-     of the reader area, just above the mobile-nav tabs. The old rule
-     hid it because the BottomBar covered the same role; with BottomBar
-     removed, the running footer is the only chapter+page indicator on
-     mobile. */
+  /* Page nav (running footer) — pinned tighter on mobile (bottom: 4px)
+     than desktop (10px). Mobile gets its visual buffer from the
+     .mobile-nav tab bar that sits below the reader; pulling the
+     footer tight against the reader edge maximizes reading area on
+     small screens. */
+  .page-nav {
+    bottom: 4px;
+  }
 
   /* Side panel — full width on mobile, explicit height for scroll chain */
   .side-panel {
