@@ -1292,12 +1292,22 @@ export default function App() {
       || 'modern-en'
   }, [preferences.splitEditionKey, alignedEditions, primaryEditionKey])
 
-  // Load primary edition
+  // Load primary edition.
+  //
+  // Race guard (B20): an in-flight fetch from book A could resolve AFTER
+  // the user has already switched to book B. Without the cancellation
+  // flag, that stale fetch would `setPrimaryData(A's data)` while
+  // currentBookId is B — header (derived from currentBookId) shows B
+  // but body (from primaryData) shows A. Anders saw the inverse on
+  // mobile: header "The Awakening", body "Genesis 39" (Bible content).
+  // The cancelled flag lets the cleanup function discard a stale resolve.
   useEffect(() => {
+    let cancelled = false
     setIsLoading(true)
     setPrimaryLoadError(null)
     loadEdition(book.id, primaryEditionKey)
       .then(data => {
+        if (cancelled) return
         setPrimaryData(data)
         setIsLoading(false)
         // Safety: if the saved chapter doesn't exist or has no content, reset to chapter 1
@@ -1308,20 +1318,26 @@ export default function App() {
         }
       })
       .catch(err => {
+        if (cancelled) return
         console.error(`[App] Failed to load primary edition ${book.id}/${primaryEditionKey}:`, err)
         setPrimaryData(null)
         setPrimaryLoadError(err?.message || 'Could not load this edition.')
         setIsLoading(false)
       })
+    return () => { cancelled = true }
   }, [book.id, primaryEditionKey])
 
   // Preload split edition so it's ready when toggle happens.
   // Failures here are non-fatal — Compare just won't render — so we
   // swallow the rejection rather than surfacing it.
+  // Same race guard as the primary fetch — without it, a stale split
+  // fetch could land splitData from the previous book.
   useEffect(() => {
+    let cancelled = false
     loadEdition(book.id, splitEditionKey)
-      .then(setSplitData)
-      .catch(() => setSplitData(null))
+      .then(data => { if (!cancelled) setSplitData(data) })
+      .catch(() => { if (!cancelled) setSplitData(null) })
+    return () => { cancelled = true }
   }, [splitEditionKey, book.id])
 
   const splitChapter = splitData?.chapters.find(c => c.number === currentChapter)
