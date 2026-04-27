@@ -836,6 +836,48 @@ export default function App() {
     }
   }, [storageReady])
 
+  // Global one-shot cleanup: reset progress entries that were poisoned by
+  // pre-Phase-1 cross-book chapter-index leaks (B1).
+  //
+  // Symptom Anders saw: The Awakening showed as 100% complete despite never
+  // being read. Mechanism: Bible's Genesis 39 chapter index leaked into
+  // The Awakening's saved position (39 happens to be exactly The Awakening's
+  // chapter count). The progress tracker saw chapterNumber=39 in a 39-chapter
+  // book, marked highestCompletedChapter=39, and the value stuck because
+  // progress only ever moves up.
+  //
+  // Heuristic: if highestCompletedChapter is more than 3 chapters ahead of
+  // the saved position's chapterNumber, the progress was almost certainly
+  // poisoned. Real readers progress = position.chapter or position.chapter-1.
+  // The +3 tolerance allows for users who completed chapter N and immediately
+  // jumped ahead to read chapters out of order.
+  //
+  // Conservative: we only delete (not synthesize) progress, so the bar
+  // restarts blank rather than guessing. As the user reads forward, progress
+  // rebuilds correctly via the normal heartbeat write path.
+  const progressCleanupRanRef = useRef(false)
+  useEffect(() => {
+    if (!storageReady) return
+    if (progressCleanupRanRef.current) return
+    progressCleanupRanRef.current = true
+
+    let cleaned = 0
+    for (const b of BOOKS) {
+      const progress = storage.get<{ highestCompletedChapter?: number }>(`progress:${b.id}`)
+      if (!progress || typeof progress.highestCompletedChapter !== 'number') continue
+      const position = getSavedPosition(b.id)
+      const positionChapter = position?.chapterNumber ?? 1
+      if (progress.highestCompletedChapter > positionChapter + 3) {
+        console.warn(`[progress-cleanup] resetting ${b.id}: progress.highestCompletedChapter=${progress.highestCompletedChapter} >> position.chapterNumber=${positionChapter}`)
+        storage.delete(`progress:${b.id}`)
+        cleaned++
+      }
+    }
+    if (cleaned > 0) {
+      console.log(`[progress-cleanup] reset ${cleaned} corrupted progress entries`)
+    }
+  }, [storageReady])
+
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
     storage.set('tinct-current-book', bookId)
