@@ -1258,6 +1258,93 @@ export const NICOMACHEAN_ETHICS: Book = {
   ],
 }
 
+export const ORESTEIA: Book = {
+  id: 'oresteia',
+  title: 'The Oresteia',
+  author: 'Aeschylus',
+  description: 'The only surviving Greek trilogy. A king returns from Troy and is murdered by his wife. Their son returns to avenge him by killing his mother. The Furies pursue him until Athena establishes the first court of law and acquits him. Aeschylus traces the birth of justice itself out of the cycle of blood revenge.',
+  year: -458,
+  wordCount: 34000,
+  coverColor: '#2a0a1a',
+  coverAccent: '#a04040',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Morshead (1881)',
+      translator: 'E. D. A. Morshead',
+      year: 1881,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const BACCHAE: Book = {
+  id: 'bacchae',
+  title: 'The Bacchae',
+  author: 'Euripides',
+  description: 'Dionysus comes to Thebes in disguise, demanding that the city worship him. King Pentheus refuses. The god drives the women of Thebes into ecstatic frenzy on Mount Cithaeron, and Pentheus, fatally curious, goes up to spy. His own mother, in the grip of the god, tears him apart with her bare hands. Euripides\' last play and the most disturbing in the Greek tragic canon.',
+  year: -405,
+  wordCount: 13500,
+  coverColor: '#1a0e2a',
+  coverAccent: '#9a4ac0',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Murray (1906)',
+      translator: 'Gilbert Murray',
+      year: 1906,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const MEDEA: Book = {
+  id: 'medea',
+  title: 'Medea',
+  author: 'Euripides',
+  description: 'Medea has given up everything for Jason — her father, her country, her brother — and now he is leaving her for a princess of Corinth. Her revenge will be calibrated to destroy what he loves most. The play that gave us a heroine more terrifying than any villain.',
+  year: -431,
+  wordCount: 11000,
+  coverColor: '#2a1a0a',
+  coverAccent: '#c96a4a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Murray (1906)',
+      translator: 'Gilbert Murray',
+      year: 1906,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 export const COMMUNIST_MANIFESTO: Book = {
   id: 'communist-manifesto',
   title: 'The Communist Manifesto',
@@ -1817,7 +1904,7 @@ export const DEMOCRACY_IN_AMERICA: Book = {
 }
 
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA]
 // CONFESSIONS removed from public BOOKS — only has original-en (no modern-en yet).
 // Re-add once modern-en translation is complete. See Book Addition Checklist in books/CLAUDE.md.
 
