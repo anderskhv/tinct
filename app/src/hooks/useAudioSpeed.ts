@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { storage } from '../services/storage'
 
 /**
- * Cross-device-synced audio playback speed.
+ * Cross-device-synced audio playback speed. **INVARIANT 5** in CLAUDE.md.
  *
  * Single source of truth — fixes the class of bugs (B12, B14) where speed
  * was held in component-local `useState`, drifted from the DOM `<audio>.playbackRate`,

@@ -406,12 +406,18 @@ export default function App() {
     return unsubscribe
   }, [refreshFromStorage])
 
-  // Cross-book bleed guard.
+  // Cross-book bleed guard. **INVARIANT 2** in CLAUDE.md.
   //
   // Every code path that changes `currentBookId` MUST also reset chapter/page
   // state to match the new book — otherwise the next heartbeat writes
   // `position:newBook` carrying the OLD book's chapterNumber. That's how
   // Genesis 39 leaked into The Awakening's saved position (B1).
+  //
+  // DO NOT remove this effect, even if a refactor seems to make
+  // handleBookChange cover the same ground. Cloud-sync paths
+  // (visibility-handler, real-time onChange) call setCurrentBookId
+  // directly and rely on this effect to re-derive chapter. Removing it
+  // re-opens the cross-book chapter-index leak.
   //
   // `handleBookChange` does this manually, but the cloud-sync paths
   // (initial cloud restore at line 358, visibility-handler at line 435)
@@ -934,14 +940,16 @@ export default function App() {
   const chapterParagraphCount = primaryChapter?.paragraphs.length
 
   // Suspend position writes whenever an overlay/auth/onboarding flow is in
-  // front of the reader. The reader is "non-reading" in these states — any
-  // heartbeat or visibility-driven write risks capturing stale or default
-  // in-memory state (B19: modal interaction → bad chapter-1 write).
+  // front of the reader. **INVARIANT 3** in CLAUDE.md.
+  //
+  // The reader is "non-reading" in these states — any heartbeat or
+  // visibility-driven write risks capturing stale or default in-memory
+  // state (B19: modal interaction → bad chapter-1 write).
   //
   // We only suspend for flows that explicitly displace the reader OR involve
   // identity changes (auth, subscription). Settings / search / TOC stay
   // write-enabled because the user is mid-reading and likely to resume on
-  // the same page.
+  // the same page. If you add a new full-screen overlay, ADD IT HERE.
   const writeSuspended =
     showAuthModal ||
     showPricingModal ||

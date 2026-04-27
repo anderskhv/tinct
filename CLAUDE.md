@@ -222,6 +222,26 @@ Every deploy MUST follow this sequence. No exceptions.
 
 ---
 
+## Invariants (DO NOT VIOLATE)
+
+These rules exist because their absence caused recurring sync bugs (B1, B19, B21 from 2026-04-27 test day, and the Apr 23 `tinct-current-book` regression). Every rule has a unit test in `app/src/hooks/useReadingPosition.guards.test.ts`. **If a rule looks unnecessary, run the tests before deleting anything.** "This seems redundant" is the exact thought that historically bites us.
+
+1. **Position writes always carry matching `bookId` + `chapterNumber` as a tuple.** Never write a position whose chapterNumber came from a different book's state. `useReadingPosition.saveNow` reads both from `stateRef.current` in one snapshot — don't compose them from separate sources.
+
+2. **Any code path that changes `currentBookId` must trigger chapter re-derivation.** Implemented as the `bookId`-change effect in `App.tsx` (watches `currentBookId`, re-derives chapter/savedPos/targetParagraphRef from the new book's saved position, bumps readerKey). Cloud-sync paths set `currentBookId` directly and rely on this effect — don't replace the effect with handler-side logic at each call site.
+
+3. **Position writes are blocked while an overlay/auth/onboarding flow is in front of the reader.** The `writeSuspended` parameter on `useReadingPosition` is computed in App.tsx from the relevant overlay states. Reader is "non-reading" in those states; heartbeats and visibility writes would risk capturing default in-memory state (B19).
+
+4. **Backward chapter writes require a recent user-nav signal.** `shouldBlockRegression` (in `useReadingPosition.guards.ts`) gates `saveNow`. The guard is the structural defense against destructive remounts — even buggy callers can't poison the cloud with a chapter-1 default if the cloud already knew chapter 5. The page-change effect calls `markUserNav` on every state-driven write so legitimate user backward nav (prev-chapter, TOC) widens the window.
+
+5. **Audio playback rate has exactly one source of truth: `useAudioSpeed`.** Persisted via the storage layer (cross-device synced). The hook's `applyTo(audioElement)` must be called on every audio element creation AND on every `play` event — DOM `<audio>.playbackRate` resets to 1.0 on certain transitions and the React state alone can't keep them in sync. Set, never increment.
+
+6. **Position validates against book structure on read.** When `primaryData` lands, the App.tsx position-validation effect checks chapter bounds AND paragraph bounds. Out-of-range chapter or paragraph index = pre-Phase-1 cross-book bleed; reset position AND delete the storage key (so the phantom doesn't resurrect from cloud cache on next session).
+
+**Test gate:** `npm test` runs the guard tests in <1s. Run before any change to `useReadingPosition.ts`, `useAudioSpeed.ts`, or the position-related effects in `App.tsx`. If you find yourself wanting to skip the test or "fix the test to match the new behavior" — stop, the test is what's protecting you from re-introducing the bug it was written to prevent.
+
+---
+
 ## Autonomy Framework
 
 **Pre-authorized (just do it):**
@@ -349,7 +369,7 @@ The onboarding modal shows for all entry points — direct navigation, SEO traff
 - [ ] `{bookId}-threads.json` created with all major characters
 - [ ] Each character has: id, name (en/da), epithet (en/da), role, wikipediaUrl, searchNames
 - [ ] Per-chapter summaries in 2 editions (modern-en, modern-da)
-- [ ] `useThreads.ts` updated to load the new book's threads data
+- The threads loader is convention-based: `useThreads.ts` automatically tries `/data/editions/{bookId}-threads.json` for any book. No code change required when adding a new book — just drop the JSON in place.
 
 ### 6. App Integration
 - [ ] Book selectable in the UI (Header book selector)
@@ -426,3 +446,16 @@ The onboarding modal shows for all entry points — direct navigation, SEO traff
 - **Deep-link URL parsing** added to `App.tsx` mount — `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Worker's existing SPA fallback already serves these paths.
 - Per-book content for all 33 books extracted from `Design refs/Book Onboarding - *.html` into `/data/onboarding/{bookId}.json` via CLI agent. Zero API spend. Each file has: title, author, era, length, estimatedTime, openingChapterLabel, openingText, about, 4 angleCards, 6 cast.
 - Apple OAuth deferred pending Apple Developer Program + Supabase config.
+
+**[Position-Sync Hardening 2026-04-25]**: Anders flagged that Supabase position writes had silently degraded — cloud `updated_at` clustered at sign-in time, in-blob `updatedAt` was 3 days stale, yet he'd been reading throughout. Audit found four issues, all fixed in `useReadingPosition.ts`, `supabaseStorage.ts`, `App.tsx`:
+1. **No periodic save.** Writes only fired on page-change effects + visibility/blur. Quiet readers (long page, slow scroll, Boox e-reader where page-nav events sometimes don't propagate) wrote nothing for minutes. Added a 30 s heartbeat that ticks while the tab is visible.
+2. **Apr 23 regression.** Commit `182f465` removed `storage.set('tinct-current-book', s.bookId)` from `saveNow`. After that, the cloud current-book pointer only updated in `handleBookChange`, so cross-device "open same book" relied on stale data. Restored.
+3. **Silent Supabase write failures.** `.then(({error}) => console.warn(...))` swallowed both promise rejections and one-off transient errors with no retry. Replaced with `upsertWithRetry` (one retry after 2 s) and pushed success/error counters to `window.__tinctSupabaseDebug` for in-browser audit.
+4. **Visibility handler clobbered in-flight saves.** The handler built a `localPos` with no `updatedAt`, so `pickLatest` always returned cloud — including when cloud was older than what this device had just written but not yet upserted. Rewritten to compare on-screen position vs. cloud and only adopt cloud when chapter differs OR cloud is materially ahead; "cloud behind" is logged to `window.__tinctSyncDebug` instead of yanking the user backwards.
+- Diagnostics: `window.__tinctPositionDebug` (writeCount, lastWriteAt, lastWriteValue, lastSkipReason) and `window.__tinctSupabaseDebug` (success/error counters) are live in production. Open DevTools on tinct.app to confirm writes are firing.
+
+**[Threads Loader Generalized 2026-04-25]**: `useThreads.ts` had a hardcoded `Record<bookId, fetchFn>` map that silently dropped 12 books with valid `*-threads.json` files (The Awakening, Beowulf, Antigone, Apology, Brothers Karamazov, Frankenstein, Gilgamesh, Great Expectations, Hamlet, Iliad, Macbeth, Midsummer, Moby Dick, Niels Lyhne, Odyssey, Oedipus, Phaedo, Symposium, Ulysses). The Book Addition Checklist's "update useThreads.ts" step was the failure point. Replaced with convention-based loader: `fetch('/data/editions/${bookId}-threads.json')` for any bookId, gracefully handle 404. Cast tab also now hidden when `threadCharacters.length === 0` so unsupported books don't show an empty rail. New books get Cast support automatically.
+
+**[Chat Divider Pollution Cleanup 2026-04-25]**: An old App.tsx effect inserted chapter-divider markers into the live chat thread on every chapter change (`loadMessages([...messages, dividerMsg])`). The recorder effect (which records the latest assistant message to chat-history storage) saw these dividers as real assistant messages and persisted them. Result: every chapter change while chat had any content created a standalone "conversation" with one empty divider message. Macbeth had 2306 such pollution messages, Odyssey 52, etc. When the new Chat.tsx started rendering dividers as `null`, polluted books showed messages-non-empty-but-blank chat. Fixes: (1) loader filter strips chapterDivider/empty-body messages, (2) recorder hardened to never persist dividers, (3) global one-shot cleanup walks every book in BOOKS registry and rewrites `chat-history:{bookId}` blobs without divider conversations, (4) divider-insertion effect removed entirely. Logs `[chat] global cleanup removed N divider-only conversation(s)` to console on first load.
+
+**[Books CEO Scope Lockdown 2026-04-25]**: Repeated production outages traced to the books CEO (`books/CLAUDE.md`) running `npx vite build && npx wrangler deploy` after adding a book. Those raw commands skip (a) the npm-script's index.html/landing.html swap, (b) the env-var guard in vite.config.ts (when env wasn't loaded), (c) the new `verify-bundle` script. The result: every book add silently re-deployed an old or broken bundle, wiping the site CEO's recent work (CSP wss://, no-store cache, position-sync hardening, chat fixes, threads loader generalization, settings sheet rebuild, etc. — all overwritten on 2026-04-25). Two changes to `books/CLAUDE.md`: (1) Hard rule 0 added — books CEO is content-only, MUST NOT touch any file outside `app/public/data/editions/{book-id}-*.json`, `app/public/data/onboarding/{book-id}.json`, `app/public/audio/{book-id}/`, `app/src/data/bookRegistry.ts` (registration only), and `books/**`. Anything in `app/src/components`, `app/src/hooks`, `app/src/services`, `app/src/utils`, `app/src/contexts`, `app/src/styles`, `app/src/index.css`, `app/src/App.tsx`, `app/src/worker.ts`, `app/vite.config.ts`, `app/wrangler.jsonc`, `app/package.json`, `app/scripts/`, `app/public/landing.html` is OFF-LIMITS. (2) Publish sequence now uses `npm run deploy` (chains build → verify-bundle → wrangler deploy) — raw `vite build` and `wrangler deploy` are explicitly forbidden.

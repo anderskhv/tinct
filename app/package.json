@@ -6,10 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && mv dist/index.html dist/app.html && cp dist/landing.html dist/index.html",
+    "verify-bundle": "node scripts/verify-bundle.cjs",
+    "deploy": "npm run build && npm run verify-bundle && bash -c 'set -a; [ -f .env ] && source .env; set +a; npx wrangler deploy'",
     "build:android": "CAPACITOR=true vite build && npx cap sync android",
     "android:open": "npx cap open android",
     "android:run": "CAPACITOR=true vite build && npx cap sync android && npx cap run android",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@capacitor/android": "^8.3.0",
@@ -23,10 +27,14 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.50.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
+    "jsdom": "^29.1.0",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vitest": "^4.1.5"
   }
 }

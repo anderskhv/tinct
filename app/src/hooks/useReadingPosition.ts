@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { storage } from '../services/storage'
 import type { ReadingPosition, ReadingProgress } from '../types'
+import { shouldBlockRegression } from './useReadingPosition.guards'
 
 function positionKey(bookId: string): string {
   return `position:${bookId}`
@@ -172,35 +173,37 @@ export function useReadingPosition(
       return
     }
 
-    // Backward-regression guard: if cloud has us at chapter X and we're trying
-    // to write chapter Y<X without a recent user-nav signal, this is almost
-    // certainly a destructive write from a default-state remount (e.g. a
-    // modal/auth/tier flow that briefly reset in-memory chapter to 1 between
-    // cloud read and current state). Block it.
+    // Backward-regression guard. **INVARIANT 4** in CLAUDE.md.
     //
-    // The page-change effect calls markUserNav on every state-driven write,
-    // so any deliberate backward navigation (prev chapter, TOC click) widens
-    // the write window long enough for the actual save to land. Heartbeat /
-    // visibility writes that find the in-memory chapter regressed without a
-    // recent user nav get blocked here.
+    // Decision lives in `shouldBlockRegression` (pure function, unit-tested
+    // in useReadingPosition.guards.test.ts). Run `npm test` before changing
+    // anything here.
+    //
+    // Rule: if cloud has us at chapter X and we're trying to write chapter
+    // Y<X without a user-nav signal in the last `USER_NAV_GRACE_MS`, the
+    // write is almost certainly a destructive write from a default-state
+    // remount (B19) and gets blocked here.
     const knownCloudChapter = cloudKnownChapter.get(position.bookId)
-    if (typeof knownCloudChapter === 'number' && position.chapterNumber < knownCloudChapter) {
-      const lastNav = lastUserNavAt.get(position.bookId) ?? 0
-      const sinceNav = Date.now() - lastNav
-      if (sinceNav > USER_NAV_GRACE_MS) {
-        recordSkip(`regression-blocked:${reason}:cloud=${knownCloudChapter}>attempt=${position.chapterNumber}`)
-        if (typeof window !== 'undefined') {
-          const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
-          dbg.lastRegressionBlock = {
-            bookId: position.bookId,
-            cloudChapter: knownCloudChapter,
-            attemptedChapter: position.chapterNumber,
-            at: Date.now(),
-          }
-          window.__tinctPositionDebug = dbg
+    const lastNav = lastUserNavAt.get(position.bookId) ?? 0
+    if (shouldBlockRegression({
+      attemptedChapter: position.chapterNumber,
+      cloudKnownChapter: knownCloudChapter,
+      lastUserNavAt: lastNav,
+      now: Date.now(),
+      graceMs: USER_NAV_GRACE_MS,
+    })) {
+      recordSkip(`regression-blocked:${reason}:cloud=${knownCloudChapter}>attempt=${position.chapterNumber}`)
+      if (typeof window !== 'undefined') {
+        const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
+        dbg.lastRegressionBlock = {
+          bookId: position.bookId,
+          cloudChapter: knownCloudChapter as number,
+          attemptedChapter: position.chapterNumber,
+          at: Date.now(),
         }
-        return
+        window.__tinctPositionDebug = dbg
       }
+      return
     }
 
     storage.set(positionKey(s.bookId), position)
