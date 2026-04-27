@@ -211,6 +211,7 @@ export const HAMLET: Book = {
       style: 'original',
       label: 'Original Text',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -246,6 +247,7 @@ export const MACBETH: Book = {
       style: 'original',
       label: 'Original Text',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -281,6 +283,7 @@ export const MIDSUMMER: Book = {
       style: 'original',
       label: 'Original Text',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -316,6 +319,7 @@ export const ROMEO_AND_JULIET: Book = {
       style: 'original',
       label: 'Original Text',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -351,6 +355,7 @@ export const THE_TEMPEST: Book = {
       style: 'original',
       label: 'Original Text',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -380,7 +385,7 @@ export const PRIDE_AND_PREJUDICE: Book = {
   coverColor: '#2e2014',
   coverAccent: '#d4a86a',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1813)', year: 1813, aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1813)', year: 1813, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
   ],
@@ -404,6 +409,7 @@ export const THE_ART_OF_WAR: Book = {
       translator: 'Lionel Giles',
       year: 1910,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -441,6 +447,7 @@ export const CRIME_AND_PUNISHMENT: Book = {
       translator: 'Constance Garnett',
       year: 1914,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -478,6 +485,7 @@ export const THE_REPUBLIC: Book = {
       translator: 'Benjamin Jowett',
       year: 1871,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -515,6 +523,7 @@ export const MEDITATIONS: Book = {
       translator: 'George Long',
       year: 1862,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -552,6 +561,7 @@ export const DIVINE_COMEDY: Book = {
       translator: 'Henry Wadsworth Longfellow',
       year: 1867,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -588,6 +598,7 @@ export const JANE_EYRE: Book = {
       label: 'Original (1847)',
       year: 1847,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -625,6 +636,7 @@ export const THE_AENEID: Book = {
       translator: 'John Dryden',
       year: 1697,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -661,6 +673,7 @@ export const PARADISE_LOST: Book = {
       label: 'Original (1674)',
       year: 1674,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -697,6 +710,7 @@ export const FRANKENSTEIN: Book = {
       label: 'Original (1831)',
       year: 1831,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -734,6 +748,7 @@ export const THE_MANUAL: Book = {
       translator: 'George Long',
       year: 1877,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -889,6 +904,7 @@ export const APOLOGY: Book = {
       translator: 'Benjamin Jowett',
       year: 1871,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -926,6 +942,7 @@ export const SYMPOSIUM: Book = {
       translator: 'Benjamin Jowett',
       year: 1871,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1139,6 +1156,7 @@ export const THE_AWAKENING: Book = {
       label: 'Original (1899)',
       year: 1899,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1177,6 +1195,7 @@ export const BROTHERS_KARAMAZOV: Book = {
       translator: 'Constance Garnett',
       year: 1912,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1207,6 +1226,7 @@ export const ILIAD: Book = {
       translator: 'Samuel Butler',
       year: 1898,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1237,6 +1257,7 @@ export const NICOMACHEAN_ETHICS: Book = {
       translator: 'D.P. Chase',
       year: 1847,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1360,6 +1381,7 @@ export const THE_PRINCE: Book = {
       translator: 'W.K. Marriott',
       year: 1908,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1390,6 +1412,7 @@ export const CANDIDE: Book = {
       translator: 'William F. Fleming',
       year: 1901,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1428,6 +1451,7 @@ export const BEOWULF: Book = {
       translator: 'J. Lesslie Hall',
       year: 1892,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1466,6 +1490,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
       translator: 'Helen Zimmern',
       year: 1907,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
