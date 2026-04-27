@@ -8,9 +8,9 @@ import { Onboarding } from './components/Onboarding'
 import { BookOnboarding, type BookOnboardingResult } from './components/BookOnboarding'
 import { ProgressPrompt } from './components/ProgressPrompt'
 import { SettingsSheet } from './components/SettingsSheet'
-import { ProactiveInsight } from './components/ProactiveInsight'
 import { AuthModal } from './components/AuthModal'
 import { UsageDashboard } from './components/UsageDashboard'
+import { TopUpModal } from './components/TopUpModal'
 import { BookStore } from './components/BookStore'
 import { TierChooser } from './components/TierChooser'
 import { HomeRolePrompt } from './components/HomeRolePrompt'
@@ -26,9 +26,8 @@ import { AudioStrip } from './components/AudioStrip'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
-import { useReadingPosition, getSavedPosition, getReadingProgress } from './hooks/useReadingPosition'
+import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markUserNav } from './hooks/useReadingPosition'
 import { useClaude } from './hooks/useClaude'
-import { useProactiveInsight } from './hooks/useProactiveInsight'
 import { useThreads } from './hooks/useThreads'
 import { useAuth } from './hooks/useAuth'
 import { useBalance } from './hooks/useBalance'
@@ -42,7 +41,7 @@ import { useLibrary } from './hooks/useLibrary'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage, setStorageProvider, localStorageProvider } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
-import type { EditionData, HighlightColor, Style, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage } from './types'
+import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation } from './types'
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
 import { trackPageview } from './utils/analytics'
@@ -76,6 +75,7 @@ export default function App() {
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
+  const [showTopUp, setShowTopUp] = useState(false)
   const [fixesCount, setFixesCount] = useState<number | undefined>(undefined)
   const [showStore, setShowStore] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
@@ -91,6 +91,12 @@ export default function App() {
   // Swap storage provider when user signs in/out — enables cross-device sync
   // Start false to prevent hooks from writing defaults before cloud data loads
   const [storageReady, setStorageReady] = useState(false)
+  // Bumped each time Supabase init successfully populates the cache. The
+  // cloud-restore effect watches this so it can re-fire when init lands AFTER
+  // the 5s timeout already flipped storageReady=true. Without this, a slow
+  // cloud-fetch on cold start meant restore ran against stale localStorage
+  // (e.g. opened on a book the user wasn't actually reading anymore).
+  const [supabaseInitTick, setSupabaseInitTick] = useState(0)
   const supabaseProviderRef = useRef<SupabaseStorageProvider | null>(null)
   useEffect(() => {
     // Wait for auth to resolve before deciding on storage provider
@@ -123,13 +129,29 @@ export default function App() {
         }
         setStorageProvider(provider)
         supabaseProviderRef.current = provider
-        // Start real-time sync for cross-device updates
-        provider.subscribe()
+        // Start real-time sync for cross-device updates. This is best-effort
+        // — when CSP or a corp firewall blocks WebSockets, subscribe() throws.
+        // We must NOT let that failure prevent the rest of init from completing,
+        // because losing the storage provider here means every write falls back
+        // to localStorage and never reaches Supabase. (That was the silent bug
+        // since 2026-04-22: CSP missed wss://, subscribe() threw, the catch
+        // below ran instead of setStorageProvider(), and we lost cloud sync.)
+        try {
+          provider.subscribe()
+        } catch (e) {
+          console.warn('[App] Supabase realtime subscribe failed (continuing without live sync):', e)
+        }
         setStorageReady(true)
+        setSupabaseInitTick(t => t + 1)
       }).catch((err) => {
         console.error('[App] Supabase init failed:', err)
         clearTimeout(initTimeout)
-        setStorageReady(true) // Proceed with localStorage fallback
+        // Even on init failure, install the provider so writes still hit
+        // Supabase via REST. Cache will be empty (no preload) but writes will
+        // succeed. Far better than silently dropping every write.
+        setStorageProvider(provider)
+        supabaseProviderRef.current = provider
+        setStorageReady(true)
       })
     } else {
       // Clean up previous subscription
@@ -200,7 +222,7 @@ export default function App() {
   const compareReaderRef = useRef<HTMLDivElement>(null)
   const [readerKey, setReaderKey] = useState(0)
   const targetParagraphRef = useRef<number | undefined>(savedPos.current?.lastParagraphIndex)
-  const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: 'en' | 'da' } | null>(null)
+  const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: Language } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Audio state
@@ -214,17 +236,37 @@ export default function App() {
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
+  const [compareFirstVisibleParagraph, setCompareFirstVisibleParagraph] = useState(0)
   const [compareSyncSignal, setCompareSyncSignal] = useState<{ paragraph: number; nonce: number } | undefined>(undefined)
+  const [readSyncSignal, setReadSyncSignal] = useState<{ paragraph: number; nonce: number } | undefined>(undefined)
   const bottomBarRef = useRef<BottomBarHandle>(null)
 
-  // Sync Compare reader to Read reader's position when switching to Compare tab
+  // Sync between Read (view 0) and Compare (view 1) on tab switch. Whichever
+  // view the user leaves is the source of truth — the incoming view snaps to
+  // match. Both Readers report their own firstVisibleParagraph, and a nonce
+  // forces re-sync even when the paragraph index hasn't changed.
   const firstVisibleParagraphRef = useRef(firstVisibleParagraph)
   firstVisibleParagraphRef.current = firstVisibleParagraph
+  const compareFirstVisibleParagraphRef = useRef(compareFirstVisibleParagraph)
+  compareFirstVisibleParagraphRef.current = compareFirstVisibleParagraph
   useEffect(() => {
     if (activeView === 1) {
-      setCompareSyncSignal({ paragraph: firstVisibleParagraphRef.current, nonce: Date.now() })
+      // Switching INTO Compare — snap Compare to Read's position (skip if
+      // they're already aligned; avoids a spurious jump on rapid tab switching
+      // before the destination has reported its first-visible paragraph).
+      const source = firstVisibleParagraphRef.current
+      const dest = compareFirstVisibleParagraphRef.current
+      if (source !== dest) {
+        setCompareSyncSignal({ paragraph: source, nonce: Date.now() })
+      }
+    } else if (activeView === 0) {
+      const source = compareFirstVisibleParagraphRef.current
+      const dest = firstVisibleParagraphRef.current
+      if (source !== dest) {
+        setReadSyncSignal({ paragraph: source, nonce: Date.now() })
+      }
     }
-    // Reader stays mounted (CSS hidden) — no remount needed, position preserved naturally
+    // Readers stay mounted (CSS hidden) — no remount needed, position preserved
   }, [activeView])
 
   // ToC overlay state
@@ -294,26 +336,39 @@ export default function App() {
       .catch(() => {})
   }, [showUsageDashboard, session?.access_token])
 
-  // Re-read position, preferences, and library from cloud storage once Supabase syncs
+  // Re-read position, preferences, and library from cloud storage once Supabase syncs.
+  // Re-runs when supabaseInitTick increments (init landed AFTER the 5s timeout
+  // already flipped storageReady=true). Without that, a slow cold-start cloud
+  // fetch meant restore ran against stale localStorage and the user opened on
+  // a book they weren't actually reading anymore. Now: restore once on
+  // ready, and again the moment cloud data is genuinely available.
   const hasRestoredFromCloud = useRef(false)
   useEffect(() => {
-    if (storageReady && user && !hasRestoredFromCloud.current) {
+    if (!storageReady || !user) return
+    // Allow re-restore when supabaseInitTick fires (cloud data just landed).
+    // The first restore (against possibly-stale localStorage) is harmless;
+    // the second corrects to true cloud values.
+    refreshFromStorage()
+    refreshLibrary()
+    // Current book — switch if cloud disagrees with what we have on screen.
+    const cloudBookId = storage.get<string>('tinct-current-book')
+    const validCloudBook = cloudBookId && !!getBook(cloudBookId)
+    const targetBookId = validCloudBook ? cloudBookId : book.id
+    if (validCloudBook && cloudBookId !== currentBookId) {
+      setCurrentBookId(cloudBookId)
+    }
+    // Restore reading position only on the FIRST restore. Subsequent
+    // restores (e.g. supabaseInitTick fires after the user has been
+    // reading for a few seconds) must NOT yank the user back to where
+    // they were last time — the current state on screen is more recent.
+    if (!hasRestoredFromCloud.current) {
       hasRestoredFromCloud.current = true
-      // Refresh preferences and library from Supabase. Chat history re-reads
-      // itself via its internal storageReady effect once the cache is warm.
-      refreshFromStorage()
-      refreshLibrary()
-      // Restore current book from cloud (may differ from default)
-      // Guard: only switch if the book actually exists in the registry
-      const cloudBookId = storage.get<string>('tinct-current-book')
-      const validCloudBook = cloudBookId && !!getBook(cloudBookId)
-      const targetBookId = validCloudBook ? cloudBookId : book.id
-      if (validCloudBook && cloudBookId !== currentBookId) {
-        setCurrentBookId(cloudBookId)
-      }
-      // Restore reading position for the correct book
-      // Use lastParagraphIndex for device-independent restore (paragraph-anchored)
       const cloudPos = getSavedPosition(targetBookId)
+      // Mark cloud-known chapter so the regression guard knows what the
+      // authoritative position is. Without this, the first heartbeat
+      // after a buggy default-state remount (B19) would be allowed to
+      // write chapter 1 because the guard had no baseline to compare.
+      markCloudPosition(targetBookId, cloudPos)
       if (cloudPos) {
         const localPos = savedPos.current
         const winner = pickLatest(localPos, cloudPos)
@@ -322,13 +377,20 @@ export default function App() {
           if (winner.lastParagraphIndex !== undefined) {
             targetParagraphRef.current = winner.lastParagraphIndex
           }
+          // Restoring from cloud counts as a user-initiated landing point;
+          // any write within USER_NAV_GRACE_MS of this is allowed even if
+          // it appears to regress (e.g. cloud at chapter 5, local was at
+          // chapter 7 from a never-uploaded session — winner is 7, but we
+          // briefly need to allow a chapter-5 confirmation write while
+          // re-rendering at the chosen winner).
+          markUserNav(targetBookId)
           setCurrentChapter(winner.chapterNumber)
           setCurrentPage(0)
           setReaderKey(k => k + 1)
         }
       }
     }
-  }, [storageReady, user, book.id, currentBookId, refreshFromStorage, refreshLibrary])
+  }, [storageReady, supabaseInitTick, user, book.id, currentBookId, refreshFromStorage, refreshLibrary])
 
   // Real-time cross-device sync: listen for remote preference changes
   // Note: position sync is handled on refresh/focus, not real-time,
@@ -344,6 +406,39 @@ export default function App() {
     return unsubscribe
   }, [refreshFromStorage])
 
+  // Cross-book bleed guard.
+  //
+  // Every code path that changes `currentBookId` MUST also reset chapter/page
+  // state to match the new book — otherwise the next heartbeat writes
+  // `position:newBook` carrying the OLD book's chapterNumber. That's how
+  // Genesis 39 leaked into The Awakening's saved position (B1).
+  //
+  // `handleBookChange` does this manually, but the cloud-sync paths
+  // (initial cloud restore at line 358, visibility-handler at line 435)
+  // only call setCurrentBookId. Centralizing the reset in this effect makes
+  // the rule unconditional: any future code path that changes the book gets
+  // automatic chapter/savedPos reset, regardless of how it triggered the change.
+  const prevBookIdRef = useRef(currentBookId)
+  useEffect(() => {
+    if (prevBookIdRef.current === currentBookId) return
+    prevBookIdRef.current = currentBookId
+    const pos = getSavedPosition(currentBookId)
+    // Mark cloud-known chapter for the new book so the regression guard has
+    // a baseline. Mark user-nav so the first heartbeat-after-book-change
+    // (which may render at the old chapter for a render or two) doesn't get
+    // wrongly classified as a regression.
+    markCloudPosition(currentBookId, pos)
+    markUserNav(currentBookId)
+    savedPos.current = pos
+    targetParagraphRef.current = pos?.lastParagraphIndex
+    setCurrentChapter(pos?.chapterNumber || 1)
+    setCurrentPage(0)
+    // Reset totalPages so the reader's effects gate writes during relayout
+    // (useReadingPosition skips page-level writes when totalPages <= 1).
+    setTotalPages(1)
+    setReaderKey(k => k + 1)
+  }, [currentBookId])
+
   // Hoisted derivations needed by the visibility effect below.
   // Defined here (not lower down) to avoid TDZ in dep arrays.
   //
@@ -353,6 +448,25 @@ export default function App() {
   // 0 here is a load-in-progress / load-failed signal that downstream
   // components handle (Feed renders empty, TOC is gated behind primaryData).
   const totalChapters = primaryData?.chapters.length ?? 0
+
+  // Chapter bounds validation.
+  //
+  // After primaryData loads, if currentChapter is out of range for this
+  // book — either < 1 or > totalChapters — clamp to chapter 1. This catches
+  // any historically-corrupted saved position (e.g. Genesis 39 leaked into
+  // a 12-chapter book before the bookId-change effect existed). For books
+  // where the bogus chapter happens to be valid (e.g. Awakening has 39
+  // chapters, cross-book leak from Genesis 39 lands inside its bounds),
+  // this won't help — but the bookId-change effect prevents new leaks at
+  // source, so corruption resolves naturally as the user re-reads.
+  useEffect(() => {
+    if (!primaryData || totalChapters === 0) return
+    if (currentChapter >= 1 && currentChapter <= totalChapters) return
+    console.warn(`[position] chapter ${currentChapter} out of range for ${book.id} (1..${totalChapters}); clamping to 1`)
+    setCurrentChapter(1)
+    setCurrentPage(0)
+    setReaderKey(k => k + 1)
+  }, [primaryData, totalChapters, currentChapter, book.id])
 
   // Re-sync from Supabase when tab regains focus (cross-device sync)
   const lastSyncRef = useRef(0)
@@ -365,30 +479,68 @@ export default function App() {
       if (now - lastSyncRef.current < 5000) return // debounce 5s
       lastSyncRef.current = now
       await provider.refresh()
+      // If the cloud's current-book pointer has changed (user opened a
+      // different book on another device), switch to it. Without this,
+      // two devices stay on their own last-opened book even after sync.
+      const cloudBookId = storage.get<string>('tinct-current-book')
+      if (cloudBookId && cloudBookId !== book.id && !!getBook(cloudBookId)) {
+        setCurrentBookId(cloudBookId)
+        // Don't also try to restore position for the OLD book — let the
+        // book-change effect re-trigger restore for the new book.
+        return
+      }
       const cloudPos = getSavedPosition(book.id)
       if (cloudPos) {
         // Don't sync if layout hasn't settled (totalPages=1 means stale state)
         if (totalPages <= 1) return
         // Bounds check: chapter must be valid for this book
         if (cloudPos.chapterNumber < 1 || cloudPos.chapterNumber > totalChapters) return
-        const localPos: ReadingPosition = {
-          bookId: book.id,
-          chapterNumber: currentChapter,
-          currentPage,
-          totalPages,
-          scrollFraction: totalPages > 1 ? currentPage / (totalPages - 1) : 0,
-        }
-        const winner = pickLatest(localPos, cloudPos)
-        if (winner && winner.chapterNumber >= 1 && winner.chapterNumber <= totalChapters &&
-            (winner.chapterNumber !== currentChapter ||
-            (winner.scrollFraction ?? 0) > (localPos.scrollFraction ?? 0) + 0.01)) {
-          savedPos.current = winner
-          if (winner.lastParagraphIndex !== undefined) {
-            targetParagraphRef.current = winner.lastParagraphIndex
+        // Update the regression baseline whenever we successfully read cloud.
+        // Even if we don't adopt the cloud value (because we're ahead), the
+        // guard needs to know cloud's chapter so heartbeats can't regress
+        // below it.
+        markCloudPosition(book.id, cloudPos)
+        // The on-screen position is the source of truth for "where I'm
+        // reading on THIS device". If the cloud reflects what we last saved
+        // from this device (or is older), do nothing — we don't want to
+        // rewind the user to an older spot just because an in-flight upsert
+        // hasn't landed yet. Only adopt cloud when it's clearly a different
+        // session writing to it (chapter differs, or scrollFraction is
+        // materially ahead of where we are right now).
+        const localFraction = currentPage / Math.max(totalPages - 1, 1)
+        const cloudFraction = cloudPos.scrollFraction ?? 0
+        const chapterDiffers = cloudPos.chapterNumber !== currentChapter
+        const cloudIsAhead = cloudPos.chapterNumber === currentChapter && cloudFraction > localFraction + 0.02
+        const cloudIsBehind = cloudPos.chapterNumber === currentChapter && cloudFraction < localFraction - 0.02
+        // Cloud "ahead" → other device made progress; adopt it.
+        // Cloud "behind" → either our save hasn't landed yet, or another device
+        //   went backwards. Either way, don't yank the user backwards on focus
+        //   — the heartbeat will reconcile within 30s.
+        if (chapterDiffers || cloudIsAhead) {
+          // If our local savedPos is actually newer than cloud, prefer ours.
+          // (Edge case: device A signed in offline, made progress, came back
+          // online. Cloud has older value. Local in-memory savedPos has
+          // updatedAt that beats cloud.)
+          const local = savedPos.current
+          if (local?.updatedAt && cloudPos.updatedAt && local.updatedAt > cloudPos.updatedAt && !cloudIsAhead) {
+            return
           }
-          setCurrentChapter(winner.chapterNumber)
+          savedPos.current = cloudPos
+          if (cloudPos.lastParagraphIndex !== undefined) {
+            targetParagraphRef.current = cloudPos.lastParagraphIndex
+          }
+          setCurrentChapter(cloudPos.chapterNumber)
           setCurrentPage(0)
           setReaderKey(k => k + 1)
+        } else if (cloudIsBehind) {
+          // No-op — log only so we can spot the pattern in DevTools if it
+          // turns out the heartbeat is failing on this device.
+          if (typeof window !== 'undefined') {
+            (window as unknown as { __tinctSyncDebug?: { lastBehindAt: number; gap: number } }).__tinctSyncDebug = {
+              lastBehindAt: Date.now(),
+              gap: localFraction - cloudFraction,
+            }
+          }
         }
       }
     }
@@ -398,7 +550,17 @@ export default function App() {
 
 
   // Get current chapter data early so we can pass context to chat
-  const primaryEditionKey = makeEditionKey(preferences.style, preferences.language)
+  // Fall back when the user's saved style+language combo doesn't exist on this
+  // book (e.g. preferences default to 'original-en' but the Bible has no
+  // 'original' style — only kjv-en, web-en, modern-en, modern-da). Without
+  // this, the app tries to fetch bible-original-en.json, 404s, and shows
+  // "Edition returned invalid JSON".
+  const requestedEditionKey = makeEditionKey(preferences.style, preferences.language)
+  const primaryEditionKey = book.editions.some(ed => ed.key === requestedEditionKey)
+    ? requestedEditionKey
+    : (book.editions.find(ed => ed.language === preferences.language)?.key
+       ?? book.editions[0]?.key
+       ?? requestedEditionKey)
   // Bounds check: clamp chapter to valid range after data loads
   if (currentChapter > totalChapters && totalChapters > 0) {
     setCurrentChapter(totalChapters)
@@ -453,12 +615,14 @@ export default function App() {
 
   const visibleText = useMemo(() => visibleParagraphs.join(' '), [visibleParagraphs])
 
-  // Handle insufficient balance
+  // Handle insufficient balance — anonymous users get prompted to sign up,
+  // signed-in users get the focused TopUpModal (not the full UsageDashboard,
+  // which buries the buy buttons under usage stats and subscription mgmt).
   const handleInsufficientBalance = useCallback(() => {
     if (isAnonymous) {
       setShowAuthModal(true)
     } else {
-      setShowUsageDashboard(true)
+      setShowTopUp(true)
     }
   }, [isAnonymous])
 
@@ -571,58 +735,106 @@ export default function App() {
     chatMemory: getChapterChatSummary(currentChapter) || undefined,
   })
 
-  // Load chat history when the book changes. Tracks the last book we loaded
-  // history for so switching books re-loads. Loads ALL past conversations
-  // (with chapter dividers) so the reader sees their full thread for a book.
+  // Load chat history when the book changes. Chat is now ONE continuous
+  // conversation per book, not chapter-divided — each message carries its
+  // own bookId/chapterNumber/paragraphIndex tag so the reader can click back
+  // to where it was sent. Use the Feed if you want chapter-grouped view.
   const chatLoadedForBookRef = useRef<string | null>(null)
   useEffect(() => {
-    // On book change, always clear the in-memory thread first so messages
-    // from the previous book never bleed through. Without this, switching to
-    // a book that has no history left the old book's messages on screen.
     if (chatLoadedForBookRef.current !== book.id) {
       chatLoadedForBookRef.current = book.id
       clearMessages()
     }
     if (chatConversations.length === 0) return
     const allMsgs: ChatMessage[] = []
-    let lastChapter = -1
     for (const conv of chatConversations) {
-      // Defensive filter: the storage hook is keyed per book, but legacy
-      // entries or future bugs could mix books. Only show messages whose
-      // bookId matches (or is unset on old records).
+      // Defensive filter: storage is keyed per book, but legacy/future bugs
+      // could mix. Only show messages whose bookId matches (or is unset).
       if (conv.bookId && conv.bookId !== book.id) continue
-      if (conv.chapterNumber !== lastChapter && lastChapter !== -1) {
-        allMsgs.push({
-          id: `divider-${conv.chapterNumber}`,
-          role: 'assistant' as const,
-          content: '',
-          timestamp: conv.startTimestamp - 1,
-          chapterDivider: conv.chapterNumber,
-        })
-      }
-      lastChapter = conv.chapterNumber
-      allMsgs.push(...conv.messages.filter(m => !m.bookId || m.bookId === book.id))
+      allMsgs.push(...conv.messages.filter(m =>
+        !m.chapterDivider &&             // skip persisted chapter-divider markers (legacy bug)
+        (m.content || '').trim() !== '' && // skip the empty bodies left behind by that bug
+        (!m.bookId || m.bookId === book.id)
+      ))
     }
     if (allMsgs.length > 0) loadMessages(allMsgs)
   }, [chatConversations, loadMessages, clearMessages, book.id])
 
-  // Insert chapter divider when chapter changes (after initial load)
-  const prevChapterForChat = useRef(currentChapter)
+  // One-shot cleanup: prior code persisted chapter-divider markers as fake
+  // assistant messages with empty content. They polluted chat-history blobs
+  // for every book where the user navigated chapters mid-thread. Strip them
+  // and rewrite storage once per session per book. Safe to run multiple times
+  // because it's a no-op when the data is already clean.
+  const chatCleanupRanRef = useRef<Set<string>>(new Set())
   useEffect(() => {
-    if (prevChapterForChat.current !== currentChapter && chatLoadedForBookRef.current === book.id) {
-      prevChapterForChat.current = currentChapter
-      // Don't clear — just add a divider if there are existing messages
-      if (messages.length > 0) {
-        loadMessages([...messages, {
-          id: `divider-${currentChapter}-${Date.now()}`,
-          role: 'assistant' as const,
-          content: '',
-          timestamp: Date.now(),
-          chapterDivider: currentChapter,
-        }])
+    if (!storageReady) return
+    if (chatConversations.length === 0) return
+    if (chatCleanupRanRef.current.has(book.id)) return
+    chatCleanupRanRef.current.add(book.id)
+
+    let dirty = false
+    const cleaned: ChatConversation[] = []
+    for (const conv of chatConversations) {
+      const realMsgs = (conv.messages || []).filter(m =>
+        !m.chapterDivider && (m.content || '').trim() !== ''
+      )
+      if (realMsgs.length !== (conv.messages || []).length) dirty = true
+      // Drop conversations that became empty after stripping dividers
+      if (realMsgs.length > 0) cleaned.push({ ...conv, messages: realMsgs })
+      else if ((conv.messages || []).length > 0) dirty = true
+    }
+    if (dirty) {
+      storage.set(`chat-history:${book.id}`, cleaned)
+      console.log(`[chat] cleaned ${chatConversations.length - cleaned.length} divider-only conversation(s) for ${book.id}`)
+    }
+  }, [book.id, chatConversations, storageReady])
+
+  // Global one-shot cleanup: walk every book in the registry once per session
+  // and strip divider-pollution from its chat-history blob. Without this, the
+  // user has to actually open each polluted book before its history is
+  // cleaned. Heavy users (Macbeth = 2300+ divider messages, Odyssey = 50+)
+  // would otherwise see junk in the Feed for weeks.
+  const globalChatCleanupRanRef = useRef(false)
+  useEffect(() => {
+    if (!storageReady) return
+    if (globalChatCleanupRanRef.current) return
+    globalChatCleanupRanRef.current = true
+
+    let totalCleaned = 0
+    for (const b of BOOKS) {
+      const key = `chat-history:${b.id}`
+      const stored = storage.get<ChatConversation[]>(key)
+      if (!stored || stored.length === 0) continue
+      let dirty = false
+      let dupesRemoved = 0
+      const cleaned: ChatConversation[] = []
+      for (const conv of stored) {
+        // Strip dividers + empty bodies (legacy bug) AND collapse duplicate
+        // message IDs (chapter-22 bug: a single assistant message getting
+        // appended 4–7 times in a row).
+        const seenIds = new Set<string>()
+        const realMsgs: ChatMessage[] = []
+        for (const m of (conv.messages || [])) {
+          if (m.chapterDivider) continue
+          if ((m.content || '').trim() === '') continue
+          if (m.id && seenIds.has(m.id)) { dupesRemoved++; continue }
+          if (m.id) seenIds.add(m.id)
+          realMsgs.push(m)
+        }
+        if (realMsgs.length !== (conv.messages || []).length) dirty = true
+        if (realMsgs.length > 0) cleaned.push({ ...conv, messages: realMsgs })
+        else if ((conv.messages || []).length > 0) dirty = true
+      }
+      if (dirty) {
+        storage.set(key, cleaned)
+        totalCleaned += stored.length - cleaned.length
+        console.log(`[chat] cleaned ${stored.length - cleaned.length} empty conv(s) and ${dupesRemoved} duplicate msg(s) for ${b.id}`)
       }
     }
-  }, [currentChapter, messages, loadMessages, book.id])
+    if (totalCleaned > 0) {
+      console.log(`[chat] global cleanup removed ${totalCleaned} polluted conversation(s) across all books`)
+    }
+  }, [storageReady])
 
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
@@ -647,7 +859,25 @@ export default function App() {
   const effectiveParagraph = audioPlayingParagraph ?? firstVisibleParagraph
   const chapterParagraphCount = primaryChapter?.paragraphs.length
 
-  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph)
+  // Suspend position writes whenever an overlay/auth/onboarding flow is in
+  // front of the reader. The reader is "non-reading" in these states — any
+  // heartbeat or visibility-driven write risks capturing stale or default
+  // in-memory state (B19: modal interaction → bad chapter-1 write).
+  //
+  // We only suspend for flows that explicitly displace the reader OR involve
+  // identity changes (auth, subscription). Settings / search / TOC stay
+  // write-enabled because the user is mid-reading and likely to resume on
+  // the same page.
+  const writeSuspended =
+    showAuthModal ||
+    showPricingModal ||
+    showStore ||
+    showBookOnboarding ||
+    showFixModal ||
+    isPasswordRecovery ||
+    libraryEmpty
+
+  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended)
   const isAudioActive = audioPlayingParagraph !== undefined
   const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive)
 
@@ -667,13 +897,6 @@ export default function App() {
     trackPageView,
   } = useReadingSpeed(book.id, currentChapter, currentPage, totalPages, totalChapters, allParagraphs)
 
-  const { insight, checkForInsight, dismiss: dismissInsight, getInsightForDiscussion } = useProactiveInsight({
-    readingObjective: preferences.readingObjective,
-    bookTitle: book.title,
-    bookAuthor: book.author,
-    chapterTitle,
-    paragraphs: primaryChapter?.paragraphs || [],
-  })
 
   // Navigate to a chapter (and optionally a paragraph/edition) from side panel
   const handleNavigateToChapter = useCallback((chapter: number, paragraphIndex?: number, editionKey?: string) => {
@@ -710,6 +933,15 @@ export default function App() {
       totalPages: 1,
       scrollFraction: paragraphIndex !== undefined ? -1 : 0,
     }
+    // Snap firstVisibleParagraph to the destination immediately. If we don't,
+    // the BottomBar's "absolute page" calc (which takes paragraphs.slice(0,
+    // firstVisibleParagraph) of the NEW chapter) shows page 2 or 3 for a
+    // beat — looks like ToC took you to the wrong page. Reader will re-emit
+    // onFirstVisibleParagraph after layout, which will overwrite this with
+    // the same value when no paragraph target was set.
+    setFirstVisibleParagraph(paragraphIndex ?? 0)
+    setCurrentPage(0)
+    setTotalPages(1)
     if (chapter !== currentChapter) {
       setCurrentChapter(chapter)
     }
@@ -738,7 +970,7 @@ export default function App() {
     if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
   }, [backPosition, currentChapter, book.id, preferences.style, preferences.language, setStyle, setLanguage])
 
-  // Handle page changes from Reader — also trigger proactive insights and track speed
+  // Handle page changes from Reader — track reading speed
   const handlePageChange = useCallback((page: number, total: number) => {
     // Track reading speed before updating page
     if (primaryChapter && total > 0) {
@@ -749,13 +981,12 @@ export default function App() {
     }
     setCurrentPage(page)
     setTotalPages(total)
-    checkForInsight(page, total)
     // Dismiss back-to-position on manual page turn (but not on initial layout)
     if (backPosition && total > 1) {
       setBackPosition(null)
       if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
     }
-  }, [checkForInsight, primaryChapter, trackPageView, backPosition])
+  }, [primaryChapter, trackPageView, backPosition])
 
   // Onboarding complete handler
   const handleOnboardingComplete = useCallback((objective: string) => {
@@ -853,16 +1084,6 @@ export default function App() {
   const handleEditObjective = useCallback(() => {
     setEditingObjective(true)
   }, [])
-
-  // Discuss proactive insight
-  const handleDiscussInsight = useCallback(() => {
-    const text = getInsightForDiscussion()
-    if (text) {
-      setPanelTab('chat')
-      if (!preferences.panelOpen) togglePanel()
-      sendMessage(`The AI noticed a connection to my reading angle: "${text}". Can you elaborate on this?`)
-    }
-  }, [getInsightForDiscussion, setPanelTab, preferences.panelOpen, togglePanel, sendMessage])
 
   // Determine if editions are verse (for ParagraphRenderer)
   const primaryIsVerse = preferences.style === 'verse'
@@ -995,12 +1216,22 @@ export default function App() {
     addHighlight(edKey, paragraphIndex, startOffset, endOffset, text, color)
   }, [addHighlight, primaryEditionKey, splitEditionKey])
 
-  // Record assistant messages to chat history when they arrive
+  // Record assistant messages to chat history when they arrive.
+  // Defensive guards: never persist a divider marker, never persist an empty
+  // body. Both shielded the storage from a bug where divider markers (role:
+  // 'assistant', content: '', chapterDivider: N) were being written as real
+  // messages and rendered as blank chat after the divider rendering was
+  // changed to skip them.
   const lastRecordedMsgRef = useRef<string | null>(null)
   useEffect(() => {
     if (messages.length === 0) return
     const last = messages[messages.length - 1]
-    if (last.role === 'assistant' && last.id !== lastRecordedMsgRef.current) {
+    if (
+      last.role === 'assistant' &&
+      !last.chapterDivider &&
+      (last.content || '').trim() !== '' &&
+      last.id !== lastRecordedMsgRef.current
+    ) {
       lastRecordedMsgRef.current = last.id
       recordMessage(last, currentChapter, firstVisibleParagraph)
     }
@@ -1173,24 +1404,57 @@ export default function App() {
     bottomBarRef.current?.seekToParagraph(paragraphIndex)
   }, [])
 
-  // Detect if audio is available for current edition — check on edition/chapter change.
-  // Short-circuit: if the book has no audio editions at all, or the current
-  // edition isn't marked hasAudio, skip the HEAD request and force false.
+  // Detect if audio is available for the current chapter.
+  //
+  // Trust registry metadata optimistically — if any edition has hasAudio=true,
+  // assume audio works for this book. Then run a HEAD probe as confirmation,
+  // and downgrade to false only on a real 404. We do NOT downgrade on probe
+  // failure (network error / CORS block) because R2 only whitelists the
+  // `https://tinct.app` origin for CORS, so the Capacitor APK (which runs
+  // at `https://localhost`) sees its HEAD request blocked by the browser
+  // before the response is even inspected. Trusting metadata makes the
+  // audio icon show on APK; playback via the `<audio>` element works
+  // cross-origin regardless (audio/video tags are not subject to CORS in
+  // the same way as fetch).
   useEffect(() => {
     if (audioEditionKey === 'none') { setHasAudio(false); return }
     const anyAudioEdition = book.editions.some(e => e.hasAudio)
-    // Only short-circuit on books with zero audio editions. Per-edition
-    // `hasAudio` metadata drifts from reality — the HEAD probe is the source
-    // of truth for whether this specific chapter has audio.
     if (!anyAudioEdition) {
       setHasAudio(false)
       return
     }
-    const url = `${AUDIO_BASE_URL}/${book.id}/${primaryEditionKey}/ch${currentChapter}/manifest.json`
+    setHasAudio(true)
+    const url = `${AUDIO_BASE_URL}/${book.id}/${effectiveAudioEditionKey}/ch${currentChapter}/manifest.json`
     fetch(url, { method: 'HEAD' })
-      .then(res => setHasAudio(res.ok))
-      .catch(() => setHasAudio(false))
-  }, [book.id, book.editions, primaryEditionKey, currentChapter, audioEditionKey])
+      .then(res => {
+        if (!res.ok) setHasAudio(false)
+        // res.ok → leave the optimistic true in place
+      })
+      .catch(() => {
+        // Probe blocked (CORS on APK) or offline — keep the optimistic true.
+        // Playback will still fail gracefully if the manifest truly isn't there.
+      })
+  }, [book.id, book.editions, effectiveAudioEditionKey, currentChapter, audioEditionKey])
+
+  // User-initiated chapter advance is debounced (500ms) so a single tap
+  // can't turn into a double chapter skip on e-ink devices where ghost
+  // taps are common during the post-remount transient layout state.
+  // Audio-driven chapter advance (onChapterEnd) calls handleNextChapter
+  // directly and is NOT debounced — it must always fire when playback
+  // crosses the chapter boundary.
+  const userAdvanceLockRef = useRef(0)
+  const userChapterNext = useCallback(() => {
+    const now = Date.now()
+    if (now - userAdvanceLockRef.current < 500) return
+    userAdvanceLockRef.current = now
+    handleNextChapterRef.current?.()
+  }, [])
+  const userChapterPrev = useCallback(() => {
+    const now = Date.now()
+    if (now - userAdvanceLockRef.current < 500) return
+    userAdvanceLockRef.current = now
+    handlePrevChapterRef.current?.()
+  }, [])
 
   // Chapter navigation from page arrows or audio chapter-end
   // When advancing forward, mark the current chapter as completed in progress
@@ -1216,6 +1480,9 @@ export default function App() {
         totalPages: 1,
         scrollFraction: 0,
       }
+      setFirstVisibleParagraph(0)
+      setCurrentPage(0)
+      setTotalPages(1)
       setCurrentChapter(currentChapter + 1)
       setReaderKey(k => k + 1) // Remount so currentPage resets and initialPage re-applies
     }
@@ -1233,10 +1500,20 @@ export default function App() {
         totalPages: 1,
         scrollFraction: 1,
       }
+      setFirstVisibleParagraph(0) // Reader will re-emit after layout once it knows where the last page lands
+      setCurrentPage(0)
+      setTotalPages(1)
       setCurrentChapter(currentChapter - 1)
       setReaderKey(k => k + 1) // Remount so currentPage resets and initialPage re-applies
     }
   }, [currentChapter, book.id])
+
+  // Refs so the debounced user-nav wrappers always see the latest handlers
+  // without having to be recreated on every currentChapter change.
+  const handleNextChapterRef = useRef(handleNextChapter)
+  handleNextChapterRef.current = handleNextChapter
+  const handlePrevChapterRef = useRef(handlePrevChapter)
+  handlePrevChapterRef.current = handlePrevChapter
 
   // Wrap split view toggle to preserve position
   const handleToggleSplitView = useCallback(() => {
@@ -1568,6 +1845,15 @@ export default function App() {
         />
       )}
 
+      {showTopUp && (
+        <TopUpModal
+          monthlyRemaining={monthlyRemaining}
+          messageBalance={messageBalance}
+          onCheckout={(type) => { setShowTopUp(false); handleCheckout(type) }}
+          onClose={() => setShowTopUp(false)}
+        />
+      )}
+
       {showDownloadManager && (
         <DownloadManager
           books={libraryBooks}
@@ -1649,7 +1935,7 @@ export default function App() {
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
         fontSize={preferences.fontSize}
-        onFontSizeChange={(size: string) => {
+        onFontSizeChange={(size: FontSize) => {
           const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
           savedPos.current = {
             bookId: book.id,
@@ -1658,7 +1944,7 @@ export default function App() {
             totalPages,
             scrollFraction: frac,
           }
-          setFontSize(size as FontSize)
+          setFontSize(size)
           setReaderKey(k => k + 1)
         }}
         fontFamily={preferences.fontFamily}
@@ -1751,6 +2037,7 @@ export default function App() {
             <div className={`mobile-view ${activeView === 0 ? 'mobile-view-active' : ''}`}>
               <Reader
                 key={`${currentChapter}-${readerKey}`}
+                isActive={activeView === 0}
                 paragraphs={primaryChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
                 editionLabel={editionLabel}
@@ -1767,15 +2054,16 @@ export default function App() {
                 onFirstVisibleParagraph={setFirstVisibleParagraph}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                 isVerse={primaryIsVerse}
-                targetParagraphIndex={targetParagraphRef.current}
+                targetParagraphIndex={readSyncSignal?.paragraph ?? targetParagraphRef.current}
+                targetParagraphNonce={readSyncSignal?.nonce}
                 playingParagraphIndex={audioPlayingParagraph}
                 playingParagraphProgress={audioProgress}
                 isAudioPlaying={audioIsPlaying}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 panelOpen={preferences.panelOpen}
-                onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
-                onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
               />
             </div>
             {/* View 1: Compare — shows secondary edition full-width on mobile */}
@@ -1783,6 +2071,7 @@ export default function App() {
               {splitViewAvailable && splitChapter ? (
                 <Reader
                   key={`mobile-compare-${currentChapter}-${splitEditionKey}-${readerKey}`}
+                  isActive={activeView === 1}
                   paragraphs={splitChapter.paragraphs}
                   chapterTitle={`${splitChapter.title || `Book ${currentChapter}`}`}
                   isLoading={isLoading}
@@ -1796,6 +2085,7 @@ export default function App() {
                   readerRef={compareReaderRef}
                   isVerse={splitIsVerse}
                   onPageChange={handlePageChange}
+                  onFirstVisibleParagraph={setCompareFirstVisibleParagraph}
                   initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
                   targetParagraphIndex={compareSyncSignal?.paragraph}
                   targetParagraphNonce={compareSyncSignal?.nonce}
@@ -1805,8 +2095,8 @@ export default function App() {
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
-                  onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
-                  onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                  onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
+                  onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
                 />
               ) : (
                 <div className="mobile-view-placeholder">
@@ -1905,14 +2195,15 @@ export default function App() {
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
                 panelOpen={preferences.panelOpen}
-                onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
-                onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
                 onDeleteHighlight={removeHighlight}
                 onUpdateHighlightNote={updateHighlightNote}
                 onUpdateHighlightColor={updateHighlightColor}
                 onShare={setShareText}
                 bookId={book.id}
                 primaryEditionKey={primaryEditionKey}
+                splitEditionKey={splitEditionKey}
                 currentChapter={currentChapter}
                 authToken={session?.access_token}
               />
@@ -1942,8 +2233,8 @@ export default function App() {
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
                 panelOpen={preferences.panelOpen}
-                onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
-                onPrevChapter={currentChapter > 1 ? handlePrevChapter : undefined}
+                onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
                 onDeleteHighlight={removeHighlight}
                 onUpdateHighlightNote={updateHighlightNote}
                 onUpdateHighlightColor={updateHighlightColor}
@@ -1995,7 +2286,7 @@ export default function App() {
               messagesRemaining={messagesRemaining}
               hasBalance={hasBalance}
               isAnonymous={isAnonymous}
-              onTopUp={() => setShowUsageDashboard(true)}
+              onTopUp={() => setShowTopUp(true)}
               onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
               onShowPricing={() => setShowPricingModal(true)}
               chatConversations={chatConversations}
@@ -2060,6 +2351,7 @@ export default function App() {
 
       <BottomBar
         ref={bottomBarRef}
+        chapterTitle={chapterTitle}
         percentComplete={readingPercent}
         timeRemainingLabel={timeRemainingLabel}
         isLearned={isSpeedLearned}
@@ -2072,10 +2364,20 @@ export default function App() {
         chapterPercentComplete={totalPages > 1 ? Math.round(((currentPage + 1) / totalPages) * 100) : 100}
         chapterTimeLabel={(() => {
           if (totalPages <= 1) return 'Done'
+          // Time remaining INCLUDING the page you're on. The old calc excluded
+          // current page (so the last page showed "<1min" instantly) and used
+          // Math.ceil (so several mid-chapter pages all rounded to the same
+          // minute and the value never appeared to change).
           const chapterWords = primaryChapter?.paragraphs.reduce((s, p) => s + p.split(/\s+/).length, 0) || 0
-          const wordsLeft = Math.ceil(chapterWords * (totalPages - currentPage - 1) / totalPages)
-          const minsLeft = wordsPerMinute > 0 ? Math.ceil(wordsLeft / wordsPerMinute) : Math.ceil((totalPages - currentPage - 1) * 0.5)
-          return minsLeft < 1 ? '<1min left' : `${minsLeft}min left`
+          const pagesAhead = Math.max(0, totalPages - currentPage)
+          const wordsLeft = Math.round(chapterWords * pagesAhead / totalPages)
+          const wpm = wordsPerMinute > 0 ? wordsPerMinute : 250
+          const rawSecs = (wordsLeft / wpm) * 60
+          if (rawSecs <= 5) return 'Done'
+          // Show seconds when under 90s so the last page actually ticks
+          // visibly toward done instead of sticking at "1 min left".
+          if (rawSecs < 90) return `${Math.max(5, Math.round(rawSecs / 5) * 5)}s left`
+          return `${Math.round(rawSecs / 60)}min left`
         })()}
         locationCurrent={primaryData ? primaryData.chapters.slice(0, currentChapter - 1).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0) : 0}
         locationTotal={primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0}
@@ -2145,14 +2447,6 @@ export default function App() {
         })()}
         currentChapterIndex={currentChapter}
       />
-
-      {insight && (
-        <ProactiveInsight
-          text={insight}
-          onDiscuss={handleDiscussInsight}
-          onDismiss={dismissInsight}
-        />
-      )}
 
     </div>
 

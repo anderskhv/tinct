@@ -1,5 +1,20 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
 import { AUDIO_BASE_URL } from '../utils/audioUrl'
+import { useAudioSpeed, SPEED_OPTIONS as PERSISTED_SPEED_OPTIONS } from '../hooks/useAudioSpeed'
+
+/** Push the latest audio engine event into a global so DevTools can read it.
+ *  Critical for diagnosing platform-specific audio issues like the Boox
+ *  "disclaimer plays, then silence" bug. Inspect via window.__tinctAudioDebug. */
+function recordAudioDebug(entry: Record<string, unknown>) {
+  if (typeof window === 'undefined') return
+  const w = window as unknown as { __tinctAudioDebug?: { last: Record<string, unknown> & { at: number }; history: Array<Record<string, unknown> & { at: number }> } }
+  const stamp = { ...entry, at: Date.now() }
+  const dbg = w.__tinctAudioDebug ?? { last: stamp, history: [] }
+  dbg.last = stamp
+  dbg.history.push(stamp)
+  if (dbg.history.length > 20) dbg.history.shift()
+  w.__tinctAudioDebug = dbg
+}
 
 interface ParagraphAudio {
   paragraph: number
@@ -90,9 +105,9 @@ interface BottomBarProps {
   chapterTicks?: number[]
   /** Current chapter index (1-based) — used to highlight the current tick */
   currentChapterIndex?: number
+  /** Title of the currently-open chapter — shown centered in the bottom bar. */
+  chapterTitle?: string
 }
-
-const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
 
 export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
   function BottomBar({
@@ -103,14 +118,17 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     bookCurrentPage, bookTotalPages, locationCurrentChapter, locationTotalChapter,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
     onNextChapter, onPrevChapter, initialAudioParagraph, onPlayStateChange, onProgressChange,
-    chapterTicks, currentChapterIndex,
+    chapterTicks, currentChapterIndex, chapterTitle,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
     const [isPlaying, setIsPlayingRaw] = useState(false)
     const [currentParagraph, setCurrentParagraph] = useState(0)
     const [progress, setProgress] = useState(0)
     const [hasAudio, setHasAudio] = useState(false)
-    const [speed, setSpeed] = useState(1)
+    // Single source of truth for speed — persisted, cross-device synced.
+    // The hook's `applyTo` is called wherever an audio element is created or
+    // a `play` event fires so the DOM rate can never drift from the chosen value.
+    const { speed, cycleSpeed: cycleSpeedFromHook, applyTo: applySpeedToAudio } = useAudioSpeed()
 
     const onPlayStateChangeRef = useRef(onPlayStateChange)
     onPlayStateChangeRef.current = onPlayStateChange
@@ -141,6 +159,10 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     onChapterEndRef.current = onChapterEnd
     // Track whether we should auto-resume after chapter change
     const shouldResumeRef = useRef(false)
+    // True while the disclaimer is playing on the main audio element. Tells
+    // the engine's permanent `handleEnded` / `handleError` to skip — the
+    // disclaimer's one-shot listener handles the transition to the paragraph.
+    const playingDisclaimerRef = useRef(false)
     const initialAudioParagraphRef = useRef(initialAudioParagraph)
     initialAudioParagraphRef.current = initialAudioParagraph
 
@@ -169,6 +191,9 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       }
 
       const handleEnded = () => {
+        // Disclaimer is using this element — let the disclaimer's own listener
+        // run; don't auto-advance to the next paragraph.
+        if (playingDisclaimerRef.current) return
         const m = manifestRef.current
         if (!m) return
         const nextIndex = currentParagraphRef.current + 1
@@ -198,6 +223,8 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       }
 
       const handleError = () => {
+        // Same skip-during-disclaimer guard as handleEnded.
+        if (playingDisclaimerRef.current) return
         // Audio failed to load — try next paragraph, but bail after a few
         // consecutive failures to avoid skipping chapters on systemic errors.
         consecutiveErrors += 1
@@ -222,16 +249,29 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         }
       }
 
+      // Reapply user-chosen speed on every play. The DOM `<audio>` element
+      // resets `playbackRate` to 1.0 on certain transitions (new src, some
+      // browsers' pause/play, codec switches). Without this, the visible
+      // speed indicator says "1.5x" but actual playback drifts to 1.0x —
+      // exactly what Anders saw in B12. Idempotent: if rate is already
+      // correct, applySpeedToAudio no-ops.
+      const handlePlay = () => { applySpeedToAudio(audio) }
+
+      // Apply once at element creation too, before any user interaction.
+      applySpeedToAudio(audio)
+
       audio.addEventListener('timeupdate', handleTimeUpdate)
       audio.addEventListener('ended', handleEnded)
       audio.addEventListener('error', handleError)
       audio.addEventListener('playing', handlePlaying)
+      audio.addEventListener('play', handlePlay)
 
       return () => {
         audio.removeEventListener('timeupdate', handleTimeUpdate)
         audio.removeEventListener('ended', handleEnded)
         audio.removeEventListener('error', handleError)
         audio.removeEventListener('playing', handlePlaying)
+        audio.removeEventListener('play', handlePlay)
         audio.pause()
         audio.removeAttribute('src')
       }
@@ -313,27 +353,139 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       return () => controller.abort()
     }, [bookId, editionKey, chapterNumber])
 
-    const playParagraph = useCallback((index: number) => {
+    const playParagraphDirect = useCallback((index: number) => {
       const m = manifestRef.current
-      if (!m) return
+      if (!m) {
+        recordAudioDebug({ event: 'no-manifest', index })
+        return
+      }
       const para = m.paragraphs[index]
-      if (!para) return
+      if (!para) {
+        recordAudioDebug({ event: 'no-paragraph', index, manifestLen: m.paragraphs.length })
+        return
+      }
       const audio = audioRef.current
-      if (!audio) return
+      if (!audio) {
+        recordAudioDebug({ event: 'no-audio-element', index })
+        return
+      }
 
       const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
+      // Explicit pause + load between src changes. Without load(), Android
+      // System WebView (Boox) sometimes doesn't reload the new src — the
+      // .play() call resolves against the OLD media-context, plays nothing.
+      // load() forces a fresh fetch + media-context for the new url.
+      try { audio.pause() } catch { /* ignore */ }
       audio.src = url
       audio.playbackRate = speedRef.current
+      try { audio.load() } catch { /* ignore — older WebViews may throw */ }
       audio.play().then(() => {
         setCurrentParagraph(index)
         currentParagraphRef.current = index
         setIsPlaying(true)
         onParagraphChange?.(para.paragraph)
-      }).catch(() => {
-        // Autoplay blocked or network error
+        recordAudioDebug({ event: 'play-success', index, url, paragraph: para.paragraph })
+      }).catch((err) => {
+        // Autoplay blocked or network error. Log loudly so we can diagnose
+        // the Boox-specific "disclaimer-then-silence" symptom — the catch
+        // used to swallow it and the user just saw nothing.
+        const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
+        console.warn('[audio] play() rejected for', url, msg)
+        recordAudioDebug({ event: 'play-rejected', index, url, error: msg })
         setIsPlaying(false)
       })
     }, [bookId, editionKey, chapterNumber, onParagraphChange])
+
+    // Wraps playParagraph with a one-time-per-book AI-narration disclaimer.
+    // Critical: the disclaimer plays through the SAME Audio element as the
+    // book paragraphs (audioRef.current), not a freshly-created one. iOS
+    // Safari and Android System WebView (the Boox case) gate autoplay per
+    // Audio element — the user gesture unlocks the element it's called on.
+    // Using a separate Audio for the disclaimer meant the main element was
+    // never user-gesture-unlocked, so when the disclaimer ended and we
+    // tried to play() the paragraph on the main element, the WebView
+    // silently rejected it. Result: disclaimer played, then nothing.
+    const playParagraph = useCallback((index: number) => {
+      const disclaimerKey = `audio-disclaimer-heard:${bookId}`
+      let heard = false
+      try {
+        heard = typeof localStorage !== 'undefined' && localStorage.getItem(disclaimerKey) === '1'
+      } catch { /* private mode, ignore */ }
+
+      // Capacitor Android (Boox e-reader): skip the disclaimer entirely.
+      // System WebView's autoplay policy revokes the user-gesture unlock
+      // when src changes between disclaimer end and paragraph play, so
+      // chaining the two reliably blanks out the second play. The
+      // disclaimer is a soft UX note ("AI narration may have errors") —
+      // not load-bearing — and is far less important than working audio.
+      const isCapacitorAndroid = typeof window !== 'undefined'
+        && !!(window as unknown as { Capacitor?: { getPlatform?: () => string } }).Capacitor
+        && (window as unknown as { Capacitor?: { getPlatform?: () => string } }).Capacitor?.getPlatform?.() === 'android'
+
+      if (heard || isCapacitorAndroid) {
+        if (isCapacitorAndroid) {
+          // Mark heard so a future web-on-same-account session doesn't
+          // re-play it for a book the user has already audio-listened to.
+          try { localStorage.setItem(disclaimerKey, '1') } catch { /* ignore */ }
+        }
+        playParagraphDirect(index)
+        return
+      }
+
+      const audio = audioRef.current
+      if (!audio) {
+        // Engine not ready yet — skip the disclaimer this time, mark heard.
+        try { localStorage.setItem(disclaimerKey, '1') } catch { /* ignore */ }
+        playParagraphDirect(index)
+        return
+      }
+
+      // Mark heard up-front. If play fails for any reason, the next click
+      // skips the disclaimer and goes straight to the paragraph — much
+      // better than re-trying a failing disclaimer forever.
+      try { localStorage.setItem(disclaimerKey, '1') } catch { /* ignore */ }
+
+      const lang = editionKey.endsWith('-da') ? 'da' : 'en'
+      const disclaimerUrl = `${AUDIO_BASE_URL}/disclaimer-${lang}.mp3`
+
+      // Optimistic UI — flip Play state so the user sees feedback while the
+      // disclaimer loads. The handleEnded effect listener will fire when the
+      // disclaimer finishes; we replace it with our one-shot proceed handler.
+      setIsPlaying(true)
+
+      const proceed = () => {
+        playingDisclaimerRef.current = false
+        audio.removeEventListener('ended', onDone)
+        audio.removeEventListener('error', onError)
+        try { localStorage.setItem(disclaimerKey, '1') } catch { /* ignore */ }
+        // Now play the actual paragraph on the SAME audio element. The element
+        // was just user-gesture-unlocked by the disclaimer's play(), so this
+        // .play() call will not be rejected by autoplay policy.
+        playParagraphDirect(index)
+      }
+      const onDone = () => proceed()
+      const onError = () => {
+        // Disclaimer failed to load — don't block playback, still mark heard
+        // so we don't retry on every play.
+        proceed()
+      }
+
+      playingDisclaimerRef.current = true
+      audio.addEventListener('ended', onDone, { once: true })
+      audio.addEventListener('error', onError, { once: true })
+      try { audio.pause() } catch { /* ignore */ }
+      audio.src = disclaimerUrl
+      audio.playbackRate = 1.0 // disclaimer always at 1x
+      try { audio.load() } catch { /* ignore */ }
+      recordAudioDebug({ event: 'disclaimer-start', url: disclaimerUrl })
+      audio.play().then(() => {
+        recordAudioDebug({ event: 'disclaimer-playing' })
+      }).catch((err) => {
+        const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
+        recordAudioDebug({ event: 'disclaimer-rejected', error: msg })
+        onError()
+      })
+    }, [bookId, editionKey, playParagraphDirect])
 
     useImperativeHandle(ref, () => ({
       seekToParagraph(paragraphIndex: number) {
@@ -440,13 +592,20 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
     const cycleSpeedRef = useRef<() => void>(() => {})
     const cycleSpeed = useCallback(() => {
-      setSpeed(prev => {
-        const idx = SPEED_OPTIONS.indexOf(prev)
-        const next = SPEED_OPTIONS[(idx + 1) % SPEED_OPTIONS.length]
-        if (audioRef.current) audioRef.current.playbackRate = next
-        return next
-      })
-    }, [])
+      cycleSpeedFromHook()
+      // Re-apply immediately so the live audio element picks up the new rate
+      // even before the next React render (otherwise the user hears 1s of
+      // the old rate before the next effect fires).
+      if (audioRef.current) {
+        // The hook's state hasn't flushed yet; read what cycleSpeedFromHook
+        // is about to set. SPEED_OPTIONS rotation is deterministic, so we
+        // can compute next here without coupling to the hook's internal state.
+        const cur = audioRef.current.playbackRate || 1
+        const idx = PERSISTED_SPEED_OPTIONS.indexOf(cur as 0.75 | 1 | 1.25 | 1.5 | 2)
+        const next = PERSISTED_SPEED_OPTIONS[(idx + 1) % PERSISTED_SPEED_OPTIONS.length]
+        audioRef.current.playbackRate = next
+      }
+    }, [cycleSpeedFromHook])
     cycleSpeedRef.current = cycleSpeed
 
     // Mobile nav — allow chapter advance when on first/last page
@@ -459,78 +618,58 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     // cycleSpeed + togglePlay are still exposed via the imperative handle
     // so AudioStrip can drive the engine.
 
+    // Compute the progress value to show on the right side per user's metric choice.
+    const renderProgressValue = () => {
+      const pd = progressDisplay || { metric: 'percent', scope: 'book' }
+      const scope = pd.scope
+      const metric = pd.metric
+
+      const pct = scope === 'chapter' ? (chapterPercentComplete ?? Math.round(((currentPage + 1) / Math.max(totalPages, 1)) * 100))
+        : scope === 'section' ? (sectionPercentComplete ?? percentComplete)
+        : percentComplete
+      const time = scope === 'chapter' ? (chapterTimeLabel ?? timeRemainingLabel)
+        : scope === 'section' ? (sectionTimeLabel ?? timeRemainingLabel)
+        : timeRemainingLabel
+      const scopeLabel = scope === 'chapter' ? 'ch' : scope === 'section' ? 'sec' : ''
+
+      if (metric === 'page') {
+        if (scope === 'book' && bookCurrentPage && bookTotalPages) {
+          return `${bookCurrentPage} / ${bookTotalPages}`
+        }
+        const pg = absoluteCurrentPage ?? (currentPage + 1)
+        const tot = absoluteTotalPages ?? totalPages
+        return `${pg} / ${tot}${scope === 'chapter' ? ' ch' : ''}`
+      }
+      if (metric === 'location') {
+        if (scope === 'chapter' && locationCurrentChapter !== undefined && locationTotalChapter) {
+          return `§${locationCurrentChapter} / ${locationTotalChapter}`
+        }
+        if (locationCurrent !== undefined && locationTotal) {
+          return `Loc ${locationCurrent} / ${locationTotal}`
+        }
+      }
+      if (metric === 'time') {
+        return `${time}${scopeLabel ? ` (${scopeLabel})` : ''}${!isLearned && percentComplete > 0 ? ' (est.)' : ''}`
+      }
+      return `${pct}%${scopeLabel ? ` ${scopeLabel}` : ''}`
+    }
+
     return (
       <div className="bottom-bar">
         <button
-          className="reading-tracker-nav"
+          className="bottom-bar-arrow"
           onClick={() => window.dispatchEvent(new CustomEvent('tinct:page-nav', { detail: { direction: 'prev' } }))}
           disabled={!canGoPrev}
           aria-label="Previous page"
         >
           &larr;
         </button>
-        <div className="bottom-bar-progress">
-          <div className="reading-tracker-bar">
-            <div className="reading-tracker-fill" style={{ width: `${percentComplete}%` }} />
-            {chapterTicks && chapterTicks.length > 0 && (
-              <div className="progress-footer-ticks">
-                {chapterTicks.map((p, i) => (
-                  <div
-                    key={i}
-                    className={`progress-footer-tick ${currentChapterIndex === i + 1 ? 'progress-footer-tick-current' : ''}`}
-                    style={{ left: `${p * 100}%` }}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+        <div className="bottom-bar-center">
+          {chapterTitle && <span className="bottom-bar-chapter">{chapterTitle}</span>}
         </div>
-        <div className="reading-tracker-info">
-          {(() => {
-            const pd = progressDisplay || { metric: 'percent', scope: 'book' }
-            const scope = pd.scope
-            const metric = pd.metric
-
-            // Pick the right values based on scope
-            const pct = scope === 'chapter' ? (chapterPercentComplete ?? Math.round(((currentPage + 1) / Math.max(totalPages, 1)) * 100))
-              : scope === 'section' ? (sectionPercentComplete ?? percentComplete)
-              : percentComplete
-            const time = scope === 'chapter' ? (chapterTimeLabel ?? timeRemainingLabel)
-              : scope === 'section' ? (sectionTimeLabel ?? timeRemainingLabel)
-              : timeRemainingLabel
-            const scopeLabel = scope === 'chapter' ? 'ch' : scope === 'section' ? 'sec' : ''
-
-            if (metric === 'page') {
-              if (scope === 'book' && bookCurrentPage && bookTotalPages) {
-                return <span className="reading-tracker-percent">{bookCurrentPage}/{bookTotalPages}</span>
-              }
-              const pg = absoluteCurrentPage ?? (currentPage + 1)
-              const tot = absoluteTotalPages ?? totalPages
-              return <span className="reading-tracker-percent">{pg}/{tot}{scope === 'chapter' ? ' ch' : ''}</span>
-            }
-            if (metric === 'location') {
-              if (scope === 'chapter' && locationCurrentChapter !== undefined && locationTotalChapter) {
-                return <span className="reading-tracker-percent">§{locationCurrentChapter}/{locationTotalChapter}</span>
-              }
-              if (locationCurrent !== undefined && locationTotal) {
-                return <span className="reading-tracker-percent">Loc {locationCurrent}/{locationTotal}</span>
-              }
-            }
-            if (metric === 'time') {
-              return (
-                <span className="reading-tracker-time">
-                  {time}
-                  {scopeLabel ? ` (${scopeLabel})` : ''}
-                  {!isLearned && percentComplete > 0 && <span className="reading-tracker-est"> (est.)</span>}
-                </span>
-              )
-            }
-            // Default: percent
-            return <span className="reading-tracker-percent">{pct}%{scopeLabel ? ` ${scopeLabel}` : ''}</span>
-          })()}
-        </div>
+        <div className="bottom-bar-position">{renderProgressValue()}</div>
         <button
-          className="reading-tracker-nav"
+          className="bottom-bar-arrow"
           onClick={() => window.dispatchEvent(new CustomEvent('tinct:page-nav', { detail: { direction: 'next' } }))}
           disabled={!canGoNext}
           aria-label="Next page"
