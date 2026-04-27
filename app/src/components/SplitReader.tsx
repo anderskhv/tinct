@@ -216,9 +216,10 @@ export function SplitReader({
     setTotalPages(pages)
     setColWidthState(colWidth)
     setGapState(gap)
-    if (currentPageRef.current >= pages) {
-      setCurrentPage(Math.max(0, pages - 1))
-    }
+    // No currentPage clamp here — see Reader.tsx for the rationale. A
+    // transient page-count undershoot from scrollWidth rounding would
+    // otherwise pull the user back one page and goToPage's own clamp
+    // would prevent re-advancement (the "stuck at page 15-16" bug).
   }, [updateColumnWidth, getColWidth, getGap])
 
   // Track chapter title to know when chapter actually changes (vs edition swap)
@@ -808,7 +809,7 @@ export function SplitReader({
       }}
     >
       <div
-        className="reader-columns split-reader-columns"
+        className={`reader-columns split-reader-columns ${colWidthState > 0 ? '' : 'reader-columns--measuring'}`}
         ref={contentRef}
         style={{ transform: `translateX(${getTranslateX()}px)` }}
       >

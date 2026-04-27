@@ -1162,6 +1162,21 @@ body {
   /* Prevent text from breaking across columns mid-element */
 }
 
+/* Suppress the page-flip transition during the very first render of a
+   freshly-mounted Reader/SplitReader, while colWidthState is still 0.
+   Without this, the first paint computed translateX(0) (page 1 visible)
+   and the second paint computed the correct translateX once colWidthState
+   was measured — the CSS transition then animated visibly from page 1
+   to the correct page. Anders saw the flash on every chapter advance in
+   split-pane: chapter header on page 1, then jump to page 2.
+
+   With the class applied, the second paint snaps instantly to the right
+   page, no animation. The class is removed once colWidthState > 0, after
+   which subsequent page navigations get the smooth transition again. */
+.reader-columns--measuring {
+  transition: none !important;
+}
+
 /* Keep chapter header internally intact, but let text flow starting in the
  * same column. `break-after: avoid` previously forced the browser to bump
  * the first paragraph to column 2, leaving column 1 containing only the

@@ -226,12 +226,14 @@ export function Reader({
     // the value is unchanged — so on a no-op resize we don't churn.
     setColWidthState(colWidth)
     setGapState(gap)
-    // Clamp currentPage to the new page count after a layout shift, so a
-    // resize that produced fewer pages than the user was on doesn't leave
-    // them stranded past the end with no content visible.
-    if (currentPageRef.current >= pages) {
-      setCurrentPage(Math.max(0, pages - 1))
-    }
+    // NOTE: previously clamped currentPage to (pages - 1) here as a defensive
+    // guard against panel-toggle resizes shrinking the page count. Removed
+    // because recalcPages can produce a transient page count that's one
+    // short due to scrollWidth rounding (Math.round on a value just below
+    // an integer boundary). When that fired at the user's current page,
+    // they got yanked back one page and goToPage's clamp prevented them
+    // from advancing — the "stuck between page 15 and 16" bug Anders saw
+    // on desktop. The user's currentPage is managed elsewhere; trust it.
   }, [updateColumnWidth, getColWidth, getGap])
 
   useEffect(() => {
@@ -935,7 +937,7 @@ export function Reader({
       }}
     >
       <div
-        className="reader-columns"
+        className={`reader-columns ${colWidthState > 0 ? '' : 'reader-columns--measuring'}`}
         ref={contentRef}
         style={{ transform: `translateX(${getTranslateX()}px)` }}
       >
