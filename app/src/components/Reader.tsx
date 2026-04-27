@@ -246,7 +246,31 @@ export function Reader({
   // correct transform; no transition-from-page-1 ever happens.
   useLayoutEffect(() => {
     recalcPages()
-  }, [recalcPages, paragraphs, chapterTitle])
+    // Consume initialPage synchronously alongside the first measurement.
+    // Without this, the restore lived in a useEffect that fired after paint
+    // — so on chapter back-nav, the user briefly saw page 1 of the new
+    // chapter before the page snapped to last (scrollFraction=1). Doing it
+    // here means the same first paint that has correct colWidthState also
+    // has currentPage = last-page-of-chapter, so back-chapter actually
+    // lands on the LAST page as handlePrevChapter intends.
+    //
+    // We can read the just-measured pages by re-doing the math (same
+    // formula recalcPages used). This is cheap; no second DOM read.
+    const content = contentRef.current
+    if (!content) return
+    const cw = getColWidth()
+    const gp = getGap()
+    if (cw <= 0) return
+    const pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
+    if (pages <= 1) return
+    if (targetParagraphRef.current !== undefined) return // paragraph branch handled separately below
+    const frac = initialPageRef.current
+    if (frac !== undefined && frac >= 0 && frac <= 1) {
+      const targetPage = Math.round(frac * (pages - 1))
+      setCurrentPage(targetPage)
+      initialPageRef.current = undefined
+    }
+  }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap])
 
   useEffect(() => {
     // Async recalc retries cover late-arriving font/layout changes (mobile

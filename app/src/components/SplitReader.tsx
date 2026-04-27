@@ -232,7 +232,27 @@ export function SplitReader({
   // page. useLayoutEffect makes the first paint already correct.
   useLayoutEffect(() => {
     recalcPages()
-  }, [recalcPages, leftParagraphs, rightParagraphs, chapterTitle])
+    // Consume initialPage synchronously — see Reader.tsx for the rationale.
+    // Without this, back-chapter nav landed on the first page of the new
+    // chapter (the brief layout window where currentPage was still the
+    // initial 0) before the post-paint useEffect could run scrollFraction=1
+    // → last page. Doing it here means the first paint already shows the
+    // last page, no flash from page 1.
+    const content = contentRef.current
+    if (!content) return
+    const cw = getColWidth()
+    const gp = getGap()
+    if (cw <= 0) return
+    const pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
+    if (pages <= 1) return
+    if (targetParagraphRef.current !== undefined) return // paragraph branch handled below
+    const frac = initialPageRef.current
+    if (frac !== undefined && frac >= 0 && frac <= 1) {
+      const targetPage = Math.round(frac * (pages - 1))
+      setCurrentPage(targetPage)
+      initialPageRef.current = undefined
+    }
+  }, [recalcPages, leftParagraphs, rightParagraphs, chapterTitle, getColWidth, getGap])
 
   useEffect(() => {
     const timer1 = setTimeout(recalcPages, 100)
