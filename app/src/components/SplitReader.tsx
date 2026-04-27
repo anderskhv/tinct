@@ -883,14 +883,38 @@ export function SplitReader({
         )}
       </div>
 
-      {/* Single-line running footer — replaces the old BottomBar chrome.
-          Format: "Book I — 4 / 15" (chapter italic, page mono). */}
+      {/* Single-line running footer with minimal page arrows on either
+          side: "← Book I — 4 / 15 →". */}
       <div className="page-nav">
+        <button
+          className="page-nav-tick"
+          onClick={(e) => {
+            e.stopPropagation()
+            if (totalPages > 1 && currentPage <= 0 && onPrevChapter) onPrevChapter()
+            else goToPage(currentPage - 1)
+          }}
+          disabled={totalPages > 1 && currentPage <= 0 && !onPrevChapter}
+          aria-label="Previous page"
+        >
+          &larr;
+        </button>
         <span className="page-nav-label">
           {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
           {chapterTitle && <span className="page-nav-sep"> — </span>}
           {currentPage + 1} / {totalPages}
         </span>
+        <button
+          className="page-nav-tick"
+          onClick={(e) => {
+            e.stopPropagation()
+            if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) onNextChapter()
+            else goToPage(currentPage + 1)
+          }}
+          disabled={totalPages > 1 && currentPage >= totalPages - 1 && !onNextChapter}
+          aria-label="Next page"
+        >
+          &rarr;
+        </button>
       </div>
 
       {selectionPopup && (

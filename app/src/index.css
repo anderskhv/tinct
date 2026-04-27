@@ -158,7 +158,8 @@ body {
   flex: 1;
   overflow: hidden;
   position: relative;
-  padding-bottom: 40px; /* space for fixed bottom bar */
+  /* No padding-bottom — the BottomBar chrome is removed; the in-page
+     .page-nav running footer doesn't need reserved space. */
 }
 
 /* ===== Header ===== */
@@ -1210,6 +1211,27 @@ body {
 }
 .page-nav-sep {
   margin: 0 2px;
+}
+
+/* Minimal page-turn ticks — match the footer aesthetic: same color as
+   the label text, no border, no background. Just an arrow that's part
+   of the running footer line. */
+.page-nav-tick {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.page-nav-tick:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+.page-nav-tick:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .page-nav-arrow {
