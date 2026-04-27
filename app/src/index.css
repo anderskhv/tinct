@@ -859,7 +859,7 @@ body {
    Sits above the mobile-nav (Read/Compare/Chat tabs, 38px tall) so the
    chapter title actually shows on mobile (B22). Without this offset the
    bottom-bar was hidden behind .mobile-nav (which has higher z-index). */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .bottom-bar {
     padding: 6px 10px 8px;
     gap: 10px;
@@ -6181,7 +6181,7 @@ body {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .store-inner {
     padding: 40px 16px 60px;
   }
@@ -6413,7 +6413,7 @@ body {
 }
 
 /* ===== Mobile Responsive ===== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   :root {
     --header-height: 48px;
     --panel-width: 100%;
@@ -8551,7 +8551,7 @@ body {
 }
 
 /* Mobile: fatter thumb so fingers can actually grab it. */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .font-size-slider {
     height: 3px;
   }
@@ -8685,7 +8685,7 @@ body {
    Desktop: three individual rail toggles. */
 .ss-layout-tabs-mobile { display: none; }
 .ss-layout-tabs-desktop { display: contents; }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ss-layout-tabs-mobile { display: block; }
   .ss-layout-tabs-desktop { display: none; }
 }
@@ -8864,7 +8864,7 @@ body {
 }
 
 /* ===== Settings Sheet — mobile ===== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ss-overlay {
     background: var(--paper);
     /* Use dynamic viewport height so the sheet fits inside Safari's URL bar

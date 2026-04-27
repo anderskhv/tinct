@@ -14,15 +14,33 @@ interface UseMobileReturn {
 
 const SWIPE_THRESHOLD = 50
 
+/**
+ * Mobile/tablet breakpoint: 1024px.
+ *
+ * Anything ≤ this width gets the single-column mobile layout. Above
+ * 1024px, the desktop layout with side-panel rails activates.
+ *
+ * Why 1024 and not 768: at 768px the mobile layout was only triggering
+ * for phones. iPad portrait (~810-1024px) and 7-8" e-readers
+ * (~1000-1400px logical) got the desktop layout rendered in too little
+ * space — vertically-rotated rail spines looked broken, text was
+ * squeezed against the panel. 1024px is the conventional tablet
+ * boundary and aligns with how every other responsive site treats this
+ * size class.
+ *
+ * Don't change this in just one place — there are matching
+ * `(max-width: 1024px)` media queries in index.css that drive the
+ * actual mobile layout styles. JS and CSS thresholds must agree.
+ */
 export function useMobile(splitViewEnabled: boolean): UseMobileReturn {
   const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches
   )
   const [activeView, setActiveView] = useState<MobileView>(0)
 
   // Viewport detection
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 768px)')
+    const mq = window.matchMedia('(max-width: 1024px)')
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)

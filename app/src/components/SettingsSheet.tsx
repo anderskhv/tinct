@@ -5,16 +5,14 @@ import type {
   FontSize, FontFamily,
   ProgressDisplay, ProgressMetric, ProgressScope,
 } from '../types'
+import { isFullyLoaded as isDictFullyLoaded, preloadAll as preloadDictionary } from '../services/dictionary'
+import { isAndroidNative, isHomeApp, requestHomeApp, openHomeAppSettings } from '../utils/homeRole'
 
 type SectionKey =
   | 'reading'
-  | 'editions'
-  | 'progress'
-  | 'angle'
-  | 'audio'
+  | 'layout'
   | 'offline'
   | 'account'
-  | 'library'
 
 interface SettingsSheetProps {
   isOpen: boolean
@@ -83,14 +81,10 @@ interface SettingsSheetProps {
 }
 
 const SECTIONS: { k: SectionKey; label: string; sub: string }[] = [
-  { k: 'reading',  label: 'Reading',       sub: 'Theme · font · size' },
-  { k: 'editions', label: 'Editions',      sub: 'Primary · compare · audio' },
-  { k: 'progress', label: 'Progress',      sub: "How it's shown" },
-  { k: 'angle',    label: 'Reading angle', sub: 'Lens for your AI companion' },
-  { k: 'audio',    label: 'Audio',         sub: 'Audiobook narration' },
-  { k: 'offline',  label: 'Offline',       sub: 'Downloaded books' },
-  { k: 'account',  label: 'Account',       sub: 'Email · subscription' },
-  { k: 'library',  label: 'Library',       sub: 'Browse all books' },
+  { k: 'reading', label: 'Reading', sub: 'Editions · angle · library' },
+  { k: 'layout',  label: 'Layout',  sub: 'Theme · font · progress · tabs' },
+  { k: 'offline', label: 'Offline', sub: 'Downloads · dictionary' },
+  { k: 'account', label: 'Account', sub: 'Email · subscription' },
 ]
 
 function Toggle({ on, onClick }: { on: boolean; onClick: () => void }) {
@@ -176,96 +170,37 @@ export function SettingsSheet(props: SettingsSheetProps) {
     return () => document.removeEventListener('keydown', onKey)
   }, [isOpen, onClose])
 
+  // Dictionary preload state. MUST be declared before the early-return below
+  // — hooks must run in the same order on every render, otherwise React
+  // blanks the whole tree with a hook-order mismatch.
+  const [dictDownloading, setDictDownloading] = useState(false)
+  const [dictProgress, setDictProgress] = useState<{ done: number; total: number } | null>(null)
+  const [dictReady, setDictReady] = useState(() => isDictFullyLoaded())
+
+  // Home-app role (Android Capacitor only). State so the row can flip between
+  // "Make Tinct home" and "Release as default home" without a sheet reopen.
+  // Hooks must run unconditionally — kept above the early return.
+  const [isHome, setIsHome] = useState(false)
+  const [homeBusy, setHomeBusy] = useState(false)
+  const [showHomeRow, setShowHomeRow] = useState(false)
+  useEffect(() => {
+    if (!isOpen) return
+    if (!isAndroidNative()) { setShowHomeRow(false); return }
+    setShowHomeRow(true)
+    void isHomeApp().then(setIsHome)
+  }, [isOpen])
+
   if (!isOpen) return null
 
   const sectionMeta = SECTIONS.find(s => s.k === active) ?? SECTIONS[0]
 
-  const ReadingSection = () => (
-    <>
-      <Row
-        label="Theme"
-        hint="The colour of paper + ink."
-        control={
-          <Seg
-            options={[{ value: 'light', label: 'Paper' }, { value: 'dark', label: 'Night' }]}
-            active={darkMode ? 'dark' : 'light'}
-            onChange={(v) => { if ((v === 'dark') !== darkMode) onToggleDarkMode() }}
-          />
-        }
-      />
-      <Row
-        label="Font"
-        hint="Serif for the book, mono for the chrome."
-        control={
-          <Seg
-            options={[
-              { value: 'garamond', label: 'Garamond' },
-              { value: 'baskerville', label: 'Baskerville' },
-              { value: 'sourceserif', label: 'Source' },
-            ]}
-            active={fontFamily}
-            onChange={(v) => onFontFamilyChange(v as FontFamily)}
-          />
-        }
-      />
-      <Row
-        label="Size"
-        hint="Tap to step through."
-        control={
-          <Seg
-            options={[
-              { value: 'small',  label: 'S' },
-              { value: 'medium', label: 'M' },
-              { value: 'large',  label: 'L' },
-              { value: 'xlarge', label: 'XL' },
-            ]}
-            active={fontSize}
-            onChange={(v) => onFontSizeChange(v as FontSize)}
-          />
-        }
-      />
-      <Row
-        label="Chat tab"
-        hint="The AI companion panel."
-        control={
-          <Seg
-            options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
-            active={chatHidden ? 'off' : 'on'}
-            onChange={(v) => { if ((v === 'off') !== chatHidden) onToggleChatHidden() }}
-          />
-        }
-      />
-      <Row
-        label="Feed tab"
-        hint="Your reading journal of highlights, notes, and chats."
-        control={
-          <Seg
-            options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
-            active={feedHidden ? 'off' : 'on'}
-            onChange={(v) => { if ((v === 'off') !== feedHidden) onToggleFeedHidden() }}
-          />
-        }
-      />
-      <Row
-        label="Cast tab"
-        hint="Spoiler-safe character tracker."
-        control={
-          <Seg
-            options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
-            active={castHidden ? 'off' : 'on'}
-            onChange={(v) => { if ((v === 'off') !== castHidden) onToggleCastHidden() }}
-          />
-        }
-      />
-    </>
-  )
-
-  const EditionsSection = () => {
+  // === Reading (was Editions + Angle + Library link) ===
+  const ReadingSection = () => {
     return (
-      <>
+      <div className="ss-reading">
         <Row
           label="Primary edition"
-          hint="What you see in Read."
+          hint="The text you read."
           control={
             <select
               className="ss-select"
@@ -301,11 +236,15 @@ export function SettingsSheet(props: SettingsSheetProps) {
                 </select>
               }
             />
-            <Row
-              label="Split-view by default"
-              hint="Show both editions side by side when opening a book."
-              control={<Toggle on={splitView} onClick={onToggleSplitView} />}
-            />
+            {/* Split-view toggle is hidden on mobile — the side-by-side layout
+                isn't usable at phone widths; use the Compare tab instead. */}
+            {typeof window !== 'undefined' && !window.matchMedia('(max-width: 1024px)').matches && (
+              <Row
+                label="Split-view by default"
+                hint="Open both editions side by side."
+                control={<Toggle on={splitView} onClick={onToggleSplitView} />}
+              />
+            )}
           </>
         )}
         {audioEditions.length > 0 && (
@@ -326,16 +265,121 @@ export function SettingsSheet(props: SettingsSheetProps) {
             }
           />
         )}
-      </>
+
+        <div className="ss-reading-angle">
+          <div className="ss-row-label">Reading angle</div>
+          <div className="ss-row-hint" style={{ marginBottom: 10 }}>
+            Told in the first person. The lens your AI companion reads through.
+          </div>
+          <textarea
+            className="ss-angle-textarea"
+            value={localObjective}
+            onChange={(e) => setLocalObjective(e.target.value)}
+            onBlur={() => {
+              if (localObjective.trim() !== readingObjective) {
+                onSaveObjective(localObjective.trim())
+              }
+            }}
+            placeholder="e.g. Leadership lessons, mythology connections, close-reading the prosody…"
+            rows={5}
+            maxLength={2000}
+          />
+          <div className="ss-angle-counter">
+            {localObjective.length} / 2,000 characters
+          </div>
+        </div>
+
+        <div className="ss-reading-footer">
+          <button className="ss-link-btn" onClick={() => { onOpenStore(); onClose() }}>
+            Open the library →
+          </button>
+        </div>
+      </div>
     )
   }
 
-  const ProgressSection = () => (
+  // === Layout (was Reading visual + Progress + tab toggles) ===
+  // Mobile gets a single master toggle for Chat/Feed/Cast (one bottom nav bar
+  // is binary: show tabs, or don't). Desktop keeps the three individual
+  // toggles since they map to separate rails on the right.
+  const allTabsHidden = chatHidden && feedHidden && castHidden
+  const anyTabVisible = !allTabsHidden
+  const toggleAllTabs = () => {
+    // If any tab is currently visible → hide all. Else → show all.
+    if (anyTabVisible) {
+      if (!chatHidden) onToggleChatHidden()
+      if (!feedHidden) onToggleFeedHidden()
+      if (!castHidden) onToggleCastHidden()
+    } else {
+      if (chatHidden) onToggleChatHidden()
+      if (feedHidden) onToggleFeedHidden()
+      if (castHidden) onToggleCastHidden()
+    }
+  }
+
+  const LayoutSection = () => (
     <>
       <Row
-        label="Show"
-        hint="What's printed in the bottom strip."
+        label="Theme"
+        hint="The colour of paper + ink."
         control={
+          <Seg
+            options={[{ value: 'light', label: 'Paper' }, { value: 'dark', label: 'Night' }]}
+            active={darkMode ? 'dark' : 'light'}
+            onChange={(v) => { if ((v === 'dark') !== darkMode) onToggleDarkMode() }}
+          />
+        }
+      />
+      <Row
+        label="Font"
+        hint="Serif for the book."
+        control={
+          <Seg
+            options={[
+              { value: 'garamond', label: 'Garamond' },
+              { value: 'baskerville', label: 'Baskerville' },
+              { value: 'sourceserif', label: 'Source' },
+            ]}
+            active={fontFamily}
+            onChange={(v) => onFontFamilyChange(v as FontFamily)}
+          />
+        }
+      />
+      <Row
+        label="Size"
+        hint="Five sizes, from compact to extra large."
+        control={
+          <div className="font-size-steps">
+            {[
+              { v: 1.0, label: 'A', px: '0.8em' },
+              { v: 1.2, label: 'A', px: '0.95em' },
+              { v: 1.5, label: 'A', px: '1.15em' },
+              { v: 1.8, label: 'A', px: '1.35em' },
+              { v: 2.2, label: 'A', px: '1.6em' },
+            ].map(step => {
+              const active = Math.abs(fontSize - step.v) < 0.0001
+              return (
+                <button
+                  key={step.v}
+                  type="button"
+                  className={`font-size-step ${active ? 'font-size-step-active' : ''}`}
+                  onClick={() => onFontSizeChange(step.v)}
+                  aria-label={`Font size ${step.v}`}
+                >
+                  <span style={{ fontSize: step.px, fontFamily: 'var(--font-serif)' }}>{step.label}</span>
+                </button>
+              )
+            })}
+          </div>
+        }
+      />
+      <div className="ss-row-group">
+        <div className="ss-row-group-head">
+          <div className="ss-row-label">Progress</div>
+          <div className="ss-row-hint">What the bottom strip shows.</div>
+        </div>
+        <div className="ss-row-group-inline">
+          <span className="ss-row-group-sublabel">Show</span>
           <Seg
             options={[
               { value: 'percent',  label: '%' },
@@ -346,12 +390,9 @@ export function SettingsSheet(props: SettingsSheetProps) {
             active={progressDisplay.metric}
             onChange={(v) => onProgressDisplayChange({ ...progressDisplay, metric: v as ProgressMetric })}
           />
-        }
-      />
-      <Row
-        label="Of"
-        hint="Book vs chapter vs section."
-        control={
+        </div>
+        <div className="ss-row-group-inline">
+          <span className="ss-row-group-sublabel">Of</span>
           <Seg
             options={[
               { value: 'book', label: 'Book' },
@@ -361,73 +402,63 @@ export function SettingsSheet(props: SettingsSheetProps) {
             active={progressDisplay.scope}
             onChange={(v) => onProgressDisplayChange({ ...progressDisplay, scope: v as ProgressScope })}
           />
-        }
-      />
-    </>
-  )
-
-  const AngleSection = () => (
-    <div className="ss-angle">
-      <div className="ss-row-label">The lens your companion reads through.</div>
-      <div className="ss-row-hint" style={{ marginBottom: 14 }}>
-        Told in the first person. Used when you ask T. about a passage.
-      </div>
-      <textarea
-        className="ss-angle-textarea"
-        value={localObjective}
-        onChange={(e) => setLocalObjective(e.target.value)}
-        onBlur={() => {
-          if (localObjective.trim() !== readingObjective) {
-            onSaveObjective(localObjective.trim())
-          }
-        }}
-        placeholder="e.g. Leadership lessons, mythology connections, close-reading the prosody…"
-        rows={6}
-        maxLength={2000}
-      />
-      <div className="ss-angle-counter">
-        {localObjective.length} / 2,000 characters
-      </div>
-      {onRedoOnboarding && (
-        <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid var(--paper-deep)' }}>
-          <button className="ss-link-btn" onClick={() => { onRedoOnboarding(); }}>
-            Redo reading setup →
-          </button>
-          <div className="ss-row-hint" style={{ marginTop: 6 }}>
-            Re-run edition and angle selection for this book.
-          </div>
         </div>
-      )}
-    </div>
-  )
-
-  const AudioSection = () => (
-    <>
-      {audioEditions.length === 0 ? (
-        <div className="ss-empty">No audiobook is available for this book yet.</div>
-      ) : (
-        <>
-          <div className="ss-row-hint" style={{ padding: '14px 0 18px' }}>
-            Tap the headphones icon in the top bar to open the player. Audio
-            plays paragraph by paragraph; the one being read is highlighted
-            in the reader so you can switch between listening and reading
-            without losing your place. The narrator edition is set under
-            <strong> Editions</strong>.
-          </div>
-          <Row
-            label="Auto-advance to next chapter"
-            hint="When a chapter ends, the next one starts automatically."
-            control={<span className="ss-text-value" style={{ color: 'var(--accent)' }}>On</span>}
-          />
-          <Row
-            label="Highlight currently-playing paragraph"
-            hint="Soft accent background under the paragraph the narrator is on."
-            control={<span className="ss-text-value" style={{ color: 'var(--accent)' }}>On</span>}
-          />
-        </>
-      )}
+      </div>
+      {/* Desktop: individual rail toggles. Mobile: one master switch. */}
+      <div className="ss-layout-tabs-desktop">
+        <Row
+          label="Chat tab"
+          hint="The AI companion panel."
+          control={
+            <Seg
+              options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
+              active={chatHidden ? 'off' : 'on'}
+              onChange={(v) => { if ((v === 'off') !== chatHidden) onToggleChatHidden() }}
+            />
+          }
+        />
+        <Row
+          label="Feed tab"
+          hint="Your reading journal."
+          control={
+            <Seg
+              options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
+              active={feedHidden ? 'off' : 'on'}
+              onChange={(v) => { if ((v === 'off') !== feedHidden) onToggleFeedHidden() }}
+            />
+          }
+        />
+        <Row
+          label="Cast tab"
+          hint="Spoiler-safe character tracker."
+          control={
+            <Seg
+              options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]}
+              active={castHidden ? 'off' : 'on'}
+              onChange={(v) => { if ((v === 'off') !== castHidden) onToggleCastHidden() }}
+            />
+          }
+        />
+      </div>
+      <div className="ss-layout-tabs-mobile">
+        <Row
+          label="Chat / Feed / Cast"
+          hint="Show the AI companion, journal, and character tracker in the nav."
+          control={<Toggle on={anyTabVisible} onClick={toggleAllTabs} />}
+        />
+      </div>
     </>
   )
+
+  // === Offline (was Offline + new dictionary row) ===
+  const startDictDownload = async () => {
+    if (dictDownloading) return
+    setDictDownloading(true)
+    setDictProgress({ done: 0, total: 27 })
+    await preloadDictionary((done, total) => setDictProgress({ done, total }))
+    setDictDownloading(false)
+    setDictReady(true)
+  }
 
   const OfflineSection = () => (
     <>
@@ -447,6 +478,25 @@ export function SettingsSheet(props: SettingsSheetProps) {
           />
         }
       />
+      <Row
+        label="Dictionary — English"
+        hint={
+          dictReady
+            ? 'Ready offline.'
+            : dictDownloading
+              ? `Downloading… ${dictProgress ? `${dictProgress.done}/${dictProgress.total}` : ''}`
+              : 'Cache the full dictionary so lookups work without a connection.'
+        }
+        control={
+          dictReady ? (
+            <span className="ss-text-value" style={{ color: 'var(--accent)' }}>Ready ✓</span>
+          ) : dictDownloading ? (
+            <span className="ss-text-value">{dictProgress ? `${Math.round((dictProgress.done / dictProgress.total) * 100)}%` : '…'}</span>
+          ) : (
+            <button className="ss-link-btn" onClick={startDictDownload}>Download →</button>
+          )
+        }
+      />
       <div className="ss-row-hint" style={{ padding: '18px 0 0' }}>
         For audio, downloaded chapters, or to manage all of your offline
         books at once, open the <button className="ss-link-btn" style={{ display: 'inline' }} onClick={() => onOpenDownloads()}>full download manager &rarr;</button>
@@ -454,8 +504,45 @@ export function SettingsSheet(props: SettingsSheetProps) {
     </>
   )
 
+  // Android Capacitor: row to set/release Tinct as the device's home app.
+  // Renders above the user-block so it appears for both signed-in and
+  // anonymous installs.
+  const handleSetHome = async () => {
+    setHomeBusy(true)
+    const granted = await requestHomeApp()
+    setHomeBusy(false)
+    if (granted) setIsHome(true)
+  }
+  const handleReleaseHome = async () => {
+    setHomeBusy(true)
+    await openHomeAppSettings()
+    setHomeBusy(false)
+    // Re-poll a moment later — user may have just changed the role.
+    setTimeout(() => { void isHomeApp().then(setIsHome) }, 1500)
+  }
+  const HomeRoleRow = () => showHomeRow ? (
+    <Row
+      label={isHome ? 'Default home app' : 'Make Tinct home'}
+      hint={isHome
+        ? 'Tinct opens when you press the Home button. Tap to release and pick a different launcher.'
+        : 'Set Tinct as your device\'s home app so power-on lands in your last book. You can always exit normally.'}
+      control={
+        isHome ? (
+          <button className="ss-link-btn" onClick={handleReleaseHome} disabled={homeBusy}>
+            {homeBusy ? 'Opening…' : 'Release →'}
+          </button>
+        ) : (
+          <button className="ss-link-btn" onClick={handleSetHome} disabled={homeBusy}>
+            {homeBusy ? 'Opening…' : 'Set →'}
+          </button>
+        )
+      }
+    />
+  ) : null
+
   const AccountSection = () => (
     <>
+      <HomeRoleRow />
       {user ? (
         <>
           <Row label="Email" control={<span className="ss-text-value">{user.email}</span>} />
@@ -530,27 +617,12 @@ export function SettingsSheet(props: SettingsSheetProps) {
     </>
   )
 
-  const LibrarySection = () => (
-    <div className="ss-offline">
-      <div className="ss-row-hint" style={{ padding: '14px 0 16px' }}>
-        Browse the full library of public-domain classics.
-      </div>
-      <button className="ss-action-btn" onClick={() => { onOpenStore(); onClose() }}>
-        Open the library
-      </button>
-    </div>
-  )
-
   const renderSection = () => {
     switch (active) {
-      case 'reading':  return <ReadingSection />
-      case 'editions': return <EditionsSection />
-      case 'progress': return <ProgressSection />
-      case 'angle':    return <AngleSection />
-      case 'audio':    return <AudioSection />
-      case 'offline':  return <OfflineSection />
-      case 'account':  return <AccountSection />
-      case 'library':  return <LibrarySection />
+      case 'reading': return <ReadingSection />
+      case 'layout':  return <LayoutSection />
+      case 'offline': return <OfflineSection />
+      case 'account': return <AccountSection />
     }
   }
 
