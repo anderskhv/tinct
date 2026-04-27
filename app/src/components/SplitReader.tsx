@@ -24,6 +24,9 @@ interface SplitReaderProps {
   leftParagraphs: string[]
   rightParagraphs: string[]
   chapterTitle: string
+  /** Right side of the running footer — formatted per the user's
+   * `progressDisplay` preference. Falls back to `currentPage / totalPages`. */
+  progressLabel?: string
   leftLabel: string
   rightLabel: string
   isLoading: boolean
@@ -93,6 +96,7 @@ export function SplitReader({
   leftParagraphs,
   rightParagraphs,
   chapterTitle,
+  progressLabel,
   leftLabel,
   rightLabel,
   isLoading,
@@ -901,7 +905,7 @@ export function SplitReader({
         <span className="page-nav-label">
           {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
           {chapterTitle && <span className="page-nav-sep"> — </span>}
-          {currentPage + 1} / {totalPages}
+          {progressLabel || `${currentPage + 1} / ${totalPages}`}
         </span>
         <button
           className="page-nav-tick"

@@ -22,6 +22,11 @@ interface SelectionInfo {
 interface ReaderProps {
   paragraphs: string[]
   chapterTitle: string
+  /** Right side of the running footer — formatted progress per user's
+   * `progressDisplay` preference (percent/page/time/location × book/
+   * chapter/section). Computed in App.tsx via `formatProgressLabel`.
+   * If absent, the footer falls back to `currentPage / totalPages`. */
+  progressLabel?: string
   editionLabel: string
   isLoading: boolean
   highlights: Highlight[]
@@ -92,6 +97,7 @@ interface ReaderProps {
 export function Reader({
   paragraphs,
   chapterTitle,
+  progressLabel,
   editionLabel,
   isLoading,
   highlights,
@@ -1009,7 +1015,7 @@ export function Reader({
         <span className="page-nav-label">
           {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
           {chapterTitle && <span className="page-nav-sep"> — </span>}
-          {currentPage + 1} / {totalPages}
+          {progressLabel || `${currentPage + 1} / ${totalPages}`}
         </span>
         <button
           className="page-nav-tick"

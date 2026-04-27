@@ -1151,7 +1151,11 @@ body {
 
 .reader-columns {
   height: 100%;
-  padding: 48px 60px 60px;
+  /* Tighter than before. Top: 24px (was 48px). Bottom: 36px reserved for
+     the running footer (sits at bottom: 12px, ~24px tall). Anders found
+     the previous 48/60 padding wasted vertical space on both desktop
+     and mobile. */
+  padding: 24px 60px 36px;
   column-fill: auto;
   column-gap: 60px;
   /* column-width set dynamically via JS to (containerWidth - 2*padding) */
@@ -1194,43 +1198,39 @@ body {
 }
 
 .page-nav-label {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: var(--text-tertiary);
-  font-family: var(--font-mono);
-  letter-spacing: 0.04em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  letter-spacing: 0;
   text-align: center;
   white-space: nowrap;
 }
 
-/* Running-footer chapter label — italic serif against the mono page count.
-   Mimics a printed book's running header: "Book I — 4 / 15". */
+/* Whole running footer is italic serif — chapter, separator, and page
+   count all read as a single printed running header. */
 .page-nav-chapter {
-  font-family: var(--font-serif);
   font-style: italic;
-  letter-spacing: 0;
 }
 .page-nav-sep {
   margin: 0 2px;
 }
 
-/* Minimal page-turn ticks — match the footer aesthetic: same color as
-   the label text, no border, no background. Just an arrow that's part
-   of the running footer line. */
+/* Minimal page-turn ticks — same color as the footer text, always.
+   No hover-darken (Anders found the post-click black color jarring);
+   the cursor change is the only affordance feedback. */
 .page-nav-tick {
   background: none;
   border: none;
   color: var(--text-tertiary);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1;
-  padding: 4px 8px;
+  padding: 4px 10px;
   cursor: pointer;
-  transition: color 0.15s;
-}
-.page-nav-tick:hover:not(:disabled) {
-  color: var(--text-primary);
+  font-family: var(--font-serif);
 }
 .page-nav-tick:disabled {
-  opacity: 0.3;
+  opacity: 0.25;
   cursor: default;
 }
 
@@ -6442,7 +6442,9 @@ body {
   }
 
   .reader-columns {
-    padding: 20px 16px 60px;
+    /* Tighter mobile padding — was 60px bottom for old BottomBar; now
+       just enough room for the running footer. */
+    padding: 16px 16px 36px;
     column-gap: 40px;
   }
 

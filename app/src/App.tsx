@@ -46,6 +46,7 @@ import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
 import { trackPageview } from './utils/analytics'
 import { AUDIO_BASE_URL } from './utils/audioUrl'
+import { formatProgressLabel } from './utils/formatProgress'
 
 /** Pick the most recently updated position. Falls back to furthest if no timestamps. */
 function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
@@ -993,6 +994,43 @@ export default function App() {
     wordsPerMinute,
     trackPageView,
   } = useReadingSpeed(book.id, currentChapter, currentPage, totalPages, totalChapters, allParagraphs)
+
+  // Running-footer progress label — honors preferences.progressDisplay
+  // (percent / page / time / location × book / chapter / section). The
+  // Reader and SplitReader render this to the right of the chapter title.
+  // Recomputed whenever any input changes so toggling the metric in
+  // Settings updates the footer immediately. (Same logic the old
+  // BottomBar used; extracted to formatProgressLabel.)
+  const chapterPercentComplete = totalPages > 1 ? Math.round(((currentPage + 1) / totalPages) * 100) : 100
+  const chapterTimeLabel = useMemo(() => {
+    if (totalPages <= 1) return 'Done'
+    const chapterWords = primaryChapter?.paragraphs.reduce((s, p) => s + p.split(/\s+/).length, 0) || 0
+    const pagesAhead = Math.max(0, totalPages - currentPage)
+    const wordsLeft = Math.round(chapterWords * pagesAhead / totalPages)
+    const wpm = wordsPerMinute > 0 ? wordsPerMinute : 250
+    const rawSecs = (wordsLeft / wpm) * 60
+    if (rawSecs <= 5) return 'Done'
+    if (rawSecs < 90) return `${Math.max(5, Math.round(rawSecs / 5) * 5)}s left`
+    return `${Math.round(rawSecs / 60)}min left`
+  }, [primaryChapter, currentPage, totalPages, wordsPerMinute])
+  const progressLabel = useMemo(() => formatProgressLabel({
+    progressDisplay: preferences.progressDisplay,
+    percentComplete: readingPercent,
+    timeRemainingLabel,
+    isLearned: isSpeedLearned,
+    currentPage,
+    totalPages,
+    absoluteCurrentPage: absolutePage.current,
+    absoluteTotalPages: absolutePage.total,
+    bookCurrentPage: bookAbsolutePage.current,
+    bookTotalPages: bookAbsolutePage.total,
+    chapterPercentComplete,
+    chapterTimeLabel,
+    locationCurrent: primaryData ? primaryData.chapters.slice(0, currentChapter - 1).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0) : 0,
+    locationTotal: primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0,
+    locationCurrentChapter: firstVisibleParagraph,
+    locationTotalChapter: primaryChapter?.paragraphs.length,
+  }), [preferences.progressDisplay, readingPercent, timeRemainingLabel, isSpeedLearned, currentPage, totalPages, absolutePage, bookAbsolutePage, chapterPercentComplete, chapterTimeLabel, primaryData, primaryChapter, currentChapter, firstVisibleParagraph])
 
 
   // Navigate to a chapter (and optionally a paragraph/edition) from side panel
@@ -2193,6 +2231,7 @@ export default function App() {
                 isActive={activeView === 0}
                 paragraphs={primaryChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                progressLabel={progressLabel}
                 editionLabel={editionLabel}
                 isLoading={isLoading}
                 highlights={getEditionHighlights(primaryEditionKey)}
@@ -2227,6 +2266,7 @@ export default function App() {
                   isActive={activeView === 1}
                   paragraphs={splitChapter.paragraphs}
                   chapterTitle={`${splitChapter.title || `Book ${currentChapter}`}`}
+                  progressLabel={progressLabel}
                   isLoading={isLoading}
                   highlights={getEditionHighlights(splitEditionKey)}
                   onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color)}
@@ -2321,6 +2361,7 @@ export default function App() {
                 leftParagraphs={primaryChapter?.paragraphs || []}
                 rightParagraphs={splitChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                progressLabel={progressLabel}
                 leftLabel={editionLabel}
                 rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                 isLoading={isLoading}
@@ -2365,6 +2406,7 @@ export default function App() {
                 key={`${currentChapter}-${readerKey}`}
                 paragraphs={primaryChapter?.paragraphs || []}
                 chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                progressLabel={progressLabel}
                 editionLabel={editionLabel}
                 isLoading={isLoading}
                 highlights={getEditionHighlights(primaryEditionKey)}
