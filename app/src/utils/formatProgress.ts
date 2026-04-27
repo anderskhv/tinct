@@ -67,7 +67,9 @@ export function formatProgressLabel(args: ProgressInputs): string {
     }
   }
   if (metric === 'time') {
-    return `${time}${scopeLabel ? ` (${scopeLabel})` : ''}${!args.isLearned && args.percentComplete > 0 ? ' (est.)' : ''}`
+    // No "(est.)" suffix — Anders pointed out it's redundant. The "left"
+    // wording already implies the value is an estimate.
+    return `${time}${scopeLabel ? ` (${scopeLabel})` : ''}`
   }
   return `${pct}%${scopeLabel ? ` ${scopeLabel}` : ''}`
 }

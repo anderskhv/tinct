@@ -1151,11 +1151,11 @@ body {
 
 .reader-columns {
   height: 100%;
-  /* Tighter than before. Top: 24px (was 48px). Bottom: 36px reserved for
-     the running footer (sits at bottom: 12px, ~24px tall). Anders found
-     the previous 48/60 padding wasted vertical space on both desktop
-     and mobile. */
-  padding: 24px 60px 36px;
+  /* Round 2 (Anders flagged still-wasted space below the footer): top
+     trimmed to 16px (was 24px), bottom to 26px (was 36px) — just enough
+     headroom for the running footer below at bottom: 4px. Net: ~30px
+     more reading area per page. */
+  padding: 16px 60px 26px;
   column-fill: auto;
   column-gap: 60px;
   /* column-width set dynamically via JS to (containerWidth - 2*padding) */
@@ -1185,10 +1185,14 @@ body {
   margin: 0 auto;
 }
 
-/* Page navigation */
+/* Page navigation — running footer. Sits 4px from the bottom of the
+   reader (was 12px). Combined with the tighter .reader-columns
+   padding-bottom of 26px, this puts the footer right where a printed
+   page would have its running header — flush against the bottom margin
+   without a visible gap below. */
 .page-nav {
   position: absolute;
-  bottom: 12px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -2055,7 +2059,10 @@ body {
 }
 
 .chat-message-content p {
-  font-size: 0.9rem;
+  /* Same nudge as .chat-input — sans-serif feels heavier than the
+     italic-serif body at the same numeric size, so we tune slightly
+     smaller for visual parity. */
+  font-size: 0.86rem;
   line-height: 1.6;
   margin-bottom: 6px;
 }
@@ -2160,13 +2167,16 @@ body {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
-  padding: 10px 12px;
+  padding: 9px 12px;
   border-radius: 12px;
-  font-size: 0.9rem;
+  /* Size sits below the book body (~1rem) so the input doesn't visually
+     dominate the reading column. Sans-serif weight against italic-serif
+     body needed a smaller numeric size to feel commensurate. */
+  font-size: 0.84rem;
   font-family: var(--font-sans);
   resize: none;
   line-height: 1.4;
-  min-height: 36px;
+  min-height: 34px;
   overflow-y: hidden;
   /* height is controlled by JS auto-grow, max 200px */
 }
@@ -6442,9 +6452,10 @@ body {
   }
 
   .reader-columns {
-    /* Tighter mobile padding — was 60px bottom for old BottomBar; now
-       just enough room for the running footer. */
-    padding: 16px 16px 36px;
+    /* Round 2 — tighter still: footer sits ~4px from reader bottom; we
+       only need enough column padding to keep text from sliding under
+       the footer. */
+    padding: 12px 16px 26px;
     column-gap: 40px;
   }
 
@@ -7989,10 +8000,14 @@ body {
 }
 
 .card-rail.card-rail-open {
-  /* Wider open rail so chat/feed/cast content has room to breathe before
-     the next rail's spine label intrudes from the right. Anders flagged
-     the chat input felt squeezed by the adjacent FEED spine. */
-  width: 480px;
+  /* Width adapts to viewport so the panel never dominates smaller
+     screens. iPad portrait (~1024px) was previously seeing ~50% of
+     the page taken by chat at fixed 480px. min(480px, 36vw) caps the
+     panel at 36% of viewport width OR 480px, whichever is smaller —
+     keeps reading area dominant on tablets, full width still on
+     desktop monitors. Floor at 320px so a phone landscape doesn't
+     squeeze chat unusably small. */
+  width: clamp(320px, 36vw, 480px);
   cursor: default;
 }
 
