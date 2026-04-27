@@ -6464,10 +6464,11 @@ body {
     font-size: var(--font-size-reader, 1.2rem);
   }
 
-  /* Page nav — hidden on mobile, replaced by reading tracker nav buttons */
-  .page-nav {
-    display: none;
-  }
+  /* Page nav (running footer) — visible on mobile too. Sits at bottom: 12px
+     of the reader area, just above the mobile-nav tabs. The old rule
+     hid it because the BottomBar covered the same role; with BottomBar
+     removed, the running footer is the only chapter+page indicator on
+     mobile. */
 
   /* Side panel — full width on mobile, explicit height for scroll chain */
   .side-panel {
