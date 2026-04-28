@@ -842,6 +842,41 @@ export function Reader({
     }
   }, [paragraphs, readerRef, disableHighlight, clearSelectionPreview])
 
+  // Android WebView (Capacitor / Boox) consumes the touch in its native
+  // selection mode, so onTouchEnd on our React div never fires when the
+  // user finalises a selection by lifting their finger. The
+  // `selectionchange` event on document DOES fire reliably on all
+  // platforms when the selection changes — we debounce it (selection
+  // events fire continuously during drag) and run the same logic as
+  // mouseup/touchend once it stabilises. Without this listener, long-
+  // press text selection on Boox showed neither our popup nor (after
+  // setCustomSelectionActionModeCallback) the system bar.
+  useEffect(() => {
+    if (disableHighlight) return
+    let timer: ReturnType<typeof setTimeout> | null = null
+    const onSelectionChange = () => {
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(() => {
+        const selection = window.getSelection()
+        if (!selection || selection.isCollapsed) return
+        const text = selection.toString().trim()
+        if (text.length < 3) return
+        // Only act on selections inside our reader. The selectionchange
+        // event is document-wide; we don't want to fire for selections in
+        // the chat panel, settings sheet, etc.
+        const anchor = selection.anchorNode
+        const node = anchor?.nodeType === Node.TEXT_NODE ? anchor.parentElement : (anchor as HTMLElement | null)
+        if (!node || !readerRef.current?.contains(node)) return
+        handleMouseUp()
+      }, 350)
+    }
+    document.addEventListener('selectionchange', onSelectionChange)
+    return () => {
+      document.removeEventListener('selectionchange', onSelectionChange)
+      if (timer) clearTimeout(timer)
+    }
+  }, [disableHighlight, handleMouseUp, readerRef])
+
   const handleDefine = useCallback(() => {
     if (!selectionPopup) return
     const raw = selectionPopup.text.trim()
