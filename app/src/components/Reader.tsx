@@ -1034,6 +1034,14 @@ export function Reader({
         // Reading mode: left/right edge tap for page/chapter navigation
         const container = readerRef.current
         if (!container) return
+        // Phantom-tap guard: see mountedAtRef comment. The chapter-boundary
+        // tap fires onPrevChapter/onNextChapter, Reader unmounts/remounts
+        // at the same DOM coordinates, and Boox's touch driver re-dispatches
+        // the same touchEnd to the freshly-mounted reader's tap-zone ~60ms
+        // later. That stale-closure phantom calls goToPage(currentPage ± 1)
+        // against the just-restored state, undoing the chapter-cross
+        // landing by exactly one page (the +1/-1 symmetry Anders observed).
+        if (Date.now() - mountedAtRef.current < 500) return
         const rect = container.getBoundingClientRect()
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
@@ -1124,8 +1132,6 @@ export function Reader({
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
-            // Phantom-click guard: see mountedAtRef comment.
-            if (Date.now() - mountedAtRef.current < 500) return
             if (totalPages > 1 && currentPage <= 0 && onPrevChapter) onPrevChapter()
             else goToPage(currentPage - 1)
           }}
@@ -1143,8 +1149,6 @@ export function Reader({
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
-            // Phantom-click guard: see mountedAtRef comment.
-            if (Date.now() - mountedAtRef.current < 500) return
             if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) onNextChapter()
             else goToPage(currentPage + 1)
           }}
