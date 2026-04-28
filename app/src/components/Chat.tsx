@@ -152,6 +152,15 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const recognitionRef = useRef<SpeechRecognition | null>(null)
   const voiceTranscriptRef = useRef('')
+  // Snapshot of "finalized" transcript that survives across recognition
+  // sessions. Boox auto-stops the audio engine after ~5s of silence even
+  // with continuous=true, so we restart it from onend; each restart's
+  // event.results starts empty, so we accumulate here.
+  const committedTranscriptRef = useRef('')
+  // Mirrors isListening so the onend handler (closure over old state)
+  // can decide whether to auto-restart or honour an explicit stop.
+  const isListeningRef = useRef(false)
+  isListeningRef.current = isListening
 
   // Voice input availability — pure feature detection. The earlier
   // !isEink guard hid the mic on e-ink devices (Boox), but voice input is
@@ -191,43 +200,110 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     recognitionRef.current = null
   }, [])
 
-  // Voice input
-  const toggleVoice = useCallback(() => {
-    if (isListening) {
-      stopRecognition()
-      setIsListening(false)
-      return
-    }
-    if (!hasSpeechRecognition) return
+  // Build a fresh recognition instance wired with our handlers. Pulled out
+  // of toggleVoice so the onend auto-restart path can call it too.
+  const createRecognition = useCallback((): SpeechRecognition | null => {
+    if (!hasSpeechRecognition) return null
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition
     const recognition = new SR()
     recognition.continuous = true
     recognition.interimResults = true
     recognition.lang = navigator.language || 'en-US'
-    // Combine results robustly across spec-compliant browsers AND Boox's
-    // non-compliant impl. Spec says interim results update in place; Boox
-    // appends each new partial as a fresh non-final entry, so naive
-    // concat-everything yields "whywhywhywhy iswhy is the...". Solution:
-    // concatenate only final results; for interims, take just the latest.
+
+    // onresult — robust across spec-compliant browsers AND Boox's
+    // non-compliant impl. Two pathologies seen on Boox:
+    //   1. Each new partial appended as a SEPARATE result entry with the
+    //      running transcript ("why", "why is", "why is the snake", ...)
+    //   2. Each refinement marked isFinal=true, so concat-only-finals
+    //      still piles up duplicates ("What's Blake?", "What's Blake?",
+    //      "What's Blake condoning?", "What's Blake condoning?")
+    // Strategy: walk results, dedupe overlaps (if a result is a prefix or
+    // extension of the previous, replace with the longer version). Take
+    // only the latest interim. This preserves spec-compliant browsers
+    // (where finals are truly distinct utterances) and tames Boox.
     recognition.onresult = (event: SpeechRecognitionEvent) => {
-      let finalText = ''
+      const finals: string[] = []
       let lastInterim = ''
       for (let i = 0; i < event.results.length; i++) {
-        const result = event.results[i]
-        const text = result[0].transcript
-        if (result.isFinal) finalText += text
-        else lastInterim = text
+        const r = event.results[i]
+        const text = String(r[0].transcript || '').trim()
+        if (!text) continue
+        if (r.isFinal) {
+          const prev = finals.length > 0 ? finals[finals.length - 1] : ''
+          if (prev && (text.startsWith(prev) || prev.startsWith(text) || text.includes(prev) || prev.includes(text))) {
+            finals[finals.length - 1] = text.length > prev.length ? text : prev
+          } else {
+            finals.push(text)
+          }
+        } else {
+          lastInterim = text
+        }
       }
-      const transcript = (finalText + ' ' + lastInterim).trim()
-      voiceTranscriptRef.current = transcript
-      setInput(transcript)
+      const sessionText = (finals.join(' ') + ' ' + lastInterim).trim().replace(/\s+/g, ' ')
+      const committed = committedTranscriptRef.current
+      const display = (committed ? committed + ' ' + sessionText : sessionText).trim().replace(/\s+/g, ' ')
+      voiceTranscriptRef.current = display
+      setInput(display)
     }
-    recognition.onerror = () => setIsListening(false)
-    recognition.onend = () => setIsListening(false)
+
+    recognition.onerror = (e: Event) => {
+      // 'no-speech' and 'aborted' fire normally; let onend handle restart.
+      const errType = (e as unknown as { error?: string }).error
+      if (errType === 'not-allowed' || errType === 'service-not-allowed') {
+        // Permission denied or service blocked — give up and surface UI off.
+        isListeningRef.current = false
+        setIsListening(false)
+      }
+    }
+
+    // onend — the engine ended this session. If the user hasn't tapped
+    // stop, snapshot whatever we have into committed and start a fresh
+    // session. This is what makes voice feel "always on" on Boox even
+    // though the underlying engine times out every few seconds.
+    recognition.onend = () => {
+      committedTranscriptRef.current = voiceTranscriptRef.current
+      if (isListeningRef.current && recognitionRef.current === recognition) {
+        const next = createRecognitionRef.current?.()
+        if (next) {
+          recognitionRef.current = next
+          try { next.start() } catch { setIsListening(false) }
+        } else {
+          setIsListening(false)
+        }
+      } else {
+        setIsListening(false)
+      }
+    }
+    return recognition
+  }, [hasSpeechRecognition])
+  // Self-reference so onend (defined inside createRecognition) can call
+  // back into createRecognition without the stale-closure dance.
+  const createRecognitionRef = useRef(createRecognition)
+  createRecognitionRef.current = createRecognition
+
+  // Voice input
+  const toggleVoice = useCallback(() => {
+    if (isListening) {
+      isListeningRef.current = false
+      stopRecognition()
+      setIsListening(false)
+      return
+    }
+    if (!hasSpeechRecognition) return
+    // Fresh session — clear any prior committed text from a previous toggle.
+    committedTranscriptRef.current = ''
+    voiceTranscriptRef.current = ''
+    const recognition = createRecognition()
+    if (!recognition) return
     recognitionRef.current = recognition
-    recognition.start()
-    setIsListening(true)
-  }, [isListening, hasSpeechRecognition, stopRecognition])
+    isListeningRef.current = true
+    try {
+      recognition.start()
+      setIsListening(true)
+    } catch {
+      isListeningRef.current = false
+    }
+  }, [isListening, hasSpeechRecognition, stopRecognition, createRecognition])
 
   // Search filter
   const filteredMessages = searchQuery.trim()
