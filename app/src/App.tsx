@@ -19,6 +19,7 @@ import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
 import { TocOverlay } from './components/TocOverlay'
 import { ShareModal } from './components/ShareModal'
+import { DebugOverlay } from './components/DebugOverlay'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition, reloadEdition } from './data/editionLoader'
@@ -246,6 +247,14 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
   const [shareText, setShareText] = useState<string | null>(null)
+  // Debug overlay — opened by long-press on the running-footer page label.
+  // See DebugOverlay.tsx + Reader.tsx onPointerDown handler.
+  const [debugOpen, setDebugOpen] = useState(false)
+  useEffect(() => {
+    const onOpen = () => setDebugOpen(true)
+    window.addEventListener('tinct:open-debug', onOpen)
+    return () => window.removeEventListener('tinct:open-debug', onOpen)
+  }, [])
   const [toastMessage, setToastMessage] = useState<string | null>(null)
   const [isCleaningUp, setIsCleaningUp] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
@@ -2728,6 +2737,9 @@ export default function App() {
           onClose={() => setShareText(null)}
         />
       )}
+
+      {/* Debug overlay — long-press chapter footer to open. */}
+      <DebugOverlay open={debugOpen} onClose={() => setDebugOpen(false)} />
 
       {/* Toast notification */}
       {toastMessage && (
