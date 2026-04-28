@@ -1823,11 +1823,44 @@ const SECURITY_HEADERS: Record<string, string> = {
   'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; media-src 'self' https://pub-c34df89c93284423a39b03537595c2e2.r2.dev; frame-src https://js.stripe.com",
 }
 
+// ===== Bot UA Blocklist (KV-free first line of defence) =====
+
+// Returns 403 to known training/scraper bots BEFORE any KV touch. Many of
+// these ignore robots.txt; they were the dominant source of overnight KV
+// writes (Anders hit 50% of free-tier daily quota at night with zero real
+// users). Per-IP rate-limiting amplified the cost since rotating-IP bots
+// each minted a fresh KV entry. A simple UA reject costs zero KV ops.
+const BLOCKED_BOT_UA_FRAGMENTS = [
+  'GPTBot', 'CCBot', 'Google-Extended', 'ClaudeBot', 'anthropic-ai',
+  'PerplexityBot', 'Omgilibot', 'FacebookBot', 'meta-externalagent',
+  'Bytespider', 'Amazonbot', 'DataForSeoBot', 'AhrefsBot', 'SemrushBot',
+  'MJ12bot', 'DotBot', 'PetalBot', 'YandexBot', 'Applebot-Extended',
+  'cohere-ai', 'Diffbot', 'ImagesiftBot', 'TurnitinBot', 'magpie-crawler',
+]
+function isBlockedBot(request: Request): boolean {
+  const ua = request.headers.get('user-agent') || ''
+  if (!ua) return false
+  for (const fragment of BLOCKED_BOT_UA_FRAGMENTS) {
+    if (ua.includes(fragment)) return true
+  }
+  return false
+}
+
 // ===== Router =====
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
+
+    // 403 known bot UAs immediately. Cheap (no KV, no upstream fetch) and
+    // keeps the free KV tier intact. Honest crawlers honour this; the rest
+    // burned through quota.
+    if (isBlockedBot(request)) {
+      return new Response('Forbidden', {
+        status: 403,
+        headers: { 'Cache-Control': 'no-store', 'Content-Type': 'text/plain' },
+      })
+    }
 
     // Handle CORS preflight for all /api/ routes
     if (request.method === 'OPTIONS' && url.pathname.startsWith('/api/')) {
@@ -1853,16 +1886,31 @@ export default {
       case '/api/audio-file': return handleAudioFile(request, env)
     }
 
-    // Rate-limit bulk JSON content paths (editions, onboarding, threads)
-    // to slow down mass scraping. Legitimate readers load a handful per session.
-    if (url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
-      const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-      if (!await checkRateLimit(`data:${clientIP}`, env.RATE_LIMIT, 30)) {
-        return new Response('Too many requests', {
-          status: 429,
-          headers: { 'Retry-After': '60', 'Content-Type': 'text/plain' },
-        })
+    // Static JSON content (editions, onboarding, threads) — serve via the
+    // Cloudflare Cache API so repeat hits don't re-execute the worker. Used
+    // to KV-rate-limit these paths "to slow down mass scraping," but per-IP
+    // KV rate limiting was burning the free tier overnight from rotating-IP
+    // bots: every new IP minted a fresh KV write, so the rate-limit COST
+    // scaled with bot diversity. The text is public-domain (Project
+    // Gutenberg) and bot UA filtering above already 403s the worst
+    // offenders for free. Edge cache + immutable hashing + robots.txt is
+    // the right defence; KV writes here were pure waste.
+    if (request.method === 'GET' && url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+      const cache = caches.default
+      const cacheKey = new Request(url.toString(), { method: 'GET' })
+      const cached = await cache.match(cacheKey)
+      if (cached) return cached
+
+      const assetResp = await env.ASSETS.fetch(request)
+      if (assetResp.ok) {
+        const cacheable = new Response(assetResp.body, assetResp)
+        // 30 days at the edge; SW + content-hashing handle invalidation on the client.
+        cacheable.headers.set('Cache-Control', 'public, max-age=2592000, immutable')
+        cacheable.headers.set('Access-Control-Allow-Origin', '*')
+        ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
+        return cacheable
       }
+      return assetResp
     }
 
     // Root URL serves the landing page (which is index.html after build swap).
