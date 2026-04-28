@@ -1702,6 +1702,11 @@ export default function App() {
       setTotalPages(1)
       setCurrentChapter(currentChapter + 1)
       setReaderKey(k => k + 1) // Remount so currentPage resets and initialPage re-applies
+      if (typeof window !== 'undefined') {
+        window.__tinctNavDebug = window.__tinctNavDebug || []
+        window.__tinctNavDebug.push({ at: Date.now(), kind: 'next', from: currentChapter, to: currentChapter + 1, savedPos: { ...savedPos.current } })
+        if (window.__tinctNavDebug.length > 40) window.__tinctNavDebug.shift()
+      }
     }
   }, [currentChapter, totalChapters, book.id])
   const handlePrevChapter = useCallback(() => {
@@ -1722,6 +1727,11 @@ export default function App() {
       setTotalPages(1)
       setCurrentChapter(currentChapter - 1)
       setReaderKey(k => k + 1) // Remount so currentPage resets and initialPage re-applies
+      if (typeof window !== 'undefined') {
+        window.__tinctNavDebug = window.__tinctNavDebug || []
+        window.__tinctNavDebug.push({ at: Date.now(), kind: 'prev', from: currentChapter, to: currentChapter - 1, savedPos: { ...savedPos.current } })
+        if (window.__tinctNavDebug.length > 40) window.__tinctNavDebug.shift()
+      }
     }
   }, [currentChapter, book.id])
 

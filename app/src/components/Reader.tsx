@@ -246,31 +246,31 @@ export function Reader({
   // correct transform; no transition-from-page-1 ever happens.
   useLayoutEffect(() => {
     recalcPages()
-    // Consume initialPage synchronously alongside the first measurement.
-    // Without this, the restore lived in a useEffect that fired after paint
-    // — so on chapter back-nav, the user briefly saw page 1 of the new
-    // chapter before the page snapped to last (scrollFraction=1). Doing it
-    // here means the same first paint that has correct colWidthState also
-    // has currentPage = last-page-of-chapter, so back-chapter actually
-    // lands on the LAST page as handlePrevChapter intends.
-    //
-    // We can read the just-measured pages by re-doing the math (same
-    // formula recalcPages used). This is cheap; no second DOM read.
     const content = contentRef.current
-    if (!content) return
+    const dbg = (note: string, extra?: Record<string, unknown>) => {
+      if (typeof window === 'undefined') return
+      const w = window as Window & { __tinctNavDebug?: unknown[] }
+      w.__tinctNavDebug = w.__tinctNavDebug || []
+      w.__tinctNavDebug.push({ at: Date.now(), kind: 'reader.layout', note, initialPageProp: initialPage, initialPageRef: initialPageRef.current, ...extra })
+      if (w.__tinctNavDebug.length > 60) w.__tinctNavDebug.shift()
+    }
+    if (!content) { dbg('no-content'); return }
     const cw = getColWidth()
     const gp = getGap()
-    if (cw <= 0) return
+    if (cw <= 0) { dbg('cw-zero', { cw, gp }); return }
     const pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
-    if (pages <= 1) return
-    if (targetParagraphRef.current !== undefined) return // paragraph branch handled separately below
+    if (pages <= 1) { dbg('pages-le-1', { pages, scrollWidth: content.scrollWidth, cw, gp }); return }
+    if (targetParagraphRef.current !== undefined) { dbg('target-para-set', { para: targetParagraphRef.current }); return }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1) {
       const targetPage = Math.round(frac * (pages - 1))
+      dbg('restore', { frac, pages, targetPage })
       setCurrentPage(targetPage)
       initialPageRef.current = undefined
+    } else {
+      dbg('frac-undef-or-oor', { frac })
     }
-  }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap])
+  }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage])
 
   useEffect(() => {
     // Async recalc retries cover late-arriving font/layout changes (mobile
