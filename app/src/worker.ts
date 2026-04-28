@@ -214,20 +214,33 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
 
   // Check message quota
   if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-    const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end`)
+    const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
     const profiles = await profileRes.json() as {
       messages_used_this_period: number
       message_balance: number
       subscription_status: string | null
       subscription_period_end: string | null
+      created_at: string | null
     }[]
     const profile = profiles?.[0]
 
     if (profile) {
+      // Mirror useTier.ts: 30-day Premium trial from account creation.
+      // CRITICAL bug fix — until this lands, brand-new signups (subscription_status=null,
+      // message_balance=0, messages_used_this_period=0) had `isSubscribed=false` here,
+      // so the worker returned 402 "No messages remaining" the first time they tried
+      // to chat — even though the frontend told them they were on a Premium trial.
+      // Anders's brother Lars hit this and ended up buying chat packs to unblock himself.
+      const accountCreatedAt = profile.created_at ? new Date(profile.created_at) : null
+      const trialDaysRemaining = accountCreatedAt
+        ? 30 - Math.floor((Date.now() - accountCreatedAt.getTime()) / (1000 * 60 * 60 * 24))
+        : 0
+      const isInTrial = trialDaysRemaining > 0
       const isSubscribed = profile.subscription_status === 'active' ||
         (profile.subscription_status === 'canceled' &&
          !!profile.subscription_period_end &&
-         new Date(profile.subscription_period_end) > new Date())
+         new Date(profile.subscription_period_end) > new Date()) ||
+        isInTrial
       const monthlyRemaining = Math.max(0, MONTHLY_MESSAGE_LIMIT - (profile.messages_used_this_period || 0))
       const hasMessages = (isSubscribed && monthlyRemaining > 0) || (profile.message_balance || 0) > 0
 
