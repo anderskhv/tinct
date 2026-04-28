@@ -177,10 +177,24 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     el.style.height = Math.min(el.scrollHeight, 200) + 'px'
   }, [input])
 
+  // Detach all SpeechRecognition handlers and call stop(). Critical: handlers
+  // MUST be nulled before stop() because stop() is async and mobile WebKit
+  // (and Boox) flush late onresult events that would otherwise re-populate
+  // the textarea after we've cleared it for send.
+  const stopRecognition = useCallback(() => {
+    const r = recognitionRef.current
+    if (!r) return
+    r.onresult = null
+    r.onend = null
+    r.onerror = null
+    try { r.stop() } catch { /* already stopped */ }
+    recognitionRef.current = null
+  }, [])
+
   // Voice input
   const toggleVoice = useCallback(() => {
-    if (isListening && recognitionRef.current) {
-      recognitionRef.current.stop()
+    if (isListening) {
+      stopRecognition()
       setIsListening(false)
       return
     }
@@ -190,11 +204,21 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     recognition.continuous = true
     recognition.interimResults = true
     recognition.lang = navigator.language || 'en-US'
+    // Combine results robustly across spec-compliant browsers AND Boox's
+    // non-compliant impl. Spec says interim results update in place; Boox
+    // appends each new partial as a fresh non-final entry, so naive
+    // concat-everything yields "whywhywhywhy iswhy is the...". Solution:
+    // concatenate only final results; for interims, take just the latest.
     recognition.onresult = (event: SpeechRecognitionEvent) => {
-      let transcript = ''
+      let finalText = ''
+      let lastInterim = ''
       for (let i = 0; i < event.results.length; i++) {
-        transcript += event.results[i][0].transcript
+        const result = event.results[i]
+        const text = result[0].transcript
+        if (result.isFinal) finalText += text
+        else lastInterim = text
       }
+      const transcript = (finalText + ' ' + lastInterim).trim()
       voiceTranscriptRef.current = transcript
       setInput(transcript)
     }
@@ -203,7 +227,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     recognitionRef.current = recognition
     recognition.start()
     setIsListening(true)
-  }, [isListening, hasSpeechRecognition])
+  }, [isListening, hasSpeechRecognition, stopRecognition])
 
   // Search filter
   const filteredMessages = searchQuery.trim()
@@ -419,9 +443,11 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
               type="button"
               className="chat-voice-stop"
               onClick={() => {
-                if (recognitionRef.current) recognitionRef.current.stop()
+                // Detach handlers BEFORE stop() — see stopRecognition comment.
+                // Without this, mobile WebKit flushes a late onresult after
+                // we've cleared the textarea, repopulating it post-send.
+                stopRecognition()
                 setIsListening(false)
-                // Send the transcript (use ref for latest value, not stale closure)
                 const transcript = voiceTranscriptRef.current.trim()
                 voiceTranscriptRef.current = ''
                 setInput('')
