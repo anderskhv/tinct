@@ -79,7 +79,14 @@ export function useClaude(options?: UseClaudeOptions) {
     setIsLoading(true)
 
     try {
-      const apiMessages = [...messages, userMessage].map(m => {
+      // Send only the most recent turns to keep the request small and the
+      // token cost bounded. Older context is preserved via opts.chatMemory
+      // (the per-chapter summary), which is injected into the system prompt
+      // below. Long sessions used to blow past the worker's body cap and
+      // return 413; trimming here is the structural fix.
+      const HISTORY_TURNS = 20
+      const recentHistory = messages.slice(-HISTORY_TURNS)
+      const apiMessages = [...recentHistory, userMessage].map(m => {
         let text = m.content
         if (m.highlightedText && m.role === 'user') {
           text = `[The reader highlighted this passage: "${m.highlightedText}"]\n\n${text}`

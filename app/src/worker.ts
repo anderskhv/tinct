@@ -22,9 +22,16 @@ interface Env {
 const ALLOWED_ORIGINS = ['https://tinct.app', 'https://tinct.ahvelplund.workers.dev', 'capacitor://localhost', 'https://localhost', 'http://localhost']
 const CHAT_MODEL = 'claude-sonnet-4-20250514'
 const MAX_TOKENS_CAP = 2048
-const MAX_REQUEST_BODY_BYTES = 100_000 // 100KB
+// 100KB was too tight: with 50 messages × full chat history replayed every
+// turn (incl. highlighted passages), long-running readers hit 413 mid-session.
+// 500KB matches MAX_MESSAGES × MAX_MESSAGE_LENGTH and leaves headroom for
+// the system prompt + JSON envelope.
+const MAX_REQUEST_BODY_BYTES = 500_000
 const MAX_SYSTEM_PROMPT_LENGTH = 4000
 const MAX_MESSAGES = 50
+// Per-message cap so a single bloated turn can't blow the budget. 10K chars
+// is ~2K tokens — a generous ceiling for any real reader question.
+const MAX_MESSAGE_LENGTH = 10_000
 const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
 
 // ===== Rate Limiting (KV-backed, persistent across cold starts) =====
@@ -240,12 +247,17 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
     const messages = Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
     const maxTokens = Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
 
-    // Validate message structure
+    // Validate message structure and truncate per-message to the cap.
+    // Long histories accumulate over a session; rather than reject the whole
+    // request, trim each turn so the conversation can keep going.
+    const safeMessages: { role: 'user' | 'assistant'; content: string }[] = []
     for (const msg of messages) {
       if (typeof msg !== 'object' || msg === null) return jsonResponse({ error: 'Invalid message format' }, 400, request)
       const m = msg as Record<string, unknown>
       if (m.role !== 'user' && m.role !== 'assistant') return jsonResponse({ error: 'Invalid message role' }, 400, request)
       if (typeof m.content !== 'string') return jsonResponse({ error: 'Invalid message content' }, 400, request)
+      const content = m.content.length > MAX_MESSAGE_LENGTH ? m.content.slice(0, MAX_MESSAGE_LENGTH) : m.content
+      safeMessages.push({ role: m.role, content })
     }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -259,7 +271,7 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
         model: CHAT_MODEL,
         max_tokens: maxTokens,
         system,
-        messages,
+        messages: safeMessages,
       }),
     })
 
@@ -604,9 +616,23 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
       if (!userId || !isValidUUID(userId)) break
       const updates: Record<string, unknown> = { subscription_status: obj.status === 'active' ? 'active' : obj.status }
       if (obj.current_period_end) {
-        updates.subscription_period_end = new Date(obj.current_period_end * 1000).toISOString()
-        updates.messages_used_this_period = 0
-        updates.period_start = new Date().toISOString()
+        const newPeriodEnd = new Date(obj.current_period_end * 1000)
+        updates.subscription_period_end = newPeriodEnd.toISOString()
+        // Only reset the monthly counter when the billing period has ACTUALLY
+        // advanced past the previously stored period_end. Stripe sends
+        // `customer.subscription.updated` for any mutation (plan change,
+        // payment-method update, pause, resume, metadata change) and most of
+        // those carry the SAME current_period_end as before. The old code
+        // reset on every event, which let users farm a fresh 100-message
+        // quota by toggling any subscription field.
+        const prev = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_period_end`)
+        const prevRows = await prev.json() as Array<{ subscription_period_end: string | null }> | null
+        const prevPeriodEnd = prevRows?.[0]?.subscription_period_end
+        const periodAdvanced = !prevPeriodEnd || new Date(prevPeriodEnd).getTime() < newPeriodEnd.getTime()
+        if (periodAdvanced) {
+          updates.messages_used_this_period = 0
+          updates.period_start = new Date().toISOString()
+        }
       }
       await supabaseUpdate(env, 'profiles', userId, updates)
       break
@@ -1093,43 +1119,49 @@ async function evaluateAndPatch(env: Env, report: IssueReport): Promise<void> {
     }
   }
 
-  // 2b. Ask Claude to evaluate
+  // 2b. Ask Claude to evaluate. Hard requirement: every response carries a
+  // concrete proposal a human reviewer can approve or reject — never "I'm
+  // unsure, no proposal". When in doubt, the AI may propose "no change" with
+  // an explanation, but the reviewer must always have something to act on.
   const systemPrompt = `You are a literary text quality reviewer. You evaluate user-reported issues in AI-generated book translations on Tinct, a reading platform.
 
-YOUR PRIMARY TASK: Read the FULL PARAGRAPH carefully. Understand what the user is pointing out — their text selection may be imprecise (they might have selected too little or too much text), but their COMMENT tells you what they think is wrong. Focus on the comment and the surrounding context, not just the exact selected text.
+YOUR PROCESS (do these in order):
+A. UNDERSTAND THE USER. Read their selected text and comment. What are they trying to say is wrong, and what do they suggest?
+B. CHECK THE ORIGINAL. Look at the full paragraph (or, if it isn't loaded, the selected text itself). Independently assess: is there actually an error here? Even if you can't fully follow the user's reasoning, you may spot something they missed (typo, broken sentence, wrong word).
+C. DECIDE AND PROPOSE. Always end with a concrete proposal. There are exactly three valid outcomes — pick one:
+   • "apply" — there is an error and you have a corrected paragraph ready
+   • "no_change" — you've reviewed and nothing needs to change (explain why, especially if disagreeing with the user)
+   • "needs_human" — paragraph is genuinely ambiguous; explain what the reviewer should consider
 
 RULES:
-1. ALWAYS read the full paragraph first. The user's selection is just a pointer to the area — the actual error might be nearby.
-2. The user's COMMENT is more important than their selection. If they say "should be X instead of Y", apply that logic even if their selection doesn't perfectly match Y.
-3. These are AI-generated translations — errors are EXPECTED and COMMON. Trust the user. They are a native speaker.
-4. You MUST provide a corrected_paragraph if you believe there's an error. The corrected paragraph must be the COMPLETE paragraph with only the specific fix applied — do not rewrite or rephrase other parts.
-5. If the user's suggestion doesn't make linguistic sense to you, still flag is_error as true with confidence 0.6 and explain your uncertainty — let the human reviewer decide.
-6. NEVER return corrected_paragraph as null if is_error is true. Always attempt a correction.
-7. The corrected_paragraph must be approximately the same length as the original (within 80-120%).
+1. The user is usually a native speaker reporting a real issue in an AI-generated translation. Trust them by default.
+2. If the user's comment looks like a corrected version of their selection, treat it as a proposed fix and apply it (replace selection with comment) unless that would clearly break the sentence.
+3. The corrected_paragraph must be the COMPLETE paragraph with only the necessary fix applied — preserve everything else verbatim.
+4. The corrected_paragraph must be 80–120% the length of the original. Never return a fragment.
+5. NEVER return action="apply" with corrected_paragraph=null. NEVER return null/empty for proposed_action — pick one of the three values above.
+6. If the original paragraph could not be loaded ([NOT LOADED] below): work from the user's selection alone, propose what you'd do, and set proposed_action="needs_human" with a clear explanation so the reviewer can verify against the actual paragraph manually.
 
-Respond ONLY with valid JSON — no markdown fences, no explanation outside the JSON.`
+Respond ONLY with valid JSON — no markdown fences, no prose outside the JSON.`
 
-  const userPrompt = `FULL PARAGRAPH (this is the complete text — read it carefully):
-${fullParagraph || '[Paragraph could not be loaded — evaluate based on selection and comment only]'}
+  const userPrompt = `FULL PARAGRAPH:
+${fullParagraph || '[NOT LOADED — work from the user\'s selection only. Set proposed_action="needs_human".]'}
 
 USER REPORT:
-- Book: ${report.bookId} | Edition: ${report.editionKey} | Chapter: ${report.chapterNumber}
+- Book: ${report.bookId} | Edition: ${report.editionKey || '(unknown)'} | Chapter: ${report.chapterNumber}
 - Selected text: "${report.selectedText}"
 - Issue type: ${report.tag}
 - User comment: "${report.comment || 'No comment provided'}"
 
-INSTRUCTIONS:
-1. Read the full paragraph above.
-2. Find where the user's selected text appears (or approximately appears — their selection may be imprecise).
-3. Understand what they think is wrong based on their comment.
-4. Determine if the text actually has an error at or near that location.
-5. If yes: write the corrected FULL PARAGRAPH with only the necessary fix applied. Keep everything else identical.
-6. Rate your confidence 0.0 to 1.0.
+JSON response shape (every field required):
+{
+  "is_error": boolean,
+  "confidence": number,                  // 0.0 to 1.0
+  "proposed_action": "apply" | "no_change" | "needs_human",
+  "explanation": string,                 // what you found and what you'd do
+  "corrected_paragraph": string | null   // REQUIRED when proposed_action="apply"; null otherwise is OK
+}`
 
-JSON response format:
-{"is_error": boolean, "confidence": number, "explanation": "brief explanation of what you found and what you changed", "corrected_paragraph": "the complete corrected paragraph or null if no error"}`
-
-  let evaluation: { is_error: boolean; confidence: number; explanation: string; corrected_paragraph: string | null }
+  let evaluation: { is_error: boolean; confidence: number; explanation: string; corrected_paragraph: string | null; proposed_action?: 'apply' | 'no_change' | 'needs_human' }
   try {
     const claudeRes = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -1157,6 +1189,7 @@ JSON response format:
   }
 
   let { is_error, confidence, explanation, corrected_paragraph } = evaluation
+  const proposedAction = evaluation.proposed_action || (is_error ? 'apply' : 'no_change')
 
   // If AI says error but no correction, try to generate one from user's comment
   if (is_error && !corrected_paragraph && fullParagraph && report.comment) {
@@ -1271,15 +1304,58 @@ JSON response format:
   const approveUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=approve&token=${token}`
   const rejectUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=reject&token=${token}`
 
+  // Status badge mirrors the AI's proposed_action so the email always names a
+  // concrete recommendation. Earlier copy left the reviewer guessing
+  // ("Needs your approval — for what?"). Now: every email says exactly what
+  // the AI thinks should happen.
   const statusBadge = autoApply
     ? '<span style="background:#4a9;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Auto-applied</span>'
-    : is_error
-      ? '<span style="background:#e90;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Needs your approval</span>'
-      : '<span style="background:#c66;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">AI rejected — approve if you disagree</span>'
+    : proposedAction === 'apply'
+      ? '<span style="background:#e90;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Approve to apply this fix</span>'
+      : proposedAction === 'no_change'
+        ? '<span style="background:#888;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">AI suggests: no change needed</span>'
+        : '<span style="background:#5a8;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Needs human judgment</span>'
 
   const subject = autoApply
     ? `[Auto-fix] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
-    : `[Review] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
+    : proposedAction === 'no_change'
+      ? `[No-change suggested] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
+      : proposedAction === 'needs_human'
+        ? `[Needs you] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
+        : `[Review] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
+
+  // Both buttons always present. Labels reflect the recommended path so a
+  // skim reads "do the obvious thing". Approve = accept AI's recommendation
+  // (apply the fix, OR keep the text as-is). Reject = override.
+  const approveLabel = autoApply
+    ? 'Keep fix'
+    : proposedAction === 'apply'
+      ? 'Approve fix'
+      : proposedAction === 'no_change'
+        ? 'Confirm: no change'
+        : 'Approve as-is'
+  const rejectLabel = autoApply
+    ? 'Revert'
+    : proposedAction === 'no_change'
+      ? 'Override — apply user fix'
+      : 'Reject'
+
+  // Original block is hidden behind a "couldn't load" notice when fullParagraph
+  // is empty, so the reviewer immediately sees that the AI was blind and
+  // should verify against the source themselves.
+  const originalBlock = fullParagraph
+    ? `<p><strong>Original paragraph:</strong></p>
+       <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${fullParagraph.replace(/</g, '&lt;')}</blockquote>`
+    : `<p style="background:#fff8e1;border-left:3px solid #e8b020;padding:10px 14px;margin:0 0 12px"><strong>⚠ Could not load full paragraph.</strong> The AI evaluated using only the selected text below. Please open the book and verify before approving.</p>
+       <p><strong>Selected text only (no surrounding context):</strong></p>
+       <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${report.selectedText.replace(/</g, '&lt;')}</blockquote>`
+
+  const proposalBlock = corrected_paragraph
+    ? `<p><strong>Proposed correction:</strong></p>
+       <blockquote style="border-left:3px solid #8c8;padding:8px 16px;background:#f5fff5;white-space:pre-wrap">${corrected_paragraph.replace(/</g, '&lt;')}</blockquote>`
+    : proposedAction === 'no_change'
+      ? `<p><strong>AI proposes:</strong> no change to the original paragraph.</p>`
+      : `<p style="background:#fff8e1;border-left:3px solid #e8b020;padding:10px 14px"><strong>No correction proposed.</strong> The AI couldn't determine a concrete fix — open the book and decide manually.</p>`
 
   await sendEmail(env, 'contact@tinct.app', subject,
     `<div style="font-family:sans-serif;max-width:600px">
@@ -1288,15 +1364,13 @@ JSON response format:
       <p><strong>User selected:</strong> "${report.selectedText.replace(/</g, '&lt;')}"</p>
       ${report.comment ? `<p><strong>User comment:</strong> ${report.comment}</p>` : ''}
       <hr/>
-      <p><strong>Original paragraph:</strong></p>
-      <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${(fullParagraph || report.selectedText).replace(/</g, '&lt;')}</blockquote>
-      ${corrected_paragraph ? `<p><strong>Proposed correction:</strong></p>
-      <blockquote style="border-left:3px solid #8c8;padding:8px 16px;background:#f5fff5;white-space:pre-wrap">${corrected_paragraph.replace(/</g, '&lt;')}</blockquote>` : '<p><em>No correction proposed by AI.</em></p>'}
+      ${originalBlock}
+      ${proposalBlock}
       <p style="margin-top:24px">
-        <a href="${approveUrl}" style="display:inline-block;padding:12px 28px;background:#4a9;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">${autoApply ? 'Keep fix' : 'Approve fix'}</a>
-        <a href="${rejectUrl}" style="display:inline-block;padding:12px 28px;background:#c66;color:#fff;text-decoration:none;border-radius:8px;font-weight:600">${autoApply ? 'Revert' : 'Reject'}</a>
+        <a href="${approveUrl}" style="display:inline-block;padding:12px 28px;background:#4a9;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">${approveLabel}</a>
+        <a href="${rejectUrl}" style="display:inline-block;padding:12px 28px;background:#c66;color:#fff;text-decoration:none;border-radius:8px;font-weight:600">${rejectLabel}</a>
       </p>
-      <p style="color:#aaa;font-size:12px;margin-top:16px">User: ${report.userId || 'anonymous'} | ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex}</p>
+      <p style="color:#aaa;font-size:12px;margin-top:16px">User: ${report.userId || 'anonymous'} | ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex} | edition: ${report.editionKey || '(missing)'}</p>
     </div>`
   )
 
@@ -1746,7 +1820,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   'X-Frame-Options': 'DENY',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; media-src 'self' https://pub-c34df89c93284423a39b03537595c2e2.r2.dev; frame-src https://js.stripe.com",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; media-src 'self' https://pub-c34df89c93284423a39b03537595c2e2.r2.dev; frame-src https://js.stripe.com",
 }
 
 // ===== Router =====
@@ -1791,16 +1865,52 @@ export default {
       }
     }
 
-    // Root URL serves the landing page (which is index.html after build swap)
-    // SPA is available at /app.html and via SPA fallback for /read/* routes
+    // Root URL serves the landing page (which is index.html after build swap).
+    // SPA is available at /app.html and via SPA fallback for /read/* routes.
+    //
+    // Signed-in short-circuit: if the client has a `tinct_auth=1` cookie
+    // (set by the SPA in useAuth on sign-in, cleared on sign-out), 302 to
+    // /read before serving landing.html. This is deterministic across
+    // browsers/devices and far more reliable than the inline-script
+    // localStorage probe in landing.html. That inline script remains as a
+    // fallback for cookie-disabled browsers.
+    if (url.pathname === '/' && request.method === 'GET') {
+      const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
+      const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
+      if (hasAuthCookie) {
+        return new Response(null, {
+          status: 302,
+          headers: { Location: '/read', 'Cache-Control': 'no-store' },
+        })
+      }
+      // For signed-out users, serve landing.html but mark it no-store so the
+      // Cloudflare edge doesn't cache the Worker's response. Without this,
+      // CF caches the first (no-cookie) response and subsequent requests —
+      // even with the auth cookie — are served from edge without re-running
+      // the Worker, which silently breaks the signed-in redirect.
+      const resp = await env.ASSETS.fetch(request)
+      const newResp = new Response(resp.body, resp)
+      newResp.headers.set('Cache-Control', 'no-store')
+      for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+        newResp.headers.set(key, value)
+      }
+      return newResp
+    }
 
     // Fall through to static assets
     const response = await env.ASSETS.fetch(request)
 
-    // SPA fallback: if asset not found and it's not an /api/ path, serve the React app
+    // SPA fallback: if asset not found and it's not an /api/ path, serve the React app.
+    // Mark HTML as no-store: Cloudflare's edge was caching old app.html with
+    // stale references to content-hashed JS/CSS bundles, so readers kept
+    // getting the previous build's CSS (no dark-mode paper override, old
+    // BottomBar, etc.) even after a fresh deploy. The asset URLs themselves
+    // are content-hashed and immutable, so caching them is fine — only the
+    // HTML that points to them must always be re-fetched.
     if (response.status === 404 && !url.pathname.startsWith('/api/')) {
       const spaResponse = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
       const newResponse = new Response(spaResponse.body, spaResponse)
+      newResponse.headers.set('Cache-Control', 'no-store')
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
         newResponse.headers.set(key, value)
       }
@@ -1810,6 +1920,8 @@ export default {
     const contentType = response.headers.get('content-type') || ''
     if (contentType.includes('text/html')) {
       const newResponse = new Response(response.body, response)
+      // HTML must never be edge-cached — see the SPA fallback comment above.
+      newResponse.headers.set('Cache-Control', 'no-store')
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
         newResponse.headers.set(key, value)
       }
