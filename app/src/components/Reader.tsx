@@ -244,6 +244,18 @@ export function Reader({
   // split-pane where the chapter header is the first column. Running the
   // measurement in useLayoutEffect lets the first paint already have the
   // correct transform; no transition-from-page-1 ever happens.
+  // Centralized setCurrentPage proxy that traces every call. Identifies which
+  // of the 6+ effects competing for the page state actually fired on a
+  // chapter cross, so Anders can paste tinctDebug() after a repro and we
+  // can see the actual sequence in his APK / WebView environment.
+  const tracePageSet = useCallback((source: string, target: number, extra?: Record<string, unknown>) => {
+    if (typeof window === 'undefined') return
+    const w = window as Window & { __tinctNavDebug?: unknown[] }
+    w.__tinctNavDebug = w.__tinctNavDebug || []
+    w.__tinctNavDebug.push({ at: Date.now(), kind: 'reader.setPage', source, target, chapterTitle, isAudioPlaying, playingParagraphIndex, ...extra })
+    if (w.__tinctNavDebug.length > 80) w.__tinctNavDebug.shift()
+  }, [chapterTitle, isAudioPlaying, playingParagraphIndex])
+
   useLayoutEffect(() => {
     recalcPages()
     const content = contentRef.current
@@ -252,7 +264,7 @@ export function Reader({
       const w = window as Window & { __tinctNavDebug?: unknown[] }
       w.__tinctNavDebug = w.__tinctNavDebug || []
       w.__tinctNavDebug.push({ at: Date.now(), kind: 'reader.layout', note, initialPageProp: initialPage, initialPageRef: initialPageRef.current, ...extra })
-      if (w.__tinctNavDebug.length > 60) w.__tinctNavDebug.shift()
+      if (w.__tinctNavDebug.length > 80) w.__tinctNavDebug.shift()
     }
     if (!content) { dbg('no-content'); return }
     const cw = getColWidth()
@@ -265,12 +277,13 @@ export function Reader({
     if (frac !== undefined && frac >= 0 && frac <= 1) {
       const targetPage = Math.round(frac * (pages - 1))
       dbg('restore', { frac, pages, targetPage })
+      tracePageSet('layout-restore', targetPage, { frac, pages })
       setCurrentPage(targetPage)
       initialPageRef.current = undefined
     } else {
       dbg('frac-undef-or-oor', { frac })
     }
-  }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage])
+  }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage, tracePageSet])
 
   useEffect(() => {
     // Async recalc retries cover late-arriving font/layout changes (mobile
@@ -309,11 +322,13 @@ export function Reader({
     const page = Math.floor(el.offsetLeft / (colWidth + gap))
     // offsetLeft is 0 for all elements when layout hasn't settled — don't consume if page=0 and para>0
     if (page === 0 && paraIdx > 0 && el.offsetLeft === 0) return false
-    setCurrentPage(Math.min(page, Math.max(0, totalPages - 1)))
+    const pageClamped = Math.min(page, Math.max(0, totalPages - 1))
+    tracePageSet('paragraph-target', pageClamped, { paraIdx, rawPage: page })
+    setCurrentPage(pageClamped)
     targetParagraphRef.current = undefined
     initialPageRef.current = undefined
     return true
-  }, [getColWidth, getGap, totalPages])
+  }, [getColWidth, getGap, totalPages, tracePageSet])
 
   useEffect(() => {
     // targetParagraphIndex takes priority over initialPage
@@ -325,10 +340,11 @@ export function Reader({
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
       const targetPage = Math.round(frac * (totalPages - 1))
+      tracePageSet('totalPages-restore', targetPage, { frac, totalPages })
       setCurrentPage(targetPage)
       initialPageRef.current = undefined // only restore once
     }
-  }, [totalPages, tryScrollToParagraph])
+  }, [totalPages, tryScrollToParagraph, tracePageSet])
 
   // Respond to targetParagraphIndex prop changes after mount (e.g. mobile tab sync)
   // targetParagraphNonce forces re-sync even when the paragraph index hasn't changed
@@ -343,7 +359,9 @@ export function Reader({
       const gap = getGap()
       if (colWidth > 0) {
         const page = Math.floor(el.offsetLeft / (colWidth + gap))
-        setCurrentPage(Math.min(page, totalPages - 1))
+        const pageClamped = Math.min(page, totalPages - 1)
+        tracePageSet('paragraph-nonce', pageClamped, { targetParagraphIndex, targetParagraphNonce })
+        setCurrentPage(pageClamped)
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -409,9 +427,10 @@ export function Reader({
     const page = Math.floor(currentX / (colWidth + gap))
     const clamped = Math.min(page, totalPagesRef.current - 1)
     if (clamped !== currentPageRef.current) {
+      tracePageSet('audio-autoscroll', clamped, { playingParagraphIndex, isAudioPlaying })
       setCurrentPage(clamped)
     }
-  }, [isAudioPlaying, playingParagraphIndex, playingParagraphProgress, getColWidth, getGap])
+  }, [isAudioPlaying, playingParagraphIndex, playingParagraphProgress, getColWidth, getGap, tracePageSet])
 
   // Reset userNavigated flag only when audio stops entirely. Rationale:
   // during playback, the user's manual page turn must stick — otherwise
@@ -472,6 +491,7 @@ export function Reader({
       }
     }
     const clamped = Math.max(0, Math.min(page, pages - 1))
+    tracePageSet('goToPage', clamped, { req: page, measuredPages: pages })
     // CRITICAL: update the ref immediately, before the React state flushes.
     // The keyboard / page-nav handler computes the next target page via
     // `currentPageRef.current + 1`. Without immediate ref update, multiple
@@ -484,7 +504,7 @@ export function Reader({
     // assignment is harmless (overwrites with the same value).
     currentPageRef.current = clamped
     setCurrentPage(clamped)
-  }, [totalPages, readerRef, getColWidth, getGap])
+  }, [totalPages, readerRef, getColWidth, getGap, tracePageSet])
 
   // Keyboard navigation — use refs to avoid re-attaching on every page change
   const goToPageRef = useRef(goToPage)
