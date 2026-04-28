@@ -206,7 +206,13 @@ export default function App() {
   const savedPos = useRef(getSavedPosition(book.id))
   // Initialize debug state so it's always queryable, even if nothing fires.
   if (typeof window !== 'undefined') {
-    const w = window as Window & { __tinctNavDebug?: unknown[]; tinctDebug?: () => unknown }
+    const w = window as Window & { __tinctNavDebug?: unknown[]; tinctDebug?: () => unknown; __tinctBundleAnnounced?: boolean }
+    if (!w.__tinctBundleAnnounced) {
+      w.__tinctBundleAnnounced = true
+      // Loud, single banner so Anders can see in console which bundle is live.
+      // tinctDebug() and __tinctNavDebug ship in this bundle.
+      console.log('%c[TINCT] bundle has tinctDebug() — type tinctDebug() in console', 'background:#1f4a5c;color:#ece7db;padding:2px 6px;border-radius:3px;font-weight:600')
+    }
     if (!w.__tinctNavDebug) {
       w.__tinctNavDebug = []
       w.__tinctNavDebug.push({ at: Date.now(), kind: 'app.mount', bookId: book.id, savedPos: savedPos.current ? { ...savedPos.current } : null })
