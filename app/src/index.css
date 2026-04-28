@@ -7470,6 +7470,28 @@ body {
   font-size: 1.5rem;
 }
 
+/* Running footer (chapter title + "1 / 5") was hard to read on Boox —
+   var(--text-tertiary) is intentionally low-contrast on backlit screens
+   but vanishes against e-ink's narrow contrast range. Bump to near-black
+   and slightly bigger so the page count is legible at arm's length. */
+[data-eink] .page-nav-label {
+  color: #000;
+  font-size: 1rem;
+  font-style: normal;
+}
+[data-eink] .page-nav-chapter {
+  font-style: normal;
+  font-weight: 600;
+}
+[data-eink] .page-nav-tick {
+  color: #000;
+  font-size: 1.5rem;
+  padding: 8px 16px;
+}
+[data-eink] .page-nav-tick:disabled {
+  opacity: 0.4;
+}
+
 /* Library — high contrast book covers (override inline dark backgrounds) */
 [data-eink] .book-cover {
   background: #fff !important;
