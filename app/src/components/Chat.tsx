@@ -220,6 +220,11 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
   const [isListening, setIsListening] = useState(false)
+  // Elapsed seconds since the user tapped the mic. Increments steadily
+  // even when the underlying recognition engine restarts mid-session
+  // (Boox cycles every few seconds and plays start/stop chimes), giving
+  // the user undeniable visual proof the session is unbroken.
+  const [listeningSeconds, setListeningSeconds] = useState(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const recognitionRef = useRef<SpeechRecognition | null>(null)
@@ -249,6 +254,21 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
       inputRef.current?.focus()
     }
   }, [pendingHighlight])
+
+  // Tick the listening clock. We can't suppress Boox's start/stop chimes
+  // (OS-level), but a steady, monotonically-increasing counter gives the
+  // user proof that the session is unbroken across restarts.
+  useEffect(() => {
+    if (!isListening) {
+      setListeningSeconds(0)
+      return
+    }
+    const startedAt = Date.now()
+    const id = setInterval(() => {
+      setListeningSeconds(Math.floor((Date.now() - startedAt) / 1000))
+    }, 1000)
+    return () => clearInterval(id)
+  }, [isListening])
 
   // Auto-grow textarea (like Claude's app)
   useEffect(() => {
@@ -587,10 +607,17 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
       <form className="chat-input-form" onSubmit={handleSubmit}>
         {isListening ? (
           <div className="chat-voice-active">
+            <div className="chat-voice-rec" aria-label="Recording">
+              <span className="chat-voice-rec-dot" />
+              <span className="chat-voice-rec-time">
+                {String(Math.floor(listeningSeconds / 60)).padStart(1, '0')}:
+                {String(listeningSeconds % 60).padStart(2, '0')}
+              </span>
+            </div>
             <div className="chat-voice-waveform">
               <span /><span /><span /><span /><span />
             </div>
-            <span className="chat-voice-label">{input || 'Listening...'}</span>
+            <span className="chat-voice-label">{input || 'Listening — keep going, the chime is just the engine restarting'}</span>
             <button
               type="button"
               className="chat-voice-stop"

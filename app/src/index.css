@@ -2294,6 +2294,43 @@ body {
   background: #3a2020;
 }
 
+.chat-voice-rec {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  color: var(--text-primary);
+}
+.chat-voice-rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e44;
+  animation: voiceRecPulse 1.2s ease-in-out infinite;
+}
+.chat-voice-rec-time {
+  letter-spacing: 0.02em;
+}
+@keyframes voiceRecPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+/* On e-ink the pulse is invisible (no opacity gradient), so make the
+   dot bigger and skip the animation — solid presence beats a fade. */
+[data-eink] .chat-voice-rec-dot {
+  width: 12px;
+  height: 12px;
+  background: #000;
+  animation: none;
+}
+[data-eink] .chat-voice-rec {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 .chat-voice-waveform {
   display: flex;
   align-items: center;
