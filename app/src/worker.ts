@@ -1948,14 +1948,18 @@ export default {
     // Fall through to static assets
     const response = await env.ASSETS.fetch(request)
 
-    // SPA fallback: if asset not found and it's not an /api/ path, serve the React app.
-    // Mark HTML as no-store: Cloudflare's edge was caching old app.html with
-    // stale references to content-hashed JS/CSS bundles, so readers kept
-    // getting the previous build's CSS (no dark-mode paper override, old
-    // BottomBar, etc.) even after a fresh deploy. The asset URLs themselves
-    // are content-hashed and immutable, so caching them is fine — only the
-    // HTML that points to them must always be re-fetched.
-    if (response.status === 404 && !url.pathname.startsWith('/api/')) {
+    // SPA fallback: if asset not found and it's not an /api/ path or an
+    // /assets/ path, serve the React app.
+    // CRITICAL: /assets/* must 404 cleanly, not fall through to the SPA.
+    // After a deploy, Cloudflare deletes the old content-hashed bundle from
+    // the assets binding. Without this exclusion, requests for the old URL
+    // (e.g. index-kNGlBG-i.js) returned the SPA fallback HTML (200, ~920
+    // bytes), Cloudflare's edge HIT-cached it, and any browser holding a
+    // tab pointing to that old hash kept loading "valid" responses forever
+    // — masking the deploy. With /assets/* now 404'ing, the browser sees
+    // the failure and a fresh HTML reload picks up the new content-hashed
+    // URL on next navigation.
+    if (response.status === 404 && !url.pathname.startsWith('/api/') && !url.pathname.startsWith('/assets/')) {
       const spaResponse = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
       const newResponse = new Response(spaResponse.body, spaResponse)
       newResponse.headers.set('Cache-Control', 'no-store')
