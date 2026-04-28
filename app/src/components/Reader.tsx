@@ -517,16 +517,27 @@ export function Reader({
     // reliably in Capacitor Android WebView, so we use a CustomEvent instead.
     const handlePageNav = (e: Event) => {
       const direction = (e as CustomEvent<{ direction: 'next' | 'prev' }>).detail?.direction
+      const w = typeof window !== 'undefined' ? (window as Window & { __tinctNavDebug?: unknown[] }) : null
+      const log = (action: string, extra?: Record<string, unknown>) => {
+        if (!w) return
+        w.__tinctNavDebug = w.__tinctNavDebug || []
+        w.__tinctNavDebug.push({ at: Date.now(), kind: 'reader.pageNav', dir: direction, action, curPage: currentPageRef.current, totPages: totalPagesRef.current, ...extra })
+        if (w.__tinctNavDebug.length > 60) w.__tinctNavDebug.shift()
+      }
       if (direction === 'next') {
         if (totalPagesRef.current > 1 && currentPageRef.current >= totalPagesRef.current - 1 && onNextChapterRef.current) {
+          log('chapter-next')
           onNextChapterRef.current()
         } else {
+          log('goToPage-next', { req: currentPageRef.current + 1 })
           goToPageRef.current(currentPageRef.current + 1)
         }
       } else if (direction === 'prev') {
         if (totalPagesRef.current > 1 && currentPageRef.current <= 0 && onPrevChapterRef.current) {
+          log('chapter-prev')
           onPrevChapterRef.current()
         } else {
+          log('goToPage-prev', { req: currentPageRef.current - 1 })
           goToPageRef.current(currentPageRef.current - 1)
         }
       }

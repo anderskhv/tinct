@@ -204,6 +204,31 @@ export default function App() {
 
   // Restore last reading position on mount or book change
   const savedPos = useRef(getSavedPosition(book.id))
+  // Initialize debug state so it's always queryable, even if nothing fires.
+  if (typeof window !== 'undefined') {
+    const w = window as Window & { __tinctNavDebug?: unknown[]; tinctDebug?: () => unknown }
+    if (!w.__tinctNavDebug) {
+      w.__tinctNavDebug = []
+      w.__tinctNavDebug.push({ at: Date.now(), kind: 'app.mount', bookId: book.id, savedPos: savedPos.current ? { ...savedPos.current } : null })
+    }
+    // One-shot helper Anders can call from devtools to dump everything.
+    if (!w.tinctDebug) {
+      w.tinctDebug = () => {
+        const wd = window as Window & {
+          __tinctNavDebug?: unknown[]
+          __tinctPositionDebug?: unknown
+          __tinctSyncDebug?: unknown
+          __tinctSupabaseDebug?: unknown
+        }
+        return {
+          nav: wd.__tinctNavDebug || [],
+          position: wd.__tinctPositionDebug || null,
+          sync: wd.__tinctSyncDebug || null,
+          supabase: wd.__tinctSupabaseDebug || null,
+        }
+      }
+    }
+  }
   const [currentChapter, setCurrentChapter] = useState(() => {
     const ch = savedPos.current?.chapterNumber || 1
     // Bounds check: chapter must be positive (full bounds check happens after data loads)
@@ -1091,6 +1116,12 @@ export default function App() {
       setCurrentChapter(chapter)
     }
     setReaderKey(k => k + 1)
+    if (typeof window !== 'undefined') {
+      const w = window as Window & { __tinctNavDebug?: unknown[] }
+      w.__tinctNavDebug = w.__tinctNavDebug || []
+      w.__tinctNavDebug.push({ at: Date.now(), kind: 'navigateToChapter', from: currentChapter, to: chapter, paragraphIndex, editionKey, savedPos: { ...savedPos.current } })
+      if (w.__tinctNavDebug.length > 60) w.__tinctNavDebug.shift()
+    }
   }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, book.id])
 
   // Go back to saved position (restores edition + chapter + page)
