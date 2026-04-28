@@ -54,9 +54,19 @@ export function formatProgressLabel(args: ProgressInputs): string {
     if (scope === 'book' && args.bookCurrentPage && args.bookTotalPages) {
       return `${args.bookCurrentPage} / ${args.bookTotalPages}`
     }
+    // For chapter scope, ALWAYS use the actual visible page count (Reader's
+    // currentPage / totalPages). The character-based "absolute" count
+    // (1500 chars/page) doesn't track visible page turns — it could read
+    // "1 → 2 → 4 → 6 → 9" across single page-turns because firstVisible-
+    // Paragraph drives the absolute count, not the rendered transform.
+    // Anders's "skipped to page 2 of Parodos" report was the label lying,
+    // not the page actually skipping.
+    if (scope === 'chapter') {
+      return `${args.currentPage + 1} / ${args.totalPages} ch`
+    }
     const pg = args.absoluteCurrentPage ?? (args.currentPage + 1)
     const tot = args.absoluteTotalPages ?? args.totalPages
-    return `${pg} / ${tot}${scope === 'chapter' ? ' ch' : ''}`
+    return `${pg} / ${tot}`
   }
   if (metric === 'location') {
     if (scope === 'chapter' && args.locationCurrentChapter !== undefined && args.locationTotalChapter) {

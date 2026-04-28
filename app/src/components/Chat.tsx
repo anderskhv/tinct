@@ -238,6 +238,11 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   // can decide whether to auto-restart or honour an explicit stop.
   const isListeningRef = useRef(false)
   isListeningRef.current = isListening
+  // Session started timestamp — used to detect a fast-fail (engine starts
+  // and ends almost immediately, which on some Boox builds happens when
+  // the mic is busy or initial silence is too long). Without this guard,
+  // the auto-restart loop fires endlessly and the UI flickers off.
+  const sessionStartAtRef = useRef(0)
 
   // Voice input availability — pure feature detection. The earlier
   // !isEink guard hid the mic on e-ink devices (Boox), but voice input is
@@ -356,19 +361,40 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     // stop, snapshot whatever we have into committed and start a fresh
     // session. This is what makes voice feel "always on" on Boox even
     // though the underlying engine times out every few seconds.
+    //
+    // Two failure modes to handle:
+    //   1. Fast-fail: onend fires within < 1s of start. Means the engine
+    //      never actually ran — mic busy, audio focus lost, browser quirk.
+    //      Restarting in a loop produces flicker and traps the user. Bail.
+    //   2. Rapid restart: calling start() right after onend can throw on
+    //      some Chromiums ("recognition already started"). Schedule the
+    //      restart on a microtask so the engine has time to release.
     recognition.onend = () => {
       committedTranscriptRef.current = voiceTranscriptRef.current
-      if (isListeningRef.current && recognitionRef.current === recognition) {
+      const sessionMs = Date.now() - sessionStartAtRef.current
+      const fastFailed = sessionMs < 800
+      if (!isListeningRef.current || recognitionRef.current !== recognition || fastFailed) {
+        if (fastFailed) {
+          isListeningRef.current = false
+          recognitionRef.current = null
+        }
+        setIsListening(false)
+        return
+      }
+      // Defer the restart so this callstack unwinds before start().
+      setTimeout(() => {
+        if (!isListeningRef.current) return
         const next = createRecognitionRef.current?.()
-        if (next) {
-          recognitionRef.current = next
-          try { next.start() } catch { setIsListening(false) }
-        } else {
+        if (!next) { setIsListening(false); return }
+        recognitionRef.current = next
+        try {
+          next.start()
+          sessionStartAtRef.current = Date.now()
+        } catch {
+          isListeningRef.current = false
           setIsListening(false)
         }
-      } else {
-        setIsListening(false)
-      }
+      }, 50)
     }
     return recognition
   }, [hasSpeechRecognition])
@@ -395,6 +421,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     isListeningRef.current = true
     try {
       recognition.start()
+      sessionStartAtRef.current = Date.now()
       setIsListening(true)
     } catch {
       isListeningRef.current = false
