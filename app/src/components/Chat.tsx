@@ -56,6 +56,78 @@ function renderInline(text: string): React.ReactNode {
   return parts.length === 1 && typeof parts[0] === 'string' ? parts[0] : <>{parts}</>
 }
 
+/** Tokenize for comparison: lowercase, strip punctuation. */
+function normalizeWords(s: string): string[] {
+  return s.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean)
+}
+
+/**
+ * Merge two transcript chunks, deduping overlap. Used both within a single
+ * recognition session (Boox emits each refinement as a fresh isFinal
+ * result, often with different punctuation: "What's Blake?" then "What's
+ * Blake condoning?") and ACROSS session restarts (Boox carries audio
+ * context across timeouts; the new session re-emits the prior transcript
+ * plus new words, often with one or two words misheard). Strategy:
+ *   - empty operand → return the other
+ *   - longest common WORD prefix covers ≥80% of the shorter transcript →
+ *     same utterance refined/restated → keep the longer one entirely
+ *   - tail of `a` shares ≥1 word with head of `b` → splice them
+ *   - otherwise disjoint → concatenate with a space
+ * Comparison is word-level so trailing punctuation differences don't
+ * defeat the dedupe ("What's Blake?" vs "What's Blake condoning?").
+ */
+function mergeTranscripts(a: string, b: string): string {
+  a = a.trim(); b = b.trim()
+  if (!a) return b
+  if (!b) return a
+
+  const aWords = normalizeWords(a)
+  const bWords = normalizeWords(b)
+  if (aWords.length === 0) return b
+  if (bWords.length === 0) return a
+
+  // Longest common word-aligned prefix
+  let prefixLen = 0
+  const maxPrefix = Math.min(aWords.length, bWords.length)
+  while (prefixLen < maxPrefix && aWords[prefixLen] === bWords[prefixLen]) prefixLen++
+
+  // If the prefix covers most of the shorter transcript, treat both as
+  // refinements of the same utterance — keep the longer raw text. Threshold
+  // 0.8 catches "I want pizza" / "I want pizza tonight" (1.0) and the
+  // pause/pulse mishear case (0.96) without gluing genuinely different
+  // sentences that happen to share a couple of leading words.
+  if (prefixLen / maxPrefix >= 0.8) {
+    return aWords.length >= bWords.length ? a : b
+  }
+
+  // Tail-head splice: longest tail of a's words matching head of b's words.
+  for (let len = Math.min(aWords.length, bWords.length); len >= 1; len--) {
+    let match = true
+    for (let i = 0; i < len; i++) {
+      if (aWords[aWords.length - len + i] !== bWords[i]) { match = false; break }
+    }
+    if (match) {
+      // Drop the overlapping `len` words from the start of b's raw text.
+      // Walk b char-by-char, counting word starts.
+      let wordsSeen = 0
+      let inWord = false
+      let cut = b.length
+      for (let i = 0; i < b.length; i++) {
+        const isWordChar = /[a-zA-Z0-9]/.test(b[i])
+        if (isWordChar && !inWord) {
+          wordsSeen++
+          if (wordsSeen > len) { cut = i; break }
+        }
+        inWord = isWordChar
+      }
+      const bRest = b.slice(cut).trim()
+      return (a + (bRest ? ' ' + bRest : '')).replace(/\s+/g, ' ').trim()
+    }
+  }
+
+  return (a + ' ' + b).replace(/\s+/g, ' ').trim()
+}
+
 /** Render markdown: headings, lists, paragraphs with inline formatting */
 function renderMarkdown(text: string): React.ReactNode {
   const lines = text.split('\n')
@@ -229,19 +301,23 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
         const text = String(r[0].transcript || '').trim()
         if (!text) continue
         if (r.isFinal) {
+          // Use the same merge rules as cross-session merging — handles
+          // punctuation drift and pause/pulse-style mishears.
           const prev = finals.length > 0 ? finals[finals.length - 1] : ''
-          if (prev && (text.startsWith(prev) || prev.startsWith(text) || text.includes(prev) || prev.includes(text))) {
-            finals[finals.length - 1] = text.length > prev.length ? text : prev
-          } else {
-            finals.push(text)
-          }
+          if (prev) finals[finals.length - 1] = mergeTranscripts(prev, text)
+          else finals.push(text)
         } else {
           lastInterim = text
         }
       }
       const sessionText = (finals.join(' ') + ' ' + lastInterim).trim().replace(/\s+/g, ' ')
-      const committed = committedTranscriptRef.current
-      const display = (committed ? committed + ' ' + sessionText : sessionText).trim().replace(/\s+/g, ' ')
+      // Merge across the session restart boundary using the same overlap
+      // rules as within a session. Boox carries context across the auto-
+      // restart, so the new session's first results often re-emit the
+      // entire committed transcript plus new words — naive concat would
+      // duplicate. mergeTranscripts handles full-contain, prefix, and
+      // word-boundary overlap cases.
+      const display = mergeTranscripts(committedTranscriptRef.current, sessionText)
       voiceTranscriptRef.current = display
       setInput(display)
     }
