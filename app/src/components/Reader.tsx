@@ -181,6 +181,14 @@ export function Reader({
   totalPagesRef.current = totalPages
   const initialPageRef = useRef(initialPage)
   const userNavigatedRef = useRef(false)
+  // Phantom-click guard. On chapter advance the Reader unmounts/remounts
+  // at the same DOM coordinates; on Boox/Capacitor WebView the touch
+  // driver re-dispatches the click ~60ms later to the freshly-mounted
+  // page-nav button at the tap location. That stale-closure click reads
+  // currentPage from the first render's snapshot and calls
+  // goToPage(currentPage ± 1), undoing the correct chapter-cross
+  // restore. Ignore any page-arrow click within 500ms of mount.
+  const mountedAtRef = useRef(Date.now())
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
   const getGap = useCallback(() => {
@@ -1116,6 +1124,8 @@ export function Reader({
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
+            // Phantom-click guard: see mountedAtRef comment.
+            if (Date.now() - mountedAtRef.current < 500) return
             if (totalPages > 1 && currentPage <= 0 && onPrevChapter) onPrevChapter()
             else goToPage(currentPage - 1)
           }}
@@ -1133,6 +1143,8 @@ export function Reader({
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
+            // Phantom-click guard: see mountedAtRef comment.
+            if (Date.now() - mountedAtRef.current < 500) return
             if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) onNextChapter()
             else goToPage(currentPage + 1)
           }}
