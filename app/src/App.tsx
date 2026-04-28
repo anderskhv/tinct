@@ -2738,7 +2738,34 @@ export default function App() {
         />
       )}
 
-      {/* Debug overlay — long-press chapter footer to open. */}
+      {/* Debug overlay + visible trigger button. Floating bottom-right.
+          Always rendered for now (active debugging window); remove once
+          the chapter-cross page-skip is root-caused. */}
+      <button
+        type="button"
+        onClick={() => setDebugOpen(true)}
+        aria-label="Open debug log"
+        style={{
+          position: 'fixed',
+          right: 12,
+          bottom: 12,
+          zIndex: 9998,
+          width: 44,
+          height: 44,
+          borderRadius: 22,
+          border: '2px solid #1f4a5c',
+          background: '#fff',
+          color: '#1f4a5c',
+          fontSize: 20,
+          lineHeight: '40px',
+          textAlign: 'center',
+          padding: 0,
+          cursor: 'pointer',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+        }}
+      >
+        🐛
+      </button>
       <DebugOverlay open={debugOpen} onClose={() => setDebugOpen(false)} />
 
       {/* Toast notification */}

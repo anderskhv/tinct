@@ -1124,22 +1124,7 @@ export function Reader({
         >
           &larr;
         </button>
-        <span
-          className="page-nav-label"
-          // Long-press (~1.2s) opens the in-app debug overlay. Lets us
-          // capture __tinctNavDebug on Boox / Capacitor where DevTools
-          // isn't available. Tap-and-release does nothing.
-          onPointerDown={(e) => {
-            const target = e.currentTarget
-            const timer = setTimeout(() => {
-              window.dispatchEvent(new CustomEvent('tinct:open-debug'))
-            }, 1200)
-            const cancel = () => { clearTimeout(timer); target.removeEventListener('pointerup', cancel); target.removeEventListener('pointerleave', cancel); target.removeEventListener('pointercancel', cancel) }
-            target.addEventListener('pointerup', cancel)
-            target.addEventListener('pointerleave', cancel)
-            target.addEventListener('pointercancel', cancel)
-          }}
-        >
+        <span className="page-nav-label">
           {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
           {chapterTitle && <span className="page-nav-sep"> — </span>}
           {progressLabel || `${currentPage + 1} / ${totalPages}`}
