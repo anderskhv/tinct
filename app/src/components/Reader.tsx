@@ -381,7 +381,18 @@ export function Reader({
   // page also flips mid-paragraph when a long paragraph spans two pages
   // (otherwise the reader visibly stalls while the audio keeps reading).
   // Skip if user manually navigated away — don't snap back.
+  //
+  // CRITICAL: gated on isAudioPlaying. Without that gate, this effect
+  // fired on every Reader mount with a stale playingParagraphIndex left
+  // over from a prior audio session, hijacking the page after a chapter
+  // cross. Anders saw "Prologue → Parodos lands on page 2 of Parodos"
+  // and "Ch 2 → Ch 1 lands on first page of Ch 1" — both the same root
+  // cause: paragraph index leaked from a previous chapter, the new
+  // Reader mounted at the correct restore page (0 or last), then this
+  // effect snapped it to wherever the stale paragraph lived. We only
+  // trust playingParagraphIndex while audio is actually playing.
   useEffect(() => {
+    if (!isAudioPlaying) return
     if (playingParagraphIndex === undefined || totalPagesRef.current <= 1) return
     if (userNavigatedRef.current) return
     const content = contentRef.current
@@ -400,7 +411,7 @@ export function Reader({
     if (clamped !== currentPageRef.current) {
       setCurrentPage(clamped)
     }
-  }, [playingParagraphIndex, playingParagraphProgress, getColWidth, getGap])
+  }, [isAudioPlaying, playingParagraphIndex, playingParagraphProgress, getColWidth, getGap])
 
   // Reset userNavigated flag only when audio stops entirely. Rationale:
   // during playback, the user's manual page turn must stick — otherwise

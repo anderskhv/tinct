@@ -335,7 +335,12 @@ export function SplitReader({
   // page. Interpolates across the paragraph's visual width so the page
   // also flips mid-paragraph when a long paragraph spans two pages.
   // Only auto-advance if the user hasn't manually navigated away.
+  //
+  // Gated on isAudioPlaying. See Reader.tsx for the rationale — without
+  // it, a stale playingParagraphIndex from a previous chapter hijacks
+  // the page on every Reader mount after a chapter cross.
   useEffect(() => {
+    if (!isAudioPlaying) return
     if (playingParagraphIndex === undefined || totalPages <= 1) return
     if (userNavigatedRef.current) return // user browsed away — don't snap back
     const content = contentRef.current
@@ -353,7 +358,7 @@ export function SplitReader({
     if (clamped !== currentPage) {
       setCurrentPage(clamped)
     }
-  }, [playingParagraphIndex, playingParagraphProgress, totalPages, getGap, currentPage, readerRef])
+  }, [isAudioPlaying, playingParagraphIndex, playingParagraphProgress, totalPages, getGap, currentPage, readerRef])
 
   // Reset userNavigated flag only when audio stops entirely. A manual page
   // turn must stick during playback — otherwise auto-follow fights it on
