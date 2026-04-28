@@ -1756,13 +1756,17 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
 }
 
 /** Validates a path parameter for audio endpoints.
- * Expected: `{bookId}/{edition}/{file}.{ext}` — letters, digits, hyphens, dots, slashes only.
- * Rejects path traversal (`..`), absolute paths, query/hash injection. */
+ * Accepts paths used by the audio engine:
+ *   - `disclaimer-{lang}.mp3` (single segment, root-level files)
+ *   - `{bookId}/{edition}/ch{N}/{file}.{ext}` (the canonical per-chapter layout)
+ *   - `{bookId}/{edition}/{file}.{ext}` (legacy flat layout)
+ * Each segment is letters/digits/dots/hyphens/underscores. Rejects path
+ * traversal (`..`), absolute paths, query/hash injection. */
 function isValidAudioPath(p: string): boolean {
   if (!p || p.length > 200) return false
   if (p.includes('..') || p.startsWith('/') || p.includes('//')) return false
-  // book-id / edition-key / file.ext — permissive but bounded
-  return /^[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9._-]+$/i.test(p)
+  const segment = '[a-zA-Z0-9._-]+'
+  return new RegExp(`^${segment}(?:/${segment}){0,3}$`).test(p)
 }
 
 async function handleAudioManifest(request: Request, env: Env): Promise<Response> {

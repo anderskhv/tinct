@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
-import { AUDIO_BASE_URL } from '../utils/audioUrl'
+import { resolveAudioUrl } from '../utils/audioUrl'
 import { useAudioSpeed, SPEED_OPTIONS as PERSISTED_SPEED_OPTIONS } from '../hooks/useAudioSpeed'
 
 /** Push the latest audio engine event into a global so DevTools can read it.
@@ -207,7 +207,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           // paragraph's fraction before the new audio starts reporting.
           lastProgressFireRef.current = 0
           onProgressChangeRef.current?.(0)
-          const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
+          const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
           audio.playbackRate = speedRef.current
           audio.play().catch(() => {
@@ -240,7 +240,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           setCurrentParagraph(nextIndex)
           currentParagraphRef.current = nextIndex
           onParagraphChangeRef.current?.(nextPara.paragraph)
-          const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
+          const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
           audio.playbackRate = speedRef.current
           audio.play().catch(() => { setIsPlaying(false) })
@@ -302,7 +302,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       }
 
       const controller = new AbortController()
-      const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`
+      const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`, 'manifest')
       fetch(url, { signal: controller.signal })
         .then(res => {
           if (!res.ok) throw new Error('No audio')
@@ -331,7 +331,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             shouldResumeRef.current = false
             const audio = audioRef.current
             if (!audio || !data.paragraphs[0]) return
-            const paraUrl = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`
+            const paraUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`)
             audio.src = paraUrl
             audio.playbackRate = speedRef.current
             audio.play().then(() => {
@@ -370,7 +370,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         return
       }
 
-      const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`
+      const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`)
       // Explicit pause + load between src changes. Without load(), Android
       // System WebView (Boox) sometimes doesn't reload the new src — the
       // .play() call resolves against the OLD media-context, plays nothing.
@@ -446,7 +446,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       try { localStorage.setItem(disclaimerKey, '1') } catch { /* ignore */ }
 
       const lang = editionKey.endsWith('-da') ? 'da' : 'en'
-      const disclaimerUrl = `${AUDIO_BASE_URL}/disclaimer-${lang}.mp3`
+      const disclaimerUrl = resolveAudioUrl(`disclaimer-${lang}.mp3`)
 
       // Optimistic UI — flip Play state so the user sees feedback while the
       // disclaimer loads. The handleEnded effect listener will fire when the
@@ -547,7 +547,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         onParagraphChangeRef.current?.(nextPara.paragraph)
         lastProgressFireRef.current = 0
         onProgressChangeRef.current?.(0)
-        const url = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`
+        const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
         const onLoaded = () => {
           audio.removeEventListener('loadedmetadata', onLoaded)
           try { audio.currentTime = Math.max(0, offsetInPara) } catch { /* ignore */ }
