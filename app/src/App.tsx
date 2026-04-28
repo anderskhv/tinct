@@ -226,12 +226,14 @@ export default function App() {
           __tinctPositionDebug?: unknown
           __tinctSyncDebug?: unknown
           __tinctSupabaseDebug?: unknown
+          __tinctAudioDebug?: unknown
         }
         return {
           nav: wd.__tinctNavDebug || [],
           position: wd.__tinctPositionDebug || null,
           sync: wd.__tinctSyncDebug || null,
           supabase: wd.__tinctSupabaseDebug || null,
+          audio: wd.__tinctAudioDebug || null,
         }
       }
     }

@@ -479,6 +479,23 @@ export function Reader({
   }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, issueTag])
 
   const goToPage = useCallback((page: number) => {
+    // Phantom-tap guard at the goToPage gate — single chokepoint for ALL
+    // page-nav callers (button onClick, onTouchEnd tap-zone, onClick tap-
+    // zone, keyboard, custom event). On Boox + Capacitor the chapter-
+    // boundary tap fires onPrevChapter/onNextChapter, Reader unmounts/
+    // remounts at the same DOM coordinates, then the WebView re-dispatches
+    // the original touch ~25ms later. That phantom click can land on ANY
+    // of the page-nav handlers above. A guard at each handler missed
+    // some paths; placing it inside goToPage means any caller within
+    // 500ms of mount is rejected. Legitimate clicks come much later — the
+    // trace shows >2000ms between the chapter cross and the next real
+    // user tap. This is the structural fix for the +1/-1 chapter-cross
+    // page skip Anders reported (forward jumps to second page, backward
+    // jumps to second-to-last).
+    if (Date.now() - mountedAtRef.current < 500) {
+      tracePageSet('goToPage-blocked', page, { req: page, sinceMount: Date.now() - mountedAtRef.current })
+      return
+    }
     const container = readerRef.current
     if (!container) return
     userNavigatedRef.current = true
@@ -679,13 +696,18 @@ export function Reader({
     const clickX = e.clientX - rect.left
     const zone = rect.width * 0.25
 
+    // Phantom-click guard for chapter-advance branches. goToPage has its
+    // own gate, but onPrevChapter/onNextChapter bypass it.
+    const sinceMount = Date.now() - mountedAtRef.current
     if (clickX < zone) {
+      if (sinceMount < 500) return
       if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
         onPrevChapter()
       } else {
         goToPage(currentPage - 1)
       }
     } else if (clickX > rect.width - zone) {
+      if (sinceMount < 500) return
       if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
         onNextChapter()
       } else {
@@ -1031,16 +1053,14 @@ export function Reader({
           return
         }
 
-        // Reading mode: left/right edge tap for page/chapter navigation
+        // Reading mode: left/right edge tap for page/chapter navigation.
+        // Phantom-tap guard for chapter-cross paths lives inside goToPage
+        // (covers all callers). Here we ALSO need to suppress the
+        // chapter-advance fire path on the new Reader, otherwise a phantom
+        // tap on the left edge of a fresh Reader would call onPrevChapter
+        // and skip yet another chapter. Same 500ms window.
         const container = readerRef.current
         if (!container) return
-        // Phantom-tap guard: see mountedAtRef comment. The chapter-boundary
-        // tap fires onPrevChapter/onNextChapter, Reader unmounts/remounts
-        // at the same DOM coordinates, and Boox's touch driver re-dispatches
-        // the same touchEnd to the freshly-mounted reader's tap-zone ~60ms
-        // later. That stale-closure phantom calls goToPage(currentPage ± 1)
-        // against the just-restored state, undoing the chapter-cross
-        // landing by exactly one page (the +1/-1 symmetry Anders observed).
         if (Date.now() - mountedAtRef.current < 500) return
         const rect = container.getBoundingClientRect()
         const touchX = touch.clientX - rect.left
