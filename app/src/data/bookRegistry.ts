@@ -1764,7 +1764,14 @@ export const GENEALOGY_OF_MORALS: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const DESCARTES_MEDITATIONS: Book = {
