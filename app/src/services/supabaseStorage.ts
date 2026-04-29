@@ -39,7 +39,16 @@ export class SupabaseStorageProvider implements StorageProvider {
 
   get<T>(key: string): T | null {
     const val = this.cache.get(key)
-    return val !== undefined ? (val as T) : null
+    if (val !== undefined) return val as T
+    // Cache miss → fall through to localStorage. The cache is hydrated by
+    // init() (full re-fetch from cloud) and by set() (every write also lands
+    // in localStorage). So a cache miss on a returning device means init()
+    // hasn't completed yet OR the user is offline. localStorage holds the
+    // last-known value either way — strictly better than returning null,
+    // which causes the app to show defaults (e.g. Odyssey instead of the
+    // book the user was actually reading) until cloud restore lands seconds
+    // later. This was the cause of "Macbeth opened instead of The Awakening".
+    return localStorageProvider.get<T>(key)
   }
 
   set<T>(key: string, value: T): void {
@@ -49,15 +58,64 @@ export class SupabaseStorageProvider implements StorageProvider {
     localStorageProvider.set(key, value)
     // Track this write so we can ignore the real-time echo
     this.recentLocalWrites.set(key, Date.now())
-    supabase
-      .from('user_data')
-      .upsert(
-        { user_id: this.userId, key, value },
-        { onConflict: 'user_id,key' }
-      )
-      .then(({ error }) => {
-        if (error) console.warn('Supabase write failed:', error.message)
-      })
+    this.upsertWithRetry(key, value)
+  }
+
+  /**
+   * Upsert with one retry on transient failures (network blip, expired JWT
+   * that the client will refresh on the next call). We don't want a single
+   * dropped write to lose the user's reading position. Logs both attempts to
+   * window.__tinctSupabaseDebug so we can audit silent failures in DevTools.
+   */
+  private async upsertWithRetry<T>(key: string, value: T, attempt = 1): Promise<void> {
+    if (!supabase) return
+    try {
+      const { error } = await supabase
+        .from('user_data')
+        .upsert(
+          { user_id: this.userId, key, value },
+          { onConflict: 'user_id,key' }
+        )
+      if (error) {
+        if (attempt === 1) {
+          // Transient — retry once after 2s. Most "JWT expired" / "Failed to
+          // fetch" errors clear themselves once the supabase-js client refreshes.
+          setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
+        }
+        this.recordError(key, error.message, attempt)
+        console.warn(`[Supabase] write failed (attempt ${attempt}) key=${key}:`, error.message)
+        return
+      }
+      this.recordSuccess(key)
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e)
+      if (attempt === 1) {
+        setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
+      }
+      this.recordError(key, msg, attempt)
+      console.warn(`[Supabase] write threw (attempt ${attempt}) key=${key}:`, msg)
+    }
+  }
+
+  private recordSuccess(key: string): void {
+    if (typeof window === 'undefined') return
+    const w = window as unknown as { __tinctSupabaseDebug?: { lastSuccessAt: number; lastSuccessKey: string; successCount: number; lastErrorAt: number; lastErrorKey: string; lastErrorMessage: string; errorCount: number } }
+    const dbg = w.__tinctSupabaseDebug ?? { lastSuccessAt: 0, lastSuccessKey: '', successCount: 0, lastErrorAt: 0, lastErrorKey: '', lastErrorMessage: '', errorCount: 0 }
+    dbg.lastSuccessAt = Date.now()
+    dbg.lastSuccessKey = key
+    dbg.successCount += 1
+    w.__tinctSupabaseDebug = dbg
+  }
+
+  private recordError(key: string, message: string, attempt: number): void {
+    if (typeof window === 'undefined') return
+    const w = window as unknown as { __tinctSupabaseDebug?: { lastSuccessAt: number; lastSuccessKey: string; successCount: number; lastErrorAt: number; lastErrorKey: string; lastErrorMessage: string; errorCount: number } }
+    const dbg = w.__tinctSupabaseDebug ?? { lastSuccessAt: 0, lastSuccessKey: '', successCount: 0, lastErrorAt: 0, lastErrorKey: '', lastErrorMessage: '', errorCount: 0 }
+    dbg.lastErrorAt = Date.now()
+    dbg.lastErrorKey = key
+    dbg.lastErrorMessage = `attempt ${attempt}: ${message}`
+    dbg.errorCount += 1
+    w.__tinctSupabaseDebug = dbg
   }
 
   delete(key: string): void {
@@ -104,37 +162,45 @@ export class SupabaseStorageProvider implements StorageProvider {
     }
   }
 
-  /** Subscribe to real-time changes from other devices */
+  /** Subscribe to real-time changes from other devices. Best-effort: if the
+   * WebSocket can't open (CSP, corp firewall, browser policy), we swallow the
+   * error so the caller's initialization can complete. Persistence over REST
+   * keeps working without realtime. */
   subscribe(): void {
     if (!supabase) return
-    this.channel = supabase
-      .channel(`user_data:${this.userId}`)
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'user_data',
-          filter: `user_id=eq.${this.userId}`,
-        },
-        (payload) => {
-          const row = (payload.new as { key?: string; value?: unknown }) || {}
-          if (!row.key) return
-          // Ignore echoes from our own writes (within 2 seconds)
-          const lastWrite = this.recentLocalWrites.get(row.key)
-          if (lastWrite && Date.now() - lastWrite < 4000) {
-            this.recentLocalWrites.delete(row.key)
-            return
+    try {
+      this.channel = supabase
+        .channel(`user_data:${this.userId}`)
+        .on(
+          'postgres_changes',
+          {
+            event: '*',
+            schema: 'public',
+            table: 'user_data',
+            filter: `user_id=eq.${this.userId}`,
+          },
+          (payload) => {
+            const row = (payload.new as { key?: string; value?: unknown }) || {}
+            if (!row.key) return
+            // Ignore echoes from our own writes (within 2 seconds)
+            const lastWrite = this.recentLocalWrites.get(row.key)
+            if (lastWrite && Date.now() - lastWrite < 4000) {
+              this.recentLocalWrites.delete(row.key)
+              return
+            }
+            // Remote change — update cache, localStorage, and notify listeners
+            this.cache.set(row.key, row.value)
+            localStorageProvider.set(row.key, row.value)
+            for (const listener of this.listeners) {
+              listener(row.key, row.value)
+            }
           }
-          // Remote change — update cache, localStorage, and notify listeners
-          this.cache.set(row.key, row.value)
-          localStorageProvider.set(row.key, row.value)
-          for (const listener of this.listeners) {
-            listener(row.key, row.value)
-          }
-        }
-      )
-      .subscribe()
+        )
+        .subscribe()
+    } catch (e) {
+      console.warn('[SupabaseStorage] realtime subscribe failed:', e)
+      this.channel = null
+    }
   }
 
   /** Unsubscribe from real-time changes */

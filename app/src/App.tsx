@@ -19,7 +19,7 @@ import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
 import { TocOverlay } from './components/TocOverlay'
 import { ShareModal } from './components/ShareModal'
-import { DebugOverlay } from './components/DebugOverlay'
+import { FeatureTour, type TourStep } from './components/FeatureTour'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
 import { loadEdition, reloadEdition } from './data/editionLoader'
@@ -30,6 +30,7 @@ import { useNotes } from './hooks/useNotes'
 import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markUserNav } from './hooks/useReadingPosition'
 import { useClaude } from './hooks/useClaude'
 import { useThreads } from './hooks/useThreads'
+import { useTier } from './hooks/useTier'
 import { useAuth } from './hooks/useAuth'
 import { useBalance } from './hooks/useBalance'
 import { useOffline } from './hooks/useOffline'
@@ -74,6 +75,7 @@ export default function App() {
   // Auth & billing
   const { user, profile, session, isLoading: authLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
   const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile)
+  const { canUse } = useTier(user, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
@@ -249,14 +251,6 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
   const [shareText, setShareText] = useState<string | null>(null)
-  // Debug overlay — opened by long-press on the running-footer page label.
-  // See DebugOverlay.tsx + Reader.tsx onPointerDown handler.
-  const [debugOpen, setDebugOpen] = useState(false)
-  useEffect(() => {
-    const onOpen = () => setDebugOpen(true)
-    window.addEventListener('tinct:open-debug', onOpen)
-    return () => window.removeEventListener('tinct:open-debug', onOpen)
-  }, [])
   const [toastMessage, setToastMessage] = useState<string | null>(null)
   const [isCleaningUp, setIsCleaningUp] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
@@ -329,6 +323,11 @@ export default function App() {
   const [showBookOnboarding, setShowBookOnboarding] = useState(false)
   const [bookOnboardingMode, setBookOnboardingMode] = useState<'full' | 'edition-only'>('full')
   const deepLinkParsedRef = useRef(false)
+
+  // Feature tour — coachmark walkthrough fired once per user after their first
+  // BookOnboarding completes. Storage flag `tinct-tour-seen` prevents re-show.
+  // Re-triggerable from Settings sheet.
+  const [showTour, setShowTour] = useState(false)
 
   // Focus mode: hides header, bottom bar, and side panel for an immersive
   // reading experience. Toggled via a floating button or the F key. Transient
@@ -495,6 +494,14 @@ export default function App() {
     // Reset totalPages so the reader's effects gate writes during relayout
     // (useReadingPosition skips page-level writes when totalPages <= 1).
     setTotalPages(1)
+    // Backstop for cloud-sync paths (visibility-handler, real-time onChange):
+    // they call setCurrentBookId without going through handleBookChange, so
+    // primaryData/isLoading don't get cleared synchronously. Clear here so
+    // the Reader shows the loading spinner instead of stale empty content
+    // while the new edition is in flight.
+    setPrimaryData(null)
+    setSplitData(null)
+    setIsLoading(true)
     setReaderKey(k => k + 1)
     // Reading angle is per-book (B24). Load the new book's angle into
     // preferences.readingObjective so chat / system-prompt consumers see
@@ -992,6 +999,16 @@ export default function App() {
     setCurrentChapter(pos?.chapterNumber || 1)
     setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
     setTotalPages(1) // Reset so useReadingPosition guard (totalPages <= 1) prevents stale saves
+    // Clear stale edition data + show loading state synchronously. Without this,
+    // the first render after the click holds the previous book's primaryData
+    // while currentChapter has already advanced to the new book's saved chapter.
+    // That left the Reader rendering "Genesis 3" with no paragraphs (the prev
+    // book had no chapter 3 / a different chapter 3) until the new fetch
+    // landed. Toggling split-pane forced a re-layout and the Reader recovered,
+    // which is what Anders observed (2026-04-29).
+    setPrimaryData(null)
+    setSplitData(null)
+    setIsLoading(true)
     savedPos.current = pos
     // Reset target paragraph so the previous book's position doesn't leak.
     // A fresh book (no saved pos) starts on page 1; a returning book uses its own paragraph.
@@ -1304,6 +1321,33 @@ export default function App() {
     setOnboardingComplete(true)
   }, [book.id, setOnboardingComplete])
 
+  const handleTourClose = useCallback(() => {
+    storage.set('tinct-tour-seen', true)
+    setShowTour(false)
+  }, [])
+
+  // Fire the feature tour once per user, after the user transitions from
+  // anonymous → authenticated. Watching the user reference change (null →
+  // signed-in) is the right signal because:
+  //   - Anonymous users don't see the tour (most features are gated anyway)
+  //   - It runs once after sign-up, regardless of whether BookOnboarding
+  //     was already completed
+  //   - Existing signed-in users only see it once because tinct-tour-seen
+  //     persists (Anders, 2026-04-29).
+  // The 800ms delay lets BookOnboarding/TierChooser/AuthModal fully unmount
+  // before the tour overlay appears, so the user isn't hit by stacked modals.
+  const prevUserIdRef = useRef<string | null>(null)
+  useEffect(() => {
+    if (!storageReady) return
+    const prev = prevUserIdRef.current
+    const curr = user?.id ?? null
+    prevUserIdRef.current = curr
+    if (curr && curr !== prev && !storage.get<boolean>('tinct-tour-seen')) {
+      const t = window.setTimeout(() => setShowTour(true), 800)
+      return () => window.clearTimeout(t)
+    }
+  }, [user?.id, storageReady])
+
   // Progress prompt trigger — anonymous user past end of Chapter 1 or page 20
   const showProgressPrompt = useMemo(() => {
     if (user) return false
@@ -1409,6 +1453,139 @@ export default function App() {
 
   // Check if split view is available
   const splitViewAvailable = alignedEditions.length > 0
+
+  // Feature tour step list. Built per-render so setup callbacks close over
+  // the current state-setters; useMemo keeps reference stable across renders
+  // for FeatureTour. Conditional steps fall away when a feature isn't
+  // available for the current book (no audio / no Cast / no aligned edition).
+  const tourSteps = useMemo<TourStep[]>(() => {
+    // Gate every step on the SAME predicate the actual UI uses. A step that
+    // points at a tab that doesn't render is a UX bug — anonymous users were
+    // seeing "here's where you can chat" with no chat tab in the panel
+    // because canChat is premium-only (Anders, 2026-04-29).
+    const hasCastData = (threadsData?.characters?.length ?? 0) > 0
+    const canChat = canUse('ai-chat')
+    const canCast = canUse('cast')
+    const canCompare = canUse('side-by-side')
+    const canAudio = canUse('audiobook')
+    const canFeed = canUse('reading-journal')  // Feed is premium-gated via this feature
+    const ensurePanelOpen = () => {
+      if (!preferences.panelOpen) togglePanel()
+    }
+    const intro: TourStep = {
+      id: 'intro',
+      headline: 'Welcome to your reading experience',
+      copy: 'A quick tour of what’s possible here.',
+      intro: true,
+      setup: () => { if (isMobile) setActiveView(0) },
+    }
+    const compare: TourStep | null = splitViewAvailable && canCompare ? {
+      id: 'compare',
+      headline: 'Compare editions',
+      selector: isMobile ? 'mobile-compare' : 'compare',
+      copy: 'Switch between original and modern, paragraph by paragraph.',
+      setup: () => {
+        if (isMobile) setActiveView(1)
+        // Desktop: actually flip split view ON so the user sees the two-pane
+        // layout while we describe it. The tour leaves it on; one click of
+        // the Compare button turns it off.
+        // Bump readerKey AND clear the side-panel-mid-step targetParagraph so
+        // the Reader remounts cleanly with the new layout. Raw toggle without
+        // the remount left the new pane rendering stale empty content.
+        else if (!preferences.splitView) {
+          toggleSplitView()
+          setReaderKey(k => k + 1)
+        }
+      },
+    } : null
+    const chat: TourStep | null = canChat && !preferences.chatHidden ? {
+      id: 'chat',
+      headline: 'Chat companion',
+      // Desktop: cutout the whole side panel so tab + content are both visible.
+      // Mobile: cutout the bottom-bar tab so the user sees the active tab
+      // indicator change between Chat/Feed/Cast steps (Anders, 2026-04-29).
+      selector: isMobile ? 'mobile-chat' : 'side-panel',
+      copy: 'Ask anything — about a passage, a character, a theme.',
+      examples: [
+        '"What are the main themes here?"',
+        '"Tell me about [character]"',
+        '"What does this passage mean?"',
+      ],
+      setup: () => {
+        if (isMobile) setActiveView(2)
+        else { ensurePanelOpen(); setPanelTab('chat') }
+      },
+    } : null
+    const feed: TourStep | null = canFeed && !preferences.feedHidden ? {
+      id: 'feed',
+      headline: 'Feed',
+      selector: isMobile ? 'mobile-feed' : 'side-panel',
+      copy: 'Remembers everything you’ve read. Remembers every conversation.',
+      setup: () => {
+        if (isMobile) setActiveView(3)
+        else { ensurePanelOpen(); setPanelTab('notes') }
+      },
+    } : null
+    const cast: TourStep | null = canCast && hasCastData && !preferences.castHidden ? {
+      id: 'cast',
+      headline: 'Cast',
+      selector: isMobile ? 'mobile-cast' : 'side-panel',
+      copy: 'Every character, only as they appear. No spoilers ahead.',
+      setup: () => {
+        if (isMobile) setActiveView(4)
+        else { ensurePanelOpen(); setPanelTab('threads') }
+      },
+    } : null
+    const library: TourStep = {
+      id: 'library',
+      headline: 'Library',
+      selector: 'library',
+      copy: 'Pick your next book. Browse the catalogue anytime.',
+      setup: () => {
+        if (isMobile) setActiveView(0)
+        // Desktop: close the side panel as we leave Chat/Feed/Cast — visual
+        // demo of "you can click this away" and frees the right side so the
+        // Compare step (next) can actually show two-pane reading.
+        else if (preferences.panelOpen) togglePanel()
+      },
+    }
+    const audio: TourStep | null = hasAudio && canAudio ? {
+      id: 'audio',
+      headline: 'Audiobook',
+      selector: 'audio',
+      copy: 'Listen while you read. Your place stays in sync.',
+    } : null
+    const settings: TourStep = {
+      id: 'settings',
+      headline: 'Settings',
+      selector: 'settings',
+      copy: 'Edition, fonts, layout — whatever makes it yours.',
+    }
+    const toc: TourStep = {
+      id: 'toc',
+      headline: 'Table of contents',
+      selector: 'toc',
+      copy: 'Jump to any chapter.',
+    }
+    const outro: TourStep = {
+      id: 'outro',
+      headline: 'That’s the tour',
+      copy: 'Everything stays one tap away. Read on.',
+      outro: true,
+    }
+
+    // Order matches the actual on-screen left-to-right top-bar so the eye
+    // doesn't have to jump back to ToC after Settings (Anders, 2026-04-29).
+    const ordered = isMobile
+      ? [intro, compare, chat, feed, cast, library, toc, audio, settings, outro]
+      : [intro, chat, feed, cast, library, compare, toc, audio, settings, outro]
+    return ordered.filter((s): s is TourStep => s !== null)
+  }, [
+    isMobile, splitViewAvailable, hasAudio, threadsData, canUse,
+    preferences.chatHidden, preferences.feedHidden, preferences.castHidden, preferences.panelOpen,
+    preferences.splitView, toggleSplitView,
+    setActiveView, setPanelTab, togglePanel,
+  ])
 
   // Effective audio edition — separate from primary, falls back to first edition with audio
   const effectiveAudioEditionKey = useMemo(() => {
@@ -2008,6 +2185,7 @@ export default function App() {
           setShowSettings(false)
           setShowBookOnboarding(true)
         }}
+        onShowTour={() => setShowTour(true)}
       />
 
 
@@ -2604,19 +2782,19 @@ export default function App() {
       {/* Mobile bottom navigation */}
       {isMobile && (
         <nav className="mobile-nav">
-          <button className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
+          <button data-tour="mobile-read" className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
             Read
           </button>
-          <button className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
+          <button data-tour="mobile-compare" className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
             Compare
           </button>
-          <button className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
+          <button data-tour="mobile-chat" className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
             Chat
           </button>
-          <button className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
+          <button data-tour="mobile-feed" className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
             Feed
           </button>
-          <button className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
+          <button data-tour="mobile-cast" className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
             Cast
           </button>
         </nav>
@@ -2740,36 +2918,6 @@ export default function App() {
         />
       )}
 
-      {/* Debug overlay + visible trigger button. Floating bottom-right.
-          Always rendered for now (active debugging window); remove once
-          the chapter-cross page-skip is root-caused. */}
-      <button
-        type="button"
-        onClick={() => setDebugOpen(true)}
-        aria-label="Open debug log"
-        style={{
-          position: 'fixed',
-          right: 12,
-          bottom: 12,
-          zIndex: 9998,
-          width: 44,
-          height: 44,
-          borderRadius: 22,
-          border: '2px solid #1f4a5c',
-          background: '#fff',
-          color: '#1f4a5c',
-          fontSize: 20,
-          lineHeight: '40px',
-          textAlign: 'center',
-          padding: 0,
-          cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-        }}
-      >
-        🐛
-      </button>
-      <DebugOverlay open={debugOpen} onClose={() => setDebugOpen(false)} />
-
       {/* Toast notification */}
       {toastMessage && (
         <div className="tinct-toast" onClick={() => setToastMessage(null)}>
@@ -2787,6 +2935,8 @@ export default function App() {
           </div>
         </div>
       )}
+
+      <FeatureTour open={showTour} steps={tourSteps} onClose={handleTourClose} />
 
     </TierProvider>
   )

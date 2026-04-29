@@ -56,6 +56,14 @@ if [ -n "$JS_FILE" ]; then
     fail "Supabase URL MISSING from bundle — auth will be broken"
   fi
 
+  # 3b. Supabase anon key (JWT — always starts with eyJhbGciOi)
+  # Catches the 2026-04-22/23 outage mode: URL present but anon key empty.
+  if echo "$JS_CONTENT" | grep -q "eyJhbGciOi"; then
+    pass "Supabase anon key is in bundle"
+  else
+    fail "Supabase anon key MISSING from bundle — auth will return \"Auth not configured\""
+  fi
+
   # 4. R2 audio URL baked in
   echo "4. Audio (R2)"
   if echo "$JS_CONTENT" | grep -q "r2.dev"; then
@@ -63,6 +71,16 @@ if [ -n "$JS_FILE" ]; then
   else
     fail "R2 audio URL MISSING from bundle — audio will be broken"
   fi
+
+  # 4b. AI-narration disclaimer MP3s accessible (both languages)
+  for lang in en da; do
+    D_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/disclaimer-${lang}.mp3")
+    if [ "$D_STATUS" = "200" ]; then
+      pass "Disclaimer audio disclaimer-${lang}.mp3 reachable"
+    else
+      fail "Disclaimer audio disclaimer-${lang}.mp3 unreachable (HTTP $D_STATUS) — first-play UX will skip the AI notice"
+    fi
+  done
 else
   fail "JS bundle not found in HTML"
 fi

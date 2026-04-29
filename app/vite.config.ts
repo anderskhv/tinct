@@ -4,9 +4,28 @@ import type { IncomingMessage, ServerResponse } from 'http'
 import fs from 'fs'
 import path from 'path'
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const isCapacitor = process.env.CAPACITOR === 'true'
+
+  // Guard: production builds (web AND Capacitor/Android) must ship with
+  // Supabase + audio env vars baked in. A silent build with empty
+  // VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY shipped an "Auth not configured"
+  // outage to tinct.app twice on 2026-04-22/23 — the Supabase client init
+  // returns null when these are empty, every auth call returns "Auth not
+  // configured", and there's no server-side signal to catch it. Fail loudly.
+  if (command === 'build' && !process.env.SKIP_ENV_CHECK) {
+    const required = ['VITE_SUPABASE_URL', 'VITE_SUPABASE_ANON_KEY', 'VITE_AUDIO_BASE_URL']
+    const missing = required.filter(k => !env[k])
+    if (missing.length) {
+      throw new Error(
+        `\n\n✗ Build aborted: required env vars are missing:\n  ${missing.join('\n  ')}\n\n` +
+        `These must be set in .env (same directory as vite.config.ts) before running npm run build.\n` +
+        `Without them, the deployed app will have broken auth and audio and will NOT show errors at build time.\n\n` +
+        `If you're sure you want to proceed (e.g. offline dev preview), set SKIP_ENV_CHECK=1.\n`
+      )
+    }
+  }
 
   return {
   base: isCapacitor ? './' : '/',
@@ -97,6 +116,10 @@ export default defineConfig(({ mode }) => {
   ],
   server: {
     port: 3001,
+    // host: true binds to 0.0.0.0 so phones on the same WiFi can reach the
+    // dev server (e.g. http://<mac-lan-ip>:3001). Safe in dev. If you ever
+    // join an untrusted network, comment this back out.
+    host: true,
   },
 }
 })

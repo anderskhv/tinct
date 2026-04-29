@@ -43,7 +43,7 @@ const tiers = [
     features: [
       { label: 'Everything in Free', included: true },
       { label: 'Cast tracker & audiobook', included: true },
-      { label: 'AI chat (200/mo)', included: true },
+      { label: 'AI chat (100/mo, top up anytime)', included: true },
       { label: 'Offline mode & export', included: true },
       { label: 'Reading journal', included: true },
     ],

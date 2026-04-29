@@ -519,6 +519,7 @@ python3 check-status.py --r2
 | **Jerusalem** (18 ch) | 3 eds OK | R2 OK | None | modern-en | 5 chars |
 | **Beowulf** (43 ch) | 3 eds OK | R2 OK | None | modern-en | 9 chars |
 | **Candide** (30 ch) | 3 eds OK | R2 OK | None | modern-en | 7 chars |
+| **Oresteia** (26 ch) | 1 ed (orig-en) | None | None | None | None |
 
 ### Open Issues
 
@@ -544,3 +545,25 @@ python3 check-status.py --r2
 - **Edition files are at `public/data/editions/`, NOT `src/data/editions/`**
 - **R2 uploads require `--remote` flag** with wrangler r2 object put
 - Translated chapter files for Symposium saved in /tmp/sym_ch{1-6,8}.json
+
+## Current Book: Oresteia (Aeschylus)
+**Book ID:** oresteia
+**Total chapters:** 26
+**Started:** 2026-04-23
+
+### Pipeline
+- [x] Structure discussed and approved (one book, 3 plays as sections, 26 chapters)
+- [x] Source text downloaded (PG #8604, Morshead 1881 translation)
+- [x] Original parsed to JSON (26 chapters, 771 paragraphs)
+- [ ] Registered in bookRegistry.ts
+- [ ] Modern English: 0/26 chapters
+- [ ] Modern Danish: 0/26 chapters
+- [ ] English audio generated
+- [ ] English audio manifests created
+- [ ] English audio uploaded to R2
+- [ ] Visual QA passed
+
+### Session Log
+| Date | What was done | Chapters completed |
+|------|--------------|-------------------|
+| 2026-04-23 | Downloaded PG #8604 (Morshead 1881), parsed all 3 plays to oresteia-original-en.json. 26 chapters, 771 paragraphs, 3 sections. Full speaker attribution, stage direction formatting, source quality check passed. | Ch1-26 (original-en complete) |

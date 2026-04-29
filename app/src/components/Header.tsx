@@ -204,7 +204,7 @@ export function Header({
         </div>
 
         <nav className="menu-bar">
-          <button className="menu-icon-btn" onClick={onOpenStore} aria-label="Library">
+          <button className="menu-icon-btn" data-tour="library" onClick={onOpenStore} aria-label="Library">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -220,7 +220,7 @@ export function Header({
             </button>
           )}
 
-          <button className="menu-icon-btn" onClick={onOpenToc} aria-label="Table of contents">
+          <button className="menu-icon-btn" data-tour="toc" onClick={onOpenToc} aria-label="Table of contents">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
               <line x1="3" y1="4" x2="13" y2="4" />
               <line x1="3" y1="8" x2="11" y2="8" />
@@ -231,6 +231,7 @@ export function Header({
           {hasAudio && onToggleAudio && (
             <button
               className={`menu-icon-btn ${isAudioPlaying ? 'menu-icon-active' : ''}`}
+              data-tour="audio"
               onClick={onToggleAudio}
               aria-label={isAudioPlaying ? 'Hide audio player' : 'Show audio player'}
             >
@@ -250,7 +251,7 @@ export function Header({
             </button>
           )}
 
-          <button className="menu-icon-btn" onClick={onOpenSettings} aria-label="Settings">
+          <button className="menu-icon-btn" data-tour="settings" onClick={onOpenSettings} aria-label="Settings">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="3" />
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
@@ -279,7 +280,7 @@ export function Header({
       </div>
 
       <nav className="menu-bar">
-        <button className="menu-icon-btn" onClick={onOpenStore} title="Library">
+        <button className="menu-icon-btn" data-tour="library" onClick={onOpenStore} title="Library">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -289,6 +290,7 @@ export function Header({
         {splitViewAvailable && (
           <button
             className={`menu-icon-btn ${splitView ? 'menu-icon-active' : ''}`}
+            data-tour="compare"
             onClick={onToggleSplitView}
             title={splitView ? 'Single view' : 'Compare editions'}
           >
@@ -308,9 +310,18 @@ export function Header({
           </button>
         )}
 
+        <button className="menu-icon-btn" data-tour="toc" onClick={onOpenToc} title="Table of contents">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <line x1="3" y1="4" x2="13" y2="4" />
+            <line x1="3" y1="8" x2="11" y2="8" />
+            <line x1="3" y1="12" x2="9" y2="12" />
+          </svg>
+        </button>
+
         {hasAudio && onToggleAudio && (
           <button
             className={`menu-icon-btn ${isAudioPlaying ? 'menu-icon-active' : ''}`}
+            data-tour="audio"
             onClick={onToggleAudio}
             title={isAudioPlaying ? 'Hide audio player' : 'Show audio player'}
           >
@@ -330,7 +341,7 @@ export function Header({
           </button>
         )}
 
-        <button className="menu-icon-btn" onClick={onOpenSettings} title="Settings">
+        <button className="menu-icon-btn" data-tour="settings" onClick={onOpenSettings} title="Settings">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="3" />
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />

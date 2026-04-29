@@ -49,11 +49,33 @@ export function useAuth(): UseAuthReturn {
       return
     }
 
+    // Mark-signed-in cookie is read by the Cloudflare Worker on GET / to
+    // 302 signed-in users straight to /read before serving landing.html.
+    // The client-side inline redirect in landing.html is belt-and-suspenders
+    // for cookie-disabled browsers; the cookie makes the redirect
+    // deterministic across mobile Safari, refreshed caches, and stale
+    // localStorage edge cases that bit us before.
+    const setSignedInCookie = () => {
+      try {
+        document.cookie = 'tinct_auth=1; Path=/; Max-Age=31536000; SameSite=Lax; Secure'
+      } catch { /* ignore */ }
+    }
+    const clearSignedInCookie = () => {
+      try {
+        document.cookie = 'tinct_auth=; Path=/; Max-Age=0; SameSite=Lax; Secure'
+      } catch { /* ignore */ }
+    }
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session: s } }) => {
       setSession(s)
       setUser(s?.user ?? null)
-      if (s?.user) fetchProfile(s.user.id)
+      if (s?.user) {
+        setSignedInCookie()
+        fetchProfile(s.user.id)
+      } else {
+        clearSignedInCookie()
+      }
       setIsLoading(false)
     })
 
@@ -62,8 +84,13 @@ export function useAuth(): UseAuthReturn {
       (event, s) => {
         setSession(s)
         setUser(s?.user ?? null)
-        if (s?.user) fetchProfile(s.user.id)
-        else setProfile(null)
+        if (s?.user) {
+          setSignedInCookie()
+          fetchProfile(s.user.id)
+        } else {
+          clearSignedInCookie()
+          setProfile(null)
+        }
         if (event === 'PASSWORD_RECOVERY') {
           setIsPasswordRecovery(true)
         }

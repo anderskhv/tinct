@@ -435,10 +435,7 @@ export function Feed({
               >
                 <button
                   className="feed-row-header"
-                  onClick={() => {
-                    if (!isUnread) toggleChapter(ch)
-                    if (!isCurrent) onNavigateToChapter(ch)
-                  }}
+                  onClick={() => { if (!isUnread) toggleChapter(ch) }}
                 >
                   <span className="feed-row-check">
                     {record?.completed ? (
@@ -455,8 +452,19 @@ export function Feed({
                     <button
                       className="feed-resume"
                       onClick={(e) => { e.stopPropagation(); onNavigateToChapter(ch, record.lastParagraphIndex) }}
+                      title="Jump to where you left off in this chapter"
                     >
                       Resume
+                    </button>
+                  )}
+                  {!isCurrent && (
+                    <button
+                      className="feed-go"
+                      onClick={(e) => { e.stopPropagation(); onNavigateToChapter(ch) }}
+                      title="Open this chapter in the reader"
+                      aria-label={`Open ${title}`}
+                    >
+                      ↗
                     </button>
                   )}
                   {artifactCount > 0 && (
@@ -477,7 +485,6 @@ export function Feed({
                             <div
                               key={`hl-${hl.id}`}
                               className="timeline-item timeline-highlight"
-                              onClick={() => onNavigateToChapter(hl.chapterNumber, hl.paragraphIndex, hl.editionKey)}
                             >
                               <div className="timeline-icon">
                                 <div className={`highlight-dot highlight-${hl.color}`} />
@@ -488,6 +495,12 @@ export function Feed({
                                 </p>
                                 {hl.note && <p className="highlight-note">{hl.note}</p>}
                               </div>
+                              <button
+                                className="timeline-go"
+                                onClick={(e) => { e.stopPropagation(); onNavigateToChapter(hl.chapterNumber, hl.paragraphIndex, hl.editionKey) }}
+                                title="Jump to this highlight in the reader"
+                                aria-label="Open in reader"
+                              >↗</button>
                               {onDeleteHighlight && (
                                 <button
                                   className="note-delete"
@@ -542,17 +555,25 @@ export function Feed({
                             <div key={`chat-${conv.id}`} className="timeline-item timeline-chat">
                               <div className="timeline-icon timeline-icon-chat">&#128172;</div>
                               <div className="timeline-body">
-                                <button className="timeline-chat-header" onClick={() => { toggleConv(conv.id); onNavigateToChapter(conv.chapterNumber, conv.paragraphIndex) }}>
-                                  <span className="timeline-chat-preview">
-                                    {conv.summary
-                                      ? conv.summary.slice(0, 80) + (conv.summary.length > 80 ? '...' : '')
-                                      : conv.preview || 'Chat conversation'}
-                                  </span>
-                                  <span className="timeline-chat-meta">
-                                    {msgCount} msg{msgCount !== 1 ? 's' : ''} &middot; {formatDate(conv.startTimestamp)} {formatTime(conv.startTimestamp)}
-                                  </span>
-                                  <span className="timeline-expand">{isConvExpanded ? '\u25B2' : '\u25BC'}</span>
-                                </button>
+                                <div className="timeline-chat-header-row">
+                                  <button className="timeline-chat-header" onClick={() => toggleConv(conv.id)}>
+                                    <span className="timeline-chat-preview">
+                                      {conv.summary
+                                        ? conv.summary.slice(0, 80) + (conv.summary.length > 80 ? '...' : '')
+                                        : conv.preview || 'Chat conversation'}
+                                    </span>
+                                    <span className="timeline-chat-meta">
+                                      {msgCount} msg{msgCount !== 1 ? 's' : ''} &middot; {formatDate(conv.startTimestamp)} {formatTime(conv.startTimestamp)}
+                                    </span>
+                                    <span className="timeline-expand">{isConvExpanded ? '\u25B2' : '\u25BC'}</span>
+                                  </button>
+                                  <button
+                                    className="timeline-go"
+                                    onClick={(e) => { e.stopPropagation(); onNavigateToChapter(conv.chapterNumber, conv.paragraphIndex) }}
+                                    title="Jump to where this chat happened in the book"
+                                    aria-label="Open in reader"
+                                  >&#x2197;</button>
+                                </div>
                                 {isConvExpanded && (
                                   <div className="timeline-chat-messages">
                                     {conv.summary ? (

@@ -59,9 +59,9 @@ JOBS = [
     ("peloponnesian-war", "modern-en"),        # 998p
     ("democracy-in-america", "original-en"),   # 2258p
     ("democracy-in-america", "modern-en"),     # 2258p
-    # Bible — KJV (Early Modern English: thee/thou) + WEB (modern). Both English, Kokoro.
-    ("bible", "kjv-en"),                       # 6704p
-    ("bible", "web-en"),                       # 6704p
+    # Bible KJV + WEB removed 2026-04-28 — will be regenerated separately
+    # AFTER moving audio folder out of iCloud Documents (per Anders).
+    # Re-add when ready: ("bible", "kjv-en"), ("bible", "web-en") — 6704p each.
 ]
 
 

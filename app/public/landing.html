@@ -2,30 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- cache-bust 2026-04-24 cookie-redirect -->
   <script>
     // Hide the page immediately; reveal only if the user is NOT signed in.
     // This eliminates any flash of the landing page for signed-in users
     // before the redirect fires.
+    //
+    // Detection is deliberately permissive: any non-empty Supabase auth-token
+    // key triggers the redirect. Strict JSON+expires_at parsing missed cases
+    // where (a) Supabase chunks long tokens across `sb-*-auth-token.0`, `.1`,
+    // (b) the value is a base64 wrapper, (c) expires_at is absent or stale
+    // but refresh_token is still valid. If the redirect turns out to be a
+    // false positive, the SPA handles the unauthenticated state gracefully —
+    // far better than flashing the landing page to a signed-in user.
     document.documentElement.style.visibility = 'hidden';
     (function () {
+      // Primary check: the `tinct_auth=1` cookie set by the SPA on sign-in.
+      // Cookie-based detection survives Cloudflare's edge cache, which
+      // sometimes serves landing.html without invoking the Worker and thus
+      // bypasses the server-side redirect. Cookies are also faster than
+      // localStorage on mobile Safari.
+      try {
+        var cookies = (document.cookie || '').split(';');
+        for (var c = 0; c < cookies.length; c++) {
+          if (cookies[c].trim() === 'tinct_auth=1') {
+            window.location.replace('/read');
+            return;
+          }
+        }
+      } catch (e) { /* ignore */ }
+      // Fallback: localStorage-based check for users whose cookie was
+      // cleared (e.g. "clear cookies on exit" browser setting).
       try {
         for (var i = 0; i < localStorage.length; i++) {
           var k = localStorage.key(i);
-          if (k && k.indexOf('sb-') === 0 && k.indexOf('-auth-token') !== -1) {
-            var raw = localStorage.getItem(k);
-            if (!raw) continue;
-            try {
-              var parsed = JSON.parse(raw);
-              var expiresAt = parsed && parsed.expires_at;
-              if (!expiresAt || (expiresAt * 1000) > Date.now()) {
-                window.location.replace('/read');
-                return; // never reveal landing
-              }
-            } catch (e) { /* bad JSON, ignore */ }
-          }
+          if (!k) continue;
+          // Match sb-<ref>-auth-token, sb-<ref>-auth-token.0, .1, etc.
+          // Exclude -code-verifier and other auxiliary keys.
+          if (k.indexOf('sb-') !== 0) continue;
+          if (!/-auth-token(\.\d+)?$/.test(k)) continue;
+          var raw = localStorage.getItem(k);
+          if (!raw || raw === 'null' || raw === '""') continue;
+          window.location.replace('/read');
+          return; // never reveal landing
         }
       } catch (e) { /* storage unavailable, ignore */ }
-      // No valid session found — show the landing page
+      // No session detected — show the landing page
       document.documentElement.style.visibility = '';
     })();
   </script>

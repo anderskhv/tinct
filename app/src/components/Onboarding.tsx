@@ -190,6 +190,9 @@ export function Onboarding({
                     <option key={ed.key} value={ed.key}>{editionDisplayLabel(ed)}</option>
                   ))}
                 </select>
+                <p className="onboarding-sublabel" style={{ marginTop: 6, marginBottom: 0 }}>
+                  Narrated by AI — expect occasional pronunciation quirks.
+                </p>
               </div>
             )}
 

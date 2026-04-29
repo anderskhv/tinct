@@ -74,6 +74,14 @@ export function useChatHistory(bookId: string, storageReady = true) {
         last.chapterNumber === chapterNumber &&
         now - last.endTimestamp < CONVERSATION_GAP_MS
       ) {
+        // ID-based dedup: if this exact message is already the last entry in
+        // the conversation, skip. Defensive — protects against race conditions
+        // where the recorder effect fires multiple times for the same
+        // assistant message before lastRecordedMsgRef is observed by all
+        // re-runs (caused 4–7x duplication in storage on chapter 22).
+        if (last.messages.some(m => m.id === enrichedMessage.id)) {
+          return prev
+        }
         const updatedConv: ChatConversation = {
           ...last,
           endTimestamp: now,

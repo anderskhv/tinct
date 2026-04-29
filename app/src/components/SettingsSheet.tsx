@@ -61,6 +61,9 @@ interface SettingsSheetProps {
   onSaveObjective: (obj: string) => void
   onRedoOnboarding?: () => void
 
+  // Feature tour replay
+  onShowTour?: () => void
+
   // Offline
   isBookDownloaded: boolean
   onOpenDownloads: () => void
@@ -147,7 +150,7 @@ export function SettingsSheet(props: SettingsSheetProps) {
     splitView, onToggleSplitView,
     audioEditions, audioEditionKey, onAudioEditionChange,
     progressDisplay, onProgressDisplayChange, hasSections,
-    readingObjective, onSaveObjective, onRedoOnboarding,
+    readingObjective, onSaveObjective, onRedoOnboarding, onShowTour,
     isBookDownloaded, onOpenDownloads,
     user, messagesRemaining, hasBalance, isAnonymous,
     onSignIn, onSignOut, onOpenUsage, onResetPassword, onDeleteAccount,
@@ -293,6 +296,11 @@ export function SettingsSheet(props: SettingsSheetProps) {
           <button className="ss-link-btn" onClick={() => { onOpenStore(); onClose() }}>
             Open the library →
           </button>
+          {onShowTour && (
+            <button className="ss-link-btn" onClick={() => { onShowTour(); onClose() }}>
+              Show feature tour again →
+            </button>
+          )}
         </div>
       </div>
     )

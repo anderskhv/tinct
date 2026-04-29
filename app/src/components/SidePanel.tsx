@@ -147,7 +147,11 @@ export function SidePanel(props: SidePanelProps) {
   //   selection popup for all tiers.
   // If no tabs are visible, don't render the panel at all.
   const showChatTab = canChat && !chatHidden
-  const showCastTab = canCast && !castHidden
+  // Hide Cast tab entirely when the book has no character data — saves the
+  // user from seeing an empty rail with filter pills and a "No characters"
+  // message. Books without threads.json (e.g. The Awakening) shouldn't show
+  // a tracker at all.
+  const showCastTab = canCast && !castHidden && threadCharacters.length > 0
   const showFeedTab = tier === 'premium' && !feedHidden
   const anyTabVisible = showChatTab || showFeedTab || showCastTab
   if (!anyTabVisible) return null
@@ -173,6 +177,7 @@ export function SidePanel(props: SidePanelProps) {
       onTopUp={onTopUp}
       onSignIn={onSignIn}
       chatConversations={chatConversations}
+      onNavigateToChapter={onNavigateToChapter}
     />
   ) : (
     <UpgradePrompt feature="AI chat" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
@@ -235,13 +240,14 @@ export function SidePanel(props: SidePanelProps) {
 
   if (isMobile) {
     return (
-      <aside className={`side-panel ${isOpen ? 'side-panel-open' : 'side-panel-closed'}`}>
+      <aside className={`side-panel ${isOpen ? 'side-panel-open' : 'side-panel-closed'}`} data-tour="side-panel">
         {isOpen && (
           <div className="side-panel-inner">
             <div className="panel-tabs">
               {showChatTab && (
                 <button
                   className={`panel-tab ${safeActiveTab === 'chat' ? 'panel-tab-active' : ''}`}
+                  data-tour="chat-tab"
                   onClick={() => onTabChange('chat')}
                 >
                   Chat
@@ -250,6 +256,7 @@ export function SidePanel(props: SidePanelProps) {
               {showFeedTab && (
                 <button
                   className={`panel-tab ${safeActiveTab === 'notes' ? 'panel-tab-active' : ''}`}
+                  data-tour="feed-tab"
                   onClick={() => onTabChange('notes')}
                 >
                   Feed
@@ -261,6 +268,7 @@ export function SidePanel(props: SidePanelProps) {
               {showCastTab && (
                 <button
                   className={`panel-tab ${safeActiveTab === 'threads' ? 'panel-tab-active' : ''}`}
+                  data-tour="cast-tab"
                   onClick={() => onTabChange('threads')}
                 >
                   Cast
@@ -268,10 +276,15 @@ export function SidePanel(props: SidePanelProps) {
               )}
             </div>
 
-            {safeActiveTab === 'chat' && showChatTab ? renderChat()
-              : safeActiveTab === 'notes' && showFeedTab ? renderFeed()
-              : safeActiveTab === 'threads' && showCastTab ? renderCast()
-              : null}
+            {/* key on activeTab so a tab switch remounts the active content
+                and re-runs its CSS fade-in animation. Makes the Chat→Feed
+                transition visually obvious during the feature tour. */}
+            <div className="panel-content-fade" key={safeActiveTab}>
+              {safeActiveTab === 'chat' && showChatTab ? renderChat()
+                : safeActiveTab === 'notes' && showFeedTab ? renderFeed()
+                : safeActiveTab === 'threads' && showCastTab ? renderCast()
+                : null}
+            </div>
           </div>
         )}
       </aside>
@@ -302,7 +315,7 @@ export function SidePanel(props: SidePanelProps) {
   }
 
   return (
-    <aside className="side-panel side-panel-stack">
+    <aside className="side-panel side-panel-stack" data-tour="side-panel">
       <div className="card-stack">
         {rails.map(r => {
           const isActive = r.key === activeRail

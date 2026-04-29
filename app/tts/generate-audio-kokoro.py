@@ -55,6 +55,12 @@ def clean_text(text):
     # Skip single-letter 'I' (standard English pronoun).
     text = re.sub(r'\b([A-Z]{2,})\b', lambda m: m.group(1).title(), text)
 
+    # Normalize curly apostrophes/quotes → straight. Kokoro's phonemizer
+    # handles straight apostrophes more reliably on uncommon words
+    # (e.g. "hurlyburly's" was being read as "hurlyburly S").
+    text = text.replace('’', "'").replace('‘', "'")
+    text = text.replace('“', '"').replace('”', '"')
+
     # Collapse multiple spaces left behind
     text = re.sub(r'  +', ' ', text).strip()
     return text
