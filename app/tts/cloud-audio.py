@@ -182,6 +182,7 @@ def main():
     p.add_argument("--terminate", action="store_true", help="TERMINATE pod (wipe volume) after job")
     p.add_argument("--reuse-pod", help="Use existing pod ID instead of creating one")
     p.add_argument("--no-bootstrap", action="store_true", help="Skip bootstrap (pod must already be set up)")
+    p.add_argument("--force", action="store_true", help="Pass --force to run-kokoro-cloud.py (regen even if R2 has audio)")
     args = p.parse_args()
 
     if len(args.jobs) % 2 != 0:
@@ -208,12 +209,13 @@ def main():
         log("Bootstrap complete.")
 
     job_args = " ".join(shlex.quote(a) for a in args.jobs)
+    force_flag = " --force" if args.force else ""
     remote_cmd = (
         f"export CLOUDFLARE_API_TOKEN={shlex.quote(cf_token)} && "
         f"cd /workspace/tinct/scripts && "
         f"tmux kill-session -t kokoro 2>/dev/null; "
         f"tmux new -d -s kokoro "
-        f"'python3 run-kokoro-cloud.py {job_args} 2>&1 | tee {LOG_FILE_REMOTE}; "
+        f"'python3 run-kokoro-cloud.py{force_flag} {job_args} 2>&1 | tee {LOG_FILE_REMOTE}; "
         f"touch /workspace/job.done'"
     )
     log("Launching job in tmux on pod…")
