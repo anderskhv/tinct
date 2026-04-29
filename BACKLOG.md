@@ -33,7 +33,7 @@
 
 ## Current Sprint — Book Onboarding v2 + Landing Page (April 2026)
 
-### Book Onboarding v2 (IN PROGRESS — 2026-04-29)
+### Book Onboarding v2 — SHIPPED 2026-04-29
 
 **Goal:** Replace v1's 3-step flow with a 6-step flow that leads with substance ("why this is worth your time today") before asking the user to commit to an edition.
 
@@ -45,19 +45,16 @@
 5. Reading angles (card-pick replaces AngleChat — simpler, free, no AI)
 6. Account *(anonymous only)* — Feature Tour fires post-signup
 
-**Status:**
+**Status:** Live at https://tinct.app (commit f7b8eeb, version `d1a99346…`).
 - [x] Voice calibrated on Niels Lyhne + Notes from Underground
-- [x] JSON schema decided (`acclaim` array, `whyItMatters` array, drop `preReadingChat`)
-- [x] niels-lyhne.json updated with new fields
-- [ ] Generate `acclaim` + `whyItMatters` + tightened `about` for the other 58 books — IN PROGRESS overnight 2026-04-29 with fact-checking agent verifying quotes
-- [ ] Refactor `BookOnboarding.tsx` for 6-step flow:
-  - [ ] New step renderer: About + Acclaim
-  - [ ] New step renderer: Why It Matters
-  - [ ] Edition picker — Compare defaults to inverse-of-primary
-  - [ ] Replace AngleChat with `angleCards` card-pick UI (4 cards + "Just start reading")
-  - [ ] Drop AngleConfirm + AngleChat code paths
-- [ ] Test locally on mobile + desktop
-- [ ] Deploy
+- [x] JSON schema settled (`acclaim`, `whyItMatters`, drop `preReadingChat`)
+- [x] All 60 books updated with new schema
+- [x] BookOnboarding.tsx refactored — 6-step flow, Compare default = inverse, angle card-pick replaces AngleChat
+- [x] CSS for new sections (acclaim, why-matters, angle-skip)
+- [x] Build clean, 16/16 guard tests, 14/14 smoke tests
+- [x] Deployed to production
+- [ ] Acclaim follow-up: apply fact-checked quotes from research agent for the 46 books currently shipping with empty acclaim arrays. Agent was running at end of session.
+- [ ] Cleanup: delete dead AngleChat helper + unbuilt manifesto HTML.
 
 **Voice calibration (locked):**
 - Lead with what the book deals with (book-focused, descriptive verbs: deals with, asks, follows, traces, casts off)

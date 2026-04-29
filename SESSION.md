@@ -8,7 +8,7 @@
 ## Deployed
 - **Production:** https://tinct.app
 - **Dev URL:** https://tinct.ahvelplund.workers.dev
-- **Last confirmed working deploy:** 2026-04-29 (Feature Tour shipped — commit 0201592 — 14/14 smoke tests passing)
+- **Last confirmed working deploy:** 2026-04-29 evening (Book Onboarding v2 — commit f7b8eeb — 14/14 smoke tests passing — version `d1a99346…`)
 
 ## Today's session (2026-04-29)
 
@@ -21,15 +21,23 @@
 - **CLAUDE.md compressed** — 461 → 227 lines, decisions log pruned to active policy.
 - **6 iCloud sync-conflict duplicate files deleted.**
 
-### In flight (next session — see BACKLOG.md)
-- **Book Onboarding rebuild (v2)** — replacing the existing 3-step (edition / angle / cast) flow with a 6-step flow: About+Acclaim → Why It Still Matters → Edition → Cast → Reading angles (card-pick, replaces AngleChat) → Account.
-  - JSON schema gets two new fields: `acclaim` (1-3 verified endorsements with sources) and `whyItMatters` (3 items in the calibrated voice).
-  - `BookOnboarding.tsx` needs new step renderers for About+Acclaim and Why It Matters; existing AngleChat replaced with simple `angleCards` card-pick UI.
-  - Edition picker: Compare defaults to inverse-of-primary edition (not empty).
-  - Pre-reading chat (3 themes + fallback) **dropped** — was a CLAUDE.md spec idea that never got built; we're not reviving it.
-  - The unbuilt 6-step "Account Onboarding" manifesto HTML in `Design refs/Account Onboarding.html` is **retired** — what we mean by "Account Onboarding" is now the Feature Tour.
-- **Landing page update** — Anders wants to bring the new onboarding visuals/feel to the front page. Discussion topic for next session.
-- **Book onboarding content generation** — IN PROGRESS at end of this session: regenerating `acclaim` + `whyItMatters` + tightened `about` for all 60 books in `app/public/data/onboarding/*.json`. Niels Lyhne and Notes from Underground done as voice anchors.
+### Book Onboarding v2 — SHIPPED 2026-04-29 evening
+- All 60 books updated to new JSON schema (`acclaim`, `whyItMatters`, tightened `about`). Legacy `preReadingChat` dropped.
+- BookOnboarding.tsx refactored to 6 steps: About+Acclaim → Why It Matters → Edition → Cast → Reading angles → Account.
+- Edition Compare defaults to inverse-of-primary (was empty).
+- AngleChat (AI iteration) replaced with simple card-pick of 4 angle cards + "Just start reading."
+- AngleChat helper + handleAngleLockIn retained as dead code in BookOnboarding.tsx — can be deleted in a later pass.
+- Live at https://tinct.app — verified Niels Lyhne JSON serves with 3 acclaim + 3 whyItMatters.
+
+### Acclaim quote coverage
+- 14 books shipped with verified primary-source quotes (Nietzsche, Freud, Walter Scott, T.S. Eliot, Blake, Cicero, Whitehead, D.H. Lawrence, Rilke, Ibsen, Faulkner, Kaufmann, Simone Weil).
+- 46 books shipped with **empty** acclaim arrays — better empty than fabricated.
+- A research agent was running at end of session to find verified quotes for the remaining 46. If it returned with results, Anders should review/merge before the next deploy. If not, the empty arrays are safe — the About step renders without acclaim when the array is empty.
+
+### In flight (next session)
+- **Landing page update** — Anders wants to bring the new onboarding feel/visuals to the front page. Open discussion for next session.
+- **Acclaim follow-up** — apply research agent findings (quotes for ~46 books) once verified. Re-deploy.
+- **Cleanup** — delete the dead AngleChat code and the unbuilt manifesto HTML at `Design refs/Account Onboarding.html`.
 
 ## Voice calibration (locked for content generation)
 
