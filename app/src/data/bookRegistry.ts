@@ -1940,8 +1940,91 @@ export const DEMOCRACY_IN_AMERICA: Book = {
   ],
 }
 
+export const MAGNA_CARTA: Book = {
+  id: 'magna-carta',
+  title: 'Magna Carta',
+  author: 'Anonymous (sealed by King John)',
+  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No free man shall be seized or imprisoned…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
+  year: 1215,
+  wordCount: 5000,
+  coverColor: '#3a2d1f',
+  coverAccent: '#a87838',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'English Translation',
+      year: 1215,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const US_FOUNDING_DOCUMENTS: Book = {
+  id: 'us-founding-documents',
+  title: 'The US Founding Documents',
+  author: 'Various (Jefferson, Madison, et al.)',
+  description: 'The four texts that built the American Republic: the Declaration of Independence (1776), the Constitution (1787), the Bill of Rights (1791), and every Amendment since. Together they define how a continental democracy was imagined, codified, and then expanded to include those it once excluded.',
+  year: 1776,
+  wordCount: 22000,
+  coverColor: '#1f2a3a',
+  coverAccent: '#c0432a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1776–1992)',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
+export const FEDERALIST_PAPERS: Book = {
+  id: 'federalist-papers',
+  title: 'The Federalist Papers',
+  author: 'Hamilton, Madison, Jay (as "Publius")',
+  description: 'Eighty-five newspaper essays written by Hamilton, Madison, and Jay in 1787-88 to defend the proposed Constitution. The most influential work of political theory in American history — including Madison\'s celebrated "factions" paper (No. 10), the "if men were angels" argument for checks and balances (No. 51), and Hamilton\'s case for judicial review (No. 78).',
+  year: 1788,
+  wordCount: 175000,
+  coverColor: '#2a1f3a',
+  coverAccent: '#d4a843',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (1788)',
+      year: 1788,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND]
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS]
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LOCAL-ONLY BOOKS
