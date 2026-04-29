@@ -228,6 +228,12 @@ def upload_chapter(book_id, edition_key, ch_dir):
 
 def main():
     args = sys.argv[1:]
+    # --force flag: regenerate every chapter (don't skip already-on-R2)
+    force = False
+    if "--force" in args:
+        force = True
+        args = [a for a in args if a != "--force"]
+        log("FORCE mode: idempotent skip disabled, all chapters will be regenerated.")
     if len(args) < 2 or len(args) % 2 != 0:
         print(__doc__)
         return 1
@@ -274,8 +280,8 @@ def main():
             ch_num = ch["number"]
             ch_start = time.time()
 
-            # Skip if already on R2 (idempotent)
-            if chapter_on_r2(book_id, edition_key, ch_num):
+            # Skip if already on R2 (idempotent) — unless --force was passed
+            if not force and chapter_on_r2(book_id, edition_key, ch_num):
                 total_skipped += 1
                 continue
 
