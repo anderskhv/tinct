@@ -1793,7 +1793,14 @@ export const DESCARTES_MEDITATIONS: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const ON_LIBERTY: Book = {
@@ -1821,7 +1828,14 @@ export const ON_LIBERTY: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const OEDIPUS_REX: Book = {
@@ -1965,7 +1979,14 @@ export const MAGNA_CARTA: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const US_FOUNDING_DOCUMENTS: Book = {
@@ -1992,7 +2013,14 @@ export const US_FOUNDING_DOCUMENTS: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const FEDERALIST_PAPERS: Book = {
