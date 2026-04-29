@@ -33,6 +33,12 @@ Strategy / audit / research documents that are no longer active references:
 ### `kids-editions/`
 Pre-existing archive of kids-edition content from before the kids editions were dropped (2026-03-25 decision). Untouched by the 2026-04-29 cleanup.
 
+### `old-data/`
+Stale data files (mostly tiny placeholders or sync conflicts):
+- `democracy-in-america-modern-en.json.bak` — pre-content backup (52 KB; current file is 1.8 MB)
+- `war-and-peace-threads.json.bak` — pre-content backup (12 KB; current is 394 KB)
+- `the-manual-modern-da 3.json` — iCloud sync-conflict file (different from canonical)
+
 ## Restoring something
 `mv archive/<folder>/<file> .` — moves it back to the root. Or pick a more appropriate destination.
 
