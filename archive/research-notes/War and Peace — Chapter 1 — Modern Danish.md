@@ -1,0 +1,86 @@
+# Første bog (1805) — Kapitel I
+
+[På fransk] "Nå, fyrste, så Genova og Lucca er nu ikke andet end godser, der tilhører familien Bonaparte. Men jeg advarer Dem — hvis De ikke fortæller mig, at dette betyder krig, hvis De fortsætter med at forsvare de grusomheder, den Antikrist begår — og jeg er virkelig overbevist om, at han er Antikrist — så er jeg færdig med Dem. De er ikke længere min ven, ikke længere min 'trofaste slave', som De så gerne kalder Dem selv! Men hvordan har De det? Jeg kan se, at jeg har forskrækket Dem — sæt Dem ned og fortæl mig alle nyhederne."
+
+Det var juli 1805, og den talende var den velkendte Anna Pavlovna Scherer, hofdame og yndling hos kejserinde Marja Fjodorovna. Det var med disse ord, hun modtog fyrst Vasilij Kuragin, en mand af høj rang og indflydelse, som var den første gæst ved hendes selskab. Anna Pavlovna havde hostet i flere dage. Hun led af la grippe, som hun selv sagde — grippe var et nyt modeord i Sankt Petersborg på den tid, og kun eliten brugte det.
+
+Alle hendes invitationer, uden undtagelse skrevet på fransk, var blevet bragt ud samme morgen af en lakaj i skarlagenrødt livré. De lød alle ens:
+
+[På fransk] "Hvis De ikke har noget bedre at tage Dem til, greve (eller fyrste), og hvis udsigten til at tilbringe en aften med en stakkels syg kvinde ikke er alt for skræmmende, ville det glæde mig at se Dem i aften mellem syv og ti. — Annette Scherer."
+
+"Du milde! Hvilket voldsomt angreb!" svarede fyrsten, der slet ikke lod sig bringe ud af fatning af denne modtagelse. Han var netop kommet ind iført broderet hofuniform med knæbukser og spændesko, med ordener glitrende på brystet og sit flade ansigt i et udtryk af rolig selvtillid. Han talte det forfinede fransk, som en ældre generation ikke blot førte samtale på, men også tænkte på, og med den milde, nedladende tone, der falder naturligt for en betydningsfuld mand, som er blevet gammel i selskabslivets og hoffets vaner. Han gik hen til Anna Pavlovna, kyssede hendes hånd, viste hende sit skaldet, parfumerede, skinnende hoved og slog sig bekvemt ned i sofaen.
+
+[På fransk] "Først og fremmest, kære veninde, fortæl mig, hvordan De har det. Berolig Deres vens sind," sagde han i uforandret tone — bag høfligheden og den viste deltagelse kunne man fornemme ligegyldighed, ja endda ironi.
+
+"Hvordan kan man have det godt, når man lider moralsk? Hvordan kan nogen bevare roen i tider som disse, hvis de overhovedet har nogen følelse?" sagde Anna Pavlovna. "De bliver hele aftenen, håber jeg?"
+
+"Og festen hos den engelske ambassadør? Det er onsdag i dag. Jeg er nødt til at vise mig dér," sagde fyrsten. "Min datter kommer og henter mig."
+
+"Jeg troede, at dagens arrangement var blevet aflyst. Jeg må sige, at alle de her festligheder og fyrværkerier begynder at blive trættende."
+
+"Hvis man havde vidst, at De ønskede det, ville arrangementet være blevet udsat," sagde fyrsten, som et urværk der var trukket op, og sagde ting af vane, som han ikke engang selv forventede blev troet.
+
+"Lad være med at drille! Nå, og hvad er der besluttet om Novosiltsevs depeche? De ved jo alt."
+
+"Hvad kan man sige om det?" svarede fyrsten i en kølig, ligegyldig tone. "Hvad er der blevet besluttet? De har besluttet, at Bonaparte har brændt sine broer, og jeg tror, vi er klar til at brænde vores."
+
+Fyrst Vasilij talte altid med en træt, slæbende stemme, som en skuespiller der gennemgår en forslidt rolle. Anna Pavlovna derimod strålede trods sine fyrre år af energi og lidenskab. At være begejstret var blevet hendes sociale kald, og nogle gange, selv når hun ikke havde lyst, arbejdede hun sig op i en tilstand af begejstring for ikke at skuffe de mennesker, der forventede det af hende. Det svage smil, der altid spillede om hendes læber — selvom det ikke rigtig klædte hendes blegnede træk — udtrykte, som et forkælet barns, en vedvarende bevidsthed om sin charmerende svaghed, som hun hverken ville, kunne eller så nogen grund til at rette.
+
+Midt i en samtale om politik udbrød Anna Pavlovna:
+
+"Åh, tal ikke til mig om Østrig! Måske forstår jeg ikke de her ting, men Østrig har aldrig ønsket krig og ønsker det ikke nu. De forråder os! Rusland alene må redde Europa. Vores nådige kejser forstår sin hellige pligt og vil forblive tro mod den. Det er det eneste, jeg tror på! Vores gode og ædle kejser må opfylde den højeste rolle på jorden, og han er så dydig og ædel, at Gud ikke vil forlade ham. Han vil opfylde sit kald og knuse revolutionens uhyre, som er blevet mere forfærdeligt end nogensinde i denne morders og skurks skikkelse! Vi alene må hævne de retfærdiges blod. Hvem andre kan vi stole på? England med sin handelsmæssige tankegang vil aldrig forstå kejser Alexanders sjæls ædelhed. De har nægtet at forlade Malta. De leder efter skjulte motiver bag alt, vi gør. Hvilket svar fik Novosiltsev? Intet. Englænderne har ikke forstået, og kan ikke forstå, vores kejsers uselviskhed, som ikke søger noget for sig selv, men kun menneskehedens bedste. Og hvad har de lovet? Intet! Og det lille, de har lovet, holder de ikke! Preussen har altid hævdet, at Bonaparte er uovervindelig, og at hele Europa er magtesløst over for ham. Og jeg tror ikke et ord af, hvad Hardenberg siger, eller Haugwitz heller. Denne berømte preussiske neutralitet er intet andet end en fælde. Jeg tror kun på Gud og på vores elskede kejsers ædle skæbne. Han vil redde Europa!"
+
+Hun holdt pludselig inde og smilede af sin egen lidenskab.
+
+"Jeg tror," sagde fyrsten med et smil, "at hvis De var blevet sendt i stedet for vores kære Wintzingerode, ville De have taget den preussiske konges samtykke med storm. De er så veltalende. Vil De give mig en kop te?"
+
+[På fransk] "Om et øjeblik. Forresten," tilføjede hun og blev rolig igen, "jeg venter to meget interessante mænd i aften: vicomte de Mortemart, som er forbundet med Montmorency-familien gennem Rohan-slægten — en af de fineste franske familier. Han er en af de ægte emigranter, de virkelige. Og desuden abbé Morio. Kender De den brillante tænker? Han er blevet modtaget af kejseren. Vidste De det?"
+
+"Det vil glæde mig at møde dem," sagde fyrsten. "Men sig mig," tilføjede han med studeret ligegyldighed, som om tanken lige var faldet ham ind — skønt det spørgsmål, han var ved at stille, var den egentlige grund til hans besøg — "er det sandt, at enkekejserinden ønsker baron Funke udnævnt til første sekretær i Wien? Fra hvad jeg hører, er baronen en ret middelmådig fyr."
+
+Fyrst Vasilij ville have denne post til sin egen søn, men andre forsøgte gennem enkekejserinde Marja Fjodorovna at sikre den til baronen.
+
+Anna Pavlovna halvlukkede øjnene for at antyde, at hverken hun eller nogen anden havde ret til at betvivle, hvad kejserinden ønskede eller bifaldt.
+
+"Baron Funke er blevet anbefalet til enkekejserinden af hendes søster," var alt, hun sagde, i en tør, bedrøvet tone.
+
+Da hun nævnte kejserinden, fik Anna Pavlovnas ansigt pludselig et udtryk af dyb og ægte hengivenhed og ærbødighed, blandet med sorg — og dette skete, hver gang hun talte om sin ophøjede velynder. Hun tilføjede, at Hendes Majestæt havde været nådig nok til at vise baron Funke megen agtelse, og hendes ansigt formørkedes af sorg endnu engang.
+
+Fyrsten sagde intet og så uberørt ud. Men med den kvindelige hurtighed og sociale instinkt, der var hende naturlig, ville Anna Pavlovna både irettesætte ham — fordi han vovede at tale sådan om en person, der var anbefalet af kejserinden — og samtidig trøste ham, så hun sagde:
+
+"Men nu til Deres familie. Ved De, at siden Deres datter kom ud i selskabslivet, har alle været betaget af hende? De siger, hun er forbløffende smuk."
+
+Fyrsten bøjede sig for at udtrykke sin respekt og taknemmelighed.
+
+"Jeg tænker ofte," fortsatte hun efter en kort pause og rykkede tættere på fyrsten med et varmt smil, som for at signalere, at politik og selskabelige emner var overstået, og at det nu var tid til personlig samtale — "jeg tænker ofte på, hvor uretfærdigt livets glæder sommetider er fordelt. Hvorfor har skæbnen givet Dem to så vidunderlige børn? Jeg taler ikke om Anatole, Deres yngste. Ham kan jeg ikke lide," tilføjede hun i en tone, der ikke levnede plads til indsigelse, mens hun hævede øjenbrynene. "To så charmerende børn. Og dog værdsætter De dem mindre end nogen anden, hvilket betyder, at De ikke fortjener dem."
+
+Og hun sendte ham sit begejstrede smil.
+
+"Jeg kan ikke gøre for det," sagde fyrsten. "Lavater ville have sagt, at jeg mangler faderlighedsknuden."
+
+"Lad være med at spøge. Jeg har til hensigt at tale alvorligt med Dem. Ved De, at jeg er utilfreds med Deres yngre søn? Mellem os sagt" — og hendes ansigt fik sit melankolske udtryk — "blev han nævnt ved Hendes Majestæts hof, og man havde ondt af Dem..."
+
+Fyrsten sagde intet, men hun så betydningsfuldt på ham og ventede på et svar. Han rynkede panden.
+
+"Hvad vil De have, jeg skal gøre?" sagde han til sidst. "De ved, at jeg gjorde alt, hvad en far kan, for deres opdragelse, og de er begge blevet til idioter. Hippolyte er i det mindste en stille idiot, men Anatole er en aktiv en. Det er den eneste forskel mellem dem." Han sagde dette med et smil, der var mere naturligt og livligt end sædvanligt, så rynkerne omkring hans mund tydeligt afslørede noget uventet groft og ubehageligt.
+
+"Og hvorfor fødes børn til mænd som Dem? Hvis De ikke var far, ville der ikke være noget, jeg kunne bebrejde Dem," sagde Anna Pavlovna og så eftertænksomt op.
+
+"Jeg er Deres trofaste slave, og kun til Dem kan jeg bekende, at mine børn er min tilværelses forbandelse. Det er det kors, jeg må bære. Sådan forklarer jeg det for mig selv. Hvad kan man gøre?"
+
+Han sagde ikke mere, men udtrykte sin resignation over for en grusom skæbne med en gestus. Anna Pavlovna sad et øjeblik i tanker.
+
+"Har De nogen sinde tænkt på at gifte Deres uartige søn Anatole bort?" spurgte hun. "De siger, at gamle pebermøer har en lidenskab for at koble folk sammen, og selvom jeg endnu ikke føler den svaghed hos mig selv, kender jeg en ung kvinde, som er meget ulykkelig med sin far. Hun er en slægtning af Dem — fyrstinde Marja Bolkonskaja."
+
+Fyrst Vasilij svarede ikke, men med den hurtige hukommelse og sociale opfattelsesevne, der kendetegner en verdensmand, nikkede han let med hovedet for at vise, at han overvejede idéen.
+
+"Ved De," sagde han til sidst, tydeligvis ude af stand til at holde sine dystre tanker tilbage, "at Anatole koster mig fyrre tusind rubler om året? Og," fortsatte han efter en pause, "hvad bliver det om fem år, hvis han fortsætter sådan?" Efter et øjeblik tilføjede han: "Det er den slags, vi fædre må leve med. Er denne fyrstinde Deres rig?"
+
+"Hendes far er meget rig og meget gerrig. Han bor på landet. Det er den berømte fyrst Bolkonskij, som måtte trække sig fra hæren under den forrige kejser og blev kaldt 'Preussens Konge'. Han er meget klog, men excentrisk og kedelig. Den stakkels pige er meget ulykkelig. Hun har en bror — ham kender De vist — han er for nylig blevet gift med Lise Meinen. Han er adjudant hos Kutuzov og kommer her i aften."
+
+"Hør, kære Annette," sagde fyrsten og tog pludselig Anna Pavlovnas hånd og trak den af en eller anden grund nedad. "Arranger det parti for mig, og jeg vil være Deres mest hengivne slave for evigt — 'slave' med f, som en af mine landsbyfogeder skriver i sine rapporter. Hun er rig og af god familie, og det er alt, hvad jeg behøver."
+
+Og med den lette, fortrolige ynde, der var ham så naturlig, løftede han hofdamens hånd til sine læber, kyssede den og svingede den sagte frem og tilbage, mens han lænede sig tilbage i sin lænestol og kiggede i en anden retning.
+
+[På fransk] "Vent," sagde Anna Pavlovna og tænkte sig om. "Jeg taler med Lise — den unge Bolkonskijs kone — i aften, og måske kan sagen ordnes. Det bliver på Deres families vegne, at jeg begynder min læretid som gammel pebermø."
+

@@ -1,0 +1,86 @@
+# Book One (1805) — Chapter I
+
+[Speaking in French] "Well, Prince, so Genoa and Lucca are now nothing more than estates belonging to the Bonaparte family. But I'm warning you — if you don't tell me this means war, if you keep on defending the atrocities committed by that Antichrist — and I truly believe he is the Antichrist — then I'm done with you. You are no longer my friend, no longer my 'faithful slave,' as you like to call yourself! But how are you? I can see I've frightened you — sit down and tell me all the news."
+
+It was July 1805, and the speaker was the well-known Anna Pavlovna Scherer, lady-in-waiting and favorite of the Empress Marya Fedorovna. These were the words with which she greeted Prince Vasili Kuragin, a man of high rank and influence, who was the first to arrive at her reception. Anna Pavlovna had been coughing for several days. She was suffering from la grippe, as she put it — grippe being a fashionable new word in St. Petersburg at the time, used only by the elite.
+
+All of her invitations, without exception written in French, had been delivered that morning by a footman in scarlet livery. They all read the same way:
+
+[Speaking in French] "If you have nothing better to do, Count (or Prince), and if the prospect of spending an evening with a poor invalid isn't too terrible, I would be delighted to see you tonight between seven and ten. — Annette Scherer."
+
+"Good heavens! What a fierce attack!" replied the prince, not at all put out by this reception. He had just walked in wearing an embroidered court uniform with knee breeches and buckled shoes, decorations glinting on his chest, his flat face wearing a look of calm self-assurance. He spoke in that refined French in which an earlier generation not only conversed but thought, and with the gentle, patronizing tone that comes naturally to a man of importance who has grown old in the ways of society and the court. He walked up to Anna Pavlovna, kissed her hand, offered her a view of his bald, perfumed, gleaming head, and settled himself comfortably on the sofa.
+
+[Speaking in French] "First of all, dear friend, tell me how you are. Put your friend's mind at rest," he said, his tone unchanged — beneath the politeness and the show of sympathy, one could detect indifference, even irony.
+
+"How can anyone be well when they're suffering morally? How can anyone stay calm in times like these, if they have any feeling at all?" said Anna Pavlovna. "You are staying the whole evening, I hope?"
+
+"And the party at the English ambassador's? Today is Wednesday. I need to put in an appearance there," said the prince. "My daughter is coming to pick me up."
+
+"I thought today's event had been canceled. I must say, all these celebrations and fireworks are becoming tiresome."
+
+"If they had known you wished it, the entertainment would have been postponed," said the prince, who, like a wound-up clock, said things out of habit that he didn't even expect to be believed.
+
+"Don't tease! Well, and what has been decided about Novosiltsev's dispatch? You know everything."
+
+"What can one say about it?" replied the prince in a cold, indifferent tone. "What has been decided? They've decided that Bonaparte has burned his bridges, and I believe we are prepared to burn ours."
+
+Prince Vasili always spoke in a languid drawl, like an actor going through a stale role. Anna Pavlovna, on the other hand, despite her forty years, overflowed with energy and passion. Being an enthusiast had become her social calling, and sometimes, even when she didn't feel like it, she would work herself into a state of enthusiasm so as not to disappoint the people who expected it of her. The faint smile that always played around her lips — though it didn't really suit her faded features — expressed, like a spoiled child's, a constant awareness of her charming weakness, which she neither wished, nor could, nor saw any reason to correct.
+
+In the middle of a conversation about politics, Anna Pavlovna burst out:
+
+"Oh, don't speak to me about Austria! Perhaps I don't understand these things, but Austria has never wanted war and doesn't want it now. She is betraying us! Russia alone must save Europe. Our gracious sovereign understands his sacred duty and will remain true to it. That is the one thing I believe in! Our good and noble sovereign must fulfill the highest role on earth, and he is so virtuous and noble that God will not abandon him. He will fulfill his calling and crush the monster of revolution, which has become more terrible than ever in the person of this murderer and villain! We alone must avenge the blood of the righteous. Who else can we count on? England, with her commercial mentality, will never understand Emperor Alexander's nobility of soul. She has refused to leave Malta. She looks for hidden motives behind everything we do. What answer did Novosiltsev get? None. The English have not understood, and cannot understand, the selflessness of our Emperor, who seeks nothing for himself but only the good of humanity. And what have they promised? Nothing! And the little they have promised, they won't deliver! Prussia has always insisted that Bonaparte is invincible and that all of Europe is powerless against him. And I don't believe a word Hardenberg says, or Haugwitz either. This famous Prussian neutrality is nothing but a trap. I have faith only in God and in the noble destiny of our beloved sovereign. He will save Europe!"
+
+She broke off suddenly, smiling at her own intensity.
+
+"I think," said the prince with a smile, "that if you had been sent instead of our dear Wintzingerode, you would have taken the King of Prussia's consent by storm. You are so eloquent. Will you give me a cup of tea?"
+
+[Speaking in French] "In a moment. By the way," she added, growing calm again, "I'm expecting two very interesting men tonight: the Vicomte de Mortemart, who is connected to the Montmorencys through the Rohans — one of the finest French families. He is one of the true émigrés, the genuine ones. And also the Abbé Morio. Do you know that brilliant thinker? He has been received by the Emperor. Had you heard?"
+
+"I shall be delighted to meet them," said the prince. "But tell me," he added with studied casualness, as though the thought had only just occurred to him — though the question he was about to ask was the real reason for his visit — "is it true that the Dowager Empress wants Baron Funke appointed as first secretary at Vienna? From what I hear, the baron is a rather mediocre fellow."
+
+Prince Vasili wanted this post for his own son, but others were trying, through the Dowager Empress Marya Fedorovna, to secure it for the baron.
+
+Anna Pavlovna half-closed her eyes, as if to indicate that neither she nor anyone else had any right to question what the Empress desired or approved of.
+
+"Baron Funke has been recommended to the Dowager Empress by her sister," was all she said, in a dry, sorrowful tone.
+
+As she mentioned the Empress, Anna Pavlovna's face suddenly took on an expression of deep and genuine devotion and respect, mixed with sadness — and this happened every time she spoke of her illustrious patroness. She added that Her Majesty had been gracious enough to show Baron Funke a great deal of esteem, and her face clouded over with sadness once more.
+
+The prince said nothing and looked unconcerned. But with the womanly quickness and social instinct that came naturally to her, Anna Pavlovna wanted both to reproach him — for daring to speak that way about someone recommended by the Empress — and at the same time to console him, so she said:
+
+"Now about your family. Do you know that since your daughter came out in society, everyone has been captivated by her? They say she is astonishingly beautiful."
+
+The prince bowed to express his respect and gratitude.
+
+"I often think," she continued after a short pause, moving closer to the prince and smiling warmly, as if to signal that politics and social topics were finished and it was time for personal conversation — "I often think how unfairly the joys of life are sometimes distributed. Why has fate given you two such wonderful children? I'm not talking about Anatole, your youngest. I don't like him," she added in a tone that left no room for argument, raising her eyebrows. "Two such charming children. And yet you appreciate them less than anyone, which means you don't deserve them."
+
+And she flashed her rapturous smile.
+
+"I can't help it," said the prince. "Lavater would have said I lack the bump of fatherly feeling."
+
+"Don't joke. I mean to have a serious talk with you. Do you know I'm unhappy with your younger son? Between ourselves" — and her face took on its melancholy expression — "he was mentioned at Her Majesty's court, and you were pitied..."
+
+The prince said nothing, but she looked at him meaningfully, waiting for a reply. He frowned.
+
+"What would you have me do?" he said at last. "You know I did everything a father could for their education, and they've both turned out to be fools. Hippolyte is at least a quiet fool, but Anatole is an active one. That's the only difference between them." He said this with a smile more natural and animated than usual, so that the lines around his mouth clearly revealed something unexpectedly coarse and unpleasant.
+
+"And why are children born to men like you? If you weren't a father, there would be nothing I could reproach you with," said Anna Pavlovna, looking up thoughtfully.
+
+"I am your faithful slave, and to you alone can I confess that my children are the curse of my existence. It is the cross I have to bear. That's how I explain it to myself. What can be done?"
+
+He said no more, but conveyed his resignation to a cruel fate with a gesture. Anna Pavlovna reflected for a moment.
+
+"Have you ever thought of marrying off your wayward son Anatole?" she asked. "They say old maids have a passion for matchmaking, and though I don't feel that weakness in myself just yet, I do know a young woman who is very unhappy with her father. She's a relation of yours — Princess Marya Bolkonskaya."
+
+Prince Vasili did not reply, but with the quick memory and social perception of a man of the world, he gave a slight nod of the head to show he was considering the idea.
+
+"Do you know," he said at last, clearly unable to hold back the gloomy current of his thoughts, "that Anatole is costing me forty thousand rubles a year? And," he went on after a pause, "what will it be in five years if he carries on like this?" After a moment he added, "That's what we fathers have to deal with. Is this princess of yours wealthy?"
+
+"Her father is very rich and very miserly. He lives in the country. He's the famous Prince Bolkonski who had to retire from the army under the last Emperor and was nicknamed 'the King of Prussia.' He's very clever but eccentric, and a bore. The poor girl is very unhappy. She has a brother — I think you know him — he recently married Lise Meinen. He's an aide-de-camp to Kutuzov and will be here tonight."
+
+"Listen, dear Annette," said the prince, suddenly taking Anna Pavlovna's hand and for some reason pulling it downward. "Arrange that match for me and I shall be your most devoted slave forever — 'slave' with an f, as one of my village elders writes in his reports. She is rich and from a good family, and that's all I need."
+
+And with the easy, familiar grace that was so natural to him, he raised the lady-in-waiting's hand to his lips, kissed it, and swung it gently back and forth as he leaned back in his armchair, looking off in another direction.
+
+[Speaking in French] "Wait," said Anna Pavlovna, thinking it over. "I'll speak to Lise — young Bolkonski's wife — this very evening, and perhaps the thing can be arranged. It will be on your family's behalf that I begin my apprenticeship as an old maid."
+
