@@ -90,10 +90,14 @@ def fetch_edition(book, edition):
 
 
 def chapter_on_r2(book, edition, ch_num):
-    """Quick check: does ch{N}/manifest.json already exist on R2? (skip if so)"""
+    """Quick check: does ch{N}/manifest.json already exist on R2? (skip if so).
+    R2 public URLs block default Python UA — use a real browser UA."""
     url = f'{R2_PUBLIC_BASE}/{book}/{edition}/ch{ch_num}/manifest.json'
     try:
-        req = urllib.request.Request(url, method='HEAD')
+        req = urllib.request.Request(
+            url, method='HEAD',
+            headers={'User-Agent': 'Mozilla/5.0 (TinctKokoroCloud)'},
+        )
         with urllib.request.urlopen(req, timeout=8) as r:
             return r.status == 200
     except Exception:

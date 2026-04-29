@@ -22,7 +22,51 @@ import re
 import subprocess
 import sys
 import time
+import urllib.request
 from datetime import datetime
+from email.utils import parsedate_to_datetime
+
+# R2 public URLs block default Python UA — always send a browser UA
+UA = {"User-Agent": "Mozilla/5.0 (TinctStatusBot)"}
+R2_BASE = "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev"
+EDITIONS_URL = "https://raw.githubusercontent.com/anderskhv/tinct/main/app/public/data/editions"
+
+
+def http_head(url, timeout=4):
+    req = urllib.request.Request(url, method="HEAD", headers=UA)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, dict(r.headers)
+    except urllib.error.HTTPError as e:
+        return e.code, {}
+    except Exception:
+        return None, {}
+
+
+def http_get_json(url, timeout=8):
+    req = urllib.request.Request(url, headers=UA)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.load(r)
+    except Exception:
+        return None
+
+
+def r2_chapter_status(book, edition, ch_num):
+    """Returns (exists, fresh_today). fresh_today means generated after noon today."""
+    url = f"{R2_BASE}/{book}/{edition}/ch{ch_num}/manifest.json"
+    code, headers = http_head(url)
+    if code != 200:
+        return False, False
+    lm = headers.get("Last-Modified") or headers.get("last-modified")
+    if not lm:
+        return True, False
+    try:
+        dt = parsedate_to_datetime(lm).replace(tzinfo=None)
+        today_noon = datetime.utcnow().replace(hour=10, minute=0, second=0, microsecond=0)  # 12:00 CEST = 10:00 UTC
+        return True, dt > today_noon
+    except Exception:
+        return True, False
 
 
 def get_api_key():
@@ -151,6 +195,66 @@ def fmt_duration(secs):
     return f"{secs//3600}h {(secs%3600)//60}m"
 
 
+STALE_BACKLOG = [
+    ("ulysses", "original-en"), ("ulysses", "modern-en"),
+    ("moby-dick", "original-en"), ("moby-dick", "modern-en"),
+    ("meditations", "modern-en"),
+    ("great-expectations", "original-en"), ("great-expectations", "modern-en"),
+    ("imitation-of-christ", "original-en"), ("imitation-of-christ", "modern-en"),
+    ("phaedo", "original-en"), ("phaedo", "modern-en"),
+    ("crime-and-punishment", "modern-en"),
+    ("jane-eyre", "modern-en"),
+    ("pride-and-prejudice", "modern-en"),
+    ("war-and-peace", "original-en"), ("war-and-peace", "modern-en"),
+    ("jerusalem", "original-en"), ("jerusalem", "modern-en"),
+    ("the-republic", "modern-en"),
+    ("confessions", "original-en"),
+]
+
+
+def edition_chapter_count(book, edition):
+    d = http_get_json(f"{EDITIONS_URL}/{book}-{edition}.json")
+    return len(d.get("chapters", [])) if d else None
+
+
+def r2_progress_summary(books=STALE_BACKLOG):
+    """For each book/edition, walk chapters until we hit one not on R2.
+    Returns list of (book, edition, done, total, fresh_today)."""
+    rows = []
+    for book, edition in books:
+        total = edition_chapter_count(book, edition)
+        if not total:
+            rows.append((book, edition, 0, 0, 0))
+            continue
+        done, fresh = 0, 0
+        for n in range(1, total + 1):
+            exists, is_fresh = r2_chapter_status(book, edition, n)
+            if not exists:
+                break
+            done = n
+            if is_fresh:
+                fresh += 1
+        rows.append((book, edition, done, total, fresh))
+    return rows
+
+
+def print_r2_progress():
+    print("━━━ R2 progress (stale-audio backlog) ━━━")
+    rows = r2_progress_summary()
+    print(f"  {'book/edition':<35} {'done':<10} {'fresh today':<12} {'%':>6}")
+    total_done = total_chapters = total_fresh = 0
+    for book, edition, done, total, fresh in rows:
+        if total == 0:
+            continue
+        pct = 100 * done / total if total else 0
+        marker = "✓" if done == total else " "
+        print(f"  {marker} {book+'/'+edition:<33} {done}/{total:<7} {fresh:<12} {pct:>5.1f}%")
+        total_done += done
+        total_chapters += total
+        total_fresh += fresh
+    print(f"  {'TOTAL':<35} {total_done}/{total_chapters} chapters ({100*total_done/total_chapters:.1f}%), {total_fresh} fresh today")
+
+
 def summarize_pod(pod, tail_lines=15):
     pod_id = pod.get("id", "?")
     name = pod.get("name", "?")
@@ -230,6 +334,9 @@ def main():
     for pod in pods:
         summarize_pod(pod, tail_lines=args.tail)
         print()
+
+    # Always print R2 progress (works without SSH access)
+    print_r2_progress()
     return 0
 
 
