@@ -1,155 +1,111 @@
-# RunPod Cloud GPU Setup for Kokoro Audio Generation
+# RunPod Cloud GPU — Standard Audio Generation Path
 
-Step-by-step guide to rent an RTX 4090, run Kokoro TTS at ~10x your laptop's speed, and ship MP3s straight to R2. End-to-end first run: ~30 min setup + actual generation time.
+**This is now the default way Tinct generates English audio.** Local Kokoro on the MacBook is reserved for emergency/single-paragraph fixes; everything bigger goes here.
 
-## Why RunPod over alternatives
-- **RunPod**: managed UI, persistent volumes, predictable pricing (~$0.40-0.80/hr RTX 4090)
-- Vast.ai is cheaper but flakier (preemptions, less reliable)
-- Lambda Labs is fine but ~2x more expensive
-- AWS/GCP are 3-5x more expensive for the same GPU
+## Why RunPod
+- ~10x faster than MacBook Air M4 for Kokoro (RTX 4090 vs Apple Silicon GPU)
+- ~$0.40/hr — full English audio backlog (~80k paragraphs) costs ~$10
+- Doesn't lock up your laptop for coding
+- Persistent volume — pause/resume any time, audio output preserved
 
-## Step 1 — Account + funding (one-time, ~5 min)
+vs cloud TTS APIs (Chirp HD): RunPod is **~70x cheaper** at the same scope, and keeps Bella voice consistency across the library.
+
+vs hardware purchase ($2-4k): only worth it past 200+ hours of audio generation per month, sustained.
+
+## First-time setup (~5 min, one time only)
 
 1. Sign up at https://runpod.io with your fastmail email
-2. Click "Billing" → "Add Funds" → start with **$20** (covers ~25 hours of RTX 4090 time, plenty for the full audio backlog with margin)
-3. Enable email notifications for low balance
+2. Billing → Add Funds → **$20** (covers ~50 hours of RTX 4090, plenty)
+3. Save your RunPod API key to macOS Keychain for future automation:
+   ```bash
+   security add-generic-password -a "$USER" -s RUNPOD_API_KEY -w "<paste-key>"
+   ```
 
-## Step 2 — Deploy a Pod (~5 min)
+## Per-job workflow (~3 min setup, then unattended)
 
-1. Click **"Pods"** → **"Deploy"**
-2. **GPU**: Select **RTX 4090** (24 GB VRAM — Kokoro fits easily). If unavailable, RTX 4090 Ti or A100 PCIe also work; A100 SXM is overkill.
-3. **Template**: Choose **"RunPod PyTorch 2.4"** (or any "PyTorch 2.x" template — comes with CUDA, Python, ffmpeg pre-installed)
-4. **Storage**:
-   - Container Disk: 20 GB (for OS + Python deps)
-   - Volume Disk: **50 GB** (mounted at `/workspace`, persists across stops, holds audio output)
-5. **Pricing tier**: Pick **"Spot"** (~$0.30/hr) — cheapest, can be preempted. Or **"Secure Cloud On-Demand"** (~$0.45/hr) — never preempted. For our idempotent script either works; spot is fine.
-6. Click **"Deploy On-Demand"** (or "Deploy Spot")
+### Spin up a pod
+1. RunPod console → **Pods** → **Deploy**
+2. Pick **RTX 4090** + **PyTorch 2.x** template + **50 GB Volume**
+3. Choose **On-Demand** ($0.45/hr, no preemption) or **Spot** ($0.30/hr, can be preempted — script is idempotent so spot is fine for non-urgent jobs)
+4. Deploy → wait 1-2 min for boot → click **Connect** → **Start Web Terminal**
 
-The pod will spin up in 1-2 min.
-
-## Step 3 — Connect (web terminal, easiest)
-
-1. In RunPod console, find your running pod → click **"Connect"**
-2. Choose **"Start Web Terminal"** — opens a shell in the browser, no SSH key setup needed
-
-(Optional: if you prefer terminal, the same panel shows the SSH command. Add your local SSH pubkey under Account → SSH Public Keys first.)
-
-## Step 4 — Install dependencies (~3 min)
-
-In the web terminal:
+### Bootstrap the pod (one command)
+In the web terminal, paste:
 
 ```bash
-# Update + install ffmpeg (for WAV→MP3) and curl
-apt-get update -qq && apt-get install -y ffmpeg curl
-
-# Install Kokoro + Python deps
-pip install --quiet kokoro soundfile numpy
-
-# Install Cloudflare wrangler via npm (for R2 uploads)
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-apt-get install -y nodejs
-npm install -g wrangler
+curl -fsSL https://raw.githubusercontent.com/anderskhv/tinct/main/app/tts/runpod-bootstrap.sh | bash
 ```
 
-Verify GPU is visible to PyTorch:
-```bash
-python3 -c "import torch; print('CUDA:', torch.cuda.is_available(), '|', torch.cuda.get_device_name(0))"
-```
-Should print `CUDA: True | NVIDIA GeForce RTX 4090`.
+This installs ffmpeg, Kokoro, Node.js, wrangler, and downloads `run-kokoro-cloud.py`. Takes ~3 min. Final line should print `CUDA: True | NVIDIA GeForce RTX 4090`.
 
-## Step 5 — Configure secrets
-
-You need two things on the pod:
-
-**a) Cloudflare API Token** (for uploading to R2):
-```bash
-export CLOUDFLARE_API_TOKEN="<paste-your-token>"
-```
-Same token you have in `app/.env` locally. To make it persist across reboots:
-```bash
-echo 'export CLOUDFLARE_API_TOKEN="<paste-your-token>"' >> ~/.bashrc
-```
-
-**b) Wrangler config**: Wrangler needs to know your R2 bucket. Create a minimal config:
-```bash
-mkdir -p /workspace/tinct
-cat > /workspace/tinct/wrangler.toml << 'EOF'
-name = "tinct-r2-uploader"
-EOF
-```
-
-## Step 6 — Pull edition JSON + the cloud-ready Kokoro script
-
-The edition source files are public on tinct.app. The `run-kokoro-cloud.py` script (next section) fetches them on demand.
+### Run a job
+Set the token, start tmux, run the script:
 
 ```bash
-mkdir -p /workspace/tinct/scripts && cd /workspace/tinct/scripts
-curl -O https://raw.githubusercontent.com/anderskhv/tinct/main/app/tts/run-kokoro-cloud.py
-chmod +x run-kokoro-cloud.py
-```
-
-(I'll commit `run-kokoro-cloud.py` to the repo in the next step locally — it's adapted from `run-bible-audio.py` to write to `/workspace/audio` and pull edition JSON from `https://tinct.app/data/editions/`.)
-
-## Step 7 — Run a generation job
-
-For Bible KJV + WEB + modern-en regen all in one pass:
-
-```bash
+export CLOUDFLARE_API_TOKEN="cfut_..."   # paste from app/.env
+tmux new -s kokoro
 cd /workspace/tinct/scripts
-python3 run-kokoro-cloud.py bible kjv-en bible web-en bible modern-en
+python3 run-kokoro-cloud.py BOOK EDITION [BOOK EDITION ...]
 ```
 
-Output goes to `/workspace/audio/bible/{kjv-en,web-en,modern-en}/...`, then uploads to R2 chapter by chapter (so you can stop early without losing work).
+Job command examples:
 
-For the entire stale backlog (17 books):
 ```bash
+# Single book
+python3 run-kokoro-cloud.py the-republic modern-en
+
+# Both editions of one book
+python3 run-kokoro-cloud.py ulysses original-en ulysses modern-en
+
+# Many books in one go (idempotent — skips chapters already on R2)
 python3 run-kokoro-cloud.py \
   ulysses original-en ulysses modern-en \
   moby-dick original-en moby-dick modern-en \
-  meditations modern-en \
-  great-expectations original-en great-expectations modern-en \
-  imitation-of-christ original-en imitation-of-christ modern-en \
-  phaedo original-en phaedo modern-en \
-  crime-and-punishment modern-en \
-  jane-eyre modern-en \
-  pride-and-prejudice modern-en \
-  war-and-peace original-en war-and-peace modern-en \
-  jerusalem original-en jerusalem modern-en \
-  the-republic modern-en \
-  confessions original-en
+  meditations modern-en
 ```
 
-At ~2,500 paragraphs/hour on RTX 4090 (guesstimate, will measure on first run), the full backlog (~80,000 paragraphs) takes ~32 hours = **~$10-15 total at $0.40/hr**.
+### Detach + leave it running
+Once the first chapter completes successfully (output: `ch1: Np → R2 N/N (XXs)`), detach tmux:
 
-## Step 8 — Stop the pod when done
+- Press **Ctrl+B** then **D**
+- Close the browser tab
+- Pod keeps running, script keeps grinding
 
-After the script reports `ALL DONE.`, **stop the pod** to stop being billed:
-1. Pods → your pod → **"Stop"**
-2. The volume (50GB at /workspace) persists; you only pay storage (~$0.05/GB/month)
-3. To resume later: **"Resume"** the same pod, env vars in `~/.bashrc` are preserved
+### Reattach later
+- New web terminal → `tmux attach -t kokoro`
+- See live progress, detach again the same way
 
-If you want to fully delete: **"Terminate"**. Volume is wiped, $20 minus usage refunds.
+### When done
+- Pods → your pod → **Stop** (preserves volume, stops billing)
+- Volume costs ~$0.05/GB/month while stopped — or click **Terminate** to wipe
+
+## Pace expectations (RTX 4090 + Kokoro)
+
+| Workload | Local MBA | RTX 4090 | Cost |
+|---|---|---|---|
+| Single chapter (~30 paragraphs) | ~3-5 min | ~10-30 sec | ~$0.005 |
+| Bible KJV (6,704 paragraphs) | ~13 hours | ~1-2 hours | ~$0.50-1 |
+| Full English backlog (~80k paragraphs) | ~100 hours | ~10-15 hours | ~$5-10 |
 
 ## Common issues
 
 | Issue | Fix |
 |---|---|
-| `ModuleNotFoundError: No module named 'kokoro'` | Re-run `pip install kokoro` |
-| `wrangler: command not found` | Re-run the `npm install -g wrangler` step |
-| `401 Unauthorized` from R2 upload | Token expired/wrong; regenerate at Cloudflare dash → R2 → "Create API token" with R2 read+write |
-| Pod preempted (spot pricing) | Just resume the pod — script is idempotent, picks up where it left off |
-| GPU underutilized | Check `nvidia-smi` while running; should see >80% GPU usage. If not, batch size in Kokoro pipeline may need tuning |
+| `403 Forbidden` fetching edition JSON | Already fixed — script uses GitHub raw URLs, not tinct.app |
+| `wrangler: command not found` after bootstrap | The bootstrap creates symlinks at `/usr/local/bin/wrangler` and `/usr/local/bin/wrangler`. If still missing: `ln -sf /usr/local/node/bin/wrangler /usr/local/bin/wrangler` |
+| Pod preempted (spot) | Reattach: pod resumes automatically. Re-run the same command — script skips chapters already on R2. |
+| Job stuck mid-chapter | `Ctrl+C`, re-run. Idempotent. |
+| Token expired | Cloudflare dashboard → R2 → Manage R2 API Tokens → regenerate. Update `app/.env` locally and re-export on the pod. |
 
-## What this costs in practice
+## Future: full automation
 
-- **First-time setup**: ~30 min, ~$0.20 in pod time
-- **Bible KJV regen** (6,704 paragraphs): ~2.5 hours, ~$1
-- **Bible all 3 editions** (20,000 paragraphs): ~8 hours, ~$3
-- **Full English backlog** (80,000 paragraphs): ~32 hours, ~$13
-- **All future English audio for 200-book library**: ~$50 total over months
+Planned next iteration — local CLI script that:
+1. Reads RUNPOD_API_KEY from macOS Keychain
+2. Spins up a pod via RunPod API
+3. SSHes in, runs the bootstrap + job
+4. Watches for completion
+5. Stops the pod
 
-vs Cloud Chirp HD TTS: ~$700 for the same backlog. Vs hardware purchase: $2,000-2,500. Vs your MBA: 4 days of locked GPU.
+Then audio jobs become one local command: `./run-cloud-audio.sh ulysses original-en`.
 
----
-
-**Decision rule:** if you're generating <100 hours of audio per month, RunPod is the right answer indefinitely. If you cross 200 hours/month sustained, hardware purchase becomes worth it.
+For now: the manual flow above is ~3 min of clicking + paste, then unattended for hours.
