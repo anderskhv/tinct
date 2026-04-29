@@ -225,3 +225,19 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Books CEO Scope Lockdown]** — `books/CLAUDE.md` is content-only. May only touch `app/public/data/editions/{bookId}-*.json`, `app/public/data/onboarding/{bookId}.json`, `app/public/audio/{bookId}/`, `app/src/data/bookRegistry.ts` (registration only), and `books/**`. Everything else is OFF-LIMITS. Publish via `npm run deploy` only — raw `vite build` and `wrangler deploy` are forbidden (skip the html swap and verify-bundle steps; cause repeated prod outages).
 - **[Open Audit Items]** — Awaiting Anders: (1) make R2 bucket private + bind to worker via `env.R2_BUCKET.get()`; (2) convert hero images to WebP (~800 KB gzip savings); (3) `React.lazy()` SettingsSheet/PricingModal/UsageDashboard/BookStore/TierChooser (~30-40 KB deferred); (4) minify static JSON via Vite plugin (~10-15 KB).
 - **[Angle Iteration — FUTURE, not built]** — When user submits a reading angle, AI responds conversationally and iterates over a few turns before lock-in. Free tier gets ~5 messages of this as taste of the AI companion (in-book chat remains Premium). Logged to `BACKLOG.md`.
+
+- **[Feature Tour — shipped 2026-04-29]** — 10-step coachmark walkthrough. Fires once on first sign-up via `user?.id` null → signed-in transition (800ms delay; `tinct-tour-seen` flag prevents repeat). Mobile and desktop have separate orderings to match each platform's actual top-bar / bottom-bar layout. Conditional steps drop when feature isn't available (anonymous: 3 stops; free: 4; premium: 10). Re-trigger via Settings → "Show feature tour again →". Lives in `app/src/components/FeatureTour.tsx`. **This is what we now mean by "Account Onboarding"** — the unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is retired.
+
+- **[Book Onboarding v2 — in flight 2026-04-29]** — Replacing the existing 3-step (edition / angle / cast) flow with a 6-step flow that puts substance before commitment:
+  1. **About + Acclaim** — book description plus 1-3 verified primary-source endorsements
+  2. **Why It Still Matters** — 3 items in the calibrated voice (book-focused, brief contemporary touch)
+  3. **Pick edition** — existing UI; Compare defaults to inverse-of-primary (not empty)
+  4. **Cast** — existing
+  5. **Reading angles** — card-pick of 4 cards + "Just start reading" (replaces the AI AngleChat — no more chat for setting angles)
+  6. **Account** *(anonymous only)* — sign-up CTA; on signup, Feature Tour auto-fires
+
+  JSON schema gains `acclaim` (array of `{quote, source, context}`) and `whyItMatters` (array of 3 `{title, body}`). The old `preReadingChat` block (3 themes + fallback) is **dropped** — was a spec idea that never landed. Voice calibration locked: declarative, book-focused, "deals with / asks / follows" verbs, ONE brief contemporary line at the end of each `whyItMatters` item, no aphorisms, no first-person-plural commentary, no parallelism rhythms.
+
+- **[Acclaim quotes — primary sources only, fact-checked]** — Every acclaim quote must be verifiable in a primary source (Wikipedia with citations, Letters, published essays). No folklore (e.g., the "Joyce learned Danish for Niels Lyhne" story is actually about Joyce learning Norwegian for Ibsen — do not ship). Fact-checking agent runs over each batch of generated book content before commit.
+
+- **[Book Onboarding flow rewrite + manifesto retired 2026-04-29]** — The unbuilt 6-step "Account Onboarding" manifesto (HTML at `Design refs/Account Onboarding.html`) is formally **dropped**. What we now mean by "post-signup onboarding" is the Feature Tour. The Account Onboarding component referenced in earlier decisions (User Journeys v1, Account Onboarding Rewrite 2026-04-21) was design-only and never built; we're not building it. Feature Tour fills that role.

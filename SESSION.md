@@ -1,5 +1,5 @@
 # Tinct — Session State
-**Last updated: 2026-04-21**
+**Last updated: 2026-04-29**
 
 > This file is a current-state snapshot, not a changelog. Fully overwrite it at the end of each session. Git log has the history.
 
@@ -8,50 +8,73 @@
 ## Deployed
 - **Production:** https://tinct.app
 - **Dev URL:** https://tinct.ahvelplund.workers.dev
-- **Last confirmed working deploy:** 2026-04-21 (mobile selection popup + audio player cleanup)
-- All 10 smoke tests passing
+- **Last confirmed working deploy:** 2026-04-29 (Feature Tour shipped — commit 0201592 — 14/14 smoke tests passing)
 
-## Last session changes (deployed 2026-04-21)
-Five mobile/audio fixes live in production:
-1. Mobile selection popup now sits close to the text (viewport-clamped) instead of pinned to the bottom of the screen. Native Safari edit menu is suppressed via `selection.removeAllRanges()` on mobile after our popup is captured.
-2. Added **Copy** action to the selection popup (between Issue and Share).
-3. Removed the duplicate bottom-bar play button — audio controls live only in the top AudioStrip now.
-4. Removed the "Now playing · chapter · preview text" block from the AudioStrip (was stealing vertical space).
-5. Fixed audio page-follow (mobile + desktop): reader now re-engages auto-follow on every new paragraph instead of staying stuck once the user manually turns a page.
+## Today's session (2026-04-29)
 
-## Current Sprint
-**Design refresh** — rebuilding landing page and reader UX to match new design system.
-- Design refs: `Design refs/Tinct Landing v2.html` (landing) + `Design refs/Reader Variations.html` (reader)
-- Canonical reader layout: Variant D "The Hybrid"
-- New palette + fonts to apply globally (see Design Direction in CLAUDE.md)
+### Shipped to production
+- **Feature Tour** — 10-step coachmark walkthrough that fires once on first sign-up. Fires when `user?.id` transitions null → signed-in (800ms after auth state settles, `tinct-tour-seen` flag prevents repeat). Mobile and desktop have separate orderings to match each platform's actual top-bar / bottom-bar layout. Conditional steps fall away when feature isn't available (anonymous: 3 stops; free: 4; premium: 10). Settings → "Show feature tour again →" replays it. Lives in `app/src/components/FeatureTour.tsx` + integration in `App.tsx`.
+- **Bible empty-page bug fixed** — `handleBookChange` and the `bookId`-change effect now clear `primaryData`/`splitData` and set `isLoading=true` synchronously, so the Reader shows a spinner instead of the previous book's stale paragraphs during book-switch.
+- **Debug overlay removed** — the always-visible 🐛 button and `DebugOverlay` component deleted.
+- **Side-panel content fade-in** on tab change — Chat → Feed → Cast transitions are now visually obvious (240ms fade-in via `key={activeTab}` remount).
+- **vite.config:** `host: true` for LAN dev access (test on a real phone).
+- **CLAUDE.md compressed** — 461 → 227 lines, decisions log pruned to active policy.
+- **6 iCloud sync-conflict duplicate files deleted.**
+
+### In flight (next session — see BACKLOG.md)
+- **Book Onboarding rebuild (v2)** — replacing the existing 3-step (edition / angle / cast) flow with a 6-step flow: About+Acclaim → Why It Still Matters → Edition → Cast → Reading angles (card-pick, replaces AngleChat) → Account.
+  - JSON schema gets two new fields: `acclaim` (1-3 verified endorsements with sources) and `whyItMatters` (3 items in the calibrated voice).
+  - `BookOnboarding.tsx` needs new step renderers for About+Acclaim and Why It Matters; existing AngleChat replaced with simple `angleCards` card-pick UI.
+  - Edition picker: Compare defaults to inverse-of-primary edition (not empty).
+  - Pre-reading chat (3 themes + fallback) **dropped** — was a CLAUDE.md spec idea that never got built; we're not reviving it.
+  - The unbuilt 6-step "Account Onboarding" manifesto HTML in `Design refs/Account Onboarding.html` is **retired** — what we mean by "Account Onboarding" is now the Feature Tour.
+- **Landing page update** — Anders wants to bring the new onboarding visuals/feel to the front page. Discussion topic for next session.
+- **Book onboarding content generation** — IN PROGRESS at end of this session: regenerating `acclaim` + `whyItMatters` + tightened `about` for all 60 books in `app/public/data/onboarding/*.json`. Niels Lyhne and Notes from Underground done as voice anchors.
+
+## Voice calibration (locked for content generation)
+
+For Why It Still Matters items:
+- 2-4 word title, declarative
+- 2-4 sentence body, plain prose
+- **Lead with what the book deals with** (book-focused, descriptive verbs: deals with, asks, follows, takes on, traces, casts off)
+- **End with ONE brief contemporary line** — short, low-key, not commentary
+
+Avoid: first-person plural commentary ("we", "many of us"), aphorisms, parallelism for rhythm, "Both. Neither." style two-word openers, steelman bothsidesing, heavy contemporary commentary.
+
+For Acclaim:
+- Verified primary-source quotes only — no fabrication, no folklore (e.g., the "Joyce learned Danish for Niels Lyhne" story — actually he learned Norwegian for Ibsen; do not ship)
+- 1-3 quotes per book
+- Source + context (work, year) where available
 
 ## What's Built & Deployed
+
 | Feature | Status |
 |---|---|
-| 33 public books (bookRegistry.ts) | Done |
+| 60 public books in registry | Done |
 | 3 editions per book (original-en, modern-en, modern-da) | Done |
-| Paginated reader + split pane | Done |
+| Paginated reader + opt-in split pane | Done |
 | Side panel: Chat / Feed / Cast | Done |
 | Highlights (5 colors), notes, reading journal | Done |
 | Audiobook (R2-hosted, paragraph-sync, speed control) | Done |
 | Auth (Supabase email + Google OAuth) | Done |
-| Billing (Stripe, 30-day trial, Premium $3/mo) | In code as $5/mo — needs update |
+| Billing (Stripe, 30-day trial, Premium $3/mo) | Done — code aligned to $3/mo as of 2026-04-21 |
 | Offline mode (DownloadManager + service worker) | Done |
-| Android Capacitor build | In progress (app/android/) |
-| Landing page (app/public/landing.html) | Exists, being redesigned |
-| Mobile 5-tab nav (Read/Compare/Chat/Feed/Cast) | Done |
+| Android Capacitor build | In progress (`app/android/`) |
+| Landing page (`app/public/landing.html`) | Exists; needs update to reflect new onboarding feel (next session) |
+| Mobile 5-tab nav (Read / Compare / Chat / Feed / Cast) | Done |
 | Dark mode, e-ink mode, font/size picker | Done |
 | Cross-device sync (Supabase real-time) | Done |
 | Proactive AI insights | Done |
+| **Feature Tour** (post-signup coachmark walkthrough) | Done (shipped 2026-04-29) |
+| **Book Onboarding v1** (3-step: edition / angle / cast) | Done — being replaced by v2 |
+| **Book Onboarding v2** (6-step: about+acclaim / why-it-matters / edition / cast / angles / account) | In flight |
 
 ## Known Gaps / Open TODOs
-- **Pricing code still says $5/mo** — PricingModal.tsx + landing.html both need update to $3/mo
-- **Account deletion** not wired backend (UI stub only, TODO in App.tsx)
-- **Audio edition preference** callback stubbed (TODO in App.tsx ~line 1193)
-- **Stripe keys** not in .env (commented out) — production checkout needs re-verify
-- **landing.html** shows 25 books, missing 8 from registry; still uses gold accent (#8b6b3a)
-- **Mobile UI changes** from 2026-03-26 were deployed but not committed to git — check git status
+- **Account deletion** — UI stub only, backend not wired (TODO in App.tsx)
+- **Audio edition preference** — callback stubbed (TODO in App.tsx ~line 1193)
+- **AccountDecision.tsx** — unrendered legacy component, can be deleted later
+- **Stripe keys** — verify production checkout still works after env restore
 
 ## Git State
-Last commit: `2cc4c02 Move edition JSONs to public/ for static serving, fix build hang` (2026-03-26)
-Mobile UI changes deployed but possibly not committed — run `git -C /Users/andershvelplund/Documents/Projects/Tinct status` to verify.
+Last commit: `0201592 Feature tour — first-time coachmark walkthrough` (2026-04-29).
+Uncommitted in working tree at end of session: `niels-lyhne.json` (new schema), and any further book content generated overnight.

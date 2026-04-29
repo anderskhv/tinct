@@ -1,6 +1,6 @@
 # Tinct — Backlog
 
-**Last updated:** 2026-04-20
+**Last updated:** 2026-04-29
 
 ---
 
@@ -8,7 +8,8 @@
 
 | Feature | Status |
 |---|---|
-| Multiple editions (original, modern EN, modern DA) | Done (33 books) |
+| 60 books in registry | Done |
+| Multiple editions (original, modern EN, modern DA) | Done |
 | Side-by-side reading (paragraph-aligned) | Done |
 | AI chat (page-aware, self-aware about Tinct features) | Done |
 | Cast (character tracker, spoiler-aware) | Done |
@@ -17,64 +18,97 @@
 | Reading journal (end-of-book AI summary) | Done |
 | Chapter reflection prompts | Done |
 | Audiobook player (R2-hosted, paragraph-sync, position restore) | Done |
-| Onboarding (reading angle, edition picker) | Done |
+| Book Onboarding v1 (3-step: edition / angle / cast) | Done — being replaced |
+| **Feature Tour** (post-signup coachmark walkthrough, 10 steps) | Done (2026-04-29) |
 | Dark mode | Done |
 | Cross-device sync (Supabase real-time) | Done |
 | Auth (email + Google OAuth) | Done |
 | Mobile responsive (5-tab nav, tap-to-turn, chapter advance) | Done |
-| Stripe billing (subscription $3/mo, chat packs $3/100) | Done (code still shows $5/mo — needs update) |
+| Stripe billing ($3/mo + $3/100 chat packs) | Done |
 | 30-day free trial + trial expiry banner + email reminder (Brevo) | Done |
 | Subscription management (cancel, resubscribe, message tracking) | Done |
 | Deployed to tinct.app | Done |
 
-## Current Sprint
+---
 
-### Design Refresh (IN PROGRESS — April 2026)
-- [ ] Rebuild landing.html to match `Design refs/Tinct Landing v2.html`
-- [ ] Update reader UX to match Variant D "The Hybrid" from `Design refs/Reader Variations.html`
-- [ ] Apply new design tokens globally (teal accent, Playfair Display, EB Garamond, IBM Plex Mono)
-- [ ] Update landing.html book count to 33 (currently shows 25)
-- [ ] Update pricing to $3/mo everywhere (PricingModal.tsx + landing.html)
+## Current Sprint — Book Onboarding v2 + Landing Page (April 2026)
+
+### Book Onboarding v2 (IN PROGRESS — 2026-04-29)
+
+**Goal:** Replace v1's 3-step flow with a 6-step flow that leads with substance ("why this is worth your time today") before asking the user to commit to an edition.
+
+**New flow:**
+1. About + Acclaim (verified primary-source endorsements)
+2. Why It Still Matters (3 items in calibrated voice)
+3. Pick edition (Compare defaults to inverse, not empty)
+4. Cast
+5. Reading angles (card-pick replaces AngleChat — simpler, free, no AI)
+6. Account *(anonymous only)* — Feature Tour fires post-signup
+
+**Status:**
+- [x] Voice calibrated on Niels Lyhne + Notes from Underground
+- [x] JSON schema decided (`acclaim` array, `whyItMatters` array, drop `preReadingChat`)
+- [x] niels-lyhne.json updated with new fields
+- [ ] Generate `acclaim` + `whyItMatters` + tightened `about` for the other 58 books — IN PROGRESS overnight 2026-04-29 with fact-checking agent verifying quotes
+- [ ] Refactor `BookOnboarding.tsx` for 6-step flow:
+  - [ ] New step renderer: About + Acclaim
+  - [ ] New step renderer: Why It Matters
+  - [ ] Edition picker — Compare defaults to inverse-of-primary
+  - [ ] Replace AngleChat with `angleCards` card-pick UI (4 cards + "Just start reading")
+  - [ ] Drop AngleConfirm + AngleChat code paths
+- [ ] Test locally on mobile + desktop
+- [ ] Deploy
+
+**Voice calibration (locked):**
+- Lead with what the book deals with (book-focused, descriptive verbs: deals with, asks, follows, traces, casts off)
+- ONE brief contemporary line per `whyItMatters` item
+- Avoid: first-person plural commentary, aphorisms, "Both. Neither." parallelism, steelman bothsidesing
+- Acclaim: primary-source quotes only, fact-checked against Wikipedia + original letters/essays
+
+### Landing page update (NEXT — 2026-04-30)
+
+Anders wants to bring the new onboarding feel to the landing page. Discussion topic for next session.
+
+- [ ] Decide what from book onboarding (acclaim quotes? why-it-matters? aesthetic?) translates to landing
+- [ ] Apply new design tokens (teal accent, Playfair / EB Garamond / IBM Plex Mono) if not already
+- [ ] Update book count to 60 (currently shows 33)
+- [ ] Update pricing references if any are stale
 
 ---
 
-## Recently Completed (moved from Up Next)
+## Recently Completed
+
+### Feature Tour ✓ (2026-04-29)
+10-step coachmark walkthrough. Mobile + desktop orderings, conditional per tier, fires on first sign-up, replays from Settings.
+
+### Bible Empty-Page Bug ✓ (2026-04-29)
+`primaryData` cleared on bookId change so Reader shows spinner instead of stale paragraphs during book-switch.
+
+### Pricing Consolidation ✓ (2026-04-21)
+$5/mo references all updated to $3/mo across `TrialBanner.tsx`, `PricingModal.tsx`, `AccountDecision.tsx`, `UsageDashboard.tsx`, `worker.ts`.
 
 ### Offline Mode ✓
-- DownloadManager.tsx built, service worker caching implemented
+DownloadManager.tsx + service worker caching.
 
-### Content Expansion ✓
-- 33 public books registered in bookRegistry.ts
+### Content Expansion (ongoing)
+60 public books in `bookRegistry.ts`.
 
 ### Android App (IN PROGRESS)
-- Capacitor build exists in `app/android/`
-- Play Store listing drafted (PLAY-STORE-LISTING.md)
+- Capacitor build in `app/android/`
+- Play Store listing drafted
 - [ ] E-ink optimizations
 - [ ] Physical button support for page turning
 - [ ] Submit to Play Store
 
 ---
 
-## Up Next
-
-### Onboarding Rebuild (April 2026)
-- [x] Account Onboarding was skipped in favor of Book Onboarding per user-journey decisions. Existing 6-step design retained as optional tour reference (`Design refs/Account Onboarding.html`)
-- [x] Build `BookOnboarding.tsx` component with 3-step (edition / angle / cast) + edition-only mode
-- [x] Generate per-book onboarding content (about, 4 angle cards, 6 cast, opening text) for all 33 books via CLI — zero API spend
-- [x] Fire onboarding modal on ALL entry points (direct, SEO, share links) — deep-link URL parser in `App.tsx`
-- [x] Replace `AccountDecision` with `TierChooser` — tier chooser presents Premium/Free/Anonymous with Premium pre-selected
-- [x] State-aware top banner — `TrialBanner` extended for anonymous + trial + expired states
-- [x] Progress prompt at end of Chapter 1 (or page 20)
-- [x] Contextual angle prompt on first Chat tap (wired into `Chat.tsx` welcome state)
-- [ ] Book-onboarding touch-ups: delete duplicate `The Manual (Enchiridion).html`, rename generic `Book Onboarding.html` → `Book Onboarding - The Odyssey.html`, normalize angle numbering (1/2/3/4), rewrite 3 weak about-blurbs (Imitation, Jerusalem, Bible), rewrite ~4 weak angle cards, rebuild Art of War cast
-- [ ] Apple OAuth — needs Apple Developer Program + Supabase config
-- [ ] Runtime verification: smoke-test full journey end-to-end (landing → library → book → onboarding → reader → progress prompt → sign-up → tier chooser) with real figures
+## Up Next (after Book Onboarding v2 ships)
 
 ### Angle Iteration Chat (NEW — April 2026)
-- [ ] After user submits reading angle, AI responds with "here's what you might notice with this angle" and iterates across 2–3 turns before user locks it in
-- [ ] Free tier gets this specific chat (capped at ~5 messages) as taste of AI companion — low cost, high conversion signal
-- [ ] In-book chat remains Premium ($3/mo)
-- [ ] Angle locks into session + AI system prompt as usual
+After user picks a reading angle, AI responds with "here's what you might notice with this angle" and iterates over 2-3 turns before lock-in. Free tier gets this specific chat (capped at ~5 messages) as a taste of the AI companion — low cost, high conversion signal. In-book chat remains Premium.
+
+### Account Onboarding manifesto — RETIRED
+The unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is dropped. What we mean by "post-signup onboarding" is the Feature Tour. No further work needed here.
 
 ### SEO & Public Launch
 - [ ] Meta tags, Open Graph, structured data on landing.html
@@ -84,6 +118,10 @@
 ### More Languages
 - [ ] German as first expansion (better LLM quality than Danish)
 - [ ] EPUB import ("Your book, your way")
+
+### Apple OAuth
+- [ ] Apple Developer Program + Supabase config
+- [ ] Wire Apple sign-in alongside Google
 
 ---
 
@@ -98,7 +136,7 @@
 ### Translation Quality
 - [ ] Danish translation style guide (5 structural patterns identified from FoR comparison)
 - [ ] Second-pass proofreading prompt for Danish
-- [ ] German as expansion language (better LLM data = higher quality)
+- [ ] German as expansion language
 
 ### B2B / Education
 - [ ] Teacher landing page ("Assign The Odyssey on Tinct")
