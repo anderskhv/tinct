@@ -10402,6 +10402,101 @@ body {
   font-style: italic;
 }
 
+.book-onboarding-angle-card-title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.book-onboarding-angle-card-title + .book-onboarding-angle-card-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.book-onboarding-angle-skip {
+  border-style: dashed;
+  opacity: 0.85;
+}
+.book-onboarding-angle-skip:hover {
+  opacity: 1;
+}
+
+/* Acclaim block — quotes shown on the About step */
+.book-onboarding-acclaim {
+  margin: 18px 0 22px 0;
+  padding: 18px 20px;
+  border-left: 3px solid var(--accent);
+  background: rgba(31, 74, 92, 0.04);
+}
+.book-onboarding-acclaim-quote {
+  margin: 0 0 14px 0;
+  padding: 0;
+}
+.book-onboarding-acclaim-quote:last-child {
+  margin-bottom: 0;
+}
+.book-onboarding-acclaim-text {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--text-primary);
+  margin: 0 0 6px 0;
+}
+.book-onboarding-acclaim-source {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.book-onboarding-acclaim-context {
+  text-transform: none;
+  font-style: italic;
+  letter-spacing: normal;
+}
+
+/* About block — multi-paragraph book description on About step */
+.book-onboarding-about-block {
+  margin-top: 4px;
+}
+.book-onboarding-about-block .book-onboarding-about-text {
+  margin: 0 0 12px 0;
+}
+.book-onboarding-about-block .book-onboarding-about-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Why It Still Matters — three-item list on the why-matters step */
+.book-onboarding-why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 12px;
+}
+.book-onboarding-why-item {
+  border-left: 2px solid var(--paper-deep);
+  padding-left: 14px;
+}
+.book-onboarding-why-title {
+  font-family: var(--font-display, var(--font-serif));
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+.book-onboarding-why-body {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin: 0;
+}
+
 /* Cast */
 .book-onboarding-cast-grid {
   display: grid;

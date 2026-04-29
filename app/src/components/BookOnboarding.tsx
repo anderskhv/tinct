@@ -14,6 +14,17 @@ interface CastMember {
   description: string
 }
 
+interface AcclaimEntry {
+  quote: string
+  source: string
+  context?: string
+}
+
+interface WhyItMattersItem {
+  title: string
+  body: string
+}
+
 interface OnboardingData {
   bookId: string
   title: string
@@ -24,6 +35,8 @@ interface OnboardingData {
   openingChapterLabel?: string
   openingText?: string
   about?: string
+  acclaim?: AcclaimEntry[]
+  whyItMatters?: WhyItMattersItem[]
   angleCards?: AngleCard[]
   cast?: CastMember[]
 }
@@ -263,7 +276,16 @@ function AngleChat({ book, messages, setMessages, onSetAngle, onSkip }: {
 }
 
 // ── Main onboarding component ───────────────────────────────
-type StepKey = 'edition' | 'angle' | 'angle-confirm' | 'cast' | 'account'
+// Step ordering changed 2026-04-29 (Book Onboarding v2). New flow:
+//   1. about         — book description + acclaim quotes (was bundled into edition step)
+//   2. why-matters   — three "Why it still matters" items
+//   3. edition       — pick primary + Compare default = inverse-of-primary (not empty)
+//   4. cast          — meet the key figures
+//   5. angles        — card-pick of 4 angles + "Just start reading" (replaces AngleChat)
+//   6. account       — anonymous-only sign-up CTA
+// Legacy 'angle-confirm' step removed; AngleChat helper retained as dead code in
+// case we revive AI-iteration later.
+type StepKey = 'about' | 'why-matters' | 'edition' | 'cast' | 'angles' | 'account'
 
 export function BookOnboarding({
   book,
@@ -297,6 +319,10 @@ export function BookOnboarding({
     return editions[0]?.key || ''
   })
   const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(undefined)
+  // Track whether the user manually picked a split edition. If false, the
+  // Compare default reactively follows the inverse of the primary edition
+  // (Anders, 2026-04-29 — better than empty default).
+  const [splitManuallyPicked, setSplitManuallyPicked] = useState(false)
   const [angle, setAngle] = useState('')
   const [angleLocked, setAngleLocked] = useState(false)
   const [angleNotes, setAngleNotes] = useState<string | null>(null)
@@ -322,14 +348,20 @@ export function BookOnboarding({
   // Dynamic step list: only include steps that have meaningful content.
   // Cast is skipped when there's no cast data for this book (avoids the
   // "Meet the key figures" page with nothing on it).
+  // About + WhyItMatters are skipped if data hasn't loaded yet OR if the book
+  // has no content for them — those edge cases shouldn't ship but the guards
+  // prevent empty pages if a JSON is incomplete.
   const activeSteps: StepKey[] = useMemo(() => {
     if (mode === 'edition-only') return ['edition']
-    const steps: StepKey[] = ['edition', 'angle']
-    if (angleLocked) steps.push('angle-confirm')
+    const steps: StepKey[] = []
+    if (dataLoaded && data?.about) steps.push('about')
+    if (dataLoaded && data?.whyItMatters && data.whyItMatters.length > 0) steps.push('why-matters')
+    steps.push('edition')
     if (dataLoaded && data?.cast && data.cast.length > 0) steps.push('cast')
+    if (dataLoaded && data?.angleCards && data.angleCards.length > 0) steps.push('angles')
     if (showAccountStep) steps.push('account')
     return steps
-  }, [mode, data?.cast, showAccountStep, dataLoaded, angleLocked])
+  }, [mode, data?.about, data?.whyItMatters, data?.cast, data?.angleCards, showAccountStep, dataLoaded])
 
   const currentStep: StepKey | undefined = activeSteps[stepIdx]
   const totalSteps = activeSteps.length
@@ -374,6 +406,33 @@ export function BookOnboarding({
     () => effectiveEditions.filter(e => e.aligned && e.key !== editionKey),
     [effectiveEditions, editionKey]
   )
+
+  // Compare default: pick the most useful "other" edition relative to primary,
+  // unless the user has manually chosen something else.
+  // Rule: prefer different style first (original vs modern), then same language.
+  // For modern-da primary, default to original-en (English original).
+  function inverseEdition(primaryKey: EditionKey, candidates: Edition[]): EditionKey | undefined {
+    const primary = effectiveEditions.find(e => e.key === primaryKey)
+    if (!primary || candidates.length === 0) return undefined
+    // 1. Different style, same language (original-en ↔ modern-en)
+    const sameLangDifferentStyle = candidates.find(
+      e => e.language === primary.language && e.style !== primary.style
+    )
+    if (sameLangDifferentStyle) return sameLangDifferentStyle.key
+    // 2. Original English (the canonical authoritative text)
+    const originalEn = candidates.find(e => e.style === 'original' && e.language === 'en')
+    if (originalEn) return originalEn.key
+    // 3. Anything else
+    return candidates[0]?.key
+  }
+
+  // Sync split default to inverse-of-primary whenever primary changes,
+  // unless the user has manually overridden.
+  useEffect(() => {
+    if (splitManuallyPicked) return
+    setSplitEditionKey(inverseEdition(editionKey, alignedEditions))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editionKey, alignedEditions, splitManuallyPicked])
 
   function toggleLanguage(lang: Language) {
     if (readingLanguages.includes(lang)) {
@@ -482,6 +541,61 @@ WATCH FOR:
 
         <div className="book-onboarding-body">
 
+          {/* Step: about — book description + acclaim quotes */}
+          {currentStep === 'about' && (
+            <div className="book-onboarding-step book-onboarding-step-intro">
+              <div className="book-onboarding-hero">
+                <BookCover book={book} />
+                <div className="book-onboarding-hero-text">
+                  <h1 className="book-onboarding-book-title" id="book-onboarding-title">{displayTitle}</h1>
+                  <p className="book-onboarding-book-byline">
+                    {displayAuthor}
+                    {data?.era && `, ${data.era}`}
+                    {data?.estimatedTime && `, ${data.estimatedTime}`}
+                  </p>
+                </div>
+              </div>
+
+              {data?.acclaim && data.acclaim.length > 0 && (
+                <div className="book-onboarding-acclaim">
+                  {data.acclaim.map((q, i) => (
+                    <blockquote key={i} className="book-onboarding-acclaim-quote">
+                      <p className="book-onboarding-acclaim-text">&ldquo;{q.quote}&rdquo;</p>
+                      <footer className="book-onboarding-acclaim-source">
+                        — {q.source}
+                        {q.context && <span className="book-onboarding-acclaim-context">, {q.context}</span>}
+                      </footer>
+                    </blockquote>
+                  ))}
+                </div>
+              )}
+
+              {(data?.about || book.description) && (
+                <div className="book-onboarding-about-block">
+                  {(data?.about || book.description || '').split('\n\n').map((para, i) => (
+                    <p key={i} className="book-onboarding-about-text">{para}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Step: why-matters — three "Why it still matters" items */}
+          {currentStep === 'why-matters' && data?.whyItMatters && (
+            <div className="book-onboarding-step">
+              <div className="book-onboarding-eyebrow">{displayTitle}</div>
+              <h2 className="book-onboarding-step-title">Why it still matters</h2>
+              <div className="book-onboarding-why-list">
+                {data.whyItMatters.map((item, i) => (
+                  <div key={i} className="book-onboarding-why-item">
+                    <h3 className="book-onboarding-why-title">{item.title}</h3>
+                    <p className="book-onboarding-why-body">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Step: edition */}
           {currentStep === 'edition' && (
             <div className="book-onboarding-step book-onboarding-step-intro">
@@ -567,7 +681,7 @@ WATCH FOR:
                     <button
                       type="button"
                       className={`book-onboarding-edition-row ${splitEditionKey === undefined ? 'selected' : ''}`}
-                      onClick={() => setSplitEditionKey(undefined)}
+                      onClick={() => { setSplitEditionKey(undefined); setSplitManuallyPicked(true) }}
                     >
                       <span className="book-onboarding-er-lang dim">off</span>
                       <span className="book-onboarding-er-name dim">No side by side</span>
@@ -578,7 +692,7 @@ WATCH FOR:
                         key={ed.key}
                         type="button"
                         className={`book-onboarding-edition-row ${splitEditionKey === ed.key ? 'selected' : ''}`}
-                        onClick={() => setSplitEditionKey(ed.key)}
+                        onClick={() => { setSplitEditionKey(ed.key); setSplitManuallyPicked(true) }}
                       >
                         <span className="book-onboarding-er-lang">{LANG_LABELS[ed.language] || ed.language}</span>
                         <span className="book-onboarding-er-name">
@@ -601,59 +715,42 @@ WATCH FOR:
             </div>
           )}
 
-          {/* Step: angle (interactive chat) */}
-          {currentStep === 'angle' && (
+          {/* Step: angles — card-pick of 4 angle cards + "Just start reading"
+              5th card. Replaces the previous AngleChat (AI conversation) per
+              Anders's Book Onboarding v2 — simpler, free, no chat.
+              Selecting a card sets `angle` to its angleObjective string;
+              selecting "Just start reading" clears it. */}
+          {currentStep === 'angles' && data?.angleCards && (
             <div className="book-onboarding-step">
               <div className="book-onboarding-eyebrow">Optional · free for everyone</div>
-              <h2 className="book-onboarding-step-title">Your reading angle</h2>
+              <h2 className="book-onboarding-step-title">Pick a reading angle</h2>
               <p className="book-onboarding-step-sub">
-                A reading angle changes what you notice. Chat with the AI to sharpen yours, or skip and set one later.
+                An angle changes what you notice. Pick one — or skip and just start reading.
               </p>
-              <AngleChat
-                book={book}
-                messages={angleMessages}
-                setMessages={setAngleMessages}
-                onSetAngle={handleAngleLockIn}
-                onSkip={handleAngleSkip}
-              />
-            </div>
-          )}
-
-          {/* Step: angle confirmation — shows the locked-in angle plus AI-generated
-              "what to watch for" notes, before moving on to cast/account. */}
-          {currentStep === 'angle-confirm' && (
-            <div className="book-onboarding-step">
-              <div className="book-onboarding-eyebrow">Your reading angle</div>
-              <h2 className="book-onboarding-step-title">
-                {angleNotesLoading ? 'Calibrating your angle…' : 'Locked in.'}
-              </h2>
-
-              {angleNotesLoading && (
-                <div className="book-onboarding-calibrating">
-                  <div className="book-onboarding-spinner" aria-hidden="true" />
-                  <p>Reading our conversation and picking out what to watch for. Give us a sec.</p>
-                </div>
-              )}
-
-              {!angleNotesLoading && angle && (
-                <div className="book-onboarding-angle-display">
-                  {angle}
-                </div>
-              )}
-
-              {!angleNotesLoading && (
-                <>
-                  <div className="book-onboarding-notes-heading">What to watch for as you read</div>
-                  <div className="book-onboarding-notes">
-                    {angleNotes && (
-                      <div className="book-onboarding-notes-body">{renderMarkdown(angleNotes)}</div>
-                    )}
-                    {!angleNotes && (
-                      <p className="book-onboarding-notes-empty">The AI will keep your angle in mind as you read. Ask questions in Chat any time.</p>
-                    )}
-                  </div>
-                </>
-              )}
+              <div className="book-onboarding-angle-cards">
+                {data.angleCards.map((card, i) => {
+                  const selected = angle === card.angleObjective
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      className={`book-onboarding-angle-card ${selected ? 'selected' : ''}`}
+                      onClick={() => setAngle(card.angleObjective)}
+                    >
+                      <div className="book-onboarding-angle-card-title">{card.title}</div>
+                      <div className="book-onboarding-angle-card-text">{card.text}</div>
+                    </button>
+                  )
+                })}
+                <button
+                  type="button"
+                  className={`book-onboarding-angle-card book-onboarding-angle-skip ${angle === '' ? 'selected' : ''}`}
+                  onClick={() => setAngle('')}
+                >
+                  <div className="book-onboarding-angle-card-title">Just start reading</div>
+                  <div className="book-onboarding-angle-card-text">Skip the angle. The book works either way.</div>
+                </button>
+              </div>
             </div>
           )}
 
