@@ -30,14 +30,27 @@
 - Live at https://tinct.app — verified Niels Lyhne JSON serves with 3 acclaim + 3 whyItMatters.
 
 ### Acclaim quote coverage
-- 14 books shipped with verified primary-source quotes (Nietzsche, Freud, Walter Scott, T.S. Eliot, Blake, Cicero, Whitehead, D.H. Lawrence, Rilke, Ibsen, Faulkner, Kaufmann, Simone Weil).
-- 46 books shipped with **empty** acclaim arrays — better empty than fabricated.
-- A research agent was running at end of session to find verified quotes for the remaining 46. If it returned with results, Anders should review/merge before the next deploy. If not, the empty arrays are safe — the About step renders without acclaim when the array is empty.
+- **36 of 60 books** now ship with verified primary-source quotes. Sources include Nietzsche (Twilight + letters), Freud, Hegel (on Antigone), Mill (on Apology + Tocqueville), Coleridge (on Bible, Hamlet, Macbeth, Tempest), Aristotle (on Oedipus Rex), Cicero (on Phaedo + Herodotus), Hobbes (on Thucydides), Hazlitt (on Romeo+Midsummer), Rilke (on Niels Lyhne + Gilgamesh), Faulkner (on Karamazov), Walter Scott (on Frankenstein + Pride), T.S. Eliot (on Dante + Aeneid + Ulysses), Blake (on Milton), Whitehead (on Plato), Berlin (on Mill), Hobsbawm (on Manifesto), Jefferson (on Federalist + Locke), Mao (on Sun Tzu), Coke (on Magna Carta), Arnold (on Marcus Aurelius), Woolf (on Tolstoy), Thackeray (on Brontë), D.H. Lawrence (on Melville), Walter Kaufmann (on Dostoevsky), Simone Weil (on the Iliad).
+- **24 books** still ship with empty acclaim arrays — research agent could not pin a tight short verifiable quote in 2-3 web searches. Better empty than wrong.
+- All quotes verified by background research agent against primary sources (Wikipedia + cited letters, essays, books).
+
+### Cache header bug — fixed
+- Worker was setting `Cache-Control: max-age=2592000, immutable` on all `/data/*.json` files. Onboarding JSONs DO change as we iterate; the immutable directive was leaving old content cached for 30 days.
+- Now: editions/threads JSONs keep the 30-day cache (rarely change after publish); onboarding JSONs get `max-age=300, must-revalidate` (updates land within 5 minutes).
+- BookOnboarding.tsx fetch URL now includes `?v=2` to bust existing 30-day cached entries from the previous header. Bump this when a future schema change would confuse old cached blobs.
 
 ### In flight (next session)
 - **Landing page update** — Anders wants to bring the new onboarding feel/visuals to the front page. Open discussion for next session.
-- **Acclaim follow-up** — apply research agent findings (quotes for ~46 books) once verified. Re-deploy.
+- **24 books still without acclaim** — could pursue more aggressively if needed. Current empties: aristotle-politics, bacchae, beowulf, beyond-good-and-evil, candide, confessions, descartes-meditations, faust-part-1, fear-and-trembling, genealogy-of-morals, great-expectations, imitation-of-christ, jerusalem, medea, nicomachean-ethics, odyssey, oedipus-at-colonus, oresteia, social-contract, symposium, the-awakening, the-manual, the-prince, us-founding-documents.
 - **Cleanup** — delete the dead AngleChat code and the unbuilt manifesto HTML at `Design refs/Account Onboarding.html`.
+
+### Final state — 4 commits shipped today
+1. `0201592` — Feature tour shipped (this morning)
+2. `71bf8b0` — Book onboarding v2 content for all 60 books
+3. `f7b8eeb` — Book Onboarding v2 UI (6-step flow)
+4. `27d0f11` — 22 verified acclaim quotes + worker cache fix
+
+All deployed to https://tinct.app — version `dc613f84…`. 14/14 smoke tests passing.
 
 ## Voice calibration (locked for content generation)
 
