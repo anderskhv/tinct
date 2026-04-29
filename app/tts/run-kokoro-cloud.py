@@ -21,7 +21,7 @@ from pathlib import Path
 WORKSPACE = Path('/workspace')
 AUDIO_DIR = WORKSPACE / 'audio'
 EDITIONS_DIR = WORKSPACE / 'editions'
-EDITION_BASE_URL = 'https://tinct.app/data/editions'
+EDITION_BASE_URL = 'https://raw.githubusercontent.com/anderskhv/tinct/main/app/public/data/editions'
 R2_BUCKET = 'tinct-audio'
 R2_PUBLIC_BASE = 'https://pub-c34df89c93284423a39b03537595c2e2.r2.dev'
 
