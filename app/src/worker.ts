@@ -1913,6 +1913,12 @@ export default {
     // offenders for free. Edge cache + immutable hashing + robots.txt is
     // the right defence; KV writes here were pure waste.
     if (request.method === 'GET' && url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+      // Onboarding JSONs do change as we iterate on book content. Edition
+      // JSONs are stable once published. Differentiate the cache TTL so
+      // onboarding updates land within minutes instead of being stuck behind
+      // a 30-day immutable header (Anders, 2026-04-29 — old content was
+      // served for hours after a deploy).
+      const isOnboarding = url.pathname.startsWith('/data/onboarding/')
       const cache = caches.default
       const cacheKey = new Request(url.toString(), { method: 'GET' })
       const cached = await cache.match(cacheKey)
@@ -1921,8 +1927,15 @@ export default {
       const assetResp = await env.ASSETS.fetch(request)
       if (assetResp.ok) {
         const cacheable = new Response(assetResp.body, assetResp)
-        // 30 days at the edge; SW + content-hashing handle invalidation on the client.
-        cacheable.headers.set('Cache-Control', 'public, max-age=2592000, immutable')
+        if (isOnboarding) {
+          // 5 minutes at the edge; revalidate after that. Onboarding content
+          // can be tweaked frequently and we want updates visible quickly.
+          cacheable.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
+        } else {
+          // 30 days for editions/threads — these almost never change after
+          // publish. SW + content-hashing handle invalidation on the client.
+          cacheable.headers.set('Cache-Control', 'public, max-age=2592000, immutable')
+        }
         cacheable.headers.set('Access-Control-Allow-Origin', '*')
         ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable

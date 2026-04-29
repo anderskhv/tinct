@@ -335,10 +335,15 @@ export function BookOnboarding({
   }
   const [angleMessages, setAngleMessages] = useState<ChatMsg[]>([angleSeed])
 
-  // Load per-book onboarding data
+  // Load per-book onboarding data.
+  // The `v=` query param busts the previous 30-day immutable CDN cache
+  // (worker.ts cache header was misconfigured before 2026-04-29 evening).
+  // Bump this when the schema changes in a way old cached blobs would
+  // confuse the UI. The worker now uses a 5-minute cache for onboarding
+  // JSONs so future content updates don't need a bump.
   useEffect(() => {
     let cancelled = false
-    fetch(`/data/onboarding/${bookId}.json`)
+    fetch(`/data/onboarding/${bookId}.json?v=2`)
       .then(r => (r.ok ? r.json() : null))
       .then(json => { if (!cancelled) { setData(json); setDataLoaded(true) } })
       .catch(() => { if (!cancelled) setDataLoaded(true) })
