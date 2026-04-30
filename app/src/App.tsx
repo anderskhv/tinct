@@ -1608,11 +1608,19 @@ export default function App() {
 
     // Order matches the actual on-screen left-to-right top-bar so the eye
     // doesn't have to jump back to ToC after Settings (Anders, 2026-04-29).
-    // Demo mode (landing-page iframe) — show only the 5 feature highlights,
-    // skip intro/outro/library/toc/settings. Order: Compare → Chat → Feed →
-    // Cast → Audiobook (Anders, 2026-04-30).
+    // Demo mode (landing-page iframe) — show the 6 feature beats.
+    // Order: Read → Compare → Chat → Feed → Cast → Audiobook
+    // (Anders, 2026-04-30 — first thing visitors should see is the
+    // unadorned reader, not a feature highlight).
     if (isDemoMode) {
-      const demoOrder = [compare, chat, feed, cast, audio]
+      const read: TourStep = {
+        id: 'read',
+        headline: 'Read',
+        copy: 'Every book in an authoritative English translation.',
+        intro: true,  // no dim, no cutout, no bubble — just the reader
+        setup: () => { if (isMobile) setActiveView(0) },
+      }
+      const demoOrder = [read, compare, chat, feed, cast, audio]
       return demoOrder.filter((s): s is TourStep => s !== null)
     }
     const ordered = isMobile
