@@ -1608,6 +1608,13 @@ export default function App() {
 
     // Order matches the actual on-screen left-to-right top-bar so the eye
     // doesn't have to jump back to ToC after Settings (Anders, 2026-04-29).
+    // Demo mode (landing-page iframe) — show only the 5 feature highlights,
+    // skip intro/outro/library/toc/settings. Order: Compare → Chat → Feed →
+    // Cast → Audiobook (Anders, 2026-04-30).
+    if (isDemoMode) {
+      const demoOrder = [compare, chat, feed, cast, audio]
+      return demoOrder.filter((s): s is TourStep => s !== null)
+    }
     const ordered = isMobile
       ? [intro, compare, chat, feed, cast, library, toc, audio, settings, outro]
       : [intro, chat, feed, cast, library, compare, toc, audio, settings, outro]

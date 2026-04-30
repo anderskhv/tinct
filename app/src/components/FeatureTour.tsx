@@ -140,9 +140,9 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
       )}
 
       <div className={`feature-tour-bubble ${autoplay ? 'feature-tour-bubble--autoplay' : ''}`} style={bubbleStyle}>
-        <div className="feature-tour-bubble-head">
-          <span className="feature-tour-counter">{index + 1} of {steps.length}</span>
-          {!autoplay && (
+        {!autoplay && (
+          <div className="feature-tour-bubble-head">
+            <span className="feature-tour-counter">{index + 1} of {steps.length}</span>
             <button
               type="button"
               className="feature-tour-skip"
@@ -150,8 +150,8 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
             >
               Skip tour
             </button>
-          )}
-        </div>
+          </div>
+        )}
         <h3 className="feature-tour-headline">{step.headline}</h3>
         <div className="feature-tour-copy">{step.copy}</div>
         {step.examples && step.examples.length > 0 && (
