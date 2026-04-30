@@ -27,7 +27,7 @@ export function AudioStrip({
   if (!isOpen) return null
 
   return (
-    <div className="audio-strip" role="region" aria-label="Audiobook player">
+    <div className="audio-strip" data-tour="audio-strip" role="region" aria-label="Audiobook player">
       <button
         type="button"
         className="audio-strip-btn audio-strip-btn-sm"

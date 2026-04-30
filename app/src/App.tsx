@@ -1611,19 +1611,61 @@ export default function App() {
 
     // Order matches the actual on-screen left-to-right top-bar so the eye
     // doesn't have to jump back to ToC after Settings (Anders, 2026-04-29).
-    // Demo mode (landing-page iframe) — show the 6 feature beats.
-    // Order: Read → Compare → Chat → Feed → Cast → Audiobook
-    // (Anders, 2026-04-30 — first thing visitors should see is the
-    // unadorned reader, not a feature highlight).
+    // Demo mode (landing-page iframe) — 6 feature beats.
+    // Order: Read → Compare → Chat → Feed → Cast → Audiobook.
+    //
+    // 5 of the 6 are intro: true (no dim, no cutout, no bubble — visitors
+    // see the full view of each tab, exactly as it would look post-signup).
+    // Audio is the exception: dim everything except the audio strip widget,
+    // which opens automatically (Anders, 2026-04-30).
     if (isDemoMode) {
-      const read: TourStep = {
-        id: 'read',
-        headline: 'Read',
-        copy: 'Every book in an authoritative English translation.',
-        intro: true,  // no dim, no cutout, no bubble — just the reader
+      const demoRead: TourStep = {
+        id: 'read', headline: 'Read', copy: '',
+        intro: true,
         setup: () => { if (isMobile) setActiveView(0) },
       }
-      const demoOrder = [read, compare, chat, feed, cast, audio]
+      const demoCompare: TourStep | null = splitViewAvailable && canCompare ? {
+        id: 'compare', headline: 'Compare editions', copy: '',
+        intro: true,
+        setup: () => { if (isMobile) setActiveView(1) },
+      } : null
+      const demoChat: TourStep | null = canChat && !preferences.chatHidden ? {
+        id: 'chat', headline: 'Chat companion', copy: '',
+        intro: true,
+        setup: () => {
+          if (isMobile) setActiveView(2)
+          else { if (!preferences.panelOpen) togglePanel(); setPanelTab('chat') }
+        },
+      } : null
+      const demoFeed: TourStep | null = canFeed && !preferences.feedHidden ? {
+        id: 'feed', headline: 'Feed', copy: '',
+        intro: true,
+        setup: () => {
+          if (isMobile) setActiveView(3)
+          else { if (!preferences.panelOpen) togglePanel(); setPanelTab('notes') }
+        },
+      } : null
+      const demoCast: TourStep | null = canCast && hasCastData && !preferences.castHidden ? {
+        id: 'cast', headline: 'Cast', copy: '',
+        intro: true,
+        setup: () => {
+          if (isMobile) setActiveView(4)
+          else { if (!preferences.panelOpen) togglePanel(); setPanelTab('threads') }
+        },
+      } : null
+      // Audio is the spotlight beat. setActiveView(0) so the reader is the
+      // backdrop, then open the audio strip; selector targets the strip
+      // itself so the FeatureTour cutout halos around it and dims the rest.
+      const demoAudio: TourStep | null = hasAudio && canAudio ? {
+        id: 'audio', headline: 'Audiobook',
+        selector: 'audio-strip',
+        copy: '',
+        setup: () => {
+          if (isMobile) setActiveView(0)
+          setAudioStripOpen(true)
+        },
+      } : null
+      const demoOrder = [demoRead, demoCompare, demoChat, demoFeed, demoCast, demoAudio]
       return demoOrder.filter((s): s is TourStep => s !== null)
     }
     const ordered = isMobile
@@ -1634,7 +1676,7 @@ export default function App() {
     isMobile, splitViewAvailable, hasAudio, threadsData, canUse, isDemoMode,
     preferences.chatHidden, preferences.feedHidden, preferences.castHidden, preferences.panelOpen,
     preferences.splitView, toggleSplitView,
-    setActiveView, setPanelTab, togglePanel,
+    setActiveView, setPanelTab, togglePanel, setAudioStripOpen,
   ])
 
   // Effective audio edition — separate from primary, falls back to first edition with audio

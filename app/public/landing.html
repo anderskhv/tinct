@@ -401,6 +401,33 @@
     .demo-progress-dot.is-active { background: var(--accent); transform: scale(1.15); }
     .demo-progress-button:hover .demo-progress-dot { background: var(--accent); }
 
+    /* Phone playback controls — under the phone. Prev / Play-Pause / Next.
+       Click any of them pauses autoplay; the play-pause toggle re-enables. */
+    .demo-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+    .demo-control-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(11, 11, 11, 0.18);
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      padding: 0;
+    }
+    .demo-control-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .demo-control-btn svg { width: 16px; height: 16px; }
+    .demo-control-btn.playpause { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    .demo-control-btn.playpause:hover { background: var(--ink); border-color: var(--ink); }
+
     /* ── Footer ── */
     .site-footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
     .site-footer a { color: inherit; text-decoration: none; transition: color 0.15s; }
@@ -502,9 +529,23 @@
        feature captions explain what the visitor is watching. -->
   <section class="demo-section">
     <div class="demo-container">
-      <div class="demo-phone">
-        <div class="demo-phone-screen">
-          <iframe src="/read?demo=1" loading="lazy" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
+      <div>
+        <div class="demo-phone">
+          <div class="demo-phone-screen">
+            <iframe src="/read?demo=1" loading="lazy" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
+          </div>
+        </div>
+        <div class="demo-controls" id="demo-controls">
+          <button class="demo-control-btn" data-control="prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="demo-control-btn playpause" data-control="playpause" aria-label="Pause">
+            <svg id="demo-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+            <svg id="demo-icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          </button>
+          <button class="demo-control-btn" data-control="next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
       </div>
       <div class="demo-features" id="demo-features">
@@ -732,19 +773,29 @@
 // Demo iframe ⇄ landing sync.
 //   - Iframe (FeatureTour autoplay) posts 'tinct:tour-step' on every step
 //     change. We swap the active card + dot on the right side.
-//   - Clicking a progress dot posts 'tinct:tour-jump' back to the iframe
-//     so the embedded tour jumps to that step. The iframe's autoplay
-//     timer resets, giving the visitor ~4.5 s on the new step before it
-//     advances on its own.
+//   - Clicking a progress dot or Prev/Next posts 'tinct:tour-jump' back
+//     to the iframe AND sends 'tinct:tour-pause' so autoplay halts.
+//   - Play/Pause toggle sends 'tinct:tour-pause' / 'tinct:tour-resume'.
 (function(){
+  var STEP_ORDER = ['read','compare','chat','feed','cast','audio'];
   var features = document.querySelectorAll('.demo-feature');
   var stage = document.getElementById('demo-feature-stage');
   var dotButtons = document.querySelectorAll('.demo-progress-button');
+  var controls = document.getElementById('demo-controls');
   var iframe = document.querySelector('.demo-phone-screen iframe');
   if (!stage || !features.length) return;
 
+  var currentStepId = 'read';
+  var isPaused = false;
+
+  function send(msg) {
+    if (!iframe || !iframe.contentWindow) return;
+    try { iframe.contentWindow.postMessage(msg, '*'); } catch (_) { /* iframe booting */ }
+  }
+
   function setActive(stepId) {
     if (!stepId) return;
+    currentStepId = stepId;
     stage.setAttribute('data-active', stepId);
     features.forEach(function(el) {
       el.classList.toggle('is-active', el.getAttribute('data-step') === stepId);
@@ -755,25 +806,60 @@
     });
   }
 
-  // Listen for step changes from the iframe
+  function setPaused(paused) {
+    isPaused = paused;
+    var iconPause = document.getElementById('demo-icon-pause');
+    var iconPlay = document.getElementById('demo-icon-play');
+    if (iconPause && iconPlay) {
+      iconPause.style.display = paused ? 'none' : 'block';
+      iconPlay.style.display = paused ? 'block' : 'none';
+    }
+    var btn = document.querySelector('[data-control="playpause"]');
+    if (btn) btn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
+    send({ type: paused ? 'tinct:tour-pause' : 'tinct:tour-resume' });
+  }
+
+  function jumpTo(stepId) {
+    if (!stepId) return;
+    setActive(stepId);
+    send({ type: 'tinct:tour-jump', stepId: stepId });
+    if (!isPaused) setPaused(true);
+  }
+
+  // Listen for step changes from the iframe (so the right side keeps
+  // tracking even when autoplay is in control)
   window.addEventListener('message', function(e) {
     var data = e && e.data;
     if (!data || data.type !== 'tinct:tour-step' || !data.stepId) return;
     setActive(data.stepId);
   });
 
-  // Clickable dots — jump iframe + landing to the chosen step
+  // Clickable progress dots
   dotButtons.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      var stepId = btn.getAttribute('data-jump');
-      setActive(stepId);
-      if (iframe && iframe.contentWindow) {
-        try {
-          iframe.contentWindow.postMessage({ type: 'tinct:tour-jump', stepId: stepId }, '*');
-        } catch (_) { /* iframe still booting — fine, the click already updated the right side */ }
-      }
+      jumpTo(btn.getAttribute('data-jump'));
     });
   });
+
+  // Prev / Pause / Next controls
+  if (controls) {
+    controls.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-control]');
+      if (!btn) return;
+      var control = btn.getAttribute('data-control');
+      if (control === 'playpause') {
+        setPaused(!isPaused);
+        return;
+      }
+      var idx = STEP_ORDER.indexOf(currentStepId);
+      if (idx < 0) idx = 0;
+      var nextIdx;
+      if (control === 'prev') nextIdx = (idx - 1 + STEP_ORDER.length) % STEP_ORDER.length;
+      else if (control === 'next') nextIdx = (idx + 1) % STEP_ORDER.length;
+      else return;
+      jumpTo(STEP_ORDER[nextIdx]);
+    });
+  }
 })();
 
 // Tab switching

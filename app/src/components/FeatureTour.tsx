@@ -27,12 +27,16 @@ interface Props {
 }
 
 const SETUP_DELAY_MS = 220
-const AUTOPLAY_STEP_MS = 4500
-const AUTOPLAY_RESTART_MS = 1800
+const AUTOPLAY_STEP_MS = 7000
+const AUTOPLAY_RESTART_MS = 2200
 
 export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
   const [index, setIndex] = useState(0)
   const [rect, setRect] = useState<DOMRect | null>(null)
+  // Demo-mode pause flag — toggled by `tinct:tour-pause` / `tinct:tour-resume`
+  // postMessages from the landing-page parent. When paused, the autoplay
+  // timer is suppressed; user-initiated jumps still work.
+  const [isPaused, setIsPaused] = useState(false)
 
   // Reset index whenever the tour reopens.
   useEffect(() => {
@@ -40,15 +44,16 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
   }, [open])
 
   // Autoplay loop — advance every AUTOPLAY_STEP_MS, restart after outro.
+  // Suppressed when paused.
   useEffect(() => {
-    if (!open || !autoplay || steps.length === 0) return
+    if (!open || !autoplay || isPaused || steps.length === 0) return
     const isLastStep = index >= steps.length - 1
     const delay = isLastStep ? AUTOPLAY_RESTART_MS : AUTOPLAY_STEP_MS
     const t = window.setTimeout(() => {
       setIndex(i => (i >= steps.length - 1 ? 0 : i + 1))
     }, delay)
     return () => window.clearTimeout(t)
-  }, [open, autoplay, index, steps.length])
+  }, [open, autoplay, isPaused, index, steps.length])
 
   // Broadcast step changes to the parent window so the landing-page demo
   // iframe can sync its right-side description to the currently-highlighted
@@ -65,19 +70,22 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
     } catch { /* cross-origin — fine, just no sync */ }
   }, [open, autoplay, index, steps])
 
-  // Listen for tour-jump messages from the parent window (the landing-page
-  // visitor clicked a progress dot). Jump the tour to that step. The
-  // autoplay timer naturally resets when index changes, giving the visitor
-  // ~4.5 s on the new step.
+  // Listen for control messages from the parent window:
+  //   - tinct:tour-jump   → jump to the step with matching stepId
+  //   - tinct:tour-pause  → suppress autoplay (visitor wants to dwell)
+  //   - tinct:tour-resume → re-enable autoplay
   useEffect(() => {
     if (!open || !autoplay || steps.length === 0) return
     const handler = (e: MessageEvent) => {
       const data = e?.data as { type?: string; stepId?: string } | undefined
-      if (!data || data.type !== 'tinct:tour-jump' || !data.stepId) return
-      const target = steps.findIndex(s => s.id === data.stepId)
-      if (target >= 0 && target !== index) {
-        setIndex(target)
+      if (!data || typeof data.type !== 'string') return
+      if (data.type === 'tinct:tour-jump' && data.stepId) {
+        const target = steps.findIndex(s => s.id === data.stepId)
+        if (target >= 0 && target !== index) setIndex(target)
+        return
       }
+      if (data.type === 'tinct:tour-pause') setIsPaused(true)
+      if (data.type === 'tinct:tour-resume') setIsPaused(false)
     }
     window.addEventListener('message', handler)
     return () => window.removeEventListener('message', handler)
