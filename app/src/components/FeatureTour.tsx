@@ -70,6 +70,17 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
     } catch { /* cross-origin — fine, just no sync */ }
   }, [open, autoplay, index, steps])
 
+  // Tell the parent window the tour is ready (mounted, open, autoplay
+  // configured). The landing-page demo listens for this and takes over
+  // timing, sending tour-pause + driving via tour-jump messages instead.
+  // This makes the right-side caption sync rock-solid because the parent
+  // owns the cycle clock — the iframe is a pure follower.
+  useEffect(() => {
+    if (!open || !autoplay) return
+    if (typeof window === 'undefined' || window.parent === window) return
+    try { window.parent.postMessage({ type: 'tinct:tour-ready' }, '*') } catch { /* */ }
+  }, [open, autoplay])
+
   // Listen for control messages from the parent window:
   //   - tinct:tour-jump   → jump to the step with matching stepId
   //   - tinct:tour-pause  → suppress autoplay (visitor wants to dwell)

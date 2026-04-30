@@ -2525,15 +2525,17 @@ export default function App() {
         hasSections={!!(primaryData?.sections?.length)}
       />
 
-      <TrialBanner
-        onSubscribe={() => handleCheckout('subscription')}
-        onCreateAccount={() => {
-          setAuthModalMode('signup')
-          setShowAuthModal(true)
-        }}
-      />
+      {!isDemoMode && (
+        <TrialBanner
+          onSubscribe={() => handleCheckout('subscription')}
+          onCreateAccount={() => {
+            setAuthModalMode('signup')
+            setShowAuthModal(true)
+          }}
+        />
+      )}
 
-      <HomeRolePrompt />
+      {!isDemoMode && <HomeRolePrompt />}
 
       {hasAudio && (
         <AudioStrip

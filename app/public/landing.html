@@ -401,13 +401,13 @@
     .demo-progress-dot.is-active { background: var(--accent); transform: scale(1.15); }
     .demo-progress-button:hover .demo-progress-dot { background: var(--accent); }
 
-    /* Phone playback controls — under the phone. Prev / Play-Pause / Next.
-       Click any of them pauses autoplay; the play-pause toggle re-enables. */
+    /* Playback controls — at the bottom of the right-side text column,
+       aligned with the feature description. Prev / Play-Pause / Next. */
     .demo-controls {
       display: flex;
       gap: 10px;
-      justify-content: center;
-      margin-top: 14px;
+      justify-content: flex-start;
+      margin-top: 8px;
     }
     .demo-control-btn {
       width: 36px;
@@ -529,23 +529,9 @@
        feature captions explain what the visitor is watching. -->
   <section class="demo-section">
     <div class="demo-container">
-      <div>
-        <div class="demo-phone">
-          <div class="demo-phone-screen">
-            <iframe src="/read?demo=1" loading="lazy" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
-          </div>
-        </div>
-        <div class="demo-controls" id="demo-controls">
-          <button class="demo-control-btn" data-control="prev" aria-label="Previous">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="demo-control-btn playpause" data-control="playpause" aria-label="Pause">
-            <svg id="demo-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
-            <svg id="demo-icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-          </button>
-          <button class="demo-control-btn" data-control="next" aria-label="Next">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+      <div class="demo-phone">
+        <div class="demo-phone-screen">
+          <iframe src="/read?demo=1" loading="lazy" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
         </div>
       </div>
       <div class="demo-features" id="demo-features">
@@ -600,6 +586,18 @@
               <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
             </div>
           </div>
+        </div>
+        <div class="demo-controls" id="demo-controls">
+          <button class="demo-control-btn" data-control="prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="demo-control-btn playpause" data-control="playpause" aria-label="Pause">
+            <svg id="demo-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+            <svg id="demo-icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          </button>
+          <button class="demo-control-btn" data-control="next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -770,14 +768,32 @@
 </div>
 
 <script>
-// Demo iframe ⇄ landing sync.
-//   - Iframe (FeatureTour autoplay) posts 'tinct:tour-step' on every step
-//     change. We swap the active card + dot on the right side.
-//   - Clicking a progress dot or Prev/Next posts 'tinct:tour-jump' back
-//     to the iframe AND sends 'tinct:tour-pause' so autoplay halts.
-//   - Play/Pause toggle sends 'tinct:tour-pause' / 'tinct:tour-resume'.
+// Demo: PARENT-DRIVEN sync.
+//
+// Architecture: the landing page (this script) owns the cycle clock.
+// The iframe is a pure visual follower — it shows whichever step we tell
+// it to show via 'tinct:tour-jump' postMessages.
+//
+// Why: the previous architecture had the iframe driving (via FeatureTour
+// autoplay) and the parent listening. That meant the right-side text could
+// silently fall out of sync if any postMessage was dropped or the iframe
+// stalled. With parent driving, the right side updates IMMEDIATELY on
+// every interval tick / user click — there's no waiting on the iframe to
+// announce its state.
+//
+// Flow:
+//   1. Iframe boots, FeatureTour opens, posts 'tinct:tour-ready' to us.
+//   2. We send 'tinct:tour-pause' immediately so the iframe stops its own
+//      autoplay (we own the timing now).
+//   3. We start a 7-second interval, advancing through STEP_ORDER and
+//      sending 'tinct:tour-jump' on each tick.
+//   4. User click (dot, Prev, Next) → we jump locally + send 'tinct:tour-jump',
+//      AND restart the interval so they get a full 7s on the new step.
+//   5. Pause toggle → clearInterval + send 'tinct:tour-pause'. Play
+//      toggle → restart interval + send 'tinct:tour-resume'.
 (function(){
   var STEP_ORDER = ['read','compare','chat','feed','cast','audio'];
+  var STEP_INTERVAL_MS = 7000;
   var features = document.querySelectorAll('.demo-feature');
   var stage = document.getElementById('demo-feature-stage');
   var dotButtons = document.querySelectorAll('.demo-progress-button');
@@ -787,6 +803,8 @@
 
   var currentStepId = 'read';
   var isPaused = false;
+  var timerId = null;
+  var iframeReady = false;
 
   function send(msg) {
     if (!iframe || !iframe.contentWindow) return;
@@ -806,7 +824,22 @@
     });
   }
 
-  function setPaused(paused) {
+  function startTimer() {
+    stopTimer();
+    timerId = setInterval(advance, STEP_INTERVAL_MS);
+  }
+  function stopTimer() {
+    if (timerId) { clearInterval(timerId); timerId = null; }
+  }
+  function advance() {
+    var idx = STEP_ORDER.indexOf(currentStepId);
+    if (idx < 0) idx = 0;
+    var nextStepId = STEP_ORDER[(idx + 1) % STEP_ORDER.length];
+    setActive(nextStepId);
+    send({ type: 'tinct:tour-jump', stepId: nextStepId });
+  }
+
+  function setPausedUI(paused) {
     isPaused = paused;
     var iconPause = document.getElementById('demo-icon-pause');
     var iconPlay = document.getElementById('demo-icon-play');
@@ -816,22 +849,44 @@
     }
     var btn = document.querySelector('[data-control="playpause"]');
     if (btn) btn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
-    send({ type: paused ? 'tinct:tour-pause' : 'tinct:tour-resume' });
+  }
+
+  function pause() {
+    setPausedUI(true);
+    stopTimer();
+    send({ type: 'tinct:tour-pause' });
+  }
+  function play() {
+    setPausedUI(false);
+    if (iframeReady) startTimer();
+    send({ type: 'tinct:tour-resume' });
   }
 
   function jumpTo(stepId) {
     if (!stepId) return;
     setActive(stepId);
     send({ type: 'tinct:tour-jump', stepId: stepId });
-    if (!isPaused) setPaused(true);
+    // User wants 7s on the chosen step before auto-advance — restart interval
+    if (!isPaused && iframeReady) startTimer();
   }
 
-  // Listen for step changes from the iframe (so the right side keeps
-  // tracking even when autoplay is in control)
+  // The iframe announces it's ready. Take over timing.
   window.addEventListener('message', function(e) {
     var data = e && e.data;
-    if (!data || data.type !== 'tinct:tour-step' || !data.stepId) return;
-    setActive(data.stepId);
+    if (!data) return;
+    if (data.type === 'tinct:tour-ready') {
+      iframeReady = true;
+      // Tell iframe to stop its own autoplay; we'll drive
+      send({ type: 'tinct:tour-pause' });
+      // Set initial step to Read explicitly (in case iframe started elsewhere)
+      send({ type: 'tinct:tour-jump', stepId: 'read' });
+      setActive('read');
+      if (!isPaused) startTimer();
+    }
+    // Iframe may also post tour-step (legacy). If so, sync to it as a fallback.
+    if (data.type === 'tinct:tour-step' && data.stepId && !iframeReady) {
+      setActive(data.stepId);
+    }
   });
 
   // Clickable progress dots
@@ -841,14 +896,15 @@
     });
   });
 
-  // Prev / Pause / Next controls
+  // Prev / Pause-Play / Next
   if (controls) {
     controls.addEventListener('click', function(e) {
       var btn = e.target.closest('[data-control]');
       if (!btn) return;
       var control = btn.getAttribute('data-control');
       if (control === 'playpause') {
-        setPaused(!isPaused);
+        if (isPaused) play();
+        else pause();
         return;
       }
       var idx = STEP_ORDER.indexOf(currentStepId);
