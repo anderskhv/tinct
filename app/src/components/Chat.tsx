@@ -539,7 +539,10 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                 ? `I'm here as you read ${chapterTitle}. Highlight a passage, or ask me anything.`
                 : 'Your reading companion'}
             </p>
-            {readingObjective ? (
+            {/* Reading-angle prompt removed from chat 2026-04-30 (Anders) —
+                the "set an angle" flow is parked for a future redesign. The
+                angle still renders if the user has one set elsewhere. */}
+            {readingObjective && (
               <div className="chat-welcome-objective" style={{ animationDelay: '0.1s' }}>
                 <span className="chat-welcome-objective-label">Your angle:</span>
                 <span className="chat-welcome-objective-text">{readingObjective}</span>
@@ -547,16 +550,6 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                   <button className="chat-welcome-edit" onClick={onEditObjective}>edit</button>
                 )}
               </div>
-            ) : (
-              bookId && onEditObjective && (
-                <div style={{ animationDelay: '0.1s' }}>
-                  <ContextualAnglePrompt
-                    bookId={bookId}
-                    onSetAngle={onEditObjective}
-                    onSkip={() => { /* remembered in localStorage by the component */ }}
-                  />
-                </div>
-              )
             )}
             <div className="chat-suggestion-chips" style={{ animationDelay: '0.2s' }}>
               <button

@@ -363,10 +363,13 @@ export function BookOnboarding({
     if (dataLoaded && data?.whyItMatters && data.whyItMatters.length > 0) steps.push('why-matters')
     steps.push('edition')
     if (dataLoaded && data?.cast && data.cast.length > 0) steps.push('cast')
-    if (dataLoaded && data?.angleCards && data.angleCards.length > 0) steps.push('angles')
+    // Reading-angles step removed from the flow 2026-04-30 (Anders) — the
+    // "optional · free for everyone" framing felt off, and angles will live
+    // in the chat experience later. The card-pick renderer + JSON
+    // angleCards data are kept in place for when we revive it.
     if (showAccountStep) steps.push('account')
     return steps
-  }, [mode, data?.about, data?.whyItMatters, data?.cast, data?.angleCards, showAccountStep, dataLoaded])
+  }, [mode, data?.about, data?.whyItMatters, data?.cast, showAccountStep, dataLoaded])
 
   const currentStep: StepKey | undefined = activeSteps[stepIdx]
   const totalSteps = activeSteps.length
@@ -613,9 +616,9 @@ WATCH FOR:
                     {data?.era && `, ${data.era}`}
                     {data?.estimatedTime && `, ${data.estimatedTime}`}
                   </p>
-                  {(data?.about || book.description) && (
-                    <p className="book-onboarding-about-text">{data?.about || book.description}</p>
-                  )}
+                  {/* About paragraph intentionally omitted here — already shown
+                      in step 1. Repeating it on the edition step felt
+                      redundant (Anders, 2026-04-30). */}
                 </div>
               </div>
 
