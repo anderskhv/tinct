@@ -72,7 +72,7 @@ export const ULYSSES: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false,
+      hasAudio: true,
     },
   ],
 }
@@ -111,7 +111,7 @@ export const WAR_AND_PEACE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false,
+      hasAudio: true,
     },
   ],
 }
@@ -1550,7 +1550,8 @@ export const FEAR_AND_TREMBLING: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
     {
       key: 'modern-da',
       language: 'da',
@@ -1586,7 +1587,8 @@ export const PELOPONNESIAN_WAR: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
   ],
 }
 
@@ -1615,7 +1617,8 @@ export const ARISTOTLE_POLITICS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
   ],
 }
 
@@ -1784,7 +1787,8 @@ export const GENEALOGY_OF_MORALS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
       {
       key: 'modern-da',
       language: 'da',
@@ -1820,7 +1824,8 @@ export const DESCARTES_MEDITATIONS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
       {
       key: 'modern-da',
       language: 'da',
@@ -1855,7 +1860,8 @@ export const ON_LIBERTY: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
       {
       key: 'modern-da',
       language: 'da',
@@ -1891,7 +1897,8 @@ export const OEDIPUS_REX: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
     {
       key: 'modern-da',
       language: 'da',
@@ -1927,7 +1934,8 @@ export const OEDIPUS_AT_COLONUS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
   ],
 }
 
@@ -1956,7 +1964,8 @@ export const ANTIGONE: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
     {
       key: 'modern-da',
       language: 'da',
@@ -1992,7 +2001,8 @@ export const DEMOCRACY_IN_AMERICA: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-    },
+          hasAudio: true,
+},
   ],
 }
 
