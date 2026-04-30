@@ -50,6 +50,21 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
     return () => window.clearTimeout(t)
   }, [open, autoplay, index, steps.length])
 
+  // Broadcast step changes to the parent window so the landing-page demo
+  // iframe can sync its right-side description to the currently-highlighted
+  // feature. Only fires in autoplay mode (i.e. the demo embed). Same-origin
+  // postMessage; the parent listener filters by message type.
+  useEffect(() => {
+    if (!open || !autoplay || !steps[index]) return
+    if (typeof window === 'undefined' || window.parent === window) return
+    try {
+      window.parent.postMessage(
+        { type: 'tinct:tour-step', stepId: steps[index].id, index, total: steps.length },
+        '*'
+      )
+    } catch { /* cross-origin — fine, just no sync */ }
+  }, [open, autoplay, index, steps])
+
   const step = steps[index]
 
   // Run setup + measure target on every step change.
@@ -139,6 +154,10 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
         <div className="feature-tour-backdrop" />
       )}
 
+      {/* In autoplay (landing-demo) mode, hide the bubble entirely — only
+          the cutout halo communicates which feature is active. The
+          right-side description on the landing page provides the copy. */}
+      {!autoplay && (
       <div className={`feature-tour-bubble ${autoplay ? 'feature-tour-bubble--autoplay' : ''}`} style={bubbleStyle}>
         {!autoplay && (
           <div className="feature-tour-bubble-head">
@@ -183,6 +202,7 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
         </div>
         )}
       </div>
+      )}
     </div>
   )
 }

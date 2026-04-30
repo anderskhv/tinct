@@ -300,39 +300,76 @@
     }
     .demo-phone-screen iframe { position: relative; z-index: 1; background: var(--paper); }
 
-    /* Feature list beside the phone — reuses the per-feature captions that
-       used to live in the features-menu section. Each card is a static
-       readable summary; the phone cycles through them visually. */
-    .demo-features { display: flex; flex-direction: column; gap: 22px; }
+    /* Feature stage — stacked cards that fade in/out as the embedded demo
+       advances through tour steps. Only one is visible at a time; the
+       iframe sends `tinct:tour-step` postMessages and the listener below
+       toggles the active class. The first card is shown by default before
+       JS runs so the section isn't blank for visitors with JS disabled. */
+    .demo-features {
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+    }
     .demo-feature {
+      position: absolute;
+      inset: 0;
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      align-items: baseline;
+      grid-template-columns: 36px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 16px 0;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+    /* Default visible: first card (used until JS posts a step) */
+    .demo-features:not([data-active]) .demo-feature:first-child,
+    .demo-feature.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
     .demo-feature-num {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.18em;
       color: var(--dim);
-      padding-top: 4px;
+      padding-top: 12px;
     }
     .demo-feature-title {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 4px;
+      font-size: 32px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
       color: var(--ink);
     }
     .demo-feature-title em { color: var(--accent); font-style: italic; font-weight: 400; }
     .demo-feature-body {
       font-family: 'EB Garamond', Georgia, serif;
-      font-size: 16px;
-      line-height: 1.5;
-      color: var(--dim);
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--ink);
+      max-width: 38ch;
     }
-    .demo-feature-body strong { color: var(--ink); font-weight: 600; }
+    .demo-feature-body strong { color: var(--accent); font-weight: 500; }
+    /* Step progress dots — small visual showing 5-step cycle */
+    .demo-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .demo-progress-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(11, 11, 11, 0.18);
+      transition: background 0.3s;
+    }
+    .demo-progress-dot.is-active { background: var(--accent); }
 
     /* ── Footer ── */
     .site-footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
@@ -439,38 +476,73 @@
           <iframe src="/read?demo=1" loading="lazy" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
         </div>
       </div>
-      <div class="demo-features">
-        <div class="demo-feature">
-          <div class="demo-feature-num">01</div>
+      <div class="demo-features" id="demo-features">
+        <div class="demo-feature" data-step="compare">
+          <div class="demo-feature-num">01 / 05</div>
           <div>
+            <div class="demo-progress">
+              <span class="demo-progress-dot is-active"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+            </div>
             <div class="demo-feature-title">Compare <em>editions</em></div>
             <div class="demo-feature-body">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</div>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-num">02</div>
+        <div class="demo-feature" data-step="chat">
+          <div class="demo-feature-num">02 / 05</div>
           <div>
+            <div class="demo-progress">
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot is-active"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+            </div>
             <div class="demo-feature-title">Chat <em>companion</em></div>
             <div class="demo-feature-body">An AI that has read every page and knows exactly where you are. Ask about any passage, character, or theme. Set a <strong>reading angle</strong> and every answer is shaped around it.</div>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-num">03</div>
+        <div class="demo-feature" data-step="feed">
+          <div class="demo-feature-num">03 / 05</div>
           <div>
+            <div class="demo-progress">
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot is-active"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+            </div>
             <div class="demo-feature-title">Feed</div>
             <div class="demo-feature-body">Remembers everything you've read. Remembers every conversation. <strong>Highlights, notes, and chats</strong> in one timeline that grows with you.</div>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-num">04</div>
+        <div class="demo-feature" data-step="cast">
+          <div class="demo-feature-num">04 / 05</div>
           <div>
+            <div class="demo-progress">
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot is-active"></span>
+              <span class="demo-progress-dot"></span>
+            </div>
             <div class="demo-feature-title">Cast</div>
             <div class="demo-feature-body">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</div>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-num">05</div>
+        <div class="demo-feature" data-step="audio">
+          <div class="demo-feature-num">05 / 05</div>
           <div>
+            <div class="demo-progress">
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot"></span>
+              <span class="demo-progress-dot is-active"></span>
+            </div>
             <div class="demo-feature-title">Synced <em>audiobook</em></div>
             <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
           </div>
@@ -644,6 +716,23 @@
 </div>
 
 <script>
+// Demo iframe → landing sync. The embedded SPA's FeatureTour posts
+// `tinct:tour-step` messages on each step change. Swap the visible
+// feature description on the right side of the demo section to match.
+(function(){
+  var features = document.querySelectorAll('.demo-feature');
+  var container = document.getElementById('demo-features');
+  if (!container || !features.length) return;
+  window.addEventListener('message', function(e) {
+    var data = e && e.data;
+    if (!data || data.type !== 'tinct:tour-step' || !data.stepId) return;
+    container.setAttribute('data-active', data.stepId);
+    features.forEach(function(el) {
+      el.classList.toggle('is-active', el.getAttribute('data-step') === data.stepId);
+    });
+  });
+})();
+
 // Tab switching
 (function(){
   var btns = document.querySelectorAll('.feat-nav-btn');
