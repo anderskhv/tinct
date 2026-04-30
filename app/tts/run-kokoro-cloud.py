@@ -234,6 +234,21 @@ def main():
         force = True
         args = [a for a in args if a != "--force"]
         log("FORCE mode: idempotent skip disabled, all chapters will be regenerated.")
+
+    # --start-ch N / --end-ch M: process only chapters in [N, M] (inclusive).
+    # Used to split a long book across two pods working in parallel.
+    start_ch, end_ch = None, None
+    if "--start-ch" in args:
+        i = args.index("--start-ch")
+        start_ch = int(args[i + 1])
+        args = args[:i] + args[i + 2:]
+        log(f"START at chapter {start_ch}")
+    if "--end-ch" in args:
+        i = args.index("--end-ch")
+        end_ch = int(args[i + 1])
+        args = args[:i] + args[i + 2:]
+        log(f"END at chapter {end_ch}")
+
     if len(args) < 2 or len(args) % 2 != 0:
         print(__doc__)
         return 1
@@ -273,6 +288,12 @@ def main():
         chapters = edition.get("chapters", [])
         ed_audio_dir = AUDIO_DIR / book_id / edition_key
         ed_audio_dir.mkdir(parents=True, exist_ok=True)
+
+        # Apply chapter range filter if --start-ch / --end-ch supplied
+        if start_ch is not None:
+            chapters = [c for c in chapters if c["number"] >= start_ch]
+        if end_ch is not None:
+            chapters = [c for c in chapters if c["number"] <= end_ch]
 
         log(f"═══ {book_id} / {edition_key}: {len(chapters)} chapters ═══")
         total_ok, total_fail, total_skipped = 0, 0, 0

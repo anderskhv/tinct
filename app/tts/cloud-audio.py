@@ -211,6 +211,8 @@ def main():
     p.add_argument("--reuse-pod", help="Use existing pod ID instead of creating one")
     p.add_argument("--no-bootstrap", action="store_true", help="Skip bootstrap (pod must already be set up)")
     p.add_argument("--force", action="store_true", help="Pass --force to run-kokoro-cloud.py (regen even if R2 has audio)")
+    p.add_argument("--start-ch", type=int, help="Process only chapters >= this number (for splitting big books across pods)")
+    p.add_argument("--end-ch", type=int, help="Process only chapters <= this number")
     args = p.parse_args()
 
     if len(args.jobs) % 2 != 0:
@@ -238,6 +240,11 @@ def main():
 
     job_args = " ".join(shlex.quote(a) for a in args.jobs)
     force_flag = " --force" if args.force else ""
+    range_flags = ""
+    if args.start_ch is not None:
+        range_flags += f" --start-ch {args.start_ch}"
+    if args.end_ch is not None:
+        range_flags += f" --end-ch {args.end_ch}"
     # rm -f /workspace/job.done — required for pod reuse. Without this, a
     # previous run's job.done would make the local tail-loop exit immediately,
     # before this run had a chance to start.
@@ -247,7 +254,7 @@ def main():
         f"rm -f /workspace/job.done && "
         f"tmux kill-session -t kokoro 2>/dev/null; "
         f"tmux new -d -s kokoro "
-        f"'python3 run-kokoro-cloud.py{force_flag} {job_args} 2>&1 | tee {LOG_FILE_REMOTE}; "
+        f"'python3 run-kokoro-cloud.py{force_flag}{range_flags} {job_args} 2>&1 | tee {LOG_FILE_REMOTE}; "
         f"touch /workspace/job.done'"
     )
     log("Launching job in tmux on pod…")
