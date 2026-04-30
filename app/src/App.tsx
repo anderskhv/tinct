@@ -1266,6 +1266,14 @@ export default function App() {
   useEffect(() => {
     if (!isDemoMode || !storageReady) return
     const demoBook = getBook('hamlet') || ODYSSEY
+    // Add to library FIRST. Without this, libraryEmpty=true for any fresh
+    // visitor and the BookStore renders on top of the reader — the tour
+    // halos then try to anchor to mobile-read/compare/chat selectors that
+    // don't exist (BookStore has no bottom-bar tabs), so cutouts misfire
+    // and the visitor sees the library covers as the demo backdrop.
+    if (!libraryIds.includes(demoBook.id)) {
+      addBook(demoBook.id)
+    }
     if (currentBookId !== demoBook.id) {
       handleBookChange(demoBook.id)
     }
@@ -1273,7 +1281,7 @@ export default function App() {
     storage.delete('tinct-tour-seen')
     const t = window.setTimeout(() => setShowTour(true), 1200)
     return () => window.clearTimeout(t)
-  }, [isDemoMode, storageReady, currentBookId, handleBookChange])
+  }, [isDemoMode, storageReady, currentBookId, handleBookChange, libraryIds, addBook])
 
   // One-time migration: grandfather in users who started reading before the
   // onboarding system existed. For each book in their library that has a
@@ -2141,8 +2149,11 @@ export default function App() {
           ×
         </button>
       )}
-      {/* New user: show store first, then onboarding after picking a book */}
-      {(libraryEmpty || showStore) && (
+      {/* New user: show store first, then onboarding after picking a book.
+          Hidden in demo mode — the demo bootstrap auto-adds hamlet so
+          libraryEmpty becomes false, but on the very first render before
+          that effect fires it would briefly flash. */}
+      {!isDemoMode && (libraryEmpty || showStore) && (
         <BookStore
           books={BOOKS}
           libraryIds={libraryIds}
