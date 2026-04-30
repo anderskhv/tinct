@@ -33,74 +33,52 @@ const AUTOPLAY_RESTART_MS = 2200
 export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
   const [index, setIndex] = useState(0)
   const [rect, setRect] = useState<DOMRect | null>(null)
-  // Demo-mode pause flag — toggled by `tinct:tour-pause` / `tinct:tour-resume`
-  // postMessages from the landing-page parent. When paused, the autoplay
-  // timer is suppressed; user-initiated jumps still work.
-  const [isPaused, setIsPaused] = useState(false)
+
+  // When embedded in the landing-page demo iframe, the parent window owns
+  // the cycle clock. The iframe is a pure visual follower — never advances
+  // its own index, only reacts to `tinct:tour-jump` messages. Eliminates the
+  // dual-clock drift bug where iframe + parent both ticked at 7s offsets.
+  const isEmbedded = autoplay && typeof window !== 'undefined' && window.parent !== window
 
   // Reset index whenever the tour reopens.
   useEffect(() => {
     if (open) setIndex(0)
   }, [open])
 
-  // Autoplay loop — advance every AUTOPLAY_STEP_MS, restart after outro.
-  // Suppressed when paused.
+  // Standalone autoplay loop. Only runs when autoplay is on AND we are NOT
+  // embedded in a parent (no iframe to drive us). The landing-page demo
+  // hits `isEmbedded === true` and skips this entirely; parent drives.
   useEffect(() => {
-    if (!open || !autoplay || isPaused || steps.length === 0) return
+    if (!open || !autoplay || isEmbedded || steps.length === 0) return
     const isLastStep = index >= steps.length - 1
     const delay = isLastStep ? AUTOPLAY_RESTART_MS : AUTOPLAY_STEP_MS
     const t = window.setTimeout(() => {
       setIndex(i => (i >= steps.length - 1 ? 0 : i + 1))
     }, delay)
     return () => window.clearTimeout(t)
-  }, [open, autoplay, isPaused, index, steps.length])
+  }, [open, autoplay, isEmbedded, index, steps.length])
 
-  // Broadcast step changes to the parent window so the landing-page demo
-  // iframe can sync its right-side description to the currently-highlighted
-  // feature. Only fires in autoplay mode (i.e. the demo embed). Same-origin
-  // postMessage; the parent listener filters by message type.
+  // Tell the parent we mounted. Parent uses this to push the latest step
+  // (covers the race where parent sent tour-jump before iframe was listening).
   useEffect(() => {
-    if (!open || !autoplay || !steps[index]) return
-    if (typeof window === 'undefined' || window.parent === window) return
-    try {
-      window.parent.postMessage(
-        { type: 'tinct:tour-step', stepId: steps[index].id, index, total: steps.length },
-        '*'
-      )
-    } catch { /* cross-origin — fine, just no sync */ }
-  }, [open, autoplay, index, steps])
-
-  // Tell the parent window the tour is ready (mounted, open, autoplay
-  // configured). The landing-page demo listens for this and takes over
-  // timing, sending tour-pause + driving via tour-jump messages instead.
-  // This makes the right-side caption sync rock-solid because the parent
-  // owns the cycle clock — the iframe is a pure follower.
-  useEffect(() => {
-    if (!open || !autoplay) return
-    if (typeof window === 'undefined' || window.parent === window) return
+    if (!open || !isEmbedded) return
     try { window.parent.postMessage({ type: 'tinct:tour-ready' }, '*') } catch { /* */ }
-  }, [open, autoplay])
+  }, [open, isEmbedded])
 
-  // Listen for control messages from the parent window:
-  //   - tinct:tour-jump   → jump to the step with matching stepId
-  //   - tinct:tour-pause  → suppress autoplay (visitor wants to dwell)
-  //   - tinct:tour-resume → re-enable autoplay
+  // Listen for tour-jump messages from the parent (embedded mode only).
   useEffect(() => {
-    if (!open || !autoplay || steps.length === 0) return
+    if (!open || !isEmbedded || steps.length === 0) return
     const handler = (e: MessageEvent) => {
       const data = e?.data as { type?: string; stepId?: string } | undefined
       if (!data || typeof data.type !== 'string') return
       if (data.type === 'tinct:tour-jump' && data.stepId) {
         const target = steps.findIndex(s => s.id === data.stepId)
         if (target >= 0 && target !== index) setIndex(target)
-        return
       }
-      if (data.type === 'tinct:tour-pause') setIsPaused(true)
-      if (data.type === 'tinct:tour-resume') setIsPaused(false)
     }
     window.addEventListener('message', handler)
     return () => window.removeEventListener('message', handler)
-  }, [open, autoplay, steps, index])
+  }, [open, isEmbedded, steps, index])
 
   const step = steps[index]
 

@@ -326,13 +326,17 @@
       flex-direction: column;
       gap: 24px;
     }
+    /* Stage stacks all 6 cards in a single grid cell so the stage sizes to
+       the tallest card (no `position: absolute` clipping). At narrow widths
+       the longer body copy used to overflow a fixed 240px min-height and
+       collide with the controls below. */
     .demo-feature-stage {
       position: relative;
-      min-height: 240px;
+      display: grid;
+      grid-template-areas: 'stack';
     }
     .demo-feature {
-      position: absolute;
-      inset: 0;
+      grid-area: stack;
       display: grid;
       grid-template-columns: 36px 1fr;
       gap: 18px;
@@ -448,7 +452,6 @@
       .demo-container { grid-template-columns: 1fr; gap: 28px; max-width: 480px; }
       .demo-phone { width: 220px; height: 458px; }
       .demo-phone-screen iframe { transform: scale(0.528); }  /* 206 / 390 */
-      .demo-features { min-height: 240px; }
       .demo-feature { grid-template-columns: 28px 1fr; gap: 12px; }
       .demo-feature-title { font-size: 26px; }
       .demo-feature-body { font-size: 17px; }
@@ -537,11 +540,11 @@
       <div class="demo-features" id="demo-features">
         <div class="demo-progress" id="demo-progress">
           <button class="demo-progress-button" data-jump="read" aria-label="Read"><span class="demo-progress-dot is-active"></span></button>
-          <button class="demo-progress-button" data-jump="compare" aria-label="Compare editions"><span class="demo-progress-dot"></span></button>
-          <button class="demo-progress-button" data-jump="chat" aria-label="Chat companion"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="compare" aria-label="Compare"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="chat" aria-label="Chat"><span class="demo-progress-dot"></span></button>
           <button class="demo-progress-button" data-jump="feed" aria-label="Feed"><span class="demo-progress-dot"></span></button>
           <button class="demo-progress-button" data-jump="cast" aria-label="Cast"><span class="demo-progress-dot"></span></button>
-          <button class="demo-progress-button" data-jump="audio" aria-label="Synced audiobook"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="audio" aria-label="Audio"><span class="demo-progress-dot"></span></button>
         </div>
         <div class="demo-feature-stage" id="demo-feature-stage">
           <div class="demo-feature" data-step="read">
@@ -554,14 +557,14 @@
           <div class="demo-feature" data-step="compare">
             <div class="demo-feature-num">02 / 06</div>
             <div>
-              <div class="demo-feature-title">Compare <em>editions</em></div>
+              <div class="demo-feature-title">Compare</div>
               <div class="demo-feature-body">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</div>
             </div>
           </div>
           <div class="demo-feature" data-step="chat">
             <div class="demo-feature-num">03 / 06</div>
             <div>
-              <div class="demo-feature-title">Chat <em>companion</em></div>
+              <div class="demo-feature-title">Chat</div>
               <div class="demo-feature-body">An AI that has read every page and knows exactly where you are. Ask about any passage, character, or theme. Set a <strong>reading angle</strong> and every answer is shaped around it.</div>
             </div>
           </div>
@@ -582,7 +585,7 @@
           <div class="demo-feature" data-step="audio">
             <div class="demo-feature-num">06 / 06</div>
             <div>
-              <div class="demo-feature-title">Synced <em>audiobook</em></div>
+              <div class="demo-feature-title">Audio</div>
               <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
             </div>
           </div>
@@ -768,29 +771,20 @@
 </div>
 
 <script>
-// Demo: PARENT-DRIVEN sync.
+// Demo sync: PARENT IS THE SINGLE CLOCK.
 //
-// Architecture: the landing page (this script) owns the cycle clock.
-// The iframe is a pure visual follower — it shows whichever step we tell
-// it to show via 'tinct:tour-jump' postMessages.
-//
-// Why: the previous architecture had the iframe driving (via FeatureTour
-// autoplay) and the parent listening. That meant the right-side text could
-// silently fall out of sync if any postMessage was dropped or the iframe
-// stalled. With parent driving, the right side updates IMMEDIATELY on
-// every interval tick / user click — there's no waiting on the iframe to
-// announce its state.
+// The iframe never auto-advances — it only reacts to `tinct:tour-jump`
+// messages. This eliminates the dual-clock drift that previously let the
+// right-side caption and iframe halo fall out of sync.
 //
 // Flow:
-//   1. Iframe boots, FeatureTour opens, posts 'tinct:tour-ready' to us.
-//   2. We send 'tinct:tour-pause' immediately so the iframe stops its own
-//      autoplay (we own the timing now).
-//   3. We start a 7-second interval, advancing through STEP_ORDER and
-//      sending 'tinct:tour-jump' on each tick.
-//   4. User click (dot, Prev, Next) → we jump locally + send 'tinct:tour-jump',
-//      AND restart the interval so they get a full 7s on the new step.
-//   5. Pause toggle → clearInterval + send 'tinct:tour-pause'. Play
-//      toggle → restart interval + send 'tinct:tour-resume'.
+//   1. DOM ready → setActive('read') + start 7s interval.
+//   2. Each tick: setActive(next) + postMessage tour-jump to iframe.
+//   3. Iframe (FeatureTour with autoplay + parent detected) sends
+//      'tinct:tour-ready' on mount → we re-send the current step so the
+//      iframe catches up if our earlier message arrived before mount.
+//   4. User clicks dot / Prev / Next → setActive + tour-jump + restart timer.
+//   5. User clicks Pause → stop timer (iframe stays put). Play → restart timer.
 (function(){
   var STEP_ORDER = ['read','compare','chat','feed','cast','audio'];
   var STEP_INTERVAL_MS = 7000;
@@ -833,9 +827,7 @@
   function advance() {
     var idx = STEP_ORDER.indexOf(currentStepId);
     if (idx < 0) idx = 0;
-    var nextStepId = STEP_ORDER[(idx + 1) % STEP_ORDER.length];
-    setActive(nextStepId);
-    send({ type: 'tinct:tour-jump', stepId: nextStepId });
+    jumpTo(STEP_ORDER[(idx + 1) % STEP_ORDER.length], { restartTimer: false });
   }
 
   function setPausedUI(paused) {
@@ -850,73 +842,34 @@
     if (btn) btn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
   }
 
-  function pause() {
-    setPausedUI(true);
-    stopTimer();
-    send({ type: 'tinct:tour-pause' });
-  }
-  function play() {
-    setPausedUI(false);
-    startTimer();
-    send({ type: 'tinct:tour-resume' });
-  }
-
-  function jumpTo(stepId) {
+  function jumpTo(stepId, opts) {
     if (!stepId) return;
     setActive(stepId);
     send({ type: 'tinct:tour-jump', stepId: stepId });
-    // User wants 7s on the chosen step before auto-advance — restart interval
-    if (!isPaused) startTimer();
+    // User-driven jumps restart the interval so the new step gets a full 7s.
+    // Auto-advance ticks pass restartTimer:false to keep the existing cadence.
+    if (opts && opts.restartTimer && !isPaused) startTimer();
   }
 
-  // Start the parent timer the moment the iframe DOM finishes loading. We
-  // do NOT wait for any handshake message from the React app inside —
-  // postMessage handshakes can be lost (cache, strict-mode double-render,
-  // race with the timer pumping events). The right-side card cycles on
-  // its own clock; the iframe is a pure visual follower. If the iframe
-  // is slow to mount, our first jump messages are simply ignored — the
-  // setActive on the right side still updates.
-  function bootstrap() {
-    // Tell iframe to stop its own autoplay (if it's mounted) and reset
-    // to step 1.
-    send({ type: 'tinct:tour-pause' });
-    send({ type: 'tinct:tour-jump', stepId: 'read' });
-    setActive('read');
-    if (!isPaused) startTimer();
-  }
-  if (iframe) {
-    if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-      // Iframe was cached and is already loaded.
-      bootstrap();
-    } else {
-      iframe.addEventListener('load', bootstrap);
-    }
-  } else {
-    // No iframe? Still cycle the right side — pure CSS demo.
-    bootstrap();
-  }
-  // Belt-and-suspenders: if `load` never fires for any reason, kick off
-  // anyway after 3s. Worst case the right side starts cycling early.
-  setTimeout(function() {
-    if (!timerId && !isPaused) startTimer();
-  }, 3000);
+  // Initialize as soon as DOM is parsed. We don't wait for the iframe to
+  // load — its mount is async and `loading="lazy"` makes the load event
+  // unreliable. The iframe's `tour-ready` handshake (below) catches up the
+  // iframe to whatever step we're currently on.
+  setActive('read');
+  if (!isPaused) startTimer();
 
-  // Also re-send pause + initial jump whenever we hear from the iframe —
-  // covers the case where the iframe boots, posts tour-ready, but missed
-  // our earlier messages because contentWindow wasn't ready yet.
+  // Iframe announces it mounted → push the latest step. This is the ONLY
+  // reliable sync point because postMessage before mount is silently dropped.
   window.addEventListener('message', function(e) {
     var data = e && e.data;
-    if (!data) return;
-    if (data.type === 'tinct:tour-ready') {
-      send({ type: 'tinct:tour-pause' });
-      send({ type: 'tinct:tour-jump', stepId: currentStepId });
-    }
+    if (!data || data.type !== 'tinct:tour-ready') return;
+    send({ type: 'tinct:tour-jump', stepId: currentStepId });
   });
 
   // Clickable progress dots
   dotButtons.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      jumpTo(btn.getAttribute('data-jump'));
+      jumpTo(btn.getAttribute('data-jump'), { restartTimer: true });
     });
   });
 
@@ -927,8 +880,13 @@
       if (!btn) return;
       var control = btn.getAttribute('data-control');
       if (control === 'playpause') {
-        if (isPaused) play();
-        else pause();
+        if (isPaused) {
+          setPausedUI(false);
+          startTimer();
+        } else {
+          setPausedUI(true);
+          stopTimer();
+        }
         return;
       }
       var idx = STEP_ORDER.indexOf(currentStepId);
@@ -937,7 +895,7 @@
       if (control === 'prev') nextIdx = (idx - 1 + STEP_ORDER.length) % STEP_ORDER.length;
       else if (control === 'next') nextIdx = (idx + 1) % STEP_ORDER.length;
       else return;
-      jumpTo(STEP_ORDER[nextIdx]);
+      jumpTo(STEP_ORDER[nextIdx], { restartTimer: true });
     });
   }
 })();

@@ -1638,12 +1638,12 @@ export default function App() {
         setup: () => { setAudioStripOpen(false); setActiveView(0) },
       }
       const demoCompare: TourStep | null = splitViewAvailable && canCompare ? {
-        id: 'compare', headline: 'Compare editions', copy: '',
+        id: 'compare', headline: 'Compare', copy: '',
         selector: 'mobile-compare',
         setup: () => { setAudioStripOpen(false); setActiveView(1) },
       } : null
       const demoChat: TourStep | null = canChat && !preferences.chatHidden ? {
-        id: 'chat', headline: 'Chat companion', copy: '',
+        id: 'chat', headline: 'Chat', copy: '',
         selector: 'mobile-chat',
         setup: () => { setAudioStripOpen(false); setPanelTab('chat'); setActiveView(2) },
       } : null
@@ -1658,7 +1658,7 @@ export default function App() {
         setup: () => { setAudioStripOpen(false); setPanelTab('threads'); setActiveView(4) },
       } : null
       const demoAudio: TourStep | null = hasAudio && canAudio ? {
-        id: 'audio', headline: 'Audiobook',
+        id: 'audio', headline: 'Audio',
         selector: 'audio-strip',
         copy: '',
         setup: () => { setActiveView(0); setAudioStripOpen(true) },
