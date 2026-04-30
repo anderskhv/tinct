@@ -217,14 +217,17 @@ def remote_is_alive(rp, pod_id):
         return None
 
 
-def restart_pod(rp, old_pod_id, jobs, log_path, force=True):
-    """Stop the stalled pod, launch a fresh one with the same JOBS."""
+def restart_pod(rp, old_pod_id, jobs, log_path, force=True, extra_args=None):
+    """Stop the stalled pod, launch a fresh one with the same JOBS.
+    extra_args: optional list (e.g., ['--start-ch', '700']) preserved across restarts."""
     log(f"  Stopping {old_pod_id}…")
     stop_pod_safe(rp, old_pod_id)
 
     cmd = ["python3", CLOUD_AUDIO_PY, "--auto-stop"]
     if force:
         cmd.append("--force")
+    if extra_args:
+        cmd.extend(extra_args)
     cmd.extend(jobs)
 
     log(f"  Re-launching: {' '.join(cmd[:6])}… ({len(jobs)//2} books)")
@@ -341,7 +344,7 @@ def main():
                             log(f"{pod_id}: bootstrap >timeout, SSH probe failed; deferring.")
                             continue
                         log(f"{pod_id}: BOOTSTRAP STUCK — {age:.0f}s, remote also stale. Killing.")
-                        new_id = restart_pod(rp, pod_id, jobs, log_path)
+                        new_id = restart_pod(rp, pod_id, jobs, log_path, extra_args=info.get("extra_args"))
                         del watch[pod_id]
                         if new_id:
                             watch[new_id] = info
@@ -363,7 +366,7 @@ def main():
                         log(f"{pod_id}: SSH probe failed; deferring stall decision until next cycle.")
                         continue
                     log(f"{pod_id}: STALL — local AND remote logs stale ({age:.0f}s). Restarting.")
-                    new_id = restart_pod(rp, pod_id, jobs, log_path)
+                    new_id = restart_pod(rp, pod_id, jobs, log_path, extra_args=info.get("extra_args"))
                     del watch[pod_id]
                     if new_id:
                         watch[new_id] = info
