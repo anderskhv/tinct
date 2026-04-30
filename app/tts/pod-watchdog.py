@@ -179,6 +179,44 @@ def stop_pod_safe(rp, pod_id):
         return False
 
 
+REMOTE_STALE_THRESHOLD = 15 * 60  # remote log unchanged this long → genuinely stuck
+
+
+def remote_is_alive(rp, pod_id):
+    """SSH into the pod and check whether the REMOTE /workspace/job.log is
+    still being written. This is the source of truth — the local launcher
+    log can go stale just because SSH dies, while tmux on the pod is fine.
+
+    Returns True if the remote log was modified within REMOTE_STALE_THRESHOLD,
+    False if remote is also stuck, or None if SSH itself fails."""
+    try:
+        p = rp.get_pod(pod_id)
+    except Exception:
+        return None
+    runtime = p.get("runtime") or {}
+    ports = runtime.get("ports") or []
+    ssh = next((x for x in ports if x.get("privatePort") == 22 and x.get("isIpPublic")), None)
+    if not ssh:
+        return None
+    ip, port = ssh["ip"], ssh["publicPort"]
+    cmd = [
+        "ssh", "-p", str(port), "-o", "ConnectTimeout=10",
+        "-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null",
+        "-o", "LogLevel=ERROR", f"root@{ip}",
+        # Print epoch seconds since last mtime; missing file → very large
+        "stat -c %Y /workspace/job.log 2>/dev/null || echo 0",
+    ]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=20)
+        mtime = int(r.stdout.strip() or "0")
+        if mtime == 0:
+            return None
+        age = time.time() - mtime
+        return age < REMOTE_STALE_THRESHOLD
+    except Exception:
+        return None
+
+
 def restart_pod(rp, old_pod_id, jobs, log_path, force=True):
     """Stop the stalled pod, launch a fresh one with the same JOBS."""
     log(f"  Stopping {old_pod_id}…")
@@ -292,10 +330,17 @@ def main():
                 uploads_started = has_r2_uploads(log_path)
 
                 # 2. Bootstrap phase: pod is RUNNING but Kokoro hasn't uploaded
-                #    anything yet. Tolerate this up to BOOTSTRAP_TIMEOUT, then kill.
+                #    anything yet. Tolerate this up to BOOTSTRAP_TIMEOUT, then probe.
                 if not uploads_started:
                     if age > BOOTSTRAP_TIMEOUT:
-                        log(f"{pod_id}: BOOTSTRAP STUCK — {age:.0f}s with zero R2 uploads. Killing.")
+                        alive = remote_is_alive(rp, pod_id)
+                        if alive is True:
+                            log(f"{pod_id}: bootstrap >timeout but remote log fresh — Kokoro still working. Not killing.")
+                            continue
+                        if alive is None:
+                            log(f"{pod_id}: bootstrap >timeout, SSH probe failed; deferring.")
+                            continue
+                        log(f"{pod_id}: BOOTSTRAP STUCK — {age:.0f}s, remote also stale. Killing.")
                         new_id = restart_pod(rp, pod_id, jobs, log_path)
                         del watch[pod_id]
                         if new_id:
@@ -307,7 +352,17 @@ def main():
 
                 # 3. Working phase: uploads have started. Stall threshold applies now.
                 if age > STALL_THRESHOLD:
-                    log(f"{pod_id}: STALL — log unchanged for {age:.0f}s (uploads had started). Restarting.")
+                    # Before killing, verify the pod is ACTUALLY stuck. The local
+                    # launcher log goes stale when SSH tail dies, but the remote
+                    # tmux is often still working. Only kill if remote log is also stale.
+                    alive = remote_is_alive(rp, pod_id)
+                    if alive is True:
+                        log(f"{pod_id}: local log stale ({age:.0f}s) but remote /workspace/job.log is fresh. NOT killing.")
+                        continue
+                    elif alive is None:
+                        log(f"{pod_id}: SSH probe failed; deferring stall decision until next cycle.")
+                        continue
+                    log(f"{pod_id}: STALL — local AND remote logs stale ({age:.0f}s). Restarting.")
                     new_id = restart_pod(rp, pod_id, jobs, log_path)
                     del watch[pod_id]
                     if new_id:
