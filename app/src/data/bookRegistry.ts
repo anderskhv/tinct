@@ -1350,6 +1350,13 @@ export const BACCHAE: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1885,6 +1892,13 @@ export const OEDIPUS_REX: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1941,6 +1955,13 @@ export const ANTIGONE: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
       aligned: true,
     },
   ],
