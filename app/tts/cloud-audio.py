@@ -44,7 +44,18 @@ import time
 from pathlib import Path
 
 # ── Config ──────────────────────────────────────────────────────────────────
-DEFAULT_GPU_TYPE = "NVIDIA GeForce RTX 4090"
+# RTX 4090 first because it's known-working with PyTorch 2.4 + CUDA 12.4
+# RTX 5090 (Blackwell, sm_120) doesn't work with this image — needs PyTorch 2.6+ / CUDA 12.8+
+# A40/A100/RTX 3090/RTX 4080 are older but supported fallbacks
+GPU_FALLBACK = [
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 4080 SUPER",
+    "NVIDIA GeForce RTX 4080",
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA RTX A6000",
+    "NVIDIA A40",
+]
+DEFAULT_GPU_TYPE = GPU_FALLBACK[0]
 PYTORCH_IMAGE = "runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04"
 VOLUME_GB = 50
 CONTAINER_DISK_GB = 20
@@ -103,22 +114,39 @@ def find_gpu_type_id(rp, gpu_name):
     return matches[0]["id"]
 
 
-def create_pod(rp, gpu_type_id, name="tinct-audio"):
-    log(f"Creating pod with GPU '{gpu_type_id}'…")
-    pod = rp.create_pod(
-        name=name,
-        image_name=PYTORCH_IMAGE,
-        gpu_type_id=gpu_type_id,
-        cloud_type="SECURE",  # SECURE = on-demand. Use "COMMUNITY" for spot.
-        volume_in_gb=VOLUME_GB,
-        container_disk_in_gb=CONTAINER_DISK_GB,
-        volume_mount_path="/workspace",
-        ports="22/tcp",
-        support_public_ip=True,
-        start_ssh=True,
-    )
-    log(f"Pod created: {pod['id']} (status={pod.get('desiredStatus','?')})")
-    return pod
+def create_pod(rp, gpu_type_id, name="tinct-audio", fallback=True):
+    """Create pod with given GPU. If unavailable and fallback=True, walk GPU_FALLBACK list."""
+    candidates = [gpu_type_id]
+    if fallback:
+        for g in GPU_FALLBACK:
+            if g != gpu_type_id and g not in candidates:
+                candidates.append(g)
+    last_err = None
+    for gpu in candidates:
+        try:
+            log(f"Creating pod with GPU '{gpu}'…")
+            pod = rp.create_pod(
+                name=name,
+                image_name=PYTORCH_IMAGE,
+                gpu_type_id=gpu,
+                cloud_type="SECURE",
+                volume_in_gb=VOLUME_GB,
+                container_disk_in_gb=CONTAINER_DISK_GB,
+                volume_mount_path="/workspace",
+                ports="22/tcp",
+                support_public_ip=True,
+                start_ssh=True,
+            )
+            log(f"Pod created: {pod['id']} (gpu={gpu}, status={pod.get('desiredStatus','?')})")
+            return pod
+        except Exception as e:
+            last_err = e
+            msg = str(e).lower()
+            if "no longer any instances" in msg or "no instances available" in msg or "not available" in msg:
+                log(f"  '{gpu}' unavailable, trying next fallback…")
+                continue
+            raise
+    raise RuntimeError(f"All GPU types unavailable. Last error: {last_err}")
 
 
 def wait_for_pod_ssh(rp, pod_id, timeout=300):
