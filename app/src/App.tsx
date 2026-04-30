@@ -329,6 +329,15 @@ export default function App() {
   // Re-triggerable from Settings sheet.
   const [showTour, setShowTour] = useState(false)
 
+  // Demo mode — embedded landing-page demo loads the app with `?demo=1`.
+  // In this mode we skip onboarding, force Odyssey, and auto-fire the tour
+  // with autoplay + loop so the iframe just plays the experience on repeat.
+  const isDemoMode = useMemo(() => {
+    if (typeof window === 'undefined') return false
+    try { return new URLSearchParams(window.location.search).get('demo') === '1' }
+    catch { return false }
+  }, [])
+
   // Focus mode: hides header, bottom bar, and side panel for an immersive
   // reading experience. Toggled via a floating button or the F key. Transient
   // (not persisted) — each session starts with full chrome.
@@ -1244,6 +1253,25 @@ export default function App() {
     } catch { /* ignore */ }
   }, [storageReady])
 
+  // Demo mode bootstrap — landing page embeds /read?demo=1 in an iframe
+  // and the embedded app should:
+  //   - Land on Odyssey
+  //   - Skip BookOnboarding (so the tour can fire immediately)
+  //   - Auto-fire FeatureTour with autoplay + loop
+  // Tour steps in demo mode also bypass tier-gating (see tourSteps factory)
+  // so the visitor sees all of Compare/Chat/Feed/Cast even though they're
+  // not signed in. Marketing context, not real product context.
+  useEffect(() => {
+    if (!isDemoMode || !storageReady) return
+    if (currentBookId !== ODYSSEY.id) {
+      handleBookChange(ODYSSEY.id)
+    }
+    storage.set(`book-onboarded:${ODYSSEY.id}`, true)
+    storage.delete('tinct-tour-seen')
+    const t = window.setTimeout(() => setShowTour(true), 1200)
+    return () => window.clearTimeout(t)
+  }, [isDemoMode, storageReady, currentBookId, handleBookChange])
+
   // One-time migration: grandfather in users who started reading before the
   // onboarding system existed. For each book in their library that has a
   // saved position but no onboarded flag, set the flag once. After this
@@ -1463,12 +1491,16 @@ export default function App() {
     // points at a tab that doesn't render is a UX bug — anonymous users were
     // seeing "here's where you can chat" with no chat tab in the panel
     // because canChat is premium-only (Anders, 2026-04-29).
+    //
+    // Demo mode override: the landing-page iframe embed wants to show the
+    // FULL feature set regardless of who's loading the page. In demo mode
+    // we ignore tier-gating and include every step.
     const hasCastData = (threadsData?.characters?.length ?? 0) > 0
-    const canChat = canUse('ai-chat')
-    const canCast = canUse('cast')
-    const canCompare = canUse('side-by-side')
-    const canAudio = canUse('audiobook')
-    const canFeed = canUse('reading-journal')  // Feed is premium-gated via this feature
+    const canChat = isDemoMode || canUse('ai-chat')
+    const canCast = isDemoMode || canUse('cast')
+    const canCompare = isDemoMode || canUse('side-by-side')
+    const canAudio = isDemoMode || canUse('audiobook')
+    const canFeed = isDemoMode || canUse('reading-journal')  // Feed is premium-gated via this feature
     const ensurePanelOpen = () => {
       if (!preferences.panelOpen) togglePanel()
     }
@@ -1581,7 +1613,7 @@ export default function App() {
       : [intro, chat, feed, cast, library, compare, toc, audio, settings, outro]
     return ordered.filter((s): s is TourStep => s !== null)
   }, [
-    isMobile, splitViewAvailable, hasAudio, threadsData, canUse,
+    isMobile, splitViewAvailable, hasAudio, threadsData, canUse, isDemoMode,
     preferences.chatHidden, preferences.feedHidden, preferences.castHidden, preferences.panelOpen,
     preferences.splitView, toggleSplitView,
     setActiveView, setPanelTab, togglePanel,
@@ -2936,7 +2968,7 @@ export default function App() {
         </div>
       )}
 
-      <FeatureTour open={showTour} steps={tourSteps} onClose={handleTourClose} />
+      <FeatureTour open={showTour} steps={tourSteps} onClose={handleTourClose} autoplay={isDemoMode} />
 
     </TierProvider>
   )

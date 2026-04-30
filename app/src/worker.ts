@@ -1832,12 +1832,16 @@ async function handleAudioFile(request: Request, env: Env): Promise<Response> {
 
 // ===== Security Headers =====
 
+// X-Frame-Options is SAMEORIGIN (was DENY) so the landing page can embed the
+// SPA in an iframe for the live product demo. Same-origin only — third-party
+// sites still can't frame us. CSP `frame-src` and `frame-ancestors` are
+// also relaxed to 'self' for the same reason.
 const SECURITY_HEADERS: Record<string, string> = {
   'X-Content-Type-Options': 'nosniff',
-  'X-Frame-Options': 'DENY',
+  'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; media-src 'self' https://pub-c34df89c93284423a39b03537595c2e2.r2.dev; frame-src https://js.stripe.com",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; media-src 'self' https://pub-c34df89c93284423a39b03537595c2e2.r2.dev; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
 }
 
 // ===== Bot UA Blocklist (KV-free first line of defence) =====

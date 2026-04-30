@@ -20,11 +20,17 @@ interface Props {
   open: boolean
   steps: TourStep[]
   onClose: () => void
+  /** Autoplay loop — used by the landing-page demo embed. Hides Skip/Next/Back
+   *  controls, advances through steps automatically every AUTOPLAY_STEP_MS,
+   *  and loops back to step 0 after the outro. Manual onClose is suppressed. */
+  autoplay?: boolean
 }
 
 const SETUP_DELAY_MS = 220
+const AUTOPLAY_STEP_MS = 4500
+const AUTOPLAY_RESTART_MS = 1800
 
-export function FeatureTour({ open, steps, onClose }: Props) {
+export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
   const [index, setIndex] = useState(0)
   const [rect, setRect] = useState<DOMRect | null>(null)
 
@@ -32,6 +38,17 @@ export function FeatureTour({ open, steps, onClose }: Props) {
   useEffect(() => {
     if (open) setIndex(0)
   }, [open])
+
+  // Autoplay loop — advance every AUTOPLAY_STEP_MS, restart after outro.
+  useEffect(() => {
+    if (!open || !autoplay || steps.length === 0) return
+    const isLastStep = index >= steps.length - 1
+    const delay = isLastStep ? AUTOPLAY_RESTART_MS : AUTOPLAY_STEP_MS
+    const t = window.setTimeout(() => {
+      setIndex(i => (i >= steps.length - 1 ? 0 : i + 1))
+    }, delay)
+    return () => window.clearTimeout(t)
+  }, [open, autoplay, index, steps.length])
 
   const step = steps[index]
 
@@ -122,16 +139,18 @@ export function FeatureTour({ open, steps, onClose }: Props) {
         <div className="feature-tour-backdrop" />
       )}
 
-      <div className="feature-tour-bubble" style={bubbleStyle}>
+      <div className={`feature-tour-bubble ${autoplay ? 'feature-tour-bubble--autoplay' : ''}`} style={bubbleStyle}>
         <div className="feature-tour-bubble-head">
           <span className="feature-tour-counter">{index + 1} of {steps.length}</span>
-          <button
-            type="button"
-            className="feature-tour-skip"
-            onClick={onClose}
-          >
-            Skip tour
-          </button>
+          {!autoplay && (
+            <button
+              type="button"
+              className="feature-tour-skip"
+              onClick={onClose}
+            >
+              Skip tour
+            </button>
+          )}
         </div>
         <h3 className="feature-tour-headline">{step.headline}</h3>
         <div className="feature-tour-copy">{step.copy}</div>
@@ -140,6 +159,7 @@ export function FeatureTour({ open, steps, onClose }: Props) {
             {step.examples.map((ex, i) => <li key={i}>{ex}</li>)}
           </ul>
         )}
+        {!autoplay && (
         <div className="feature-tour-foot">
           {index > 0 && (
             <button
@@ -161,6 +181,7 @@ export function FeatureTour({ open, steps, onClose }: Props) {
             {isLast ? 'Begin reading →' : 'Next →'}
           </button>
         </div>
+        )}
       </div>
     </div>
   )
