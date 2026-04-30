@@ -238,9 +238,13 @@ def main():
 
     job_args = " ".join(shlex.quote(a) for a in args.jobs)
     force_flag = " --force" if args.force else ""
+    # rm -f /workspace/job.done — required for pod reuse. Without this, a
+    # previous run's job.done would make the local tail-loop exit immediately,
+    # before this run had a chance to start.
     remote_cmd = (
         f"export CLOUDFLARE_API_TOKEN={shlex.quote(cf_token)} && "
         f"cd /workspace/tinct/scripts && "
+        f"rm -f /workspace/job.done && "
         f"tmux kill-session -t kokoro 2>/dev/null; "
         f"tmux new -d -s kokoro "
         f"'python3 run-kokoro-cloud.py{force_flag} {job_args} 2>&1 | tee {LOG_FILE_REMOTE}; "

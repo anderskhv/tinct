@@ -27,9 +27,11 @@ from pathlib import Path
 
 WATCH_FILE = Path("/tmp/pod-watchdog-watch.json")
 COST_FILE = Path("/tmp/pod-watchdog-cost.json")
+BACKLOG_FILE = Path("/tmp/pod-backlog.json")
 POLL_INTERVAL = 5 * 60          # 5 minutes (was 20)
 STALL_THRESHOLD = 10 * 60       # 10 minutes log unchanged → stall (was 20)
 BOOTSTRAP_TIMEOUT = 15 * 60     # 15 minutes RUNNING with zero R2 uploads → kill
+CHAIN_BATCH_SIZE = 4            # 4 books per chained batch — small enough to checkpoint
 CLOUD_AUDIO_PY = "/Users/andershvelplund/Documents/Projects/Tinct/app/tts/cloud-audio.py"
 
 
@@ -86,8 +88,23 @@ def log_age_seconds(path):
     return time.time() - p.stat().st_mtime
 
 
+def latest_run_section(text):
+    """Return only the most recent run's slice of the log.
+
+    Each pod incarnation OR backlog chain produces a fresh marker; the
+    log is appended across all of them. We only care about the latest.
+    """
+    markers = ["Pod created:", "BACKLOG CHAIN", "WATCHDOG RESTART"]
+    latest = -1
+    for m in markers:
+        pos = text.rfind(m)
+        if pos > latest:
+            latest = pos
+    return text[latest:] if latest >= 0 else text
+
+
 def is_done(path):
-    """Returns True if the launcher log indicates the job finished cleanly."""
+    """Returns True if the most recent run finished cleanly."""
     p = Path(path)
     if not p.exists():
         return False
@@ -95,16 +112,12 @@ def is_done(path):
         text = p.read_text(errors="replace")
     except Exception:
         return False
-    return "ALL JOBS DONE" in text or "Job finished." in text
+    section = latest_run_section(text)
+    return "ALL JOBS DONE" in section or "Job finished." in section
 
 
 def has_r2_uploads(path):
-    """True if THIS pod incarnation has uploaded to R2.
-
-    Launcher logs are appended across pod restarts, so we must only consider
-    content after the LAST 'Pod created:' marker — earlier 'R2' lines belong
-    to dead pods.
-    """
+    """True if the current run has uploaded to R2 (i.e., past bootstrap)."""
     p = Path(path)
     if not p.exists():
         return False
@@ -112,9 +125,48 @@ def has_r2_uploads(path):
         text = p.read_text(errors="replace")
     except Exception:
         return False
-    last_pod = text.rfind("Pod created:")
-    tail = text[last_pod:] if last_pod >= 0 else text
-    return "→ R2" in tail
+    return "→ R2" in latest_run_section(text)
+
+
+def load_backlog():
+    if not BACKLOG_FILE.exists():
+        return []
+    try:
+        return json.loads(BACKLOG_FILE.read_text())
+    except Exception:
+        return []
+
+
+def save_backlog(items):
+    BACKLOG_FILE.write_text(json.dumps(items, indent=2))
+
+
+def chain_next_batch(pod_id, log_path):
+    """Pop the next CHAIN_BATCH_SIZE books from backlog and dispatch via cloud-audio.py
+    with --reuse-pod --no-bootstrap (skip the ~10-min Kokoro re-download).
+
+    Returns the list of jobs assigned (so watch.json can track them) or None
+    if the backlog is empty.
+    """
+    backlog = load_backlog()
+    if not backlog:
+        return None
+
+    pop_count = CHAIN_BATCH_SIZE * 2  # each book = 2 args
+    next_jobs = backlog[:pop_count]
+    remaining = backlog[pop_count:]
+    save_backlog(remaining)
+
+    cmd = ["python3", CLOUD_AUDIO_PY, "--reuse-pod", pod_id, "--no-bootstrap", "--force"]
+    cmd.extend(next_jobs)
+
+    log(f"  Chaining {len(next_jobs)//2} books to {pod_id} ({len(remaining)//2} remaining)")
+    chain_marker = f"══════ BACKLOG CHAIN {now()} (pod {pod_id}) ══════"
+    with open(log_path, "ab") as outfile:
+        outfile.write(f"\n\n{chain_marker}\n".encode())
+        subprocess.Popen(cmd, stdout=outfile, stderr=subprocess.STDOUT,
+                         stdin=subprocess.DEVNULL, start_new_session=True)
+    return next_jobs
 
 
 def stop_pod_safe(rp, pod_id):
@@ -222,12 +274,19 @@ def main():
                     log(f"{pod_id}: log {log_path} missing — skipping")
                     continue
 
-                # 1. DONE → stop the pod via API (the orphan fix).
+                # 1. DONE → try to chain more work from backlog before stopping.
+                #    Only stop the pod if backlog is empty.
                 if done:
-                    log(f"{pod_id}: DONE — stopping pod via API and removing from watch.")
-                    stop_pod_safe(rp, pod_id)
-                    del watch[pod_id]
-                    save_watch(watch)
+                    new_jobs = chain_next_batch(pod_id, log_path)
+                    if new_jobs:
+                        watch[pod_id]["jobs"] = new_jobs
+                        save_watch(watch)
+                        log(f"{pod_id}: DONE → chained {len(new_jobs)//2} more books from backlog.")
+                    else:
+                        log(f"{pod_id}: DONE — backlog empty. Stopping pod via API.")
+                        stop_pod_safe(rp, pod_id)
+                        del watch[pod_id]
+                        save_watch(watch)
                     continue
 
                 uploads_started = has_r2_uploads(log_path)
