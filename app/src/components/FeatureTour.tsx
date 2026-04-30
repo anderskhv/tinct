@@ -191,9 +191,22 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
         <div className="feature-tour-backdrop" />
       )}
 
-      {/* In autoplay (landing-demo) mode, hide the bubble entirely — only
-          the cutout halo communicates which feature is active. The
-          right-side description on the landing page provides the copy. */}
+      {/* In autoplay (landing-demo) mode, render a small magnified label
+          near the cutout so the visitor can read what's highlighted (the
+          iframe is scaled to ~63% so native text is too small). The
+          right-side card on the landing page provides the longer copy. */}
+      {autoplay && rect && !step.intro && !step.outro && (
+        <div
+          className="feature-tour-autoplay-label"
+          style={{
+            // Place above the cutout if there's room, else below.
+            top: rect.top > 80 ? rect.top - 56 : rect.bottom + 16,
+            left: Math.max(12, Math.min(window.innerWidth - 200, rect.left + rect.width / 2 - 100)),
+          }}
+        >
+          {step.headline}
+        </div>
+      )}
       {!autoplay && (
       <div className={`feature-tour-bubble ${autoplay ? 'feature-tour-bubble--autoplay' : ''}`} style={bubbleStyle}>
         {!autoplay && (

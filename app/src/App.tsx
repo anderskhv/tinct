@@ -1619,51 +1619,41 @@ export default function App() {
     // Audio is the exception: dim everything except the audio strip widget,
     // which opens automatically (Anders, 2026-04-30).
     if (isDemoMode) {
+      // Every demo step gets a real selector so FeatureTour draws the cutout
+      // halo around the active feature. The iframe renders at ~390px (mobile
+      // breakpoint) so we target the mobile bottom-bar tabs by default.
+      // setAudioStripOpen(false) on every non-audio step — audio is a spotlight
+      // beat that opens, then the next step closes it.
       const demoRead: TourStep = {
         id: 'read', headline: 'Read', copy: '',
-        intro: true,
-        setup: () => { if (isMobile) setActiveView(0) },
+        selector: 'mobile-read',
+        setup: () => { setAudioStripOpen(false); setActiveView(0) },
       }
       const demoCompare: TourStep | null = splitViewAvailable && canCompare ? {
         id: 'compare', headline: 'Compare editions', copy: '',
-        intro: true,
-        setup: () => { if (isMobile) setActiveView(1) },
+        selector: 'mobile-compare',
+        setup: () => { setAudioStripOpen(false); setActiveView(1) },
       } : null
       const demoChat: TourStep | null = canChat && !preferences.chatHidden ? {
         id: 'chat', headline: 'Chat companion', copy: '',
-        intro: true,
-        setup: () => {
-          if (isMobile) setActiveView(2)
-          else { if (!preferences.panelOpen) togglePanel(); setPanelTab('chat') }
-        },
+        selector: 'mobile-chat',
+        setup: () => { setAudioStripOpen(false); setPanelTab('chat'); setActiveView(2) },
       } : null
       const demoFeed: TourStep | null = canFeed && !preferences.feedHidden ? {
         id: 'feed', headline: 'Feed', copy: '',
-        intro: true,
-        setup: () => {
-          if (isMobile) setActiveView(3)
-          else { if (!preferences.panelOpen) togglePanel(); setPanelTab('notes') }
-        },
+        selector: 'mobile-feed',
+        setup: () => { setAudioStripOpen(false); setPanelTab('notes'); setActiveView(3) },
       } : null
       const demoCast: TourStep | null = canCast && hasCastData && !preferences.castHidden ? {
         id: 'cast', headline: 'Cast', copy: '',
-        intro: true,
-        setup: () => {
-          if (isMobile) setActiveView(4)
-          else { if (!preferences.panelOpen) togglePanel(); setPanelTab('threads') }
-        },
+        selector: 'mobile-cast',
+        setup: () => { setAudioStripOpen(false); setPanelTab('threads'); setActiveView(4) },
       } : null
-      // Audio is the spotlight beat. setActiveView(0) so the reader is the
-      // backdrop, then open the audio strip; selector targets the strip
-      // itself so the FeatureTour cutout halos around it and dims the rest.
       const demoAudio: TourStep | null = hasAudio && canAudio ? {
         id: 'audio', headline: 'Audiobook',
         selector: 'audio-strip',
         copy: '',
-        setup: () => {
-          if (isMobile) setActiveView(0)
-          setAudioStripOpen(true)
-        },
+        setup: () => { setActiveView(0); setAudioStripOpen(true) },
       } : null
       const demoOrder = [demoRead, demoCompare, demoChat, demoFeed, demoCast, demoAudio]
       return demoOrder.filter((s): s is TourStep => s !== null)

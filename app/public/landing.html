@@ -804,7 +804,6 @@
   var currentStepId = 'read';
   var isPaused = false;
   var timerId = null;
-  var iframeReady = false;
 
   function send(msg) {
     if (!iframe || !iframe.contentWindow) return;
@@ -858,7 +857,7 @@
   }
   function play() {
     setPausedUI(false);
-    if (iframeReady) startTimer();
+    startTimer();
     send({ type: 'tinct:tour-resume' });
   }
 
@@ -867,25 +866,50 @@
     setActive(stepId);
     send({ type: 'tinct:tour-jump', stepId: stepId });
     // User wants 7s on the chosen step before auto-advance — restart interval
-    if (!isPaused && iframeReady) startTimer();
+    if (!isPaused) startTimer();
   }
 
-  // The iframe announces it's ready. Take over timing.
+  // Start the parent timer the moment the iframe DOM finishes loading. We
+  // do NOT wait for any handshake message from the React app inside —
+  // postMessage handshakes can be lost (cache, strict-mode double-render,
+  // race with the timer pumping events). The right-side card cycles on
+  // its own clock; the iframe is a pure visual follower. If the iframe
+  // is slow to mount, our first jump messages are simply ignored — the
+  // setActive on the right side still updates.
+  function bootstrap() {
+    // Tell iframe to stop its own autoplay (if it's mounted) and reset
+    // to step 1.
+    send({ type: 'tinct:tour-pause' });
+    send({ type: 'tinct:tour-jump', stepId: 'read' });
+    setActive('read');
+    if (!isPaused) startTimer();
+  }
+  if (iframe) {
+    if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+      // Iframe was cached and is already loaded.
+      bootstrap();
+    } else {
+      iframe.addEventListener('load', bootstrap);
+    }
+  } else {
+    // No iframe? Still cycle the right side — pure CSS demo.
+    bootstrap();
+  }
+  // Belt-and-suspenders: if `load` never fires for any reason, kick off
+  // anyway after 3s. Worst case the right side starts cycling early.
+  setTimeout(function() {
+    if (!timerId && !isPaused) startTimer();
+  }, 3000);
+
+  // Also re-send pause + initial jump whenever we hear from the iframe —
+  // covers the case where the iframe boots, posts tour-ready, but missed
+  // our earlier messages because contentWindow wasn't ready yet.
   window.addEventListener('message', function(e) {
     var data = e && e.data;
     if (!data) return;
     if (data.type === 'tinct:tour-ready') {
-      iframeReady = true;
-      // Tell iframe to stop its own autoplay; we'll drive
       send({ type: 'tinct:tour-pause' });
-      // Set initial step to Read explicitly (in case iframe started elsewhere)
-      send({ type: 'tinct:tour-jump', stepId: 'read' });
-      setActive('read');
-      if (!isPaused) startTimer();
-    }
-    // Iframe may also post tour-step (legacy). If so, sync to it as a fallback.
-    if (data.type === 'tinct:tour-step' && data.stepId && !iframeReady) {
-      setActive(data.stepId);
+      send({ type: 'tinct:tour-jump', stepId: currentStepId });
     }
   });
 
