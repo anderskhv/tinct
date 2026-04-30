@@ -1379,7 +1379,14 @@ export const MEDEA: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const COMMUNIST_MANIFESTO: Book = {
@@ -1408,7 +1415,14 @@ export const COMMUNIST_MANIFESTO: Book = {
       label: 'Modern English',
       aligned: true,
     },
-  ],
+      {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+],
 }
 
 export const SECOND_TREATISE: Book = {
