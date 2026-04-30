@@ -65,6 +65,24 @@ export function FeatureTour({ open, steps, onClose, autoplay = false }: Props) {
     } catch { /* cross-origin — fine, just no sync */ }
   }, [open, autoplay, index, steps])
 
+  // Listen for tour-jump messages from the parent window (the landing-page
+  // visitor clicked a progress dot). Jump the tour to that step. The
+  // autoplay timer naturally resets when index changes, giving the visitor
+  // ~4.5 s on the new step.
+  useEffect(() => {
+    if (!open || !autoplay || steps.length === 0) return
+    const handler = (e: MessageEvent) => {
+      const data = e?.data as { type?: string; stepId?: string } | undefined
+      if (!data || data.type !== 'tinct:tour-jump' || !data.stepId) return
+      const target = steps.findIndex(s => s.id === data.stepId)
+      if (target >= 0 && target !== index) {
+        setIndex(target)
+      }
+    }
+    window.addEventListener('message', handler)
+    return () => window.removeEventListener('message', handler)
+  }, [open, autoplay, steps, index])
+
   const step = steps[index]
 
   // Run setup + measure target on every step change.

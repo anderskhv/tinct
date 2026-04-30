@@ -65,13 +65,16 @@
 
   <!-- Prefetch the embedded demo's resources so the iframe loads instantly
        when the visitor scrolls to it. Demo loads /read?demo=1 (the SPA in
-       demo-mode) plus the Odyssey edition + threads JSONs. Without these,
-       the iframe was taking 3-5s to come alive on slower connections. -->
+       demo-mode) on Hamlet (190KB editions, faster than Odyssey's 600KB).
+       Hint: the browser starts these alongside the page itself; by the
+       time the user scrolls to the demo section the iframe has the data
+       cached and renders instantly. -->
   <link rel="prefetch" href="/read?demo=1" as="document">
   <link rel="prefetch" href="/app.html" as="document">
-  <link rel="prefetch" href="/data/editions/odyssey-original-en.json">
-  <link rel="prefetch" href="/data/editions/odyssey-threads.json">
-  <link rel="prefetch" href="/data/onboarding/odyssey.json">
+  <link rel="prefetch" href="/data/editions/hamlet-original-en.json">
+  <link rel="prefetch" href="/data/editions/hamlet-modern-en.json">
+  <link rel="prefetch" href="/data/editions/hamlet-threads.json">
+  <link rel="prefetch" href="/data/onboarding/hamlet.json">
   <style>
     :root {
       --paper: #ece7db;
@@ -259,14 +262,17 @@
     .demo-section { padding: 80px 48px; background: var(--paper); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
     .demo-container { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: minmax(200px, 240px) 1fr; gap: 64px; align-items: center; }
 
-    /* Phone frame — about half the size of the previous version. iPhone
-       proportions, rounded corners, soft shadow. */
+    /* Phone frame.
+       The iframe inside renders at real iPhone viewport (390 × 836) so the
+       embedded mobile app's UI proportions are correct (chat suggestion
+       chips, cast list, audio strip — all sized for a phone, not a tiny
+       crop). We then transform: scale() the iframe down to fit the phone
+       frame visually. This is the only way to keep the content fitting
+       exactly without overflow at the bottom (Anders's 3rd request). */
     .demo-phone {
       position: relative;
-      width: 100%;
-      max-width: 240px;
-      aspect-ratio: 9 / 19.5;
-      max-height: 520px;
+      width: 260px;
+      height: 540px;
       background: #0b0b0b;
       border-radius: 32px;
       padding: 7px;
@@ -281,9 +287,7 @@
       background: var(--paper);
       position: relative;
     }
-    .demo-phone-screen iframe { width: 100%; height: 100%; border: 0; display: block; }
-    /* Loading skeleton — visible until iframe content paints over it.
-       The Tinct logotype keeps something on screen instead of a blank phone. */
+    /* Loading skeleton — visible until iframe content paints over it. */
     .demo-phone-screen::before {
       content: "Tinct";
       position: absolute;
@@ -298,18 +302,33 @@
       pointer-events: none;
       z-index: 0;
     }
-    .demo-phone-screen iframe { position: relative; z-index: 1; background: var(--paper); }
+    .demo-phone-screen iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 390px;        /* iPhone 13 viewport width — app renders mobile-mode */
+      height: 834px;       /* tuned so 0.631× scale = 246 × 526 = phone inner */
+      border: 0;
+      display: block;
+      background: var(--paper);
+      transform: scale(0.631);  /* 246 / 390 */
+      transform-origin: top left;
+      z-index: 1;
+    }
 
-    /* Feature stage — stacked cards that fade in/out as the embedded demo
-       advances through tour steps. Only one is visible at a time; the
-       iframe sends `tinct:tour-step` postMessages and the listener below
-       toggles the active class. The first card is shown by default before
-       JS runs so the section isn't blank for visitors with JS disabled. */
+    /* Feature stage — clickable progress dots above, stacked feature cards
+       below. The iframe sends `tinct:tour-step` postMessages on every step
+       change and we toggle which card + dot is active. Clicking a dot
+       sends `tinct:tour-jump` back to the iframe so the embedded tour
+       advances to that step. Autoplay pauses briefly after a click. */
     .demo-features {
-      position: relative;
-      min-height: 280px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .demo-feature-stage {
+      position: relative;
+      min-height: 240px;
     }
     .demo-feature {
       position: absolute;
@@ -318,14 +337,14 @@
       grid-template-columns: 36px 1fr;
       gap: 18px;
       align-items: start;
-      padding: 16px 0;
+      padding: 4px 0;
       opacity: 0;
       transform: translateY(8px);
       transition: opacity 0.5s ease, transform 0.5s ease;
       pointer-events: none;
     }
     /* Default visible: first card (used until JS posts a step) */
-    .demo-features:not([data-active]) .demo-feature:first-child,
+    .demo-feature-stage:not([data-active]) .demo-feature:first-child,
     .demo-feature.is-active {
       opacity: 1;
       transform: translateY(0);
@@ -356,20 +375,31 @@
       max-width: 38ch;
     }
     .demo-feature-body strong { color: var(--accent); font-weight: 500; }
-    /* Step progress dots — small visual showing 5-step cycle */
+    /* Step progress dots — clickable, jump the iframe + caption to a
+       specific feature. Larger hit target via padding. */
     .demo-progress {
       display: flex;
       gap: 6px;
       margin-bottom: 18px;
     }
-    .demo-progress-dot {
-      width: 6px;
-      height: 6px;
+    .demo-progress-button {
+      background: none;
+      border: 0;
+      padding: 4px;
+      margin: -4px;
+      cursor: pointer;
       border-radius: 50%;
-      background: rgba(11, 11, 11, 0.18);
-      transition: background 0.3s;
     }
-    .demo-progress-dot.is-active { background: var(--accent); }
+    .demo-progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(11, 11, 11, 0.22);
+      transition: background 0.3s, transform 0.15s;
+      display: block;
+    }
+    .demo-progress-dot.is-active { background: var(--accent); transform: scale(1.15); }
+    .demo-progress-button:hover .demo-progress-dot { background: var(--accent); }
 
     /* ── Footer ── */
     .site-footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
@@ -389,11 +419,12 @@
       .hero-nav-links { gap: 14px; font-size: 10px; }
       .demo-section { padding: 48px 20px; }
       .demo-container { grid-template-columns: 1fr; gap: 28px; max-width: 480px; }
-      .demo-phone { max-width: 200px; max-height: 432px; }
-      .demo-features { gap: 18px; }
-      .demo-feature { grid-template-columns: 24px 1fr; gap: 10px; }
-      .demo-feature-title { font-size: 19px; }
-      .demo-feature-body { font-size: 15px; }
+      .demo-phone { width: 220px; height: 458px; }
+      .demo-phone-screen iframe { transform: scale(0.528); }  /* 206 / 390 */
+      .demo-features { min-height: 240px; }
+      .demo-feature { grid-template-columns: 28px 1fr; gap: 12px; }
+      .demo-feature-title { font-size: 26px; }
+      .demo-feature-body { font-size: 17px; }
       .features-menu-head { padding: 32px 24px 24px; }
       .features-menu-body { grid-template-columns: 1fr; }
       .feat-nav { border-right: none; border-bottom: 1px solid var(--ink); display: grid; grid-template-columns: repeat(2, 1fr); }
@@ -477,94 +508,56 @@
         </div>
       </div>
       <div class="demo-features" id="demo-features">
-        <div class="demo-feature" data-step="read">
-          <div class="demo-feature-num">01 / 06</div>
-          <div>
-            <div class="demo-progress">
-              <span class="demo-progress-dot is-active"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-            </div>
-            <div class="demo-feature-title">Read</div>
-            <div class="demo-feature-body">Every book in an <strong>authoritative English translation</strong>. Clean typography, paginated like a physical book. No paywalls — reading is free, forever.</div>
-          </div>
+        <div class="demo-progress" id="demo-progress">
+          <button class="demo-progress-button" data-jump="read" aria-label="Read"><span class="demo-progress-dot is-active"></span></button>
+          <button class="demo-progress-button" data-jump="compare" aria-label="Compare editions"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="chat" aria-label="Chat companion"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="feed" aria-label="Feed"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="cast" aria-label="Cast"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="audio" aria-label="Synced audiobook"><span class="demo-progress-dot"></span></button>
         </div>
-        <div class="demo-feature" data-step="compare">
-          <div class="demo-feature-num">02 / 06</div>
-          <div>
-            <div class="demo-progress">
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot is-active"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
+        <div class="demo-feature-stage" id="demo-feature-stage">
+          <div class="demo-feature" data-step="read">
+            <div class="demo-feature-num">01 / 06</div>
+            <div>
+              <div class="demo-feature-title">Read</div>
+              <div class="demo-feature-body">Every book in an <strong>authoritative English translation</strong>. Clean typography, paginated like a physical book. No paywalls — reading is free, forever.</div>
             </div>
-            <div class="demo-feature-title">Compare <em>editions</em></div>
-            <div class="demo-feature-body">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</div>
           </div>
-        </div>
-        <div class="demo-feature" data-step="chat">
-          <div class="demo-feature-num">03 / 06</div>
-          <div>
-            <div class="demo-progress">
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot is-active"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
+          <div class="demo-feature" data-step="compare">
+            <div class="demo-feature-num">02 / 06</div>
+            <div>
+              <div class="demo-feature-title">Compare <em>editions</em></div>
+              <div class="demo-feature-body">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</div>
             </div>
-            <div class="demo-feature-title">Chat <em>companion</em></div>
-            <div class="demo-feature-body">An AI that has read every page and knows exactly where you are. Ask about any passage, character, or theme. Set a <strong>reading angle</strong> and every answer is shaped around it.</div>
           </div>
-        </div>
-        <div class="demo-feature" data-step="feed">
-          <div class="demo-feature-num">04 / 06</div>
-          <div>
-            <div class="demo-progress">
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot is-active"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
+          <div class="demo-feature" data-step="chat">
+            <div class="demo-feature-num">03 / 06</div>
+            <div>
+              <div class="demo-feature-title">Chat <em>companion</em></div>
+              <div class="demo-feature-body">An AI that has read every page and knows exactly where you are. Ask about any passage, character, or theme. Set a <strong>reading angle</strong> and every answer is shaped around it.</div>
             </div>
-            <div class="demo-feature-title">Feed</div>
-            <div class="demo-feature-body">Remembers everything you've read. Remembers every conversation. <strong>Highlights, notes, and chats</strong> in one timeline that grows with you.</div>
           </div>
-        </div>
-        <div class="demo-feature" data-step="cast">
-          <div class="demo-feature-num">05 / 06</div>
-          <div>
-            <div class="demo-progress">
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot is-active"></span>
-              <span class="demo-progress-dot"></span>
+          <div class="demo-feature" data-step="feed">
+            <div class="demo-feature-num">04 / 06</div>
+            <div>
+              <div class="demo-feature-title">Feed</div>
+              <div class="demo-feature-body">Remembers everything you've read. Remembers every conversation. <strong>Highlights, notes, and chats</strong> in one timeline that grows with you.</div>
             </div>
-            <div class="demo-feature-title">Cast</div>
-            <div class="demo-feature-body">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</div>
           </div>
-        </div>
-        <div class="demo-feature" data-step="audio">
-          <div class="demo-feature-num">06 / 06</div>
-          <div>
-            <div class="demo-progress">
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot"></span>
-              <span class="demo-progress-dot is-active"></span>
+          <div class="demo-feature" data-step="cast">
+            <div class="demo-feature-num">05 / 06</div>
+            <div>
+              <div class="demo-feature-title">Cast</div>
+              <div class="demo-feature-body">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</div>
             </div>
-            <div class="demo-feature-title">Synced <em>audiobook</em></div>
-            <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
+          </div>
+          <div class="demo-feature" data-step="audio">
+            <div class="demo-feature-num">06 / 06</div>
+            <div>
+              <div class="demo-feature-title">Synced <em>audiobook</em></div>
+              <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -736,19 +729,49 @@
 </div>
 
 <script>
-// Demo iframe → landing sync. The embedded SPA's FeatureTour posts
-// `tinct:tour-step` messages on each step change. Swap the visible
-// feature description on the right side of the demo section to match.
+// Demo iframe ⇄ landing sync.
+//   - Iframe (FeatureTour autoplay) posts 'tinct:tour-step' on every step
+//     change. We swap the active card + dot on the right side.
+//   - Clicking a progress dot posts 'tinct:tour-jump' back to the iframe
+//     so the embedded tour jumps to that step. The iframe's autoplay
+//     timer resets, giving the visitor ~4.5 s on the new step before it
+//     advances on its own.
 (function(){
   var features = document.querySelectorAll('.demo-feature');
-  var container = document.getElementById('demo-features');
-  if (!container || !features.length) return;
+  var stage = document.getElementById('demo-feature-stage');
+  var dotButtons = document.querySelectorAll('.demo-progress-button');
+  var iframe = document.querySelector('.demo-phone-screen iframe');
+  if (!stage || !features.length) return;
+
+  function setActive(stepId) {
+    if (!stepId) return;
+    stage.setAttribute('data-active', stepId);
+    features.forEach(function(el) {
+      el.classList.toggle('is-active', el.getAttribute('data-step') === stepId);
+    });
+    dotButtons.forEach(function(btn) {
+      var dot = btn.querySelector('.demo-progress-dot');
+      if (dot) dot.classList.toggle('is-active', btn.getAttribute('data-jump') === stepId);
+    });
+  }
+
+  // Listen for step changes from the iframe
   window.addEventListener('message', function(e) {
     var data = e && e.data;
     if (!data || data.type !== 'tinct:tour-step' || !data.stepId) return;
-    container.setAttribute('data-active', data.stepId);
-    features.forEach(function(el) {
-      el.classList.toggle('is-active', el.getAttribute('data-step') === data.stepId);
+    setActive(data.stepId);
+  });
+
+  // Clickable dots — jump iframe + landing to the chosen step
+  dotButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var stepId = btn.getAttribute('data-jump');
+      setActive(stepId);
+      if (iframe && iframe.contentWindow) {
+        try {
+          iframe.contentWindow.postMessage({ type: 'tinct:tour-jump', stepId: stepId }, '*');
+        } catch (_) { /* iframe still booting — fine, the click already updated the right side */ }
+      }
     });
   });
 })();

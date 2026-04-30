@@ -1255,7 +1255,9 @@ export default function App() {
 
   // Demo mode bootstrap — landing page embeds /read?demo=1 in an iframe
   // and the embedded app should:
-  //   - Land on Odyssey
+  //   - Land on Hamlet (smaller editions ~190KB vs Odyssey ~600KB → faster
+  //     iframe boot. Plus the Old/Modern English split-pane is more
+  //     dramatically illustrative for the Compare beat.)
   //   - Skip BookOnboarding (so the tour can fire immediately)
   //   - Auto-fire FeatureTour with autoplay + loop
   // Tour steps in demo mode also bypass tier-gating (see tourSteps factory)
@@ -1263,10 +1265,11 @@ export default function App() {
   // not signed in. Marketing context, not real product context.
   useEffect(() => {
     if (!isDemoMode || !storageReady) return
-    if (currentBookId !== ODYSSEY.id) {
-      handleBookChange(ODYSSEY.id)
+    const demoBook = getBook('hamlet') || ODYSSEY
+    if (currentBookId !== demoBook.id) {
+      handleBookChange(demoBook.id)
     }
-    storage.set(`book-onboarded:${ODYSSEY.id}`, true)
+    storage.set(`book-onboarded:${demoBook.id}`, true)
     storage.delete('tinct-tour-seen')
     const t = window.setTimeout(() => setShowTour(true), 1200)
     return () => window.clearTimeout(t)
