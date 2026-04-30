@@ -63,18 +63,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-  <!-- Prefetch the embedded demo's resources so the iframe loads instantly
-       when the visitor scrolls to it. Demo loads /read?demo=1 (the SPA in
-       demo-mode) on Hamlet (190KB editions, faster than Odyssey's 600KB).
-       Hint: the browser starts these alongside the page itself; by the
-       time the user scrolls to the demo section the iframe has the data
-       cached and renders instantly. -->
-  <link rel="prefetch" href="/read?demo=1" as="document">
-  <link rel="prefetch" href="/app.html" as="document">
-  <link rel="prefetch" href="/data/editions/hamlet-original-en.json">
-  <link rel="prefetch" href="/data/editions/hamlet-modern-en.json">
-  <link rel="prefetch" href="/data/editions/hamlet-threads.json">
-  <link rel="prefetch" href="/data/onboarding/hamlet.json">
+  <!-- Preload the demo screenshots so the fade-stack is ready before
+       the visitor scrolls. Each image is ~60KB, total ~350KB. -->
+  <link rel="preload" as="image" href="/demo-screens/read.jpg">
+  <link rel="preload" as="image" href="/demo-screens/compare.jpg">
+  <link rel="preload" as="image" href="/demo-screens/chat.jpg">
+  <link rel="preload" as="image" href="/demo-screens/feed.jpg">
+  <link rel="preload" as="image" href="/demo-screens/cast.jpg">
+  <link rel="preload" as="image" href="/demo-screens/audio.jpg">
   <style>
     :root {
       --paper: #ece7db;
@@ -262,13 +258,10 @@
     .demo-section { padding: 80px 48px; background: var(--paper); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
     .demo-container { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: minmax(200px, 240px) 1fr; gap: 64px; align-items: center; }
 
-    /* Phone frame.
-       The iframe inside renders at real iPhone viewport (390 × 836) so the
-       embedded mobile app's UI proportions are correct (chat suggestion
-       chips, cast list, audio strip — all sized for a phone, not a tiny
-       crop). We then transform: scale() the iframe down to fit the phone
-       frame visually. This is the only way to keep the content fitting
-       exactly without overflow at the bottom (Anders's 3rd request). */
+    /* Phone frame — holds a fade-stack of 6 product screenshots. We used to
+       embed a live iframe of the SPA here, but cross-document timing races
+       (postMessage, lazy-load mount latency, two competing autoplay clocks)
+       made the demo desync constantly. Static images are deterministic. */
     .demo-phone {
       position: relative;
       width: 260px;
@@ -284,36 +277,23 @@
       height: 100%;
       border-radius: 26px;
       overflow: hidden;
-      background: var(--paper);
+      background: #1a1a1a;
       position: relative;
     }
-    /* Loading skeleton — visible until iframe content paints over it. */
-    .demo-phone-screen::before {
-      content: "Tinct";
+    .demo-phone-shot {
       position: absolute;
       inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--dim);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
       pointer-events: none;
-      z-index: 0;
-    }
-    .demo-phone-screen iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 390px;        /* iPhone 13 viewport width — app renders mobile-mode */
-      height: 834px;       /* tuned so 0.631× scale = 246 × 526 = phone inner */
-      border: 0;
       display: block;
-      background: var(--paper);
-      transform: scale(0.631);  /* 246 / 390 */
-      transform-origin: top left;
-      z-index: 1;
+    }
+    .demo-phone-shot.is-active {
+      opacity: 1;
     }
 
     /* Feature stage — clickable progress dots above, stacked feature cards
@@ -526,15 +506,19 @@
     </div>
   </section>
 
-  <!-- Live demo: smaller iPhone frame loads /read?demo=1 (the SPA in
-       demo-mode). The demo-mode tour cycles through Compare → Chat →
-       Feed → Cast → Audiobook on a 4.5s loop. Beside the phone, static
-       feature captions explain what the visitor is watching. -->
+  <!-- Demo: 6 product screenshots fading between each other on a 7s cycle,
+       with right-side captions explaining each step. Replaced the previous
+       live-iframe demo because cross-document timing was unreliable. -->
   <section class="demo-section">
     <div class="demo-container">
       <div class="demo-phone">
-        <div class="demo-phone-screen">
-          <iframe src="/read?demo=1" loading="lazy" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
+        <div class="demo-phone-screen" id="demo-phone-screen">
+          <img class="demo-phone-shot is-active" data-step="read" src="/demo-screens/read.jpg" alt="Tinct reader — single-edition view">
+          <img class="demo-phone-shot" data-step="compare" src="/demo-screens/compare.jpg" alt="Tinct reader — Compare tab">
+          <img class="demo-phone-shot" data-step="chat" src="/demo-screens/chat.jpg" alt="Tinct reader — Chat companion">
+          <img class="demo-phone-shot" data-step="feed" src="/demo-screens/feed.jpg" alt="Tinct reader — Feed timeline">
+          <img class="demo-phone-shot" data-step="cast" src="/demo-screens/cast.jpg" alt="Tinct reader — Cast tracker">
+          <img class="demo-phone-shot" data-step="audio" src="/demo-screens/audio.jpg" alt="Tinct reader — Audiobook player">
         </div>
       </div>
       <div class="demo-features" id="demo-features">
@@ -771,20 +755,10 @@
 </div>
 
 <script>
-// Demo sync: PARENT IS THE SINGLE CLOCK.
-//
-// The iframe never auto-advances — it only reacts to `tinct:tour-jump`
-// messages. This eliminates the dual-clock drift that previously let the
-// right-side caption and iframe halo fall out of sync.
-//
-// Flow:
-//   1. DOM ready → setActive('read') + start 7s interval.
-//   2. Each tick: setActive(next) + postMessage tour-jump to iframe.
-//   3. Iframe (FeatureTour with autoplay + parent detected) sends
-//      'tinct:tour-ready' on mount → we re-send the current step so the
-//      iframe catches up if our earlier message arrived before mount.
-//   4. User clicks dot / Prev / Next → setActive + tour-jump + restart timer.
-//   5. User clicks Pause → stop timer (iframe stays put). Play → restart timer.
+// Demo: static screenshot fade-stack on a 7s cycle.
+// Six <img> tags layered in the phone frame; one has .is-active. Captions
+// on the right are layered the same way. Right-side controls (dots, Prev,
+// Pause, Next) drive `is-active` on both stacks.
 (function(){
   var STEP_ORDER = ['read','compare','chat','feed','cast','audio'];
   var STEP_INTERVAL_MS = 7000;
@@ -792,17 +766,12 @@
   var stage = document.getElementById('demo-feature-stage');
   var dotButtons = document.querySelectorAll('.demo-progress-button');
   var controls = document.getElementById('demo-controls');
-  var iframe = document.querySelector('.demo-phone-screen iframe');
-  if (!stage || !features.length) return;
+  var shots = document.querySelectorAll('.demo-phone-shot');
+  if (!stage || !features.length || !shots.length) return;
 
   var currentStepId = 'read';
   var isPaused = false;
   var timerId = null;
-
-  function send(msg) {
-    if (!iframe || !iframe.contentWindow) return;
-    try { iframe.contentWindow.postMessage(msg, '*'); } catch (_) { /* iframe booting */ }
-  }
 
   function setActive(stepId) {
     if (!stepId) return;
@@ -814,6 +783,9 @@
     dotButtons.forEach(function(btn) {
       var dot = btn.querySelector('.demo-progress-dot');
       if (dot) dot.classList.toggle('is-active', btn.getAttribute('data-jump') === stepId);
+    });
+    shots.forEach(function(img) {
+      img.classList.toggle('is-active', img.getAttribute('data-step') === stepId);
     });
   }
 
@@ -827,7 +799,7 @@
   function advance() {
     var idx = STEP_ORDER.indexOf(currentStepId);
     if (idx < 0) idx = 0;
-    jumpTo(STEP_ORDER[(idx + 1) % STEP_ORDER.length], { restartTimer: false });
+    setActive(STEP_ORDER[(idx + 1) % STEP_ORDER.length]);
   }
 
   function setPausedUI(paused) {
@@ -842,51 +814,29 @@
     if (btn) btn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
   }
 
-  function jumpTo(stepId, opts) {
+  function jumpTo(stepId) {
     if (!stepId) return;
     setActive(stepId);
-    send({ type: 'tinct:tour-jump', stepId: stepId });
-    // User-driven jumps restart the interval so the new step gets a full 7s.
-    // Auto-advance ticks pass restartTimer:false to keep the existing cadence.
-    if (opts && opts.restartTimer && !isPaused) startTimer();
+    if (!isPaused) startTimer();
   }
 
-  // Initialize as soon as DOM is parsed. We don't wait for the iframe to
-  // load — its mount is async and `loading="lazy"` makes the load event
-  // unreliable. The iframe's `tour-ready` handshake (below) catches up the
-  // iframe to whatever step we're currently on.
   setActive('read');
-  if (!isPaused) startTimer();
+  startTimer();
 
-  // Iframe announces it mounted → push the latest step. This is the ONLY
-  // reliable sync point because postMessage before mount is silently dropped.
-  window.addEventListener('message', function(e) {
-    var data = e && e.data;
-    if (!data || data.type !== 'tinct:tour-ready') return;
-    send({ type: 'tinct:tour-jump', stepId: currentStepId });
-  });
-
-  // Clickable progress dots
   dotButtons.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      jumpTo(btn.getAttribute('data-jump'), { restartTimer: true });
+      jumpTo(btn.getAttribute('data-jump'));
     });
   });
 
-  // Prev / Pause-Play / Next
   if (controls) {
     controls.addEventListener('click', function(e) {
       var btn = e.target.closest('[data-control]');
       if (!btn) return;
       var control = btn.getAttribute('data-control');
       if (control === 'playpause') {
-        if (isPaused) {
-          setPausedUI(false);
-          startTimer();
-        } else {
-          setPausedUI(true);
-          stopTimer();
-        }
+        if (isPaused) { setPausedUI(false); startTimer(); }
+        else { setPausedUI(true); stopTimer(); }
         return;
       }
       var idx = STEP_ORDER.indexOf(currentStepId);
@@ -895,7 +845,7 @@
       if (control === 'prev') nextIdx = (idx - 1 + STEP_ORDER.length) % STEP_ORDER.length;
       else if (control === 'next') nextIdx = (idx + 1) % STEP_ORDER.length;
       else return;
-      jumpTo(STEP_ORDER[nextIdx], { restartTimer: true });
+      jumpTo(STEP_ORDER[nextIdx]);
     });
   }
 })();
