@@ -158,6 +158,7 @@ export const BIBLE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1313,6 +1314,13 @@ export const NOTES_FROM_UNDERGROUND: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1403,6 +1411,13 @@ export const ORESTEIA: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
       aligned: true,
     },
   ],
@@ -1582,6 +1597,13 @@ export const SOCIAL_CONTRACT: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
       aligned: true,
     },
   ],
