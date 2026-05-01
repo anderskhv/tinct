@@ -830,6 +830,13 @@ export const IMITATION_OF_CHRIST: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
