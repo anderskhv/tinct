@@ -133,6 +133,7 @@ export const BIBLE: Book = {
       label: 'King James Version (1611)',
       year: 1611,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'web-en',
@@ -141,6 +142,7 @@ export const BIBLE: Book = {
       label: 'World English Bible',
       year: 2000,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1020,6 +1022,7 @@ export const POETICS: Book = {
       aligned: true,
     },
   ],
+  hasAudio: true,
 }
 
 export const CRITO: Book = {
@@ -1049,6 +1052,7 @@ export const CRITO: Book = {
       aligned: true,
     },
   ],
+  hasAudio: true,
 }
 
 export const MOBY_DICK: Book = {
@@ -1384,6 +1388,7 @@ export const ORESTEIA: Book = {
       aligned: true,
     },
   ],
+  hasAudio: true,
 }
 
 export const BACCHAE: Book = {
@@ -1495,6 +1500,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       aligned: true,
     },
 ],
+  hasAudio: true,
 }
 
 export const SECOND_TREATISE: Book = {
@@ -1523,6 +1529,7 @@ export const SECOND_TREATISE: Book = {
       aligned: true,
     },
   ],
+  hasAudio: true,
 }
 
 export const SOCIAL_CONTRACT: Book = {
@@ -1552,6 +1559,7 @@ export const SOCIAL_CONTRACT: Book = {
       aligned: true,
     },
   ],
+  hasAudio: true,
 }
 
 export const FAUST_PART_1: Book = {
