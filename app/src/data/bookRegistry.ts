@@ -1547,6 +1547,13 @@ export const SECOND_TREATISE: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -2041,6 +2048,13 @@ export const OEDIPUS_AT_COLONUS: Book = {
       label: 'Modern English',
       aligned: true,
       hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
