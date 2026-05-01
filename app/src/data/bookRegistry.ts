@@ -1013,6 +1013,7 @@ export const POETICS: Book = {
       translator: 'S. H. Butcher',
       year: 1895,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1022,7 +1023,6 @@ export const POETICS: Book = {
       aligned: true,
     },
   ],
-  hasAudio: true,
 }
 
 export const CRITO: Book = {
@@ -1043,6 +1043,7 @@ export const CRITO: Book = {
       translator: 'Benjamin Jowett',
       year: 1871,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1050,9 +1051,16 @@ export const CRITO: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
-  hasAudio: true,
 }
 
 export const MOBY_DICK: Book = {
@@ -1379,6 +1387,7 @@ export const ORESTEIA: Book = {
       translator: 'E. D. A. Morshead',
       year: 1881,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1388,7 +1397,6 @@ export const ORESTEIA: Book = {
       aligned: true,
     },
   ],
-  hasAudio: true,
 }
 
 export const BACCHAE: Book = {
@@ -1484,6 +1492,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       translator: 'Samuel Moore (edited by Engels)',
       year: 1888,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1500,7 +1509,6 @@ export const COMMUNIST_MANIFESTO: Book = {
       aligned: true,
     },
 ],
-  hasAudio: true,
 }
 
 export const SECOND_TREATISE: Book = {
@@ -1520,6 +1528,7 @@ export const SECOND_TREATISE: Book = {
       label: 'Original (1689)',
       year: 1689,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1529,7 +1538,6 @@ export const SECOND_TREATISE: Book = {
       aligned: true,
     },
   ],
-  hasAudio: true,
 }
 
 export const SOCIAL_CONTRACT: Book = {
@@ -1550,6 +1558,7 @@ export const SOCIAL_CONTRACT: Book = {
       translator: 'G. D. H. Cole',
       year: 1913,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -1559,7 +1568,6 @@ export const SOCIAL_CONTRACT: Book = {
       aligned: true,
     },
   ],
-  hasAudio: true,
 }
 
 export const FAUST_PART_1: Book = {
