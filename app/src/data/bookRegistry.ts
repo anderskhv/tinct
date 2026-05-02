@@ -1661,6 +1661,13 @@ export const FAUST_PART_1: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
