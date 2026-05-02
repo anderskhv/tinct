@@ -1361,6 +1361,13 @@ export const ILIAD: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
