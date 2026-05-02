@@ -195,6 +195,7 @@ export const GILGAMESH: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -769,6 +770,7 @@ export const THE_MANUAL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1512,14 +1514,15 @@ export const MEDEA: Book = {
       label: 'Modern English',
       aligned: true,
     },
-      {
+    {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
-],
+  ],
 }
 
 export const COMMUNIST_MANIFESTO: Book = {
@@ -2252,14 +2255,15 @@ export const US_FOUNDING_DOCUMENTS: Book = {
       aligned: true,
       hasAudio: true,
     },
-      {
+    {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
-],
+  ],
 }
 
 export const FEDERALIST_PAPERS: Book = {
