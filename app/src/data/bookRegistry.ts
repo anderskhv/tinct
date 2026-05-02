@@ -1038,6 +1038,7 @@ export const POETICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1076,6 +1077,7 @@ export const CRITO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1546,6 +1548,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
 ],
 }
@@ -1582,6 +1585,7 @@ export const SECOND_TREATISE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1909,6 +1913,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
