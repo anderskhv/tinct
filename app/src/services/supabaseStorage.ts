@@ -82,40 +82,78 @@ export class SupabaseStorageProvider implements StorageProvider {
           // fetch" errors clear themselves once the supabase-js client refreshes.
           setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
         }
-        this.recordError(key, error.message, attempt)
+        this.recordError(key, error.message, attempt, value)
         console.warn(`[Supabase] write failed (attempt ${attempt}) key=${key}:`, error.message)
         return
       }
-      this.recordSuccess(key)
+      this.recordSuccess(key, attempt, value)
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
       if (attempt === 1) {
         setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
       }
-      this.recordError(key, msg, attempt)
+      this.recordError(key, msg, attempt, value)
       console.warn(`[Supabase] write threw (attempt ${attempt}) key=${key}:`, msg)
     }
   }
 
-  private recordSuccess(key: string): void {
-    if (typeof window === 'undefined') return
-    const w = window as unknown as { __tinctSupabaseDebug?: { lastSuccessAt: number; lastSuccessKey: string; successCount: number; lastErrorAt: number; lastErrorKey: string; lastErrorMessage: string; errorCount: number } }
+  private getDebug(): {
+    lastSuccessAt: number; lastSuccessKey: string; successCount: number;
+    lastErrorAt: number; lastErrorKey: string; lastErrorMessage: string; errorCount: number;
+    upsertLog?: Array<{ at: number; key: string; attempt: number; result: 'success' | 'error'; error?: string; valueDigest?: string }>;
+  } | null {
+    if (typeof window === 'undefined') return null
+    const w = window as unknown as { __tinctSupabaseDebug?: ReturnType<SupabaseStorageProvider['getDebug']> }
     const dbg = w.__tinctSupabaseDebug ?? { lastSuccessAt: 0, lastSuccessKey: '', successCount: 0, lastErrorAt: 0, lastErrorKey: '', lastErrorMessage: '', errorCount: 0 }
+    w.__tinctSupabaseDebug = dbg
+    return dbg
+  }
+
+  /** Append to a 30-entry ring buffer so we can audit per-key success/failure
+   *  in DevTools. Critical for diagnosing the silent-write-failure pattern
+   *  where errorCount=0 but cloud doesn't reflect the latest write. */
+  private logUpsert(entry: { at: number; key: string; attempt: number; result: 'success' | 'error'; error?: string; valueDigest?: string }): void {
+    const dbg = this.getDebug()
+    if (!dbg) return
+    dbg.upsertLog = dbg.upsertLog ?? []
+    dbg.upsertLog.push(entry)
+    if (dbg.upsertLog.length > 30) dbg.upsertLog.shift()
+  }
+
+  /** Short stable digest of the value being written — enough to spot which
+   *  position was being upserted without dumping the full object. */
+  private digest(value: unknown): string {
+    try {
+      if (value && typeof value === 'object') {
+        const v = value as { chapterNumber?: unknown; currentPage?: unknown; scrollFraction?: unknown; lastParagraphIndex?: unknown }
+        if ('chapterNumber' in v && 'scrollFraction' in v) {
+          const frac = typeof v.scrollFraction === 'number' ? v.scrollFraction.toFixed(3) : '?'
+          return `ch${v.chapterNumber}/p${v.currentPage}/f${frac}/par${v.lastParagraphIndex ?? '?'}`
+        }
+      }
+      return String(value).slice(0, 40)
+    } catch {
+      return '<digest-error>'
+    }
+  }
+
+  private recordSuccess(key: string, attempt = 1, value?: unknown): void {
+    const dbg = this.getDebug()
+    if (!dbg) return
     dbg.lastSuccessAt = Date.now()
     dbg.lastSuccessKey = key
     dbg.successCount += 1
-    w.__tinctSupabaseDebug = dbg
+    this.logUpsert({ at: Date.now(), key, attempt, result: 'success', valueDigest: value !== undefined ? this.digest(value) : undefined })
   }
 
-  private recordError(key: string, message: string, attempt: number): void {
-    if (typeof window === 'undefined') return
-    const w = window as unknown as { __tinctSupabaseDebug?: { lastSuccessAt: number; lastSuccessKey: string; successCount: number; lastErrorAt: number; lastErrorKey: string; lastErrorMessage: string; errorCount: number } }
-    const dbg = w.__tinctSupabaseDebug ?? { lastSuccessAt: 0, lastSuccessKey: '', successCount: 0, lastErrorAt: 0, lastErrorKey: '', lastErrorMessage: '', errorCount: 0 }
+  private recordError(key: string, message: string, attempt: number, value?: unknown): void {
+    const dbg = this.getDebug()
+    if (!dbg) return
     dbg.lastErrorAt = Date.now()
     dbg.lastErrorKey = key
     dbg.lastErrorMessage = `attempt ${attempt}: ${message}`
     dbg.errorCount += 1
-    w.__tinctSupabaseDebug = dbg
+    this.logUpsert({ at: Date.now(), key, attempt, result: 'error', error: message, valueDigest: value !== undefined ? this.digest(value) : undefined })
   }
 
   delete(key: string): void {

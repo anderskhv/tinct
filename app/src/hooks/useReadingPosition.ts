@@ -59,6 +59,37 @@ const cloudKnownChapter = new Map<string, number>()
 const lastUserNavAt = new Map<string, number>()
 
 /**
+ * Per-book dedup baseline: what we believe is currently in cloud.
+ *
+ * Updated on (a) successful position write, (b) cloud restore via
+ * `markCloudLoaded`. The next write that matches this value (within
+ * scrollFraction tolerance) is skipped — that's the post-layout `onPageChange`
+ * echo that would otherwise re-write the just-loaded value with a fresh
+ * `updatedAt`, making it "win" last-write-wins against actually-newer writes
+ * from other devices. (Cross-device echo bug, 2026-05-02.)
+ *
+ * Module-scoped (not a hook ref) so cloud-restore in App.tsx can prime it.
+ * Stores scrollFraction (cross-device safe) instead of currentPage (which is
+ * layout-specific — mobile and desktop have different page numbers for the
+ * same content).
+ */
+type DedupBaseline = { chapterNumber: number; scrollFraction: number; lastParagraphIndex?: number }
+const dedupBaseline = new Map<string, DedupBaseline>()
+
+/** Round scrollFraction so we dedup across minor layout jitter (~0.1% = ~1 paragraph in a 1000-paragraph chapter). */
+function scrollKey(frac: number): number {
+  return Math.round(frac * 1000)
+}
+
+function dedupMatches(a: DedupBaseline, b: DedupBaseline): boolean {
+  return (
+    a.chapterNumber === b.chapterNumber &&
+    a.lastParagraphIndex === b.lastParagraphIndex &&
+    scrollKey(a.scrollFraction) === scrollKey(b.scrollFraction)
+  )
+}
+
+/**
  * Called by App.tsx whenever cloud delivers a fresh position for a book.
  * The next write that would regress chapter below this value (without a
  * recent user nav signal) gets blocked.
@@ -67,6 +98,23 @@ export function markCloudPosition(bookId: string, position: ReadingPosition | nu
   if (!position || typeof position.chapterNumber !== 'number') return
   if (position.chapterNumber < 1) return
   cloudKnownChapter.set(bookId, position.chapterNumber)
+}
+
+/**
+ * Called when a position has been loaded from cloud (or localStorage cache)
+ * for this book. Primes the dedup baseline so the inevitable post-layout
+ * `onPageChange` echo is skipped. Pass `null` to clear (e.g. on logout).
+ */
+export function markCloudLoaded(bookId: string, position: ReadingPosition | null): void {
+  if (!position) {
+    dedupBaseline.delete(bookId)
+    return
+  }
+  dedupBaseline.set(bookId, {
+    chapterNumber: position.chapterNumber,
+    scrollFraction: position.scrollFraction ?? 0,
+    lastParagraphIndex: position.lastParagraphIndex,
+  })
 }
 
 /**
@@ -118,14 +166,6 @@ export function useReadingPosition(
   // at that point state is stale defaults, cloud restore hasn't run yet
   const writeUnlockedRef = useRef(false)
 
-  // Last value pushed to storage. Lets us:
-  //   1. skip duplicate writes (same chapter/page/paragraph) — keeps the
-  //      heartbeat cheap.
-  //   2. confirm in DevTools (window.__tinctPositionDebug) when something
-  //      DID change but the write was skipped, so we can diagnose the silent-
-  //      failure pattern Anders saw on Boox/mobile.
-  const lastSavedRef = useRef<{ bookId: string; chapterNumber: number; currentPage: number; lastParagraphIndex?: number } | null>(null)
-
   const recordSkip = (reason: string) => {
     if (typeof window !== 'undefined') {
       const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
@@ -157,18 +197,26 @@ export function useReadingPosition(
       lastParagraphIndex: s.lastParagraphIndex,
     }
 
-    // Skip if nothing meaningful changed since last write. Two sources of dup
-    // writes: (a) heartbeat firing on a stationary reader, (b) effect re-fires
-    // after a render that didn't actually change position. The cloud upsert
-    // would still bump updated_at but it's wasted bandwidth.
-    const last = lastSavedRef.current
-    if (
-      last &&
-      last.bookId === position.bookId &&
-      last.chapterNumber === position.chapterNumber &&
-      last.currentPage === position.currentPage &&
-      last.lastParagraphIndex === position.lastParagraphIndex
-    ) {
+    // Skip if the write would land on the same content position as what we
+    // believe is currently in cloud. Three sources of redundant writes:
+    //   (a) heartbeat firing on a stationary reader,
+    //   (b) effect re-fires after a render that didn't actually change pos,
+    //   (c) post-layout `onPageChange` echo immediately after cloud-restore —
+    //       where the Reader emits the page derived from the just-loaded
+    //       scrollFraction, the position effect treats it as a state change,
+    //       and we re-write the cloud value with a fresh `updatedAt`. That
+    //       echo makes a stale loaded value "win" last-write-wins against
+    //       fresher writes from other devices. (2026-05-02 cross-device bug.)
+    //
+    // Compare on scrollFraction (cross-device safe) instead of currentPage
+    // (which is layout-specific — mobile/desktop have different page counts).
+    const baseline = dedupBaseline.get(position.bookId)
+    const candidate: DedupBaseline = {
+      chapterNumber: position.chapterNumber,
+      scrollFraction: position.scrollFraction,
+      lastParagraphIndex: position.lastParagraphIndex,
+    }
+    if (baseline && dedupMatches(baseline, candidate)) {
       recordSkip(`unchanged:${reason}`)
       return
     }
@@ -212,12 +260,7 @@ export function useReadingPosition(
     // commit, and the consequence was that signed-in users on a fresh device
     // didn't always restore to the right book. Cheap to keep in sync.
     storage.set('tinct-current-book', s.bookId)
-    lastSavedRef.current = {
-      bookId: position.bookId,
-      chapterNumber: position.chapterNumber,
-      currentPage: position.currentPage,
-      lastParagraphIndex: position.lastParagraphIndex,
-    }
+    dedupBaseline.set(position.bookId, candidate)
 
     if (typeof window !== 'undefined') {
       const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
@@ -227,6 +270,16 @@ export function useReadingPosition(
       window.__tinctPositionDebug = dbg
     }
   }, [])
+
+  // Prime dedup baseline from storage on book change, so the post-layout
+  // `onPageChange` echo (Reader emits the page derived from the just-loaded
+  // scrollFraction) doesn't write back the value we just read. Re-runs when
+  // storageReady flips (cloud just landed).
+  useEffect(() => {
+    if (!storageReady) return
+    const loaded = storage.get<ReadingPosition>(positionKey(bookId))
+    markCloudLoaded(bookId, loaded)
+  }, [bookId, storageReady])
 
   const prevChapterRef = useRef(chapterNumber)
   useEffect(() => {

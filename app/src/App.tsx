@@ -27,7 +27,7 @@ import { AudioStrip } from './components/AudioStrip'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
-import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markUserNav } from './hooks/useReadingPosition'
+import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markCloudLoaded, markUserNav } from './hooks/useReadingPosition'
 import { useClaude } from './hooks/useClaude'
 import { useThreads } from './hooks/useThreads'
 import { useTier } from './hooks/useTier'
@@ -74,7 +74,7 @@ export default function App() {
 
   // Auth & billing
   const { user, profile, session, isLoading: authLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
-  const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile)
+  const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile, user)
   const { canUse } = useTier(user, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
@@ -445,6 +445,9 @@ export default function App() {
           // briefly need to allow a chapter-5 confirmation write while
           // re-rendering at the chosen winner).
           markUserNav(targetBookId)
+          // Prime dedup so the post-layout `onPageChange` echo doesn't write
+          // the just-loaded value back to cloud (cross-device echo bug).
+          markCloudLoaded(targetBookId, winner)
           setCurrentChapter(winner.chapterNumber)
           setCurrentPage(0)
           setReaderKey(k => k + 1)
@@ -495,6 +498,7 @@ export default function App() {
     // (which may render at the old chapter for a render or two) doesn't get
     // wrongly classified as a regression.
     markCloudPosition(currentBookId, pos)
+    markCloudLoaded(currentBookId, pos)
     markUserNav(currentBookId)
     savedPos.current = pos
     targetParagraphRef.current = pos?.lastParagraphIndex
@@ -642,6 +646,9 @@ export default function App() {
           if (cloudPos.lastParagraphIndex !== undefined) {
             targetParagraphRef.current = cloudPos.lastParagraphIndex
           }
+          // Prime dedup so the post-layout `onPageChange` echo doesn't write
+          // the just-loaded value back to cloud (cross-device echo bug).
+          markCloudLoaded(book.id, cloudPos)
           setCurrentChapter(cloudPos.chapterNumber)
           setCurrentPage(0)
           setReaderKey(k => k + 1)
@@ -1520,7 +1527,13 @@ export default function App() {
       headline: 'Welcome to your reading experience',
       copy: 'A quick tour of what’s possible here.',
       intro: true,
-      setup: () => { if (isMobile) setActiveView(0) },
+      setup: () => {
+        if (isMobile) setActiveView(0)
+        else if (preferences.splitView) {
+          toggleSplitView()
+          setReaderKey(k => k + 1)
+        }
+      },
     }
     const compare: TourStep | null = splitViewAvailable && canCompare ? {
       id: 'compare',
