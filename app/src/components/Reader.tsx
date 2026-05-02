@@ -229,19 +229,21 @@ export function Reader({
     const gap = getGap()
     // Total scrollWidth includes all columns and gaps between them
     const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
+    // Preserve reading position across layout changes (window resize, panel
+    // toggle, font-size change). currentPage is absolute — page 14 of 18 is
+    // different content than page 14 of 33. Convert via scroll fraction so
+    // the reader stays at the same content position after reflow.
+    // Skip when initialPageRef is set — mount-time restore handles that path.
+    const oldPages = totalPagesRef.current
+    if (initialPageRef.current === undefined && oldPages > 1 && pages > 1 && pages !== oldPages) {
+      const frac = currentPageRef.current / (oldPages - 1)
+      const newPage = Math.round(frac * (pages - 1))
+      currentPageRef.current = newPage
+      setCurrentPage(newPage)
+    }
     setTotalPages(pages)
-    // Drive a re-render whenever measurement changes. setState bails when
-    // the value is unchanged — so on a no-op resize we don't churn.
     setColWidthState(colWidth)
     setGapState(gap)
-    // NOTE: previously clamped currentPage to (pages - 1) here as a defensive
-    // guard against panel-toggle resizes shrinking the page count. Removed
-    // because recalcPages can produce a transient page count that's one
-    // short due to scrollWidth rounding (Math.round on a value just below
-    // an integer boundary). When that fired at the user's current page,
-    // they got yanked back one page and goToPage's clamp prevented them
-    // from advancing — the "stuck between page 15 and 16" bug Anders saw
-    // on desktop. The user's currentPage is managed elsewhere; trust it.
   }, [updateColumnWidth, getColWidth, getGap])
 
   // Initial measurement runs synchronously before paint via useLayoutEffect.
@@ -287,11 +289,29 @@ export function Reader({
       dbg('restore', { frac, pages, targetPage })
       tracePageSet('layout-restore', targetPage, { frac, pages })
       setCurrentPage(targetPage)
-      initialPageRef.current = undefined
     } else {
       dbg('frac-undef-or-oor', { frac })
     }
   }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage, tracePageSet])
+
+  // Re-apply initial fraction whenever totalPages changes during layout
+  // settle. The layout effect above converts frac→page on mount, but async
+  // recalcPages (100ms/500ms/1500ms timers, ResizeObserver) can change
+  // totalPages afterward — especially on mobile where column widths are
+  // narrower and scrollWidth rounding is more volatile. Without this,
+  // backward chapter nav lands on second-to-last or first page instead of
+  // last. Stops once the user manually navigates.
+  useEffect(() => {
+    const frac = initialPageRef.current
+    if (frac === undefined || totalPages <= 1) return
+    if (userNavigatedRef.current) return
+    const targetPage = Math.round(frac * (totalPages - 1))
+    if (targetPage !== currentPageRef.current) {
+      tracePageSet('frac-reapply', targetPage, { frac, totalPages })
+      currentPageRef.current = targetPage
+      setCurrentPage(targetPage)
+    }
+  }, [totalPages, tracePageSet])
 
   useEffect(() => {
     // Async recalc retries cover late-arriving font/layout changes (mobile
@@ -499,6 +519,7 @@ export function Reader({
     const container = readerRef.current
     if (!container) return
     userNavigatedRef.current = true
+    initialPageRef.current = undefined
     // Re-measure pages from the live DOM at click time. Trusting the
     // totalPages state alone is fragile: scrollWidth / colWidth rounding
     // can leave the state one short of reality, and goToPage's clamp then
