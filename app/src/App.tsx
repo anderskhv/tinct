@@ -2624,6 +2624,8 @@ export default function App() {
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 panelOpen={preferences.panelOpen}
+                fontSize={preferences.fontSize}
+                fontFamily={preferences.fontFamily}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
                 onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
               />
@@ -2759,6 +2761,8 @@ export default function App() {
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
                 panelOpen={preferences.panelOpen}
+                fontSize={preferences.fontSize}
+                fontFamily={preferences.fontFamily}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
                 onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
                 onDeleteHighlight={removeHighlight}
@@ -2798,6 +2802,8 @@ export default function App() {
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
                 panelOpen={preferences.panelOpen}
+                fontSize={preferences.fontSize}
+                fontFamily={preferences.fontFamily}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
                 onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
                 onDeleteHighlight={removeHighlight}

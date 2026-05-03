@@ -92,6 +92,12 @@ interface ReaderProps {
   editionKey?: string
   currentChapter?: number
   authToken?: string
+  /** Reader typography. Passed in (rather than read from CSS) so a change
+   * to either re-runs the recalc effect — without this, the column count
+   * stays stale after the user changes font size and pagination breaks
+   * (current page no longer matches current content). */
+  fontSize?: string
+  fontFamily?: string
 }
 
 export function Reader({
@@ -131,6 +137,8 @@ export function Reader({
   editionKey,
   currentChapter,
   authToken,
+  fontSize,
+  fontFamily,
   isActive = true,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
@@ -332,7 +340,10 @@ export function Reader({
     }) : null
     if (container && observer) observer.observe(container)
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); clearTimeout(postTransitionTimer); observer?.disconnect() }
-  }, [paragraphs, chapterTitle, recalcPages, panelOpen])
+    // fontSize/fontFamily change content scrollWidth without changing the
+    // container's box, so ResizeObserver doesn't fire — depend on them
+    // explicitly so the timer-driven recalc fires after the reflow settles.
+  }, [paragraphs, chapterTitle, recalcPages, panelOpen, fontSize, fontFamily])
 
   // Restore position from initialPage fraction or targetParagraphIndex after layout settles
   const targetParagraphRef = useRef(targetParagraphIndex)

@@ -66,18 +66,38 @@ export function useAuth(): UseAuthReturn {
       } catch { /* ignore */ }
     }
 
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session: s } }) => {
-      setSession(s)
-      setUser(s?.user ?? null)
-      if (s?.user) {
-        setSignedInCookie()
-        fetchProfile(s.user.id)
-      } else {
-        clearSignedInCookie()
-      }
+    // Get initial session. Race against a 3s timeout so the app can open
+    // offline — `getSession()` reads from localStorage but may still hang on
+    // a network-bound token refresh, leaving `isLoading=true` forever and
+    // blocking the entire downstream init chain (storage, position, render).
+    let resolved = false
+    const finishLoading = () => {
+      if (resolved) return
+      resolved = true
       setIsLoading(false)
-    })
+    }
+    const offlineTimeout = setTimeout(() => {
+      console.warn('[useAuth] getSession() timed out — proceeding offline')
+      finishLoading()
+    }, 3000)
+    supabase.auth.getSession()
+      .then(({ data: { session: s } }) => {
+        clearTimeout(offlineTimeout)
+        setSession(s)
+        setUser(s?.user ?? null)
+        if (s?.user) {
+          setSignedInCookie()
+          fetchProfile(s.user.id)
+        } else {
+          clearSignedInCookie()
+        }
+        finishLoading()
+      })
+      .catch((e) => {
+        clearTimeout(offlineTimeout)
+        console.warn('[useAuth] getSession() failed (likely offline):', e)
+        finishLoading()
+      })
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
