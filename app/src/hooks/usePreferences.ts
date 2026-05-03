@@ -90,24 +90,26 @@ export function usePreferences(storageReady = true) {
     document.documentElement.setAttribute('data-theme', preferences.darkMode ? 'dark' : 'light')
   }, [preferences.darkMode])
 
-  // Apply font size and font family as CSS variables
+  // Apply font size and font family as CSS variables.
+  //
+  // fontSize is a numeric rem value (FONT_SIZE_MIN..FONT_SIZE_MAX, currently
+  // 1.0–2.4) — used directly, no lookup. Earlier code used a string-keyed
+  // map ({ small, medium, large, xlarge }) that became dead when the type
+  // switched to `number`: every button click looked up `sizeMap[1.3]` →
+  // undefined → setProperty(undefined) → variable never changed and font
+  // size silently froze regardless of which button you clicked.
+  //
+  // Set on documentElement (<html>) so the variable cascades regardless of
+  // which `.app` instance is currently mounted (loading shell vs. main).
   useEffect(() => {
-    const sizeMap: Record<FontSize, string> = {
-      small: '1rem',
-      medium: '1.1rem',
-      large: '1.25rem',
-      xlarge: '1.4rem',
-    }
     const familyMap: Record<FontFamily, string> = {
       garamond: "'EB Garamond', var(--font-serif)",
       baskerville: "'Libre Baskerville', var(--font-serif)",
       sourceserif: "'Source Serif 4', var(--font-serif)",
     }
-    const appEl = document.querySelector('.app') as HTMLElement | null
-    if (appEl) {
-      appEl.style.setProperty('--font-size-reader', sizeMap[preferences.fontSize])
-      appEl.style.setProperty('--font-family-reader', familyMap[preferences.fontFamily])
-    }
+    const root = document.documentElement
+    root.style.setProperty('--font-size-reader', `${preferences.fontSize}rem`)
+    root.style.setProperty('--font-family-reader', familyMap[preferences.fontFamily])
   }, [preferences.fontSize, preferences.fontFamily])
 
   const update = useCallback((partial: Partial<UserPreferences>) => {
