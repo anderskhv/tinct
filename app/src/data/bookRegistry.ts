@@ -1707,6 +1707,13 @@ export const FEAR_AND_TREMBLING: Book = {
       aligned: true,
     },
     {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Original (English)',
+      aligned: true,
+    },
+    {
       key: 'modern-en',
       language: 'en',
       style: 'modern',
