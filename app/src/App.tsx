@@ -6,6 +6,7 @@ import { SplitReader } from './components/SplitReader'
 import { SidePanel } from './components/SidePanel'
 import { Onboarding } from './components/Onboarding'
 import { BookOnboarding, type BookOnboardingResult } from './components/BookOnboarding'
+import { BookOnboardingPreface } from './components/BookOnboardingPreface'
 import { ProgressPrompt } from './components/ProgressPrompt'
 import { SettingsSheet } from './components/SettingsSheet'
 import { AuthModal } from './components/AuthModal'
@@ -335,6 +336,13 @@ export default function App() {
   const isDemoMode = useMemo(() => {
     if (typeof window === 'undefined') return false
     try { return new URLSearchParams(window.location.search).get('demo') === '1' }
+    catch { return false }
+  }, [])
+
+  // Localhost prototype: alternate book-onboarding layout that reads as a Preface.
+  const isPrefaceMode = useMemo(() => {
+    if (typeof window === 'undefined') return false
+    try { return new URLSearchParams(window.location.search).get('preface') === '1' }
     catch { return false }
   }, [])
 
@@ -1245,6 +1253,10 @@ export default function App() {
         if (segments[1]) {
           const target = BOOKS.find(b => b.id === segments[1])
           if (target) {
+            // Add to library before switching, otherwise libraryEmpty=true for
+            // fresh visitors and BookStore renders on top of the reader (same
+            // trap demo-mode bootstrap dodges at line ~1281).
+            addBook(target.id)
             handleBookChange(target.id)
             setBookOnboardingMode('full')
           }
@@ -1254,6 +1266,7 @@ export default function App() {
       // `/{bookId}` — direct deep link, edition-only mode
       const target = BOOKS.find(b => b.id === first)
       if (target) {
+        addBook(target.id)
         handleBookChange(target.id)
         setBookOnboardingMode('edition-only')
       }
@@ -1330,12 +1343,18 @@ export default function App() {
       setShowBookOnboarding(false)
       return
     }
+    // Prototype: ?preface=1 always shows onboarding so Anders can iterate
+    // without clearing localStorage between refreshes.
+    if (isPrefaceMode) {
+      setShowBookOnboarding(true)
+      return
+    }
     const seen = storage.get<boolean>(`book-onboarded:${book.id}`)
     let legacy = false
     try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
     if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(!(seen || legacy))
-  }, [book.id, storageReady, libraryEmpty, showStore])
+  }, [book.id, storageReady, libraryEmpty, showStore, isPrefaceMode])
 
   // Book Onboarding completion — sets edition + angle, marks book as onboarded.
   // Note: uses primitive setters (setStyle/setLanguage/setSplitEditionKey) rather than
@@ -1348,7 +1367,17 @@ export default function App() {
     }
     if (result.splitEditionKey) {
       setSplitEditionKey(result.splitEditionKey)
-      if (!preferences.splitView) toggleSplitView()
+    }
+    // Open split-view by default unless explicitly turned off (preface flow).
+    // Classical onboarding leaves openSplitByDefault undefined, preserving the
+    // legacy "split picked → auto-open" behavior.
+    const wantSplitOpen =
+      result.openSplitByDefault === undefined
+        ? !!result.splitEditionKey
+        : result.openSplitByDefault && !!result.splitEditionKey
+    if (wantSplitOpen !== preferences.splitView) toggleSplitView()
+    if (result.audioEditionKey) {
+      setAudioEditionKey(result.audioEditionKey)
     }
     if (result.angle) {
       setReadingObjective(result.angle)
@@ -1359,12 +1388,14 @@ export default function App() {
     storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(false)
     setOnboardingComplete(true)
+    setPrefaceStartAtEnd(false)
   }, [book.id, book.editions, setLanguage, setStyle, setSplitEditionKey, preferences.splitView, toggleSplitView, setReadingObjective, setOnboardingComplete])
 
   const handleBookOnboardingClose = useCallback(() => {
     storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(false)
     setOnboardingComplete(true)
+    setPrefaceStartAtEnd(false)
   }, [book.id, setOnboardingComplete])
 
   const handleTourClose = useCallback(() => {
@@ -2001,6 +2032,21 @@ export default function App() {
     handlePrevChapterRef.current?.()
   }, [])
 
+  // Back-out from book → preface. Wired into onPrevChapter at chapter 1 when
+  // the preface is enabled (?preface=1). Pressing the back arrow at the very
+  // start of the book re-opens the preface on its LAST spread (edition page),
+  // since that's where the user left off when they clicked "Begin reading."
+  const [prefaceStartAtEnd, setPrefaceStartAtEnd] = useState(false)
+  const handleBackToPreface = useCallback(() => {
+    setPrefaceStartAtEnd(true)
+    setShowBookOnboarding(true)
+  }, [])
+  // Re-entering the preface from the ToC starts at page 0 (cover) instead.
+  const handleShowPrefaceFromToc = useCallback(() => {
+    setPrefaceStartAtEnd(false)
+    setShowBookOnboarding(true)
+  }, [])
+
   // Chapter navigation from page arrows or audio chapter-end
   // When advancing forward, mark the current chapter as completed in progress
   // (covers the audio case where page never reaches the last page)
@@ -2183,7 +2229,9 @@ export default function App() {
         />
       )}
 
-      {!libraryEmpty && !showStore && showBookOnboarding && (
+      {/* Preface mode mounts in the reader slot below — keep the regular
+          modal-style BookOnboarding for non-preface flows. */}
+      {!isPrefaceMode && !libraryEmpty && !showStore && showBookOnboarding && (
         <BookOnboarding
           book={book}
           editions={book.editions}
@@ -2539,7 +2587,10 @@ export default function App() {
         hasSections={!!(primaryData?.sections?.length)}
       />
 
-      {!isDemoMode && (
+      {/* Hide the create-account banner during the preface. We want a clean
+          read-the-front-matter experience first; the banner reappears once the
+          user is in the book proper. */}
+      {!isDemoMode && !(isPrefaceMode && showBookOnboarding) && (
         <TrialBanner
           onSubscribe={() => handleCheckout('subscription')}
           onCreateAccount={() => {
@@ -2594,41 +2645,61 @@ export default function App() {
       >
         {isMobile ? (
           <div className="mobile-views">
-            {/* View 0: Reader */}
+            {/* View 0: Reader (or Preface during ?preface=1 onboarding) */}
             <div className={`mobile-view ${activeView === 0 ? 'mobile-view-active' : ''}`}>
-              <Reader
-                key={`${currentChapter}-${readerKey}`}
-                isActive={activeView === 0}
-                paragraphs={primaryChapter?.paragraphs || []}
-                chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
-                progressLabel={progressLabel}
-                editionLabel={editionLabel}
-                isLoading={isLoading}
-                highlights={getEditionHighlights(primaryEditionKey)}
-                onHighlight={handleHighlight}
-                onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
-                onReflect={user ? handleReflect : undefined}
-                onGenerateSummary={handleGenerateSummary}
-                isGeneratingSummary={isGeneratingSummary}
-                isFinalChapter={currentChapter === totalChapters}
-                readerRef={readerRef}
-                onPageChange={handlePageChange}
-                onFirstVisibleParagraph={setFirstVisibleParagraph}
-                initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
-                isVerse={primaryIsVerse}
-                targetParagraphIndex={readSyncSignal?.paragraph ?? targetParagraphRef.current}
-                targetParagraphNonce={readSyncSignal?.nonce}
-                playingParagraphIndex={audioPlayingParagraph}
-                playingParagraphProgress={audioProgress}
-                isAudioPlaying={audioIsPlaying}
-                onParagraphClick={handleParagraphClick}
-                hasAudio={hasAudio}
-                panelOpen={preferences.panelOpen}
-                fontSize={preferences.fontSize}
-                fontFamily={preferences.fontFamily}
-                onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
-              />
+              {isPrefaceMode && showBookOnboarding ? (
+                <BookOnboardingPreface
+                  book={book}
+                  editions={book.editions}
+                  defaultEditionKey={primaryEditionKey}
+                  onComplete={handleBookOnboardingComplete}
+                  onClose={handleBookOnboardingClose}
+                  readingLanguages={preferences.readingLanguages}
+                  onReadingLanguagesChange={setReadingLanguages}
+                  defaultAudioEditionKey={effectiveAudioEditionKey as EditionKey | undefined}
+                  defaultSplitEditionKey={preferences.splitEditionKey as EditionKey | undefined}
+                  defaultOpenSplit={preferences.splitView}
+                  isPremium={isSubscribed}
+                  isMobile={isMobile}
+                  fontSize={preferences.fontSize}
+                  fontFamily={preferences.fontFamily}
+                  startAtLastPage={prefaceStartAtEnd}
+                />
+              ) : (
+                <Reader
+                  key={`${currentChapter}-${readerKey}`}
+                  isActive={activeView === 0}
+                  paragraphs={primaryChapter?.paragraphs || []}
+                  chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                  progressLabel={progressLabel}
+                  editionLabel={editionLabel}
+                  isLoading={isLoading}
+                  highlights={getEditionHighlights(primaryEditionKey)}
+                  onHighlight={handleHighlight}
+                  onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
+                  onReflect={user ? handleReflect : undefined}
+                  onGenerateSummary={handleGenerateSummary}
+                  isGeneratingSummary={isGeneratingSummary}
+                  isFinalChapter={currentChapter === totalChapters}
+                  readerRef={readerRef}
+                  onPageChange={handlePageChange}
+                  onFirstVisibleParagraph={setFirstVisibleParagraph}
+                  initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
+                  isVerse={primaryIsVerse}
+                  targetParagraphIndex={readSyncSignal?.paragraph ?? targetParagraphRef.current}
+                  targetParagraphNonce={readSyncSignal?.nonce}
+                  playingParagraphIndex={audioPlayingParagraph}
+                  playingParagraphProgress={audioProgress}
+                  isAudioPlaying={audioIsPlaying}
+                  onParagraphClick={handleParagraphClick}
+                  hasAudio={hasAudio}
+                  panelOpen={preferences.panelOpen}
+                  fontSize={preferences.fontSize}
+                  fontFamily={preferences.fontFamily}
+                  onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
+                  onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                />
+              )}
             </div>
             {/* View 1: Compare — shows secondary edition full-width on mobile */}
             <div className={`mobile-view ${activeView === 1 ? 'mobile-view-active' : ''}`}>
@@ -2661,7 +2732,7 @@ export default function App() {
                   hasAudio={hasAudio}
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                   onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                  onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
+                  onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
                 />
               ) : (
                 <div className="mobile-view-placeholder">
@@ -2727,7 +2798,25 @@ export default function App() {
           </div>
         ) : (
           <>
-            {preferences.splitView && splitChapter ? (
+            {isPrefaceMode && showBookOnboarding ? (
+              <BookOnboardingPreface
+                book={book}
+                editions={book.editions}
+                defaultEditionKey={primaryEditionKey}
+                onComplete={handleBookOnboardingComplete}
+                onClose={handleBookOnboardingClose}
+                readingLanguages={preferences.readingLanguages}
+                onReadingLanguagesChange={setReadingLanguages}
+                defaultAudioEditionKey={effectiveAudioEditionKey as EditionKey | undefined}
+                defaultSplitEditionKey={preferences.splitEditionKey as EditionKey | undefined}
+                defaultOpenSplit={preferences.splitView}
+                isPremium={isSubscribed}
+                isMobile={isMobile}
+                fontSize={preferences.fontSize}
+                fontFamily={preferences.fontFamily}
+                startAtLastPage={prefaceStartAtEnd}
+              />
+            ) : preferences.splitView && splitChapter ? (
               <SplitReader
                 key={`split-${currentChapter}-${readerKey}`}
                 leftParagraphs={primaryChapter?.paragraphs || []}
@@ -2764,7 +2853,7 @@ export default function App() {
                 fontSize={preferences.fontSize}
                 fontFamily={preferences.fontFamily}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
                 onDeleteHighlight={removeHighlight}
                 onUpdateHighlightNote={updateHighlightNote}
                 onUpdateHighlightColor={updateHighlightColor}
@@ -2805,7 +2894,7 @@ export default function App() {
                 fontSize={preferences.fontSize}
                 fontFamily={preferences.fontFamily}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                onPrevChapter={currentChapter > 1 ? userChapterPrev : undefined}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
                 onDeleteHighlight={removeHighlight}
                 onUpdateHighlightNote={updateHighlightNote}
                 onUpdateHighlightColor={updateHighlightColor}
@@ -2876,6 +2965,7 @@ export default function App() {
           onSelectChapter={(n) => handleNavigateToChapter(n)}
           onClose={() => setShowToc(false)}
           sections={primaryData.sections}
+          onShowPreface={isPrefaceMode ? handleShowPrefaceFromToc : undefined}
         />
       )}
 

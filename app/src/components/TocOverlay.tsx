@@ -8,6 +8,9 @@ interface TocOverlayProps {
   onClose: () => void
   /** Optional hierarchical sections for large books */
   sections?: Section[]
+  /** When provided, renders a "Preface" entry at the top of the ToC.
+   *  Clicking it should re-open the book preface. */
+  onShowPreface?: () => void
 }
 
 /** Recursively find all chapter numbers under a section tree */
@@ -121,7 +124,7 @@ function SectionNode({
   )
 }
 
-export function TocOverlay({ chapters, currentChapter, onSelectChapter, onClose, sections }: TocOverlayProps) {
+export function TocOverlay({ chapters, currentChapter, onSelectChapter, onClose, sections, onShowPreface }: TocOverlayProps) {
   const activeRef = useRef<HTMLButtonElement>(null)
 
   // Build expanded state from sections containing the current chapter
@@ -170,6 +173,15 @@ export function TocOverlay({ chapters, currentChapter, onSelectChapter, onClose,
           <button className="toc-close" onClick={onClose}>&times;</button>
         </div>
         <div className="toc-list">
+          {onShowPreface && (
+            <button
+              className="toc-item"
+              onClick={() => { onShowPreface(); onClose() }}
+            >
+              <span className="toc-item-number">·</span>
+              <span className="toc-item-title">Preface</span>
+            </button>
+          )}
           {hasSections ? (
             sections.map((sec, i) => (
               <SectionNode

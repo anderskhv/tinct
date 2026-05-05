@@ -44,6 +44,10 @@ interface OnboardingData {
 export interface BookOnboardingResult {
   editionKey: EditionKey
   splitEditionKey?: EditionKey
+  /** Preface flow only — explicit toggle for whether to open split-by-default. */
+  openSplitByDefault?: boolean
+  /** Preface flow only — chosen audiobook narration edition. */
+  audioEditionKey?: EditionKey
   angle: string
 }
 
@@ -358,11 +362,12 @@ export function BookOnboarding({
   // prevent empty pages if a JSON is incomplete.
   const activeSteps: StepKey[] = useMemo(() => {
     if (mode === 'edition-only') return ['edition']
+    if (!dataLoaded) return []
     const steps: StepKey[] = []
-    if (dataLoaded && data?.about) steps.push('about')
-    if (dataLoaded && data?.whyItMatters && data.whyItMatters.length > 0) steps.push('why-matters')
+    if (data?.about) steps.push('about')
+    if (data?.whyItMatters && data.whyItMatters.length > 0) steps.push('why-matters')
     steps.push('edition')
-    if (dataLoaded && data?.cast && data.cast.length > 0) steps.push('cast')
+    if (data?.cast && data.cast.length > 0) steps.push('cast')
     // Reading-angles step removed from the flow 2026-04-30 (Anders) — the
     // "optional · free for everyone" framing felt off, and angles will live
     // in the chat experience later. The card-pick renderer + JSON
@@ -548,6 +553,15 @@ WATCH FOR:
         </div>
 
         <div className="book-onboarding-body">
+
+          {/* Loading state: show skeleton until onboarding JSON arrives.
+              Prevents the edition-picker flash (step 0 = 'edition' until
+              data loads and 'about' becomes step 0). */}
+          {mode !== 'edition-only' && !dataLoaded && (
+            <div className="book-onboarding-step" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 200, opacity: 0.4 }}>
+              <p>Loading…</p>
+            </div>
+          )}
 
           {/* Step: about — book description + acclaim quotes */}
           {currentStep === 'about' && (
@@ -766,7 +780,7 @@ WATCH FOR:
           {currentStep === 'cast' && (
             <div className="book-onboarding-step">
               <div className="book-onboarding-eyebrow">{displayTitle}</div>
-              <h2 className="book-onboarding-step-title">Meet the key figures</h2>
+              <h2 className="book-onboarding-step-title">Characters &amp; concepts</h2>
               <p className="book-onboarding-step-sub">Let them land. You'll meet them properly in the text.</p>
 
               <div className="book-onboarding-cast-grid">
@@ -821,7 +835,7 @@ WATCH FOR:
 
         {/* Footer: hidden on the angle step (AngleChat provides its own actions)
          * and on the account step (it has its own primary + skip). */}
-        {currentStep !== 'angle' && currentStep !== 'account' && (
+        {currentStep && currentStep !== 'angle' && currentStep !== 'account' && (
           <div className="book-onboarding-foot">
             {currentStep === 'edition' && onBackToLibrary && (
               <button className="book-onboarding-foot-ghost" onClick={onBackToLibrary}>
