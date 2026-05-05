@@ -339,11 +339,11 @@ export default function App() {
     catch { return false }
   }, [])
 
-  // Localhost prototype: alternate book-onboarding layout that reads as a Preface.
+  // Preface is the default onboarding flow. ?preface=0 opts out (legacy 3-step).
   const isPrefaceMode = useMemo(() => {
-    if (typeof window === 'undefined') return false
-    try { return new URLSearchParams(window.location.search).get('preface') === '1' }
-    catch { return false }
+    if (typeof window === 'undefined') return true
+    try { return new URLSearchParams(window.location.search).get('preface') !== '0' }
+    catch { return true }
   }, [])
 
   // Focus mode: hides header, bottom bar, and side panel for an immersive
@@ -1401,18 +1401,12 @@ export default function App() {
       setShowBookOnboarding(false)
       return
     }
-    // Prototype: ?preface=1 always shows onboarding so Anders can iterate
-    // without clearing localStorage between refreshes.
-    if (isPrefaceMode) {
-      setShowBookOnboarding(true)
-      return
-    }
     const seen = storage.get<boolean>(`book-onboarded:${book.id}`)
     let legacy = false
     try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
     if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(!(seen || legacy))
-  }, [book.id, storageReady, libraryEmpty, showStore, isPrefaceMode])
+  }, [book.id, storageReady, libraryEmpty, showStore])
 
   // Book Onboarding completion — sets edition + angle, marks book as onboarded.
   // Note: uses primitive setters (setStyle/setLanguage/setSplitEditionKey) rather than
@@ -2091,9 +2085,9 @@ export default function App() {
   }, [])
 
   // Back-out from book → preface. Wired into onPrevChapter at chapter 1 when
-  // the preface is enabled (?preface=1). Pressing the back arrow at the very
-  // start of the book re-opens the preface on its LAST spread (edition page),
-  // since that's where the user left off when they clicked "Begin reading."
+  // preface mode is on. Pressing the back arrow at the very start of the book
+  // re-opens the preface on its LAST spread (edition page), since that's where
+  // the user left off when they clicked "Begin reading."
   const [prefaceStartAtEnd, setPrefaceStartAtEnd] = useState(false)
   const handleBackToPreface = useCallback(() => {
     setPrefaceStartAtEnd(true)
@@ -2703,7 +2697,7 @@ export default function App() {
       >
         {isMobile ? (
           <div className="mobile-views">
-            {/* View 0: Reader (or Preface during ?preface=1 onboarding) */}
+            {/* View 0: Reader (or Preface during onboarding) */}
             <div className={`mobile-view ${activeView === 0 ? 'mobile-view-active' : ''}`}>
               {isPrefaceMode && showBookOnboarding ? (
                 <BookOnboardingPreface
