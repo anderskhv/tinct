@@ -1191,23 +1191,21 @@ const frame: React.CSSProperties = {
   outline: 'none',  // suppress focus ring on the programmatically-focused root
 }
 
+// Skip link sits in the running footer row alongside the page-nav pill,
+// so its font-size, padding, and bottom value all match the page-nav so
+// the two text baselines align cleanly.
 const skipLink: React.CSSProperties = {
   position: 'absolute', bottom: 10, right: 24,
-  background: 'transparent', border: 'none',
-  color: 'var(--text-tertiary)', fontSize: '0.9rem',
+  background: 'var(--paper)', border: 'none',
+  color: 'var(--text-tertiary)', fontSize: '0.92rem',
   cursor: 'pointer', fontFamily: 'var(--font-serif)', fontStyle: 'italic',
-  lineHeight: 1, padding: '6px 4px', zIndex: 10,
+  lineHeight: 1, padding: '4px 10px', zIndex: 10,
   letterSpacing: '0.02em',
+  borderRadius: 4,
 }
-// Mobile: shorter text + smaller font, with a paper-tinted halo so it
-// sits clearly above any prose content scrolled near the bottom.
 const skipLinkMobile: React.CSSProperties = {
   ...skipLink,
   bottom: 4, right: 14,
-  fontSize: '0.78rem',
-  padding: '4px 8px',
-  background: 'var(--paper)',
-  borderRadius: 4,
 }
 
 const surfaceBase: React.CSSProperties = {
