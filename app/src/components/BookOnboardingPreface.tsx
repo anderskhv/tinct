@@ -1191,11 +1191,9 @@ const frame: React.CSSProperties = {
   outline: 'none',  // suppress focus ring on the programmatically-focused root
 }
 
-// Skip link sits in the running footer row alongside the page-nav pill.
-// Explicit height + flex centering matches the pageNav's effective
-// height (which is driven by its 1rem tick buttons, taller than the
-// 0.92rem label text). Without this, the skip pill is ~2px shorter than
-// the pageNav pill and the text baselines drift apart.
+// Page-nav pill is 32px tall: 4px outer padding + .page-nav-tick child
+// (4px padding + 1rem font + 4px padding = 24px) + 4px outer padding.
+// Skip pill height must match for text baselines to align at bottom: X.
 const skipLink: React.CSSProperties = {
   position: 'absolute', bottom: 10, right: 24,
   background: 'var(--paper)', border: 'none',
@@ -1205,7 +1203,7 @@ const skipLink: React.CSSProperties = {
   letterSpacing: '0.02em',
   borderRadius: 4,
   display: 'flex', alignItems: 'center',
-  height: 24,
+  height: 32,
 }
 const skipLinkMobile: React.CSSProperties = {
   ...skipLink,
