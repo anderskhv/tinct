@@ -1225,13 +1225,16 @@ const surface: React.CSSProperties = {
   ...surfaceBase,
   padding: '2rem 3rem 5rem',
 }
-// Mobile: tighter horizontal padding so the cover/prose isn't squeezed,
-// but very generous bottom padding so content can never be covered by
-// the mobile-nav (38px), the audio strip when active (~60px tall,
-// floats above the nav), or iOS Safari's bottom safari chrome.
+// Mobile: tighter horizontal padding so the cover/prose isn't squeezed.
+// Bottom padding is just enough to clear the running page-nav footer
+// (≈25px tall, anchored at frame bottom) plus a small breathing buffer.
+// We were over-reserving 8rem before — mobile-view sits above the
+// mobile-nav already (inset:0 inside a parent with padding-bottom),
+// so most of that space was wasted (visible at largest font sizes
+// where every available row matters).
 const surfaceMobile: React.CSSProperties = {
   ...surfaceBase,
-  padding: '1rem 1rem 8rem',
+  padding: '1rem 1rem 3rem',
 }
 
 // Paginated multi-column wrapper
