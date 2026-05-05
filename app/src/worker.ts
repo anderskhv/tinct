@@ -381,7 +381,6 @@ async function handleAngleChat(request: Request, env: Env): Promise<Response> {
 - The Histories (Herodotus): the Greco-Persian wars, the first history
 - Confessions (Augustine): spiritual autobiography, memory, conversion
 - The Imitation of Christ (à Kempis): humility, inward devotion
-- Markings (Hammarskjöld): a diplomat's spiritual journal
 - The Bible: foundational religious and literary text`
 
     // Server-authored system prompt — user can't override.

@@ -2320,49 +2320,7 @@ export const FEDERALIST_PAPERS: Book = {
 /** All books in the library */
 export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS]
 
-// ─────────────────────────────────────────────────────────────────────────────
-// LOCAL-ONLY BOOKS
-// These books are under copyright and exist only for personal reading on
-// localhost. Edition files are in .gitignore. Never deploy, never upload to R2.
-// ─────────────────────────────────────────────────────────────────────────────
-
-export const MARKINGS: Book = {
-  id: 'markings',
-  title: 'Markings',
-  author: 'Dag Hammarskjöld',
-  description: 'The posthumously published journal of UN Secretary-General Dag Hammarskjöld — a private record of spiritual struggle, solitude, and the search for meaning across two decades of public life.',
-  year: 1963,
-  wordCount: 50000,
-  coverColor: '#2c3e50',
-  coverAccent: '#bdc3c7',
-  localOnly: true,
-  editions: [
-    {
-      key: 'modern-en',
-      language: 'en',
-      style: 'modern',
-      label: 'Auden/Sjöberg (1964)',
-      translator: 'Leif Sjöberg & W.H. Auden',
-      year: 1964,
-      aligned: false,
-      hasAudio: false,
-    },
-  ],
-}
-
-/**
- * Local-only books — copyright-protected texts for personal reading on localhost.
- * Edition files are gitignored. Never appear in production builds.
- */
-export const LOCAL_BOOKS: Book[] = [MARKINGS]
-
-/**
- * All books visible in the current environment.
- * In production (import.meta.env.PROD) local-only books are excluded.
- */
-export const ALL_BOOKS: Book[] = import.meta.env.PROD
-  ? BOOKS
-  : [...BOOKS, ...LOCAL_BOOKS]
+export const ALL_BOOKS: Book[] = BOOKS
 
 export function getBook(id: string): Book | undefined {
   return ALL_BOOKS.find(b => b.id === id)
