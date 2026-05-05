@@ -419,7 +419,7 @@ export function BookOnboardingPreface({
 
   return (
     <div ref={frameRef} tabIndex={-1} style={frame}>
-      <button onClick={onClose} style={isMobile ? skipLinkMobile : skipLink} aria-label="Skip directly to Chapter 1">
+      <button onClick={finish} style={isMobile ? skipLinkMobile : skipLink} aria-label="Skip directly to Chapter 1">
         {isMobile ? 'Skip →' : 'Skip directly to Chapter 1 →'}
       </button>
 
