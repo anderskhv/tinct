@@ -394,7 +394,7 @@ export function BookOnboardingPreface({
         Skip directly to Chapter 1 →
       </button>
 
-      <div style={surface} onClick={handleSurfaceClick}>
+      <div style={isMobile ? surfaceMobile : surface} onClick={handleSurfaceClick}>
         {!isMobile && currentSpread === 'cover-about' && (
           <FullSpread divider>
             <PaginatedFlow
@@ -1113,21 +1113,28 @@ const skipLink: React.CSSProperties = {
   letterSpacing: '0.02em',
 }
 
-const surface: React.CSSProperties = {
+const surfaceBase: React.CSSProperties = {
   flex: 1, overflow: 'hidden',
   display: 'flex', alignItems: 'stretch',
-  // Bottom padding clears the mobile audio-strip (positioned 72px from
-  // viewport bottom + 34px tall = 34px overlay band ~38–72px above the
-  // mobile-view bottom). 5rem (80px) is enough for both the audio strip
-  // and the page-nav running footer below it. On desktop the same value
-  // gives the footer comfortable breathing room.
-  padding: '2rem 3rem 5rem',
   color: 'var(--text-primary)',
   // Pick up the reader's font preferences (size + family) so the in-app
   // settings sheet drives the preface typography.
   fontFamily: 'var(--font-family-reader, var(--font-serif))',
   fontSize: 'var(--font-size-reader, 1.05rem)',
   lineHeight: 1.65,
+}
+// Desktop: comfortable margins around the spread.
+const surface: React.CSSProperties = {
+  ...surfaceBase,
+  padding: '2rem 3rem 5rem',
+}
+// Mobile: tighter horizontal padding so the cover/prose isn't squeezed,
+// but very generous bottom padding so content can never be covered by
+// the mobile-nav (38px), the audio strip when active (~60px tall,
+// floats above the nav), or iOS Safari's bottom safari chrome.
+const surfaceMobile: React.CSSProperties = {
+  ...surfaceBase,
+  padding: '1rem 1rem 8rem',
 }
 
 // Paginated multi-column wrapper
