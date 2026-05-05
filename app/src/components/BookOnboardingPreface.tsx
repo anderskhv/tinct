@@ -390,8 +390,8 @@ export function BookOnboardingPreface({
 
   return (
     <div ref={frameRef} tabIndex={-1} style={frame}>
-      <button onClick={onClose} style={skipLink} aria-label="Skip directly to Chapter 1">
-        Skip directly to Chapter 1 →
+      <button onClick={onClose} style={isMobile ? skipLinkMobile : skipLink} aria-label="Skip directly to Chapter 1">
+        {isMobile ? 'Skip →' : 'Skip directly to Chapter 1 →'}
       </button>
 
       <div style={isMobile ? surfaceMobile : surface} onClick={handleSurfaceClick}>
@@ -734,7 +734,7 @@ function CoverPane({ data, book, mobile }: { data: OnboardingData; book: Book; m
           )}
         </div>
       </div>
-      <div style={coverMetaRow}>
+      <div style={mobile ? coverMetaRowMobile : coverMetaRow}>
         {data.estimatedTime && (
           <span style={coverMetaItem}>
             <span style={coverMetaLabel}>Reading time</span>
@@ -847,7 +847,7 @@ function CastPane({
       )}
       <dl style={castList}>
         {items.map((c, i) => (
-          <div key={i} style={castEntry}>
+          <div key={i} style={mobile ? castEntryStacked : castEntry}>
             <dt style={castName}>{c.name}</dt>
             <dd style={castBody}>
               <em style={castRoleInline}>{c.role}.</em> {c.description}
@@ -1096,7 +1096,13 @@ function DotOrnament() { return <div style={dotOrnament}>·</div> }
 // ── Styles ──────────────────────────────────────────────────────
 
 const frame: React.CSSProperties = {
+  // Both `flex: 1` (when parent is flex, e.g. desktop main-layout) and
+  // `height: 100%` (when parent is absolute-positioned, e.g. .mobile-view
+  // on mobile, which is NOT a flex container). Without height: 100%, the
+  // frame collapses to content height on mobile and the column-flow geometry
+  // is wrong → about/why prose drops off the bottom mid-sentence.
   flex: 1,
+  height: '100%',
   position: 'relative',
   background: 'var(--paper)',
   display: 'flex', flexDirection: 'column',
@@ -1111,6 +1117,13 @@ const skipLink: React.CSSProperties = {
   cursor: 'pointer', fontFamily: 'var(--font-serif)', fontStyle: 'italic',
   lineHeight: 1, padding: '6px 4px', zIndex: 10,
   letterSpacing: '0.02em',
+}
+// Mobile: shorter text + smaller font so it doesn't crowd the section heading.
+const skipLinkMobile: React.CSSProperties = {
+  ...skipLink,
+  top: 8, right: 12,
+  fontSize: '0.8rem',
+  padding: '4px 6px',
 }
 
 const surfaceBase: React.CSSProperties = {
@@ -1204,10 +1217,10 @@ const coverWrap: React.CSSProperties = {
   flex: 1,
 }
 const coverWrapMobile: React.CSSProperties = {
-  ...coverWrap, padding: '2rem 0',
+  ...coverWrap, padding: '0.5rem 0', gap: '1rem',
 }
 const coverShadow = (mobile?: boolean): React.CSSProperties => ({
-  width: mobile ? 280 : 420,
+  width: mobile ? 200 : 420,
   boxShadow: '0 24px 72px rgba(0,0,0,0.42), 0 6px 18px rgba(0,0,0,0.22)',
 })
 
@@ -1234,6 +1247,12 @@ const coverMetaRow: React.CSSProperties = {
   gap: '2.5rem',
   marginTop: '0.5rem',
   fontFamily: 'var(--font-serif)',
+}
+// Mobile: tighter gap so the meta strip fits comfortably under a smaller cover
+const coverMetaRowMobile: React.CSSProperties = {
+  ...coverMetaRow,
+  gap: '1.5rem',
+  marginTop: '0.25rem',
 }
 const coverMetaItem: React.CSSProperties = {
   display: 'flex',
@@ -1414,6 +1433,13 @@ const castEntry: React.CSSProperties = {
   marginBottom: '0.95rem',
   alignItems: 'baseline',
   breakInside: 'avoid', // keep each cast entry intact across column breaks
+}
+// Mobile: stack name above description so the description gets the full
+// width of the narrow phone column instead of being squeezed into half.
+const castEntryStacked: React.CSSProperties = {
+  display: 'block',
+  marginBottom: '1rem',
+  breakInside: 'avoid',
 }
 const castName: React.CSSProperties = {
   fontFamily: 'var(--font-display)', fontWeight: 500,
