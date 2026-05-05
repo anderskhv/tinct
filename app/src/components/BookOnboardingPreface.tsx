@@ -1192,18 +1192,18 @@ const frame: React.CSSProperties = {
 }
 
 const skipLink: React.CSSProperties = {
-  position: 'absolute', top: 14, right: 24,
+  position: 'absolute', bottom: 10, right: 24,
   background: 'transparent', border: 'none',
   color: 'var(--text-tertiary)', fontSize: '0.9rem',
   cursor: 'pointer', fontFamily: 'var(--font-serif)', fontStyle: 'italic',
   lineHeight: 1, padding: '6px 4px', zIndex: 10,
   letterSpacing: '0.02em',
 }
-// Mobile: shorter text + smaller font, with a paper-tinted halo and
-// extra inset so it sits clearly off the body text.
+// Mobile: shorter text + smaller font, with a paper-tinted halo so it
+// sits clearly above any prose content scrolled near the bottom.
 const skipLinkMobile: React.CSSProperties = {
   ...skipLink,
-  top: 14, right: 14,
+  bottom: 4, right: 14,
   fontSize: '0.78rem',
   padding: '4px 8px',
   background: 'var(--paper)',
