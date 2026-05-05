@@ -377,18 +377,24 @@ export function BookOnboardingPreface({
   // Compute the current spread/page content
   const currentSpread = !isMobile ? spreads[desktopPos.spreadIdx] : null
   const currentMobilePage = isMobile ? mobilePos.section : null
-  const interactive =
-    (currentSpread === 'edition') ||
-    (currentMobilePage === 'text' || currentMobilePage === 'compare' || currentMobilePage === 'audio')
 
   // Within-spread sub-page (desktop) / within-section sub-page (mobile).
   const subPage = isMobile ? mobilePos.pageInSection : desktopPos.pageInSpread
 
   function handleSurfaceClick(e: React.MouseEvent<HTMLDivElement>) {
-    if (interactive) return
+    // No early-bail on interactive pages — the button/input/label check
+    // below already prevents accidental advancement when tapping a
+    // control. Bailing meant tapping empty space on text/compare/audio
+    // pages did nothing, which surprised people.
     const sel = window.getSelection()
     if (sel && sel.toString().length > 0) return
-    if (e.target instanceof HTMLElement && (e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || e.target.closest('select'))) return
+    if (e.target instanceof HTMLElement && (
+      e.target.closest('button') ||
+      e.target.closest('a') ||
+      e.target.closest('input') ||
+      e.target.closest('select') ||
+      e.target.closest('label')
+    )) return
     const x = e.clientX
     const w = window.innerWidth
     if (x > w / 2) next()
@@ -940,7 +946,11 @@ function TextEditionPane({
           <p style={eyebrowSC}>{book.title}</p>
           <h2 style={sectionH2}>Pick your text edition</h2>
           <p style={editionIntro}>
-            Tinct offers each book in the original text and in AI-assisted modern translations. The original is the human translator&rsquo;s work. Modern translations are AI-assisted versions that make older language easier to follow and unlock unfamiliar references — useful for unfamiliar territory, but they may miss nuance a professional translator would catch. Switch any time while reading.
+            {mobile ? (
+              <>The original is the human translator&rsquo;s work. Modern translations are AI-assisted — easier to follow, but may miss nuance. Switch any time.</>
+            ) : (
+              <>Tinct offers each book in the original text and in AI-assisted modern translations. The original is the human translator&rsquo;s work. Modern translations are AI-assisted versions that make older language easier to follow and unlock unfamiliar references — useful for unfamiliar territory, but they may miss nuance a professional translator would catch. Switch any time while reading.</>
+            )}
           </p>
 
           {availableLanguages.length > 1 && (
@@ -1006,7 +1016,7 @@ function TextEditionPane({
               <p style={eyebrowSC}>{book.title}</p>
               <h2 style={sectionH2}>Side-by-side companion</h2>
               <p style={editionIntro}>
-                Open a second edition alongside while you read. Useful when the original gets dense, or when you want to follow the original and a modern translation together. Switch it on or off any time.
+                Open a second edition alongside while you read. Switch on or off any time.
               </p>
             </>
           ) : (
