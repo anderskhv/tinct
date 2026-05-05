@@ -73,6 +73,18 @@ function formatYear(year: number | null | undefined): string {
   return String(year)
 }
 
+// Page estimate from word count. ~275 words per paperback page. Rounded to
+// the nearest 10 for short books, nearest 50 for >500 pages, so the number
+// reads as a sensible estimate not a false-precision stat.
+function formatLength(wordCount: number | null | undefined): string {
+  if (!wordCount || wordCount <= 0) return ''
+  const raw = wordCount / 275
+  const rounded = raw < 500
+    ? Math.round(raw / 10) * 10
+    : Math.round(raw / 50) * 50
+  return `~${rounded} pages`
+}
+
 // Sections paginate sequentially — Why fully finishes before Cast starts.
 // On desktop, cover and about share a spread group: the cover takes
 // column 0 of a multi-column flow, then about prose fills columns 1..N.
@@ -740,10 +752,10 @@ function CoverInColumn({ data, book }: { data: OnboardingData; book: Book }) {
             <span style={coverMetaValue}>{data.estimatedTime.replace(/^~/, '~ ')}</span>
           </span>
         )}
-        {data.length && (
+        {book.wordCount && book.wordCount > 0 && (
           <span style={coverMetaItem}>
             <span style={coverMetaLabel}>Length</span>
-            <span style={coverMetaValue}>{data.length}</span>
+            <span style={coverMetaValue}>{formatLength(book.wordCount)}</span>
           </span>
         )}
       </div>
@@ -778,10 +790,10 @@ function CoverPane({ data, book, mobile }: { data: OnboardingData; book: Book; m
             <span style={coverMetaValue}>{data.estimatedTime.replace(/^~/, '~ ')}</span>
           </span>
         )}
-        {data.length && (
+        {book.wordCount && book.wordCount > 0 && (
           <span style={coverMetaItem}>
             <span style={coverMetaLabel}>Length</span>
-            <span style={coverMetaValue}>{data.length}</span>
+            <span style={coverMetaValue}>{formatLength(book.wordCount)}</span>
           </span>
         )}
         {yearStr && (
@@ -1016,7 +1028,7 @@ function TextEditionPane({
               <p style={eyebrowSC}>{book.title}</p>
               <h2 style={sectionH2}>Side-by-side companion</h2>
               <p style={editionIntro}>
-                Open a second edition alongside while you read. Switch on or off any time.
+                Open a second edition alongside while you read. When a paragraph gets dense — an archaic phrase, an unfamiliar simile, a line you want to slow down on — flip to the modern translation, then back. Switch on or off any time.
               </p>
             </>
           ) : (
@@ -1062,7 +1074,9 @@ function TextEditionPane({
             ))}
           </ul>
 
-          {splitPicked && (
+          {/* Default-open toggle is desktop-only — mobile reader doesn't have
+              a split view to honor it, so showing it would be misleading. */}
+          {splitPicked && !mobile && (
             <label style={toggleRow}>
               <input
                 type="checkbox"

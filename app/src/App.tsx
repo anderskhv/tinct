@@ -1334,6 +1334,38 @@ export default function App() {
     if (migrated > 0) console.log(`[onboarding-migration] grandfathered ${migrated} book(s) with existing reading progress`)
   }, [storageReady, libraryIds])
 
+  // Deep link from per-book SEO pages: ?chapter=N&edition=X jumps the user
+  // straight to that chapter and edition, marks the book as onboarded so the
+  // modal doesn't fire, and clears the params from the URL so refresh stays
+  // clean. Runs once per mount.
+  const deepLinkConsumedRef = useRef(false)
+  useEffect(() => {
+    if (!storageReady || deepLinkConsumedRef.current) return
+    let params: URLSearchParams
+    try { params = new URLSearchParams(window.location.search) } catch { return }
+    const chapterParam = params.get('chapter')
+    const editionParam = params.get('edition')
+    if (!chapterParam && !editionParam) {
+      deepLinkConsumedRef.current = true
+      return
+    }
+    if (chapterParam) {
+      const ch = parseInt(chapterParam, 10)
+      if (Number.isFinite(ch) && ch >= 1) setCurrentChapter(ch)
+    }
+    if (editionParam) {
+      const ed = book.editions.find(e => e.key === editionParam)
+      if (ed) {
+        setLanguage(ed.language)
+        setStyle(ed.style)
+      }
+    }
+    storage.set(`book-onboarded:${book.id}`, true)
+    setShowBookOnboarding(false)
+    try { window.history.replaceState({}, '', window.location.pathname) } catch { /* ignore */ }
+    deepLinkConsumedRef.current = true
+  }, [storageReady, book.id, book.editions, setLanguage, setStyle])
+
   // Book Onboarding trigger — fires when current book hasn't been onboarded yet.
   // Uses ONLY the explicit flag (set on completion or close, plus the migration
   // above for legacy users). Phantom positions no longer suppress onboarding.
@@ -2983,26 +3015,36 @@ export default function App() {
         />
       )}
 
-      {/* Mobile bottom navigation */}
-      {isMobile && (
-        <nav className="mobile-nav">
-          <button data-tour="mobile-read" className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
-            Read
-          </button>
-          <button data-tour="mobile-compare" className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
-            Compare
-          </button>
-          <button data-tour="mobile-chat" className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
-            Chat
-          </button>
-          <button data-tour="mobile-feed" className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
-            Feed
-          </button>
-          <button data-tour="mobile-cast" className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
-            Cast
-          </button>
-        </nav>
-      )}
+      {/* Mobile bottom navigation. While the preface is up, Chat/Feed/Cast
+          are disabled — those tabs surface the side panel for the actual
+          book content (chat history, journal, character tracker), which
+          isn't meaningful before the reader opens. Read + Compare stay
+          enabled because they map to existing preface views. */}
+      {isMobile && (() => {
+        const sidePanelTabsDisabled = isPrefaceMode && showBookOnboarding
+        const disabledStyle: React.CSSProperties | undefined = sidePanelTabsDisabled
+          ? { opacity: 0.35, pointerEvents: 'none' }
+          : undefined
+        return (
+          <nav className="mobile-nav">
+            <button data-tour="mobile-read" className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
+              Read
+            </button>
+            <button data-tour="mobile-compare" className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
+              Compare
+            </button>
+            <button data-tour="mobile-chat" className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
+              Chat
+            </button>
+            <button data-tour="mobile-feed" className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
+              Feed
+            </button>
+            <button data-tour="mobile-cast" className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
+              Cast
+            </button>
+          </nav>
+        )
+      })()}
 
       {backPosition && (
         <button className="back-to-position" onClick={handleBackToPosition}>
