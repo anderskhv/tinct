@@ -78,7 +78,7 @@ function formatYear(year: number | null | undefined): string {
 // column 0 of a multi-column flow, then about prose fills columns 1..N.
 // On mobile (single-column display), cover and about are separate pages.
 type SpreadKind = 'cover-about' | 'why' | 'cast' | 'edition'
-type MobilePageKind = 'cover' | 'about' | 'why' | 'cast' | 'text' | 'audio'
+type MobilePageKind = 'cover' | 'about' | 'why' | 'cast' | 'text' | 'compare' | 'audio'
 
 export function BookOnboardingPreface({
   book,
@@ -202,14 +202,20 @@ export function BookOnboardingPreface({
     return list
   }, [data, hasWhy, hasCast])
 
+  const mobileHasCompare = useMemo(
+    () => editions.some(e => e.aligned),
+    [editions]
+  )
   const mobilePages: MobilePageKind[] = useMemo(() => {
     if (!data) return []
     const list: MobilePageKind[] = ['cover', 'about']
     if (hasWhy) list.push('why')
     if (hasCast) list.push('cast')
-    list.push('text', 'audio')
+    list.push('text')
+    if (mobileHasCompare) list.push('compare')
+    list.push('audio')
     return list
-  }, [data, hasWhy, hasCast])
+  }, [data, hasWhy, hasCast, mobileHasCompare])
 
   // Per-section page counts reported by PaginatedFlow components after layout.
   const [aboutPages, setAboutPages] = useState(1)
@@ -252,6 +258,7 @@ export function BookOnboardingPreface({
     + (mobilePages.includes('why') ? whyPages : 0)
     + (mobilePages.includes('cast') ? castPages : 0)
     + (mobilePages.includes('text') ? 1 : 0)
+    + (mobilePages.includes('compare') ? 1 : 0)
     + (mobilePages.includes('audio') ? 1 : 0)
   ) || 1
 
@@ -307,6 +314,10 @@ export function BookOnboardingPreface({
     }
     if (mobilePages.includes('text')) {
       if (p === 0) return { section: 'text' as MobilePageKind, pageInSection: 0 }
+      p -= 1
+    }
+    if (mobilePages.includes('compare')) {
+      if (p === 0) return { section: 'compare' as MobilePageKind, pageInSection: 0 }
       p -= 1
     }
     return { section: 'audio' as MobilePageKind, pageInSection: 0 }
@@ -368,7 +379,7 @@ export function BookOnboardingPreface({
   const currentMobilePage = isMobile ? mobilePos.section : null
   const interactive =
     (currentSpread === 'edition') ||
-    (currentMobilePage === 'text' || currentMobilePage === 'audio')
+    (currentMobilePage === 'text' || currentMobilePage === 'compare' || currentMobilePage === 'audio')
 
   // Within-spread sub-page (desktop) / within-section sub-page (mobile).
   const subPage = isMobile ? mobilePos.pageInSection : desktopPos.pageInSpread
@@ -507,6 +518,26 @@ export function BookOnboardingPreface({
             openSplitByDefault={openSplitByDefault}
             onChangeOpenSplit={setOpenSplitByDefault}
             mobile
+            mobileVariant="primary"
+          />
+        )}
+        {isMobile && currentMobilePage === 'compare' && (
+          <TextEditionPane
+            book={book}
+            availableLanguages={availableLanguages}
+            readingLanguages={readingLanguages}
+            onToggleLanguage={toggleLanguage}
+            noMatchingLanguage={noMatchingLanguage}
+            sortedEditions={sortedEditions}
+            editionKey={editionKey}
+            onSelectEdition={setEditionKey}
+            alignedEditions={alignedEditions}
+            splitEditionKey={splitEditionKey}
+            onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
+            openSplitByDefault={openSplitByDefault}
+            onChangeOpenSplit={setOpenSplitByDefault}
+            mobile
+            mobileVariant="compare"
           />
         )}
         {isMobile && currentMobilePage === 'audio' && (
@@ -874,6 +905,7 @@ function TextEditionPane({
   openSplitByDefault,
   onChangeOpenSplit,
   mobile,
+  mobileVariant,
 }: {
   book: Book
   availableLanguages: Language[]
@@ -889,77 +921,102 @@ function TextEditionPane({
   openSplitByDefault: boolean
   onChangeOpenSplit: (v: boolean) => void
   mobile?: boolean
+  /** On mobile, split this pane across two pages: 'primary' shows the
+   *  text edition picker, 'compare' shows the side-by-side picker.
+   *  Desktop renders both sections together (mobileVariant ignored). */
+  mobileVariant?: 'primary' | 'compare'
 }) {
   const showAi = sortedEditions.find(e => e.key === editionKey)?.style === 'modern'
   const splitPicked = splitEditionKey !== undefined
+  // On desktop, always show both sections.
+  // On mobile, show only the section requested by mobileVariant.
+  const showPrimary = !mobile || mobileVariant === 'primary'
+  const showCompare = (!mobile || mobileVariant === 'compare') && alignedEditions.length > 0
+
   return (
     <div style={mobile ? editionPaneMobile : prose}>
-      <p style={eyebrowSC}>{book.title}</p>
-      <h2 style={sectionH2}>Pick your text edition</h2>
-      <p style={editionIntro}>
-        Tinct offers each book in the original text and in AI-assisted modern translations. The original is the human translator&rsquo;s work. Modern translations are AI-assisted versions that make older language easier to follow and unlock unfamiliar references — useful for unfamiliar territory, but they may miss nuance a professional translator would catch. Switch any time while reading.
-      </p>
-
-      {availableLanguages.length > 1 && (
-        <div style={langChips}>
-          <span style={langChipsLabel}>Reading in</span>
-          {availableLanguages.map(lang => {
-            const selected = readingLanguages.includes(lang)
-            return (
-              <button
-                key={lang}
-                type="button"
-                onClick={() => onToggleLanguage(lang)}
-                style={langChip(selected)}
-              >
-                {LANG_LABELS[lang] || lang} {selected ? '✓' : '+'}
-              </button>
-            )
-          })}
-        </div>
-      )}
-
-      {noMatchingLanguage && (
-        <p style={noLangNote}>
-          No {readingLanguages.map(l => LANG_LABELS[l] || l).join(' or ')} edition for this book yet. Here&rsquo;s what&rsquo;s available.
-        </p>
-      )}
-
-      <ul style={editionRows}>
-        {sortedEditions.map(ed => (
-          <li key={ed.key}>
-            <button
-              type="button"
-              onClick={() => onSelectEdition(ed.key)}
-              style={editionRow(editionKey === ed.key)}
-            >
-              <span style={erMain}>
-                <span style={erLabel}>{ed.label}</span>
-                {ed.translator && <span style={erSub}>{ed.translator}</span>}
-              </span>
-              <span style={erMeta}>
-                {LANG_LABELS[ed.language] || ed.language}
-                {' · '}
-                {ed.style === 'modern' ? 'modern prose' : ed.style === 'original' ? 'original' : ed.style}
-                {ed.year ? ` · ${ed.year}` : ''}
-                {ed.style === 'modern' && <span style={aiMark}>ai</span>}
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
-      {showAi && (
-        <p style={aiDisclaimer}>
-          Generated by AI. Good for following the plot and unlocking unfamiliar references — but may occasionally miss nuance a professional translator would catch.
-        </p>
-      )}
-
-      {alignedEditions.length > 0 && (
-        <div style={subSectionBlock}>
-          <h3 style={subSectionHeading}>Side-by-side companion <span style={subSectionHeadingNote}>(optional)</span></h3>
-          <p style={subSectionHint}>
-            Open a second edition alongside when the text gets dense. Switch on or off any time while reading.
+      {showPrimary && (
+        <>
+          <p style={eyebrowSC}>{book.title}</p>
+          <h2 style={sectionH2}>Pick your text edition</h2>
+          <p style={editionIntro}>
+            Tinct offers each book in the original text and in AI-assisted modern translations. The original is the human translator&rsquo;s work. Modern translations are AI-assisted versions that make older language easier to follow and unlock unfamiliar references — useful for unfamiliar territory, but they may miss nuance a professional translator would catch. Switch any time while reading.
           </p>
+
+          {availableLanguages.length > 1 && (
+            <div style={langChips}>
+              <span style={langChipsLabel}>Reading in</span>
+              {availableLanguages.map(lang => {
+                const selected = readingLanguages.includes(lang)
+                return (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => onToggleLanguage(lang)}
+                    style={langChip(selected)}
+                  >
+                    {LANG_LABELS[lang] || lang} {selected ? '✓' : '+'}
+                  </button>
+                )
+              })}
+            </div>
+          )}
+
+          {noMatchingLanguage && (
+            <p style={noLangNote}>
+              No {readingLanguages.map(l => LANG_LABELS[l] || l).join(' or ')} edition for this book yet. Here&rsquo;s what&rsquo;s available.
+            </p>
+          )}
+
+          <ul style={editionRows}>
+            {sortedEditions.map(ed => (
+              <li key={ed.key}>
+                <button
+                  type="button"
+                  onClick={() => onSelectEdition(ed.key)}
+                  style={editionRow(editionKey === ed.key)}
+                >
+                  <span style={erMain}>
+                    <span style={erLabel}>{ed.label}</span>
+                    {ed.translator && <span style={erSub}>{ed.translator}</span>}
+                  </span>
+                  <span style={erMeta}>
+                    {LANG_LABELS[ed.language] || ed.language}
+                    {' · '}
+                    {ed.style === 'modern' ? 'modern prose' : ed.style === 'original' ? 'original' : ed.style}
+                    {ed.year ? ` · ${ed.year}` : ''}
+                    {ed.style === 'modern' && <span style={aiMark}>ai</span>}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {showAi && (
+            <p style={aiDisclaimer}>
+              Generated by AI. Good for following the plot and unlocking unfamiliar references — but may occasionally miss nuance a professional translator would catch.
+            </p>
+          )}
+        </>
+      )}
+
+      {showCompare && (
+        <div style={mobile && mobileVariant === 'compare' ? undefined : subSectionBlock}>
+          {mobile && mobileVariant === 'compare' ? (
+            <>
+              <p style={eyebrowSC}>{book.title}</p>
+              <h2 style={sectionH2}>Side-by-side companion</h2>
+              <p style={editionIntro}>
+                Open a second edition alongside while you read. Useful when the original gets dense, or when you want to follow the original and a modern translation together. Switch it on or off any time.
+              </p>
+            </>
+          ) : (
+            <>
+              <h3 style={subSectionHeading}>Side-by-side companion <span style={subSectionHeadingNote}>(optional)</span></h3>
+              <p style={subSectionHint}>
+                Open a second edition alongside when the text gets dense. Switch on or off any time while reading.
+              </p>
+            </>
+          )}
           <ul style={editionRows}>
             <li>
               <button
