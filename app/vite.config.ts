@@ -34,6 +34,20 @@ export default defineConfig(({ mode, command }) => {
     {
       name: 'anthropic-proxy',
       configureServer(server) {
+        // Mirror the Cloudflare worker's clean-URL rewrite for the per-book
+        // SEO pages so links like /read/odyssey/summary work in local dev too.
+        // Without this, Vite falls through to the SPA and the user sees the
+        // book-onboarding modal instead of the static SEO page. Regex must
+        // match the worker's seoMatch in src/worker.ts.
+        server.middlewares.use((req: IncomingMessage, _res: ServerResponse, next: () => void) => {
+          const url = req.url || ''
+          const m = url.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?(\?.*)?$/i)
+          if (m) {
+            req.url = `/read/${m[1]}/${m[2]}.html${m[3] || ''}`
+          }
+          next()
+        })
+
         server.middlewares.use('/api/chat', async (req: IncomingMessage, res: ServerResponse) => {
           if (req.method !== 'POST') {
             res.writeHead(405)

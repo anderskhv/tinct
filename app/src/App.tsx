@@ -1259,6 +1259,32 @@ export default function App() {
             addBook(target.id)
             handleBookChange(target.id)
             setBookOnboardingMode('full')
+
+            // SEO deep-link: tour cards on /read/{bookId}/summary link to
+            // /read/{bookId}?chapter=N&edition=X. When those params are
+            // present, jump straight to that chapter+edition and suppress
+            // the preface — the user is arriving with intent, not browsing.
+            const params = new URLSearchParams(window.location.search)
+            const chapterParam = params.get('chapter')
+            const editionParam = params.get('edition')
+            if (chapterParam || editionParam) {
+              storage.set(`book-onboarded:${target.id}`, true)
+              if (editionParam) {
+                const ed = target.editions.find(e => e.key === editionParam)
+                if (ed) {
+                  setLanguage(ed.language)
+                  setStyle(ed.style)
+                }
+              }
+              if (chapterParam) {
+                const n = parseInt(chapterParam, 10)
+                if (!isNaN(n) && n > 0) {
+                  // Defer to after handleBookChange settles state — the chapter
+                  // setter relies on book/edition data being loaded.
+                  setTimeout(() => handleNavigateToChapter(n), 0)
+                }
+              }
+            }
           }
         }
         return

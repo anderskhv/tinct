@@ -1867,6 +1867,17 @@ function isBlockedBot(request: Request): boolean {
   return false
 }
 
+// Per-book SEO meta tags injected into the SPA shell at /read/{bookId} so that
+// crawlers see a book-specific title and description instead of the generic
+// SPA title. Only listed bookIds get this treatment; everything else falls
+// through to the SPA shell with its default title.
+const BOOK_META: Record<string, { title: string; description: string; image?: string }> = {
+  odyssey: {
+    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
+    description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version, modern Danish also available. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
+  },
+}
+
 // ===== Router =====
 
 export default {
@@ -1977,6 +1988,70 @@ export default {
         newResp.headers.set(key, value)
       }
       return newResp
+    }
+
+    // SEO page clean-URL routing.
+    // Per-book pages live as static HTML at /read/{bookId}/(summary|chapters|cast|themes|chapter-N).html.
+    // We want clean URLs without .html for crawlers + sharing — but Cloudflare's
+    // static asset binding has not_found_handling: "none", so /read/odyssey/summary
+    // would 404 here and fall through to the SPA. Rewrite to the .html file before
+    // that happens. SEO_STRATEGY.md has the full routing table.
+    const seoMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?$/i)
+    if (request.method === 'GET' && seoMatch) {
+      const seoUrl = new URL(request.url)
+      seoUrl.pathname = `/read/${seoMatch[1]}/${seoMatch[2]}.html`
+      const seoResp = await env.ASSETS.fetch(new Request(seoUrl.toString(), request))
+      if (seoResp.status === 200) {
+        const newResp = new Response(seoResp.body, seoResp)
+        newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
+        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+          newResp.headers.set(key, value)
+        }
+        return newResp
+      }
+      // SEO file not found — fall through to SPA fallback below
+    }
+
+    // Per-book transactional SEO: inject book-specific meta tags into the SPA
+    // shell for /read/{bookId} routes. The SPA still bootstraps for human
+    // visitors (the body is unchanged), but crawlers see a book-specific
+    // title + description + canonical URL — without which every book URL
+    // shares the generic "Tinct — A New Way to Read" title and competes with
+    // itself in search.
+    const bookMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/i)
+    if (request.method === 'GET' && bookMatch) {
+      const bookId = bookMatch[1].toLowerCase()
+      const meta = BOOK_META[bookId]
+      if (meta) {
+        const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
+        if (appResp.ok) {
+          const html = await appResp.text()
+          const canonical = `https://tinct.app/read/${bookId}`
+          const ogImage = meta.image || 'https://tinct.app/og-image.png'
+          const injected = `<title>${meta.title}</title>
+  <meta name="description" content="${meta.description}">
+  <link rel="canonical" href="${canonical}">
+  <meta property="og:title" content="${meta.title}">
+  <meta property="og:description" content="${meta.description}">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:type" content="book">
+  <meta property="og:site_name" content="Tinct">
+  <meta property="og:image" content="${ogImage}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${meta.title}">
+  <meta name="twitter:description" content="${meta.description}">`
+          const rewritten = html.replace(/<title>[^<]*<\/title>/, injected)
+          const newResp = new Response(rewritten, {
+            status: 200,
+            headers: { 'Content-Type': 'text/html; charset=utf-8' },
+          })
+          newResp.headers.set('Cache-Control', 'no-store')
+          for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+            newResp.headers.set(key, value)
+          }
+          return newResp
+        }
+      }
     }
 
     // Fall through to static assets
