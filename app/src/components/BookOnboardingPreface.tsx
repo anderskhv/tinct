@@ -893,7 +893,7 @@ function TextEditionPane({
   const showAi = sortedEditions.find(e => e.key === editionKey)?.style === 'modern'
   const splitPicked = splitEditionKey !== undefined
   return (
-    <div style={mobile ? proseMobile : prose}>
+    <div style={mobile ? editionPaneMobile : prose}>
       <p style={eyebrowSC}>{book.title}</p>
       <h2 style={sectionH2}>Pick your text edition</h2>
       <p style={editionIntro}>
@@ -1027,7 +1027,7 @@ function AudioEditionPane({
 }) {
   const locked = !isPremium
   return (
-    <div style={mobile ? proseMobile : prose}>
+    <div style={mobile ? editionPaneMobile : prose}>
       <p style={eyebrowSC}>narration</p>
       <h2 style={sectionH2}>Pick your audiobook</h2>
 
@@ -1118,12 +1118,15 @@ const skipLink: React.CSSProperties = {
   lineHeight: 1, padding: '6px 4px', zIndex: 10,
   letterSpacing: '0.02em',
 }
-// Mobile: shorter text + smaller font so it doesn't crowd the section heading.
+// Mobile: shorter text + smaller font, with a paper-tinted halo and
+// extra inset so it sits clearly off the body text.
 const skipLinkMobile: React.CSSProperties = {
   ...skipLink,
-  top: 8, right: 12,
-  fontSize: '0.8rem',
-  padding: '4px 6px',
+  top: 14, right: 14,
+  fontSize: '0.78rem',
+  padding: '4px 8px',
+  background: 'var(--paper)',
+  borderRadius: 4,
 }
 
 const surfaceBase: React.CSSProperties = {
@@ -1176,6 +1179,11 @@ const pageNav: React.CSSProperties = {
   transform: 'translateX(-50%)',
   display: 'flex', alignItems: 'center', gap: 12,
   zIndex: 10,
+  // Paper background occludes any prose / form content that overruns into
+  // the bottom padding zone (rare, but happens when font scales up).
+  background: 'var(--paper)',
+  padding: '4px 10px',
+  borderRadius: 4,
 }
 
 // ── Spread layout ──
@@ -1301,6 +1309,19 @@ const proseMobile: React.CSSProperties = {
   width: '100%',
   maxWidth: '40em',
   margin: '0 auto',
+  textAlign: 'left',
+}
+// Edition + audio panes on mobile are form-like (not paginated), so let
+// them scroll internally rather than getting clipped by the surface
+// `overflow: hidden`. The bottom padding gives the last row breathing
+// room above the page-nav.
+const editionPaneMobile: React.CSSProperties = {
+  width: '100%',
+  height: '100%',
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  WebkitOverflowScrolling: 'touch',
+  paddingBottom: '1.5rem',
   textAlign: 'left',
 }
 
