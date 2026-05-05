@@ -897,7 +897,7 @@ function TextEditionPane({
       <p style={eyebrowSC}>{book.title}</p>
       <h2 style={sectionH2}>Pick your text edition</h2>
       <p style={editionIntro}>
-        Tinct offers each book in the original text and in AI-assisted modern translations. The original is the authoritative version. Modern translations make older language easier to follow and unlock unfamiliar references — useful for unfamiliar territory, but they may miss nuance a professional translator would catch. Switch any time while reading.
+        Tinct offers each book in the original text and in AI-assisted modern translations. The original is the human translator&rsquo;s work. Modern translations are AI-assisted versions that make older language easier to follow and unlock unfamiliar references — useful for unfamiliar territory, but they may miss nuance a professional translator would catch. Switch any time while reading.
       </p>
 
       {availableLanguages.length > 1 && (
@@ -1116,7 +1116,12 @@ const skipLink: React.CSSProperties = {
 const surface: React.CSSProperties = {
   flex: 1, overflow: 'hidden',
   display: 'flex', alignItems: 'stretch',
-  padding: '2rem 3rem 3.5rem',
+  // Bottom padding clears the mobile audio-strip (positioned 72px from
+  // viewport bottom + 34px tall = 34px overlay band ~38–72px above the
+  // mobile-view bottom). 5rem (80px) is enough for both the audio strip
+  // and the page-nav running footer below it. On desktop the same value
+  // gives the footer comfortable breathing room.
+  padding: '2rem 3rem 5rem',
   color: 'var(--text-primary)',
   // Pick up the reader's font preferences (size + family) so the in-app
   // settings sheet drives the preface typography.
@@ -1145,7 +1150,9 @@ const loading: React.CSSProperties = {
 }
 
 const pageNav: React.CSSProperties = {
-  position: 'absolute', bottom: 10, left: '50%',
+  // `bottom` is intentionally NOT set inline so the .page-nav CSS class
+  // can control it: 10px on desktop, 4px on mobile (matches Reader).
+  position: 'absolute', left: '50%',
   transform: 'translateX(-50%)',
   display: 'flex', alignItems: 'center', gap: 12,
   zIndex: 10,

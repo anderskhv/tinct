@@ -53,7 +53,7 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tinct — A New Way to Read</title>
-  <meta name="description" content="A new way to read the classics. Every book in an authoritative English translation. AI companion, modern comparison translation, synced audiobook, character tracker. Reading is free.">
+  <meta name="description" content="A new way to read the classics. Every book in a human translator&rsquo;s English. AI companion, modern comparison translation, synced audiobook, character tracker. Reading is free.">
   <meta property="og:title" content="Tinct — A New Way to Read">
   <meta property="og:description" content="Every classic, every edition. A new way to read.">
   <meta property="og:type" content="website">
@@ -63,14 +63,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-  <!-- Preload the demo screenshots so the fade-stack is ready before
-       the visitor scrolls. Each image is ~60KB, total ~350KB. -->
-  <link rel="preload" as="image" href="/demo-screens/read.jpg">
-  <link rel="preload" as="image" href="/demo-screens/compare.jpg">
-  <link rel="preload" as="image" href="/demo-screens/chat.jpg">
-  <link rel="preload" as="image" href="/demo-screens/feed.jpg">
-  <link rel="preload" as="image" href="/demo-screens/cast.jpg">
-  <link rel="preload" as="image" href="/demo-screens/audio.jpg">
   <style>
     :root {
       --paper: #ece7db;
@@ -91,31 +83,19 @@
     }
     .wrap { position: relative; z-index: 2; }
 
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; transition: background 0.15s, color 0.15s; }
     .btn-primary { background: var(--ink); color: var(--paper); }
     .btn-primary:hover { background: var(--accent); }
-    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
-    .btn-ghost:hover { background: var(--ink); color: var(--paper); }
 
-    @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
-    .caret { display: inline-block; width: 7px; height: 15px; background: var(--ink); margin-left: 3px; vertical-align: -2px; animation: blink 1s infinite; }
-
-    .toggle-pill { display: inline-flex; border: 1px solid var(--ink); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
-    .toggle-pill button { background: none; border: none; padding: 7px 14px; cursor: pointer; color: var(--ink); font-family: inherit; font-size: inherit; letter-spacing: inherit; text-transform: inherit; transition: background 0.15s, color 0.15s; }
-    .toggle-pill button.active { background: var(--ink); color: var(--paper); }
-
-    /* ── Hero ── */
-    /* Full-viewport hero: user always sees headline + CTA first,
-       must scroll to reveal the features section below. */
+    /* ── Hero — hard one-page rule ── */
     .hero {
-      min-height: 100vh;
-      min-height: 100dvh;
-      border-bottom: 3px solid var(--ink);
-      padding: 28px 48px 36px;
+      height: 100vh;
+      height: 100dvh;
+      padding: 28px 48px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 32px;
+      overflow: hidden;
     }
     .hero-nav { display: flex; justify-content: space-between; align-items: center; }
     .hero-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; text-decoration: none; color: var(--ink); }
@@ -126,339 +106,44 @@
     .hero-h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 9vw, 7.25rem); line-height: 0.92; font-weight: 900; letter-spacing: -0.035em; margin: 0; }
     .hero-h1 em { font-style: italic; font-weight: 400; }
     .hero-h1 .accent { color: var(--accent); font-style: normal; }
-    .hero-pitch { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ink); }
-    .hero-sub { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; line-height: 1.3; font-style: italic; font-weight: 400; margin: 0; }
-    .feature-tier-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .hero-pitch { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; padding-top: 20px; border-top: 1px solid var(--ink); }
+    .feature-tier-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
     .feature-tier-label:not(:first-child) { margin-top: 14px; }
-    .feature-list { font-size: 13px; line-height: 1.55; padding-left: 18px; }
-    .cta-block .start-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
-    .cta-block .price-big { font-family: 'Playfair Display', Georgia, serif; font-size: 52px; line-height: 1; font-weight: 900; }
-    .cta-block .price-note { font-size: 12px; color: var(--dim); margin-top: 6px; line-height: 1.5; }
+    .feature-list { font-size: 15px; line-height: 1.55; padding-left: 20px; }
+    .cta-block .start-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+    .cta-block .price-big { font-family: 'Playfair Display', Georgia, serif; font-size: 42px; line-height: 1; font-weight: 900; }
+    .cta-block .price-note { font-size: 13px; color: var(--dim); margin-top: 6px; line-height: 1.5; }
     .cta-block .price-note strong { color: var(--ink); }
 
-    /* ── Feature menu ── */
-    .features-menu { border-bottom: 3px solid var(--ink); }
-    .features-menu-head { padding: 40px 48px 32px; }
-    .features-menu-head h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
-    .features-menu-body { display: grid; grid-template-columns: 220px 1fr; }
-
-    /* Left nav */
-    .feat-nav { border-right: 1px solid var(--ink); }
-    .feat-nav-btn {
-      display: block; width: 100%; text-align: left; background: transparent; border: none;
-      border-bottom: 1px solid var(--ink); padding: 20px 24px; cursor: pointer;
-      transition: background 0.15s;
-    }
-    .feat-nav-btn:last-child { border-bottom: none; }
-    .feat-nav-btn:hover { background: var(--paper-alt); }
-    .feat-nav-btn.active { background: var(--ink); }
-    .feat-nav-num {
-      font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 4px;
-    }
-    .feat-nav-btn.active .feat-nav-num { color: rgba(236,231,219,0.5); }
-    .feat-nav-name {
-      font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700;
-      color: var(--ink); line-height: 1.2;
-    }
-    .feat-nav-btn.active .feat-nav-name { color: var(--paper); }
-
-    /* Exhibit panels */
-    .feat-panels { padding: 36px 40px; min-height: 420px; display: flex; flex-direction: column; justify-content: center; }
-    .feat-panel { display: none; }
-    .feat-panel.active { display: block; }
-
-    .feat-panel-caption { font-size: 13px; color: var(--dim); line-height: 1.6; max-width: 560px; margin-top: 20px; }
-    .feat-panel-caption strong { color: var(--ink); }
-
-    /* Translation panel */
-    .spread-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
-    .spread-rule { height: 1px; background: var(--ink); margin-bottom: 16px; }
-    .spread-wrap .spread-col { transition: opacity 0.3s ease; }
-    .spread-wrap.focus-mod .spread-col.orig { opacity: 0.2; }
-    .spread-wrap.focus-orig .spread-col.mod { opacity: 0.2; }
-    .spread-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; margin-bottom: 14px; }
-    .spread-grid p { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; line-height: 1.5; margin: 0; }
-    .spread-footer { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--ink); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); }
-    .spread-footer .current { color: var(--accent); }
-
-    /* Chat panel */
-    .chat-demo { border: 1px solid var(--ink); background: var(--paper-alt); padding: 20px; }
-    .chat-meta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; display: flex; justify-content: space-between; }
-    .chat-question { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.35; font-style: italic; margin-bottom: 14px; }
-    .chat-divider { height: 1px; background: var(--ink); margin-bottom: 14px; }
-    .chat-who { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .chat-answer { font-size: 14px; line-height: 1.65; min-height: 90px; }
-
-    /* Audio panel */
-    .audio-demo { border: 1px solid var(--ink); background: var(--paper-alt); padding: 24px; }
-    .audio-demo-header { display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); margin-bottom: 16px; }
-    .audio-demo-header .time { color: var(--accent); }
-    .audio-text { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.6; font-style: italic; margin-bottom: 20px; }
-    .audio-text .word { transition: color 0.15s; }
-    .audio-text .word.played { color: var(--dim); }
-    .audio-text .word.current { color: var(--ink); background: rgba(31,74,92,0.12); padding: 0 3px; }
-    .audio-text .word.unplayed { color: #a8a090; }
-    .wave { display: flex; align-items: center; gap: 2px; height: 36px; }
-    .wave .bar { flex: 1; background: #b6b0a0; border-radius: 1px; }
-    .wave .bar.played { background: var(--dim); }
-    .wave .bar.current { background: var(--accent); }
-    .audio-controls { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
-
-    /* Cast panel */
-    .cast-mini { border: 1px solid var(--ink); overflow: hidden; }
-    .cast-mini-list { border-bottom: 1px solid var(--ink); }
-    .cast-mini-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 16px; border-bottom: 1px solid rgba(11,11,11,0.08); cursor: pointer; transition: background 0.12s; }
-    .cast-mini-row:last-child { border-bottom: none; }
-    .cast-mini-row.active { background: var(--paper-alt); }
-    .cast-mini-row:hover:not(.active) { background: rgba(11,11,11,0.04); }
-    .cast-mini-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 600; }
-    .cast-mini-row.active .cast-mini-name { font-weight: 700; }
-    .cast-mini-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); }
-    .cast-mini-card { padding: 16px; }
-    .cast-mini-card-name { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-    .cast-mini-card-desc { font-size: 12px; color: var(--dim); margin-bottom: 14px; }
-    .cast-mini-story { display: grid; grid-template-columns: 52px 1fr; row-gap: 8px; column-gap: 10px; font-size: 12px; line-height: 1.5; }
-    .cast-mini-book { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); padding-top: 2px; }
-
-    /* ── Library ── */
-    .library-section { padding: 80px 48px; border-bottom: 3px solid var(--ink); }
-    .library-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; }
-    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .library-h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.95; font-weight: 900; letter-spacing: -0.04em; margin: 0; }
-    .library-h2 em { color: var(--accent); font-style: italic; font-weight: 400; }
-    .library-note { font-size: 14px; color: var(--dim); max-width: 300px; text-align: right; line-height: 1.5; }
-    .library-note a { color: var(--ink); border-bottom: 1px solid var(--ink); text-decoration: none; }
-    .book-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-    .lib-cell { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 18px 20px; min-height: 100px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; transition: background 0.15s, color 0.15s; }
-    .lib-cell:hover { background: var(--ink); color: var(--paper); }
-    .lib-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--accent); }
-    .lib-cell:hover .lib-num { color: rgba(236,231,219,0.5); }
-    .lib-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.1; margin-top: 6px; }
-    .lib-meta { display: flex; justify-content: space-between; margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); }
-    .lib-cell:hover .lib-meta { color: rgba(236,231,219,0.5); }
-
-    /* ── Pricing ── */
-    .pricing-section { padding: 80px 48px; border-bottom: 1px solid var(--ink); }
-    .pricing-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 48px; align-items: flex-end; }
-    .pricing-h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 0.95; font-weight: 900; letter-spacing: -0.03em; margin: 0; }
-    .pricing-h2 em { color: var(--accent); font-style: italic; font-weight: 400; }
-    .pricing-card { border: 1px solid var(--ink); padding: 28px; }
-    .pricing-card-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
-    .pricing-price { font-family: 'Playfair Display', Georgia, serif; font-size: 72px; line-height: 1; font-weight: 900; margin-top: 20px; }
-    .pricing-price .unit { font-size: 18px; }
-    .pricing-desc { font-size: 13px; color: var(--dim); margin-top: 8px; line-height: 1.5; }
-    .pricing-card.dark { background: var(--ink); color: var(--paper); position: relative; }
-    .pricing-card.dark .pricing-card-label { color: #c2baa8; }
-    .pricing-card.dark .pricing-price .unit { color: #9a9181; }
-    .pricing-card.dark .pricing-desc { color: #c2baa8; }
-    .pricing-badge { position: absolute; top: -12px; right: 20px; background: var(--accent); color: var(--paper); padding: 4px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
-
-    /* ── Live demo section (iframe of the actual app, autoplay tour) ── */
-    .demo-section { padding: 80px 48px; background: var(--paper); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-    .demo-container { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: minmax(200px, 240px) 1fr; gap: 64px; align-items: center; }
-
-    /* Phone frame — holds a fade-stack of 6 product screenshots. We used to
-       embed a live iframe of the SPA here, but cross-document timing races
-       (postMessage, lazy-load mount latency, two competing autoplay clocks)
-       made the demo desync constantly. Static images are deterministic. */
-    .demo-phone {
-      position: relative;
-      width: 260px;
-      height: 540px;
-      background: #0b0b0b;
-      border-radius: 32px;
-      padding: 7px;
-      box-shadow: 0 20px 50px rgba(11, 11, 11, 0.18), 0 6px 14px rgba(11, 11, 11, 0.10);
-      justify-self: center;
-    }
-    .demo-phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 26px;
-      overflow: hidden;
-      background: #1a1a1a;
-      position: relative;
-    }
-    .demo-phone-shot {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      pointer-events: none;
-      display: block;
-    }
-    .demo-phone-shot.is-active {
-      opacity: 1;
-    }
-
-    /* Feature stage — clickable progress dots above, stacked feature cards
-       below. The iframe sends `tinct:tour-step` postMessages on every step
-       change and we toggle which card + dot is active. Clicking a dot
-       sends `tinct:tour-jump` back to the iframe so the embedded tour
-       advances to that step. Autoplay pauses briefly after a click. */
-    .demo-features {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    /* Stage stacks all 6 cards in a single grid cell so the stage sizes to
-       the tallest card (no `position: absolute` clipping). At narrow widths
-       the longer body copy used to overflow a fixed 240px min-height and
-       collide with the controls below. */
-    .demo-feature-stage {
-      position: relative;
-      display: grid;
-      grid-template-areas: 'stack';
-    }
-    .demo-feature {
-      grid-area: stack;
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 18px;
-      align-items: start;
-      padding: 4px 0;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      pointer-events: none;
-    }
-    /* Default visible: first card (used until JS posts a step) */
-    .demo-feature-stage:not([data-active]) .demo-feature:first-child,
-    .demo-feature.is-active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .demo-feature-num {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--dim);
-      padding-top: 12px;
-    }
-    .demo-feature-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 32px;
-      line-height: 1.05;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      color: var(--ink);
-    }
-    .demo-feature-title em { color: var(--accent); font-style: italic; font-weight: 400; }
-    .demo-feature-body {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 19px;
-      line-height: 1.55;
-      color: var(--ink);
-      max-width: 38ch;
-    }
-    .demo-feature-body strong { color: var(--accent); font-weight: 500; }
-    /* Step progress dots — clickable, jump the iframe + caption to a
-       specific feature. Larger hit target via padding. */
-    .demo-progress {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 18px;
-    }
-    .demo-progress-button {
-      background: none;
-      border: 0;
-      padding: 4px;
-      margin: -4px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-    .demo-progress-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(11, 11, 11, 0.22);
-      transition: background 0.3s, transform 0.15s;
-      display: block;
-    }
-    .demo-progress-dot.is-active { background: var(--accent); transform: scale(1.15); }
-    .demo-progress-button:hover .demo-progress-dot { background: var(--accent); }
-
-    /* Playback controls — at the bottom of the right-side text column,
-       aligned with the feature description. Prev / Play-Pause / Next. */
-    .demo-controls {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-start;
-      margin-top: 8px;
-    }
-    .demo-control-btn {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(11, 11, 11, 0.18);
-      background: transparent;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink);
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
-      padding: 0;
-    }
-    .demo-control-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .demo-control-btn svg { width: 16px; height: 16px; }
-    .demo-control-btn.playpause { background: var(--accent); color: var(--paper); border-color: var(--accent); }
-    .demo-control-btn.playpause:hover { background: var(--ink); border-color: var(--ink); }
-
     /* ── Footer ── */
-    .site-footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+    .site-footer { padding: 24px 48px; display: flex; justify-content: center; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
     .site-footer a { color: inherit; text-decoration: none; transition: color 0.15s; }
     .site-footer a:hover { color: var(--accent); }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-contact { text-transform: none; letter-spacing: 0.05em; }
 
-    /* ── Mobile ── */
+    /* ── Tablet ── */
     @media (max-width: 900px) {
-      /* Pack nav + heading at top; hero-pitch floats to bottom — eliminates dead gap */
-      .hero { padding: 20px 20px 28px; gap: 20px; justify-content: flex-start; }
-      .hero-pitch { margin-top: auto; }
+      .hero { padding: 20px 20px 16px; }
       .hero-h1 { font-size: clamp(2.25rem, 11vw, 3.5rem); }
-      .hero-pitch { grid-template-columns: 1fr; gap: 20px; padding-top: 16px; }
-      .hero-sub { font-size: 17px; }
+      .hero-pitch { grid-template-columns: 1fr; gap: 16px; padding-top: 14px; }
       .hero-nav-links { gap: 14px; font-size: 10px; }
-      .demo-section { padding: 48px 20px; }
-      .demo-container { grid-template-columns: 1fr; gap: 28px; max-width: 480px; }
-      .demo-phone { width: 220px; height: 458px; }
-      .demo-phone-screen iframe { transform: scale(0.528); }  /* 206 / 390 */
-      .demo-feature { grid-template-columns: 28px 1fr; gap: 12px; }
-      .demo-feature-title { font-size: 26px; }
-      .demo-feature-body { font-size: 17px; }
-      .features-menu-head { padding: 32px 24px 24px; }
-      .features-menu-body { grid-template-columns: 1fr; }
-      .feat-nav { border-right: none; border-bottom: 1px solid var(--ink); display: grid; grid-template-columns: repeat(2, 1fr); }
-      .feat-nav-btn { border-bottom: 1px solid var(--ink); }
-      .feat-panels { padding: 24px; min-height: auto; }
-      .library-section, .pricing-section { padding: 48px 24px; }
-      .library-head { flex-direction: column; gap: 16px; }
-      .library-note { text-align: left; max-width: 100%; }
-      .book-grid { grid-template-columns: repeat(2, 1fr); }
-      .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
-      .site-footer { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
-      .footer-links { justify-content: center; flex-wrap: wrap; }
-      .spread-grid { grid-template-columns: 1fr; }
-      .spread-grid .spread-col.mod { display: none; }
+      .feature-list { font-size: 14px; }
+      .cta-block .price-big { font-size: 36px; }
+      .site-footer { padding: 12px 20px; }
     }
 
-    /* Very small phones — hide the in-hero feature lists so the CTA stays in view.
-       The full feature breakdown is one scroll away in "What do you get?".
-       Also collapse nav to logo + Sign in only — Library/Pricing not useful for
-       first-time mobile visitors. */
+    /* ── Phone ── */
     @media (max-width: 600px) {
-      .hero-pitch > div:first-of-type { display: none; }
-      .hero-pitch { gap: 16px; }
+      .hero { padding: 16px 18px 12px; }
+      .hero-h1 { font-size: clamp(2rem, 10vw, 3rem); }
+      .hero-pitch { gap: 12px; padding-top: 12px; }
+      .feature-tier-label { font-size: 10px; margin-bottom: 4px; }
+      .feature-tier-label:not(:first-child) { margin-top: 10px; }
+      .feature-list { font-size: 13px; line-height: 1.45; padding-left: 16px; }
+      .cta-block .price-big { font-size: 32px; }
+      .cta-block .price-note { font-size: 12px; }
+      .btn { padding: 12px 24px; font-size: 12px; }
       .hero-nav-links a:not(:last-child) { display: none; }
+      .site-footer { padding: 10px 18px; font-size: 9px; }
     }
   </style>
 </head>
@@ -471,8 +156,6 @@
       <a href="/" class="hero-logo">Tinct<span class="dot">.</span></a>
       <div class="hero-nav-links">
         <a href="/read">Library</a>
-        <a href="/applications">Applications</a>
-        <a href="#pricing">Pricing</a>
         <a href="/read">Sign in</a>
       </div>
     </nav>
@@ -482,19 +165,18 @@
       <span class="accent">with the Classics.</span>
     </h1>
     <div class="hero-pitch">
-      <p class="hero-sub">Read the Classics with modern translations, an AI companion, and synced audiobooks.</p>
       <div>
         <div class="feature-tier-label">Free, forever</div>
         <ul class="feature-list">
-          <li>50+ classics, always expanding.</li>
-          <li>Authoritative translation + modern comparison, side by side.</li>
+          <li>60+ classics, always expanding.</li>
+          <li>Authoritative human translations + modern AI translations, side-by-side.</li>
           <li>Read on your phone, tablet, desktop, or e-reader.</li>
         </ul>
         <div class="feature-tier-label">Premium · $3/mo</div>
         <ul class="feature-list">
-          <li>An AI companion that knows exactly where you are.</li>
-          <li>A character tracker that never spoils.</li>
-          <li>An audiobook that picks up where you stopped.</li>
+          <li>AI companion that knows exactly where you are.</li>
+          <li>Audiobook that picks up where you stopped.</li>
+          <li>Character tracker that never spoils.</li>
         </ul>
       </div>
       <div class="cta-block">
@@ -504,512 +186,11 @@
         <a href="/read" class="btn btn-primary" style="margin-top:14px">Start reading →</a>
       </div>
     </div>
+    <footer class="site-footer">
+      <span><a href="/about">Tinct</a> · 2026</span>
+    </footer>
   </section>
-
-  <!-- Demo: 6 product screenshots fading between each other on a 7s cycle,
-       with right-side captions explaining each step. Replaced the previous
-       live-iframe demo because cross-document timing was unreliable. -->
-  <section class="demo-section">
-    <div class="demo-container">
-      <div class="demo-phone">
-        <div class="demo-phone-screen" id="demo-phone-screen">
-          <img class="demo-phone-shot is-active" data-step="read" src="/demo-screens/read.jpg" alt="Tinct reader — single-edition view">
-          <img class="demo-phone-shot" data-step="compare" src="/demo-screens/compare.jpg" alt="Tinct reader — Compare tab">
-          <img class="demo-phone-shot" data-step="chat" src="/demo-screens/chat.jpg" alt="Tinct reader — Chat companion">
-          <img class="demo-phone-shot" data-step="feed" src="/demo-screens/feed.jpg" alt="Tinct reader — Feed timeline">
-          <img class="demo-phone-shot" data-step="cast" src="/demo-screens/cast.jpg" alt="Tinct reader — Cast tracker">
-          <img class="demo-phone-shot" data-step="audio" src="/demo-screens/audio.jpg" alt="Tinct reader — Audiobook player">
-        </div>
-      </div>
-      <div class="demo-features" id="demo-features">
-        <div class="demo-progress" id="demo-progress">
-          <button class="demo-progress-button" data-jump="read" aria-label="Read"><span class="demo-progress-dot is-active"></span></button>
-          <button class="demo-progress-button" data-jump="compare" aria-label="Compare"><span class="demo-progress-dot"></span></button>
-          <button class="demo-progress-button" data-jump="chat" aria-label="Chat"><span class="demo-progress-dot"></span></button>
-          <button class="demo-progress-button" data-jump="feed" aria-label="Feed"><span class="demo-progress-dot"></span></button>
-          <button class="demo-progress-button" data-jump="cast" aria-label="Cast"><span class="demo-progress-dot"></span></button>
-          <button class="demo-progress-button" data-jump="audio" aria-label="Audio"><span class="demo-progress-dot"></span></button>
-        </div>
-        <div class="demo-feature-stage" id="demo-feature-stage">
-          <div class="demo-feature" data-step="read">
-            <div class="demo-feature-num">01 / 06</div>
-            <div>
-              <div class="demo-feature-title">Read</div>
-              <div class="demo-feature-body">Every book in an <strong>authoritative English translation</strong>. Clean typography, paginated like a physical book. No paywalls — reading is free, forever.</div>
-            </div>
-          </div>
-          <div class="demo-feature" data-step="compare">
-            <div class="demo-feature-num">02 / 06</div>
-            <div>
-              <div class="demo-feature-title">Compare</div>
-              <div class="demo-feature-body">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</div>
-            </div>
-          </div>
-          <div class="demo-feature" data-step="chat">
-            <div class="demo-feature-num">03 / 06</div>
-            <div>
-              <div class="demo-feature-title">Chat</div>
-              <div class="demo-feature-body">An AI that has read every page and knows exactly where you are. Ask about any passage, character, or theme. Set a <strong>reading angle</strong> and every answer is shaped around it.</div>
-            </div>
-          </div>
-          <div class="demo-feature" data-step="feed">
-            <div class="demo-feature-num">04 / 06</div>
-            <div>
-              <div class="demo-feature-title">Feed</div>
-              <div class="demo-feature-body">Remembers everything you've read. Remembers every conversation. <strong>Highlights, notes, and chats</strong> in one timeline that grows with you.</div>
-            </div>
-          </div>
-          <div class="demo-feature" data-step="cast">
-            <div class="demo-feature-num">05 / 06</div>
-            <div>
-              <div class="demo-feature-title">Cast</div>
-              <div class="demo-feature-body">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</div>
-            </div>
-          </div>
-          <div class="demo-feature" data-step="audio">
-            <div class="demo-feature-num">06 / 06</div>
-            <div>
-              <div class="demo-feature-title">Audio</div>
-              <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
-            </div>
-          </div>
-        </div>
-        <div class="demo-controls" id="demo-controls">
-          <button class="demo-control-btn" data-control="prev" aria-label="Previous">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="demo-control-btn playpause" data-control="playpause" aria-label="Pause">
-            <svg id="demo-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
-            <svg id="demo-icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-          </button>
-          <button class="demo-control-btn" data-control="next" aria-label="Next">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What do you get? -->
-  <section class="features-menu">
-    <div class="features-menu-head">
-      <h2>What do you get?</h2>
-    </div>
-    <div class="features-menu-body">
-
-      <!-- Left nav -->
-      <nav class="feat-nav">
-        <button class="feat-nav-btn active" data-target="panel-translation">
-          <span class="feat-nav-num">01</span>
-          <span class="feat-nav-name">Modern translation</span>
-        </button>
-        <button class="feat-nav-btn" data-target="panel-ai">
-          <span class="feat-nav-num">02</span>
-          <span class="feat-nav-name">AI companion</span>
-        </button>
-        <button class="feat-nav-btn" data-target="panel-audio">
-          <span class="feat-nav-num">03</span>
-          <span class="feat-nav-name">Audiobook</span>
-        </button>
-        <button class="feat-nav-btn" data-target="panel-cast">
-          <span class="feat-nav-num">04</span>
-          <span class="feat-nav-name">Character tracker</span>
-        </button>
-      </nav>
-
-      <!-- Right panels -->
-      <div class="feat-panels">
-
-        <!-- 01 — Translation -->
-        <div class="feat-panel active" id="panel-translation">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</p>
-          <div class="spread-header">
-            <span>Hamlet · 1603</span>
-            <div class="toggle-pill" id="spread-toggle">
-              <button data-focus="orig">Original</button>
-              <button data-focus="both" class="active">Both</button>
-              <button data-focus="mod">Modern</button>
-            </div>
-            <span>p. 96 / 214</span>
-          </div>
-          <div class="spread-rule"></div>
-          <div class="spread-wrap" id="spread-wrap">
-            <div class="spread-grid">
-              <p class="spread-col orig">To be, or not to be, that is the question: whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles, and by opposing end them?</p>
-              <p class="spread-col mod">To live, or to die — that is the real question. Is it nobler to endure the injustices that life hurls at you, or to fight back against them all, and in fighting put them to an end?</p>
-            </div>
-            <div class="spread-grid" style="margin-top:12px">
-              <p class="spread-col orig">To die — to sleep, no more; and by a sleep to say we end the heart-ache and the thousand natural shocks that flesh is heir to: 'tis a consummation devoutly to be wish'd.</p>
-              <p class="spread-col mod">To die, to sleep — nothing more — and to say that sleep ends the heartache and the countless shocks that being human forces us to bear: that would be an ending worth longing for.</p>
-            </div>
-          </div>
-          <div class="spread-footer">
-            <span>◀ Act II — Scene ii</span>
-            <span class="current">Act III — Scene i · Hamlet's soliloquy</span>
-            <span>Act III — Scene ii ▶</span>
-          </div>
-        </div>
-
-        <!-- 02 — AI Companion -->
-        <div class="feat-panel" id="panel-ai">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">An AI that has read every page and knows exactly where you are. Ask about any passage. Set a <strong>reading angle</strong>, what draws you to the book, and every response is shaped around it.</p>
-          <div class="chat-demo">
-            <div class="chat-meta">
-              <span>You · Hamlet · Act III, Scene i</span>
-              <span id="chat-counter">1 / 3</span>
-            </div>
-            <div class="chat-question" id="chat-question">What's a "bare bodkin"?</div>
-            <div class="chat-divider"></div>
-            <div class="chat-who">Tinct</div>
-            <div class="chat-answer" id="chat-answer"></div>
-          </div>
-        </div>
-
-        <!-- 03 — Audio -->
-        <div class="feat-panel" id="panel-audio">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</p>
-          <div class="audio-demo">
-            <div class="audio-demo-header">
-              <span>Paradise Lost · Book I</span>
-              <span class="time" id="audio-time">● 0:00 / 14:28</span>
-              <span>1.0×</span>
-            </div>
-            <div class="audio-text" id="audio-text"></div>
-            <div class="wave" id="audio-wave"></div>
-            <div class="audio-controls">
-              <button class="btn btn-ghost" id="audio-play-btn" style="padding:10px 20px;font-size:11px">▶ Play demo</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 04 — Cast -->
-        <div class="feat-panel" id="panel-cast">
-          <p class="feat-panel-caption" style="margin-bottom:20px;margin-top:0">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</p>
-          <div class="cast-mini">
-            <div class="cast-mini-list" id="cast-mini-list">
-              <div class="cast-mini-row" data-char="odysseus"><span class="cast-mini-name">Odysseus</span><span class="cast-mini-tag">Mortal</span></div>
-              <div class="cast-mini-row active" data-char="telemachus"><span class="cast-mini-name">Telemachus</span><span class="cast-mini-tag">Mortal</span></div>
-              <div class="cast-mini-row" data-char="athena"><span class="cast-mini-name">Athena</span><span class="cast-mini-tag">God</span></div>
-              <div class="cast-mini-row" data-char="penelope"><span class="cast-mini-name">Penelope</span><span class="cast-mini-tag">Mortal</span></div>
-            </div>
-            <div class="cast-mini-card" id="cast-mini-card">
-              <div class="cast-mini-card-name">Telemachus</div>
-              <div class="cast-mini-card-desc">Son of Odysseus, coming of age</div>
-              <div class="cast-mini-story">
-                <div class="cast-mini-book">Book 1</div><div>Sits among the suitors feeling powerless. Athena, disguised as Mentes, inspires him to seek news of his father.</div>
-                <div class="cast-mini-book">Book 2</div><div>Calls a public assembly and demands the suitors leave. Secretly prepares a ship to search for his father.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Library -->
-  <section class="library-section">
-    <div class="library-head">
-      <div>
-        <h2 class="library-h2">34 books.<br><em>Always expanding.</em></h2>
-      </div>
-      <div class="library-note">Every book, full text, every edition.<br>Don't see yours? <a href="mailto:contact@tinct.app">Request it.</a></div>
-    </div>
-    <div class="book-grid" id="book-grid"></div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="pricing-section" id="pricing">
-    <div class="pricing-grid">
-      <div>
-        <div class="section-label">§ 06 · Pricing</div>
-        <h2 class="pricing-h2">Reading<br>is <em>free.</em><br>Forever.</h2>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-card-label">The Reader</div>
-        <div class="pricing-price">$0</div>
-        <div class="pricing-desc">Every book. Every edition. Parallel text. No account required.</div>
-      </div>
-      <div class="pricing-card dark">
-        <div class="pricing-badge">First month free</div>
-        <div class="pricing-card-label">The Companion</div>
-        <div class="pricing-price">$3<span class="unit"> / mo</span></div>
-        <div class="pricing-desc">AI companion · audiobook · character tracker · reading journal. Cancel anytime. Less than a cup of coffee.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <span>Tinct · 2026</span>
-    <div class="footer-links">
-      <a href="/read">Library</a>
-      <a href="/applications">Applications</a>
-      <a href="#pricing">Pricing</a>
-      <a href="/about">About Tinct</a>
-      <a href="mailto:contact@tinct.app" class="footer-contact">contact@tinct.app</a>
-    </div>
-    <a href="https://x.com/FallibleMusings">@FallibleMusings</a>
-  </footer>
 
 </div>
-
-<script>
-// Demo: static screenshot fade-stack on a 7s cycle.
-// Six <img> tags layered in the phone frame; one has .is-active. Captions
-// on the right are layered the same way. Right-side controls (dots, Prev,
-// Pause, Next) drive `is-active` on both stacks.
-(function(){
-  var STEP_ORDER = ['read','compare','chat','feed','cast','audio'];
-  var STEP_INTERVAL_MS = 7000;
-  var features = document.querySelectorAll('.demo-feature');
-  var stage = document.getElementById('demo-feature-stage');
-  var dotButtons = document.querySelectorAll('.demo-progress-button');
-  var controls = document.getElementById('demo-controls');
-  var shots = document.querySelectorAll('.demo-phone-shot');
-  if (!stage || !features.length || !shots.length) return;
-
-  var currentStepId = 'read';
-  var isPaused = false;
-  var timerId = null;
-
-  function setActive(stepId) {
-    if (!stepId) return;
-    currentStepId = stepId;
-    stage.setAttribute('data-active', stepId);
-    features.forEach(function(el) {
-      el.classList.toggle('is-active', el.getAttribute('data-step') === stepId);
-    });
-    dotButtons.forEach(function(btn) {
-      var dot = btn.querySelector('.demo-progress-dot');
-      if (dot) dot.classList.toggle('is-active', btn.getAttribute('data-jump') === stepId);
-    });
-    shots.forEach(function(img) {
-      img.classList.toggle('is-active', img.getAttribute('data-step') === stepId);
-    });
-  }
-
-  function startTimer() {
-    stopTimer();
-    timerId = setInterval(advance, STEP_INTERVAL_MS);
-  }
-  function stopTimer() {
-    if (timerId) { clearInterval(timerId); timerId = null; }
-  }
-  function advance() {
-    var idx = STEP_ORDER.indexOf(currentStepId);
-    if (idx < 0) idx = 0;
-    setActive(STEP_ORDER[(idx + 1) % STEP_ORDER.length]);
-  }
-
-  function setPausedUI(paused) {
-    isPaused = paused;
-    var iconPause = document.getElementById('demo-icon-pause');
-    var iconPlay = document.getElementById('demo-icon-play');
-    if (iconPause && iconPlay) {
-      iconPause.style.display = paused ? 'none' : 'block';
-      iconPlay.style.display = paused ? 'block' : 'none';
-    }
-    var btn = document.querySelector('[data-control="playpause"]');
-    if (btn) btn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
-  }
-
-  function jumpTo(stepId) {
-    if (!stepId) return;
-    setActive(stepId);
-    if (!isPaused) startTimer();
-  }
-
-  setActive('read');
-  startTimer();
-
-  dotButtons.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      jumpTo(btn.getAttribute('data-jump'));
-    });
-  });
-
-  if (controls) {
-    controls.addEventListener('click', function(e) {
-      var btn = e.target.closest('[data-control]');
-      if (!btn) return;
-      var control = btn.getAttribute('data-control');
-      if (control === 'playpause') {
-        if (isPaused) { setPausedUI(false); startTimer(); }
-        else { setPausedUI(true); stopTimer(); }
-        return;
-      }
-      var idx = STEP_ORDER.indexOf(currentStepId);
-      if (idx < 0) idx = 0;
-      var nextIdx;
-      if (control === 'prev') nextIdx = (idx - 1 + STEP_ORDER.length) % STEP_ORDER.length;
-      else if (control === 'next') nextIdx = (idx + 1) % STEP_ORDER.length;
-      else return;
-      jumpTo(STEP_ORDER[nextIdx]);
-    });
-  }
-})();
-
-// Tab switching
-(function(){
-  var btns = document.querySelectorAll('.feat-nav-btn');
-  var panels = document.querySelectorAll('.feat-panel');
-  var aiStarted = false;
-  var audioInited = false;
-
-  btns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      btns.forEach(function(b){ b.classList.remove('active'); });
-      panels.forEach(function(p){ p.classList.remove('active'); });
-      btn.classList.add('active');
-      var target = document.getElementById(btn.dataset.target);
-      if (target) target.classList.add('active');
-
-      if (btn.dataset.target === 'panel-ai' && !aiStarted) {
-        aiStarted = true;
-        startAiChat();
-      }
-      if (btn.dataset.target === 'panel-audio' && !audioInited) {
-        audioInited = true;
-        initAudio();
-      }
-    });
-  });
-})();
-
-// Spread toggle
-(function(){
-  var wrap = document.getElementById('spread-wrap');
-  document.getElementById('spread-toggle').querySelectorAll('button').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var f = this.dataset.focus;
-      document.getElementById('spread-toggle').querySelectorAll('button').forEach(function(b){ b.classList.toggle('active', b.dataset.focus === f); });
-      wrap.className = 'spread-wrap' + (f==='mod' ? ' focus-mod' : f==='orig' ? ' focus-orig' : '');
-    });
-  });
-})();
-
-// AI chat typing
-var aiTimer = null;
-function startAiChat(){
-  var QA = [
-    { q: "What\u2019s a \u201Cbare bodkin\u201D?", a: "A small dagger \u2014 a hairpin-sized blade. The word lands harder than \u201Csword\u201D precisely because it\u2019s ordinary: anyone could end their weight with a pin." },
-    { q: "Why does \u201Cconscience make cowards\u201D?", a: "Because thinking kills action. \u201CConscience\u201D here means self-awareness \u2014 the reflective mind imagines consequences and stalls the instinct. An early take on analysis paralysis." },
-    { q: "Is he considering suicide, or arguing?", a: "Closer to an argument. Hamlet builds the case like a lawyer \u2014 and talks himself out of it. The speech ends in paralysis, not resolve." }
-  ];
-  var idx=0, chars=0, phase='type';
-  var qEl=document.getElementById('chat-question');
-  var aEl=document.getElementById('chat-answer');
-  var counterEl=document.getElementById('chat-counter');
-
-  function tick(){
-    var qa=QA[idx];
-    if(phase==='type'){
-      if(chars<qa.a.length){ aEl.innerHTML=qa.a.slice(0,chars)+'<span class="caret"></span>'; chars++; aiTimer=setTimeout(tick,18); }
-      else{ phase='hold'; aiTimer=setTimeout(tick,3200); }
-    } else if(phase==='hold'){
-      phase='next'; aiTimer=setTimeout(tick,400);
-    } else {
-      idx=(idx+1)%QA.length; chars=0; phase='type';
-      qEl.textContent=QA[idx].q;
-      aEl.textContent='';
-      counterEl.textContent=(idx+1)+' / '+QA.length;
-      aiTimer=setTimeout(tick,200);
-    }
-  }
-  qEl.textContent=QA[0].q;
-  tick();
-}
-
-// Audio
-function initAudio(){
-  var text="Of Man's first disobedience, and the fruit of that forbidden tree, whose mortal taste brought death into the World, and all our woe\u2026";
-  var words=text.split(' ');
-  var textEl=document.getElementById('audio-text');
-  var waveEl=document.getElementById('audio-wave');
-  var playBtn=document.getElementById('audio-play-btn');
-  var timeEl=document.getElementById('audio-time');
-  var BARS=100, pos=32, playing=false, timer=null;
-  var barEls=[];
-
-  for(var i=0;i<BARS;i++){
-    var h=3+(Math.sin(i*0.5)*0.5+Math.cos(i*0.31)*0.3+0.5)*28;
-    var bar=document.createElement('div'); bar.className='bar'; bar.style.height=Math.max(2,h)+'px';
-    waveEl.appendChild(bar); barEls.push(bar);
-  }
-  function render(){
-    var wi=Math.floor((pos/BARS)*words.length);
-    textEl.innerHTML=words.map(function(w,i){ var cls=i<wi?'played':i===wi?'current':'unplayed'; return '<span class="word '+cls+'">'+w+' </span>'; }).join('');
-    barEls.forEach(function(b,i){ b.className='bar'+(i===pos?' current':i<pos?' played':''); });
-    var m=Math.floor(pos*0.3), s=String(Math.floor((pos*0.3*60)%60)).padStart(2,'0');
-    timeEl.textContent='● '+m+':'+s+' / 14:28';
-  }
-  function step(){ if(!playing) return; pos=pos>=BARS-1?0:pos+1; render(); timer=setTimeout(step,120); }
-  playBtn.addEventListener('click', function(){ playing=!playing; this.textContent=playing?'❚❚ Pause demo':'▶ Play demo'; if(playing) step(); else clearTimeout(timer); });
-  render();
-}
-
-// Cast mini
-(function(){
-  var CHARS = {
-    odysseus: { name:'Odysseus', desc:'King of Ithaca, coming home from Troy', story:[['Book 1','Absent from Ithaca. The gods debate his fate; Athena pleads his case.'],['Book 5','Released from Calypso\u2019s island. Builds a raft; shipwrecked by Poseidon.']] },
-    telemachus: { name:'Telemachus', desc:'Son of Odysseus, coming of age', story:[['Book 1','Sits among the suitors feeling powerless. Athena inspires him to seek news of his father.'],['Book 2','Calls a public assembly, demands the suitors leave, and secretly prepares a ship.']] },
-    athena: { name:'Athena', desc:'Goddess of wisdom; his advocate on Olympus', story:[['Book 1','Pleads Odysseus\u2019s case before Zeus. Descends to Ithaca disguised as Mentes.'],['Book 2','Disguised as Mentor, helps Telemachus slip past the suitors and sail for Pylos.']] },
-    penelope: { name:'Penelope', desc:'Wife of Odysseus; holds Ithaca together', story:[['Book 1','Weeps over her husband\u2019s long absence; the suitors consume her household.'],['Book 2','Her ruse of weaving and un-weaving Laertes\u2019s shroud is discovered.']] }
-  };
-  var rows = document.querySelectorAll('.cast-mini-row');
-  var card = document.getElementById('cast-mini-card');
-
-  function show(name){
-    var c = CHARS[name]; if(!c) return;
-    rows.forEach(function(r){ r.classList.toggle('active', r.dataset.char===name); });
-    card.innerHTML = '<div class="cast-mini-card-name">'+c.name+'</div><div class="cast-mini-card-desc">'+c.desc+'</div><div class="cast-mini-story">'+c.story.map(function(s){ return '<div class="cast-mini-book">'+s[0]+'</div><div>'+s[1]+'</div>'; }).join('')+'</div>';
-  }
-  rows.forEach(function(r){ r.addEventListener('click', function(){ show(this.dataset.char); }); });
-})();
-
-// Library grid
-(function(){
-  var BOOKS=[
-    {t:"The Odyssey",a:"Homer",y:"c. 700 BC",id:"odyssey"},
-    {t:"The Epic of Gilgamesh",a:"Anonymous",y:"c. 2100 BC",id:"gilgamesh"},
-    {t:"The Aeneid",a:"Virgil",y:"c. 19 BC",id:"the-aeneid"},
-    {t:"Meditations",a:"Marcus Aurelius",y:"c. 180",id:"meditations"},
-    {t:"Confessions",a:"Augustine",y:"c. 400",id:"confessions"},
-    {t:"The Divine Comedy",a:"Dante Alighieri",y:"1320",id:"divine-comedy"},
-    {t:"The Republic",a:"Plato",y:"c. 375 BC",id:"the-republic"},
-    {t:"Hamlet",a:"Shakespeare",y:"1603",id:"hamlet"},
-    {t:"Macbeth",a:"Shakespeare",y:"1606",id:"macbeth"},
-    {t:"Romeo and Juliet",a:"Shakespeare",y:"1597",id:"romeo-and-juliet"},
-    {t:"The Tempest",a:"Shakespeare",y:"1611",id:"the-tempest"},
-    {t:"A Midsummer Night\u2019s Dream",a:"Shakespeare",y:"1596",id:"midsummer"},
-    {t:"Paradise Lost",a:"John Milton",y:"1674",id:"paradise-lost"},
-    {t:"Pride and Prejudice",a:"Jane Austen",y:"1813",id:"pride-and-prejudice"},
-    {t:"Frankenstein",a:"Mary Shelley",y:"1818",id:"frankenstein"},
-    {t:"Jane Eyre",a:"Charlotte Bront\u00eb",y:"1847",id:"jane-eyre"},
-    {t:"Moby Dick",a:"Herman Melville",y:"1851",id:"moby-dick"},
-    {t:"Great Expectations",a:"Charles Dickens",y:"1861",id:"great-expectations"},
-    {t:"Crime and Punishment",a:"Dostoevsky",y:"1866",id:"crime-and-punishment"},
-    {t:"War and Peace",a:"Leo Tolstoy",y:"1869",id:"war-and-peace"},
-    {t:"The Awakening",a:"Kate Chopin",y:"1899",id:"the-awakening"},
-    {t:"Ulysses",a:"James Joyce",y:"1922",id:"ulysses"},
-    {t:"The Art of War",a:"Sun Tzu",y:"c. 500 BC",id:"the-art-of-war"},
-    {t:"The Histories",a:"Herodotus",y:"c. 430 BC",id:"the-histories"},
-    {t:"The Bible",a:"Various",y:"\u2014",id:"bible"},
-    {t:"The Manual",a:"Epictetus",y:"c. 125",id:"the-manual"},
-    {t:"Imitation of Christ",a:"Thomas \u00e0 Kempis",y:"c. 1420",id:"imitation-of-christ"},
-    {t:"Enchiridion",a:"Epictetus",y:"c. 125",id:"enchiridion"},
-    {t:"Jerusalem",a:"William Blake",y:"1820",id:"jerusalem"},
-    {t:"Apology",a:"Plato",y:"c. 399 BC",id:"apology"},
-    {t:"Symposium",a:"Plato",y:"c. 385 BC",id:"symposium"},
-    {t:"Phaedo",a:"Plato",y:"c. 380 BC",id:"phaedo"},
-    {t:"Niels Lyhne",a:"J.P. Jacobsen",y:"1880",id:"niels-lyhne"},
-    {t:"Markings",a:"Dag Hammarskj\u00f6ld",y:"1963",id:"markings"}
-  ];
-  document.getElementById('book-grid').innerHTML = BOOKS.map(function(b,i){
-    return '<a href="/read/'+b.id+'" class="lib-cell"><div><div class="lib-num">'+String(i+1).padStart(3,'0')+'</div><div class="lib-title">'+b.t+'</div></div><div class="lib-meta"><span>'+b.a+'</span><span>'+b.y+'</span></div></a>';
-  }).join('');
-})();
-</script>
 </body>
 </html>

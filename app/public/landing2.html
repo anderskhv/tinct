@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tinct — Demo Lab</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="prefetch" href="/read?demo=1" as="document">
+  <link rel="prefetch" href="/app.html" as="document">
+  <link rel="prefetch" href="/data/editions/hamlet-original-en.json">
+  <link rel="prefetch" href="/data/editions/hamlet-modern-en.json">
+  <link rel="prefetch" href="/data/editions/hamlet-threads.json">
+  <link rel="prefetch" href="/data/onboarding/hamlet.json">
+  <style>
+    :root {
+      --paper: #ece7db;
+      --paper-alt: #dfd8c4;
+      --ink: #0b0b0b;
+      --dim: #6a6555;
+      --accent: #1f4a5c;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; height: 100dvh; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+
+    .lab-banner {
+      flex-shrink: 0;
+      background: var(--ink); color: var(--paper); padding: 10px 24px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; text-align: center;
+    }
+    .lab-banner em { color: #c2baa8; font-style: normal; }
+
+    .demo-section {
+      flex: 1; min-height: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 48px; overflow: hidden;
+    }
+    .demo-container {
+      max-width: 1080px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: auto 1fr; gap: 48px;
+      align-items: center;
+    }
+
+    .demo-phone {
+      position: relative;
+      height: min(580px, calc(100dvh - 120px));
+      aspect-ratio: 280 / 580;
+      background: #0b0b0b; border-radius: 36px; padding: 8px;
+      box-shadow: 0 24px 60px rgba(11,11,11,0.20), 0 8px 18px rgba(11,11,11,0.12);
+      justify-self: center;
+    }
+    .demo-phone-screen {
+      width: 100%; height: 100%; border-radius: 28px;
+      overflow: hidden; background: #1a1612; position: relative;
+    }
+    .demo-phone-screen::before {
+      content: "Tinct.";
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #756858;
+      pointer-events: none; z-index: 0;
+    }
+    .demo-phone-notch {
+      position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 22px;
+      background: #0b0b0b; border-radius: 12px;
+      z-index: 3; pointer-events: none;
+    }
+    .demo-phone-screen iframe {
+      position: absolute; top: 0; left: 0;
+      width: 390px; height: 834px;
+      border: 0; display: block; background: #1a1612;
+      transform-origin: top left;
+      z-index: 1;
+    }
+
+    .demo-features { display: flex; flex-direction: column; gap: 20px; }
+
+    .demo-progress { display: flex; gap: 8px; margin-bottom: 4px; }
+    .demo-progress-button {
+      background: none; border: 0; padding: 4px; margin: -4px;
+      cursor: pointer; border-radius: 50%;
+    }
+    .demo-progress-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(11,11,11,0.20);
+      transition: background 0.3s, transform 0.25s;
+      display: block;
+    }
+    .demo-progress-dot.is-active { background: var(--accent); transform: scale(1.25); }
+    .demo-progress-button:hover .demo-progress-dot { background: var(--accent); }
+
+    .demo-feature-stage {
+      position: relative; display: grid; grid-template-areas: 'stack';
+      min-height: 160px;
+    }
+    .demo-feature {
+      grid-area: stack;
+      padding: 4px 0;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+    .demo-feature.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    .demo-feature-num {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: 0.18em; color: var(--accent);
+      margin-bottom: 8px; text-transform: uppercase;
+    }
+    .demo-feature-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px; line-height: 1.05; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 14px; color: var(--ink);
+    }
+    .demo-feature-body {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 19px; line-height: 1.55; color: var(--ink); max-width: 36ch;
+    }
+    .demo-feature-body strong { color: var(--accent); font-weight: 500; }
+
+    .demo-controls { display: flex; gap: 10px; justify-content: flex-start; margin-top: 8px; }
+    .demo-control-btn {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(11,11,11,0.18); background: transparent;
+      border-radius: 50%; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; color: var(--ink);
+      transition: background 0.15s, border-color 0.15s, color 0.15s; padding: 0;
+    }
+    .demo-control-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .demo-control-btn svg { width: 16px; height: 16px; }
+    .demo-control-btn.playpause { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    .demo-control-btn.playpause:hover { background: var(--ink); border-color: var(--ink); }
+
+    @media (max-width: 960px) {
+      .demo-section { padding: 0 24px; }
+      .demo-container {
+        grid-template-columns: 1fr; gap: 24px;
+        max-width: 560px;
+      }
+      .demo-phone { height: min(460px, calc(100dvh - 280px)); padding: 7px; border-radius: 32px; }
+      .demo-phone-screen { border-radius: 26px; }
+      .demo-features { align-items: center; text-align: center; gap: 12px; }
+      .demo-feature-body { margin: 0 auto; }
+      .demo-feature-stage { min-height: 130px; }
+      .demo-progress { justify-content: center; }
+      .demo-controls { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .demo-section { padding: 0 16px; }
+      .demo-container { gap: 16px; max-width: 100%; }
+      .demo-phone { height: min(380px, calc(100dvh - 240px)); padding: 6px; border-radius: 28px; }
+      .demo-phone-screen { border-radius: 22px; }
+      .demo-phone-notch { width: 60px; height: 18px; top: 5px; border-radius: 10px; }
+      .demo-feature-title { font-size: 24px; margin-bottom: 10px; }
+      .demo-feature-body { font-size: 16px; line-height: 1.4; }
+      .demo-feature-stage { min-height: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lab-banner">demo lab — isolated from <em>tinct.app</em> — iterate freely</div>
+
+  <section class="demo-section">
+    <div class="demo-container">
+      <div class="demo-phone">
+        <div class="demo-phone-screen">
+          <div class="demo-phone-notch"></div>
+          <iframe src="/read?demo=1" title="Tinct product demo" referrerpolicy="no-referrer"></iframe>
+        </div>
+      </div>
+      <div class="demo-features" id="demo-features">
+        <div class="demo-progress" id="demo-progress">
+          <button class="demo-progress-button" data-jump="read" aria-label="Read"><span class="demo-progress-dot is-active"></span></button>
+          <button class="demo-progress-button" data-jump="compare" aria-label="Compare"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="cast" aria-label="Cast"><span class="demo-progress-dot"></span></button>
+          <button class="demo-progress-button" data-jump="audio" aria-label="Audio"><span class="demo-progress-dot"></span></button>
+        </div>
+        <div class="demo-feature-stage" id="demo-feature-stage" data-active="read">
+          <div class="demo-feature is-active" data-step="read">
+            <div class="demo-feature-num">01</div>
+            <div class="demo-feature-title">Read</div>
+            <div class="demo-feature-body">Every book in a <strong>human translator&rsquo;s English</strong>. Clean typography, paginated like a physical book. No paywalls — reading is free, forever.</div>
+          </div>
+          <div class="demo-feature" data-step="compare">
+            <div class="demo-feature-num">02</div>
+            <div class="demo-feature-title">Compare</div>
+            <div class="demo-feature-body">Every book in the original text alongside a <strong>contemporary translation</strong>. Read both at once, focus on one, or switch between them as you go.</div>
+          </div>
+          <div class="demo-feature" data-step="cast">
+            <div class="demo-feature-num">03</div>
+            <div class="demo-feature-title">Cast</div>
+            <div class="demo-feature-body">Track every character as they appear. What they've done, how they connect, why they matter. <strong>Only up to where you are.</strong> Never a spoiler.</div>
+          </div>
+          <div class="demo-feature" data-step="audio">
+            <div class="demo-feature-num">04</div>
+            <div class="demo-feature-title">Audio</div>
+            <div class="demo-feature-body">Every book has a <strong>synced audiobook</strong>. The player follows exactly where your eyes are. Switch between reading and listening without losing your place.</div>
+          </div>
+        </div>
+        <div class="demo-controls" id="demo-controls">
+          <button class="demo-control-btn" data-control="prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="demo-control-btn playpause" data-control="playpause" aria-label="Pause">
+            <svg id="demo-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+            <svg id="demo-icon-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          </button>
+          <button class="demo-control-btn" data-control="next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/demo.js"></script>
+</body>
+</html>
