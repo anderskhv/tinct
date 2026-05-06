@@ -123,28 +123,30 @@ git diff --cached --stat | sed 's/^/  /'
 # ---------------------------------------------------------------------------
 heading "5. Local build check (committed-state simulation)"
 # ---------------------------------------------------------------------------
-note "Stashing unstaged Window B work so the build sees only what would ship..."
-STASH_REF=""
-if ! git diff --quiet || ! git ls-files --others --exclude-standard | grep -q .; then
-  STASH_REF=$(git stash create "seo-deploy temporary parking" || true)
-  if [[ -n "$STASH_REF" ]]; then
-    git stash store -m "seo-deploy parking" "$STASH_REF" >/dev/null
-    git checkout -- . 2>/dev/null || true
-    git clean -fd 2>/dev/null || true
+# CRITICAL: use `git stash -u` (includes untracked) — never `git clean -fd`.
+# A previous version of this script used `stash create` + `clean -fd`, which
+# silently destroyed untracked files (TopUpModal.tsx, services/dictionary.ts)
+# during a deploy on 2026-05-05. Untracked files are NOT in `git stash create`
+# unless you pass `-u`, and `git clean -fd` deletes them irreversibly.
+note "Stashing all unstaged Window B work (tracked + untracked)..."
+STASHED=0
+if ! git diff --quiet HEAD -- ':!app/scripts/seo-deploy.sh' ':!docs/seo-pages-blueprint.md' \
+   || git ls-files --others --exclude-standard | grep -qv -e '^app/scripts/seo-deploy.sh$' -e '^docs/seo-pages-blueprint.md$'; then
+  if git stash push -u --keep-index -m "seo-deploy parking — Window B WIP" >/dev/null 2>&1; then
+    STASHED=1
   fi
 fi
 
 note "Running npm run build in $APP_DIR ..."
-( cd "$APP_DIR" && npm run build ) || {
+if ! ( cd "$APP_DIR" && npm run build ); then
   echo "BUILD FAILED. Restoring Window B work and aborting." >&2
-  if [[ -n "$STASH_REF" ]]; then git stash pop --index || git stash pop; fi
+  if [[ $STASHED -eq 1 ]]; then git stash pop; fi
   exit 1
-}
+fi
 
-# Restore Window B
-if [[ -n "$STASH_REF" ]]; then
+if [[ $STASHED -eq 1 ]]; then
   note "Restoring Window B working tree..."
-  git stash pop --index 2>/dev/null || git stash pop
+  git stash pop
 fi
 
 # ---------------------------------------------------------------------------
