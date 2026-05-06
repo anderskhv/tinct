@@ -30,6 +30,13 @@ app/public-audio-backup/
 app/tts/audio/
 app/src/data/editions/
 
+# Local dev tooling — TTS pipelines, raw book sources, audio voice tests.
+# All regeneratable; heavy; not used by the deployed app.
+app/tts/
+books/raw/
+books/tts-test/
+books/*.log
+
 # Archived heavy binaries — kept locally for reference but never tracked
 archive/build-artifacts/
 
