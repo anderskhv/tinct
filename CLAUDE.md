@@ -23,6 +23,20 @@ One repo, one remote (`https://github.com/anderskhv/tinct.git`).
 
 ---
 
+## Telling Anders to "hard refresh"
+
+Anders is on a **Danish Mac keyboard**. `Cmd+Shift+R` may do nothing because the `R` key isn't where browsers expect on a DK layout. Stop telling him to press that.
+
+**Always recommend in this order:**
+
+1. **Open a private/incognito window** (`Cmd+Shift+N` in Chrome, `Cmd+Shift+P` in Safari/Firefox — these DO work on DK layout). Most reliable, keyboard-agnostic, totally cache-free.
+2. **Right-click the browser reload button → "Empty Cache and Hard Reload"** (Chrome with DevTools open). One click, no shortcut.
+3. **Safari only:** Develop menu → Empty Caches, then reload. (Develop menu must be enabled in Preferences → Advanced.)
+
+For embedded iframes (like the landing-page demo), private window is the only reliable option — iframe caches separately and shortcut-based hard-reload often misses it.
+
+---
+
 ## API Cost Rule — HARD BAN
 
 **Zero Anthropic API spend in development. No exceptions.**
@@ -241,3 +255,5 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Acclaim quotes — primary sources only, fact-checked]** — Every acclaim quote must be verifiable in a primary source (Wikipedia with citations, Letters, published essays). No folklore (e.g., the "Joyce learned Danish for Niels Lyhne" story is actually about Joyce learning Norwegian for Ibsen — do not ship). Fact-checking agent runs over each batch of generated book content before commit.
 
 - **[Book Onboarding flow rewrite + manifesto retired 2026-04-29]** — The unbuilt 6-step "Account Onboarding" manifesto (HTML at `Design refs/Account Onboarding.html`) is formally **dropped**. What we now mean by "post-signup onboarding" is the Feature Tour. The Account Onboarding component referenced in earlier decisions (User Journeys v1, Account Onboarding Rewrite 2026-04-21) was design-only and never built; we're not building it. Feature Tour fills that role.
+
+- **[Sign-out wipes local data 2026-05-06]** — Privacy/data-leak fix. SupabaseStorageProvider mirrors every cloud write to localStorage as a fast cache. Before this fix, sign-out only cleared the auth token; the cache survived, so (a) "Read"/"Library" on the landing page jumped into the previous account's state, and (b) the sign-in migration in `App.tsx` copied that cache into the next account's Supabase row, polluting fresh accounts. Fix: `clearLocalUserData()` in `services/storage.ts` wipes all `tinct:*` and `tinct-*` keys except an allowlist (`tinct:device-preferences`, `tinct-home-role-dismissed`, `tinct-banner-dismissed`, `tinct:last-user-id`). Called on `signOut()` (which then hard-redirects to `/` so React in-memory state can't re-persist) and via the user-switch guard (`tinct:last-user-id`) in App.tsx — if the signing-in user differs from the last one, wipe before migration runs.

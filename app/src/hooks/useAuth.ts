@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import type { User, Session } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured } from '../services/supabase'
+import { clearLocalUserData } from '../services/storage'
 import type { UserProfile } from '../types'
 
 interface UseAuthReturn {
@@ -156,9 +157,10 @@ export function useAuth(): UseAuthReturn {
   const signOut = useCallback(async () => {
     if (!supabase) return
     await supabase.auth.signOut()
-    setUser(null)
-    setSession(null)
-    setProfile(null)
+    clearLocalUserData()
+    // Hard-redirect so React in-memory state (useLibrary, position, etc.)
+    // can't re-persist wiped data on the next render. Lands on landing.html.
+    window.location.href = '/'
   }, [])
 
   const resetPassword = useCallback(async (email: string) => {

@@ -42,7 +42,7 @@ import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
 import { useLibrary } from './hooks/useLibrary'
 import { useReadingLog } from './hooks/useReadingLog'
-import { storage, setStorageProvider, localStorageProvider } from './services/storage'
+import { storage, setStorageProvider, localStorageProvider, clearLocalUserData } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation } from './types'
 import { makeEditionKey } from './types'
@@ -115,23 +115,36 @@ export default function App() {
       }, 5000)
       provider.init().then(() => {
         clearTimeout(initTimeout)
-        // Migrate any existing localStorage data to Supabase.
-        // For position keys, prefer whichever has the more recent updatedAt timestamp.
-        // For all other keys, only write to Supabase if it has no value yet.
-        const localData = localStorageProvider.getAllData()
-        for (const [key, value] of Object.entries(localData)) {
-          const cloudValue = provider.get(key)
-          if (!cloudValue) {
-            provider.set(key, value)
-          } else if (key.startsWith('position:')) {
-            // Prefer the more recently updated position (cross-device conflict resolution)
-            const local = value as { updatedAt?: number }
-            const cloud = cloudValue as { updatedAt?: number }
-            if (local?.updatedAt && cloud?.updatedAt && local.updatedAt > cloud.updatedAt) {
+        // Detect user-switch on this device: if the last-known user id differs
+        // from the one signing in now, the localStorage cache belongs to a
+        // different account and must NOT migrate to this user's cloud row.
+        // (Without this, signing out and creating a new account inherited the
+        // previous account's library, journals, and chats — both locally and
+        // in the new Supabase row.)
+        const LAST_USER_KEY = 'tinct:last-user-id'
+        const lastUserId = localStorage.getItem(LAST_USER_KEY)
+        const isUserSwitch = lastUserId !== null && lastUserId !== user.id
+        if (isUserSwitch) {
+          clearLocalUserData()
+        } else {
+          // Same user returning OR first-ever sign-in (anonymous → account):
+          // migrate localStorage entries up to cloud where cloud is empty.
+          // For position keys, prefer the more recent updatedAt timestamp.
+          const localData = localStorageProvider.getAllData()
+          for (const [key, value] of Object.entries(localData)) {
+            const cloudValue = provider.get(key)
+            if (!cloudValue) {
               provider.set(key, value)
+            } else if (key.startsWith('position:')) {
+              const local = value as { updatedAt?: number }
+              const cloud = cloudValue as { updatedAt?: number }
+              if (local?.updatedAt && cloud?.updatedAt && local.updatedAt > cloud.updatedAt) {
+                provider.set(key, value)
+              }
             }
           }
         }
+        try { localStorage.setItem(LAST_USER_KEY, user.id) } catch { /* ignore */ }
         setStorageProvider(provider)
         supabaseProviderRef.current = provider
         // Start real-time sync for cross-device updates. This is best-effort

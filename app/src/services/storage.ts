@@ -71,6 +71,37 @@ class LocalStorageProvider implements StorageProvider {
 // Singleton localStorage provider (always available)
 export const localStorageProvider = new LocalStorageProvider()
 
+const PRESERVED_KEYS: ReadonlySet<string> = new Set([
+  'tinct:device-preferences',
+  'tinct-home-role-dismissed',
+  'tinct-banner-dismissed',
+  'tinct:last-user-id',
+])
+
+/**
+ * Wipe the previous user's localStorage cache. SupabaseStorageProvider mirrors
+ * every write to localStorage as a fast cache, so on sign-out / user-switch the
+ * next account would otherwise inherit the previous account's library, chats,
+ * and journals — and the sign-in migration would copy them into the new
+ * account's cloud row. Auth tokens (`sb-*`) are owned by Supabase and untouched.
+ */
+export function clearLocalUserData(): void {
+  try {
+    const toRemove: string[] = []
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (!key) continue
+      if (PRESERVED_KEYS.has(key)) continue
+      if (key.startsWith('tinct:') || key.startsWith('tinct-')) {
+        toRemove.push(key)
+      }
+    }
+    for (const key of toRemove) localStorage.removeItem(key)
+  } catch (e) {
+    console.warn('clearLocalUserData failed:', e)
+  }
+}
+
 // Active storage provider — starts as localStorage, can be swapped
 let activeProvider: StorageProvider = localStorageProvider
 
