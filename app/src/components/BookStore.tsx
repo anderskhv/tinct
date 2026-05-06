@@ -177,7 +177,6 @@ export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelect
       <div className="store-inner">
         <div className="store-header">
           <h1 className="store-title">Tinct<span className="store-title-dot">.</span></h1>
-          <p className="store-subtitle">A new way to read</p>
           {onClose && (
             <button className="store-close" onClick={onClose}>&times;</button>
           )}

@@ -156,7 +156,12 @@ export interface ThreadCharacter {
   id: string
   name: Record<string, string>
   epithet: Record<string, string>
-  role: 'mortal' | 'god' | 'creature'
+  role: 'mortal' | 'god' | 'creature' | 'people'
+  /** Display tier. Defaults to 'supporting' when omitted. Minor entries
+   *  may omit per-chapter summaries and rely on `description` instead. */
+  prominence?: 'major' | 'supporting' | 'minor'
+  /** Standalone bio for entries without per-chapter summaries (typically minors). */
+  description?: Record<string, string>
   wikipediaUrl?: string
   searchNames: string[]
   chapters: Record<string, Record<string, string>>

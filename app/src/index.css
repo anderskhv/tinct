@@ -3947,6 +3947,93 @@ body {
   color: #8ab88a;
 }
 
+.thread-role-people {
+  background: #e0d8e8;
+  color: #5a4775;
+}
+
+[data-theme="dark"] .thread-role-people {
+  background: #322a3d;
+  color: #b39ad6;
+}
+
+.thread-card-minor {
+  opacity: 0.85;
+}
+.thread-card-minor .thread-name {
+  font-weight: 500;
+}
+
+.threads-scope {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--text-tertiary);
+  margin-left: 6px;
+}
+
+.thread-description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 8px 0 0;
+}
+
+.thread-also-in {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-subtle, var(--border));
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+.thread-also-in-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  margin-right: 8px;
+}
+.thread-also-in-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+.thread-also-in-link:hover {
+  text-decoration-style: solid;
+}
+.thread-also-in-sep {
+  color: var(--text-tertiary);
+}
+.thread-also-in-muted {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.thread-show-more-btn {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.thread-show-more-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
 .thread-chapter-count {
   font-size: 0.72rem;
   color: var(--text-tertiary);
@@ -5159,9 +5246,8 @@ body {
 }
 
 .store-inner {
-  max-width: 880px;
   margin: 0 auto;
-  padding: 56px 32px 80px;
+  padding: 56px 48px 80px;
 }
 
 .store-header {
@@ -5181,13 +5267,6 @@ body {
 
 .store-title-dot {
   color: var(--accent);
-}
-
-.store-subtitle {
-  font-size: 1rem;
-  color: var(--dim);
-  font-family: var(--font-serif);
-  font-style: italic;
 }
 
 .store-grid {

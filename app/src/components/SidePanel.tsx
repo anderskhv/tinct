@@ -211,6 +211,7 @@ export function SidePanel(props: SidePanelProps) {
       currentChapter={currentChapter}
       editionKey={editionKey}
       language={language}
+      sections={sections}
       getMentions={getMentions}
       onNavigateToChapter={onNavigateToChapter}
       visibleParagraphs={visibleParagraphs}
