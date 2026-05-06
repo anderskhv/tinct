@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import type { Session } from '@supabase/supabase-js'
+import type { Session, User } from '@supabase/supabase-js'
 import type { UserProfile } from '../types'
 
 const MONTHLY_MESSAGE_LIMIT = 100
@@ -24,6 +24,7 @@ interface UseBalanceReturn {
 export function useBalance(
   session: Session | null,
   profile: UserProfile | null,
+  user?: User | null,
 ): UseBalanceReturn {
   const isAnonymous = !session
 
@@ -34,10 +35,17 @@ export function useBalance(
     setLocalDeducted(0)
   }, [profile?.messages_used_this_period, profile?.message_balance])
 
+  // Mirror worker.ts: 30-day Premium trial from account creation
+  const createdAt = user?.created_at ? new Date(user.created_at) : null
+  const isInTrial = createdAt
+    ? (30 - Math.floor((Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24))) > 0
+    : false
+
   const isSubscribed = profile?.subscription_status === 'active' ||
     (profile?.subscription_status === 'canceled' &&
      !!profile?.subscription_period_end &&
-     new Date(profile.subscription_period_end) > new Date())
+     new Date(profile.subscription_period_end) > new Date()) ||
+    isInTrial
 
   const monthlyUsed = (profile?.messages_used_this_period || 0) + localDeducted
   const monthlyRemaining = isSubscribed ? Math.max(0, MONTHLY_MESSAGE_LIMIT - monthlyUsed) : 0
