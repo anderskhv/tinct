@@ -952,11 +952,17 @@ export default function App() {
   // conversation per book, not chapter-divided — each message carries its
   // own bookId/chapterNumber/paragraphIndex tag so the reader can click back
   // to where it was sent. Use the Feed if you want chapter-grouped view.
+  // lastRecordedMsgRef tracks which message has already been written to chat
+  // history. Defined here (above loadMessages) so we can prime it with the
+  // last historical message ID — see fix below.
+  const lastRecordedMsgRef = useRef<string | null>(null)
+
   const chatLoadedForBookRef = useRef<string | null>(null)
   useEffect(() => {
     if (chatLoadedForBookRef.current !== book.id) {
       chatLoadedForBookRef.current = book.id
       clearMessages()
+      lastRecordedMsgRef.current = null  // reset for the new book's history
     }
     if (chatConversations.length === 0) return
     const allMsgs: ChatMessage[] = []
@@ -970,7 +976,17 @@ export default function App() {
         (!m.bookId || m.bookId === book.id)
       ))
     }
-    if (allMsgs.length > 0) loadMessages(allMsgs)
+    if (allMsgs.length > 0) {
+      loadMessages(allMsgs)
+      // Prime lastRecordedMsgRef with the last historical message's ID so
+      // the recording effect downstream doesn't treat it as new and create
+      // a duplicate conversation. (Bug 2026-05-07: each book-open re-recorded
+      // the last historical assistant message as a new conversation, leading
+      // to N+1 conversations per session — exactly the duplication seen in
+      // The Awakening's chat-history.)
+      const last = allMsgs[allMsgs.length - 1]
+      if (last?.id) lastRecordedMsgRef.current = last.id
+    }
   }, [chatConversations, loadMessages, clearMessages, book.id])
 
   // One-shot cleanup: prior code persisted chapter-divider markers as fake
@@ -2033,7 +2049,9 @@ export default function App() {
   // 'assistant', content: '', chapterDivider: N) were being written as real
   // messages and rendered as blank chat after the divider rendering was
   // changed to skip them.
-  const lastRecordedMsgRef = useRef<string | null>(null)
+  // (lastRecordedMsgRef is declared above next to the loadMessages effect
+  // so that effect can prime it with the last historical message ID. The
+  // ref tracks which IDs have already been persisted to chat-history.)
   useEffect(() => {
     if (messages.length === 0) return
     const last = messages[messages.length - 1]
