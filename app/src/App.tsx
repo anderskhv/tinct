@@ -10,6 +10,10 @@ import { BookOnboardingPreface } from './components/BookOnboardingPreface'
 import { ProgressPrompt } from './components/ProgressPrompt'
 import { SettingsSheet } from './components/SettingsSheet'
 import { AuthModal } from './components/AuthModal'
+import { AudioPitchPopover } from './components/AudioPitchPopover'
+import type { PitchKind } from './components/PitchPanel'
+import { SignInBanner } from './components/SignInBanner'
+import { detectEntrySource, type EntrySource } from './utils/entrySource'
 import { UsageDashboard } from './components/UsageDashboard'
 import { TopUpModal } from './components/TopUpModal'
 import { BookStore } from './components/BookStore'
@@ -29,6 +33,7 @@ import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
 import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markCloudLoaded, markUserNav } from './hooks/useReadingPosition'
+import { shouldMigrateLocalToCloud } from './hooks/useReadingPosition.guards'
 import { useClaude } from './hooks/useClaude'
 import { useThreads } from './hooks/useThreads'
 import { useTier } from './hooks/useTier'
@@ -42,7 +47,7 @@ import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
 import { useLibrary } from './hooks/useLibrary'
 import { useReadingLog } from './hooks/useReadingLog'
-import { storage, setStorageProvider, localStorageProvider, clearLocalUserData } from './services/storage'
+import { storage, setStorageProvider, localStorageProvider, clearLocalUserData, setAnonymousMode } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation } from './types'
 import { makeEditionKey } from './types'
@@ -76,7 +81,7 @@ export default function App() {
   // Auth & billing
   const { user, profile, session, isLoading: authLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
   const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile, user)
-  const { canUse } = useTier(user, profile)
+  const { canUse, tier: userTier } = useTier(user, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
@@ -107,6 +112,9 @@ export default function App() {
     // Wait for auth to resolve before deciding on storage provider
     if (authLoading) return
     if (user) {
+      // Signed-in: turn off anonymous restrictions so the SupabaseStorageProvider's
+      // localStorage cache mirroring works for all keys.
+      setAnonymousMode(false)
       const provider = new SupabaseStorageProvider(user.id)
       // Timeout: if Supabase init takes >5s, proceed with localStorage (don't block the app)
       const initTimeout = setTimeout(() => {
@@ -129,16 +137,22 @@ export default function App() {
         } else {
           // Same user returning OR first-ever sign-in (anonymous → account):
           // migrate localStorage entries up to cloud where cloud is empty.
-          // For position keys, prefer the more recent updatedAt timestamp.
+          // For position keys, use shouldMigrateLocalToCloud which adds the
+          // anonymous-default-state guard: a default-shaped local must NEVER
+          // overwrite a real cloud value, even with a fresher updatedAt.
+          // (Anonymous-mode testing previously polluted real cloud positions
+          // because anonymous's Date.now() was newer than yesterday's reading.
+          // Diagnosed 2026-05-06.)
           const localData = localStorageProvider.getAllData()
           for (const [key, value] of Object.entries(localData)) {
             const cloudValue = provider.get(key)
             if (!cloudValue) {
               provider.set(key, value)
             } else if (key.startsWith('position:')) {
-              const local = value as { updatedAt?: number }
-              const cloud = cloudValue as { updatedAt?: number }
-              if (local?.updatedAt && cloud?.updatedAt && local.updatedAt > cloud.updatedAt) {
+              if (shouldMigrateLocalToCloud({
+                local: value as ReadingPosition,
+                cloud: cloudValue as ReadingPosition,
+              })) {
                 provider.set(key, value)
               }
             }
@@ -171,6 +185,24 @@ export default function App() {
         supabaseProviderRef.current = provider
         setStorageReady(true)
       })
+      // Auto-retry init() when network comes back. Without this, an offline
+      // boot leaves the user in a degraded state (localStorage only, no cloud
+      // cache) until they manually refresh. (2026-05-07 fix.) The closure
+      // captures `provider` (locally-scoped above), so it works even before
+      // supabaseProviderRef.current has been assigned.
+      const handleOnline = () => {
+        if (provider.hasInitSucceeded()) return
+        provider.init().then(() => {
+          setSupabaseInitTick(t => t + 1)
+        }).catch(() => { /* still failing — wait for next online event */ })
+      }
+      window.addEventListener('online', handleOnline)
+      // Cleanup: remove the listener and unsubscribe when this effect re-runs.
+      return () => {
+        window.removeEventListener('online', handleOnline)
+        clearTimeout(initTimeout)
+        supabaseProviderRef.current?.unsubscribe()
+      }
     } else {
       // Clean up previous subscription
       if (supabaseProviderRef.current) {
@@ -178,6 +210,20 @@ export default function App() {
       }
       setStorageProvider(localStorageProvider)
       supabaseProviderRef.current = null
+      // Anonymous mode: only `position:*`, `device-preferences`, `last-user-id`
+      // can be written to localStorage. Everything else (notes, highlights,
+      // journal, chat-history, library) is signed-in only. Removes the entire
+      // class of "anonymous testing pollutes signed-in cloud" bugs at the
+      // source — there's nothing in localStorage to migrate.
+      setAnonymousMode(true)
+      // One-time wipe migration. Devices that accumulated data from before
+      // this rule shipped need a clean slate. Flag prevents repeated wipes.
+      try {
+        if (!localStorage.getItem('tinct:wipe-v1-done')) {
+          clearLocalUserData()
+          localStorage.setItem('tinct:wipe-v1-done', '1')
+        }
+      } catch { /* ignore */ }
       setStorageReady(true)
     }
     return () => {
@@ -280,6 +326,9 @@ export default function App() {
   const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
   const [audioIsPlaying, setAudioIsPlaying] = useState(false)
   const [audioStripOpen, setAudioStripOpen] = useState(false)
+  // Audio pitch popover — shown when an anonymous / free-post-trial user
+  // taps the audiobook button. Replaces the previous broken-player UX.
+  const [audioPitchKind, setAudioPitchKind] = useState<PitchKind | null>(null)
   // Fraction (0-1) through the paragraph currently being narrated. Bubbled
   // from BottomBar at ~3 Hz so the Reader can keep the visible page in sync
   // even when a single paragraph spans a page break.
@@ -352,12 +401,21 @@ export default function App() {
     catch { return false }
   }, [])
 
-  // Preface is the default onboarding flow. ?preface=0 opts out (legacy 3-step).
+  // Entry-source-driven preface mode (2026-05-06):
+  //   landing  → preface ON
+  //   seo      → preface ON (the SEO page is the marketing surface; preface adds context)
+  //   deep-link → preface OFF (user has intent — drop them straight into the text)
+  // ?preface=0 still respected as a manual override for testing.
+  const entrySource: EntrySource = useMemo(() => detectEntrySource(), [])
   const isPrefaceMode = useMemo(() => {
     if (typeof window === 'undefined') return true
-    try { return new URLSearchParams(window.location.search).get('preface') !== '0' }
-    catch { return true }
-  }, [])
+    try {
+      const params = new URLSearchParams(window.location.search)
+      if (params.get('preface') === '0') return false
+      if (params.get('preface') === '1') return true
+      return entrySource === 'landing' || entrySource === 'seo'
+    } catch { return true }
+  }, [entrySource])
 
   // Focus mode: hides header, bottom bar, and side panel for an immersive
   // reading experience. Toggled via a floating button or the F key. Transient
@@ -439,12 +497,18 @@ export default function App() {
     if (validCloudBook && cloudBookId !== currentBookId) {
       setCurrentBookId(cloudBookId)
     }
-    // Restore reading position only on the FIRST restore. Subsequent
+    // Restore reading position only on the FIRST SUCCESSFUL restore. Subsequent
     // restores (e.g. supabaseInitTick fires after the user has been
     // reading for a few seconds) must NOT yank the user back to where
     // they were last time — the current state on screen is more recent.
+    //
+    // H1 fix (2026-05-06): set `hasRestoredFromCloud` only AFTER we
+    // confirm cloudPos is non-null. Previously the flag was set
+    // unconditionally on the first run; if the 5s timeout fired with
+    // localStorage still empty (post-wipe device), the restore got null
+    // and was permanently blocked. Now: re-attempt on every supabaseInitTick
+    // until we actually have cloud data.
     if (!hasRestoredFromCloud.current) {
-      hasRestoredFromCloud.current = true
       const cloudPos = getSavedPosition(targetBookId)
       // Mark cloud-known chapter so the regression guard knows what the
       // authoritative position is. Without this, the first heartbeat
@@ -452,6 +516,7 @@ export default function App() {
       // write chapter 1 because the guard had no baseline to compare.
       markCloudPosition(targetBookId, cloudPos)
       if (cloudPos) {
+        hasRestoredFromCloud.current = true
         const localPos = savedPos.current
         const winner = pickLatest(localPos, cloudPos)
         if (winner) {
@@ -1032,6 +1097,17 @@ export default function App() {
   const handleBookChange = useCallback((bookId: string) => {
     storage.set('tinct-current-book', bookId)
     setCurrentBookId(bookId)
+    // Reflect the open book in the URL. Critical for anonymous users who
+    // can't persist `tinct-current-book` to localStorage — without the URL,
+    // refresh drops them back to the BookStore. Also makes URLs sharable
+    // for signed-in users. Uses replaceState to avoid history pollution.
+    try {
+      const newPath = `/read/${bookId}`
+      if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
+        // Preserve query string + hash (e.g. ?chapter=, ?from=landing).
+        window.history.replaceState(null, '', newPath + window.location.search + window.location.hash)
+      }
+    } catch { /* ignore */ }
     const pos = getSavedPosition(bookId)
     setCurrentChapter(pos?.chapterNumber || 1)
     setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
@@ -1054,8 +1130,8 @@ export default function App() {
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages])
 
-  const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter)
-  const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter)
+  const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter, totalChapters)
+  const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter, totalChapters)
 
   // Effective paragraph: audio position takes priority over reading position
   const effectiveParagraph = audioPlayingParagraph ?? firstVisibleParagraph
@@ -1083,7 +1159,7 @@ export default function App() {
 
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended)
   const isAudioActive = audioPlayingParagraph !== undefined
-  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive)
+  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters)
 
   const { threadsData, getMentions } = useThreads(book.id, primaryData)
 
@@ -1257,6 +1333,17 @@ export default function App() {
     if (deepLinkParsedRef.current || !storageReady) return
     deepLinkParsedRef.current = true
     try {
+      // Top-nav landing page links: /read?view=library and /read?signin=1.
+      // Surface the right view immediately on app boot so the user lands on
+      // what the link said they'd land on — not the reader.
+      const topParams = new URLSearchParams(window.location.search)
+      if (topParams.get('view') === 'library') {
+        setShowStore(true)
+      }
+      if (topParams.get('signin') === '1' && !user) {
+        setAuthModalMode('signin')
+        setShowAuthModal(true)
+      }
       const path = window.location.pathname
       const segments = path.split('/').filter(Boolean)
       if (segments.length === 0) return
@@ -1408,18 +1495,56 @@ export default function App() {
   // Book Onboarding trigger — fires when current book hasn't been onboarded yet.
   // Uses ONLY the explicit flag (set on completion or close, plus the migration
   // above for legacy users). Phantom positions no longer suppress onboarding.
+  //
+  // 2026-05-06 fix: when !isPrefaceMode (deep-link entries or ?preface=0),
+  // skip onboarding ENTIRELY. Previously the legacy 3-step BookOnboarding would
+  // fall back here, but the preface IS the only onboarding flow now — fallback
+  // to legacy was dead code that mis-fired for direct /read URL opens. Mark
+  // book as onboarded so this code path settles deterministically.
+  //
+  // 2026-05-06 fix: for signed-in users, also wait for cloud-restore to land
+  // before showing onboarding. Otherwise the default book (Odyssey) flashes
+  // its onboarding before cloud-restore swaps to the user's actual book.
   useEffect(() => {
     if (!storageReady) return
     if (libraryEmpty || showStore) {
       setShowBookOnboarding(false)
       return
     }
+    if (!isPrefaceMode) {
+      setShowBookOnboarding(false)
+      // Mark this book as onboarded so a later switch back to preface mode
+      // (e.g. user changes URL) doesn't surprise them with a modal.
+      storage.set(`book-onboarded:${book.id}`, true)
+      return
+    }
+    // Race fix: if user is signed in but cloud hasn't been restored yet,
+    // suppress onboarding. Cloud restore will swap currentBookId to the
+    // user's actual current book; if we fire onboarding for the default
+    // book first, the user sees the wrong book's onboarding.
+    if (user && !hasRestoredFromCloud.current) {
+      setShowBookOnboarding(false)
+      return
+    }
+    // Second race fix: cloud-restore has run and set currentBookId, but the
+    // setCurrentBookId update is still pending — this render still sees the
+    // OLD book.id. If cloud's tinct-current-book differs from book.id, we
+    // know a book switch is in flight; defer the onboarding decision until
+    // book.id has caught up. Without this guard, onboarding flashes for the
+    // wrong book (e.g. Odyssey shows briefly before The Awakening settles).
+    if (user) {
+      const cloudCurrentBook = storage.get<string>('tinct-current-book')
+      if (cloudCurrentBook && cloudCurrentBook !== book.id && getBook(cloudCurrentBook)) {
+        setShowBookOnboarding(false)
+        return
+      }
+    }
     const seen = storage.get<boolean>(`book-onboarded:${book.id}`)
     let legacy = false
     try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
     if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(!(seen || legacy))
-  }, [book.id, storageReady, libraryEmpty, showStore])
+  }, [book.id, storageReady, libraryEmpty, showStore, isPrefaceMode, user, supabaseInitTick])
 
   // Book Onboarding completion — sets edition + angle, marks book as onboarded.
   // Note: uses primitive setters (setStyle/setLanguage/setSplitEditionKey) rather than
@@ -1454,7 +1579,15 @@ export default function App() {
     setShowBookOnboarding(false)
     setOnboardingComplete(true)
     setPrefaceStartAtEnd(false)
-  }, [book.id, book.editions, setLanguage, setStyle, setSplitEditionKey, preferences.splitView, toggleSplitView, setReadingObjective, setOnboardingComplete])
+    // Landing-entry mid-flow account prompt (2026-05-06): anonymous users who
+    // arrived via the marketing landing page see an account-creation prompt
+    // BETWEEN the preface and the reader. SEO and deep-link users skip this —
+    // they get the existing top banner + first-completed-chapter prompt instead.
+    if (!user && entrySource === 'landing') {
+      setAuthModalMode('signup')
+      setShowAuthModal(true)
+    }
+  }, [book.id, book.editions, setLanguage, setStyle, setSplitEditionKey, preferences.splitView, toggleSplitView, setReadingObjective, setOnboardingComplete, user, entrySource])
 
   const handleBookOnboardingClose = useCallback(() => {
     storage.set(`book-onboarded:${book.id}`, true)
@@ -1481,21 +1614,56 @@ export default function App() {
   const prevUserIdRef = useRef<string | null>(null)
   useEffect(() => {
     if (!storageReady) return
-    const prev = prevUserIdRef.current
     const curr = user?.id ?? null
+    if (!curr) return
+    if (curr === prevUserIdRef.current) return
+    // Race fix (2026-05-07): require both `hasRestoredFromCloud` AND
+    // `supabaseInitTick > 0`. The latter proves init() has actually completed
+    // — without it, a 5-second-timeout path lets the tour evaluate with empty
+    // cache + empty localStorage (the wipe ate `tinct:tinct-tour-seen`),
+    // firing the tour for users whose cloud has the flag set.
+    //
+    // If init() never completes (e.g. catch path on persistent error),
+    // supabaseInitTick stays 0 and the tour stays suppressed. That's correct:
+    // we'd rather under-show than re-show. The tour can re-fire on a later
+    // session when init() succeeds.
+    if (!hasRestoredFromCloud.current) return
+    if (supabaseInitTick === 0) return
+    const seen = storage.get<boolean>('tinct-tour-seen')
     prevUserIdRef.current = curr
-    if (curr && curr !== prev && !storage.get<boolean>('tinct-tour-seen')) {
-      const t = window.setTimeout(() => setShowTour(true), 800)
-      return () => window.clearTimeout(t)
-    }
-  }, [user?.id, storageReady])
+    if (seen) return
+    const t = window.setTimeout(() => setShowTour(true), 800)
+    return () => window.clearTimeout(t)
+  }, [user?.id, storageReady, supabaseInitTick])
 
-  // Progress prompt trigger — anonymous user past end of Chapter 1 or page 20
+  // Entry-chapter capture for the "first completed chapter" prompt (G3,
+  // 2026-05-06). When the reader first becomes visible (no overlays), record
+  // currentChapter. The prompt then fires once the user advances past that
+  // chapter — so a deep-link to chapter 10 prompts at chapter 11, not at the
+  // ancient default of "chapter 2".
+  const entryChapterRef = useRef<number | null>(null)
+  const entryBookRef = useRef<string | null>(null)
+  useEffect(() => {
+    if (!storageReady) return
+    if (showBookOnboarding || showStore) return
+    if (entryBookRef.current !== book.id) {
+      // New book → reset entry chapter
+      entryBookRef.current = book.id
+      entryChapterRef.current = currentChapter
+    }
+  }, [storageReady, showBookOnboarding, showStore, book.id, currentChapter])
+
+  // Progress prompt trigger — anonymous user advanced past their entry chapter,
+  // OR (for entries at chapter 1) read past page 20 of chapter 1. The page-20
+  // fallback handles short books where chapter 1 is the whole introduction.
   const showProgressPrompt = useMemo(() => {
     if (user) return false
     if (showBookOnboarding || showStore) return false
-    const past = currentChapter >= 2 || (currentChapter === 1 && currentPage >= 20)
-    return past
+    const entry = entryChapterRef.current
+    if (entry === null) return false
+    if (currentChapter > entry) return true
+    if (currentChapter === entry && currentChapter === 1 && currentPage >= 20) return true
+    return false
   }, [user, currentChapter, currentPage, showBookOnboarding, showStore])
 
   // Edit objective from chat welcome
@@ -2287,7 +2455,7 @@ export default function App() {
             removeBook(bookId)
           }}
           onSelectBook={(bookId) => {
-            handleBookChange(bookId)
+            handleBookChange(bookId)  // handleBookChange now updates URL too
             setShowStore(false)
           }}
           onClose={!libraryEmpty ? () => setShowStore(false) : undefined}
@@ -2563,6 +2731,22 @@ export default function App() {
         </div>
       )}
 
+      {/* Sign-in banner for returning anonymous users (device has tinct:last-user-id). */}
+      {!user && !showBookOnboarding && !showStore && (
+        <SignInBanner onSignIn={() => { setAuthModalMode('signin'); setShowAuthModal(true) }} />
+      )}
+
+      {/* Cloud-restore in-flight banner. Shows after sign-in until init() has
+          fetched user data and cloud-restore has settled. Without this, the
+          user stares at the default book for the cloud-query duration with
+          no indication that something is happening. (2026-05-07.) */}
+      {user && supabaseInitTick === 0 && !showBookOnboarding && (
+        <div className="cloud-restoring-banner" role="status">
+          <span className="cloud-restoring-spinner" aria-hidden="true" />
+          Restoring your reading…
+        </div>
+      )}
+
       <Header
         bookTitle={book.title}
         bookAuthor={book.author}
@@ -2602,7 +2786,15 @@ export default function App() {
         isBookDownloaded={isBookDownloaded(book.id)}
         hasAudio={hasAudio}
         isAudioPlaying={audioStripOpen || audioIsPlaying}
-        onToggleAudio={() => setAudioStripOpen(o => !o)}
+        onToggleAudio={() => {
+          // Gate audio access — anonymous and free-post-trial users see the
+          // pitch popover instead of a broken player. Premium opens the strip.
+          if (!canUse('audiobook')) {
+            setAudioPitchKind(userTier === 'none' ? 'anonymous' : 'free-post-trial')
+            return
+          }
+          setAudioStripOpen(o => !o)
+        }}
         onOpenSearch={() => setShowSearch(true)}
         onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
         onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
@@ -3216,6 +3408,16 @@ export default function App() {
       )}
 
       <FeatureTour open={showTour} steps={tourSteps} onClose={handleTourClose} autoplay={isDemoMode} />
+
+      {/* Audio pitch popover — replaces the broken-player UI for non-Premium users. */}
+      <AudioPitchPopover
+        open={audioPitchKind !== null}
+        kind={audioPitchKind ?? 'anonymous'}
+        onClose={() => setAudioPitchKind(null)}
+        onCreateAccount={() => { setAudioPitchKind(null); setAuthModalMode('signup'); setShowAuthModal(true) }}
+        onSignIn={() => { setAudioPitchKind(null); setAuthModalMode('signin'); setShowAuthModal(true) }}
+        onUpgrade={() => { setAudioPitchKind(null); setShowUsageDashboard(true) }}
+      />
 
     </TierProvider>
   )

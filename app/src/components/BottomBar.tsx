@@ -665,7 +665,14 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           &larr;
         </button>
         <div className="bottom-bar-center">
-          {chapterTitle && <span className="bottom-bar-chapter">{chapterTitle}</span>}
+          {/* Always show short label "Chapter N" / "Book N" — long descriptive
+              titles (e.g. Odyssey Butler summaries) overflow the running footer.
+              Full title still appears in the chapter h2 at the top of the chapter. */}
+          {chapterNumber !== undefined && chapterNumber > 0 && (
+            <span className="bottom-bar-chapter">
+              {chapterTitle && /^book\s/i.test(chapterTitle) ? `Book ${chapterNumber}` : `Chapter ${chapterNumber}`}
+            </span>
+          )}
         </div>
         <div className="bottom-bar-position">{renderProgressValue()}</div>
         <button

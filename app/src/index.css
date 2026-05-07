@@ -6648,7 +6648,16 @@ body {
 
   .side-panel-inner {
     min-width: 0;
-    overflow: hidden;
+    /* Mobile: allow vertical scroll inside the panel — long chat responses
+       and expanded feed entries exceed one screen. iOS Safari needs the
+       webkit-overflow-scrolling rule for momentum and proper touch handling.
+       Was `overflow: hidden` which trapped content (B?-2026-05-06). */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    /* Required for fixed-height parents (mobile-view inset:0) so the inner
+       region knows what 100% of "scrollable height" means. */
+    height: 100%;
   }
 
   .chat {
@@ -11543,7 +11552,8 @@ body {
   position: fixed;
   pointer-events: auto;
   background: var(--paper);
-  color: var(--ink);
+  /* --ink is not theme-aware; use --text-primary which flips in dark mode. */
+  color: var(--text-primary);
   border: 1px solid var(--accent);
   border-radius: 10px;
   padding: 14px 16px 12px 16px;
@@ -11673,4 +11683,191 @@ body {
 @keyframes panel-content-fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Pitch Panel (locked feature pitches) =================================
+   Inline panel rendered when an anonymous / free / out-of-messages user lands
+   on a Chat/Feed/Cast tab they don't have access to. Shipped 2026-05-06.
+   Same layout for desktop and mobile — content is short by design. */
+.pitch-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  background: var(--paper);
+}
+.pitch-panel-content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 28px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+.pitch-headline {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.pitch-body {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin: 0;
+}
+.pitch-cta-primary {
+  appearance: none;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+  padding: 10px 16px;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.15s;
+}
+.pitch-cta-primary:hover { opacity: 0.9; }
+.pitch-cta-secondary {
+  appearance: none;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: underline;
+}
+.pitch-cta-secondary:hover { color: var(--accent); }
+.pitch-cta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pitch-cta-row .pitch-cta-primary { flex: 1 1 auto; min-width: 140px; }
+.pitch-fineprint {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: center;
+}
+
+/* Audio pitch popover — anchored over the audio button area, so it's smaller
+   and uses fixed positioning. */
+.audio-pitch-popover {
+  position: fixed;
+  z-index: 80;
+  background: var(--paper);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  max-width: 320px;
+  width: calc(100% - 32px);
+  /* Centered as default; consumers can override left/top via inline style. */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: feature-tour-fade-in 200ms ease-out;
+}
+
+/* ===== Sign-in banner for returning anonymous users ====================== */
+.signin-banner {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+}
+.signin-banner-text {
+  flex: 1;
+  min-width: 0;
+}
+.signin-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.signin-banner-cta {
+  appearance: none;
+  border: 1px solid var(--paper);
+  background: transparent;
+  color: var(--paper);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.signin-banner-cta:hover {
+  background: var(--paper);
+  color: var(--accent);
+}
+.signin-banner-dismiss {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--paper);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.8;
+}
+.signin-banner-dismiss:hover { opacity: 1; }
+@media (max-width: 640px) {
+  .signin-banner-text { font-size: 0.85rem; }
+}
+
+/* ===== Cloud-restore banner — shown briefly after sign-in =================== */
+.cloud-restoring-banner {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: var(--paper);
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+  font-style: italic;
+}
+.cloud-restoring-spinner {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--text-tertiary);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: cloud-restoring-spin 0.8s linear infinite;
+  display: inline-block;
+}
+@keyframes cloud-restoring-spin {
+  to { transform: rotate(360deg); }
 }

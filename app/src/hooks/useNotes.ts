@@ -11,10 +11,19 @@ function generateId(): string {
   return `note_${Date.now()}_${++idCounter}`
 }
 
-export function useNotes(bookId: string, chapterNumber: number) {
+export function useNotes(bookId: string, chapterNumber: number, totalChapters?: number) {
   const [notes, setNotes] = useState<Note[]>(() => {
     return storage.get<Note[]>(storageKey(bookId, chapterNumber)) || []
   })
+
+  // Cross-book bleed guard. When bookId switches, `chapterNumber` may still
+  // hold the OLD book's chapter for one render. Without this, an empty-array
+  // write fires under `notes:newBookId:OLDchapter` — exactly how phantom
+  // entries like `notes:the-awakening:345` got created (B1, 2026-05-06).
+  function isChapterInBoundsForBook(): boolean {
+    if (!totalChapters || totalChapters <= 0) return true // unknown — don't block
+    return chapterNumber >= 1 && chapterNumber <= totalChapters
+  }
 
   // Reload when chapter changes
   useEffect(() => {
@@ -22,8 +31,12 @@ export function useNotes(bookId: string, chapterNumber: number) {
     setNotes(stored)
   }, [bookId, chapterNumber])
 
-  // Persist on change
+  // Persist on change. Skip empty-array writes for keys that don't exist yet —
+  // those are nearly always state-init noise (newly-mounted hook for a chapter
+  // with no notes) rather than user actions. Also skip out-of-bounds chapters.
   useEffect(() => {
+    if (!isChapterInBoundsForBook()) return
+    if (notes.length === 0 && storage.get<Note[]>(storageKey(bookId, chapterNumber)) === null) return
     storage.set(storageKey(bookId, chapterNumber), notes)
   }, [notes, bookId, chapterNumber])
 

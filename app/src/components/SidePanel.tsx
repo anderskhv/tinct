@@ -2,6 +2,7 @@ import { Chat } from './Chat'
 import { Feed } from './Feed'
 import { Threads } from './Threads'
 import { UpgradePrompt } from './UpgradePrompt'
+import { PitchPanel, pitchKindFor } from './PitchPanel'
 import { useTierContext } from '../contexts/TierContext'
 import type { ChatMessage, ChatConversation, Note, Highlight, PanelTab, ThreadCharacter, CharacterMention, Language, BookReadingLog, Section } from '../types'
 
@@ -140,85 +141,122 @@ export function SidePanel(props: SidePanelProps) {
   const canChat = canUse('ai-chat')
   const canCast = canUse('cast')
 
-  // Tab visibility:
-  // - Chat / Cast: tier-gated (Premium only). User can also hide via Settings.
-  // - Feed: Premium-only by default so free users get a clean reader. Feed is a
-  //   Premium reading-journal; highlights and notes still work inline via the
-  //   selection popup for all tiers.
-  // If no tabs are visible, don't render the panel at all.
-  const showChatTab = canChat && !chatHidden
-  // Hide Cast tab entirely when the book has no character data — saves the
-  // user from seeing an empty rail with filter pills and a "No characters"
-  // message. Books without threads.json (e.g. The Awakening) shouldn't show
-  // a tracker at all.
-  const showCastTab = canCast && !castHidden && threadCharacters.length > 0
-  const showFeedTab = tier === 'premium' && !feedHidden
+  // Tab visibility (2026-05-06 design): tabs are always visible regardless of
+  // tier so locked-feature pitches can act as conversion surfaces. Settings
+  // hide-toggles (chatHidden/feedHidden/castHidden) still respected as user
+  // preference. Cast tab still gated on book-having-characters (no point
+  // showing an empty Cast for books like The Awakening that lack threads.json).
+  const showChatTab = !chatHidden
+  const showCastTab = !castHidden && threadCharacters.length > 0
+  const showFeedTab = !feedHidden
   const anyTabVisible = showChatTab || showFeedTab || showCastTab
   if (!anyTabVisible) return null
 
-  const renderChat = () => canChat ? (
-    <Chat
-      messages={messages}
-      isLoading={isChatLoading}
-      onSendMessage={onSendMessage}
-      onClear={onClearChat}
-      pendingHighlight={pendingHighlight}
-      onClearHighlight={onClearHighlight}
-      onCopyToNotes={onCopyToNotes}
-      bookTitle={bookTitle}
-      chapterTitle={chapterTitle}
-      chapterLabels={Object.fromEntries(chapterLabels.map((label, i) => [i + 1, label]))}
-      readingObjective={readingObjective}
-      onEditObjective={onEditObjective}
-      bookId={bookId}
-      messagesRemaining={messagesRemaining}
-      hasBalance={hasBalance}
-      isAnonymous={isAnonymous}
-      onTopUp={onTopUp}
-      onSignIn={onSignIn}
-      chatConversations={chatConversations}
-      onNavigateToChapter={onNavigateToChapter}
-    />
-  ) : (
-    <UpgradePrompt feature="AI chat" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
-  )
+  // Pitch-kind derivation: when null, render the real feature; otherwise render
+  // the inline pitch with the right CTA for this tier + balance state.
+  const chatPitchKind = pitchKindFor({ feature: 'chat', tier, hasBalance })
+  const feedPitchKind = pitchKindFor({ feature: 'feed', tier })
+  const castPitchKind = pitchKindFor({ feature: 'cast', tier })
 
-  const renderFeed = () => (
-    <Feed
-      readingLog={readingLog}
-      totalChapters={totalChapters}
-      currentChapter={currentChapter}
-      chapterLabels={chapterLabels}
-      sections={sections}
-      notes={notes}
-      highlights={highlights}
-      allBookHighlights={allBookHighlights}
-      allBookNotes={allBookNotes}
-      chatConversations={chatConversations}
-      onAddNote={onAddNote}
-      onDeleteNote={onDeleteNote}
-      onDeleteHighlight={onDeleteHighlight}
-      onUpdateNote={onUpdateNote}
-      onNavigateToChapter={onNavigateToChapter}
-      onSummarizeChat={onSummarizeChat}
-      summarizingId={summarizingId}
-    />
-  )
+  const renderChat = () => {
+    if (chatPitchKind) {
+      return (
+        <PitchPanel
+          feature="chat"
+          kind={chatPitchKind}
+          onCreateAccount={onSignIn}
+          onSignIn={onSignIn}
+          onUpgrade={onShowPricing}
+          onTopUp={() => onTopUp?.()}
+        />
+      )
+    }
+    return (
+      <Chat
+        messages={messages}
+        isLoading={isChatLoading}
+        onSendMessage={onSendMessage}
+        onClear={onClearChat}
+        pendingHighlight={pendingHighlight}
+        onClearHighlight={onClearHighlight}
+        onCopyToNotes={onCopyToNotes}
+        bookTitle={bookTitle}
+        chapterTitle={chapterTitle}
+        chapterLabels={Object.fromEntries(chapterLabels.map((label, i) => [i + 1, label]))}
+        readingObjective={readingObjective}
+        onEditObjective={onEditObjective}
+        bookId={bookId}
+        messagesRemaining={messagesRemaining}
+        hasBalance={hasBalance}
+        isAnonymous={isAnonymous}
+        onTopUp={onTopUp}
+        onSignIn={onSignIn}
+        chatConversations={chatConversations}
+        onNavigateToChapter={onNavigateToChapter}
+      />
+    )
+  }
 
-  const renderCast = () => canCast ? (
-    <Threads
-      characters={threadCharacters}
-      currentChapter={currentChapter}
-      editionKey={editionKey}
-      language={language}
-      sections={sections}
-      getMentions={getMentions}
-      onNavigateToChapter={onNavigateToChapter}
-      visibleParagraphs={visibleParagraphs}
-    />
-  ) : (
-    <UpgradePrompt feature="Cast tracker" onCreateAccount={onSignIn} onUpgrade={onShowPricing} />
-  )
+  const renderFeed = () => {
+    if (feedPitchKind) {
+      return (
+        <PitchPanel
+          feature="feed"
+          kind={feedPitchKind}
+          onCreateAccount={onSignIn}
+          onSignIn={onSignIn}
+          onUpgrade={onShowPricing}
+        />
+      )
+    }
+    return (
+      <Feed
+        readingLog={readingLog}
+        totalChapters={totalChapters}
+        currentChapter={currentChapter}
+        chapterLabels={chapterLabels}
+        sections={sections}
+        notes={notes}
+        highlights={highlights}
+        allBookHighlights={allBookHighlights}
+        allBookNotes={allBookNotes}
+        chatConversations={chatConversations}
+        onAddNote={onAddNote}
+        onDeleteNote={onDeleteNote}
+        onDeleteHighlight={onDeleteHighlight}
+        onUpdateNote={onUpdateNote}
+        onNavigateToChapter={onNavigateToChapter}
+        onSummarizeChat={onSummarizeChat}
+        summarizingId={summarizingId}
+      />
+    )
+  }
+
+  const renderCast = () => {
+    if (castPitchKind) {
+      return (
+        <PitchPanel
+          feature="cast"
+          kind={castPitchKind}
+          onCreateAccount={onSignIn}
+          onSignIn={onSignIn}
+          onUpgrade={onShowPricing}
+        />
+      )
+    }
+    return (
+      <Threads
+        characters={threadCharacters}
+        currentChapter={currentChapter}
+        editionKey={editionKey}
+        language={language}
+        sections={sections}
+        getMentions={getMentions}
+        onNavigateToChapter={onNavigateToChapter}
+        visibleParagraphs={visibleParagraphs}
+      />
+    )
+  }
 
   // Mobile: render only the active tab's content, full width. No rails.
   // Auto-redirect if active tab is hidden (e.g. free-tier user whose active

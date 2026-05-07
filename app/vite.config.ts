@@ -34,6 +34,28 @@ export default defineConfig(({ mode, command }) => {
     {
       name: 'anthropic-proxy',
       configureServer(server) {
+        // Production has a build-time swap: `mv dist/index.html dist/app.html
+        // && cp dist/landing.html dist/index.html`. So `/` serves the static
+        // landing page in prod. Dev doesn't run that swap, so `/` would serve
+        // the SPA — making sign-out (which redirects to `/`) drop the user
+        // into the BookStore instead of the landing page. Mirror the swap
+        // in dev: at `/` (and `/index.html`), serve `public/landing.html`.
+        // SPA still reachable at `/read` and friends.
+        server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          const url = req.url || ''
+          // Strip query string for the path comparison
+          const pathOnly = url.split('?')[0]
+          if (pathOnly === '/' || pathOnly === '/index.html') {
+            const landingPath = path.join(process.cwd(), 'public', 'landing.html')
+            if (fs.existsSync(landingPath)) {
+              res.writeHead(200, { 'Content-Type': 'text/html' })
+              fs.createReadStream(landingPath).pipe(res)
+              return
+            }
+          }
+          next()
+        })
+
         // Mirror the Cloudflare worker's clean-URL rewrite for the per-book
         // SEO pages so links like /read/odyssey/summary work in local dev too.
         // Without this, Vite falls through to the SPA and the user sees the

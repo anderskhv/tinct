@@ -23,18 +23,119 @@ export class SupabaseStorageProvider implements StorageProvider {
     this.userId = userId
   }
 
+  /**
+   * Two-phase init (2026-05-07).
+   *
+   *   Phase A — `init()`: small fast query for the keys the app needs to
+   *   render correctly on cold start. Returns when this phase completes.
+   *   Roughly: tinct-current-book, library, preferences, tour-seen, all
+   *   per-book metadata (position, progress, reading-log, reading-speed,
+   *   reading-angle, book-onboarded). For accounts with hundreds of rows
+   *   this is ~50-80 rows and finishes in well under a second.
+   *
+   *   Phase B — `loadHeavy()` (background): everything else. Notes,
+   *   highlights, chat-history. These are the rows that grow without bound
+   *   for active users. Loaded asynchronously after Phase A; the cache
+   *   populates incrementally. Hooks that need this data (Feed, Chat,
+   *   highlight rendering) can call `prefetchPrefix()` to ensure they have
+   *   what they need.
+   *
+   *   Net effect for Anders's 579-row account: cold-start init drops from
+   *   ~3-5s to under 1s. Heavy data loads in the background without
+   *   blocking the reader.
+   */
   async init(): Promise<void> {
     if (!supabase) return
+    const orFilter = [
+      'key.in.(tinct-current-book,tinct-tour-seen,library,preferences,audio-speed)',
+      'key.like.position:*',
+      'key.like.progress:*',
+      'key.like.reading-log:*',
+      'key.like.reading-speed:*',
+      'key.like.book-onboarded:*',
+      'key.like.reading-angle:*',
+    ].join(',')
     const { data } = await supabase
       .from('user_data')
       .select('key, value')
       .eq('user_id', this.userId)
+      .or(orFilter)
 
     if (data) {
       for (const row of data) {
         this.cache.set(row.key, row.value)
+        // Mirror to localStorage so a future offline session has the data
+        // available even if init() can't reach the network. Without this,
+        // a wipe + offline-init = no `tinct-tour-seen`, tour re-fires.
+        // (2026-05-07 fix.)
+        localStorageProvider.set(row.key, row.value)
       }
     }
+    this.initSucceeded = true
+    // Kick off Phase B in the background — don't await. UI is already free
+    // to render with the critical data we just loaded.
+    void this.loadHeavy()
+  }
+
+  private initSucceeded = false
+  /** True if at least one Phase A init() call has completed successfully. */
+  hasInitSucceeded(): boolean { return this.initSucceeded }
+
+  private heavyLoaded = false
+  private heavyLoadPromise: Promise<void> | null = null
+
+  /** Background-load the rows excluded from Phase A. Idempotent. */
+  async loadHeavy(): Promise<void> {
+    if (!supabase) return
+    if (this.heavyLoaded) return
+    if (this.heavyLoadPromise) return this.heavyLoadPromise
+    this.heavyLoadPromise = (async () => {
+      try {
+        const orFilter = [
+          'key.like.notes:*',
+          'key.like.highlights:*',
+          'key.like.chat-history:*',
+        ].join(',')
+        const { data, error } = await supabase!
+          .from('user_data')
+          .select('key, value')
+          .eq('user_id', this.userId)
+          .or(orFilter)
+        if (error) {
+          console.warn('[Supabase] heavy-load failed:', error.message)
+          return
+        }
+        if (data) {
+          for (const row of data) {
+            // Only set if not already in cache — don't clobber recent writes.
+            if (!this.cache.has(row.key)) {
+              this.cache.set(row.key, row.value)
+              // Same mirror logic as Phase A — preserve heavy data in
+              // localStorage for offline access on future sessions.
+              localStorageProvider.set(row.key, row.value)
+            }
+          }
+        }
+        this.heavyLoaded = true
+        // Notify listeners so components dependent on these keys re-render.
+        // We notify with a synthetic key so panels can refresh without
+        // having to know individual keys changed.
+        for (const listener of this.listeners) {
+          listener('__heavy_loaded__', true)
+        }
+      } catch (e) {
+        console.warn('[Supabase] heavy-load threw:', e)
+      } finally {
+        this.heavyLoadPromise = null
+      }
+    })()
+    return this.heavyLoadPromise
+  }
+
+  /** True if Phase B has populated the cache. Used by hooks to know
+   *  whether a cache miss means "not in cloud" vs "not yet loaded". */
+  isHeavyLoaded(): boolean {
+    return this.heavyLoaded
   }
 
   get<T>(key: string): T | null {
@@ -66,6 +167,11 @@ export class SupabaseStorageProvider implements StorageProvider {
    * that the client will refresh on the next call). We don't want a single
    * dropped write to lose the user's reading position. Logs both attempts to
    * window.__tinctSupabaseDebug so we can audit silent failures in DevTools.
+   *
+   * If both attempts fail (offline, persistent error), the write is enqueued
+   * to a persistent retry queue (`tinct:pending-writes`) and replayed when:
+   *   - the browser fires `online`
+   *   - any subsequent upsert succeeds (proves the connection is back)
    */
   private async upsertWithRetry<T>(key: string, value: T, attempt = 1): Promise<void> {
     if (!supabase) return
@@ -81,16 +187,24 @@ export class SupabaseStorageProvider implements StorageProvider {
           // Transient — retry once after 2s. Most "JWT expired" / "Failed to
           // fetch" errors clear themselves once the supabase-js client refreshes.
           setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
+        } else {
+          // Both attempts failed — queue for replay.
+          enqueuePendingWrite({ userId: this.userId, key, value })
         }
         this.recordError(key, error.message, attempt, value)
         console.warn(`[Supabase] write failed (attempt ${attempt}) key=${key}:`, error.message)
         return
       }
       this.recordSuccess(key, attempt, value)
+      // A successful write proves the connection is alive — drain any
+      // backlog from earlier offline period.
+      void drainPendingQueue()
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
       if (attempt === 1) {
         setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
+      } else {
+        enqueuePendingWrite({ userId: this.userId, key, value })
       }
       this.recordError(key, msg, attempt, value)
       console.warn(`[Supabase] write threw (attempt ${attempt}) key=${key}:`, msg)
@@ -256,4 +370,99 @@ export class SupabaseStorageProvider implements StorageProvider {
       this.listeners = this.listeners.filter(l => l !== listener)
     }
   }
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Pending-writes queue (offline-then-online sync, 2026-05-06)
+// ────────────────────────────────────────────────────────────────────────────
+//
+// When a Supabase upsert fails twice (offline, JWT can't refresh, transient
+// network), the write lands here and is replayed on:
+//   - `online` event (browser detects connection restored)
+//   - any successful upsert (proves connection is back)
+//
+// Persistence: writes are flushed to localStorage `tinct:pending-writes` so
+// queued items survive tab close / app restart / device sleep. Most-recent
+// write per key wins (collapses duplicates — for position keys, only the
+// latest matters).
+
+const PENDING_KEY = 'tinct:pending-writes'
+
+interface PendingWrite {
+  userId: string
+  key: string
+  value: unknown
+  queuedAt: number
+}
+
+function loadPending(): Map<string, PendingWrite> {
+  const map = new Map<string, PendingWrite>()
+  try {
+    const raw = localStorage.getItem(PENDING_KEY)
+    if (raw) {
+      const arr = JSON.parse(raw) as PendingWrite[]
+      for (const w of arr) {
+        // Key by userId+key so we collapse duplicates (most-recent wins).
+        map.set(`${w.userId}::${w.key}`, w)
+      }
+    }
+  } catch { /* ignore malformed */ }
+  return map
+}
+
+function savePending(map: Map<string, PendingWrite>): void {
+  try {
+    if (map.size === 0) {
+      localStorage.removeItem(PENDING_KEY)
+    } else {
+      localStorage.setItem(PENDING_KEY, JSON.stringify(Array.from(map.values())))
+    }
+  } catch { /* localStorage full or disabled */ }
+}
+
+export function enqueuePendingWrite(args: { userId: string; key: string; value: unknown }): void {
+  const map = loadPending()
+  map.set(`${args.userId}::${args.key}`, { ...args, queuedAt: Date.now() })
+  savePending(map)
+}
+
+export function pendingWriteCount(): number {
+  return loadPending().size
+}
+
+let drainInFlight = false
+export async function drainPendingQueue(): Promise<void> {
+  if (drainInFlight) return
+  if (!supabase) return
+  const map = loadPending()
+  if (map.size === 0) return
+  drainInFlight = true
+  try {
+    for (const [k, write] of Array.from(map.entries())) {
+      try {
+        const { error } = await supabase
+          .from('user_data')
+          .upsert(
+            { user_id: write.userId, key: write.key, value: write.value },
+            { onConflict: 'user_id,key' }
+          )
+        if (!error) {
+          map.delete(k)
+        } else {
+          // Still failing — leave in queue, give up this drain pass.
+          break
+        }
+      } catch {
+        break
+      }
+    }
+    savePending(map)
+  } finally {
+    drainInFlight = false
+  }
+}
+
+// Browser online event — drain immediately.
+if (typeof window !== 'undefined') {
+  window.addEventListener('online', () => { void drainPendingQueue() })
 }

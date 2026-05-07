@@ -952,8 +952,13 @@ export function SplitReader({
           &larr;
         </button>
         <span className="page-nav-label">
-          {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
-          {chapterTitle && <span className="page-nav-sep"> — </span>}
+          {/* Short label only — see Reader.tsx for rationale. */}
+          {currentChapter != null && currentChapter > 0 && (
+            <em className="page-nav-chapter">
+              {chapterTitle && /^book\s/i.test(chapterTitle) ? `Book ${currentChapter}` : `Chapter ${currentChapter}`}
+            </em>
+          )}
+          {currentChapter != null && currentChapter > 0 && <span className="page-nav-sep"> — </span>}
           {progressLabel || `${currentPage + 1} / ${totalPages}`}
         </span>
         <button

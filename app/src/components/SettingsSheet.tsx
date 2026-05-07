@@ -617,9 +617,12 @@ export function SettingsSheet(props: SettingsSheetProps) {
       ) : (
         <div className="ss-empty">
           <div className="ss-row-hint" style={{ marginBottom: 12 }}>
-            You're reading without an account. Sign in to sync progress across devices.
+            You're reading without an account. Sign in to sync progress, highlights, and journal across devices.
           </div>
-          <button className="ss-action-btn" onClick={onSignIn}>Sign in</button>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+            <button className="ss-action-btn" onClick={onSignIn}>Sign in</button>
+            <button className="ss-link-btn" onClick={onSignIn}>Create account →</button>
+          </div>
         </div>
       )}
     </>

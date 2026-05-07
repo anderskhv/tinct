@@ -332,24 +332,6 @@ export function Feed({
       ? Math.max(...usage.map(u => u.percent || 0))
       : progress
 
-    // Mode distribution: each mode's share of total coverage, adds to 100%
-    // e.g. listened=89%, read=89% → 50% listened, 50% read
-    // e.g. listened=89%, read=40% → 69% listened, 31% read
-    const totalWeight = usage ? usage.reduce((s, u) => s + (u.percent || 0), 0) : 0
-    const modeShares = usage && totalWeight > 0
-      ? usage.map(u => ({
-          mode: u.mode,
-          key: u.key,
-          share: Math.round((u.percent || 0) / totalWeight * 100),
-        }))
-      : null
-
-    // Collapse rounding errors so shares always sum exactly to 100
-    if (modeShares && modeShares.length > 0) {
-      const diff = 100 - modeShares.reduce((s, m) => s + m.share, 0)
-      modeShares[modeShares.length - 1].share += diff
-    }
-
     return (
       <div className="feed-detail-block">
         {/* Single progress bar showing overall reach */}
@@ -364,25 +346,13 @@ export function Feed({
           </div>
         )}
 
-        {/* Stats row */}
+        {/* Stats row — single percent, no read-vs-listened split (intentionally
+            removed 2026-05-06: the breakdown was confusing more than informative.
+            Future: maybe surface a per-book read/listen ratio for completed
+            books, but not as the per-chapter primary stat). */}
         <div className="feed-detail">
           {overallPercent !== undefined && (
             <span className="feed-detail-item">{overallPercent}% through</span>
-          )}
-          {modeShares && modeShares.length > 1 && (
-            <span className="feed-detail-item">
-              {modeShares.map((m, i) => (
-                <span key={`${m.mode}-${m.key}`}>
-                  {i > 0 && ' · '}
-                  {m.mode === 'listened' ? '🎧' : '📖'} {m.share}%
-                </span>
-              ))}
-            </span>
-          )}
-          {modeShares && modeShares.length === 1 && (
-            <span className="feed-detail-item">
-              {modeShares[0].mode === 'listened' ? '🎧 listened' : '📖 read'}
-            </span>
           )}
           {pages && <span className="feed-detail-item">{pages}</span>}
           {record.timeSpentSeconds && record.timeSpentSeconds > 0 && (

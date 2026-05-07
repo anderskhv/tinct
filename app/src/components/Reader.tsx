@@ -1228,8 +1228,15 @@ export function Reader({
           &larr;
         </button>
         <span className="page-nav-label">
-          {chapterTitle && <em className="page-nav-chapter">{chapterTitle}</em>}
-          {chapterTitle && <span className="page-nav-sep"> — </span>}
+          {/* Short label only — long descriptive titles (Odyssey Butler summaries,
+              Hamlet act+scene+location) overflow the running footer. The full
+              title appears in the chapter h2 at the top of the chapter content. */}
+          {currentChapter != null && currentChapter > 0 && (
+            <em className="page-nav-chapter">
+              {chapterTitle && /^book\s/i.test(chapterTitle) ? `Book ${currentChapter}` : `Chapter ${currentChapter}`}
+            </em>
+          )}
+          {currentChapter != null && currentChapter > 0 && <span className="page-nav-sep"> — </span>}
           {progressLabel || `${currentPage + 1} / ${totalPages}`}
         </span>
         <button

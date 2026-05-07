@@ -35,7 +35,22 @@ export function useReadingLog(
   lastParagraphIndex?: number,
   totalParagraphs?: number,
   isAudioPlaying = false,
+  /**
+   * Total chapters in the current book. When > 0, used to bound-check writes:
+   * any chapter that's out of range (e.g. Bible's chapter 345 leaking into
+   * Awakening which has 39 chapters) is dropped. 0 means unknown (book data
+   * not loaded yet) — the bound check is skipped, behavior unchanged.
+   *
+   * This is the cross-book bleed defense (B1, recurring 2026-05-06):
+   * stale `currentChapter` from a previous book leaks into the new book's
+   * log keys when bookId changes faster than chapter does in React state.
+   */
+  totalChapters?: number,
 ) {
+  function isChapterInBounds(ch: number): boolean {
+    if (!totalChapters || totalChapters <= 0) return true
+    return ch >= 1 && ch <= totalChapters
+  }
   const [log, setLog] = useState<BookReadingLog>(() => {
     return storage.get<BookReadingLog>(logKey(bookId)) || { bookId, chapters: {}, updatedAt: 0 }
   })
@@ -171,6 +186,14 @@ export function useReadingLog(
     prevBookRef.current = bookId
     // Record on chapter change or first mount (book change)
     if (!isChapterChange && !isBookChange) return
+    // Cross-book bleed guard (B1, 2026-05-06). On the first render after
+    // bookId switches, `currentChapter` still holds the OLD book's chapter
+    // value — the bleed-guard effect in App.tsx hasn't reset it yet. Writing
+    // here would create a phantom chapter entry under the new book's key
+    // (e.g. ch345 in Awakening which has 39 chapters). Skip; the next
+    // effect run with the corrected chapter value will record properly.
+    if (isBookChange && !isChapterInBounds(currentChapter)) return
+    if (!isChapterInBounds(currentChapter)) return
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
     setLog(prev => {
@@ -212,6 +235,7 @@ export function useReadingLog(
     if (!storageReady) return
     if (editionKey === prevEditionRef.current) return
     prevEditionRef.current = editionKey
+    if (!isChapterInBounds(currentChapter)) return
 
     setLog(prev => {
       const existing = prev.chapters[currentChapter]
@@ -234,6 +258,7 @@ export function useReadingLog(
   useEffect(() => {
     if (!storageReady) return
     if (totalPages <= 1 || currentPage < totalPages - 1) return
+    if (!isChapterInBounds(currentChapter)) return
 
     setLog(prev => {
       const existing = prev.chapters[currentChapter]
@@ -256,6 +281,7 @@ export function useReadingLog(
     if (lastParagraphIndex === undefined) return
     if (lastParagraphIndex === prevParagraphRef.current) return
     prevParagraphRef.current = lastParagraphIndex
+    if (!isChapterInBounds(currentChapter)) return
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
     const pct = totalParagraphs && totalParagraphs > 0

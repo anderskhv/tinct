@@ -40,7 +40,7 @@ export function ProgressPrompt({ bookId, onCreateAccount, onDismiss }: ProgressP
   return (
     <div className="progress-prompt-overlay">
       <div className="progress-prompt-card" role="dialog" aria-labelledby="progress-prompt-title">
-        <div className="progress-prompt-eyebrow">End of Chapter 1</div>
+        <div className="progress-prompt-eyebrow">You're getting somewhere</div>
         <h3 className="progress-prompt-title" id="progress-prompt-title"><em>Pick this up tomorrow.</em></h3>
         <p className="progress-prompt-body">
           On your phone, on an e-reader, anywhere. Open the full library. Free account, 10 seconds, no card.

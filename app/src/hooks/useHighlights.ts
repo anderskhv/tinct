@@ -11,10 +11,16 @@ function generateId(): string {
   return `hl_${Date.now()}_${++idCounter}`
 }
 
-export function useHighlights(bookId: string, chapterNumber: number) {
+export function useHighlights(bookId: string, chapterNumber: number, totalChapters?: number) {
   const [highlights, setHighlights] = useState<Highlight[]>(() => {
     return storage.get<Highlight[]>(storageKey(bookId, chapterNumber)) || []
   })
+
+  // Cross-book bleed guard — see useNotes for context. Same fix.
+  function isChapterInBoundsForBook(): boolean {
+    if (!totalChapters || totalChapters <= 0) return true
+    return chapterNumber >= 1 && chapterNumber <= totalChapters
+  }
 
   // Reload when chapter changes
   useEffect(() => {
@@ -22,8 +28,11 @@ export function useHighlights(bookId: string, chapterNumber: number) {
     setHighlights(stored)
   }, [bookId, chapterNumber])
 
-  // Persist on change
+  // Persist on change. Skip empty-array writes for nonexistent keys (state-init
+  // noise) and out-of-bounds chapters (cross-book bleed).
   useEffect(() => {
+    if (!isChapterInBoundsForBook()) return
+    if (highlights.length === 0 && storage.get<Highlight[]>(storageKey(bookId, chapterNumber)) === null) return
     storage.set(storageKey(bookId, chapterNumber), highlights)
   }, [highlights, bookId, chapterNumber])
 

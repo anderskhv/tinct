@@ -365,6 +365,13 @@ export function useReadingPosition(
   useEffect(() => {
     if (!storageReady || !writeUnlockedRef.current) return
     if (totalPages <= 1) return
+    // Cross-book bleed guard for progress writes: if totalChapters isn't known
+    // yet (book data still loading) OR chapterNumber is out of range, skip the
+    // write. Without this, a stale chapter from a previous book can land in the
+    // new book's progress with the OLD book's totalChapters — which is exactly
+    // how `progress:nicomachean-ethics` got `totalChapters=1189` (the Bible's
+    // chapter count). Diagnosed 2026-05-06.
+    if (totalChapters <= 0 || chapterNumber < 1 || chapterNumber > totalChapters) return
     const existing = storage.get<ReadingProgress>(progressKey(bookId))
     const prev = existing?.highestCompletedChapter || 0
 

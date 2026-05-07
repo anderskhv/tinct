@@ -73,3 +73,58 @@ export function isParagraphInBounds(paragraphIndex: number | undefined, paragrap
   if (paragraphIndex < 0) return false
   return paragraphIndex < paragraphCount
 }
+
+/**
+ * Default-state position detector.
+ *
+ * Returns true if the position looks like the in-memory React-state default
+ * captured before any real navigation: chapter 1, currentPage 0, no paragraph
+ * pinned (or the very first paragraph). This is what an anonymous-mode tab
+ * writes to localStorage when the user opens a book and doesn't navigate.
+ *
+ * Used by `shouldMigrateLocalToCloud` to refuse migration of these phantom
+ * positions over real cloud values when the user signs back in.
+ *
+ * Conservative — `lastParagraphIndex <= 2` covers the rare case where the
+ * `targetParagraphRef` saved a tiny number for cosmetic alignment without
+ * the user actually reading anywhere.
+ */
+export function isDefaultishPosition(p: { chapterNumber: number; currentPage: number; lastParagraphIndex?: number }): boolean {
+  if (p.chapterNumber !== 1) return false
+  if (p.currentPage !== 0) return false
+  if (p.lastParagraphIndex === undefined) return true
+  return p.lastParagraphIndex <= 2
+}
+
+/**
+ * Migration-direction decider.
+ *
+ * Called by the sign-in migration loop in App.tsx to decide whether a
+ * localStorage position should be written up to cloud. Three rules:
+ *
+ *  1. If cloud has nothing, local always wins (legitimate first migration).
+ *  2. If local is default-shaped AND cloud is real reading, REFUSE — local
+ *     is almost certainly an anonymous-mode default-state write that
+ *     would corrupt the user's actual cloud position. (This is the bug
+ *     diagnosed 2026-05-06: anonymous testing repeatedly overwrote real
+ *     cloud positions because anonymous's `Date.now()` was newer.)
+ *  3. Otherwise, the most recent `updatedAt` wins.
+ *
+ * Pure function for the test suite — UI calls this to gate the upsert.
+ */
+export function shouldMigrateLocalToCloud(args: {
+  local: { chapterNumber: number; currentPage: number; lastParagraphIndex?: number; updatedAt?: number } | null | undefined
+  cloud: { chapterNumber: number; currentPage: number; lastParagraphIndex?: number; updatedAt?: number } | null | undefined
+}): boolean {
+  const { local, cloud } = args
+  if (!local) return false
+  if (!cloud) return true
+  // Anonymous-mode pollution guard: a default-shaped local must never
+  // overwrite a non-default-shaped cloud, regardless of timestamps.
+  if (isDefaultishPosition(local) && !isDefaultishPosition(cloud)) return false
+  // Otherwise: more recent wins.
+  if (local.updatedAt !== undefined && cloud.updatedAt !== undefined) {
+    return local.updatedAt > cloud.updatedAt
+  }
+  return false
+}
