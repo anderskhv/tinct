@@ -11,7 +11,7 @@ function generateId(): string {
   return `hl_${Date.now()}_${++idCounter}`
 }
 
-export function useHighlights(bookId: string, chapterNumber: number, totalChapters?: number) {
+export function useHighlights(bookId: string, chapterNumber: number, totalChapters?: number, heavyLoadedTick = 0) {
   const [highlights, setHighlights] = useState<Highlight[]>(() => {
     return storage.get<Highlight[]>(storageKey(bookId, chapterNumber)) || []
   })
@@ -22,11 +22,11 @@ export function useHighlights(bookId: string, chapterNumber: number, totalChapte
     return chapterNumber >= 1 && chapterNumber <= totalChapters
   }
 
-  // Reload when chapter changes
+  // Reload when chapter changes OR after Phase B heavy-load completes.
   useEffect(() => {
     const stored = storage.get<Highlight[]>(storageKey(bookId, chapterNumber)) || []
     setHighlights(stored)
-  }, [bookId, chapterNumber])
+  }, [bookId, chapterNumber, heavyLoadedTick])
 
   // Persist on change. Skip empty-array writes for nonexistent keys (state-init
   // noise) and out-of-bounds chapters (cross-book bleed).

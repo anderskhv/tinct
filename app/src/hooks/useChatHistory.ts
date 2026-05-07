@@ -19,7 +19,7 @@ function makePreview(text: string): string {
   return text.slice(0, 77) + '...'
 }
 
-export function useChatHistory(bookId: string, storageReady = true) {
+export function useChatHistory(bookId: string, storageReady = true, heavyLoadedTick = 0) {
   const [conversations, setConversations] = useState<ChatConversation[]>([])
   const conversationsRef = useRef(conversations)
   conversationsRef.current = conversations
@@ -28,11 +28,16 @@ export function useChatHistory(bookId: string, storageReady = true) {
   // Without this guard the hook reads from an empty Supabase cache before
   // init() populates it, and the user sees a blank history on mobile/APK
   // where storage takes longer to warm.
+  //
+  // `heavyLoadedTick` re-triggers the read when SupabaseStorageProvider's
+  // Phase B background load completes. Chat history is in Phase B (heavy),
+  // so the first read on book-open might miss-cache; this re-read picks
+  // it up when the data lands. (2026-05-07.)
   useEffect(() => {
     if (!storageReady) return
     const data = storage.get<ChatConversation[]>(storageKey(bookId))
     setConversations(data || [])
-  }, [bookId, storageReady])
+  }, [bookId, storageReady, heavyLoadedTick])
 
   // Save to storage — suppress writes until storage is ready so we don't
   // overwrite cloud data with an empty defaults array.

@@ -79,6 +79,22 @@ export function useTier(user: User | null, profile: UserProfile | null): UseTier
       }
     }
 
+    // Profile hasn't loaded yet (just-signed-in, fetchProfile in flight).
+    // Don't make the trial-expired determination — the banner would flash
+    // "Your free trial has ended" briefly until profile resolves and we
+    // discover the subscription is active. Treat as Premium until profile
+    // arrives; the next render with real profile state corrects it.
+    // (2026-05-07 fix.)
+    if (!profile) {
+      return {
+        tier: 'premium' as Tier,
+        isTrial: false,
+        trialDaysRemaining: 0,
+        trialExpired: false,
+        canUse: () => true,
+      }
+    }
+
     // Authenticated but no subscription, trial expired → free
     const tier: Tier = 'free'
     return {

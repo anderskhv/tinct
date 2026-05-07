@@ -545,12 +545,19 @@ export default function App() {
   // Real-time cross-device sync: listen for remote preference changes
   // Note: position sync is handled on refresh/focus, not real-time,
   // to avoid two devices fighting over the same position key
+  // Heavy-load tick: bumped when SupabaseStorageProvider's Phase B
+  // background load completes. Hooks for notes/highlights/chat-history/
+  // reading-log include this in their deps to re-read once the heavy data
+  // has landed in the cache. (2026-05-07.)
+  const [heavyLoadedTick, setHeavyLoadedTick] = useState(0)
   useEffect(() => {
     const provider = supabaseProviderRef.current
     if (!provider) return
     const unsubscribe = provider.onChange((key, _value) => {
       if (key === 'preferences') {
         refreshFromStorage()
+      } else if (key === '__heavy_loaded__') {
+        setHeavyLoadedTick(t => t + 1)
       }
     })
     return unsubscribe
@@ -890,7 +897,7 @@ export default function App() {
     }
   }, [refreshProfile])
 
-  const { conversations: chatConversations, recordMessage, getChapterChatSummary, getChapterConversations, setSummary: setChatSummary } = useChatHistory(book.id, storageReady)
+  const { conversations: chatConversations, recordMessage, getChapterChatSummary, getChapterConversations, setSummary: setChatSummary } = useChatHistory(book.id, storageReady, heavyLoadedTick)
   const [summarizingChatId, setSummarizingChatId] = useState<string | null>(null)
 
   const handleSummarizeChat = useCallback(async (convId: string) => {
@@ -1130,8 +1137,8 @@ export default function App() {
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages])
 
-  const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter, totalChapters)
-  const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter, totalChapters)
+  const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter, totalChapters, heavyLoadedTick)
+  const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter, totalChapters, heavyLoadedTick)
 
   // Effective paragraph: audio position takes priority over reading position
   const effectiveParagraph = audioPlayingParagraph ?? firstVisibleParagraph

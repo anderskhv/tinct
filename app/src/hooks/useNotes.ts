@@ -11,7 +11,7 @@ function generateId(): string {
   return `note_${Date.now()}_${++idCounter}`
 }
 
-export function useNotes(bookId: string, chapterNumber: number, totalChapters?: number) {
+export function useNotes(bookId: string, chapterNumber: number, totalChapters?: number, heavyLoadedTick = 0) {
   const [notes, setNotes] = useState<Note[]>(() => {
     return storage.get<Note[]>(storageKey(bookId, chapterNumber)) || []
   })
@@ -25,11 +25,12 @@ export function useNotes(bookId: string, chapterNumber: number, totalChapters?: 
     return chapterNumber >= 1 && chapterNumber <= totalChapters
   }
 
-  // Reload when chapter changes
+  // Reload when chapter changes OR when heavy-load completes (notes are in
+  // Phase B background load, may not be cached on first chapter-open).
   useEffect(() => {
     const stored = storage.get<Note[]>(storageKey(bookId, chapterNumber)) || []
     setNotes(stored)
-  }, [bookId, chapterNumber])
+  }, [bookId, chapterNumber, heavyLoadedTick])
 
   // Persist on change. Skip empty-array writes for keys that don't exist yet —
   // those are nearly always state-init noise (newly-mounted hook for a chapter
