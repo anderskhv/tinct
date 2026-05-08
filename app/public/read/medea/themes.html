@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medea — Themes &amp;amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of Euripides's Medea. Betrayal and revenge, The foreign woman, The cost of cunning, Motherhood and infanticide, The chorus that fails.">
+  <link rel="canonical" href="https://tinct.app/read/medea/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/medea/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/medea/themes">
+
+  <meta property="og:title" content="Medea — Themes &amp;amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of Euripides's Medea. Betrayal and revenge, The foreign woman, The cost of cunning, Motherhood and infanticide, The chorus that fails.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/medea/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Medea — Themes &amp;amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of Euripides's Medea. Betrayal and revenge, The foreign woman, The cost of cunning, Motherhood and infanticide, The chorus that fails.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/medea" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/medea/summary">Medea</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">Medea — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads through the play</p>
+
+    <p class="lead">Medea is a revenge play, a feminist polemic, a study in rhetoric, and a horror story, all at once. These five threads carry it. None of them are decorative.</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#betrayal">Betrayal and revenge</a></li>
+        <li><a href="#foreigner">The foreign woman</a></li>
+        <li><a href="#cunning">The cost of cunning</a></li>
+        <li><a href="#mother">Motherhood and infanticide</a></li>
+        <li><a href="#chorus">The chorus that fails</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="betrayal">1 · Betrayal and revenge</h2>
+    <p class="theme-greek"><em>orgē</em> — the anger of the wronged that has nowhere else to go</p>
+    <div class="body">
+      <p>The play begins after the wound. Jason has already left. The new marriage is already arranged. Medea is already inside the house refusing food, refusing speech, looking, the Nurse says, like a stone or a wave. Euripides does not stage the moment of betrayal; he stages what it produces. The whole play is the morning, afternoon, and evening of a woman who has had the news long enough to think it through.</p>
+      <p>What is being avenged is not just the abandonment. It is the exchange. Medea betrayed her father, killed her brother, and made herself a permanent exile from her own country in order to help Jason on his quest. She left a place where she had standing for a place where she has none. The price she paid was the kind that cannot be taken back. Jason's defence — that he is making a sensible match, providing for everyone — fails to register that for Medea there is no equivalence on offer. He is asking her to accept a fraction of what she gave. The play's revenge is calibrated to that asymmetry. Jason will lose the new bride, the alliance with Corinth, his own children, and the line that was supposed to follow him. The Argo, his old ship, will eventually kill him. He will end the play alone.</p>
+      <p>Euripides is unsparing about how this works. Medea's revenge is not a fit. It is staged across seven scenes, with each move planned before it is made. She knows she needs an extra day in the city; she gets it. She knows she needs sanctuary somewhere else once it is done; she gets that too. She chooses poison because poison can be sent in the children's hands and because poison kills slowly enough to give her witnesses. She kills the children last because that is the point that cannot be recovered from. The horror is in the pacing.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/medea/chapter-3">Scene 3 (the day from Creon)</a>, <a href="/read/medea/chapter-4">Scene 4 (Jason confronted)</a>, <a href="/read/medea/chapter-5">Scene 5 (the plan named)</a>, <a href="/read/medea/chapter-7">Scene 7 (the revenge complete)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="foreigner">2 · The foreign woman</h2>
+    <p class="theme-greek"><em>barbaros</em> — the word the Greeks used for everyone who was not them</p>
+    <div class="body">
+      <p>Medea is not Greek. She is from Colchis, the country at the far eastern edge of the Black Sea, and the play never lets the audience forget it. Her grandfather is the Sun. Her people are the kind the Argonauts went looking for treasure among. Jason calls her a foreigner; Creon calls her one too, before he gives the order to expel her; Jason in the final scene calls her a tigress and a Skylla and a creature out of barbarian chambers. The vocabulary of the play marks her as outside the city even when she is at its centre.</p>
+      <p>Euripides uses the marking against the Greeks. Creon is afraid of Medea because she is a foreign witch; he expels her because she is dangerous. The same fear is what gives her the day she needs. Jason justifies the new marriage as a way of giving the children Greek brothers and a Greek inheritance — which, the play notes coolly, is the position from which he had previously needed a foreign woman's help to stay alive. Medea's first long speech to the Chorus is partly about the conditions of marriage in Greece and partly about the additional position of being married inside a country that is not yours. She names what cannot be named at home: she has no father, no brother, no kin to receive her if this fails.</p>
+      <p>What the play shows is that the Greek world's confidence in its own civility is part of what gets destroyed. Creon and Jason both make the calculation that a woman from outside is a manageable problem. They are wrong on their own terms. Medea reads the city better than the city reads her. The chariot that lifts her out of Corinth at the end goes to Athens, the other Greek city, where Aegeus has sworn to keep her — the Greeks' confidence has produced this outcome too, by their own oaths. The foreigner outlasts the family of the king who tried to deport her.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/medea/chapter-3">Scene 3 (the speech to the women)</a>, <a href="/read/medea/chapter-4">Scene 4 (Aegeus the alternative)</a>, <a href="/read/medea/chapter-7">Scene 7 (Jason's final accusation)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="cunning">3 · The cost of cunning</h2>
+    <p class="theme-greek"><em>mētis</em> — the practical intelligence the Greeks half-admired and half-feared</p>
+    <div class="body">
+      <p>Medea is, scene for scene, the most articulate person on the Greek stage. She wins every argument she enters. Creon comes onstage to expel her and leaves having granted her a day. Jason comes onstage to defend himself and leaves having had his defence reduced, line by line, to its component vanities. Aegeus comes onstage to discuss an oracle and leaves having sworn an unbreakable oath of sanctuary. The Chorus, who arrive sympathetic, are persuaded to keep her secrets in their first conversation with her. She reads each man and gives him what he needs in order to do what she requires of him.</p>
+      <p>Euripides is honest about where this came from. Medea's intelligence is the same intelligence that helped Jason on the Argonaut quest — the cunning that yoked the bulls of fire, killed the unsleeping serpent, and brought back the Golden Fleece. It is the reason he wanted her in the first place. The play's premise is that he has now removed her from the only purpose he ever offered her and expects her to accept the removal. Her brain has been an asset to him; with him gone, the asset has nothing to attach to except him. The same skill that built the marriage will now end it.</p>
+      <p>What the play suggests, without saying it, is that intelligence in a position with no outlet for action becomes intelligence directed at destruction. This is one of the earliest sustained accounts in literature of that mechanism. It is also one of the most uncomfortable, because Euripides refuses to soften it. Medea is not stupid in her grief and not crazy in her revenge. She is exactly as clear-eyed as she has been for the whole play. The line between her finest speeches and her worst acts is not a line.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/medea/chapter-3">Scene 3 (Creon outmanoeuvred)</a>, <a href="/read/medea/chapter-4">Scene 4 (Aegeus secured)</a>, <a href="/read/medea/chapter-6">Scene 6 (Jason deceived)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="mother">4 · Motherhood and infanticide</h2>
+    <p class="theme-greek"><em>teknoktonia</em> — the killing of one's own children, the act with no Greek defence</p>
+    <div class="body">
+      <p>The killing of the children is the act for which the play is remembered. Euripides does not stage it as a fit of madness. He stages it as a decision. Medea names it in Scene 5 — well before she does it, with the full plan laid out — and then in Scene 6, alone with the boys after Jason has taken them to deliver the gifts, she works through the deliberation in front of the audience. She calls them to her. She kisses their hands and their hair. She tells herself she will not do it. She says goodbye to the future she will not have with them — their wives, their old age, their hand laying out her body when she dies. She tells herself again she cannot do it. Then she tells herself she must, and does.</p>
+      <p>The speech is the most anatomised act of horror in Greek drama. Euripides gives Medea the love and the murder in the same mouth. He does not let the audience separate them. He does not give her a god to blame, or a fit she can be said to be in, or a reason that exists outside her. The killing is a calculated extension of the revenge: Jason hurt her by taking the future she had with him; she will hurt him by taking the future he has without her. The argument is unanswerable in its own terms. The play does not provide an answer. It provides the act.</p>
+      <p>Centuries of readers have asked whether she is in control of herself in this scene or not. The play declines to settle it. The Chorus, who watch, beg her to stop and cannot. The boys, behind the door, are heard asking what is happening. Then the door is shut and the cries finish. When Medea reappears she is on the chariot, with the bodies. She does not deny anything. She tells Jason she did it to torture him. The play ends with that as the final word — not because it is right, but because it is what happened.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/medea/chapter-5">Scene 5 (the plan named)</a>, <a href="/read/medea/chapter-6">Scene 6 (the deliberation)</a>, <a href="/read/medea/chapter-7">Scene 7 (the act and after)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="chorus">5 · The chorus that fails</h2>
+    <p class="theme-greek"><em>choros</em> — the women of Corinth, sympathetic, sworn to silence, watching</p>
+    <div class="body">
+      <p>The Chorus of Medea is twelve or fifteen women of Corinth — neighbours, more or less, of the house. They come on in Scene 2 because they have heard Medea screaming from inside and are worried about her. They listen to her first long speech, recognise the structural truth of it, and agree to keep her secrets. They are with her, on her side, throughout the first half of the play. The play would not be possible if they were not — they could simply tell Creon what is being planned and end the action.</p>
+      <p>Euripides uses them as the conscience of the play, and as the measure of what conscience can do. They argue against the killing of the children when she begins to talk about it in Scene 5. They sing a long lyric in Scene 6 begging her to stop, even kneeling in supplication. In Scene 7, when the cries are heard from inside the house, they call on Earth and the Sun to intervene before it is too late. None of this changes anything. The chorus hold the moral weight of the play and have no power to act on it.</p>
+      <p>What the structure suggests, without saying it, is that being right is not the same as being effective. The women see what is happening, name it, and beg against it. Medea does it anyway. Their final lines of the play are a prayer to Zeus that the audience knows will not be answered — Jason has already lost everything, the Sun's chariot is already lifting Medea out of reach, the dead are already dead. Greek tragedy normally ends with a chorus that has watched the proper order reassert itself. This one ends with a chorus that has watched the proper order fail to assert itself at all.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/medea/chapter-2">Scene 2 (the Chorus arrives)</a>, <a href="/read/medea/chapter-5">Scene 5 (the warning)</a>, <a href="/read/medea/chapter-6">Scene 6 (the lyric of supplication)</a>, <a href="/read/medea/chapter-7">Scene 7 (the prayer at the door)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/medea/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What Medea is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/medea/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 7 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/medea/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">Eight figures around one house</div>
+        <div class="guide-desc">Medea, Jason, the men she manipulates, the children she will kill, the women who watch.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/medea">Open Medea in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
