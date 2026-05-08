@@ -21,6 +21,22 @@ function makePreview(text: string): string {
 
 export function useChatHistory(bookId: string, storageReady = true, heavyLoadedTick = 0) {
   const [conversations, setConversations] = useState<ChatConversation[]>([])
+  // Track the bookId the current `conversations` state was loaded for. When
+  // the prop bookId changes, the load effect below reads the new book's data
+  // — but that effect runs AFTER render. Without a synchronous reset, the
+  // first render after a book switch returns the PREVIOUS book's
+  // conversations, and Chat.tsx's `sortedHistory` displays them as "Past
+  // conversations" until the effect catches up. (2026-05-08: Anders saw
+  // Ruth/Boaz analysis bullets in the Odyssey chat panel after switching
+  // books — exactly this race.)
+  const loadedForBookRef = useRef<string>(bookId)
+  if (loadedForBookRef.current !== bookId) {
+    loadedForBookRef.current = bookId
+    // Synchronous reset during render (React allows this for state owned by
+    // the same component). The load effect below then populates with the new
+    // book's data on the next tick.
+    setConversations([])
+  }
   const conversationsRef = useRef(conversations)
   conversationsRef.current = conversations
 
