@@ -2,11 +2,32 @@ import { useState, useCallback, useRef } from 'react'
 import type { ChatMessage } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 
-function buildSystemPrompt(bookTitle: string, bookAuthor: string, chapterTitle: string, readingObjective?: string): string {
+function buildSystemPrompt(
+  bookTitle: string,
+  bookAuthor: string,
+  chapterTitle: string,
+  readingObjective?: string,
+  previousChapters?: string[],
+): string {
+  // Structured "current state" block. The reader can jump between chapters
+  // mid-conversation (especially in the Bible — cross-references, parallel
+  // passages). The model needs to distinguish "what's on screen right now"
+  // (a fact, the FIRST line below) from "what we've talked about earlier"
+  // (history, recoverable but not authoritative). Without this separation,
+  // the model anchors on the most-mentioned chapter from history and
+  // ignores the actual current position. The reader experienced this: they
+  // were on Ruth 1, the model insisted they were still on Psalm 31.
+  const currentState =
+    `[Current state]\n` +
+    `Right now reading: ${bookTitle} by ${bookAuthor} — ${chapterTitle}\n` +
+    (previousChapters && previousChapters.length > 0
+      ? `Earlier in this conversation we discussed: ${previousChapters.join(', ')}\n` +
+        `(Those are history. Default to the chapter on screen unless the reader explicitly references one of the earlier ones.)\n`
+      : '')
+
   let prompt = `You are the built-in reading companion for Tinct, a deep reading platform at tinct.app. You are part of Tinct — not a third-party tool. When users ask about Tinct's features, answer directly as someone who knows the product.
 
-The reader is currently reading ${bookTitle} by ${bookAuthor}, on ${chapterTitle}.
-
+${currentState}
 Tinct features you should know about:
 - **Editions**: Each book is available in multiple versions — Original, Modern English, and Modern Danish. Readers can switch between editions or compare them side-by-side in split view.
 - **Cast**: A character tracker showing characters the reader has encountered so far, with per-chapter summaries that are spoiler-aware (only reveals up to the reader's current chapter). If a character isn't in the Cast, it may be because they haven't appeared prominently enough or the Cast focuses on the most significant characters.
@@ -58,6 +79,14 @@ interface UseClaudeOptions {
   onUsage?: (inputTokens: number, outputTokens: number) => void
   /** Summary of past chat discussions for the current chapter */
   chatMemory?: string
+  /** Current chapter number — tagged onto outgoing messages so the
+   *  position-divider UI and ambient-grounding logic can detect cross-
+   *  chapter conversations. */
+  currentChapterNumber?: number
+  /** Map of chapter number → human-readable label. Used to translate
+   *  chapter numbers from message history into labels for the "earlier in
+   *  this conversation" line of the system prompt. */
+  chapterLabels?: Record<number, string>
 }
 
 export function useClaude(options?: UseClaudeOptions) {
@@ -67,12 +96,16 @@ export function useClaude(options?: UseClaudeOptions) {
   optionsRef.current = options
 
   const sendMessage = useCallback(async (content: string, highlightedText?: string) => {
+    const opts = optionsRef.current
+    const currentChapter = opts?.currentChapterNumber
+
     const userMessage: ChatMessage = {
       id: generateId(),
       role: 'user',
       content,
       timestamp: Date.now(),
       highlightedText,
+      chapterNumber: currentChapter,
     }
 
     setMessages(prev => [...prev, userMessage])
@@ -94,9 +127,22 @@ export function useClaude(options?: UseClaudeOptions) {
         return { role: m.role, content: text }
       })
 
-      const opts = optionsRef.current
+      // Distinct previously-discussed chapters (most-recent first), excluding
+      // the chapter the reader is currently on. This is the data the model
+      // needs to distinguish "history we can reference" from "where they are
+      // now." Cap at 5 to keep the prompt compact.
+      const previousChapterLabels: string[] = []
+      const seenChapters = new Set<number>()
+      const labels = opts?.chapterLabels
+      for (let i = recentHistory.length - 1; i >= 0 && previousChapterLabels.length < 5; i--) {
+        const ch = recentHistory[i].chapterNumber
+        if (ch == null || ch === currentChapter || seenChapters.has(ch)) continue
+        seenChapters.add(ch)
+        previousChapterLabels.push(labels?.[ch] || `Chapter ${ch}`)
+      }
+
       const basePrompt = opts
-        ? buildSystemPrompt(opts.bookTitle, opts.bookAuthor, opts.chapterTitle, opts.readingObjective)
+        ? buildSystemPrompt(opts.bookTitle, opts.bookAuthor, opts.chapterTitle, opts.readingObjective, previousChapterLabels)
         : 'You are a literary companion helping a reader deeply engage with what they\'re reading. Be conversational and warm. Keep responses concise.'
       const memoryContext = opts?.chatMemory ? `\n\n[${opts.chatMemory}]` : ''
       const systemPrompt = basePrompt + memoryContext + buildVisibleTextContext(opts?.visibleText)
@@ -167,6 +213,7 @@ export function useClaude(options?: UseClaudeOptions) {
         content: assistantText,
         timestamp: Date.now(),
         tokenCount,
+        chapterNumber: currentChapter,
       }
 
       setMessages(prev => [...prev, assistantMessage])

@@ -2,21 +2,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import type { ChatMessage, ChatConversation } from '../types'
 import { BalanceIndicator } from './BalanceIndicator'
 import { ContextualAnglePrompt } from './ContextualAnglePrompt'
-
-/** Human-readable "3 min ago" / "Yesterday" / "Apr 12". */
-function formatRelativeTime(ts: number): string {
-  const now = Date.now()
-  const diff = Math.max(0, now - ts)
-  const min = 60 * 1000
-  const hour = 60 * min
-  const day = 24 * hour
-  if (diff < min) return 'Just now'
-  if (diff < hour) return `${Math.floor(diff / min)} min ago`
-  if (diff < day) return `${Math.floor(diff / hour)} hr ago`
-  if (diff < 2 * day) return 'Yesterday'
-  if (diff < 7 * day) return `${Math.floor(diff / day)} days ago`
-  return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
-}
+import { formatRelative, formatAbsolute } from '../utils/formatRelative'
 
 // Web Speech API types
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -198,7 +184,9 @@ interface ChatProps {
   onCopyToNotes: (content: string) => void
   bookTitle?: string
   chapterTitle?: string
-  chapterLabels?: Record<number, string>
+  /** 0-indexed array of short chapter labels; chapter N is at index N-1.
+   *  Matches what App.tsx builds from primaryData.chapters. */
+  chapterLabels?: string[]
   readingObjective?: string
   onEditObjective?: () => void
   bookId?: string
@@ -433,6 +421,32 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     ? messages.filter(m => !m.chapterDivider && m.content.toLowerCase().includes(searchQuery.toLowerCase()))
     : messages
 
+  // Inject "Moved to <chapter>" dividers between messages whose
+  // chapterNumber differs from the previous one. Pure render-time
+  // derivation — divider markers are NOT persisted (a previous attempt to
+  // persist them caused the chat-history pollution noted in the App.tsx
+  // chapter-divider cleanup effect).
+  const messagesWithDividers = useMemo(() => {
+    if (searchQuery.trim()) return filteredMessages
+    const out: ChatMessage[] = []
+    let lastChapter: number | null = null
+    for (const m of filteredMessages) {
+      const ch = m.chapterNumber
+      if (ch != null && lastChapter != null && ch !== lastChapter) {
+        out.push({
+          id: `divider-${m.id}`,
+          role: 'assistant',
+          content: '',
+          timestamp: m.timestamp,
+          chapterDivider: ch,
+        })
+      }
+      if (ch != null) lastChapter = ch
+      out.push(m)
+    }
+    return out
+  }, [filteredMessages, searchQuery])
+
   // Past conversations — chronological, most recent first. Only rendered
   // when there are no live messages, so the Chat tab opens on your
   // history instead of a blank welcome.
@@ -445,7 +459,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   const [expandedHistoryId, setExpandedHistoryId] = useState<string | null>(null)
 
   const getChapterLabel = (chapterNum: number) => {
-    return chapterLabels?.[chapterNum] || `Chapter ${chapterNum}`
+    return chapterLabels?.[chapterNum - 1] || `Chapter ${chapterNum}`
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -496,7 +510,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
             <div className="chat-history-head">Past conversations</div>
             {sortedHistory.map(c => {
               const isOpen = expandedHistoryId === c.id
-              const time = formatRelativeTime(c.endTimestamp)
+              const time = formatRelative(c.endTimestamp)
               const chapLabel = c.chapterNumber ? getChapterLabel(c.chapterNumber) : null
               return (
                 <div key={c.id} className={`chat-history-item ${isOpen ? 'chat-history-item-open' : ''}`}>
@@ -585,10 +599,10 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
           </div>
         )}
 
-        {filteredMessages.map(msg => (
+        {messagesWithDividers.map(msg => (
           msg.chapterDivider ? (
             <div key={msg.id} className="chat-chapter-divider">
-              <span>{getChapterLabel(msg.chapterDivider)}</span>
+              <span>Moved to {getChapterLabel(msg.chapterDivider)}</span>
             </div>
           ) : (
             <div key={msg.id} className={`chat-message chat-message-${msg.role}`}>
@@ -601,6 +615,11 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
               <div className="chat-message-content">
                 {renderMarkdown(msg.content)}
               </div>
+              {msg.timestamp > 0 && (
+                <div className="chat-message-time" title={formatAbsolute(msg.timestamp)}>
+                  {formatRelative(msg.timestamp)}
+                </div>
+              )}
               {msg.refreshAction && (
                 <button
                   className="chat-refresh-action"

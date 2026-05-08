@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import type { Note, Highlight, ChatConversation, BookReadingLog, ChapterReadingRecord, Section } from '../types'
+import { formatRelative, formatAbsolute } from '../utils/formatRelative'
 
 /** Render inline markdown: **bold**, *italic* */
 function renderInline(text: string): React.ReactNode {
@@ -67,18 +68,43 @@ function renderMarkdown(text: string): React.ReactNode {
   return elements
 }
 
-function formatTime(ts: number) {
-  return new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-}
-
-function formatDate(ts: number) {
-  const d = new Date(ts)
-  const now = new Date()
-  if (d.toDateString() === now.toDateString()) return 'Today'
-  const yesterday = new Date(now)
-  yesterday.setDate(yesterday.getDate() - 1)
-  if (d.toDateString() === yesterday.toDateString()) return 'Yesterday'
-  return d.toLocaleDateString([], { month: 'short', day: 'numeric' })
+/**
+ * Render a feed entry's metadata line:
+ *   <created relative> · Read N× · last read <relative>
+ *
+ * Read-count + last-read piggyback on chapter-level data from useReadingLog
+ * (read-count is incremented every time the reader navigates to the chapter).
+ * They only render when count ≥ 2 — showing "Read 1×" alongside "created
+ * yesterday" is just noise. "last read" only renders if it's meaningfully
+ * after the entry was created (>1 min later) — otherwise it duplicates the
+ * created date.
+ */
+function entryMeta(createdAt: number, record?: ChapterReadingRecord): React.ReactNode {
+  const count = record?.readCount ?? 0
+  const last = record?.lastReadAt ?? 0
+  const showCount = count >= 2
+  const showLast = last > createdAt + 60_000 && count >= 2
+  return (
+    <span className="timeline-meta">
+      <span className="timeline-meta-created" title={formatAbsolute(createdAt)}>
+        {formatRelative(createdAt)}
+      </span>
+      {showCount && (
+        <>
+          <span className="timeline-meta-sep">·</span>
+          <span className="timeline-meta-count">Read {count}×</span>
+        </>
+      )}
+      {showLast && (
+        <>
+          <span className="timeline-meta-sep">·</span>
+          <span className="timeline-meta-last" title={formatAbsolute(last)}>
+            last read {formatRelative(last)}
+          </span>
+        </>
+      )}
+    </span>
+  )
 }
 
 function formatDuration(seconds: number): string {
@@ -464,6 +490,7 @@ export function Feed({
                                   &ldquo;{hl.text.length > 100 ? hl.text.slice(0, 100) + '...' : hl.text}&rdquo;
                                 </p>
                                 {hl.note && <p className="highlight-note">{hl.note}</p>}
+                                {entryMeta(hl.timestamp, record)}
                               </div>
                               <button
                                 className="timeline-go"
@@ -493,7 +520,7 @@ export function Feed({
                                     {note.sourceType === 'from-chat' ? 'From chat' :
                                      note.sourceType === 'from-highlight' ? 'From highlight' : ''}
                                   </span>
-                                  <span className="timeline-time">{formatDate(note.timestamp)} {formatTime(note.timestamp)}</span>
+                                  {entryMeta(note.timestamp, record)}
                                   <button className="note-edit" onClick={() => isEditing ? saveEdit() : startEdit(note)}>
                                     {isEditing ? 'Save' : '\u270E'}
                                   </button>
@@ -533,7 +560,9 @@ export function Feed({
                                         : conv.preview || 'Chat conversation'}
                                     </span>
                                     <span className="timeline-chat-meta">
-                                      {msgCount} msg{msgCount !== 1 ? 's' : ''} &middot; {formatDate(conv.startTimestamp)} {formatTime(conv.startTimestamp)}
+                                      <span>{msgCount} msg{msgCount !== 1 ? 's' : ''}</span>
+                                      <span className="timeline-meta-sep">&middot;</span>
+                                      {entryMeta(conv.startTimestamp, record)}
                                     </span>
                                     <span className="timeline-expand">{isConvExpanded ? '\u25B2' : '\u25BC'}</span>
                                   </button>

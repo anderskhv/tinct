@@ -817,6 +817,16 @@ export default function App() {
     })
   }, [primaryData])
 
+  // 1-indexed map of chapter number → label, used by code paths that key on
+  // the canonical chapter number (chat ambient grounding, divider rendering)
+  // rather than the array index. Built from chapterLabels so there's still
+  // one source of truth.
+  const chapterLabelByNumber = useMemo(() => {
+    const m: Record<number, string> = {}
+    chapterLabels.forEach((label, idx) => { m[idx + 1] = label })
+    return m
+  }, [chapterLabels])
+
   // Approximate visible paragraphs based on current page position
   const visibleParagraphs = useMemo(() => {
     const paras = primaryChapter?.paragraphs || []
@@ -946,6 +956,8 @@ export default function App() {
     onInsufficientBalance: handleInsufficientBalance,
     onUsage: deductUsage,
     chatMemory: getChapterChatSummary(currentChapter) || undefined,
+    currentChapterNumber: currentChapter,
+    chapterLabels: chapterLabelByNumber,
   })
 
   // Load chat history when the book changes. Chat is now ONE continuous
@@ -970,11 +982,18 @@ export default function App() {
       // Defensive filter: storage is keyed per book, but legacy/future bugs
       // could mix. Only show messages whose bookId matches (or is unset).
       if (conv.bookId && conv.bookId !== book.id) continue
-      allMsgs.push(...conv.messages.filter(m =>
-        !m.chapterDivider &&             // skip persisted chapter-divider markers (legacy bug)
-        (m.content || '').trim() !== '' && // skip the empty bodies left behind by that bug
-        (!m.bookId || m.bookId === book.id)
-      ))
+      allMsgs.push(...conv.messages
+        .filter(m =>
+          !m.chapterDivider &&             // skip persisted chapter-divider markers (legacy bug)
+          (m.content || '').trim() !== '' && // skip the empty bodies left behind by that bug
+          (!m.bookId || m.bookId === book.id)
+        )
+        // Backfill chapterNumber from the conversation's chapter when the
+        // message itself doesn't have one. Older messages predate the
+        // per-message chapterNumber tag; without backfill, ambient-grounding
+        // and the chat divider can't distinguish chapters in legacy history.
+        .map(m => m.chapterNumber == null ? { ...m, chapterNumber: conv.chapterNumber } : m)
+      )
     }
     if (allMsgs.length > 0) {
       loadMessages(allMsgs)

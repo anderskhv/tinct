@@ -2100,6 +2100,21 @@ body {
   margin-bottom: 0;
 }
 
+/* Per-message timestamp under the bubble — subtle, italic, hover-tooltip
+   gives the absolute timestamp. Right-aligned for user messages so it sits
+   under the right edge of the bubble; left-aligned for assistant. */
+.chat-message-time {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  font-family: var(--font-serif);
+  margin-top: 4px;
+  opacity: 0.65;
+}
+.chat-message-user .chat-message-time {
+  text-align: right;
+}
+
 .chat-highlight {
   margin-bottom: 8px;
 }
@@ -3000,6 +3015,29 @@ body {
   color: var(--text-tertiary);
   display: block;
   margin-top: 4px;
+}
+
+/* Feed entry metadata line: "<created> · Read N× · last read X ago" */
+.timeline-meta {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-sans);
+  margin-top: 4px;
+}
+.timeline-meta-sep {
+  opacity: 0.55;
+}
+.timeline-meta-count {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 0.74rem;
+}
+.timeline-meta-last {
+  font-style: italic;
 }
 
 .timeline-highlight {
