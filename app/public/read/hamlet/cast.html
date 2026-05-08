@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamlet — Characters | Tinct</title>
+  <meta name="description" content="Every character in William Shakespeare's Hamlet. Hamlet, Claudius, Gertrude, The Ghost, Polonius, Ophelia, and more. Each linked to the chapters they appear in.">
+  <link rel="canonical" href="https://tinct.app/read/hamlet/cast">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/hamlet/cast">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/hamlet/cast">
+
+  <meta property="og:title" content="Hamlet — Characters | Tinct">
+  <meta property="og:description" content="Every character in William Shakespeare's Hamlet. Hamlet, Claudius, Gertrude, The Ghost, Polonius, Ophelia, and more. Each linked to the chapters they appear in.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/hamlet/cast">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hamlet — Characters | Tinct">
+  <meta name="twitter:description" content="Every character in William Shakespeare's Hamlet. Hamlet, Claudius, Gertrude, The Ghost, Polonius, Ophelia, and more. Each linked to the chapters they appear in.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.02; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .subtitle { font-family: 'EB Garamond', Georgia, serif; font-size: 22px; font-style: italic; color: var(--dim); margin-bottom: 32px; }
+
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin-bottom: 36px; max-width: 720px; }
+    .lead p + p { margin-top: 14px; }
+    .lead em { font-style: italic; }
+
+    h2.group { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; font-weight: 700; margin: 56px 0 6px 0; color: var(--accent); letter-spacing: -0.015em; }
+    h2.group em { font-style: italic; font-weight: 400; }
+    .group-sub { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; font-style: italic; color: var(--dim); margin-bottom: 22px; }
+
+    .character { padding: 22px 0; border-top: 1px solid var(--rule); scroll-margin-top: 24px; display: grid; grid-template-columns: minmax(180px, 200px) 1fr; gap: 24px; }
+    .character:last-child { border-bottom: 1px solid var(--rule); }
+    .character-name { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    .character-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper); background: var(--accent); padding: 3px 8px; margin-bottom: 8px; }
+    .character-tag.god { background: #8a4a1f; }
+    .character-tag.creature { background: #5a3a8a; }
+    .character-epithet { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; font-style: italic; color: var(--dim); line-height: 1.4; }
+    .character-body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.55; color: var(--ink); }
+    .character-body em { font-style: italic; }
+    .character-body strong { font-weight: 600; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .where strong { color: var(--ink); font-weight: 500; margin-right: 4px; }
+    .where a { color: var(--accent); text-decoration: none; padding: 2px 8px; border: 1px solid var(--rule); border-radius: 2px; transition: background 0.12s, border-color 0.12s; }
+    .where a:hover { background: rgba(31, 74, 92, 0.06); border-color: var(--accent); }
+
+    .related-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 56px 0 24px 0; }
+    .related-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .related-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .related-card-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .related-card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .related-card-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .character { grid-template-columns: 1fr; gap: 12px; }
+      .related-cards { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/hamlet" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/hamlet/summary">Hamlet</a> · <span>Characters</span>
+    </div>
+
+    <h1 class="title">Hamlet — <em>who's who</em></h1>
+    <p class="subtitle">Elsinore — the household of a usurped throne.</p>
+
+    <div class="lead"><p>Hamlet has a relatively small cast: about twenty named figures, plus the players, the soldiers, the gravediggers. The play turns on the court of Elsinore — the royal family, the chief minister and his children, the school friends. Almost everyone in the named cast is dead by the final scene.</p></div>
+
+    <h2 class="group">The royal family</h2>
+
+    <article class="character" id="char-hamlet">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Hamlet</div>
+        <div class="character-epithet">Prince of Denmark</div>
+      </div>
+      <div>
+        <p class="character-body">The protagonist. Thirty years old, university-educated at Wittenberg. Returned to Elsinore for his father's funeral and stayed for his mother's wedding to his uncle two months later. The most extensively interior character ever written for the stage; his four soliloquies are the engine of the play. Dies in the final scene from a poisoned blade, having killed Claudius and forgiven Laertes.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-1">Chapter 1</a> · <a href="/read/hamlet/chapter-2">2</a> · <a href="/read/hamlet/chapter-4">4</a> · <a href="/read/hamlet/chapter-5">5</a> · <a href="/read/hamlet/chapter-7">7</a> · <a href="/read/hamlet/chapter-8">8</a> · <a href="/read/hamlet/chapter-9">9</a> · <a href="/read/hamlet/chapter-10">10</a> · <a href="/read/hamlet/chapter-11">11</a> · <a href="/read/hamlet/chapter-12">12</a> · <a href="/read/hamlet/chapter-13">13</a> · <a href="/read/hamlet/chapter-14">14</a> · <a href="/read/hamlet/chapter-15">15</a> · <a href="/read/hamlet/chapter-19">19</a> · <a href="/read/hamlet/chapter-20">20</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-claudius">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Claudius</div>
+        <div class="character-epithet">King of Denmark, the usurper</div>
+      </div>
+      <div>
+        <p class="character-body">Hamlet's uncle, the murderer of Hamlet's father, and the husband of Hamlet's mother. The play does not present him as a flat villain — the prayer scene in Scene 10 shows real moral consciousness — but he keeps Hamlet alive only as long as Hamlet's delay protects him. When the delay finally ends, so does he. Stabbed and force-fed his own poison by Hamlet in the final scene.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-2">Chapter 2</a> · <a href="/read/hamlet/chapter-7">7</a> · <a href="/read/hamlet/chapter-8">8</a> · <a href="/read/hamlet/chapter-10">10</a> · <a href="/read/hamlet/chapter-12">12</a> · <a href="/read/hamlet/chapter-14">14</a> · <a href="/read/hamlet/chapter-18">18</a> · <a href="/read/hamlet/chapter-20">20</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-gertrude">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Gertrude</div>
+        <div class="character-epithet">Queen of Denmark, Hamlet's mother</div>
+      </div>
+      <div>
+        <p class="character-body">The widow of the dead king and the wife of his murderer. The play gives her remarkably little soliloquy or self-explanation; she is largely seen from outside. Hamlet treats her with anger and tenderness in equal measure. In the final scene she drinks the poisoned cup meant for her son — with the famous line "I will, my lord; I pray you pardon me" — and dies before him.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-2">Chapter 2</a> · <a href="/read/hamlet/chapter-7">7</a> · <a href="/read/hamlet/chapter-8">8</a> · <a href="/read/hamlet/chapter-9">9</a> · <a href="/read/hamlet/chapter-11">11</a> · <a href="/read/hamlet/chapter-12">12</a> · <a href="/read/hamlet/chapter-16">16</a> · <a href="/read/hamlet/chapter-18">18</a> · <a href="/read/hamlet/chapter-20">20</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-ghost">
+      <div>
+        <div class="character-tag creature">God</div>
+        <div class="character-name">The Ghost</div>
+        <div class="character-epithet">Hamlet's father</div>
+      </div>
+      <div>
+        <p class="character-body">The dead king. Appears on the wall of Elsinore in Act I and to Hamlet in private in Scene 5, where he names Claudius as his murderer and demands revenge. Returns once more in Scene 11 in Gertrude's bedroom — only Hamlet sees him there. The play does not settle whether he is what he claims to be (a soul in purgatory) or, as Hamlet briefly worries, the devil in his father's shape.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-1">Chapter 1</a> · <a href="/read/hamlet/chapter-4">4</a> · <a href="/read/hamlet/chapter-5">5</a> · <a href="/read/hamlet/chapter-11">11</a></div>
+      </div>
+    </article>
+
+    <h2 class="group">The court</h2>
+
+    <article class="character" id="char-polonius">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Polonius</div>
+        <div class="character-epithet">Chief minister</div>
+      </div>
+      <div>
+        <p class="character-body">The court's most quotable windbag. Father of Laertes and Ophelia. A loyal courtier in the worst sense — he uses his children as instruments of state, lectures everyone, and dies for it in Scene 11 when Hamlet, hearing him cry out from behind a curtain, runs him through. His death is the hinge of the rest of the tragedy.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-2">Chapter 2</a> · <a href="/read/hamlet/chapter-3">3</a> · <a href="/read/hamlet/chapter-6">6</a> · <a href="/read/hamlet/chapter-7">7</a> · <a href="/read/hamlet/chapter-8">8</a> · <a href="/read/hamlet/chapter-9">9</a> · <a href="/read/hamlet/chapter-11">11</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-ophelia">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Ophelia</div>
+        <div class="character-epithet">Polonius's daughter</div>
+      </div>
+      <div>
+        <p class="character-body">The woman Hamlet had been courting before the play opens. Obedient to her father, used by him as bait in Scene 8, brutally rejected by Hamlet there ("get thee to a nunnery"). After her father's death by Hamlet's hand, she goes mad and drowns. Her madness is staged with extraordinary care; her death is reported by Gertrude in one of the most-quoted passages of the play.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-3">Chapter 3</a> · <a href="/read/hamlet/chapter-6">6</a> · <a href="/read/hamlet/chapter-8">8</a> · <a href="/read/hamlet/chapter-9">9</a> · <a href="/read/hamlet/chapter-16">16</a> · <a href="/read/hamlet/chapter-19">19</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-laertes">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Laertes</div>
+        <div class="character-epithet">Polonius's son</div>
+      </div>
+      <div>
+        <p class="character-body">Polonius's son, Ophelia's brother. Returns to Denmark from Paris in Scene 16 to find his father dead and his sister mad, and is the play's foil to Hamlet — he wants exactly the revenge that Hamlet keeps refusing to take. Co-opted by Claudius into a plot to kill Hamlet with a poisoned blade. Forgives and is forgiven by Hamlet as both lie dying in the final scene.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-2">Chapter 2</a> · <a href="/read/hamlet/chapter-3">3</a> · <a href="/read/hamlet/chapter-16">16</a> · <a href="/read/hamlet/chapter-18">18</a> · <a href="/read/hamlet/chapter-19">19</a> · <a href="/read/hamlet/chapter-20">20</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-horatio">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Horatio</div>
+        <div class="character-epithet">Hamlet's friend</div>
+      </div>
+      <div>
+        <p class="character-body">Hamlet's school friend at Wittenberg, the play's moral compass. Steady where Hamlet is volatile, skeptical where Hamlet is mystical. The only courtier Hamlet trusts completely. Survives the final massacre because Hamlet stops him from drinking the remaining poison; charged with telling Hamlet's story to the world.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-1">Chapter 1</a> · <a href="/read/hamlet/chapter-4">4</a> · <a href="/read/hamlet/chapter-5">5</a> · <a href="/read/hamlet/chapter-7">7</a> · <a href="/read/hamlet/chapter-9">9</a> · <a href="/read/hamlet/chapter-17">17</a> · <a href="/read/hamlet/chapter-19">19</a> · <a href="/read/hamlet/chapter-20">20</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-rosencrantz">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Rosencrantz and Guildenstern</div>
+        <div class="character-epithet">Hamlet's school friends, summoned by Claudius</div>
+      </div>
+      <div>
+        <p class="character-body">Two school friends Hamlet barely remembers; Claudius summons them to spy on him. Hamlet sees through them within minutes ("send me a beggarly message that's about it"). Their loyalty wavers between him and the king and ends in ambiguity. Hamlet, on the ship to England, switches Claudius's letter ordering his death for one ordering theirs; they are executed in England without ever appearing on stage again.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-7">Chapter 7</a> · <a href="/read/hamlet/chapter-8">8</a> · <a href="/read/hamlet/chapter-9">9</a> · <a href="/read/hamlet/chapter-13">13</a> · <a href="/read/hamlet/chapter-14">14</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-fortinbras">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Fortinbras</div>
+        <div class="character-epithet">Prince of Norway</div>
+      </div>
+      <div>
+        <p class="character-body">The play's offstage parallel to Hamlet. His father was killed in single combat by Hamlet's father; he has been raising an army to take back lost ground. Marches through Denmark in Act IV; his army is the spur for Hamlet's "how all occasions do inform against me" soliloquy. Arrives at Elsinore in the final scene to find every claimant to the Danish throne dead, and accepts the crown.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-15">Chapter 15</a> · <a href="/read/hamlet/chapter-20">20</a></div>
+      </div>
+    </article>
+
+    <h2 class="group">The minor figures</h2>
+
+    <article class="character" id="char-players">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">The Players</div>
+        <div class="character-epithet">A traveling company</div>
+      </div>
+      <div>
+        <p class="character-body">A troupe of actors who arrive at Elsinore in Scene 7. Hamlet adapts an existing play for them — adds about a dozen lines — to use as a test of Claudius's guilt. The "play within the play" in Scene 9 is the result. Hamlet's instructions to them ("speak the speech, I pray you, as I pronounced it to you, trippingly on the tongue") are also Shakespeare's only surviving statement on how acting should be done.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-7">Chapter 7</a> · <a href="/read/hamlet/chapter-9">9</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-gravediggers">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">The gravediggers</div>
+        <div class="character-epithet">Two clowns at work</div>
+      </div>
+      <div>
+        <p class="character-body">Two comic figures digging Ophelia's grave at the start of Scene 19. Their banter — about who is the strongest builder, about how long a body takes to rot — is Shakespeare's last comic stretch in the play. The first gravedigger hands Hamlet the skull of Yorick, the king's old jester, who carried Hamlet on his back when Hamlet was a child.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-19">Chapter 19</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-yorick">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Yorick</div>
+        <div class="character-epithet">Court jester (long dead)</div>
+      </div>
+      <div>
+        <p class="character-body">Never appears alive, only as a skull in Scene 19. The court jester of Hamlet's childhood, dead twenty-three years. The skull is one of the most famous props in literature; "alas, poor Yorick — I knew him, Horatio" is misquoted (the line does not include "well") more than any other in Shakespeare.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/hamlet/chapter-19">Chapter 19</a></div>
+      </div>
+    </article>
+
+    <div class="related-cards">
+      <a href="/read/hamlet/summary" class="related-card">
+        <div class="related-card-label">The book itself</div>
+        <div class="related-card-title">Summary &amp; story</div>
+        <div class="related-card-desc">What Hamlet is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/hamlet/chapters" class="related-card">
+        <div class="related-card-label">In 5 minutes</div>
+        <div class="related-card-title">Chapter-by-chapter</div>
+        <div class="related-card-desc">All 20 chapters summarized.</div>
+      </a>
+      <a href="/read/hamlet/themes" class="related-card">
+        <div class="related-card-label">Analysis</div>
+        <div class="related-card-title">Themes</div>
+        <div class="related-card-desc">Revenge, madness real and feigned, mortality, kingship, indecision.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/hamlet">Open Hamlet in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

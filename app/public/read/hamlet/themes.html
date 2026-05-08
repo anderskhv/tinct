@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamlet — Themes &amp;amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of William Shakespeare's Hamlet. Revenge — and what to do instead, Madness — feigned, and not, Mortality and the body, Kingship and the rotten state, Thinking and acting.">
+  <link rel="canonical" href="https://tinct.app/read/hamlet/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/hamlet/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/hamlet/themes">
+
+  <meta property="og:title" content="Hamlet — Themes &amp;amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of William Shakespeare's Hamlet. Revenge — and what to do instead, Madness — feigned, and not, Mortality and the body, Kingship and the rotten state, Thinking and acting.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/hamlet/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hamlet — Themes &amp;amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of William Shakespeare's Hamlet. Revenge — and what to do instead, Madness — feigned, and not, Mortality and the body, Kingship and the rotten state, Thinking and acting.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/hamlet" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/hamlet/summary">Hamlet</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">Hamlet — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads through the play</p>
+
+    <p class="lead">Hamlet is a revenge tragedy that wants to be more than a revenge tragedy. The plays it grew out of would have ended in the killing in Act II. Shakespeare keeps writing for three more acts, and these are what he is writing about.</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#revenge">Revenge — and what to do instead</a></li>
+        <li><a href="#madness">Madness — feigned, and not</a></li>
+        <li><a href="#mortality">Mortality and the body</a></li>
+        <li><a href="#kingship">Kingship and the rotten state</a></li>
+        <li><a href="#indecision">Thinking and acting</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="revenge">1 · Revenge — and what to do instead</h2>
+    <p class="theme-greek">the ghost demands; the son delays</p>
+    <div class="body">
+      <p>Hamlet is a revenge play that does not behave like one. The Elizabethan audience knew the genre — Thomas Kyd's <em>Spanish Tragedy</em>, performed throughout the 1590s, had set the template. A wronged man learns of an injustice from a ghost or a vision; he plans elaborate revenge; he carries it out in a final-act bloodbath. The genre had its own pleasures.</p>
+      <p>Shakespeare promises that play and then refuses to write it. The ghost arrives in Act I, names Claudius as the murderer, demands revenge. The conditions are met. By Act II Hamlet should be plotting. But Act II is not plotting; it is evasion. By Act III Hamlet has a private confession of guilt from Claudius and a perfect chance to kill him at prayer — and he does not, on grounds that turn out to be self-deceiving. By Act IV he is on a ship to England.</p>
+      <p>What is Hamlet doing instead of revenge? The play makes the question central. He thinks. He doubts the ghost ("the spirit that I have seen / may be the devil"). He stages a play to check the story. He talks to himself, four times, in soliloquies that are themselves the most famous moments in English drama. He explores the moral weight of doing what the ghost asks. In a play built around the simple genre of revenge, Hamlet introduces a hero who treats the killing as a problem rather than a goal.</p>
+      <p>When the killing finally happens it is almost inadvertent — Claudius dies in the same five minutes that Gertrude, Laertes, and Hamlet die. The play has spent four acts arguing that revenge is harder than the genre admits, and the ending, with its accidents and its cross-purposes, is the proof. The revenge happens. It does not solve anything. The stage is full of corpses and the throne goes to a Norwegian who has never met any of them.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/hamlet/chapter-5">Scene 5 (the ghost charges)</a>, <a href="/read/hamlet/chapter-7">Scene 7 (the player's speech)</a>, <a href="/read/hamlet/chapter-10">Scene 10 (Claudius at prayer)</a>, <a href="/read/hamlet/chapter-20">Scene 20 (the end)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="madness">2 · Madness — feigned, and not</h2>
+    <p class="theme-greek">"To put an antic disposition on"</p>
+    <div class="body">
+      <p>In Act I, Scene V, Hamlet tells Horatio and Marcellus that he may "put an antic disposition on" — pretend madness as cover. From that moment on, his behavior swings between the wildly erratic and the surgically lucid, and the play refuses to settle the question of how much of it is real.</p>
+      <p>He plays the fool with Polonius and is suddenly cogent with Horatio. He humiliates Ophelia in a way that seems calculated and then does it again in a way that seems out of control. He stages a play with the precision of an investigator and then leaps into Ophelia's grave shouting like a stage villain. The pretence is a mask he picks up and puts down — and what worries the play is that the mask sometimes fits.</p>
+      <p>The contrast with Ophelia matters. Ophelia goes mad in Act IV, after her father's death and Hamlet's rejection, and her madness is unambiguous. She sings, gives flowers with hidden meanings, drowns herself in a brook. Her madness is the real thing. Hamlet's, set next to it, looks more like performance — but the performance is not a costume he can simply remove. He returns from the sea voyage in Act V calmer, less theatrical, almost resigned. Whether he was ever mad, we are never told. The play seems to suggest that the question itself is wrong.</p>
+      <p>What the play does say clearly is that madness, real or feigned, is what someone in Hamlet's situation might naturally produce. He has been told his uncle is a murderer; he has been asked by a ghost to kill the king; he has lost his father; his mother is sleeping with the killer; his beloved is being used by her father to spy on him. A man in that position who behaved <em>only</em> like a stable adult would not be a credible character. Madness, in the play, is partly what truth-seeing produces in someone who cannot act on what they see.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/hamlet/chapter-5">Scene 5 (the announcement)</a>, <a href="/read/hamlet/chapter-8">Scene 8 (&quot;get thee to a nunnery&quot;)</a>, <a href="/read/hamlet/chapter-16">Scene 16 (Ophelia's madness)</a>, <a href="/read/hamlet/chapter-19">Scene 19 (the graveyard)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="mortality">3 · Mortality and the body</h2>
+    <p class="theme-greek">memento mori, with a skull on stage</p>
+    <div class="body">
+      <p>The most famous prop in English literature is a skull. Hamlet picks it up in the graveyard scene and recognizes it: this is Yorick, the court jester who used to carry me on his back when I was a child. Now he is bone. A few lines later Hamlet works through the same logic about Alexander the Great: the conqueror is now dust, and may be plugging a beer-barrel somewhere. The play is full of jokes like this. Mortality is the deepest of them.</p>
+      <p>It runs through the play. Hamlet's first soliloquy ("O that this too too solid flesh would melt") is a meditation on his own body as a weight he wishes he could be rid of. The ghost describes its own poisoning, the skin scabbing instantly with "vile and loathsome crust." Hamlet hides Polonius's corpse and jokes that the body is "at supper" — being eaten by worms; "your fat king and your lean beggar is but variable service, two dishes, but to one table." The grave-digger, in Scene 19, talks about how long different professions take to rot.</p>
+      <p>What this constant pressure of physical death does to the play is keep its other questions at the right scale. Revenge, indecision, marriage, kingship — all of these are operating inside a frame in which the body is the thing that ends. Hamlet's most direct argument with the ghost's demand is mortality: if everyone is going to die anyway, what is the killing of one man going to mean? What does <em>any</em> action mean, set against the river of dust the play keeps drawing back to?</p>
+      <p>The play does not answer this. It makes Hamlet act, finally, and then it kills him. But it ends with Horatio asking flights of angels to sing him to his rest, and with Fortinbras's soldiers carrying him out "like a soldier." Whatever Hamlet finally was, the play insists, he was a body that mattered, even though all bodies eventually become bones in a churchyard.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/hamlet/chapter-2">Scene 2 (&quot;too too solid flesh&quot;)</a>, <a href="/read/hamlet/chapter-11">Scene 11 (Polonius dead)</a>, <a href="/read/hamlet/chapter-14">Scene 14 (&quot;at supper&quot;)</a>, <a href="/read/hamlet/chapter-19">Scene 19 (Yorick)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="kingship">4 · Kingship and the rotten state</h2>
+    <p class="theme-greek">"Something is rotten in the state of Denmark"</p>
+    <div class="body">
+      <p>The play's political frame is unusually direct. Denmark is a kingdom whose king has been murdered. The murderer, the dead king's brother, has married the queen and seized the throne. Norway, on the borders, is sending an army through. Marcellus says the line on the wall in Act I — "something is rotten in the state of Denmark" — and the rest of the play is the working-out of how that rot reaches every corner.</p>
+      <p>It reaches the household first. Gertrude has remarried — "with such dexterity to incestuous sheets," Hamlet says — within two months of her husband's death. The court has accepted the new arrangement; Polonius advises the new king as if nothing has changed. Marriage and politics are continuous. The corruption of the throne corrupts the marriage that legitimizes it.</p>
+      <p>It reaches the courtiers. Polonius, the chief minister, is a fool and a meddler and dies for it; Rosencrantz and Guildenstern, school friends of Hamlet's, are co-opted by Claudius and die for that. The state requires their service and gives nothing back; the play is unsparing about the small moral compromises courtiers make to survive at a corrupt court, and equally unsparing about how unprotected those compromises leave them.</p>
+      <p>And it reaches the people. Hamlet imagines, in the graveyard scene, the dust of Alexander stopping a beer-barrel — kings are subject to the same dissolution as everyone else. Fortinbras enters Denmark at the end and takes the throne almost casually, the rightful Danish dynasty extinct. The play does not mourn for the line; it mourns for Hamlet. The state was rotten before the play started and is no less rotten when it ends.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/hamlet/chapter-1">Scene 1 (&quot;rotten in the state&quot;)</a>, <a href="/read/hamlet/chapter-2">Scene 2 (the new king)</a>, <a href="/read/hamlet/chapter-11">Scene 11 (Polonius dies)</a>, <a href="/read/hamlet/chapter-20">Scene 20 (Fortinbras enters)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="indecision">5 · Thinking and acting</h2>
+    <p class="theme-greek">"Thus conscience does make cowards of us all"</p>
+    <div class="body">
+      <p>What Hamlet did to drama is hard to overstate. Before him, characters in plays acted; the audience watched. Hamlet introduces a kind of character whose <em>thinking</em> is the action — a hero who watches himself, second-guesses himself, narrates himself, holds entire arguments about whether to do the thing the play has been telling him for two acts to do.</p>
+      <p>The four soliloquies are the engine of this. "O that this too too solid flesh would melt" — grief, displaced and unable to act. "O what a rogue and peasant slave am I" — self-disgust at his own delay. "To be, or not to be" — the consideration of suicide and, behind it, of any action at all. "How all occasions do inform against me" — comparison of himself to Fortinbras's army, marching for nothing, while he sits with everything to gain and does nothing. Each of these is a moment when the character speaks his own inner life directly to the audience, and each is more famous than the play's plot.</p>
+      <p>Underneath them is an argument: that thought is not opposed to action but is itself a kind of action, and that the moral weight of an act is determined by how it is examined before it happens. Hamlet's argument with the genre of revenge tragedy is that the simple pleasures of vengeance — pleasures that worked for Kyd's audiences and worked for the Greeks — should not work for a thinking person. The play asks whether action that has not been thoroughly thought through is worth doing.</p>
+      <p>Its answer, painful and ambiguous, is that thought without action eventually destroys the thinker. Hamlet's delay does not save him; it kills him, and Ophelia, and Polonius, and Gertrude. Acting too quickly would also have killed him. The play does not propose a third way. It just shows the costs of thinking too much next to the costs of thinking too little, and trusts you to feel the difference in your own life.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/hamlet/chapter-2">Scene 2 (first soliloquy)</a>, <a href="/read/hamlet/chapter-7">Scene 7 (rogue and peasant slave)</a>, <a href="/read/hamlet/chapter-8">Scene 8 (to be or not to be)</a>, <a href="/read/hamlet/chapter-15">Scene 15 (how all occasions)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/hamlet/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What Hamlet is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/hamlet/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 20 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/hamlet/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">Elsinore</div>
+        <div class="guide-desc">The household of a usurped throne.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/hamlet">Open Hamlet in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
