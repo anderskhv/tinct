@@ -3,6 +3,8 @@
  * Handles /api/* routes and falls through to static assets for everything else.
  */
 
+import { GENERATED_BOOK_META } from './data/bookMetaGenerated'
+
 interface Env {
   ANTHROPIC_API_KEY: string
   STRIPE_SECRET_KEY?: string
@@ -2020,7 +2022,11 @@ export default {
     const bookMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/i)
     if (request.method === 'GET' && bookMatch) {
       const bookId = bookMatch[1].toLowerCase()
-      const meta = BOOK_META[bookId]
+      // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
+      // generated meta from bookRegistry is the fallback so every book in
+      // the sitemap has unique <title>/<meta description> and we don't
+      // hand Google 60+ duplicate-content URLs.
+      const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
       if (meta) {
         const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
         if (appResp.ok) {

@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sitemap": "node scripts/generate-sitemap.cjs",
+    "prebuild": "node scripts/generate-sitemap.cjs",
     "build": "vite build && mv dist/index.html dist/app.html && cp dist/landing.html dist/index.html",
     "verify-bundle": "node scripts/verify-bundle.cjs",
     "deploy": "npm run build && npm run verify-bundle && bash -c 'set -a; [ -f .env ] && source .env; set +a; npx wrangler deploy'",
