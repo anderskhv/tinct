@@ -2553,6 +2553,20 @@ body {
   padding-left: 24px;
 }
 
+/* Inside split-pane, paragraphs are paired by .split-row (break-inside:
+   avoid). The global .text-paragraph rule sets orphans/widows: 1 for the
+   single-pane drop-cap fix — but in split-pane that hint encouraged Safari
+   to fragment rows mid-paragraph across pages, leaving partial-line
+   residue at the top of the next page (visible as a "horizontal line
+   cutting through" the first line) and visually offsetting the two
+   columns. Inside split-pane we want paragraphs to stay whole; the row
+   either fits on the page or breaks to the next page as a unit. */
+.split-row .text-paragraph {
+  break-inside: avoid;
+  orphans: 2;
+  widows: 2;
+}
+
 /* ===== Chapter End ===== */
 .chapter-end {
   text-align: center;
