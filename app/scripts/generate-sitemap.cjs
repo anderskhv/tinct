@@ -106,6 +106,17 @@ function hasSeoPages(bookId) {
   return fs.existsSync(path.join(READ_DIR, bookId, 'summary.html'))
 }
 
+/**
+ * Tier detection. Full tier has the full hub set + chapter-N pages; Stub
+ * tier has only summary.html. (No Hub-only tier in production yet.)
+ */
+function tierFor(bookId) {
+  const dir = path.join(READ_DIR, bookId)
+  if (!fs.existsSync(path.join(dir, 'summary.html'))) return 'none'
+  if (fs.existsSync(path.join(dir, 'chapter-1.html'))) return 'full'
+  return 'stub'
+}
+
 // --- Build entries -------------------------------------------------------
 
 function urlEntry(loc, opts = {}) {
@@ -126,15 +137,19 @@ function buildSitemap(books) {
   lines.push(urlEntry(`${ORIGIN}/read`, { changefreq: 'weekly', priority: 0.8 }))
   lines.push('')
 
-  // Books with full SEO page sets first, then SPA-only books.
-  const withSeo = []
-  const withoutSeo = []
+  // Three buckets: Full-tier books (everything), Stub-tier books
+  // (just summary.html), and books with no SEO pages at all.
+  const fullBooks = []
+  const stubBooks = []
+  const noSeoBooks = []
   for (const b of books) {
-    if (hasSeoPages(b.id)) withSeo.push(b)
-    else withoutSeo.push(b)
+    const t = tierFor(b.id)
+    if (t === 'full') fullBooks.push(b)
+    else if (t === 'stub') stubBooks.push(b)
+    else noSeoBooks.push(b)
   }
 
-  for (const b of withSeo) {
+  for (const b of fullBooks) {
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9 }))
@@ -148,9 +163,18 @@ function buildSitemap(books) {
     lines.push('')
   }
 
-  if (withoutSeo.length > 0) {
+  if (stubBooks.length > 0) {
+    lines.push('  <!-- Stub-tier books — summary.html only -->')
+    for (const b of stubBooks) {
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7 }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7 }))
+    }
+    lines.push('')
+  }
+
+  if (noSeoBooks.length > 0) {
     lines.push('  <!-- SPA reader entries (no static SEO pages yet) -->')
-    for (const b of withoutSeo) {
+    for (const b of noSeoBooks) {
       lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6 }))
     }
   }
@@ -204,8 +228,9 @@ function main() {
   const xml = buildSitemap(books)
   fs.writeFileSync(OUT_SITEMAP, xml)
   const total = (xml.match(/<url>/g) || []).length
-  const seoCount = books.filter(b => hasSeoPages(b.id)).length
-  console.log(`[sitemap] Wrote ${total} URLs to ${path.relative(APP_DIR, OUT_SITEMAP)} (${books.length} books, ${seoCount} with SEO pages)`)
+  const fullCount = books.filter(b => tierFor(b.id) === 'full').length
+  const stubCount = books.filter(b => tierFor(b.id) === 'stub').length
+  console.log(`[sitemap] Wrote ${total} URLs to ${path.relative(APP_DIR, OUT_SITEMAP)} (${books.length} books, ${fullCount} full + ${stubCount} stub)`)
 
   const meta = buildBookMeta(books)
   fs.writeFileSync(OUT_META, meta)
