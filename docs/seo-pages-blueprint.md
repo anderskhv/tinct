@@ -31,7 +31,7 @@ Most of this already exists in `app/public/data/onboarding/{bookId}.json` and `a
 | Full cast                | `{bookId}-threads.json` (extended for SEO)               | `cast.html`                                          |
 | Glance lines (per chap)  | NEW: write one connective sentence per chapter           | Tour rail on summary, glance rail on chapter pages   |
 | Hook (per chap)          | NEW: write one italicized teaser per chapter             | Top of each chapter page                             |
-| Long summary (per chap)  | NEW: write 3–4 paragraph chapter summary                 | Body of each chapter page                            |
+| Long summary (per chap)  | NEW: 3–4 paragraph chapter summary, ~290 words (see length rule) | Body of each chapter page                            |
 | Themes (5 essays)        | NEW: write 3–5 paragraph essay per theme                 | `themes.html`                                        |
 | Appears + Themes per chap | NEW: list of character names + theme slugs per chapter  | "Appears" / "Themes" chips on chapter pages          |
 
@@ -70,6 +70,8 @@ These exist for any book; you only need to register the new book.
    ```
 
    Keep the connective tone — each card should pick up where the last left off so click-through reads as one story. The existing `app/public/read/odyssey/chapter-*.html` are the reference for length and density.
+
+   **Length rule (Anders, 2026-05-08):** chapter summaries should run roughly **30% longer than the brief blurb on `chapters.html`**, never more. The Odyssey calibration is ~225 words → ~290 words target. Long enough to add one or two specifics that the index couldn't carry (a named drug, a small but vivid detail, the contrast that makes the chapter mean something), short enough that scrolling through all 24 still feels like a continuous storyline rather than a textbook.
 
 3. **Write the themes essay.** A new `themes.html` mirroring the Odyssey structure: 5 themed sections, each ~3–5 paragraphs, with "where to follow it" links to the chapter pages where the theme manifests.
 
