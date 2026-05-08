@@ -59,6 +59,27 @@ function buildVisibleTextContext(visibleText?: string): string {
   return `\n\n[The reader is currently looking at this text on their screen:\n"${trimmed}"]`
 }
 
+/**
+ * Inject the full text of the current chapter so the model can answer
+ * chapter-level questions ("what is this chapter about", "reflect on
+ * chapter 8") from the actual prose rather than from its training memory
+ * — which mixes chapter numbering up across the catalog. The reader saw
+ * this on The Awakening: asked to reflect on chapter 8, the model
+ * returned chapter 7's content, then chapter 9's, then finally chapter
+ * 8's only after being corrected twice. Cost: ~500-2000 tokens per turn,
+ * worth it to ground the answer in the actual chapter.
+ */
+function buildChapterTextContext(chapterText?: string): string {
+  if (!chapterText || chapterText.length < 40) return ''
+  // Cap at ~12,000 chars (~3,000 tokens). Most chapters are well under
+  // this; longer ones (e.g. an Iliad book) get the start clipped, which
+  // is acceptable since the visibleText block above already carries the
+  // exact paragraphs in front of the reader's eyes.
+  const MAX = 12000
+  const trimmed = chapterText.length > MAX ? chapterText.slice(0, MAX) + '\n[…chapter continues; rest is paginated below]' : chapterText
+  return `\n\n[Full text of the chapter the reader is currently in. This is the authoritative source for any chapter-level question — use it instead of your training memory, which mixes chapter numbering across editions:\n${trimmed}\n]`
+}
+
 let messageIdCounter = 0
 function generateId() {
   return `msg_${Date.now()}_${++messageIdCounter}`
@@ -69,8 +90,12 @@ interface UseClaudeOptions {
   bookAuthor: string
   chapterTitle: string
   readingObjective?: string
-  /** Current visible text on the reader page */
+  /** Current visible text on the reader page (one page worth, ~1500 chars) */
   visibleText?: string
+  /** Full text of the current chapter (all paragraphs joined). Injected
+   *  into the system prompt so the model answers chapter-level questions
+   *  from the actual prose, not from its training memory. */
+  currentChapterText?: string
   /** Supabase auth token for authenticated requests */
   authToken?: string | null
   /** Callback when balance is insufficient */
@@ -145,7 +170,7 @@ export function useClaude(options?: UseClaudeOptions) {
         ? buildSystemPrompt(opts.bookTitle, opts.bookAuthor, opts.chapterTitle, opts.readingObjective, previousChapterLabels)
         : 'You are a literary companion helping a reader deeply engage with what they\'re reading. Be conversational and warm. Keep responses concise.'
       const memoryContext = opts?.chatMemory ? `\n\n[${opts.chatMemory}]` : ''
-      const systemPrompt = basePrompt + memoryContext + buildVisibleTextContext(opts?.visibleText)
+      const systemPrompt = basePrompt + memoryContext + buildChapterTextContext(opts?.currentChapterText) + buildVisibleTextContext(opts?.visibleText)
 
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',

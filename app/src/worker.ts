@@ -29,7 +29,14 @@ const MAX_TOKENS_CAP = 2048
 // 500KB matches MAX_MESSAGES × MAX_MESSAGE_LENGTH and leaves headroom for
 // the system prompt + JSON envelope.
 const MAX_REQUEST_BODY_BYTES = 500_000
-const MAX_SYSTEM_PROMPT_LENGTH = 4000
+// Raised from 4000 (2026-05-08) when the client started injecting the
+// full current-chapter text into the system prompt — necessary so the
+// model grounds chapter-level questions in the actual prose instead of
+// its training memory (which mixes chapter numbering across editions).
+// Most chapters are 4-15K chars; cap at 32K to bound worst-case (e.g.
+// an Iliad book) while staying well under the model's 200K-token
+// context window. Total bytes still bounded by MAX_REQUEST_BODY_BYTES.
+const MAX_SYSTEM_PROMPT_LENGTH = 32_000
 const MAX_MESSAGES = 50
 // Per-message cap so a single bloated turn can't blow the budget. 10K chars
 // is ~2K tokens — a generous ceiling for any real reader question.

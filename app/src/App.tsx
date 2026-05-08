@@ -838,6 +838,18 @@ export default function App() {
 
   const visibleText = useMemo(() => visibleParagraphs.join(' '), [visibleParagraphs])
 
+  // Full text of the current chapter — every paragraph joined. Sent to
+  // useClaude so chapter-level questions ("reflect on chapter 8") ground
+  // in the actual prose rather than the model's training memory, which
+  // mixes chapter numbering across editions and produces wrong-chapter
+  // answers (Anders saw this on The Awakening: chapter 8 question →
+  // chapter 7 reply, then chapter 9, then chapter 8 only after correcting
+  // twice).
+  const currentChapterText = useMemo(
+    () => primaryChapter?.paragraphs.join('\n\n') || '',
+    [primaryChapter?.paragraphs],
+  )
+
   // Handle insufficient balance — anonymous users get prompted to sign up,
   // signed-in users get the focused TopUpModal (not the full UsageDashboard,
   // which buries the buy buttons under usage stats and subscription mgmt).
@@ -952,6 +964,7 @@ export default function App() {
     chapterTitle,
     readingObjective: preferences.readingObjective,
     visibleText,
+    currentChapterText,
     authToken: session?.access_token,
     onInsufficientBalance: handleInsufficientBalance,
     onUsage: deductUsage,
