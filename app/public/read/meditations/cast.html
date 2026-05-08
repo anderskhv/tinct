@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditations — Characters | Tinct</title>
+  <meta name="description" content="Every character in Marcus Aurelius's Meditations. Antoninus Pius, Junius Rusticus, Cornelius Fronto, Domitia Lucilla, Verus (the grandfather), Epictetus, and more. Each linked to the chapters they appear in.">
+  <link rel="canonical" href="https://tinct.app/read/meditations/cast">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/meditations/cast">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/meditations/cast">
+
+  <meta property="og:title" content="Meditations — Characters | Tinct">
+  <meta property="og:description" content="Every character in Marcus Aurelius's Meditations. Antoninus Pius, Junius Rusticus, Cornelius Fronto, Domitia Lucilla, Verus (the grandfather), Epictetus, and more. Each linked to the chapters they appear in.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/meditations/cast">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meditations — Characters | Tinct">
+  <meta name="twitter:description" content="Every character in Marcus Aurelius's Meditations. Antoninus Pius, Junius Rusticus, Cornelius Fronto, Domitia Lucilla, Verus (the grandfather), Epictetus, and more. Each linked to the chapters they appear in.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.02; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .subtitle { font-family: 'EB Garamond', Georgia, serif; font-size: 22px; font-style: italic; color: var(--dim); margin-bottom: 32px; }
+
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin-bottom: 36px; max-width: 720px; }
+    .lead p + p { margin-top: 14px; }
+    .lead em { font-style: italic; }
+
+    h2.group { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; font-weight: 700; margin: 56px 0 6px 0; color: var(--accent); letter-spacing: -0.015em; }
+    h2.group em { font-style: italic; font-weight: 400; }
+    .group-sub { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; font-style: italic; color: var(--dim); margin-bottom: 22px; }
+
+    .character { padding: 22px 0; border-top: 1px solid var(--rule); scroll-margin-top: 24px; display: grid; grid-template-columns: minmax(180px, 200px) 1fr; gap: 24px; }
+    .character:last-child { border-bottom: 1px solid var(--rule); }
+    .character-name { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    .character-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper); background: var(--accent); padding: 3px 8px; margin-bottom: 8px; }
+    .character-tag.god { background: #8a4a1f; }
+    .character-tag.creature { background: #5a3a8a; }
+    .character-epithet { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; font-style: italic; color: var(--dim); line-height: 1.4; }
+    .character-body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.55; color: var(--ink); }
+    .character-body em { font-style: italic; }
+    .character-body strong { font-weight: 600; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .where strong { color: var(--ink); font-weight: 500; margin-right: 4px; }
+    .where a { color: var(--accent); text-decoration: none; padding: 2px 8px; border: 1px solid var(--rule); border-radius: 2px; transition: background 0.12s, border-color 0.12s; }
+    .where a:hover { background: rgba(31, 74, 92, 0.06); border-color: var(--accent); }
+
+    .related-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 56px 0 24px 0; }
+    .related-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .related-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .related-card-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .related-card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .related-card-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .character { grid-template-columns: 1fr; gap: 12px; }
+      .related-cards { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/meditations" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/meditations/summary">Meditations</a> · <span>Characters</span>
+    </div>
+
+    <h1 class="title">Meditations — <em>who's who</em></h1>
+    <p class="subtitle">The teachers, the predecessors, the imagined adversaries.</p>
+
+    <div class="lead"><p>The Meditations is full of names — but the names are not characters in a story; they are people Marcus is grateful to, indebted to, in dialogue with, or arguing against. Book One is famously a list of debts: from his grandfather, courtesy; from his mother, religious feeling; from Rusticus, an introduction to Epictetus. The rest of the work returns to many of the same figures plus a wider Stoic genealogy.</p>
+      <p>The cards below cover the people Marcus names most often. Some are real teachers; some are predecessors he never met; some are imagined adversaries he is rehearsing how to deal with. All of them are, in one way or another, working against the same problem he is.</p></div>
+
+    <h2 class="group">The teachers · <em>those Marcus names with gratitude</em></h2>
+    <p class="group-sub">Mostly real, mostly Stoic, mostly the people who formed him.</p>
+
+    <article class="character" id="char-antoninus">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Antoninus Pius</div>
+        <div class="character-epithet">Marcus's adoptive father, emperor 138–161</div>
+      </div>
+      <div>
+        <p class="character-body">The first long meditation in Book Six is Marcus's tribute to Antoninus — a portrait of how to govern with calm decency. Antoninus had taken Marcus into his household and raised him as his heir, and Marcus modelled the rest of his life on the man's quiet steadiness. "Everything he did was thought through carefully, as if he had time to spare." Marcus's idea of how to be emperor came almost entirely from Antoninus.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a> · <a href="/read/meditations/chapter-6">6</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-rusticus">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Junius Rusticus</div>
+        <div class="character-epithet">Stoic teacher and Roman senator</div>
+      </div>
+      <div>
+        <p class="character-body">One of Marcus's most important teachers. Rusticus introduced him to Epictetus's Discourses, lent him his own copy, and seems to have been a model of Stoic life lived inside Roman politics. Marcus thanks him in Book One for, among other things, "not being put off by trifles" and "writing letters in plain language."</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-fronto">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Cornelius Fronto</div>
+        <div class="character-epithet">Marcus's rhetoric teacher</div>
+      </div>
+      <div>
+        <p class="character-body">Fronto taught Marcus rhetoric and remained a friend through Marcus's reign. Their letters survive (separately from the Meditations) and are warm, sometimes slightly worried about the young Marcus's growing seriousness. Marcus thanks him in Book One for showing him "how envy and duplicity and hypocrisy are the marks of tyranny."</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-mother">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Domitia Lucilla</div>
+        <div class="character-epithet">Marcus's mother</div>
+      </div>
+      <div>
+        <p class="character-body">Marcus thanks his mother for "her religious devotion, her generosity, her inability not just to do wrong but even to think it" — and for her "plain way of living, far from the habits of the rich." She seems to have been the formative moral influence of his early life.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-grandfather">
+      <div>
+        <div class="character-tag">Mortal</div>
+        <div class="character-name">Verus (the grandfather)</div>
+        <div class="character-epithet">The Verus who raised Marcus</div>
+      </div>
+      <div>
+        <p class="character-body">From his grandfather, Marcus says, he learned <em>courtesy</em> — the small, steady kindnesses that make a household livable. The opening line of the Meditations.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a></div>
+      </div>
+    </article>
+
+    <h2 class="group">The Stoics · <em>predecessors Marcus reads against</em></h2>
+    <p class="group-sub">The chain of philosophers Marcus inherited from.</p>
+
+    <article class="character" id="char-epictetus">
+      <div>
+        <div class="character-tag creature">Philosopher</div>
+        <div class="character-name">Epictetus</div>
+        <div class="character-epithet">Slave-philosopher, c. 50–135 CE</div>
+      </div>
+      <div>
+        <p class="character-body">The Stoic philosopher whose work shaped Marcus most. Born a slave in Rome, freed in his thirties, exiled by Domitian, taught for the rest of his life in Greece. His lectures (the <em>Discourses</em>) survive only because his student Arrian wrote them down. Marcus owns a copy and refers to its arguments throughout — the dichotomy of control, the discipline of assent, the inner citadel.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a> · <a href="/read/meditations/chapter-4">4</a> · <a href="/read/meditations/chapter-7">7</a> · <a href="/read/meditations/chapter-11">11</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-seneca">
+      <div>
+        <div class="character-tag creature">Philosopher</div>
+        <div class="character-name">Seneca</div>
+        <div class="character-epithet">Stoic statesman, 4 BCE–65 CE</div>
+      </div>
+      <div>
+        <p class="character-body">Marcus does not name Seneca often, but he reads him. Seneca was Nero's tutor, a Roman senator and playwright as well as a philosopher; like Marcus, he was a Stoic operating at the highest level of imperial politics. Seneca's letters (<em>Epistulae morales</em>) cover much of the same ground as the Meditations and were, almost certainly, on Marcus's bookshelves.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-chrysippus">
+      <div>
+        <div class="character-tag creature">Philosopher</div>
+        <div class="character-name">Chrysippus</div>
+        <div class="character-epithet">The Stoic systematiser, c. 279–206 BCE</div>
+      </div>
+      <div>
+        <p class="character-body">The third head of the Stoic school in Athens, called by the ancients "the second founder." Chrysippus did not survive in his own writings, but his arguments — about the soul, about logic, about the cosmos as one rational whole — are everywhere in Marcus. When Marcus argues that the universe is a single ordered system, he is arguing what Chrysippus argued.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-1">Chapter 1</a> · <a href="/read/meditations/chapter-4">4</a> · <a href="/read/meditations/chapter-7">7</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-heraclitus">
+      <div>
+        <div class="character-tag creature">Philosopher</div>
+        <div class="character-name">Heraclitus</div>
+        <div class="character-epithet">The river-philosopher, c. 535–475 BCE</div>
+      </div>
+      <div>
+        <p class="character-body">The pre-Socratic philosopher whose famous claim — you cannot step in the same river twice — Marcus quotes again and again. Heraclitus's vision of the cosmos as <em>flux</em>, as everything in motion, becomes one of Marcus's central images. When he reminds himself that "time is a river," he is borrowing Heraclitus's metaphor.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-4">Chapter 4</a> · <a href="/read/meditations/chapter-6">6</a></div>
+      </div>
+    </article>
+
+    <h2 class="group">The imagined · <em>adversaries Marcus rehearses against</em></h2>
+    <p class="group-sub">Not specific people — the kinds of person Marcus knows he will meet today.</p>
+
+    <article class="character" id="char-ungrateful-man">
+      <div>
+        <div class="character-tag creature">Type</div>
+        <div class="character-name">The ungrateful man</div>
+        <div class="character-epithet">Marcus's morning warmup</div>
+      </div>
+      <div>
+        <p class="character-body">"Begin the day by telling yourself: today I will meet the meddler, the ingrate, the bully, the cheat, the envious." Book Two opens with this list. Marcus is not naming people; he is rehearsing the kinds of person he will inevitably encounter and reminding himself in advance not to be surprised. By the time the actual ingrate shows up at court, Marcus has already met him in his head.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-2">Chapter 2</a></div>
+      </div>
+    </article>
+
+    <article class="character" id="char-slanderer">
+      <div>
+        <div class="character-tag creature">Type</div>
+        <div class="character-name">The slanderer</div>
+        <div class="character-epithet">The voice you hear in your absence</div>
+      </div>
+      <div>
+        <p class="character-body">Marcus repeatedly reminds himself that praise and blame from other people are equally outside his control. The slanderer — the man who has decided to dislike you and is busy persuading others to — is a recurring figure. Marcus's response is consistent: it is just a sound; he doesn't know me; what is being said does not change what I am.</p>
+        <div class="where"><strong>Appears in:</strong> <a href="/read/meditations/chapter-4">Chapter 4</a> · <a href="/read/meditations/chapter-6">6</a> · <a href="/read/meditations/chapter-11">11</a></div>
+      </div>
+    </article>
+
+    <div class="related-cards">
+      <a href="/read/meditations/summary" class="related-card">
+        <div class="related-card-label">The book itself</div>
+        <div class="related-card-title">Summary &amp; story</div>
+        <div class="related-card-desc">What Meditations is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/meditations/chapters" class="related-card">
+        <div class="related-card-label">In 5 minutes</div>
+        <div class="related-card-title">Chapter-by-chapter</div>
+        <div class="related-card-desc">All 12 chapters summarized.</div>
+      </a>
+      <a href="/read/meditations/themes" class="related-card">
+        <div class="related-card-label">Analysis</div>
+        <div class="related-card-title">Themes</div>
+        <div class="related-card-desc">The inner citadel, mortality, duty, nature, reason against passion.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/meditations">Open Meditations in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
