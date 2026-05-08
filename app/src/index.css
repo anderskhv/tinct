@@ -138,9 +138,19 @@ body {
   overflow-x: hidden;
 }
 
+/* Text-selection while dragging (before the highlight popup appears).
+   Light mode: muted gold matches the highlight palette and reads well on
+   the paper background. Dark mode: --bg-highlight (#3d3222) was nearly
+   indistinguishable from the dark paper (#1a1612), so we override to the
+   accent color for clear contrast against dark text. */
 ::selection {
   background: var(--bg-highlight);
   color: var(--text-primary);
+}
+
+[data-theme="dark"] ::selection {
+  background: var(--accent);
+  color: var(--text-inverse);
 }
 
 /* ===== App Layout ===== */
@@ -1510,15 +1520,21 @@ body {
 
 /* Temp mark wrapping the user's selection while the popup is open. Gives a
    persistent visual anchor after the native selection is cleared (mobile).
-   Removed by Reader.tsx when the popup dismisses. */
+   Removed by Reader.tsx when the popup dismisses.
+   Must match the visibility of native ::selection — wrapping the range in
+   a <mark> element splits the original Range, so the browser's native
+   selection often disappears the moment we insert this. If the preview is
+   washed out, the user loses sight of what they're highlighting (Bug B,
+   2026-05-08). Keep these colors in sync with ::selection above. */
 .tinct-selection-preview {
-  background: rgba(245, 230, 200, 0.65);
-  color: inherit;
+  background: var(--bg-highlight);
+  color: var(--text-primary);
   border-radius: 2px;
   padding: 0 1px;
 }
 [data-theme="dark"] .tinct-selection-preview {
-  background: rgba(245, 230, 200, 0.28);
+  background: var(--accent);
+  color: var(--text-inverse);
 }
 
 .popup-icon-btn-delete {
