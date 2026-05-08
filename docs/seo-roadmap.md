@@ -29,7 +29,7 @@ Not every book deserves 28 pages of bespoke prose. Tier determines what gets bui
 |---|---|---|---|
 | The Odyssey | Full | 28 | Live |
 
-## Phase 2 — this PR (in flight)
+## Phase 2 — this PR (DEFERRED — see "Phase 2 v2" below)
 
 Five books picked for completing the "marquee classics" set on the front of the catalog. All have onboarding + threads ready.
 
@@ -40,6 +40,42 @@ Five books picked for completing the "marquee classics" set on the front of the 
 | Meditations | Full | 12 | "Stoicism" search demand; 12 books = small surface; concept cast |
 | Frankenstein | Full | 28 | School staple; gothic register; clean source data |
 | The Republic | Full | 10 | Plato's most-searched dialogue; manageable book count |
+
+**Status (2026-05-08):** First attempt used five parallel general-purpose subagents, each writing the full 28-page set per book. All five hit the 600s stream watchdog and stalled mid-book — each agent only managed to land chapter-1 (good prose) before timing out. The output was unshippable: a partial book (1/28 chapters) on disk would either dilute the sitemap (URLs 404) or look like a half-built page set to crawlers.
+
+**Lesson:** writing 28 HTML files of bespoke prose per book in one agent session is past the watchdog. The bottleneck wasn't prose quality — chapter-1's were on tone — it was the sheer volume of HTML chrome reproduction. Each agent re-typed the same `<style>` blocks, meta tags, prev/next nav, og tags, etc. for every chapter.
+
+## Phase 2 v2 — generator-driven approach
+
+Before retrying Phase 2, build the missing infrastructure:
+
+1. **Per-book content data file** at `app/scripts/seo/{bookId}-chapters.json` (or `.py`). The shape:
+   ```json
+   {
+     "book": { "id": "iliad", "title": "The Iliad", "author": "Homer" },
+     "groups": [{ "label": "Books 1-9 · Wrath", "chapters": [1,2,3,4,5,6,7,8,9] }, ...],
+     "themes": [{ "slug": "menis", "title": "Rage", "essay": "..." }, ...],
+     "cast": [{ "id": "achilles", "name": "Achilles", "role": "...", "body": "..." }, ...],
+     "chapters": [{
+       "n": 1, "title": "...", "hook": "...",
+       "tour": "~115w pure storyline",
+       "blurb": "~80-100w for chapters.html",
+       "summary": ["~95w P1", "~95w P2", "~100w P3 with light analysis"],
+       "appears": ["Achilles", "Agamemnon", "Apollo"],
+       "themes": [["menis", "Rage"], ["honor", "Honor and timē"]]
+     }, ...]
+   }
+   ```
+2. **Generator script** at `app/scripts/build-seo-pages.cjs`. Reads the data file + the Odyssey HTML files as templates. Outputs all 28 HTML files for one book under `app/public/read/{bookId}/`. Adds the book's URL set to the sitemap auto-detect (already handled by `hasSeoPages(bookId)`).
+3. **Per-book agent task is now**: write the data file (prose only, no HTML chrome). That's 5–8K words of prose in one shot — fits comfortably inside the watchdog. HTML scaffolding becomes deterministic.
+
+This decouples prose-writing (subjective, slow, voice-sensitive) from HTML mechanics (boring, fast, deterministic). It also makes future books cheap.
+
+**Order to ship Phase 2 v2:**
+1. Build generator + data-file schema (1 commit, ~1–2 hours).
+2. Use the existing Odyssey content to generate `odyssey-chapters.json` retroactively, then re-generate the Odyssey HTML and diff against the live versions to verify the generator faithfully reproduces hand-crafted output.
+3. Spawn 5 focused subagents — each writes one book's data file. With watchdog-friendly scope.
+4. Run generator on each. QA as before. Deploy.
 
 ## Phase 3 — next sprint (5 books)
 
