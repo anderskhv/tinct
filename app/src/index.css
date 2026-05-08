@@ -1311,6 +1311,13 @@ body {
 .text-paragraph {
   margin-bottom: 1.2em;
   text-indent: 0;
+  /* Allow a paragraph to split across columns with as little as one line
+     in either column. The browser default (2/2) combined with the 3-line
+     drop-cap float on the first paragraph caused chapters with a long
+     opening paragraph to punt the whole paragraph to column 2, leaving
+     column 1 with only the chapter header. */
+  orphans: 1;
+  widows: 1;
 }
 
 .text-paragraph:first-child {
