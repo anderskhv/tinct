@@ -1517,9 +1517,13 @@ export default function App() {
       deepLinkConsumedRef.current = true
       return
     }
+    let appliedChapter: number | null = null
     if (chapterParam) {
       const ch = parseInt(chapterParam, 10)
-      if (Number.isFinite(ch) && ch >= 1) setCurrentChapter(ch)
+      if (Number.isFinite(ch) && ch >= 1) {
+        setCurrentChapter(ch)
+        appliedChapter = ch
+      }
     }
     if (editionParam) {
       const ed = book.editions.find(e => e.key === editionParam)
@@ -1530,6 +1534,32 @@ export default function App() {
     }
     storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(false)
+
+    // Race fix (2026-05-08, Anders): when the user is signed in and the
+    // initial cloud-restore at line ~486 fires before Supabase data has
+    // landed, hasRestoredFromCloud stays false. supabaseInitTick later
+    // fires; cloud-restore re-runs with cloud data and overwrites the
+    // deep-linked chapter with the user's saved position (e.g. /read/odyssey
+    // ?chapter=4 lands at chapter 4, then snaps back to chapter 2 when
+    // cloud loads). Claim the restore here so cloud-restore stays
+    // off this chapter for the rest of the session. Also mark the deep-
+    // link as a user-nav so the regression guard accepts the new position.
+    if (appliedChapter != null) {
+      hasRestoredFromCloud.current = true
+      markUserNav(book.id)
+      const synthetic = {
+        bookId: book.id,
+        chapterNumber: appliedChapter,
+        currentPage: 0,
+        totalPages: 1,
+        scrollFraction: 0,
+        updatedAt: Date.now(),
+      }
+      savedPos.current = synthetic
+      markCloudPosition(book.id, synthetic)
+      markCloudLoaded(book.id, synthetic)
+    }
+
     try { window.history.replaceState({}, '', window.location.pathname) } catch { /* ignore */ }
     deepLinkConsumedRef.current = true
   }, [storageReady, book.id, book.editions, setLanguage, setStyle])
