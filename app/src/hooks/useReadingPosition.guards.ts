@@ -97,6 +97,27 @@ export function isDefaultishPosition(p: { chapterNumber: number; currentPage: nu
 }
 
 /**
+ * Book-change skip detector.
+ *
+ * Returns true when a position-write effect is firing due to a bookId
+ * change, in which case the write must be skipped: chapterNumber and
+ * lastParagraphIndex still reflect the OLD book until App.tsx's
+ * bookId-change effect (which queues setCurrentChapter etc.) commits on
+ * the NEXT render. Letting the write through here is how a position with
+ * the new book's id but the old book's chapter/paragraph lands in cloud
+ * (the 2026-05-09 Odyssey→Bible bleed: ch=1 from default state, p=13
+ * from Odyssey's first-visible paragraph, written under bookId='bible').
+ *
+ * The chapter-change effect in `useReadingPosition` runs on every change
+ * to `bookId` (it's a dep), in the same effect-flush as the App.tsx
+ * effect that resets state. Both effects see the same render's stateRef,
+ * so without this skip the write captures the cross-book mismatch.
+ */
+export function shouldSkipOnBookChange(prevBookId: string, currentBookId: string): boolean {
+  return prevBookId !== currentBookId
+}
+
+/**
  * Migration-direction decider.
  *
  * Called by the sign-in migration loop in App.tsx to decide whether a

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { storage } from '../services/storage'
 import type { ReadingPosition, ReadingProgress } from '../types'
-import { shouldBlockRegression } from './useReadingPosition.guards'
+import { shouldBlockRegression, shouldSkipOnBookChange } from './useReadingPosition.guards'
 
 function positionKey(bookId: string): string {
   return `position:${bookId}`
@@ -282,10 +282,25 @@ export function useReadingPosition(
   }, [bookId, storageReady])
 
   const prevChapterRef = useRef(chapterNumber)
+  const prevBookIdRef = useRef(bookId)
   useEffect(() => {
     if (!storageReady) return
     if (!writeUnlockedRef.current) {
       writeUnlockedRef.current = true
+      prevBookIdRef.current = bookId
+      return
+    }
+    // **INVARIANT 7** — see `shouldSkipOnBookChange` in guards.ts.
+    // This effect fires when `bookId` changes (it's a dep). At that moment,
+    // App.tsx's bookId-change effect has only queued setCurrentChapter /
+    // setLastParagraphIndex updates — they apply on the next render. So
+    // stateRef captures (new bookId, OLD chapter, OLD paragraph) and a
+    // write here lands a corrupted tuple in cloud. Skip; the next render
+    // (with re-derived chapter/paragraph for the new book) will save.
+    if (shouldSkipOnBookChange(prevBookIdRef.current, bookId)) {
+      prevBookIdRef.current = bookId
+      prevChapterRef.current = chapterNumber
+      recordSkip('book-change')
       return
     }
     const isChapterChange = chapterNumber !== prevChapterRef.current

@@ -5,6 +5,7 @@ import {
   isParagraphInBounds,
   isDefaultishPosition,
   shouldMigrateLocalToCloud,
+  shouldSkipOnBookChange,
 } from './useReadingPosition.guards'
 
 /**
@@ -225,5 +226,22 @@ describe('shouldMigrateLocalToCloud — anonymous-pollution guard', () => {
   it('migrates default local over default cloud (no real position to protect)', () => {
     const defaultCloud = { chapterNumber: 1, currentPage: 0, lastParagraphIndex: 2, updatedAt: NOW - 1000 }
     expect(shouldMigrateLocalToCloud({ local, cloud: defaultCloud })).toBe(true) // local is newer
+  })
+})
+
+describe('shouldSkipOnBookChange — Odyssey→Bible bleed (2026-05-09)', () => {
+  it('skips when bookId differs from previous render (book just switched)', () => {
+    expect(shouldSkipOnBookChange('odyssey', 'bible')).toBe(true)
+  })
+
+  it('does not skip when bookId is unchanged (within-book navigation)', () => {
+    expect(shouldSkipOnBookChange('bible', 'bible')).toBe(false)
+  })
+
+  it('skips on any book→book transition, regardless of pair', () => {
+    // The trigger is "bookId changed in this effect run" — we don't care
+    // which direction. Stale state is stale state.
+    expect(shouldSkipOnBookChange('the-awakening', 'paradise-lost')).toBe(true)
+    expect(shouldSkipOnBookChange('paradise-lost', 'the-awakening')).toBe(true)
   })
 })

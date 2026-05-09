@@ -1234,7 +1234,15 @@ export default function App() {
     showBookOnboarding ||
     showFixModal ||
     isPasswordRecovery ||
-    libraryEmpty
+    libraryEmpty ||
+    // Mid book switch: primaryData is the OLD book's edition until the new
+    // edition fetch resolves. Heartbeat/visibility writes during this window
+    // would capture stale chapter/paragraph paired with the new bookId
+    // (Invariant 7 — see shouldSkipOnBookChange in guards.ts). The
+    // chapter-change effect's own skip handles deterministic triggers; this
+    // covers timer-based and user-action-based writes that could fire in
+    // the gap.
+    isLoading
 
   // Predictive prefetch on boot (Phase 5).
   //
