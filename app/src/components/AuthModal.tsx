@@ -15,7 +15,6 @@ export function AuthModal({ onClose, onSignIn, onSignUp, onGoogleSignIn, onReset
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [signupSuccess, setSignupSuccess] = useState(false)
   const [resetSuccess, setResetSuccess] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,8 +41,6 @@ export function AuthModal({ onClose, onSignIn, onSignUp, onGoogleSignIn, onReset
 
     if (result.error) {
       setError(result.error)
-    } else if (mode === 'signup') {
-      setSignupSuccess(true)
     } else {
       onClose()
     }
@@ -65,12 +62,7 @@ export function AuthModal({ onClose, onSignIn, onSignUp, onGoogleSignIn, onReset
             : 'Enter your email and we\'ll send a reset link'}
         </p>
 
-        {signupSuccess ? (
-          <div className="auth-success">
-            <p>Check your email for a confirmation link.</p>
-            <button className="auth-submit" onClick={onClose}>Done</button>
-          </div>
-        ) : resetSuccess ? (
+        {resetSuccess ? (
           <div className="auth-success">
             <p>Check your email for a password reset link.</p>
             <button className="auth-submit" onClick={() => { setMode('signin'); setResetSuccess(false); setError('') }}>Back to sign in</button>
