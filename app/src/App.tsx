@@ -55,6 +55,7 @@ import { apiUrl } from './utils/apiUrl'
 import { trackPageview } from './utils/analytics'
 import { AUDIO_BASE_URL } from './utils/audioUrl'
 import { formatProgressLabel } from './utils/formatProgress'
+import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 
 /** Pick the most recently updated position. Falls back to furthest if no timestamps. */
 function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
@@ -322,6 +323,20 @@ export default function App() {
   const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: Language } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  // Phase-0 perf instrumentation flags. Reset on every book switch so the
+  // next switch's first-paint and position-restored marks fire exactly once.
+  const perfFirstPaintFiredRef = useRef(false)
+  const perfPositionRestoredFiredRef = useRef(false)
+  // Mark the initial mount as the start of the cold-boot run so cold-load
+  // numbers also show up in the ?perf=1 console table. No-op without ?perf=1.
+  // Done during render (idempotent: only runs the very first time) so the
+  // book-switch-start mark exists before useEffect-driven loadEdition fires.
+  const perfBootStartedRef = useRef(false)
+  if (!perfBootStartedRef.current) {
+    perfBootStartedRef.current = true
+    perfStartSwitch(currentBookId)
+  }
+
   // Audio state
   const [audioPlayingParagraph, setAudioPlayingParagraph] = useState<number | undefined>(undefined)
   const [audioIsPlaying, setAudioIsPlaying] = useState(false)
@@ -585,6 +600,11 @@ export default function App() {
   useEffect(() => {
     if (prevBookIdRef.current === currentBookId) return
     prevBookIdRef.current = currentBookId
+    // Reset perf flags so the next book switch logs a clean run, even when
+    // the change came from cloud-sync (didn't go through handleBookChange).
+    perfFirstPaintFiredRef.current = false
+    perfPositionRestoredFiredRef.current = false
+    perfStartSwitch(currentBookId)
     const pos = getSavedPosition(currentBookId)
     // Mark cloud-known chapter for the new book so the regression guard has
     // a baseline. Mark user-nav so the first heartbeat-after-book-change
@@ -1150,6 +1170,9 @@ export default function App() {
 
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
+    perfStartSwitch(bookId)
+    perfFirstPaintFiredRef.current = false
+    perfPositionRestoredFiredRef.current = false
     storage.set('tinct-current-book', bookId)
     setCurrentBookId(bookId)
     // Reflect the open book in the URL. Critical for anonymous users who
@@ -1356,6 +1379,22 @@ export default function App() {
         primaryChapter.paragraphs.reduce((s, p) => s + p.split(/\s+/).length, 0) / Math.max(total, 1)
       )
       trackPageView(wordsOnPage)
+    }
+    // Phase-0 perf instrumentation. The first emission with totalPages<=1 is
+    // the very first paint (Reader has rendered but layout hasn't settled
+    // yet). The first emission with totalPages>1 is when position has been
+    // restored (scrollFraction → page index). We mark each only once per
+    // book switch — perfMark itself is a no-op without `?perf=1`.
+    if (!perfFirstPaintFiredRef.current) {
+      perfFirstPaintFiredRef.current = true
+      perfMark('first-paint')
+      perfMeasure('first-paint', 'book-switch-start', 'first-paint')
+    }
+    if (!perfPositionRestoredFiredRef.current && total > 1) {
+      perfPositionRestoredFiredRef.current = true
+      perfMark('position-restored')
+      perfMeasure('position-restored', 'book-switch-start', 'position-restored')
+      perfLogSummary()
     }
     setCurrentPage(page)
     setTotalPages(total)
@@ -1806,6 +1845,8 @@ export default function App() {
       .then(data => {
         if (cancelled) return
         setPrimaryData(data)
+        perfMark('primary-data-set')
+        perfMeasure('primary-data-set', 'book-switch-start', 'primary-data-set')
         setIsLoading(false)
         // Safety: if the saved chapter doesn't exist or has no content, reset to chapter 1
         const ch = data.chapters.find(c => c.number === currentChapter)

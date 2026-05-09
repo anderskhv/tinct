@@ -1,5 +1,6 @@
 import type { EditionData, EditionKey } from '../types'
 import { apiUrl } from '../utils/apiUrl'
+import { perfMark, perfMeasure } from '../utils/perf'
 
 const cache = new Map<string, EditionData>()
 
@@ -68,11 +69,14 @@ export async function loadEdition(
 
   let response: Response
   let patches: EditionPatch[]
+  perfMark('fetch-start')
   try {
     [response, patches] = await Promise.all([
       fetch(url, fetchInit),
       fetchEditionPatches(bookId, editionKey),
     ])
+    perfMark('fetch-end')
+    perfMeasure('fetch', 'fetch-start', 'fetch-end')
   } catch (err) {
     if (!opts.bypassCache) {
       console.warn(`[editionLoader] Network error for ${cacheKey}, retrying with cache bypass`, err)
@@ -92,6 +96,8 @@ export async function loadEdition(
   let data: unknown
   try {
     data = await response.json()
+    perfMark('parse-end')
+    perfMeasure('parse', 'fetch-end', 'parse-end')
   } catch (err) {
     if (!opts.bypassCache) {
       console.warn(`[editionLoader] JSON parse failure for ${cacheKey}, retrying with cache bypass`, err)
