@@ -1236,6 +1236,82 @@ export default function App() {
     isPasswordRecovery ||
     libraryEmpty
 
+  // Predictive prefetch on boot (Phase 5).
+  //
+  // 5.1: as soon as we know the user's last-opened book, drop a
+  // <link rel="prefetch"> for its primary edition into <head>. The user's
+  // most likely next action is "resume reading"; by the time the React
+  // effect that calls loadEdition fires, the browser has often already
+  // pulled bytes — and `fetch()` resolves against the HTTP cache.
+  //
+  // 5.2: on requestIdleCallback, prefetch up to 2 *other* books from the
+  // library. Picked by which has the most recent `position:*` updatedAt,
+  // so users who alternate between two books pay the cold-load cost
+  // exactly once.
+  //
+  // Hover-on-library-card prefetch is intentionally NOT in scope.
+  const prefetchedRef = useRef<Set<string>>(new Set())
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    const url = `/data/editions/${book.id}-${primaryEditionKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+    if (prefetchedRef.current.has(url)) return
+    prefetchedRef.current.add(url)
+    const link = document.createElement('link')
+    link.rel = 'prefetch'
+    link.as = 'fetch'
+    link.crossOrigin = 'anonymous'
+    link.href = url
+    document.head.appendChild(link)
+    // Don't remove on cleanup — letting the browser keep the prefetch
+    // active is the whole point. Subsequent re-renders just no-op via
+    // prefetchedRef.
+  }, [book.id, primaryEditionKey])
+
+  // Idle prefetch of recent library books. Runs once after storage is
+  // ready and there's a non-empty library. Uses the per-book
+  // `position:*` updatedAt as a recency signal.
+  const idlePrefetchDoneRef = useRef(false)
+  useEffect(() => {
+    if (idlePrefetchDoneRef.current) return
+    if (!storageReady) return
+    if (libraryIds.length === 0) return
+    if (typeof window === 'undefined') return
+    idlePrefetchDoneRef.current = true
+    const ric = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback
+    const schedule = (cb: () => void) => {
+      if (typeof ric === 'function') ric(cb)
+      else window.setTimeout(cb, 500)
+    }
+    schedule(() => {
+      try {
+        const candidates = libraryIds
+          .filter(id => id !== book.id)
+          .map(id => ({ id, pos: getSavedPosition(id) }))
+          .filter(c => c.pos && typeof c.pos.updatedAt === 'number')
+          .sort((a, b) => (b.pos!.updatedAt ?? 0) - (a.pos!.updatedAt ?? 0))
+          .slice(0, 2)
+        for (const c of candidates) {
+          const targetBook = getBook(c.id)
+          if (!targetBook) continue
+          // Use the book's first aligned/default edition — close enough as
+          // a prefetch hint; the in-flight cache will dedupe with the real
+          // request when the user opens that book.
+          const edKey = (targetBook.editions[0]?.key) as EditionKey | undefined
+          if (!edKey) continue
+          const url = `/data/editions/${c.id}-${edKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+          if (prefetchedRef.current.has(url)) continue
+          prefetchedRef.current.add(url)
+          const link = document.createElement('link')
+          link.rel = 'prefetch'
+          link.as = 'fetch'
+          link.crossOrigin = 'anonymous'
+          link.href = url
+          document.head.appendChild(link)
+        }
+      } catch { /* prefetch is best-effort */ }
+    })
+  }, [storageReady, libraryIds, book.id])
+
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended)
 
   // Cross-device live position sync. Applies a remote position only when:
