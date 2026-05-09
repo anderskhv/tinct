@@ -20,6 +20,9 @@ interface HeaderProps {
   onChapterChange: (n: number) => void
   splitView: boolean
   onToggleSplitView: () => void
+  /** Hover/focus prefetch of the split edition so the first toggle is
+   *  instant. No-op if the data is already cached. */
+  onPrefetchSplitEdition?: () => void
   splitViewAvailable: boolean
   darkMode: boolean
   onToggleDarkMode: () => void
@@ -118,6 +121,7 @@ export function Header({
   onChapterChange,
   splitView,
   onToggleSplitView,
+  onPrefetchSplitEdition,
   splitViewAvailable,
   darkMode,
   onToggleDarkMode,
@@ -292,6 +296,8 @@ export function Header({
             className={`menu-icon-btn ${splitView ? 'menu-icon-active' : ''}`}
             data-tour="compare"
             onClick={onToggleSplitView}
+            onMouseEnter={onPrefetchSplitEdition}
+            onFocus={onPrefetchSplitEdition}
             title={splitView ? 'Single view' : 'Compare editions'}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">

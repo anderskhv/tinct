@@ -1912,18 +1912,48 @@ export default function App() {
     return () => { cancelled = true }
   }, [book.id, primaryEditionKey])
 
-  // Preload split edition so it's ready when toggle happens.
-  // Failures here are non-fatal — Compare just won't render — so we
-  // swallow the rejection rather than surfacing it.
+  // Lazy-load the split edition only when split view is actually on
+  // (Phase 3). Most desktop users never open Compare, so eagerly fetching
+  // the second edition on every book switch is pure waste — doubling the
+  // bytes transferred at the moment the user is most attention-fragile.
+  //
+  // Mobile is treated separately: the Compare view is always reachable
+  // by swipe, so we keep eager load on mobile to avoid a blank tab on
+  // first swipe.
+  //
+  // When split is off (desktop), splitData is null; toggling on triggers
+  // this effect and the data lands within the typical fetch window. To
+  // make the first toggle feel instant, we also prefetch on hover/focus
+  // of the Compare button — see `handleSplitTogglePrefetch` below.
+  //
+  // Failures are non-fatal — Compare just won't render — so we swallow
+  // the rejection rather than surfacing it.
+  //
   // Same race guard as the primary fetch — without it, a stale split
   // fetch could land splitData from the previous book.
+  const shouldLoadSplit = preferences.splitView || isMobile
   useEffect(() => {
+    if (!shouldLoadSplit) {
+      // Clear any stale splitData from the previous book/session so
+      // toggling Compare back on doesn't briefly flash old content.
+      setSplitData(null)
+      return
+    }
     let cancelled = false
     loadEdition(book.id, splitEditionKey)
       .then(data => { if (!cancelled) setSplitData(data) })
       .catch(() => { if (!cancelled) setSplitData(null) })
     return () => { cancelled = true }
-  }, [splitEditionKey, book.id])
+  }, [splitEditionKey, book.id, shouldLoadSplit])
+
+  // Prefetch the split edition on hover/focus of the Compare toggle. Fires
+  // through the existing in-memory cache in editionLoader, so a click while
+  // the prefetch is still in flight blocks on the same promise rather than
+  // duplicating the request. No-op if the user never touches Compare.
+  const handleSplitTogglePrefetch = useCallback(() => {
+    if (!splitEditionKey) return
+    void loadEdition(book.id, splitEditionKey).catch(() => { /* prefetch is best-effort */ })
+  }, [book.id, splitEditionKey])
 
   const splitChapter = splitData?.chapters.find(c => c.number === currentChapter)
 
@@ -2719,6 +2749,7 @@ export default function App() {
         onSplitEditionChange={setSplitEditionKey}
         splitView={preferences.splitView}
         onToggleSplitView={handleToggleSplitView}
+        onPrefetchSplitEdition={handleSplitTogglePrefetch}
         audioEditions={book.editions.filter(ed => ed.hasAudio)}
         audioEditionKey={effectiveAudioEditionKey}
         onAudioEditionChange={setAudioEditionKey}
@@ -2939,6 +2970,7 @@ export default function App() {
         onChapterChange={setCurrentChapter}
         splitView={preferences.splitView}
         onToggleSplitView={handleToggleSplitView}
+        onPrefetchSplitEdition={handleSplitTogglePrefetch}
         splitViewAvailable={splitViewAvailable}
         darkMode={preferences.darkMode}
         onToggleDarkMode={toggleDarkMode}
