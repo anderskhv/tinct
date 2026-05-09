@@ -62,9 +62,14 @@ export async function loadEdition(
     return cache.get(cacheKey)!
   }
 
+  // Append the build version as a cache-bust query param. The edition JSONs
+  // are not content-hashed (unlike the JS bundle), so without this param a
+  // republish would silently serve stale content from any layer that respects
+  // long-lived cache headers (browser, SW, CDN). Skipped on the bypassCache
+  // path because that already takes a `cache: 'no-store'` route.
   const url = opts.bypassCache
     ? `/data/editions/${bookId}-${editionKey}.json?fresh=1`
-    : `/data/editions/${bookId}-${editionKey}.json`
+    : `/data/editions/${bookId}-${editionKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
   const fetchInit: RequestInit = opts.bypassCache ? { cache: 'no-store' } : {}
 
   let response: Response

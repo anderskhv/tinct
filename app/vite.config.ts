@@ -27,7 +27,17 @@ export default defineConfig(({ mode, command }) => {
     }
   }
 
+  // Stable per-build identifier used to cache-bust /data/editions/*.json
+  // requests on republish (the JSONs themselves are not content-hashed). In
+  // dev we pin to "dev" so the param doesn't churn on every HMR cycle.
+  const buildVersion = command === 'build'
+    ? `${Date.now().toString(36)}`
+    : 'dev'
+
   return {
+  define: {
+    __BUILD_VERSION__: JSON.stringify(buildVersion),
+  },
   base: isCapacitor ? './' : '/',
   plugins: [
     react(),

@@ -11,7 +11,7 @@ export function useThreads(bookId: string, editionData: EditionData | null) {
     // mapping (which silently dropped 12 books, including The Awakening).
     // 404s are normal for books without threads data — handled by the .catch.
     let cancelled = false
-    fetch(`/data/editions/${bookId}-threads.json`)
+    fetch(`/data/editions/${bookId}-threads.json?v=${encodeURIComponent(__BUILD_VERSION__)}`)
       .then(r => {
         if (!r.ok) throw new Error(`no threads for ${bookId}`)
         return r.json()
