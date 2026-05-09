@@ -18,9 +18,63 @@ export class SupabaseStorageProvider implements StorageProvider {
   private listeners: StorageChangeListener[] = []
   /** Keys written locally in the last 2s — used to ignore our own echo */
   private recentLocalWrites: Map<string, number> = new Map()
+  /** Same-browser tab-to-tab fanout (Phase 4.3). Open per provider; closed
+   *  on unsubscribe. */
+  private bc: BroadcastChannel | null = null
+  /** Stable id used to ignore our own BroadcastChannel echoes. */
+  private bcSenderId: string = `${Math.random().toString(36).slice(2)}-${Date.now()}`
 
   constructor(userId: string) {
     this.userId = userId
+    this.openBroadcastChannel()
+  }
+
+  /** Opens the per-user BroadcastChannel (Phase 4.3) and wires it through
+   *  the same `onChange` callback path the Supabase realtime channel uses.
+   *  Same-browser tabs receive each other's writes near-instantly without
+   *  a Supabase round-trip. Falls back to no-op on browsers without
+   *  BroadcastChannel (very old Safari). */
+  private openBroadcastChannel(): void {
+    if (typeof BroadcastChannel === 'undefined') return
+    try {
+      this.bc = new BroadcastChannel(`tinct-storage:${this.userId}`)
+      this.bc.onmessage = (ev: MessageEvent<{ senderId: string; key: string; value: unknown; deleted?: boolean }>) => {
+        const msg = ev.data
+        if (!msg || typeof msg.key !== 'string') return
+        // Drop our own echoes. Without senderId, every tab would notify
+        // itself on its own writes (some browsers do, some don't —
+        // depending on this is brittle).
+        if (msg.senderId === this.bcSenderId) return
+        // Same race-guards as the realtime path: ignore writes we just
+        // made locally (prevents a remote-then-local-then-remote loop).
+        const lastWrite = this.recentLocalWrites.get(msg.key)
+        if (lastWrite && Date.now() - lastWrite < 4000) {
+          this.recentLocalWrites.delete(msg.key)
+          return
+        }
+        if (msg.deleted) {
+          this.cache.delete(msg.key)
+          localStorageProvider.delete(msg.key)
+        } else {
+          this.cache.set(msg.key, msg.value)
+          localStorageProvider.set(msg.key, msg.value)
+        }
+        for (const listener of this.listeners) {
+          listener(msg.key, msg.deleted ? null : msg.value)
+        }
+      }
+    } catch (e) {
+      console.warn('[SupabaseStorage] BroadcastChannel open failed:', e)
+      this.bc = null
+    }
+  }
+
+  /** Best-effort fanout to other tabs in this browser. */
+  private bcEmit(key: string, value: unknown, deleted = false): void {
+    if (!this.bc) return
+    try {
+      this.bc.postMessage({ senderId: this.bcSenderId, key, value, deleted })
+    } catch { /* clone error or channel closed — ignore */ }
   }
 
   /**
@@ -159,6 +213,10 @@ export class SupabaseStorageProvider implements StorageProvider {
     localStorageProvider.set(key, value)
     // Track this write so we can ignore the real-time echo
     this.recentLocalWrites.set(key, Date.now())
+    // Fan out to same-browser tabs immediately (Phase 4.3) — they get the
+    // update without waiting for the Supabase round-trip and back through
+    // the WebSocket. Other tabs route this into the same listener chain.
+    this.bcEmit(key, value, false)
     this.upsertWithRetry(key, value)
   }
 
@@ -278,6 +336,8 @@ export class SupabaseStorageProvider implements StorageProvider {
     // value and writes it back to Supabase, resurrecting deleted data.
     localStorageProvider.delete(key)
     this.recentLocalWrites.set(key, Date.now())
+    // Fan out to same-browser tabs (Phase 4.3) so they drop the cached value.
+    this.bcEmit(key, null, true)
     supabase
       .from('user_data')
       .delete()
@@ -298,20 +358,51 @@ export class SupabaseStorageProvider implements StorageProvider {
     return results
   }
 
-  /** Re-fetch all user data from Supabase (same as init, but callable repeatedly) */
-  async refresh(): Promise<void> {
+  /** Re-fetch a specific list of keys from Supabase. Updates the cache and
+   *  localStorage mirror only for the keys requested — does NOT clear the
+   *  rest of the cache. Used by the focus-refresh path which only cares
+   *  about a couple of keys (current book + position) and would otherwise
+   *  re-pull every row in the user's account on every tab focus.
+   *  (Phase 4.1.) */
+  async refreshKeys(keys: string[]): Promise<void> {
     if (!supabase) return
-    const { data } = await supabase
+    if (keys.length === 0) return
+    const { data, error } = await supabase
       .from('user_data')
       .select('key, value')
       .eq('user_id', this.userId)
-
+      .in('key', keys)
+    if (error) {
+      console.warn('[Supabase] refreshKeys failed:', error.message)
+      return
+    }
     if (data) {
-      this.cache.clear()
+      const seen = new Set<string>()
       for (const row of data) {
+        seen.add(row.key)
         this.cache.set(row.key, row.value)
+        localStorageProvider.set(row.key, row.value)
+      }
+      // Keys requested but not present in the response have been deleted on
+      // the server — drop them from the cache so we don't keep returning a
+      // stale value. (e.g. a `position:bookId` purged on another device.)
+      for (const k of keys) {
+        if (!seen.has(k)) {
+          this.cache.delete(k)
+          localStorageProvider.delete(k)
+        }
       }
     }
+  }
+
+  /** Backwards-compatible: re-fetches the canonical short list of keys
+   *  (current book + active position). Anything outside that list is
+   *  better served by a targeted refreshKeys call OR the realtime
+   *  subscribe channel, which already streams remote changes. */
+  async refresh(currentBookId?: string): Promise<void> {
+    const keys = ['tinct-current-book']
+    if (currentBookId) keys.push(`position:${currentBookId}`)
+    return this.refreshKeys(keys)
   }
 
   /** Subscribe to real-time changes from other devices. Best-effort: if the
@@ -389,6 +480,10 @@ export class SupabaseStorageProvider implements StorageProvider {
     if (this.onlineRetryHandler && typeof window !== 'undefined') {
       window.removeEventListener('online', this.onlineRetryHandler)
       this.onlineRetryHandler = null
+    }
+    if (this.bc) {
+      try { this.bc.close() } catch { /* ignore */ }
+      this.bc = null
     }
   }
 

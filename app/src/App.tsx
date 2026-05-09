@@ -709,7 +709,7 @@ export default function App() {
       const now = Date.now()
       if (now - lastSyncRef.current < 5000) return // debounce 5s
       lastSyncRef.current = now
-      await provider.refresh()
+      await provider.refresh(book.id)
       // If the cloud's current-book pointer has changed (user opened a
       // different book on another device), switch to it. Without this,
       // two devices stay on their own last-opened book even after sync.
