@@ -33,6 +33,7 @@ import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
 import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markCloudLoaded, markUserNav } from './hooks/useReadingPosition'
+import { useRemoteSync } from './hooks/useRemoteSync'
 import { shouldMigrateLocalToCloud } from './hooks/useReadingPosition.guards'
 import { useClaude } from './hooks/useClaude'
 import { useThreads } from './hooks/useThreads'
@@ -1236,6 +1237,52 @@ export default function App() {
     libraryEmpty
 
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended)
+
+  // Cross-device live position sync. Applies a remote position only when:
+  //   (a) the user has been idle for >30s (silent auto-adopt), or
+  //   (b) follow-mode is on (always adopt)
+  // Otherwise just shows a toast so the user knows another device moved.
+  //
+  // **Race guard (B20):** the remote event carries `bookId`. We re-check
+  // `book.id === remotePos.bookId` *inside* the apply callback so an event
+  // fired between book A's last write and the user switching to book B can't
+  // chapter-swap into B. Without this, the same race the existing
+  // `loadEdition` cancellation flag protects against would resurface here.
+  const handleRemotePosition = useCallback((remotePos: ReadingPosition) => {
+    if (!remotePos || !remotePos.chapterNumber) return
+    if (remotePos.bookId !== book.id) return // B20: ignore stale event for prior book
+    // Mark this as user-nav so the regression guard widens its window — the
+    // remote chapter may legitimately be < local chapter (e.g. user on
+    // device B navigated back).
+    markUserNav(book.id)
+    markCloudPosition(book.id, remotePos)
+    markCloudLoaded(book.id, remotePos)
+    targetParagraphRef.current = remotePos.lastParagraphIndex
+    savedPos.current = remotePos
+    setCurrentChapter(remotePos.chapterNumber)
+    setCurrentPage(0)
+    setTotalPages(1) // gate writes during relayout
+    setReaderKey(k => k + 1)
+  }, [book.id])
+
+  const { syncToast } = useRemoteSync({
+    bookId: book.id,
+    currentChapter,
+    currentPage,
+    totalPages,
+    provider: supabaseProviderRef.current,
+    onRemotePosition: handleRemotePosition,
+  })
+
+  // Surface the syncToast through the existing toast UI so we don't ship a
+  // second floating element. Auto-clears after 5s like other toasts.
+  useEffect(() => {
+    if (!syncToast) return
+    setToastMessage(syncToast)
+    const t = setTimeout(() => setToastMessage(null), 5000)
+    return () => clearTimeout(t)
+  }, [syncToast])
+
   const isAudioActive = audioPlayingParagraph !== undefined
   const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters)
 

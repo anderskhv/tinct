@@ -317,7 +317,13 @@ export class SupabaseStorageProvider implements StorageProvider {
   /** Subscribe to real-time changes from other devices. Best-effort: if the
    * WebSocket can't open (CSP, corp firewall, browser policy), we swallow the
    * error so the caller's initialization can complete. Persistence over REST
-   * keeps working without realtime. */
+   * keeps working without realtime.
+   *
+   * Offline-init retry (Phase 2.2): if subscribe() can't establish the channel
+   * (typically because the device booted offline), wire a one-shot `online`
+   * listener that re-attempts subscribe when the network returns. Without
+   * this, an offline boot leaves the user stuck on REST-only forever — they
+   * have to refresh the tab to get realtime back. */
   subscribe(): void {
     if (!supabase) return
     try {
@@ -352,7 +358,26 @@ export class SupabaseStorageProvider implements StorageProvider {
     } catch (e) {
       console.warn('[SupabaseStorage] realtime subscribe failed:', e)
       this.channel = null
+      this.armOnlineRetry()
     }
+  }
+
+  private onlineRetryHandler: (() => void) | null = null
+
+  /** Wire a one-shot `online` listener that retries subscribe() when the
+   *  network comes back. Idempotent: if a retry is already armed, no-op. */
+  private armOnlineRetry(): void {
+    if (typeof window === 'undefined') return
+    if (this.onlineRetryHandler) return
+    this.onlineRetryHandler = () => {
+      // Only retry if we still don't have a channel — if some other path
+      // established one (manual reconnect, reload), don't double-subscribe.
+      if (this.channel) return
+      window.removeEventListener('online', this.onlineRetryHandler!)
+      this.onlineRetryHandler = null
+      this.subscribe()
+    }
+    window.addEventListener('online', this.onlineRetryHandler)
   }
 
   /** Unsubscribe from real-time changes */
@@ -360,6 +385,10 @@ export class SupabaseStorageProvider implements StorageProvider {
     if (this.channel) {
       this.channel.unsubscribe()
       this.channel = null
+    }
+    if (this.onlineRetryHandler && typeof window !== 'undefined') {
+      window.removeEventListener('online', this.onlineRetryHandler)
+      this.onlineRetryHandler = null
     }
   }
 
