@@ -7,6 +7,8 @@
     "dev": "vite",
     "sitemap": "node scripts/generate-sitemap.cjs",
     "seo:audit": "node scripts/audit-seo.cjs",
+    "admin:grant": "node scripts/grant-admin-metrics.cjs",
+    "admin:verify": "node scripts/verify-admin-metrics.cjs",
     "prebuild": "node scripts/generate-sitemap.cjs",
     "build": "vite build && mv dist/index.html dist/app.html && cp dist/landing.html dist/index.html",
     "verify-bundle": "node scripts/verify-bundle.cjs",

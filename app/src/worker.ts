@@ -2210,6 +2210,21 @@ export default {
       return newResp
     }
 
+    // Private admin SPA routes. The UI still enforces access through
+    // Supabase RLS, but the route itself must not be indexable.
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/admin/metrics') {
+      const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
+      if (appResp.ok) {
+        const newResp = new Response(request.method === 'HEAD' ? null : appResp.body, appResp)
+        newResp.headers.set('Cache-Control', 'no-store')
+        newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+          newResp.headers.set(key, value)
+        }
+        return newResp
+      }
+    }
+
     // SEO page clean-URL routing.
     // Per-book pages live as static HTML at /read/{bookId}/(summary|chapters|cast|themes|chapter-N).html.
     // We want clean URLs without .html for crawlers + sharing — but Cloudflare's
