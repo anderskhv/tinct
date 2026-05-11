@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On Liberty — Themes &amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of John Stuart Mill's On Liberty. The Harm Principle, Tyranny of the Majority, Why Free Speech Matters, Individuality Against Conformity, The Limits of State Action.">
+  <link rel="canonical" href="https://tinct.app/read/on-liberty/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/on-liberty/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/on-liberty/themes">
+
+  <meta property="og:title" content="On Liberty — Themes &amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of John Stuart Mill's On Liberty. The Harm Principle, Tyranny of the Majority, Why Free Speech Matters, Individuality Against Conformity, The Limits of State Action.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/on-liberty/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="On Liberty — Themes &amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of John Stuart Mill's On Liberty. The Harm Principle, Tyranny of the Majority, Why Free Speech Matters, Individuality Against Conformity, The Limits of State Action.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/on-liberty" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/on-liberty/summary">On Liberty</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">On Liberty — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads through the argument</p>
+
+    <p class="lead">On Liberty is built around a single principle, but Mill is careful to show all the work the principle has to do. Each chapter adds a new angle on the same question: where does legitimate authority end and personal freedom begin?</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#harm-principle">The Harm Principle</a></li>
+        <li><a href="#tyranny-majority">Tyranny of the Majority</a></li>
+        <li><a href="#free-speech">Why Free Speech Matters</a></li>
+        <li><a href="#individuality">Individuality Against Conformity</a></li>
+        <li><a href="#state-action">The Limits of State Action</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="harm-principle">1 · The Harm Principle</h2>
+    <p class="theme-greek">"The only purpose for which power can be rightly exercised"</p>
+    <div class="body">
+      <p>The book is built around one sentence, and the sentence is meant to do real work. The only purpose for which power can be rightly exercised over any member of a civilised community against his will is to prevent harm to others. Everything in <em>On Liberty</em> either follows from this rule or marks its boundary.</p>
+      <p>Mill is precise about what the rule excludes. A person's own good — physical, moral, prudential — is not a sufficient ground for compulsion. He may be remonstrated with, reasoned with, persuaded, entreated. He may not be forced. Coercion for his sake alone is, in Mill's view, an injury masquerading as care. The rule cuts in two directions. It restrains the state from legislating private virtue, and it restrains the citizen from organising society to enforce his preferences on neighbours who do him no damage.</p>
+      <p>It also defines the terrain on which legitimate authority operates. Where harm to others begins — fraud, violence, broken contract, neglect of dependants — society may act without apology, and Mill is no anarchist about that side of the line. The difficulty, which he acknowledges, is the line itself. What counts as harm? Distress at another's opinion, embarrassment at his manners, a sense that public morals are slipping — these Mill refuses to accept as harms in the strict sense, because admitting them would dissolve the principle.</p>
+      <p>Harm, for him, must be a definite damage to a definite interest of another person. Hold to that, and a sphere of inviolable individual life remains; loosen it, and the sphere shrinks to nothing. The precision is not pedantry. It is the only protection the principle has against the ingenuity of majorities who always believe their interference is for someone else's good.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/on-liberty/chapter-1">Ch. 1 (the principle stated)</a>, <a href="/read/on-liberty/chapter-4">Ch. 4 (the line drawn)</a>, <a href="/read/on-liberty/chapter-5">Ch. 5 (the principle in the cases)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="tyranny-majority">2 · Tyranny of the Majority</h2>
+    <p class="theme-greek">"The will of the most numerous or the most active part"</p>
+    <div class="body">
+      <p>Mill borrows the phrase from Tocqueville and gives it its sharpest formulation. In a democracy, he warns, the most pressing threat to liberty is no longer the king or the magistrate. It is the majority itself — the public, opinion, society in its collective mood. The will of the people, he writes, practically means the will of the most numerous or the most active part of the people, and the people, consequently, may desire to oppress a part of their number.</p>
+      <p>What makes the threat distinctive is its reach. A government can be argued with, voted against, restrained by constitution. Society, when it sets its face against an opinion or a way of life, leaves no formal door to knock on. It penalises by exclusion, ridicule, the lost job, the cooled friendship, the closed marriage market. Mill thinks this informal coercion goes deeper into character than statute does, because it shapes what people dare to think before they ever try to act.</p>
+      <p>His Victorian England, prosperous and respectable and sure of itself, is the case in point. The danger is not that opinion is wrong, but that it is unanimous and unexamined, and presses down on every quiet dissenter without ever needing to draw a law. Liberty, on Mill's account, is therefore as much a defence against neighbours as against parliaments.</p>
+      <p>The urgency of the argument is easy to miss today, because we associate liberty with the wrong enemy — the state, the policeman, the censor. Mill's point is that by the time the censor arrives, the work is largely done. Opinion has already done the shaping. The person who thinks differently has already learned not to say so.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/on-liberty/chapter-1">Ch. 1 (the diagnosis)</a>, <a href="/read/on-liberty/chapter-2">Ch. 2 (the silenced opinion)</a>, <a href="/read/on-liberty/chapter-3">Ch. 3 (conformity and character)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="free-speech">3 · Why Free Speech Matters</h2>
+    <p class="theme-greek">"The peculiar evil of silencing the expression of an opinion"</p>
+    <div class="body">
+      <p>The chapter Of the Liberty of Thought and Discussion is the longest and the most carefully reasoned in the book, because Mill thinks free expression is the precondition of every other freedom worth having. He defends it on four grounds, and he wants all four to bear weight.</p>
+      <p>First: the silenced opinion may be true. To silence it is to assume our own infallibility, and history is the long record of how badly that assumption ages. Socrates was condemned by Athens. Marcus Aurelius persecuted the Christians. Galileo was forced to recant. The assumption of infallibility is no less dangerous because the majority holds it. Second: even if the suppressed opinion is false, it may contain a portion of truth. Prevailing opinion is rarely the whole truth, and it is only by the collision of ideas that the remainder is made up.</p>
+      <p>Third: an opinion that is true but never contested decays into prejudice — held by rote, without grasp of its grounds, defenceless against intelligent attack. Fourth: the meaning of a true doctrine begins to fade when it is not continuously defended. It becomes a formula, recited without force on conduct. Notice what Mill is not saying. He is not arguing that speech feels good, or that we have a right to be heard. His argument is instrumental and epistemic.</p>
+      <p>We are fallible; truth is corrected only by the friction of opposing views; therefore the costs of suppression always exceed the costs of letting bad ideas speak. The four arguments together make free discussion not a polite ornament of liberal society but the working machinery by which any society capable of correcting itself stays so.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/on-liberty/chapter-2">Ch. 2 (all four arguments)</a>, <a href="/read/on-liberty/chapter-4">Ch. 4 (limits of social pressure)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="individuality">4 · Individuality Against Conformity</h2>
+    <p class="theme-greek">"He who lets the world choose his plan of life for him"</p>
+    <div class="body">
+      <p>Of Individuality is the chapter that surprises modern readers, because it argues for something they assume Mill takes for granted: that being a distinct person, with one's own tastes and projects and oddities, is a positive good and not merely a tolerated nuisance. He thinks the opposite assumption is winning. Custom, respectability, and the sheer mass of average opinion press every life toward a common pattern, and the people inside that pattern stop noticing they are being shaped by it.</p>
+      <p>He who lets the world choose his plan of life for him, Mill writes, has no need of any other faculty than the ape-like one of imitation. The faculties — observation, reasoning, judgment, discrimination, even moral preference — are exercised only in making a choice. A person who makes none exercises none, and his character grows narrow and weak by disuse.</p>
+      <p>The defence of individuality is therefore not a celebration of mere quirk. Mill admits that genius is rare and most lives will not be original in any large sense. The point is that society needs the soil in which originality can grow when it does appear, and the same soil — room to be different, freedom to experiment with one's own life — is what allows ordinary character to develop at all.</p>
+      <p>The eccentric is not the goal but the proof. Where eccentricity is feared, the average has already been flattened. The freedom Mill defends is not freedom to be like oneself once and for all, but freedom to become someone in the first place. A society that closes that space, however gradually and however reasonably, diminishes every person within it.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/on-liberty/chapter-3">Ch. 3 (the full argument)</a>, <a href="/read/on-liberty/chapter-4">Ch. 4 (limits of social authority)</a>, <a href="/read/on-liberty/chapter-5">Ch. 5 (education and the state)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="state-action">5 · The Limits of State Action</h2>
+    <p class="theme-greek">"The worth of a state, in the long run, is the worth of the individuals composing it"</p>
+    <div class="body">
+      <p>The final chapter turns from principle to application, and Mill is careful to show that his doctrine has limits as well as reach. The harm principle does not abolish the state; it directs it. Where one person's conduct injures the definite interests of another, society may interfere as a matter of right. Where conduct concerns only the agent himself, society has no jurisdiction, however much it disapproves.</p>
+      <p>Mill works through the cases. Trade is a social act and falls under the rule of preventing harm, but most restrictions on trade are bad policy, not violations of liberty as such. Education he treats sharply: the state may require that children be educated, because failure to do so is a wrong against the child, but it should not monopolise the schools, because uniform state education manufactures uniform minds.</p>
+      <p>Marriage, drink, gambling, and the regulation of vice he treats one by one, refusing the easy moralism of his age and refusing also the lazy libertarianism that would deny every civic claim. Each case gets its own answer, and the answers are not comfortable. Mill is neither a moralist who wants law to enforce virtue nor a libertarian who denies every social obligation.</p>
+      <p>Behind the cases stands a steady warning that is the book's deepest argument. A government that absorbs into itself every able person and every important task may run things efficiently for a while, but it dries up the springs of independent life on which its own renewal depends. A state that does everything for its citizens eventually cannot be corrected by them. Liberty, in the end, is not only good for the person who exercises it. It is the condition of a society that remains capable of changing its mind.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/on-liberty/chapter-4">Ch. 4 (authority and its limits)</a>, <a href="/read/on-liberty/chapter-5">Ch. 5 (the cases and the warning)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/on-liberty/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What On Liberty is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/on-liberty/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 5 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/on-liberty/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">Victorian England</div>
+        <div class="guide-desc">The minds behind the argument.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/on-liberty">Open On Liberty in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

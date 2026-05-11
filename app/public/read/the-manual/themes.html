@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Manual — Themes &amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of Epictetus, compiled by Arrian's The Manual. The Dichotomy of Control, Judgment, Not the Event, Roles and Duties, Practice Over Theory, The Examined Death.">
+  <link rel="canonical" href="https://tinct.app/read/the-manual/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/the-manual/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/the-manual/themes">
+
+  <meta property="og:title" content="The Manual — Themes &amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of Epictetus, compiled by Arrian's The Manual. The Dichotomy of Control, Judgment, Not the Event, Roles and Duties, Practice Over Theory, The Examined Death.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/the-manual/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Manual — Themes &amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of Epictetus, compiled by Arrian's The Manual. The Dichotomy of Control, Judgment, Not the Event, Roles and Duties, Practice Over Theory, The Examined Death.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/the-manual" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/the-manual/summary">The Manual</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">The Manual — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads through the Manual</p>
+
+    <p class="lead">The Manual is not an argument — it is a training programme. But five recurring concerns give it its shape, and following any one of them through all fifty-two sections is a way of reading the book a second time.</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#dichotomy-of-control">The Dichotomy of Control</a></li>
+        <li><a href="#judgment-not-the-event">Judgment, Not the Event</a></li>
+        <li><a href="#roles-and-duties">Roles and Duties</a></li>
+        <li><a href="#practice-over-theory">Practice Over Theory</a></li>
+        <li><a href="#the-examined-death">The Examined Death</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="dichotomy-of-control">1 · The Dichotomy of Control</h2>
+    <p class="theme-greek">some things are up to us; others are not</p>
+    <div class="body">
+      <p>The opening sentence of the Manual states the doctrine on which everything else depends, and the rest of the book is in some sense the patient application of this single distinction to every situation a person can find himself in. Some things are up to us, and others are not up to us. Up to us are our opinion, our impulse, our desire, our aversion — in a word, whatever is our own action. Not up to us are our body, our property, our reputation, our office — whatever is not our own action. Epictetus is precise about what falls on each side of the line. Health is not up to us; we may be struck by illness at any age and there is no philosophical technique that prevents it. Wealth is not up to us; markets and accidents and the will of other people determine what we have. Reputation is not up to us; what others think of us depends on their dispositions, which we do not control. What is up to us is something narrower and more fundamental: how we evaluate, what we choose to assent to, how we frame the events that come at us, what we do with the will that is the only thing we possess inalienably.</p>
+      <p>The discipline of Stoic life is to confine our striving to that narrow category and to receive everything else as material. The doctrine sounds hard — and is hard — but it is also precise in a way that makes it usable. The Manual asks the reader, in every situation, to perform a single move: which part of this is mine, and which part belongs to the larger world that I do not own? The answer, once made, transforms the situation. What I cannot control I do not need to fear, since fear is itself a movement of my own mind, and that movement is in the category that is mine. The dichotomy is the engine of every other Stoic exercise in the book.</p>
+      <p>The consequences of getting it wrong are equally precise. If you take what is not your own to be yours, Epictetus warns, you will be hindered, you will lament, you will be disturbed, you will blame both gods and men. If you confine yourself to what is genuinely yours, no one can hinder you, no one can compel you, and you will be free. The Manual does not promise that freedom will feel comfortable. It promises that freedom will be real.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/the-manual/chapter-1">Section 1 (the foundational doctrine)</a>, <a href="/read/the-manual/chapter-6">Section 6 (whose good is it?)</a>, <a href="/read/the-manual/chapter-14">Section 14 (the master of every slave)</a>, <a href="/read/the-manual/chapter-19">Section 19 (you can be undefeatable)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="judgment-not-the-event">2 · Judgment, Not the Event</h2>
+    <p class="theme-greek">it is not things but judgments about things that disturb us</p>
+    <div class="body">
+      <p>The most quoted line in the Manual is one variant of a thought Epictetus returns to in five different sections. People are disturbed not by things themselves, but by their judgments about things. Death, for example, is nothing terrible, or it would have appeared so to Socrates; what is terrible is the judgment that death is terrible, and that judgment is in our power to revise. The same applies to insult, to loss, to the rude word at dinner, to the carriage that splashes mud on our cloak. The event is, in itself, neutral; the disturbance comes from the interpretation we lay on top of it, almost too quickly to notice.</p>
+      <p>Stoic practice is the slow training of the mind to pause between event and judgment so that the judgment can be examined before it is assented to. The technique has been recovered, almost unchanged, in modern cognitive behavioural therapy, which traces directly back to the Stoic insight. But Epictetus's version is more demanding than the therapeutic descendant. He is not asking us to think positively or to reframe events into something nicer. He is asking us to recognise that our judgments are our own action, and therefore something we are responsible for in a way we are not responsible for the events themselves.</p>
+      <p>When something disturbs you, Epictetus writes, do not blame another person; blame yourself — that is, your own judgment. The reframe is not toward comfort but toward responsibility, and the freedom it produces is the freedom of someone who has stopped expecting the world to behave well in order for him to be calm. He has located the seat of disturbance inside himself, where it belongs and where he can do something about it.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/the-manual/chapter-5">Section 5 (it is not the event)</a>, <a href="/read/the-manual/chapter-16">Section 16 (weeping without grieving)</a>, <a href="/read/the-manual/chapter-20">Section 20 (your judgment has angered you)</a>, <a href="/read/the-manual/chapter-45">Section 45 (describe, don't judge)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="roles-and-duties">3 · Roles and Duties</h2>
+    <p class="theme-greek">duties are determined for the most part by relations</p>
+    <div class="body">
+      <p>Stoicism is sometimes caricatured as a philosophy of withdrawal — the wise man behind a wall, indifferent to the affairs of the world. The Manual is the corrective. Epictetus is intensely concerned with the duties of social life, and he frames them in terms of roles. You are a son; the duty is to honour your parents, to yield to them, to bear with them when they reproach you. You are a brother; the duty is to be patient and kind. You are a senator, a citizen, a husband, a soldier; in each role you have an office to perform, and the question is not whether you feel like performing it but whether you are doing the work of the role you are in.</p>
+      <p>Section 30 puts the doctrine cleanly: duties are determined for the most part by relations. The duty arises from the relation; the relation defines what the duty is. Whether the other person performs his duty in turn does not change what your duty is. If your father is unjust, your duty as son is not abolished; it is, perhaps, harder, but the role and its requirement remain. This is one of the points where Stoicism is most demanding and least sentimental. It asks you to act well in the relations you actually have, with the people you actually have them with, regardless of whether they reciprocate.</p>
+      <p>Combined with the dichotomy of control, the doctrine of roles produces a coherent ethics: I cannot control whether others love me, but I can control whether I love them as my role requires; I cannot control whether the city honours its laws, but I can control whether I honour mine. The Manual's social ethics is the active counterweight to its inner discipline.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/the-manual/chapter-17">Section 17 (act well the part)</a>, <a href="/read/the-manual/chapter-24">Section 24 (nobody else's fault)</a>, <a href="/read/the-manual/chapter-30">Section 30 (duty from the relationship)</a>, <a href="/read/the-manual/chapter-37">Section 37 (take on what you can bear)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="practice-over-theory">4 · Practice Over Theory</h2>
+    <p class="theme-greek">show the wool and the milk, not the grass</p>
+    <div class="body">
+      <p>Epictetus has almost no patience for philosophical talk that does not turn into practice. The Manual is, more than anything else, a series of exercises, and the closing sections are explicit about what philosophy is for. If you wish to be a philosopher, prepare to be laughed at — but more importantly, do not chatter philosophical principles among the unlearned, but show them in your actions. Sheep do not bring grass to the shepherd to demonstrate how much they have eaten; they digest and produce wool and milk. Show the wool and the milk, not the grass.</p>
+      <p>The image is sharp. The reader who finishes the Manual and can quote Section 1 has not done anything yet; the reader who has begun, in actual situations, to notice the dichotomy of control, to slow down before assenting to a judgment, to act on his role rather than on his mood, has begun to do philosophy. Section 51 is the most relentless of these reminders. How long, Epictetus asks, will you delay to think yourself worthy of the best things? You have received the precepts you ought to assent to, and you have assented to them. What teacher then are you waiting for, to defer your reformation to him?</p>
+      <p>The pedagogy of the Manual is calibrated to the reader who has been studying philosophy for years and has not yet started. Epictetus's experience as a teacher made him expect such readers, and the closing sections — Sections 46 through 52 — are written for them. They are not gentle. The bell of school has rung; the holiday is over; the work is now.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/the-manual/chapter-22">Section 22 (be prepared to be laughed at)</a>, <a href="/read/the-manual/chapter-46">Section 46 (show the wool, not the grass)</a>, <a href="/read/the-manual/chapter-48">Section 48 (signs of someone making progress)</a>, <a href="/read/the-manual/chapter-51">Section 51 (the order is wrong)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="the-examined-death">5 · The Examined Death</h2>
+    <p class="theme-greek">keep death before your eyes from day to day</p>
+    <div class="body">
+      <p>The Manual returns repeatedly to death, and the return is not morbid but practical. Death is the test case for everything the rest of the book teaches, because death is the loss of every external good at once, and the reader who has not made his peace with it has not made his peace with the dichotomy of control. Epictetus's instructions are spare. Section 3: with regard to whatever is dear to you, remember to tell yourself what kind of thing it is. Do you love a cup? It is a cup. So you will not be disturbed when it breaks. Do you love a child or a wife? You love a human being. So you will not be disturbed when they die.</p>
+      <p>Section 21: keep before your eyes from day to day death and exile and all things that seem terrible, especially death. By doing so you will never have any abject thought, nor desire anything excessively. The exercise is the Stoic <em>premeditatio malorum</em>, the rehearsal of evils, and it is meant not to make the practitioner gloomy but to make him free. A man who has thought clearly about death every morning is not paralysed by the fear of it when it comes; a man who has accepted that his loved ones are mortal does not love them less but loves them as the mortal beings they actually are.</p>
+      <p>The freedom Epictetus is selling is not freedom from feeling. It is freedom from the kind of unexamined attachment that turns every loss into a catastrophe and makes the reasonable conduct of a life impossible. Love the cup, but remember it is a cup. Love the person, but remember they are a person. When either is taken, you can grieve without being destroyed by what was, in the end, always going to happen.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/the-manual/chapter-3">Section 3 (you love a clay cup)</a>, <a href="/read/the-manual/chapter-7">Section 7 (keep your eyes on the ship)</a>, <a href="/read/the-manual/chapter-11">Section 11 (you have returned it)</a>, <a href="/read/the-manual/chapter-21">Section 21 (keep death before your eyes)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/the-manual/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What The Manual is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/the-manual/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 52 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/the-manual/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">Nicopolis</div>
+        <div class="guide-desc">A school in Greece where a freed slave taught philosophy.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/the-manual">Open The Manual in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

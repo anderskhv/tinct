@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthew — Themes &amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of Anonymous (traditionally Matthew the apostle)'s Matthew. Jesus as the New Moses, The Sermon on the Mount, The kingdom of heaven, Jewish-Christian self-understanding, Peter and the church.">
+  <link rel="canonical" href="https://tinct.app/read/bible-matthew/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/bible-matthew/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/bible-matthew/themes">
+
+  <meta property="og:title" content="Matthew — Themes &amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of Anonymous (traditionally Matthew the apostle)'s Matthew. Jesus as the New Moses, The Sermon on the Mount, The kingdom of heaven, Jewish-Christian self-understanding, Peter and the church.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/bible-matthew/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Matthew — Themes &amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of Anonymous (traditionally Matthew the apostle)'s Matthew. Jesus as the New Moses, The Sermon on the Mount, The kingdom of heaven, Jewish-Christian self-understanding, Peter and the church.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/bible-matthew" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/bible-matthew/summary">Matthew</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">Matthew — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads that hold the gospel together</p>
+
+    <p class="lead">Matthew is the most carefully arranged of the four gospels, and its arrangement is itself an argument. Five great discourses, each closed by a formula, frame a narrative that moves from genealogy to resurrection to Great Commission. The threads that follow run through every level of the design.</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#jesus-as-the-new-moses">Jesus as the New Moses</a></li>
+        <li><a href="#the-sermon-on-the-mount">The Sermon on the Mount</a></li>
+        <li><a href="#the-kingdom-of-heaven">The kingdom of heaven</a></li>
+        <li><a href="#jewish-christian-self-understanding">Jewish-Christian self-understanding</a></li>
+        <li><a href="#peter-and-the-church">Peter and the church</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="jesus-as-the-new-moses">1 · Jesus as the New Moses</h2>
+    <p class="theme-greek">five discourses; the mountain; “but I say to you”</p>
+    <div class="body">
+      <p>Matthew’s gospel is, more than any of the other three, an extended argument that Jesus is the figure Moses had pointed forward to. The argument is made structurally — the five great discourses paralleling the five books of the Torah — and at every level of the narrative. The infancy chapters set the pattern. Joseph receives instruction in dreams (Matthew 1:20, 2:13, 2:19, 2:22), as the patriarch Joseph had received instruction in dreams. Herod orders the slaughter of the male infants of Bethlehem (2:16), as Pharaoh had ordered the slaughter of the male infants of the Hebrews. The holy family flees to Egypt and returns out of Egypt; the line <em>out of Egypt I called my son</em> (2:15) is quoted from Hosea 11, where it had referred to Israel itself, and Matthew applies it to Jesus without reservation. The pattern is that Jesus walks the way Israel walked.</p>
+      <p>The Sermon on the Mount makes the parallel explicit. Jesus goes up the mountain (5:1) — the only one of the gospels to set the great discourse on a mountain; Luke’s parallel is on a level place (Luke 6:17). Like Moses, he sits and the disciples come to him; like Moses, he gives the law. The <em>you have heard that it was said but I say to you</em> formula, repeated six times in chapter 5, is the gospel’s structural claim that Jesus has the authority to interpret the Torah given through Moses, not as a scribe of Moses but in his own name. The claim is enormous and is recognized as such — the chapter ends with the crowd’s astonishment that <em>he was teaching as one who had authority, and not as their scribes</em> (7:28–29).</p>
+      <p>What the new-Moses figure does theologically is hold continuity and discontinuity in a single image. Jesus does not abolish the Torah; the gospel insists, in 5:17, that he has come not to abolish but to fulfil. He stands in the Mosaic line. At the same time, he stands in it with an authority that the Mosaic line did not give to its scribes. The figure Matthew gives is the figure of the prophet like Moses promised in Deuteronomy 18:15 — <em>a prophet like me from among your brothers</em> — and the gospel reads the Torah’s whole forward-pointing structure as having been pointing here. The figure has been the lens through which the Christian tradition has read the relation between the Hebrew Scriptures and the gospel for two thousand years.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/bible-matthew/chapter-1">Matthew 1 (the genealogy)</a>, <a href="/read/bible-matthew/chapter-2">Matthew 2 (flight to Egypt)</a>, <a href="/read/bible-matthew/chapter-5">Matthew 5 (the Sermon begins)</a>, <a href="/read/bible-matthew/chapter-17">Matthew 17 (the transfiguration)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="the-sermon-on-the-mount">2 · The Sermon on the Mount</h2>
+    <p class="theme-greek">chapters 5–7 · the Beatitudes · “but I say to you”</p>
+    <div class="body">
+      <p>Three chapters at the centre of the gospel — Matthew 5, 6, and 7 — together form the most influential single passage of moral teaching in Western literature. The Sermon opens with the Beatitudes: <em>blessed are the poor in spirit, for theirs is the kingdom of heaven; blessed are those who mourn, for they shall be comforted; blessed are the meek, for they shall inherit the earth.</em> The form of the macarism was familiar in the wisdom literature; what Matthew’s Jesus does with it is attach the blessing to the conditions worldly wisdom does not bless. The poor, the mourning, the meek, the merciful, the persecuted — the conditions that count in the kingdom Jesus is announcing are not the conditions a society organised by wealth and power and security would name as blessed.</p>
+      <p>The Sermon then moves through the six antitheses of chapter 5 — <em>you have heard it said but I say to you</em> — in which the Mosaic teaching is taken up and intensified: not only no murder but no anger; not only no adultery but no lust; not only the prohibition of false oaths but the prohibition of oaths altogether; not only an eye for an eye but turn the other cheek; not only love your neighbour but love your enemy. Chapter 6 turns to the practices — almsgiving, prayer, fasting — and gives the Lord’s Prayer in 6:9–13 in the form Christian liturgy has used ever since. Chapter 7 closes with warnings against judging, the call to ask and seek and knock, the golden rule, the narrow gate, and the parable of the two foundations.</p>
+      <p>The Sermon has been read as ethics, as eschatology, as impossible counsel of perfection, as prophetic critique, as social-political programme, and as personal devotion. Tolstoy read it as the founding document of Christian non-resistance; Bonhoeffer as the call to costly discipleship; Gandhi as the closest approach to satyagraha he could find in the Christian Scriptures. The three chapters contain the Lord’s Prayer, the golden rule, the Beatitudes, the call to love enemies, the warning against laying up treasures, the consider-the-lilies passage, the narrow gate, and the closing image of the house built on rock. By any measure, this is the densest single piece of moral teaching in Christian literature.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/bible-matthew/chapter-5">Matthew 5 (Beatitudes and antitheses)</a>, <a href="/read/bible-matthew/chapter-6">Matthew 6 (Lord’s Prayer)</a>, <a href="/read/bible-matthew/chapter-7">Matthew 7 (the two foundations)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="the-kingdom-of-heaven">3 · The kingdom of heaven</h2>
+    <p class="theme-greek">basileia ton ouranon · seven parables · chapter 13</p>
+    <div class="body">
+      <p>Matthew uses the phrase <em>the kingdom of heaven</em> (basileia ton ouranon) in places where Mark and Luke use <em>the kingdom of God</em> (basileia tou theou). The substitution reflects a Jewish reverence for the divine name; heaven is the periphrasis for God that observant Jewish-Greek usage employs to avoid pronouncing the name directly. The two phrases mean the same thing, but the substitution marks Matthew’s gospel as written from inside a Jewish-Christian community that observes the Jewish reverence for the name.</p>
+      <p>The content of the kingdom in Matthew is given through parables more often than through definitions. The kingdom of heaven is like a man who sowed good seed in his field, but while everyone slept, his enemy came and sowed weeds among the wheat. The kingdom of heaven is like a grain of mustard seed. The kingdom of heaven is like leaven that a woman hid in flour. The kingdom of heaven is like treasure hidden in a field. The kingdom of heaven is like a merchant in search of fine pearls, who found one pearl of great value and sold everything to buy it. The kingdom of heaven is like a net that gathered fish of every kind. Chapter 13 alone gives seven parables in sequence, each opening with the formula and each leaving the kingdom undefined in the abstract and exact in the particular case.</p>
+      <p>What the parables do, taken as a sequence, is refuse the question <em>what is the kingdom</em> in the form in which it is asked. The kingdom is not a state or a doctrine or an institution. It is the presence and growing rule of God among the people who have heard the announcement and responded — already small, already mixed with weeds, already hidden in the dough, already unmistakable in the mustard tree, already worth selling everything for, already the net that gathers all fish and will be sorted later. The temporal structure is the present-with-future-consummation that has shaped Christian eschatology ever since: the kingdom is here in seed and not yet in harvest, here in leaven and not yet in the finished bread.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/bible-matthew/chapter-4">Matthew 4 (the kingdom announced)</a>, <a href="/read/bible-matthew/chapter-13">Matthew 13 (seven parables)</a>, <a href="/read/bible-matthew/chapter-24">Matthew 24–25 (eschatological parables)</a>, <a href="/read/bible-matthew/chapter-25">Matthew 25 (sheep and goats)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="jewish-christian-self-understanding">4 · Jewish-Christian self-understanding</h2>
+    <p class="theme-greek">“not to abolish but to fulfil” · the seven woes · the Great Commission</p>
+    <div class="body">
+      <p>More than any other gospel, Matthew is composed by and for a Jewish-Christian community wrestling with what its identity is after the destruction of the temple in 70 CE and the rise of the rabbinic project at Yavneh. The gospel insists on continuity. Jesus is born of the line of David, son of Abraham (1:1); the genealogy that opens the gospel is the genealogy of a Davidic king. Jesus came not to abolish the law and the prophets but to fulfil them (5:17); not one iota or dot will pass from the law until all is accomplished. The disciples are sent first to the lost sheep of the house of Israel (10:5–6, 15:24).</p>
+      <p>At the same time, the gospel is in active conflict with the leaders of the synagogue across the way. The seven woes of chapter 23 — <em>Woe to you, scribes and Pharisees, hypocrites!</em> — are the most sustained polemic against the rabbinic establishment in any of the gospels, and they have to be read in their first-century context: a Jewish-Christian community’s argument with a parallel Jewish community over the right interpretation of the same Scriptures, rather than as the Christian-against-Jewish polemic later Christian readers turned them into. The Matthean Jesus calls the Pharisees blind guides, whitewashed tombs, serpents, brood of vipers — the language is internal-Jewish polemical language, of the kind the Hebrew prophets had used against the priests of Jerusalem.</p>
+      <p>The gospel ends with Matthew’s distinctive resolution of the Jewish-Christian question. The Great Commission in 28:18–20 sends the disciples to all nations — <em>panta ta ethne</em> — baptising and teaching. The mission, which in the body of the gospel had been restricted to the lost sheep of the house of Israel, now opens out. In Matthew’s reading, this is not a rejection of the Jewish-Christian self-understanding; it is the eschatological enlargement that the Hebrew prophets — Isaiah’s nations streaming to the mountain of the Lord — had been pointing toward.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/bible-matthew/chapter-5">Matthew 5 (not to abolish but to fulfil)</a>, <a href="/read/bible-matthew/chapter-23">Matthew 23 (the seven woes)</a>, <a href="/read/bible-matthew/chapter-28">Matthew 28 (the Great Commission)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="peter-and-the-church">5 · Peter and the church</h2>
+    <p class="theme-greek">“on this rock I will build my church” · Matthew 16:18</p>
+    <div class="body">
+      <p>Matthew is the only gospel in which the word <em>ekklesia</em> — church, assembly — appears, and it appears only twice, in 16:18 and 18:17. The two passages together carry an enormous weight in later Christian history and are the source of much of what later Christian traditions argue about authority, structure, and discipline.</p>
+      <p>The first passage is the famous one. Jesus, at Caesarea Philippi, asks his disciples who they say he is. Peter answers: <em>You are the Christ, the Son of the living God.</em> Jesus’ response — found only in Matthew — is the line that has shaped Christian ecclesiology ever since. <em>Blessed are you, Simon Bar-Jonah, for flesh and blood has not revealed this to you, but my Father who is in heaven. And I tell you, you are Peter (Petros), and on this rock (petra) I will build my church, and the gates of hell shall not prevail against it. I will give you the keys of the kingdom of heaven, and whatever you bind on earth shall be bound in heaven, and whatever you loose on earth shall be loosed in heaven.</em> The pun on Peter and rock works in Greek and in Aramaic. The Roman Catholic reading of Petrine primacy, the Orthodox reading of conciliar collegiality, the Protestant reading of the confession itself as the foundation — all return to Matthew 16:18.</p>
+      <p>The second <em>ekklesia</em> passage, in 18:17, is in the community discourse and gives the procedure for handling sin within the community. If your brother sins against you, go and tell him his fault, between you and him alone; if he listens, you have gained your brother. If he does not listen, take one or two others; if he refuses to listen, tell it to the church; and if he refuses even the church, let him be to you as a Gentile and a tax collector. The binding-and-loosing language here is given to the church as a whole, not to Peter alone. Matthew’s gospel is the one that gives the Christian community its language for ecclesial discipline and its founding accounts of authority, and the two <em>ekklesia</em> passages have shaped every subsequent Christian polity.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/bible-matthew/chapter-16">Matthew 16 (Peter’s confession and the rock saying)</a>, <a href="/read/bible-matthew/chapter-18">Matthew 18 (the community discourse)</a>, <a href="/read/bible-matthew/chapter-28">Matthew 28 (the Great Commission)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/bible-matthew/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What Matthew is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/bible-matthew/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 28 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/bible-matthew/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">The world of Matthew</div>
+        <div class="guide-desc">Jesus, the disciples, the Pharisees, the Magi, and the figures of the Passion.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/bible-matthew">Open Matthew in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

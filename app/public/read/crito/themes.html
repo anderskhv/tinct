@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crito — Themes &amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of Plato's Crito. Justice over self-preservation, The city as parent, The social contract avant la lettre, The Laws as personified speakers, Philosophy versus rhetoric.">
+  <link rel="canonical" href="https://tinct.app/read/crito/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/crito/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/crito/themes">
+
+  <meta property="og:title" content="Crito — Themes &amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of Plato's Crito. Justice over self-preservation, The city as parent, The social contract avant la lettre, The Laws as personified speakers, Philosophy versus rhetoric.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/crito/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crito — Themes &amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of Plato's Crito. Justice over self-preservation, The city as parent, The social contract avant la lettre, The Laws as personified speakers, Philosophy versus rhetoric.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/crito" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/crito/summary">Crito</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">Crito — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads through the dialogue</p>
+
+    <p class="lead">Crito is the shortest of the trial dialogues and the most compressed. In under thirty pages, it lays out a theory of justice, a theory of the social contract, a theory of parental obligation, and a theory of philosophical method. The argument has not aged.</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#justice-over-self-preservation">Justice over self-preservation</a></li>
+        <li><a href="#the-city-as-parent">The city as parent</a></li>
+        <li><a href="#the-social-contract">The social contract avant la lettre</a></li>
+        <li><a href="#the-laws-personified">The Laws as personified speakers</a></li>
+        <li><a href="#philosophy-versus-rhetoric">Philosophy versus rhetoric</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="justice-over-self-preservation">1 · Justice over self-preservation</h2>
+    <p class="theme-greek">"We must not think of what the many will say, but of what he will say who understands justice"</p>
+    <div class="body">
+      <p>Crito's case is built from affection. You will leave your sons fatherless. You will let your friends be reproached for not saving you when they could. You will hand your enemies the satisfaction of a death they did not deserve to inflict. Every reason is a good reason, and Crito is not wrong about any of them. None of it moves Socrates.</p>
+      <p>He answers with a distinction Crito never quite catches: the question is not what is best for me, or for those I love, but what is just. "We must not then think so much of what the many will say of us, but what he will say who understands justice and injustice." Self-preservation is a value. It is not the highest value. A life saved by injustice is, by the standard Socrates has spent his life defending, not worth saving.</p>
+      <p>The dialogue is unsettling because it asks, calmly, whether we believe what we say we believe — or whether, when the cell door opens, we will discover that we always meant something else. Crito, who loves Socrates, reveals by his arguments that he has never quite accepted the hierarchy Socrates has lived by. For Crito, love comes first. For Socrates, justice comes first. The gap between them is small and unbridgeable.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/crito/chapter-2">Part 2 (the plea and the dismantling)</a>, <a href="/read/crito/chapter-3">Part 3 (the Laws close the case)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="the-city-as-parent">2 · The city as parent</h2>
+    <p class="theme-greek">"Your country is more to be valued and higher and holier far than mother or father"</p>
+    <div class="body">
+      <p>When the Laws speak, they do not argue as a contract between equals. They argue as a father speaks to a son. "Are you so wise as to have forgotten that your country is more to be valued and higher and holier far than mother or father or any ancestor, and more to be regarded in the eyes of the gods and of men of understanding?" The relation is asymmetric. The city brought Socrates into being, fed him, educated him, gave him the conditions under which philosophy itself was possible.</p>
+      <p>Against that gift, the citizen has no equivalent to offer. He may try to persuade the city when he disagrees, and Socrates has done that all his life. What he may not do is strike back. A son does not strike his father even when the father is wrong. The image is uncomfortable in a way Plato seems to want it to be: it makes obedience a matter not of fear but of something like piety.</p>
+      <p>The argument cuts deepest because Socrates has been wronged. The verdict was unjust — he knows it, Crito knows it, the dialogue does not pretend otherwise. The Laws' argument is not that the verdict was correct. It is that a citizen's response to an incorrect verdict cannot be to tear up the agreement under which he has lived. You persuade or you obey. You do not run.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/crito/chapter-3">Part 3 (the Laws on parenthood and piety)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="the-social-contract">3 · The social contract avant la lettre</h2>
+    <p class="theme-greek">"By remaining you agreed to be governed by our commands"</p>
+    <div class="body">
+      <p>Beneath the parental image runs a second argument that the modern reader will recognize as the contract argument, two thousand years before Hobbes. The Laws point out that Socrates was free to leave Athens at any time. He could have taken his property and emigrated to Sparta, to Crete, to Megara — cities whose laws he is reported to admire. He did not. He stayed, married, raised children, conducted his philosophy in the agora, accepted everything the city had to give.</p>
+      <p>By staying he made an agreement, not in writing but in deed, to live by the city's laws. To break that agreement now, only when the laws have inconvenienced him, would be to confess that the agreement was never serious. He is like someone who has played the game all his life and only complains about the rules when he loses.</p>
+      <p>The argument is not yet Locke's or Rousseau's, but the bones are there: legitimacy as consent, consent as residence, the citizen as a party to a binding pact he is free at any time to renounce by leaving — and only by leaving. The Laws even specify the exit condition: Socrates could have proposed exile at his own trial. He declined. He was not deceived; he was not rushed. He had seventy years to form this preference, and he expressed it clearly, and now he wants to change the terms because the terms have cost him everything. That, the Laws say, is not how agreements work.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/crito/chapter-2">Part 2 (the argument from first principles)</a>, <a href="/read/crito/chapter-3">Part 3 (the seventy years of residency)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="the-laws-personified">4 · The Laws as personified speakers</h2>
+    <p class="theme-greek">"Tell us, Socrates, what are you about?"</p>
+    <div class="body">
+      <p>The most striking move in the dialogue is rhetorical. Socrates does not say what he thinks the Laws would say; he stages them. They walk into the cell and confront him. "Tell us, Socrates, what are you about?" The technique is called prosopopoeia — the giving of a voice to what does not literally speak — and Plato uses it here for a reason.</p>
+      <p>An abstract principle can be argued with. An abstract principle does not look you in the eye. By personifying the Laws, Socrates forces Crito (and the reader) to face the question as a question between persons: would you, in front of the city that raised you, defend this escape to its face? The answer Crito cannot give is the answer the dialogue extracts.</p>
+      <p>It is also a quiet warning about philosophy itself: the strongest arguments are the ones we cannot dismiss as merely arguments, the ones that look back. Socrates has been making arguments for the whole dialogue. The Laws do not argue; they address. "Tell us, Socrates." It is the hardest line in the dialogue to answer — not because the argument is airtight, but because the question is asked by someone who knows you.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/crito/chapter-3">Part 3 (the Laws enter the cell)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="philosophy-versus-rhetoric">5 · Philosophy versus rhetoric</h2>
+    <p class="theme-greek">"I am the kind of man who can only be guided by reason"</p>
+    <div class="body">
+      <p>Crito is no philosopher. He is a wealthy old friend who loves Socrates and wants him alive. His arguments are the arguments of decent feeling: think of the children, think of what people will say, think of how easy escape would be. Socrates respects him too much to dismiss any of it, but he also refuses to be moved by considerations of feeling alone.</p>
+      <p>"Not now for the first time, but always, I am the kind of man who listens to nothing within me but the argument that on reflection seems best." The situation is the worst of his life. The principle still applies. Philosophy is not a fair-weather practice.</p>
+      <p>The dialogue stages, in miniature, the contest that runs through Plato's whole work: rhetoric persuades by appealing to what we already want; philosophy persuades, when it persuades at all, by changing what we want. Crito leaves the cell having said almost nothing in the last third of the conversation. He has not been refuted. He has been outweighed. The love is still there — the argument has not touched it — but Crito can no longer speak from it. That is the difference between the two men, and the dialogue is built around it.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/crito/chapter-1">Part 1 (Crito's urgency vs Socrates's calm)</a>, <a href="/read/crito/chapter-2">Part 2 (the dismantling of Crito's case)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/crito/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What Crito is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/crito/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 3 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/crito/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">The prison cell</div>
+        <div class="guide-desc">Two old men and a city.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/crito">Open Crito in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

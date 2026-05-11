@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phaedo — Themes &amp; Analysis | Tinct</title>
+  <meta name="description" content="Themes and analysis of Plato's Phaedo. Philosophy as preparation for death, The four arguments for immortality, The Forms — what the soul belongs to, The objections — and the crisis they cause, The death itself.">
+  <link rel="canonical" href="https://tinct.app/read/phaedo/themes">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/phaedo/themes">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/phaedo/themes">
+
+  <meta property="og:title" content="Phaedo — Themes &amp; Analysis | Tinct">
+  <meta property="og:description" content="Themes and analysis of Plato's Phaedo. Philosophy as preparation for death, The four arguments for immortality, The Forms — what the soul belongs to, The objections — and the crisis they cause, The death itself.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tinct.app/read/phaedo/themes">
+  <meta property="og:site_name" content="Tinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Phaedo — Themes &amp; Analysis | Tinct">
+  <meta name="twitter:description" content="Themes and analysis of Plato's Phaedo. Philosophy as preparation for death, The four arguments for immortality, The Forms — what the soul belongs to, The objections — and the crisis they cause, The death itself.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.0; font-weight: 900; letter-spacing: -0.025em; margin: 0 0 12px 0; }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .byline { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 28px; }
+    .lead { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.55; margin-bottom: 36px; max-width: 660px; }
+    .lead em { font-style: italic; }
+
+    .toc { margin: 28px 0 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .toc ol { list-style: none; counter-reset: theme; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .toc ol li { counter-increment: theme; }
+    .toc ol li a { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: baseline; }
+    .toc ol li a::before { content: counter(theme, decimal-leading-zero); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a em { font-style: italic; color: var(--accent); }
+
+    h2.theme { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 56px 0 4px 0; color: var(--ink); scroll-margin-top: 24px; }
+    h2.theme em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .theme-greek { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; font-style: italic; color: var(--dim); margin-bottom: 18px; }
+
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; line-height: 1.6; margin: 0 0 16px 0; }
+    .body p strong { font-weight: 600; }
+    .body p em { font-style: italic; }
+
+    .where { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 14px 0 28px 0; }
+    .where a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.3); padding-bottom: 1px; }
+    .where a:hover { border-bottom-color: var(--accent); }
+    .where strong { color: var(--ink); font-weight: 500; }
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 64px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 20px 22px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.45; color: var(--dim); }
+
+    .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 56px 0 0 0; text-align: center; }
+    .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      main { padding: 36px 22px 64px; }
+      .guides { grid-template-columns: 1fr; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read/phaedo" class="top-cta">Read the full book for free →</a>
+  </nav>
+
+  <main>
+
+    <div class="breadcrumb">
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/phaedo/summary">Phaedo</a> · <span>Themes &amp; analysis</span>
+    </div>
+
+    <h1 class="title">Phaedo — <em>themes &amp; analysis</em></h1>
+    <p class="byline">Five threads through the dialogue</p>
+
+    <p class="lead">Phaedo is Plato's most emotionally weighted dialogue and also one of his most technically demanding. The grief and the argument run in parallel, each making the other more serious. These are the threads that hold them together.</p>
+
+    <nav class="toc">
+      <div class="toc-label">In this analysis</div>
+      <ol>
+        <li><a href="#preparation">Philosophy as preparation for death</a></li>
+        <li><a href="#four-arguments">The four arguments for immortality</a></li>
+        <li><a href="#forms">The Forms — what the soul belongs to</a></li>
+        <li><a href="#objections">The objections — and the crisis they cause</a></li>
+        <li><a href="#death-scene">The death itself</a></li>
+      </ol>
+    </nav>
+
+    <h2 class="theme" id="preparation">1 · Philosophy as preparation for death</h2>
+    <p class="theme-greek">"the true philosopher has one desire in life — to die and be dead"</p>
+    <div class="body">
+      <p>The opening claim is the one that will scandalize a modern reader and that Socrates means literally. The true philosopher, he tells Cebes, has been practicing dying all along. Practicing how? By turning away from the body — from its appetites, its noise, its way of demanding attention — and toward what the mind alone can grasp. The philosopher who has spent a life trying to think clearly has spent a life loosening the soul from the body's grip. Death finishes a process that philosophy began. To fear death, then, is to confess that the practice never took.</p>
+      <p>This is not bravado and not consolation. It is offered as an argument, with a definition behind it: death just is the separation of soul from body. If that is what death is, and if philosophy has been pursuing exactly that separation, then a philosopher who panics at death has misunderstood what he was doing the whole time. Simmias laughs at this — gently, in a way Socrates lets him — and the rest of the dialogue is the unfolding of why Socrates is not joking and not posturing.</p>
+      <p>The argument has a sharp edge. It refuses the modern instinct that says philosophy is one activity among others, useful at the desk and beside the point at the bedside. Socrates collapses that distinction. The questions you ask in the agora and the questions you face when the cup arrives are the same questions. If your philosophy cannot meet death, it was never serious enough to count as philosophy. If it can, then the day of execution is not an interruption of the philosophical life but its culmination — the examination on which everything else was practice. By the time Socrates reaches for the cup at sundown, the framing has done its work: we are watching not a man dying but a man finishing a thought.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/phaedo/chapter-2">Section 2 (the definition of death)</a>, <a href="/read/phaedo/chapter-3">Section 3 (the cycle of opposites)</a>, <a href="/read/phaedo/chapter-9">Section 9 (the cup)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="four-arguments">2 · The four arguments for immortality</h2>
+    <p class="theme-greek">cycles, recollection, affinity, the Form of Life</p>
+    <div class="body">
+      <p>Plato gives Socrates four arguments and lets each one be tested. The first is from opposites. Everything that has an opposite comes from its opposite — the hot from the cold, the larger from the smaller, the awake from the asleep. Living and dead are such a pair. So the living must come from the dead as the dead come from the living, and the cycle requires both terminals to be real. If souls only died and were never reborn, the universe would have run down into pure death long ago.</p>
+      <p>The second is from recollection. We recognize equality, but no two physical sticks are ever exactly equal. We grasp beauty, but no particular beautiful thing exhausts what beauty is. To recognize the imperfect copy as a copy, we must already know the original — and since we never met the original in this life, we must have known it before. Learning is remembering. The soul existed before the body.</p>
+      <p>The third is from affinity. There are two kinds of things: the visible, composite, changing, mortal; and the invisible, simple, unchanging, eternal. The body belongs to the first. The soul, which can grasp the second and is most itself when it does, belongs there too. Like keeps to like. Then Cebes and Simmias break in with objections that nearly collapse the structure. Socrates answers both, and from the answers builds the fourth argument: from the Form of Life itself. The soul is what brings life. What brings a property cannot admit the opposite of that property. Snow cannot admit heat — it melts first. The soul, which brings life, cannot admit death. It withdraws.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/phaedo/chapter-3">Section 3 (from opposites)</a>, <a href="/read/phaedo/chapter-4">Section 4 (from recollection)</a>, <a href="/read/phaedo/chapter-5">Section 5 (from affinity)</a>, <a href="/read/phaedo/chapter-7">Section 7 (from the Form of Life)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="forms">3 · The Forms — what the soul belongs to</h2>
+    <p class="theme-greek">Equality itself, Beauty itself, the unchanging originals</p>
+    <div class="body">
+      <p>The metaphysical scaffolding behind every argument in this dialogue is the theory of Forms, and Phaedo is where Plato states it most plainly. There is Equality itself, and there are equal sticks. There is Beauty itself, and there are beautiful faces. The Form is one, eternal, unchanging, graspable only by thought. The particulars are many, transient, changing, given to the senses. The relation between them is participation — the equal sticks have whatever equality they have by partaking of Equality, the beautiful face by partaking of Beauty.</p>
+      <p>The move that matters for the immortality arguments is this: the soul is the part of us that has access to the Forms. The eye sees colored shapes; the soul sees Equality. The ear hears sounds; the soul hears justice. The body can only handle the copies. The soul can reach the originals. So when Socrates argues that the soul resembles what is unchanging, he is not making a metaphor — he is pointing at the kind of object the soul is fitted for.</p>
+      <p>This is also why the philosopher's life looks the way it does. If reality is divided between Forms and copies, and if the soul is the organ for Forms, then a life spent satisfying the body is a life spent on copies. A life spent in dialectic — in trying to reach what is — is a life spent on what is real. The philosopher's preference for thought over appetite is not asceticism for its own sake. It is taking seriously where reality lives. Phaedo gives the theory in its purest deathbed form. There are originals. There are copies. The soul belongs with the originals. And so, when the body falls away, the soul goes home.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/phaedo/chapter-4">Section 4 (recollection introduces the Forms)</a>, <a href="/read/phaedo/chapter-5">Section 5 (affinity argument)</a>, <a href="/read/phaedo/chapter-7">Section 7 (Form of Life)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="objections">4 · The objections — and the crisis they cause</h2>
+    <p class="theme-greek">"What argument can I ever trust again?"</p>
+    <div class="body">
+      <p>Halfway through the dialogue, Simmias and Cebes intervene with objections so strong they throw the room into crisis. Phaedo will later describe the feeling to Echecrates: they had been firmly convinced, and now that conviction seemed to dissolve, not only undermining the previous argument but making any future argument doubtful. Echecrates, hearing this, says he felt the same: "What argument can I ever trust again?"</p>
+      <p>Simmias proposes the harmony objection. The soul might be to the body what a tune is to a lyre — an attunement of the parts that vanishes when the instrument is destroyed. The analogy is exact and damaging. If the soul is a harmony, it has no independent existence and the immortality arguments collapse. Cebes proposes the worn-cloak objection: that the soul might outlast many bodies the way a weaver outlasts many cloaks, wearing each out in turn, and still die at the last. This concedes the soul's longevity while denying its immortality — the more dangerous move.</p>
+      <p>What makes this section extraordinary is how Plato handles it. Socrates does not dismiss the objections or talk around them. He registers that they are serious, rallies the room ("we must not become misologists"), and then dismantles each carefully. The harmony objection fails because souls differ in virtue and vice while harmonies cannot differ in degree. The worn-cloak objection is what forces the fourth and final argument — from the Form of Life — which would not exist without Cebes having pushed hard enough to require it.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/phaedo/chapter-6">Section 6 (the objections)</a>, <a href="/read/phaedo/chapter-7">Section 7 (Socrates answers)</a>.</p>
+    </div>
+
+    <h2 class="theme" id="death-scene">5 · The death itself</h2>
+    <p class="theme-greek">"Crito, I owe a rooster to Asclepius. Will you remember to pay the debt?"</p>
+    <div class="body">
+      <p>The final pages are written with a restraint that has not been improved on in two and a half thousand years. Socrates bathes himself so the women won't have to wash his body — a small consideration, recorded without comment. He sees his children and the women of his household, gives them his instructions, sends them home. The servant of the Eleven, who has been kind to him during the imprisonment, weeps as he announces that the time has come and turns away. Socrates praises the man: "How charming he is — the whole time I've been here, he's visited me often and talked with me. And now look how generously he grieves for me."</p>
+      <p>The cup is brought. Socrates asks if there is enough to pour a libation. The attendant says there is only what is needed. Socrates accepts this, raises the cup to his lips, and drinks the poison with perfect calm. Until that moment, most of the room had held themselves together. When they saw him drinking, they could not. Apollodorus, who had been weeping all day, now burst into loud, passionate sobs. Crito got up, unable to watch. Socrates rebuked them mildly: "I sent the women away precisely to prevent this kind of thing. Be quiet, and have patience."</p>
+      <p>He walked about until his legs grew heavy, then lay down. The man who had given him the poison checked his feet and legs. The numbness climbed. When it had nearly reached his heart, Socrates uncovered his face and spoke his last words: "Crito, I owe a rooster to Asclepius. Will you remember to pay the debt?" "It shall be paid," said Crito. "Is there anything else?" There was no answer. The attendants uncovered him. His eyes were fixed. Crito closed his eyes and mouth. Phaedo, telling the story afterward to Echecrates, calls him the wisest, the most just, and the best man of his time.</p>
+
+      <p class="where"><strong>Where to follow it:</strong> <a href="/read/phaedo/chapter-8">Section 8 (the myth and the farewell)</a>, <a href="/read/phaedo/chapter-9">Section 9 (the death)</a>.</p>
+    </div>
+
+    <div class="guides">
+      <a href="/read/phaedo/summary" class="guide-card">
+        <div class="guide-label">The book itself</div>
+        <div class="guide-title">Summary &amp; story</div>
+        <div class="guide-desc">What Phaedo is, the story, all chapters at a glance.</div>
+      </a>
+      <a href="/read/phaedo/chapters" class="guide-card">
+        <div class="guide-label">In 5 minutes</div>
+        <div class="guide-title">Chapter-by-chapter</div>
+        <div class="guide-desc">All 9 chapters summarized. The full plot, told fast — or in depth.</div>
+      </a>
+      <a href="/read/phaedo/cast" class="guide-card">
+        <div class="guide-label">Who's who</div>
+        <div class="guide-title">The cell at sundown</div>
+        <div class="guide-desc">The friends who were there on the last day.</div>
+      </a>
+    </div>
+
+    <p class="end-cta"><a href="/read/phaedo">Open Phaedo in the reader →</a></p>
+
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/read">Library</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
