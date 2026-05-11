@@ -571,7 +571,7 @@ ${footer()}`
 // --- themes.html ------------------------------------------------------
 
 function renderThemes(book) {
-  const title = `${book.title} — Themes &amp; Analysis | Tinct`
+  const title = `${book.title} — Themes & Analysis | Tinct`
   const description = `Themes and analysis of ${book.author}'s ${book.title}. ${book.themes.map(t => t.title).join(', ')}.`
   const canonical = `https://tinct.app/read/${book.id}/themes`
 
@@ -736,7 +736,7 @@ ${footer()}`
 // --- summary.html -----------------------------------------------------
 
 function renderSummary(book) {
-  const title = `${book.title} by ${book.author} — Summary, Story &amp; Why It Matters | Tinct`
+  const title = `${book.title} by ${book.author} — Summary, Story & Why It Matters | Tinct`
   const description = `A clear summary of ${book.author}'s ${book.title}. The full story without spoilers, all ${book.chapters.length} chapters at a glance, the key characters, the central themes.`
   const canonical = `https://tinct.app/read/${book.id}/summary`
   const jsonLd = `{

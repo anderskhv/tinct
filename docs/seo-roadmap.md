@@ -1,16 +1,21 @@
 # SEO page roadmap — all books
 
-**Last updated:** 2026-05-08
+**Last updated:** 2026-05-11
 
 This is the staged rollout plan for SEO companion pages across Tinct's full catalog. The Odyssey is the calibration. Every other book gets some form of SEO treatment, but the depth varies — see the "scope tiers" section below.
 
 ## Current state
 
-- **Sitemap**: 94 URLs at https://tinct.app/sitemap.xml, auto-regenerated from `bookRegistry.ts` via `app/scripts/generate-sitemap.cjs` on every build.
+- **Sitemap**: 699 URLs at https://tinct.app/sitemap.xml, auto-regenerated from `bookRegistry.ts` via `app/scripts/generate-sitemap.cjs` on every build.
 - **Per-book meta**: every `/read/{bookId}` URL has unique `<title>` and `<meta description>`, derived from the registry by the same script.
-- **Full SEO page sets shipped**: Odyssey only (1 / 63 books, 28 pages).
+- **Public book routes**: 63.
+- **Full SEO page sets shipped**: 27 / 63 books.
+- **Stub SEO summaries shipped**: 36 / 63 books.
+- **Clean URL routing**: Worker serves static SEO HTML at `/read/{bookId}/summary`, `/themes`, `/chapters`, `/cast`, and `/chapter-N`.
+- **Indexing guardrails**: unknown `/read/{bookId}` routes return `404 noindex`; `/data/editions/*.json` responses carry `X-Robots-Tag: noindex, noarchive`; unregistered book IDs are blocked.
 - **GSC verified**: yes (`tinct.app`).
 - **Bing**: not yet — import-from-GSC pending.
+- **Untracked SEO source data**: many `app/scripts/seo/*.cjs` files are currently local/uncommitted. Treat them as a review queue, not shipped source of truth.
 
 ## Scope tiers
 
@@ -23,13 +28,47 @@ Not every book deserves 28 pages of bespoke prose. Tier determines what gets bui
 | **Stub** | summary only | Long-tail books — establishes the canonical URL, gives crawlers something to index, but no per-chapter rabbit hole |
 | **Bible** | Bespoke schema, see "Bible" section | Schema is fundamentally different |
 
-## Phase 1 — done
+## Shipped full-tier books
 
-| Book | Tier | Pages | Status |
-|---|---|---|---|
-| The Odyssey | Full | 28 | Live |
+These books currently have full static SEO page sets: `summary`, `themes`, `chapters`, `cast`, and `chapter-N` pages.
 
-## Phase 2 — this PR (DEFERRED — see "Phase 2 v2" below)
+| Book ID | Status |
+|---|---|
+| antigone | Live |
+| apology | Live |
+| bacchae | Live |
+| candide | Live |
+| crime-and-punishment | Live |
+| frankenstein | Live |
+| gilgamesh | Live |
+| hamlet | Live |
+| iliad | Live |
+| jane-eyre | Live |
+| macbeth | Live |
+| medea | Live |
+| meditations | Live |
+| midsummer | Live |
+| niels-lyhne | Live |
+| notes-from-underground | Live |
+| odyssey | Live |
+| oedipus-at-colonus | Live |
+| oedipus-rex | Live |
+| paradise-lost | Live |
+| romeo-and-juliet | Live |
+| symposium | Live |
+| the-aeneid | Live |
+| the-awakening | Live |
+| the-republic | Live |
+| the-tempest | Live |
+| ulysses | Live |
+
+## Shipped stub-tier books
+
+These books currently have `summary.html` only:
+
+`a-little-princess`, `aristotle-politics`, `beowulf`, `beyond-good-and-evil`, `bible`, `brothers-karamazov`, `communist-manifesto`, `confessions`, `crito`, `democracy-in-america`, `descartes-meditations`, `divine-comedy`, `faust-part-1`, `fear-and-trembling`, `federalist-papers`, `genealogy-of-morals`, `great-expectations`, `imitation-of-christ`, `jerusalem`, `magna-carta`, `moby-dick`, `nicomachean-ethics`, `on-liberty`, `oresteia`, `peloponnesian-war`, `phaedo`, `poetics`, `pride-and-prejudice`, `second-treatise`, `social-contract`, `the-art-of-war`, `the-histories`, `the-manual`, `the-prince`, `us-founding-documents`, `war-and-peace`.
+
+## Historical note — Phase 2 generator-driven approach
 
 Five books picked for completing the "marquee classics" set on the front of the catalog. All have onboarding + threads ready.
 
@@ -45,7 +84,15 @@ Five books picked for completing the "marquee classics" set on the front of the 
 
 **Lesson:** writing 28 HTML files of bespoke prose per book in one agent session is past the watchdog. The bottleneck wasn't prose quality — chapter-1's were on tone — it was the sheer volume of HTML chrome reproduction. Each agent re-typed the same `<style>` blocks, meta tags, prev/next nav, og tags, etc. for every chapter.
 
-## Phase 2 v2 — generator-driven approach
+The original roadmap below is retained as process history. The generator-driven approach was the right direction: prose lives in `app/scripts/seo/{bookId}.cjs`, deterministic HTML comes from `app/scripts/build-seo-pages.cjs`, and the sitemap auto-detects files under `app/public/read/{bookId}/`.
+
+Before adding or regenerating more pages, first:
+
+1. QA the currently deployed 699-URL surface.
+2. Map untracked SEO source files to deployed pages versus future work.
+3. Commit source data in small batches only after review.
+
+## Generator-driven approach
 
 Before retrying Phase 2, build the missing infrastructure:
 
@@ -180,3 +227,22 @@ If during a Full build the agent (or human) finds the book genuinely doesn't hav
 Open work as Phase-N branches or per-book commits. Don't bundle Phase 4 with Phase 5 — small ships, easy reverts.
 
 After every phase ships, regenerate sitemap (`npm run sitemap` or `npm run build`), submit fresh sitemap fetch in GSC + Bing, and check Indexing > Pages a week later for crawl errors.
+
+## QA log
+
+### 2026-05-11 live sample
+
+Checked 10 production pages: four chapter pages, three summaries, one themes page, one cast page, and one stub summary.
+
+Passed:
+
+- All 10 returned `200`.
+- All 10 had non-generic `<title>` tags.
+- All 10 had meta descriptions.
+- All 10 had canonical URLs matching the requested clean URL.
+- No sampled page had the `&amp;amp;` double-escape title bug after redeploy.
+
+Residual gap:
+
+- Summary pages include JSON-LD.
+- Generated chapter, theme, and cast pages currently do not include JSON-LD. This is not blocking for indexing, but it is a good generator improvement before the next SEO expansion batch.
