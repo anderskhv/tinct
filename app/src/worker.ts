@@ -519,7 +519,13 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
     await supabaseUpdate(env, 'profiles', user.id, { stripe_customer_id: customerId })
   }
 
-  const body = await request.json() as { type: string }
+  const body = await request.json() as {
+    type: string
+    attribution?: {
+      first_touch?: Record<string, unknown> | null
+      last_touch?: Record<string, unknown> | null
+    }
+  }
   const origin = getAllowedOrigin(request)
 
   try {
@@ -528,6 +534,16 @@ async function handleCreateCheckout(request: Request, env: Env): Promise<Respons
     params.set('success_url', `${origin}?payment=success`)
     params.set('cancel_url', `${origin}?payment=cancelled`)
     params.set('metadata[supabase_user_id]', user.id)
+
+    const lastTouch = body.attribution?.last_touch || body.attribution?.first_touch || null
+    if (lastTouch) {
+      for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'msclkid', 'ttclid', 'rdt_cid', 'landing_path', 'landing_referrer']) {
+        const value = lastTouch[key]
+        if (typeof value === 'string' && value) {
+          params.set(`metadata[attr_${key}]`, value.slice(0, 500))
+        }
+      }
+    }
 
     if (body.type === 'subscription') {
       if (!env.STRIPE_PRICE_PREMIUM) return jsonResponse({ error: 'Service unavailable' }, 500, request)

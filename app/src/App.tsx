@@ -53,7 +53,8 @@ import { SupabaseStorageProvider } from './services/supabaseStorage'
 import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation } from './types'
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
-import { trackPageview } from './utils/analytics'
+import { trackEvent, trackPageview } from './utils/analytics'
+import { getAttributionPayload } from './utils/attribution'
 import { resolveAudioUrl } from './utils/audioUrl'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
@@ -894,26 +895,30 @@ export default function App() {
     if (!session?.access_token) return
 
     try {
+      trackEvent('checkout_started', { checkout_type: type }, user?.id)
       const response = await fetch(apiUrl('/api/create-checkout'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.access_token}`,
         },
-        body: JSON.stringify({ type }),
+        body: JSON.stringify({ type, attribution: getAttributionPayload() }),
       })
       const data = await response.json()
       if (data.url) {
+        trackEvent('checkout_redirected', { checkout_type: type }, user?.id)
         window.location.href = data.url
       } else {
         console.error('Checkout error:', data)
+        trackEvent('checkout_failed', { checkout_type: type, error: data.error || 'unknown' }, user?.id)
         alert(`Checkout failed: ${data.error || 'Unknown error'}${data.details ? '\n' + JSON.stringify(data.details) : ''}`)
       }
     } catch (err) {
       console.error('Checkout failed:', err)
+      trackEvent('checkout_failed', { checkout_type: type, error: err instanceof Error ? err.message : 'unknown' }, user?.id)
       alert('Checkout failed — check console for details')
     }
-  }, [session])
+  }, [session, user?.id])
 
   // Handle subscription cancellation (cancel at period end)
   const handleCancelSubscription = useCallback(async () => {

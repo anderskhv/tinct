@@ -3,6 +3,8 @@ import type { User, Session } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured } from '../services/supabase'
 import { clearLocalUserData } from '../services/storage'
 import type { UserProfile } from '../types'
+import { getAttributionPayload } from '../utils/attribution'
+import { trackEvent } from '../utils/analytics'
 
 interface UseAuthReturn {
   user: User | null
@@ -129,9 +131,13 @@ export function useAuth(): UseAuthReturn {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: `${window.location.origin}${path}` },
+      options: {
+        emailRedirectTo: `${window.location.origin}${path}`,
+        data: { attribution: getAttributionPayload() },
+      },
     })
     if (error) return { error: error.message }
+    trackEvent('signup_completed', { method: 'email', path })
     return {}
   }, [])
 
@@ -139,6 +145,7 @@ export function useAuth(): UseAuthReturn {
     if (!supabase) return { error: 'Auth not configured' }
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) return { error: error.message }
+    trackEvent('signin_completed', { method: 'email' })
     return {}
   }, [])
 
@@ -148,6 +155,7 @@ export function useAuth(): UseAuthReturn {
     // landing page. The SPA will process Supabase's OAuth URL fragment on
     // return, populate the session, and the user stays on their book.
     const path = window.location.pathname === '/' ? '/read' : window.location.pathname
+    trackEvent('signup_started', { method: 'google', path })
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: `${window.location.origin}${path}` },

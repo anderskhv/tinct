@@ -1,4 +1,5 @@
 import { supabase } from '../services/supabase'
+import { captureAttribution, getAttributionPayload } from './attribution'
 
 const isDev = import.meta.env.DEV
 const sessionId = (() => {
@@ -109,6 +110,7 @@ const startHeartbeat = (userId?: string | null) => {
 export async function trackPageview(path: string, userId?: string | null) {
   if (isDev || !supabase) return
   if (!path || path === lastPath) return
+  captureAttribution()
 
   if (currentPath && pageStart !== null) {
     flushDuration(userId)
@@ -125,6 +127,7 @@ export async function trackPageview(path: string, userId?: string | null) {
   const payload = {
     device: getDeviceType(userAgent),
     country: await getCountryCode(),
+    attribution: getAttributionPayload(),
   }
 
   try {
@@ -153,6 +156,7 @@ export async function trackPageview(path: string, userId?: string | null) {
  */
 export async function trackEvent(eventType: string, payload?: Record<string, any>, userId?: string | null) {
   if (isDev || !supabase) return
+  captureAttribution()
   try {
     await supabase.from('analytics_events').insert({
       event_type: 'event',
@@ -161,7 +165,7 @@ export async function trackEvent(eventType: string, payload?: Record<string, any
       user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
       user_id: userId || null,
       session_id: sessionId,
-      payload: { type: eventType, ...payload },
+      payload: { type: eventType, ...payload, attribution: getAttributionPayload() },
     } as any)
   } catch (error) {
     console.warn('Analytics event tracking failed', error)
