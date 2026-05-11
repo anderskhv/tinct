@@ -25,14 +25,29 @@ import boto3
 import edge_tts
 import requests
 
-# ── Config (matches existing scripts) ──────────────────────────────────────
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+def load_env_file(path: str):
+    if not os.path.exists(path):
+        return
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+SCRIPT_DIR = os.path.dirname(__file__)
+APP_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+load_env_file(os.path.join(APP_DIR, ".env"))
+load_env_file(os.path.join(APP_DIR, ".env.local"))
+
+# ── Config ────────────────────────────────────────────────────────────────
+SUPABASE_URL = os.environ.get("SUPABASE_URL") or os.environ.get("VITE_SUPABASE_URL", "")
 SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-R2_BUCKET    = "tinct-audio"
-R2_ACCESS    = "58763924617f5f9ec164d369304ac4f8"
-R2_SECRET    = "3b719352feed42e3e7697f1644f0a297fa2e809834bedb75e707afbd1c632233"
-R2_ENDPOINT  = "https://58f26c4a077e8c66e0b017d2399ae1b3.r2.cloudflarestorage.com"
-R2_PUBLIC    = "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev"
+R2_BUCKET = os.environ.get("R2_BUCKET", "tinct-audio")
+R2_ACCESS = os.environ.get("R2_ACCESS_KEY_ID", "")
+R2_SECRET = os.environ.get("R2_SECRET_ACCESS_KEY", "")
+R2_ENDPOINT = os.environ.get("R2_ENDPOINT", "")
 
 VOICE_FOR_LANG = {
     "da": "da-DK-ChristelNeural",
@@ -149,22 +164,15 @@ def process_row(row: dict):
 
 def main():
     if not SUPABASE_URL or not SUPABASE_KEY:
-        # Try loading from .env in project root
-        env_path = os.path.join(os.path.dirname(__file__), "..", ".env.local")
-        if os.path.exists(env_path):
-            for line in open(env_path):
-                line = line.strip()
-                if "=" in line and not line.startswith("#"):
-                    k, v = line.split("=", 1)
-                    os.environ[k.strip()] = v.strip().strip('"')
-            global SUPABASE_URL, SUPABASE_KEY
-            SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-            SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-
-    if not SUPABASE_URL or not SUPABASE_KEY:
         print("Error: Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY env vars.")
         print("  export SUPABASE_URL=https://xxx.supabase.co")
         print("  export SUPABASE_SERVICE_ROLE_KEY=...")
+        sys.exit(1)
+    if not R2_ACCESS or not R2_SECRET or not R2_ENDPOINT:
+        print("Error: Set R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, and R2_ENDPOINT env vars.")
+        print("  export R2_ACCESS_KEY_ID=...")
+        print("  export R2_SECRET_ACCESS_KEY=...")
+        print("  export R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com")
         sys.exit(1)
 
     print("Checking audio regen backlog…")

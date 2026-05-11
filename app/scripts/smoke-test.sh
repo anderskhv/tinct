@@ -64,17 +64,17 @@ if [ -n "$JS_FILE" ]; then
     fail "Supabase anon key MISSING from bundle — auth will return \"Auth not configured\""
   fi
 
-  # 4. R2 audio URL baked in
-  echo "4. Audio (R2)"
-  if echo "$JS_CONTENT" | grep -q "r2.dev"; then
-    pass "R2 audio URL is in bundle"
+  # 4. Worker audio route baked in
+  echo "4. Audio (Worker)"
+  if echo "$JS_CONTENT" | grep -q "/api/audio-file"; then
+    pass "Worker audio route is in bundle"
   else
-    fail "R2 audio URL MISSING from bundle — audio will be broken"
+    fail "Worker audio route MISSING from bundle — audio will be broken"
   fi
 
   # 4b. AI-narration disclaimer MP3s accessible (both languages)
   for lang in en da; do
-    D_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/disclaimer-${lang}.mp3")
+    D_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL/api/audio-file?path=disclaimer-${lang}.mp3")
     if [ "$D_STATUS" = "200" ]; then
       pass "Disclaimer audio disclaimer-${lang}.mp3 reachable"
     else
@@ -96,34 +96,34 @@ else
   fail "Chat API returned unexpected HTTP $CHAT_STATUS"
 fi
 
-# 6. Audio manifest accessible from R2
-echo "6. Audio files (R2)"
-MANIFEST=$(curl -sf "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/odyssey/original-en/ch1/manifest.json" 2>/dev/null || echo "FAIL")
+# 6. Audio manifest accessible through Worker
+echo "6. Audio files (Worker)"
+MANIFEST=$(curl -sf "$URL/api/audio-manifest?path=odyssey/original-en/ch1/manifest.json" 2>/dev/null || echo "FAIL")
 if echo "$MANIFEST" | grep -q '"paragraphs"'; then
-  pass "Audio manifest loads from R2"
+  pass "Audio manifest loads through Worker"
 else
-  fail "Audio manifest not accessible from R2"
+  fail "Audio manifest not accessible through Worker"
 fi
 
 # 7. Sample audio file accessible
-AUDIO_STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/odyssey/original-en/ch1/p0.mp3" 2>/dev/null || echo "000")
+AUDIO_STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "$URL/api/audio-file?path=odyssey/original-en/ch1/p0.mp3" 2>/dev/null || echo "000")
 if [ "$AUDIO_STATUS" = "200" ]; then
   pass "Sample audio file loads (200)"
 else
   fail "Sample audio file returned $AUDIO_STATUS"
 fi
 
-# 8. CSP allows R2 media playback (regression guard: without `media-src`, audio
-#    falls back to `default-src 'self'` and R2 MP3s are blocked by the browser,
+# 8. CSP allows same-origin media playback (regression guard: without
+#    `media-src`, audio falls back to default-src and browser policy changes
 #    causing audio play to silently cascade through the chapter.)
 echo "8. CSP audio allowlist"
 CSP_HEADER=$(curl -sI "$URL/read" 2>/dev/null | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" { $1=""; sub(/^ /, ""); print }')
 if [ -z "$CSP_HEADER" ]; then
   fail "CSP header missing from /read"
-elif echo "$CSP_HEADER" | grep -q "media-src" && echo "$CSP_HEADER" | grep "media-src" | grep -q "r2.dev"; then
-  pass "CSP media-src allows R2"
+elif echo "$CSP_HEADER" | grep -q "media-src 'self'"; then
+  pass "CSP media-src allows same-origin audio"
 else
-  fail "CSP does not permit R2 media — audio playback will fail"
+  fail "CSP does not permit same-origin media — audio playback may fail"
 fi
 
 # 9. CSS loads

@@ -19,7 +19,7 @@ const content = fs.readFileSync(path.join(assetsDir, bundle), 'utf8')
 const checks = [
   ['supabase URL',       'yazjyiqsxjystvpkyouk'],
   ['supabase anon JWT',  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'],
-  ['R2 audio URL',       'pub-c34df89c93284423a39b03537595c2e2.r2.dev'],
+  ['Worker audio route', '/api/audio-file'],
 ]
 
 const missing = checks.filter(([, needle]) => !content.includes(needle))

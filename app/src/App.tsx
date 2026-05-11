@@ -54,7 +54,7 @@ import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingP
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
 import { trackPageview } from './utils/analytics'
-import { AUDIO_BASE_URL } from './utils/audioUrl'
+import { resolveAudioUrl } from './utils/audioUrl'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 
@@ -73,6 +73,8 @@ function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): Readi
   const fracB = b.scrollFraction ?? 0
   return fracA >= fracB ? a : b
 }
+
+type ReaderSyncSignal = { chapterNumber: number; paragraph: number; nonce: number }
 
 export default function App() {
   const [currentBookId, setCurrentBookId] = useState(() => {
@@ -353,9 +355,14 @@ export default function App() {
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
   const [compareFirstVisibleParagraph, setCompareFirstVisibleParagraph] = useState(0)
-  const [compareSyncSignal, setCompareSyncSignal] = useState<{ paragraph: number; nonce: number } | undefined>(undefined)
-  const [readSyncSignal, setReadSyncSignal] = useState<{ paragraph: number; nonce: number } | undefined>(undefined)
+  const [compareSyncSignal, setCompareSyncSignal] = useState<ReaderSyncSignal | undefined>(undefined)
+  const [readSyncSignal, setReadSyncSignal] = useState<ReaderSyncSignal | undefined>(undefined)
   const bottomBarRef = useRef<BottomBarHandle>(null)
+  const mobileNavLockUntilRef = useRef(0)
+  const lockMobileNavBriefly = useCallback(() => {
+    if (!isMobile) return
+    mobileNavLockUntilRef.current = Date.now() + 600
+  }, [isMobile])
 
   // Sync between Read (view 0) and Compare (view 1) on tab switch. Whichever
   // view the user leaves is the source of truth — the incoming view snaps to
@@ -381,19 +388,19 @@ export default function App() {
       const source = firstVisibleParagraphRef.current
       const dest = compareFirstVisibleParagraphRef.current
       if (source !== dest) {
-        setCompareSyncSignal({ paragraph: source, nonce: Date.now() })
+        setCompareSyncSignal({ chapterNumber: currentChapter, paragraph: source, nonce: Date.now() })
       }
     } else if (activeView === 0 && prev === 1) {
       // Compare → Read — snap Read to Compare's position.
       const source = compareFirstVisibleParagraphRef.current
       const dest = firstVisibleParagraphRef.current
       if (source !== dest) {
-        setReadSyncSignal({ paragraph: source, nonce: Date.now() })
+        setReadSyncSignal({ chapterNumber: currentChapter, paragraph: source, nonce: Date.now() })
       }
     }
     // Read ↔ Chat/Feed/Cast: do nothing. Readers stay mounted (CSS hidden);
     // their currentPage state is preserved across the round trip.
-  }, [activeView])
+  }, [activeView, currentChapter])
 
   // ToC overlay state
   const [showToc, setShowToc] = useState(false)
@@ -1448,6 +1455,8 @@ export default function App() {
     }
 
     targetParagraphRef.current = paragraphIndex
+    setReadSyncSignal(undefined)
+    setCompareSyncSignal(undefined)
     // Always reset savedPos so the Reader lands on page 1 of the chosen
     // chapter (or on the target paragraph if one was passed). Even when the
     // user taps the current chapter in the TOC, we want to snap to page 1 —
@@ -1535,6 +1544,18 @@ export default function App() {
       if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
     }
   }, [primaryChapter, trackPageView, backPosition])
+
+  const handleReadPageChange = useCallback((page: number, total: number) => {
+    if (isMobile && activeView !== 0) return
+    lockMobileNavBriefly()
+    handlePageChange(page, total)
+  }, [isMobile, activeView, lockMobileNavBriefly, handlePageChange])
+
+  const handleComparePageChange = useCallback((page: number, total: number) => {
+    if (isMobile && activeView !== 1) return
+    lockMobileNavBriefly()
+    handlePageChange(page, total)
+  }, [isMobile, activeView, lockMobileNavBriefly, handlePageChange])
 
   // Onboarding complete handler
   const handleOnboardingComplete = useCallback((objective: string) => {
@@ -2522,7 +2543,7 @@ export default function App() {
       return
     }
     setHasAudio(true)
-    const url = `${AUDIO_BASE_URL}/${book.id}/${effectiveAudioEditionKey}/ch${currentChapter}/manifest.json`
+    const url = resolveAudioUrl(`${book.id}/${effectiveAudioEditionKey}/ch${currentChapter}/manifest.json`, 'manifest')
     fetch(url, { method: 'HEAD' })
       .then(res => {
         if (!res.ok) setHasAudio(false)
@@ -2574,6 +2595,7 @@ export default function App() {
   // (covers the audio case where page never reaches the last page)
   const handleNextChapter = useCallback(() => {
     if (currentChapter < totalChapters) {
+      lockMobileNavBriefly()
       const existing = getReadingProgress(book.id)
       const prev = existing?.highestCompletedChapter || 0
       if (currentChapter > prev) {
@@ -2585,6 +2607,8 @@ export default function App() {
         })
       }
       targetParagraphRef.current = undefined
+      setReadSyncSignal(undefined)
+      setCompareSyncSignal(undefined)
       // Forward across chapter boundary → always first page of next chapter
       savedPos.current = {
         bookId: book.id,
@@ -2604,10 +2628,13 @@ export default function App() {
         if (window.__tinctNavDebug.length > 40) window.__tinctNavDebug.shift()
       }
     }
-  }, [currentChapter, totalChapters, book.id])
+  }, [currentChapter, totalChapters, book.id, lockMobileNavBriefly])
   const handlePrevChapter = useCallback(() => {
     if (currentChapter > 1) {
+      lockMobileNavBriefly()
       targetParagraphRef.current = undefined
+      setReadSyncSignal(undefined)
+      setCompareSyncSignal(undefined)
       // Back across chapter boundary → always last page of previous chapter
       // (scrollFraction: 1 forces last page regardless of any prior reading
       // position for that chapter)
@@ -2629,7 +2656,7 @@ export default function App() {
         if (window.__tinctNavDebug.length > 40) window.__tinctNavDebug.shift()
       }
     }
-  }, [currentChapter, book.id])
+  }, [currentChapter, book.id, lockMobileNavBriefly])
 
   // Refs so the debounced user-nav wrappers always see the latest handlers
   // without having to be recreated on every currentChapter change.
@@ -2696,6 +2723,14 @@ export default function App() {
   }, [user, preferences.accountDecisionSeen, setAccountDecisionSeen])
 
   // (showAccountDecision is declared up top alongside the other modal state.)
+
+  const validReadSyncSignal = readSyncSignal?.chapterNumber === currentChapter ? readSyncSignal : undefined
+  const validCompareSyncSignal = compareSyncSignal?.chapterNumber === currentChapter ? compareSyncSignal : undefined
+  const handleMobileViewSelect = useCallback((view: 0 | 1 | 2 | 3 | 4, tab?: 'chat' | 'notes' | 'threads') => {
+    if (Date.now() < mobileNavLockUntilRef.current) return
+    if (tab) setPanelTab(tab)
+    setActiveView(view)
+  }, [setPanelTab])
 
   // Show loading skeleton while auth + storage are resolving (prevents writing defaults to cloud)
   if (!storageReady) {
@@ -3230,12 +3265,12 @@ export default function App() {
                   isGeneratingSummary={isGeneratingSummary}
                   isFinalChapter={currentChapter === totalChapters}
                   readerRef={readerRef}
-                  onPageChange={handlePageChange}
+                  onPageChange={handleReadPageChange}
                   onFirstVisibleParagraph={setFirstVisibleParagraph}
                   initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                   isVerse={primaryIsVerse}
-                  targetParagraphIndex={readSyncSignal?.paragraph ?? targetParagraphRef.current}
-                  targetParagraphNonce={readSyncSignal?.nonce}
+                  targetParagraphIndex={validReadSyncSignal?.paragraph ?? targetParagraphRef.current}
+                  targetParagraphNonce={validReadSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
                   playingParagraphProgress={audioProgress}
                   isAudioPlaying={audioIsPlaying}
@@ -3268,11 +3303,11 @@ export default function App() {
                   isFinalChapter={currentChapter === totalChapters}
                   readerRef={compareReaderRef}
                   isVerse={splitIsVerse}
-                  onPageChange={handlePageChange}
+                  onPageChange={handleComparePageChange}
                   onFirstVisibleParagraph={setCompareFirstVisibleParagraph}
                   initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
-                  targetParagraphIndex={compareSyncSignal?.paragraph}
-                  targetParagraphNonce={compareSyncSignal?.nonce}
+                  targetParagraphIndex={validCompareSyncSignal?.paragraph}
+                  targetParagraphNonce={validCompareSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
                   playingParagraphProgress={audioProgress}
                   isAudioPlaying={audioIsPlaying}
@@ -3524,6 +3559,8 @@ export default function App() {
           currentChapter={currentChapter}
           onNavigate={(chapter, paragraphIndex) => {
             targetParagraphRef.current = paragraphIndex
+            setReadSyncSignal(undefined)
+            setCompareSyncSignal(undefined)
             setCurrentChapter(chapter)
             setReaderKey(k => k + 1)
           }}
@@ -3543,19 +3580,19 @@ export default function App() {
           : undefined
         return (
           <nav className="mobile-nav">
-            <button data-tour="mobile-read" className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(0)}>
+            <button data-tour="mobile-read" className={`mobile-nav-btn ${activeView === 0 ? 'mobile-nav-active' : ''}`} onClick={() => handleMobileViewSelect(0)}>
               Read
             </button>
-            <button data-tour="mobile-compare" className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => setActiveView(1)}>
+            <button data-tour="mobile-compare" className={`mobile-nav-btn ${activeView === 1 ? 'mobile-nav-active' : ''}`} onClick={() => handleMobileViewSelect(1)}>
               Compare
             </button>
-            <button data-tour="mobile-chat" className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => { setPanelTab('chat'); setActiveView(2) }}>
+            <button data-tour="mobile-chat" className={`mobile-nav-btn ${activeView === 2 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => handleMobileViewSelect(2, 'chat')}>
               Chat
             </button>
-            <button data-tour="mobile-feed" className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => { setPanelTab('notes'); setActiveView(3) }}>
+            <button data-tour="mobile-feed" className={`mobile-nav-btn ${activeView === 3 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => handleMobileViewSelect(3, 'notes')}>
               Feed
             </button>
-            <button data-tour="mobile-cast" className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => { setPanelTab('threads'); setActiveView(4) }}>
+            <button data-tour="mobile-cast" className={`mobile-nav-btn ${activeView === 4 ? 'mobile-nav-active' : ''}`} disabled={sidePanelTabsDisabled} style={disabledStyle} onClick={() => handleMobileViewSelect(4, 'threads')}>
               Cast
             </button>
           </nav>

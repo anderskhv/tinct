@@ -26,9 +26,10 @@ import urllib.request
 from datetime import datetime
 from email.utils import parsedate_to_datetime
 
-# R2 public URLs block default Python UA — always send a browser UA
+# Audio is served through the Tinct Worker so the R2 bucket can stay private.
+# Always send a browser UA to avoid status checks being mistaken for bots.
 UA = {"User-Agent": "Mozilla/5.0 (TinctStatusBot)"}
-R2_BASE = "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev"
+AUDIO_API_BASE = "https://tinct.app/api/audio-manifest"
 EDITIONS_URL = "https://raw.githubusercontent.com/anderskhv/tinct/main/app/public/data/editions"
 
 
@@ -54,7 +55,8 @@ def http_get_json(url, timeout=8):
 
 def r2_chapter_status(book, edition, ch_num):
     """Returns (exists, fresh_today). fresh_today means generated after noon today."""
-    url = f"{R2_BASE}/{book}/{edition}/ch{ch_num}/manifest.json"
+    path = f"{book}/{edition}/ch{ch_num}/manifest.json"
+    url = f"{AUDIO_API_BASE}?path={path}"
     code, headers = http_head(url)
     if code != 200:
         return False, False

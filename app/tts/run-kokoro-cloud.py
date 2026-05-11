@@ -23,7 +23,7 @@ AUDIO_DIR = WORKSPACE / 'audio'
 EDITIONS_DIR = WORKSPACE / 'editions'
 EDITION_BASE_URL = 'https://raw.githubusercontent.com/anderskhv/tinct/main/app/public/data/editions'
 R2_BUCKET = 'tinct-audio'
-R2_PUBLIC_BASE = 'https://pub-c34df89c93284423a39b03537595c2e2.r2.dev'
+AUDIO_API_BASE = 'https://tinct.app/api/audio-manifest'
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Text cleanup — same as run-audio-batch2.py / regen-bible-modern-en.py
@@ -91,8 +91,9 @@ def fetch_edition(book, edition):
 
 def chapter_on_r2(book, edition, ch_num):
     """Quick check: does ch{N}/manifest.json already exist on R2? (skip if so).
-    R2 public URLs block default Python UA — use a real browser UA."""
-    url = f'{R2_PUBLIC_BASE}/{book}/{edition}/ch{ch_num}/manifest.json'
+    The bucket is private; check through the deployed Worker audio endpoint."""
+    path = f'{book}/{edition}/ch{ch_num}/manifest.json'
+    url = f'{AUDIO_API_BASE}?path={path}'
     try:
         req = urllib.request.Request(
             url, method='HEAD',

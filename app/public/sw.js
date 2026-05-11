@@ -8,7 +8,7 @@
 //       A request that includes the `fresh=1` query param skips the cache
 //       entirely and forces a network fetch — used by the loader as an
 //       explicit retry when it sees malformed data.
-//   - Audio (R2): cache-first. Files are immutable per chapter.
+//   - Audio (Worker): cache-first. Files are immutable per chapter.
 //
 // Cache version is bumped to v2 to evict any v1 entries that were poisoned
 // under the previous cache-first-no-revalidate policy.
@@ -24,7 +24,7 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url)
   const isEdition = url.pathname.startsWith('/data/editions/')
-  const isAudio = url.hostname.includes('r2.dev') || url.pathname.startsWith('/audio/')
+  const isAudio = url.pathname.startsWith('/api/audio-file') || url.pathname.startsWith('/api/audio-manifest')
   if (!isEdition && !isAudio) return
 
   if (isEdition) {

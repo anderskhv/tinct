@@ -12,6 +12,9 @@
   "kv_namespaces": [
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }
   ],
+  "r2_buckets": [
+    { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" }
+  ],
   "triggers": {
     "crons": ["0 9 * * *"]
   }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import type { Book } from '../types'
-import { AUDIO_BASE_URL } from '../utils/audioUrl'
+import { resolveAudioUrl } from '../utils/audioUrl'
 
 interface DownloadState {
   bookId: string
@@ -108,7 +108,7 @@ export function useOffline() {
     chapter: number,
     abort?: AbortSignal,
   ): Promise<boolean> => {
-    const manifestUrl = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapter}/manifest.json`
+    const manifestUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapter}/manifest.json`, 'manifest')
     try {
       // Fetch and cache manifest
       const manifestRes = await fetch(manifestUrl, { signal: abort })
@@ -122,7 +122,7 @@ export function useOffline() {
       // Cache each paragraph audio file
       for (const para of manifest.paragraphs) {
         if (abort?.aborted) return false
-        const audioUrl = `${AUDIO_BASE_URL}/${bookId}/${editionKey}/ch${chapter}/${para.file}`
+        const audioUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapter}/${para.file}`)
         await cacheUrl(audioUrl, abort)
       }
       return true

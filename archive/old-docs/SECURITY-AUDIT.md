@@ -25,7 +25,7 @@ The Tinct codebase has **3 Critical**, **2 High**, **3 Medium**, and **2 Low** s
 
 **File:** `app/.env` line 1
 ```
-VITE_ANTHROPIC_API_KEY=sk-ant-api03-OUJBPRgsUMrgRdnKpxP6KVz-...
+VITE_ANTHROPIC_API_KEY=<REDACTED>
 ```
 
 **The problem:** Vite automatically exposes ALL environment variables with the `VITE_` prefix to client-side code via `import.meta.env`. While the key is currently only consumed in `vite.config.ts` (server-side dev middleware) and not referenced anywhere in `src/`, the `VITE_` prefix means:
@@ -46,7 +46,7 @@ This is a ticking time bomb. One accidental reference and the key ships to every
 **File:** `app/.env`
 
 The `.env` file contains real, usable credentials in plaintext:
-- **Anthropic API key** (`sk-ant-api03-...`) -- full production key
+- **Anthropic API key** (`<REDACTED>`) -- full production key
 - **Supabase URL and anon key** -- public-facing but still sensitive
 - **Supabase service role key** (`sb_secret_...`) -- this is an admin key that bypasses Row Level Security
 

@@ -16,6 +16,7 @@ interface Env {
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
   RATE_LIMIT?: KVNamespace
+  AUDIO_BUCKET?: R2Bucket
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -172,6 +173,15 @@ async function supabaseInsert(env: Env, table: string, data: Record<string, unkn
   })
 }
 
+function htmlEscape(value: unknown): string {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
   const authHeader = request.headers.get('authorization')
   if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
@@ -181,6 +191,16 @@ async function verifyUser(env: Env, request: Request): Promise<{ id: string; ema
   })
   if (!res.ok) return null
   return res.json() as Promise<{ id: string; email: string }>
+}
+
+async function verifySiteAdmin(env: Env, request: Request): Promise<boolean> {
+  const user = await verifyUser(env, request)
+  if (!user || !isValidUUID(user.id)) return false
+
+  const res = await supabaseGet(env, `site_admins?user_id=eq.${user.id}&select=user_id&limit=1`)
+  if (!res.ok) return false
+  const rows = await res.json() as { user_id: string }[]
+  return rows.length > 0
 }
 
 // ===== HMAC for Stripe Webhooks =====
@@ -1321,7 +1341,7 @@ JSON response shape (every field required):
   }
 
   // ── ALWAYS email Anders with approve/reject links ──
-  const baseUrl = 'https://tinct.ahvelplund.workers.dev'
+  const baseUrl = 'https://tinct.app'
   const approveUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=approve&token=${token}`
   const rejectUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=reject&token=${token}`
 
@@ -1724,6 +1744,16 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return new Response('Not configured', { status: 500 })
   }
+  if (!await verifySiteAdmin(env, request)) {
+    return new Response('Forbidden', {
+      status: 403,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store',
+      },
+    })
+  }
+
   const url = new URL(request.url)
   const bookFilter = url.searchParams.get('book') || ''
 
@@ -1733,7 +1763,7 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
   const res = await supabaseGet(env, query)
   const rows = await res.json() as Record<string, unknown>[]
 
-  const baseUrl = 'https://tinct.ahvelplund.workers.dev'
+  const baseUrl = url.origin
 
   const tableRows = rows.map((r: Record<string, unknown>) => {
     const status = r.status as string
@@ -1741,17 +1771,18 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
     const hasProposal = !!(r.proposed_fix as string)
     const conf = r.ai_confidence ? `${Math.round((r.ai_confidence as number) * 100)}%` : '—'
     const token = r.review_token as string
-    const approveLink = token ? `${baseUrl}/api/approve-fix?id=${r.id}&action=approve&token=${token}` : ''
-    const rejectLink = token ? `${baseUrl}/api/approve-fix?id=${r.id}&action=reject&token=${token}` : ''
+    const reportId = String(r.id || '')
+    const approveLink = token ? `${baseUrl}/api/approve-fix?id=${encodeURIComponent(reportId)}&action=approve&token=${encodeURIComponent(token)}` : ''
+    const rejectLink = token ? `${baseUrl}/api/approve-fix?id=${encodeURIComponent(reportId)}&action=reject&token=${encodeURIComponent(token)}` : ''
 
     return `<tr>
-      <td style="color:${statusColor};font-weight:600">${status}</td>
-      <td>${r.book_id || '?'}</td>
-      <td>ch${r.chapter_number} p${r.paragraph_index}</td>
-      <td>"${((r.selected_text as string) || '').slice(0, 30)}"</td>
-      <td>${((r.comment as string) || '').slice(0, 40)}</td>
+      <td style="color:${statusColor};font-weight:600">${htmlEscape(status)}</td>
+      <td>${htmlEscape(r.book_id || '?')}</td>
+      <td>ch${htmlEscape(r.chapter_number)} p${htmlEscape(r.paragraph_index)}</td>
+      <td>"${htmlEscape(((r.selected_text as string) || '').slice(0, 30))}"</td>
+      <td>${htmlEscape(((r.comment as string) || '').slice(0, 40))}</td>
       <td>${conf}</td>
-      <td>${((r.ai_explanation as string) || '').slice(0, 50)}</td>
+      <td>${htmlEscape(((r.ai_explanation as string) || '').slice(0, 50))}</td>
       <td>${hasProposal ? '✓' : '✗'}</td>
       <td>
         ${status === 'pending_review' && approveLink ? `<a href="${approveLink}" style="color:#4a9">Approve</a> · <a href="${rejectLink}" style="color:#c66">Reject</a>` : status}
@@ -1760,7 +1791,7 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
   }).join('')
 
   const books = [...new Set(rows.map((r: Record<string, unknown>) => r.book_id as string).filter(Boolean))]
-  const bookLinks = books.map(b => `<a href="?book=${b}" style="margin-right:12px;${bookFilter === b ? 'font-weight:bold' : ''}">${b}</a>`).join('')
+  const bookLinks = books.map(b => `<a href="?book=${encodeURIComponent(b)}" style="margin-right:12px;${bookFilter === b ? 'font-weight:bold' : ''}">${htmlEscape(b)}</a>`).join('')
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <title>Issue Reports — Tinct Admin</title>
@@ -1773,7 +1804,13 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
 <p style="color:#888;font-size:0.8rem;margin-top:16px">${rows.length} reports</p>
 </body></html>`
 
-  return new Response(html, { status: 200, headers: { 'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*' } })
+  return new Response(html, {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-store',
+    },
+  })
 }
 
 /** Validates a path parameter for audio endpoints.
@@ -1799,12 +1836,12 @@ async function handleAudioManifest(request: Request, env: Env): Promise<Response
   const url = new URL(request.url)
   const path = url.searchParams.get('path')
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
+  if (!env.AUDIO_BUCKET) return jsonResponse({ error: 'Audio unavailable' }, 503, request)
 
-  const r2Url = `https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/${path}`
-  const res = await fetch(r2Url)
-  if (!res.ok) return new Response(res.body, { status: res.status, headers: { 'Access-Control-Allow-Origin': '*' } })
+  const object = await env.AUDIO_BUCKET.get(path!)
+  if (!object) return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
 
-  return new Response(res.body, {
+  return new Response(object.body, {
     status: 200,
     headers: {
       'Content-Type': 'application/json',
@@ -1823,12 +1860,12 @@ async function handleAudioFile(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url)
   const path = url.searchParams.get('path')
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
+  if (!env.AUDIO_BUCKET) return jsonResponse({ error: 'Audio unavailable' }, 503, request)
 
-  const r2Url = `https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/${path}`
-  const res = await fetch(r2Url)
-  if (!res.ok) return new Response(res.body, { status: res.status, headers: { 'Access-Control-Allow-Origin': '*' } })
+  const object = await env.AUDIO_BUCKET.get(path!)
+  if (!object) return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
 
-  return new Response(res.body, {
+  return new Response(object.body, {
     status: 200,
     headers: {
       'Content-Type': 'audio/mpeg',
@@ -1849,7 +1886,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://pub-c34df89c93284423a39b03537595c2e2.r2.dev https://api.stripe.com; img-src 'self' data:; media-src 'self' https://pub-c34df89c93284423a39b03537595c2e2.r2.dev; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com; img-src 'self' data:; media-src 'self'; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
 }
 
 // ===== Bot UA Blocklist (KV-free first line of defence) =====
@@ -1927,15 +1964,26 @@ export default {
     }
 
     // Static JSON content (editions, onboarding, threads) — serve via the
-    // Cloudflare Cache API so repeat hits don't re-execute the worker. Used
-    // to KV-rate-limit these paths "to slow down mass scraping," but per-IP
-    // KV rate limiting was burning the free tier overnight from rotating-IP
-    // bots: every new IP minted a fresh KV write, so the rate-limit COST
-    // scaled with bot diversity. The text is public-domain (Project
-    // Gutenberg) and bot UA filtering above already 403s the worst
-    // offenders for free. Edge cache + immutable hashing + robots.txt is
-    // the right defence; KV writes here were pure waste.
+    // Cloudflare Cache API so repeat hits don't re-execute the worker.
+    //
+    // Do not send wildcard CORS here. The app reads this data same-origin, so
+    // CORS is unnecessary; allowing every origin only makes it easier for
+    // third-party sites to build directly against Tinct's JSON endpoints.
+    // This is not DRM (curl can still fetch public app assets), but it removes
+    // the casual browser-embed path while preserving the reader and SEO build.
     if (request.method === 'GET' && url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+      const secFetchSite = request.headers.get('sec-fetch-site')
+      if (secFetchSite === 'cross-site') {
+        return new Response('Forbidden', {
+          status: 403,
+          headers: {
+            'Cache-Control': 'no-store',
+            'Content-Type': 'text/plain; charset=utf-8',
+            'X-Robots-Tag': 'noindex, noarchive',
+          },
+        })
+      }
+
       // Onboarding JSONs do change as we iterate on book content. Edition
       // JSONs are stable once published. Differentiate the cache TTL so
       // onboarding updates land within minutes instead of being stuck behind
@@ -1959,7 +2007,8 @@ export default {
           // publish. SW + content-hashing handle invalidation on the client.
           cacheable.headers.set('Cache-Control', 'public, max-age=2592000, immutable')
         }
-        cacheable.headers.set('Access-Control-Allow-Origin', '*')
+        cacheable.headers.delete('Access-Control-Allow-Origin')
+        cacheable.headers.set('X-Robots-Tag', 'noindex, noarchive')
         ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable
       }

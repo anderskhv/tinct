@@ -21,7 +21,7 @@ from pathlib import Path
 EDITIONS_DIR = Path(__file__).parent / "../app/public/data/editions"
 STAGING_AUDIO = Path(__file__).parent / "../app/tts/audio"
 REGISTRY = Path(__file__).parent / "../app/src/data/bookRegistry.ts"
-R2_BASE = "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev"
+AUDIO_API_BASE = "https://tinct.app/api/audio-manifest"
 
 # Books where threads are not expected (treatises/journals)
 NO_THREADS_EXPECTED = {
@@ -122,7 +122,8 @@ def get_chapter_count_from_edition(book_id, edition_key="modern-en"):
 
 
 def check_r2_chapter(book_id, edition_key, chapter):
-    url = f"{R2_BASE}/{book_id}/{edition_key}/ch{chapter}/manifest.json"
+    path = f"{book_id}/{edition_key}/ch{chapter}/manifest.json"
+    url = f"{AUDIO_API_BASE}?path={path}"
     try:
         result = subprocess.run(
             ["curl", "-sf", "-o", "/dev/null", "-w", "%{http_code}", url],

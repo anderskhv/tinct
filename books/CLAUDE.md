@@ -266,7 +266,7 @@ find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.j
 
 **CRITICAL: Always use `--remote` flag.** Without it, wrangler writes to a local emulator and silently "succeeds." This has caused entire uploads to be lost.
 
-**Verify after upload:** `curl -sf "https://pub-c34df89c93284423a39b03537595c2e2.r2.dev/{book-id}/{edition-key}/ch1/manifest.json" | head -c 50`
+**Verify after upload:** `curl -sf "https://tinct.app/api/audio-manifest?path={book-id}/{edition-key}/ch1/manifest.json" | head -c 50`
 
 **This step is non-negotiable.** Audio that exists only in `tts/audio/` (staging) is invisible to users. The app loads from R2.
 
