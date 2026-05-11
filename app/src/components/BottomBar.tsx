@@ -16,6 +16,19 @@ function recordAudioDebug(entry: Record<string, unknown>) {
   w.__tinctAudioDebug = dbg
 }
 
+function applyAudioRate(audio: HTMLAudioElement, rate: number) {
+  audio.defaultPlaybackRate = rate
+  audio.playbackRate = rate
+  const pitchAudio = audio as HTMLAudioElement & {
+    preservesPitch?: boolean
+    mozPreservesPitch?: boolean
+    webkitPreservesPitch?: boolean
+  }
+  pitchAudio.preservesPitch = true
+  pitchAudio.mozPreservesPitch = true
+  pitchAudio.webkitPreservesPitch = true
+}
+
 interface ParagraphAudio {
   paragraph: number
   duration: number
@@ -147,6 +160,8 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     const audioRef = useRef<HTMLAudioElement | null>(null)
     const speedRef = useRef(speed)
     speedRef.current = speed
+    const isPlayingRef = useRef(isPlaying)
+    isPlayingRef.current = isPlaying
 
     // Use refs to avoid stale closures in audio event handlers
     const manifestRef = useRef(manifest)
@@ -175,7 +190,15 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       // through the entire chapter's paragraphs and jumps to the next one.
       let consecutiveErrors = 0
 
-      const handlePlaying = () => { consecutiveErrors = 0 }
+      const handlePlaying = () => {
+        consecutiveErrors = 0
+        recordAudioDebug({
+          event: 'playing',
+          rate: audio.playbackRate,
+          readyState: audio.readyState,
+          currentTime: audio.currentTime,
+        })
+      }
 
       const handleTimeUpdate = () => {
         if (audio.duration <= 0) return
@@ -209,7 +232,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           onProgressChangeRef.current?.(0)
           const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
-          audio.playbackRate = speedRef.current
+          applyAudioRate(audio, speedRef.current)
           audio.play().catch(() => {
             setIsPlaying(false)
           })
@@ -242,7 +265,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           onParagraphChangeRef.current?.(nextPara.paragraph)
           const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
-          audio.playbackRate = speedRef.current
+          applyAudioRate(audio, speedRef.current)
           audio.play().catch(() => { setIsPlaying(false) })
         } else {
           setIsPlaying(false)
@@ -255,23 +278,89 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       // speed indicator says "1.5x" but actual playback drifts to 1.0x —
       // exactly what Anders saw in B12. Idempotent: if rate is already
       // correct, applySpeedToAudio no-ops.
-      const handlePlay = () => { applySpeedToAudio(audio) }
+      const handlePlay = () => {
+        applySpeedToAudio(audio)
+        applyAudioRate(audio, speedRef.current)
+      }
+
+      const handleWaiting = () => {
+        recordAudioDebug({ event: 'waiting', rate: audio.playbackRate, readyState: audio.readyState, currentTime: audio.currentTime })
+      }
+      const handleStalled = () => {
+        recordAudioDebug({ event: 'stalled', rate: audio.playbackRate, readyState: audio.readyState, currentTime: audio.currentTime })
+      }
 
       // Apply once at element creation too, before any user interaction.
       applySpeedToAudio(audio)
+      applyAudioRate(audio, speedRef.current)
+
+      let lastWatchTime = 0
+      let lastWatchAt = 0
+      let recovering = false
+      const recoverStalledPlayback = () => {
+        if (recovering || playingDisclaimerRef.current || audio.paused || audio.ended || !audio.src) return
+        const duration = Number.isFinite(audio.duration) ? audio.duration : 0
+        if (duration > 0 && duration - audio.currentTime < 1) return
+        recovering = true
+        const src = audio.src
+        const t = Math.max(0, audio.currentTime || 0)
+        const rate = speedRef.current
+        recordAudioDebug({ event: 'stall-recover', rate, readyState: audio.readyState, currentTime: t })
+        try { audio.pause() } catch { /* ignore */ }
+        audio.src = src
+        applyAudioRate(audio, rate)
+        const restoreTime = () => {
+          audio.removeEventListener('loadedmetadata', restoreTime)
+          try { audio.currentTime = t } catch { /* ignore */ }
+        }
+        audio.addEventListener('loadedmetadata', restoreTime)
+        try { audio.load() } catch { /* ignore */ }
+        audio.play()
+          .then(() => { setIsPlaying(true) })
+          .catch(() => { setIsPlaying(false) })
+          .finally(() => {
+            recovering = false
+            lastWatchTime = audio.currentTime || 0
+            lastWatchAt = performance.now()
+          })
+      }
+
+      const watchdog = window.setInterval(() => {
+        if (playingDisclaimerRef.current || audio.paused || audio.ended || !audio.src || !isPlayingRef.current) {
+          lastWatchTime = audio.currentTime || 0
+          lastWatchAt = performance.now()
+          return
+        }
+        const now = performance.now()
+        const cur = audio.currentTime || 0
+        const progressed = cur > lastWatchTime + 0.08
+        if (progressed) {
+          lastWatchTime = cur
+          lastWatchAt = now
+          return
+        }
+        if (lastWatchAt && now - lastWatchAt > 3500 && audio.readyState >= 2) {
+          recoverStalledPlayback()
+        }
+      }, 1500)
 
       audio.addEventListener('timeupdate', handleTimeUpdate)
       audio.addEventListener('ended', handleEnded)
       audio.addEventListener('error', handleError)
       audio.addEventListener('playing', handlePlaying)
       audio.addEventListener('play', handlePlay)
+      audio.addEventListener('waiting', handleWaiting)
+      audio.addEventListener('stalled', handleStalled)
 
       return () => {
+        window.clearInterval(watchdog)
         audio.removeEventListener('timeupdate', handleTimeUpdate)
         audio.removeEventListener('ended', handleEnded)
         audio.removeEventListener('error', handleError)
         audio.removeEventListener('playing', handlePlaying)
         audio.removeEventListener('play', handlePlay)
+        audio.removeEventListener('waiting', handleWaiting)
+        audio.removeEventListener('stalled', handleStalled)
         audio.pause()
         audio.removeAttribute('src')
       }
@@ -333,7 +422,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             if (!audio || !data.paragraphs[0]) return
             const paraUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`)
             audio.src = paraUrl
-            audio.playbackRate = speedRef.current
+            applyAudioRate(audio, speedRef.current)
             audio.play().then(() => {
               setIsPlaying(true)
               onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
@@ -377,7 +466,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       // load() forces a fresh fetch + media-context for the new url.
       try { audio.pause() } catch { /* ignore */ }
       audio.src = url
-      audio.playbackRate = speedRef.current
+      applyAudioRate(audio, speedRef.current)
       try { audio.load() } catch { /* ignore — older WebViews may throw */ }
       audio.play().then(() => {
         setCurrentParagraph(index)
@@ -475,7 +564,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       audio.addEventListener('error', onError, { once: true })
       try { audio.pause() } catch { /* ignore */ }
       audio.src = disclaimerUrl
-      audio.playbackRate = 1.0 // disclaimer always at 1x
+      applyAudioRate(audio, 1.0) // disclaimer always at 1x
       try { audio.load() } catch { /* ignore */ }
       recordAudioDebug({ event: 'disclaimer-start', url: disclaimerUrl })
       audio.play().then(() => {
@@ -554,7 +643,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         }
         audio.addEventListener('loadedmetadata', onLoaded)
         audio.src = url
-        audio.playbackRate = speedRef.current
+        applyAudioRate(audio, speedRef.current)
         if (wasPlaying) {
           audio.play().catch(() => setIsPlaying(false))
         }
@@ -599,7 +688,23 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       // even before the next React render (otherwise the user hears 1s of
       // the old rate before the next effect fires).
       if (audioRef.current) {
-        audioRef.current.playbackRate = next
+        const audio = audioRef.current
+        const wasPlaying = !audio.paused && !audio.ended
+        const t = audio.currentTime || 0
+        applyAudioRate(audio, next)
+        recordAudioDebug({ event: 'speed-change', next, wasPlaying, currentTime: t, readyState: audio.readyState })
+        if (wasPlaying) {
+          try { audio.pause() } catch { /* ignore */ }
+          try { audio.currentTime = t } catch { /* ignore */ }
+          applyAudioRate(audio, next)
+          audio.play().then(() => {
+            setIsPlaying(true)
+          }).catch((err) => {
+            const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
+            recordAudioDebug({ event: 'speed-change-replay-rejected', next, error: msg })
+            setIsPlaying(false)
+          })
+        }
       }
     }, [cycleSpeedFromHook])
     cycleSpeedRef.current = cycleSpeed
