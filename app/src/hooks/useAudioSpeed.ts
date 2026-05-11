@@ -51,6 +51,12 @@ function readPersistedSpeed(): number {
   return DEFAULT_SPEED
 }
 
+export function nextAudioSpeed(current: number): number {
+  const normalized = clampToOption(current)
+  const idx = SPEED_OPTIONS.indexOf(normalized as typeof SPEED_OPTIONS[number])
+  return SPEED_OPTIONS[(idx + 1) % SPEED_OPTIONS.length]
+}
+
 interface UseAudioSpeedReturn {
   speed: number
   setSpeed: (next: number) => void
@@ -86,9 +92,7 @@ export function useAudioSpeed(): UseAudioSpeedReturn {
   }, [])
 
   const cycleSpeed = useCallback(() => {
-    const cur = speedRef.current
-    const idx = SPEED_OPTIONS.indexOf(cur as typeof SPEED_OPTIONS[number])
-    const next = SPEED_OPTIONS[(idx + 1) % SPEED_OPTIONS.length]
+    const next = nextAudioSpeed(speedRef.current)
     setSpeedState(next)
     storage.set(STORAGE_KEY, next)
   }, [])

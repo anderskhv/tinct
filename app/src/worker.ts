@@ -48,6 +48,8 @@ const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
 
 const RATE_LIMIT_WINDOW_SECONDS = 60
 const RATE_LIMIT_MAX = 10
+const AUDIO_MANIFEST_RATE_LIMIT_MAX = 120
+const AUDIO_FILE_RATE_LIMIT_MAX = 300
 const MONTHLY_MESSAGE_LIMIT = 100
 
 async function checkRateLimit(key: string, kv?: KVNamespace, maxRequests = RATE_LIMIT_MAX): Promise<boolean> {
@@ -1829,7 +1831,7 @@ function isValidAudioPath(p: string): boolean {
 
 async function handleAudioManifest(request: Request, env: Env): Promise<Response> {
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(`audio:${clientIP}`, env.RATE_LIMIT, 30)) {
+  if (!await checkRateLimit(`audio-manifest:${clientIP}`, env.RATE_LIMIT, AUDIO_MANIFEST_RATE_LIMIT_MAX)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 
@@ -1853,7 +1855,7 @@ async function handleAudioManifest(request: Request, env: Env): Promise<Response
 
 async function handleAudioFile(request: Request, env: Env): Promise<Response> {
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(`audio:${clientIP}`, env.RATE_LIMIT, 30)) {
+  if (!await checkRateLimit(`audio-file:${clientIP}`, env.RATE_LIMIT, AUDIO_FILE_RATE_LIMIT_MAX)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 

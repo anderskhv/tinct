@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
 import { resolveAudioUrl } from '../utils/audioUrl'
-import { useAudioSpeed, SPEED_OPTIONS as PERSISTED_SPEED_OPTIONS } from '../hooks/useAudioSpeed'
+import { useAudioSpeed, nextAudioSpeed } from '../hooks/useAudioSpeed'
 
 /** Push the latest audio engine event into a global so DevTools can read it.
  *  Critical for diagnosing platform-specific audio issues like the Boox
@@ -592,17 +592,13 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
     const cycleSpeedRef = useRef<() => void>(() => {})
     const cycleSpeed = useCallback(() => {
+      const next = nextAudioSpeed(speedRef.current)
+      speedRef.current = next
       cycleSpeedFromHook()
       // Re-apply immediately so the live audio element picks up the new rate
       // even before the next React render (otherwise the user hears 1s of
       // the old rate before the next effect fires).
       if (audioRef.current) {
-        // The hook's state hasn't flushed yet; read what cycleSpeedFromHook
-        // is about to set. SPEED_OPTIONS rotation is deterministic, so we
-        // can compute next here without coupling to the hook's internal state.
-        const cur = audioRef.current.playbackRate || 1
-        const idx = PERSISTED_SPEED_OPTIONS.indexOf(cur as 0.75 | 1 | 1.25 | 1.5 | 2)
-        const next = PERSISTED_SPEED_OPTIONS[(idx + 1) % PERSISTED_SPEED_OPTIONS.length]
         audioRef.current.playbackRate = next
       }
     }, [cycleSpeedFromHook])
