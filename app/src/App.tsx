@@ -20,6 +20,7 @@ import { BookStore } from './components/BookStore'
 import { TierChooser } from './components/TierChooser'
 import { HomeRolePrompt } from './components/HomeRolePrompt'
 import { PricingModal } from './components/PricingModal'
+import { AdminMetricsDashboard } from './components/AdminMetricsDashboard'
 import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
 import { TocOverlay } from './components/TocOverlay'
@@ -2363,6 +2364,12 @@ export default function App() {
 
   // Chat message handler — also records to chat history
   const handleSendMessage = useCallback((content: string, highlightedText?: string) => {
+    trackEvent('chat_message_sent', {
+      book_id: book.id,
+      chapter_number: currentChapter,
+      has_highlight: !!highlightedText,
+      source: 'manual',
+    }, user?.id)
     // Record user message to history
     recordMessage({
       id: `msg_${Date.now()}`,
@@ -2372,7 +2379,7 @@ export default function App() {
       highlightedText,
     }, currentChapter, firstVisibleParagraph)
     sendMessage(content, highlightedText)
-  }, [sendMessage, recordMessage, currentChapter, firstVisibleParagraph])
+  }, [sendMessage, recordMessage, currentChapter, firstVisibleParagraph, book.id, user?.id])
 
   // Copy to notes from chat
   const handleCopyToNotes = useCallback((content: string) => {
@@ -2509,6 +2516,10 @@ export default function App() {
   const handleReflect = useCallback(() => {
     const chapterTitle = primaryChapter?.title || `Book ${currentChapter}`
     const reflectPrompt = `I've just finished reading ${chapterTitle} of ${book.title}. Help me reflect on the key themes, memorable moments, and anything I might have missed.`
+    trackEvent('chapter_reflection_started', {
+      book_id: book.id,
+      chapter_number: currentChapter,
+    }, user?.id)
     setPanelTab('chat')
     if (isMobile) {
       setActiveView(2)
@@ -2516,7 +2527,18 @@ export default function App() {
       togglePanel()
     }
     sendMessage(reflectPrompt)
-  }, [primaryChapter, currentChapter, book.title, setPanelTab, isMobile, setActiveView, preferences.panelOpen, togglePanel, sendMessage])
+  }, [primaryChapter, currentChapter, book.id, book.title, user?.id, setPanelTab, isMobile, setActiveView, preferences.panelOpen, togglePanel, sendMessage])
+
+  const handleAudioPlayStateChange = useCallback((playing: boolean) => {
+    setAudioIsPlaying(playing)
+    if (playing) {
+      trackEvent('audio_started', {
+        book_id: book.id,
+        chapter_number: currentChapter,
+        edition_key: effectiveAudioEditionKey,
+      }, user?.id)
+    }
+  }, [book.id, currentChapter, effectiveAudioEditionKey, user?.id])
 
   // Audio paragraph change handler
   const handleAudioParagraphChange = useCallback((paragraphIndex: number) => {
@@ -2754,6 +2776,34 @@ export default function App() {
       <div className="app" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', fontFamily: 'var(--font-serif)', color: 'var(--text-secondary)' }}>
         <p>Loading your library...</p>
       </div>
+    )
+  }
+
+  if (typeof window !== 'undefined' && window.location.pathname === '/admin/metrics') {
+    return (
+      <>
+        <AdminMetricsDashboard
+          session={session}
+          onSignIn={() => {
+            setAuthModalMode('signin')
+            setShowAuthModal(true)
+          }}
+        />
+        {showAuthModal && (
+          <AuthModal
+            onClose={() => setShowAuthModal(false)}
+            onSignIn={async (email, password) => {
+              const result = await signIn(email, password)
+              if (!result.error) setShowAuthModal(false)
+              return result
+            }}
+            onSignUp={signUp}
+            onGoogleSignIn={signInWithGoogle}
+            onResetPassword={resetPassword}
+            defaultMode={authModalMode}
+          />
+        )}
+      </>
     )
   }
 
@@ -3649,7 +3699,7 @@ export default function App() {
         editionKey={effectiveAudioEditionKey}
         chapterNumber={currentChapter}
         onParagraphChange={handleAudioParagraphChange}
-        onPlayStateChange={setAudioIsPlaying}
+        onPlayStateChange={handleAudioPlayStateChange}
         onProgressChange={setAudioProgress}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         firstVisibleParagraph={firstVisibleParagraph}
