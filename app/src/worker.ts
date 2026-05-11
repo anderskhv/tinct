@@ -1864,6 +1864,42 @@ async function handleAudioFile(request: Request, env: Env): Promise<Response> {
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
   if (!env.AUDIO_BUCKET) return jsonResponse({ error: 'Audio unavailable' }, 503, request)
 
+  const rangeHeader = request.headers.get('range')
+  if (rangeHeader) {
+    const head = await env.AUDIO_BUCKET.head(path!)
+    if (!head) return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
+
+    const parsed = parseByteRange(rangeHeader, head.size)
+    if (!parsed) {
+      return new Response('Invalid range', {
+        status: 416,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Content-Range': `bytes */${head.size}`,
+          'Accept-Ranges': 'bytes',
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+    }
+
+    const object = await env.AUDIO_BUCKET.get(path!, {
+      range: { offset: parsed.start, length: parsed.end - parsed.start + 1 },
+    })
+    if (!object) return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
+
+    return new Response(object.body, {
+      status: 206,
+      headers: {
+        'Content-Type': 'audio/mpeg',
+        'Content-Length': String(parsed.end - parsed.start + 1),
+        'Content-Range': `bytes ${parsed.start}-${parsed.end}/${head.size}`,
+        'Accept-Ranges': 'bytes',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'public, max-age=604800',
+      },
+    })
+  }
+
   const object = await env.AUDIO_BUCKET.get(path!)
   if (!object) return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
 
@@ -1871,11 +1907,42 @@ async function handleAudioFile(request: Request, env: Env): Promise<Response> {
     status: 200,
     headers: {
       'Content-Type': 'audio/mpeg',
+      'Content-Length': String(object.size),
+      'Accept-Ranges': 'bytes',
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=604800',
     },
   })
 }
+
+function parseByteRange(rangeHeader: string, size: number): { start: number; end: number } | null {
+  const match = rangeHeader.match(/^bytes=(\d*)-(\d*)$/)
+  if (!match || size <= 0) return null
+
+  const startRaw = match[1]
+  const endRaw = match[2]
+  if (!startRaw && !endRaw) return null
+
+  let start: number
+  let end: number
+
+  if (!startRaw) {
+    const suffixLength = Number(endRaw)
+    if (!Number.isFinite(suffixLength) || suffixLength <= 0) return null
+    start = Math.max(0, size - suffixLength)
+    end = size - 1
+  } else {
+    start = Number(startRaw)
+    end = endRaw ? Number(endRaw) : size - 1
+  }
+
+  if (!Number.isInteger(start) || !Number.isInteger(end)) return null
+  if (start < 0 || end < start || start >= size) return null
+
+  return { start, end: Math.min(end, size - 1) }
+}
+
+export const parseByteRangeForTest = parseByteRange
 
 // ===== Security Headers =====
 
@@ -1923,6 +1990,18 @@ const BOOK_META: Record<string, { title: string; description: string; image?: st
     title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
     description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version, modern Danish also available. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
   },
+}
+
+const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.keys(BOOK_META)])
+
+function editionBookIdFromPath(pathname: string): string | null {
+  const filename = pathname.split('/').pop() || ''
+  if (!filename.endsWith('.json')) return null
+  const stem = filename.slice(0, -'.json'.length)
+  const matches = [...PUBLIC_BOOK_IDS]
+    .filter(bookId => stem.startsWith(`${bookId}-`))
+    .sort((a, b) => b.length - a.length)
+  return matches[0] || null
 }
 
 // ===== Router =====
@@ -1973,7 +2052,7 @@ export default {
     // third-party sites to build directly against Tinct's JSON endpoints.
     // This is not DRM (curl can still fetch public app assets), but it removes
     // the casual browser-embed path while preserving the reader and SEO build.
-    if (request.method === 'GET' && url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
       const secFetchSite = request.headers.get('sec-fetch-site')
       if (secFetchSite === 'cross-site') {
         return new Response('Forbidden', {
@@ -1981,6 +2060,17 @@ export default {
           headers: {
             'Cache-Control': 'no-store',
             'Content-Type': 'text/plain; charset=utf-8',
+            'X-Robots-Tag': 'noindex, noarchive',
+          },
+        })
+      }
+
+      if (url.pathname.startsWith('/data/editions/') && !editionBookIdFromPath(url.pathname)) {
+        return new Response(request.method === 'HEAD' ? null : 'Not found', {
+          status: 404,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store',
             'X-Robots-Tag': 'noindex, noarchive',
           },
         })
@@ -1995,10 +2085,16 @@ export default {
       const cache = caches.default
       const cacheKey = new Request(url.toString(), { method: 'GET' })
       const cached = await cache.match(cacheKey)
-      if (cached) return cached
+      if (cached) {
+        const fixed = new Response(cached.body, cached)
+        fixed.headers.delete('Access-Control-Allow-Origin')
+        fixed.headers.set('X-Robots-Tag', 'noindex, noarchive')
+        return fixed
+      }
 
       const assetResp = await env.ASSETS.fetch(request)
-      if (assetResp.ok) {
+      const contentType = assetResp.headers.get('content-type') || ''
+      if (assetResp.ok && contentType.includes('application/json')) {
         const cacheable = new Response(assetResp.body, assetResp)
         if (isOnboarding) {
           // 5 minutes at the edge; revalidate after that. Onboarding content
@@ -2014,7 +2110,14 @@ export default {
         ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable
       }
-      return assetResp
+      return new Response(request.method === 'HEAD' ? null : 'Not found', {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'no-store',
+          'X-Robots-Tag': 'noindex, noarchive',
+        },
+      })
     }
 
     // Root URL serves the landing page (which is index.html after build swap).
@@ -2056,7 +2159,7 @@ export default {
     // would 404 here and fall through to the SPA. Rewrite to the .html file before
     // that happens. SEO_STRATEGY.md has the full routing table.
     const seoMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?$/i)
-    if (request.method === 'GET' && seoMatch) {
+    if ((request.method === 'GET' || request.method === 'HEAD') && seoMatch) {
       const seoUrl = new URL(request.url)
       seoUrl.pathname = `/read/${seoMatch[1]}/${seoMatch[2]}.html`
       const seoResp = await env.ASSETS.fetch(new Request(seoUrl.toString(), request))
@@ -2066,6 +2169,11 @@ export default {
         for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
           newResp.headers.set(key, value)
         }
+        if (request.method === 'HEAD') return new Response(null, {
+          status: newResp.status,
+          statusText: newResp.statusText,
+          headers: newResp.headers,
+        })
         return newResp
       }
       // SEO file not found — fall through to SPA fallback below
@@ -2078,7 +2186,7 @@ export default {
     // shares the generic "Tinct — A New Way to Read" title and competes with
     // itself in search.
     const bookMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/i)
-    if (request.method === 'GET' && bookMatch) {
+    if ((request.method === 'GET' || request.method === 'HEAD') && bookMatch) {
       const bookId = bookMatch[1].toLowerCase()
       // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
       // generated meta from bookRegistry is the fallback so every book in
@@ -2112,9 +2220,22 @@ export default {
           for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
             newResp.headers.set(key, value)
           }
+          if (request.method === 'HEAD') return new Response(null, {
+            status: newResp.status,
+            statusText: newResp.statusText,
+            headers: newResp.headers,
+          })
           return newResp
         }
       }
+      return new Response(request.method === 'HEAD' ? null : 'Not found', {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'no-store',
+          'X-Robots-Tag': 'noindex, noarchive',
+        },
+      })
     }
 
     // Fall through to static assets

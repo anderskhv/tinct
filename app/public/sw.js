@@ -34,6 +34,10 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Audio: cache-first
+  if (event.request.headers.has('range')) {
+    event.respondWith(fetch(event.request).catch(() => offlineFallback()))
+    return
+  }
   event.respondWith(
     caches.open(CACHE_NAME).then(cache =>
       cache.match(event.request).then(cached => {
