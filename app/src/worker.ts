@@ -1994,6 +1994,48 @@ const BOOK_META: Record<string, { title: string; description: string; image?: st
 
 const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.keys(BOOK_META)])
 
+const LIBRARY_META = {
+  title: 'Read Classic Books Online — Modern English, AI Companion, Audiobooks | Tinct',
+  description: 'Explore classic books free online on Tinct. Read original texts alongside modern English, use a context-aware AI reading companion, track characters, and listen with synced audiobooks.',
+}
+
+async function serveSpaWithMeta(
+  requestMethod: string,
+  url: URL,
+  env: Env,
+  meta: { title: string; description: string; image?: string },
+  canonical: string,
+  ogType: string,
+): Promise<Response | null> {
+  const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
+  if (!appResp.ok) return null
+
+  const html = await appResp.text()
+  const ogImage = meta.image || 'https://tinct.app/og-image.png'
+  const injected = `<title>${meta.title}</title>
+  <meta name="description" content="${meta.description}">
+  <link rel="canonical" href="${canonical}">
+  <meta property="og:title" content="${meta.title}">
+  <meta property="og:description" content="${meta.description}">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:type" content="${ogType}">
+  <meta property="og:site_name" content="Tinct">
+  <meta property="og:image" content="${ogImage}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${meta.title}">
+  <meta name="twitter:description" content="${meta.description}">`
+  const rewritten = html.replace(/<title>[^<]*<\/title>/, injected)
+  const newResp = new Response(requestMethod === 'HEAD' ? null : rewritten, {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  })
+  newResp.headers.set('Cache-Control', 'no-store')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    newResp.headers.set(key, value)
+  }
+  return newResp
+}
+
 function editionBookIdFromPath(pathname: string): string | null {
   const filename = pathname.split('/').pop() || ''
   if (!filename.endsWith('.json')) return null
@@ -2179,6 +2221,13 @@ export default {
       // SEO file not found — fall through to SPA fallback below
     }
 
+    // Library route is in the sitemap, so it needs its own crawlable metadata
+    // instead of the generic SPA title.
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/read') {
+      const libraryResp = await serveSpaWithMeta(request.method, url, env, LIBRARY_META, 'https://tinct.app/read', 'website')
+      if (libraryResp) return libraryResp
+    }
+
     // Per-book transactional SEO: inject book-specific meta tags into the SPA
     // shell for /read/{bookId} routes. The SPA still bootstraps for human
     // visitors (the body is unchanged), but crawlers see a book-specific
@@ -2194,39 +2243,8 @@ export default {
       // hand Google 60+ duplicate-content URLs.
       const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
       if (meta) {
-        const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
-        if (appResp.ok) {
-          const html = await appResp.text()
-          const canonical = `https://tinct.app/read/${bookId}`
-          const ogImage = meta.image || 'https://tinct.app/og-image.png'
-          const injected = `<title>${meta.title}</title>
-  <meta name="description" content="${meta.description}">
-  <link rel="canonical" href="${canonical}">
-  <meta property="og:title" content="${meta.title}">
-  <meta property="og:description" content="${meta.description}">
-  <meta property="og:url" content="${canonical}">
-  <meta property="og:type" content="book">
-  <meta property="og:site_name" content="Tinct">
-  <meta property="og:image" content="${ogImage}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${meta.title}">
-  <meta name="twitter:description" content="${meta.description}">`
-          const rewritten = html.replace(/<title>[^<]*<\/title>/, injected)
-          const newResp = new Response(rewritten, {
-            status: 200,
-            headers: { 'Content-Type': 'text/html; charset=utf-8' },
-          })
-          newResp.headers.set('Cache-Control', 'no-store')
-          for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-            newResp.headers.set(key, value)
-          }
-          if (request.method === 'HEAD') return new Response(null, {
-            status: newResp.status,
-            statusText: newResp.statusText,
-            headers: newResp.headers,
-          })
-          return newResp
-        }
+        const bookResp = await serveSpaWithMeta(request.method, url, env, meta, `https://tinct.app/read/${bookId}`, 'book')
+        if (bookResp) return bookResp
       }
       return new Response(request.method === 'HEAD' ? null : 'Not found', {
         status: 404,
