@@ -260,4 +260,12 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     title: 'Read A Little Princess by Frances Hodgson Burnett — Free Online with AI Companion | Tinct',
     description: 'Sara Crewe, the doted-on daughter of an English captain in India, is placed at Miss Minchin\'s Select Seminary in London. On her eleventh birthday her father dies and his fortune collapses; she is moved to a freezing attic and worked as an unpaid drudge. The book is the story of what survives in a person when status, money, and protection are stripped away in a single afternoon — and of the man who has been searching London for her, living next door.',
   },
+  'jungle-book': {
+    title: 'Read The Jungle Book by Rudyard Kipling — Free Online with AI Companion | Tinct',
+    description: 'Seven stories from the Indian jungle — Mowgli raised by wolves, Rikki-Tikki-Tavi the mongoose, the White Seal, Toomai of the Elephants. Kipling\'s masterpiece of animal fable and moral adventure, which invented the modern coming-of-age story and shaped how the world imagines the wild.',
+  },
+  'around-the-world-80-days': {
+    title: 'Read Around the World in Eighty Days by Jules Verne — Free Online with AI Companion | Tinct',
+    description: 'Phileas Fogg, the most precise man in London, bets his fortune that he can circle the globe in eighty days. From London to Bombay to Yokohama to New York — a race against time, a detective on his heels, and a rescue along the way. Verne\'s great comedy of English phlegm against the chaos of the world.',
+  },
 }
