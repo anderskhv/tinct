@@ -803,6 +803,13 @@ export const CONFESSIONS: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1033,6 +1040,7 @@ export const POETICS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1186,6 +1194,13 @@ export const THE_HISTORIES: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1300,6 +1315,13 @@ export const BROTHERS_KARAMAZOV: Book = {
       label: 'Modern English',
       aligned: true,
       hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
@@ -1444,6 +1466,7 @@ export const ORESTEIA: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1520,6 +1543,7 @@ export const MEDEA: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1558,6 +1582,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
       {
       key: 'modern-da',
@@ -1595,6 +1620,7 @@ export const SECOND_TREATISE: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1762,6 +1788,13 @@ export const PELOPONNESIAN_WAR: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
   ],
 }
 
@@ -1791,6 +1824,13 @@ export const ARISTOTLE_POLITICS: Book = {
       label: 'Modern English',
       aligned: true,
       hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
@@ -2204,6 +2244,13 @@ export const DEMOCRACY_IN_AMERICA: Book = {
       label: 'Modern English',
       aligned: true,
       hasAudio: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
