@@ -1659,6 +1659,7 @@ export const SOCIAL_CONTRACT: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -2465,6 +2466,7 @@ export const AROUND_THE_WORLD_IN_80_DAYS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
