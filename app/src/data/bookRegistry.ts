@@ -430,6 +430,7 @@ export const THE_ART_OF_WAR: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -809,6 +810,7 @@ export const CONFESSIONS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1667,6 +1669,7 @@ export const SOCIAL_CONTRACT: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -1832,6 +1835,7 @@ export const ARISTOTLE_POLITICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -2103,6 +2107,41 @@ export const ON_LIBERTY: Book = {
       hasAudio: true,
     },
 ],
+}
+
+export const UTILITARIANISM: Book = {
+  id: 'utilitarianism',
+  title: 'Utilitarianism',
+  author: 'John Stuart Mill',
+  description: 'Mill\'s defense of the greatest-happiness principle against its critics. Pleasures differ in kind, not just amount; better to be Socrates dissatisfied than a fool satisfied. Where On Liberty drew the political line, Utilitarianism supplies the moral standard behind it.',
+  year: 1861,
+  wordCount: 30000,
+  coverColor: '#3a2a1f',
+  coverAccent: '#d4b078',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Mill (1863)',
+      year: 1863,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
 }
 
 export const OEDIPUS_REX: Book = {
@@ -2479,8 +2518,123 @@ export const AROUND_THE_WORLD_IN_80_DAYS: Book = {
   ],
 }
 
+export const WALDEN: Book = {
+  id: 'walden',
+  title: 'Walden',
+  author: 'Henry David Thoreau',
+  description: 'In 1845 Thoreau built a cabin by Walden Pond and stayed two years to find out what living actually required. Walden is the result: a season-by-season report on solitude, work, food, sound, neighbors, and the price of a life. The founding text of American simplicity, written with a sharper edge than its reputation suggests.',
+  year: 1854,
+  wordCount: 115000,
+  coverColor: '#1b2a1f',
+  coverAccent: '#7a8c5a',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Thoreau (1854)',
+      year: 1854,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const HEART_OF_DARKNESS: Book = {
+  id: 'heart-of-darkness',
+  title: 'Heart of Darkness',
+  author: 'Joseph Conrad',
+  description: 'Marlow sits on a yawl on the Thames and tells the story of his journey up the Congo River to retrieve a company agent named Kurtz who has gone deep into the interior and stopped sending word. The hundred-page novella that founded modern fiction — and the work the colonial project never recovered from.',
+  year: 1899,
+  wordCount: 38000,
+  coverColor: '#1a1410',
+  coverAccent: '#8a6035',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Conrad (1899)',
+      year: 1899,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const DISCOURSE_ON_INEQUALITY: Book = {
+  id: 'discourse-on-inequality',
+  title: 'Discourse on the Origin of Inequality',
+  author: 'Jean-Jacques Rousseau',
+  description: 'Rousseau asks how human beings, who came into the world equal, ended up so radically unequal — and answers that the answer is not in nature but in property, civilization, and the institutions we built to defend them. The argument that set up The Social Contract and put the French Revolution in motion.',
+  year: 1755,
+  wordCount: 30000,
+  coverColor: '#1f2a3a',
+  coverAccent: '#a89060',
+  editions: [
+    {
+      key: 'original-fr',
+      language: 'fr',
+      style: 'original',
+      label: 'Original (1755)',
+      year: 1755,
+      aligned: true,
+    },
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Cole (1913)',
+      translator: 'G. D. H. Cole',
+      year: 1913,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
 /** All books in the library */
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS]
+// WALDEN is defined above but NOT in BOOKS yet — modern-en/modern-da still partial.
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY]
 
 export const ALL_BOOKS: Book[] = BOOKS
 
