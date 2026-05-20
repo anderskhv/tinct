@@ -6723,16 +6723,32 @@ body {
 
   .side-panel-inner {
     min-width: 0;
-    /* Mobile: allow vertical scroll inside the panel — long chat responses
-       and expanded feed entries exceed one screen. iOS Safari needs the
-       webkit-overflow-scrolling rule for momentum and proper touch handling.
-       Was `overflow: hidden` which trapped content (B?-2026-05-06). */
-    overflow-y: auto;
+    /* Mobile: the active tab owns scrolling. If the outer panel scrolls,
+       chat content can slide under the app header/progress rule on iOS. */
+    overflow-y: hidden;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
     /* Required for fixed-height parents (mobile-view inset:0) so the inner
        region knows what 100% of "scrollable height" means. */
     height: 100%;
+  }
+
+  .panel-content-fade {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .panel-content-fade > .chat,
+  .panel-content-fade > .notes,
+  .panel-content-fade > .threads {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .chat-messages {
+    -webkit-overflow-scrolling: touch;
   }
 
   .chat {

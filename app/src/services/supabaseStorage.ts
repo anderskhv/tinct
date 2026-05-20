@@ -9,7 +9,8 @@ import type { StorageProvider } from './storage'
 import { localStorageProvider } from './storage'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 
-export type StorageChangeListener = (key: string, value: unknown) => void
+export type StorageChangeSource = 'broadcast' | 'realtime' | 'local'
+export type StorageChangeListener = (key: string, value: unknown, meta?: { source: StorageChangeSource }) => void
 
 export class SupabaseStorageProvider implements StorageProvider {
   private userId: string
@@ -60,7 +61,7 @@ export class SupabaseStorageProvider implements StorageProvider {
           localStorageProvider.set(msg.key, msg.value)
         }
         for (const listener of this.listeners) {
-          listener(msg.key, msg.deleted ? null : msg.value)
+          listener(msg.key, msg.deleted ? null : msg.value, { source: 'broadcast' })
         }
       }
     } catch (e) {
@@ -80,8 +81,12 @@ export class SupabaseStorageProvider implements StorageProvider {
   /**
    * Two-phase init (2026-05-07).
    *
-   *   Phase A — `init()`: small fast query for the keys the app needs to
-   *   render correctly on cold start. Returns when this phase completes.
+   *   Critical restore — `initCritical()`: the smallest query needed to pick
+   *   the correct book/chapter before the reader renders. This keeps position
+   *   accuracy without waiting for progress/log rows.
+   *
+   *   Phase A — `init()`: broader query for rows the app needs shortly after
+   *   first paint. Returns when this phase completes.
    *   Roughly: tinct-current-book, library, preferences, tour-seen, all
    *   per-book metadata (position, progress, reading-log, reading-speed,
    *   reading-angle, book-onboarded). For accounts with hundreds of rows
@@ -98,37 +103,73 @@ export class SupabaseStorageProvider implements StorageProvider {
    *   ~3-5s to under 1s. Heavy data loads in the background without
    *   blocking the reader.
    */
-  async init(): Promise<void> {
+  private hydrateRows(rows: Array<{ key: string; value: unknown }>): void {
+    for (const row of rows) {
+      const lastWrite = this.recentLocalWrites.get(row.key)
+      if (lastWrite && Date.now() - lastWrite < 10_000) continue
+      this.cache.set(row.key, row.value)
+      // Mirror to localStorage so a future offline session has the data
+      // available even if init() can't reach the network. Without this,
+      // a wipe + offline-init = no `tinct-tour-seen`, tour re-fires.
+      // (2026-05-07 fix.)
+      localStorageProvider.set(row.key, row.value)
+    }
+  }
+
+  async initCritical(): Promise<void> {
     if (!supabase) return
     const orFilter = [
       'key.in.(tinct-current-book,tinct-tour-seen,library,preferences,audio-speed)',
       'key.like.position:*',
-      'key.like.progress:*',
-      'key.like.reading-log:*',
-      'key.like.reading-speed:*',
       'key.like.book-onboarded:*',
       'key.like.reading-angle:*',
     ].join(',')
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('user_data')
       .select('key, value')
       .eq('user_id', this.userId)
       .or(orFilter)
-
-    if (data) {
-      for (const row of data) {
-        this.cache.set(row.key, row.value)
-        // Mirror to localStorage so a future offline session has the data
-        // available even if init() can't reach the network. Without this,
-        // a wipe + offline-init = no `tinct-tour-seen`, tour re-fires.
-        // (2026-05-07 fix.)
-        localStorageProvider.set(row.key, row.value)
-      }
+    if (error) {
+      console.warn('[Supabase] critical init failed:', error.message)
+      throw error
     }
-    this.initSucceeded = true
-    // Kick off Phase B in the background — don't await. UI is already free
-    // to render with the critical data we just loaded.
-    void this.loadHeavy()
+    if (data) this.hydrateRows(data)
+  }
+
+  private initPromise: Promise<void> | null = null
+
+  async init(): Promise<void> {
+    if (!supabase) return
+    if (this.initPromise) return this.initPromise
+    this.initPromise = (async () => {
+      const orFilter = [
+        'key.in.(tinct-current-book,tinct-tour-seen,library,preferences,audio-speed)',
+        'key.like.position:*',
+        'key.like.progress:*',
+        'key.like.reading-log:*',
+        'key.like.reading-speed:*',
+        'key.like.book-onboarded:*',
+        'key.like.reading-angle:*',
+      ].join(',')
+      const { data, error } = await supabase
+        .from('user_data')
+        .select('key, value')
+        .eq('user_id', this.userId)
+        .or(orFilter)
+
+      if (error) {
+        console.warn('[Supabase] init failed:', error.message)
+        throw error
+      }
+      if (data) this.hydrateRows(data)
+      this.initSucceeded = true
+      // Kick off Phase B in the background — don't await. UI is already free
+      // to render with the critical data we just loaded.
+      void this.loadHeavy()
+    })().finally(() => {
+      this.initPromise = null
+    })
+    return this.initPromise
   }
 
   private initSucceeded = false
@@ -175,7 +216,7 @@ export class SupabaseStorageProvider implements StorageProvider {
         // We notify with a synthetic key so panels can refresh without
         // having to know individual keys changed.
         for (const listener of this.listeners) {
-          listener('__heavy_loaded__', true)
+          listener('__heavy_loaded__', true, { source: 'local' })
         }
       } catch (e) {
         console.warn('[Supabase] heavy-load threw:', e)
@@ -237,7 +278,7 @@ export class SupabaseStorageProvider implements StorageProvider {
       const { error } = await supabase
         .from('user_data')
         .upsert(
-          { user_id: this.userId, key, value },
+          { user_id: this.userId, key, value, updated_at: new Date().toISOString() },
           { onConflict: 'user_id,key' }
         )
       if (error) {
@@ -441,7 +482,7 @@ export class SupabaseStorageProvider implements StorageProvider {
             this.cache.set(row.key, row.value)
             localStorageProvider.set(row.key, row.value)
             for (const listener of this.listeners) {
-              listener(row.key, row.value)
+              listener(row.key, row.value, { source: 'realtime' })
             }
           }
         )
@@ -567,7 +608,7 @@ export async function drainPendingQueue(): Promise<void> {
         const { error } = await supabase
           .from('user_data')
           .upsert(
-            { user_id: write.userId, key: write.key, value: write.value },
+            { user_id: write.userId, key: write.key, value: write.value, updated_at: new Date().toISOString() },
             { onConflict: 'user_id,key' }
           )
         if (!error) {

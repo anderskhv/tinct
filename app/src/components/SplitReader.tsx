@@ -175,6 +175,7 @@ export function SplitReader({
   // stale by a fraction of a column → 1.5-paragraph bleed on the left edge.
   const [colWidthState, setColWidthState] = useState(0)
   const [gapState, setGapState] = useState(60)
+  const [chapterEndPage, setChapterEndPage] = useState<number | null>(null)
   const initialPageRef = useRef(initialPage)
   const userNavigatedRef = useRef(false) // true when user manually changed page
 
@@ -309,6 +310,21 @@ export function SplitReader({
   useEffect(() => {
     onPageChange?.(currentPage, totalPages)
   }, [currentPage, totalPages, onPageChange])
+
+  useEffect(() => {
+    const content = contentRef.current
+    if (!content) return
+    const end = content.querySelector('.chapter-end') as HTMLElement | null
+    if (!end) {
+      setChapterEndPage(null)
+      return
+    }
+    const colWidth = getColWidth()
+    const gap = getGap()
+    if (colWidth <= 0) return
+    const page = Math.floor(end.offsetLeft / (colWidth + gap))
+    setChapterEndPage(Math.max(0, Math.min(page, Math.max(0, totalPages - 1))))
+  }, [leftParagraphs, rightParagraphs, currentPage, totalPages, getColWidth, getGap])
 
   // Report first visible paragraph (left column) so App.tsx location stays accurate in split mode
   useEffect(() => {
@@ -479,6 +495,10 @@ export function SplitReader({
   // See Reader.tsx: drag guard so selection/swipe drags never fire page turns.
   const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
   const DRAG_THRESHOLD_PX = 10
+  const effectiveTotalPages = chapterEndPage !== null ? Math.min(totalPages, chapterEndPage + 1) : totalPages
+  const effectiveCurrentPage = Math.min(currentPage, Math.max(0, effectiveTotalPages - 1))
+  const atEffectiveFirstPage = effectiveCurrentPage <= 0
+  const atEffectiveLastPage = effectiveCurrentPage >= effectiveTotalPages - 1
 
   // Click on left/right edge to turn pages
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -550,19 +570,19 @@ export function SplitReader({
     const clickX = e.clientX - rect.left
     const zone = rect.width * 0.2
     if (clickX < zone) {
-      if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
+      if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) {
         onPrevChapter()
       } else {
         goToPage(currentPage - 1)
       }
     } else if (clickX > rect.width - zone) {
-      if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
+      if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) {
         onNextChapter()
       } else {
         goToPage(currentPage + 1)
       }
     }
-  }, [currentPage, totalPages, goToPage, readerRef, leftHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
+  }, [currentPage, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, goToPage, readerRef, leftHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
 
   // Drives from React state (B13 fix — see Reader.tsx for full rationale).
   // The state-backed value forces re-render whenever container resizes;
@@ -585,15 +605,21 @@ export function SplitReader({
     const selectedText = selection.toString().trim()
     if (selectedText.length < 3) return
 
-    const anchorNode = selection.anchorNode
-    if (!anchorNode || !readerRef.current) return
+    let range: Range
+    try {
+      range = selection.getRangeAt(0)
+    } catch {
+      return
+    }
 
-    const startEl = anchorNode.nodeType === Node.TEXT_NODE
-      ? anchorNode.parentElement
-      : anchorNode as HTMLElement
-    const paragraphEl = startEl?.closest?.('[data-paragraph-index]')
-      ?? startEl?.querySelector?.('[data-paragraph-index]')
-    if (!paragraphEl) return
+    const rangeNode = range.commonAncestorContainer
+    const rangeEl = rangeNode.nodeType === Node.TEXT_NODE
+      ? rangeNode.parentElement
+      : rangeNode as HTMLElement
+    let paragraphEl = rangeEl?.closest?.('[data-paragraph-index]')
+      ?? rangeEl?.querySelector?.('[data-paragraph-index]')
+      ?? null
+    if (!paragraphEl || !readerRef.current?.contains(paragraphEl)) return
 
     // Block cross-column selections (bleed from left into right column)
     const focusNode = selection.focusNode
@@ -612,7 +638,20 @@ export function SplitReader({
     const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
     const side = paragraphEl.closest('.split-left') ? 'left' as const : 'right' as const
     const sourceParagraphs = side === 'left' ? leftParagraphs : rightParagraphs
-    const paragraphText = sourceParagraphs[paragraphIndex] || ''
+    let resolvedParagraphIndex = paragraphIndex
+    let paragraphText = sourceParagraphs[resolvedParagraphIndex] || ''
+    if (paragraphText && !paragraphText.includes(selectedText)) {
+      const exactMatch = sourceParagraphs
+        .map((text, index) => ({ text, index }))
+        .filter(({ text }) => text.includes(selectedText))
+      if (exactMatch.length === 1) {
+        resolvedParagraphIndex = exactMatch[0].index
+        paragraphText = exactMatch[0].text
+        const sideRoot = paragraphEl.closest(side === 'left' ? '.split-left' : '.split-right')
+        const candidate = sideRoot?.querySelector(`[data-paragraph-index="${resolvedParagraphIndex}"]`)
+        if (candidate) paragraphEl = candidate
+      }
+    }
     const normalizedPara = paragraphText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
     const normalizedSelection = selectedText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
     let startOffset = normalizedPara.indexOf(normalizedSelection)
@@ -624,7 +663,6 @@ export function SplitReader({
       endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
     }
 
-    const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
 
     // Pick the side with more room — see matching comment in Reader.tsx.
@@ -638,7 +676,7 @@ export function SplitReader({
       x: Math.max(150, Math.min(window.innerWidth - 150, rect.left + rect.width / 2)),
       y: showBelow ? rect.bottom + 10 : rect.top - 10,
       text: selectedText,
-      paragraphIndex,
+      paragraphIndex: resolvedParagraphIndex,
       startOffset: Math.max(0, startOffset),
       endOffset: Math.max(0, endOffset),
       side,
@@ -943,10 +981,10 @@ export function SplitReader({
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
-            if (totalPages > 1 && currentPage <= 0 && onPrevChapter) onPrevChapter()
+            if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) onPrevChapter()
             else goToPage(currentPage - 1)
           }}
-          disabled={totalPages > 1 && currentPage <= 0 && !onPrevChapter}
+          disabled={effectiveTotalPages > 1 && atEffectiveFirstPage && !onPrevChapter}
           aria-label="Previous page"
         >
           &larr;
@@ -959,16 +997,16 @@ export function SplitReader({
             </em>
           )}
           {currentChapter != null && currentChapter > 0 && <span className="page-nav-sep"> — </span>}
-          {progressLabel || `${currentPage + 1} / ${totalPages}`}
+          {progressLabel || `${effectiveCurrentPage + 1} / ${effectiveTotalPages}`}
         </span>
         <button
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
-            if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) onNextChapter()
+            if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) onNextChapter()
             else goToPage(currentPage + 1)
           }}
-          disabled={totalPages > 1 && currentPage >= totalPages - 1 && !onNextChapter}
+          disabled={effectiveTotalPages > 1 && atEffectiveLastPage && !onNextChapter}
           aria-label="Next page"
         >
           &rarr;

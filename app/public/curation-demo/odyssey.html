@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, noarchive">
+  <title>The Odyssey: Curated Reading Room — Tinct Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2523;
+      --muted: #66716c;
+      --line: #d9ded8;
+      --paper: #fbfaf6;
+      --panel: #ffffff;
+      --green: #1f7a5b;
+      --blue: #315f87;
+      --gold: #8a6420;
+      --red: #9b3f34;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #f4f1e8;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 56px;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    .hero {
+      padding: 34px 0 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .7fr);
+      gap: 28px;
+      align-items: end;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: .98;
+      letter-spacing: 0;
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0;
+      color: #39433f;
+      font-size: 18px;
+    }
+
+    .principles {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    .principles h2,
+    .section-title h2 {
+      margin: 0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .principles ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .principles li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+    }
+
+    .principles li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      margin-top: 7px;
+      background: var(--green);
+    }
+
+    main {
+      padding: 28px 0 48px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #33413c;
+    }
+
+    .filter.active {
+      border-color: #a9b8ad;
+      background: #e9f2ec;
+      color: #174d3b;
+      font-weight: 700;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 30px 0 12px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card.video { border-top: 4px solid var(--red); }
+    .card.essay { border-top: 4px solid var(--blue); }
+    .card.thread { border-top: 4px solid var(--green); }
+    .card.book { border-top: 4px solid var(--gold); }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tag {
+      padding: 3px 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fafafa;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin: 0;
+      color: #3e4945;
+      font-size: 14px;
+    }
+
+    .why {
+      padding: 10px 11px;
+      border-left: 3px solid #b7c9bd;
+      background: #f7faf8;
+      color: #293631;
+      font-size: 14px;
+    }
+
+    .card a {
+      margin-top: auto;
+      color: #0f5f45;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .card a:hover { text-decoration: underline; }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .step strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+      .card { min-height: auto; }
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">Tinct</div>
+      <div class="pill">Demo: curated reading room</div>
+    </div>
+    <div class="wrap hero">
+      <div>
+        <h1>The Odyssey, with the good arguments around it.</h1>
+        <p class="lead">A curated layer for essays, videos, and reader discussions that sharpen the book instead of replacing it. The editorial bias is pro-knowledge, pro-agency, anti-cynicism: read Homer as a live system of choices, customs, technology, memory, and homecoming.</p>
+      </div>
+      <aside class="principles">
+        <h2>Curation Rules</h2>
+        <ul>
+          <li>Prefer primary-text contact over summary culture.</li>
+          <li>Favor scholarship and reader arguments with testable claims.</li>
+          <li>Mark spoilers and reading time honestly.</li>
+          <li>Reject “everything is just power” flattening.</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="filters" aria-label="Demo filters">
+      <span class="filter active">All</span>
+      <span class="filter">Before reading</span>
+      <span class="filter">After Book 12</span>
+      <span class="filter">After finishing</span>
+      <span class="filter">Videos</span>
+      <span class="filter">Reader threads</span>
+    </nav>
+
+    <section>
+      <div class="section-title">
+        <h2>Editor’s First Pass</h2>
+        <p>What a reader should open when they want more bite, not more homework.</p>
+      </div>
+      <div class="grid">
+        <article class="card video">
+          <div class="meta"><span class="tag">Video</span><span class="tag">Read after Book 1</span><span class="tag">Low spoilers</span></div>
+          <h3>Harvard CHS close reading: Odyssey 1.27-43</h3>
+          <p>Gregory Nagy, Leonard Muellner, and Douglas Frame slow the opening down until the machinery becomes visible: gods, justice, memory, and the first problem of responsibility.</p>
+          <div class="why">Why it has bite: it treats Homer as engineered language, not a museum object.</div>
+          <a href="https://chs.harvard.edu/video_post/reading-odyssey-1-27-43-with-gregory-nagy-leonard-muellner-douglas-frame/">Open source</a>
+        </article>
+
+        <article class="card essay">
+          <div class="meta"><span class="tag">Essay</span><span class="tag">After finishing</span><span class="tag">Full spoilers</span></div>
+          <h3>A peacetime epic, or a critique of heroic values?</h3>
+          <p>Ancient World Magazine frames the poem as a tension between war culture and the harder work of returning to civic and household order.</p>
+          <div class="why">Why it has bite: it asks whether survival and restoration are greater achievements than glory.</div>
+          <a href="https://www.ancientworldmagazine.com/articles/odyssey-peacetime-epic-critique-values/">Open source</a>
+        </article>
+
+        <article class="card video">
+          <div class="meta"><span class="tag">Open course</span><span class="tag">Before reading</span><span class="tag">Low spoilers</span></div>
+          <h3>OpenLearn: Exploring Homer’s Odyssey</h3>
+          <p>A structured, accessible course from the Open University. Good as a scaffold for readers who want context without losing the poem itself.</p>
+          <div class="why">Why it has bite: it gives orientation but keeps the reader accountable to the text.</div>
+          <a href="https://www.open.edu/openlearn/history-the-arts/exploring-homers-odyssey/">Open source</a>
+        </article>
+
+        <article class="card thread">
+          <div class="meta"><span class="tag">Reddit</span><span class="tag">Before reading</span><span class="tag">No major spoilers</span></div>
+          <h3>“Does one need to prepare before reading Homer?”</h3>
+          <p>A useful reader question because it exposes the anxiety beginners actually have: do I need a whole classical education before I start?</p>
+          <div class="why">Why it has bite: the best answers lower the barrier without lowering the standard.</div>
+          <a href="https://www.reddit.com/r/classics/comments/1puxwy1/does_one_need_to_prepare_before_reading_the_iliad/">Open thread</a>
+        </article>
+
+        <article class="card thread">
+          <div class="meta"><span class="tag">Reddit</span><span class="tag">After Book 12</span><span class="tag">Moderate spoilers</span></div>
+          <h3>“Is Homer actually great?”</h3>
+          <p>A good adversarial reader thread: not reverence first, but a real question about whether the poem still earns its reputation.</p>
+          <div class="why">Why it has bite: it forces the reader to name what greatness would mean here.</div>
+          <a href="https://www.reddit.com/r/classicliterature/comments/1i0scgw/is_homer_actually_great/">Open thread</a>
+        </article>
+
+        <article class="card thread">
+          <div class="meta"><span class="tag">Reddit</span><span class="tag">After finishing</span><span class="tag">Full spoilers</span></div>
+          <h3>“How historically accurate is The Odyssey?”</h3>
+          <p>A messy but useful thread because it turns the book into a question about oral tradition, cultural memory, and what “accuracy” means for epic.</p>
+          <div class="why">Why it has bite: it pushes against both naive literalism and lazy dismissal.</div>
+          <a href="https://www.reddit.com/r/classics/comments/1s5y9az/how_historically_accurate_is_the_odyssey/">Open thread</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>How We Find Better Links</h2>
+        <p>A repeatable editorial pipeline for “interesting” without becoming content sludge.</p>
+      </div>
+      <div class="workflow">
+        <div class="step"><strong>1. Seed from institutions</strong><span>Harvard CHS, Open Yale, OpenLearn, public lectures, university classics departments, reputable podcasts.</span></div>
+        <div class="step"><strong>2. Search for live arguments</strong><span>Queries like “Odyssey homecoming vs glory,” “Odysseus critique heroism,” “Homer oral tradition accuracy.”</span></div>
+        <div class="step"><strong>3. Score for bite</strong><span>Keep pieces with a claim, evidence, and consequence. Drop generic summaries and pure ideological reduction.</span></div>
+        <div class="step"><strong>4. Place in the book</strong><span>Every item gets spoiler level, read-after chapter, why it matters, and a short Tinct note.</span></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

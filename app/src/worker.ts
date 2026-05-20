@@ -48,8 +48,6 @@ const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
 
 const RATE_LIMIT_WINDOW_SECONDS = 60
 const RATE_LIMIT_MAX = 10
-const AUDIO_MANIFEST_RATE_LIMIT_MAX = 120
-const AUDIO_FILE_RATE_LIMIT_MAX = 300
 const MONTHLY_MESSAGE_LIMIT = 100
 
 async function checkRateLimit(key: string, kv?: KVNamespace, maxRequests = RATE_LIMIT_MAX): Promise<boolean> {
@@ -205,6 +203,25 @@ async function verifySiteAdmin(env: Env, request: Request): Promise<boolean> {
   return rows.length > 0
 }
 
+function analyticsEventName(row: { event_type: string; payload: Record<string, unknown> | null }): string {
+  return row.event_type === 'event' ? String(row.payload?.type || '') : row.event_type
+}
+
+function analyticsBookId(path: string): string | null {
+  const match = path.match(/^\/read\/([^/]+)(?:\/|$)/)
+  if (!match || match[1] === 'undefined') return null
+  return match[1]
+}
+
+function isExcludedMetricsEmail(email: string): boolean {
+  const normalized = email.trim().toLowerCase()
+  return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
+}
+
+function formatSupabaseIn(values: string[]): string {
+  return values.join(',')
+}
+
 // ===== HMAC for Stripe Webhooks =====
 
 async function computeHmac(secret: string, payload: string): Promise<string> {
@@ -224,12 +241,6 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
   const apiKey = env.ANTHROPIC_API_KEY
   if (!apiKey) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
-  // Rate limit by IP (KV-backed, persistent across cold starts)
-  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(clientIP, env.RATE_LIMIT)) {
-    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
-  }
-
   // Request size check
   const contentLength = parseInt(request.headers.get('content-length') || '0', 10)
   if (contentLength > MAX_REQUEST_BODY_BYTES) {
@@ -242,6 +253,9 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
   const userId = user.id
+  if (!await checkRateLimit(`chat:${userId}`, env.RATE_LIMIT)) {
+    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+  }
 
   // Check message quota
   if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -1066,11 +1080,6 @@ async function handleEditionPatches(request: Request, env: Env): Promise<Respons
   if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return jsonResponse([], 200, request)
 
-  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(`patches:${clientIP}`, env.RATE_LIMIT, 30)) {
-    return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
-  }
-
   const url = new URL(request.url)
   const bookId = url.searchParams.get('bookId') || ''
   const editionKey = url.searchParams.get('editionKey') || ''
@@ -1079,6 +1088,11 @@ async function handleEditionPatches(request: Request, env: Env): Promise<Respons
   // Whitelist bookId/editionKey to prevent injection via the `eq.` filter.
   if (!/^[a-z0-9-]{1,64}$/i.test(bookId) || !/^[a-z0-9-]{1,32}$/i.test(editionKey)) {
     return jsonResponse([], 200, request)
+  }
+
+  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
+  if (!await checkRateLimit(`patches:${clientIP}`, env.RATE_LIMIT, 30)) {
+    return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 
   try {
@@ -1104,21 +1118,280 @@ interface IssueReport {
   userId: string | null
 }
 
+interface EditionData {
+  chapters?: { paragraphs?: string[] }[]
+}
+
+interface ParagraphContext {
+  fullParagraph: string
+  sourceParagraph: string
+  chapterParagraphs: string[]
+  sourceEditionKey: string
+  paragraphIndex: number
+  loadError?: string
+}
+
+interface RelatedCorrection {
+  paragraph_index: number
+  corrected_paragraph: string
+  explanation?: string
+}
+
+interface EvaluationResult {
+  is_error: boolean
+  confidence: number
+  explanation: string
+  corrected_paragraph: string | null
+  proposed_action?: 'apply' | 'no_change' | 'needs_human'
+  related_corrections?: RelatedCorrection[]
+}
+
+function editionAssetPath(bookId: string, editionKey: string): string {
+  return `/data/editions/${bookId}-${editionKey}.json`
+}
+
+async function fetchEditionFromAssets(env: Env, bookId: string, editionKey: string): Promise<EditionData | null> {
+  if (!bookId || !editionKey) return null
+  const path = editionAssetPath(bookId, editionKey)
+  const urls = [
+    `https://tinct.app${path}`,
+    `https://tinct.ahvelplund.workers.dev${path}`,
+    `http://localhost${path}`,
+  ]
+  for (const assetUrl of urls) {
+    try {
+      const res = await env.ASSETS.fetch(new Request(assetUrl, {
+        headers: { 'accept': 'application/json' },
+      }))
+      if (!res.ok) continue
+      return await res.json() as EditionData
+    } catch {
+      // Try the next asset origin. Cloudflare's ASSETS binding is host-agnostic
+      // in production, but local/preview environments have differed before.
+    }
+  }
+  return null
+}
+
+async function fetchExistingParagraphPatch(env: Env, report: Pick<IssueReport, 'bookId' | 'editionKey' | 'chapterNumber' | 'paragraphIndex'>): Promise<string | null> {
+  try {
+    const path = `edition_patches?book_id=eq.${encodeURIComponent(report.bookId)}&edition_key=eq.${encodeURIComponent(report.editionKey)}&chapter_number=eq.${report.chapterNumber}&paragraph_index=eq.${report.paragraphIndex}&select=patched_text&limit=1`
+    const res = await supabaseGet(env, path)
+    const rows = await res.json() as { patched_text?: string }[]
+    return rows?.[0]?.patched_text || null
+  } catch {
+    return null
+  }
+}
+
+function normalizedTextForMatch(text: string): string {
+  return text.replace(/\s+/g, ' ').trim()
+}
+
+function paragraphContainsSelection(paragraph: string, selectedText: string): boolean {
+  const selected = selectedText.trim()
+  if (!paragraph || !selected) return false
+  if (paragraph.includes(selected)) return true
+  return normalizedTextForMatch(paragraph).includes(normalizedTextForMatch(selected))
+}
+
+function findParagraphContainingSelection(chapterParagraphs: string[], selectedText: string): number | null {
+  const selected = selectedText.trim()
+  if (!selected) return null
+
+  const exactMatches = chapterParagraphs
+    .map((text, index) => ({ text, index }))
+    .filter(({ text }) => text.includes(selected))
+  if (exactMatches.length === 1) return exactMatches[0].index
+
+  const normalizedSelected = normalizedTextForMatch(selected)
+  const normalizedMatches = chapterParagraphs
+    .map((text, index) => ({ text, index }))
+    .filter(({ text }) => normalizedTextForMatch(text).includes(normalizedSelected))
+  if (normalizedMatches.length === 1) return normalizedMatches[0].index
+
+  return null
+}
+
+async function fetchParagraphContext(env: Env, report: IssueReport): Promise<ParagraphContext> {
+  const edition = await fetchEditionFromAssets(env, report.bookId, report.editionKey)
+  const chapter = edition?.chapters?.[report.chapterNumber - 1]
+  const chapterParagraphs = chapter?.paragraphs || []
+  let paragraphIndex = report.paragraphIndex
+  let staticParagraph = chapterParagraphs[paragraphIndex] || ''
+  let patchedParagraph = await fetchExistingParagraphPatch(env, { ...report, paragraphIndex })
+  const fullParagraph = patchedParagraph || staticParagraph
+
+  if (fullParagraph && !paragraphContainsSelection(fullParagraph, report.selectedText)) {
+    const matchedIndex = findParagraphContainingSelection(chapterParagraphs, report.selectedText)
+    if (matchedIndex !== null && matchedIndex !== paragraphIndex) {
+      paragraphIndex = matchedIndex
+      staticParagraph = chapterParagraphs[paragraphIndex] || ''
+      patchedParagraph = await fetchExistingParagraphPatch(env, { ...report, paragraphIndex })
+    }
+  }
+  const resolvedFullParagraph = patchedParagraph || staticParagraph
+
+  const sourceEditionKey = report.editionKey === 'original-en' ? '' : 'original-en'
+  const sourceEdition = sourceEditionKey ? await fetchEditionFromAssets(env, report.bookId, sourceEditionKey) : null
+  const sourceParagraph = sourceEdition?.chapters?.[report.chapterNumber - 1]?.paragraphs?.[paragraphIndex] || ''
+
+  return {
+    fullParagraph: resolvedFullParagraph,
+    sourceParagraph,
+    chapterParagraphs,
+    sourceEditionKey,
+    paragraphIndex,
+    loadError: resolvedFullParagraph ? undefined : `Could not load ${editionAssetPath(report.bookId, report.editionKey)} ch${report.chapterNumber} p${paragraphIndex}`,
+  }
+}
+
+function tryCommentReplacement(fullParagraph: string, selectedText: string, comment?: string | null): string | null {
+  let replacement = (comment || '').trim().replace(/[?？]+$/g, '').trim()
+  const selected = selectedText.trim()
+  if (!fullParagraph || !selected || !replacement) return null
+  const selectedFirst = selected[0]
+  if (selectedFirst && selectedFirst === selectedFirst.toLocaleLowerCase() && replacement[0] === replacement[0].toLocaleUpperCase()) {
+    replacement = replacement[0].toLocaleLowerCase() + replacement.slice(1)
+  }
+  if (fullParagraph.includes(selected)) return fullParagraph.replace(selected, replacement)
+  if (fullParagraph.includes(selectedText)) return fullParagraph.replace(selectedText, replacement)
+  return null
+}
+
+function changedSegment(before: string, after: string): { oldText: string; newText: string } | null {
+  if (!before || !after || before === after) return null
+  let start = 0
+  while (start < before.length && start < after.length && before[start] === after[start]) start++
+  let endBefore = before.length - 1
+  let endAfter = after.length - 1
+  while (endBefore >= start && endAfter >= start && before[endBefore] === after[endAfter]) {
+    endBefore--
+    endAfter--
+  }
+  const oldText = before.slice(start, endBefore + 1)
+  const newText = after.slice(start, endAfter + 1)
+  if (!oldText || !newText || oldText.length > 120 || newText.length > 120) return null
+  return { oldText, newText }
+}
+
+function relatedParagraphsForPrompt(report: IssueReport, chapterParagraphs: string[], correctedParagraph: string | null): string {
+  const needles = new Set<string>()
+  const selected = report.selectedText.trim()
+  if (selected) needles.add(selected.toLocaleLowerCase())
+  const firstWord = selected.match(/[\p{L}\p{M}]+/u)?.[0]
+  if (firstWord && firstWord.length >= 5) needles.add(firstWord.slice(0, Math.max(5, firstWord.length - 2)).toLocaleLowerCase())
+  const diff = correctedParagraph ? changedSegment(chapterParagraphs[report.paragraphIndex] || '', correctedParagraph) : null
+  if (diff?.oldText) needles.add(diff.oldText.toLocaleLowerCase())
+
+  const matches = chapterParagraphs
+    .map((text, index) => ({ text, index }))
+    .filter(({ text, index }) => {
+      if (index === report.paragraphIndex) return false
+      const lower = text.toLocaleLowerCase()
+      return [...needles].some(needle => needle && lower.includes(needle))
+    })
+    .slice(0, 12)
+
+  if (!matches.length) return '[No other obvious same-chapter candidates found by text search.]'
+  return matches.map(({ text, index }) => `p${index}: ${text}`).join('\n\n')
+}
+
+async function upsertEditionPatch(env: Env, data: {
+  book_id: string
+  edition_key: string
+  chapter_number: number
+  paragraph_index: number
+  original_text: string
+  patched_text: string
+  issue_report_id: string
+  applied_by?: string
+}) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/edition_patches?on_conflict=book_id,edition_key,chapter_number,paragraph_index`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'resolution=merge-duplicates',
+    },
+    body: JSON.stringify(data),
+  })
+}
+
+async function queueAudioRegen(env: Env, data: {
+  book_id: string
+  edition_key: string
+  chapter_number: number
+  paragraph_index: number
+  patched_text: string
+}) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/pending_audio_regen?on_conflict=book_id,edition_key,chapter_number,paragraph_index`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'resolution=merge-duplicates',
+    },
+    body: JSON.stringify({ ...data, status: 'pending' }),
+  })
+}
+
+function validateCorrectedParagraph(original: string, corrected: string): string | null {
+  if (!original || !corrected) return 'Missing original or corrected paragraph.'
+  const ratio = corrected.length / original.length
+  if (ratio < 0.5) return `Correction is too short (${Math.round(ratio * 100)}% of original).`
+  if (ratio > 1.5) return `Correction is too long (${Math.round(ratio * 100)}% of original).`
+  return null
+}
+
 async function evaluateAndPatch(env: Env, report: IssueReport): Promise<void> {
   if (!env.ANTHROPIC_API_KEY || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return
 
   try {
-  // 1. Fetch the full paragraph from static assets (using ASSETS binding — no network roundtrip)
-  let fullParagraph = ''
-  try {
-    const editionUrl = `/data/editions/${report.bookId}-${report.editionKey}.json`
-    const editionRes = await env.ASSETS.fetch(new Request(`https://tinct.app${editionUrl}`))
-    if (editionRes.ok) {
-      const edition = await editionRes.json() as { chapters: { paragraphs: string[] }[] }
-      const ch = edition.chapters[report.chapterNumber - 1]
-      fullParagraph = ch?.paragraphs?.[report.paragraphIndex] || ''
-    }
-  } catch { /* proceed without full paragraph — Claude evaluates based on selected text */ }
+  // 1. Fetch the effective translated paragraph and the source paragraph.
+  // "Effective" matters: users report against patched text in the reader, not
+  // necessarily the immutable JSON asset.
+	  const context = await fetchParagraphContext(env, report)
+	  if (context.paragraphIndex !== report.paragraphIndex) {
+	    console.warn(`[evaluateAndPatch] Corrected paragraph index from p${report.paragraphIndex} to p${context.paragraphIndex} for selected text "${report.selectedText.slice(0, 80)}"`)
+	    report.paragraphIndex = context.paragraphIndex
+	    await supabaseUpdate(env, 'issue_reports', report.reportId, { paragraph_index: context.paragraphIndex })
+	  }
+	  let fullParagraph = context.fullParagraph
+	  const sourceParagraph = context.sourceParagraph
+	  const selectedTextFound = paragraphContainsSelection(fullParagraph, report.selectedText)
+
+	  if (fullParagraph && !selectedTextFound) {
+	    const token = crypto.randomUUID()
+	    const explanation = `Selected text "${report.selectedText}" was not found in the loaded paragraph for ${report.bookId} ${report.editionKey} ch${report.chapterNumber} p${report.paragraphIndex}. The paragraph index may be stale or the report was made against text that has since changed.`
+	    await supabaseUpdate(env, 'issue_reports', report.reportId, {
+	      status: 'pending_review',
+	      proposed_fix: null,
+	      original_paragraph: fullParagraph,
+	      review_token: token,
+	      ai_confidence: 0,
+	      ai_explanation: explanation,
+	    })
+	    const baseUrl = 'https://tinct.app'
+	    await sendEmail(env, 'contact@tinct.app',
+	      `[Review blocked: text not found] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`,
+	      `<div style="font-family:sans-serif;max-width:600px">
+	        <p><span style="background:#c66;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Manual review required</span></p>
+	        <p><strong>Problem:</strong> ${htmlEscape(explanation)}</p>
+	        <p><strong>User selected:</strong> "${htmlEscape(report.selectedText)}"</p>
+	        ${report.comment ? `<p><strong>User comment:</strong> ${htmlEscape(report.comment)}</p>` : ''}
+	        <p><strong>Loaded paragraph:</strong></p>
+	        <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${htmlEscape(fullParagraph)}</blockquote>
+	        <p style="margin-top:24px">
+	          <a href="${baseUrl}/api/approve-fix?id=${report.reportId}&action=edit&token=${token}" style="display:inline-block;padding:12px 28px;background:#567;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">Manual edit</a>
+	          <a href="${baseUrl}/api/approve-fix?id=${report.reportId}&action=reject&token=${token}" style="display:inline-block;padding:12px 28px;background:#c66;color:#fff;text-decoration:none;border-radius:8px;font-weight:600">Reject</a>
+	        </p>
+	      </div>`
+	    )
+	    return
+	  }
 
   // 2a. Mechanical fix: word split by erroneous space (e.g., "beh ager" → "behager")
   // Skip Claude entirely for these — just remove the space.
@@ -1130,40 +1403,22 @@ async function evaluateAndPatch(env: Env, report: IssueReport): Promise<void> {
       console.log(`[evaluateAndPatch] Mechanical fix: "${report.selectedText}" → "${merged}"`)
 
       // Apply patch directly
-      await fetch(`${env.SUPABASE_URL}/rest/v1/edition_patches`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-          'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-          'Prefer': 'resolution=merge-duplicates',
-        },
-        body: JSON.stringify({
-          book_id: report.bookId,
-          edition_key: report.editionKey,
-          chapter_number: report.chapterNumber,
-          paragraph_index: report.paragraphIndex,
-          original_text: fullParagraph,
-          patched_text: corrected,
-          issue_report_id: report.reportId,
-        }),
+      await upsertEditionPatch(env, {
+        book_id: report.bookId,
+        edition_key: report.editionKey,
+        chapter_number: report.chapterNumber,
+        paragraph_index: report.paragraphIndex,
+        original_text: fullParagraph,
+        patched_text: corrected,
+        issue_report_id: report.reportId,
       })
 
-      await fetch(`${env.SUPABASE_URL}/rest/v1/pending_audio_regen`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-          'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-          'Prefer': 'resolution=merge-duplicates',
-        },
-        body: JSON.stringify({
-          book_id: report.bookId,
-          edition_key: report.editionKey,
-          chapter_number: report.chapterNumber,
-          paragraph_index: report.paragraphIndex,
-          patched_text: corrected,
-        }),
+      await queueAudioRegen(env, {
+        book_id: report.bookId,
+        edition_key: report.editionKey,
+        chapter_number: report.chapterNumber,
+        paragraph_index: report.paragraphIndex,
+        patched_text: corrected,
       })
 
       await supabaseUpdate(env, 'issue_reports', report.reportId, { status: 'confirmed', rewarded: true })
@@ -1198,12 +1453,21 @@ RULES:
 3. The corrected_paragraph must be the COMPLETE paragraph with only the necessary fix applied — preserve everything else verbatim.
 4. The corrected_paragraph must be 80–120% the length of the original. Never return a fragment.
 5. NEVER return action="apply" with corrected_paragraph=null. NEVER return null/empty for proposed_action — pick one of the three values above.
-6. If the original paragraph could not be loaded ([NOT LOADED] below): work from the user's selection alone, propose what you'd do, and set proposed_action="needs_human" with a clear explanation so the reviewer can verify against the actual paragraph manually.
+6. If the paragraph could not be loaded ([NOT LOADED] below): work from the user's selection alone, propose what you'd do, and set proposed_action="needs_human" with a clear explanation so the reviewer can verify against the actual paragraph manually.
+7. If the same translation mistake appears more than once in the paragraph, fix every occurrence that has the same meaning. Do not fix unrelated uses.
+8. Review the same-chapter candidate paragraphs. If the same mistake appears there too, add it to related_corrections. Each related correction must contain the COMPLETE corrected paragraph for that paragraph index.
+9. Use SOURCE PARAGRAPH as the anchor for meaning and TRANSLATION PARAGRAPH as the text to correct.
 
 Respond ONLY with valid JSON — no markdown fences, no prose outside the JSON.`
 
-  const userPrompt = `FULL PARAGRAPH:
+  const userPrompt = `SOURCE PARAGRAPH (${context.sourceEditionKey || 'not applicable'}):
+${sourceParagraph || '[NOT LOADED — evaluate from the translation paragraph and user report.]'}
+
+TRANSLATION PARAGRAPH TO REVIEW:
 ${fullParagraph || '[NOT LOADED — work from the user\'s selection only. Set proposed_action="needs_human".]'}
+
+OTHER SAME-CHAPTER CANDIDATES CONTAINING RELATED TEXT:
+${relatedParagraphsForPrompt(report, context.chapterParagraphs, null)}
 
 USER REPORT:
 - Book: ${report.bookId} | Edition: ${report.editionKey || '(unknown)'} | Chapter: ${report.chapterNumber}
@@ -1217,10 +1481,17 @@ JSON response shape (every field required):
   "confidence": number,                  // 0.0 to 1.0
   "proposed_action": "apply" | "no_change" | "needs_human",
   "explanation": string,                 // what you found and what you'd do
-  "corrected_paragraph": string | null   // REQUIRED when proposed_action="apply"; null otherwise is OK
+  "corrected_paragraph": string | null,  // REQUIRED when proposed_action="apply"; null otherwise is OK
+  "related_corrections": [
+    {
+      "paragraph_index": number,
+      "corrected_paragraph": string,
+      "explanation": string
+    }
+  ]
 }`
 
-  let evaluation: { is_error: boolean; confidence: number; explanation: string; corrected_paragraph: string | null; proposed_action?: 'apply' | 'no_change' | 'needs_human' }
+  let evaluation: EvaluationResult
   try {
     const claudeRes = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -1248,25 +1519,17 @@ JSON response shape (every field required):
   }
 
   let { is_error, confidence, explanation, corrected_paragraph } = evaluation
-  const proposedAction = evaluation.proposed_action || (is_error ? 'apply' : 'no_change')
+	  let proposedAction = evaluation.proposed_action || (is_error ? 'apply' : 'no_change')
 
   // If AI says error but no correction, try to generate one from user's comment
   if (is_error && !corrected_paragraph && fullParagraph && report.comment) {
-    // Simple text replacement: find selected text in paragraph, replace with user's comment
-    if (fullParagraph.includes(report.selectedText)) {
-      corrected_paragraph = fullParagraph.replace(report.selectedText, report.comment)
-      explanation += ' (Correction generated from user comment — AI did not provide one.)'
-    }
-    // Even if selected text doesn't match exactly, try fuzzy: find closest match
-    if (!corrected_paragraph) {
-      // Try finding the selected text with slight variations (trimmed, different whitespace)
-      const trimmed = report.selectedText.trim()
-      if (trimmed && fullParagraph.includes(trimmed)) {
-        corrected_paragraph = fullParagraph.replace(trimmed, report.comment.trim())
-        explanation += ' (Correction generated from user comment with trimmed match.)'
-      }
-    }
-  }
+    const generated = tryCommentReplacement(fullParagraph, report.selectedText, report.comment)
+	    if (generated) {
+	      corrected_paragraph = generated
+	      proposedAction = 'apply'
+	      explanation += ' (Correction generated from user comment — AI did not provide one.)'
+	    }
+	  }
 
   // ── VALIDATION: corrected paragraph must be at least 50% of original length ──
   // Prevents Claude from returning fragments that destroy paragraphs
@@ -1277,14 +1540,14 @@ JSON response shape (every field required):
     return
   }
   if (is_error && corrected_paragraph && fullParagraph) {
-    const ratio = corrected_paragraph.length / fullParagraph.length
-    if (ratio < 0.5) {
-      console.error(`[evaluateAndPatch] Correction too short (${Math.round(ratio * 100)}% of original). Rejecting to prevent data loss.`)
+    const validationError = validateCorrectedParagraph(fullParagraph, corrected_paragraph)
+    if (validationError) {
+      console.error(`[evaluateAndPatch] ${validationError} Rejecting to prevent data loss.`)
       await supabaseUpdate(env, 'issue_reports', report.reportId, { status: 'needs_review' })
       await sendEmail(env, 'contact@tinct.app',
         `[Validation failed] ${report.tag} — ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex}`,
         `<div style="font-family:sans-serif;max-width:600px">
-          <p><strong>Blocked:</strong> Claude's correction was ${Math.round(ratio * 100)}% of original length (${corrected_paragraph.length} vs ${fullParagraph.length} chars). Likely a fragment, not a full paragraph.</p>
+          <p><strong>Blocked:</strong> ${htmlEscape(validationError)}</p>
           <p><strong>User reported:</strong> "${report.selectedText}"</p>
           ${report.comment ? `<p><strong>User comment:</strong> ${report.comment}</p>` : ''}
           <p><strong>Original:</strong></p>
@@ -1296,6 +1559,14 @@ JSON response shape (every field required):
       return
     }
   }
+
+  const relatedCorrections = (evaluation.related_corrections || [])
+    .filter(c => Number.isInteger(c.paragraph_index) && c.paragraph_index !== report.paragraphIndex)
+    .filter(c => {
+      const original = context.chapterParagraphs[c.paragraph_index]
+      return !!original && !!c.corrected_paragraph && !validateCorrectedParagraph(original, c.corrected_paragraph)
+    })
+    .slice(0, 8)
 
   // ── UNIFIED: Store AI assessment, determine action, always email ──
   const token = crypto.randomUUID()
@@ -1310,40 +1581,44 @@ JSON response shape (every field required):
     original_paragraph: fullParagraph || null,
     review_token: token,
     ai_confidence: confidence,
-    ai_explanation: explanation,
+    ai_explanation: relatedCorrections.length
+      ? `${explanation} Same-chapter related corrections proposed: ${relatedCorrections.map(c => `p${c.paragraph_index}`).join(', ')}.`
+      : explanation,
   })
 
   // Auto-apply high-confidence fixes
   if (autoApply) {
-    await fetch(`${env.SUPABASE_URL}/rest/v1/edition_patches`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        'Prefer': 'resolution=merge-duplicates',
-      },
-      body: JSON.stringify({
-        book_id: report.bookId, edition_key: report.editionKey,
-        chapter_number: report.chapterNumber, paragraph_index: report.paragraphIndex,
-        original_text: fullParagraph || report.selectedText,
-        patched_text: corrected_paragraph, issue_report_id: report.reportId,
-      }),
+    await upsertEditionPatch(env, {
+      book_id: report.bookId, edition_key: report.editionKey,
+      chapter_number: report.chapterNumber, paragraph_index: report.paragraphIndex,
+      original_text: fullParagraph || report.selectedText,
+      patched_text: corrected_paragraph, issue_report_id: report.reportId,
     })
-    await fetch(`${env.SUPABASE_URL}/rest/v1/pending_audio_regen`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        'Prefer': 'resolution=merge-duplicates',
-      },
-      body: JSON.stringify({
-        book_id: report.bookId, edition_key: report.editionKey,
-        chapter_number: report.chapterNumber, paragraph_index: report.paragraphIndex,
-        patched_text: corrected_paragraph,
-      }),
+    await queueAudioRegen(env, {
+      book_id: report.bookId, edition_key: report.editionKey,
+      chapter_number: report.chapterNumber, paragraph_index: report.paragraphIndex,
+      patched_text: corrected_paragraph,
     })
+
+    for (const related of relatedCorrections) {
+      await upsertEditionPatch(env, {
+        book_id: report.bookId,
+        edition_key: report.editionKey,
+        chapter_number: report.chapterNumber,
+        paragraph_index: related.paragraph_index,
+        original_text: context.chapterParagraphs[related.paragraph_index],
+        patched_text: related.corrected_paragraph,
+        issue_report_id: report.reportId,
+        applied_by: 'claude-auto-related',
+      })
+      await queueAudioRegen(env, {
+        book_id: report.bookId,
+        edition_key: report.editionKey,
+        chapter_number: report.chapterNumber,
+        paragraph_index: related.paragraph_index,
+        patched_text: related.corrected_paragraph,
+      })
+    }
 
     // Reward user
     if (report.userId) {
@@ -1358,10 +1633,11 @@ JSON response shape (every field required):
     }
   }
 
-  // ── ALWAYS email Anders with approve/reject links ──
-  const baseUrl = 'https://tinct.app'
-  const approveUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=approve&token=${token}`
-  const rejectUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=reject&token=${token}`
+	  // ── ALWAYS email Anders with approve/reject links ──
+	  const baseUrl = 'https://tinct.app'
+	  const approveUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=${proposedAction === 'no_change' ? 'confirm-no-change' : 'approve'}&token=${token}`
+	  const rejectUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=reject&token=${token}`
+	  const editUrl = `${baseUrl}/api/approve-fix?id=${report.reportId}&action=edit&token=${token}`
 
   // Status badge mirrors the AI's proposed_action so the email always names a
   // concrete recommendation. Earlier copy left the reviewer guessing
@@ -1393,11 +1669,12 @@ JSON response shape (every field required):
       : proposedAction === 'no_change'
         ? 'Confirm: no change'
         : 'Approve as-is'
-  const rejectLabel = autoApply
-    ? 'Revert'
-    : proposedAction === 'no_change'
-      ? 'Override — apply user fix'
-      : 'Reject'
+	  const rejectLabel = autoApply
+	    ? 'Revert'
+	    : proposedAction === 'no_change'
+	      ? 'Override — apply user fix'
+	      : 'Reject'
+	  const showApproveButton = autoApply || proposedAction === 'apply' || proposedAction === 'no_change'
 
   // Original block is hidden behind a "couldn't load" notice when fullParagraph
   // is empty, so the reviewer immediately sees that the AI was blind and
@@ -1414,21 +1691,29 @@ JSON response shape (every field required):
        <blockquote style="border-left:3px solid #8c8;padding:8px 16px;background:#f5fff5;white-space:pre-wrap">${corrected_paragraph.replace(/</g, '&lt;')}</blockquote>`
     : proposedAction === 'no_change'
       ? `<p><strong>AI proposes:</strong> no change to the original paragraph.</p>`
-      : `<p style="background:#fff8e1;border-left:3px solid #e8b020;padding:10px 14px"><strong>No correction proposed.</strong> The AI couldn't determine a concrete fix — open the book and decide manually.</p>`
+      : `<p style="background:#fff8e1;border-left:3px solid #e8b020;padding:10px 14px"><strong>No correction proposed.</strong> Use the manual edit button to write the exact paragraph to apply.</p>`
 
-  await sendEmail(env, 'contact@tinct.app', subject,
-    `<div style="font-family:sans-serif;max-width:600px">
+  const relatedBlock = relatedCorrections.length
+    ? `<p><strong>Same-chapter related corrections:</strong></p>${relatedCorrections.map(c => `
+       <p style="margin:12px 0 4px"><strong>p${c.paragraph_index}</strong>${c.explanation ? ` — ${htmlEscape(c.explanation)}` : ''}</p>
+       <blockquote style="border-left:3px solid #8c8;padding:8px 16px;background:#f5fff5;white-space:pre-wrap">${htmlEscape(c.corrected_paragraph)}</blockquote>`).join('')}`
+    : ''
+
+	  await sendEmail(env, 'contact@tinct.app', subject,
+	    `<div style="font-family:sans-serif;max-width:600px">
       <p>${statusBadge} &nbsp; <strong>Confidence:</strong> ${Math.round(confidence * 100)}%</p>
       <p><strong>AI says:</strong> ${explanation}</p>
       <p><strong>User selected:</strong> "${report.selectedText.replace(/</g, '&lt;')}"</p>
       ${report.comment ? `<p><strong>User comment:</strong> ${report.comment}</p>` : ''}
       <hr/>
       ${originalBlock}
-      ${proposalBlock}
-      <p style="margin-top:24px">
-        <a href="${approveUrl}" style="display:inline-block;padding:12px 28px;background:#4a9;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">${approveLabel}</a>
-        <a href="${rejectUrl}" style="display:inline-block;padding:12px 28px;background:#c66;color:#fff;text-decoration:none;border-radius:8px;font-weight:600">${rejectLabel}</a>
-      </p>
+	      ${proposalBlock}
+	      ${relatedBlock}
+	      <p style="margin-top:24px">
+	        ${showApproveButton ? `<a href="${approveUrl}" style="display:inline-block;padding:12px 28px;background:#4a9;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">${approveLabel}</a>` : ''}
+	        <a href="${editUrl}" style="display:inline-block;padding:12px 28px;background:#567;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">Manual edit</a>
+	        <a href="${rejectUrl}" style="display:inline-block;padding:12px 28px;background:#c66;color:#fff;text-decoration:none;border-radius:8px;font-weight:600">${rejectLabel}</a>
+	      </p>
       <p style="color:#aaa;font-size:12px;margin-top:16px">User: ${report.userId || 'anonymous'} | ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex} | edition: ${report.editionKey || '(missing)'}</p>
     </div>`
   )
@@ -1454,7 +1739,24 @@ async function handleReportIssue(request: Request, env: Env, ctx: ExecutionConte
     return jsonResponse({ error: 'Invalid JSON' }, 400, request)
   }
 
-  if (!body.tag || !body.selectedText) return jsonResponse({ error: 'Missing required fields' }, 400, request)
+  const bookId = typeof body.bookId === 'string' ? body.bookId.trim() : ''
+  const editionKey = typeof body.editionKey === 'string' ? body.editionKey.trim() : ''
+  const chapterNumber = Number(body.chapterNumber)
+  const paragraphIndex = Number(body.paragraphIndex)
+  const selectedText = typeof body.selectedText === 'string' ? body.selectedText.trim() : ''
+  const tag = typeof body.tag === 'string' ? body.tag.trim() : ''
+  const comment = typeof body.comment === 'string' ? body.comment.trim() : ''
+
+  if (!tag || !selectedText) return jsonResponse({ error: 'Missing required fields' }, 400, request)
+  if (!bookId || !editionKey || !Number.isInteger(chapterNumber) || chapterNumber < 1 || !Number.isInteger(paragraphIndex) || paragraphIndex < 0) {
+    console.warn('[report-issue] rejected report with missing context:', {
+      hasBookId: Boolean(bookId),
+      hasEditionKey: Boolean(editionKey),
+      chapterNumber: body.chapterNumber,
+      paragraphIndex: body.paragraphIndex,
+    })
+    return jsonResponse({ error: 'Missing report context' }, 400, request)
+  }
 
   // Get optional user context (anonymous reports allowed)
   let userId: string | null = null
@@ -1465,13 +1767,13 @@ async function handleReportIssue(request: Request, env: Env, ctx: ExecutionConte
 
   const insertRes = await supabaseInsert(env, 'issue_reports', {
     user_id: userId,
-    book_id: body.bookId || '',
-    edition_key: body.editionKey || '',
-    chapter_number: body.chapterNumber ?? 0,
-    paragraph_index: body.paragraphIndex ?? 0,
-    selected_text: body.selectedText.slice(0, 1000),
-    tag: body.tag,
-    comment: body.comment?.slice(0, 500) || null,
+    book_id: bookId,
+    edition_key: editionKey,
+    chapter_number: chapterNumber,
+    paragraph_index: paragraphIndex,
+    selected_text: selectedText.slice(0, 1000),
+    tag,
+    comment: comment.slice(0, 500) || null,
     status: 'open',
   })
 
@@ -1494,13 +1796,13 @@ async function handleReportIssue(request: Request, env: Env, ctx: ExecutionConte
   if (reportId) {
     ctx.waitUntil(evaluateAndPatch(env, {
       reportId,
-      bookId: body.bookId || '',
-      editionKey: body.editionKey || '',
-      chapterNumber: body.chapterNumber ?? 0,
-      paragraphIndex: body.paragraphIndex ?? 0,
-      selectedText: body.selectedText,
-      tag: body.tag,
-      comment: body.comment,
+      bookId,
+      editionKey,
+      chapterNumber,
+      paragraphIndex,
+      selectedText,
+      tag,
+      comment,
       userId,
     }))
   }
@@ -1543,9 +1845,17 @@ async function handleFixesCount(request: Request, env: Env): Promise<Response> {
 
 async function handleApproveFix(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url)
-  const id = url.searchParams.get('id')
-  const action = url.searchParams.get('action')
-  const token = url.searchParams.get('token')
+  let form: FormData | null = null
+  if (request.method === 'POST') {
+    try {
+      form = await request.formData()
+    } catch {
+      return new Response(htmlPage('Invalid form', 'The submitted edit could not be read.'), { status: 400, headers: { 'Content-Type': 'text/html' } })
+    }
+  }
+  const id = url.searchParams.get('id') || String(form?.get('id') || '')
+  const action = url.searchParams.get('action') || String(form?.get('action') || '')
+  const token = url.searchParams.get('token') || String(form?.get('token') || '')
 
   if (!id || !action || !token || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return new Response(htmlPage('Invalid link', 'This review link is invalid or expired.'), { status: 400, headers: { 'Content-Type': 'text/html' } })
@@ -1569,75 +1879,154 @@ async function handleApproveFix(request: Request, env: Env): Promise<Response> {
     return new Response(htmlPage('Already reviewed', `This report has already been ${report.status}.`), { status: 200, headers: { 'Content-Type': 'text/html' } })
   }
 
-  if (action === 'approve') {
+  if (action === 'edit') {
+    let paragraph = report.proposed_fix || report.original_paragraph || ''
+    if (!paragraph && report.book_id && report.edition_key) {
+      try {
+        const context = await fetchParagraphContext(env, {
+          reportId: report.id,
+          bookId: report.book_id,
+          editionKey: report.edition_key,
+          chapterNumber: report.chapter_number,
+          paragraphIndex: report.paragraph_index,
+          selectedText: report.selected_text,
+          tag: '',
+          comment: report.comment,
+          userId: report.user_id,
+        })
+        paragraph = context.fullParagraph
+        if (!report.original_paragraph && context.fullParagraph) report.original_paragraph = context.fullParagraph
+      } catch { /* best-effort */ }
+    }
+
+    const formHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Manual edit — Tinct</title>
+<style>body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8f5f0;color:#2a2a2a}.wrap{max-width:900px;margin:32px auto;padding:0 20px}.card{background:#fff;padding:24px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}h1{font-size:1.25rem;margin:0 0 8px}p{color:#555;line-height:1.45}textarea{width:100%;min-height:320px;box-sizing:border-box;font:16px/1.5 Georgia,serif;padding:14px;border:1px solid #ccc;border-radius:8px}button{background:#4a9;color:#fff;border:0;padding:12px 22px;border-radius:8px;font-weight:700;margin-top:12px;cursor:pointer}.meta{font-size:13px;color:#777;background:#f7f7f7;padding:10px;border-radius:8px}</style></head>
+<body><div class="wrap"><div class="card">
+<h1>Manual edit</h1>
+<p class="meta">${htmlEscape(report.book_id)} / ${htmlEscape(report.edition_key)} · ch${htmlEscape(report.chapter_number)} p${htmlEscape(report.paragraph_index)}<br>
+Selected: "${htmlEscape(report.selected_text)}"${report.comment ? `<br>User comment: ${htmlEscape(report.comment)}` : ''}</p>
+<p>Edit the full paragraph exactly as it should appear. Submitting this applies the patch and queues audio regeneration for this paragraph.</p>
+<form method="POST" action="/api/approve-fix">
+<input type="hidden" name="id" value="${htmlEscape(id)}">
+<input type="hidden" name="action" value="manual-apply">
+<input type="hidden" name="token" value="${htmlEscape(token)}">
+<textarea name="proposed_fix" required>${htmlEscape(paragraph)}</textarea>
+<button type="submit">Apply manual edit</button>
+</form>
+</div></div></body></html>`
+    return new Response(formHtml, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } })
+  }
+
+	  if (action === 'manual-apply') {
+    const manualFix = String(form?.get('proposed_fix') || '').trim()
+    if (!manualFix) {
+      return new Response(htmlPage('Missing edit', 'The manual correction was empty.'), { status: 400, headers: { 'Content-Type': 'text/html' } })
+    }
+    if (!report.original_paragraph) {
+      try {
+        const context = await fetchParagraphContext(env, {
+          reportId: report.id,
+          bookId: report.book_id,
+          editionKey: report.edition_key,
+          chapterNumber: report.chapter_number,
+          paragraphIndex: report.paragraph_index,
+          selectedText: report.selected_text,
+          tag: '',
+          comment: report.comment,
+          userId: report.user_id,
+        })
+        report.original_paragraph = context.fullParagraph
+      } catch { /* validation below can still allow if original is missing */ }
+    }
+    if (report.original_paragraph) {
+      const validationError = validateCorrectedParagraph(report.original_paragraph, manualFix)
+      if (validationError) {
+        return new Response(htmlPage('Manual edit blocked', validationError), { status: 400, headers: { 'Content-Type': 'text/html' } })
+      }
+    }
+	    report.proposed_fix = manualFix
+	  }
+
+	  if (action === 'confirm-no-change') {
+	    await supabaseUpdate(env, 'issue_reports', report.id, { status: 'rejected', rewarded: false, review_token: null })
+	    return new Response(htmlPage('No change confirmed', 'The report has been closed without applying a text change.'), { status: 200, headers: { 'Content-Type': 'text/html' } })
+	  }
+
+	  if (action === 'approve' || action === 'manual-apply') {
     // If no proposed fix, try to generate one from the user's comment
     if (!report.proposed_fix && report.book_id && report.edition_key) {
       try {
-        const editionUrl = `/data/editions/${report.book_id}-${report.edition_key}.json`
-        const edRes = await env.ASSETS.fetch(new Request(`https://tinct.app${editionUrl}`))
-        if (edRes.ok) {
-          const edition = await edRes.json() as { chapters: { paragraphs: string[] }[] }
-          const ch = edition.chapters[report.chapter_number - 1]
-          const para = ch?.paragraphs?.[report.paragraph_index] || ''
-          if (para) {
-            // Simple text replacement: replace selected_text with user's comment
-            const comment = report.comment || ''
-            if (comment && para.includes(report.selected_text)) {
-              report.proposed_fix = para.replace(report.selected_text, comment)
-              report.original_paragraph = para
-            }
+        const context = await fetchParagraphContext(env, {
+          reportId: report.id,
+          bookId: report.book_id,
+          editionKey: report.edition_key,
+          chapterNumber: report.chapter_number,
+          paragraphIndex: report.paragraph_index,
+          selectedText: report.selected_text,
+          tag: '',
+          comment: report.comment,
+          userId: report.user_id,
+        })
+        const generated = tryCommentReplacement(context.fullParagraph, report.selected_text, report.comment)
+        if (generated) {
+          report.proposed_fix = generated
+          report.original_paragraph = context.fullParagraph
           }
-        }
       } catch { /* couldn't generate fix */ }
     }
 
-    if (!report.proposed_fix) {
-      return new Response(htmlPage('Cannot apply fix', 'No correction was proposed and the original paragraph could not be found. The book ID or edition may be missing from this report.'), { status: 400, headers: { 'Content-Type': 'text/html' } })
-    }
-    // Validate: proposed fix must be at least 50% of original paragraph length
-    if (report.original_paragraph && report.proposed_fix.length < report.original_paragraph.length * 0.5) {
-      return new Response(htmlPage('Fix rejected — too short',
-        `The proposed correction is ${report.proposed_fix.length} chars vs ${report.original_paragraph.length} original — likely a fragment, not a full paragraph. The fix was blocked to prevent data loss.`),
-        { status: 400, headers: { 'Content-Type': 'text/html' } })
+	    if (!report.proposed_fix) {
+	      return new Response(htmlPage('Manual edit needed', `No concrete correction exists yet. <a href="/api/approve-fix?id=${htmlEscape(id)}&action=edit&token=${htmlEscape(token)}">Write the correction manually</a>.`), { status: 400, headers: { 'Content-Type': 'text/html' } })
+	    }
+	    if (!report.original_paragraph && report.book_id && report.edition_key) {
+	      try {
+	        const context = await fetchParagraphContext(env, {
+	          reportId: report.id,
+	          bookId: report.book_id,
+	          editionKey: report.edition_key,
+	          chapterNumber: report.chapter_number,
+	          paragraphIndex: report.paragraph_index,
+	          selectedText: report.selected_text,
+	          tag: '',
+	          comment: report.comment,
+	          userId: report.user_id,
+	        })
+	        report.original_paragraph = context.fullParagraph
+	        if (context.paragraphIndex !== report.paragraph_index) {
+	          report.paragraph_index = context.paragraphIndex
+	          await supabaseUpdate(env, 'issue_reports', report.id, { paragraph_index: context.paragraphIndex, original_paragraph: context.fullParagraph || null })
+	        }
+	      } catch { /* validation below can still allow if original is missing */ }
+	    }
+	    // Validate: proposed fix must be at least 50% of original paragraph length
+	    if (report.original_paragraph) {
+      const validationError = validateCorrectedParagraph(report.original_paragraph, report.proposed_fix)
+      if (validationError) {
+        return new Response(htmlPage('Fix rejected', validationError), { status: 400, headers: { 'Content-Type': 'text/html' } })
+      }
     }
 
     // Apply the fix — same flow as auto-patch
-    const patchRes = await fetch(`${env.SUPABASE_URL}/rest/v1/edition_patches`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        'Prefer': 'resolution=merge-duplicates',
-      },
-      body: JSON.stringify({
-        book_id: report.book_id,
-        edition_key: report.edition_key,
-        chapter_number: report.chapter_number,
-        paragraph_index: report.paragraph_index,
-        original_text: report.original_paragraph,
-        patched_text: report.proposed_fix,
-        issue_report_id: report.id,
-      }),
+    const patchRes = await upsertEditionPatch(env, {
+      book_id: report.book_id,
+      edition_key: report.edition_key,
+      chapter_number: report.chapter_number,
+      paragraph_index: report.paragraph_index,
+      original_text: report.original_paragraph,
+      patched_text: report.proposed_fix,
+      issue_report_id: report.id,
+      applied_by: action === 'manual-apply' ? 'anders-manual' : 'anders-review',
     })
     if (!patchRes.ok) console.error('[approve-fix] edition_patches upsert failed:', patchRes.status, await patchRes.text())
 
     // Queue audio regen
-    await fetch(`${env.SUPABASE_URL}/rest/v1/pending_audio_regen`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
-        'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        'Prefer': 'resolution=merge-duplicates',
-      },
-      body: JSON.stringify({
-        book_id: report.book_id,
-        edition_key: report.edition_key,
-        chapter_number: report.chapter_number,
-        paragraph_index: report.paragraph_index,
-        patched_text: report.proposed_fix,
-      }),
+    await queueAudioRegen(env, {
+      book_id: report.book_id,
+      edition_key: report.edition_key,
+      chapter_number: report.chapter_number,
+      paragraph_index: report.paragraph_index,
+      patched_text: report.proposed_fix,
     })
 
     // Mark confirmed + rewarded
@@ -1758,6 +2147,159 @@ h1{font-size:1.3rem;margin:0 0 12px}p{font-size:0.95rem;color:#666;line-height:1
 
 // ===== Admin: Issue Reports Dashboard =====
 
+async function handleAdminMetricsUsers(request: Request, env: Env): Promise<Response> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+    return jsonResponse({ error: 'Not configured' }, 500, request)
+  }
+  if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  if (!await verifySiteAdmin(env, request)) {
+    return jsonResponse({ error: 'Forbidden' }, 403, request)
+  }
+
+  const url = new URL(request.url)
+  const requestedDays = Number(url.searchParams.get('days') || '14')
+  const days = [1, 7, 14, 30].includes(requestedDays) ? requestedDays : 14
+  const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString()
+
+  const analyticsRes = await supabaseGet(env, `analytics_events?select=event_type,path,duration_ms,user_id,session_id,payload,created_at&created_at=gte.${encodeURIComponent(since)}&order=created_at.desc&limit=10000`)
+  if (!analyticsRes.ok) {
+    return jsonResponse({ error: 'Analytics query failed' }, 500, request)
+  }
+
+  type AnalyticsAdminRow = {
+    event_type: string
+    path: string
+    duration_ms: number | null
+    user_id: string | null
+    session_id: string
+    payload: Record<string, unknown> | null
+    created_at: string
+  }
+
+  const rows = await analyticsRes.json() as AnalyticsAdminRow[]
+  const userIds = [...new Set(rows.map(row => row.user_id).filter((id): id is string => !!id && isValidUUID(id)))]
+
+  const emailByUserId = new Map<string, string>()
+  for (let i = 0; i < userIds.length; i += 100) {
+    const chunk = userIds.slice(i, i + 100)
+    if (chunk.length === 0) continue
+    const profilesRes = await supabaseGet(env, `profiles?id=in.(${formatSupabaseIn(chunk)})&select=id,email`)
+    if (!profilesRes.ok) continue
+    const profiles = await profilesRes.json() as { id: string; email: string | null }[]
+    for (const profile of profiles) {
+      emailByUserId.set(profile.id, (profile.email || '').toLowerCase())
+    }
+  }
+
+  const excludedUserIds = new Set(
+    [...emailByUserId.entries()]
+      .filter(([, email]) => isExcludedMetricsEmail(email))
+      .map(([id]) => id),
+  )
+  const excludedSessions = new Set(
+    rows
+      .filter(row => row.user_id && excludedUserIds.has(row.user_id))
+      .map(row => row.session_id),
+  )
+  const includedRows = rows.filter(row => {
+    if (row.user_id && excludedUserIds.has(row.user_id)) return false
+    if (excludedSessions.has(row.session_id)) return false
+    return true
+  })
+
+  type AccountMetrics = {
+    userId: string
+    email: string
+    sessions: Map<string, number>
+    pageviews: number
+    books: Set<string>
+    chatInteractions: number
+    feedInteractions: number
+    audioBookInteractions: number
+    castInteractions: number
+    checkoutStarts: number
+    firstSeen: string
+    lastSeen: string
+  }
+
+  const accounts = new Map<string, AccountMetrics>()
+  for (const row of includedRows) {
+    if (!row.user_id) continue
+    const email = emailByUserId.get(row.user_id) || '(unknown email)'
+    const current = accounts.get(row.user_id) || {
+      userId: row.user_id,
+      email,
+      sessions: new Map<string, number>(),
+      pageviews: 0,
+      books: new Set<string>(),
+      chatInteractions: 0,
+      feedInteractions: 0,
+      audioBookInteractions: 0,
+      castInteractions: 0,
+      checkoutStarts: 0,
+      firstSeen: row.created_at,
+      lastSeen: row.created_at,
+    }
+
+    if (row.created_at < current.firstSeen) current.firstSeen = row.created_at
+    if (row.created_at > current.lastSeen) current.lastSeen = row.created_at
+    if (row.event_type === 'pageview') {
+      current.pageviews += 1
+      const bookId = analyticsBookId(row.path)
+      if (bookId) current.books.add(bookId)
+    }
+    if (row.event_type === 'page_duration') {
+      current.sessions.set(row.session_id, (current.sessions.get(row.session_id) || 0) + (row.duration_ms || 0))
+      const bookId = analyticsBookId(row.path)
+      if (bookId) current.books.add(bookId)
+    }
+    const payloadBookId = typeof row.payload?.book_id === 'string' ? row.payload.book_id : null
+    if (payloadBookId) current.books.add(payloadBookId)
+
+    const name = analyticsEventName(row)
+    if (name === 'chat_message_sent' || name === 'chapter_reflection_started') current.chatInteractions += 1
+    if (name === 'feed_opened') current.feedInteractions += 1
+    if (name === 'audio_started') current.audioBookInteractions += 1
+    if (name === 'cast_opened') current.castInteractions += 1
+    if (name === 'checkout_started') current.checkoutStarts += 1
+
+    accounts.set(row.user_id, current)
+  }
+
+  const users = [...accounts.values()]
+    .map(account => {
+      const sessionDurations = [...account.sessions.values()]
+      const totalReadingMs = sessionDurations.reduce((sum, ms) => sum + ms, 0)
+      return {
+        userId: account.userId,
+        email: account.email,
+        sessions: sessionDurations.length,
+        sessions2Min: sessionDurations.filter(ms => ms >= 2 * 60 * 1000).length,
+        sessions10Min: sessionDurations.filter(ms => ms >= 10 * 60 * 1000).length,
+        readingMinutes: Math.round((totalReadingMs / 60000) * 10) / 10,
+        longestSessionMinutes: Math.round((Math.max(0, ...sessionDurations) / 60000) * 10) / 10,
+        pageviews: account.pageviews,
+        books: account.books.size,
+        chatInteractions: account.chatInteractions,
+        feedInteractions: account.feedInteractions,
+        audioBookInteractions: account.audioBookInteractions,
+        castInteractions: account.castInteractions,
+        checkoutStarts: account.checkoutStarts,
+        firstSeen: account.firstSeen,
+        lastSeen: account.lastSeen,
+      }
+    })
+    .sort((a, b) => b.readingMinutes - a.readingMinutes || b.sessions - a.sessions)
+
+  return jsonResponse({
+    days,
+    generatedAt: new Date().toISOString(),
+    excludedAccounts: excludedUserIds.size,
+    excludedSessions: excludedSessions.size,
+    users,
+  }, 200, request)
+}
+
 async function handleAdminIssues(request: Request, env: Env): Promise<Response> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return new Response('Not configured', { status: 500 })
@@ -1791,6 +2333,7 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
     const token = r.review_token as string
     const reportId = String(r.id || '')
     const approveLink = token ? `${baseUrl}/api/approve-fix?id=${encodeURIComponent(reportId)}&action=approve&token=${encodeURIComponent(token)}` : ''
+    const editLink = token ? `${baseUrl}/api/approve-fix?id=${encodeURIComponent(reportId)}&action=edit&token=${encodeURIComponent(token)}` : ''
     const rejectLink = token ? `${baseUrl}/api/approve-fix?id=${encodeURIComponent(reportId)}&action=reject&token=${encodeURIComponent(token)}` : ''
 
     return `<tr>
@@ -1803,7 +2346,7 @@ async function handleAdminIssues(request: Request, env: Env): Promise<Response> 
       <td>${htmlEscape(((r.ai_explanation as string) || '').slice(0, 50))}</td>
       <td>${hasProposal ? '✓' : '✗'}</td>
       <td>
-        ${status === 'pending_review' && approveLink ? `<a href="${approveLink}" style="color:#4a9">Approve</a> · <a href="${rejectLink}" style="color:#c66">Reject</a>` : status}
+        ${status === 'pending_review' && approveLink ? `<a href="${approveLink}" style="color:#4a9">Approve</a> · <a href="${editLink}" style="color:#567">Edit</a> · <a href="${rejectLink}" style="color:#c66">Reject</a>` : status}
       </td>
     </tr>`
   }).join('')
@@ -1846,11 +2389,6 @@ function isValidAudioPath(p: string): boolean {
 }
 
 async function handleAudioManifest(request: Request, env: Env): Promise<Response> {
-  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(`audio-manifest:${clientIP}`, env.RATE_LIMIT, AUDIO_MANIFEST_RATE_LIMIT_MAX)) {
-    return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
-  }
-
   const url = new URL(request.url)
   const path = url.searchParams.get('path')
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
@@ -1870,11 +2408,6 @@ async function handleAudioManifest(request: Request, env: Env): Promise<Response
 }
 
 async function handleAudioFile(request: Request, env: Env): Promise<Response> {
-  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(`audio-file:${clientIP}`, env.RATE_LIMIT, AUDIO_FILE_RATE_LIMIT_MAX)) {
-    return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
-  }
-
   const url = new URL(request.url)
   const path = url.searchParams.get('path')
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
@@ -1959,6 +2492,9 @@ function parseByteRange(rangeHeader: string, size: number): { start: number; end
 }
 
 export const parseByteRangeForTest = parseByteRange
+export const tryCommentReplacementForTest = tryCommentReplacement
+export const changedSegmentForTest = changedSegment
+export const validateCorrectedParagraphForTest = validateCorrectedParagraph
 
 // ===== Security Headers =====
 
@@ -2096,6 +2632,7 @@ export default {
       case '/api/report-status': return handleReportStatus(request, env)
       case '/api/approve-fix': return handleApproveFix(request, env)
       case '/api/admin/issues': return handleAdminIssues(request, env)
+      case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env)
       case '/api/fixes-count': return handleFixesCount(request, env)
       case '/api/edition-patches': return handleEditionPatches(request, env)
       case '/api/audio-manifest': return handleAudioManifest(request, env)

@@ -27,6 +27,52 @@ function esc(s) {
   return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
+const ROMAN_VALUES = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 }
+
+function toRoman(value) {
+  const parts = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']]
+  let remaining = value
+  let out = ''
+  for (const [n, roman] of parts) {
+    while (remaining >= n) {
+      out += roman
+      remaining -= n
+    }
+  }
+  return out
+}
+
+function romanToNumber(value) {
+  const roman = String(value || '').toUpperCase()
+  if (!/^[IVXLCDM]+$/.test(roman)) return null
+  let total = 0
+  for (let i = 0; i < roman.length; i++) {
+    const current = ROMAN_VALUES[roman[i]]
+    const next = ROMAN_VALUES[roman[i + 1]]
+    if (!current) return null
+    total += next && current < next ? -current : current
+  }
+  return toRoman(total) === roman ? total : null
+}
+
+function normalizeChapterCopy(text) {
+  return String(text ?? '').replace(
+    /\b(Book|Chapter|Part|Act|Scene|Canto|Meditation)\s+([IVXLCDM]+)\b/gi,
+    (match, label, roman) => {
+      const value = romanToNumber(roman)
+      return value ? `${label} ${value}` : match
+    },
+  )
+}
+
+function chapterLabel(book, n) {
+  return normalizeChapterCopy(book.chapterLabel ? book.chapterLabel(n) : `Chapter ${n}`)
+}
+
+function chapterTitle(ch) {
+  return normalizeChapterCopy(ch.title)
+}
+
 // =====================================================================
 // SHARED CSS — inlined per page; matches the Odyssey originals byte-for-byte
 // =====================================================================
@@ -340,6 +386,8 @@ const STYLES_SUMMARY = `${STYLES_COMMON}
 // =====================================================================
 
 function head({ title, description, canonical, jsonLd }) {
+  title = normalizeChapterCopy(title)
+  description = normalizeChapterCopy(description)
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -386,13 +434,13 @@ function footer() {
 
 function renderChapter(book, ch) {
   const N = book.chapters.length
-  const title = `${book.title}, Chapter ${ch.n}: ${ch.title} | Tinct`
-  const description = `Chapter ${ch.n} of ${book.author}'s ${book.title}: ${ch.title}. Summary, characters who appear, themes, and the full text in modern translation. Free on Tinct.`
+  const title = `${book.title}, Chapter ${ch.n}: ${chapterTitle(ch)} | Tinct`
+  const description = `Chapter ${ch.n} of ${book.author}'s ${book.title}: ${chapterTitle(ch)}. Summary, characters who appear, themes, and the full text in modern translation. Free on Tinct.`
   const canonical = `https://tinct.app/read/${book.id}/chapter-${ch.n}`
 
   const glanceLis = book.chapters.map(c => {
     const cls = c.n === ch.n ? ' class="active"' : ''
-    return `      <li${cls}><a href="/read/${book.id}/chapter-${c.n}"><span class="glance-num">${esc(book.chapterLabel ? book.chapterLabel(c.n) : `Chapter ${c.n}`)}</span><span class="glance-text">${esc(c.tour ? c.tour.split('. ')[0] + '.' : c.title)}</span></a></li>`
+    return `      <li${cls}><a href="/read/${book.id}/chapter-${c.n}"><span class="glance-num">${esc(chapterLabel(book, c.n))}</span><span class="glance-text">${esc(normalizeChapterCopy(c.tour ? c.tour.split('. ')[0] + '.' : c.title))}</span></a></li>`
   }).join('\n')
 
   const summaryParas = ch.summary.map(p => `      <p>${p}</p>`).join('\n')
@@ -407,10 +455,10 @@ function renderChapter(book, ch) {
   const prevCh = book.chapters.find(c => c.n === ch.n - 1)
   const nextCh = book.chapters.find(c => c.n === ch.n + 1)
   const prevHtml = prevCh
-    ? `      <a href="/read/${book.id}/chapter-${prevCh.n}" class="nav-prev"><div class="nav-label">← Previous · Chapter ${prevCh.n}</div><div class="nav-title">${esc(prevCh.title)}</div></a>`
+    ? `      <a href="/read/${book.id}/chapter-${prevCh.n}" class="nav-prev"><div class="nav-label">← Previous · Chapter ${prevCh.n}</div><div class="nav-title">${esc(chapterTitle(prevCh))}</div></a>`
     : `      <span class="nav-spacer"></span>`
   const nextHtml = nextCh
-    ? `      <a href="/read/${book.id}/chapter-${nextCh.n}" class="nav-next"><div class="nav-label">Next · Chapter ${nextCh.n} →</div><div class="nav-title">${esc(nextCh.title)}</div></a>`
+    ? `      <a href="/read/${book.id}/chapter-${nextCh.n}" class="nav-next"><div class="nav-label">Next · Chapter ${nextCh.n} →</div><div class="nav-title">${esc(chapterTitle(nextCh))}</div></a>`
     : `      <span class="nav-spacer"></span>`
 
   return `${head({ title, description, canonical })}
@@ -433,8 +481,8 @@ function renderChapter(book, ch) {
       <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/${book.id}/summary">${esc(book.title)}</a> · <a href="/read/${book.id}/chapters">Chapters</a> · <span>Chapter ${ch.n}</span>
     </div>
 
-    <div class="booknum">${book.chapterLabel ? esc(book.chapterLabel(ch.n)) : `Chapter ${ch.n}`} of ${N}</div>
-    <h1 class="title">${esc(ch.title)}</h1>
+    <div class="booknum">${esc(chapterLabel(book, ch.n))} of ${N}</div>
+    <h1 class="title">${esc(chapterTitle(ch))}</h1>
     <p class="hook">${ch.hook || ''}</p>
 
     <div class="glance-section">
@@ -504,8 +552,8 @@ function renderChapters(book) {
       if (!ch) return ''
       const appears = (ch.appears || []).slice(0, 5).map(a => esc(a.name)).join(' · ')
       return `    <article class="chapter">
-      <div class="chapter-num">${book.chapterLabel ? esc(book.chapterLabel(ch.n)) : `Chapter ${ch.n}`}</div>
-      <h3 class="chapter-title"><a href="/read/${book.id}/chapter-${ch.n}">${esc(ch.title)}</a></h3>
+      <div class="chapter-num">${esc(chapterLabel(book, ch.n))}</div>
+      <h3 class="chapter-title"><a href="/read/${book.id}/chapter-${ch.n}">${esc(chapterTitle(ch))}</a></h3>
       <p class="chapter-summary">${ch.blurb || ''}</p>${appears ? `\n      <div class="chapter-meta">\n        <span><strong>Appears:</strong> ${appears}</span>\n      </div>` : ''}
     </article>`
     }).join('\n\n')
@@ -760,10 +808,10 @@ function renderSummary(book) {
 
   const tourCards = book.chapters.map(ch =>
     `          <article class="tour-card" data-decimal="${ch.n}">
-            <div class="tour-num">${book.chapterLabel ? esc(book.chapterLabel(ch.n)) : `Chapter ${ch.n}`}</div>
-            <h3 class="tour-title">${esc(ch.tourTitle || ch.title)}</h3>
+            <div class="tour-num">${esc(chapterLabel(book, ch.n))}</div>
+            <h3 class="tour-title">${esc(normalizeChapterCopy(ch.tourTitle || ch.title))}</h3>
             <p class="tour-text">${ch.tour || ''}</p>
-            <div class="tour-foot"><a href="/read/${book.id}?chapter=${ch.n}&amp;edition=modern-en">Read ${book.chapterLabel ? book.chapterLabel(ch.n) : `Chapter ${ch.n}`} in the reader →</a></div>
+            <div class="tour-foot"><a href="/read/${book.id}?chapter=${ch.n}&amp;edition=modern-en">Read ${esc(chapterLabel(book, ch.n))} in the reader →</a></div>
           </article>`
   ).join('\n\n')
 
@@ -818,7 +866,7 @@ ${aboutParas}
 
     <div class="tour" id="tour">
       <header class="tour-bar">
-        <div class="tour-counter">${book.chapterLabel ? book.chapterLabel(1).replace(/\d+/, '') : 'Chapter '}<strong id="tour-num-display">1</strong> of ${book.chapters.length}</div>
+        <div class="tour-counter">${chapterLabel(book, 1).replace(/\d+/, '')}<strong id="tour-num-display">1</strong> of ${book.chapters.length}</div>
         <div class="tour-controls">
           <button class="tour-btn" data-tour-prev aria-label="Previous chapter">←</button>
           <button class="tour-btn" data-tour-next aria-label="Next chapter">→</button>
@@ -901,12 +949,14 @@ function main() {
   // _tour.js — copy from Odyssey (script is generic)
   fs.copyFileSync(path.join(ODYSSEY_DIR, '_tour.js'), path.join(outDir, '_tour.js'))
 
-  fs.writeFileSync(path.join(outDir, 'summary.html'), renderSummary(book))
-  fs.writeFileSync(path.join(outDir, 'chapters.html'), renderChapters(book))
-  fs.writeFileSync(path.join(outDir, 'themes.html'), renderThemes(book))
-  fs.writeFileSync(path.join(outDir, 'cast.html'), renderCast(book))
+  const writeHtml = (name, html) => fs.writeFileSync(path.join(outDir, name), normalizeChapterCopy(html))
+
+  writeHtml('summary.html', renderSummary(book))
+  writeHtml('chapters.html', renderChapters(book))
+  writeHtml('themes.html', renderThemes(book))
+  writeHtml('cast.html', renderCast(book))
   for (const ch of book.chapters) {
-    fs.writeFileSync(path.join(outDir, `chapter-${ch.n}.html`), renderChapter(book, ch))
+    writeHtml(`chapter-${ch.n}.html`, renderChapter(book, ch))
   }
 
   console.log(`[build-seo] Wrote ${book.chapters.length + 4} HTML files + _tour.js for ${bookId}`)

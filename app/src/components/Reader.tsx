@@ -183,6 +183,7 @@ export function Reader({
   // The fix is structural: derive the transform from a value React owns.
   const [colWidthState, setColWidthState] = useState(0)
   const [gapState, setGapState] = useState(60)
+  const [chapterEndPage, setChapterEndPage] = useState<number | null>(null)
   const currentPageRef = useRef(currentPage)
   currentPageRef.current = currentPage
   const totalPagesRef = useRef(totalPages)
@@ -410,6 +411,21 @@ export function Reader({
   useEffect(() => {
     onPageChange?.(currentPage, totalPages)
   }, [currentPage, totalPages, onPageChange])
+
+  useEffect(() => {
+    const content = contentRef.current
+    if (!content) return
+    const end = content.querySelector('.chapter-end') as HTMLElement | null
+    if (!end) {
+      setChapterEndPage(null)
+      return
+    }
+    const colWidth = getColWidth()
+    const gap = getGap()
+    if (colWidth <= 0) return
+    const page = Math.floor(end.offsetLeft / (colWidth + gap))
+    setChapterEndPage(Math.max(0, Math.min(page, Math.max(0, totalPages - 1))))
+  }, [paragraphs, currentPage, totalPages, getColWidth, getGap])
 
   // Report first visible paragraph on current page
   useEffect(() => {
@@ -653,6 +669,10 @@ export function Reader({
   // fire onPrevChapter, even though no selection ultimately registered.
   const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
   const DRAG_THRESHOLD_PX = 10
+  const effectiveTotalPages = chapterEndPage !== null ? Math.min(totalPages, chapterEndPage + 1) : totalPages
+  const effectiveCurrentPage = Math.min(currentPage, Math.max(0, effectiveTotalPages - 1))
+  const atEffectiveFirstPage = effectiveCurrentPage <= 0
+  const atEffectiveLastPage = effectiveCurrentPage >= effectiveTotalPages - 1
 
   // Click on left/right edge to turn pages, or click paragraph for audio
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -733,14 +753,14 @@ export function Reader({
     const sinceMount = Date.now() - mountedAtRef.current
     if (clickX < zone) {
       if (sinceMount < 500) return
-      if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
+      if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) {
         onPrevChapter()
       } else {
         goToPage(currentPage - 1)
       }
     } else if (clickX > rect.width - zone) {
       if (sinceMount < 500) return
-      if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
+      if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) {
         onNextChapter()
       } else {
         goToPage(currentPage + 1)
@@ -762,7 +782,7 @@ export function Reader({
         onParagraphClick(idx)
       }
     }
-  }, [currentPage, goToPage, readerRef, hasAudio, onParagraphClick, isAudioPlaying, playingParagraphIndex, onNextChapter, onPrevChapter, totalPages])
+  }, [currentPage, goToPage, readerRef, hasAudio, onParagraphClick, isAudioPlaying, playingParagraphIndex, onNextChapter, onPrevChapter, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage])
 
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()
@@ -776,19 +796,37 @@ export function Reader({
     const selectedText = selection.toString().trim()
     if (selectedText.length < 3) return
 
-    const anchorNode = selection.anchorNode
-    if (!anchorNode || !readerRef.current) return
+    let range: Range
+    try {
+      range = selection.getRangeAt(0)
+    } catch {
+      return
+    }
 
-    const startEl = anchorNode.nodeType === Node.TEXT_NODE
-      ? anchorNode.parentElement
-      : anchorNode as HTMLElement
-    const paragraphEl = startEl?.closest?.('[data-paragraph-index]')
-      ?? startEl?.querySelector?.('[data-paragraph-index]')
-    if (!paragraphEl) return
+    const rangeNode = range.commonAncestorContainer
+    const rangeEl = rangeNode.nodeType === Node.TEXT_NODE
+      ? rangeNode.parentElement
+      : rangeNode as HTMLElement
+    let paragraphEl = rangeEl?.closest?.('[data-paragraph-index]')
+      ?? rangeEl?.querySelector?.('[data-paragraph-index]')
+      ?? null
+    if (!paragraphEl || !readerRef.current?.contains(paragraphEl)) return
 
     const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
+    let resolvedParagraphIndex = paragraphIndex
 
-    const paragraphText = paragraphs[paragraphIndex] || ''
+    let paragraphText = paragraphs[resolvedParagraphIndex] || ''
+    if (paragraphText && !paragraphText.includes(selectedText)) {
+      const exactMatch = paragraphs
+        .map((text, index) => ({ text, index }))
+        .filter(({ text }) => text.includes(selectedText))
+      if (exactMatch.length === 1) {
+        resolvedParagraphIndex = exactMatch[0].index
+        paragraphText = exactMatch[0].text
+        const candidate = readerRef.current.querySelector(`[data-paragraph-index="${resolvedParagraphIndex}"]`)
+        if (candidate) paragraphEl = candidate
+      }
+    }
     // Normalize newlines → spaces for matching (prose text has embedded \n)
     const normalizedPara = paragraphText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
     const normalizedSelection = selectedText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
@@ -797,7 +835,6 @@ export function Reader({
     let startOffset = -1
     let endOffset = 0
     try {
-      const range = selection.getRangeAt(0)
       // Walk text nodes inside the paragraph element to compute character offsets
       const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
       let charCount = 0
@@ -829,9 +866,8 @@ export function Reader({
         endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
       }
     }
-    console.log('[Highlight] selection:', { paragraphIndex, startOffset, endOffset, selectedText: selectedText.slice(0, 40), found: startOffset >= 0 })
+    console.log('[Highlight] selection:', { paragraphIndex: resolvedParagraphIndex, startOffset, endOffset, selectedText: selectedText.slice(0, 40), found: startOffset >= 0 })
 
-    const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
 
     // Pick the side with more room. The issue-form state can be ~220px tall,
@@ -847,7 +883,7 @@ export function Reader({
       x: Math.max(150, Math.min(window.innerWidth - 150, rect.left + rect.width / 2)),
       y: showBelow ? rect.bottom + 10 : rect.top - 10,
       text: selectedText,
-      paragraphIndex,
+      paragraphIndex: resolvedParagraphIndex,
       startOffset: Math.max(0, startOffset),
       endOffset: Math.max(0, endOffset),
       showBelow,
@@ -1219,10 +1255,10 @@ export function Reader({
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
-            if (totalPages > 1 && currentPage <= 0 && onPrevChapter) onPrevChapter()
+            if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) onPrevChapter()
             else goToPage(currentPage - 1)
           }}
-          disabled={totalPages > 1 && currentPage <= 0 && !onPrevChapter}
+          disabled={effectiveTotalPages > 1 && atEffectiveFirstPage && !onPrevChapter}
           aria-label="Previous page"
         >
           &larr;
@@ -1237,16 +1273,16 @@ export function Reader({
             </em>
           )}
           {currentChapter != null && currentChapter > 0 && <span className="page-nav-sep"> — </span>}
-          {progressLabel || `${currentPage + 1} / ${totalPages}`}
+          {progressLabel || `${effectiveCurrentPage + 1} / ${effectiveTotalPages}`}
         </span>
         <button
           className="page-nav-tick"
           onClick={(e) => {
             e.stopPropagation()
-            if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) onNextChapter()
+            if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) onNextChapter()
             else goToPage(currentPage + 1)
           }}
-          disabled={totalPages > 1 && currentPage >= totalPages - 1 && !onNextChapter}
+          disabled={effectiveTotalPages > 1 && atEffectiveLastPage && !onNextChapter}
           aria-label="Next page"
         >
           &rarr;

@@ -9,6 +9,7 @@
 
 # Editor / generation backup files
 *.bak
+*backup*.json
 
 # IDE
 .vscode/
@@ -39,4 +40,3 @@ books/*.log
 
 # Archived heavy binaries — kept locally for reference but never tracked
 archive/build-artifacts/
-

@@ -3,6 +3,8 @@ import { apiUrl } from '../utils/apiUrl'
 import { perfMark, perfMeasure } from '../utils/perf'
 
 const cache = new Map<string, EditionData>()
+const inFlight = new Map<string, Promise<EditionData>>()
+const PATCH_WAIT_MS = 350
 
 interface EditionPatch {
   chapter_number: number
@@ -62,6 +64,28 @@ export async function loadEdition(
     return cache.get(cacheKey)!
   }
 
+  if (!opts.bypassCache && inFlight.has(cacheKey)) {
+    return inFlight.get(cacheKey)!
+  }
+
+  const pending = loadEditionUncached(bookId, editionKey, opts)
+  if (!opts.bypassCache) {
+    inFlight.set(cacheKey, pending)
+    pending.then(
+      () => inFlight.delete(cacheKey),
+      () => inFlight.delete(cacheKey),
+    )
+  }
+  return pending
+}
+
+async function loadEditionUncached(
+  bookId: string,
+  editionKey: EditionKey,
+  opts: { bypassCache?: boolean } = {},
+): Promise<EditionData> {
+  const cacheKey = `${bookId}-${editionKey}`
+
   // Append the build version as a cache-bust query param. The edition JSONs
   // are not content-hashed (unlike the JS bundle), so without this param a
   // republish would silently serve stale content from any layer that respects
@@ -73,13 +97,11 @@ export async function loadEdition(
   const fetchInit: RequestInit = opts.bypassCache ? { cache: 'no-store' } : {}
 
   let response: Response
-  let patches: EditionPatch[]
+  let patches: EditionPatch[] = []
   perfMark('fetch-start')
+  const patchesPromise = fetchEditionPatches(bookId, editionKey)
   try {
-    [response, patches] = await Promise.all([
-      fetch(url, fetchInit),
-      fetchEditionPatches(bookId, editionKey),
-    ])
+    response = await fetch(url, fetchInit)
     perfMark('fetch-end')
     perfMeasure('fetch', 'fetch-start', 'fetch-end')
   } catch (err) {
@@ -117,6 +139,16 @@ export async function loadEdition(
       return loadEdition(bookId, editionKey, { bypassCache: true })
     }
     throw new Error(`Edition ${cacheKey} is malformed: missing or empty chapters`)
+  }
+
+  try {
+    const patchResult = await Promise.race([
+      patchesPromise,
+      new Promise<null>(resolve => setTimeout(() => resolve(null), PATCH_WAIT_MS)),
+    ])
+    if (patchResult) patches = patchResult
+  } catch {
+    patches = []
   }
 
   // Apply any server-confirmed patches (with safety check)

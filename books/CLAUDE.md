@@ -130,6 +130,109 @@ Bible SEO is organized per Bible book (`bible-genesis`, `bible-1-samuel`, etc.),
 
 ---
 
+## Anti-Patterns from the May 2026 Multi-Book Wave
+
+May 2026 added 3 new books (jungle-book, treasure-island, around-the-world-80-days) plus Faust Part 1. The agent orchestration regressed: parallel translation agents overwrote each other, deploy operations raced with active edition writes, agent reports of "committed" were unverified and frequently false. The book-addition pipeline must regain its prior reliability — verification gates between every stage are non-negotiable.
+
+### 16. Translation agents lie about commits
+
+**Rule:** Never trust an agent's "committed: yes" report. Always verify with a byte-identity audit against the source edition AFTER the agent claims success.
+
+**Why:** Multiple Danish-translation agents in May 2026 reported "all chapters committed" but the actual modern-da file had 70% (around-the-world-80-days) or 45% (faust-part-1) of paragraphs still byte-identical to modern-en — i.e. still English. They had committed only partial chunks; other chunks were left as the scaffold copy (which is modern-en). The `[untranslated]` stub check is insufficient — a file scaffolded from modern-en doesn't contain `[untranslated]` markers, it contains English.
+
+**How to apply:** After any translation wave, run the byte-identity audit before proceeding:
+```python
+import json
+en = json.load(open('{book-id}-modern-en.json'))
+da = json.load(open('{book-id}-modern-da.json'))
+en_paras = [p for ch in en['chapters'] for p in ch['paragraphs']]
+da_paras = [p for ch in da['chapters'] for p in ch['paragraphs']]
+identical = sum(1 for d, e in zip(da_paras, en_paras) if d == e and len(d.split()) > 15)
+pct = identical / max(len(da_paras), 1) * 100
+print(f"{identical} identical long paragraphs ({pct:.1f}%)")
+```
+If >5% of long paragraphs are byte-identical, the translation has gaps. Spot-check those chapters and re-translate before audio generation.
+
+---
+
+### 17. Race condition: parallel agents writing the same edition file
+
+**Rule:** Never run multiple translation agents that each commit to the same `{book}-modern-en.json` (or `-modern-da.json`) file in parallel.
+
+**Why:** One agent's "Bootstrapped fresh treasure-island-modern-da.json" overwrote sister agents' completed work mid-session. Sister agents that had already committed Ch1-22 lost their work when the Ch23-34 agent bootstrapped fresh from modern-en and only filled Ch23-34.
+
+**How to apply:** Translation agents write to `/tmp/{book}-ch{N}-modern-{lang}-paras.json` files only. A separate finisher agent (single, sequential) commits all `/tmp` files in order via `write-chapter.py`. The "Bootstrap-from-scaffold" step happens once at the beginning, before any agents are launched — not concurrently with them.
+
+---
+
+### 18. Deploy + active edition-writes race condition
+
+**Rule:** Never run `git stash --keep-index` (or any deploy step) during an active translation pass.
+
+**Why:** A deploy agent's stash wiped an in-progress committed Jungle Book Ch1 translation in May 2026. A sibling agent found `jungle-book-modern-en.json` missing (stashed) and re-created it from scratch, dropping the existing Ch1.
+
+**How to apply:** Deploy and translation are mutually exclusive operations. Sequence them: deploy first, then translate — or translate to completion, then deploy. NEVER overlap these two workstreams in the same session.
+
+---
+
+### 19. Kokoro silently hangs on specific paragraphs
+
+**Rule:** Use a subprocess-per-paragraph pattern with a 30-60s timeout — never run raw `generate-audio-kokoro.py` for large books without a timeout wrapper.
+
+**Why:** Kokoro hangs on certain paragraphs (long sentences, unusual whitespace, or stochastic failures). The native script doesn't time out — it sits with full CPU indefinitely. Detected only when WAV count stops advancing for >10 minutes.
+
+**How to apply:** Use `subprocess.run()` with a per-paragraph Python invocation and `SIGALRM`-based timeout. On timeout: write a silent placeholder WAV and continue. After all paragraphs are done, audit which are placeholders and decide whether to accept or re-generate by hand.
+
+**macOS-specific:** Do NOT use `multiprocessing.Process` with spawn mode on macOS — it re-imports kokoro in the subprocess in a way that produces silent WAVs for ALL paragraphs. Use `subprocess.run()` per paragraph instead.
+
+---
+
+### 20. Chirp generates English-language audio when the text is still English
+
+**Rule:** Run the byte-identity audit (rule 16) BEFORE kicking off any TTS generation run. Audio of English text in a Danish voice is unusable and must be deleted and re-generated.
+
+**Why:** The around-the-world-80-days modern-da Chirp run produced 1,613 mp3 files, but ~70% of them voiced English content (in a Danish accent) because the underlying text was untranslated. All those mp3s had to be deleted and the audio re-generated from scratch after gap-fill.
+
+**How to apply:** Translation complete and byte-identity audit passes (<5% identical long paragraphs) → THEN start TTS. No exceptions.
+
+---
+
+### 21. R2 bulk uploads at -P 20 trigger Cloudflare rate-limits
+
+**Rule:** Use `-P 8` for R2 bulk uploads. Fall back to sequential (with `sleep 1` between each) for retry passes.
+
+**Why:** Parallel `wrangler r2 object put` at `-P 20` caused "Failed to fetch /accounts/..." errors for ~30% of uploads in May 2026. `-P 8` succeeded reliably.
+
+**How to apply:** First upload pass at `-P 8`. If any failures appear in output, re-run the specific failed files sequentially:
+```bash
+for f in <failed-files>; do
+  npx wrangler r2 object put "tinct-audio/${f#audio/}" --file="$f" --content-type="audio/mpeg" --remote
+  sleep 1
+done
+```
+
+---
+
+### 22. ScheduleWakeup chains multiply uncontrollably
+
+**Rule:** Use ScheduleWakeup only when a single agent has one specific condition to check. Never schedule an agent that itself schedules another wakeup — chains grow exponentially.
+
+**Why:** A "consolidated audio finisher" agent rescheduled itself ~10 times in May 2026. Each fired in parallel because the main conversation kept launching new wakeup variants. The result was duplicate agents running simultaneously against the same files.
+
+**How to apply:** If you launch a self-rescheduling background agent, you own that chain — track it and kill duplicates immediately. The preferred pattern is: main conversation polls directly via Bash (`python3 check-status.py`), no rescheduling loops.
+
+---
+
+### 23. "No [untranslated] stubs" is necessary but not sufficient
+
+**Rule:** Always run BOTH checks: (a) no `[untranslated]` placeholders, AND (b) <5% byte-identical long paragraphs to the source-language edition.
+
+**Why:** The scaffold step copies modern-en verbatim. If a translation agent skips translating, the file looks clean (no stubs) but the content is still English. The stub check catches only explicit placeholders — it is blind to untranslated scaffold content.
+
+**How to apply:** Both checks must pass before the edition is considered complete. See rule 16 for the byte-identity audit script.
+
+---
+
 ## The Pipeline
 
 The pipeline is fully automated after Step 1. Anders says "add [book name]", approves the structure in Step 1, then everything runs without stops through to publication.
@@ -618,3 +721,31 @@ python3 check-status.py --r2
 | Date | What was done | Chapters completed |
 |------|--------------|-------------------|
 | 2026-04-23 | Downloaded PG #8604 (Morshead 1881), parsed all 3 plays to oresteia-original-en.json. 26 chapters, 771 paragraphs, 3 sections. Full speaker attribution, stage direction formatting, source quality check passed. | Ch1-26 (original-en complete) |
+
+## Current Book: A Vindication of the Rights of Woman (Wollstonecraft)
+**Book ID:** vindication-rights-of-woman
+**Total chapters:** 15 (Dedication, Introduction, Ch1-13)
+**Started:** 2026-05-20
+
+### Pipeline
+- [x] Structure discussed and approved (flat 15-chapter, Dedication + Intro + Ch1-13)
+- [x] Source text downloaded (PG #3420, Title/Author headers validated)
+- [x] Original parsed to JSON (15 chapters, 778 paragraphs, ~84k words)
+- [x] Registered in bookRegistry.ts as VINDICATION_RIGHTS_OF_WOMAN (NOT in public BOOKS array — translations incomplete)
+- [ ] Modern English: 3/15 chapters (Ch1 Dedication, Ch2 Introduction, Ch3 The Rights and Involved Duties — committed via write-chapter.py; truncation audit passes)
+- [ ] Modern Danish: 0/15 chapters (scaffold bootstrapped from original-en — all paragraphs still English; needs full translation)
+- [ ] English audio (not yet — skip per instructions)
+- [ ] Visual QA
+
+### Session Log
+| Date | What was done | Chapters completed |
+|------|--------------|-------------------|
+| 2026-05-20 | Downloaded PG #3420, parsed to 15 chapters (Dedication, Introduction, Ch1-13). Bootstrapped modern-en + modern-da scaffolds. Registered in bookRegistry.ts (not in BOOKS array yet). Translated modern-en Ch1-3 (21+17+31 = 69 paragraphs, ~7.4k words). Truncation audit clean. | modern-en Ch1-3 |
+
+### Continuation instructions for next agent
+- 12 modern-en chapters remain: Ch4 (76 paras), Ch5 (52), Ch6 (86), Ch7 (172 — the largest), Ch8 (20), Ch9 (42), Ch10 (33), Ch11 (33), Ch12 (8), Ch13 (20), Ch14 (84), Ch15 (83). Total ~77k words.
+- 15 modern-da chapters remain (full translation).
+- Pattern: `python3 read-chapter.py vindication-rights-of-woman original-en N` → write `/tmp/vrw-chN-modern-en.json` as JSON array of strings → `python3 write-chapter.py vindication-rights-of-woman modern-en N --file /tmp/vrw-chN-modern-en.json`. Same for `modern-da` (translate FROM modern-en, not original).
+- Verify with the byte-identity audit after each chapter: `python3 -c "import json; ..."` (see books/CLAUDE.md rule 16). Target: <5% identical long paragraphs vs source.
+- After ALL editions are stub-free, add `VINDICATION_RIGHTS_OF_WOMAN` to the public `BOOKS` array in bookRegistry.ts.
+- Do not start audio generation until BOTH modern-en and modern-da are stub-free and the byte-identity audit passes (rule 20).

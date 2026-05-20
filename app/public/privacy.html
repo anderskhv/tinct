@@ -14,25 +14,30 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: April 14, 2026</p>
+  <p class="updated">Last updated: May 12, 2026</p>
 
   <p>Tinct ("we", "our", "the app") is a reading platform built by Anders Hvelplund. This policy explains what data we collect and how we use it.</p>
 
   <h2>What we collect</h2>
   <p><strong>Account data:</strong> If you create an account, we store your email address and authentication credentials via Supabase (our database provider). Google sign-in users: we receive your email and name from Google.</p>
-  <p><strong>Reading data:</strong> Your reading position, highlights, notes, and chat history are stored to sync across your devices. This data is tied to your account.</p>
+  <p><strong>Reading data:</strong> Your reading position, selected book, preferences, highlights, notes, chat history, and other reading-state data are stored so the app can preserve your place and sync across your devices. If you are signed in, this data is tied to your account. If you are not signed in, some of it is stored locally in your browser.</p>
   <p><strong>Issue reports:</strong> When you report a text error, we store the selected text, your comment, and your user ID (if logged in).</p>
   <p><strong>Payment data:</strong> Payments are processed by Stripe. We do not store credit card numbers. Stripe provides us with your customer ID and transaction records.</p>
-  <p><strong>Analytics:</strong> We collect anonymous page view events (book, chapter, device type) to understand usage patterns. No personal identifiers are attached.</p>
+  <p><strong>Product analytics:</strong> We collect first-party usage events to understand whether Tinct is useful and where readers get stuck. These events can include pages viewed, book and chapter IDs, reading duration, device type, screen size, browser language, approximate country, referrer/source, chat/audio/feed/cast interactions, checkout starts, and timestamps. For signed-in users, analytics events may be associated with your user ID and account email so we can understand account-level behavior during the beta. For signed-out users, analytics are grouped by a temporary session ID.</p>
 
   <h2>What we don't collect</h2>
   <p>We do not collect location data, contacts, photos, or any data unrelated to the reading experience. We do not sell or share your data with third parties for advertising.</p>
+
+  <h2>Cookies and local storage</h2>
+  <p>Tinct uses first-party browser storage to make the app work. This includes Supabase authentication storage, reading progress, preferences, offline/cache data, and small dismissal flags for in-app notices. We also set a first-party <code>tinct_auth</code> cookie after sign-in so the homepage can route signed-in readers back into the app. We do not use third-party advertising cookies.</p>
+  <p>We may store attribution information such as UTM parameters or referrer source in browser storage to understand which links bring readers to Tinct. We also use session storage to avoid repeating some analytics lookups during a single visit.</p>
 
   <h2>AI chat</h2>
   <p>When you use the AI chat feature, your messages are sent to Anthropic's Claude API for processing. Anthropic's privacy policy applies to that interaction. We do not use your chat messages to train AI models.</p>
 
   <h2>Data storage</h2>
   <p>Your data is stored on Supabase (PostgreSQL, hosted in the EU) and Cloudflare (Workers and R2, global CDN). Audio files are stored on Cloudflare R2.</p>
+  <p>Beta analytics are used internally by Tinct to improve the product. Account-level analytics are visible only to the site administrator.</p>
 
   <h2>Your rights</h2>
   <p>You can request deletion of your account and all associated data by emailing <a href="mailto:anders@tinct.app">anders@tinct.app</a>. We will delete your data within 30 days.</p>

@@ -13,6 +13,8 @@ interface UseRemoteSyncOptions {
   provider: SupabaseStorageProvider | null
   /** Callback to apply a remote position (chapter change + reader remount) */
   onRemotePosition: (pos: ReadingPosition) => void
+  /** User-facing chapter label for sync messages. */
+  formatChapterLabel?: (chapterNumber: number) => string
 }
 
 interface UseRemoteSyncReturn {
@@ -31,6 +33,7 @@ export function useRemoteSync({
   totalPages,
   provider,
   onRemotePosition,
+  formatChapterLabel,
 }: UseRemoteSyncOptions): UseRemoteSyncReturn {
   const [followMode, setFollowMode] = useState(false)
   const [syncToast, setSyncToast] = useState<string | null>(null)
@@ -89,13 +92,14 @@ export function useRemoteSync({
     if (!provider) return
 
     const posKey = `position:${bookId}`
-    const unsubscribe = provider.onChange((key, value) => {
+    const unsubscribe = provider.onChange((key, value, meta) => {
       if (key !== posKey) return
 
       const remotePos = value as ReadingPosition
       if (!remotePos || !remotePos.chapterNumber) return
 
       const isIdle = Date.now() - lastInteractionRef.current > IDLE_TIMEOUT_MS
+      const isSameBrowserTab = meta?.source === 'broadcast'
 
       if (followMode) {
         // Follow mode: always apply remote position
@@ -108,16 +112,17 @@ export function useRemoteSync({
         // Auto-sync when idle
         ignoreNextChangeRef.current = true
         onRemotePositionRef.current(remotePos)
-        setSyncToast('Synced from your other device')
+        if (!isSameBrowserTab) setSyncToast('Reading position synced')
       } else {
         // User is active — show indicator but don't hijack
-        const chLabel = `Ch. ${remotePos.chapterNumber}`
-        setSyncToast(`Other device is on ${chLabel}`)
+        if (isSameBrowserTab) return
+        const chLabel = formatChapterLabel?.(remotePos.chapterNumber) || `Chapter ${remotePos.chapterNumber}`
+        setSyncToast(`Reading position changed elsewhere: ${chLabel}`)
       }
     })
 
     return unsubscribe
-  }, [provider, bookId, followMode])
+  }, [provider, bookId, followMode, formatChapterLabel])
 
   return {
     followMode,

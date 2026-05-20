@@ -187,6 +187,9 @@ interface ChatProps {
   /** 0-indexed array of short chapter labels; chapter N is at index N-1.
    *  Matches what App.tsx builds from primaryData.chapters. */
   chapterLabels?: string[]
+  /** Canonical chapter-number labels for books whose chapter numbers are not
+   *  array indexes, e.g. Bible absolute chapter numbers. */
+  chapterLabelByNumber?: Record<number, string>
   readingObjective?: string
   onEditObjective?: () => void
   bookId?: string
@@ -203,7 +206,7 @@ interface ChatProps {
   chatConversations?: ChatConversation[]
 }
 
-export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
+export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, chapterLabelByNumber, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
   const [input, setInput] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
@@ -459,6 +462,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   const [expandedHistoryId, setExpandedHistoryId] = useState<string | null>(null)
 
   const getChapterLabel = (chapterNum: number) => {
+    if (chapterLabelByNumber?.[chapterNum]) return chapterLabelByNumber[chapterNum]
     return chapterLabels?.[chapterNum - 1] || `Chapter ${chapterNum}`
   }
 

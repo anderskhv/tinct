@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../services/supabase'
+import { apiUrl } from '../utils/apiUrl'
 
 interface AdminMetricsDashboardProps {
   session: Session | null
@@ -17,6 +18,33 @@ interface AnalyticsRow {
   session_id: string
   payload: Record<string, any> | null
   created_at: string
+}
+
+interface AccountMetricsRow {
+  userId: string
+  email: string
+  sessions: number
+  sessions2Min: number
+  sessions10Min: number
+  readingMinutes: number
+  longestSessionMinutes: number
+  pageviews: number
+  books: number
+  chatInteractions: number
+  feedInteractions: number
+  audioBookInteractions: number
+  castInteractions: number
+  checkoutStarts: number
+  firstSeen: string
+  lastSeen: string
+}
+
+interface AccountMetricsResponse {
+  days: number
+  generatedAt: string
+  excludedAccounts: number
+  excludedSessions: number
+  users: AccountMetricsRow[]
 }
 
 type WindowDays = 1 | 7 | 14 | 30
@@ -91,8 +119,11 @@ function metricCard(label: string, value: number | string, target?: number, sub?
 export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboardProps) {
   const [days, setDays] = useState<WindowDays>(14)
   const [rows, setRows] = useState<AnalyticsRow[]>([])
+  const [accountMetrics, setAccountMetrics] = useState<AccountMetricsResponse | null>(null)
   const [loading, setLoading] = useState(false)
+  const [accountsLoading, setAccountsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [accountsError, setAccountsError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!session || !supabase) return
@@ -122,6 +153,36 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
 
     return () => { cancelled = true }
   }, [days, session])
+
+  useEffect(() => {
+    if (!session?.access_token) return
+    let cancelled = false
+    setAccountsLoading(true)
+    setAccountsError(null)
+
+    fetch(apiUrl(`/api/admin/metrics-users?days=${days}`), {
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    })
+      .then(async res => {
+        const body = await res.json().catch(() => null)
+        if (!res.ok) throw new Error(body?.error || `Request failed (${res.status})`)
+        return body as AccountMetricsResponse
+      })
+      .then(data => {
+        if (!cancelled) setAccountMetrics(data)
+      })
+      .catch(err => {
+        if (!cancelled) {
+          setAccountsError(err instanceof Error ? err.message : 'Could not load account metrics')
+          setAccountMetrics(null)
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setAccountsLoading(false)
+      })
+
+    return () => { cancelled = true }
+  }, [days, session?.access_token])
 
   const metrics = useMemo(() => {
     const pageviews = rows.filter(r => r.event_type === 'pageview')
@@ -185,7 +246,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
 
   if (!session) {
     return (
-      <main style={styles.shell}>
+      <main className="admin-metrics" style={styles.shell}>
         <section style={styles.panel}>
           <h1 style={styles.title}>Beta Metrics</h1>
           <p style={styles.muted}>Sign in with an admin account to view analytics.</p>
@@ -196,7 +257,29 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
   }
 
   return (
-    <main style={styles.shell}>
+    <main className="admin-metrics" style={styles.shell}>
+      <style>{`
+        .admin-metrics table th {
+          padding: 9px 10px;
+          border-bottom: 1px solid rgba(11, 11, 11, 0.18);
+          color: var(--dim, #6a6555);
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-align: left;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+        .admin-metrics table td {
+          padding: 10px;
+          border-bottom: 1px solid rgba(11, 11, 11, 0.09);
+          vertical-align: top;
+          white-space: nowrap;
+        }
+        .admin-metrics table tbody tr:hover {
+          background: rgba(255, 255, 255, 0.28);
+        }
+      `}</style>
       <section style={styles.header}>
         <div>
           <h1 style={styles.title}>Beta Metrics</h1>
@@ -267,6 +350,67 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       </section>
 
       <section style={styles.panel}>
+        <div style={styles.panelHeader}>
+          <div>
+            <h2 style={styles.heading}>Accounts</h2>
+            <p style={styles.muted}>
+              Signed-in usage, excluding Anders and tinct test accounts.
+              {accountsLoading ? ' Loading accounts...' : accountMetrics ? ` ${accountMetrics.users.length} account${accountMetrics.users.length === 1 ? '' : 's'} in this window.` : ''}
+            </p>
+          </div>
+          {accountMetrics && (
+            <div style={styles.metricSub}>
+              Excluded {accountMetrics.excludedAccounts} account{accountMetrics.excludedAccounts === 1 ? '' : 's'} / {accountMetrics.excludedSessions} session{accountMetrics.excludedSessions === 1 ? '' : 's'}
+            </div>
+          )}
+        </div>
+        {accountsError && <div style={styles.inlineError}>{accountsError}</div>}
+        <div style={styles.tableScroll}>
+          <table style={styles.table}>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Sessions</th>
+                <th>2+ min</th>
+                <th>10+ min</th>
+                <th>Reading</th>
+                <th>Longest</th>
+                <th>Books</th>
+                <th>Chat</th>
+                <th>Feed</th>
+                <th>Audio</th>
+                <th>Cast</th>
+                <th>Checkout</th>
+                <th>Last seen</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(accountMetrics?.users || []).map(row => (
+                <tr key={row.userId}>
+                  <td style={styles.emailCell}>{row.email}</td>
+                  <td>{row.sessions}</td>
+                  <td>{row.sessions2Min}</td>
+                  <td>{row.sessions10Min}</td>
+                  <td>{row.readingMinutes}m</td>
+                  <td>{row.longestSessionMinutes}m</td>
+                  <td>{row.books}</td>
+                  <td>{row.chatInteractions}</td>
+                  <td>{row.feedInteractions}</td>
+                  <td>{row.audioBookInteractions}</td>
+                  <td>{row.castInteractions}</td>
+                  <td>{row.checkoutStarts}</td>
+                  <td>{new Date(row.lastSeen).toLocaleDateString()}</td>
+                </tr>
+              ))}
+              {!accountsLoading && accountMetrics?.users.length === 0 && (
+                <tr><td colSpan={13} style={styles.emptyCell}>No signed-in account usage in this window.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section style={styles.panel}>
         <h2 style={styles.heading}>Launch Gate</h2>
         <p style={styles.muted}>
           Full launch is green when the first five cards hit their targets and severe mobile/audio/reading bugs are quiet.
@@ -311,8 +455,13 @@ const styles: Record<string, CSSProperties> = {
   progressFill: { height: '100%', background: 'var(--accent, #1f4a5c)' },
   twoCol: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 12, marginBottom: 12 },
   panel: { border: '1px solid rgba(11,11,11,0.16)', borderRadius: 6, padding: 18, background: 'rgba(255,255,255,0.22)' },
+  panelHeader: { display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'flex-start', marginBottom: 12 },
   heading: { fontFamily: "'Playfair Display', Georgia, serif", fontSize: 21, margin: '0 0 12px' },
   table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 },
+  tableScroll: { overflowX: 'auto', width: '100%' },
+  emailCell: { minWidth: 210, fontWeight: 600 },
+  emptyCell: { padding: '14px 0', color: 'var(--dim, #6a6555)' },
+  inlineError: { color: '#9b2c2c', margin: '10px 0', fontSize: 13 },
   button: { border: '1px solid var(--ink, #0b0b0b)', borderRadius: 4, background: 'var(--ink, #0b0b0b)', color: 'var(--paper, #ece7db)', padding: '10px 14px', marginTop: 16, cursor: 'pointer' },
   error: { border: '1px solid #9b2c2c', color: '#9b2c2c', borderRadius: 6, padding: 12, marginBottom: 12 },
 }

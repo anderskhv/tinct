@@ -57,6 +57,7 @@ import { apiUrl } from './utils/apiUrl'
 import { trackEvent, trackPageview } from './utils/analytics'
 import { getAttributionPayload } from './utils/attribution'
 import { resolveAudioUrl } from './utils/audioUrl'
+import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 
@@ -77,6 +78,18 @@ function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): Readi
 }
 
 type ReaderSyncSignal = { chapterNumber: number; paragraph: number; nonce: number }
+const SUPABASE_CRITICAL_INIT_TIMEOUT_MS = 5000
+const SUPABASE_FOCUS_REFRESH_TIMEOUT_MS = 4000
+
+function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promise<T> {
+  let timeout: ReturnType<typeof setTimeout> | null = null
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeout = setTimeout(() => reject(new Error(message)), ms)
+  })
+  return Promise.race([promise, timeoutPromise]).finally(() => {
+    if (timeout) clearTimeout(timeout)
+  })
+}
 
 export default function App() {
   const [currentBookId, setCurrentBookId] = useState(() => {
@@ -107,6 +120,10 @@ export default function App() {
   // Swap storage provider when user signs in/out — enables cross-device sync
   // Start false to prevent hooks from writing defaults before cloud data loads
   const [storageReady, setStorageReady] = useState(false)
+  // Signed-in startup has a second gate after storage is available: the app
+  // must apply the cloud/local winning position before the reader, analytics,
+  // or position writers see the old in-memory chapter from localStorage.
+  const [cloudRestoreSettled, setCloudRestoreSettled] = useState(false)
   // Bumped each time Supabase init successfully populates the cache. The
   // cloud-restore effect watches this so it can re-fire when init lands AFTER
   // the 5s timeout already flipped storageReady=true. Without this, a slow
@@ -118,78 +135,90 @@ export default function App() {
     // Wait for auth to resolve before deciding on storage provider
     if (authLoading) return
     if (user) {
+      setStorageReady(false)
+      setCloudRestoreSettled(false)
       // Signed-in: turn off anonymous restrictions so the SupabaseStorageProvider's
       // localStorage cache mirroring works for all keys.
       setAnonymousMode(false)
       const provider = new SupabaseStorageProvider(user.id)
-      // Timeout: if Supabase init takes >5s, proceed with localStorage (don't block the app)
-      const initTimeout = setTimeout(() => {
-        console.warn('[App] Supabase init timeout — proceeding with localStorage')
-        setStorageReady(true)
-      }, 5000)
-      provider.init().then(() => {
-        clearTimeout(initTimeout)
-        // Detect user-switch on this device: if the last-known user id differs
-        // from the one signing in now, the localStorage cache belongs to a
-        // different account and must NOT migrate to this user's cloud row.
-        // (Without this, signing out and creating a new account inherited the
-        // previous account's library, journals, and chats — both locally and
-        // in the new Supabase row.)
-        const LAST_USER_KEY = 'tinct:last-user-id'
-        const lastUserId = localStorage.getItem(LAST_USER_KEY)
-        const isUserSwitch = lastUserId !== null && lastUserId !== user.id
-        if (isUserSwitch) {
-          clearLocalUserData()
-        } else {
-          // Same user returning OR first-ever sign-in (anonymous → account):
-          // migrate localStorage entries up to cloud where cloud is empty.
-          // For position keys, use shouldMigrateLocalToCloud which adds the
-          // anonymous-default-state guard: a default-shaped local must NEVER
-          // overwrite a real cloud value, even with a fresher updatedAt.
-          // (Anonymous-mode testing previously polluted real cloud positions
-          // because anonymous's Date.now() was newer than yesterday's reading.
-          // Diagnosed 2026-05-06.)
-          const localData = localStorageProvider.getAllData()
-          for (const [key, value] of Object.entries(localData)) {
-            const cloudValue = provider.get(key)
-            if (!cloudValue) {
-              provider.set(key, value)
-            } else if (key.startsWith('position:')) {
-              if (shouldMigrateLocalToCloud({
-                local: value as ReadingPosition,
-                cloud: cloudValue as ReadingPosition,
-              })) {
-                provider.set(key, value)
-              }
-            }
-          }
-        }
-        try { localStorage.setItem(LAST_USER_KEY, user.id) } catch { /* ignore */ }
+      const LAST_USER_KEY = 'tinct:last-user-id'
+      const lastUserId = localStorage.getItem(LAST_USER_KEY)
+      const isUserSwitch = lastUserId !== null && lastUserId !== user.id
+      if (isUserSwitch) {
+        clearLocalUserData()
+      }
+      try { localStorage.setItem(LAST_USER_KEY, user.id) } catch { /* ignore */ }
+      let cancelled = false
+      let providerInstalled = false
+      const installProvider = () => {
+        if (cancelled || providerInstalled) return
+        providerInstalled = true
         setStorageProvider(provider)
         supabaseProviderRef.current = provider
         // Start real-time sync for cross-device updates. This is best-effort
         // — when CSP or a corp firewall blocks WebSockets, subscribe() throws.
         // We must NOT let that failure prevent the rest of init from completing,
         // because losing the storage provider here means every write falls back
-        // to localStorage and never reaches Supabase. (That was the silent bug
-        // since 2026-04-22: CSP missed wss://, subscribe() threw, the catch
-        // below ran instead of setStorageProvider(), and we lost cloud sync.)
+        // to localStorage and never reaches Supabase.
         try {
           provider.subscribe()
         } catch (e) {
           console.warn('[App] Supabase realtime subscribe failed (continuing without live sync):', e)
         }
         setStorageReady(true)
+      }
+      // Timeout: if critical restore takes >5s, render from the signed-in
+      // local mirror instead of leaving the app permanently on the loading shell.
+      // When Supabase eventually resolves, supabaseInitTick re-runs restore with
+      // the real cloud cache and corrects the reader before future writes.
+      const initTimeout = setTimeout(() => {
+        console.warn('[App] Supabase critical init timeout — rendering from local mirror while cloud restore continues')
+        installProvider()
+      }, SUPABASE_CRITICAL_INIT_TIMEOUT_MS)
+      provider.initCritical().then(() => {
+        clearTimeout(initTimeout)
+        installProvider()
         setSupabaseInitTick(t => t + 1)
+        // Fill the broader Phase A cache after the reader has enough data to
+        // restore accurately. Migration waits for this fuller query so we do
+        // not mistake "not loaded by critical restore" for "missing in cloud".
+        provider.init().then(() => {
+          if (!isUserSwitch) {
+            // Same user returning OR first-ever sign-in (anonymous → account):
+            // migrate localStorage entries up to cloud where cloud is empty.
+            // For position keys, use shouldMigrateLocalToCloud which adds the
+            // anonymous-default-state guard: a default-shaped local must NEVER
+            // overwrite a real cloud value, even with a fresher updatedAt.
+            // (Anonymous-mode testing previously polluted real cloud positions
+            // because anonymous's Date.now() was newer than yesterday's reading.
+            // Diagnosed 2026-05-06.)
+            const localData = localStorageProvider.getAllData()
+            for (const [key, value] of Object.entries(localData)) {
+              const cloudValue = provider.get(key)
+              if (!cloudValue) {
+                provider.set(key, value)
+              } else if (key.startsWith('position:')) {
+                if (shouldMigrateLocalToCloud({
+                  local: value as ReadingPosition,
+                  cloud: cloudValue as ReadingPosition,
+                })) {
+                  provider.set(key, value)
+                }
+              }
+            }
+          }
+          setSupabaseInitTick(t => t + 1)
+        }).catch((err) => {
+          console.warn('[App] Supabase full init failed after critical restore:', err)
+        })
       }).catch((err) => {
-        console.error('[App] Supabase init failed:', err)
+        console.error('[App] Supabase critical init failed:', err)
         clearTimeout(initTimeout)
         // Even on init failure, install the provider so writes still hit
         // Supabase via REST. Cache will be empty (no preload) but writes will
         // succeed. Far better than silently dropping every write.
-        setStorageProvider(provider)
-        supabaseProviderRef.current = provider
-        setStorageReady(true)
+        installProvider()
+        setCloudRestoreSettled(true)
       })
       // Auto-retry init() when network comes back. Without this, an offline
       // boot leaves the user in a degraded state (localStorage only, no cloud
@@ -205,6 +234,7 @@ export default function App() {
       window.addEventListener('online', handleOnline)
       // Cleanup: remove the listener and unsubscribe when this effect re-runs.
       return () => {
+        cancelled = true
         window.removeEventListener('online', handleOnline)
         clearTimeout(initTimeout)
         supabaseProviderRef.current?.unsubscribe()
@@ -222,6 +252,7 @@ export default function App() {
       // class of "anonymous testing pollutes signed-in cloud" bugs at the
       // source — there's nothing in localStorage to migrate.
       setAnonymousMode(true)
+      setCloudRestoreSettled(true)
       // One-time wipe migration. Devices that accumulated data from before
       // this rule shipped need a clean slate. Flag prevents repeated wipes.
       try {
@@ -481,6 +512,8 @@ export default function App() {
 
   // Analytics: track pageviews on book/chapter/view changes
   useEffect(() => {
+    if (!storageReady) return
+    if (user?.id && !cloudRestoreSettled) return
     let path: string
     if (showStore) {
       path = '/store'
@@ -490,7 +523,7 @@ export default function App() {
       path = `/read/${currentBookId}/${currentChapter}`
     }
     trackPageview(path, user?.id)
-  }, [currentBookId, currentChapter, showStore, showUsageDashboard, user?.id])
+  }, [currentBookId, currentChapter, showStore, showUsageDashboard, user?.id, storageReady, cloudRestoreSettled])
 
   // Fetch user's confirmed fixes count when dashboard opens
   useEffect(() => {
@@ -533,7 +566,7 @@ export default function App() {
     // localStorage still empty (post-wipe device), the restore got null
     // and was permanently blocked. Now: re-attempt on every supabaseInitTick
     // until we actually have cloud data.
-    if (!hasRestoredFromCloud.current) {
+    if (!hasRestoredFromCloud.current && supabaseInitTick > 0) {
       const cloudPos = getSavedPosition(targetBookId)
       // Mark cloud-known chapter so the regression guard knows what the
       // authoritative position is. Without this, the first heartbeat
@@ -565,6 +598,7 @@ export default function App() {
         }
       }
     }
+    setCloudRestoreSettled(true)
   }, [storageReady, supabaseInitTick, user, book.id, currentBookId, refreshFromStorage, refreshLibrary])
 
   // Real-time cross-device sync: listen for remote preference changes
@@ -715,10 +749,21 @@ export default function App() {
       if (document.visibilityState !== 'visible') return
       const provider = supabaseProviderRef.current
       if (!provider || !user) return
+      if (!storageReady || !cloudRestoreSettled) return
+      if (showStore || libraryEmpty) return
       const now = Date.now()
       if (now - lastSyncRef.current < 5000) return // debounce 5s
       lastSyncRef.current = now
-      await provider.refresh(book.id)
+      try {
+        await withTimeout(
+          provider.refresh(book.id),
+          SUPABASE_FOCUS_REFRESH_TIMEOUT_MS,
+          '[App] Supabase focus refresh timed out'
+        )
+      } catch (e) {
+        console.warn('[App] Supabase focus refresh failed:', e)
+        return
+      }
       // If the cloud's current-book pointer has changed (user opened a
       // different book on another device), switch to it. Without this,
       // two devices stay on their own last-opened book even after sync.
@@ -789,7 +834,7 @@ export default function App() {
     }
     document.addEventListener('visibilitychange', handleVisibility)
     return () => document.removeEventListener('visibilitychange', handleVisibility)
-  }, [user, book.id, currentChapter, currentPage, totalPages, totalChapters])
+  }, [user, book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, cloudRestoreSettled, showStore, libraryEmpty])
 
 
   // Get current chapter data early so we can pass context to chat
@@ -809,7 +854,14 @@ export default function App() {
     setCurrentChapter(totalChapters)
   }
   const primaryChapter = primaryData?.chapters.find(c => c.number === currentChapter)
-  const chapterTitle = primaryChapter?.title || `Chapter ${currentChapter}`
+  const primaryChapterIndex = primaryData?.chapters.findIndex(c => c.number === currentChapter) ?? -1
+  const chapterTitle = normalizeChapterTitle(primaryChapter?.title || `Chapter ${currentChapter}`)
+
+  useEffect(() => {
+    document.title = primaryChapter
+      ? `${book.title} — ${chapterTitle} | Tinct`
+      : `${book.title} | Tinct`
+  }, [book.title, chapterTitle, primaryChapter])
 
   // Absolute page numbers: content-based, device-independent (~1500 chars per page)
   const CHARS_PER_PAGE = 1500
@@ -829,33 +881,33 @@ export default function App() {
     let totalChars = 0, charsBefore = 0
     primaryData.chapters.forEach((ch, i) => {
       const chChars = ch.paragraphs.reduce((s, p) => s + p.length, 0)
-      if (i < currentChapter - 1) charsBefore += chChars
-      else if (i === currentChapter - 1)
+      if (primaryChapterIndex >= 0 && i < primaryChapterIndex) charsBefore += chChars
+      else if (i === primaryChapterIndex)
         charsBefore += ch.paragraphs.slice(0, firstVisibleParagraph).reduce((s, p) => s + p.length, 0)
       totalChars += chChars
     })
     const total = Math.max(1, Math.ceil(totalChars / CHARS_PER_PAGE))
     return { current: Math.min(Math.floor(charsBefore / CHARS_PER_PAGE) + 1, total), total }
-  }, [primaryData, currentChapter, firstVisibleParagraph])
+  }, [primaryData, primaryChapterIndex, firstVisibleParagraph])
 
   // Short labels for chapter dropdown
   const chapterLabels = useMemo(() => {
     if (!primaryData) return []
     return primaryData.chapters.map(c => {
-      const parts = c.title.split(' — ')
+      const parts = normalizeChapterTitle(c.title).split(' — ')
       return parts[0]
     })
   }, [primaryData])
 
-  // 1-indexed map of chapter number → label, used by code paths that key on
-  // the canonical chapter number (chat ambient grounding, divider rendering)
-  // rather than the array index. Built from chapterLabels so there's still
-  // one source of truth.
+  // Canonical chapter-number → label map. Do not derive this from array index:
+  // the Bible uses absolute chapter numbers (e.g. Romans 7 = 1053).
   const chapterLabelByNumber = useMemo(() => {
     const m: Record<number, string> = {}
-    chapterLabels.forEach((label, idx) => { m[idx + 1] = label })
+    primaryData?.chapters.forEach(ch => {
+      m[ch.number] = normalizeChapterTitle(ch.title).split(' — ')[0]
+    })
     return m
-  }, [chapterLabels])
+  }, [primaryData])
 
   // Approximate visible paragraphs based on current page position
   const visibleParagraphs = useMemo(() => {
@@ -1184,6 +1236,16 @@ export default function App() {
 
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
+    if (bookId === currentBookId) {
+      storage.set('tinct-current-book', bookId)
+      try {
+        const newPath = `/read/${bookId}`
+        if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
+          window.history.replaceState(null, '', newPath + window.location.search + window.location.hash)
+        }
+      } catch { /* ignore */ }
+      return
+    }
     perfStartSwitch(bookId)
     perfFirstPaintFiredRef.current = false
     perfPositionRestoredFiredRef.current = false
@@ -1220,7 +1282,7 @@ export default function App() {
     targetParagraphRef.current = pos?.lastParagraphIndex
     clearMessages()
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
-  }, [clearMessages])
+  }, [clearMessages, currentBookId])
 
   const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter, totalChapters, heavyLoadedTick)
   const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter, totalChapters, heavyLoadedTick)
@@ -1241,6 +1303,8 @@ export default function App() {
   // write-enabled because the user is mid-reading and likely to resume on
   // the same page. If you add a new full-screen overlay, ADD IT HERE.
   const writeSuspended =
+    (!!user?.id && !cloudRestoreSettled) ||
+    (!!user?.id && supabaseInitTick === 0) ||
     showAuthModal ||
     showPricingModal ||
     showStore ||
@@ -1369,6 +1433,7 @@ export default function App() {
     totalPages,
     provider: supabaseProviderRef.current,
     onRemotePosition: handleRemotePosition,
+    formatChapterLabel: (chapterNumber) => chapterLabelByNumber[chapterNumber] || `Chapter ${chapterNumber}`,
   })
 
   // Surface the syncToast through the existing toast UI so we don't ship a
@@ -1430,11 +1495,13 @@ export default function App() {
     bookTotalPages: bookAbsolutePage.total,
     chapterPercentComplete,
     chapterTimeLabel,
-    locationCurrent: primaryData ? primaryData.chapters.slice(0, currentChapter - 1).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0) : 0,
+    locationCurrent: primaryData && primaryChapterIndex >= 0
+      ? primaryData.chapters.slice(0, primaryChapterIndex).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0)
+      : 0,
     locationTotal: primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0,
     locationCurrentChapter: firstVisibleParagraph,
     locationTotalChapter: primaryChapter?.paragraphs.length,
-  }), [preferences.progressDisplay, readingPercent, timeRemainingLabel, isSpeedLearned, currentPage, totalPages, absolutePage, bookAbsolutePage, chapterPercentComplete, chapterTimeLabel, primaryData, primaryChapter, currentChapter, firstVisibleParagraph])
+  }), [preferences.progressDisplay, readingPercent, timeRemainingLabel, isSpeedLearned, currentPage, totalPages, absolutePage, bookAbsolutePage, chapterPercentComplete, chapterTimeLabel, primaryData, primaryChapterIndex, primaryChapter, firstVisibleParagraph])
 
 
   // Navigate to a chapter (and optionally a paragraph/edition) from side panel
@@ -2358,7 +2425,7 @@ export default function App() {
       last.id !== lastRecordedMsgRef.current
     ) {
       lastRecordedMsgRef.current = last.id
-      recordMessage(last, currentChapter, firstVisibleParagraph)
+      recordMessage(last, last.chapterNumber ?? currentChapter, firstVisibleParagraph)
     }
   }, [messages, recordMessage, currentChapter, firstVisibleParagraph])
 
@@ -2514,7 +2581,6 @@ export default function App() {
 
   // Chapter reflection
   const handleReflect = useCallback(() => {
-    const chapterTitle = primaryChapter?.title || `Book ${currentChapter}`
     const reflectPrompt = `I've just finished reading ${chapterTitle} of ${book.title}. Help me reflect on the key themes, memorable moments, and anything I might have missed.`
     trackEvent('chapter_reflection_started', {
       book_id: book.id,
@@ -2527,7 +2593,7 @@ export default function App() {
       togglePanel()
     }
     sendMessage(reflectPrompt)
-  }, [primaryChapter, currentChapter, book.id, book.title, user?.id, setPanelTab, isMobile, setActiveView, preferences.panelOpen, togglePanel, sendMessage])
+  }, [chapterTitle, currentChapter, book.id, book.title, user?.id, setPanelTab, isMobile, setActiveView, preferences.panelOpen, togglePanel, sendMessage])
 
   const handleAudioPlayStateChange = useCallback((playing: boolean) => {
     setAudioIsPlaying(playing)
@@ -2753,14 +2819,28 @@ export default function App() {
 
   const validReadSyncSignal = readSyncSignal?.chapterNumber === currentChapter ? readSyncSignal : undefined
   const validCompareSyncSignal = compareSyncSignal?.chapterNumber === currentChapter ? compareSyncSignal : undefined
+  const trackPanelTabOpened = useCallback((tab: 'chat' | 'notes' | 'threads') => {
+    if (tab === 'notes') {
+      trackEvent('feed_opened', { book_id: book.id, chapter_number: currentChapter }, user?.id)
+    } else if (tab === 'threads') {
+      trackEvent('cast_opened', { book_id: book.id, chapter_number: currentChapter }, user?.id)
+    }
+  }, [book.id, currentChapter, user?.id])
+
   const handleMobileViewSelect = useCallback((view: 0 | 1 | 2 | 3 | 4, tab?: 'chat' | 'notes' | 'threads') => {
     if (Date.now() < mobileNavLockUntilRef.current) return
-    if (tab) setPanelTab(tab)
+    if (tab) {
+      setPanelTab(tab)
+      trackPanelTabOpened(tab)
+    }
     setActiveView(view)
-  }, [setPanelTab])
+  }, [setPanelTab, trackPanelTabOpened])
 
-  // Show loading skeleton while auth + storage are resolving (prevents writing defaults to cloud)
-  if (!storageReady) {
+  // Show loading skeleton while auth/storage/cloud restore are resolving.
+  // For signed-in users, storageReady alone is not enough: there is one render
+  // between Supabase cache hydration and the effect that applies the saved
+  // book/chapter. Rendering during that gap flashes/tracks stale localStorage.
+  if (!storageReady || (!!user?.id && !cloudRestoreSettled)) {
     return (
       <div className="app">
         <div className="loading-shell">
@@ -3177,8 +3257,8 @@ export default function App() {
           setAudioStripOpen(o => !o)
         }}
         onOpenSearch={() => setShowSearch(true)}
-        onOpenNotes={() => { setPanelTab('notes'); if (isMobile) setActiveView(3) }}
-        onOpenCast={() => { setPanelTab('threads'); if (isMobile) setActiveView(4) }}
+        onOpenNotes={() => { setPanelTab('notes'); trackPanelTabOpened('notes'); if (isMobile) setActiveView(3) }}
+        onOpenCast={() => { setPanelTab('threads'); trackPanelTabOpened('threads'); if (isMobile) setActiveView(4) }}
         fontSize={preferences.fontSize}
         onFontSizeChange={(size: FontSize) => {
           const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
@@ -3308,7 +3388,7 @@ export default function App() {
                   key={`${currentChapter}-${readerKey}`}
                   isActive={activeView === 0}
                   paragraphs={primaryChapter?.paragraphs || []}
-                  chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                  chapterTitle={chapterTitle}
                   progressLabel={progressLabel}
                   editionLabel={editionLabel}
                   isLoading={isLoading}
@@ -3331,6 +3411,10 @@ export default function App() {
                   isAudioPlaying={audioIsPlaying}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
+                  bookId={book.id}
+                  editionKey={primaryEditionKey}
+                  currentChapter={currentChapter}
+                  authToken={session?.access_token}
                   panelOpen={preferences.panelOpen}
                   fontSize={preferences.fontSize}
                   fontFamily={preferences.fontFamily}
@@ -3346,8 +3430,7 @@ export default function App() {
                   key={`mobile-compare-${currentChapter}-${splitEditionKey}-${readerKey}`}
                   isActive={activeView === 1}
                   paragraphs={splitChapter.paragraphs}
-                  chapterTitle={`${splitChapter.title || `Book ${currentChapter}`}`}
-                  progressLabel={progressLabel}
+                  chapterTitle={normalizeChapterTitle(splitChapter.title || `Book ${currentChapter}`)}
                   isLoading={isLoading}
                   highlights={getEditionHighlights(splitEditionKey)}
                   onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color)}
@@ -3368,6 +3451,10 @@ export default function App() {
                   isAudioPlaying={audioIsPlaying}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
+                  bookId={book.id}
+                  editionKey={splitEditionKey}
+                  currentChapter={currentChapter}
+                  authToken={session?.access_token}
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                   onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
                   onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
@@ -3389,6 +3476,7 @@ export default function App() {
                   activeTab={viewIndex === 2 ? 'chat' : viewIndex === 3 ? 'notes' : 'threads'}
                   onTabChange={(tab) => {
                     setPanelTab(tab)
+                    trackPanelTabOpened(tab)
                     setActiveView(tab === 'chat' ? 2 : tab === 'notes' ? 3 : 4)
                   }}
                   messages={messages}
@@ -3412,6 +3500,7 @@ export default function App() {
                   allBookHighlights={getAllBookHighlights()}
                   allBookNotes={getAllBookNotes()}
                   chapterLabels={chapterLabels}
+                  chapterLabelByNumber={chapterLabelByNumber}
                   readingLog={readingLog}
                   totalChapters={totalChapters}
                   sections={primaryData?.sections}
@@ -3459,7 +3548,7 @@ export default function App() {
                 key={`split-${currentChapter}-${readerKey}`}
                 leftParagraphs={primaryChapter?.paragraphs || []}
                 rightParagraphs={splitChapter?.paragraphs || []}
-                chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                chapterTitle={chapterTitle}
                 progressLabel={progressLabel}
                 leftLabel={editionLabel}
                 rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
@@ -3506,7 +3595,7 @@ export default function App() {
               <Reader
                 key={`${currentChapter}-${readerKey}`}
                 paragraphs={primaryChapter?.paragraphs || []}
-                chapterTitle={primaryChapter?.title || `Book ${currentChapter}`}
+                chapterTitle={chapterTitle}
                 progressLabel={progressLabel}
                 editionLabel={editionLabel}
                 isLoading={isLoading}
@@ -3547,7 +3636,10 @@ export default function App() {
             <SidePanel
               isOpen={preferences.panelOpen}
               activeTab={preferences.panelTab}
-              onTabChange={setPanelTab}
+              onTabChange={(tab) => {
+                setPanelTab(tab)
+                trackPanelTabOpened(tab)
+              }}
               onOpenPanel={() => { if (!preferences.panelOpen) togglePanel() }}
               onClosePanel={() => { if (preferences.panelOpen) togglePanel() }}
               messages={messages}
@@ -3571,6 +3663,7 @@ export default function App() {
               allBookHighlights={getAllBookHighlights()}
               allBookNotes={getAllBookNotes()}
               chapterLabels={chapterLabels}
+              chapterLabelByNumber={chapterLabelByNumber}
               readingLog={readingLog}
               totalChapters={totalChapters}
               sections={primaryData?.sections}
@@ -3598,7 +3691,7 @@ export default function App() {
 
       {showToc && primaryData && (
         <TocOverlay
-          chapters={primaryData.chapters.map(c => ({ number: c.number, title: c.title }))}
+          chapters={primaryData.chapters.map(c => ({ number: c.number, title: normalizeChapterTitle(c.title) }))}
           currentChapter={currentChapter}
           onSelectChapter={(n) => handleNavigateToChapter(n)}
           onClose={() => setShowToc(false)}
@@ -3609,7 +3702,7 @@ export default function App() {
 
       {showSearch && primaryData && (
         <SearchOverlay
-          chapters={primaryData.chapters}
+          chapters={primaryData.chapters.map(c => ({ ...c, title: normalizeChapterTitle(c.title) }))}
           sections={primaryData.sections}
           currentChapter={currentChapter}
           onNavigate={(chapter, paragraphIndex) => {

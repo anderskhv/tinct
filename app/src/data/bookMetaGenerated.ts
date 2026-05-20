@@ -108,6 +108,10 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     title: 'Read Crito by Plato — Free Online with AI Companion | Tinct',
     description: 'Socrates is in prison awaiting execution. His friend Crito comes at dawn with an escape plan. Socrates refuses — and walks Crito through the argument: justice matters more than life, and a citizen has a contract with the laws of his city. The shortest, most direct of Plato\'s prison dialogues.',
   },
+  'phaedrus': {
+    title: 'Read Phaedrus by Plato — Free Online with AI Companion | Tinct',
+    description: 'Socrates and Phaedrus walk outside Athens to a plane tree by the Ilissus, where Phaedrus reads a speech by Lysias arguing that the non-lover should be preferred to the lover. Socrates answers with two speeches of his own — and the second, the great Palinode, unfolds the soul as a winged charioteer, the immortality of the soul, and divine madness as the source of every great good. The dialogue closes with the famous critique of writing: the myth of Theuth and Thamus, and Socrates\' warning that the written word is a reminder, not a teacher.',
+  },
   'poetics': {
     title: 'Read Poetics by Aristotle — Free Online with AI Companion | Tinct',
     description: 'The earliest surviving work of dramatic theory in Western literature. Aristotle defines tragedy, dissects plot and character, and explains why a story moves us — laying the foundation that every subsequent theory of drama, fiction, and storytelling has built on.',
@@ -279,5 +283,9 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
   'discourse-on-inequality': {
     title: 'Read Discourse on the Origin of Inequality by Jean-Jacques Rousseau — Free Online with AI Companion | Tinct',
     description: 'Rousseau asks how human beings, who came into the world equal, ended up so radically unequal — and answers that the answer is not in nature but in property, civilization, and the institutions we built to defend them. The argument that set up The Social Contract and put the French Revolution in motion.',
+  },
+  'jekyll-and-hyde': {
+    title: 'Read Strange Case of Dr Jekyll and Mr Hyde by Robert Louis Stevenson — Free Online with AI Companion | Tinct',
+    description: 'The lawyer Utterson investigates the strange friendship of his upright client Dr Jekyll with the brutish, hated Mr Hyde — and uncovers the experiment that gave English its phrase for the divided self. A short, vicious tale of respectability and the appetites it conceals.',
   },
 }

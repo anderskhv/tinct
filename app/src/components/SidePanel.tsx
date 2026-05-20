@@ -44,6 +44,7 @@ interface SidePanelProps {
   allBookHighlights: Highlight[]
   allBookNotes: Note[]
   chapterLabels: string[]
+  chapterLabelByNumber?: Record<number, string>
   readingLog: BookReadingLog
   totalChapters: number
   /** Hierarchical sections for Feed grouping (e.g., Bible sections) */
@@ -113,6 +114,7 @@ export function SidePanel(props: SidePanelProps) {
     allBookHighlights,
     allBookNotes,
     chapterLabels,
+    chapterLabelByNumber,
     readingLog,
     totalChapters,
     sections,
@@ -182,7 +184,8 @@ export function SidePanel(props: SidePanelProps) {
         onCopyToNotes={onCopyToNotes}
         bookTitle={bookTitle}
         chapterTitle={chapterTitle}
-        chapterLabels={Object.fromEntries(chapterLabels.map((label, i) => [i + 1, label]))}
+        chapterLabels={chapterLabels}
+        chapterLabelByNumber={chapterLabelByNumber}
         readingObjective={readingObjective}
         onEditObjective={onEditObjective}
         bookId={bookId}
