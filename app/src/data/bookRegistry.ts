@@ -1118,6 +1118,7 @@ export const PHAEDRUS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -1125,6 +1126,7 @@ export const PHAEDRUS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -2168,6 +2170,7 @@ export const UTILITARIANISM: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -2175,6 +2178,7 @@ export const UTILITARIANISM: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -2612,6 +2616,7 @@ export const HEART_OF_DARKNESS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -2619,6 +2624,7 @@ export const HEART_OF_DARKNESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -2656,6 +2662,7 @@ export const DISCOURSE_ON_INEQUALITY: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -2663,6 +2670,7 @@ export const DISCOURSE_ON_INEQUALITY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -2729,8 +2737,12 @@ export const JEKYLL_AND_HYDE: Book = {
   coverAccent: '#a83232',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Stevenson (1886)', year: 1886, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
