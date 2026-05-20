@@ -894,18 +894,20 @@ export function Reader({
     // surroundContents throws when the range spans multiple elements — in
     // that case we just skip the preview, popup still works.
     clearSelectionPreview()
+    let previewCreated = false
     try {
       const previewRange = selection.getRangeAt(0).cloneRange()
       const mark = document.createElement('mark')
       mark.className = 'tinct-selection-preview'
       previewRange.surroundContents(mark)
       selectionPreviewMarkRef.current = mark
+      previewCreated = true
     } catch { /* range crosses element boundaries — skip visual preview */ }
 
     // Mobile: clear the native selection so Safari's edit menu doesn't
     // compete with ours. Text is captured in popup state + visible via the
     // preview mark above; user acts through our UI (Copy, Highlight, etc.).
-    if (window.matchMedia('(max-width: 768px)').matches) {
+    if (previewCreated && window.matchMedia('(max-width: 768px)').matches) {
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
   }, [paragraphs, readerRef, disableHighlight, clearSelectionPreview])
@@ -1195,6 +1197,12 @@ export function Reader({
             <span className="chapter-stamp">&sect; Chapter {currentChapter}</span>
           )}
           <h2 className="chapter-title">{chapterTitle}</h2>
+          {currentChapter === 1 && editionLabel && (
+            <div className="chapter-edition-label">
+              <span className="chapter-edition-kicker">You are reading</span>
+              <span className="chapter-edition-name">{editionLabel}</span>
+            </div>
+          )}
           <div className="chapter-rule" aria-hidden="true">
             <div className="chapter-rule-line" />
             <div className="chapter-rule-diamond" />

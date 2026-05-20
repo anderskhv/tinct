@@ -1312,6 +1312,34 @@ body {
   line-height: 1.2;
 }
 
+.chapter-edition-label,
+.split-edition-intro {
+  margin: 12px auto 0;
+}
+
+.chapter-edition-label {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  max-width: min(440px, 90%);
+}
+
+.chapter-edition-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.chapter-edition-name {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.25;
+  color: var(--text-secondary);
+}
+
 .translator-info {
   font-size: 0.85rem;
   color: var(--text-tertiary);
@@ -1527,14 +1555,18 @@ body {
    washed out, the user loses sight of what they're highlighting (Bug B,
    2026-05-08). Keep these colors in sync with ::selection above. */
 .tinct-selection-preview {
-  background: var(--bg-highlight);
+  background: color-mix(in srgb, var(--accent) 34%, var(--bg-highlight));
   color: var(--text-primary);
   border-radius: 2px;
   padding: 0 1px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 [data-theme="dark"] .tinct-selection-preview {
-  background: var(--accent);
+  background: color-mix(in srgb, var(--accent) 72%, #ffffff 8%);
   color: var(--text-inverse);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--text-inverse) 45%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
 }
 
 .popup-icon-btn-delete {
@@ -2531,7 +2563,10 @@ body {
 }
 
 .split-row {
-  break-inside: avoid;
+  /* Let very tall paired paragraphs fragment across paginated columns. When
+     this was `avoid`, rows taller than one visible page had no legal place to
+     go and browsers could clip text at the page top/bottom in Compare. */
+  break-inside: auto;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -2553,18 +2588,32 @@ body {
   padding-left: 24px;
 }
 
-/* Inside split-pane, paragraphs are paired by .split-row (break-inside:
-   avoid). The global .text-paragraph rule sets orphans/widows: 1 for the
-   single-pane drop-cap fix — but in split-pane that hint encouraged Safari
-   to fragment rows mid-paragraph across pages, leaving partial-line
-   residue at the top of the next page (visible as a "horizontal line
-   cutting through" the first line) and visually offsetting the two
-   columns. Inside split-pane we want paragraphs to stay whole; the row
-   either fits on the page or breaks to the next page as a unit. */
+/* Compare content must be allowed to fragment when a single aligned pair is
+   taller than one paginated viewport. Avoiding all breaks preserved alignment
+   for short paragraphs but clipped long passages in CSS columns. */
 .split-row .text-paragraph {
-  break-inside: avoid;
+  break-inside: auto;
   orphans: 2;
   widows: 2;
+}
+
+.split-edition-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  text-align: left;
+}
+
+.split-edition-intro-card {
+  border-top: 1px solid var(--border-light);
+  padding-top: 10px;
+  min-width: 0;
+}
+
+.split-edition-intro-card .chapter-edition-kicker,
+.split-edition-intro-card .chapter-edition-name {
+  display: block;
 }
 
 /* ===== Chapter End ===== */
@@ -6941,25 +6990,63 @@ body {
     cursor: default;
   }
 
-  /* Selection popup on mobile: keep the computed position (close to the
-     selection) — post-render viewport clamp in Reader.tsx handles overflow.
-     Cap width so long toolbars never exceed the screen. */
+  /* Selection popup on mobile: use a bottom action sheet. Touch users do not
+     get useful hover tooltips, so labels stay visible and actions have room. */
   .selection-popup {
-    max-width: calc(100vw - 12px);
-    padding: 4px 6px;
-    gap: 0;
+    left: 8px !important;
+    right: 8px;
+    top: auto !important;
+    bottom: calc(42px + env(safe-area-inset-bottom, 0px));
+    transform: none !important;
+    max-width: none;
+    width: auto;
+    max-height: min(70vh, 520px);
+    padding: 8px;
+    gap: 4px;
+    border-radius: 12px;
+    white-space: normal;
+    align-items: stretch;
   }
 
-  /* Icons-only on mobile — labels disappear below ~480px because the toolbar
-     needs to fit Highlight + Define + Chat + Issue + Copy + Share (+ Note +
-     Delete when editing an existing highlight) on a 375–414px viewport. The
-     button title attribute preserves accessibility; desktop keeps labels. */
   .popup-icon-btn {
     min-width: 0;
-    padding: 6px 8px;
+    flex: 1 1 30%;
+    padding: 8px 6px;
   }
   .popup-icon-label {
+    display: block;
+    font-size: 0.68rem;
+    line-height: 1.1;
+  }
+
+  .selection-popup .popup-divider {
     display: none;
+  }
+
+  .selection-popup:has(.popup-icon-btn) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .selection-popup:has(.popup-color-dot) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .selection-popup:has(.popup-issue-form),
+  .selection-popup:has(.popup-define) {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .popup-define {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    max-height: min(62vh, 460px);
   }
 
   /* Onboarding — scrollable on small screens */

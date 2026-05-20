@@ -684,15 +684,17 @@ export function SplitReader({
     })
 
     clearSelectionPreview()
+    let previewCreated = false
     try {
       const previewRange = selection.getRangeAt(0).cloneRange()
       const mark = document.createElement('mark')
       mark.className = 'tinct-selection-preview'
       previewRange.surroundContents(mark)
       selectionPreviewMarkRef.current = mark
+      previewCreated = true
     } catch { /* range crosses element boundaries — skip visual preview */ }
 
-    if (window.matchMedia('(max-width: 768px)').matches) {
+    if (previewCreated && window.matchMedia('(max-width: 768px)').matches) {
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
   }, [leftParagraphs, rightParagraphs, readerRef])
@@ -904,6 +906,18 @@ export function SplitReader({
             <span className="chapter-stamp">&sect; Chapter {currentChapter}</span>
           )}
           <h2 className="chapter-title">{chapterTitle}</h2>
+          {currentChapter === 1 && (
+            <div className="split-edition-intro" aria-label="Compare edition labels">
+              <div className="split-edition-intro-card">
+                <span className="chapter-edition-kicker">You are reading</span>
+                <span className="chapter-edition-name">{leftLabel}</span>
+              </div>
+              <div className="split-edition-intro-card">
+                <span className="chapter-edition-kicker">Compared with</span>
+                <span className="chapter-edition-name">{rightLabel}</span>
+              </div>
+            </div>
+          )}
           <div className="chapter-rule" aria-hidden="true">
             <div className="chapter-rule-line" />
             <div className="chapter-rule-diamond" />
