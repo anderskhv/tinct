@@ -158,7 +158,6 @@ export const BIBLE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
     },
   ],
 }
@@ -1090,6 +1089,42 @@ export const CRITO: Book = {
       label: 'Moderne Dansk',
       aligned: true,
       hasAudio: true,
+    },
+  ],
+}
+
+export const PHAEDRUS: Book = {
+  id: 'phaedrus',
+  title: 'Phaedrus',
+  author: 'Plato',
+  description: 'Socrates and Phaedrus walk outside Athens to a plane tree by the Ilissus, where Phaedrus reads a speech by Lysias arguing that the non-lover should be preferred to the lover. Socrates answers with two speeches of his own — and the second, the great Palinode, unfolds the soul as a winged charioteer, the immortality of the soul, and divine madness as the source of every great good. The dialogue closes with the famous critique of writing: the myth of Theuth and Thamus, and Socrates\' warning that the written word is a reminder, not a teacher.',
+  year: -370,
+  wordCount: 22000,
+  coverColor: '#2a3a4a',
+  coverAccent: '#c4d0a8',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Jowett (1871)',
+      translator: 'Benjamin Jowett',
+      year: 1871,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
     },
   ],
 }
@@ -2632,9 +2667,78 @@ export const DISCOURSE_ON_INEQUALITY: Book = {
   ],
 }
 
+export const VINDICATION_RIGHTS_OF_WOMAN: Book = {
+  id: 'vindication-rights-of-woman',
+  title: 'A Vindication of the Rights of Woman',
+  author: 'Mary Wollstonecraft',
+  description: 'Written in six weeks in 1792, in furious response to a French Revolution that proclaimed the rights of man while leaving women out, and to Rousseau\'s Emile, which trained girls to be ornaments. Wollstonecraft argues that women are not lesser beings designed for charm and submission but rational creatures whose minds have been deliberately stunted by bad education. The founding text of feminist political philosophy.',
+  year: 1792,
+  wordCount: 84000,
+  coverColor: '#3a2a4a',
+  coverAccent: '#c89a5c',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Wollstonecraft (1792)',
+      year: 1792,
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+export const LEVIATHAN: Book = {
+  id: 'leviathan',
+  title: 'Leviathan',
+  author: 'Thomas Hobbes',
+  description: 'Hobbes\'s founding work of political philosophy, written in the shadow of civil war. Without a sovereign to hold men in awe, life in the state of nature is "solitary, poor, nasty, brutish, and short." The social contract — surrendering freedom to an absolute sovereign — is the only escape. A pitiless and enduringly controversial argument for order over liberty.',
+  year: 1651,
+  wordCount: 200000,
+  coverColor: '#1c1c2e',
+  coverAccent: '#8a9bb5',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Hobbes (1651)', year: 1651, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const JEKYLL_AND_HYDE: Book = {
+  id: 'jekyll-and-hyde',
+  title: 'Strange Case of Dr Jekyll and Mr Hyde',
+  author: 'Robert Louis Stevenson',
+  description: 'The lawyer Utterson investigates the strange friendship of his upright client Dr Jekyll with the brutish, hated Mr Hyde — and uncovers the experiment that gave English its phrase for the divided self. A short, vicious tale of respectability and the appetites it conceals.',
+  year: 1886,
+  wordCount: 26000,
+  coverColor: '#1b1d24',
+  coverAccent: '#a83232',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Stevenson (1886)', year: 1886, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
 /** All books in the library */
 // WALDEN is defined above but NOT in BOOKS yet — modern-en/modern-da still partial.
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY]
+// VINDICATION_RIGHTS_OF_WOMAN is defined above but NOT in BOOKS yet — modern-en/modern-da still being translated.
+// LEVIATHAN is defined above but NOT in BOOKS yet — modern-en/modern-da scaffold only, not yet translated.
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE]
 
 export const ALL_BOOKS: Book[] = BOOKS
 

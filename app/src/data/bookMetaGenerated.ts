@@ -196,6 +196,10 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     title: 'Read On Liberty by John Stuart Mill — Free Online with AI Companion | Tinct',
     description: 'Mill\'s defense of the individual against the social tyranny he saw rising in democratic societies. The "harm principle," the marketplace of ideas, and the case for eccentricity as a public good — the founding text of modern liberal thought.',
   },
+  'utilitarianism': {
+    title: 'Read Utilitarianism by John Stuart Mill — Free Online with AI Companion | Tinct',
+    description: 'Mill\'s defense of the greatest-happiness principle against its critics. Pleasures differ in kind, not just amount; better to be Socrates dissatisfied than a fool satisfied. Where On Liberty drew the political line, Utilitarianism supplies the moral standard behind it.',
+  },
   'peloponnesian-war': {
     title: 'Read History of the Peloponnesian War by Thucydides — Free Online with AI Companion | Tinct',
     description: 'The first great work of political history. Thucydides reports the twenty-seven-year war between Athens and Sparta as he saw it — speeches, plagues, betrayals, and the slow corruption of every virtue under the pressure of war. Pericles\' Funeral Oration, the Plague of Athens, the Melian Dialogue, the Sicilian Expedition: the foundations of how the West thinks about power.',
@@ -267,5 +271,13 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
   'around-the-world-80-days': {
     title: 'Read Around the World in Eighty Days by Jules Verne — Free Online with AI Companion | Tinct',
     description: 'Phileas Fogg, the most precise man in London, bets his fortune that he can circle the globe in eighty days. From London to Bombay to Yokohama to New York — a race against time, a detective on his heels, and a rescue along the way. Verne\'s great comedy of English phlegm against the chaos of the world.',
+  },
+  'heart-of-darkness': {
+    title: 'Read Heart of Darkness by Joseph Conrad — Free Online with AI Companion | Tinct',
+    description: 'Marlow sits on a yawl on the Thames and tells the story of his journey up the Congo River to retrieve a company agent named Kurtz who has gone deep into the interior and stopped sending word. The hundred-page novella that founded modern fiction — and the work the colonial project never recovered from.',
+  },
+  'discourse-on-inequality': {
+    title: 'Read Discourse on the Origin of Inequality by Jean-Jacques Rousseau — Free Online with AI Companion | Tinct',
+    description: 'Rousseau asks how human beings, who came into the world equal, ended up so radically unequal — and answers that the answer is not in nature but in property, civilization, and the institutions we built to defend them. The argument that set up The Social Contract and put the French Revolution in motion.',
   },
 }
