@@ -231,6 +231,7 @@ export const HAMLET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -267,6 +268,7 @@ export const MACBETH: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -303,6 +305,7 @@ export const MIDSUMMER: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -339,6 +342,7 @@ export const ROMEO_AND_JULIET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
@@ -375,7 +379,315 @@ export const THE_TEMPEST: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
+  ],
+}
+
+export const OTHELLO: Book = {
+  id: 'othello',
+  title: 'Othello',
+  author: 'William Shakespeare',
+  description: 'A Moorish general in Venice, a trusted ensign who is nothing but malice, and a wife whose only crime is being innocent. Iago whispers jealousy into Othello\'s ear until he murders the woman he loves — Shakespeare\'s most claustrophobic and racially charged tragedy.',
+  year: 1603,
+  wordCount: 26000,
+  coverColor: '#1a0e0e',
+  coverAccent: '#8a3a1f',
+  editions: [
+    {
+      key: 'original-en',
+      language: 'en',
+      style: 'original',
+      label: 'Shakespeare (1622)',
+      aligned: true,
+    },
+    {
+      key: 'modern-en',
+      language: 'en',
+      style: 'modern',
+      label: 'Modern English',
+      aligned: true,
+    },
+    {
+      key: 'modern-da',
+      language: 'da',
+      style: 'modern',
+      label: 'Moderne Dansk',
+      aligned: true,
+    },
+  ],
+}
+
+// Staged Shakespeare adds — original-en parsed, modern editions are scaffold. Not in BOOKS until translated.
+export const KING_LEAR: Book = {
+  id: 'king-lear',
+  title: 'King Lear',
+  author: 'William Shakespeare',
+  description: 'The aging king divides his kingdom among his daughters by how loudly they will say they love him. Cordelia refuses to play; her sisters lie. By the storm scene on the heath, Lear is mad and stripped of everything. The darkest and most pitiless of the four great tragedies.',
+  year: 1606,
+  wordCount: 28000,
+  coverColor: '#1f1015',
+  coverAccent: '#a04050',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1608)', year: 1608, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const JULIUS_CAESAR: Book = {
+  id: 'julius-caesar',
+  title: 'Julius Caesar',
+  author: 'William Shakespeare',
+  description: 'Brutus and Cassius lead the conspiracy. Caesar falls at the foot of Pompey\'s statue on the Ides of March. Then Antony walks to the body, asks to speak at the funeral, and turns the crowd with three words: friends, Romans, countrymen. The play that taught the West what rhetoric can do.',
+  year: 1599,
+  wordCount: 21000,
+  coverColor: '#1a2030',
+  coverAccent: '#c0b070',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const TWELFTH_NIGHT: Book = {
+  id: 'twelfth-night',
+  title: 'Twelfth Night',
+  author: 'William Shakespeare',
+  description: 'Viola is shipwrecked in Illyria, disguises herself as a boy, and ends up wooing Olivia for Duke Orsino — whom she falls for. Olivia falls for the disguise. Meanwhile Sir Toby and friends gull the steward Malvolio into believing his mistress loves him. Shakespeare\'s most perfectly balanced comedy.',
+  year: 1601,
+  wordCount: 21000,
+  coverColor: '#1a2a3a',
+  coverAccent: '#e0c060',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const MERCHANT_OF_VENICE: Book = {
+  id: 'merchant-of-venice',
+  title: 'The Merchant of Venice',
+  author: 'William Shakespeare',
+  description: 'Antonio guarantees his friend Bassanio\'s loan from the moneylender Shylock; the bond names a pound of Antonio\'s flesh as forfeit. Bassanio woos Portia, who shows up disguised as a lawyer to argue the trial. The most morally complicated comedy in the canon, still alive in every reading.',
+  year: 1596,
+  wordCount: 21000,
+  coverColor: '#2a1a0a',
+  coverAccent: '#c89030',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const MUCH_ADO_ABOUT_NOTHING: Book = {
+  id: 'much-ado-about-nothing',
+  title: 'Much Ado About Nothing',
+  author: 'William Shakespeare',
+  description: 'Benedick and Beatrice trade insults so sharp their friends decide it must be love, and trick them into it. Meanwhile the villain Don John engineers the slander of Hero on the night of her wedding. Shakespeare\'s wittiest comedy — and a near-tragedy folded into it.',
+  year: 1599,
+  wordCount: 22000,
+  coverColor: '#2a1820',
+  coverAccent: '#d090a0',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const AS_YOU_LIKE_IT: Book = {
+  id: 'as-you-like-it',
+  title: 'As You Like It',
+  author: 'William Shakespeare',
+  description: 'Rosalind, exiled from her uncle\'s court, escapes to the Forest of Arden disguised as a boy and meets the man she loves, who doesn\'t recognize her. The play that gave us "All the world\'s a stage" and the model of pastoral comedy.',
+  year: 1599,
+  wordCount: 22000,
+  coverColor: '#1a2a1a',
+  coverAccent: '#a0b070',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const TAMING_OF_THE_SHREW: Book = {
+  id: 'taming-of-the-shrew',
+  title: 'The Taming of the Shrew',
+  author: 'William Shakespeare',
+  description: 'Petruchio comes to Padua to wive it wealthily and meets Katharina, the unmarriageable elder daughter of Baptista. He undertakes to tame her; she is more than his match. The comedy that has divided readers for four centuries.',
+  year: 1592,
+  wordCount: 22000,
+  coverColor: '#2a1a1a',
+  coverAccent: '#d0a070',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const ANTONY_AND_CLEOPATRA: Book = {
+  id: 'antony-and-cleopatra',
+  title: 'Antony and Cleopatra',
+  author: 'William Shakespeare',
+  description: 'Mark Antony, master of the eastern Roman world, loses everything to a love affair with the queen of Egypt. The most expansive of the tragedies — moving across the Mediterranean in 42 scenes — and the most adult.',
+  year: 1606,
+  wordCount: 27000,
+  coverColor: '#1a1228',
+  coverAccent: '#c89060',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const RICHARD_III: Book = {
+  id: 'richard-iii',
+  title: 'Richard III',
+  author: 'William Shakespeare',
+  description: 'Now is the winter of our discontent. The hunchbacked Duke of Gloucester schemes, seduces, and murders his way to the throne of England, only to lose it at Bosworth Field — "A horse! A horse! My kingdom for a horse!" The young Shakespeare\'s breakthrough in tragic villainy.',
+  year: 1593,
+  wordCount: 28000,
+  coverColor: '#1f0a0a',
+  coverAccent: '#a85030',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1597)', year: 1597, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const HENRY_V: Book = {
+  id: 'henry-v',
+  title: 'Henry V',
+  author: 'William Shakespeare',
+  description: 'The young king who once caroused with Falstaff invades France, defeats five-to-one odds at Agincourt, and woos a princess in broken French. "We few, we happy few, we band of brothers" — the most-quoted speech about leadership in English.',
+  year: 1599,
+  wordCount: 22000,
+  coverColor: '#1a2230',
+  coverAccent: '#c0a060',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const CORIOLANUS: Book = {
+  id: 'coriolanus',
+  title: 'Coriolanus',
+  author: 'William Shakespeare',
+  description: 'The Roman general Caius Marcius, renamed Coriolanus for sacking the Volscian capital, returns to Rome a hero — and refuses to flatter the plebeians for the consulship. Banished, he joins his old enemy to march on Rome. The most political of the tragedies and the most ruthlessly proud hero in the canon.',
+  year: 1608,
+  wordCount: 26000,
+  coverColor: '#2a1a1a',
+  coverAccent: '#8a4030',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const WINTERS_TALE: Book = {
+  id: 'winters-tale',
+  title: "The Winter's Tale",
+  author: 'William Shakespeare',
+  description: 'King Leontes becomes convinced — without evidence — that his wife is cheating. He destroys his marriage and his family before he realizes what he\'s done. Sixteen years later, the play moves to a pastoral world, a sheep-shearing feast, and the most famous stage direction in literature: Exit, pursued by a bear.',
+  year: 1611,
+  wordCount: 23000,
+  coverColor: '#1a2230',
+  coverAccent: '#a8b8c8',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const COMEDY_OF_ERRORS: Book = {
+  id: 'comedy-of-errors',
+  title: 'The Comedy of Errors',
+  author: 'William Shakespeare',
+  description: 'Two sets of identical twins, separated as babies, end up in the same city on the same day, leading to ninety minutes of mistaken identity, slapstick, and a final reunion. Shakespeare\'s shortest play and the foundation of every farce written since.',
+  year: 1594,
+  wordCount: 16000,
+  coverColor: '#2a2018',
+  coverAccent: '#d0b070',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const MEASURE_FOR_MEASURE: Book = {
+  id: 'measure-for-measure',
+  title: 'Measure for Measure',
+  author: 'William Shakespeare',
+  description: 'The Duke of Vienna leaves the puritanical Angelo in charge and disappears. Angelo sentences a young man to death for fornication; the man\'s sister, a novice nun, pleads with him; Angelo offers her brother\'s life for her body. The bleakest of the "problem plays" — comedy in name only.',
+  year: 1604,
+  wordCount: 22000,
+  coverColor: '#1f1a2a',
+  coverAccent: '#8a7090',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const CYMBELINE: Book = {
+  id: 'cymbeline',
+  title: 'Cymbeline',
+  author: 'William Shakespeare',
+  description: 'A late romance: King Cymbeline of Britain, his banished daughter Imogen, the villain Iachimo who bets he can seduce her, the lost princes raised in a Welsh cave. Wagers, severed heads, a poisoned drink, a Roman invasion — and a recognition scene that pulls thirty threads into one.',
+  year: 1610,
+  wordCount: 26000,
+  coverColor: '#1a2528',
+  coverAccent: '#a0c0b0',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const HENRY_IV_PART_2: Book = {
+  id: 'henry-iv-part-2',
+  title: 'Henry IV, Part 2',
+  author: 'William Shakespeare',
+  description: 'Hal\'s coronation looms. The dying king mistakes the prince\'s grief for greed and rages against him. Falstaff rides toward London to claim the favor of the new king — and gets one of the most devastating dismissals in English: I know thee not, old man.',
+  year: 1598,
+  wordCount: 26000,
+  coverColor: '#1a1a28',
+  coverAccent: '#a89060',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const MERRY_WIVES_OF_WINDSOR: Book = {
+  id: 'merry-wives-of-windsor',
+  title: 'The Merry Wives of Windsor',
+  author: 'William Shakespeare',
+  description: 'Falstaff tries to seduce two respectable Windsor matrons for their money, sending each the same love letter. They compare notes and arrange the most humiliating series of punishments in the canon — including a soaking in the Thames in a laundry basket. The most farcical play and the one Queen Elizabeth supposedly demanded.',
+  year: 1597,
+  wordCount: 22000,
+  coverColor: '#1f2820',
+  coverAccent: '#c0a850',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
   ],
 }
 
@@ -2747,10 +3059,9 @@ export const JEKYLL_AND_HYDE: Book = {
 }
 
 /** All books in the library */
-// WALDEN is defined above but NOT in BOOKS yet — modern-en/modern-da still partial.
-// VINDICATION_RIGHTS_OF_WOMAN is defined above but NOT in BOOKS yet — modern-en/modern-da still being translated.
 // LEVIATHAN is defined above but NOT in BOOKS yet — modern-en/modern-da scaffold only, not yet translated.
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE]
+// Shakespeare staged but not yet translated: OTHELLO, KING_LEAR, JULIUS_CAESAR, TWELFTH_NIGHT, MERCHANT_OF_VENICE, MUCH_ADO_ABOUT_NOTHING, AS_YOU_LIKE_IT, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, HENRY_V, CORIOLANUS, WINTERS_TALE, COMEDY_OF_ERRORS, MEASURE_FOR_MEASURE, CYMBELINE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR.
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN]
 
 export const ALL_BOOKS: Book[] = BOOKS
 
