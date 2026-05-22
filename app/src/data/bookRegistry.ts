@@ -446,8 +446,12 @@ export const JULIUS_CAESAR: Book = {
   coverAccent: '#c0b070',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -478,8 +482,12 @@ export const MERCHANT_OF_VENICE: Book = {
   coverAccent: '#c89030',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -495,7 +503,9 @@ export const MUCH_ADO_ABOUT_NOTHING: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -510,7 +520,9 @@ export const AS_YOU_LIKE_IT: Book = {
   coverAccent: '#a0b070',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
   ],
 }
@@ -559,7 +571,9 @@ export const RICHARD_III: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1597)', year: 1597, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -574,7 +588,9 @@ export const HENRY_V: Book = {
   coverAccent: '#c0a060',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
   ],
 }
@@ -590,8 +606,12 @@ export const CORIOLANUS: Book = {
   coverAccent: '#8a4030',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -606,8 +626,12 @@ export const WINTERS_TALE: Book = {
   coverAccent: '#a8b8c8',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
+      hasAudio: true,
+    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
+      hasAudio: true,
+    },
   ],
 }
 
@@ -3058,10 +3082,107 @@ export const JEKYLL_AND_HYDE: Book = {
   ],
 }
 
+export const DON_QUIXOTE: Book = {
+  id: 'don-quixote',
+  title: 'Don Quixote',
+  author: 'Miguel de Cervantes',
+  description: 'A country gentleman reads too many books of chivalry and rides out as a knight-errant on a starved horse, with a peasant for a squire and a windmill for a giant. The first modern novel — and the only one that holds up against everything that came after.',
+  year: 1605,
+  wordCount: 430000,
+  coverColor: '#2a1a10',
+  coverAccent: '#c08a40',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Ormsby (1885)', translator: 'John Ormsby', year: 1885, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const ESSAYS_MONTAIGNE: Book = {
+  id: 'essays-montaigne',
+  title: 'Essays',
+  author: 'Michel de Montaigne',
+  description: 'A French nobleman retires to his tower at age 38 and starts writing about whatever he is thinking — his kidney stones, his cat, what makes a good death, why he prefers travel to staying home. The book that invented the personal essay and the first attempt by a European to write himself onto the page.',
+  year: 1580,
+  wordCount: 350000,
+  coverColor: '#2a2218',
+  coverAccent: '#b0a070',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Cotton/Hazlitt (1877)', translator: 'Charles Cotton, ed. William Hazlitt', year: 1877, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const HUME_ENQUIRY: Book = {
+  id: 'hume-enquiry',
+  title: 'An Enquiry Concerning Human Understanding',
+  author: 'David Hume',
+  description: 'Hume\'s short revision of his abandoned Treatise: what knowledge is, why induction can\'t be justified, why miracles can\'t outweigh ordinary evidence, why the self is just a bundle of perceptions. The clearest statement of empiricism in English, and the book that woke Kant from his "dogmatic slumber."',
+  year: 1748,
+  wordCount: 50000,
+  coverColor: '#1a2030',
+  coverAccent: '#a0b0c8',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Hume (1748)', year: 1748, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const KANT_GROUNDWORK: Book = {
+  id: 'kant-groundwork',
+  title: 'Groundwork of the Metaphysics of Morals',
+  author: 'Immanuel Kant',
+  description: 'Kant\'s shortest book and the entry-point to his ethics. He sets out to derive the moral law from pure reason alone, arrives at the categorical imperative — act only on a maxim you could will as a universal law — and rebuilds the entire foundation of modern ethical philosophy.',
+  year: 1785,
+  wordCount: 30000,
+  coverColor: '#1a1820',
+  coverAccent: '#a09090',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Abbott (1879)', translator: 'Thomas Kingsmill Abbott', year: 1879, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const WEALTH_OF_NATIONS: Book = {
+  id: 'wealth-of-nations',
+  title: 'The Wealth of Nations',
+  author: 'Adam Smith',
+  description: 'A Scottish moral philosopher writes the founding text of modern economics: the division of labor in the pin factory, the invisible hand of markets, what makes nations rich. The book that shaped two centuries of policy and still anchors the debate.',
+  year: 1776,
+  wordCount: 350000,
+  coverColor: '#1f2820',
+  coverAccent: '#c8b070',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Smith (1776)', year: 1776, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
+export const ANNA_KARENINA: Book = {
+  id: 'anna-karenina',
+  title: 'Anna Karenina',
+  author: 'Leo Tolstoy',
+  description: 'A married woman falls in love with a cavalry officer in 1870s Russia and ends up under a train. Around that disaster, Tolstoy lays out the lives of nine other people in detail — Levin and his hayfields, Kitty\'s wedding, Stiva\'s expense accounts. The novel many serious readers call the greatest ever written.',
+  year: 1877,
+  wordCount: 350000,
+  coverColor: '#1a1a28',
+  coverAccent: '#b09870',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Garnett (1901)', translator: 'Constance Garnett', year: 1901, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
 /** All books in the library */
-// LEVIATHAN is defined above but NOT in BOOKS yet — modern-en/modern-da scaffold only, not yet translated.
-// Shakespeare staged but not yet translated: OTHELLO, KING_LEAR, JULIUS_CAESAR, TWELFTH_NIGHT, MERCHANT_OF_VENICE, MUCH_ADO_ABOUT_NOTHING, AS_YOU_LIKE_IT, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, HENRY_V, CORIOLANUS, WINTERS_TALE, COMEDY_OF_ERRORS, MEASURE_FOR_MEASURE, CYMBELINE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR.
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN]
+// LEVIATHAN is defined above but NOT in BOOKS yet — modern-en/modern-da scaffold only.
+// Shakespeare staged but text not yet complete / audio pending: OTHELLO, KING_LEAR, TWELFTH_NIGHT, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, MEASURE_FOR_MEASURE.
+// Canon staged but not yet translated: DON_QUIXOTE, ESSAYS_MONTAIGNE, HUME_ENQUIRY, KANT_GROUNDWORK, WEALTH_OF_NATIONS, ANNA_KARENINA.
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR]
 
 export const ALL_BOOKS: Book[] = BOOKS
 
