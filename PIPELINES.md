@@ -18,10 +18,12 @@ bash scripts/tinct-status.sh
 
 ## Working Tree
 
-- Last known status: clean after `02f11009 content: checkpoint wealth of nations modern english`.
+- Last known status: clean after `e0cf48fd content: real modern rendering of Leviathan ch4-11`.
 - Always confirm with `bash scripts/tinct-status.sh` before opening Claude or Codex.
 
-Important: the later reported mechanical `modern-en` batch for Wealth of Nations, Leviathan, Don Quixote, Montaigne, and Anna Karenina should not be treated as final `modern-en` without review or regeneration. `modern-en` means a full modern-English rendering, not regex/dictionary cleanup.
+Detailed modern-English repair tracker: `books/MODERN-EN-REPAIR-STATUS.md`.
+
+Important: the reported mechanical `modern-en` batch for Wealth of Nations, Leviathan, Don Quixote, Montaigne, and Anna Karenina should not be treated as final `modern-en` without review or regeneration. `modern-en` means a full modern-English rendering, not regex/dictionary cleanup.
 
 ## Work Lanes
 
@@ -81,12 +83,11 @@ Current content state from the closed Claude session:
   - Hume — Enquiry
   - Kant — Groundwork
 - Partial:
-  - Leviathan: 4/49 chapters `modern-en` done; chunked retries needed.
-  - Wealth of Nations: 10/32 chapters `modern-en` done; `modern-da` not started.
-- Scaffold only:
-  - Don Quixote
-  - Montaigne — Essays
-  - Anna Karenina
+  - Leviathan: 17/49 chapters `modern-en` meet REAL-HEAVY standard; next repair starts at ch17.
+  - Wealth of Nations: 5/32 chapters are REAL/REAL-HEAVY, 27 chapters need real rendering.
+  - Don Quixote: 126 chapters need real rendering.
+  - Montaigne — Essays: 107 chapters need real rendering.
+  - Anna Karenina: 239 chapters need real rendering.
 - Source/parser unresolved:
   - Summa Theologica
   - Canterbury Tales
@@ -131,6 +132,6 @@ A book may move into public `BOOKS` only when:
 ## Next Actions
 
 1. Check RunPod. If finished, run the R2 missing-audio audit.
-2. Inspect and either commit or discard/stash the Wealth of Nations content edit.
-3. Before starting `modern-da`, have Claude repair/regenerate any mechanically cleaned `modern-en` chapters into real paragraph-by-paragraph modern English.
+2. Continue Claude repair one book at a time, currently Leviathan ch17 onward.
+3. Do not start `modern-da` for the five repair books until their `modern-en` chapters have been repaired into real paragraph-by-paragraph modern English.
 4. Let Codex publish only complete packages.
