@@ -42,7 +42,7 @@ This installs ffmpeg, Kokoro, Node.js, wrangler, and downloads `run-kokoro-cloud
 Set the token, start tmux, run the script:
 
 ```bash
-export CLOUDFLARE_API_TOKEN="cfut_..."   # paste from app/.env
+export CLOUDFLARE_API_TOKEN="cfut_..."   # R2 upload token, not the app deploy token
 tmux new -s kokoro
 cd /workspace/tinct/scripts
 python3 run-kokoro-cloud.py BOOK EDITION [BOOK EDITION ...]

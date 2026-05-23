@@ -21,6 +21,7 @@ Run `git` commands from the repository root. Run `npm`, `npx`, Vite, and Wrangle
 - Do not deploy unless Anders explicitly asks.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
 - Do not run `generate-editions.cjs` for development work.
+- Keep app, content, and audio work separated as described in `docs/workflow-boundaries.md`.
 - Preserve user changes. Never revert, reset, or clean unrelated files unless Anders explicitly asks.
 - Prefer narrow fixes over broad rewrites, especially in reader, pagination, sync, auth, billing, and storage code.
 - If a change touches position, pagination, sync, or chapter navigation, trace the actual data flow before patching.
