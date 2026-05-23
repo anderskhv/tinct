@@ -2566,10 +2566,11 @@ body {
 }
 
 .split-row {
-  /* Let very tall paired paragraphs fragment across paginated columns. When
-     this was `avoid`, rows taller than one visible page had no legal place to
-     go and browsers could clip text at the page top/bottom in Compare. */
-  break-inside: auto;
+  /* Keep normal aligned paragraph pairs intact across paginated columns.
+     WebKit/Safari clips grid-row fragments at both top and bottom column
+     boundaries, which shows up as half-cut text in Compare mode. Very long
+     rows opt into fragmentation with .split-row-fragmentable below. */
+  break-inside: avoid-column;
   /* CSS columns can fragment grid rows too tightly at a translated page edge,
      shaving the first/last line of a continued row. Clone a real vertical
      inset onto each fragment so Compare pages start and end on full line boxes.
@@ -2584,6 +2585,10 @@ body {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.split-row-fragmentable {
+  break-inside: auto;
 }
 
 .split-row {
@@ -2606,9 +2611,13 @@ body {
    taller than one paginated viewport. Avoiding all breaks preserved alignment
    for short paragraphs but clipped long passages in CSS columns. */
 .split-row .text-paragraph {
-  break-inside: auto;
+  break-inside: avoid-column;
   orphans: 3;
   widows: 3;
+}
+
+.split-row-fragmentable .text-paragraph {
+  break-inside: auto;
 }
 
 @media (min-width: 769px) {

@@ -939,35 +939,38 @@ export function SplitReader({
           </div>
         ) : (
           <div className="split-reader-grid" ref={gridRef}>
-            {Array.from({ length: maxParagraphs }, (_, i) => (
-              <div className="split-row" key={i}>
-                <div
-                  className={`split-left${isAudioPlaying && playingParagraphIndex === i ? ' paragraph-playing' : ''}`}
-                  data-paragraph-index={i}
-                  onClick={isAudioPlaying && onParagraphClick ? () => onParagraphClick(i) : undefined}
-                  style={isAudioPlaying && onParagraphClick ? { cursor: 'pointer' } : undefined}
-                >
-                  {leftParagraphs[i] && (
-                    <ParagraphRenderer
-                      text={leftParagraphs[i]}
-                      paragraphIndex={i}
-                      highlights={leftHighlights}
-                      isVerse={isLeftVerse}
-                    />
-                  )}
+            {Array.from({ length: maxParagraphs }, (_, i) => {
+              const rowCanFragment = (leftParagraphs[i]?.length ?? 0) > 1200 || (rightParagraphs[i]?.length ?? 0) > 1200
+              return (
+                <div className={`split-row ${rowCanFragment ? 'split-row-fragmentable' : 'split-row-keep'}`} key={i}>
+                  <div
+                    className={`split-left${isAudioPlaying && playingParagraphIndex === i ? ' paragraph-playing' : ''}`}
+                    data-paragraph-index={i}
+                    onClick={isAudioPlaying && onParagraphClick ? () => onParagraphClick(i) : undefined}
+                    style={isAudioPlaying && onParagraphClick ? { cursor: 'pointer' } : undefined}
+                  >
+                    {leftParagraphs[i] && (
+                      <ParagraphRenderer
+                        text={leftParagraphs[i]}
+                        paragraphIndex={i}
+                        highlights={leftHighlights}
+                        isVerse={isLeftVerse}
+                      />
+                    )}
+                  </div>
+                  <div className="split-right" data-paragraph-index={i}>
+                    {rightParagraphs[i] && (
+                      <ParagraphRenderer
+                        text={rightParagraphs[i]}
+                        paragraphIndex={i}
+                        highlights={rightHighlights}
+                        isVerse={isRightVerse}
+                      />
+                    )}
+                  </div>
                 </div>
-                <div className="split-right" data-paragraph-index={i}>
-                  {rightParagraphs[i] && (
-                    <ParagraphRenderer
-                      text={rightParagraphs[i]}
-                      paragraphIndex={i}
-                      highlights={rightHighlights}
-                      isVerse={isRightVerse}
-                    />
-                  )}
-                </div>
-              </div>
-            ))}
+              )
+            })}
 
             {maxParagraphs > 0 && onReflect && (
               <div className="split-row">
