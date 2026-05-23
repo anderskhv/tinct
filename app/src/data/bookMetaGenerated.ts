@@ -288,4 +288,36 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     title: 'Read Strange Case of Dr Jekyll and Mr Hyde by Robert Louis Stevenson — Free Online with AI Companion | Tinct',
     description: 'The lawyer Utterson investigates the strange friendship of his upright client Dr Jekyll with the brutish, hated Mr Hyde — and uncovers the experiment that gave English its phrase for the divided self. A short, vicious tale of respectability and the appetites it conceals.',
   },
+  'walden': {
+    title: 'Read Walden by Henry David Thoreau — Free Online with AI Companion | Tinct',
+    description: 'In 1845 Thoreau built a cabin by Walden Pond and stayed two years to find out what living actually required. Walden is the result: a season-by-season report on solitude, work, food, sound, neighbors, and the price of a life. The founding text of American simplicity, written with a sharper edge than its reputation suggests.',
+  },
+  'vindication-rights-of-woman': {
+    title: 'Read A Vindication of the Rights of Woman by Mary Wollstonecraft — Free Online with AI Companion | Tinct',
+    description: 'Written in six weeks in 1792, in furious response to a French Revolution that proclaimed the rights of man while leaving women out, and to Rousseau\'s Emile, which trained girls to be ornaments. Wollstonecraft argues that women are not lesser beings designed for charm and submission but rational creatures whose minds have been deliberately stunted by bad education. The founding text of feminist political philosophy.',
+  },
+  'comedy-of-errors': {
+    title: 'Read The Comedy of Errors by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Two sets of identical twins, separated as babies, end up in the same city on the same day, leading to ninety minutes of mistaken identity, slapstick, and a final reunion. Shakespeare\'s shortest play and the foundation of every farce written since.',
+  },
+  'merchant-of-venice': {
+    title: 'Read The Merchant of Venice by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Antonio guarantees his friend Bassanio\'s loan from the moneylender Shylock; the bond names a pound of Antonio\'s flesh as forfeit. Bassanio woos Portia, who shows up disguised as a lawyer to argue the trial. The most morally complicated comedy in the canon, still alive in every reading.',
+  },
+  'henry-v': {
+    title: 'Read Henry V by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'The young king who once caroused with Falstaff invades France, defeats five-to-one odds at Agincourt, and woos a princess in broken French. "We few, we happy few, we band of brothers" — the most-quoted speech about leadership in English.',
+  },
+  'as-you-like-it': {
+    title: 'Read As You Like It by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Rosalind, exiled from her uncle\'s court, escapes to the Forest of Arden disguised as a boy and meets the man she loves, who doesn\'t recognize her. The play that gave us "All the world\'s a stage" and the model of pastoral comedy.',
+  },
+  'winters-tale': {
+    title: 'Read The Winter\'s Tale by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'King Leontes becomes convinced — without evidence — that his wife is cheating. He destroys his marriage and his family before he realizes what he\'s done. Sixteen years later, the play moves to a pastoral world, a sheep-shearing feast, and the most famous stage direction in literature: Exit, pursued by a bear.',
+  },
+  'julius-caesar': {
+    title: 'Read Julius Caesar by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Brutus and Cassius lead the conspiracy. Caesar falls at the foot of Pompey\'s statue on the Ides of March. Then Antony walks to the body, asks to speak at the funeral, and turns the crowd with three words: friends, Romans, countrymen. The play that taught the West what rhetoric can do.',
+  },
 }
