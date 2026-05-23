@@ -7,6 +7,7 @@ Current sources of truth:
 - Repo-wide rules: `../AGENTS.md`
 - Book/content rules: `AGENTS.md`
 - Workflow split: `../docs/workflow-boundaries.md`
+- Cross-workstream dashboard: `../PIPELINES.md`
 
 If this file conflicts with any of those, follow the AGENTS files.
 
@@ -23,6 +24,7 @@ From this folder, default to content work only. Do not edit reader UX, React com
 Before starting any task, check the working tree from the repo root:
 
 ```bash
+bash /Users/andershvelplund/Documents/Projects/Tinct/scripts/tinct-status.sh
 git -C /Users/andershvelplund/Documents/Projects/Tinct status --short
 git -C /Users/andershvelplund/Documents/Projects/Tinct branch --show-current
 ```

@@ -16,6 +16,12 @@ Use this file as the Codex source of truth. Older `CLAUDE.md` files may contain 
 
 Run `git` commands from the repository root. Run `npm`, `npx`, Vite, and Wrangler commands from `app/`.
 
+For a quick cross-workstream overview, read `PIPELINES.md` or run:
+
+```bash
+bash scripts/tinct-status.sh
+```
+
 ## Hard Rules
 
 - Do not deploy unless Anders explicitly asks.
