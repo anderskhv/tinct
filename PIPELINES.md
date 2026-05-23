@@ -18,8 +18,10 @@ bash scripts/tinct-status.sh
 
 ## Working Tree
 
-- Current known dirty content file: `app/public/data/editions/wealth-of-nations-modern-en.json`
-- Treat that file as Claude/content work. Do not mix it into app or process commits.
+- Last known status: clean after `02f11009 content: checkpoint wealth of nations modern english`.
+- Always confirm with `bash scripts/tinct-status.sh` before opening Claude or Codex.
+
+Important: the later reported mechanical `modern-en` batch for Wealth of Nations, Leviathan, Don Quixote, Montaigne, and Anna Karenina should not be treated as final `modern-en` without review or regeneration. `modern-en` means a full modern-English rendering, not regex/dictionary cleanup.
 
 ## Work Lanes
 
@@ -91,7 +93,7 @@ Current content state from the closed Claude session:
   - Hegel — Phenomenology of Spirit
   - Mrs Dalloway / To the Lighthouse
 
-Claude can start more books, but only after the current dirty content file is committed, stashed, or deliberately left as the active content lane.
+Claude can start more books, but do not start `modern-da` from mechanically cleaned `modern-en` files.
 
 ### Audio / RunPod
 
@@ -130,5 +132,5 @@ A book may move into public `BOOKS` only when:
 
 1. Check RunPod. If finished, run the R2 missing-audio audit.
 2. Inspect and either commit or discard/stash the Wealth of Nations content edit.
-3. Decide whether Claude should continue existing partial books before starting new scaffold-only books.
+3. Before starting `modern-da`, have Claude repair/regenerate any mechanically cleaned `modern-en` chapters into real paragraph-by-paragraph modern English.
 4. Let Codex publish only complete packages.

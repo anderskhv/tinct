@@ -127,22 +127,32 @@ python3 -c "import json; d=json.load(open('path/to/file.json')); print(len(d['ch
 
 ## Translation Rules
 
-Modern English must be complete content, not a summary.
+Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup.
 
 - Paragraph count must match the source exactly.
+- Preserve one output paragraph for every input paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
 - Preserve proper nouns, allusions, quotations, historical content, and meaningful punctuation.
 - Do not condense arguments, examples, dialogue, or descriptive detail.
 - Shakespeare and plays keep speaker tags and stage-direction conventions.
+- Rewrite sentence by sentence for present-day clarity while preserving the source's claims, sequence, tone, and examples.
+- For already-readable public-domain translations such as Garnett, Ormsby, or older philosophical prose, still produce a fresh modern reading edition. A light spelling pass is not enough.
+- Do not create `modern-en` by bulk regex, dictionary lemma replacement, quote normalization, or spelling modernization alone. Those operations may be used only as preparation before a human-quality paragraph-by-paragraph rendering.
+- If Anders explicitly asks for a lightly cleaned original translation, keep it as an original/human-translation edition or ask what edition key to use; do not label it `modern-en`.
+- Paragraph N must begin with content equivalent to source paragraph N and should normally remain at least 75% of the source paragraph's word count unless the source is genuinely verbose/repetitive.
 
 Modern Danish is translated from `modern-en`, not from the original.
 
 - Paragraph count must match `modern-en`.
+- Preserve one output paragraph for every `modern-en` paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
 - Use natural Danish.
 - Dialogue uses `»...«`.
 - Preserve names, diacritics, historical content, quotations, and allusions.
 - Do not leave English scaffold text in Danish files.
+- Translate fully into Danish; do not perform a light edit of English scaffold text.
 
 Before Danish audio, run a byte-identity audit against `modern-en`. More than 5% identical long paragraphs means the translation has gaps.
+
+Paragraph alignment is sacred. If alignment breaks, stop and fix alignment before continuing translation or audio.
 
 ## Audio Rules
 

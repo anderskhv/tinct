@@ -99,15 +99,20 @@ python3 -c "import json; d=json.load(open('path/to/file.json')); print(len(d['ch
 
 ## Modern English
 
-Modern English must be complete content, not a summary.
+Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup.
 
 - Paragraph count must match the source exactly.
+- Preserve one output paragraph for every input paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
 - Preserve proper nouns, allusions, quotations, historical content, and meaningful punctuation.
 - Do not soften period language or add editorial corrections.
 - Preserve exclamation marks unless the sentence is genuinely restructured.
 - Preserve proper noun accents and diacritics.
 - Shakespeare and play texts keep speaker tags and stage-direction conventions, such as `MACBETH.` and `[Enter MACBETH]`.
 - Prefer contemporary clarity, but do not condense arguments, examples, dialogue, or descriptive detail.
+- Rewrite sentence by sentence for present-day clarity while preserving the source's claims, sequence, tone, and examples.
+- For already-readable public-domain translations such as Garnett, Ormsby, or older philosophical prose, still produce a fresh modern reading edition. A light spelling pass is not enough.
+- Do not create `modern-en` by bulk regex, dictionary lemma replacement, quote normalization, or spelling modernization alone. Those operations may be used only as preparation before a human-quality paragraph-by-paragraph rendering.
+- If Anders explicitly asks for a lightly cleaned original translation, keep it as an original/human-translation edition or ask what edition key to use; do not label it `modern-en`.
 
 Anti-truncation prompt requirements:
 
@@ -122,6 +127,7 @@ Modern Danish is translated from `modern-en`.
 
 - Natural Danish, not word-for-word English.
 - Paragraph count must match `modern-en` exactly.
+- Preserve one output paragraph for every `modern-en` paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
 - Dialogue uses `»...«`.
 - Straight apostrophes for contractions and possessives.
 - Em dashes for interruptions and parentheticals.
@@ -129,6 +135,7 @@ Modern Danish is translated from `modern-en`.
 - Do not soften historical content.
 - Honorifics from 19th-century Anglo sources, such as `Mrs.` and `Mr.`, normally stay in English form.
 - Avoid false cognates, English word order, invented compound words, and direct calques of English idioms.
+- Translate fully into Danish; do not perform a light edit of English scaffold text.
 
 ## QA Gates
 
