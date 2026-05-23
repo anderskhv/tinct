@@ -2,7 +2,66 @@
 
 This is the Book Factory for Tinct. When Anders opens Claude from this folder, he can say "add [book name]" and this CLAUDE.md guides the full pipeline from source text to finished, registered, audio-ready book.
 
-**Parent project:** `../CLAUDE.md` (Tinct project CEO) — see it for overall context, design principles, and the API cost rule.
+**Parent project:** `../AGENTS.md` is the current source of truth for repo-wide rules. `../CLAUDE.md` may contain useful history, but if it conflicts with `../AGENTS.md`, follow `../AGENTS.md`.
+
+---
+
+## Current Workflow Boundary — 2026-05-23
+
+When Claude is opened from `books/`, treat the session as **content work only** unless Anders explicitly says otherwise.
+
+Use this folder for:
+
+- Adding or editing book source files, edition JSON, onboarding JSON, threads, source notes, QA reports, and content scripts.
+- Registering or staging the relevant book in `app/src/data/bookRegistry.ts`.
+- Running content QA and audio backlog audits.
+
+Do **not** use this folder/session for:
+
+- Reader UX fixes, React components, hooks, CSS, sync/pagination/auth/billing bugs, Cloudflare Worker changes, or deploys.
+- Broad app refactors or changes outside the allowed book/content paths.
+- Any deploy while Codex or another terminal is actively changing app code.
+
+If a book task needs app behavior, stop and ask Anders to run it as app/Codex work.
+
+Before starting any task, run from the repo root:
+
+```bash
+git status --short
+git branch --show-current
+```
+
+Classify dirty files before editing:
+
+- `app/src/**`, `app/wrangler.jsonc`, app CSS/components/hooks = app work, normally Codex-owned.
+- `app/public/data/editions/**`, onboarding JSON, registry entries, `books/**` = content work.
+- audio scripts/backlog/R2 generation = audio work.
+
+Keep commits separated:
+
+- `content:` for book text, onboarding, registry, generated SEO/content files.
+- `tools:` for content/audio scripts and pipeline docs.
+- `fix:` / `feat:` for app behavior, normally not from this folder.
+- `chore:` for docs/process/config templates.
+
+### Token Boundary
+
+Do not copy the app deploy token into RunPod.
+
+- `app/.env` may contain `CLOUDFLARE_API_TOKEN` for Workers deploys.
+- RunPod still exports a variable named `CLOUDFLARE_API_TOKEN` because `run-kokoro-cloud.py` expects that name, but the value must be the **R2 upload token**, not the Workers deploy token.
+- R2 S3-style variables are separate: `R2_BUCKET`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, and `R2_ENDPOINT`.
+
+For production English audio backlog decisions, use:
+
+```bash
+cd /Users/andershvelplund/Documents/Projects/Tinct/books
+python3 r2_missing_english_audio.py --scope all --runpod-command
+```
+
+That script is the source of truth for RunPod jobs. Avoid hand-assembled long RunPod commands unless they were produced by that script.
+
+See also: `../docs/workflow-boundaries.md` and `AGENTS.md`.
 
 ---
 
