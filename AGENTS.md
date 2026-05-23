@@ -12,6 +12,7 @@ Use this file as the Codex source of truth. Older `CLAUDE.md` files may contain 
 - App root: `/Users/andershvelplund/Documents/Projects/Tinct/app`
 - Book factory: `/Users/andershvelplund/Documents/Projects/Tinct/books`
 - QA tooling: `/Users/andershvelplund/Documents/Projects/Tinct/qa`
+- User-provided screenshots: `/Users/andershvelplund/Documents/Screenshots`. When Anders says to review or see screenshots, look there first.
 
 Run `git` commands from the repository root. Run `npm`, `npx`, Vite, and Wrangler commands from `app/`.
 
@@ -78,6 +79,7 @@ For non-trivial bugs:
 
 - Tinct should feel warm, literary, clean, and focused.
 - Reading position is sacred. View, edition, language, font, and layout changes must not lose the reader's place.
+- The library taxonomy is Houses -> Shelves -> Books. Every production book must be classified into this taxonomy when it is added or registered.
 - Default reader is a single edition. Split/Compare is opt-in and should sync roughly by paragraph/sentence within the same chapter.
 - Mobile has five tabs: Read, Compare, Chat, Feed, Cast. Read and Compare are separate mounted reader views.
 - Do not change the reader UX paradigm, pricing, content strategy, database schema, or external dependencies without asking Anders.
