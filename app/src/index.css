@@ -2570,6 +2570,15 @@ body {
      this was `avoid`, rows taller than one visible page had no legal place to
      go and browsers could clip text at the page top/bottom in Compare. */
   break-inside: auto;
+  /* CSS columns can fragment grid rows too tightly at a translated page edge,
+     shaving the first/last line of a continued row. Clone a small vertical
+     inset onto each fragment so Compare pages start and end on full line boxes. */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-top: 0.18em;
+  padding-bottom: 0.18em;
+  margin-top: -0.18em;
+  margin-bottom: -0.18em;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
