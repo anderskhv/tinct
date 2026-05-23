@@ -16,6 +16,16 @@ Use this folder for:
 - Registering or staging the relevant book in `app/src/data/bookRegistry.ts`.
 - Running content QA and audio backlog audits.
 
+Canonical book-addition package:
+
+1. Find and validate the public-domain source.
+2. Parse the original text. If the work is non-English, keep the original-language edition when available.
+3. For non-English works, add a public-domain human English translation as the English original/reader baseline.
+4. Create `modern-en`.
+5. Create `modern-da` from `modern-en`.
+6. Generate English audio with Kokoro/RunPod and Danish audio with Chirp after text QA passes.
+7. Hand off to Codex for publication once all content, audio, onboarding, taxonomy, and registry data are ready.
+
 Do **not** use this folder/session for:
 
 - Reader UX fixes, React components, hooks, CSS, sync/pagination/auth/billing bugs, Cloudflare Worker changes, or deploys.
@@ -110,7 +120,7 @@ The Tinct project settings (`.claude/settings.json`) already allow `python3`, `c
 2. **Always discuss structure BEFORE downloading.** Step 1 is mandatory and requires human approval.
 3. **Maintain paragraph alignment** across all editions. Same number of paragraphs per chapter in every edition.
 4. **Verify JSON validity** after every file write (`python3 -c "import json; json.load(open('file.json'))"`)
-5. **Publishing minimum (NEW STANDARD, effective 2026-05-21) = original (at least one) + modern-en + modern-da, AND audio for all three of: original-en (or original-source), modern-en, modern-da.** Every new book published from this date forward must ship with full English and Danish text, at least one original-language edition, and audio coverage on all three of those editions. A book missing any of those pieces MUST NOT appear in the public `BOOKS` array in `bookRegistry.ts`. The `Book` constant may live in the registry as a staged definition while pieces are being filled in. No kids editions — ever. Special editions (verse-en, web-en, kjv-en, web-en for Bible) only when discussed. English audio via Kokoro (`generate-audio-kokoro.py`), Danish audio via Google Chirp (`generate-audio-chirp.py`) — see rule 14.
+5. **Publishing minimum (NEW STANDARD, effective 2026-05-23) = original source text + human English translation when needed + modern-en + modern-da, with audio for English and Danish reader editions.** For English-original books, `original-en` is the original. For non-English originals, keep the original-language edition when available and add a public-domain human English translation as the English baseline. Claude creates `modern-en` and `modern-da`; Codex publishes only after the complete package is present. Audio coverage: Kokoro for English editions (`original-en` or human English translation, plus `modern-en`) and Google Chirp for `modern-da`. A book missing any required piece MUST NOT appear in the public `BOOKS` array in `bookRegistry.ts`. The `Book` constant may live in the registry as a staged definition while pieces are being filled in. No kids editions — ever. Special editions (verse-en, web-en, kjv-en, web-en for Bible) only when discussed.
 5b. **Library taxonomy is required.** Every production book must be classified into the Tinct library taxonomy before it is considered registered: House, Shelf membership, form, era, and relevant canon/list metadata. If the right classification is unclear, stop and ask Anders; do not leave the book as an uncategorized registry entry.
 6. **Track progress.** Large books take multiple sessions. Always update the progress tracker below.
 7. **Never flag scale as a problem.** Don't say "this is a huge task" or "this will be very difficult." Break every task into agent-sized chunks and execute. The architecture handles scale — just decompose and go.
@@ -500,17 +510,18 @@ find audio/{book-id}/{edition-key} -type f \( -name "*.mp3" -o -name "manifest.j
 
 A book is ready to publish when ALL of the following are true (UPDATED 2026-05-21):
 
-- [ ] **At least one original-language edition** (original-en for English-original books, or original-fr/de/es/ru/la/da for non-English originals) exists, paragraph-aligned with the rest.
+- [ ] **Original edition** exists: `original-en` for English-original books, or source-language original for non-English originals when available.
+- [ ] **Human English translation** exists for non-English originals and is paragraph-aligned with the rest.
 - [ ] **modern-en** exists and is paragraph-aligned. 0 stubs.
 - [ ] **modern-da** exists and is paragraph-aligned. 0 stubs.
-- [ ] **Audio on R2 for original-en (or original-source)**: Kokoro EN voice (or appropriate TTS for non-English originals) with manifests + chapter titles + uploaded to R2.
+- [ ] **Audio on R2 for English baseline**: Kokoro voice for `original-en` or the human English translation, with manifests + chapter titles + uploaded to R2.
 - [ ] **Audio on R2 for modern-en**: Kokoro + manifests + titles + R2.
 - [ ] **Audio on R2 for modern-da**: Chirp + manifests + titles + R2.
 - [ ] Book is registered in `bookRegistry.ts` with all editions, `hasAudio: true` on every audio-bearing edition, AND **listed in the public `BOOKS` array**.
 - [ ] Threads file exists with characters (narrative/dialogue books only — skip for treatises and journals like Art of War, Meditations).
 - [ ] Visual QA passed.
 
-**Policy:** Never publish a partially complete book under the new standard. A book missing any of: at least one original, modern-en, modern-da, or audio for any of those three, stays out of the public `BOOKS` array. The `Book` constant may live in `bookRegistry.ts` as a staged definition, but must not reach production until the full standard is met.
+**Policy:** Never publish a partially complete book under the new standard. A book missing original/source text, required human English translation, `modern-en`, `modern-da`, or required Kokoro/Chirp audio stays out of the public `BOOKS` array. The `Book` constant may live in `bookRegistry.ts` as a staged definition, but must not reach production until Codex performs the final publication pass.
 
 **Legacy books grandfathered:** Books already in the public `BOOKS` array before 2026-05-21 may have gaps (e.g. modern-da audio missing). Backfill those over time; they're not required to be removed.
 

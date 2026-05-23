@@ -45,6 +45,8 @@ If adding a book requires new app behavior, stop and ask Anders to handle it as 
 - Maintain paragraph alignment across editions.
 - No kids editions.
 - Every production book must be classified in the library taxonomy: House, Shelf membership, form, era, and relevant canon/list metadata.
+- Claude owns the content package for new books: source discovery, original parsing, human English translation sourcing for non-English works, `modern-en`, and `modern-da`.
+- Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy when Anders explicitly asks.
 - Modern Danish is translated from `modern-en`, not from the original.
 - Preserve user changes and never overlap deploy work with active edition writes.
 
@@ -54,7 +56,7 @@ Before downloading anything, discuss the intended structure with Anders:
 
 - Chapter division: chapters, books, cantos, acts/scenes, biblical books, or another natural unit.
 - Hierarchical sections: usually no for novels; often yes for Bible, Divine Comedy, Canterbury Tales, and similar works.
-- Editions: standard publishing target is at least `original-en` plus `modern-en`; Danish and any special editions are included when Anders asks or the current project standard requires them.
+- Editions: standard publishing target is original text, a human English translation when the original is non-English, `modern-en`, and `modern-da`. For English-original books, the original edition is `original-en`.
 - Paragraph grouping: prose paragraphs, verse stanzas, Bible verse ranges, or play speech blocks.
 - Book metadata: title, author, year, word count, cover colors, description, taxonomy.
 
@@ -154,6 +156,7 @@ Every flagged paragraph requires human inspection. Natural compression is accept
 - English audio uses Kokoro.
 - Danish audio uses Google Chirp.
 - Do not mix engines.
+- For non-English originals, do not invent source-language audio by default. The required audio package is the human English translation, `modern-en`, and `modern-da`.
 - Generate or regenerate audio only after the relevant text passes QA.
 - If text changes after audio generation, mark the affected book, edition, chapter, and paragraph numbers; regenerate the corresponding audio and manifest before considering the book final.
 - Chapter title audio should be present where the audio pipeline supports it.
@@ -234,11 +237,13 @@ SEO prose should be declarative, specific, and factually exact. Cite named chara
 A book is ready for the public registry only when the agreed publishing standard for that work is complete. At minimum this means:
 
 - public-domain source validated
-- `original-en` or original-language edition exists
+- original edition exists
+- for non-English originals, a public-domain human English translation exists
 - `modern-en` exists
+- `modern-da` exists
 - all included editions are paragraph-aligned
 - no stubs or untranslated scaffold content remain
-- required audio, if part of the publication target, is generated, manifested, uploaded, and verified
+- required audio is generated, manifested, uploaded, and verified: Kokoro for English editions and Chirp for Danish
 - onboarding exists
 - registry entry is correct
 - taxonomy is complete
