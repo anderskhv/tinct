@@ -19,7 +19,7 @@ All 5 books pass structure invariants: chapter count matches and per-chapter par
 | Book | Total ch | REAL-HEAVY | REAL | LIGHT | MECHANICAL | Needs regen |
 |---|---|---|---|---|---|---|
 | wealth-of-nations | 32 | 1 (ch1) | 4 (ch2–5) | 5 (ch6–10) | 22 (ch11–32) | **27** |
-| leviathan | 49 | 9 (intro, ch1–3, 12–16) | 0 | 19 | 21 | **40** |
+| leviathan | 49 | 23 (intro, ch1–22) | 0 | remaining mix | remaining mix | **27 (ch23–49)** |
 | don-quixote | 126 | 0 | 0 | 3 (ch6, 85, 95) | 123 | **126** |
 | essays-montaigne | 107 | 0 | 0 | 0 | 107 | **107** |
 | anna-karenina | 239 | 0 | 0 | 11 | 228 | **239** |
@@ -66,6 +66,8 @@ That's the bar. Most of the corpus does not meet it.
 - `76a607fc` "fill Leviathan modern-en ch5-12 + ch18-49 (light modernization)" — most of the LIGHT and MECHANICAL Leviathan chapters
 - `45e51394` "fill DQ/Montaigne/AK modern-en + strip DQ image artifacts" — the entirety of DQ, Montaigne, and AK as mechanical/light only
 - `d1772afb` "chore: clarify modern edition standards" — the docs update
+- `e0cf48fd` "real modern rendering of Leviathan ch4-11" — repaired 8 Leviathan chapters to REAL-HEAVY
+- `d8b285d2` "real modern rendering of Leviathan ch17-22" — repaired 6 more Leviathan chapters to REAL-HEAVY
 
 The label "light-touch modernization" was used in commit messages; the result for most chapters is no modernization at all.
 

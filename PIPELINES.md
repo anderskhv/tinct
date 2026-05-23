@@ -18,7 +18,7 @@ bash scripts/tinct-status.sh
 
 ## Working Tree
 
-- Last known status: clean after `e0cf48fd content: real modern rendering of Leviathan ch4-11`.
+- Last known status: clean after `d8b285d2 content: real modern rendering of Leviathan ch17-22`.
 - Always confirm with `bash scripts/tinct-status.sh` before opening Claude or Codex.
 
 Detailed modern-English repair tracker: `books/MODERN-EN-REPAIR-STATUS.md`.
@@ -83,7 +83,7 @@ Current content state from the closed Claude session:
   - Hume — Enquiry
   - Kant — Groundwork
 - Partial:
-  - Leviathan: 17/49 chapters `modern-en` meet REAL-HEAVY standard; next repair starts at ch17.
+  - Leviathan: 23/49 chapters `modern-en` meet REAL-HEAVY standard; next repair starts at ch23.
   - Wealth of Nations: 5/32 chapters are REAL/REAL-HEAVY, 27 chapters need real rendering.
   - Don Quixote: 126 chapters need real rendering.
   - Montaigne — Essays: 107 chapters need real rendering.
@@ -132,6 +132,6 @@ A book may move into public `BOOKS` only when:
 ## Next Actions
 
 1. Check RunPod. If finished, run the R2 missing-audio audit.
-2. Continue Claude repair one book at a time, currently Leviathan ch17 onward.
+2. Continue Claude repair one book at a time, currently Leviathan ch23 onward.
 3. Do not start `modern-da` for the five repair books until their `modern-en` chapters have been repaired into real paragraph-by-paragraph modern English.
 4. Let Codex publish only complete packages.
