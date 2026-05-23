@@ -328,7 +328,7 @@ export function Feed({
         ? notes
         : allBookNotes.filter(n => n.chapterNumber === chapterNum)
       for (const note of chapterNotes) {
-        items.push({ type: 'note', data: note, para: 0, timestamp: note.timestamp })
+        items.push({ type: 'note', data: note, para: note.paragraphIndex ?? 0, timestamp: note.timestamp })
       }
     }
     if (filter === 'all' || filter === 'chats') {
@@ -512,7 +512,15 @@ export function Feed({
                           const note = item.data
                           const isEditing = editingNoteId === note.id
                           return (
-                            <div key={`note-${note.id}`} className="timeline-item timeline-note">
+                            <div
+                              key={`note-${note.id}`}
+                              className={`timeline-item timeline-note ${note.paragraphIndex !== undefined ? 'timeline-clickable' : ''}`}
+                              onClick={() => {
+                                if (!isEditing && note.paragraphIndex !== undefined) {
+                                  onNavigateToChapter(note.chapterNumber, note.paragraphIndex, note.editionKey)
+                                }
+                              }}
+                            >
                               <div className="timeline-icon timeline-icon-note">&#9998;</div>
                               <div className="timeline-body">
                                 <div className="note-entry-header">
@@ -521,11 +529,12 @@ export function Feed({
                                      note.sourceType === 'from-highlight' ? 'From highlight' : ''}
                                   </span>
                                   {entryMeta(note.timestamp, record)}
-                                  <button className="note-edit" onClick={() => isEditing ? saveEdit() : startEdit(note)}>
+                                  <button className="note-edit" onClick={(e) => { e.stopPropagation(); isEditing ? saveEdit() : startEdit(note) }}>
                                     {isEditing ? 'Save' : '\u270E'}
                                   </button>
-                                  <button className="note-delete" onClick={() => onDeleteNote(note.id)}>&times;</button>
+                                  <button className="note-delete" onClick={(e) => { e.stopPropagation(); onDeleteNote(note.id) }}>&times;</button>
                                 </div>
+                                {note.quote && <p className="highlight-text">&ldquo;{note.quote.length > 100 ? note.quote.slice(0, 100) + '...' : note.quote}&rdquo;</p>}
                                 {isEditing ? (
                                   <textarea
                                     className="feed-edit-input"

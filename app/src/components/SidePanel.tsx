@@ -57,6 +57,7 @@ interface SidePanelProps {
   getMentions: (char: ThreadCharacter, upToChapter?: number) => CharacterMention[]
   onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
   visibleParagraphs?: string[]
+  visibleParagraphIndices?: number[]
   // Balance (shown in chat welcome)
   messagesRemaining?: number
   hasBalance?: boolean
@@ -125,6 +126,7 @@ export function SidePanel(props: SidePanelProps) {
     getMentions,
     onNavigateToChapter,
     visibleParagraphs,
+    visibleParagraphIndices,
     messagesRemaining,
     hasBalance,
     isAnonymous,
@@ -257,6 +259,8 @@ export function SidePanel(props: SidePanelProps) {
         getMentions={getMentions}
         onNavigateToChapter={onNavigateToChapter}
         visibleParagraphs={visibleParagraphs}
+        visibleParagraphIndices={visibleParagraphIndices}
+        chapterLabelByNumber={chapterLabelByNumber}
       />
     )
   }

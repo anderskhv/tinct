@@ -51,7 +51,7 @@ import { useLibrary } from './hooks/useLibrary'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage, setStorageProvider, localStorageProvider, clearLocalUserData, setAnonymousMode } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
-import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation } from './types'
+import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation, Note } from './types'
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
 import { trackEvent, trackPageview } from './utils/analytics'
@@ -131,6 +131,19 @@ export default function App() {
   // (e.g. opened on a book the user wasn't actually reading anymore).
   const [supabaseInitTick, setSupabaseInitTick] = useState(0)
   const supabaseProviderRef = useRef<SupabaseStorageProvider | null>(null)
+  const quickReturnFromCacheRef = useRef(false)
+  useEffect(() => {
+    const markHidden = () => {
+      try { localStorage.setItem('tinct:last-hidden-at', String(Date.now())) } catch { /* ignore */ }
+    }
+    const onVisibility = () => { if (document.visibilityState === 'hidden') markHidden() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', markHidden)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', markHidden)
+    }
+  }, [])
   useEffect(() => {
     // Wait for auth to resolve before deciding on storage provider
     if (authLoading) return
@@ -141,9 +154,16 @@ export default function App() {
       // localStorage cache mirroring works for all keys.
       setAnonymousMode(false)
       const provider = new SupabaseStorageProvider(user.id)
+      let lastHiddenAt = 0
+      try { lastHiddenAt = Number(localStorage.getItem('tinct:last-hidden-at') || '0') } catch { /* ignore */ }
+      const isQuickReturn = lastHiddenAt > 0 && Date.now() - lastHiddenAt < 15 * 60 * 1000
+      const localData = localStorageProvider.getAllData()
+      const hasLocalMirror = Object.keys(localData).some(key => key === 'tinct-current-book' || key.startsWith('position:'))
+      quickReturnFromCacheRef.current = isQuickReturn && hasLocalMirror
       const LAST_USER_KEY = 'tinct:last-user-id'
       const lastUserId = localStorage.getItem(LAST_USER_KEY)
       const isUserSwitch = lastUserId !== null && lastUserId !== user.id
+      if (isUserSwitch) quickReturnFromCacheRef.current = false
       if (isUserSwitch) {
         clearLocalUserData()
       }
@@ -166,6 +186,10 @@ export default function App() {
           console.warn('[App] Supabase realtime subscribe failed (continuing without live sync):', e)
         }
         setStorageReady(true)
+      }
+      if (quickReturnFromCacheRef.current) {
+        installProvider()
+        setCloudRestoreSettled(true)
       }
       // Timeout: if critical restore takes >5s, render from the signed-in
       // local mirror instead of leaving the app permanently on the loading shell.
@@ -192,7 +216,6 @@ export default function App() {
             // (Anonymous-mode testing previously polluted real cloud positions
             // because anonymous's Date.now() was newer than yesterday's reading.
             // Diagnosed 2026-05-06.)
-            const localData = localStorageProvider.getAllData()
             for (const [key, value] of Object.entries(localData)) {
               const cloudValue = provider.get(key)
               if (!cloudValue) {
@@ -387,6 +410,7 @@ export default function App() {
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
+  const [visibleParagraphIndices, setVisibleParagraphIndices] = useState<number[]>([])
   const [compareFirstVisibleParagraph, setCompareFirstVisibleParagraph] = useState(0)
   const [compareSyncSignal, setCompareSyncSignal] = useState<ReaderSyncSignal | undefined>(undefined)
   const [readSyncSignal, setReadSyncSignal] = useState<ReaderSyncSignal | undefined>(undefined)
@@ -552,7 +576,7 @@ export default function App() {
     const cloudBookId = storage.get<string>('tinct-current-book')
     const validCloudBook = cloudBookId && !!getBook(cloudBookId)
     const targetBookId = validCloudBook ? cloudBookId : book.id
-    if (validCloudBook && cloudBookId !== currentBookId) {
+    if (!quickReturnFromCacheRef.current && validCloudBook && cloudBookId !== currentBookId) {
       setCurrentBookId(cloudBookId)
     }
     // Restore reading position only on the FIRST SUCCESSFUL restore. Subsequent
@@ -566,7 +590,10 @@ export default function App() {
     // localStorage still empty (post-wipe device), the restore got null
     // and was permanently blocked. Now: re-attempt on every supabaseInitTick
     // until we actually have cloud data.
-    if (!hasRestoredFromCloud.current && supabaseInitTick > 0) {
+    if (quickReturnFromCacheRef.current && supabaseInitTick > 0) {
+      markCloudPosition(book.id, getSavedPosition(book.id))
+      hasRestoredFromCloud.current = true
+    } else if (!hasRestoredFromCloud.current && supabaseInitTick > 0) {
       const cloudPos = getSavedPosition(targetBookId)
       // Mark cloud-known chapter so the regression guard knows what the
       // authoritative position is. Without this, the first heartbeat
@@ -742,16 +769,44 @@ export default function App() {
     }
   }, [primaryData, totalChapters, currentChapter, book.id])
 
+  // Blank-reader recovery guard. If auth/storage restore or a stale saved
+  // chapter leaves the app pointing at a chapter that is not present in the
+  // loaded edition, reset to the first real chapter instead of rendering an
+  // empty reader until the user navigates away and back.
+  useEffect(() => {
+    if (!primaryData || isLoading || primaryData.chapters.length === 0) return
+    const chapter = primaryData.chapters.find(c => c.number === currentChapter)
+    if (chapter && chapter.paragraphs.length > 0) return
+    const fallback = primaryData.chapters.find(c => c.paragraphs.length > 0)
+    if (!fallback) return
+    console.warn(`[reader-recovery] ${book.id}: chapter ${currentChapter} has no loaded text; opening chapter ${fallback.number}`)
+    targetParagraphRef.current = undefined
+    savedPos.current = null
+    storage.delete(`position:${book.id}`)
+    setCurrentChapter(fallback.number)
+    setCurrentPage(0)
+    setTotalPages(1)
+    setFirstVisibleParagraph(0)
+    setVisibleParagraphIndices([])
+    setReaderKey(k => k + 1)
+  }, [primaryData, isLoading, currentChapter, book.id])
+
   // Re-sync from Supabase when tab regains focus (cross-device sync)
   const lastSyncRef = useRef(0)
+  const lastHiddenAtRef = useRef(0)
   useEffect(() => {
     const handleVisibility = async () => {
-      if (document.visibilityState !== 'visible') return
+      const now = Date.now()
+      if (document.visibilityState !== 'visible') {
+        lastHiddenAtRef.current = now
+        return
+      }
       const provider = supabaseProviderRef.current
       if (!provider || !user) return
       if (!storageReady || !cloudRestoreSettled) return
       if (showStore || libraryEmpty) return
-      const now = Date.now()
+      const hiddenForMs = lastHiddenAtRef.current ? now - lastHiddenAtRef.current : Number.POSITIVE_INFINITY
+      if (hiddenForMs < 15 * 60 * 1000) return
       if (now - lastSyncRef.current < 5000) return // debounce 5s
       lastSyncRef.current = now
       try {
@@ -913,10 +968,15 @@ export default function App() {
   const visibleParagraphs = useMemo(() => {
     const paras = primaryChapter?.paragraphs || []
     if (paras.length === 0 || totalPages <= 0) return [] as string[]
-    const startIdx = Math.floor((currentPage / Math.max(totalPages, 1)) * paras.length)
+    if (visibleParagraphIndices.length > 0) {
+      return visibleParagraphIndices
+        .map(idx => paras[idx])
+        .filter((p): p is string => typeof p === 'string')
+    }
+    const startIdx = Math.max(0, Math.min(paras.length - 1, firstVisibleParagraph))
     const endIdx = Math.min(startIdx + Math.ceil(paras.length / Math.max(totalPages, 1)) + 1, paras.length)
     return paras.slice(startIdx, endIdx)
-  }, [primaryChapter?.paragraphs, currentPage, totalPages])
+  }, [primaryChapter?.paragraphs, visibleParagraphIndices, firstVisibleParagraph, totalPages])
 
   const visibleText = useMemo(() => visibleParagraphs.join(' '), [visibleParagraphs])
 
@@ -1286,6 +1346,19 @@ export default function App() {
 
   const { highlights, addHighlight, removeHighlight, updateHighlightNote, updateHighlightColor, getEditionHighlights, getAllBookHighlights } = useHighlights(book.id, currentChapter, totalChapters, heavyLoadedTick)
   const { notes, addNote, deleteNote, updateNote, replaceAllNotes, getAllBookNotes } = useNotes(book.id, currentChapter, totalChapters, heavyLoadedTick)
+  const addAnchoredNote = useCallback((
+    content: string,
+    sourceType: Note['sourceType'] = 'freeform',
+    sourceId?: string,
+  ) => {
+    const paragraphIndex = Math.max(0, firstVisibleParagraphRef.current || 0)
+    const quote = primaryChapter?.paragraphs?.[paragraphIndex]
+    return addNote(content, sourceType, sourceId, {
+      paragraphIndex,
+      editionKey: primaryEditionKey,
+      quote: quote ? quote.slice(0, 220) : undefined,
+    })
+  }, [addNote, primaryChapter, primaryEditionKey])
 
   // Effective paragraph: audio position takes priority over reading position
   const effectiveParagraph = audioPlayingParagraph ?? firstVisibleParagraph
@@ -2385,8 +2458,8 @@ export default function App() {
     text: string,
     color: HighlightColor,
   ) => {
-    addHighlight(primaryEditionKey, paragraphIndex, startOffset, endOffset, text, color)
-  }, [addHighlight, primaryEditionKey])
+    addHighlight(primaryEditionKey, paragraphIndex, startOffset, endOffset, text, color, primaryChapter?.paragraphs?.[paragraphIndex])
+  }, [addHighlight, primaryEditionKey, primaryChapter])
 
   // Handle highlighting in split reader
   const handleSplitHighlight = useCallback((
@@ -2398,8 +2471,9 @@ export default function App() {
     side: 'left' | 'right',
   ) => {
     const edKey = side === 'left' ? primaryEditionKey : splitEditionKey
-    addHighlight(edKey, paragraphIndex, startOffset, endOffset, text, color)
-  }, [addHighlight, primaryEditionKey, splitEditionKey])
+    const chapter = side === 'left' ? primaryChapter : splitChapter
+    addHighlight(edKey, paragraphIndex, startOffset, endOffset, text, color, chapter?.paragraphs?.[paragraphIndex])
+  }, [addHighlight, primaryEditionKey, splitEditionKey, primaryChapter, splitChapter])
 
   // Record assistant messages to chat history when they arrive.
   // Defensive guards: never persist a divider marker, never persist an empty
@@ -2450,9 +2524,9 @@ export default function App() {
 
   // Copy to notes from chat
   const handleCopyToNotes = useCallback((content: string) => {
-    addNote(content, 'from-chat')
+    addAnchoredNote(content, 'from-chat')
     setPanelTab('notes')
-  }, [addNote, setPanelTab])
+  }, [addAnchoredNote, setPanelTab])
 
   // AI note cleanup
   const handleCleanupNotes = useCallback(async (aggressive: boolean) => {
@@ -2568,7 +2642,7 @@ export default function App() {
       }
 
       if (summaryText) {
-        addNote(`READING JOURNAL — The Odyssey\n\n${summaryText}`, 'freeform')
+        addAnchoredNote(`READING JOURNAL — The Odyssey\n\n${summaryText}`, 'freeform')
         setPanelTab('notes')
         if (!preferences.panelOpen) togglePanel()
       }
@@ -2577,11 +2651,11 @@ export default function App() {
     } finally {
       setIsGeneratingSummary(false)
     }
-  }, [getAllBookHighlights, getAllBookNotes, preferences.readingObjective, preferences.panelOpen, addNote, setPanelTab, togglePanel, session, handleInsufficientBalance, deductUsage])
+  }, [getAllBookHighlights, getAllBookNotes, preferences.readingObjective, preferences.panelOpen, addAnchoredNote, setPanelTab, togglePanel, session, handleInsufficientBalance, deductUsage])
 
   // Chapter reflection
   const handleReflect = useCallback(() => {
-    const reflectPrompt = `I've just finished reading ${chapterTitle} of ${book.title}. Help me reflect on the key themes, memorable moments, and anything I might have missed.`
+    const reflectPrompt = `I've just finished reading ${chapterTitle} of ${book.title}. Give me a concise, grounded reflection on what mattered in this chapter: the main turns, quieter details worth noticing, and one or two questions to carry forward. Avoid hype and vary the tone.`
     trackEvent('chapter_reflection_started', {
       book_id: book.id,
       chapter_number: currentChapter,
@@ -3402,6 +3476,7 @@ export default function App() {
                   readerRef={readerRef}
                   onPageChange={handleReadPageChange}
                   onFirstVisibleParagraph={setFirstVisibleParagraph}
+                  onVisibleParagraphsChange={setVisibleParagraphIndices}
                   initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                   isVerse={primaryIsVerse}
                   targetParagraphIndex={validReadSyncSignal?.paragraph ?? targetParagraphRef.current}
@@ -3420,6 +3495,10 @@ export default function App() {
                   fontFamily={preferences.fontFamily}
                   onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
                   onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                  onDeleteHighlight={removeHighlight}
+                  onUpdateHighlightNote={updateHighlightNote}
+                  onUpdateHighlightColor={updateHighlightColor}
+                  onShare={setShareText}
                 />
               )}
             </div>
@@ -3433,7 +3512,7 @@ export default function App() {
                   chapterTitle={normalizeChapterTitle(splitChapter.title || `Book ${currentChapter}`)}
                   isLoading={isLoading}
                   highlights={getEditionHighlights(splitEditionKey)}
-                  onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color)}
+                  onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color, splitChapter?.paragraphs?.[pIdx])}
                   onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
                   onReflect={user ? handleReflect : undefined}
                   onGenerateSummary={handleGenerateSummary}
@@ -3458,6 +3537,10 @@ export default function App() {
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
                   onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
                   onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                  onDeleteHighlight={removeHighlight}
+                  onUpdateHighlightNote={updateHighlightNote}
+                  onUpdateHighlightColor={updateHighlightColor}
+                  onShare={setShareText}
                 />
               ) : (
                 <div className="mobile-view-placeholder">
@@ -3492,7 +3575,7 @@ export default function App() {
                   onEditObjective={handleEditObjective}
                   notes={notes}
                   highlights={highlights}
-                  onAddNote={addNote}
+                  onAddNote={addAnchoredNote}
                   onDeleteNote={deleteNote}
                   onDeleteHighlight={removeHighlight}
                   onUpdateNote={updateNote}
@@ -3510,6 +3593,7 @@ export default function App() {
                   language={preferences.language}
                   getMentions={getMentions}
                   visibleParagraphs={visibleParagraphs}
+                  visibleParagraphIndices={visibleParagraphIndices}
                   onNavigateToChapter={(ch, pi, ek) => { handleNavigateToChapter(ch, pi, ek); setActiveView(0) }}
                   onSignIn={() => { setAuthModalMode('signup'); setShowAuthModal(true) }}
                   onShowPricing={() => setShowPricingModal(true)}
@@ -3569,6 +3653,7 @@ export default function App() {
                 isRightVerse={splitIsVerse}
                 onPageChange={handlePageChange}
                 onFirstVisibleParagraph={setFirstVisibleParagraph}
+                onVisibleParagraphsChange={setVisibleParagraphIndices}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
@@ -3609,6 +3694,7 @@ export default function App() {
                 readerRef={readerRef}
                 onPageChange={handlePageChange}
                 onFirstVisibleParagraph={setFirstVisibleParagraph}
+                onVisibleParagraphsChange={setVisibleParagraphIndices}
                 initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
                 isVerse={primaryIsVerse}
                 targetParagraphIndex={targetParagraphRef.current}
@@ -3655,7 +3741,7 @@ export default function App() {
               onEditObjective={handleEditObjective}
               notes={notes}
               highlights={highlights}
-              onAddNote={addNote}
+              onAddNote={addAnchoredNote}
               onDeleteNote={deleteNote}
               onDeleteHighlight={removeHighlight}
               onUpdateNote={updateNote}
@@ -3673,6 +3759,7 @@ export default function App() {
               language={preferences.language}
               getMentions={getMentions}
               visibleParagraphs={visibleParagraphs}
+              visibleParagraphIndices={visibleParagraphIndices}
               onNavigateToChapter={handleNavigateToChapter}
               messagesRemaining={messagesRemaining}
               hasBalance={hasBalance}

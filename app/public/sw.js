@@ -33,9 +33,11 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // Audio: cache-first
+  // Audio: cache-first. Mobile media elements often request MP3s with byte
+  // ranges; when a full file is cached, satisfy those ranges locally instead
+  // of bypassing the cache and streaming over the network.
   if (event.request.headers.has('range')) {
-    event.respondWith(fetch(event.request).catch(() => offlineFallback()))
+    event.respondWith(handleAudioRange(event.request, event))
     return
   }
   event.respondWith(
@@ -50,6 +52,65 @@ self.addEventListener('fetch', (event) => {
     )
   )
 })
+
+async function handleAudioRange(request, event) {
+  const cache = await caches.open(CACHE_NAME)
+  const cached = await cache.match(request.url)
+  if (cached && cached.ok) {
+    const buffer = await cached.arrayBuffer()
+    const range = parseRange(request.headers.get('range'), buffer.byteLength)
+    if (range) {
+      const size = buffer.byteLength
+      const start = Math.min(range.start, size - 1)
+      const end = Math.min(range.end, size - 1)
+      if (start <= end) {
+        return new Response(buffer.slice(start, end + 1), {
+          status: 206,
+          headers: {
+            'Content-Type': cached.headers.get('Content-Type') || 'audio/mpeg',
+            'Content-Length': String(end - start + 1),
+            'Content-Range': `bytes ${start}-${end}/${size}`,
+            'Accept-Ranges': 'bytes',
+          },
+        })
+      }
+    }
+  }
+
+  const network = fetch(request)
+  event.waitUntil(warmAudioCache(request.url))
+  return network.catch(() => offlineFallback())
+}
+
+function warmAudioCache(url) {
+  return caches.open(CACHE_NAME).then(cache =>
+    cache.match(url).then(cached => {
+      if (cached) return
+      return fetch(url).then(response => {
+        if (response.ok) return cache.put(url, response)
+      })
+    })
+  ).catch(() => {})
+}
+
+function parseRange(rangeHeader, fallbackSize) {
+  const match = /^bytes=(\d*)-(\d*)$/.exec(rangeHeader || '')
+  if (!match) return null
+  const startRaw = match[1]
+  const endRaw = match[2]
+  if (!startRaw && !endRaw) return null
+
+  if (!startRaw) {
+    const suffix = Number(endRaw)
+    if (!Number.isFinite(suffix) || suffix <= 0 || fallbackSize <= 0) return null
+    return { start: Math.max(0, fallbackSize - suffix), end: fallbackSize - 1 }
+  }
+
+  const start = Number(startRaw)
+  const end = endRaw ? Number(endRaw) : Number.MAX_SAFE_INTEGER
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end < start) return null
+  return { start, end }
+}
 
 async function handleEdition(request, forceFresh) {
   const cache = await caches.open(CACHE_NAME)

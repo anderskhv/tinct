@@ -11,6 +11,20 @@ function generateId(): string {
   return `hl_${Date.now()}_${++idCounter}`
 }
 
+function normalizedText(text: string): string {
+  return text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
+}
+
+function shouldMergeHighlights(a: Highlight, b: Pick<Highlight, 'editionKey' | 'paragraphIndex' | 'startOffset' | 'endOffset'>, paragraphText?: string): boolean {
+  if (a.editionKey !== b.editionKey || a.paragraphIndex !== b.paragraphIndex) return false
+  const gapStart = Math.min(a.endOffset, b.endOffset)
+  const gapEnd = Math.max(a.startOffset, b.startOffset)
+  if (gapEnd <= gapStart) return true
+  if (!paragraphText) return false
+  const gap = normalizedText(paragraphText).slice(gapStart, gapEnd)
+  return gap.length <= 40 && !/[.!?。！？]/.test(gap)
+}
+
 export function useHighlights(bookId: string, chapterNumber: number, totalChapters?: number, heavyLoadedTick = 0) {
   const [highlights, setHighlights] = useState<Highlight[]>(() => {
     return storage.get<Highlight[]>(storageKey(bookId, chapterNumber)) || []
@@ -43,6 +57,7 @@ export function useHighlights(bookId: string, chapterNumber: number, totalChapte
     endOffset: number,
     text: string,
     color: HighlightColor,
+    paragraphText?: string,
   ): Highlight => {
     const highlight: Highlight = {
       id: generateId(),
@@ -56,7 +71,23 @@ export function useHighlights(bookId: string, chapterNumber: number, totalChapte
       color,
       timestamp: Date.now(),
     }
-    setHighlights(prev => [...prev, highlight])
+    setHighlights(prev => {
+      const mergeIndex = prev.findIndex(h => shouldMergeHighlights(h, highlight, paragraphText))
+      if (mergeIndex < 0) return [...prev, highlight]
+
+      const existing = prev[mergeIndex]
+      const mergedStart = Math.min(existing.startOffset, highlight.startOffset)
+      const mergedEnd = Math.max(existing.endOffset, highlight.endOffset)
+      const source = paragraphText ? normalizedText(paragraphText) : ''
+      const merged: Highlight = {
+        ...existing,
+        startOffset: mergedStart,
+        endOffset: mergedEnd,
+        text: source ? source.slice(mergedStart, mergedEnd) : `${existing.text} ${highlight.text}`.trim(),
+        timestamp: Date.now(),
+      }
+      return prev.map((h, i) => i === mergeIndex ? merged : h)
+    })
     return highlight
   }, [bookId, chapterNumber])
 

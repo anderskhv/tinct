@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react'
+import type { CSSProperties } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
@@ -13,10 +14,33 @@ interface SelectionInfo {
   paragraphIndex: number
   startOffset: number
   endOffset: number
+  segments?: SelectionSegment[]
   showBelow?: boolean
+  mobilePlacement?: 'bottom' | 'above-selection'
   existingHighlightId?: string
   existingNote?: string
   noteEditMode?: boolean
+}
+
+interface TextPoint {
+  paragraphIndex: number
+  offset: number
+}
+
+interface SelectionSegment {
+  paragraphIndex: number
+  startOffset: number
+  endOffset: number
+  text: string
+}
+
+interface CustomSelection {
+  anchor: TextPoint
+  focus: TextPoint
+  segments: SelectionSegment[]
+  text: string
+  startHandle?: { x: number; y: number }
+  endHandle?: { x: number; y: number }
 }
 
 interface ReaderProps {
@@ -47,6 +71,8 @@ interface ReaderProps {
   onPageChange?: (page: number, total: number) => void
   /** Called with the index of the first paragraph visible on the current page */
   onFirstVisibleParagraph?: (paragraphIndex: number) => void
+  /** Called with all paragraph indices intersecting the current page */
+  onVisibleParagraphsChange?: (paragraphIndices: number[]) => void
   /** Initial scroll fraction (0–1) to restore on mount, or absolute page number (>1) for backwards compat */
   initialPage?: number
   /** Whether this edition is verse (preserve line breaks) */
@@ -116,6 +142,7 @@ export function Reader({
   readerRef,
   onPageChange,
   onFirstVisibleParagraph,
+  onVisibleParagraphsChange,
   initialPage,
   isVerse,
   targetParagraphIndex,
@@ -151,6 +178,13 @@ export function Reader({
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const [customSelection, setCustomSelection] = useState<CustomSelection | null>(null)
+  const customSelectionRef = useRef<CustomSelection | null>(null)
+  customSelectionRef.current = customSelection
+  const selectionLongPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const selectionDragModeRef = useRef<'select' | 'start' | 'end' | null>(null)
+  const desktopSelectionDragRef = useRef(false)
+  const lastSelectionPageTurnAtRef = useRef(0)
   const popupRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   // Temp DOM mark that keeps the visual selection highlight visible while the
@@ -169,6 +203,7 @@ export function Reader({
   // Wrapper: dismissing the popup also clears the preview mark.
   const dismissPopup = useCallback(() => {
     clearSelectionPreview()
+    setCustomSelection(null)
     setSelectionPopup(null)
   }, [clearSelectionPreview])
   const [currentPage, setCurrentPage] = useState(0)
@@ -249,6 +284,10 @@ export function Reader({
       const newPage = Math.round(frac * (pages - 1))
       currentPageRef.current = newPage
       setCurrentPage(newPage)
+    } else if (currentPageRef.current > pages - 1) {
+      const clamped = Math.max(0, pages - 1)
+      currentPageRef.current = clamped
+      setCurrentPage(clamped)
     }
     setTotalPages(pages)
     setColWidthState(colWidth)
@@ -429,7 +468,7 @@ export function Reader({
 
   // Report first visible paragraph on current page
   useEffect(() => {
-    if (!onFirstVisibleParagraph) return
+    if (!onFirstVisibleParagraph && !onVisibleParagraphsChange) return
     const content = contentRef.current
     if (!content) return
     const colWidth = getColWidth()
@@ -438,16 +477,20 @@ export function Reader({
     const pageLeft = currentPage * (colWidth + gap)
     const pageRight = pageLeft + colWidth
     const paraEls = content.querySelectorAll('[data-paragraph-index]')
+    const visible: number[] = []
     for (const el of paraEls) {
       const htmlEl = el as HTMLElement
       // Element is visible if it starts within the current page column
       if (htmlEl.offsetLeft < pageRight && htmlEl.offsetLeft + htmlEl.offsetWidth > pageLeft) {
         const idx = parseInt(htmlEl.getAttribute('data-paragraph-index') || '0', 10)
-        onFirstVisibleParagraph(idx)
-        return
+        visible.push(idx)
       }
     }
-  }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
+    if (visible.length > 0) {
+      onFirstVisibleParagraph?.(visible[0])
+      onVisibleParagraphsChange?.(visible)
+    }
+  }, [currentPage, totalPages, onFirstVisibleParagraph, onVisibleParagraphsChange, getColWidth, getGap])
 
   // Auto-scroll to keep the playing paragraph visible as the audio
   // progresses. Interpolates across the paragraph's visual width so the
@@ -673,6 +716,297 @@ export function Reader({
   const effectiveCurrentPage = Math.min(currentPage, Math.max(0, effectiveTotalPages - 1))
   const atEffectiveFirstPage = effectiveCurrentPage <= 0
   const atEffectiveLastPage = effectiveCurrentPage >= effectiveTotalPages - 1
+  const isMobileSelection = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+
+  const normalizedParagraph = useCallback((paragraphIndex: number) => {
+    const text = paragraphs[paragraphIndex] || ''
+    return isVerse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
+  }, [paragraphs, isVerse])
+
+  const getDomPointForOffset = useCallback((paragraphEl: Element, targetOffset: number): { node: Text; offset: number } | null => {
+    const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
+    let charCount = 0
+    let node: Node | null
+    while ((node = walker.nextNode())) {
+      const text = node.textContent || ''
+      const next = charCount + text.length
+      if (targetOffset <= next) {
+        return { node: node as Text, offset: Math.max(0, Math.min(text.length, targetOffset - charCount)) }
+      }
+      charCount = next
+    }
+    return null
+  }, [])
+
+  const getOffsetWithinParagraph = useCallback((paragraphEl: Element, targetNode: Node, targetOffset: number): number | null => {
+    const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
+    let charCount = 0
+    let node: Node | null
+    while ((node = walker.nextNode())) {
+      const text = node.textContent || ''
+      if (node === targetNode) {
+        return charCount + Math.max(0, Math.min(text.length, targetOffset))
+      }
+      charCount += text.length
+    }
+    return null
+  }, [])
+
+  const buildRangeSelectionSegments = useCallback((range: Range): SelectionSegment[] => {
+    const content = contentRef.current
+    if (!content) return []
+    const segments: SelectionSegment[] = []
+    const paragraphEls = Array.from(content.querySelectorAll('[data-paragraph-index]'))
+    for (const paragraphEl of paragraphEls) {
+      if (!range.intersectsNode(paragraphEl)) continue
+      const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
+      if (!Number.isFinite(paragraphIndex)) continue
+      const text = normalizedParagraph(paragraphIndex)
+      if (!text) continue
+
+      let startOffset = 0
+      let endOffset = text.length
+      if (paragraphEl.contains(range.startContainer)) {
+        const start = getOffsetWithinParagraph(paragraphEl, range.startContainer, range.startOffset)
+        if (start !== null) startOffset = start
+      }
+      if (paragraphEl.contains(range.endContainer)) {
+        const end = getOffsetWithinParagraph(paragraphEl, range.endContainer, range.endOffset)
+        if (end !== null) endOffset = end
+      }
+
+      const correctedStart = paragraphIndex === 0 && startOffset === 1 ? 0 : startOffset
+      const start = Math.max(0, Math.min(text.length, correctedStart))
+      const end = Math.max(0, Math.min(text.length, endOffset))
+      if (end > start) {
+        segments.push({ paragraphIndex, startOffset: start, endOffset: end, text: text.slice(start, end) })
+      }
+    }
+    return segments
+  }, [getOffsetWithinParagraph, normalizedParagraph])
+
+  const getTextPointFromClientPoint = useCallback((x: number, y: number): TextPoint | null => {
+    const content = contentRef.current
+    if (!content) return null
+    const docWithCaret = document as Document & {
+      caretRangeFromPoint?: (x: number, y: number) => Range | null
+      caretPositionFromPoint?: (x: number, y: number) => { offsetNode: Node; offset: number } | null
+    }
+    let node: Node | null = null
+    let offset = 0
+    const range = docWithCaret.caretRangeFromPoint?.(x, y)
+    if (range) {
+      node = range.startContainer
+      offset = range.startOffset
+    } else {
+      const pos = docWithCaret.caretPositionFromPoint?.(x, y)
+      if (pos) {
+        node = pos.offsetNode
+        offset = pos.offset
+      }
+    }
+    if (!node) return null
+    const el = node.nodeType === Node.TEXT_NODE ? node.parentElement : node as HTMLElement
+    const paragraphEl = el?.closest?.('[data-paragraph-index]')
+    if (!paragraphEl || !content.contains(paragraphEl)) return null
+    const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
+    if (!Number.isFinite(paragraphIndex)) return null
+    if (node.nodeType !== Node.TEXT_NODE) {
+      const text = normalizedParagraph(paragraphIndex)
+      return { paragraphIndex, offset: Math.max(0, Math.min(text.length, offset)) }
+    }
+    const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
+    let charCount = 0
+    let current: Node | null
+    while ((current = walker.nextNode())) {
+      if (current === node) {
+        const text = normalizedParagraph(paragraphIndex)
+        return { paragraphIndex, offset: Math.max(0, Math.min(text.length, charCount + offset)) }
+      }
+      charCount += (current.textContent || '').length
+    }
+    return null
+  }, [normalizedParagraph])
+
+  const expandToWord = useCallback((point: TextPoint): TextPoint => {
+    const text = normalizedParagraph(point.paragraphIndex)
+    if (!text) return point
+    const isWord = (ch: string) => /[\p{L}\p{N}'’.-]/u.test(ch)
+    let start = Math.max(0, Math.min(text.length, point.offset))
+    while (start > 0 && isWord(text[start - 1])) start--
+    let end = Math.max(0, Math.min(text.length, point.offset))
+    while (end < text.length && isWord(text[end])) end++
+    if (end <= start) end = Math.min(text.length, start + 1)
+    return { paragraphIndex: point.paragraphIndex, offset: start === point.offset ? end : start }
+  }, [normalizedParagraph])
+
+  const pointCompare = (a: TextPoint, b: TextPoint) => (
+    a.paragraphIndex === b.paragraphIndex
+      ? a.offset - b.offset
+      : a.paragraphIndex - b.paragraphIndex
+  )
+
+  const buildSelectionSegments = useCallback((anchor: TextPoint, focus: TextPoint): SelectionSegment[] => {
+    const forward = pointCompare(anchor, focus) <= 0
+    const start = forward ? anchor : focus
+    const end = forward ? focus : anchor
+    const segments: SelectionSegment[] = []
+    for (let p = start.paragraphIndex; p <= end.paragraphIndex; p++) {
+      const text = normalizedParagraph(p)
+      const s = p === start.paragraphIndex ? start.offset : 0
+      const e = p === end.paragraphIndex ? end.offset : text.length
+      if (e > s) {
+        segments.push({ paragraphIndex: p, startOffset: s, endOffset: e, text: text.slice(s, e) })
+      }
+    }
+    return segments
+  }, [normalizedParagraph])
+
+  const getHandlePoint = useCallback((point: TextPoint, preferEnd = false): { x: number; y: number } | undefined => {
+    const content = contentRef.current
+    if (!content) return undefined
+    const paragraphEl = content.querySelector(`[data-paragraph-index="${point.paragraphIndex}"]`)
+    if (!paragraphEl) return undefined
+    const dom = getDomPointForOffset(paragraphEl, point.offset)
+    if (!dom) return undefined
+    try {
+      const range = document.createRange()
+      const textLen = dom.node.textContent?.length || 0
+      const start = Math.max(0, Math.min(textLen, dom.offset))
+      const end = Math.max(start, Math.min(textLen, start + 1))
+      range.setStart(dom.node, start)
+      range.setEnd(dom.node, end)
+      const rect = range.getClientRects()[0] || range.getBoundingClientRect()
+      if (!rect) return undefined
+      return { x: preferEnd ? rect.right : rect.left, y: rect.bottom }
+    } catch {
+      return undefined
+    }
+  }, [getDomPointForOffset])
+
+  const showCustomSelectionPopup = useCallback((selection: CustomSelection) => {
+    const last = selection.segments[selection.segments.length - 1]
+    if (!last) return
+    const anchorY = selection.endHandle?.y ?? selection.startHandle?.y ?? window.innerHeight / 2
+    const showBelow = window.innerHeight - anchorY > anchorY
+    const startY = selection.startHandle?.y ?? anchorY
+    const endY = selection.endHandle?.y ?? anchorY
+    const selectionTop = Math.min(startY, endY)
+    const selectionBottom = Math.max(startY, endY)
+    const mobile = isMobileSelection()
+    const mainMenuHeight = 124
+    const bottomSheetTop = window.innerHeight - mainMenuHeight - 48
+    const safeTop = Math.max(readerRef.current?.getBoundingClientRect().top ?? 0, 88)
+    const floatingY = selectionTop - mainMenuHeight - 12
+    const hasRoomAboveSelection = floatingY >= safeTop
+    const shouldFloatAbove = mobile && selectionBottom > bottomSheetTop && hasRoomAboveSelection
+    setPopupMode('main')
+    setIssueTag('')
+    setIssueComment('')
+    setSelectionPopup({
+      x: selection.endHandle?.x ?? window.innerWidth / 2,
+      y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
+      text: selection.text,
+      paragraphIndex: last.paragraphIndex,
+      startOffset: last.startOffset,
+      endOffset: last.endOffset,
+      segments: selection.segments,
+      showBelow,
+      mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
+    })
+  }, [readerRef])
+
+  const applyCustomSelection = useCallback((anchor: TextPoint, focus: TextPoint, showPopup = false) => {
+    const segments = buildSelectionSegments(anchor, focus)
+    const text = segments.map(s => s.text).join('\n\n').trim()
+    if (!segments.length || text.length < 1) return
+    const forward = pointCompare(anchor, focus) <= 0
+    const startPoint = forward ? anchor : focus
+    const endPoint = forward ? focus : anchor
+    const endHandle = getHandlePoint(endPoint, true)
+    const startHandle = getHandlePoint(startPoint)
+    const nextSelection = { anchor, focus, segments, text, startHandle, endHandle }
+    setCustomSelection(nextSelection)
+    if (showPopup) showCustomSelectionPopup(nextSelection)
+    else setSelectionPopup(null)
+    window.getSelection()?.removeAllRanges()
+  }, [buildSelectionSegments, getHandlePoint, showCustomSelectionPopup])
+
+  const startCustomSelectionAt = useCallback((x: number, y: number) => {
+    const point = getTextPointFromClientPoint(x, y)
+    if (!point) return false
+    const text = normalizedParagraph(point.paragraphIndex)
+    if (!text) return false
+    const isWord = (ch: string) => /[\p{L}\p{N}'’.-]/u.test(ch)
+    let start = Math.max(0, Math.min(text.length, point.offset))
+    while (start > 0 && isWord(text[start - 1])) start--
+    let end = Math.max(0, Math.min(text.length, point.offset))
+    while (end < text.length && isWord(text[end])) end++
+    if (end <= start) return false
+    selectionDragModeRef.current = 'end'
+    applyCustomSelection({ paragraphIndex: point.paragraphIndex, offset: start }, { paragraphIndex: point.paragraphIndex, offset: end }, false)
+    return true
+  }, [applyCustomSelection, getTextPointFromClientPoint, normalizedParagraph])
+
+  const updateCustomSelectionTo = useCallback((x: number, y: number) => {
+    const current = customSelectionRef.current
+    if (!current) return
+    const container = readerRef.current
+    const now = Date.now()
+    if (container && now - lastSelectionPageTurnAtRef.current > 900) {
+      const rect = container.getBoundingClientRect()
+      if (x > rect.right - 20 && !atEffectiveLastPage) {
+        lastSelectionPageTurnAtRef.current = now
+        const next = Math.min(currentPageRef.current + 1, Math.max(0, effectiveTotalPages - 1))
+        currentPageRef.current = next
+        setCurrentPage(next)
+      } else if (x < rect.left + 20 && !atEffectiveFirstPage) {
+        lastSelectionPageTurnAtRef.current = now
+        const prev = Math.max(currentPageRef.current - 1, 0)
+        currentPageRef.current = prev
+        setCurrentPage(prev)
+      }
+    }
+    const point = getTextPointFromClientPoint(x, y)
+    if (!point) return
+    const mode = selectionDragModeRef.current
+    if (mode === 'start') applyCustomSelection(point, current.focus, false)
+    else applyCustomSelection(current.anchor, point, false)
+  }, [applyCustomSelection, atEffectiveFirstPage, atEffectiveLastPage, effectiveTotalPages, getTextPointFromClientPoint, readerRef])
+
+  const showExistingHighlightPopup = useCallback((markEl: HTMLElement) => {
+    if (disableHighlight) return false
+    const highlightId = markEl.getAttribute('data-highlight-id')
+    if (!highlightId) return false
+    const markRect = markEl.getBoundingClientRect()
+    const paragraphEl = markEl.closest?.('[data-paragraph-index]')
+    const paragraphIndex = paragraphEl ? parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10) : 0
+    const highlight = highlights.find(h => h.id === highlightId)
+    if (!highlight) return false
+    const existingNote = highlight?.note || ''
+    const spaceAbove = markRect.top
+    const spaceBelow = window.innerHeight - markRect.bottom
+    const showBelow = spaceBelow > spaceAbove
+    clearSelectionPreview()
+    setCustomSelection(null)
+    window.getSelection()?.removeAllRanges()
+    setNoteInput(existingNote)
+    setPopupMode('main')
+    setIssueTag('')
+    setIssueComment('')
+    setSelectionPopup({
+      x: Math.max(24, Math.min(window.innerWidth - 24, markRect.left + markRect.width / 2)),
+      y: showBelow ? markRect.bottom + 10 : markRect.top - 10,
+      text: highlight?.text || markEl.textContent || '',
+      paragraphIndex,
+      startOffset: highlight?.startOffset ?? 0,
+      endOffset: highlight?.endOffset ?? 0,
+      showBelow,
+      existingHighlightId: highlightId,
+      existingNote,
+    })
+    return true
+  }, [clearSelectionPreview, disableHighlight, highlights])
 
   // Click on left/right edge to turn pages, or click paragraph for audio
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -681,6 +1015,19 @@ export function Reader({
       touchHandledRef.current = false
       return
     }
+    if ((e.target as HTMLElement).closest('button, .selection-popup, .tinct-selection-handle')) return
+
+    // Click/tap on an existing highlight mark shows the action popup, with
+    // Delete available from the same place as notes/color changes.
+    const markEl = (e.target as HTMLElement).closest?.('mark[data-highlight-id]') as HTMLElement | null
+    if (markEl && showExistingHighlightPopup(markEl)) return
+
+    if (selectionPopup || customSelectionRef.current) {
+      dismissPopup()
+      pointerStartRef.current = null
+      return
+    }
+
     const selection = window.getSelection()
     if (selection && !selection.isCollapsed) return
 
@@ -695,37 +1042,6 @@ export function Reader({
       const dy = Math.abs(e.clientY - start.y)
       if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
     }
-
-    // Click on existing highlight mark — show highlight popup
-    const markEl = (e.target as HTMLElement).closest?.('mark[data-highlight-id]') as HTMLElement | null
-    if (markEl && !disableHighlight) {
-      const highlightId = markEl.getAttribute('data-highlight-id')!
-      const markRect = markEl.getBoundingClientRect()
-      if (markRect) {
-        const paragraphEl = markEl.closest?.('[data-paragraph-index]')
-        const paragraphIndex = paragraphEl ? parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10) : 0
-        const existingNote = highlights.find(h => h.id === highlightId)?.note || ''
-        const showBelow = markRect.top < 120
-        setNoteInput(existingNote)
-        setPopupMode('main')
-        setIssueTag('')
-        setIssueComment('')
-        setSelectionPopup({
-          x: Math.max(150, Math.min(window.innerWidth - 150, markRect.left + markRect.width / 2)),
-          y: showBelow ? markRect.bottom + 10 : markRect.top - 10,
-          text: markEl.textContent || '',
-          paragraphIndex,
-          startOffset: 0,
-          endOffset: 0,
-          showBelow,
-          existingHighlightId: highlightId,
-          existingNote,
-        })
-      }
-      return
-    }
-
-    if ((e.target as HTMLElement).closest('button, .selection-popup')) return
 
     // Audio is playing: a click on the reader should play the clicked
     // paragraph, never turn the page. Page navigation in this state has to
@@ -782,7 +1098,7 @@ export function Reader({
         onParagraphClick(idx)
       }
     }
-  }, [currentPage, goToPage, readerRef, hasAudio, onParagraphClick, isAudioPlaying, playingParagraphIndex, onNextChapter, onPrevChapter, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage])
+  }, [currentPage, goToPage, readerRef, onParagraphClick, isAudioPlaying, onNextChapter, onPrevChapter, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, selectionPopup, dismissPopup, showExistingHighlightPopup])
 
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection()
@@ -793,9 +1109,6 @@ export function Reader({
 
     if (disableHighlight) return
 
-    const selectedText = selection.toString().trim()
-    if (selectedText.length < 3) return
-
     let range: Range
     try {
       range = selection.getRangeAt(0)
@@ -803,70 +1116,25 @@ export function Reader({
       return
     }
 
+    const segments = buildRangeSelectionSegments(range)
+    if (segments.length === 0) return
+    const selectedText = segments.map(s => s.text).join('\n\n').trim()
+    if (selectedText.length < 3) return
+
+    const firstSegment = segments[0]
+    let resolvedParagraphIndex = firstSegment.paragraphIndex
+    let startOffset = firstSegment.startOffset
+    let endOffset = firstSegment.endOffset
+
     const rangeNode = range.commonAncestorContainer
     const rangeEl = rangeNode.nodeType === Node.TEXT_NODE
       ? rangeNode.parentElement
       : rangeNode as HTMLElement
-    let paragraphEl = rangeEl?.closest?.('[data-paragraph-index]')
+    const paragraphEl = rangeEl?.closest?.('[data-paragraph-index]')
       ?? rangeEl?.querySelector?.('[data-paragraph-index]')
+      ?? readerRef.current?.querySelector(`[data-paragraph-index="${resolvedParagraphIndex}"]`)
       ?? null
     if (!paragraphEl || !readerRef.current?.contains(paragraphEl)) return
-
-    const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
-    let resolvedParagraphIndex = paragraphIndex
-
-    let paragraphText = paragraphs[resolvedParagraphIndex] || ''
-    if (paragraphText && !paragraphText.includes(selectedText)) {
-      const exactMatch = paragraphs
-        .map((text, index) => ({ text, index }))
-        .filter(({ text }) => text.includes(selectedText))
-      if (exactMatch.length === 1) {
-        resolvedParagraphIndex = exactMatch[0].index
-        paragraphText = exactMatch[0].text
-        const candidate = readerRef.current.querySelector(`[data-paragraph-index="${resolvedParagraphIndex}"]`)
-        if (candidate) paragraphEl = candidate
-      }
-    }
-    // Normalize newlines → spaces for matching (prose text has embedded \n)
-    const normalizedPara = paragraphText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
-    const normalizedSelection = selectedText.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
-
-    // Primary: use DOM-based offset calculation (works regardless of text normalization)
-    let startOffset = -1
-    let endOffset = 0
-    try {
-      // Walk text nodes inside the paragraph element to compute character offsets
-      const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
-      let charCount = 0
-      let foundStart = false
-      let node: Node | null
-      while ((node = walker.nextNode())) {
-        const nodeLen = (node.textContent || '').length
-        if (!foundStart && node === range.startContainer) {
-          startOffset = charCount + range.startOffset
-          foundStart = true
-        }
-        if (node === range.endContainer) {
-          endOffset = charCount + range.endOffset
-          break
-        }
-        charCount += nodeLen
-      }
-    } catch {
-      // Fallback: indexOf on normalized text
-    }
-
-    // Fallback: indexOf if DOM walk failed
-    if (startOffset < 0 || endOffset <= startOffset) {
-      startOffset = normalizedPara.indexOf(normalizedSelection)
-      if (startOffset >= 0) {
-        endOffset = startOffset + normalizedSelection.length
-      } else {
-        startOffset = paragraphText.indexOf(selectedText)
-        endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
-      }
-    }
-    console.log('[Highlight] selection:', { paragraphIndex: resolvedParagraphIndex, startOffset, endOffset, selectedText: selectedText.slice(0, 40), found: startOffset >= 0 })
 
     const rect = range.getBoundingClientRect()
 
@@ -886,31 +1154,41 @@ export function Reader({
       paragraphIndex: resolvedParagraphIndex,
       startOffset: Math.max(0, startOffset),
       endOffset: Math.max(0, endOffset),
+      segments,
       showBelow,
     })
 
-    // Wrap the selected range in a temp <mark> so the user still sees what
-    // the popup is about after the native selection is cleared (see below).
-    // surroundContents throws when the range spans multiple elements — in
-    // that case we just skip the preview, popup still works.
+    // Do not wrap the Range in a temporary DOM mark here. Mutating React's
+    // rendered paragraph tree during selection can leave the next highlight
+    // render reconciling against DOM React did not create, which showed up as
+    // a blank reader after saving a highlight on desktop.
     clearSelectionPreview()
-    let previewCreated = false
-    try {
-      const previewRange = selection.getRangeAt(0).cloneRange()
-      const mark = document.createElement('mark')
-      mark.className = 'tinct-selection-preview'
-      previewRange.surroundContents(mark)
-      selectionPreviewMarkRef.current = mark
-      previewCreated = true
-    } catch { /* range crosses element boundaries — skip visual preview */ }
 
-    // Mobile: clear the native selection so Safari's edit menu doesn't
-    // compete with ours. Text is captured in popup state + visible via the
-    // preview mark above; user acts through our UI (Copy, Highlight, etc.).
-    if (previewCreated && window.matchMedia('(max-width: 768px)').matches) {
+    // Mobile native-selection fallback: clear Safari's selection after we've
+    // copied the text/offsets into popup state. The primary mobile path uses
+    // the custom selection overlay and does not reach this branch.
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      window.getSelection()?.removeAllRanges()
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
-  }, [paragraphs, readerRef, disableHighlight, clearSelectionPreview])
+  }, [buildRangeSelectionSegments, readerRef, disableHighlight, clearSelectionPreview, dismissPopup])
+
+  useEffect(() => {
+    if (disableHighlight || isMobileSelection()) return
+    const onDocumentMouseUp = () => {
+      desktopSelectionDragRef.current = false
+      window.setTimeout(() => {
+        const selection = window.getSelection()
+        if (!selection || selection.isCollapsed || selection.toString().trim().length < 3) return
+        const anchor = selection.anchorNode
+        const node = anchor?.nodeType === Node.TEXT_NODE ? anchor.parentElement : (anchor as HTMLElement | null)
+        if (!node || !readerRef.current?.contains(node)) return
+        handleMouseUp()
+      }, 0)
+    }
+    document.addEventListener('mouseup', onDocumentMouseUp)
+    return () => document.removeEventListener('mouseup', onDocumentMouseUp)
+  }, [disableHighlight, handleMouseUp, readerRef])
 
   // Android WebView (Capacitor / Boox) consumes the touch in its native
   // selection mode, so onTouchEnd on our React div never fires when the
@@ -923,6 +1201,7 @@ export function Reader({
   // setCustomSelectionActionModeCallback) the system bar.
   useEffect(() => {
     if (disableHighlight) return
+    if (!isMobileSelection()) return
     let timer: ReturnType<typeof setTimeout> | null = null
     const onSelectionChange = () => {
       if (timer) clearTimeout(timer)
@@ -938,7 +1217,7 @@ export function Reader({
         const node = anchor?.nodeType === Node.TEXT_NODE ? anchor.parentElement : (anchor as HTMLElement | null)
         if (!node || !readerRef.current?.contains(node)) return
         handleMouseUp()
-      }, 350)
+      }, 150)
     }
     document.addEventListener('selectionchange', onSelectionChange)
     return () => {
@@ -1019,14 +1298,24 @@ export function Reader({
       console.warn('[Highlight] Blocked zero-length highlight', selectionPopup)
       return
     }
-    console.log('[Highlight] Creating:', { color, paragraphIndex: selectionPopup.paragraphIndex, start: selectionPopup.startOffset, end: selectionPopup.endOffset })
-    onHighlight(
-      selectionPopup.paragraphIndex,
-      selectionPopup.startOffset,
-      selectionPopup.endOffset,
-      selectionPopup.text,
-      color,
-    )
+    const segments = selectionPopup.segments && selectionPopup.segments.length > 0
+      ? selectionPopup.segments
+      : [{
+          paragraphIndex: selectionPopup.paragraphIndex,
+          startOffset: selectionPopup.startOffset,
+          endOffset: selectionPopup.endOffset,
+          text: selectionPopup.text,
+        }]
+    for (const segment of segments) {
+      if (segment.startOffset >= segment.endOffset) continue
+      onHighlight(
+        segment.paragraphIndex,
+        segment.startOffset,
+        segment.endOffset,
+        segment.text,
+        color,
+      )
+    }
     dismissPopup()
     window.getSelection()?.removeAllRanges()
   }
@@ -1101,31 +1390,130 @@ export function Reader({
     return -(currentPage * (colWidth + gap))
   }
 
+  const renderedHighlights = customSelection
+    ? [
+        ...highlights,
+        ...customSelection.segments.map((segment, i): Highlight => ({
+          id: `custom-selection-${i}`,
+          bookId: bookId || '',
+          editionKey: (editionKey || 'modern-en') as Highlight['editionKey'],
+          chapterNumber: currentChapter || 0,
+          paragraphIndex: segment.paragraphIndex,
+          startOffset: segment.startOffset,
+          endOffset: segment.endOffset,
+          text: segment.text,
+          color: 'sky',
+          timestamp: 0,
+        })),
+      ]
+    : highlights
+
   return (
     <div
       className="reader reader-paginated"
       ref={readerRef}
       onMouseDown={(e) => {
         pointerStartRef.current = { x: e.clientX, y: e.clientY }
+        desktopSelectionDragRef.current = !isMobileSelection() && !disableHighlight && !!(e.target as HTMLElement).closest('[data-paragraph-index]')
       }}
-      onMouseUp={handleMouseUp}
+      onMouseMove={(e) => {
+        if (!desktopSelectionDragRef.current || isMobileSelection()) return
+        const selection = window.getSelection()
+        if (!selection || selection.isCollapsed) return
+        const container = readerRef.current
+        if (!container) return
+        const now = Date.now()
+        if (now - lastSelectionPageTurnAtRef.current < 850) return
+        const rect = container.getBoundingClientRect()
+        if (e.clientX > rect.right - 36 && !atEffectiveLastPage) {
+          lastSelectionPageTurnAtRef.current = now
+          const next = Math.min(currentPageRef.current + 1, Math.max(0, effectiveTotalPages - 1))
+          currentPageRef.current = next
+          userNavigatedRef.current = true
+          setCurrentPage(next)
+        } else if (e.clientX < rect.left + 36 && !atEffectiveFirstPage) {
+          lastSelectionPageTurnAtRef.current = now
+          const prev = Math.max(currentPageRef.current - 1, 0)
+          currentPageRef.current = prev
+          userNavigatedRef.current = true
+          setCurrentPage(prev)
+        }
+      }}
       onClick={handleReaderClick}
       onTouchStart={(e) => {
         const t = e.touches[0]
         if (t) pointerStartRef.current = { x: t.clientX, y: t.clientY }
+        if (
+          t &&
+          isMobileSelection() &&
+          !disableHighlight &&
+          !(e.target as HTMLElement).closest('button, select, .selection-popup, .tinct-selection-handle')
+        ) {
+          if ((e.target as HTMLElement).closest('mark[data-highlight-id]')) return
+          if (selectionLongPressRef.current) clearTimeout(selectionLongPressRef.current)
+          selectionLongPressRef.current = setTimeout(() => {
+            startCustomSelectionAt(t.clientX, t.clientY)
+          }, 320)
+        }
+      }}
+      onTouchMove={(e) => {
+        const t = e.touches[0]
+        if (!t) return
+        const start = pointerStartRef.current
+        const dx = start ? Math.abs(t.clientX - start.x) : 0
+        const dy = start ? Math.abs(t.clientY - start.y) : 0
+        if (!selectionDragModeRef.current && (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) && selectionLongPressRef.current) {
+          clearTimeout(selectionLongPressRef.current)
+          selectionLongPressRef.current = null
+        }
+        if (selectionDragModeRef.current && customSelectionRef.current) {
+          e.preventDefault()
+          updateCustomSelectionTo(t.clientX, t.clientY)
+        }
       }}
       onTouchEnd={(e) => {
+        if (selectionLongPressRef.current) {
+          clearTimeout(selectionLongPressRef.current)
+          selectionLongPressRef.current = null
+        }
+        const markEl = (e.target as HTMLElement).closest?.('mark[data-highlight-id]') as HTMLElement | null
+        if (markEl && showExistingHighlightPopup(markEl)) {
+          selectionDragModeRef.current = null
+          pointerStartRef.current = null
+          touchHandledRef.current = true
+          e.preventDefault()
+          return
+        }
+        if (selectionDragModeRef.current) {
+          selectionDragModeRef.current = null
+          const currentSelection = customSelectionRef.current
+          if (currentSelection) showCustomSelectionPopup(currentSelection)
+          pointerStartRef.current = null
+          touchHandledRef.current = true
+          e.preventDefault()
+          return
+        }
+        if (customSelectionRef.current) {
+          if (!(e.target as HTMLElement).closest('.selection-popup, .tinct-selection-handle')) {
+            dismissPopup()
+            pointerStartRef.current = null
+            touchHandledRef.current = true
+            e.preventDefault()
+          }
+          return
+        }
         // Mobile text selection: iOS fires touchend, not mouseup, when the
         // user releases a selection drag. If we return early here we lose
         // the chance to show our own popup and Safari's native menu wins.
         // Tiny delay so iOS has finalized the selection + its handles.
         const selection = window.getSelection()
         if (selection && !selection.isCollapsed && (selection.toString().trim().length >= 3)) {
-          setTimeout(handleMouseUp, 50)
+          e.preventDefault()
+          setTimeout(handleMouseUp, 0)
           pointerStartRef.current = null
           return
         }
-        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) {
+        if ((e.target as HTMLElement).closest('button, select, .selection-popup')) {
           pointerStartRef.current = null
           return
         }
@@ -1172,19 +1560,22 @@ export function Reader({
         const zone = rect.width * 0.3
         if (touchX < zone) {
           touchHandledRef.current = true
-          if (totalPages > 1 && currentPage <= 0 && onPrevChapter) {
+          if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) {
             onPrevChapter()
           } else {
             goToPage(currentPage - 1)
           }
         } else if (touchX > rect.width - zone) {
           touchHandledRef.current = true
-          if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
+          if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) {
             onNextChapter()
           } else {
             goToPage(currentPage + 1)
           }
         }
+      }}
+      onContextMenu={(e) => {
+        if (isMobileSelection() && !disableHighlight) e.preventDefault()
       }}
     >
       <div
@@ -1226,7 +1617,7 @@ export function Reader({
                   key={i}
                   text={para}
                   paragraphIndex={i}
-                  highlights={highlights}
+                  highlights={renderedHighlights}
                   isVerse={isVerse}
                   className={classes.length > 0 ? classes.join(' ') : undefined}
                 />
@@ -1236,13 +1627,13 @@ export function Reader({
             {paragraphs.length > 0 && onReflect && (
               <div className="chapter-end">
                 <div className="chapter-end-ornament">&middot; &middot; &middot;</div>
-                <button className="chapter-reflect-button" onClick={onReflect}>
+                <button className="chapter-reflect-button" onClick={(e) => { e.stopPropagation(); onReflect() }}>
                   Reflect on this chapter
                 </button>
                 {isFinalChapter && onGenerateSummary && (
                   <button
                     className="chapter-summary-button"
-                    onClick={onGenerateSummary}
+                    onClick={(e) => { e.stopPropagation(); onGenerateSummary() }}
                     disabled={isGeneratingSummary}
                   >
                     {isGeneratingSummary ? 'Generating summary...' : 'Generate reading journal'}
@@ -1297,11 +1688,67 @@ export function Reader({
         </button>
       </div>
 
+      {customSelection?.startHandle && (
+        <div
+          className="tinct-selection-handle tinct-selection-handle-start"
+          style={{ left: customSelection.startHandle.x, top: customSelection.startHandle.y, position: 'fixed' }}
+          onTouchStart={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            selectionDragModeRef.current = 'start'
+          }}
+          onTouchMove={(e) => {
+            const t = e.touches[0]
+            if (!t) return
+            e.preventDefault()
+            e.stopPropagation()
+            updateCustomSelectionTo(t.clientX, t.clientY)
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            selectionDragModeRef.current = null
+            const currentSelection = customSelectionRef.current
+            if (currentSelection) showCustomSelectionPopup(currentSelection)
+          }}
+        />
+      )}
+      {customSelection?.endHandle && (
+        <div
+          className="tinct-selection-handle tinct-selection-handle-end"
+          style={{ left: customSelection.endHandle.x, top: customSelection.endHandle.y, position: 'fixed' }}
+          onTouchStart={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            selectionDragModeRef.current = 'end'
+          }}
+          onTouchMove={(e) => {
+            const t = e.touches[0]
+            if (!t) return
+            e.preventDefault()
+            e.stopPropagation()
+            updateCustomSelectionTo(t.clientX, t.clientY)
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            selectionDragModeRef.current = null
+            const currentSelection = customSelectionRef.current
+            if (currentSelection) showCustomSelectionPopup(currentSelection)
+          }}
+        />
+      )}
+
       {selectionPopup && (
         <div
           ref={popupRef}
-          className={`selection-popup ${selectionPopup.showBelow ? 'selection-popup-below' : ''}`}
-          style={{ left: selectionPopup.x, top: selectionPopup.y, position: 'fixed' }}
+          className={`selection-popup ${selectionPopup.showBelow ? 'selection-popup-below' : ''} ${selectionPopup.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+          style={{
+            left: selectionPopup.x,
+            top: selectionPopup.y,
+            position: 'fixed',
+            '--selection-popup-top': `${selectionPopup.y}px`,
+          } as CSSProperties}
           onClick={e => e.stopPropagation()}
           onMouseUp={e => e.stopPropagation()}
           onTouchEnd={e => e.stopPropagation()}

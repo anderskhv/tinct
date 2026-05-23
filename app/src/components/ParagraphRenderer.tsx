@@ -15,8 +15,22 @@ interface ParagraphRendererProps {
 interface TextSegment {
   text: string
   highlight?: Highlight
+  startOffset: number
 }
 
+function renderDropCapText(text: string, preserveNewlines?: boolean): React.ReactNode {
+  if (!text) return text
+  const match = text.match(/^(\s*)([\s\S])([\s\S]*)$/)
+  if (!match) return text
+  const [, leading, first, rest] = match
+  return (
+    <>
+      {leading}
+      <span className="drop-cap-letter">{renderFormattedText(first, preserveNewlines)}</span>
+      {renderFormattedText(rest, preserveNewlines)}
+    </>
+  )
+}
 
 // Unicode superscript digits come from two different blocks (Latin-1 for ¹²³,
 // Superscripts and Subscripts for ⁰⁴⁵⁶⁷⁸⁹). EB Garamond covers ¹²³ but
@@ -122,11 +136,12 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
   const sliceText = isVerse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
 
   const pClass = className ? `text-paragraph ${className}` : 'text-paragraph'
+  const hasDropCap = pClass.split(/\s+/).includes('drop-cap')
 
   if (paraHighlights.length === 0) {
     return (
       <p className={pClass} data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
-        {renderFormattedText(text)}
+        {hasDropCap ? renderDropCapText(text) : renderFormattedText(text)}
       </p>
     )
   }
@@ -141,18 +156,18 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
 
     // Text before highlight
     if (hl.startOffset > pos) {
-      segments.push({ text: sliceText.slice(pos, hl.startOffset) })
+      segments.push({ text: sliceText.slice(pos, hl.startOffset), startOffset: pos })
     }
 
     // Highlighted text
     const end = Math.min(hl.endOffset, sliceText.length)
-    segments.push({ text: sliceText.slice(hl.startOffset, end), highlight: hl })
+    segments.push({ text: sliceText.slice(hl.startOffset, end), highlight: hl, startOffset: hl.startOffset })
     pos = end
   }
 
   // Remaining text after last highlight
   if (pos < sliceText.length) {
-    segments.push({ text: sliceText.slice(pos) })
+    segments.push({ text: sliceText.slice(pos), startOffset: pos })
   }
 
   return (
@@ -165,10 +180,10 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
             data-highlight-id={seg.highlight.id}
             title={seg.highlight.note || undefined}
           >
-            {renderFormattedText(seg.text, isVerse)}
+            {hasDropCap && seg.startOffset === 0 ? renderDropCapText(seg.text, isVerse) : renderFormattedText(seg.text, isVerse)}
           </mark>
         ) : (
-          <span key={i}>{renderFormattedText(seg.text, isVerse)}</span>
+          <span key={i}>{hasDropCap && seg.startOffset === 0 ? renderDropCapText(seg.text, isVerse) : renderFormattedText(seg.text, isVerse)}</span>
         )
       )}
     </p>

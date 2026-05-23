@@ -20,6 +20,7 @@ interface OfflineBookInfo {
 }
 
 const OFFLINE_META_KEY = 'tinct:offline-meta'
+const OFFLINE_CACHE_NAME = 'tinct-offline-v3'
 
 function loadOfflineMeta(): Record<string, OfflineBookInfo> {
   try {
@@ -75,7 +76,7 @@ export function useOffline() {
   // Cache a single URL
   const cacheUrl = useCallback(async (url: string, abort?: AbortSignal): Promise<boolean> => {
     try {
-      const cache = await caches.open('tinct-offline-v1')
+      const cache = await caches.open(OFFLINE_CACHE_NAME)
       const existing = await cache.match(url)
       if (existing) return true
       const response = await fetch(url, { signal: abort })
@@ -114,7 +115,7 @@ export function useOffline() {
       const manifestRes = await fetch(manifestUrl, { signal: abort })
       if (!manifestRes.ok) return false
       const manifest = await manifestRes.json() as { paragraphs: { file: string }[] }
-      const cache = await caches.open('tinct-offline-v1')
+      const cache = await caches.open(OFFLINE_CACHE_NAME)
       await cache.put(manifestUrl, new Response(JSON.stringify(manifest), {
         headers: { 'Content-Type': 'application/json' },
       }))
@@ -232,7 +233,7 @@ export function useOffline() {
 
   // Remove all cached data for a book
   const removeDownload = useCallback(async (bookId: string) => {
-    const cache = await caches.open('tinct-offline-v1')
+    const cache = await caches.open(OFFLINE_CACHE_NAME)
     const keys = await cache.keys()
     await Promise.all(
       keys.filter(req => {

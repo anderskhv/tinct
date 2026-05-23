@@ -140,6 +140,10 @@ export interface Note {
   id: string
   bookId: string
   chapterNumber: number
+  /** Stable passage anchor. Page numbers are viewport/font-dependent. */
+  paragraphIndex?: number
+  editionKey?: EditionKey
+  quote?: string
   content: string
   sourceType: 'freeform' | 'from-chat' | 'from-highlight'
   sourceId?: string

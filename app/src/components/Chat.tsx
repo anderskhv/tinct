@@ -247,7 +247,8 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
 
   useEffect(() => {
     if (pendingHighlight) {
-      inputRef.current?.focus()
+      const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+      if (!isMobile) inputRef.current?.focus()
     }
   }, [pendingHighlight])
 
@@ -648,6 +649,20 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
       </div>
 
       <form className="chat-input-form" onSubmit={handleSubmit}>
+        {pendingHighlight && (
+          <div className="chat-pending-highlight">
+            <span className="chat-pending-label">Selected passage:</span>
+            <span className="chat-pending-text">{pendingHighlight}</span>
+            <button
+              type="button"
+              className="chat-pending-dismiss"
+              onClick={onClearHighlight}
+              aria-label="Clear selected passage"
+            >
+              x
+            </button>
+          </div>
+        )}
         {isListening ? (
           <div className="chat-voice-active">
             <div className="chat-voice-rec" aria-label="Recording">

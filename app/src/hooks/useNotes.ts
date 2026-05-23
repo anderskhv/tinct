@@ -45,11 +45,13 @@ export function useNotes(bookId: string, chapterNumber: number, totalChapters?: 
     content: string,
     sourceType: Note['sourceType'] = 'freeform',
     sourceId?: string,
+    anchor?: Pick<Note, 'paragraphIndex' | 'editionKey' | 'quote'>,
   ): Note => {
     const note: Note = {
       id: generateId(),
       bookId,
       chapterNumber,
+      ...anchor,
       content,
       sourceType,
       sourceId,

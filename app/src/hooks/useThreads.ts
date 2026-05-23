@@ -75,8 +75,8 @@ export function useThreads(bookId: string, editionData: EditionData | null) {
           const m = re.exec(text)
           if (m) {
             const idx = m.index
-            const start = Math.max(0, idx - 50)
-            const end = Math.min(text.length, idx + name.length + 50)
+            const start = Math.max(0, idx - 120)
+            const end = Math.min(text.length, idx + name.length + 140)
             let excerpt = text.slice(start, end)
             if (start > 0) excerpt = '\u2026' + excerpt
             if (end < text.length) excerpt = excerpt + '\u2026'

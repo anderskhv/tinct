@@ -12,6 +12,8 @@ interface ThreadsProps {
   onNavigateToChapter: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
   /** Paragraphs currently visible on the page, for page-level character detection */
   visibleParagraphs?: string[]
+  visibleParagraphIndices?: number[]
+  chapterLabelByNumber?: Record<number, string>
 }
 
 type RoleFilter = 'all' | 'mortal' | 'god' | 'creature' | 'people'
@@ -57,6 +59,8 @@ export function Threads({
   getMentions,
   onNavigateToChapter,
   visibleParagraphs,
+  visibleParagraphIndices,
+  chapterLabelByNumber,
 }: ThreadsProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [spoilerIds, setSpoilerIds] = useState<Set<string>>(new Set())
@@ -185,6 +189,11 @@ export function Threads({
       ? getMentions(char, showSpoilers ? undefined : currentChapter)
         .filter(m => currentSubBookChapters ? currentSubBookChapters.has(m.chapter) : true)
       : []
+    const visibleParagraphSet = visibleParagraphIndices?.length ? new Set(visibleParagraphIndices) : null
+    const onPageMentions = isExpanded && visibleParagraphSet
+      ? getMentions(char, currentChapter)
+        .filter(m => m.chapter === currentChapter && visibleParagraphSet.has(m.paragraphIndex))
+      : []
     const displayName = char.name[language] || char.name.en
     const displayEpithet = char.epithet[language] || char.epithet.en
     const description = char.description?.[language] || char.description?.en
@@ -257,19 +266,35 @@ export function Threads({
                     || char.chapters[String(num)]?.['modern-en']
                   const label = currentSubBook
                     ? `${currentSubBook.title} ${currentSubBook.chapters.indexOf(num) + 1}`
-                    : `Book ${num}`
+                    : (chapterLabelByNumber?.[num] || `Chapter ${num}`)
                   return summary ? (
                     <div key={num} className="thread-summary">
-                      <span
+                      <button
                         className="thread-chapter-label"
                         onClick={e => { e.stopPropagation(); onNavigateToChapter(num) }}
                       >
                         {label}
-                      </span>
+                      </button>
                       <p className="thread-summary-text">{summary}</p>
                     </div>
                   ) : null
                 })}
+              </div>
+            )}
+
+            {onPageMentions.length > 0 && (
+              <div className="thread-mentions thread-mentions-current">
+                <h5 className="thread-section-title">On this page</h5>
+                {onPageMentions.slice(0, 6).map((m, i) => (
+                  <button
+                    key={`${m.chapter}-${m.paragraphIndex}-${i}`}
+                    className="thread-mention"
+                    onClick={e => { e.stopPropagation(); onNavigateToChapter(m.chapter, m.paragraphIndex) }}
+                  >
+                    <span className="thread-mention-chapter">p{m.paragraphIndex + 1}</span>
+                    <span className="thread-mention-text">&ldquo;{m.excerpt}&rdquo;</span>
+                  </button>
+                ))}
               </div>
             )}
 
@@ -284,27 +309,27 @@ export function Threads({
                 className="thread-spoiler-btn"
                 onClick={e => { e.stopPropagation(); toggleSpoiler(char.id) }}
               >
-                Show what happens later in this book ({hiddenChapters.length} more {hiddenChapters.length === 1 ? 'chapter' : 'chapters'})
+                Show later chapters ({hiddenChapters.length} more)
               </button>
             )}
 
             {!isMinor && showSpoilers && hiddenChapters.length > 0 && hasAnyHiddenSummary && (
               <div className="thread-summaries thread-summaries-spoiler">
-                <h5 className="thread-section-title thread-spoiler-label">Later in this book</h5>
+                <h5 className="thread-section-title thread-spoiler-label">Later chapters</h5>
                 {hiddenChapters.map(num => {
                   const summary = char.chapters[String(num)]?.[summaryKey]
                     || char.chapters[String(num)]?.['modern-en']
                   const label = currentSubBook
                     ? `${currentSubBook.title} ${currentSubBook.chapters.indexOf(num) + 1}`
-                    : `Book ${num}`
+                    : (chapterLabelByNumber?.[num] || `Chapter ${num}`)
                   return summary ? (
                     <div key={num} className="thread-summary thread-summary-spoiler">
-                      <span
+                      <button
                         className="thread-chapter-label"
                         onClick={e => { e.stopPropagation(); onNavigateToChapter(num) }}
                       >
                         {label}
-                      </span>
+                      </button>
                       <p className="thread-summary-text">{summary}</p>
                     </div>
                   ) : null
@@ -357,16 +382,16 @@ export function Threads({
                 {mentions.slice(0, 25).map((m, i) => {
                   const label = currentSubBook
                     ? `${currentSubBook.title} ${currentSubBook.chapters.indexOf(m.chapter) + 1}`
-                    : `Book ${m.chapter}`
+                    : (chapterLabelByNumber?.[m.chapter] || `Chapter ${m.chapter}`)
                   return (
-                    <div
+                    <button
                       key={i}
                       className="thread-mention"
                       onClick={e => { e.stopPropagation(); onNavigateToChapter(m.chapter, m.paragraphIndex) }}
                     >
                       <span className="thread-mention-chapter">{label}</span>
                       <span className="thread-mention-text">&ldquo;{m.excerpt}&rdquo;</span>
-                    </div>
+                    </button>
                   )
                 })}
                 {mentions.length > 25 && (

@@ -29,6 +29,13 @@ function applyAudioRate(audio: HTMLAudioElement, rate: number) {
   pitchAudio.webkitPreservesPitch = true
 }
 
+function warmAudioUrl(url: string) {
+  if (typeof fetch === 'undefined') return
+  fetch(url, { cache: 'force-cache' }).catch(() => {
+    // Warmup is best-effort; playback should still use the media element path.
+  })
+}
+
 interface ParagraphAudio {
   paragraph: number
   duration: number
@@ -184,6 +191,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     // Create and configure the single Audio element once
     useEffect(() => {
       const audio = new Audio()
+      audio.preload = 'auto'
       audioRef.current = audio
       // Counts consecutive load/decode errors. Reset on any successful play.
       // Prevents a cascade where a system-wide block (e.g., CSP, network) skips
@@ -233,6 +241,10 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
           applyAudioRate(audio, speedRef.current)
+          const followingPara = m.paragraphs[nextIndex + 1]
+          if (followingPara) {
+            warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${followingPara.file}`))
+          }
           audio.play().catch(() => {
             setIsPlaying(false)
           })
@@ -283,11 +295,14 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         applyAudioRate(audio, speedRef.current)
       }
 
+      let lastNativeBufferAt = 0
       const handleWaiting = () => {
-        recordAudioDebug({ event: 'waiting', rate: audio.playbackRate, readyState: audio.readyState, currentTime: audio.currentTime })
+        lastNativeBufferAt = performance.now()
+        recordAudioDebug({ event: 'waiting', rate: audio.playbackRate, readyState: audio.readyState, networkState: audio.networkState, currentTime: audio.currentTime })
       }
       const handleStalled = () => {
-        recordAudioDebug({ event: 'stalled', rate: audio.playbackRate, readyState: audio.readyState, currentTime: audio.currentTime })
+        lastNativeBufferAt = performance.now()
+        recordAudioDebug({ event: 'stalled', rate: audio.playbackRate, readyState: audio.readyState, networkState: audio.networkState, currentTime: audio.currentTime })
       }
 
       // Apply once at element creation too, before any user interaction.
@@ -305,7 +320,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         const src = audio.src
         const t = Math.max(0, audio.currentTime || 0)
         const rate = speedRef.current
-        recordAudioDebug({ event: 'stall-recover', rate, readyState: audio.readyState, currentTime: t })
+        recordAudioDebug({ event: 'stall-recover', rate, readyState: audio.readyState, networkState: audio.networkState, currentTime: t })
         try { audio.pause() } catch { /* ignore */ }
         audio.src = src
         applyAudioRate(audio, rate)
@@ -339,7 +354,9 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           lastWatchAt = now
           return
         }
-        if (lastWatchAt && now - lastWatchAt > 3500 && audio.readyState >= 2) {
+        const nativeBufferingRecently = lastNativeBufferAt > 0 && now - lastNativeBufferAt < 8000
+        const browserIsLoading = audio.networkState === audio.NETWORK_LOADING
+        if (lastWatchAt && now - lastWatchAt > 12000 && audio.readyState >= 2 && !nativeBufferingRecently && !browserIsLoading) {
           recoverStalledPlayback()
         }
       }, 1500)
@@ -423,6 +440,9 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             const paraUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`)
             audio.src = paraUrl
             applyAudioRate(audio, speedRef.current)
+            if (data.paragraphs[1]) {
+              warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[1].file}`))
+            }
             audio.play().then(() => {
               setIsPlaying(true)
               onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
@@ -468,6 +488,10 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       audio.src = url
       applyAudioRate(audio, speedRef.current)
       try { audio.load() } catch { /* ignore — older WebViews may throw */ }
+      const nextPara = m.paragraphs[index + 1]
+      if (nextPara) {
+        warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`))
+      }
       audio.play().then(() => {
         setCurrentParagraph(index)
         currentParagraphRef.current = index

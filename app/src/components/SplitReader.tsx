@@ -62,6 +62,8 @@ interface SplitReaderProps {
   targetParagraphIndex?: number
   /** Called when the first visible paragraph changes */
   onFirstVisibleParagraph?: (index: number) => void
+  /** Called with all left-side paragraph indices intersecting the current page */
+  onVisibleParagraphsChange?: (indices: number[]) => void
   /** Index of the paragraph currently being played by audio */
   playingParagraphIndex?: number
   /** Fraction (0-1) through the currently-playing paragraph's audio. */
@@ -118,6 +120,7 @@ export function SplitReader({
   initialPage,
   targetParagraphIndex,
   onFirstVisibleParagraph,
+  onVisibleParagraphsChange,
   playingParagraphIndex,
   playingParagraphProgress,
   onParagraphClick,
@@ -326,9 +329,9 @@ export function SplitReader({
     setChapterEndPage(Math.max(0, Math.min(page, Math.max(0, totalPages - 1))))
   }, [leftParagraphs, rightParagraphs, currentPage, totalPages, getColWidth, getGap])
 
-  // Report first visible paragraph (left column) so App.tsx location stays accurate in split mode
+  // Report visible left-column paragraphs so App.tsx location/Cast/notes stay accurate in split mode
   useEffect(() => {
-    if (!onFirstVisibleParagraph) return
+    if (!onFirstVisibleParagraph && !onVisibleParagraphsChange) return
     const content = contentRef.current
     if (!content) return
     const colWidth = getColWidth()
@@ -337,15 +340,19 @@ export function SplitReader({
     const pageLeft = currentPage * (colWidth + gap)
     const pageRight = pageLeft + colWidth
     const paraEls = content.querySelectorAll('.split-left[data-paragraph-index]')
+    const visible: number[] = []
     for (const el of paraEls) {
       const htmlEl = el as HTMLElement
       if (htmlEl.offsetLeft < pageRight && htmlEl.offsetLeft + htmlEl.offsetWidth > pageLeft) {
         const idx = parseInt(htmlEl.getAttribute('data-paragraph-index') || '0', 10)
-        onFirstVisibleParagraph(idx)
-        return
+        visible.push(idx)
       }
     }
-  }, [currentPage, totalPages, onFirstVisibleParagraph, getColWidth, getGap])
+    if (visible.length > 0) {
+      onFirstVisibleParagraph?.(visible[0])
+      onVisibleParagraphsChange?.(visible)
+    }
+  }, [currentPage, totalPages, onFirstVisibleParagraph, onVisibleParagraphsChange, getColWidth, getGap])
 
   // Auto-advance page when audio plays a paragraph not visible on current
   // page. Interpolates across the paragraph's visual width so the page

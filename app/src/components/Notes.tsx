@@ -172,7 +172,7 @@ export function Notes({
 
   if (filter === 'all' || filter === 'notes') {
     for (const note of notes) {
-      allItems.push({ type: 'note', data: note, chapter: note.chapterNumber, para: 0, timestamp: note.timestamp })
+      allItems.push({ type: 'note', data: note, chapter: note.chapterNumber, para: note.paragraphIndex ?? 0, timestamp: note.timestamp })
     }
   }
 
@@ -307,7 +307,13 @@ export function Notes({
                   if (item.type === 'note') {
                     const note = item.data
                     return (
-                      <div key={`note-${note.id}`} className="timeline-item timeline-note">
+                      <div
+                        key={`note-${note.id}`}
+                        className={`timeline-item timeline-note ${note.paragraphIndex !== undefined ? 'timeline-clickable' : ''}`}
+                        onClick={() => {
+                          if (note.paragraphIndex !== undefined) onNavigateToChapter?.(note.chapterNumber, note.paragraphIndex, note.editionKey)
+                        }}
+                      >
                         <div className="timeline-icon timeline-icon-note">&#9998;</div>
                         <div className="timeline-body">
                           <div className="note-entry-header">
@@ -318,12 +324,13 @@ export function Notes({
                             <span className="timeline-time">{formatDate(note.timestamp)} {formatTime(note.timestamp)}</span>
                             <button
                               className="note-delete"
-                              onClick={() => onDeleteNote(note.id)}
+                              onClick={(e) => { e.stopPropagation(); onDeleteNote(note.id) }}
                               title="Delete note"
                             >
                               &times;
                             </button>
                           </div>
+                          {note.quote && <p className="highlight-text">&ldquo;{note.quote.length > 100 ? note.quote.slice(0, 100) + '...' : note.quote}&rdquo;</p>}
                           <div className="note-content">{renderMarkdown(note.content)}</div>
                         </div>
                       </div>
