@@ -80,12 +80,21 @@ If a book requires new app behavior, stop and ask Anders to handle it as app/Cod
 
 ## Canonical Book Flow
 
+Finish-to-publish discipline: do not start a NEW source while a staged book is
+blocked only by content work this lane can do (modern-en repair, modern-da,
+threads, onboarding). Default next task is the staged book closest to
+publishable per `wip_inventory.py`, unless Anders directs otherwise.
+
 1. Discuss structure with Anders before downloading or parsing:
    chapter division, hierarchy, editions, paragraph grouping, metadata, taxonomy.
 2. Find and validate the public-domain source.
 3. Parse the original text.
 4. For non-English works, keep the original-language edition when available and add a public-domain human English translation as the English baseline.
 5. Create `modern-en`.
+5b. Similarity gate (mandatory, blocking): `python3 books/classify-modern-en.py {book-id} --gate`
+   must PASS before any `modern-da` or audio work. Run per batch with
+   `--chapters N-M` while rendering. A prose claim that the rendering is
+   "real" does not substitute for a passing gate.
 6. Create `modern-da` from `modern-en`.
 7. Create onboarding content and threads when appropriate.
 8. Run QA: JSON validity, paragraph alignment, truncation checks, byte-identity checks for Danish, and manual spot reads.

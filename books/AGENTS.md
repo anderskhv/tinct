@@ -42,6 +42,10 @@ If adding a book requires new app behavior, stop and ask Anders to handle it as 
 - Do not answer book-status, publication-readiness, or "what is missing?"
   questions from memory. Run `python3 books/wip_inventory.py` from the repo root
   first, and add `--audio` when English/Danish audio status matters.
+- Finish-to-publish discipline: do not download or parse a NEW source while a
+  staged book is blocked only by content work this lane can do (modern-en
+  repair, modern-da, threads, onboarding). Default next task is the staged book
+  closest to publishable per `wip_inventory.py`, unless Anders directs otherwise.
 - Discuss structure before downloading or parsing a new source.
 - Use public-domain sources only.
 - Validate downloaded source metadata before parsing. Gutenberg `Title:` and `Author:` must match the intended work.
@@ -176,6 +180,21 @@ Modern Danish is translated from `modern-en`.
 - Translate fully into Danish; do not perform a light edit of English scaffold text.
 
 ## QA Gates
+
+**Similarity gate (mandatory, blocking).** No `modern-da` work and no audio
+generation may start until `modern-en` passes the committed similarity gate:
+
+```bash
+python3 books/classify-modern-en.py {book-id} --gate            # whole book
+python3 books/classify-modern-en.py {book-id} --gate --chapters 1-8   # per batch
+```
+
+The gate fails on weighted similarity > 0.75, > 5% LIGHT/MECHANICAL chapters, or
+> 5% byte-identical long paragraphs. This is the instrument that caught the
+2026-05 mechanical-modernization failure (539 fake chapters); it exists so that
+failure class cannot recur silently. A prose claim that a rendering is "real"
+does not substitute for a passing gate. Run it per batch during rendering and on
+the whole book before handing off to Danish or audio.
 
 Run focused QA after chapter batches and before considering an edition complete:
 
