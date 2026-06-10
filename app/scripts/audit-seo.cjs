@@ -21,11 +21,7 @@ const EDITIONS_DIR = path.join(PUBLIC_DIR, 'data/editions')
 const SITEMAP = path.join(PUBLIC_DIR, 'sitemap.xml')
 const ORIGIN = 'https://tinct.app'
 
-const HOLD_BACK_BOOK_IDS = new Set([
-  'around-the-world-80-days',
-  'jungle-book',
-  'treasure-island',
-])
+const HOLD_BACK_BOOK_IDS = new Set([])
 
 const GENERIC_TITLES = new Set([
   'Tinct — A New Way to Read',

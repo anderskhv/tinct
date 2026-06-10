@@ -73,6 +73,43 @@ function chapterTitle(ch) {
   return normalizeChapterCopy(ch.title)
 }
 
+function stripHtml(value) {
+  return normalizeChapterCopy(String(value ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim())
+}
+
+function truncateText(value, max = 150) {
+  const text = stripHtml(value)
+  if (text.length <= max) return text
+  const cut = text.slice(0, max + 1)
+  const boundary = Math.max(cut.lastIndexOf(' '), cut.lastIndexOf('—'), cut.lastIndexOf(':'))
+  return `${cut.slice(0, boundary > max * 0.65 ? boundary : max).replace(/[,\s;:—-]+$/, '')}...`
+}
+
+function listPreview(items, maxItems = 4) {
+  const names = items.filter(Boolean).slice(0, maxItems)
+  if (names.length === 0) return ''
+  return names.join(', ')
+}
+
+function metaDescription(value, fallback) {
+  const text = truncateText(value, 155)
+  if (text.length >= 80) return text
+  const joined = `${text}${/[.!?]$/.test(text) ? '' : '.'} ${fallback}`
+  return truncateText(joined, 155)
+}
+
+function chapterGlanceText(ch) {
+  return truncateText(ch.blurb || ch.tour || ch.hook || ch.tourTitle || ch.title, 130)
+}
+
+function chapterMetaDescription(book, ch) {
+  const source = ch.hook || ch.blurb || ch.summary?.[0] || ch.tour || chapterTitle(ch)
+  return metaDescription(
+    `${chapterTitle(ch)}: ${truncateText(source, 125)}`,
+    `Chapter ${ch.n} summary, themes, characters, and full reader links for ${book.title}.`,
+  )
+}
+
 // =====================================================================
 // SHARED CSS — inlined per page; matches the Odyssey originals byte-for-byte
 // =====================================================================
@@ -434,13 +471,13 @@ function footer() {
 
 function renderChapter(book, ch) {
   const N = book.chapters.length
-  const title = `${book.title}, Chapter ${ch.n}: ${chapterTitle(ch)} | Tinct`
-  const description = `Chapter ${ch.n} of ${book.author}'s ${book.title}: ${chapterTitle(ch)}. Summary, characters who appear, themes, and the full text in modern translation. Free on Tinct.`
+  const title = `${book.title} Chapter ${ch.n} Summary | Tinct`
+  const description = chapterMetaDescription(book, ch)
   const canonical = `https://tinct.app/read/${book.id}/chapter-${ch.n}`
 
   const glanceLis = book.chapters.map(c => {
     const cls = c.n === ch.n ? ' class="active"' : ''
-    return `      <li${cls}><a href="/read/${book.id}/chapter-${c.n}"><span class="glance-num">${esc(chapterLabel(book, c.n))}</span><span class="glance-text">${esc(normalizeChapterCopy(c.tour ? c.tour.split('. ')[0] + '.' : c.title))}</span></a></li>`
+    return `      <li${cls}><a href="/read/${book.id}/chapter-${c.n}"><span class="glance-num">${esc(chapterLabel(book, c.n))}</span><span class="glance-text">${esc(chapterGlanceText(c))}</span></a></li>`
   }).join('\n')
 
   const summaryParas = ch.summary.map(p => `      <p>${p}</p>`).join('\n')
@@ -485,13 +522,6 @@ function renderChapter(book, ch) {
     <h1 class="title">${esc(chapterTitle(ch))}</h1>
     <p class="hook">${ch.hook || ''}</p>
 
-    <div class="glance-section">
-      <div class="glance-label">All ${N} chapters — click to jump</div>
-      <ol class="glance">
-${glanceLis}
-      </ol>
-    </div>
-
     <h2 class="section">Summary</h2>
     <div class="body">
 ${summaryParas}
@@ -506,6 +536,13 @@ ${appearsChips}
       <div class="meta-row">
 ${themeChips}
       </div>
+    </div>
+
+    <div class="glance-section">
+      <div class="glance-label">All ${N} chapters — click to jump</div>
+      <ol class="glance">
+${glanceLis}
+      </ol>
     </div>
 
     <div class="chapter-nav">
@@ -541,8 +578,8 @@ ${footer()}`
 // --- chapters.html ----------------------------------------------------
 
 function renderChapters(book) {
-  const title = `${book.title} — All ${book.chapters.length} Chapters Summarized | Tinct`
-  const description = `Every chapter of ${book.author}'s ${book.title} summarized. ${book.chapters.length} chapters at a glance, each linked to a deeper page and the reader.`
+  const title = `${book.title} Chapter Guide | Tinct`
+  const description = `${book.author}'s ${book.title}, chapter by chapter: ${book.chapters.length} short summaries linked to deeper chapter pages and the full reader.`
   const canonical = `https://tinct.app/read/${book.id}/chapters`
 
   const groups = book.groups || [{ label: '', subtitle: '', chapters: book.chapters.map(c => c.n) }]
@@ -619,8 +656,8 @@ ${footer()}`
 // --- themes.html ------------------------------------------------------
 
 function renderThemes(book) {
-  const title = `${book.title} — Themes & Analysis | Tinct`
-  const description = `Themes and analysis of ${book.author}'s ${book.title}. ${book.themes.map(t => t.title).join(', ')}.`
+  const title = `${book.title} Themes & Analysis | Tinct`
+  const description = `Themes and analysis of ${book.author}'s ${book.title}: ${listPreview(book.themes.map(t => stripHtml(t.title)), 4)}.`
   const canonical = `https://tinct.app/read/${book.id}/themes`
 
   const tocLis = book.themes.map(t =>
@@ -704,8 +741,11 @@ ${footer()}`
 // --- cast.html --------------------------------------------------------
 
 function renderCast(book) {
-  const title = `${book.title} — Characters | Tinct`
-  const description = `Every character in ${book.author}'s ${book.title}. ${book.castGroups.flatMap(g => g.characters.map(c => c.name)).slice(0, 6).join(', ')}, and more. Each linked to the chapters they appear in.`
+  const title = `${book.title} Characters | Tinct`
+  const description = metaDescription(
+    `Characters in ${book.author}'s ${book.title}: ${listPreview(book.castGroups.flatMap(g => g.characters.map(c => c.name)), 5)}, and more.`,
+    'Each character is linked to the chapters where they appear.',
+  )
   const canonical = `https://tinct.app/read/${book.id}/cast`
 
   const groupsHtml = book.castGroups.map(g => {
@@ -784,8 +824,8 @@ ${footer()}`
 // --- summary.html -----------------------------------------------------
 
 function renderSummary(book) {
-  const title = `${book.title} by ${book.author} — Summary, Story & Why It Matters | Tinct`
-  const description = `A clear summary of ${book.author}'s ${book.title}. The full story without spoilers, all ${book.chapters.length} chapters at a glance, the key characters, the central themes.`
+  const title = `${book.title} Summary & Reading Guide | Tinct`
+  const description = `A clear guide to ${book.author}'s ${book.title}: summary, key characters, themes, and all ${book.chapters.length} chapters at a glance.`
   const canonical = `https://tinct.app/read/${book.id}/summary`
   const jsonLd = `{
     "@context": "https://schema.org",
