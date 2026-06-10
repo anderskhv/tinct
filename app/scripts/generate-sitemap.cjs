@@ -34,6 +34,7 @@ const OUT_SITEMAP = path.join(APP_DIR, 'public/sitemap.xml')
 const OUT_META = path.join(APP_DIR, 'src/data/bookMetaGenerated.ts')
 
 const ORIGIN = 'https://tinct.app'
+const BUILD_DATE = new Date().toISOString().slice(0, 10)
 
 // --- Parse the registry --------------------------------------------------
 
@@ -119,9 +120,24 @@ function tierFor(bookId) {
 
 // --- Build entries -------------------------------------------------------
 
+/**
+ * <lastmod> for a URL: mtime of the source content file when one exists on
+ * disk (static SEO pages, edition JSON for SPA routes), else the build date.
+ * Format YYYY-MM-DD per the sitemap protocol.
+ */
+function lastmodFor(...candidatePaths) {
+  for (const p of candidatePaths) {
+    if (!p) continue
+    try {
+      return fs.statSync(p).mtime.toISOString().slice(0, 10)
+    } catch (err) { /* try next candidate */ }
+  }
+  return BUILD_DATE
+}
+
 function urlEntry(loc, opts = {}) {
-  const { changefreq = 'monthly', priority = 0.5 } = opts
-  return `  <url>\n    <loc>${loc}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
+  const { changefreq = 'monthly', priority = 0.5, lastmod = BUILD_DATE } = opts
+  return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
 }
 
 function buildSitemap(books) {
@@ -130,11 +146,11 @@ function buildSitemap(books) {
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
   lines.push('')
   lines.push('  <!-- Marketing -->')
-  lines.push(urlEntry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0 }))
-  lines.push(urlEntry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8 }))
+  lines.push(urlEntry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0, lastmod: lastmodFor(path.join(APP_DIR, 'public/landing.html')) }))
+  lines.push(urlEntry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(path.join(APP_DIR, 'public/about.html')) }))
   lines.push('')
   lines.push('  <!-- Library -->')
-  lines.push(urlEntry(`${ORIGIN}/read`, { changefreq: 'weekly', priority: 0.8 }))
+  lines.push(urlEntry(`${ORIGIN}/read`, { changefreq: 'weekly', priority: 0.8, lastmod: lastmodFor(path.join(READ_DIR, 'index.html')) }))
   lines.push('')
 
   // Three buckets: Full-tier books (everything), Stub-tier books
@@ -149,16 +165,19 @@ function buildSitemap(books) {
     else noSeoBooks.push(b)
   }
 
+  const editionPath = bookId => path.join(EDITIONS_DIR, `${bookId}-modern-en.json`)
+  const pagePath = (bookId, file) => path.join(READ_DIR, bookId, file)
+
   for (const b of fullBooks) {
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9 }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9 }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8 }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7 }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/cast`, { changefreq: 'monthly', priority: 0.7 }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(editionPath(b.id)) }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(pagePath(b.id, 'themes.html')) }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'chapters.html')) }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/cast`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'cast.html')) }))
     for (let n = 1; n <= chapters; n++) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapter-${n}`, { changefreq: 'monthly', priority: 0.6 }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapter-${n}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, `chapter-${n}.html`)) }))
     }
     lines.push('')
   }
@@ -166,8 +185,8 @@ function buildSitemap(books) {
   if (stubBooks.length > 0) {
     lines.push('  <!-- Stub-tier books — summary.html only -->')
     for (const b of stubBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7 }))
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7 }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(editionPath(b.id)) }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
     }
     lines.push('')
   }
@@ -175,7 +194,7 @@ function buildSitemap(books) {
   if (noSeoBooks.length > 0) {
     lines.push('  <!-- SPA reader entries (no static SEO pages yet) -->')
     for (const b of noSeoBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6 }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(editionPath(b.id)) }))
     }
   }
 
