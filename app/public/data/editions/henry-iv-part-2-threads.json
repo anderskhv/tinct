@@ -1,0 +1,160 @@
+{
+  "bookId": "henry-iv-part-2",
+  "characters": [
+    {
+      "id": "henry-iv",
+      "name": {"en": "King Henry IV"},
+      "epithet": {"en": "The dying king of England"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Henry_IV_of_England",
+      "searchNames": ["Henry", "King Henry", "the King"],
+      "chapters": {
+        "8": {"modern-en": "Henry IV is unable to sleep at the Westminster palace and reflects in the great 'Uneasy lies the head that wears a crown' soliloquy."},
+        "13": {"modern-en": "Henry IV is brought into the Jerusalem Chamber, exhausted, and lies down to rest beside the crown."},
+        "14": {"modern-en": "Henry IV wakes, finds the crown taken from his pillow, summons Hal, and is reconciled to him in their long deathbed exchange."}
+      }
+    },
+    {
+      "id": "hal",
+      "name": {"en": "Prince Hal"},
+      "epithet": {"en": "The future Henry V"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Henry_V_of_England",
+      "searchNames": ["Hal", "Prince Hal", "Prince of Wales", "Henry V"],
+      "chapters": {
+        "5": {"modern-en": "Hal walks the London street with Poins, joking about his small-beer habits and his father's illness."},
+        "14": {"modern-en": "Hal sits by his sleeping father, believes him dead, takes up the crown to try its weight, and is rebuked by the king who has only fainted."},
+        "16": {"modern-en": "Hal, now Henry V, walks into the council chamber and embraces the Lord Chief Justice instead of dismissing him."},
+        "18": {"modern-en": "Hal as king is mentioned in the brief street scenes as the new ruler whose first moves have astonished the court."},
+        "19": {"modern-en": "Hal, in his coronation procession, meets Falstaff at the abbey gate and dismisses him with 'I know thee not, old man.'"}
+      }
+    },
+    {
+      "id": "falstaff",
+      "name": {"en": "Sir John Falstaff"},
+      "epithet": {"en": "Hal's old companion, a fat knight in mountain decline"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Falstaff",
+      "searchNames": ["Falstaff", "Sir John", "Sir John Falstaff"],
+      "chapters": {
+        "2": {"modern-en": "Falstaff is in the London street with his Page asking after his doctor's report on his urine, and is intercepted by the Lord Chief Justice."},
+        "4": {"modern-en": "Falstaff dodges Mistress Quickly's attempt to have him arrested for debt, with help from his page and the Lord Chief Justice's grudging tolerance."},
+        "5": {"modern-en": "Falstaff is referred to in Hal's banter with Poins as the man whose tavern Hal is too sad to visit just now."},
+        "7": {"modern-en": "Falstaff dines at the Boar's Head with Doll Tearsheet and Mistress Quickly, picks a quarrel with Pistol, and is summoned to the court for the wars."},
+        "9": {"modern-en": "Falstaff arrives in Gloucestershire to recruit, fleeces Justice Shallow over reminiscences, and impresses old Feeble, Mouldy, Bullcalf, and Shadow."},
+        "11": {"modern-en": "Falstaff is at Gaultree Forest collecting his command and contributing nothing."},
+        "13": {"modern-en": "Falstaff catches the rebel Coleville and accepts his surrender as if it had been a great deed of arms."},
+        "15": {"modern-en": "Falstaff settles in at Justice Shallow's house in Gloucestershire and borrows a thousand pounds against his coming influence at court."},
+        "17": {"modern-en": "Falstaff hears at Shallow's orchard that Hal is now king, calls for his horse, and rides at speed for London certain his hour is at hand."},
+        "19": {"modern-en": "Falstaff stands at the coronation street, calls out to Hal as the procession passes, and is rejected in front of the city."}
+      }
+    },
+    {
+      "id": "prince-john",
+      "name": {"en": "Prince John of Lancaster"},
+      "epithet": {"en": "Hal's younger brother and the king's commander"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/John_of_Lancaster,_1st_Duke_of_Bedford",
+      "searchNames": ["John", "Prince John", "Lancaster", "John of Lancaster"],
+      "chapters": {
+        "8": {"modern-en": "Prince John is at his father's Westminster council on the rebellion."},
+        "12": {"modern-en": "Prince John meets the Archbishop's army at Gaultree Forest, promises to address every grievance, then arrests the rebels for treason after they have disbanded their men."},
+        "14": {"modern-en": "Prince John attends his father at the deathbed and is given the late king's blessing."},
+        "16": {"modern-en": "Prince John is at the council when Hal as Henry V re-confirms the Lord Chief Justice."},
+        "18": {"modern-en": "Prince John is named among the king's brothers preparing the realm for the new reign and the looming French campaign."}
+      }
+    },
+    {
+      "id": "lord-chief-justice",
+      "name": {"en": "Lord Chief Justice"},
+      "epithet": {"en": "The kingdom's chief magistrate"},
+      "role": "mortal",
+      "wikipediaUrl": "",
+      "searchNames": ["Lord Chief Justice", "Chief Justice"],
+      "chapters": {
+        "2": {"modern-en": "The Lord Chief Justice intercepts Falstaff in the street and tries unsuccessfully to remind him of his disgrace."},
+        "4": {"modern-en": "The Lord Chief Justice mediates Mistress Quickly's debt suit against Falstaff and is once more outmanoeuvred."},
+        "14": {"modern-en": "The Lord Chief Justice appears at the council on the day of the king's death, expecting to be dismissed by the new king."},
+        "16": {"modern-en": "The Lord Chief Justice is embraced by Hal as the new Henry V and confirmed in his post."},
+        "18": {"modern-en": "The Lord Chief Justice escorts the new king's brothers to the coronation."}
+      }
+    },
+    {
+      "id": "northumberland",
+      "name": {"en": "Earl of Northumberland"},
+      "epithet": {"en": "Hotspur's father, the rebellion's reluctant leader"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Henry_Percy,_1st_Earl_of_Northumberland",
+      "searchNames": ["Northumberland", "Earl of Northumberland", "Percy"],
+      "chapters": {
+        "1": {"modern-en": "Northumberland receives confused reports of Shrewsbury and, in the end, the news that his son Hotspur is dead."},
+        "6": {"modern-en": "Northumberland is dissuaded by his wife and Hotspur's widow from joining the new rebellion and flees instead to Scotland."}
+      }
+    },
+    {
+      "id": "archbishop",
+      "name": {"en": "Archbishop of York"},
+      "epithet": {"en": "Leader of the church-led rebellion"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Richard_Scrope_(Archbishop_of_York)",
+      "searchNames": ["Archbishop", "Archbishop of York", "Scroop"],
+      "chapters": {
+        "3": {"modern-en": "The Archbishop of York gathers the rebel leaders at his palace to plan a new revolt against Henry IV."},
+        "10": {"modern-en": "The Archbishop conducts the conference at Gaultree Forest with his demands written out for the king's commander."},
+        "11": {"modern-en": "The Archbishop continues the parley as Prince John approaches with the king's army."},
+        "12": {"modern-en": "The Archbishop accepts Prince John's terms, dismisses the rebel army, and is at once arrested for treason."}
+      }
+    },
+    {
+      "id": "mistress-quickly",
+      "name": {"en": "Mistress Quickly"},
+      "epithet": {"en": "Hostess of the Boar's Head tavern in Eastcheap"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Mistress_Quickly",
+      "searchNames": ["Mistress Quickly", "Hostess"],
+      "chapters": {
+        "4": {"modern-en": "Mistress Quickly tries to have Falstaff arrested for the debts he owes her, and is talked round by him into another loan."},
+        "7": {"modern-en": "Mistress Quickly presides over the Boar's Head dinner with Falstaff, Doll Tearsheet, and Pistol."}
+      }
+    },
+    {
+      "id": "doll-tearsheet",
+      "name": {"en": "Doll Tearsheet"},
+      "epithet": {"en": "Falstaff's prostitute companion"},
+      "role": "mortal",
+      "wikipediaUrl": "",
+      "searchNames": ["Doll", "Doll Tearsheet"],
+      "chapters": {
+        "7": {"modern-en": "Doll Tearsheet quarrels with Falstaff at supper, drives Pistol from the room, and sits on Falstaff's knee for the rest of the meal."},
+        "18": {"modern-en": "Doll Tearsheet is reported, in passing, as having been carted off to prison along with Mistress Quickly."}
+      }
+    },
+    {
+      "id": "pistol",
+      "name": {"en": "Ancient Pistol"},
+      "epithet": {"en": "Falstaff's loud, blustering follower"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Ancient_Pistol",
+      "searchNames": ["Pistol", "Ancient Pistol"],
+      "chapters": {
+        "7": {"modern-en": "Pistol intrudes on Falstaff's dinner with Doll and is driven out by force after picking a quarrel."},
+        "17": {"modern-en": "Pistol arrives at Shallow's orchard with the news that Henry IV is dead and Hal is king."},
+        "19": {"modern-en": "Pistol is at Falstaff's side in the coronation street and is dismissed with the rest."}
+      }
+    },
+    {
+      "id": "shallow",
+      "name": {"en": "Justice Shallow"},
+      "epithet": {"en": "A country justice of the peace in Gloucestershire"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Justice_Shallow",
+      "searchNames": ["Shallow", "Justice Shallow"],
+      "chapters": {
+        "9": {"modern-en": "Justice Shallow receives Falstaff and parades his country recruits — Mouldy, Shadow, Wart, Feeble, and Bullcalf — for the king's wars."},
+        "15": {"modern-en": "Justice Shallow welcomes Falstaff to his Gloucestershire house and reminisces about their student carousing fifty years before."},
+        "17": {"modern-en": "Justice Shallow sits with Falstaff in his orchard eating pippins as Pistol arrives with the news of the king's death."},
+        "19": {"modern-en": "Justice Shallow is at Falstaff's side at the coronation procession and is dismissed with him."}
+      }
+    }
+  ]
+}

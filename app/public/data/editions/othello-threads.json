@@ -1,0 +1,151 @@
+{
+  "bookId": "othello",
+  "characters": [
+    {
+      "id": "othello",
+      "name": {"en": "Othello"},
+      "epithet": {"en": "A Moorish general in the service of Venice"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Othello_(character)",
+      "searchNames": ["Othello", "the Moor", "the General"],
+      "chapters": {
+        "2": {"modern-en": "Othello calmly meets Brabantio's accusation of having bewitched Desdemona and is summoned to the Duke about the Turkish threat."},
+        "3": {"modern-en": "Othello defends his marriage before the Venetian senate by telling the story of his courtship, and Desdemona herself confirms her choice."},
+        "4": {"modern-en": "Othello lands safely in Cyprus, reunites with Desdemona, and is hailed as the saviour of the island."},
+        "6": {"modern-en": "Othello breaks up the drunken brawl on the watch and demotes Cassio for losing his discipline."},
+        "8": {"modern-en": "Othello receives Iago in the castle while Cassio confers separately with Desdemona about regaining favour."},
+        "9": {"modern-en": "Othello is worked on by Iago through the long temptation scene and ends it swearing vengeance on Cassio and Desdemona."},
+        "10": {"modern-en": "Othello demands the handkerchief from Desdemona and rages at her when she cannot produce it."},
+        "11": {"modern-en": "Othello, half-out of his senses, falls into a trance and then watches Iago stage a duped overhearing of Cassio's talk about Bianca."},
+        "12": {"modern-en": "Othello strikes Desdemona in front of the Venetian envoy Lodovico and ushers her out as a whore."},
+        "13": {"modern-en": "Othello orders Desdemona to bed and tells her, in cold half-civility, what he intends to do."},
+        "14": {"modern-en": "Othello is offstage while Iago orchestrates the attack on Cassio in the street; the noise of it reaches him."},
+        "15": {"modern-en": "Othello enters the bedchamber, smothers Desdemona, learns the truth from Emilia, asks to be remembered as he was, and kills himself on the bed."}
+      }
+    },
+    {
+      "id": "iago",
+      "name": {"en": "Iago"},
+      "epithet": {"en": "Othello's ensign and the play's antagonist"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Iago",
+      "searchNames": ["Iago", "Ancient", "Ensign"],
+      "chapters": {
+        "1": {"modern-en": "Iago opens the play complaining to Roderigo that Othello has passed him over for Cassio, and stirs Brabantio out of bed with the news of Desdemona's marriage."},
+        "2": {"modern-en": "Iago pretends loyalty to Othello and warns him that Brabantio is coming."},
+        "3": {"modern-en": "Iago lays out the first version of his plan in a soliloquy: he will hint to Othello that Cassio is too familiar with Desdemona."},
+        "4": {"modern-en": "Iago lands in Cyprus, banters with Desdemona on the quay, and confides his next steps to the audience."},
+        "5": {"modern-en": "Iago dispatches the herald's announcement of celebration and lays the trap for Cassio's drinking."},
+        "6": {"modern-en": "Iago gets Cassio drunk, engineers the brawl that costs him his post, and tells him afterwards to ask Desdemona for help."},
+        "7": {"modern-en": "Iago plays the helpful friend to Cassio outside the castle in the early morning."},
+        "8": {"modern-en": "Iago waits while Cassio meets with Desdemona and reports the meeting to Othello with a knowing pause."},
+        "9": {"modern-en": "Iago carries Othello through the long temptation scene step by step, using his wife Emilia to pass him the dropped handkerchief at the end."},
+        "10": {"modern-en": "Iago listens to Othello's furious questioning of Desdemona and is asked, for the first time, how she should be killed."},
+        "11": {"modern-en": "Iago stages a conversation with Cassio about Bianca and lets Othello overhear it as proof of the affair."},
+        "12": {"modern-en": "Iago receives Lodovico from Venice, lets Othello strike Desdemona publicly, and pretends afterwards to be appalled."},
+        "13": {"modern-en": "Iago counsels Roderigo to murder Cassio in the street and lays out the night's plan."},
+        "14": {"modern-en": "Iago ambushes Cassio with Roderigo, wounds him from behind, kills Roderigo to silence him, and pretends to investigate the scene."},
+        "15": {"modern-en": "Iago is exposed by Emilia in the bedchamber, kills her on the spot, refuses to explain himself, and is led off to be tortured."}
+      }
+    },
+    {
+      "id": "desdemona",
+      "name": {"en": "Desdemona"},
+      "epithet": {"en": "Othello's wife, daughter of the senator Brabantio"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Desdemona",
+      "searchNames": ["Desdemona"],
+      "chapters": {
+        "3": {"modern-en": "Desdemona is summoned to the Senate, confirms that she married Othello of her own will, and asks to follow him to Cyprus."},
+        "4": {"modern-en": "Desdemona lands in Cyprus, banters with Iago while she waits for Othello's ship, and is reunited with him."},
+        "6": {"modern-en": "Desdemona is briefly woken by the brawl and helped back to bed by Othello."},
+        "9": {"modern-en": "Desdemona drops the handkerchief Othello gave her without noticing, then keeps pressing him to take Cassio back."},
+        "10": {"modern-en": "Desdemona is interrogated about the handkerchief and refuses to lie even as Othello grows violent."},
+        "11": {"modern-en": "Desdemona is summoned by Lodovico and is shocked when Othello strikes her in front of the visiting Venetian."},
+        "12": {"modern-en": "Desdemona is called a whore by Othello in private and questioned about Cassio; afterwards she cannot bring herself to repeat the word to Emilia."},
+        "13": {"modern-en": "Desdemona sings the Willow Song to Emilia as she prepares for bed, half-aware that something very bad is coming."},
+        "15": {"modern-en": "Desdemona wakes to find Othello over her, swears her innocence one last time, and is smothered; her last words exonerate him."}
+      }
+    },
+    {
+      "id": "cassio",
+      "name": {"en": "Michael Cassio"},
+      "epithet": {"en": "Othello's lieutenant, newly promoted over Iago"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Cassio",
+      "searchNames": ["Cassio", "Michael Cassio", "Lieutenant"],
+      "chapters": {
+        "2": {"modern-en": "Cassio comes to summon Othello to the Senate about the Turkish threat."},
+        "3": {"modern-en": "Cassio is at the Senate as Othello presents his case and is named to convoy Desdemona to Cyprus."},
+        "4": {"modern-en": "Cassio arrives first at Cyprus, greets Desdemona with elaborate courtesy, and prepares the castle for Othello's arrival."},
+        "6": {"modern-en": "Cassio gets drunk on the watch at Iago's urging, brawls with Montano, and is cashiered by Othello."},
+        "7": {"modern-en": "Cassio commissions the morning musicians outside the castle and asks Iago to arrange a meeting with Desdemona."},
+        "8": {"modern-en": "Cassio meets Desdemona in private and is promised her help."},
+        "9": {"modern-en": "Cassio is seen leaving Desdemona by Othello, providing the first piece of 'evidence' Iago needs."},
+        "10": {"modern-en": "Cassio is brought before Desdemona again to press his suit while Othello watches from a distance."},
+        "11": {"modern-en": "Cassio chats with Iago about Bianca and is overheard by Othello, who takes the laughter to be about Desdemona."},
+        "14": {"modern-en": "Cassio is ambushed in the dark street, wounded in the leg by Iago from behind, and brought into the castle alive."},
+        "15": {"modern-en": "Cassio is named the new governor of Cyprus in the closing scene and given the duty of disposing of Othello's estate."}
+      }
+    },
+    {
+      "id": "emilia",
+      "name": {"en": "Emilia"},
+      "epithet": {"en": "Iago's wife and Desdemona's maid"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Emilia_(Othello)",
+      "searchNames": ["Emilia"],
+      "chapters": {
+        "4": {"modern-en": "Emilia arrives in Cyprus with Iago and is greeted, more warmly than her husband expected, by Cassio."},
+        "9": {"modern-en": "Emilia picks up the dropped handkerchief and gives it to Iago, knowing he wants it and not knowing why."},
+        "10": {"modern-en": "Emilia watches Othello berate Desdemona about the handkerchief and is asked afterwards if she has seen it."},
+        "12": {"modern-en": "Emilia is called in by Othello as if she were the keeper of a brothel and asked about Desdemona's conduct."},
+        "13": {"modern-en": "Emilia helps Desdemona prepare for bed and listens to the Willow Song, telling her that men are men and worth no more than they are."},
+        "15": {"modern-en": "Emilia raises the alarm when she finds Desdemona dead, works out what her husband has done, refuses to be silenced, and is killed by Iago for telling the truth."}
+      }
+    },
+    {
+      "id": "roderigo",
+      "name": {"en": "Roderigo"},
+      "epithet": {"en": "A wealthy Venetian gentleman in love with Desdemona"},
+      "role": "mortal",
+      "wikipediaUrl": "",
+      "searchNames": ["Roderigo"],
+      "chapters": {
+        "1": {"modern-en": "Roderigo opens the play complaining that Iago has not delivered Desdemona despite the money he has handed over."},
+        "2": {"modern-en": "Roderigo is at the street arrest of Othello with Brabantio."},
+        "3": {"modern-en": "Roderigo despairs over Desdemona at the end of the Senate scene and is talked by Iago into following her to Cyprus."},
+        "5": {"modern-en": "Roderigo is at the herald's announcement of celebration on Cyprus."},
+        "6": {"modern-en": "Roderigo is used by Iago to provoke Cassio in the drunken brawl."},
+        "10": {"modern-en": "Roderigo complains to Iago that he has spent all his money and seen no return."},
+        "14": {"modern-en": "Roderigo attacks Cassio in the dark street and is killed by Iago to keep him quiet about the conspiracy."}
+      }
+    },
+    {
+      "id": "brabantio",
+      "name": {"en": "Brabantio"},
+      "epithet": {"en": "A Venetian senator, Desdemona's father"},
+      "role": "mortal",
+      "wikipediaUrl": "",
+      "searchNames": ["Brabantio", "Senator"],
+      "chapters": {
+        "1": {"modern-en": "Brabantio is roused from sleep by Iago and Roderigo with the news that Desdemona has eloped with Othello."},
+        "2": {"modern-en": "Brabantio confronts Othello in the street with a small armed company and accuses him of bewitching Desdemona."},
+        "3": {"modern-en": "Brabantio presents his case to the Senate, hears Desdemona side with Othello, and warns the general she may deceive him as she has deceived her father."}
+      }
+    },
+    {
+      "id": "bianca",
+      "name": {"en": "Bianca"},
+      "epithet": {"en": "A courtesan in Cyprus, in love with Cassio"},
+      "role": "mortal",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Bianca_(Othello)",
+      "searchNames": ["Bianca"],
+      "chapters": {
+        "10": {"modern-en": "Bianca finds Cassio at the castle gate, accuses him of neglecting her, and is handed the strawberry handkerchief to copy."},
+        "11": {"modern-en": "Bianca returns the handkerchief in the street, throwing it back at Cassio in front of the hidden Othello."},
+        "14": {"modern-en": "Bianca runs to Cassio after the ambush, weeps over his wound, and is hauled away by Iago as if she were responsible."}
+      }
+    }
+  ]
+}
