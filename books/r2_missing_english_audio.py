@@ -40,7 +40,7 @@ PROJECT_ROOT = BOOKS_DIR.parent
 REGISTRY = PROJECT_ROOT / "app" / "src" / "data" / "bookRegistry.ts"
 EDITIONS_DIR = PROJECT_ROOT / "app" / "public" / "data" / "editions"
 AUDIO_MANIFEST_BASE = "https://tinct.app/api/audio-manifest?path="
-UA = {"User-Agent": "Mozilla/5.0 (TinctMissingAudioAudit)"}
+UA = {"User-Agent": "curl/8.7.1"}
 ORIGINAL_EQUIVALENTS = {
     "bible": ["kjv-en", "web-en"],
 }

@@ -27,6 +27,9 @@ AUDIO_API_BASE = "https://tinct.app/api/audio-manifest"
 NO_THREADS_EXPECTED = {
     "the-art-of-war", "meditations", "the-manual", "enchiridion",
     "apology", "nicomachean-ethics", "the-prince", "beyond-good-and-evil",
+    # Single-voice treatises / memoirs where the Cast UI adds little value.
+    "utilitarianism", "discourse-on-inequality", "walden",
+    "vindication-rights-of-woman",
 }
 
 
