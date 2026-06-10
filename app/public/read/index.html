@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tinct Library — Read Classic Books Free Online | Tinct</title>
+  <meta name="description" content="All 91 classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online with summaries, themes, character guides, and a modern comparison translation.">
+  <link rel="canonical" href="https://tinct.app/read/">
+  <link rel="alternate" hreflang="en" href="https://tinct.app/read/">
+  <link rel="alternate" hreflang="x-default" href="https://tinct.app/read/">
+
+  <meta property="og:title" content="The Tinct Library — Read Classic Books Free Online | Tinct">
+  <meta property="og:description" content="All 91 classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online with summaries, themes, character guides, and a modern comparison translation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tinct.app/read/">
+  <meta property="og:site_name" content="Tinct">
+  <meta property="og:image" content="https://tinct.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Tinct Library — Read Classic Books Free Online | Tinct">
+  <meta name="twitter:description" content="All 91 classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online with summaries, themes, character guides, and a modern comparison translation.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Tinct",
+        "item": "https://tinct.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Library",
+        "item": "https://tinct.app/read/"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #ece7db;
+      --paper-alt: #dfd8c4;
+      --ink: #0b0b0b;
+      --dim: #6a6555;
+      --accent: #1f4a5c;
+      --rule: rgba(11, 11, 11, 0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 2; }
+
+    nav.top {
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .logo span { color: var(--accent); }
+    .top-cta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      padding: 8px 14px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 64px 48px 96px;
+    }
+    .breadcrumb {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+
+    h1.title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.98;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin: 0 0 12px 0;
+    }
+    h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+    .hook {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 23px;
+      line-height: 1.45;
+      font-style: italic;
+      color: var(--ink);
+      margin: 0 0 24px 0;
+      max-width: 720px;
+    }
+
+    h2.section {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin: 72px 0 8px 0;
+    }
+    .section-sub {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--dim);
+      margin: 0 0 8px 0;
+    }
+    h3.sub {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin: 36px 0 2px 0;
+    }
+    .shelf-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin: 0 0 16px 0;
+    }
+
+    ul.books {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 14px 28px;
+    }
+    li.book {
+      border-top: 1px solid var(--rule);
+      padding: 12px 0 4px;
+    }
+    li.book a { text-decoration: none; }
+    .book-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    li.book a:hover .book-title { color: var(--accent); }
+    .book-meta {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin: 2px 0 4px;
+    }
+    .book-blurb {
+      display: block;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    footer.site {
+      border-top: 1px solid var(--ink);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--dim); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      nav.top, footer.site { padding: 18px 20px; }
+      main { padding: 40px 20px 72px; }
+      ul.books { grid-template-columns: 1fr; }
+      footer.site { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="/" class="logo">Tinct<span>.</span></a>
+    <a href="/read" class="top-cta">Open the reader →</a>
+  </nav>
+
+  <main>
+    <div class="breadcrumb"><a href="/">Tinct</a> / <span>Library</span></div>
+    <h1 class="title">The <em>Library</em></h1>
+    <p class="hook">91 classics, free to read online — each with a summary, themes, character guide, and a modern comparison translation alongside the original.</p>
+
+    <section class="house">
+      <h2 class="section">Philosophy</h2>
+      <p class="section-sub">What is real, how to live</p>
+      <section class="shelf">
+        <h3 class="sub">Plato's Dialogues</h3>
+        <p class="shelf-sub">Six conversations around Socrates</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/apology/summary"><span class="book-title">Apology</span></a>
+          <span class="book-meta">Plato · c. 399 BC</span>
+          <span class="book-blurb">Socrates defends himself, and loses on purpose.</span>
+        </li>
+        <li class="book">
+          <a href="/read/crito/summary"><span class="book-title">Crito</span></a>
+          <span class="book-meta">Plato · c. 399 BC</span>
+          <span class="book-blurb">A friend at the cell door, an argument against escape.</span>
+        </li>
+        <li class="book">
+          <a href="/read/symposium/summary"><span class="book-title">Symposium</span></a>
+          <span class="book-meta">Plato · c. 385 BC</span>
+          <span class="book-blurb">Seven men, a lot of wine, and speeches on love.</span>
+        </li>
+        <li class="book">
+          <a href="/read/phaedo/summary"><span class="book-title">Phaedo</span></a>
+          <span class="book-meta">Plato · c. 385 BC</span>
+          <span class="book-blurb">The last hours, on the soul and what follows.</span>
+        </li>
+        <li class="book">
+          <a href="/read/the-republic/summary"><span class="book-title">The Republic</span></a>
+          <span class="book-meta">Plato · c. 375 BC</span>
+          <span class="book-blurb">What is justice? A city built in words to find out.</span>
+        </li>
+        <li class="book">
+          <a href="/read/phaedrus"><span class="book-title">Phaedrus</span></a>
+          <span class="book-meta">Plato · c. 370 BC</span>
+          <span class="book-blurb">A walk outside the walls; rhetoric, eros, the soul as chariot.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Aristotle</h3>
+        <p class="shelf-sub">Ethics, politics, poetics</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/nicomachean-ethics/summary"><span class="book-title">Nicomachean Ethics</span></a>
+          <span class="book-meta">Aristotle · c. 350 BC</span>
+          <span class="book-blurb">How to live well, defined by the man who liked definitions.</span>
+        </li>
+        <li class="book">
+          <a href="/read/aristotle-politics/summary"><span class="book-title">Politics</span></a>
+          <span class="book-meta">Aristotle · c. 335 BC</span>
+          <span class="book-blurb">Man is a political animal. Discuss.</span>
+        </li>
+        <li class="book">
+          <a href="/read/poetics/summary"><span class="book-title">Poetics</span></a>
+          <span class="book-meta">Aristotle · c. 335 BC</span>
+          <span class="book-blurb">Why tragedy works, dissected.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">The Stoics</h3>
+        <p class="shelf-sub">Epictetus and Marcus Aurelius</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/the-manual/summary"><span class="book-title">The Manual</span></a>
+          <span class="book-meta">Epictetus · c. 125 AD</span>
+          <span class="book-blurb">Pocket-sized stoicism, from a former slave.</span>
+        </li>
+        <li class="book">
+          <a href="/read/meditations/summary"><span class="book-title">Meditations</span></a>
+          <span class="book-meta">Marcus Aurelius · c. 175 AD</span>
+          <span class="book-blurb">A Roman emperor talks to himself in the dark.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Christian Tradition</h3>
+        <p class="shelf-sub">Augustine, à Kempis, Kierkegaard</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/confessions/summary"><span class="book-title">Confessions</span></a>
+          <span class="book-meta">Augustine · c. 400 AD</span>
+          <span class="book-blurb">The first real autobiography — and an argument with God.</span>
+        </li>
+        <li class="book">
+          <a href="/read/imitation-of-christ/summary"><span class="book-title">The Imitation of Christ</span></a>
+          <span class="book-meta">Thomas à Kempis · 1418</span>
+          <span class="book-blurb">Devotional. The book second only to the Bible in old monastic cells.</span>
+        </li>
+        <li class="book">
+          <a href="/read/fear-and-trembling/summary"><span class="book-title">Fear and Trembling</span></a>
+          <span class="book-meta">Søren Kierkegaard · 1843</span>
+          <span class="book-blurb">On Abraham, faith, and the things you can't explain.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Modern Philosophy</h3>
+        <p class="shelf-sub">Descartes through Nietzsche</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/descartes-meditations/summary"><span class="book-title">Meditations on First Philosophy</span></a>
+          <span class="book-meta">René Descartes · 1641</span>
+          <span class="book-blurb">How to doubt everything, and then put a little back.</span>
+        </li>
+        <li class="book">
+          <a href="/read/walden"><span class="book-title">Walden</span></a>
+          <span class="book-meta">Henry David Thoreau · 1854</span>
+          <span class="book-blurb">Two years in a cabin, and notes on what was simplified out.</span>
+        </li>
+        <li class="book">
+          <a href="/read/utilitarianism"><span class="book-title">Utilitarianism</span></a>
+          <span class="book-meta">John Stuart Mill · 1861</span>
+          <span class="book-blurb">Pleasure, pain, and how to add them up.</span>
+        </li>
+        <li class="book">
+          <a href="/read/beyond-good-and-evil/summary"><span class="book-title">Beyond Good and Evil</span></a>
+          <span class="book-meta">Friedrich Nietzsche · 1886</span>
+          <span class="book-blurb">A hammer, applied to morality.</span>
+        </li>
+        <li class="book">
+          <a href="/read/genealogy-of-morals/summary"><span class="book-title">On the Genealogy of Morals</span></a>
+          <span class="book-meta">Friedrich Nietzsche · 1887</span>
+          <span class="book-blurb">Where our values came from, and who they served.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">Politics &amp; The State</h2>
+      <p class="section-sub">Power, liberty, foundations</p>
+      <section class="shelf">
+        <h3 class="sub">On the State</h3>
+        <p class="shelf-sub">Constitutions, sovereignty, federalism</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/second-treatise/summary"><span class="book-title">Second Treatise of Government</span></a>
+          <span class="book-meta">John Locke · 1689</span>
+          <span class="book-blurb">Where rights come from, and when revolution is permitted.</span>
+        </li>
+        <li class="book">
+          <a href="/read/social-contract/summary"><span class="book-title">The Social Contract</span></a>
+          <span class="book-meta">Jean-Jacques Rousseau · 1762</span>
+          <span class="book-blurb">Born free; everywhere in chains.</span>
+        </li>
+        <li class="book">
+          <a href="/read/democracy-in-america/summary"><span class="book-title">Democracy in America</span></a>
+          <span class="book-meta">Alexis de Tocqueville · 1835</span>
+          <span class="book-blurb">A Frenchman tours America and figures out the future.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">On Power &amp; Tyranny</h3>
+        <p class="shelf-sub">Machiavelli, Marx, and the dramatists</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/the-prince/summary"><span class="book-title">The Prince</span></a>
+          <span class="book-meta">Niccolò Machiavelli · 1532</span>
+          <span class="book-blurb">How to take power and not lose it. Notoriously practical.</span>
+        </li>
+        <li class="book">
+          <a href="/read/communist-manifesto/summary"><span class="book-title">The Communist Manifesto</span></a>
+          <span class="book-meta">Karl Marx &amp; Friedrich Engels · 1848</span>
+          <span class="book-blurb">A specter is haunting Europe.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">On Liberty</h3>
+        <p class="shelf-sub">Rousseau, Wollstonecraft, Mill</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/discourse-on-inequality"><span class="book-title">Discourse on the Origin of Inequality</span></a>
+          <span class="book-meta">Jean-Jacques Rousseau · 1755</span>
+          <span class="book-blurb">How property invented inequality, in two essays.</span>
+        </li>
+        <li class="book">
+          <a href="/read/vindication-rights-of-woman"><span class="book-title">A Vindication of the Rights of Woman</span></a>
+          <span class="book-meta">Mary Wollstonecraft · 1792</span>
+          <span class="book-blurb">The case for educating women, made when it still had to be made.</span>
+        </li>
+        <li class="book">
+          <a href="/read/on-liberty/summary"><span class="book-title">On Liberty</span></a>
+          <span class="book-meta">John Stuart Mill · 1859</span>
+          <span class="book-blurb">Where one person's freedom ends — and why it must end there.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Founding Documents</h3>
+        <p class="shelf-sub">Magna Carta, US founding, Federalist</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/magna-carta/summary"><span class="book-title">Magna Carta</span></a>
+          <span class="book-meta">Anonymous (sealed by King John) · 1215</span>
+          <span class="book-blurb">The first time a king signed away some of the power.</span>
+        </li>
+        <li class="book">
+          <a href="/read/us-founding-documents/summary"><span class="book-title">The US Founding Documents</span></a>
+          <span class="book-meta">Various (Jefferson, Madison, et al.) · 1776–1791</span>
+          <span class="book-blurb">Declaration, Constitution, Bill of Rights — bundled.</span>
+        </li>
+        <li class="book">
+          <a href="/read/federalist-papers/summary"><span class="book-title">The Federalist Papers</span></a>
+          <span class="book-meta">Hamilton, Madison, Jay (as &quot;Publius&quot;) · 1788</span>
+          <span class="book-blurb">85 essays defending a new constitution, published under &quot;Publius.&quot;</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">Drama</h2>
+      <p class="section-sub">The plays, in four Shakespearean modes and a Greek tradition</p>
+      <section class="shelf">
+        <h3 class="sub">Shakespeare — Tragedies</h3>
+        <p class="shelf-sub">Hamlet, Lear, Othello, Macbeth &amp; co.</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/romeo-and-juliet/summary"><span class="book-title">Romeo and Juliet</span></a>
+          <span class="book-meta">William Shakespeare · 1597</span>
+          <span class="book-blurb">Two households, both alike in dignity.</span>
+        </li>
+        <li class="book">
+          <a href="/read/julius-caesar"><span class="book-title">Julius Caesar</span></a>
+          <span class="book-meta">William Shakespeare · 1599</span>
+          <span class="book-blurb">Et tu, Brute?</span>
+        </li>
+        <li class="book">
+          <a href="/read/hamlet/summary"><span class="book-title">Hamlet</span></a>
+          <span class="book-meta">William Shakespeare · 1600</span>
+          <span class="book-blurb">A ghost, a prince, the great deferral.</span>
+        </li>
+        <li class="book">
+          <a href="/read/othello"><span class="book-title">Othello</span></a>
+          <span class="book-meta">William Shakespeare · c. 1603</span>
+          <span class="book-blurb">Iago whispers; a great man unravels.</span>
+        </li>
+        <li class="book">
+          <a href="/read/king-lear"><span class="book-title">King Lear</span></a>
+          <span class="book-meta">William Shakespeare · c. 1606</span>
+          <span class="book-blurb">Divide the kingdom, lose your mind.</span>
+        </li>
+        <li class="book">
+          <a href="/read/macbeth/summary"><span class="book-title">Macbeth</span></a>
+          <span class="book-meta">William Shakespeare · 1606</span>
+          <span class="book-blurb">Three witches, an ambitious wife, a tomorrow and tomorrow.</span>
+        </li>
+        <li class="book">
+          <a href="/read/antony-and-cleopatra"><span class="book-title">Antony and Cleopatra</span></a>
+          <span class="book-meta">William Shakespeare · c. 1607</span>
+          <span class="book-blurb">Two empires, two egos, one Nile.</span>
+        </li>
+        <li class="book">
+          <a href="/read/coriolanus"><span class="book-title">Coriolanus</span></a>
+          <span class="book-meta">William Shakespeare · c. 1608</span>
+          <span class="book-blurb">A warrior who cannot bow to the crowd.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Shakespeare — Comedies</h3>
+        <p class="shelf-sub">Romances, farces, problem plays</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/taming-of-the-shrew"><span class="book-title">The Taming of the Shrew</span></a>
+          <span class="book-meta">William Shakespeare · c. 1592</span>
+          <span class="book-blurb">A famously thorny courtship comedy.</span>
+        </li>
+        <li class="book">
+          <a href="/read/comedy-of-errors"><span class="book-title">The Comedy of Errors</span></a>
+          <span class="book-meta">William Shakespeare · c. 1594</span>
+          <span class="book-blurb">Two sets of twins, one city, infinite confusion.</span>
+        </li>
+        <li class="book">
+          <a href="/read/midsummer/summary"><span class="book-title">A Midsummer Night's Dream</span></a>
+          <span class="book-meta">William Shakespeare · 1595</span>
+          <span class="book-blurb">Fairies, lovers, donkeys, and a play within a play.</span>
+        </li>
+        <li class="book">
+          <a href="/read/merchant-of-venice"><span class="book-title">The Merchant of Venice</span></a>
+          <span class="book-meta">William Shakespeare · c. 1597</span>
+          <span class="book-blurb">A pound of flesh, a casket riddle, a courtroom turn.</span>
+        </li>
+        <li class="book">
+          <a href="/read/much-ado-about-nothing"><span class="book-title">Much Ado About Nothing</span></a>
+          <span class="book-meta">William Shakespeare · c. 1599</span>
+          <span class="book-blurb">Banter, slander, and Beatrice.</span>
+        </li>
+        <li class="book">
+          <a href="/read/as-you-like-it"><span class="book-title">As You Like It</span></a>
+          <span class="book-meta">William Shakespeare · c. 1599</span>
+          <span class="book-blurb">All the world's a stage.</span>
+        </li>
+        <li class="book">
+          <a href="/read/twelfth-night"><span class="book-title">Twelfth Night</span></a>
+          <span class="book-meta">William Shakespeare · c. 1601</span>
+          <span class="book-blurb">Shipwreck, cross-dressing, love at all the wrong angles.</span>
+        </li>
+        <li class="book">
+          <a href="/read/merry-wives-of-windsor"><span class="book-title">The Merry Wives of Windsor</span></a>
+          <span class="book-meta">William Shakespeare · c. 1602</span>
+          <span class="book-blurb">Falstaff tries to seduce two women; both notice.</span>
+        </li>
+        <li class="book">
+          <a href="/read/measure-for-measure"><span class="book-title">Measure for Measure</span></a>
+          <span class="book-meta">William Shakespeare · c. 1604</span>
+          <span class="book-blurb">A problem play about a problem deputy.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Shakespeare — Histories</h3>
+        <p class="shelf-sub">The English chronicle plays</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/richard-iii"><span class="book-title">Richard III</span></a>
+          <span class="book-meta">William Shakespeare · c. 1593</span>
+          <span class="book-blurb">A villain in soliloquy.</span>
+        </li>
+        <li class="book">
+          <a href="/read/henry-v"><span class="book-title">Henry V</span></a>
+          <span class="book-meta">William Shakespeare · 1599</span>
+          <span class="book-blurb">Once more unto the breach.</span>
+        </li>
+        <li class="book">
+          <a href="/read/henry-iv-part-2"><span class="book-title">Henry IV, Part 2</span></a>
+          <span class="book-meta">William Shakespeare · c. 1599</span>
+          <span class="book-blurb">Falstaff, and the price of becoming king.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Shakespeare — Romances</h3>
+        <p class="shelf-sub">The late, strange plays</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/winters-tale"><span class="book-title">The Winter's Tale</span></a>
+          <span class="book-meta">William Shakespeare · c. 1611</span>
+          <span class="book-blurb">Jealousy, sixteen years, a statue that breathes.</span>
+        </li>
+        <li class="book">
+          <a href="/read/the-tempest/summary"><span class="book-title">The Tempest</span></a>
+          <span class="book-meta">William Shakespeare · 1611</span>
+          <span class="book-blurb">A magician on an island, settling accounts.</span>
+        </li>
+        <li class="book">
+          <a href="/read/cymbeline"><span class="book-title">Cymbeline</span></a>
+          <span class="book-meta">William Shakespeare · c. 1611</span>
+          <span class="book-blurb">A late romance with everything in it.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Greek Tragedy</h3>
+        <p class="shelf-sub">Aeschylus, Sophocles, Euripides</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/oresteia/summary"><span class="book-title">The Oresteia</span></a>
+          <span class="book-meta">Aeschylus · 458 BC</span>
+          <span class="book-blurb">A house cursed; the birth of trial by jury.</span>
+        </li>
+        <li class="book">
+          <a href="/read/antigone/summary"><span class="book-title">Antigone</span></a>
+          <span class="book-meta">Sophocles · c. 441 BC</span>
+          <span class="book-blurb">Bury your brother, defy the king.</span>
+        </li>
+        <li class="book">
+          <a href="/read/medea/summary"><span class="book-title">Medea</span></a>
+          <span class="book-meta">Euripides · 431 BC</span>
+          <span class="book-blurb">A wife scorned, in a foreign land, with options.</span>
+        </li>
+        <li class="book">
+          <a href="/read/oedipus-rex/summary"><span class="book-title">Oedipus Rex</span></a>
+          <span class="book-meta">Sophocles · c. 429 BC</span>
+          <span class="book-blurb">A king investigates a plague and finds himself at the bottom of it.</span>
+        </li>
+        <li class="book">
+          <a href="/read/oedipus-at-colonus/summary"><span class="book-title">Oedipus at Colonus</span></a>
+          <span class="book-meta">Sophocles · c. 406 BC</span>
+          <span class="book-blurb">The exiled king finds, at last, a place to die.</span>
+        </li>
+        <li class="book">
+          <a href="/read/bacchae/summary"><span class="book-title">The Bacchae</span></a>
+          <span class="book-meta">Euripides · c. 405 BC</span>
+          <span class="book-blurb">A god comes home to a city that won't worship him.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Modern Drama</h3>
+        <p class="shelf-sub">Goethe's Faust</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/faust-part-1/summary"><span class="book-title">Faust, Part One</span></a>
+          <span class="book-meta">Johann Wolfgang von Goethe · 1808</span>
+          <span class="book-blurb">A scholar bargains his soul; results immediately complicate.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">Novels</h2>
+      <p class="section-sub">Long-form prose, by tradition</p>
+      <section class="shelf">
+        <h3 class="sub">The Russians</h3>
+        <p class="shelf-sub">Dostoevsky and Tolstoy</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/notes-from-underground/summary"><span class="book-title">Notes from Underground</span></a>
+          <span class="book-meta">Fyodor Dostoevsky · 1864</span>
+          <span class="book-blurb">I am a sick man — a spiteful man.</span>
+        </li>
+        <li class="book">
+          <a href="/read/crime-and-punishment/summary"><span class="book-title">Crime and Punishment</span></a>
+          <span class="book-meta">Fyodor Dostoevsky · 1866</span>
+          <span class="book-blurb">A student commits a murder, then has to live with it.</span>
+        </li>
+        <li class="book">
+          <a href="/read/war-and-peace/summary"><span class="book-title">War and Peace</span></a>
+          <span class="book-meta">Leo Tolstoy · 1869</span>
+          <span class="book-blurb">Napoleon comes to Russia. So do five hundred other people.</span>
+        </li>
+        <li class="book">
+          <a href="/read/anna-karenina"><span class="book-title">Anna Karenina</span></a>
+          <span class="book-meta">Leo Tolstoy · 1877</span>
+          <span class="book-blurb">All happy families are alike.</span>
+        </li>
+        <li class="book">
+          <a href="/read/brothers-karamazov/summary"><span class="book-title">The Brothers Karamazov</span></a>
+          <span class="book-meta">Fyodor Dostoevsky · 1880</span>
+          <span class="book-blurb">Three brothers, one father, one murder, and God on trial.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">19th-Century English Novels</h3>
+        <p class="shelf-sub">Austen to Conrad</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/pride-and-prejudice/summary"><span class="book-title">Pride and Prejudice</span></a>
+          <span class="book-meta">Jane Austen · 1813</span>
+          <span class="book-blurb">A truth universally acknowledged.</span>
+        </li>
+        <li class="book">
+          <a href="/read/frankenstein/summary"><span class="book-title">Frankenstein</span></a>
+          <span class="book-meta">Mary Shelley · 1818</span>
+          <span class="book-blurb">The first science-fiction novel, written at nineteen.</span>
+        </li>
+        <li class="book">
+          <a href="/read/jane-eyre/summary"><span class="book-title">Jane Eyre</span></a>
+          <span class="book-meta">Charlotte Brontë · 1847</span>
+          <span class="book-blurb">Reader, she narrated it herself.</span>
+        </li>
+        <li class="book">
+          <a href="/read/great-expectations/summary"><span class="book-title">Great Expectations</span></a>
+          <span class="book-meta">Charles Dickens · 1861</span>
+          <span class="book-blurb">A blacksmith's boy, a strange benefactor, a London education.</span>
+        </li>
+        <li class="book">
+          <a href="/read/jekyll-and-hyde"><span class="book-title">Strange Case of Dr Jekyll and Mr Hyde</span></a>
+          <span class="book-meta">Robert Louis Stevenson · 1886</span>
+          <span class="book-blurb">A respectable doctor, a chemical, a second self.</span>
+        </li>
+        <li class="book">
+          <a href="/read/heart-of-darkness"><span class="book-title">Heart of Darkness</span></a>
+          <span class="book-meta">Joseph Conrad · 1899</span>
+          <span class="book-blurb">A boat up the Congo, and what it found there.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">American Novels</h3>
+        <p class="shelf-sub">Melville and Chopin</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/moby-dick/summary"><span class="book-title">Moby Dick</span></a>
+          <span class="book-meta">Herman Melville · 1851</span>
+          <span class="book-blurb">Call me Ishmael. The rest is the whale.</span>
+        </li>
+        <li class="book">
+          <a href="/read/the-awakening/summary"><span class="book-title">The Awakening</span></a>
+          <span class="book-meta">Kate Chopin · 1899</span>
+          <span class="book-blurb">A woman in Louisiana realizes she's allowed to want.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Modernism</h3>
+        <p class="shelf-sub">A new century, a new sentence</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/ulysses/summary"><span class="book-title">Ulysses</span></a>
+          <span class="book-meta">James Joyce · 1922</span>
+          <span class="book-blurb">One day in Dublin, told several different ways.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Nordic Novels</h3>
+        <p class="shelf-sub">Jacobsen and Lagerlöf</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/niels-lyhne/summary"><span class="book-title">Niels Lyhne</span></a>
+          <span class="book-meta">J.P. Jacobsen · 1880</span>
+          <span class="book-blurb">A Danish atheist dreams, loses, and dies. Rilke loved it.</span>
+        </li>
+        <li class="book">
+          <a href="/read/jerusalem/summary"><span class="book-title">Jerusalem</span></a>
+          <span class="book-meta">Selma Lagerlöf · 1901</span>
+          <span class="book-blurb">A Swedish village uprooted by faith, headed for the holy land.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Satire</h3>
+        <p class="shelf-sub">Voltaire and the philosophical tale</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/candide/summary"><span class="book-title">Candide</span></a>
+          <span class="book-meta">Voltaire · 1759</span>
+          <span class="book-blurb">A young optimist tours the worst of all possible worlds.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">Poetry &amp; Epic</h2>
+      <p class="section-sub">From Gilgamesh to Milton</p>
+      <section class="shelf">
+        <h3 class="sub">Ancient Epics</h3>
+        <p class="shelf-sub">Gilgamesh, Homer, Virgil</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/gilgamesh/summary"><span class="book-title">The Epic of Gilgamesh</span></a>
+          <span class="book-meta">Anonymous · c. 2100 BC</span>
+          <span class="book-blurb">The oldest surviving story — a king's grief and the search for what cannot die.</span>
+        </li>
+        <li class="book">
+          <a href="/read/iliad/summary"><span class="book-title">The Iliad</span></a>
+          <span class="book-meta">Homer · c. 750 BC</span>
+          <span class="book-blurb">The wrath of Achilles, and the long siege of Troy.</span>
+        </li>
+        <li class="book">
+          <a href="/read/odyssey/summary"><span class="book-title">The Odyssey</span></a>
+          <span class="book-meta">Homer · c. 700 BC</span>
+          <span class="book-blurb">A long way home, by way of every sea-monster between.</span>
+        </li>
+        <li class="book">
+          <a href="/read/the-aeneid/summary"><span class="book-title">The Aeneid</span></a>
+          <span class="book-meta">Virgil · c. 19 BC</span>
+          <span class="book-blurb">A refugee from Troy founds Rome, sort of.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Sacred Epics</h3>
+        <p class="shelf-sub">Dante and Milton</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/divine-comedy/summary"><span class="book-title">The Divine Comedy</span></a>
+          <span class="book-meta">Dante Alighieri · 1320</span>
+          <span class="book-blurb">A guided tour of hell, purgatory, and paradise — in terza rima.</span>
+        </li>
+        <li class="book">
+          <a href="/read/paradise-lost/summary"><span class="book-title">Paradise Lost</span></a>
+          <span class="book-meta">John Milton · 1667</span>
+          <span class="book-blurb">The fall, in twelve books of blank verse.</span>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf">
+        <h3 class="sub">Medieval Epics</h3>
+        <p class="shelf-sub">Beowulf</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/beowulf/summary"><span class="book-title">Beowulf</span></a>
+          <span class="book-meta">Anonymous · c. 1000</span>
+          <span class="book-blurb">Monsters, mead-halls, alliterative grandeur.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">Scripture &amp; Devotion</h2>
+      <p class="section-sub">Sacred texts and contemplatives</p>
+      <section class="shelf">
+        <h3 class="sub">Bible &amp; Devotion</h3>
+        <p class="shelf-sub">Scripture, and the books read alongside it</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/bible/summary"><span class="book-title">The Bible</span></a>
+          <span class="book-meta">Various · c. 1200 BC – 100 AD</span>
+          <span class="book-blurb">Sixty-six books, two testaments. The library inside the library.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">History</h2>
+      <p class="section-sub">The first historians</p>
+      <section class="shelf">
+        <h3 class="sub">Ancient History</h3>
+        <p class="shelf-sub">The first historians</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/the-histories/summary"><span class="book-title">The Histories</span></a>
+          <span class="book-meta">Herodotus · c. 440 BC</span>
+          <span class="book-blurb">The first history book, half ethnography and half tall tale.</span>
+        </li>
+        <li class="book">
+          <a href="/read/peloponnesian-war/summary"><span class="book-title">History of the Peloponnesian War</span></a>
+          <span class="book-meta">Thucydides · c. 400 BC</span>
+          <span class="book-blurb">Athens versus Sparta, by a participant who took notes.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">War &amp; Strategy</h2>
+      <p class="section-sub">The art of conflict, and its history</p>
+      <section class="shelf">
+        <h3 class="sub">Strategy</h3>
+        <p class="shelf-sub">The art of conflict</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/the-art-of-war/summary"><span class="book-title">The Art of War</span></a>
+          <span class="book-meta">Sun Tzu · c. 500 BC</span>
+          <span class="book-blurb">Win without fighting, when you can.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="house">
+      <h2 class="section">For Younger Readers</h2>
+      <p class="section-sub">Classics that grew up readers</p>
+      <section class="shelf">
+        <h3 class="sub">Children's Classics</h3>
+        <p class="shelf-sub">Books that grew up readers</p>
+        <ul class="books">
+        <li class="book">
+          <a href="/read/around-the-world-80-days/summary"><span class="book-title">Around the World in Eighty Days</span></a>
+          <span class="book-meta">Jules Verne · 1873</span>
+          <span class="book-blurb">Phileas Fogg bets the club; the clock starts.</span>
+        </li>
+        <li class="book">
+          <a href="/read/jungle-book/summary"><span class="book-title">The Jungle Book</span></a>
+          <span class="book-meta">Rudyard Kipling · 1894</span>
+          <span class="book-blurb">A boy raised by wolves; assorted other tales.</span>
+        </li>
+        <li class="book">
+          <a href="/read/a-little-princess/summary"><span class="book-title">A Little Princess</span></a>
+          <span class="book-meta">Frances Hodgson Burnett · 1905</span>
+          <span class="book-blurb">A girl loses everything; her imagination keeps her warm.</span>
+        </li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site">
+    <span>Tinct — 2026</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:contact@tinct.app">contact@tinct.app</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
