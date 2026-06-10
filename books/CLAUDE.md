@@ -29,6 +29,18 @@ git -C /Users/andershvelplund/Documents/Projects/Tinct status --short
 git -C /Users/andershvelplund/Documents/Projects/Tinct branch --show-current
 ```
 
+Before answering what books are WIP, publishable, or missing translation/audio,
+run the current-file inventory. Do not rely on memory, prior chat, or stale
+reports:
+
+```bash
+python3 /Users/andershvelplund/Documents/Projects/Tinct/books/wip_inventory.py
+python3 /Users/andershvelplund/Documents/Projects/Tinct/books/wip_inventory.py --audio
+```
+
+Published/live means present in `app/src/data/bookRegistry.ts` `BOOKS`. Ignore
+duplicate files like `* 2.json` and `.bak` unless the app references them.
+
 Classify dirty files before editing:
 
 - `app/src/**`, `app/wrangler.jsonc`, app CSS/components/hooks = app work, normally Codex-owned.
@@ -125,6 +137,15 @@ Check chapter and paragraph counts:
 python3 -c "import json; d=json.load(open('path/to/file.json')); print(len(d['chapters']), sum(len(c['paragraphs']) for c in d['chapters']))"
 ```
 
+After parsing, verify that chapter entries are real reading units, not parser artifacts.
+
+- For plays, chapters should be real acts/scenes or another agreed scene unit.
+- Do not leave separate chapters for textual apparatus, editor collation notes, transcriber's notes, source variants, scene-number crosswalks, or bracket debris.
+- Titles like `] SCENE 6. Pope`, `SCENA QUARTA Ff`, `Capell`, `Rowe`, `Hanmer`, `Collier`, `conj.`, or `om.` are blockers, not acceptable reader-facing chapter titles.
+- Cambridge/Gutenberg Shakespeare apparatus paragraphs are not reading text. Remove them before `modern-en`, `modern-da`, threads, onboarding, or audio.
+- If cleanup changes chapter structure, apply the same structure to `original-en`, `modern-en`, and `modern-da`, then re-key threads to the repaired chapter numbers.
+- Do not generate audio over apparatus/stub chapters.
+
 ## Translation Rules
 
 Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup.
@@ -185,6 +206,7 @@ Every production book must include:
 - `modern-da`
 - paragraph alignment across editions
 - no stubs or untranslated scaffold content
+- no textual apparatus/stub chapters or polluted scene titles
 - required Kokoro/Chirp audio generated, manifested, uploaded, and verified
 - onboarding
 - taxonomy: House, shelves, form, era, and relevant canon/list metadata

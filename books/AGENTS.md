@@ -39,6 +39,9 @@ If adding a book requires new app behavior, stop and ask Anders to handle it as 
 - Zero Anthropic API spend for development.
 - Do not run scripts that call `api.anthropic.com`.
 - Do not run `generate-editions.cjs`.
+- Do not answer book-status, publication-readiness, or "what is missing?"
+  questions from memory. Run `python3 books/wip_inventory.py` from the repo root
+  first, and add `--audio` when English/Danish audio status matters.
 - Discuss structure before downloading or parsing a new source.
 - Use public-domain sources only.
 - Validate downloaded source metadata before parsing. Gutenberg `Title:` and `Author:` must match the intended work.
@@ -97,6 +100,41 @@ Also verify chapter and paragraph counts:
 python3 -c "import json; d=json.load(open('path/to/file.json')); print(len(d['chapters']), sum(len(c['paragraphs']) for c in d['chapters']))"
 ```
 
+## Edition Structure QA
+
+After parsing source text, verify that chapter entries represent the agreed reading units, not parser artifacts.
+
+- For plays, chapter entries must be real acts/scenes or other agreed scene units. Do not leave separate chapters for textual apparatus, editorial collation notes, transcriber's notes, source variants, or scene-number crosswalks.
+- Titles must be reader-facing labels, for example `Act 2, Scene 3`, not source-apparatus fragments such as `] SCENE 6. Pope`, `SCENA QUARTA Ff`, `Capell`, `Rowe`, `Hanmer`, `Collier`, `conj.`, `om.`, or bracket debris from parser splits.
+- Edition-note paragraphs from Cambridge/Gutenberg-style Shakespeare sources are not reading text. Remove them before `modern-en`, `modern-da`, threads, onboarding, or audio work.
+- If source cleanup removes or merges chapters, apply the same structure to every included edition and then re-key threads to the repaired chapter numbers.
+- Do not generate audio for a book with suspected apparatus/stub chapters. Repair text first; audio manifests over bad chapter structure are not publication-ready.
+
+For Shakespeare or other heavily annotated public-domain sources, run an apparatus scan before translation/audio. Treat hits as blockers until manually inspected:
+
+```bash
+BOOK=measure-for-measure python3 - <<'PY'
+import json, os, re
+book = os.environ["BOOK"]
+pat = re.compile(r'(\] SCENE|SCENA|Transcriber|Pope|Rowe|Hanmer|Capell|Collier|Ff|F1|F2|F3|F4|conj\.|om\.)')
+for ed in ("original-en", "modern-en", "modern-da"):
+    path = f"app/public/data/editions/{book}-{ed}.json"
+    try:
+        data = json.load(open(path))
+    except FileNotFoundError:
+        continue
+    hits = []
+    for i, ch in enumerate(data["chapters"], 1):
+        title = ch.get("title", "")
+        paras = ch.get("paragraphs", [])
+        if pat.search(title) or (len(paras) <= 3 and any(pat.search(p) for p in paras)):
+            hits.append((i, title, len(paras)))
+    print(ed, len(data["chapters"]), "apparatus/stub suspects:", len(hits))
+    for hit in hits[:10]:
+        print(" ", hit)
+PY
+```
+
 ## Modern English
 
 Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup.
@@ -142,6 +180,7 @@ Modern Danish is translated from `modern-en`.
 Run focused QA after chapter batches and before considering an edition complete:
 
 - Paragraph alignment against the source edition.
+- Edition structure check: chapter entries are real reading units, not editorial apparatus or parser stubs.
 - Empty or stub paragraphs, especially paragraphs under 20 characters.
 - Content alignment spot checks across first, middle, and last chapters.
 - Proper noun and name consistency.
@@ -174,6 +213,10 @@ Always use `--remote` for R2 uploads. Without it, Wrangler may write to a local 
 For bulk R2 uploads, prefer moderate parallelism such as `-P 8`. If rate limits or fetch failures occur, retry the failed files sequentially.
 
 Kokoro can hang on specific paragraphs. For large books, prefer a subprocess-per-paragraph pattern with timeouts rather than one unbounded long run.
+
+RunPod Kokoro batches should clean local chapter artifacts after confirmed R2 upload. The cloud runner does this by default: successful chapters are deleted locally, while failed chapters are kept so reruns can retry uploads without regenerating. Use `--keep-local` only for debugging or intentional local inspection.
+
+For RunPod Kokoro batches, do not default to expensive high-end datacenter GPUs. The pipeline is often limited by paragraph-level orchestration, `ffmpeg`, `ffprobe`, R2 uploads, and manifest checks rather than raw GPU compute. Prefer RTX 3090/4090 when available, or cheaper cards such as RTX 4000 Ada, RTX PRO 4000/4500, or A5000. RTX 5090 is acceptable but usually overpowered; avoid H100/H200/B200/B300-class GPUs unless urgency justifies the cost.
 
 ## Registry
 

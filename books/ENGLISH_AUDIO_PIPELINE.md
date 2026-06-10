@@ -95,3 +95,44 @@ python3 r2_missing_english_audio.py --scope staged
 ```
 
 The generated command calls `run-kokoro-cloud.py`, which uploads to R2 and skips chapters already present. Use this script for the real backlog; use `english_audio_backlog.py` only for local Mac file audits.
+
+### RunPod Disk Hygiene
+
+`app/tts/run-kokoro-cloud.py` deletes each local chapter directory after that chapter uploads to R2 with zero failures. This is intentional: RunPod network volumes can still hit quota or practical working-space limits when long books leave all generated MP3s and manifests under `/workspace/audio`.
+
+If a chapter has any R2 upload failure, the script keeps that chapter directory so a rerun can retry the existing local files. Reruns remain idempotent because completed chapters are skipped through the production audio manifest endpoint.
+
+To keep local artifacts for debugging, pass:
+
+```bash
+python3 run-kokoro-cloud.py --keep-local BOOK EDITION
+```
+
+If an older pod fills up before this cleanup behavior is available, free completed local artifacts manually and keep only the current failed book:
+
+```bash
+find /workspace/audio -name '*.wav' -delete
+find /workspace/audio -mindepth 1 -maxdepth 1 ! -name 'CURRENT-BOOK-ID' -exec rm -rf {} +
+```
+
+## RunPod GPU Choice
+
+Do not default to high-end datacenter GPUs for Kokoro batch audio. The end-to-end pipeline is not pure GPU compute:
+
+- many small paragraph-level Kokoro calls
+- Python orchestration overhead
+- `ffmpeg` conversion
+- `ffprobe` duration reads
+- R2 upload latency
+- per-chapter manifest checks
+
+As a result, top-end GPUs often show low CPU load, low VRAM utilization, and uneven GPU utilization. This is normal for the current pipeline and means the bottleneck is often orchestration or network I/O, not raw GPU power.
+
+Preferred future RunPod choices:
+
+- Best value when available: RTX 3090 or RTX 4090.
+- Good cheaper fallbacks: RTX 4000 Ada, RTX PRO 4000/4500, A5000.
+- Acceptable but usually overpowered: RTX 5090.
+- Avoid unless urgent: H100, H200, B200, B300, and other expensive datacenter GPUs.
+
+Rule of thumb: use the cheapest available NVIDIA GPU with enough VRAM for Kokoro, generally 16-24 GB or more. Spend engineering effort on reducing per-file overhead before paying for larger GPUs.

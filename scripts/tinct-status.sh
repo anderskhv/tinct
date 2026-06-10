@@ -66,6 +66,7 @@ echo "  App verify:      cd app && npm run build && npm run verify-bundle"
 echo "  Audio backlog:   cd books && python3 r2_missing_english_audio.py --scope all"
 echo "  RunPod command:  cd books && python3 r2_missing_english_audio.py --scope all --runpod-command"
 echo "  Book status:     cd books && python3 check-status.py"
+echo "  WIP inventory:   python3 books/wip_inventory.py --audio"
 echo
 
 echo "Dashboard:"

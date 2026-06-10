@@ -22,6 +22,20 @@ For a quick cross-workstream overview, read `PIPELINES.md` or run:
 bash scripts/tinct-status.sh
 ```
 
+For book publication/WIP inventory, do not answer from memory or stale markdown.
+Run the current-file inventory instead:
+
+```bash
+python3 books/wip_inventory.py
+python3 books/wip_inventory.py --audio   # when audio/R2 status matters
+```
+
+Interpretation rules:
+- Published/live books are only entries in `app/src/data/bookRegistry.ts` `BOOKS`.
+- Staged books are `Book` constants not included in `BOOKS`.
+- Loose books are edition files with no registry constant.
+- Ignore duplicate junk files such as `* 2.json` and `.bak` unless the app references them.
+
 ## Hard Rules
 
 - Do not deploy unless Anders explicitly asks.

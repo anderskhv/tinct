@@ -90,3 +90,16 @@ No new files committed yet. The 5 modern-en files on disk are the existing (most
 
 - This report: `books/MODERN-EN-REPAIR-STATUS.md`
 - Audit scripts: `/tmp/classify_modern_en.py`, `/tmp/diff_samples.py` (re-runnable, not committed)
+
+## 2026-05-29 update
+
+Anna Karenina `modern-en` has been fully re-rendered and checked:
+
+- Structure preserved: 239 chapters, 7,442 paragraphs.
+- JSON validates.
+- `python3 books/audit-truncation.py anna-karenina en`: 0 truncation flags after final patch.
+- `python3 books/content-verify.py anna-karenina original-en modern-en`: only two false positives remain, caused by common words being interpreted as proper nouns.
+- Identical paragraphs vs `original-en`: 133 / 7,442 (1.8%).
+- Average chapter similarity vs `original-en`: 0.284.
+
+Follow-up required: regenerate `modern-da` from the repaired `modern-en`, then generate/upload `anna-karenina/modern-en` Kokoro audio and Danish audio.

@@ -1,6 +1,6 @@
 # Tinct Pipelines
 
-Last updated: 2026-05-23
+Last updated: 2026-05-26
 
 Use this as the quick overview before opening Claude, Codex, or RunPod. Keep it short and current. Git history keeps the detailed record.
 
@@ -10,15 +10,23 @@ Run this first:
 bash scripts/tinct-status.sh
 ```
 
+For publication/WIP book inventory, run current-file checks instead of reading
+this dashboard as a source of truth:
+
+```bash
+python3 books/wip_inventory.py
+python3 books/wip_inventory.py --audio
+```
+
 ## Active Processes
 
-- RunPod: Kokoro English audio batch is the only known live external process.
-- Claude: no active Claude book window.
+- RunPod: Kokoro audio batch may be active; verify from the pod or with `books/wip_inventory.py --audio`.
+- Claude: Treasure Island Danish cleanup may be active; keep Claude scoped to translation/editorial work.
 - Codex: no long-running app process.
 
 ## Working Tree
 
-- Last known status: clean after `d8b285d2 content: real modern rendering of Leviathan ch17-22`.
+- Last known status: dirty worktree across app/content/audio docs; always classify with `bash scripts/tinct-status.sh`.
 - Always confirm with `bash scripts/tinct-status.sh` before opening Claude or Codex.
 
 Detailed modern-English repair tracker: `books/MODERN-EN-REPAIR-STATUS.md`.
@@ -65,36 +73,18 @@ Canonical book package:
 8. Audio generated and verified.
 9. Codex publishes.
 
-Current content state from the closed Claude session:
+Current WIP snapshot from `books/wip_inventory.py --audio`:
 
-- Text complete, awaiting audio + public promotion:
-  - Othello
-  - Richard III
-  - Antony & Cleopatra
-  - Twelfth Night
-  - Taming of the Shrew
-  - Much Ado About Nothing
-  - Cymbeline
-  - King Lear
-  - Coriolanus
-  - Henry IV Part 2
-  - Measure for Measure
-  - Merry Wives of Windsor
-  - Hume — Enquiry
-  - Kant — Groundwork
-- Partial:
-  - Leviathan: 23/49 chapters `modern-en` meet REAL-HEAVY standard; next repair starts at ch23.
-  - Wealth of Nations: 5/32 chapters are REAL/REAL-HEAVY, 27 chapters need real rendering.
-  - Don Quixote: 126 chapters need real rendering.
-  - Montaigne — Essays: 107 chapters need real rendering.
-  - Anna Karenina: 239 chapters need real rendering.
-- Source/parser unresolved:
-  - Summa Theologica
-  - Canterbury Tales
-  - Hegel — Phenomenology of Spirit
-  - Mrs Dalloway / To the Lighthouse
+- 22 unpublished/WIP books.
+- Closest: `treasure-island` has aligned editions, onboarding, and threads; remaining blockers are registry plus English/Danish audio and final Danish QA.
+- 12 staged Shakespeare plays have text and English audio; all need onboarding + threads. Four also need Danish audio: `twelfth-night`, `measure-for-measure`, `henry-iv-part-2`, `merry-wives-of-windsor`.
+- Hume/Kant have text but need onboarding, threads decision, and all audio.
+- `leviathan` needs final text QA plus onboarding/threads/Danish audio.
+- `wealth-of-nations`, `don-quixote`, `essays-montaigne`, and `anna-karenina` need real `modern-en` repair before publication; their `modern-da` is not publication-quality until regenerated from repaired English.
+- `frederick-douglass` and `werther` are loose source-only starts.
 
-Claude can start more books, but do not start `modern-da` from mechanically cleaned `modern-en` files.
+Claude should translate or editorially repair only exact assigned files/chapters.
+Codex owns inventory, publication readiness, registry, app verification, and deploy.
 
 ### Audio / RunPod
 
@@ -103,8 +93,8 @@ Owner: RunPod plus local audit scripts.
 Production backlog source of truth:
 
 ```bash
-cd books
-python3 r2_missing_english_audio.py --scope all --runpod-command
+python3 books/wip_inventory.py --audio
+cd books && python3 r2_missing_english_audio.py --scope all --runpod-command
 ```
 
 Rules:
@@ -131,7 +121,7 @@ A book may move into public `BOOKS` only when:
 
 ## Next Actions
 
-1. Check RunPod. If finished, run the R2 missing-audio audit.
-2. Continue Claude repair one book at a time, currently Leviathan ch23 onward.
-3. Do not start `modern-da` for the five repair books until their `modern-en` chapters have been repaired into real paragraph-by-paragraph modern English.
-4. Let Codex publish only complete packages.
+1. Let Claude finish Treasure Island Danish cleanup, then Codex verifies JSON/structure/terms.
+2. Continue RunPod audio backlog and rerun `python3 books/wip_inventory.py --audio`.
+3. If Treasure Island audio completes and Danish QA passes, Codex can prepare registry publication.
+4. Next translation work for Claude should be a narrow exact-file/chapter assignment, not a broad audit.
