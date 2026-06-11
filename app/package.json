@@ -11,7 +11,7 @@
     "admin:grant": "node scripts/grant-admin-metrics.cjs",
     "admin:verify": "node scripts/verify-admin-metrics.cjs",
     "prebuild": "node scripts/generate-sitemap.cjs",
-    "build": "vite build && mv dist/index.html dist/app.html && cp dist/landing.html dist/index.html",
+    "build": "vite build && mv dist/index.html dist/app.html && cp dist/landing.html dist/index.html && node scripts/stamp-sw-app-shell.cjs",
     "verify-bundle": "node scripts/verify-bundle.cjs",
     "deploy": "npm run build && npm run verify-bundle && bash -c 'set -a; [ -f .env ] && source .env; set +a; npx wrangler deploy'",
     "build:android": "CAPACITOR=true vite build && npx cap sync android",

@@ -1,0 +1,40 @@
+# Tinct: AI-Crawler Guide
+
+Tinct helps readers finish classic books by combining a focused reader with original texts, modern English and modern Danish editions, a context-aware AI companion, synced audiobook playback, notes, highlights, reading progress, and character guides.
+
+The strongest public entry point is the library hub:
+
+https://tinct.app/read
+
+Each book has crawlable public pages:
+
+- `/read/{bookId}/summary`
+- `/read/{bookId}/chapters`
+- `/read/{bookId}/themes`
+- `/read/{bookId}/cast` when character data exists
+- `/read/{bookId}/chapter-N` for chapter pages
+
+Important examples:
+
+- https://tinct.app/read/odyssey/summary
+- https://tinct.app/read/war-and-peace/summary
+- https://tinct.app/read/crime-and-punishment/summary
+- https://tinct.app/read/pride-and-prejudice/summary
+- https://tinct.app/read/hamlet/summary
+- https://tinct.app/read/the-republic/summary
+- https://tinct.app/read/meditations/summary
+- https://tinct.app/read/jane-eyre/summary
+- https://tinct.app/read/frankenstein/summary
+- https://tinct.app/read/divine-comedy/summary
+- https://tinct.app/read/brothers-karamazov/summary
+- https://tinct.app/read/moby-dick/summary
+- https://tinct.app/read/bible-john/summary
+- https://tinct.app/read/macbeth/summary
+- https://tinct.app/read/romeo-and-juliet/summary
+- https://tinct.app/read/on-liberty/summary
+- https://tinct.app/read/great-expectations/summary
+- https://tinct.app/read/the-aeneid/summary
+- https://tinct.app/read/beowulf/summary
+- https://tinct.app/read/paradise-lost/summary
+
+Robots policy: public HTML pages are intended for indexing and citation. `/data/`, `/api/`, and `/audio/` are not intended for crawling or bulk extraction.

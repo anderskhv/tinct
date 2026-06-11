@@ -2664,7 +2664,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com; img-src 'self' data:; media-src 'self'; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com; img-src 'self' data:; media-src 'self'; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
 }
 
 // ===== Bot UA Blocklist (KV-free first line of defence) =====
@@ -2675,8 +2675,7 @@ const SECURITY_HEADERS: Record<string, string> = {
 // users). Per-IP rate-limiting amplified the cost since rotating-IP bots
 // each minted a fresh KV entry. A simple UA reject costs zero KV ops.
 const BLOCKED_BOT_UA_FRAGMENTS = [
-  'GPTBot', 'CCBot', 'Google-Extended', 'ClaudeBot', 'anthropic-ai',
-  'PerplexityBot', 'Omgilibot', 'FacebookBot', 'meta-externalagent',
+  'CCBot', 'Omgilibot', 'FacebookBot', 'meta-externalagent',
   'Bytespider', 'Amazonbot', 'DataForSeoBot', 'AhrefsBot', 'SemrushBot',
   'MJ12bot', 'DotBot', 'PetalBot', 'YandexBot', 'Applebot-Extended',
   'cohere-ai', 'Diffbot', 'ImagesiftBot', 'TurnitinBot', 'magpie-crawler',
@@ -2702,11 +2701,6 @@ const BOOK_META: Record<string, { title: string; description: string; image?: st
 }
 
 const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.keys(BOOK_META)])
-
-const LIBRARY_META = {
-  title: 'Read Classic Books Online — Modern English, AI Companion, Audiobooks | Tinct',
-  description: 'Explore classic books free online on Tinct. Read original texts alongside modern English, use a context-aware AI reading companion, track characters, and listen with synced audiobooks.',
-}
 
 async function serveSpaWithMeta(
   requestMethod: string,
@@ -2962,11 +2956,19 @@ export default {
       // SEO file not found — fall through to SPA fallback below
     }
 
-    // Library route is in the sitemap, so it needs its own crawlable metadata
-    // instead of the generic SPA title.
+    // Library route is in the sitemap, so serve the committed crawlable hub
+    // rather than the SPA shell. This exposes internal book links to crawlers
+    // while the app remains available at /read?view=library and deep links.
     if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/read') {
-      const libraryResp = await serveSpaWithMeta(request.method, url, env, LIBRARY_META, 'https://tinct.app/read', 'website')
-      if (libraryResp) return libraryResp
+      const hubResp = await env.ASSETS.fetch(new Request(`${url.origin}/read/index.html`, request))
+      if (hubResp.ok) {
+        const newResp = new Response(request.method === 'HEAD' ? null : hubResp.body, hubResp)
+        newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
+        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+          newResp.headers.set(key, value)
+        }
+        return newResp
+      }
     }
 
     // Per-book transactional SEO: inject book-specific meta tags into the SPA
@@ -2997,6 +2999,19 @@ export default {
       })
     }
 
+    // Bare /{bookId} URLs are legacy/shareable duplicates of /read/{bookId}.
+    // Serve the SPA shell with canonical book metadata so crawlers consolidate
+    // ranking signals on the /read/ URL instead of seeing a generic duplicate.
+    const bareBookMatch = url.pathname.match(/^\/([a-z0-9-]+)\/?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && bareBookMatch) {
+      const bookId = bareBookMatch[1].toLowerCase()
+      const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
+      if (meta) {
+        const bookResp = await serveSpaWithMeta(request.method, url, env, meta, `https://tinct.app/read/${bookId}`, 'book')
+        if (bookResp) return bookResp
+      }
+    }
+
     // Fall through to static assets
     const response = await env.ASSETS.fetch(request)
 
@@ -3015,6 +3030,7 @@ export default {
       const spaResponse = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
       const newResponse = new Response(spaResponse.body, spaResponse)
       newResponse.headers.set('Cache-Control', 'no-store')
+      newResponse.headers.set('X-Robots-Tag', 'noindex, noarchive')
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
         newResponse.headers.set(key, value)
       }

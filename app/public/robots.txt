@@ -8,23 +8,11 @@ Disallow: /data/
 Disallow: /api/
 Disallow: /audio/
 
-# Generic scrapers and AI training crawlers — opt out of bulk text ingestion
-User-agent: GPTBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
+# Reputable AI search/training crawlers follow the default policy above:
+# public pages are allowed; /data/, /api/, and /audio/ remain blocked.
+# Junk and bulk SEO scrapers remain blocked.
 
 User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: PerplexityBot
 Disallow: /
 
 User-agent: Omgilibot

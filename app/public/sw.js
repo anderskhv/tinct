@@ -1,6 +1,10 @@
-// Tinct Service Worker — offline caching for editions and audio.
+// Tinct Service Worker — offline caching for app shell, editions, and audio.
 //
 // Strategy:
+//   - App shell:
+//       Network-first for navigations with cached /app.html fallback. The
+//       deployed dist/sw.js is stamped after build with the exact current
+//       bundle/font URLs and a cache name derived from those URLs.
 //   - Editions (/data/editions/*.json and /data/editions-chapters/*.json):
 //       Stale-while-revalidate. Serve cached immediately for speed, but
 //       always fetch in the background and replace the cached copy. Means
@@ -18,11 +22,26 @@
 // version bump aggressively wipes the old app.html (which references the
 // old JS bundle hash) and forces a fresh fetch on next navigation.
 const CACHE_NAME = 'tinct-offline-v3'
+const APP_SHELL_CACHE_NAME = 'tinct-app-shell-dev'
+const APP_SHELL_PRECACHE_URLS = []
+
+const APP_SHELL_PRECACHE_SET = new Set(APP_SHELL_PRECACHE_URLS)
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
 
   const url = new URL(event.request.url)
+  const isSameOrigin = url.origin === self.location.origin
+  if (isSameOrigin && isAppShellNavigation(event.request, url)) {
+    event.respondWith(handleAppShellNavigation(event.request))
+    return
+  }
+
+  if (isSameOrigin && APP_SHELL_PRECACHE_SET.has(url.pathname)) {
+    event.respondWith(handlePrecachedAppAsset(event.request))
+    return
+  }
+
   const isEdition = url.pathname.startsWith('/data/editions/') || url.pathname.startsWith('/data/editions-chapters/')
   const isAudio = url.pathname.startsWith('/api/audio-file') || url.pathname.startsWith('/api/audio-manifest')
   if (!isEdition && !isAudio) return
@@ -52,6 +71,40 @@ self.addEventListener('fetch', (event) => {
     )
   )
 })
+
+function isAppShellNavigation(request, url) {
+  if (request.mode !== 'navigate') return false
+  if (url.pathname === '/app' || url.pathname === '/app.html' || url.pathname === '/admin/metrics') return true
+  if (url.pathname === '/read' || /^\/read\/[a-z0-9-]+\/?$/i.test(url.pathname)) return true
+  return false
+}
+
+async function handleAppShellNavigation(request) {
+  try {
+    const response = await fetch(request)
+    if (response.ok) return response
+  } catch {
+    // Fall back below.
+  }
+
+  const cache = await caches.open(APP_SHELL_CACHE_NAME)
+  const cached = await cache.match('/app.html')
+  if (cached) return cached
+  return new Response('Offline', {
+    status: 503,
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  })
+}
+
+async function handlePrecachedAppAsset(request) {
+  const cache = await caches.open(APP_SHELL_CACHE_NAME)
+  const cached = await cache.match(new URL(request.url).pathname)
+  if (cached) return cached
+
+  const response = await fetch(request)
+  if (response.ok) await cache.put(new URL(request.url).pathname, response.clone())
+  return response
+}
 
 async function handleAudioRange(request, event) {
   const cache = await caches.open(CACHE_NAME)
@@ -161,15 +214,25 @@ function offlineFallback() {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+      Promise.all(keys.filter(k => k !== CACHE_NAME && k !== APP_SHELL_CACHE_NAME).map(k => caches.delete(k)))
     )
   )
 })
 
 // Skip waiting — activate immediately
-self.addEventListener('install', () => {
+self.addEventListener('install', (event) => {
   self.skipWaiting()
+  event.waitUntil(precacheAppShell())
 })
+
+async function precacheAppShell() {
+  if (!APP_SHELL_PRECACHE_URLS.length) return
+  const cache = await caches.open(APP_SHELL_CACHE_NAME)
+  await Promise.allSettled(APP_SHELL_PRECACHE_URLS.map(async (url) => {
+    const response = await fetch(url, { cache: 'no-store' })
+    if (response.ok) await cache.put(url, response)
+  }))
+}
 
 // Listen for download requests from the main thread
 self.addEventListener('message', (event) => {
