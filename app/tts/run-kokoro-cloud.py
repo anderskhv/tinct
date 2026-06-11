@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Cloud-GPU Kokoro audio generator. Designed to run on RunPod / Vast.ai / any
 Linux box with NVIDIA GPU + PyTorch. Fetches edition JSON from tinct.app, writes
-audio locally, uploads to R2 chapter-by-chapter.
+audio locally, uploads to R2 chapter-by-chapter, and removes each local chapter
+directory after a fully successful upload.
 
 Usage:
     python3 run-kokoro-cloud.py BOOK EDITION [BOOK EDITION ...]
@@ -13,8 +14,10 @@ Examples:
 Required env: CLOUDFLARE_API_TOKEN
 
 Idempotent. Re-running skips chapters already on R2 (verified via HEAD request).
+By default, completed local chapter artifacts are deleted to avoid filling small
+RunPod volumes. Pass --keep-local to preserve them.
 """
-import json, os, re, subprocess, sys, time, urllib.request
+import json, os, re, shutil, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -24,6 +27,7 @@ EDITIONS_DIR = WORKSPACE / 'editions'
 EDITION_BASE_URL = 'https://raw.githubusercontent.com/anderskhv/tinct/main/app/public/data/editions'
 R2_BUCKET = 'tinct-audio'
 AUDIO_API_BASE = 'https://tinct.app/api/audio-manifest'
+WRANGLER_CMD = None
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Text cleanup — same as run-audio-batch2.py / regen-bible-modern-en.py
@@ -125,12 +129,32 @@ def wav_to_mp3(wav, mp3):
     return r.returncode == 0
 
 
+def resolve_wrangler_cmd():
+    """Find an upload command that works on both bootstrapped pods and bare images."""
+    env_bin = os.environ.get("WRANGLER_BIN")
+    candidates = [env_bin] if env_bin else []
+    candidates += ["wrangler", "/usr/local/bin/wrangler", "/usr/local/node/bin/wrangler"]
+    for candidate in candidates:
+        if not candidate:
+            continue
+        resolved = shutil.which(candidate) if "/" not in candidate else candidate
+        if resolved and Path(resolved).exists():
+            return [resolved]
+
+    npx = shutil.which("npx")
+    if npx:
+        return [npx, "-y", "wrangler"]
+    return None
+
+
 def r2_put(local, key, ctype, max_attempts=5, per_call_timeout=60):
     last_err = ""
+    if not WRANGLER_CMD:
+        return False, "wrangler not found; install with: npm install -g wrangler"
     for attempt in range(1, max_attempts + 1):
         try:
             r = subprocess.run(
-                ["wrangler", "r2", "object", "put", f"{R2_BUCKET}/{key}",
+                [*WRANGLER_CMD, "r2", "object", "put", f"{R2_BUCKET}/{key}",
                  "--file", str(local), "--content-type", ctype, "--remote"],
                 capture_output=True, text=True,
                 cwd=str(WORKSPACE / 'tinct'),  # contains wrangler.toml
@@ -227,6 +251,34 @@ def upload_chapter(book_id, edition_key, ch_dir):
     return ok, fail
 
 
+def remove_chapter_dir(ch_dir):
+    """Delete local generated artifacts after R2 has a complete chapter.
+
+    The guard keeps this from ever deleting outside /workspace/audio if a path is
+    malformed. Failed uploads intentionally keep their chapter directories so a
+    rerun can retry without regenerating everything.
+    """
+    try:
+        resolved = ch_dir.resolve()
+        audio_root = AUDIO_DIR.resolve()
+        if not resolved.is_dir() or audio_root not in resolved.parents:
+            return False
+        shutil.rmtree(resolved)
+        return True
+    except Exception as e:
+        log(f"    WARN cleanup failed for {ch_dir}: {e}")
+        return False
+
+
+def prune_empty_dirs(*dirs):
+    for d in dirs:
+        try:
+            if d.exists() and d.is_dir() and not any(d.iterdir()):
+                d.rmdir()
+        except Exception:
+            pass
+
+
 def main():
     args = sys.argv[1:]
     # --force flag: regenerate every chapter (don't skip already-on-R2)
@@ -235,6 +287,12 @@ def main():
         force = True
         args = [a for a in args if a != "--force"]
         log("FORCE mode: idempotent skip disabled, all chapters will be regenerated.")
+
+    keep_local = False
+    if "--keep-local" in args:
+        keep_local = True
+        args = [a for a in args if a != "--keep-local"]
+        log("KEEP-LOCAL mode: generated chapter artifacts will not be deleted.")
 
     # --start-ch N / --end-ch M: process only chapters in [N, M] (inclusive).
     # Used to split a long book across two pods working in parallel.
@@ -257,6 +315,13 @@ def main():
     if not os.environ.get("CLOUDFLARE_API_TOKEN"):
         log("ERROR: CLOUDFLARE_API_TOKEN not set. export it before running.")
         return 1
+
+    global WRANGLER_CMD
+    WRANGLER_CMD = resolve_wrangler_cmd()
+    if not WRANGLER_CMD:
+        log("ERROR: wrangler not found and npx is unavailable. Run: npm install -g wrangler")
+        return 1
+    log(f"Wrangler command: {' '.join(WRANGLER_CMD)}")
 
     JOBS = [(args[i], args[i+1]) for i in range(0, len(args), 2)]
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)
@@ -305,6 +370,9 @@ def main():
             # Skip if already on R2 (idempotent) — unless --force was passed
             if not force and chapter_on_r2(book_id, edition_key, ch_num):
                 total_skipped += 1
+                if not keep_local:
+                    ch_dir = ed_audio_dir / f"ch{ch_num}"
+                    remove_chapter_dir(ch_dir)
                 continue
 
             try:
@@ -312,6 +380,8 @@ def main():
                 ok, fail = upload_chapter(book_id, edition_key, ch_dir)
                 total_ok += ok
                 total_fail += fail
+                if fail == 0 and ok > 0 and not keep_local:
+                    remove_chapter_dir(ch_dir)
                 elapsed = time.time() - ch_start
                 log(f"  ch{ch_num}: {len(ch.get('paragraphs', []))}p → R2 {ok}/{ok+fail} ({elapsed:.0f}s)")
             except Exception as e:
@@ -319,6 +389,8 @@ def main():
                 total_fail += 1
 
         elapsed_min = (time.time() - job_start) / 60
+        if not keep_local:
+            prune_empty_dirs(ed_audio_dir, AUDIO_DIR / book_id)
         log(f"═══ {book_id}/{edition_key} DONE: R2 {total_ok} ok / {total_fail} fail / {total_skipped} skipped / {elapsed_min:.1f} min ═══\n")
 
     log("ALL JOBS DONE.")

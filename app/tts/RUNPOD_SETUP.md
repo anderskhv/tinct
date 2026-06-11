@@ -43,6 +43,7 @@ Set the token, start tmux, run the script:
 
 ```bash
 export CLOUDFLARE_API_TOKEN="cfut_..."   # R2 upload token, not the app deploy token
+export CLOUDFLARE_ACCOUNT_ID="58f26c4a077e8c66e0b017d2399ae1b3"
 tmux new -s kokoro
 cd /workspace/tinct/scripts
 python3 run-kokoro-cloud.py BOOK EDITION [BOOK EDITION ...]
@@ -79,6 +80,27 @@ Once the first chapter completes successfully (output: `ch1: Np → R2 N/N (XXs)
 - Pods → your pod → **Stop** (preserves volume, stops billing)
 - Volume costs ~$0.05/GB/month while stopped — or click **Terminate** to wipe
 
+## Disk behavior
+
+`run-kokoro-cloud.py` cleans up after itself by default:
+
+- After a chapter uploads to R2 with zero failures, its local `/workspace/audio/{book}/{edition}/chN` directory is deleted.
+- If any R2 upload fails, that chapter directory is kept so the next rerun can retry existing files instead of regenerating the chapter.
+- Chapters already complete on R2 are skipped, and stale local copies are removed.
+
+Use `--keep-local` only when intentionally debugging local generated files:
+
+```bash
+python3 run-kokoro-cloud.py --keep-local BOOK EDITION
+```
+
+If an older pod fills up, the emergency cleanup is:
+
+```bash
+find /workspace/audio -name '*.wav' -delete
+find /workspace/audio -mindepth 1 -maxdepth 1 ! -name 'CURRENT-BOOK-ID' -exec rm -rf {} +
+```
+
 ## Pace expectations (RTX 4090 + Kokoro)
 
 | Workload | Local MBA | RTX 4090 | Cost |
@@ -92,7 +114,7 @@ Once the first chapter completes successfully (output: `ch1: Np → R2 N/N (XXs)
 | Issue | Fix |
 |---|---|
 | `403 Forbidden` fetching edition JSON | Already fixed — script uses GitHub raw URLs, not tinct.app |
-| `wrangler: command not found` after bootstrap | The bootstrap creates symlinks at `/usr/local/bin/wrangler` and `/usr/local/bin/wrangler`. If still missing: `ln -sf /usr/local/node/bin/wrangler /usr/local/bin/wrangler` |
+| `wrangler: command not found` after bootstrap | Current `run-kokoro-cloud.py` falls back to `npx -y wrangler`. If both are missing: `npm install -g wrangler && ln -sf /usr/local/node/bin/wrangler /usr/local/bin/wrangler` |
 | Pod preempted (spot) | Reattach: pod resumes automatically. Re-run the same command — script skips chapters already on R2. |
 | Job stuck mid-chapter | `Ctrl+C`, re-run. Idempotent. |
 | Token expired | Cloudflare dashboard → R2 → Manage R2 API Tokens → regenerate. Update `app/.env` locally and re-export on the pod. |
