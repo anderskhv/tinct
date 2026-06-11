@@ -1,0 +1,10 @@
+# Tinct Decision Log
+
+Live log per CLAUDE.md. Format: one row per decision, logged at the moment it's made.
+
+| Date | Decision | Category | Escalated? | Reasoning |
+|---|---|---|---|---|
+| 2026-06-10 | Modern-en similarity gate (`books/classify-modern-en.py --gate`) is a blocking QA step before any modern-da or audio work. | content | Yes — approved by Anders | The 2026-05 mechanical-modernization failure (539 fake chapters) happened because the quality audit was a one-off postmortem in /tmp. A committed, scripted gate makes the failure class unable to recur silently. |
+| 2026-06-10 | Finish-to-publish WIP discipline: no new source parsing while a staged book is blocked only on content work this lane can do. | scope | Yes — approved by Anders | 22 WIP books and near-zero publications; the last mile (threads, onboarding, audio) is where books stall. Default next task = closest-to-publishable per wip_inventory.py. |
+| 2026-06-10 | Parallel chapter-render harness (one subagent per chapter → fragment files → independent verification → assembly → per-chapter gate) is the default method for bulk modern-en work. Don Quixote remaining 51 LIGHT chapters are the default pull-work until the book passes the gate. | content | Yes — approved by Anders | Prototype on DQ ch 9–28 batch: 8 chapters in ~6 min wall-clock vs 8 sequential sessions; all dropped from 0.87–0.94 similarity to 0.54–0.66, truncation-clean. |
+| 2026-06-10 | AI-crawler policy (Plan 5.7): ALLOW reputable AI search bots (OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-User) and training bots (GPTBot, ClaudeBot, Google-Extended) — Cloudflare edge opened by Anders; worker UA-list + robots.txt + llms.txt to follow. /data/ and /api/ stay blocked; junk scrapers (Bytespider, CCBot) stay blocked. | external | Yes — Anders decided, opened Cloudflare | Tinct's customer asks AI assistants how to read the classics; being citable there is the growth channel incumbents (ad-funded) cannot follow. Texts are public domain; moat is the product, not the corpus. |

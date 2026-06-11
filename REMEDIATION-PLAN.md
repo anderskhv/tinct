@@ -19,6 +19,21 @@
 
 ---
 
+## Execution strategy
+
+Aggressive remediation is approved because current Supabase usage shows no non-Anders user at or above 25% of Anders's usage level. Latest check: 11 profiles, 16,067 analytics events, 795 `user_data` rows; Anders baseline score 44,185; 25% threshold 11,046; highest non-Anders user 3,752 / 8.5%, with only 12 durable `user_data` keys and 2 reading chapters. The practical blast radius is Anders's account plus test/family accounts, not organic users.
+
+Interpret that as:
+
+- **One aggressive implementation workstream through Phases 0-4 is allowed locally.** Do not stop after each phase unless a verification gate fails or a task exposes a new architectural risk.
+- **Keep commits split by numbered task or tight subtask.** Aggressive does not mean one giant commit. Rollback must remain surgical.
+- **Feature-flag the riskiest behavior until final verification:** streaming chat fallback, live `readerSession` position writer, local-first render, and service-worker app-shell precache. Prefer flags/config switches over long-lived parallel code paths.
+- **DB changes are allowed in the aggressive workstream but must be backward-compatible.** Versioned writes/tombstones must let old clients keep working during rollout, and behavior must be disable-able if the new writer misbehaves.
+- **Run focused tests continuously and the full local gate at the end:** guard tests before/after position work, readerSession tests, chat-history tests, auth probe tests, build, verify-bundle, and manual browser verification.
+- **No deploy without explicit approval.** "Aggressive" means local implementation plus verification, not automatic production deploy.
+
+---
+
 ## Phase 0 — Urgent, tightly scoped (do immediately, single session)
 
 Risk is NOT uniform here: 0.1–0.3 are low-risk; **0.4 touches payment-webhook and admin-page behavior and must be tested with the same rigor as a Phase 1 bug fix** — do not under-test it because it sits in Phase 0.
@@ -174,14 +189,23 @@ In `handleChat` (`worker.ts:240-349`): after `verifyUser` resolves, run `checkRa
 
 ---
 
-## Phase 3 — Kill the bug class: single location atom + single writer + versioned writes
+## Phase 3 — Kill the bug class: productionize readerSession + versioned writes
 
 **This is the structural fix.** Do NOT start until Phases 0-2 are deployed and soaked ≥3 days with no regressions. Plan-mode review with Anders before starting — this touches the Invariants.
 
+This is **not** a from-scratch rewrite. The repo already contains the better position-writing model in shadow/prototype form under `app/src/readerSession/`:
+- `readerSession/reducer.ts` models one validated `ReaderLocation` with explicit statuses (`ready`, `switching-book`, `loading-edition`).
+- `readerSession/writer.ts` converts a valid location to a storage position and rejects invalid/cross-book locations.
+- `readerSession/shadow.ts` logs local would-write decisions to `window.__tinctReaderSessionV2`; it is observational only and does not write production positions.
+- Current focused tests pass under Node 24: `npm test -- readerSession useReadingPosition.guards` → 3 files / 47 tests.
+
+Phase 3 should **promote readerSession to the live source of truth**, not invent a separate atom.
+
 ### 3.1 One location atom
-- New `readerLocation` state: `{bookId, chapterNumber, paragraphIndex, scrollFraction, status: 'loading'|'ready'}` managed by a reducer (likely a new `useReaderLocation` hook). Updated atomically — a book switch is ONE dispatch carrying the full new tuple, not six setState calls across renders.
-- The existing `canPersistLocation` / readerSession shadow code (`App.tsx:1522-1540`) already assembles exactly this object per render — promote it to source of truth rather than derived telemetry.
-- Migration is incremental: introduce the atom alongside existing state, make writes read from the atom, then migrate readers, then delete the old composed-at-save-time path.
+- Promote the existing `readerSession` reducer into live app state: one location atom `{bookId, chapterNumber, paragraphIndex, scrollFraction, editionKey, activeView, source, revision}` plus status `'loading-edition'|'switching-book'|'ready'`.
+- A book switch becomes one `OPEN_BOOK` / `EDITION_READY` flow carrying a coherent tuple, not six setState calls spread across renders.
+- The existing `canPersistLocation` / readerSession shadow code (`App.tsx:1522-1540`) currently observes whether a location would be persistable. Convert that from derived telemetry into the write gate.
+- Migration is incremental: wire the live app to dispatch readerSession events alongside existing state, make writes read from readerSession, then migrate readers/navigation to consume readerSession directly, then delete the old composed-at-save-time path.
 
 ### 3.2 One writer
 - New `positionSync` service exposing `commit(location, cause)`. The six write triggers (state-change effect, 30s heartbeat, visibilitychange, pagehide, beforeunload, blur — `useReadingPosition.ts:350-411`) collapse to: explicit `commit` from navigation handlers + one heartbeat that reads the atom + one flush-on-hide.
@@ -209,6 +233,42 @@ In impact order:
 3. **Per-chapter edition JSON:** build script splits `{bookId}-{edition}.json` into per-chapter files + a slim manifest (chapter titles/counts for TOC). Loader fetches current chapter + prefetches ±1. Keep whole-book files for the offline DownloadManager. This is the biggest payload win (2 MB → ~20-30 KB for an Anna Karenina chapter) but touches 395 content files' delivery path — verify the editionLoader integrity checks and SW caching still work, and audio paragraph alignment is unaffected.
 4. **Fonts:** self-host the 3 actually-used families (Playfair Display, EB Garamond, IBM Plex Mono) as woff2 with `font-display: swap` + preload; drop the render-blocking Google Fonts CSS and the 2 unused families.
 5. **SW app-shell precache:** extend `sw.js` (currently editions/audio only) to precache the shell with proper versioning — careful: stale-bundle serving has historically been a prod failure mode here; include the bundle hash in the cache name and verify `npm run deploy`'s verify-bundle step still catches mismatches.
+
+---
+
+## Phase 5 — SEO mechanical fixes (independent of Phases 1–4; can run any time after Phase 0)
+
+From the 2026-06-10 SEO review (full strategy + data in `SEO-STRATEGY.md`). Mechanical items only — content/strategy work is tracked in SEO-STRATEGY.md, not here. Same governance: no deploy without explicit approval.
+
+**Status 2026-06-10 (evening):** 5.1 DONE (`4ae0c2f2`, og-image approved by Anders), 5.3 DONE (`7bc77cab`, 4,894 files committed after sampling), 5.4 partially DONE (`b3841a7a`, lastmod on all 3,956 URLs; landing JSON-LD + Book schema injection still open), 5.5 partially DONE (`a43f91df`, static hub at `app/public/read/index.html` — needs one worker route line, see below). Remaining for the worker-touching agent: **5.2** (soft-404s + `/{bookId}` canonicals), **Book JSON-LD in `serveSpaWithMeta`**, **`/read` route → serve static hub** (worker.ts:2916 currently intercepts `/read` with the SPA shell; either rewrite to `/read/index.html` via ASSETS or 301 to `/read/`), **landing.html JSON-LD + ~20-book footer links** (blocked until the in-flight landing.html diff lands). 5.6 is Anders-in-browser (crawl-rate maxed 2026-06-10). **5.7 DECIDED 2026-06-10 (see DECISIONS.md): AI crawlers allowed.** Anders opened the Cloudflare edge layer; executor now updates the worker UA-403 list (`worker.ts:2522-2536` — keep junk scrapers like Bytespider blocked, allow OAI-SearchBot/ChatGPT-User/PerplexityBot/Claude-User/GPTBot/ClaudeBot/Google-Extended), mirrors robots.txt, and adds `llms.txt` (+ optional `llms-full.txt`) describing the catalog and the Tinct Editions. `/data/` and `/api/` remain blocked.
+
+### 5.1 og:image (minutes, sitewide effect)
+Every page references `https://tinct.app/og-image.png` (`worker.ts:2568`, `landing.html:63`) but the file does not exist — prod returns the SPA HTML fallback with `content-type: text/html`, so every social share renders imageless. Create a 1200×630 PNG in the Tinct visual identity (paper `#ece7db`, ink, deep-teal accent, Playfair Display wordmark) at `app/public/og-image.png`. Show Anders the image before shipping. Verify after deploy: `curl -sI https://tinct.app/og-image.png` returns `image/png`, and a Twitter card validator pass.
+
+### 5.2 Soft-404s and `/{bookId}` duplicates (~1 hr)
+- The SPA fallback (`worker.ts:2859-2867` region) returns HTTP 200 + generic shell for ANY path. For `/{bookId}` where bookId is registered: serve the shell with the book's injected meta and a canonical pointing to `/read/{bookId}` (reuse `serveSpaWithMeta`). For unrecognized paths: add `X-Robots-Tag: noindex` (keep 200 so deep-linked app states still work).
+- Re-run `app/scripts/audit-seo.cjs --base=https://tinct.app` after; zero soft-404/duplicate findings.
+
+### 5.3 Commit the SEO surface (critical operational risk)
+~4,894 modified/untracked files under `app/public/read/` (static SEO pages) exist in prod builds but not fully in git — a clean-checkout deploy would delete the 3,900-page SEO surface. Review in batches, commit. The stash-build pre-deploy check only protects honestly after this lands.
+
+### 5.4 Sitemap + structured data hygiene
+- Add `<lastmod>` to every sitemap URL (`scripts/generate-sitemap.cjs`) — content-file mtime or build date.
+- JSON-LD: `WebSite` + `Organization` on landing.html; `Book` on `/read/{bookId}` routes (inject in `serveSpaWithMeta`, data from `bookMetaGenerated.ts`); `BreadcrumbList` on chapter pages (breadcrumbs already render visually).
+- Validate 3 sample pages with Google's Rich Results test.
+
+### 5.5 Internal linking (the ranking unlock)
+- Static crawlable library hub at `/read/` — plain HTML list of all 96 books with one-line descriptions, linking to each `/read/{bookId}/summary`.
+- Footer book list (top ~20 books) on landing.html — currently the homepage links to zero books.
+- "Read next" cross-book links (3 related books) on each summary page — derive relatedness from the Houses/Shelves taxonomy in `bookRegistry.ts`.
+
+### 5.6 Bing + indexing operations (no code — Anders or agent-with-browser)
+- Click the crawl-quota boost in Bing Webmaster Tools (it flags "limited crawl capacity," high severity).
+- Run the existing IndexNow script over the full sitemap.
+- Record GSC Pages report numbers (indexed vs discovered) in SEO-STRATEGY.md — this ratio is the health metric for the May expansion.
+
+### 5.7 AI-crawler policy (DECISION REQUIRED from Anders — do not implement without it)
+robots.txt + worker UA-blocks (`worker.ts:2522-2536`) currently 403 AI crawlers. Recommendation: allow reputable AI crawlers (GPTBot, ClaudeBot, PerplexityBot) on the static SEO pages and add `llms.txt` (Poetry Editor's pattern); keep `/data/` and `/api/` blocked. Rationale in SEO-STRATEGY.md §AI search. Reverses a deliberate decision — Anders decides.
 
 ---
 
