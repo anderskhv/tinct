@@ -1,7 +1,9 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { storage } from '../services/storage'
-import type { ReadingPosition, ReadingProgress } from '../types'
-import { shouldBlockRegression, shouldSkipOnBookChange } from './useReadingPosition.guards'
+import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
+import { canPersistLocation, positionFromLocation } from '../readerSession/writer'
+import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from '../readerSession/types'
+import { shouldBlockHistoryRegression, shouldBlockRegression, shouldSkipOnBookChange } from './useReadingPosition.guards'
 
 function positionKey(bookId: string): string {
   return `position:${bookId}`
@@ -9,6 +11,28 @@ function positionKey(bookId: string): string {
 
 function progressKey(bookId: string): string {
   return `progress:${bookId}`
+}
+
+function readingLogKey(bookId: string): string {
+  return `reading-log:${bookId}`
+}
+
+function getHistoryHighWaterChapter(bookId: string, totalChapters: number): number {
+  let highWater = 0
+  const progress = storage.get<ReadingProgress>(progressKey(bookId))
+  if (progress?.bookId === bookId && progress.highestCompletedChapter > 0) {
+    highWater = Math.max(highWater, progress.highestCompletedChapter)
+  }
+  const log = storage.get<BookReadingLog>(readingLogKey(bookId))
+  if (log?.bookId === bookId) {
+    for (const rawChapter of Object.keys(log.chapters)) {
+      const chapter = Number(rawChapter)
+      if (!Number.isInteger(chapter) || chapter < 1) continue
+      if (totalChapters > 0 && chapter > totalChapters) continue
+      highWater = Math.max(highWater, chapter)
+    }
+  }
+  return highWater
 }
 
 /** Tagged window so we can confirm in DevTools that the hook is wired up. */
@@ -37,6 +61,60 @@ const HEARTBEAT_MS = 30_000
  * writes within that window.
  */
 const USER_NAV_GRACE_MS = 5_000
+const LIVE_WRITES_FLAG_KEY = 'tinct:reader-session-live-writes'
+const POSITION_SOURCE_FLAG_KEY = 'tinct:reader-session-position-source'
+
+function readerSessionLiveWritesEnabled(): boolean {
+  if (import.meta.env.VITE_READER_SESSION_LIVE_WRITES === 'false') return false
+  if (typeof window === 'undefined') return true
+  try {
+    return localStorage.getItem(LIVE_WRITES_FLAG_KEY) !== '0'
+  } catch {
+    return true
+  }
+}
+
+function readerSessionPositionSourceEnabled(): boolean {
+  if (import.meta.env.VITE_READER_SESSION_POSITION_SOURCE === 'true') return true
+  if (typeof window === 'undefined') return false
+  try {
+    return localStorage.getItem(POSITION_SOURCE_FLAG_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+export function buildReadingPositionForWrite(args: {
+  bookId: string
+  chapterNumber: number
+  currentPage: number
+  totalPages: number
+  lastParagraphIndex?: number
+  now: number
+  readerSession?: {
+    location: ReaderLocation
+    context: ReaderBookContext
+    status: ReaderSessionState['status']
+  }
+  useReaderSessionSource?: boolean
+}): ReadingPosition {
+  const haveLayout = args.totalPages > 1
+  if (args.readerSession && args.useReaderSessionSource) {
+    return positionFromLocation(args.readerSession.location, args.now, {
+      currentPage: haveLayout ? args.currentPage : 0,
+      totalPages: haveLayout ? args.totalPages : 1,
+    })
+  }
+  return {
+    bookId: args.bookId,
+    chapterNumber: args.chapterNumber,
+    currentPage: haveLayout ? args.currentPage : 0,
+    totalPages: haveLayout ? args.totalPages : 1,
+    scrollFraction: haveLayout ? args.currentPage / (args.totalPages - 1) : 0,
+    updatedAt: args.now,
+    lastParagraphIndex: args.lastParagraphIndex,
+  }
+}
 
 /**
  * Internal: track the last cloud-known chapter per book. Updated by external
@@ -157,10 +235,15 @@ export function useReadingPosition(
    * regression guard.
    */
   writeSuspended = false,
+  readerSession?: {
+    location: ReaderLocation
+    context: ReaderBookContext
+    status: ReaderSessionState['status']
+  },
 ) {
   // Keep refs for the latest values so event listeners always have current state
-  const stateRef = useRef({ bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady, lastParagraphIndex, writeSuspended })
-  stateRef.current = { bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady, lastParagraphIndex, writeSuspended }
+  const stateRef = useRef({ bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady, lastParagraphIndex, writeSuspended, readerSession })
+  stateRef.current = { bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady, lastParagraphIndex, writeSuspended, readerSession }
 
   // Write lock: skip the very first write when storageReady transitions to true —
   // at that point state is stale defaults, cloud restore hasn't run yet
@@ -187,15 +270,30 @@ export function useReadingPosition(
     // but always write chapter+paragraph so cross-device restore has something
     // to land on.
     const haveLayout = s.totalPages > 1
-    const position: ReadingPosition = {
+    const now = Date.now()
+    if (s.readerSession && readerSessionLiveWritesEnabled()) {
+      const snapshot = canPersistLocation(s.readerSession.location, s.readerSession.context, s.readerSession.status)
+      if (typeof window !== 'undefined') {
+        const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
+        ;(dbg as typeof dbg & { lastReaderSessionGate?: typeof snapshot }).lastReaderSessionGate = snapshot
+        window.__tinctPositionDebug = dbg
+      }
+      if (!snapshot.canWrite) {
+        recordSkip(`reader-session:${snapshot.reason ?? 'blocked'}:${reason}`)
+        return
+      }
+    }
+    const useReaderSessionSource = readerSessionPositionSourceEnabled()
+    const position = buildReadingPositionForWrite({
       bookId: s.bookId,
       chapterNumber: s.chapterNumber,
-      currentPage: haveLayout ? s.currentPage : 0,
-      totalPages: haveLayout ? s.totalPages : 1,
-      scrollFraction: haveLayout ? s.currentPage / (s.totalPages - 1) : 0,
-      updatedAt: Date.now(),
+      currentPage: s.currentPage,
+      totalPages: s.totalPages,
       lastParagraphIndex: s.lastParagraphIndex,
-    }
+      now,
+      readerSession: s.readerSession,
+      useReaderSessionSource,
+    })
 
     // Skip if the write would land on the same content position as what we
     // believe is currently in cloud. Three sources of redundant writes:
@@ -254,6 +352,24 @@ export function useReadingPosition(
       return
     }
 
+    // Same-book high-water guard. If cloud/local position baseline is absent
+    // or already stale, progress/log history still tells us the book was read
+    // much deeper. A passive page/layout echo back to an earlier chapter must
+    // not overwrite that deeper history; explicit chapter navigation is
+    // allowed only inside the same short user-nav grace window as the cloud
+    // regression guard.
+    const historyHighWater = getHistoryHighWaterChapter(position.bookId, s.totalChapters)
+    if (shouldBlockHistoryRegression({
+      attemptedChapter: position.chapterNumber,
+      historyHighWaterChapter: historyHighWater,
+      lastUserNavAt: lastNav,
+      now: Date.now(),
+      graceMs: USER_NAV_GRACE_MS,
+    })) {
+      recordSkip(`history-regression-blocked:${reason}:history=${historyHighWater}>attempt=${position.chapterNumber}`)
+      return
+    }
+
     storage.set(positionKey(s.bookId), position)
     // Also push the current-book pointer so other devices know which book to
     // open by default. This used to live here, was removed in the Apr 23
@@ -266,6 +382,8 @@ export function useReadingPosition(
       const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
       dbg.lastWriteAt = position.updatedAt!
       dbg.lastWriteValue = position
+      ;(dbg as typeof dbg & { lastWriteSource?: 'legacy-state' | 'reader-session' }).lastWriteSource =
+        useReaderSessionSource && s.readerSession ? 'reader-session' : 'legacy-state'
       dbg.writeCount += 1
       window.__tinctPositionDebug = dbg
     }
@@ -307,11 +425,6 @@ export function useReadingPosition(
     prevChapterRef.current = chapterNumber
     // Skip page-level saves during layout (totalPages <= 1), but always save chapter changes
     if (totalPages <= 1 && !isChapterChange) return
-    // Mark this as a user-driven nav so the regression guard doesn't block a
-    // legitimate user-initiated backward move (e.g. prev-chapter, TOC click).
-    // Heartbeats and visibility writes do NOT mark, so they still get caught
-    // by the regression guard when state has been corrupted by a remount.
-    markUserNav(bookId)
     saveNow(isChapterChange ? 'chapter-change' : 'page-change')
   }, [bookId, chapterNumber, currentPage, totalPages, storageReady, saveNow, lastParagraphIndex])
 

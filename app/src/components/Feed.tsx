@@ -139,6 +139,7 @@ interface FeedProps {
   totalChapters: number
   currentChapter: number
   chapterLabels: string[]
+  chapterTitleByNumber?: Record<number, string>
   /** Hierarchical sections from edition data (e.g., Bible: Old Testament > Pentateuch > Genesis) */
   sections?: Section[]
   notes: Note[]
@@ -190,6 +191,7 @@ function collectChapters(section: Section): number[] {
 
 export function Feed({
   readingLog, totalChapters, currentChapter, chapterLabels, sections,
+  chapterTitleByNumber,
   notes, highlights, allBookHighlights, allBookNotes, chatConversations,
   onAddNote, onDeleteNote, onDeleteHighlight, onUpdateNote,
   onNavigateToChapter, onSummarizeChat, summarizingId,
@@ -418,10 +420,11 @@ export function Feed({
             const record = readingLog.chapters[ch]
             const isCurrent = ch === currentChapter
             const isChExpanded = expanded.has(ch)
-            const isUnread = !record
-            const title = chapterLabels[ch - 1] || `Chapter ${ch}`
+            const title = chapterTitleByNumber?.[ch] || chapterLabels[ch - 1] || `Chapter ${ch}`
             const artifactCount = chapterArtifactCount(ch, currentChapter, highlights, allBookHighlights, notes, allBookNotes, chatConversations, filter)
-            const items = isChExpanded && !isUnread ? getChapterItems(ch) : []
+            const hasFeedContent = Boolean(record) || artifactCount > 0
+            const isUnread = !hasFeedContent
+            const items = isChExpanded && hasFeedContent ? getChapterItems(ch) : []
 
             return (
               <div
@@ -431,7 +434,7 @@ export function Feed({
               >
                 <button
                   className="feed-row-header"
-                  onClick={() => { if (!isUnread) toggleChapter(ch) }}
+                  onClick={() => { if (hasFeedContent) toggleChapter(ch) }}
                 >
                   <span className="feed-row-check">
                     {record?.completed ? (
@@ -468,7 +471,7 @@ export function Feed({
                   )}
                 </button>
 
-              {isChExpanded && !isUnread && (
+              {isChExpanded && hasFeedContent && (
                 <div className="feed-expanded">
                   {record && renderChapterDetail(record)}
 
@@ -585,7 +588,15 @@ export function Feed({
                                 {isConvExpanded && (
                                   <div className="timeline-chat-messages">
                                     {conv.summary ? (
-                                      <div className="timeline-chat-summary">{renderMarkdown(conv.summary)}</div>
+                                      <>
+                                        <div className="timeline-chat-summary">{renderMarkdown(conv.summary)}</div>
+                                        {conv.summaryPrompt && (
+                                          <details className="timeline-chat-summary-source">
+                                            <summary>Prompt used</summary>
+                                            <pre>{conv.summaryPrompt}</pre>
+                                          </details>
+                                        )}
+                                      </>
                                     ) : (
                                       conv.messages.map(msg => (
                                         <div key={msg.id} className={`timeline-chat-msg timeline-chat-${msg.role}`}>
@@ -630,13 +641,16 @@ export function Feed({
           const renderSection = (sec: Section, prefix: string, depth: number): React.ReactNode => {
             const path = prefix ? `${prefix}/${sec.title}` : sec.title
             const allChs = collectChapters(sec)
-            const hasAnyRead = allChs.some(ch => readingLog.chapters[ch])
+            const hasAnyFeedContent = allChs.some(ch =>
+              readingLog.chapters[ch] ||
+              chapterArtifactCount(ch, currentChapter, highlights, allBookHighlights, notes, allBookNotes, chatConversations, filter) > 0
+            )
             const containsCurrent = allChs.includes(currentChapter)
             const isSectionExpanded = expandedSections.has(path)
             const readCount = allChs.filter(ch => readingLog.chapters[ch]?.completed).length
 
             return (
-              <div key={path} className={`feed-section feed-section--depth-${depth} ${!hasAnyRead && !containsCurrent ? 'feed-section--unread' : ''}`}>
+              <div key={path} className={`feed-section feed-section--depth-${depth} ${!hasAnyFeedContent && !containsCurrent ? 'feed-section--unread' : ''}`}>
                 <button
                   className={`feed-section-header ${isSectionExpanded ? 'feed-section-header--expanded' : ''}`}
                   onClick={() => toggleSection(path)}

@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { storage } from '../services/storage'
+import { resolveLibraryWrite, shouldSkipInitialLibraryWrite, type LibraryWriteMode } from './useLibrary.guards'
 
 const LIBRARY_KEY = 'library'
 
@@ -15,16 +16,24 @@ export function useLibrary(storageReady = true) {
   // Persist on change — skip first write when storageReady transitions to true
   // to avoid overwriting cloud data with empty defaults
   const writeUnlockedRef = useRef(false)
+  const pendingWriteModeRef = useRef<LibraryWriteMode>('replace')
   useEffect(() => {
     if (!storageReady) return
+    const existing = storage.get<string[]>(LIBRARY_KEY)
     if (!writeUnlockedRef.current) {
       writeUnlockedRef.current = true
-      return
+      if (shouldSkipInitialLibraryWrite(existing, libraryIds)) return
     }
-    storage.set(LIBRARY_KEY, libraryIds)
+    const next = resolveLibraryWrite(existing, libraryIds, pendingWriteModeRef.current)
+    pendingWriteModeRef.current = 'replace'
+    storage.set(LIBRARY_KEY, next)
+    if (next.length !== libraryIds.length || next.some(id => !libraryIds.includes(id))) {
+      setLibraryIds(next)
+    }
   }, [libraryIds, storageReady])
 
   const addBook = useCallback((bookId: string) => {
+    pendingWriteModeRef.current = 'add'
     setLibraryIds(prev => {
       if (prev.includes(bookId)) return prev
       return [...prev, bookId]
@@ -32,6 +41,7 @@ export function useLibrary(storageReady = true) {
   }, [])
 
   const removeBook = useCallback((bookId: string) => {
+    pendingWriteModeRef.current = 'remove'
     setLibraryIds(prev => prev.filter(id => id !== bookId))
     // Library membership is separate from reading history. Removing a book
     // hides it from "My Library" but keeps position/progress visible in the

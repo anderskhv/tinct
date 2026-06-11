@@ -1,11 +1,18 @@
 import { describe, expect, it } from 'vitest'
 import {
+  buildReadingPositionForWrite,
+} from './useReadingPosition'
+import type { ReaderBookContext, ReaderLocation } from '../readerSession/types'
+import type { Book, EditionData } from '../types'
+import {
   shouldBlockRegression,
   clampChapter,
   isParagraphInBounds,
   isDefaultishPosition,
   shouldMigrateLocalToCloud,
   shouldSkipOnBookChange,
+  shouldBlockHistoryRegression,
+  shouldCleanupProgress,
 } from './useReadingPosition.guards'
 
 /**
@@ -19,6 +26,116 @@ import {
 
 const GRACE_MS = 5_000
 const NOW = 1_777_300_000_000 // arbitrary fixed instant
+
+const book: Book = {
+  id: 'the-awakening',
+  title: 'The Awakening',
+  author: 'Kate Chopin',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original', aligned: true },
+  ],
+}
+
+const editionData: EditionData = {
+  chapters: [
+    { number: 1, title: 'Chapter 1', paragraphs: ['a', 'b', 'c'] },
+    { number: 2, title: 'Chapter 2', paragraphs: ['d', 'e', 'f'] },
+    { number: 3, title: 'Chapter 3', paragraphs: ['g', 'h', 'i'] },
+  ],
+}
+
+const readerContext: ReaderBookContext = { book, editionData }
+
+function readerLocation(patch: Partial<ReaderLocation> = {}): ReaderLocation {
+  return {
+    bookId: 'the-awakening',
+    chapterNumber: 2,
+    paragraphIndex: 1,
+    scrollFraction: 0.5,
+    editionKey: 'original-en',
+    activeView: 'read',
+    source: 'reader-layout',
+    revision: 1,
+    ...patch,
+  }
+}
+
+describe('buildReadingPositionForWrite — readerSession source switch', () => {
+  it('matches the legacy state-derived tuple when readerSession source is disabled', () => {
+    expect(buildReadingPositionForWrite({
+      bookId: 'the-awakening',
+      chapterNumber: 2,
+      currentPage: 4,
+      totalPages: 9,
+      lastParagraphIndex: 1,
+      now: NOW,
+      readerSession: {
+        location: readerLocation({ chapterNumber: 3, paragraphIndex: 2, scrollFraction: 0.75 }),
+        context: readerContext,
+        status: 'ready',
+      },
+      useReaderSessionSource: false,
+    })).toEqual({
+      bookId: 'the-awakening',
+      chapterNumber: 2,
+      currentPage: 4,
+      totalPages: 9,
+      scrollFraction: 0.5,
+      updatedAt: NOW,
+      lastParagraphIndex: 1,
+    })
+  })
+
+  it('uses the validated readerSession location as the content tuple when enabled', () => {
+    expect(buildReadingPositionForWrite({
+      bookId: 'the-awakening',
+      chapterNumber: 1,
+      currentPage: 4,
+      totalPages: 9,
+      lastParagraphIndex: 0,
+      now: NOW,
+      readerSession: {
+        location: readerLocation({ chapterNumber: 2, paragraphIndex: 1, scrollFraction: 0.5 }),
+        context: readerContext,
+        status: 'ready',
+      },
+      useReaderSessionSource: true,
+    })).toEqual({
+      bookId: 'the-awakening',
+      chapterNumber: 2,
+      currentPage: 4,
+      totalPages: 9,
+      scrollFraction: 0.5,
+      updatedAt: NOW,
+      lastParagraphIndex: 1,
+    })
+  })
+
+  it('keeps layout unavailable writes chapter/paragraph-only under either source', () => {
+    expect(buildReadingPositionForWrite({
+      bookId: 'the-awakening',
+      chapterNumber: 2,
+      currentPage: 4,
+      totalPages: 1,
+      lastParagraphIndex: 1,
+      now: NOW,
+      readerSession: {
+        location: readerLocation({ chapterNumber: 2, paragraphIndex: 1, scrollFraction: 0.5 }),
+        context: readerContext,
+        status: 'ready',
+      },
+      useReaderSessionSource: true,
+    })).toEqual({
+      bookId: 'the-awakening',
+      chapterNumber: 2,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0.5,
+      updatedAt: NOW,
+      lastParagraphIndex: 1,
+    })
+  })
+})
 
 describe('shouldBlockRegression — destructive remount class (B19)', () => {
   it('does not block when no cloud baseline exists (first writes per book)', () => {
@@ -138,6 +255,47 @@ describe('clampChapter — cross-book chapter-index leak (B1)', () => {
   })
 })
 
+describe('shouldBlockHistoryRegression — stale same-book overwrite', () => {
+  it('blocks passive writes far behind reading history', () => {
+    // Account forensic shape from 2026-05-28:
+    // reading-log reached The Awakening ch39, then a later passive position
+    // write tried to make ch30 canonical again.
+    expect(
+      shouldBlockHistoryRegression({
+        attemptedChapter: 30,
+        historyHighWaterChapter: 39,
+        lastUserNavAt: 0,
+        now: NOW,
+        graceMs: GRACE_MS,
+      }),
+    ).toBe(true)
+  })
+
+  it('allows an explicit recent jump back', () => {
+    expect(
+      shouldBlockHistoryRegression({
+        attemptedChapter: 30,
+        historyHighWaterChapter: 39,
+        lastUserNavAt: NOW - 1_000,
+        now: NOW,
+        graceMs: GRACE_MS,
+      }),
+    ).toBe(false)
+  })
+
+  it('allows near-neighbor writes to avoid blocking normal chapter-boundary jitter', () => {
+    expect(
+      shouldBlockHistoryRegression({
+        attemptedChapter: 38,
+        historyHighWaterChapter: 39,
+        lastUserNavAt: 0,
+        now: NOW,
+        graceMs: GRACE_MS,
+      }),
+    ).toBe(false)
+  })
+})
+
 describe('isParagraphInBounds — page 19-of-21 phantom (B21)', () => {
   it('treats undefined paragraph as in-bounds (no saved paragraph index)', () => {
     expect(isParagraphInBounds(undefined, 8)).toBe(true)
@@ -243,5 +401,51 @@ describe('shouldSkipOnBookChange — Odyssey→Bible bleed (2026-05-09)', () => 
     // which direction. Stale state is stale state.
     expect(shouldSkipOnBookChange('the-awakening', 'paradise-lost')).toBe(true)
     expect(shouldSkipOnBookChange('paradise-lost', 'the-awakening')).toBe(true)
+  })
+})
+
+describe('shouldCleanupProgress — finished-book preservation', () => {
+  it('cleans progress that is far ahead of the saved position', () => {
+    expect(
+      shouldCleanupProgress({
+        highestCompletedChapter: 18,
+        totalChapters: 40,
+        positionChapter: 5,
+        hasCompletedRecord: false,
+      }),
+    ).toBe(true)
+  })
+
+  it('does not clean a finished book even when reopened near the start', () => {
+    expect(
+      shouldCleanupProgress({
+        highestCompletedChapter: 40,
+        totalChapters: 40,
+        positionChapter: 1,
+        hasCompletedRecord: false,
+      }),
+    ).toBe(false)
+  })
+
+  it('does not clean when an explicit completed record exists', () => {
+    expect(
+      shouldCleanupProgress({
+        highestCompletedChapter: 20,
+        totalChapters: 40,
+        positionChapter: 1,
+        hasCompletedRecord: true,
+      }),
+    ).toBe(false)
+  })
+
+  it('does not clean normal near-neighbor progress', () => {
+    expect(
+      shouldCleanupProgress({
+        highestCompletedChapter: 8,
+        totalChapters: 40,
+        positionChapter: 6,
+        hasCompletedRecord: false,
+      }),
+    ).toBe(false)
   })
 })

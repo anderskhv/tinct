@@ -11,6 +11,7 @@ interface UseAuthReturn {
   profile: UserProfile | null
   session: Session | null
   isLoading: boolean
+  likelyAuthenticated: boolean
   isPasswordRecovery: boolean
   signUp: (email: string, password: string) => Promise<{ error?: string }>
   signIn: (email: string, password: string) => Promise<{ error?: string }>
@@ -22,11 +23,29 @@ interface UseAuthReturn {
   clearPasswordRecovery: () => void
 }
 
+export function hasLikelySupabaseSession(): boolean {
+  if (typeof window === 'undefined') return false
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (!key || !/^sb-.*-auth-token(\.\d+)?$/.test(key)) continue
+      const raw = localStorage.getItem(key)
+      if (raw && raw !== 'null' && raw !== '""') return true
+    }
+  } catch { /* ignore */ }
+  try {
+    return (document.cookie || '').split(';').some(cookie => cookie.trim() === 'tinct_auth=1')
+  } catch {
+    return false
+  }
+}
+
 export function useAuth(): UseAuthReturn {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [likelyAuthenticated, setLikelyAuthenticated] = useState(() => hasLikelySupabaseSession())
   const [isPasswordRecovery, setIsPasswordRecovery] = useState(false)
 
   const fetchProfile = useCallback(async (userId: string) => {
@@ -79,19 +98,23 @@ export function useAuth(): UseAuthReturn {
       resolved = true
       setIsLoading(false)
     }
+    const likelyAtStart = hasLikelySupabaseSession()
+    setLikelyAuthenticated(likelyAtStart)
     const offlineTimeout = setTimeout(() => {
       console.warn('[useAuth] getSession() timed out — proceeding offline')
       finishLoading()
-    }, 3000)
+    }, likelyAtStart ? 12000 : 3000)
     supabase.auth.getSession()
       .then(({ data: { session: s } }) => {
         clearTimeout(offlineTimeout)
         setSession(s)
         setUser(s?.user ?? null)
         if (s?.user) {
+          setLikelyAuthenticated(true)
           setSignedInCookie()
           fetchProfile(s.user.id)
-        } else {
+        } else if (!hasLikelySupabaseSession()) {
+          setLikelyAuthenticated(false)
           clearSignedInCookie()
         }
         finishLoading()
@@ -108,10 +131,12 @@ export function useAuth(): UseAuthReturn {
         setSession(s)
         setUser(s?.user ?? null)
         if (s?.user) {
+          setLikelyAuthenticated(true)
           setSignedInCookie()
           fetchProfile(s.user.id)
         } else {
-          clearSignedInCookie()
+          setLikelyAuthenticated(false)
+          if (event === 'SIGNED_OUT') clearSignedInCookie()
           setProfile(null)
         }
         if (event === 'PASSWORD_RECOVERY') {
@@ -194,6 +219,7 @@ export function useAuth(): UseAuthReturn {
     profile,
     session,
     isLoading,
+    likelyAuthenticated,
     isPasswordRecovery,
     signUp,
     signIn,

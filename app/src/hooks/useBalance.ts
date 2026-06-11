@@ -21,12 +21,19 @@ interface UseBalanceReturn {
   isSubscribed: boolean
 }
 
+interface UseBalanceOptions {
+  authLoading?: boolean
+  likelyAuthenticated?: boolean
+}
+
 export function useBalance(
   session: Session | null,
   profile: UserProfile | null,
   user?: User | null,
+  options: UseBalanceOptions = {},
 ): UseBalanceReturn {
-  const isAnonymous = !session
+  const authPendingForKnownUser = !session && options.authLoading && options.likelyAuthenticated
+  const isAnonymous = !session && !authPendingForKnownUser
 
   const [localDeducted, setLocalDeducted] = useState(0)
 
@@ -41,7 +48,8 @@ export function useBalance(
     ? (30 - Math.floor((Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24))) > 0
     : false
 
-  const isSubscribed = profile?.subscription_status === 'active' ||
+  const isSubscribed = authPendingForKnownUser ||
+    profile?.subscription_status === 'active' ||
     (profile?.subscription_status === 'canceled' &&
      !!profile?.subscription_period_end &&
      new Date(profile.subscription_period_end) > new Date()) ||
@@ -51,7 +59,9 @@ export function useBalance(
   const monthlyRemaining = isSubscribed ? Math.max(0, MONTHLY_MESSAGE_LIMIT - monthlyUsed) : 0
   const messageBalance = Math.max(0, (profile?.message_balance || 0) - Math.max(0, localDeducted - Math.max(0, MONTHLY_MESSAGE_LIMIT - (profile?.messages_used_this_period || 0))))
 
-  const messagesRemaining = monthlyRemaining + messageBalance
+  const messagesRemaining = authPendingForKnownUser
+    ? MONTHLY_MESSAGE_LIMIT
+    : monthlyRemaining + messageBalance
   const hasBalance = isAnonymous ? false : messagesRemaining > 0
 
   const deductUsage = useCallback(() => {

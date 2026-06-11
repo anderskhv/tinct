@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
-import type { Book, ReadingProgress } from '../types'
-import { getReadingProgress } from '../hooks/useReadingPosition'
+import type { Book, ReadingPosition, ReadingProgress } from '../types'
+import { getReadingProgress, getSavedPosition } from '../hooks/useReadingPosition'
+import { storage } from '../services/storage'
 import {
   LIBRARY_BOOK_LISTS,
   LIBRARY_BOOK_META,
@@ -14,12 +15,17 @@ import {
   type LibraryBookMeta,
 } from '../data/libraryTaxonomy'
 
+export interface BookStoreSelectOptions {
+  wasInLibrary: boolean
+  hasProgress: boolean
+  intent: 'begin' | 'continue' | 'read-danish'
+}
+
 interface BookStoreProps {
   books: Book[]
   libraryIds: string[]
-  onAddBook: (bookId: string) => void
   onRemoveBook?: (bookId: string) => void
-  onSelectBook: (bookId: string) => void
+  onSelectBook: (bookId: string, options: BookStoreSelectOptions) => void
   onClose?: () => void
 }
 
@@ -34,15 +40,28 @@ interface LibraryItem extends LibraryBookMeta {
   finished: boolean
 }
 
-function isFinished(p: ReadingProgress | null | undefined): boolean {
+export function isFinished(p: ReadingProgress | null | undefined): boolean {
   if (!p) return false
   if (p.totalChapters > 0 && p.highestCompletedChapter >= p.totalChapters) return true
-  return p.percent >= 100
+  return p.percent >= 100 || (p.positionPercent ?? 0) >= 100
 }
 
-function progressFor(book?: Book) {
+export function hasStartedPosition(position: ReadingPosition | null | undefined): boolean {
+  if (!position) return false
+  return (
+    (position.chapterNumber ?? 1) > 1 ||
+    (position.currentPage ?? 0) > 0 ||
+    (position.scrollFraction ?? 0) > 0.01 ||
+    (position.lastParagraphIndex ?? 0) > 0
+  )
+}
+
+function progressFor(book?: Book): { progress: ReadingProgress | null; position: ReadingPosition | null } | null {
   if (!book) return null
-  return getReadingProgress(book.id)
+  return {
+    progress: getReadingProgress(book.id),
+    position: getSavedPosition(book.id),
+  }
 }
 
 function hueStyle(hue: number) {
@@ -99,7 +118,7 @@ function itemMatches(item: LibraryItem, q: string) {
   return haystack.includes(q)
 }
 
-export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelectBook, onClose }: BookStoreProps) {
+export function BookStore({ books, libraryIds, onRemoveBook, onSelectBook, onClose }: BookStoreProps) {
   const [query, setQuery] = useState('')
   const [view, setView] = useState<LibraryView>('library')
   const [formFilter, setFormFilter] = useState('all')
@@ -127,10 +146,13 @@ export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelect
     }
     return metas.map(meta => {
       const book = booksById.get(meta.id)
-      const progress = progressFor(book)
-      const finished = isFinished(progress)
-      const percent = progress?.positionPercent ?? progress?.percent ?? 0
-      const hasProgress = percent > 0
+      const readingState = progressFor(book)
+      const progress = readingState?.progress
+      const position = readingState?.position
+	      const finished = isFinished(progress) || !!(book && storage.get(`book-completed:${book.id}`))
+      const hasPosition = hasStartedPosition(position)
+      const percent = progress?.positionPercent ?? progress?.percent ?? (hasPosition ? 1 : 0)
+      const hasProgress = percent > 0 || hasPosition
       return {
         ...meta,
         book,
@@ -154,13 +176,20 @@ export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelect
     .filter(item => item.available && item.inLibrary && item.hasProgress && !item.finished)
     .sort((a, b) => b.percent - a.percent)
     .slice(0, 8)
-  const finishedCount = items.filter(item => item.finished).length
+  const finishedItems = items
+    .filter(item => item.available && item.inLibrary && item.finished)
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .slice(0, 8)
+  const finishedCount = finishedItems.length
   const pausedCount = items.filter(item => item.hasProgress && !item.finished && !item.inLibrary).length
 
-  const openReader = (item: LibraryItem) => {
+  const openReader = (item: LibraryItem, intent: BookStoreSelectOptions['intent'] = item.hasProgress ? 'continue' : 'begin') => {
     if (!item.available) return
-    if (!item.inLibrary) onAddBook(item.id)
-    onSelectBook(item.id)
+    onSelectBook(item.id, {
+      wasInLibrary: item.inLibrary,
+      hasProgress: item.hasProgress,
+      intent,
+    })
   }
 
   const removeFromLibrary = (item: LibraryItem) => {
@@ -182,13 +211,13 @@ export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelect
   }
 
   const renderCard = (item: LibraryItem, size: 'small' | 'normal' = 'normal') => (
-    <button key={item.id} className={`library-card ${item.stub ? 'is-stub' : ''}`} onClick={() => setDetailId(item.id)}>
+    <button key={item.id} className={`library-card ${item.stub ? 'is-stub' : ''} ${item.finished ? 'is-finished' : ''}`} onClick={() => setDetailId(item.id)}>
       <BookCover item={item} size={size} />
       <span className="library-card-title">{item.title}</span>
       <span className="library-card-author">{item.author}</span>
       <span className="library-card-meta">
         {item.stub ? 'Coming soon' : item.book ? [...new Set(item.book.editions.map(e => e.language.toUpperCase()))].join(' / ') : 'Soon'}
-        {item.hasProgress && !item.finished && ` · ${formatPercent(item.percent)}`}
+        {item.finished ? ' · Finished' : item.hasProgress ? ` · ${formatPercent(item.percent)}` : ''}
       </span>
     </button>
   )
@@ -358,10 +387,10 @@ export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelect
             </div>
             <div className="library-detail-actions">
               <button className="library-primary" disabled={!item.available} onClick={() => openReader(item)}>
-                {item.stub ? 'Coming soon' : item.hasProgress ? `Continue · ${formatPercent(item.percent)}` : 'Begin reading'}
+                {item.stub ? 'Coming soon' : item.finished ? 'Read again' : item.hasProgress ? `Continue · ${formatPercent(item.percent)}` : 'Begin reading'}
               </button>
               {item.available && item.book?.editions.some(e => e.language === 'da') && (
-                <button className="library-secondary" onClick={() => openReader(item)}>Read in Danish</button>
+                <button className="library-secondary" onClick={() => openReader(item, 'read-danish')}>Read in Danish</button>
               )}
               {item.inLibrary && onRemoveBook && (
                 <button className="library-secondary" onClick={() => removeFromLibrary(item)}>Remove from library</button>
@@ -422,6 +451,13 @@ export function BookStore({ books, libraryIds, onAddBook, onRemoveBook, onSelect
                 </div>
               ))}
             </div>
+          </section>
+        )}
+
+        {!detailItem && finishedItems.length > 0 && (
+          <section className="library-finished">
+            <header><p className="library-kicker">Finished</p><span>{finishedItems.length}</span></header>
+            <div className="library-rail">{finishedItems.map(item => renderCard(item, 'small'))}</div>
           </section>
         )}
 

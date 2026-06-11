@@ -16,7 +16,7 @@
     // false positive, the SPA handles the unauthenticated state gracefully —
     // far better than flashing the landing page to a signed-in user.
     document.documentElement.style.visibility = 'hidden';
-    (function () {
+    function tinctSignedInRedirectCheck() {
       // Primary check: the `tinct_auth=1` cookie set by the SPA on sign-in.
       // Cookie-based detection survives Cloudflare's edge cache, which
       // sometimes serves landing.html without invoking the Worker and thus
@@ -49,19 +49,30 @@
       } catch (e) { /* storage unavailable, ignore */ }
       // No session detected — show the landing page
       document.documentElement.style.visibility = '';
-    })();
+    }
+    tinctSignedInRedirectCheck();
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        document.documentElement.style.visibility = 'hidden';
+        tinctSignedInRedirectCheck();
+      }
+    });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tinct — A New Way to Read</title>
-  <meta name="description" content="A new way to read the classics. Every book in a human translator&rsquo;s English. AI companion, modern comparison translation, synced audiobook, character tracker. Reading is free.">
-  <meta property="og:title" content="Tinct — A New Way to Read">
-  <meta property="og:description" content="Every classic, every edition. A new way to read.">
+  <title>Tinct — Read Classic Books with AI, Audio, and Guided Notes</title>
+  <meta name="description" content="Read classic books free online with human translations, modern comparison text, a context-aware AI companion, synced audio, and spoiler-aware character guides.">
+  <link rel="canonical" href="https://tinct.app/">
+  <meta property="og:title" content="Tinct — Read Classic Books with AI, Audio, and Guided Notes">
+  <meta property="og:description" content="A guided reader for classic books: human translations, modern comparison text, AI help, synced audio, and spoiler-aware character guides.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tinct.app">
+  <meta property="og:site_name" content="Tinct">
+  <meta property="og:image" content="https://tinct.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tinct — Read Classic Books with AI, Audio, and Guided Notes">
+  <meta name="twitter:description" content="A guided reader for classic books with AI help, synced audio, modern comparison text, and character guides.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 
   <style>
     :root {

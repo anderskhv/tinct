@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
+import { Suspense, lazy, useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { Header } from './components/Header'
 import { TrialBanner } from './components/TrialBanner'
 import { Reader } from './components/Reader'
@@ -8,19 +8,14 @@ import { Onboarding } from './components/Onboarding'
 import { BookOnboarding, type BookOnboardingResult } from './components/BookOnboarding'
 import { BookOnboardingPreface } from './components/BookOnboardingPreface'
 import { ProgressPrompt } from './components/ProgressPrompt'
-import { SettingsSheet } from './components/SettingsSheet'
 import { AuthModal } from './components/AuthModal'
 import { AudioPitchPopover } from './components/AudioPitchPopover'
 import type { PitchKind } from './components/PitchPanel'
 import { SignInBanner } from './components/SignInBanner'
 import { detectEntrySource, type EntrySource } from './utils/entrySource'
-import { UsageDashboard } from './components/UsageDashboard'
 import { TopUpModal } from './components/TopUpModal'
-import { BookStore } from './components/BookStore'
-import { TierChooser } from './components/TierChooser'
+import type { BookStoreSelectOptions } from './components/BookStore'
 import { HomeRolePrompt } from './components/HomeRolePrompt'
-import { PricingModal } from './components/PricingModal'
-import { AdminMetricsDashboard } from './components/AdminMetricsDashboard'
 import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
 import { TocOverlay } from './components/TocOverlay'
@@ -28,14 +23,14 @@ import { ShareModal } from './components/ShareModal'
 import { FeatureTour, type TourStep } from './components/FeatureTour'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
-import { loadEdition, reloadEdition } from './data/editionLoader'
+import { isEditionWindowed, loadEdition, loadEditionWindow, reloadEdition } from './data/editionLoader'
 import { AudioStrip } from './components/AudioStrip'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
 import { useNotes } from './hooks/useNotes'
 import { useReadingPosition, getSavedPosition, getReadingProgress, markCloudPosition, markCloudLoaded, markUserNav } from './hooks/useReadingPosition'
 import { useRemoteSync } from './hooks/useRemoteSync'
-import { shouldMigrateLocalToCloud } from './hooks/useReadingPosition.guards'
+import { shouldCleanupProgress, shouldMigrateLocalToCloud } from './hooks/useReadingPosition.guards'
 import { useClaude } from './hooks/useClaude'
 import { useThreads } from './hooks/useThreads'
 import { useTier } from './hooks/useTier'
@@ -48,6 +43,7 @@ import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
 import { useLibrary } from './hooks/useLibrary'
+import { shouldStartFreshFromStoreOpen } from './hooks/useLibrary.guards'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage, setStorageProvider, localStorageProvider, clearLocalUserData, setAnonymousMode } from './services/storage'
 import { SupabaseStorageProvider } from './services/supabaseStorage'
@@ -60,6 +56,46 @@ import { resolveAudioUrl } from './utils/audioUrl'
 import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
+import { canPersistLocation } from './readerSession/writer'
+import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
+import type { ReaderLocation, ReaderView } from './readerSession/types'
+
+const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
+const BookStore = lazy(() => import('./components/BookStore').then(m => ({ default: m.BookStore })))
+const PricingModal = lazy(() => import('./components/PricingModal').then(m => ({ default: m.PricingModal })))
+const SettingsSheet = lazy(() => import('./components/SettingsSheet').then(m => ({ default: m.SettingsSheet })))
+const UsageDashboard = lazy(() => import('./components/UsageDashboard').then(m => ({ default: m.UsageDashboard })))
+
+function LazySurfaceFallback() {
+  return null
+}
+
+function mergeFullEditionPreservingLoadedChapters(current: EditionData | null, full: EditionData): EditionData {
+  if (!current || !isEditionWindowed(current)) return full
+  const currentByNumber = new Map(current.chapters.map(ch => [ch.number, ch]))
+  return {
+    ...full,
+    chapters: full.chapters.map(ch => {
+      const existing = currentByNumber.get(ch.number)
+      if (!existing || existing.paragraphs.length === 0) return ch
+      if (existing.paragraphs.length !== ch.paragraphs.length) return ch
+      return { ...ch, paragraphs: existing.paragraphs }
+    }),
+  }
+}
+
+function chapterParagraphTotal(chapter: EditionData['chapters'][number] | undefined): number {
+  return chapter?.paragraphs.length || chapter?.paragraphCount || 0
+}
+
+function editionParagraphTotal(data: EditionData | null): number {
+  return data?.chapters.reduce((sum, chapter) => sum + chapterParagraphTotal(chapter), 0) ?? 0
+}
+
+function editionParagraphsBeforeIndex(data: EditionData | null, index: number): number {
+  if (!data || index <= 0) return 0
+  return data.chapters.slice(0, index).reduce((sum, chapter) => sum + chapterParagraphTotal(chapter), 0)
+}
 
 /** Pick the most recently updated position. Falls back to furthest if no timestamps. */
 function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
@@ -78,8 +114,16 @@ function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): Readi
 }
 
 type ReaderSyncSignal = { chapterNumber: number; paragraph: number; nonce: number }
-const SUPABASE_CRITICAL_INIT_TIMEOUT_MS = 5000
+const SUPABASE_CRITICAL_INIT_TIMEOUT_MS = 1500
 const SUPABASE_FOCUS_REFRESH_TIMEOUT_MS = 4000
+
+function readerViewFromMobileIndex(activeView: number): ReaderView {
+  if (activeView === 1) return 'compare'
+  if (activeView === 2) return 'chat'
+  if (activeView === 3) return 'feed'
+  if (activeView === 4) return 'cast'
+  return 'read'
+}
 
 function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promise<T> {
   let timeout: ReturnType<typeof setTimeout> | null = null
@@ -92,15 +136,26 @@ function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promi
 }
 
 export default function App() {
+  useEffect(() => {
+    installReaderSessionShadowDebug()
+  }, [])
+
   const [currentBookId, setCurrentBookId] = useState(() => {
     return storage.get<string>('tinct-current-book') || ODYSSEY.id
   })
   const book = getBook(currentBookId) || ODYSSEY
 
   // Auth & billing
-  const { user, profile, session, isLoading: authLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
-  const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile, user)
-  const { canUse, tier: userTier } = useTier(user, profile)
+  const { user, profile, session, isLoading: authLoading, likelyAuthenticated, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
+  const authPendingForKnownUser = authLoading && likelyAuthenticated && !user
+  const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile, user, {
+    authLoading,
+    likelyAuthenticated,
+  })
+  const tierUser = authPendingForKnownUser
+    ? ({ id: 'pending-auth', created_at: new Date().toISOString() } as typeof user)
+    : user
+  const { canUse, tier: userTier } = useTier(tierUser, profile)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin')
   const [showUsageDashboard, setShowUsageDashboard] = useState(false)
@@ -112,6 +167,12 @@ export default function App() {
   const [showDownloadManager, setShowDownloadManager] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
   const { isOnline, offlineMeta, downloadState, storageMB, downloadBook, downloadChapter, removeDownload, cancelDownload, isBookDownloaded } = useOffline()
+  useEffect(() => {
+    appendReaderSessionShadow({
+      kind: 'offline',
+      detail: { isOnline, at: Date.now() },
+    })
+  }, [isOnline])
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [resetError, setResetError] = useState('')
@@ -131,7 +192,7 @@ export default function App() {
   // (e.g. opened on a book the user wasn't actually reading anymore).
   const [supabaseInitTick, setSupabaseInitTick] = useState(0)
   const supabaseProviderRef = useRef<SupabaseStorageProvider | null>(null)
-  const quickReturnFromCacheRef = useRef(false)
+  const localFirstFromCacheRef = useRef(false)
   useEffect(() => {
     const markHidden = () => {
       try { localStorage.setItem('tinct:last-hidden-at', String(Date.now())) } catch { /* ignore */ }
@@ -154,16 +215,12 @@ export default function App() {
       // localStorage cache mirroring works for all keys.
       setAnonymousMode(false)
       const provider = new SupabaseStorageProvider(user.id)
-      let lastHiddenAt = 0
-      try { lastHiddenAt = Number(localStorage.getItem('tinct:last-hidden-at') || '0') } catch { /* ignore */ }
-      const isQuickReturn = lastHiddenAt > 0 && Date.now() - lastHiddenAt < 15 * 60 * 1000
       const localData = localStorageProvider.getAllData()
       const hasLocalMirror = Object.keys(localData).some(key => key === 'tinct-current-book' || key.startsWith('position:'))
-      quickReturnFromCacheRef.current = isQuickReturn && hasLocalMirror
       const LAST_USER_KEY = 'tinct:last-user-id'
       const lastUserId = localStorage.getItem(LAST_USER_KEY)
       const isUserSwitch = lastUserId !== null && lastUserId !== user.id
-      if (isUserSwitch) quickReturnFromCacheRef.current = false
+      localFirstFromCacheRef.current = hasLocalMirror && !isUserSwitch
       if (isUserSwitch) {
         clearLocalUserData()
       }
@@ -187,7 +244,13 @@ export default function App() {
         }
         setStorageReady(true)
       }
-      if (quickReturnFromCacheRef.current) {
+      if (localFirstFromCacheRef.current) {
+        if (typeof window !== 'undefined') {
+          const w = window as Window & { __tinctLocalFirstDebug?: Array<Record<string, unknown>> }
+          w.__tinctLocalFirstDebug = w.__tinctLocalFirstDebug || []
+          w.__tinctLocalFirstDebug.push({ at: Date.now(), stage: 'local-first-render', keys: Object.keys(localData).length })
+          if (w.__tinctLocalFirstDebug.length > 40) w.__tinctLocalFirstDebug.shift()
+        }
         installProvider()
         setCloudRestoreSettled(true)
       }
@@ -198,6 +261,7 @@ export default function App() {
       const initTimeout = setTimeout(() => {
         console.warn('[App] Supabase critical init timeout — rendering from local mirror while cloud restore continues')
         installProvider()
+        setCloudRestoreSettled(true)
       }, SUPABASE_CRITICAL_INIT_TIMEOUT_MS)
       provider.initCritical().then(() => {
         clearTimeout(initTimeout)
@@ -252,6 +316,7 @@ export default function App() {
         if (provider.hasInitSucceeded()) return
         provider.init().then(() => {
           setSupabaseInitTick(t => t + 1)
+          setCloudRestoreSettled(true)
         }).catch(() => { /* still failing — wait for next online event */ })
       }
       window.addEventListener('online', handleOnline)
@@ -263,6 +328,7 @@ export default function App() {
         supabaseProviderRef.current?.unsubscribe()
       }
     } else {
+      localFirstFromCacheRef.current = false
       // Clean up previous subscription
       if (supabaseProviderRef.current) {
         supabaseProviderRef.current.unsubscribe()
@@ -278,18 +344,18 @@ export default function App() {
       setCloudRestoreSettled(true)
       // One-time wipe migration. Devices that accumulated data from before
       // this rule shipped need a clean slate. Flag prevents repeated wipes.
-      try {
-        if (!localStorage.getItem('tinct:wipe-v1-done')) {
-          clearLocalUserData()
-          localStorage.setItem('tinct:wipe-v1-done', '1')
-        }
-      } catch { /* ignore */ }
+	      try {
+	        if (!likelyAuthenticated && !localStorage.getItem('tinct:wipe-v1-done')) {
+	          clearLocalUserData()
+	          localStorage.setItem('tinct:wipe-v1-done', '1')
+	        }
+	      } catch { /* ignore */ }
       setStorageReady(true)
     }
     return () => {
       supabaseProviderRef.current?.unsubscribe()
     }
-  }, [user, authLoading])
+	  }, [user, authLoading, likelyAuthenticated])
 
   // Library
   const { libraryIds, addBook, removeBook, isEmpty: libraryEmpty, refreshFromStorage: refreshLibrary } = useLibrary(storageReady)
@@ -368,6 +434,9 @@ export default function App() {
   const [primaryData, setPrimaryData] = useState<EditionData | null>(null)
   const [primaryLoadError, setPrimaryLoadError] = useState<string | null>(null)
   const [splitData, setSplitData] = useState<EditionData | null>(null)
+  const [searchData, setSearchData] = useState<EditionData | null>(null)
+  const [searchLoading, setSearchLoading] = useState(false)
+  const [searchLoadError, setSearchLoadError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [pendingHighlight, setPendingHighlight] = useState<string | null>(null)
   const [shareText, setShareText] = useState<string | null>(null)
@@ -378,7 +447,11 @@ export default function App() {
   const readerRef = useRef<HTMLDivElement>(null)
   const compareReaderRef = useRef<HTMLDivElement>(null)
   const [readerKey, setReaderKey] = useState(0)
-  const targetParagraphRef = useRef<number | undefined>(savedPos.current?.lastParagraphIndex)
+  // Only explicit navigation should seed a paragraph target. Stored reading
+  // positions restore from scrollFraction; using lastParagraphIndex as a hard
+  // target can snap reloads to the following page when the first visible
+  // paragraph sits near a column boundary.
+  const targetParagraphRef = useRef<number | undefined>(undefined)
   const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: Language } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -496,6 +569,11 @@ export default function App() {
       return entrySource === 'landing' || entrySource === 'seo'
     } catch { return true }
   }, [entrySource])
+  const [forcedPrefaceBookId, setForcedPrefaceBookId] = useState<string | null>(null)
+  const effectivePrefaceMode = isPrefaceMode || forcedPrefaceBookId === book.id
+  const canOpenBookPreface =
+    effectivePrefaceMode ||
+    (storageReady && !isDemoMode && storage.get<boolean>(`book-onboarded:${book.id}`) === true)
 
   // Focus mode: hides header, bottom bar, and side panel for an immersive
   // reading experience. Toggled via a floating button or the F key. Transient
@@ -565,6 +643,13 @@ export default function App() {
   // a book they weren't actually reading anymore. Now: restore once on
   // ready, and again the moment cloud data is genuinely available.
   const hasRestoredFromCloud = useRef(false)
+  const localFirstDebug = useCallback((stage: string, detail?: Record<string, unknown>) => {
+    if (typeof window === 'undefined') return
+    const w = window as Window & { __tinctLocalFirstDebug?: Array<Record<string, unknown>> }
+    w.__tinctLocalFirstDebug = w.__tinctLocalFirstDebug || []
+    w.__tinctLocalFirstDebug.push({ at: Date.now(), stage, ...detail })
+    if (w.__tinctLocalFirstDebug.length > 40) w.__tinctLocalFirstDebug.shift()
+  }, [])
   useEffect(() => {
     if (!storageReady || !user) return
     // Allow re-restore when supabaseInitTick fires (cloud data just landed).
@@ -576,7 +661,11 @@ export default function App() {
     const cloudBookId = storage.get<string>('tinct-current-book')
     const validCloudBook = cloudBookId && !!getBook(cloudBookId)
     const targetBookId = validCloudBook ? cloudBookId : book.id
-    if (!quickReturnFromCacheRef.current && validCloudBook && cloudBookId !== currentBookId) {
+    if (validCloudBook && cloudBookId !== currentBookId) {
+      localFirstDebug(localFirstFromCacheRef.current ? 'cloud-corrected-book' : 'cloud-restored-book', {
+        from: currentBookId,
+        to: cloudBookId,
+      })
       setCurrentBookId(cloudBookId)
     }
     // Restore reading position only on the FIRST SUCCESSFUL restore. Subsequent
@@ -590,9 +679,34 @@ export default function App() {
     // localStorage still empty (post-wipe device), the restore got null
     // and was permanently blocked. Now: re-attempt on every supabaseInitTick
     // until we actually have cloud data.
-    if (quickReturnFromCacheRef.current && supabaseInitTick > 0) {
-      markCloudPosition(book.id, getSavedPosition(book.id))
-      hasRestoredFromCloud.current = true
+    if (localFirstFromCacheRef.current && !hasRestoredFromCloud.current && supabaseInitTick > 0) {
+      const cloudPos = getSavedPosition(targetBookId)
+      markCloudPosition(targetBookId, cloudPos)
+      if (cloudPos) {
+        hasRestoredFromCloud.current = true
+        const localPos = savedPos.current
+        const confirmed =
+          localPos &&
+          currentBookId === targetBookId &&
+          localPos.bookId === cloudPos.bookId &&
+          localPos.chapterNumber === cloudPos.chapterNumber &&
+          Math.abs((localPos.scrollFraction ?? 0) - (cloudPos.scrollFraction ?? 0)) < 0.005
+        localFirstDebug(confirmed ? 'cloud-confirmed-position' : 'cloud-corrected-position', {
+          bookId: targetBookId,
+          localChapter: localPos?.chapterNumber,
+          cloudChapter: cloudPos.chapterNumber,
+          localFraction: localPos?.scrollFraction,
+          cloudFraction: cloudPos.scrollFraction,
+        })
+        markCloudLoaded(targetBookId, cloudPos)
+        if (confirmed) return
+        savedPos.current = cloudPos
+        targetParagraphRef.current = undefined
+        markUserNav(targetBookId)
+        setCurrentChapter(cloudPos.chapterNumber)
+        setCurrentPage(0)
+        setReaderKey(k => k + 1)
+      }
     } else if (!hasRestoredFromCloud.current && supabaseInitTick > 0) {
       const cloudPos = getSavedPosition(targetBookId)
       // Mark cloud-known chapter so the regression guard knows what the
@@ -606,9 +720,7 @@ export default function App() {
         const winner = pickLatest(localPos, cloudPos)
         if (winner) {
           savedPos.current = winner
-          if (winner.lastParagraphIndex !== undefined) {
-            targetParagraphRef.current = winner.lastParagraphIndex
-          }
+          targetParagraphRef.current = undefined
           // Restoring from cloud counts as a user-initiated landing point;
           // any write within USER_NAV_GRACE_MS of this is allowed even if
           // it appears to regress (e.g. cloud at chapter 5, local was at
@@ -626,7 +738,7 @@ export default function App() {
       }
     }
     setCloudRestoreSettled(true)
-  }, [storageReady, supabaseInitTick, user, book.id, currentBookId, refreshFromStorage, refreshLibrary])
+  }, [storageReady, supabaseInitTick, user, book.id, currentBookId, refreshFromStorage, refreshLibrary, localFirstDebug])
 
   // Real-time cross-device sync: listen for remote preference changes
   // Note: position sync is handled on refresh/focus, not real-time,
@@ -685,7 +797,7 @@ export default function App() {
     markCloudLoaded(currentBookId, pos)
     markUserNav(currentBookId)
     savedPos.current = pos
-    targetParagraphRef.current = pos?.lastParagraphIndex
+    targetParagraphRef.current = undefined
     setCurrentChapter(pos?.chapterNumber || 1)
     setCurrentPage(0)
     // Reset totalPages so the reader's effects gate writes during relayout
@@ -758,6 +870,7 @@ export default function App() {
     // the chapter index happens to be valid for this book.
     const chapter = primaryData.chapters[currentChapter - 1]
     const paragraphCount = chapter?.paragraphs.length ?? 0
+    if (isEditionWindowed(primaryData) && paragraphCount === 0) return
     const target = targetParagraphRef.current
     if (typeof target === 'number' && target >= paragraphCount) {
       console.warn(`[position-cleanup] ${book.id} ch${currentChapter}: paragraph ${target} out of range (max ${paragraphCount - 1}); resetting position`)
@@ -775,6 +888,7 @@ export default function App() {
   // empty reader until the user navigates away and back.
   useEffect(() => {
     if (!primaryData || isLoading || primaryData.chapters.length === 0) return
+    if (isEditionWindowed(primaryData)) return
     const chapter = primaryData.chapters.find(c => c.number === currentChapter)
     if (chapter && chapter.paragraphs.length > 0) return
     const fallback = primaryData.chapters.find(c => c.paragraphs.length > 0)
@@ -824,6 +938,27 @@ export default function App() {
       // two devices stay on their own last-opened book even after sync.
       const cloudBookId = storage.get<string>('tinct-current-book')
       if (cloudBookId && cloudBookId !== book.id && !!getBook(cloudBookId)) {
+        const beforeRefreshPos = getSavedPosition(cloudBookId)
+        try {
+          await withTimeout(
+            provider.refreshKeys([`position:${cloudBookId}`]),
+            SUPABASE_FOCUS_REFRESH_TIMEOUT_MS,
+            '[App] Supabase focus refresh for switched book timed out',
+          )
+        } catch (e) {
+          console.warn('[App] Supabase switched-book position refresh failed:', e)
+        }
+        if (typeof window !== 'undefined') {
+          const afterRefreshPos = getSavedPosition(cloudBookId)
+          ;(window as Window & { __tinctSyncDebug?: unknown }).__tinctSyncDebug = {
+            lastSwitchedBookRefreshAt: Date.now(),
+            cloudBookId,
+            beforeChapter: beforeRefreshPos?.chapterNumber,
+            beforeFraction: beforeRefreshPos?.scrollFraction,
+            afterChapter: afterRefreshPos?.chapterNumber,
+            afterFraction: afterRefreshPos?.scrollFraction,
+          }
+        }
         setCurrentBookId(cloudBookId)
         // Don't also try to restore position for the OLD book — let the
         // book-change effect re-trigger restore for the new book.
@@ -866,9 +1001,7 @@ export default function App() {
             return
           }
           savedPos.current = cloudPos
-          if (cloudPos.lastParagraphIndex !== undefined) {
-            targetParagraphRef.current = cloudPos.lastParagraphIndex
-          }
+          targetParagraphRef.current = undefined
           // Prime dedup so the post-layout `onPageChange` echo doesn't write
           // the just-loaded value back to cloud (cross-device echo bug).
           markCloudLoaded(book.id, cloudPos)
@@ -960,6 +1093,14 @@ export default function App() {
     const m: Record<number, string> = {}
     primaryData?.chapters.forEach(ch => {
       m[ch.number] = normalizeChapterTitle(ch.title).split(' — ')[0]
+    })
+    return m
+  }, [primaryData])
+
+  const chapterTitleByNumber = useMemo(() => {
+    const m: Record<number, string> = {}
+    primaryData?.chapters.forEach(ch => {
+      m[ch.number] = normalizeChapterTitle(ch.title)
     })
     return m
   }, [primaryData])
@@ -1078,6 +1219,9 @@ export default function App() {
         `${m.role === 'user' ? 'Reader' : 'Tinct'}: ${m.content}`
       ).join('\n\n')
 
+      const summaryPrompt = 'Summarize this reading discussion into 2-4 concise bullet points. Preserve all specific insights, character references, and thematic observations. Do not lose context that would be valuable to revisit later. Be concise but complete.'
+      const promptWithTranscript = `${summaryPrompt}\n\nTranscript:\n${transcript}`
+
       const response = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: {
@@ -1085,9 +1229,9 @@ export default function App() {
           ...(session?.access_token ? { 'Authorization': `Bearer ${session.access_token}` } : {}),
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-sonnet-4-6',
           max_tokens: 512,
-          system: 'Summarize this reading discussion into 2-4 concise bullet points. Preserve all specific insights, character references, and thematic observations. Do not lose context that would be valuable to revisit later. Be concise but complete.',
+          system: summaryPrompt,
           messages: [{ role: 'user', content: transcript }],
         }),
       })
@@ -1095,7 +1239,7 @@ export default function App() {
       const data = await response.json()
       const summary = data.content?.[0]?.text
       if (summary) {
-        setChatSummary(convId, summary)
+        setChatSummary(convId, summary, promptWithTranscript)
       }
     } catch {
       // Silent fail — conversation stays unsummarized
@@ -1104,8 +1248,9 @@ export default function App() {
     }
   }, [chatConversations, session?.access_token, setChatSummary])
 
-  const { messages, isLoading: chatLoading, sendMessage, clearMessages, loadMessages } = useClaude({
-    bookTitle: book.title,
+	  const { messages, isLoading: chatLoading, sendMessage, clearMessages, loadMessages } = useClaude({
+	    bookId: book.id,
+	    bookTitle: book.title,
     bookAuthor: book.author,
     chapterTitle,
     readingObjective: preferences.readingObjective,
@@ -1271,28 +1416,38 @@ export default function App() {
   // Conservative: we only delete (not synthesize) progress, so the bar
   // restarts blank rather than guessing. As the user reads forward, progress
   // rebuilds correctly via the normal heartbeat write path.
-  const progressCleanupRanRef = useRef(false)
-  useEffect(() => {
-    if (!storageReady) return
-    if (progressCleanupRanRef.current) return
-    progressCleanupRanRef.current = true
+	  const progressCleanupRanRef = useRef(false)
+	  useEffect(() => {
+	    if (!storageReady) return
+	    if (user?.id && supabaseInitTick === 0) return
+	    if (progressCleanupRanRef.current) return
+	    try {
+	      if (localStorage.getItem('tinct:progress-cleanup-v1-done') === '1') return
+	    } catch { /* ignore */ }
+	    progressCleanupRanRef.current = true
 
-    let cleaned = 0
-    for (const b of BOOKS) {
-      const progress = storage.get<{ highestCompletedChapter?: number }>(`progress:${b.id}`)
-      if (!progress || typeof progress.highestCompletedChapter !== 'number') continue
-      const position = getSavedPosition(b.id)
-      const positionChapter = position?.chapterNumber ?? 1
-      if (progress.highestCompletedChapter > positionChapter + 3) {
-        console.warn(`[progress-cleanup] resetting ${b.id}: progress.highestCompletedChapter=${progress.highestCompletedChapter} >> position.chapterNumber=${positionChapter}`)
-        storage.delete(`progress:${b.id}`)
-        cleaned++
-      }
-    }
-    if (cleaned > 0) {
-      console.log(`[progress-cleanup] reset ${cleaned} corrupted progress entries`)
-    }
-  }, [storageReady])
+	    let cleaned = 0
+	    for (const b of BOOKS) {
+	      const progress = storage.get<{ highestCompletedChapter?: number; totalChapters?: number }>(`progress:${b.id}`)
+	      if (!progress || typeof progress.highestCompletedChapter !== 'number') continue
+	      const position = getSavedPosition(b.id)
+	      const positionChapter = position?.chapterNumber ?? 1
+	      if (shouldCleanupProgress({
+	        highestCompletedChapter: progress.highestCompletedChapter,
+	        totalChapters: progress.totalChapters,
+	        positionChapter,
+	        hasCompletedRecord: !!storage.get(`book-completed:${b.id}`),
+	      })) {
+	        console.warn(`[progress-cleanup] resetting ${b.id}: progress.highestCompletedChapter=${progress.highestCompletedChapter} >> position.chapterNumber=${positionChapter}`)
+	        storage.delete(`progress:${b.id}`)
+	        cleaned++
+	      }
+	    }
+	    try { localStorage.setItem('tinct:progress-cleanup-v1-done', '1') } catch { /* ignore */ }
+	    if (cleaned > 0) {
+	      console.log(`[progress-cleanup] reset ${cleaned} corrupted progress entries`)
+	    }
+	  }, [storageReady, supabaseInitTick, user?.id])
 
   // Handle book change
   const handleBookChange = useCallback((bookId: string) => {
@@ -1306,6 +1461,11 @@ export default function App() {
       } catch { /* ignore */ }
       return
     }
+    appendReaderSessionShadow({
+      kind: 'event',
+      event: 'OPEN_BOOK',
+      detail: { from: currentBookId, to: bookId },
+    })
     perfStartSwitch(bookId)
     perfFirstPaintFiredRef.current = false
     perfPositionRestoredFiredRef.current = false
@@ -1337,9 +1497,9 @@ export default function App() {
     setSplitData(null)
     setIsLoading(true)
     savedPos.current = pos
-    // Reset target paragraph so the previous book's position doesn't leak.
-    // A fresh book (no saved pos) starts on page 1; a returning book uses its own paragraph.
-    targetParagraphRef.current = pos?.lastParagraphIndex
+    // Reset target paragraph so the previous book's explicit target doesn't leak.
+    // Returning books restore from their saved page fraction.
+    targetParagraphRef.current = undefined
     clearMessages()
     setReaderKey(k => k + 1) // Force Reader remount with correct initialPage
   }, [clearMessages, currentBookId])
@@ -1377,7 +1537,6 @@ export default function App() {
   // the same page. If you add a new full-screen overlay, ADD IT HERE.
   const writeSuspended =
     (!!user?.id && !cloudRestoreSettled) ||
-    (!!user?.id && supabaseInitTick === 0) ||
     showAuthModal ||
     showPricingModal ||
     showStore ||
@@ -1470,7 +1629,33 @@ export default function App() {
     })
   }, [storageReady, libraryIds, book.id])
 
-  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended)
+  const readerSessionLocation = useMemo<ReaderLocation>(() => ({
+      bookId: book.id,
+      chapterNumber: currentChapter,
+      paragraphIndex: effectiveParagraph,
+      scrollFraction: totalPages > 1 ? currentPage / Math.max(totalPages - 1, 1) : 0,
+      editionKey: primaryEditionKey,
+      activeView: readerViewFromMobileIndex(activeView),
+      source: 'reader-layout',
+      revision: Date.now(),
+    }), [activeView, book.id, currentChapter, currentPage, effectiveParagraph, primaryEditionKey, totalPages])
+  const readerSessionStatus = (!storageReady || writeSuspended || !primaryData || isLoading)
+    ? 'loading-edition'
+    : 'ready'
+  const readerSessionContext = useMemo(() => ({ book, editionData: primaryData }), [book, primaryData])
+
+  useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended, {
+    location: readerSessionLocation,
+    context: readerSessionContext,
+    status: readerSessionStatus,
+  })
+
+  useEffect(() => {
+    appendReaderSessionShadow({
+      kind: 'position',
+      detail: canPersistLocation(readerSessionLocation, readerSessionContext, readerSessionStatus),
+    })
+  }, [readerSessionContext, readerSessionLocation, readerSessionStatus])
 
   // Cross-device live position sync. Applies a remote position only when:
   //   (a) the user has been idle for >30s (silent auto-adopt), or
@@ -1491,7 +1676,7 @@ export default function App() {
     markUserNav(book.id)
     markCloudPosition(book.id, remotePos)
     markCloudLoaded(book.id, remotePos)
-    targetParagraphRef.current = remotePos.lastParagraphIndex
+    targetParagraphRef.current = undefined
     savedPos.current = remotePos
     setCurrentChapter(remotePos.chapterNumber)
     setCurrentPage(0)
@@ -1519,13 +1704,15 @@ export default function App() {
   }, [syncToast])
 
   const isAudioActive = audioPlayingParagraph !== undefined
-  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters)
+  const bookEditionKeys = useMemo(() => book.editions.map(ed => ed.key), [book.editions])
+  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters, bookEditionKeys)
 
   const { threadsData, getMentions } = useThreads(book.id, primaryData)
 
   // All chapter paragraphs for word counting (reading speed model)
   const allParagraphs = useMemo(() => {
     if (!primaryData) return null
+    if (isEditionWindowed(primaryData)) return null
     return primaryData.chapters.map(c => c.paragraphs)
   }, [primaryData])
 
@@ -1555,9 +1742,16 @@ export default function App() {
     if (rawSecs < 90) return `${Math.max(5, Math.round(rawSecs / 5) * 5)}s left`
     return `${Math.round(rawSecs / 60)}min left`
   }, [primaryChapter, currentPage, totalPages, wordsPerMinute])
+  const locationCurrent = primaryData && primaryChapterIndex >= 0
+    ? editionParagraphsBeforeIndex(primaryData, primaryChapterIndex) + (firstVisibleParagraph || 0)
+    : 0
+  const locationTotal = editionParagraphTotal(primaryData)
+  const displayReadingPercent = isEditionWindowed(primaryData) && locationTotal > 0
+    ? Math.min(100, Math.round((locationCurrent / locationTotal) * 100))
+    : readingPercent
   const progressLabel = useMemo(() => formatProgressLabel({
     progressDisplay: preferences.progressDisplay,
-    percentComplete: readingPercent,
+    percentComplete: displayReadingPercent,
     timeRemainingLabel,
     isLearned: isSpeedLearned,
     currentPage,
@@ -1568,13 +1762,11 @@ export default function App() {
     bookTotalPages: bookAbsolutePage.total,
     chapterPercentComplete,
     chapterTimeLabel,
-    locationCurrent: primaryData && primaryChapterIndex >= 0
-      ? primaryData.chapters.slice(0, primaryChapterIndex).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0)
-      : 0,
-    locationTotal: primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0,
+    locationCurrent,
+    locationTotal,
     locationCurrentChapter: firstVisibleParagraph,
-    locationTotalChapter: primaryChapter?.paragraphs.length,
-  }), [preferences.progressDisplay, readingPercent, timeRemainingLabel, isSpeedLearned, currentPage, totalPages, absolutePage, bookAbsolutePage, chapterPercentComplete, chapterTimeLabel, primaryData, primaryChapterIndex, primaryChapter, firstVisibleParagraph])
+    locationTotalChapter: chapterParagraphTotal(primaryChapter),
+  }), [preferences.progressDisplay, displayReadingPercent, timeRemainingLabel, isSpeedLearned, currentPage, totalPages, absolutePage, bookAbsolutePage, chapterPercentComplete, chapterTimeLabel, locationCurrent, locationTotal, primaryChapter, firstVisibleParagraph])
 
 
   // Navigate to a chapter (and optionally a paragraph/edition) from side panel
@@ -1601,6 +1793,7 @@ export default function App() {
     }
 
     targetParagraphRef.current = paragraphIndex
+    markUserNav(book.id)
     setReadSyncSignal(undefined)
     setCompareSyncSignal(undefined)
     // Always reset savedPos so the Reader lands on page 1 of the chosen
@@ -1639,6 +1832,7 @@ export default function App() {
   const handleBackToPosition = useCallback(() => {
     if (!backPosition) return
     targetParagraphRef.current = undefined
+    markUserNav(book.id)
     // Restore edition
     if (backPosition.style !== preferences.style) setStyle(backPosition.style)
     if (backPosition.language !== preferences.language) setLanguage(backPosition.language)
@@ -1883,6 +2077,7 @@ export default function App() {
       }
     }
     storage.set(`book-onboarded:${book.id}`, true)
+    setForcedPrefaceBookId(current => current === book.id ? null : current)
     setShowBookOnboarding(false)
 
     // Race fix (2026-05-08, Anders): when the user is signed in and the
@@ -1918,7 +2113,7 @@ export default function App() {
   // Uses ONLY the explicit flag (set on completion or close, plus the migration
   // above for legacy users). Phantom positions no longer suppress onboarding.
   //
-  // 2026-05-06 fix: when !isPrefaceMode (deep-link entries or ?preface=0),
+  // 2026-05-06 fix: when !effectivePrefaceMode (deep-link entries or ?preface=0),
   // skip onboarding ENTIRELY. Previously the legacy 3-step BookOnboarding would
   // fall back here, but the preface IS the only onboarding flow now — fallback
   // to legacy was dead code that mis-fired for direct /read URL opens. Mark
@@ -1933,7 +2128,7 @@ export default function App() {
       setShowBookOnboarding(false)
       return
     }
-    if (!isPrefaceMode) {
+    if (!effectivePrefaceMode) {
       setShowBookOnboarding(false)
       // Mark this book as onboarded so a later switch back to preface mode
       // (e.g. user changes URL) doesn't surprise them with a modal.
@@ -1966,7 +2161,7 @@ export default function App() {
     try { legacy = !!localStorage.getItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
     if (legacy && !seen) storage.set(`book-onboarded:${book.id}`, true)
     setShowBookOnboarding(!(seen || legacy))
-  }, [book.id, storageReady, libraryEmpty, showStore, isPrefaceMode, user, supabaseInitTick])
+  }, [book.id, storageReady, libraryEmpty, showStore, effectivePrefaceMode, user, supabaseInitTick])
 
   // Book Onboarding completion — sets edition + angle, marks book as onboarded.
   // Note: uses primitive setters (setStyle/setLanguage/setSplitEditionKey) rather than
@@ -2013,6 +2208,7 @@ export default function App() {
 
   const handleBookOnboardingClose = useCallback(() => {
     storage.set(`book-onboarded:${book.id}`, true)
+    setForcedPrefaceBookId(current => current === book.id ? null : current)
     setShowBookOnboarding(false)
     setOnboardingComplete(true)
     setPrefaceStartAtEnd(false)
@@ -2139,7 +2335,9 @@ export default function App() {
     let cancelled = false
     setIsLoading(true)
     setPrimaryLoadError(null)
-    loadEdition(book.id, primaryEditionKey)
+    setSearchData(null)
+    setSearchLoadError(null)
+    loadEditionWindow(book.id, primaryEditionKey, currentChapter)
       .then(data => {
         if (cancelled) return
         setPrimaryData(data)
@@ -2162,6 +2360,44 @@ export default function App() {
       })
     return () => { cancelled = true }
   }, [book.id, primaryEditionKey])
+
+  useEffect(() => {
+    if (!showSearch || !primaryData || !isEditionWindowed(primaryData) || searchData) return
+    let cancelled = false
+    setSearchLoading(true)
+    setSearchLoadError(null)
+    loadEdition(book.id, primaryEditionKey, { forceWholeBook: true })
+      .then(fullData => {
+        if (cancelled) return
+        setSearchData(fullData)
+      })
+      .catch(err => {
+        if (cancelled) return
+        setSearchLoadError((err as Error).message || 'Could not load search data.')
+      })
+      .finally(() => {
+        if (!cancelled) setSearchLoading(false)
+      })
+    return () => { cancelled = true }
+  }, [showSearch, primaryData, searchData, book.id, primaryEditionKey])
+
+  useEffect(() => {
+    if (!primaryData || !isEditionWindowed(primaryData)) return
+    const chapter = primaryData.chapters.find(c => c.number === currentChapter)
+    if (chapter && chapter.paragraphs.length > 0) return
+
+    let cancelled = false
+    void loadEditionWindow(book.id, primaryEditionKey, currentChapter)
+      .then(data => {
+        if (cancelled) return
+        setPrimaryData(data)
+      })
+      .catch(err => {
+        if (cancelled) return
+        console.warn(`[App] Failed to fill chapter window ${book.id}/${primaryEditionKey}/ch${currentChapter}:`, err)
+      })
+    return () => { cancelled = true }
+  }, [primaryData, book.id, primaryEditionKey, currentChapter])
 
   // Lazy-load the split edition only when split view is actually on
   // (Phase 3). Most desktop users never open Compare, so eagerly fetching
@@ -2484,12 +2720,18 @@ export default function App() {
   // (lastRecordedMsgRef is declared above next to the loadMessages effect
   // so that effect can prime it with the last historical message ID. The
   // ref tracks which IDs have already been persisted to chat-history.)
-  useEffect(() => {
-    if (messages.length === 0) return
-    const last = messages[messages.length - 1]
-    if (
-      last.role === 'assistant' &&
-      !last.chapterDivider &&
+	  const prevChatRecordBookIdRef = useRef(book.id)
+	  useEffect(() => {
+	    if (prevChatRecordBookIdRef.current !== book.id) {
+	      prevChatRecordBookIdRef.current = book.id
+	      return
+	    }
+	    if (messages.length === 0) return
+	    const last = messages[messages.length - 1]
+	    if (
+	      last.role === 'assistant' &&
+	      last.isComplete !== false &&
+	      !last.chapterDivider &&
       // Don't persist transient "Something went wrong" / Refresh-page error
       // messages from useClaude.ts. Those are UI affordances for the current
       // session only — recording them was the source of the polluted chat
@@ -2499,9 +2741,21 @@ export default function App() {
       last.id !== lastRecordedMsgRef.current
     ) {
       lastRecordedMsgRef.current = last.id
-      recordMessage(last, last.chapterNumber ?? currentChapter, firstVisibleParagraph)
-    }
-  }, [messages, recordMessage, currentChapter, firstVisibleParagraph])
+      appendReaderSessionShadow({
+        kind: 'chat',
+        detail: {
+          messageId: last.id,
+          role: last.role,
+          currentBookId: book.id,
+          messageBookId: last.bookId,
+          chapterNumber: last.chapterNumber ?? currentChapter,
+          paragraphIndex: firstVisibleParagraph,
+          acceptedByCurrentPath: true,
+        },
+      })
+	      recordMessage(last, last.chapterNumber ?? currentChapter, firstVisibleParagraph)
+	    }
+	  }, [messages, recordMessage, currentChapter, firstVisibleParagraph, book.id])
 
   // Chat message handler — also records to chat history
   const handleSendMessage = useCallback((content: string, highlightedText?: string) => {
@@ -2516,9 +2770,13 @@ export default function App() {
       id: `msg_${Date.now()}`,
       role: 'user',
       content,
-      timestamp: Date.now(),
-      highlightedText,
-    }, currentChapter, firstVisibleParagraph)
+	      timestamp: Date.now(),
+	      highlightedText,
+	      bookId: book.id,
+	      chapterNumber: currentChapter,
+	      paragraphIndex: firstVisibleParagraph,
+	      isComplete: true,
+	    }, currentChapter, firstVisibleParagraph)
     sendMessage(content, highlightedText)
   }, [sendMessage, recordMessage, currentChapter, firstVisibleParagraph, book.id, user?.id])
 
@@ -2548,7 +2806,7 @@ export default function App() {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-sonnet-4-6',
           max_tokens: 4096,
           system: 'You are a helpful editor. Return only the cleaned-up text, nothing else.',
           messages: [{ role: 'user', content: prompt }],
@@ -2622,7 +2880,7 @@ export default function App() {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-sonnet-4-6',
           max_tokens: 2048,
           system: 'You are a thoughtful literary companion creating a personal reading journal summary. Be warm, specific, and insightful.',
           messages: [{ role: 'user', content: prompt }],
@@ -2682,8 +2940,55 @@ export default function App() {
 
   // Audio paragraph change handler
   const handleAudioParagraphChange = useCallback((paragraphIndex: number) => {
+    appendReaderSessionShadow({
+      kind: 'event',
+      event: 'AUDIO_PARAGRAPH_CHANGED',
+      detail: { bookId: book.id, chapterNumber: currentChapter, paragraphIndex },
+    })
     setAudioPlayingParagraph(paragraphIndex)
-  }, [])
+  }, [book.id, currentChapter])
+
+  const handleBookComplete = useCallback((source: 'audio' | 'text') => {
+    if (totalChapters <= 0) return
+    storage.set(`progress:${book.id}`, {
+      bookId: book.id,
+      highestCompletedChapter: totalChapters,
+      totalChapters,
+      percent: 100,
+      positionPercent: 100,
+    })
+    storage.set(`book-completed:${book.id}`, {
+      bookId: book.id,
+      completedAt: Date.now(),
+      source,
+    })
+    setToastMessage('Completed the book')
+    trackEvent('book_completed', {
+      book_id: book.id,
+      source,
+      chapter_number: currentChapter,
+      edition_key: source === 'audio' ? effectiveAudioEditionKey : primaryEditionKey,
+    }, user?.id)
+    if (source === 'audio' && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try {
+        window.speechSynthesis.cancel()
+        const utterance = new SpeechSynthesisUtterance('End of book.')
+        utterance.rate = 0.95
+        window.speechSynthesis.speak(utterance)
+      } catch { /* speech synthesis is best-effort */ }
+    }
+  }, [book.id, currentChapter, effectiveAudioEditionKey, primaryEditionKey, totalChapters, user?.id])
+
+  const textCompletionFiredRef = useRef('')
+  useEffect(() => {
+    if (!storageReady || totalChapters <= 0 || totalPages <= 1) return
+    if (currentChapter !== totalChapters || currentPage < totalPages - 1) return
+    const completionKey = `${book.id}:${totalChapters}`
+    if (textCompletionFiredRef.current === completionKey) return
+    textCompletionFiredRef.current = completionKey
+    if (storage.get(`book-completed:${book.id}`)) return
+    handleBookComplete('text')
+  }, [book.id, currentChapter, currentPage, handleBookComplete, storageReady, totalChapters, totalPages])
 
   // Audio paragraph click handler (tap-to-play)
   const handleParagraphClick = useCallback((paragraphIndex: number) => {
@@ -2748,21 +3053,29 @@ export default function App() {
   // the user left off when they clicked "Begin reading."
   const [prefaceStartAtEnd, setPrefaceStartAtEnd] = useState(false)
   const handleBackToPreface = useCallback(() => {
+    setForcedPrefaceBookId(book.id)
     setPrefaceStartAtEnd(true)
     setShowBookOnboarding(true)
-  }, [])
+  }, [book.id])
   // Re-entering the preface from the ToC starts at page 0 (cover) instead.
   const handleShowPrefaceFromToc = useCallback(() => {
+    setForcedPrefaceBookId(book.id)
     setPrefaceStartAtEnd(false)
     setShowBookOnboarding(true)
-  }, [])
+  }, [book.id])
 
   // Chapter navigation from page arrows or audio chapter-end
   // When advancing forward, mark the current chapter as completed in progress
   // (covers the audio case where page never reaches the last page)
   const handleNextChapter = useCallback(() => {
     if (currentChapter < totalChapters) {
+      appendReaderSessionShadow({
+        kind: 'event',
+        event: 'USER_NEXT_CHAPTER',
+        detail: { bookId: book.id, from: currentChapter, to: currentChapter + 1 },
+      })
       lockMobileNavBriefly()
+      markUserNav(book.id)
       const existing = getReadingProgress(book.id)
       const prev = existing?.highestCompletedChapter || 0
       if (currentChapter > prev) {
@@ -2798,7 +3111,13 @@ export default function App() {
   }, [currentChapter, totalChapters, book.id, lockMobileNavBriefly])
   const handlePrevChapter = useCallback(() => {
     if (currentChapter > 1) {
+      appendReaderSessionShadow({
+        kind: 'event',
+        event: 'USER_PREV_CHAPTER',
+        detail: { bookId: book.id, from: currentChapter, to: currentChapter - 1 },
+      })
       lockMobileNavBriefly()
+      markUserNav(book.id)
       targetParagraphRef.current = undefined
       setReadSyncSignal(undefined)
       setCompareSyncSignal(undefined)
@@ -2936,13 +3255,15 @@ export default function App() {
   if (typeof window !== 'undefined' && window.location.pathname === '/admin/metrics') {
     return (
       <>
-        <AdminMetricsDashboard
-          session={session}
-          onSignIn={() => {
-            setAuthModalMode('signin')
-            setShowAuthModal(true)
-          }}
-        />
+        <Suspense fallback={<LazySurfaceFallback />}>
+          <AdminMetricsDashboard
+            session={session}
+            onSignIn={() => {
+              setAuthModalMode('signin')
+              setShowAuthModal(true)
+            }}
+          />
+        </Suspense>
         {showAuthModal && (
           <AuthModal
             onClose={() => setShowAuthModal(false)}
@@ -2963,7 +3284,7 @@ export default function App() {
 
   return (
     <TierProvider user={user} profile={profile}>
-    <div className={`app ${hasAudio ? 'has-audio' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+    <div className={`app ${hasAudio ? 'has-audio' : ''} ${audioStripOpen ? 'audio-strip-open' : ''} ${focusMode ? 'focus-mode' : ''}`}>
       {focusMode && (
         <button
           className="focus-exit"
@@ -2979,25 +3300,59 @@ export default function App() {
           libraryEmpty becomes false, but on the very first render before
           that effect fires it would briefly flash. */}
       {!isDemoMode && (libraryEmpty || showStore) && (
-        <BookStore
-          books={BOOKS}
-          libraryIds={libraryIds}
-          onAddBook={addBook}
-          onRemoveBook={(bookId) => {
-            if (bookId === currentBookId) handleBookChange(libraryIds.find(id => id !== bookId) || BOOKS[0].id)
-            removeBook(bookId)
-          }}
-          onSelectBook={(bookId) => {
-            handleBookChange(bookId)  // handleBookChange now updates URL too
-            setShowStore(false)
-          }}
-          onClose={!libraryEmpty ? () => setShowStore(false) : undefined}
-        />
+        <Suspense fallback={<LazySurfaceFallback />}>
+          <BookStore
+            books={BOOKS}
+            libraryIds={libraryIds}
+            onRemoveBook={(bookId) => {
+              if (bookId === currentBookId) handleBookChange(libraryIds.find(id => id !== bookId) || BOOKS[0].id)
+              removeBook(bookId)
+            }}
+            onSelectBook={(bookId, options: BookStoreSelectOptions) => {
+              const wasInLibrary = options.wasInLibrary || libraryIds.includes(bookId)
+              const hasProgress = options.hasProgress || !!getReadingProgress(bookId)
+              if (!wasInLibrary) addBook(bookId)
+              if (shouldStartFreshFromStoreOpen({ wasInLibrary, hasProgress })) {
+                const freshPosition: ReadingPosition = {
+                  bookId,
+                  chapterNumber: 1,
+                  currentPage: 0,
+                  totalPages: 1,
+                  scrollFraction: 0,
+                  lastParagraphIndex: 0,
+                  updatedAt: Date.now(),
+                }
+                storage.set(`position:${bookId}`, freshPosition)
+                storage.set(`book-onboarded:${bookId}`, false)
+                try { localStorage.removeItem(`tinct-book-onboarded-${bookId}`) } catch { /* ignore */ }
+                markCloudPosition(bookId, freshPosition)
+                markCloudLoaded(bookId, freshPosition)
+                if (bookId === currentBookId) {
+                  savedPos.current = freshPosition
+                  targetParagraphRef.current = 0
+                  setCurrentChapter(1)
+                  setCurrentPage(0)
+                  setTotalPages(1)
+                  setReaderKey(k => k + 1)
+                }
+                setForcedPrefaceBookId(bookId)
+                setBookOnboardingMode('full')
+                setPrefaceStartAtEnd(false)
+                setShowBookOnboarding(true)
+              } else {
+                setForcedPrefaceBookId(current => current === bookId ? null : current)
+              }
+              handleBookChange(bookId)  // handleBookChange now updates URL too
+              setShowStore(false)
+            }}
+            onClose={!libraryEmpty ? () => setShowStore(false) : undefined}
+          />
+        </Suspense>
       )}
 
       {/* Preface mode mounts in the reader slot below — keep the regular
           modal-style BookOnboarding for non-preface flows. */}
-      {!isPrefaceMode && !libraryEmpty && !showStore && showBookOnboarding && (
+      {!effectivePrefaceMode && !libraryEmpty && !showStore && showBookOnboarding && (
         <BookOnboarding
           book={book}
           editions={book.editions}
@@ -3011,6 +3366,7 @@ export default function App() {
             setShowAuthModal(true)
           }}
           onBackToLibrary={() => {
+            setForcedPrefaceBookId(current => current === book.id ? null : current)
             setShowBookOnboarding(false)
             setShowStore(true)
           }}
@@ -3029,85 +3385,89 @@ export default function App() {
         />
       )}
 
-      <SettingsSheet
-        isOpen={showSettings}
-        onClose={() => setShowSettings(false)}
-        darkMode={preferences.darkMode}
-        onToggleDarkMode={toggleDarkMode}
-        chatHidden={preferences.chatHidden}
-        onToggleChatHidden={() => setChatHidden(!preferences.chatHidden)}
-        feedHidden={preferences.feedHidden}
-        onToggleFeedHidden={() => setFeedHidden(!preferences.feedHidden)}
-        castHidden={preferences.castHidden}
-        onToggleCastHidden={() => setCastHidden(!preferences.castHidden)}
-        fontSize={preferences.fontSize}
-        onFontSizeChange={(size) => {
-          const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
-          savedPos.current = {
-            bookId: book.id,
-            chapterNumber: currentChapter,
-            currentPage,
-            totalPages,
-            scrollFraction: frac,
-          }
-          setFontSize(size)
-          setReaderKey(k => k + 1)
-        }}
-        fontFamily={preferences.fontFamily}
-        onFontFamilyChange={(family) => {
-          const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
-          savedPos.current = {
-            bookId: book.id,
-            chapterNumber: currentChapter,
-            currentPage,
-            totalPages,
-            scrollFraction: frac,
-          }
-          setFontFamily(family)
-          setReaderKey(k => k + 1)
-        }}
-        allEditions={book.editions}
-        primaryEditionKey={primaryEditionKey}
-        language={preferences.language}
-        style={preferences.style}
-        onLanguageChange={setLanguage}
-        onStyleChange={handleStyleChange}
-        alignedEditions={book.editions.filter(ed => ed.aligned)}
-        splitEditionKey={preferences.splitEditionKey}
-        onSplitEditionChange={setSplitEditionKey}
-        splitView={preferences.splitView}
-        onToggleSplitView={handleToggleSplitView}
-        onPrefetchSplitEdition={handleSplitTogglePrefetch}
-        audioEditions={book.editions.filter(ed => ed.hasAudio)}
-        audioEditionKey={effectiveAudioEditionKey}
-        onAudioEditionChange={setAudioEditionKey}
-        progressDisplay={preferences.progressDisplay}
-        onProgressDisplayChange={setProgressDisplay}
-        hasSections={!!(primaryData?.sections?.length)}
-        readingObjective={preferences.readingObjective}
-        onSaveObjective={setReadingAngleForCurrentBook}
-        isBookDownloaded={isBookDownloaded(book.id)}
-        onOpenDownloads={() => setShowDownloadManager(true)}
-        user={user}
-        messagesRemaining={messagesRemaining}
-        hasBalance={hasBalance}
-        isAnonymous={isAnonymous}
-        onSignIn={() => { setAuthModalMode('signin'); setShowAuthModal(true) }}
-        onSignOut={signOut}
-        onOpenUsage={() => setShowUsageDashboard(true)}
-        onResetPassword={resetPassword}
-        onDeleteAccount={user ? async () => {
-          await signOut()
-        } : undefined}
-        onOpenStore={() => setShowStore(true)}
-        onRedoOnboarding={() => {
-          storage.delete(`book-onboarded:${book.id}`)
-          try { localStorage.removeItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
-          setShowSettings(false)
-          setShowBookOnboarding(true)
-        }}
-        onShowTour={() => setShowTour(true)}
-      />
+      {showSettings && (
+        <Suspense fallback={<LazySurfaceFallback />}>
+          <SettingsSheet
+            isOpen={showSettings}
+            onClose={() => setShowSettings(false)}
+            darkMode={preferences.darkMode}
+            onToggleDarkMode={toggleDarkMode}
+            chatHidden={preferences.chatHidden}
+            onToggleChatHidden={() => setChatHidden(!preferences.chatHidden)}
+            feedHidden={preferences.feedHidden}
+            onToggleFeedHidden={() => setFeedHidden(!preferences.feedHidden)}
+            castHidden={preferences.castHidden}
+            onToggleCastHidden={() => setCastHidden(!preferences.castHidden)}
+            fontSize={preferences.fontSize}
+            onFontSizeChange={(size) => {
+              const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+              savedPos.current = {
+                bookId: book.id,
+                chapterNumber: currentChapter,
+                currentPage,
+                totalPages,
+                scrollFraction: frac,
+              }
+              setFontSize(size)
+              setReaderKey(k => k + 1)
+            }}
+            fontFamily={preferences.fontFamily}
+            onFontFamilyChange={(family) => {
+              const frac = totalPages > 1 ? currentPage / (totalPages - 1) : 0
+              savedPos.current = {
+                bookId: book.id,
+                chapterNumber: currentChapter,
+                currentPage,
+                totalPages,
+                scrollFraction: frac,
+              }
+              setFontFamily(family)
+              setReaderKey(k => k + 1)
+            }}
+            allEditions={book.editions}
+            primaryEditionKey={primaryEditionKey}
+            language={preferences.language}
+            style={preferences.style}
+            onLanguageChange={setLanguage}
+            onStyleChange={handleStyleChange}
+            alignedEditions={book.editions.filter(ed => ed.aligned)}
+            splitEditionKey={preferences.splitEditionKey}
+            onSplitEditionChange={setSplitEditionKey}
+            splitView={preferences.splitView}
+            onToggleSplitView={handleToggleSplitView}
+            onPrefetchSplitEdition={handleSplitTogglePrefetch}
+            audioEditions={book.editions.filter(ed => ed.hasAudio)}
+            audioEditionKey={effectiveAudioEditionKey}
+            onAudioEditionChange={setAudioEditionKey}
+            progressDisplay={preferences.progressDisplay}
+            onProgressDisplayChange={setProgressDisplay}
+            hasSections={!!(primaryData?.sections?.length)}
+            readingObjective={preferences.readingObjective}
+            onSaveObjective={setReadingAngleForCurrentBook}
+            isBookDownloaded={isBookDownloaded(book.id)}
+            onOpenDownloads={() => setShowDownloadManager(true)}
+            user={user}
+            messagesRemaining={messagesRemaining}
+            hasBalance={hasBalance}
+            isAnonymous={isAnonymous}
+            onSignIn={() => { setAuthModalMode('signin'); setShowAuthModal(true) }}
+            onSignOut={signOut}
+            onOpenUsage={() => setShowUsageDashboard(true)}
+            onResetPassword={resetPassword}
+            onDeleteAccount={user ? async () => {
+              await signOut()
+            } : undefined}
+            onOpenStore={() => setShowStore(true)}
+            onRedoOnboarding={() => {
+              storage.delete(`book-onboarded:${book.id}`)
+              try { localStorage.removeItem(`tinct-book-onboarded-${book.id}`) } catch { /* ignore */ }
+              setShowSettings(false)
+              setShowBookOnboarding(true)
+            }}
+            onShowTour={() => setShowTour(true)}
+          />
+        </Suspense>
+      )}
 
 
       {showAuthModal && (
@@ -3126,14 +3486,16 @@ export default function App() {
       )}
 
       {showPricingModal && (
-        <PricingModal
-          onClose={() => setShowPricingModal(false)}
-          onCreateAccount={() => {
-            setShowPricingModal(false)
-            setAuthModalMode('signup')
-            setShowAuthModal(true)
-          }}
-        />
+        <Suspense fallback={<LazySurfaceFallback />}>
+          <PricingModal
+            onClose={() => setShowPricingModal(false)}
+            onCreateAccount={() => {
+              setShowPricingModal(false)
+              setAuthModalMode('signup')
+              setShowAuthModal(true)
+            }}
+          />
+        </Suspense>
       )}
 
       {isPasswordRecovery && (
@@ -3202,21 +3564,23 @@ export default function App() {
       )}
 
       {showUsageDashboard && (
-        <UsageDashboard
-          profile={profile}
-          onClose={() => setShowUsageDashboard(false)}
-          onCheckout={handleCheckout}
-          onCancelSubscription={handleCancelSubscription}
-          isAnonymous={isAnonymous}
-          isSubscribed={isSubscribed}
-          isCanceled={profile?.subscription_status === 'canceled'}
-          onSignIn={() => { setShowUsageDashboard(false); setShowAuthModal(true) }}
-          messagesRemaining={messagesRemaining}
-          monthlyRemaining={monthlyRemaining}
-          messageBalance={messageBalance}
-          session={session}
-          fixesCount={fixesCount}
-        />
+        <Suspense fallback={<LazySurfaceFallback />}>
+          <UsageDashboard
+            profile={profile}
+            onClose={() => setShowUsageDashboard(false)}
+            onCheckout={handleCheckout}
+            onCancelSubscription={handleCancelSubscription}
+            isAnonymous={isAnonymous}
+            isSubscribed={isSubscribed}
+            isCanceled={profile?.subscription_status === 'canceled'}
+            onSignIn={() => { setShowUsageDashboard(false); setShowAuthModal(true) }}
+            messagesRemaining={messagesRemaining}
+            monthlyRemaining={monthlyRemaining}
+            messageBalance={messageBalance}
+            session={session}
+            fixesCount={fixesCount}
+          />
+        </Suspense>
       )}
 
       {showTopUp && (
@@ -3266,7 +3630,7 @@ export default function App() {
       )}
 
       {/* Sign-in banner for returning anonymous users (device has tinct:last-user-id). */}
-      {!user && !showBookOnboarding && !showStore && (
+      {!user && !authPendingForKnownUser && !showBookOnboarding && !showStore && (
         <SignInBanner onSignIn={() => { setAuthModalMode('signin'); setShowAuthModal(true) }} />
       )}
 
@@ -3382,7 +3746,7 @@ export default function App() {
       {/* Hide the create-account banner during the preface. We want a clean
           read-the-front-matter experience first; the banner reappears once the
           user is in the book proper. */}
-      {!isDemoMode && !(isPrefaceMode && showBookOnboarding) && (
+      {!isDemoMode && !(effectivePrefaceMode && showBookOnboarding) && (
         <TrialBanner
           onSubscribe={() => handleCheckout('subscription')}
           onCreateAccount={() => {
@@ -3439,7 +3803,7 @@ export default function App() {
           <div className="mobile-views">
             {/* View 0: Reader (or Preface during onboarding) */}
             <div className={`mobile-view ${activeView === 0 ? 'mobile-view-active' : ''}`}>
-              {isPrefaceMode && showBookOnboarding ? (
+              {effectivePrefaceMode && showBookOnboarding ? (
                 <BookOnboardingPreface
                   book={book}
                   editions={book.editions}
@@ -3493,8 +3857,9 @@ export default function App() {
                   panelOpen={preferences.panelOpen}
                   fontSize={preferences.fontSize}
                   fontFamily={preferences.fontFamily}
+                  layoutSignal={audioStripOpen}
                   onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                  onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                  onPrevChapter={currentChapter > 1 ? userChapterPrev : (canOpenBookPreface ? handleBackToPreface : undefined)}
                   onDeleteHighlight={removeHighlight}
                   onUpdateHighlightNote={updateHighlightNote}
                   onUpdateHighlightColor={updateHighlightColor}
@@ -3535,8 +3900,9 @@ export default function App() {
                   currentChapter={currentChapter}
                   authToken={session?.access_token}
                   editionLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
+                  layoutSignal={audioStripOpen}
                   onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                  onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                  onPrevChapter={currentChapter > 1 ? userChapterPrev : (canOpenBookPreface ? handleBackToPreface : undefined)}
                   onDeleteHighlight={removeHighlight}
                   onUpdateHighlightNote={updateHighlightNote}
                   onUpdateHighlightColor={updateHighlightColor}
@@ -3584,6 +3950,7 @@ export default function App() {
                   allBookNotes={getAllBookNotes()}
                   chapterLabels={chapterLabels}
                   chapterLabelByNumber={chapterLabelByNumber}
+                  chapterTitleByNumber={chapterTitleByNumber}
                   readingLog={readingLog}
                   totalChapters={totalChapters}
                   sections={primaryData?.sections}
@@ -3609,7 +3976,7 @@ export default function App() {
           </div>
         ) : (
           <>
-            {isPrefaceMode && showBookOnboarding ? (
+            {effectivePrefaceMode && showBookOnboarding ? (
               <BookOnboardingPreface
                 book={book}
                 editions={book.editions}
@@ -3664,8 +4031,9 @@ export default function App() {
                 panelOpen={preferences.panelOpen}
                 fontSize={preferences.fontSize}
                 fontFamily={preferences.fontFamily}
+                layoutSignal={audioStripOpen}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : (canOpenBookPreface ? handleBackToPreface : undefined)}
                 onDeleteHighlight={removeHighlight}
                 onUpdateHighlightNote={updateHighlightNote}
                 onUpdateHighlightColor={updateHighlightColor}
@@ -3707,7 +4075,7 @@ export default function App() {
                 fontSize={preferences.fontSize}
                 fontFamily={preferences.fontFamily}
                 onNextChapter={currentChapter < totalChapters ? userChapterNext : undefined}
-                onPrevChapter={currentChapter > 1 ? userChapterPrev : (isPrefaceMode ? handleBackToPreface : undefined)}
+                onPrevChapter={currentChapter > 1 ? userChapterPrev : (canOpenBookPreface ? handleBackToPreface : undefined)}
                 onDeleteHighlight={removeHighlight}
                 onUpdateHighlightNote={updateHighlightNote}
                 onUpdateHighlightColor={updateHighlightColor}
@@ -3750,6 +4118,7 @@ export default function App() {
               allBookNotes={getAllBookNotes()}
               chapterLabels={chapterLabels}
               chapterLabelByNumber={chapterLabelByNumber}
+              chapterTitleByNumber={chapterTitleByNumber}
               readingLog={readingLog}
               totalChapters={totalChapters}
               sections={primaryData?.sections}
@@ -3783,14 +4152,28 @@ export default function App() {
           onSelectChapter={(n) => handleNavigateToChapter(n)}
           onClose={() => setShowToc(false)}
           sections={primaryData.sections}
-          onShowPreface={isPrefaceMode ? handleShowPrefaceFromToc : undefined}
+          onShowPreface={canOpenBookPreface ? handleShowPrefaceFromToc : undefined}
         />
       )}
 
-      {showSearch && primaryData && (
+      {showSearch && primaryData && isEditionWindowed(primaryData) && !searchData && (
+        <div className="toc-overlay" onClick={() => setShowSearch(false)}>
+          <div className="toc-panel search-panel" onClick={e => e.stopPropagation()}>
+            <div className="toc-header">
+              <h2 className="toc-title">Search</h2>
+              <button className="toc-close" onClick={() => setShowSearch(false)}>&times;</button>
+            </div>
+            <div className="search-count">
+              {searchLoadError || (searchLoading ? 'Loading search...' : 'Preparing search...')}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSearch && primaryData && (!isEditionWindowed(primaryData) || searchData) && (
         <SearchOverlay
-          chapters={primaryData.chapters.map(c => ({ ...c, title: normalizeChapterTitle(c.title) }))}
-          sections={primaryData.sections}
+          chapters={(searchData ?? primaryData).chapters.map(c => ({ ...c, title: normalizeChapterTitle(c.title) }))}
+          sections={(searchData ?? primaryData).sections}
           currentChapter={currentChapter}
           onNavigate={(chapter, paragraphIndex) => {
             targetParagraphRef.current = paragraphIndex
@@ -3809,7 +4192,7 @@ export default function App() {
           isn't meaningful before the reader opens. Read + Compare stay
           enabled because they map to existing preface views. */}
       {isMobile && (() => {
-        const sidePanelTabsDisabled = isPrefaceMode && showBookOnboarding
+        const sidePanelTabsDisabled = effectivePrefaceMode && showBookOnboarding
         const disabledStyle: React.CSSProperties | undefined = sidePanelTabsDisabled
           ? { opacity: 0.35, pointerEvents: 'none' }
           : undefined
@@ -3843,7 +4226,7 @@ export default function App() {
       <BottomBar
         ref={bottomBarRef}
         chapterTitle={chapterTitle}
-        percentComplete={readingPercent}
+        percentComplete={displayReadingPercent}
         timeRemainingLabel={timeRemainingLabel}
         isLearned={isSpeedLearned}
         currentPage={currentPage}
@@ -3870,10 +4253,10 @@ export default function App() {
           if (rawSecs < 90) return `${Math.max(5, Math.round(rawSecs / 5) * 5)}s left`
           return `${Math.round(rawSecs / 60)}min left`
         })()}
-        locationCurrent={primaryData ? primaryData.chapters.slice(0, currentChapter - 1).reduce((sum, c) => sum + c.paragraphs.length, 0) + (firstVisibleParagraph || 0) : 0}
-        locationTotal={primaryData ? primaryData.chapters.reduce((sum, c) => sum + c.paragraphs.length, 0) : 0}
+        locationCurrent={locationCurrent}
+        locationTotal={locationTotal}
         locationCurrentChapter={firstVisibleParagraph}
-        locationTotalChapter={primaryChapter?.paragraphs.length}
+        locationTotalChapter={chapterParagraphTotal(primaryChapter)}
         progressDisplay={preferences.progressDisplay}
         bookId={book.id}
         editionKey={effectiveAudioEditionKey}
@@ -3882,6 +4265,7 @@ export default function App() {
         onPlayStateChange={handleAudioPlayStateChange}
         onProgressChange={setAudioProgress}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
+        onBookEnd={() => handleBookComplete('audio')}
         firstVisibleParagraph={firstVisibleParagraph}
         compact={isMobile}
         onNextChapter={currentChapter < totalChapters ? handleNextChapter : undefined}
@@ -3889,7 +4273,7 @@ export default function App() {
         initialAudioParagraph={savedPos.current?.chapterNumber === currentChapter ? savedPos.current?.lastParagraphIndex : undefined}
         chapterTicks={(() => {
           if (!primaryData || primaryData.chapters.length <= 1) return undefined
-          const total = primaryData.chapters.reduce((s, c) => s + c.paragraphs.length, 0)
+          const total = editionParagraphTotal(primaryData)
           if (total === 0) return undefined
 
           // For books with sections (e.g. Bible, Plato), show section boundaries.
@@ -3909,7 +4293,7 @@ export default function App() {
               const chapterNumbers = collect(sec)
               for (const chN of chapterNumbers) {
                 const ch = primaryData.chapters.find(c => c.number === chN)
-                if (ch) accum += ch.paragraphs.length
+                if (ch) accum += chapterParagraphTotal(ch)
               }
               sectionEnds.push(accum / total)
             }
@@ -3924,7 +4308,7 @@ export default function App() {
             const ticks: number[] = []
             let accum2 = 0
             for (let i = 0; i < chapterCount - 1; i++) {
-              accum2 += primaryData.chapters[i].paragraphs.length
+              accum2 += chapterParagraphTotal(primaryData.chapters[i])
               ticks.push(accum2 / total)
             }
             return ticks

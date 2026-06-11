@@ -400,6 +400,7 @@ export const OTHELLO: Book = {
       style: 'original',
       label: 'Shakespeare (1622)',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -407,6 +408,7 @@ export const OTHELLO: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-da',
@@ -414,11 +416,12 @@ export const OTHELLO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: true,
     },
   ],
 }
 
-// Staged Shakespeare adds — original-en parsed, modern editions are scaffold. Not in BOOKS until translated.
+// Staged Shakespeare adds.
 export const KING_LEAR: Book = {
   id: 'king-lear',
   title: 'King Lear',
@@ -429,9 +432,9 @@ export const KING_LEAR: Book = {
   coverColor: '#1f1015',
   coverAccent: '#a04050',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1608)', year: 1608, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1608)', year: 1608, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -465,9 +468,9 @@ export const TWELFTH_NIGHT: Book = {
   coverColor: '#1a2a3a',
   coverAccent: '#e0c060',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -501,8 +504,8 @@ export const MUCH_ADO_ABOUT_NOTHING: Book = {
   coverColor: '#2a1820',
   coverAccent: '#d090a0',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
       hasAudio: true,
     },
@@ -537,9 +540,9 @@ export const TAMING_OF_THE_SHREW: Book = {
   coverColor: '#2a1a1a',
   coverAccent: '#d0a070',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -553,9 +556,9 @@ export const ANTONY_AND_CLEOPATRA: Book = {
   coverColor: '#1a1228',
   coverAccent: '#c89060',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -569,8 +572,8 @@ export const RICHARD_III: Book = {
   coverColor: '#1f0a0a',
   coverAccent: '#a85030',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1597)', year: 1597, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1597)', year: 1597, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
       hasAudio: true,
     },
@@ -605,7 +608,7 @@ export const CORIOLANUS: Book = {
   coverColor: '#2a1a1a',
   coverAccent: '#8a4030',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
       hasAudio: true,
     },
@@ -661,9 +664,9 @@ export const MEASURE_FOR_MEASURE: Book = {
   coverColor: '#1f1a2a',
   coverAccent: '#8a7090',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -677,9 +680,9 @@ export const CYMBELINE: Book = {
   coverColor: '#1a2528',
   coverAccent: '#a0c0b0',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -693,9 +696,9 @@ export const HENRY_IV_PART_2: Book = {
   coverColor: '#1a1a28',
   coverAccent: '#a89060',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1600)', year: 1600, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -709,9 +712,9 @@ export const MERRY_WIVES_OF_WINDSOR: Book = {
   coverColor: '#1f2820',
   coverAccent: '#c0a850',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
@@ -3172,17 +3175,16 @@ export const ANNA_KARENINA: Book = {
   coverColor: '#1a1a28',
   coverAccent: '#b09870',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Garnett (1901)', translator: 'Constance Garnett', year: 1901, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Garnett (1901)', translator: 'Constance Garnett', year: 1901, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
   ],
 }
 
 /** All books in the library */
 // LEVIATHAN is defined above but NOT in BOOKS yet — modern-en/modern-da scaffold only.
-// Shakespeare staged but text not yet complete / audio pending: OTHELLO, KING_LEAR, TWELFTH_NIGHT, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, MEASURE_FOR_MEASURE.
-// Canon staged but not yet translated: DON_QUIXOTE, ESSAYS_MONTAIGNE, HUME_ENQUIRY, KANT_GROUNDWORK, WEALTH_OF_NATIONS, ANNA_KARENINA.
-export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR]
+// Canon staged but not yet translated: DON_QUIXOTE, ESSAYS_MONTAIGNE, HUME_ENQUIRY, KANT_GROUNDWORK, WEALTH_OF_NATIONS.
+export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA]
 
 export const ALL_BOOKS: Book[] = BOOKS
 

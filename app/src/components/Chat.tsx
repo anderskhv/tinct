@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import { memo, useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import type { ChatMessage, ChatConversation } from '../types'
 import { BalanceIndicator } from './BalanceIndicator'
 import { ContextualAnglePrompt } from './ContextualAnglePrompt'
@@ -206,20 +206,77 @@ interface ChatProps {
   chatConversations?: ChatConversation[]
 }
 
-export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, chapterLabelByNumber, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
+interface ChatMessageItemProps {
+  msg: ChatMessage
+  onCopyToNotes?: (content: string) => void
+}
+
+const ChatMessageItem = memo(function ChatMessageItem({ msg }: ChatMessageItemProps) {
+  const renderedContent = useMemo(() => renderMarkdown(msg.content), [msg.content])
+  return (
+    <div className={`chat-message chat-message-${msg.role}`}>
+      {msg.highlightedText && (
+        <div className="chat-highlight">
+          <span className="chat-highlight-label">Selected passage:</span>
+          <blockquote>{msg.highlightedText.length > 200 ? msg.highlightedText.slice(0, 200) + '...' : msg.highlightedText}</blockquote>
+        </div>
+      )}
+      <div className="chat-message-content">
+        {renderedContent}
+      </div>
+      {msg.timestamp > 0 && (
+        <div className="chat-message-time" title={formatAbsolute(msg.timestamp)}>
+          {formatRelative(msg.timestamp)}
+        </div>
+      )}
+      {msg.refreshAction && (
+        <button
+          className="chat-refresh-action"
+          onClick={() => window.location.reload()}
+        >
+          Refresh page
+        </button>
+      )}
+    </div>
+  )
+})
+
+const ChatHistoryMessageItem = memo(function ChatHistoryMessageItem({ msg }: { msg: ChatMessage }) {
+  const renderedContent = useMemo(() => renderMarkdown(msg.content), [msg.content])
+  return (
+    <div className={`chat-message chat-message-${msg.role}`}>
+      {msg.highlightedText && (
+        <div className="chat-highlight">
+          <span className="chat-highlight-label">Selected passage:</span>
+          <blockquote>{msg.highlightedText.length > 200 ? msg.highlightedText.slice(0, 200) + '...' : msg.highlightedText}</blockquote>
+        </div>
+      )}
+      <div className="chat-message-content">
+        {renderedContent}
+      </div>
+    </div>
+  )
+})
+
+interface ChatInputProps {
+  isLoading: boolean
+  pendingHighlight: string | null
+  onClearHighlight: () => void
+  onSendMessage: (content: string, highlightedText?: string) => void
+}
+
+const ChatInput = memo(function ChatInput({ isLoading, pendingHighlight, onClearHighlight, onSendMessage }: ChatInputProps) {
   const [input, setInput] = useState('')
-  const [searchQuery, setSearchQuery] = useState('')
-  const [showSearch, setShowSearch] = useState(false)
   const [isListening, setIsListening] = useState(false)
   // Elapsed seconds since the user tapped the mic. Increments steadily
   // even when the underlying recognition engine restarts mid-session
   // (Boox cycles every few seconds and plays start/stop chimes), giving
   // the user undeniable visual proof the session is unbroken.
   const [listeningSeconds, setListeningSeconds] = useState(0)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const recognitionRef = useRef<SpeechRecognition | null>(null)
   const voiceTranscriptRef = useRef('')
+  const micPermissionGrantedRef = useRef(false)
   // Snapshot of "finalized" transcript that survives across recognition
   // sessions. Boox auto-stops the audio engine after ~5s of silence even
   // with continuous=true, so we restart it from onend; each restart's
@@ -241,9 +298,34 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   // webkitSpeechRecognition, so the icon now appears there too.
   const hasSpeechRecognition = typeof window !== 'undefined' && !!(window.SpeechRecognition || window.webkitSpeechRecognition)
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
+  const ensureMicrophonePermission = useCallback(async () => {
+    if (micPermissionGrantedRef.current) return true
+    if (typeof navigator === 'undefined') return true
+
+    try {
+      const permissions = navigator.permissions as Permissions | undefined
+      const status = await permissions?.query?.({ name: 'microphone' as PermissionName })
+      if (status?.state === 'granted') {
+        micPermissionGrantedRef.current = true
+        return true
+      }
+      if (status?.state === 'denied') return false
+    } catch {
+      // Safari/WebViews often do not expose microphone through Permissions API.
+    }
+
+    const mediaDevices = navigator.mediaDevices
+    if (!mediaDevices?.getUserMedia) return true
+
+    try {
+      const stream = await mediaDevices.getUserMedia({ audio: true })
+      stream.getTracks().forEach(track => track.stop())
+      micPermissionGrantedRef.current = true
+      return true
+    } catch {
+      return false
+    }
+  }, [])
 
   useEffect(() => {
     if (pendingHighlight) {
@@ -396,7 +478,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   createRecognitionRef.current = createRecognition
 
   // Voice input
-  const toggleVoice = useCallback(() => {
+  const toggleVoice = useCallback(async () => {
     if (isListening) {
       isListeningRef.current = false
       stopRecognition()
@@ -404,6 +486,8 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
       return
     }
     if (!hasSpeechRecognition) return
+    const hasMicPermission = await ensureMicrophonePermission()
+    if (!hasMicPermission) return
     // Fresh session — clear any prior committed text from a previous toggle.
     committedTranscriptRef.current = ''
     voiceTranscriptRef.current = ''
@@ -418,12 +502,135 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     } catch {
       isListeningRef.current = false
     }
-  }, [isListening, hasSpeechRecognition, stopRecognition, createRecognition])
+  }, [isListening, hasSpeechRecognition, stopRecognition, createRecognition, ensureMicrophonePermission])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const message = input.trim() || (pendingHighlight ? 'Explain this passage to me.' : '')
+    if (!message && !pendingHighlight) return
+
+    onSendMessage(message, pendingHighlight || undefined)
+    setInput('')
+    onClearHighlight()
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSubmit(e)
+    }
+  }
+
+  return (
+    <form className="chat-input-form" onSubmit={handleSubmit}>
+      {pendingHighlight && (
+        <div className="chat-pending-highlight">
+          <span className="chat-pending-label">Selected passage:</span>
+          <span className="chat-pending-text">{pendingHighlight}</span>
+          <button
+            type="button"
+            className="chat-pending-dismiss"
+            onClick={onClearHighlight}
+            aria-label="Clear selected passage"
+          >
+            x
+          </button>
+        </div>
+      )}
+      {isListening ? (
+        <div className="chat-voice-active">
+          <div className="chat-voice-rec" aria-label="Recording">
+            <span className="chat-voice-rec-dot" />
+            <span className="chat-voice-rec-time">
+              {String(Math.floor(listeningSeconds / 60)).padStart(1, '0')}:
+              {String(listeningSeconds % 60).padStart(2, '0')}
+            </span>
+          </div>
+          <div className="chat-voice-waveform">
+            <span /><span /><span /><span /><span />
+          </div>
+          <span className="chat-voice-label">{input || 'Listening — keep going, the chime is just the engine restarting'}</span>
+          <button
+            type="button"
+            className="chat-voice-stop"
+            onClick={() => {
+              stopRecognition()
+              setIsListening(false)
+              const transcript = voiceTranscriptRef.current.trim()
+              voiceTranscriptRef.current = ''
+              setInput('')
+              if (transcript) {
+                onSendMessage(transcript, pendingHighlight || undefined)
+                onClearHighlight()
+              }
+            }}
+            title="Stop and send"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
+      ) : (
+        <div className="chat-input-row">
+          <textarea
+            ref={inputRef}
+            className="chat-input"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder={pendingHighlight ? 'Ask about this passage...' : 'Ask about what you\'re reading...'}
+            rows={1}
+            disabled={isLoading}
+          />
+          {hasSpeechRecognition && (
+            <button
+              type="button"
+              className="chat-mic"
+              onClick={toggleVoice}
+              title="Voice input"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                <line x1="12" y1="19" x2="12" y2="23" />
+                <line x1="8" y1="23" x2="16" y2="23" />
+              </svg>
+            </button>
+          )}
+          <button
+            type="submit"
+            className="chat-send"
+            disabled={isLoading}
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
+      )}
+    </form>
+  )
+})
+
+export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, chapterLabelByNumber, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
+  const [searchQuery, setSearchQuery] = useState('')
+  const [showSearch, setShowSearch] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
 
   // Search filter
-  const filteredMessages = searchQuery.trim()
-    ? messages.filter(m => !m.chapterDivider && m.content.toLowerCase().includes(searchQuery.toLowerCase()))
-    : messages
+  const filteredMessages = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase()
+    return q
+      ? messages.filter(m => !m.chapterDivider && m.content.toLowerCase().includes(q))
+      : messages
+  }, [messages, searchQuery])
 
   // Inject "Moved to <chapter>" dividers between messages whose
   // chapterNumber differs from the previous one. Pure render-time
@@ -465,23 +672,6 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
   const getChapterLabel = (chapterNum: number) => {
     if (chapterLabelByNumber?.[chapterNum]) return chapterLabelByNumber[chapterNum]
     return chapterLabels?.[chapterNum - 1] || `Chapter ${chapterNum}`
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const message = input.trim() || (pendingHighlight ? 'Explain this passage to me.' : '')
-    if (!message && !pendingHighlight) return
-
-    onSendMessage(message, pendingHighlight || undefined)
-    setInput('')
-    onClearHighlight()
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSubmit(e)
-    }
   }
 
   return (
@@ -532,17 +722,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                   {isOpen && (
                     <div className="chat-history-messages">
                       {c.messages.map((m, i) => (
-                        <div key={i} className={`chat-message chat-message-${m.role}`}>
-                          {m.highlightedText && (
-                            <div className="chat-highlight">
-                              <span className="chat-highlight-label">Selected passage:</span>
-                              <blockquote>{m.highlightedText.length > 200 ? m.highlightedText.slice(0, 200) + '...' : m.highlightedText}</blockquote>
-                            </div>
-                          )}
-                          <div className="chat-message-content">
-                            {renderMarkdown(m.content)}
-                          </div>
-                        </div>
+                        <ChatHistoryMessageItem key={m.id || i} msg={m} />
                       ))}
                     </div>
                   )}
@@ -590,7 +770,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
                 What should I watch for?
               </button>
             </div>
-            {messagesRemaining != null && onTopUp && onSignIn && (
+            {messagesRemaining != null && onTopUp && onSignIn && (hasBalance !== false || isAnonymous) && (
               <div style={{ animationDelay: '0.3s' }}>
                 <BalanceIndicator
                   messagesRemaining={messagesRemaining}
@@ -610,30 +790,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
               <span>Moved to {getChapterLabel(msg.chapterDivider)}</span>
             </div>
           ) : (
-            <div key={msg.id} className={`chat-message chat-message-${msg.role}`}>
-              {msg.highlightedText && (
-                <div className="chat-highlight">
-                  <span className="chat-highlight-label">Selected passage:</span>
-                  <blockquote>{msg.highlightedText.length > 200 ? msg.highlightedText.slice(0, 200) + '...' : msg.highlightedText}</blockquote>
-                </div>
-              )}
-              <div className="chat-message-content">
-                {renderMarkdown(msg.content)}
-              </div>
-              {msg.timestamp > 0 && (
-                <div className="chat-message-time" title={formatAbsolute(msg.timestamp)}>
-                  {formatRelative(msg.timestamp)}
-                </div>
-              )}
-              {msg.refreshAction && (
-                <button
-                  className="chat-refresh-action"
-                  onClick={() => window.location.reload()}
-                >
-                  Refresh page
-                </button>
-              )}
-            </div>
+            <ChatMessageItem key={msg.id} msg={msg} />
           )
         ))}
 
@@ -648,99 +805,12 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
         <div ref={messagesEndRef} />
       </div>
 
-      <form className="chat-input-form" onSubmit={handleSubmit}>
-        {pendingHighlight && (
-          <div className="chat-pending-highlight">
-            <span className="chat-pending-label">Selected passage:</span>
-            <span className="chat-pending-text">{pendingHighlight}</span>
-            <button
-              type="button"
-              className="chat-pending-dismiss"
-              onClick={onClearHighlight}
-              aria-label="Clear selected passage"
-            >
-              x
-            </button>
-          </div>
-        )}
-        {isListening ? (
-          <div className="chat-voice-active">
-            <div className="chat-voice-rec" aria-label="Recording">
-              <span className="chat-voice-rec-dot" />
-              <span className="chat-voice-rec-time">
-                {String(Math.floor(listeningSeconds / 60)).padStart(1, '0')}:
-                {String(listeningSeconds % 60).padStart(2, '0')}
-              </span>
-            </div>
-            <div className="chat-voice-waveform">
-              <span /><span /><span /><span /><span />
-            </div>
-            <span className="chat-voice-label">{input || 'Listening — keep going, the chime is just the engine restarting'}</span>
-            <button
-              type="button"
-              className="chat-voice-stop"
-              onClick={() => {
-                // Detach handlers BEFORE stop() — see stopRecognition comment.
-                // Without this, mobile WebKit flushes a late onresult after
-                // we've cleared the textarea, repopulating it post-send.
-                stopRecognition()
-                setIsListening(false)
-                const transcript = voiceTranscriptRef.current.trim()
-                voiceTranscriptRef.current = ''
-                setInput('')
-                if (transcript) {
-                  onSendMessage(transcript, pendingHighlight || undefined)
-                  onClearHighlight()
-                }
-              }}
-              title="Stop and send"
-            >
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
-            </button>
-          </div>
-        ) : (
-          <div className="chat-input-row">
-            <textarea
-              ref={inputRef}
-              className="chat-input"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder={pendingHighlight ? 'Ask about this passage...' : 'Ask about what you\'re reading...'}
-              rows={1}
-              disabled={isLoading}
-            />
-            {hasSpeechRecognition && (
-              <button
-                type="button"
-                className="chat-mic"
-                onClick={toggleVoice}
-                title="Voice input"
-              >
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                  <line x1="12" y1="19" x2="12" y2="23" />
-                  <line x1="8" y1="23" x2="16" y2="23" />
-                </svg>
-              </button>
-            )}
-            <button
-              type="submit"
-              className="chat-send"
-              disabled={isLoading}
-            >
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-              </button>
-          </div>
-        )}
-      </form>
+      <ChatInput
+        isLoading={isLoading}
+        pendingHighlight={pendingHighlight}
+        onClearHighlight={onClearHighlight}
+        onSendMessage={onSendMessage}
+      />
     </div>
   )
 }

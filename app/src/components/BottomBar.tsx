@@ -103,6 +103,8 @@ interface BottomBarProps {
   onParagraphChange?: (paragraphIndex: number) => void
   /** Called when audio reaches the end of the chapter */
   onChapterEnd?: () => void
+  /** Called when audio reaches the end of the final chapter */
+  onBookEnd?: () => void
   /** Index of the first paragraph visible on the current reader page */
   firstVisibleParagraph?: number
   /** Compact mode: show only percentage, hide page count and time */
@@ -136,7 +138,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     chapterPercentComplete, chapterTimeLabel, sectionPercentComplete, sectionTimeLabel,
     locationCurrent, locationTotal, progressDisplay,
     bookCurrentPage, bookTotalPages, locationCurrentChapter, locationTotalChapter,
-    bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, firstVisibleParagraph, compact,
+    bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, onBookEnd, firstVisibleParagraph, compact,
     onNextChapter, onPrevChapter, initialAudioParagraph, onPlayStateChange, onProgressChange,
     chapterTicks, currentChapterIndex, chapterTitle,
   }, ref) {
@@ -179,6 +181,8 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     onParagraphChangeRef.current = onParagraphChange
     const onChapterEndRef = useRef(onChapterEnd)
     onChapterEndRef.current = onChapterEnd
+    const onBookEndRef = useRef(onBookEnd)
+    onBookEndRef.current = onBookEnd
     // Track whether we should auto-resume after chapter change
     const shouldResumeRef = useRef(false)
     // True while the disclaimer is playing on the main audio element. Tells
@@ -241,6 +245,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
           applyAudioRate(audio, speedRef.current)
+          try { audio.load() } catch { /* ignore */ }
           const followingPara = m.paragraphs[nextIndex + 1]
           if (followingPara) {
             warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${followingPara.file}`))
@@ -252,8 +257,13 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           // Chapter finished — auto-advance
           setIsPlaying(false)
           setProgress(0)
-          shouldResumeRef.current = true
-          onChapterEndRef.current?.()
+          if (onChapterEndRef.current) {
+            shouldResumeRef.current = true
+            onChapterEndRef.current()
+          } else {
+            shouldResumeRef.current = false
+            onBookEndRef.current?.()
+          }
         }
       }
 
@@ -278,6 +288,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
           audio.src = url
           applyAudioRate(audio, speedRef.current)
+          try { audio.load() } catch { /* ignore */ }
           audio.play().catch(() => { setIsPlaying(false) })
         } else {
           setIsPlaying(false)
@@ -314,11 +325,15 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       let recovering = false
       const recoverStalledPlayback = () => {
         if (recovering || playingDisclaimerRef.current || audio.paused || audio.ended || !audio.src) return
+        const t = Math.max(0, audio.currentTime || 0)
+        if (t > 0.25) {
+          recordAudioDebug({ event: 'stall-recover-skipped-midfile', readyState: audio.readyState, networkState: audio.networkState, currentTime: t })
+          return
+        }
         const duration = Number.isFinite(audio.duration) ? audio.duration : 0
-        if (duration > 0 && duration - audio.currentTime < 1) return
+        if (duration > 0 && duration - t < 1) return
         recovering = true
         const src = audio.src
-        const t = Math.max(0, audio.currentTime || 0)
         const rate = speedRef.current
         recordAudioDebug({ event: 'stall-recover', rate, readyState: audio.readyState, networkState: audio.networkState, currentTime: t })
         try { audio.pause() } catch { /* ignore */ }
@@ -440,6 +455,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             const paraUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`)
             audio.src = paraUrl
             applyAudioRate(audio, speedRef.current)
+            try { audio.load() } catch { /* ignore */ }
             if (data.paragraphs[1]) {
               warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[1].file}`))
             }
@@ -668,6 +684,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         audio.addEventListener('loadedmetadata', onLoaded)
         audio.src = url
         applyAudioRate(audio, speedRef.current)
+        try { audio.load() } catch { /* ignore */ }
         if (wasPlaying) {
           audio.play().catch(() => setIsPlaying(false))
         }

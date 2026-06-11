@@ -31,6 +31,8 @@ export interface Chapter {
   paragraphs: string[]
   /** Section path this chapter belongs to, e.g. "Old Testament — Genesis" */
   section?: string
+  /** Known paragraph total when a chapter's text is not loaded yet. */
+  paragraphCount?: number
 }
 
 /** Hierarchical section for table of contents (e.g., Testament → Book → Chapter) */
@@ -46,6 +48,12 @@ export interface EditionData {
   chapters: Chapter[]
   /** Optional hierarchical section structure for ToC (e.g., Bible) */
   sections?: Section[]
+  /** Present when only a chapter window is loaded for fast initial render. */
+  windowed?: {
+    complete: false
+    centerChapter: number
+    loadedChapters: number[]
+  }
 }
 
 export interface Book {
@@ -91,6 +99,8 @@ export interface ChatMessage {
   refreshAction?: boolean
   /** Chapter divider marker — if set, this message renders as a divider, not a chat bubble */
   chapterDivider?: number
+  /** Streaming assistant message is complete and safe to persist */
+  isComplete?: boolean
 }
 
 /** A group of chat messages from a single session/chapter */
@@ -106,6 +116,10 @@ export interface ChatConversation {
   preview: string
   /** AI-generated summary (replaces full messages in display when present) */
   summary?: string
+  /** Prompt/transcript sent to generate the summary, shown for auditability. */
+  summaryPrompt?: string
+  /** Epoch ms when the summary was generated. */
+  summaryCreatedAt?: number
 }
 
 // === Highlights & Annotations ===

@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { storage } from '../services/storage'
 import type { Highlight, HighlightColor, EditionKey } from '../types'
 
@@ -44,7 +44,12 @@ export function useHighlights(bookId: string, chapterNumber: number, totalChapte
 
   // Persist on change. Skip empty-array writes for nonexistent keys (state-init
   // noise) and out-of-bounds chapters (cross-book bleed).
+  const prevPersistBookIdRef = useRef(bookId)
   useEffect(() => {
+    if (prevPersistBookIdRef.current !== bookId) {
+      prevPersistBookIdRef.current = bookId
+      return
+    }
     if (!isChapterInBoundsForBook()) return
     if (highlights.length === 0 && storage.get<Highlight[]>(storageKey(bookId, chapterNumber)) === null) return
     storage.set(storageKey(bookId, chapterNumber), highlights)

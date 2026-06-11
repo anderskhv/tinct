@@ -118,6 +118,39 @@ export function shouldSkipOnBookChange(prevBookId: string, currentBookId: string
 }
 
 /**
+ * Same-book high-water guard.
+ *
+ * Returns true when reading history shows the user was substantially deeper
+ * in the same book than the attempted write, and no explicit user navigation
+ * happened recently. This catches stale tabs/passive restores that try to
+ * make an older chapter canonical after the account has already advanced.
+ */
+export function shouldBlockHistoryRegression(args: {
+  attemptedChapter: number
+  historyHighWaterChapter: number
+  lastUserNavAt: number
+  now: number
+  graceMs: number
+}): boolean {
+  const { attemptedChapter, historyHighWaterChapter, lastUserNavAt, now, graceMs } = args
+  if (historyHighWaterChapter <= attemptedChapter + 1) return false
+  if (now - lastUserNavAt <= graceMs) return false
+  return true
+}
+
+export function shouldCleanupProgress(args: {
+  highestCompletedChapter: number
+  totalChapters?: number
+  positionChapter: number
+  hasCompletedRecord?: boolean
+}): boolean {
+  const { highestCompletedChapter, totalChapters, positionChapter, hasCompletedRecord } = args
+  if (hasCompletedRecord) return false
+  if (typeof totalChapters === 'number' && totalChapters > 0 && highestCompletedChapter >= totalChapters) return false
+  return highestCompletedChapter > positionChapter + 3
+}
+
+/**
  * Migration-direction decider.
  *
  * Called by the sign-in migration loop in App.tsx to decide whether a

@@ -8,17 +8,31 @@ import { supabase } from './supabase'
 import type { StorageProvider } from './storage'
 import { localStorageProvider } from './storage'
 import type { RealtimeChannel } from '@supabase/supabase-js'
+import { coerceRev, shouldFallbackToLegacyUserDataWrite, versionedWriteApplied, type VersionedStorageRow } from './supabaseStorage.versioning'
 
 export type StorageChangeSource = 'broadcast' | 'realtime' | 'local'
 export type StorageChangeListener = (key: string, value: unknown, meta?: { source: StorageChangeSource }) => void
 
+function isCriticalUserDataKey(key: string): boolean {
+  return (
+    key === 'library' ||
+    key === 'tinct-current-book' ||
+    key.startsWith('position:') ||
+    key.startsWith('reading-log:')
+  )
+}
+
 export class SupabaseStorageProvider implements StorageProvider {
   private userId: string
   private cache: Map<string, unknown> = new Map()
+  private revs: Map<string, number> = new Map()
   private channel: RealtimeChannel | null = null
   private listeners: StorageChangeListener[] = []
   /** Keys written locally in the last 2s — used to ignore our own echo */
   private recentLocalWrites: Map<string, number> = new Map()
+  /** Latest unsent value per key while a versioned commit is in flight. */
+  private queuedCommits: Map<string, unknown> = new Map()
+  private commitInFlight: Set<string> = new Set()
   /** Same-browser tab-to-tab fanout (Phase 4.3). Open per provider; closed
    *  on unsubscribe. */
   private bc: BroadcastChannel | null = null
@@ -39,7 +53,7 @@ export class SupabaseStorageProvider implements StorageProvider {
     if (typeof BroadcastChannel === 'undefined') return
     try {
       this.bc = new BroadcastChannel(`tinct-storage:${this.userId}`)
-      this.bc.onmessage = (ev: MessageEvent<{ senderId: string; key: string; value: unknown; deleted?: boolean }>) => {
+      this.bc.onmessage = (ev: MessageEvent<{ senderId: string; key: string; value: unknown; deleted?: boolean; rev?: number }>) => {
         const msg = ev.data
         if (!msg || typeof msg.key !== 'string') return
         // Drop our own echoes. Without senderId, every tab would notify
@@ -60,6 +74,7 @@ export class SupabaseStorageProvider implements StorageProvider {
           this.cache.set(msg.key, msg.value)
           localStorageProvider.set(msg.key, msg.value)
         }
+        this.rememberRev(msg.key, msg.rev)
         for (const listener of this.listeners) {
           listener(msg.key, msg.deleted ? null : msg.value, { source: 'broadcast' })
         }
@@ -74,7 +89,7 @@ export class SupabaseStorageProvider implements StorageProvider {
   private bcEmit(key: string, value: unknown, deleted = false): void {
     if (!this.bc) return
     try {
-      this.bc.postMessage({ senderId: this.bcSenderId, key, value, deleted })
+      this.bc.postMessage({ senderId: this.bcSenderId, key, value, deleted, rev: this.revs.get(key) })
     } catch { /* clone error or channel closed — ignore */ }
   }
 
@@ -103,11 +118,41 @@ export class SupabaseStorageProvider implements StorageProvider {
    *   ~3-5s to under 1s. Heavy data loads in the background without
    *   blocking the reader.
    */
-  private hydrateRows(rows: Array<{ key: string; value: unknown }>): void {
+  private rememberRev(key: string, rev: unknown): void {
+    const parsed = coerceRev(rev)
+    if (parsed !== undefined) this.revs.set(key, parsed)
+  }
+
+  private forgetRev(key: string): void {
+    this.revs.delete(key)
+  }
+
+  private applyRemoteRow(row: VersionedStorageRow, source: StorageChangeSource): void {
+    if (!row.key) return
+    this.rememberRev(row.key, row.rev)
+    if (row.value === null) {
+      this.cache.delete(row.key)
+      localStorageProvider.delete(row.key)
+    } else {
+      this.cache.set(row.key, row.value)
+      localStorageProvider.set(row.key, row.value)
+    }
+    for (const listener of this.listeners) {
+      listener(row.key, row.value, { source })
+    }
+  }
+
+  private hydrateRows(rows: VersionedStorageRow[]): void {
     for (const row of rows) {
       const lastWrite = this.recentLocalWrites.get(row.key)
       if (lastWrite && Date.now() - lastWrite < 10_000) continue
-      this.cache.set(row.key, row.value)
+      this.rememberRev(row.key, row.rev)
+	      if (row.value === null) {
+	        this.cache.delete(row.key)
+	        localStorageProvider.delete(row.key)
+	        continue
+	      }
+	      this.cache.set(row.key, row.value)
       // Mirror to localStorage so a future offline session has the data
       // available even if init() can't reach the network. Without this,
       // a wipe + offline-init = no `tinct-tour-seen`, tour re-fires.
@@ -120,16 +165,30 @@ export class SupabaseStorageProvider implements StorageProvider {
     if (!supabase) return
     const orFilter = [
       'key.in.(tinct-current-book,tinct-tour-seen,library,preferences,audio-speed)',
-      'key.like.position:*',
-      'key.like.book-onboarded:*',
+	      'key.like.position:*',
+	      'key.like.book-completed:*',
+	      'key.like.book-onboarded:*',
       'key.like.reading-angle:*',
     ].join(',')
     const { data, error } = await supabase
       .from('user_data')
-      .select('key, value')
+      .select('key, value, rev')
       .eq('user_id', this.userId)
       .or(orFilter)
     if (error) {
+      if (shouldFallbackToLegacyUserDataWrite(error)) {
+        const legacy = await supabase
+          .from('user_data')
+          .select('key, value')
+          .eq('user_id', this.userId)
+          .or(orFilter)
+        if (legacy.error) {
+          console.warn('[Supabase] critical init failed:', legacy.error.message)
+          throw legacy.error
+        }
+        if (legacy.data) this.hydrateRows(legacy.data)
+        return
+      }
       console.warn('[Supabase] critical init failed:', error.message)
       throw error
     }
@@ -144,20 +203,36 @@ export class SupabaseStorageProvider implements StorageProvider {
     this.initPromise = (async () => {
       const orFilter = [
         'key.in.(tinct-current-book,tinct-tour-seen,library,preferences,audio-speed)',
-        'key.like.position:*',
-        'key.like.progress:*',
-        'key.like.reading-log:*',
+	        'key.like.position:*',
+	        'key.like.progress:*',
+	        'key.like.book-completed:*',
+	        'key.like.reading-log:*',
         'key.like.reading-speed:*',
         'key.like.book-onboarded:*',
         'key.like.reading-angle:*',
       ].join(',')
       const { data, error } = await supabase
         .from('user_data')
-        .select('key, value')
+        .select('key, value, rev')
         .eq('user_id', this.userId)
         .or(orFilter)
 
       if (error) {
+        if (shouldFallbackToLegacyUserDataWrite(error)) {
+          const legacy = await supabase
+            .from('user_data')
+            .select('key, value')
+            .eq('user_id', this.userId)
+            .or(orFilter)
+          if (legacy.error) {
+            console.warn('[Supabase] init failed:', legacy.error.message)
+            throw legacy.error
+          }
+          if (legacy.data) this.hydrateRows(legacy.data)
+          this.initSucceeded = true
+          void this.loadHeavy()
+          return
+        }
         console.warn('[Supabase] init failed:', error.message)
         throw error
       }
@@ -193,16 +268,39 @@ export class SupabaseStorageProvider implements StorageProvider {
         ].join(',')
         const { data, error } = await supabase!
           .from('user_data')
-          .select('key, value')
+          .select('key, value, rev')
           .eq('user_id', this.userId)
           .or(orFilter)
         if (error) {
+          if (shouldFallbackToLegacyUserDataWrite(error)) {
+            const legacy = await supabase!
+              .from('user_data')
+              .select('key, value')
+              .eq('user_id', this.userId)
+              .or(orFilter)
+            if (legacy.error) {
+              console.warn('[Supabase] heavy-load failed:', legacy.error.message)
+              return
+            }
+            if (legacy.data) this.hydrateRows(legacy.data)
+            this.heavyLoaded = true
+            for (const listener of this.listeners) {
+              listener('__heavy_loaded__', true, { source: 'local' })
+            }
+            return
+          }
           console.warn('[Supabase] heavy-load failed:', error.message)
           return
         }
         if (data) {
-          for (const row of data) {
-            // Only set if not already in cache — don't clobber recent writes.
+	          for (const row of data) {
+              this.rememberRev(row.key, row.rev)
+	            if (row.value === null) {
+	              this.cache.delete(row.key)
+	              localStorageProvider.delete(row.key)
+	              continue
+	            }
+	            // Only set if not already in cache — don't clobber recent writes.
             if (!this.cache.has(row.key)) {
               this.cache.set(row.key, row.value)
               // Same mirror logic as Phase A — preserve heavy data in
@@ -249,6 +347,10 @@ export class SupabaseStorageProvider implements StorageProvider {
 
   set<T>(key: string, value: T): void {
     if (!supabase) return
+    const oldValue = this.get(key)
+    if (isCriticalUserDataKey(key)) {
+      void this.auditWrite(key, oldValue, value)
+    }
     this.cache.set(key, value)
     // Always write to localStorage as fast cache for next page load
     localStorageProvider.set(key, value)
@@ -258,7 +360,46 @@ export class SupabaseStorageProvider implements StorageProvider {
     // update without waiting for the Supabase round-trip and back through
     // the WebSocket. Other tabs route this into the same listener chain.
     this.bcEmit(key, value, false)
-    this.upsertWithRetry(key, value)
+    this.scheduleVersionedCommit(key, value)
+  }
+
+  private scheduleVersionedCommit<T>(key: string, value: T): void {
+    this.queuedCommits.set(key, value)
+    if (this.commitInFlight.has(key)) return
+
+    this.commitInFlight.add(key)
+    void (async () => {
+      try {
+        while (this.queuedCommits.has(key)) {
+          const nextValue = this.queuedCommits.get(key) as T
+          this.queuedCommits.delete(key)
+          await this.commitWithRetry(key, nextValue, this.revs.get(key))
+        }
+      } finally {
+        this.commitInFlight.delete(key)
+        if (this.queuedCommits.has(key)) {
+          this.scheduleVersionedCommit(key, this.queuedCommits.get(key))
+        }
+      }
+    })()
+  }
+
+  private async auditWrite<T>(key: string, oldValue: unknown, newValue: T): Promise<void> {
+    if (!supabase) return
+    try {
+      await supabase
+        .from('user_data_audit')
+        .insert({
+          user_id: this.userId,
+          key,
+          old_value: oldValue ?? null,
+          new_value: newValue ?? null,
+          user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : null,
+        })
+    } catch {
+      // The audit table may not exist yet in older environments. Storage must
+      // keep working; the app build should not depend on this best-effort log.
+    }
   }
 
   /**
@@ -272,7 +413,7 @@ export class SupabaseStorageProvider implements StorageProvider {
    *   - the browser fires `online`
    *   - any subsequent upsert succeeds (proves the connection is back)
    */
-  private async upsertWithRetry<T>(key: string, value: T, attempt = 1): Promise<void> {
+  private async legacyUpsertWithRetry<T>(key: string, value: T, attempt = 1): Promise<void> {
     if (!supabase) return
     try {
       const { error } = await supabase
@@ -285,7 +426,7 @@ export class SupabaseStorageProvider implements StorageProvider {
         if (attempt === 1) {
           // Transient — retry once after 2s. Most "JWT expired" / "Failed to
           // fetch" errors clear themselves once the supabase-js client refreshes.
-          setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
+          setTimeout(() => { void this.legacyUpsertWithRetry(key, value, 2) }, 2000)
         } else {
           // Both attempts failed — queue for replay.
           enqueuePendingWrite({ userId: this.userId, key, value })
@@ -301,12 +442,81 @@ export class SupabaseStorageProvider implements StorageProvider {
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
       if (attempt === 1) {
-        setTimeout(() => { void this.upsertWithRetry(key, value, 2) }, 2000)
+        setTimeout(() => { void this.legacyUpsertWithRetry(key, value, 2) }, 2000)
       } else {
         enqueuePendingWrite({ userId: this.userId, key, value })
       }
       this.recordError(key, msg, attempt, value)
       console.warn(`[Supabase] write threw (attempt ${attempt}) key=${key}:`, msg)
+    }
+  }
+
+  private async commitWithRetry<T>(key: string, value: T, expectedRev?: number, attempt = 1): Promise<void> {
+    if (!supabase) return
+    try {
+      const { data, error } = await supabase
+        .rpc('commit_user_data', {
+          p_user_id: this.userId,
+          p_key: key,
+          p_value: value,
+          p_expected_rev: expectedRev ?? null,
+        })
+      if (error) {
+        if (shouldFallbackToLegacyUserDataWrite(error)) {
+          void this.legacyUpsertWithRetry(key, value, attempt)
+          return
+        }
+        if (attempt === 1) {
+          setTimeout(() => {
+            const latestValue = this.cache.has(key) ? this.cache.get(key) : value
+            if (this.commitInFlight.has(key)) {
+              this.scheduleVersionedCommit(key, latestValue as T)
+            } else {
+              void this.commitWithRetry(key, latestValue as T, this.revs.get(key), 2)
+            }
+          }, 2000)
+        } else {
+          enqueuePendingWrite({ userId: this.userId, key, value })
+        }
+        this.recordError(key, error.message, attempt, value)
+        console.warn(`[Supabase] versioned write failed (attempt ${attempt}) key=${key}:`, error.message)
+        return
+      }
+
+      const row = Array.isArray(data) ? data[0] as VersionedStorageRow | undefined : data as VersionedStorageRow | undefined
+      if (!versionedWriteApplied(row)) {
+        if (row?.key) {
+          if (this.queuedCommits.has(key)) {
+            this.rememberRev(row.key, row.rev)
+          } else {
+            this.applyRemoteRow(row, 'realtime')
+          }
+        }
+        this.recordError(key, 'version conflict', attempt, value)
+        if (!this.queuedCommits.has(key)) {
+          console.warn(`[Supabase] version conflict key=${key}; adopted server row`)
+        }
+        return
+      }
+      if (row?.key) this.rememberRev(row.key, row.rev)
+      this.recordSuccess(key, attempt, value)
+      void drainPendingQueue()
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e)
+      if (attempt === 1) {
+        setTimeout(() => {
+          const latestValue = this.cache.has(key) ? this.cache.get(key) : value
+          if (this.commitInFlight.has(key)) {
+            this.scheduleVersionedCommit(key, latestValue as T)
+          } else {
+            void this.commitWithRetry(key, latestValue as T, this.revs.get(key), 2)
+          }
+        }, 2000)
+      } else {
+        enqueuePendingWrite({ userId: this.userId, key, value })
+      }
+      this.recordError(key, msg, attempt, value)
+      console.warn(`[Supabase] versioned write threw (attempt ${attempt}) key=${key}:`, msg)
     }
   }
 
@@ -379,14 +589,7 @@ export class SupabaseStorageProvider implements StorageProvider {
     this.recentLocalWrites.set(key, Date.now())
     // Fan out to same-browser tabs (Phase 4.3) so they drop the cached value.
     this.bcEmit(key, null, true)
-    supabase
-      .from('user_data')
-      .delete()
-      .eq('user_id', this.userId)
-      .eq('key', key)
-      .then(({ error }) => {
-        if (error) console.warn('Supabase delete failed:', error.message)
-      })
+    this.scheduleVersionedCommit(key, null)
   }
 
   getAll<T>(prefix: string): T[] {
@@ -410,10 +613,23 @@ export class SupabaseStorageProvider implements StorageProvider {
     if (keys.length === 0) return
     const { data, error } = await supabase
       .from('user_data')
-      .select('key, value')
+      .select('key, value, rev')
       .eq('user_id', this.userId)
       .in('key', keys)
     if (error) {
+      if (shouldFallbackToLegacyUserDataWrite(error)) {
+        const legacy = await supabase
+          .from('user_data')
+          .select('key, value')
+          .eq('user_id', this.userId)
+          .in('key', keys)
+        if (legacy.error) {
+          console.warn('[Supabase] refreshKeys failed:', legacy.error.message)
+          return
+        }
+        if (legacy.data) this.hydrateRows(legacy.data)
+        return
+      }
       console.warn('[Supabase] refreshKeys failed:', error.message)
       return
     }
@@ -421,8 +637,14 @@ export class SupabaseStorageProvider implements StorageProvider {
       const seen = new Set<string>()
       for (const row of data) {
         seen.add(row.key)
-        this.cache.set(row.key, row.value)
-        localStorageProvider.set(row.key, row.value)
+        this.rememberRev(row.key, row.rev)
+	        if (row.value === null) {
+	          this.cache.delete(row.key)
+	          localStorageProvider.delete(row.key)
+	        } else {
+	          this.cache.set(row.key, row.value)
+	          localStorageProvider.set(row.key, row.value)
+	        }
       }
       // Keys requested but not present in the response have been deleted on
       // the server — drop them from the cache so we don't keep returning a
@@ -431,6 +653,7 @@ export class SupabaseStorageProvider implements StorageProvider {
         if (!seen.has(k)) {
           this.cache.delete(k)
           localStorageProvider.delete(k)
+          this.forgetRev(k)
         }
       }
     }
@@ -458,6 +681,10 @@ export class SupabaseStorageProvider implements StorageProvider {
    * have to refresh the tab to get realtime back. */
   subscribe(): void {
     if (!supabase) return
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      this.armOnlineRetry()
+      return
+    }
     try {
       this.channel = supabase
         .channel(`user_data:${this.userId}`)
@@ -469,21 +696,27 @@ export class SupabaseStorageProvider implements StorageProvider {
             table: 'user_data',
             filter: `user_id=eq.${this.userId}`,
           },
-          (payload) => {
-            const row = (payload.new as { key?: string; value?: unknown }) || {}
-            if (!row.key) return
+	          (payload) => {
+	            if (payload.eventType === 'DELETE') {
+	              const oldRow = (payload.old as { key?: string }) || {}
+	              if (!oldRow.key) return
+	              this.cache.delete(oldRow.key)
+	              localStorageProvider.delete(oldRow.key)
+	              for (const listener of this.listeners) {
+	                listener(oldRow.key, null, { source: 'realtime' })
+	              }
+	              return
+	            }
+	            const row = (payload.new as VersionedStorageRow) || {}
+	            if (!row.key) return
             // Ignore echoes from our own writes (within 2 seconds)
             const lastWrite = this.recentLocalWrites.get(row.key)
             if (lastWrite && Date.now() - lastWrite < 4000) {
               this.recentLocalWrites.delete(row.key)
               return
             }
-            // Remote change — update cache, localStorage, and notify listeners
-            this.cache.set(row.key, row.value)
-            localStorageProvider.set(row.key, row.value)
-            for (const listener of this.listeners) {
-              listener(row.key, row.value, { source: 'realtime' })
-            }
+	            // Remote change — update cache, localStorage, and notify listeners
+            this.applyRemoteRow(row, 'realtime')
           }
         )
         .subscribe()
@@ -557,6 +790,7 @@ interface PendingWrite {
   userId: string
   key: string
   value: unknown
+  expectedRev?: number
   queuedAt: number
 }
 
@@ -585,7 +819,7 @@ function savePending(map: Map<string, PendingWrite>): void {
   } catch { /* localStorage full or disabled */ }
 }
 
-export function enqueuePendingWrite(args: { userId: string; key: string; value: unknown }): void {
+export function enqueuePendingWrite(args: { userId: string; key: string; value: unknown; expectedRev?: number }): void {
   const map = loadPending()
   map.set(`${args.userId}::${args.key}`, { ...args, queuedAt: Date.now() })
   savePending(map)
@@ -605,15 +839,33 @@ export async function drainPendingQueue(): Promise<void> {
   try {
     for (const [k, write] of Array.from(map.entries())) {
       try {
-        const { error } = await supabase
-          .from('user_data')
-          .upsert(
-            { user_id: write.userId, key: write.key, value: write.value, updated_at: new Date().toISOString() },
-            { onConflict: 'user_id,key' }
-          )
+        const { data, error } = await supabase
+          .rpc('commit_user_data', {
+            p_user_id: write.userId,
+            p_key: write.key,
+            p_value: write.value,
+            p_expected_rev: write.expectedRev ?? null,
+          })
         if (!error) {
+          const row = Array.isArray(data) ? data[0] as VersionedStorageRow | undefined : data as VersionedStorageRow | undefined
+          // A queued write with an old expectedRev should not overwrite newer
+          // cloud truth. Drop it once the server reports a conflict; the next
+          // refresh/realtime event will carry the winning value.
           map.delete(k)
+          if (row && !versionedWriteApplied(row)) continue
         } else {
+          if (shouldFallbackToLegacyUserDataWrite(error)) {
+            const legacy = await supabase
+              .from('user_data')
+              .upsert(
+                { user_id: write.userId, key: write.key, value: write.value, updated_at: new Date().toISOString() },
+                { onConflict: 'user_id,key' }
+              )
+            if (!legacy.error) {
+              map.delete(k)
+              continue
+            }
+          }
           // Still failing — leave in queue, give up this drain pass.
           break
         }

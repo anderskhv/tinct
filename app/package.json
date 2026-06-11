@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "sitemap": "node scripts/generate-sitemap.cjs",
+    "indexnow": "node scripts/submit-indexnow.cjs",
     "seo:audit": "node scripts/audit-seo.cjs",
     "admin:grant": "node scripts/grant-admin-metrics.cjs",
     "admin:verify": "node scripts/verify-admin-metrics.cjs",

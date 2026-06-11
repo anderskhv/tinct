@@ -1,7 +1,7 @@
 // Tinct Service Worker — offline caching for editions and audio.
 //
 // Strategy:
-//   - Editions (/data/editions/*.json):
+//   - Editions (/data/editions/*.json and /data/editions-chapters/*.json):
 //       Stale-while-revalidate. Serve cached immediately for speed, but
 //       always fetch in the background and replace the cached copy. Means
 //       a corrupt or partial cached entry self-heals on the next load.
@@ -23,7 +23,7 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
 
   const url = new URL(event.request.url)
-  const isEdition = url.pathname.startsWith('/data/editions/')
+  const isEdition = url.pathname.startsWith('/data/editions/') || url.pathname.startsWith('/data/editions-chapters/')
   const isAudio = url.pathname.startsWith('/api/audio-file') || url.pathname.startsWith('/api/audio-manifest')
   if (!isEdition && !isAudio) return
 

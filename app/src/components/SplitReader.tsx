@@ -527,15 +527,16 @@ export function SplitReader({
       if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
     }
 
-    // Click on existing highlight mark in the left column — show highlight popup
+    // Click on existing highlight mark in either column — show highlight popup
     const markEl = (e.target as HTMLElement).closest?.('mark[data-highlight-id]') as HTMLElement | null
-    if (markEl && markEl.closest('.split-left')) {
+    const markSide = markEl?.closest('.split-left') ? 'left' : markEl?.closest('.split-right') ? 'right' : null
+    if (markEl && markSide) {
       const highlightId = markEl.getAttribute('data-highlight-id')!
       const markRect = markEl.getBoundingClientRect()
       if (markRect) {
         const paragraphEl = markEl.closest?.('[data-paragraph-index]')
         const paragraphIndex = paragraphEl ? parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10) : 0
-        const existingNote = leftHighlights.find(h => h.id === highlightId)?.note || ''
+        const existingNote = (markSide === 'left' ? leftHighlights : rightHighlights).find(h => h.id === highlightId)?.note || ''
         const showBelow = markRect.top < 120
         setNoteInput(existingNote)
         setPopupMode('main')
@@ -548,7 +549,7 @@ export function SplitReader({
           paragraphIndex,
           startOffset: 0,
           endOffset: 0,
-          side: 'left',
+          side: markSide,
           showBelow,
           existingHighlightId: highlightId,
           existingNote,
@@ -589,7 +590,7 @@ export function SplitReader({
         goToPage(currentPage + 1)
       }
     }
-  }, [currentPage, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, goToPage, readerRef, leftHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
+  }, [currentPage, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, goToPage, readerRef, leftHighlights, rightHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
 
   // Drives from React state (B13 fix — see Reader.tsx for full rationale).
   // The state-backed value forces re-render whenever container resizes;
@@ -619,27 +620,28 @@ export function SplitReader({
       return
     }
 
-    const rangeNode = range.commonAncestorContainer
-    const rangeEl = rangeNode.nodeType === Node.TEXT_NODE
-      ? rangeNode.parentElement
-      : rangeNode as HTMLElement
-    let paragraphEl = rangeEl?.closest?.('[data-paragraph-index]')
-      ?? rangeEl?.querySelector?.('[data-paragraph-index]')
-      ?? null
+    const anchorNode = selection.anchorNode
+    const anchorEl = anchorNode?.nodeType === Node.TEXT_NODE
+      ? anchorNode.parentElement
+      : anchorNode as HTMLElement | null
+    let paragraphEl = anchorEl?.closest?.('[data-paragraph-index]') ?? null
     if (!paragraphEl || !readerRef.current?.contains(paragraphEl)) return
 
     // Block cross-column selections (bleed from left into right column)
     const focusNode = selection.focusNode
     const focusEl = focusNode?.nodeType === Node.TEXT_NODE ? focusNode.parentElement : focusNode as HTMLElement
     const focusParagraphEl = focusEl?.closest?.('[data-paragraph-index]')
-    if (focusParagraphEl) {
-      const anchorSide = paragraphEl.closest('.split-left') ? 'left' : 'right'
-      const focusSide = focusParagraphEl.closest('.split-left') ? 'left' : 'right'
-      if (anchorSide !== focusSide) {
-        selection.removeAllRanges()
-        dismissPopup()
-        return
-      }
+    if (!focusParagraphEl) {
+      selection.removeAllRanges()
+      dismissPopup()
+      return
+    }
+    const anchorSide = paragraphEl.closest('.split-left') ? 'left' : 'right'
+    const focusSide = focusParagraphEl.closest('.split-left') ? 'left' : 'right'
+    if (anchorSide !== focusSide) {
+      selection.removeAllRanges()
+      dismissPopup()
+      return
     }
 
     const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
@@ -846,43 +848,65 @@ export function SplitReader({
     <div
       className="reader reader-paginated"
       ref={readerRef}
-      onMouseDown={(e) => {
-        pointerStartRef.current = { x: e.clientX, y: e.clientY }
-      }}
-      onMouseUp={handleMouseUp}
+	      onMouseDown={(e) => {
+	        pointerStartRef.current = { x: e.clientX, y: e.clientY }
+	        const side = (e.target as HTMLElement).closest?.('.split-left, .split-right')
+	        if (readerRef.current && side) {
+	          readerRef.current.dataset.selectingSide = side.classList.contains('split-left') ? 'left' : 'right'
+	        }
+	      }}
+	      onMouseUp={(e) => {
+	        handleMouseUp()
+	        if (readerRef.current) delete readerRef.current.dataset.selectingSide
+	      }}
+	      onMouseLeave={() => {
+	        if (readerRef.current) delete readerRef.current.dataset.selectingSide
+	      }}
+	      onBlur={() => {
+	        if (readerRef.current) delete readerRef.current.dataset.selectingSide
+	      }}
       onClick={handleReaderClick}
-      onTouchStart={(e) => {
-        const t = e.touches[0]
-        if (t) pointerStartRef.current = { x: t.clientX, y: t.clientY }
-      }}
-      onTouchEnd={(e) => {
-        const selection = window.getSelection()
+	      onTouchStart={(e) => {
+	        const t = e.touches[0]
+	        if (t) pointerStartRef.current = { x: t.clientX, y: t.clientY }
+	        const side = (e.target as HTMLElement).closest?.('.split-left, .split-right')
+	        if (readerRef.current && side) {
+	          readerRef.current.dataset.selectingSide = side.classList.contains('split-left') ? 'left' : 'right'
+	        }
+	      }}
+	      onTouchEnd={(e) => {
+	        const clearSelectingSide = () => {
+	          if (readerRef.current) delete readerRef.current.dataset.selectingSide
+	        }
+	        const selection = window.getSelection()
         // On mobile, iOS fires touchend (not mouseup) after a selection
         // drag — if we return early here, Safari's native menu wins and
         // our popup never appears. 50ms lets the selection finalize.
         if (selection && !selection.isCollapsed && selection.toString().trim().length >= 3) {
-          setTimeout(handleMouseUp, 50)
-          pointerStartRef.current = null
-          return
-        }
-        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) {
-          pointerStartRef.current = null
-          return
-        }
+	          setTimeout(handleMouseUp, 50)
+	          pointerStartRef.current = null
+	          setTimeout(clearSelectingSide, 80)
+	          return
+	        }
+	        if ((e.target as HTMLElement).closest('button, select, .selection-popup, mark')) {
+	          pointerStartRef.current = null
+	          clearSelectingSide()
+	          return
+	        }
         const touch = e.changedTouches[0]
         const start = pointerStartRef.current
         pointerStartRef.current = null
-        if (!touch) return
+	        if (!touch) { clearSelectingSide(); return }
 
         // Drag guard: selection or swipe drags must never fire page turns.
         if (start) {
           const dx = Math.abs(touch.clientX - start.x)
           const dy = Math.abs(touch.clientY - start.y)
-          if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
-        }
+	          if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) { clearSelectingSide(); return }
+	        }
 
         const container = readerRef.current
-        if (!container) return
+	        if (!container) { clearSelectingSide(); return }
         const rect = container.getBoundingClientRect()
         const touchX = touch.clientX - rect.left
         const zone = rect.width * 0.3
@@ -893,15 +917,16 @@ export function SplitReader({
           } else {
             goToPage(currentPage - 1)
           }
-        } else if (touchX > rect.width - zone) {
+	        } else if (touchX > rect.width - zone) {
           touchHandledRef.current = true
           if (totalPages > 1 && currentPage >= totalPages - 1 && onNextChapter) {
             onNextChapter()
           } else {
             goToPage(currentPage + 1)
           }
-        }
-      }}
+	        }
+	        clearSelectingSide()
+	      }}
     >
       <div
         className={`reader-columns split-reader-columns ${colWidthState > 0 ? '' : 'reader-columns--measuring'}`}
@@ -977,8 +1002,13 @@ export function SplitReader({
                 <div className="split-left">
                   <div className="chapter-end">
                     <div className="chapter-end-ornament">* * *</div>
+                    {isFinalChapter && (
+                      <div className="book-complete-note">
+                        <strong>Completed the book</strong>
+                      </div>
+                    )}
                     <button className="chapter-reflect-button" onClick={onReflect}>
-                      Reflect on this chapter
+                      {isFinalChapter ? 'Reflect on this book' : 'Reflect on this chapter'}
                     </button>
                     {isFinalChapter && onGenerateSummary && (
                       <button
@@ -1151,9 +1181,7 @@ export function SplitReader({
                 <button
                   className="popup-button popup-button-primary"
                   onClick={() => {
-                    if (selectionPopup.side === 'left') {
-                      onUpdateHighlightNote?.(selectionPopup.existingHighlightId!, noteInput.trim())
-                    }
+	                    onUpdateHighlightNote?.(selectionPopup.existingHighlightId!, noteInput.trim())
                     dismissPopup()
                   }}
                 >Save</button>

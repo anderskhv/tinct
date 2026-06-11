@@ -2259,6 +2259,7 @@ body {
 
 .chat-input {
   flex: 1;
+  field-sizing: content;
   /* Critical for narrow side-panel widths (iPad portrait, anything that
      hits the 320px clamp floor): without `min-width: 0`, the textarea
      defaults to a ~200px intrinsic width and refuses to shrink, which
@@ -2602,6 +2603,12 @@ body {
   padding-bottom: 0.6em;
 }
 
+.reader[data-selecting-side="left"] .split-right,
+.reader[data-selecting-side="right"] .split-left {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .split-right {
   border-left: 1px solid var(--border-light);
   padding-left: 24px;
@@ -2659,6 +2666,18 @@ body {
   letter-spacing: 0.5em;
   color: var(--text-tertiary);
   margin-bottom: 20px;
+}
+
+.book-complete-note {
+  margin-bottom: 18px;
+}
+
+.book-complete-note strong {
+  display: block;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .chapter-reflect-button {
@@ -3362,6 +3381,28 @@ body {
 
 .timeline-chat-summary p {
   margin-bottom: 0.4em;
+}
+
+.timeline-chat-summary-source {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin: 4px 0 8px;
+}
+
+.timeline-chat-summary-source summary {
+  cursor: pointer;
+}
+
+.timeline-chat-summary-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 6px 0 0;
+  padding: 8px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
 }
 
 /* ===== Chat/Notes Markdown ===== */
@@ -5732,12 +5773,19 @@ body {
   padding-bottom: 72px;
 }
 
-.library-continue {
+.library-continue,
+.library-finished {
   padding: 14px 40px 20px;
   border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 8%, transparent);
 }
 
+.library-finished {
+  padding-top: 10px;
+  padding-bottom: 12px;
+}
+
 .library-continue header,
+.library-finished header,
 .library-section-head,
 .library-shelf-head,
 .library-author-group header,
@@ -5750,6 +5798,7 @@ body {
 }
 
 .library-continue header span,
+.library-finished header span,
 .library-shelf-head span,
 .library-author-group header span,
 .library-era-group header span {
@@ -6017,6 +6066,21 @@ body {
 
 .library-card:hover .library-cover {
   transform: translateY(-3px);
+}
+
+.library-finished .library-rail {
+  gap: 18px;
+  padding-top: 8px;
+  padding-bottom: 2px;
+}
+
+.library-finished .library-card {
+  min-height: 232px;
+  opacity: 0.78;
+}
+
+.library-card.is-finished .library-cover {
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--text-primary) 7%, transparent);
 }
 
 .library-card-title,
@@ -6412,6 +6476,7 @@ body {
   }
 
   .library-continue,
+  .library-finished,
   .library-house-nav,
   .library-house,
   .library-panel,
@@ -7641,6 +7706,11 @@ body {
   :root {
     --header-height: 48px;
     --panel-width: 100%;
+    --mobile-nav-height: 38px;
+    --mobile-audio-strip-height: 54px;
+    --mobile-bottom-safe-area: env(safe-area-inset-bottom, 0px);
+    --mobile-nav-stack-height: calc(var(--mobile-nav-height) + var(--mobile-bottom-safe-area));
+    --mobile-reader-bottom-chrome: var(--mobile-nav-stack-height);
   }
 
   /* Header */
@@ -7671,8 +7741,9 @@ body {
   .main-layout-mobile {
     overflow: hidden;
     position: relative;
-    /* Account for the mobile-nav tabs only — bottom-bar is hidden now. */
-    padding-bottom: 38px;
+    /* Reserve space for fixed mobile chrome so paginated text never flows
+       behind the nav/audio stack. */
+    padding-bottom: var(--mobile-reader-bottom-chrome);
   }
 
   .mobile-views {
@@ -7718,6 +7789,10 @@ body {
        the footer. */
     padding: 12px 16px 26px;
     column-gap: 40px;
+  }
+
+  .app.audio-strip-open .reader-columns {
+    padding-bottom: calc(26px + var(--mobile-audio-strip-height));
   }
 
   .mobile-compare-header {
@@ -7780,6 +7855,10 @@ body {
      small screens. */
   .page-nav {
     bottom: 4px;
+  }
+
+  .app.audio-strip-open .page-nav {
+    bottom: calc(var(--mobile-audio-strip-height) + 4px);
   }
 
   /* Side panel — full width on mobile, explicit height for scroll chain */
@@ -7854,6 +7933,10 @@ body {
     padding-bottom: calc(20px + env(safe-area-inset-bottom));
   }
 
+  .app.audio-strip-open .chat-input-form {
+    margin-bottom: var(--mobile-audio-strip-height);
+  }
+
   .chat-input {
     font-size: 16px; /* Prevents iOS Safari auto-zoom on focus */
     padding: 8px 12px;
@@ -7892,10 +7975,11 @@ body {
     z-index: 60;
     background: var(--paper);
     border-top: 0.5px solid rgba(0, 0, 0, 0.2);
-    height: 38px;
+    box-sizing: border-box;
+    height: var(--mobile-nav-stack-height);
     align-items: stretch;
     justify-content: stretch;
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: var(--mobile-bottom-safe-area);
   }
 
   [data-theme="dark"] .mobile-nav {
@@ -7934,24 +8018,26 @@ body {
   /* Reading tracker / bottom bar above bottom nav */
   .reading-tracker,
   .bottom-bar {
-    bottom: 38px;
+    bottom: var(--mobile-nav-stack-height);
     z-index: 70;
     padding: 6px 12px 7px;
     gap: 10px;
   }
 
-  /* Audio strip pinned just above the bottom bar on mobile so it doesn't
-     duplicate the reading-progress row at the top. */
+  /* Audio strip attaches directly to the mobile tab bar; the reader reserves
+     matching space while it is open so text and the running footer stay clear. */
   .audio-strip {
     position: fixed;
     left: 0;
     right: 0;
-    bottom: calc(38px + 34px); /* mobile bottom nav + bottom-bar height */
+    bottom: var(--mobile-nav-stack-height);
     z-index: 71;
+    box-sizing: border-box;
+    min-height: var(--mobile-audio-strip-height);
     border-top: 1px solid rgba(0, 0, 0, 0.14);
     border-bottom: none;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
-    padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0px));
+    padding: 8px 14px;
     gap: 10px;
     animation: audioStripUp 0.2s ease;
   }
@@ -8790,6 +8876,8 @@ body {
   font-size: 20px;
   -webkit-font-smoothing: none;
   text-rendering: optimizeLegibility;
+  --mobile-nav-height: 48px;
+  --mobile-audio-strip-height: 60px;
   --bg-primary: #fff;
   --bg-secondary: #f5f5f5;
   --bg-tertiary: #eee;
@@ -8940,7 +9028,7 @@ body {
 
 /* Mobile nav bar — taller with bigger text for E-ink */
 [data-eink] .mobile-nav {
-  height: 48px;
+  height: var(--mobile-nav-stack-height, 48px);
   border-top: 2px solid #000;
 }
 
@@ -8953,7 +9041,7 @@ body {
 [data-eink] .bottom-bar {
   border-top: 2px solid #000;
   padding: 10px 20px;
-  bottom: 48px; /* above taller mobile nav */
+  bottom: var(--mobile-nav-stack-height, 48px); /* above taller mobile nav */
 }
 
 [data-eink] .bottom-bar-play {
@@ -8977,7 +9065,7 @@ body {
 
 /* Adjust reading tracker position above taller nav */
 [data-eink] .reading-tracker {
-  bottom: 48px;
+  bottom: var(--mobile-nav-stack-height, 48px);
 }
 
 /* Hide dark mode toggle on E-ink — always light */
@@ -10499,7 +10587,7 @@ body {
 [data-eink] .bottom-bar {
   background: #fff;
   border-top: 1px solid #000;
-  bottom: 48px;
+  bottom: var(--mobile-nav-stack-height, 48px);
   padding: 10px 20px;
 }
 
@@ -10606,7 +10694,7 @@ body {
 [data-eink] .mobile-nav {
   background: #fff;
   border-top: 1px solid #000;
-  height: 48px;
+  height: var(--mobile-nav-stack-height, 48px);
 }
 
 [data-eink] .mobile-nav-btn {

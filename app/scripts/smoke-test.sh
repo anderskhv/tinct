@@ -19,7 +19,7 @@ echo ""
 # 1. Landing page loads
 echo "1. Landing page"
 LANDING=$(curl -sf "$URL/" 2>/dev/null || echo "FAIL")
-if echo "$LANDING" | grep -q 'A new way to read'; then
+if echo "$LANDING" | grep -q 'Tinct — Read Classic Books'; then
   pass "Landing page loads"
 else
   fail "Landing page did not load"

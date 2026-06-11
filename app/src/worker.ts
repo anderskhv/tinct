@@ -7,6 +7,7 @@ import { GENERATED_BOOK_META } from './data/bookMetaGenerated'
 
 interface Env {
   ANTHROPIC_API_KEY: string
+  INDEXNOW_KEY?: string
   STRIPE_SECRET_KEY?: string
   STRIPE_WEBHOOK_SECRET?: string
   STRIPE_PRICE_PREMIUM?: string
@@ -23,7 +24,7 @@ interface Env {
 // ===== Security Constants =====
 
 const ALLOWED_ORIGINS = ['https://tinct.app', 'https://tinct.ahvelplund.workers.dev', 'capacitor://localhost', 'https://localhost', 'http://localhost']
-const CHAT_MODEL = 'claude-sonnet-4-20250514'
+const CHAT_MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS_CAP = 2048
 // 100KB was too tight: with 50 messages × full chat history replayed every
 // turn (incl. highlighted passages), long-running readers hit 413 mid-session.
@@ -43,6 +44,7 @@ const MAX_MESSAGES = 50
 // is ~2K tokens — a generous ceiling for any real reader question.
 const MAX_MESSAGE_LENGTH = 10_000
 const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
+const INDEXNOW_KEY_RE = /^[A-Za-z0-9-]{8,128}$/
 
 // ===== Rate Limiting (KV-backed, persistent across cold starts) =====
 
@@ -182,6 +184,133 @@ function htmlEscape(value: unknown): string {
     .replace(/'/g, '&#39;')
 }
 
+type AnthropicSystemBlock = {
+  type: 'text'
+  text: string
+  cache_control?: { type: 'ephemeral' }
+}
+
+type AnthropicSystemParam = string | AnthropicSystemBlock[]
+
+type ChatProfile = {
+  messages_used_this_period: number
+  message_balance: number
+  subscription_status: string | null
+  subscription_period_end: string | null
+  created_at: string | null
+}
+
+type AnthropicUsage = {
+  input_tokens?: number
+  output_tokens?: number
+  cache_creation_input_tokens?: number
+  cache_read_input_tokens?: number
+}
+
+type ParsedChatBody = {
+  max_tokens?: number
+  system?: unknown
+  messages?: unknown[]
+  stream?: boolean
+}
+
+function logAnthropicCacheUsage(route: string, usage: AnthropicUsage | undefined): void {
+  if (!usage) return
+  console.log(JSON.stringify({
+    event: 'anthropic_cache_usage',
+    route,
+    input_tokens: usage.input_tokens || 0,
+    output_tokens: usage.output_tokens || 0,
+    cache_creation_input_tokens: usage.cache_creation_input_tokens || 0,
+    cache_read_input_tokens: usage.cache_read_input_tokens || 0,
+  }))
+}
+
+function validateSystemParam(value: unknown): { system: AnthropicSystemParam; error?: string } {
+  if (typeof value === 'string') {
+    return { system: value.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }
+  }
+  if (value === undefined || value === null) return { system: '' }
+  if (!Array.isArray(value)) return { system: '', error: 'Invalid system prompt' }
+
+  const blocks: AnthropicSystemBlock[] = []
+  let total = 0
+  for (const raw of value) {
+    if (typeof raw !== 'object' || raw === null) return { system: '', error: 'Invalid system prompt block' }
+    const block = raw as Record<string, unknown>
+    if (block.type !== undefined && block.type !== 'text') return { system: '', error: 'Invalid system prompt block type' }
+    if (typeof block.text !== 'string') return { system: '', error: 'Invalid system prompt block text' }
+    const remaining = MAX_SYSTEM_PROMPT_LENGTH - total
+    if (remaining <= 0) break
+    const text = block.text.slice(0, remaining)
+    total += text.length
+    const safe: AnthropicSystemBlock = { type: 'text', text }
+    if (block.cache_control !== undefined) {
+      const cacheControl = block.cache_control as Record<string, unknown> | null
+      if (!cacheControl || cacheControl.type !== 'ephemeral') return { system: '', error: 'Invalid system prompt cache control' }
+      safe.cache_control = { type: 'ephemeral' }
+    }
+    blocks.push(safe)
+  }
+  return { system: blocks }
+}
+
+function streamAnthropicResponse(response: Response, request: Request, env: Env, ctx: ExecutionContext, userId: string): Response {
+  if (!response.body) return jsonResponse({ error: 'Empty stream' }, 502, request)
+  const decoder = new TextDecoder()
+  const encoder = new TextEncoder()
+  let charged = false
+  let buffer = ''
+  const transformed = response.body.pipeThrough(new TransformStream<Uint8Array, Uint8Array>({
+    transform(chunk, controller) {
+      const text = decoder.decode(chunk, { stream: true })
+      if (charged) {
+        controller.enqueue(encoder.encode(text))
+        return
+      }
+      buffer += text
+      const lines = buffer.split(/\r?\n/)
+      buffer = lines.pop() ?? ''
+      for (const line of lines) {
+        if (!line.startsWith('data:')) continue
+        const data = line.slice(5).trim()
+        if (!data || data === '[DONE]') continue
+        try {
+          const parsed = JSON.parse(data) as {
+            type?: string
+            message?: { usage?: AnthropicUsage }
+            delta?: { type?: string; text?: string }
+          }
+          if (parsed.type === 'message_start') {
+            logAnthropicCacheUsage('chat_stream_start', parsed.message?.usage)
+          }
+          if (parsed.type === 'content_block_delta' && parsed.delta?.type === 'text_delta' && parsed.delta.text) {
+            charged = true
+            buffer = ''
+            if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+              ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
+            }
+            break
+          }
+        } catch { /* ignore partial/non-json SSE data */ }
+      }
+      controller.enqueue(encoder.encode(text))
+    },
+    flush(controller) {
+      const tail = decoder.decode()
+      if (tail) controller.enqueue(encoder.encode(tail))
+    },
+  }))
+  return new Response(transformed, {
+    status: response.status,
+    headers: {
+      ...corsHeaders(request),
+      'Content-Type': response.headers.get('content-type') || 'text/event-stream; charset=utf-8',
+      'Cache-Control': 'no-cache',
+    },
+  })
+}
+
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
   const authHeader = request.headers.get('authorization')
   if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
@@ -235,7 +364,7 @@ async function computeHmac(secret: string, payload: string): Promise<string> {
 
 // ===== API: Chat =====
 
-async function handleChat(request: Request, env: Env): Promise<Response> {
+async function handleChat(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const apiKey = env.ANTHROPIC_API_KEY
@@ -247,63 +376,72 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
     return jsonResponse({ error: 'Request too large' }, 413, request)
   }
 
+  const bodyPromise = request.json()
+    .then((body) => ({ body: body as ParsedChatBody }))
+    .catch(() => ({ error: 'Invalid JSON' as const }))
+
   // Authentication required
   const user = await verifyUser(env, request)
   if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
   const userId = user.id
-  if (!await checkRateLimit(`chat:${userId}`, env.RATE_LIMIT)) {
+  const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
+    ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
+        .then(async (profileRes) => {
+          if (!profileRes.ok) return null
+          const profiles = await profileRes.json() as ChatProfile[]
+          return profiles?.[0] ?? null
+        })
+        .catch(() => null)
+    : Promise.resolve(null)
+
+  const [rateAllowed, profile] = await Promise.all([
+    checkRateLimit(`chat:${userId}`, env.RATE_LIMIT),
+    profilePromise,
+  ])
+  if (!rateAllowed) {
     return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
 
-  // Check message quota
-  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-    const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
-    const profiles = await profileRes.json() as {
-      messages_used_this_period: number
-      message_balance: number
-      subscription_status: string | null
-      subscription_period_end: string | null
-      created_at: string | null
-    }[]
-    const profile = profiles?.[0]
+  if (profile) {
+    // Mirror useTier.ts: 30-day Premium trial from account creation.
+    // CRITICAL bug fix — until this lands, brand-new signups (subscription_status=null,
+    // message_balance=0, messages_used_this_period=0) had `isSubscribed=false` here,
+    // so the worker returned 402 "No messages remaining" the first time they tried
+    // to chat — even though the frontend told them they were on a Premium trial.
+    // Anders's brother Lars hit this and ended up buying chat packs to unblock himself.
+    const accountCreatedAt = profile.created_at ? new Date(profile.created_at) : null
+    const trialDaysRemaining = accountCreatedAt
+      ? 30 - Math.floor((Date.now() - accountCreatedAt.getTime()) / (1000 * 60 * 60 * 24))
+      : 0
+    const isInTrial = trialDaysRemaining > 0
+    const isSubscribed = profile.subscription_status === 'active' ||
+      (profile.subscription_status === 'canceled' &&
+       !!profile.subscription_period_end &&
+       new Date(profile.subscription_period_end) > new Date()) ||
+      isInTrial
+    const monthlyRemaining = Math.max(0, MONTHLY_MESSAGE_LIMIT - (profile.messages_used_this_period || 0))
+    const hasMessages = (isSubscribed && monthlyRemaining > 0) || (profile.message_balance || 0) > 0
 
-    if (profile) {
-      // Mirror useTier.ts: 30-day Premium trial from account creation.
-      // CRITICAL bug fix — until this lands, brand-new signups (subscription_status=null,
-      // message_balance=0, messages_used_this_period=0) had `isSubscribed=false` here,
-      // so the worker returned 402 "No messages remaining" the first time they tried
-      // to chat — even though the frontend told them they were on a Premium trial.
-      // Anders's brother Lars hit this and ended up buying chat packs to unblock himself.
-      const accountCreatedAt = profile.created_at ? new Date(profile.created_at) : null
-      const trialDaysRemaining = accountCreatedAt
-        ? 30 - Math.floor((Date.now() - accountCreatedAt.getTime()) / (1000 * 60 * 60 * 24))
-        : 0
-      const isInTrial = trialDaysRemaining > 0
-      const isSubscribed = profile.subscription_status === 'active' ||
-        (profile.subscription_status === 'canceled' &&
-         !!profile.subscription_period_end &&
-         new Date(profile.subscription_period_end) > new Date()) ||
-        isInTrial
-      const monthlyRemaining = Math.max(0, MONTHLY_MESSAGE_LIMIT - (profile.messages_used_this_period || 0))
-      const hasMessages = (isSubscribed && monthlyRemaining > 0) || (profile.message_balance || 0) > 0
-
-      if (!hasMessages) {
-        return jsonResponse({ error: 'No messages remaining. Buy a chat pack to continue.' }, 402, request)
-      }
+    if (!hasMessages) {
+      return jsonResponse({ error: 'No messages remaining. Buy a chat pack to continue.' }, 402, request)
     }
   }
 
   try {
-    const body = await request.json() as {
-      max_tokens?: number; system?: string; messages?: unknown[]
-    }
+    const parsedBody = await bodyPromise
+    if ('error' in parsedBody) return jsonResponse({ error: parsedBody.error }, 400, request)
+    const body = parsedBody.body
+    if (typeof body !== 'object' || body === null) return jsonResponse({ error: 'Invalid request body' }, 400, request)
 
     // Validate input
-    const system = typeof body.system === 'string' ? body.system.slice(0, MAX_SYSTEM_PROMPT_LENGTH) : ''
+    const systemResult = validateSystemParam(body.system)
+    if (systemResult.error) return jsonResponse({ error: systemResult.error }, 400, request)
+    const system = systemResult.system
     const messages = Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
     const maxTokens = Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
+    const stream = body.stream === true
 
     // Validate message structure and truncate per-message to the cap.
     // Long histories accumulate over a session; rather than reject the whole
@@ -330,14 +468,24 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
         max_tokens: maxTokens,
         system,
         messages: safeMessages,
+        ...(stream ? { stream: true } : {}),
       }),
     })
 
-    const data = await response.json()
+    if (stream) {
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({ error: 'Chat request failed' }))
+        return jsonResponse(data, response.status, request)
+      }
+      return streamAnthropicResponse(response, request, env, ctx, userId)
+    }
+
+    const data = await response.json() as { usage?: AnthropicUsage }
+    logAnthropicCacheUsage('chat', data.usage)
 
     // Deduct message on success
     if (response.ok && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-      await supabaseRpc(env, 'use_message', { p_user_id: userId })
+      ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
     }
 
     return jsonResponse(data, response.status, request)
@@ -671,14 +819,23 @@ async function handleWebhook(request: Request, env: Env): Promise<Response> {
             })
           }
         }
-      } else if (type === 'chat_pack') {
-        const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
-        if (messageCount > 0 && messageCount <= 1000) await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
-      }
+	      } else if (type === 'chat_pack') {
+	        const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
+	        if (messageCount <= 0 || messageCount > 1000) break
+	        const paymentRes = await supabaseInsert(env, 'payments', {
+	          user_id: userId, stripe_session_id: obj.id,
+	          amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
+	          type: type || 'unknown', status: 'completed',
+	        })
+	        if (paymentRes.status === 409) break
+	        if (!paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
+	        await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
+	        break
+	      }
 
-      await supabaseInsert(env, 'payments', {
-        user_id: userId, stripe_session_id: obj.id,
-        amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
+	      await supabaseInsert(env, 'payments', {
+	        user_id: userId, stripe_session_id: obj.id,
+	        amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
         type: type || 'unknown', status: 'completed',
       })
       break
@@ -1425,8 +1582,8 @@ async function evaluateAndPatch(env: Env, report: IssueReport): Promise<void> {
       await sendEmail(env, 'contact@tinct.app',
         `[Auto-fix: word split] ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex}`,
         `<div style="font-family:sans-serif;max-width:600px">
-          <p><strong>Mechanical fix (no AI):</strong> "${report.selectedText}" → "${merged}"</p>
-          <p><strong>User comment:</strong> ${report.comment || 'none'}</p>
+	          <p><strong>Mechanical fix (no AI):</strong> "${htmlEscape(report.selectedText)}" → "${htmlEscape(merged)}"</p>
+	          <p><strong>User comment:</strong> ${htmlEscape(report.comment || 'none')}</p>
         </div>`
       )
       return
@@ -1501,7 +1658,7 @@ JSON response shape (every field required):
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: CHAT_MODEL,
         max_tokens: 2048,
         system: systemPrompt,
         messages: [{ role: 'user', content: userPrompt }],
@@ -1548,12 +1705,12 @@ JSON response shape (every field required):
         `[Validation failed] ${report.tag} — ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex}`,
         `<div style="font-family:sans-serif;max-width:600px">
           <p><strong>Blocked:</strong> ${htmlEscape(validationError)}</p>
-          <p><strong>User reported:</strong> "${report.selectedText}"</p>
-          ${report.comment ? `<p><strong>User comment:</strong> ${report.comment}</p>` : ''}
+          <p><strong>User reported:</strong> "${htmlEscape(report.selectedText)}"</p>
+          ${report.comment ? `<p><strong>User comment:</strong> ${htmlEscape(report.comment)}</p>` : ''}
           <p><strong>Original:</strong></p>
-          <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${fullParagraph.replace(/</g, '&lt;')}</blockquote>
+          <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${htmlEscape(fullParagraph)}</blockquote>
           <p><strong>Proposed (rejected):</strong></p>
-          <blockquote style="border-left:3px solid #c66;padding:8px 16px;background:#fff0f0;white-space:pre-wrap">${corrected_paragraph.replace(/</g, '&lt;')}</blockquote>
+          <blockquote style="border-left:3px solid #c66;padding:8px 16px;background:#fff0f0;white-space:pre-wrap">${htmlEscape(corrected_paragraph)}</blockquote>
         </div>`
       )
       return
@@ -1681,14 +1838,14 @@ JSON response shape (every field required):
   // should verify against the source themselves.
   const originalBlock = fullParagraph
     ? `<p><strong>Original paragraph:</strong></p>
-       <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${fullParagraph.replace(/</g, '&lt;')}</blockquote>`
+       <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${htmlEscape(fullParagraph)}</blockquote>`
     : `<p style="background:#fff8e1;border-left:3px solid #e8b020;padding:10px 14px;margin:0 0 12px"><strong>⚠ Could not load full paragraph.</strong> The AI evaluated using only the selected text below. Please open the book and verify before approving.</p>
        <p><strong>Selected text only (no surrounding context):</strong></p>
-       <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${report.selectedText.replace(/</g, '&lt;')}</blockquote>`
+       <blockquote style="border-left:3px solid #e88;padding:8px 16px;background:#fff5f5;white-space:pre-wrap">${htmlEscape(report.selectedText)}</blockquote>`
 
   const proposalBlock = corrected_paragraph
     ? `<p><strong>Proposed correction:</strong></p>
-       <blockquote style="border-left:3px solid #8c8;padding:8px 16px;background:#f5fff5;white-space:pre-wrap">${corrected_paragraph.replace(/</g, '&lt;')}</blockquote>`
+       <blockquote style="border-left:3px solid #8c8;padding:8px 16px;background:#f5fff5;white-space:pre-wrap">${htmlEscape(corrected_paragraph)}</blockquote>`
     : proposedAction === 'no_change'
       ? `<p><strong>AI proposes:</strong> no change to the original paragraph.</p>`
       : `<p style="background:#fff8e1;border-left:3px solid #e8b020;padding:10px 14px"><strong>No correction proposed.</strong> Use the manual edit button to write the exact paragraph to apply.</p>`
@@ -1702,9 +1859,9 @@ JSON response shape (every field required):
 	  await sendEmail(env, 'contact@tinct.app', subject,
 	    `<div style="font-family:sans-serif;max-width:600px">
       <p>${statusBadge} &nbsp; <strong>Confidence:</strong> ${Math.round(confidence * 100)}%</p>
-      <p><strong>AI says:</strong> ${explanation}</p>
-      <p><strong>User selected:</strong> "${report.selectedText.replace(/</g, '&lt;')}"</p>
-      ${report.comment ? `<p><strong>User comment:</strong> ${report.comment}</p>` : ''}
+	      <p><strong>AI says:</strong> ${htmlEscape(explanation)}</p>
+	      <p><strong>User selected:</strong> "${htmlEscape(report.selectedText)}"</p>
+	      ${report.comment ? `<p><strong>User comment:</strong> ${htmlEscape(report.comment)}</p>` : ''}
       <hr/>
       ${originalBlock}
 	      ${proposalBlock}
@@ -1815,7 +1972,7 @@ async function handleReportIssue(request: Request, env: Env, ctx: ExecutionConte
 async function handleReportStatus(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url)
   const id = url.searchParams.get('id')
-  if (!id || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+  if (!id || !isValidUUID(id) || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return jsonResponse({ status: 'unknown' }, 200, request)
   }
   try {
@@ -2059,8 +2216,8 @@ Selected: "${htmlEscape(report.selected_text)}"${report.comment ? `<br>User comm
             `Your fix was approved — ${report.book_id} ch${report.chapter_number}`,
             `<div style="font-family:sans-serif;max-width:500px">
               <p>Your reported issue has been <strong style="color:#4a9">approved and applied</strong>.</p>
-              <p><strong>You reported:</strong> "${report.selected_text}"</p>
-              ${report.comment ? `<p><strong>Your suggestion:</strong> ${report.comment}</p>` : ''}
+              <p><strong>You reported:</strong> "${htmlEscape(report.selected_text)}"</p>
+              ${report.comment ? `<p><strong>Your suggestion:</strong> ${htmlEscape(report.comment)}</p>` : ''}
               <p style="color:#888;font-size:13px">${report.book_id} ch${report.chapter_number} · Every 5 approved fixes earns a free month of Premium.</p>
             </div>`
           )
@@ -2085,12 +2242,12 @@ button{background:#c66;color:#fff;border:none;padding:10px 24px;border-radius:8p
 button:hover{opacity:0.9}.meta{font-size:0.8rem;color:#999;margin-bottom:12px}</style></head>
 <body><div class="card">
 <h1>Reject this fix</h1>
-<p class="meta">"${(report.selected_text || '').replace(/"/g, '&quot;')}" — ${report.comment || ''}</p>
+	<p class="meta">"${htmlEscape(report.selected_text || '')}" — ${htmlEscape(report.comment || '')}</p>
 <p>Please explain why this report was declined. The user will receive your explanation by email.</p>
 <form method="GET" action="/api/approve-fix">
-<input type="hidden" name="id" value="${id}">
+	<input type="hidden" name="id" value="${htmlEscape(id)}">
 <input type="hidden" name="action" value="reject">
-<input type="hidden" name="token" value="${token}">
+	<input type="hidden" name="token" value="${htmlEscape(token)}">
 <textarea name="reason" placeholder="e.g., The current text is correct because..." required></textarea>
 <button type="submit">Reject with explanation</button>
 </form></div></body></html>`
@@ -2118,9 +2275,9 @@ button:hover{opacity:0.9}.meta{font-size:0.8rem;color:#999;margin-bottom:12px}</
             `Update on your report — ${report.book_id} ch${report.chapter_number}`,
             `<div style="font-family:sans-serif;max-width:500px">
               <p>Thank you for reporting an issue. After review, this one was <strong>not applied</strong>.</p>
-              <p><strong>You reported:</strong> "${report.selected_text}"</p>
-              ${report.comment ? `<p><strong>Your suggestion:</strong> ${report.comment}</p>` : ''}
-              <p><strong>Reason:</strong> ${reason}</p>
+              <p><strong>You reported:</strong> "${htmlEscape(report.selected_text)}"</p>
+              ${report.comment ? `<p><strong>Your suggestion:</strong> ${htmlEscape(report.comment)}</p>` : ''}
+              <p><strong>Reason:</strong> ${htmlEscape(reason)}</p>
               <p style="color:#888;font-size:13px">We appreciate your help improving the text. Keep reporting — every 5 approved fixes earns a free month.</p>
             </div>`
           )
@@ -2507,7 +2664,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com; img-src 'self' data:; media-src 'self'; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; connect-src 'self' https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com; img-src 'self' data:; media-src 'self'; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
 }
 
 // ===== Bot UA Blocklist (KV-free first line of defence) =====
@@ -2619,8 +2776,24 @@ export default {
       return handleOptions(request)
     }
 
+    // IndexNow ownership verification. The URL path is dictated by the
+    // IndexNow key, so serve it dynamically from the Worker secret/binding
+    // instead of committing a public key file.
+    if ((request.method === 'GET' || request.method === 'HEAD') && env.INDEXNOW_KEY && INDEXNOW_KEY_RE.test(env.INDEXNOW_KEY)) {
+      const keyPath = `/${env.INDEXNOW_KEY}.txt`
+      if (url.pathname === keyPath) {
+        return new Response(request.method === 'HEAD' ? null : env.INDEXNOW_KEY, {
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'public, max-age=3600',
+            ...SECURITY_HEADERS,
+          },
+        })
+      }
+    }
+
     switch (url.pathname) {
-      case '/api/chat': return handleChat(request, env)
+      case '/api/chat': return handleChat(request, env, ctx)
       case '/api/angle-chat': return handleAngleChat(request, env)
       case '/api/balance': return handleBalance(request, env)
       case '/api/create-checkout': return handleCreateCheckout(request, env)

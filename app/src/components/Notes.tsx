@@ -364,9 +364,17 @@ export function Notes({
                           {isExpanded && (
                             <div className="timeline-chat-messages">
                               {conv.summary ? (
-                                <div className="timeline-chat-summary">
-                                  {renderMarkdown(conv.summary)}
-                                </div>
+                                <>
+                                  <div className="timeline-chat-summary">
+                                    {renderMarkdown(conv.summary)}
+                                  </div>
+                                  {conv.summaryPrompt && (
+                                    <details className="timeline-chat-summary-source">
+                                      <summary>Prompt used</summary>
+                                      <pre>{conv.summaryPrompt}</pre>
+                                    </details>
+                                  )}
+                                </>
                               ) : (
                                 conv.messages.map(msg => (
                                   <div key={msg.id} className={`timeline-chat-msg timeline-chat-${msg.role}`}>

@@ -1,24 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { storage } from '../services/storage'
 import { getReadingProgress, getSavedPosition } from './useReadingPosition'
-import type { BookReadingLog, ChapterReadingRecord, EditionUsage } from '../types'
+import type { BookReadingLog, ChapterReadingRecord } from '../types'
+import { ensureReadingLogChapter, sanitizeReadingLog, upsertUsage } from './useReadingLog.guards'
 
 function logKey(bookId: string): string {
   return `reading-log:${bookId}`
-}
-
-/** Upsert an edition usage entry, preserving existing entries */
-function upsertUsage(existing: EditionUsage[] | undefined, key: string, mode: 'read' | 'listened', percent?: number): EditionUsage[] {
-  const arr = existing ? [...existing] : []
-  const idx = arr.findIndex(u => u.key === key && u.mode === mode)
-  if (idx >= 0) {
-    if (percent !== undefined && (arr[idx].percent === undefined || percent > arr[idx].percent)) {
-      arr[idx] = { ...arr[idx], percent }
-    }
-    return arr
-  }
-  arr.push({ key, mode, percent })
-  return arr
 }
 
 /**
@@ -46,19 +33,31 @@ export function useReadingLog(
    * log keys when bookId changes faster than chapter does in React state.
    */
   totalChapters?: number,
+  allowedEditionKeys?: readonly string[],
 ) {
   function isChapterInBounds(ch: number): boolean {
     if (!totalChapters || totalChapters <= 0) return true
     return ch >= 1 && ch <= totalChapters
   }
   const [log, setLog] = useState<BookReadingLog>(() => {
-    return storage.get<BookReadingLog>(logKey(bookId)) || { bookId, chapters: {}, updatedAt: 0 }
+    return sanitizeReadingLog({
+      bookId,
+      log: storage.get<BookReadingLog>(logKey(bookId)),
+      totalChapters,
+      allowedEditionKeys,
+    })
   })
 
   // Reload log when book changes
   useEffect(() => {
-    let loaded = storage.get<BookReadingLog>(logKey(bookId))
-    if (!loaded) {
+    let loaded = sanitizeReadingLog({
+      bookId,
+      log: storage.get<BookReadingLog>(logKey(bookId)),
+      totalChapters,
+      allowedEditionKeys,
+    })
+    const hadLoadedLog = loaded.updatedAt !== 0 || Object.keys(loaded.chapters).length > 0
+    if (!hadLoadedLog) {
       // Backfill from existing progress + position data
       const progress = getReadingProgress(bookId)
       const position = getSavedPosition(bookId)
@@ -96,7 +95,7 @@ export function useReadingLog(
       }
     }
     setLog(loaded)
-  }, [bookId])
+  }, [bookId, totalChapters, allowedEditionKeys])
 
   // Time tracking with idle detection.
   // Pauses after 5 minutes of no page/paragraph movement.
@@ -196,38 +195,19 @@ export function useReadingLog(
     if (!isChapterInBounds(currentChapter)) return
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
+    const shouldCountVisit = isChapterChange || isBookChange
     setLog(prev => {
-      const existing = prev.chapters[currentChapter]
-      const now = Date.now()
-      const updated: BookReadingLog = {
-        ...prev,
-        updatedAt: now,
-        chapters: {
-          ...prev.chapters,
-          [currentChapter]: existing
-            ? {
-                ...existing,
-                readCount: existing.readCount + 1,
-                lastReadAt: now,
-                editions: existing.editions.includes(editionKey)
-                  ? existing.editions
-                  : [...existing.editions, editionKey],
-                editionUsage: upsertUsage(existing.editionUsage, editionKey, mode),
-              }
-            : {
-                chapterNumber: currentChapter,
-                editions: [editionKey],
-                editionUsage: [{ key: editionKey, mode }],
-                readCount: 1,
-                firstReadAt: now,
-                lastReadAt: now,
-                completed: false,
-              },
-        },
-      }
-      return updated
+      return ensureReadingLogChapter({
+        log: prev,
+        bookId,
+        chapterNumber: currentChapter,
+        editionKey,
+        mode,
+        countVisit: shouldCountVisit,
+        now: Date.now(),
+      })
     })
-  }, [currentChapter, bookId, editionKey, storageReady])
+  }, [currentChapter, bookId, editionKey, storageReady, isAudioPlaying])
 
   // Track edition changes within the same chapter
   const prevEditionRef = useRef(editionKey)
@@ -313,6 +293,10 @@ export function useReadingLog(
   useEffect(() => {
     if (!storageReady) return
     if (log.updatedAt === 0) return // don't persist initial empty state
+    // On the first render after a book switch, React may still hold the
+    // previous book's log state while this effect receives the new bookId.
+    // Never write that stale tuple under the new book's storage key.
+    if (log.bookId !== bookId) return
     storage.set(logKey(bookId), log)
   }, [log, bookId, storageReady])
 

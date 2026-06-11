@@ -45,6 +45,7 @@ interface SidePanelProps {
   allBookNotes: Note[]
   chapterLabels: string[]
   chapterLabelByNumber?: Record<number, string>
+  chapterTitleByNumber?: Record<number, string>
   readingLog: BookReadingLog
   totalChapters: number
   /** Hierarchical sections for Feed grouping (e.g., Bible sections) */
@@ -116,6 +117,7 @@ export function SidePanel(props: SidePanelProps) {
     allBookNotes,
     chapterLabels,
     chapterLabelByNumber,
+    chapterTitleByNumber,
     readingLog,
     totalChapters,
     sections,
@@ -158,7 +160,7 @@ export function SidePanel(props: SidePanelProps) {
 
   // Pitch-kind derivation: when null, render the real feature; otherwise render
   // the inline pitch with the right CTA for this tier + balance state.
-  const chatPitchKind = pitchKindFor({ feature: 'chat', tier, hasBalance })
+  const chatPitchKind = pitchKindFor({ feature: 'chat', tier })
   const feedPitchKind = pitchKindFor({ feature: 'feed', tier })
   const castPitchKind = pitchKindFor({ feature: 'cast', tier })
 
@@ -220,6 +222,7 @@ export function SidePanel(props: SidePanelProps) {
         totalChapters={totalChapters}
         currentChapter={currentChapter}
         chapterLabels={chapterLabels}
+        chapterTitleByNumber={chapterTitleByNumber}
         sections={sections}
         notes={notes}
         highlights={highlights}

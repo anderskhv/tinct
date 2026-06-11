@@ -682,6 +682,7 @@ function PaginatedFlow({
 
   return (
     <div ref={wrapperRef} style={paginatedWrapper}>
+      <div style={paginatedTopMask} />
       <div
         ref={innerRef}
         style={{
@@ -899,7 +900,7 @@ function CastPane({
           <div key={i} style={mobile ? castEntryStacked : castEntry}>
             <dt style={castName}>{c.name}</dt>
             <dd style={castBody}>
-              <em style={castRoleInline}>{c.role}.</em> {c.description}
+              <em style={castRoleInline}>{stripTrailingPeriod(c.role)}.</em> {c.description}
             </dd>
           </div>
         ))}
@@ -1242,6 +1243,18 @@ const paginatedWrapper: React.CSSProperties = {
   width: '100%', height: '100%',
   overflow: 'hidden',
   position: 'relative',
+  paddingTop: '0.35rem',
+  boxSizing: 'border-box',
+}
+const paginatedTopMask: React.CSSProperties = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  height: '0.35rem',
+  background: 'var(--paper)',
+  zIndex: 2,
+  pointerEvents: 'none',
 }
 const paginatedInner: React.CSSProperties = {
   height: '100%',
@@ -1532,11 +1545,8 @@ const castList: React.CSSProperties = {
   margin: '0', padding: 0,
 }
 const castEntry: React.CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: 'minmax(7em, max-content) 1fr',
-  gap: '1.25rem',
-  marginBottom: '0.95rem',
-  alignItems: 'baseline',
+  display: 'block',
+  marginBottom: '1rem',
   breakInside: 'avoid', // keep each cast entry intact across column breaks
 }
 // Mobile: stack name above description so the description gets the full
@@ -1547,14 +1557,16 @@ const castEntryStacked: React.CSSProperties = {
   breakInside: 'avoid',
 }
 const castName: React.CSSProperties = {
+  display: 'inline',
   fontFamily: 'var(--font-display)', fontWeight: 500,
   fontStyle: 'italic',
   fontSize: '1.1em', color: 'var(--text-primary)',
   letterSpacing: '0.01em',
-  margin: 0,
+  margin: '0 0.45em 0 0',
   whiteSpace: 'nowrap',
 }
 const castBody: React.CSSProperties = {
+  display: 'inline',
   fontFamily: 'var(--font-serif)',
   fontSize: '0.95em', lineHeight: 1.55,
   color: 'var(--text-primary)',

@@ -21,6 +21,11 @@ interface OfflineBookInfo {
 
 const OFFLINE_META_KEY = 'tinct:offline-meta'
 const OFFLINE_CACHE_NAME = 'tinct-offline-v3'
+const CHAPTER_SHARDED_EDITIONS = new Set([
+  'war-and-peace-original-en',
+  'war-and-peace-modern-en',
+  'war-and-peace-modern-da',
+])
 
 function loadOfflineMeta(): Record<string, OfflineBookInfo> {
   try {
@@ -94,7 +99,25 @@ export function useOffline() {
   const downloadEditions = useCallback(async (book: Book, abort?: AbortSignal): Promise<string[]> => {
     const cached: string[] = []
     for (const edition of book.editions) {
-      const url = `/data/editions/${book.id}-${edition.key}.json`
+      const editionId = `${book.id}-${edition.key}`
+      if (CHAPTER_SHARDED_EDITIONS.has(editionId)) {
+        const manifestUrl = `/data/editions-chapters/${editionId}/manifest.json`
+        if (await cacheUrl(manifestUrl, abort)) {
+          try {
+            const manifestRes = await fetch(manifestUrl, { signal: abort })
+            const manifest = await manifestRes.json() as { chapters?: { path: string }[] }
+            for (const ch of manifest.chapters || []) {
+              if (abort?.aborted) return cached
+              await cacheUrl(`/data/editions-chapters/${editionId}/${ch.path}`, abort)
+            }
+            cached.push(edition.key)
+            continue
+          } catch {
+            // Fall through to whole-book JSON. Existing files remain available.
+          }
+        }
+      }
+      const url = `/data/editions/${editionId}.json`
       if (await cacheUrl(url, abort)) cached.push(edition.key)
     }
     // Threads

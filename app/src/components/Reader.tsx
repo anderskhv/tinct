@@ -124,6 +124,8 @@ interface ReaderProps {
    * (current page no longer matches current content). */
   fontSize?: string
   fontFamily?: string
+  /** External layout chrome changed; forces pagination to re-measure. */
+  layoutSignal?: unknown
 }
 
 export function Reader({
@@ -166,6 +168,7 @@ export function Reader({
   authToken,
   fontSize,
   fontFamily,
+  layoutSignal,
   isActive = true,
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
@@ -265,6 +268,10 @@ export function Reader({
   // CSS multi-column pagination: count columns from scrollWidth, AND publish
   // the measured colWidth/gap into React state so the transform stays in sync.
   const recalcPages = useCallback(() => {
+    // Mobile keeps Read and Compare mounted while Chat/Feed/Cast are visible.
+    // Do not let a hidden reader re-paginate against transient viewport
+    // changes (keyboard, browser chrome) and move its page while inactive.
+    if (!isActive) return
     const content = contentRef.current
     if (!content) return
     updateColumnWidth()
@@ -292,7 +299,7 @@ export function Reader({
     setTotalPages(pages)
     setColWidthState(colWidth)
     setGapState(gap)
-  }, [updateColumnWidth, getColWidth, getGap])
+  }, [isActive, updateColumnWidth, getColWidth, getGap])
 
   // Initial measurement runs synchronously before paint via useLayoutEffect.
   // Without this, the first paint shows translateX(0) (page 1) because
@@ -315,6 +322,7 @@ export function Reader({
   }, [chapterTitle, isAudioPlaying, playingParagraphIndex])
 
   useLayoutEffect(() => {
+    if (!isActive) return
     recalcPages()
     const content = contentRef.current
     const dbg = (note: string, extra?: Record<string, unknown>) => {
@@ -340,7 +348,7 @@ export function Reader({
     } else {
       dbg('frac-undef-or-oor', { frac })
     }
-  }, [recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage, tracePageSet])
+  }, [isActive, recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage, tracePageSet, layoutSignal])
 
   // Re-apply initial fraction whenever totalPages changes during layout
   // settle. The layout effect above converts frac→page on mount, but async
@@ -362,6 +370,7 @@ export function Reader({
   }, [totalPages, tracePageSet])
 
   useEffect(() => {
+    if (!isActive) return
     // Async recalc retries cover late-arriving font/layout changes (mobile
     // especially). Initial measurement already happened synchronously
     // above; these are the safety net.
@@ -383,7 +392,7 @@ export function Reader({
     // fontSize/fontFamily change content scrollWidth without changing the
     // container's box, so ResizeObserver doesn't fire — depend on them
     // explicitly so the timer-driven recalc fires after the reflow settles.
-  }, [paragraphs, chapterTitle, recalcPages, panelOpen, fontSize, fontFamily])
+  }, [isActive, paragraphs, chapterTitle, recalcPages, panelOpen, fontSize, fontFamily, layoutSignal])
 
   // Restore position from initialPage fraction or targetParagraphIndex after layout settles
   const targetParagraphRef = useRef(targetParagraphIndex)
@@ -1560,6 +1569,7 @@ export function Reader({
         const zone = rect.width * 0.3
         if (touchX < zone) {
           touchHandledRef.current = true
+          e.preventDefault()
           if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) {
             onPrevChapter()
           } else {
@@ -1567,6 +1577,7 @@ export function Reader({
           }
         } else if (touchX > rect.width - zone) {
           touchHandledRef.current = true
+          e.preventDefault()
           if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) {
             onNextChapter()
           } else {
@@ -1627,8 +1638,13 @@ export function Reader({
             {paragraphs.length > 0 && onReflect && (
               <div className="chapter-end">
                 <div className="chapter-end-ornament">&middot; &middot; &middot;</div>
+                {isFinalChapter && (
+                  <div className="book-complete-note">
+                    <strong>Completed the book</strong>
+                  </div>
+                )}
                 <button className="chapter-reflect-button" onClick={(e) => { e.stopPropagation(); onReflect() }}>
-                  Reflect on this chapter
+                  {isFinalChapter ? 'Reflect on this book' : 'Reflect on this chapter'}
                 </button>
                 {isFinalChapter && onGenerateSummary && (
                   <button

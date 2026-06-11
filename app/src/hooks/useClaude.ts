@@ -43,7 +43,9 @@ When the reader highlights a passage, explain it clearly — what's happening, w
 
 If asked to explain something in simpler terms, do so without condescension. If asked for deeper analysis, go deeper. Match the reader's level.
 
-Keep responses concise unless asked for more detail. Use short paragraphs. Reference specific characters by name and connect passages to the broader narrative.`
+Keep responses concise unless asked for more detail. Use short paragraphs. Reference specific characters by name and connect passages to the broader narrative.
+
+Tone: measured, literary, and calm. Do not use emoji, emoticons, exclamation-heavy phrasing, slang, hype, or chatty filler. Prefer precise, grounded prose over playful encouragement.`
 
   if (readingObjective) {
     prompt += `\n\nThe reader's reading angle: "${readingObjective}". Connect your explanations to this perspective when there's a genuine, interesting connection. Don't force it.`
@@ -85,6 +87,21 @@ function generateId() {
   return `msg_${Date.now()}_${++messageIdCounter}`
 }
 
+class ChatStreamError extends Error {
+  sawToken: boolean
+
+  constructor(message: string, sawToken: boolean) {
+    super(message)
+    this.name = 'ChatStreamError'
+    this.sawToken = sawToken
+  }
+}
+
+function isStreamingEnabled(): boolean {
+  if (typeof window === 'undefined') return true
+  return window.localStorage.getItem('tinct:chat-streaming') !== '0'
+}
+
 interface UseClaudeOptions {
   bookTitle: string
   bookAuthor: string
@@ -104,6 +121,8 @@ interface UseClaudeOptions {
   onUsage?: (inputTokens: number, outputTokens: number) => void
   /** Summary of past chat discussions for the current chapter */
   chatMemory?: string
+  /** Current book id — stamped onto messages so cross-book races cannot persist */
+  bookId?: string
   /** Current chapter number — tagged onto outgoing messages so the
    *  position-divider UI and ambient-grounding logic can detect cross-
    *  chapter conversations. */
@@ -120,9 +139,90 @@ export function useClaude(options?: UseClaudeOptions) {
   const optionsRef = useRef(options)
   optionsRef.current = options
 
+  const readStream = async (response: Response, assistantId: string, sendBookId: string | undefined, currentChapter: number | undefined, opts: UseClaudeOptions | undefined): Promise<void> => {
+    if (!response.body) throw new Error('Empty stream')
+    const reader = response.body.getReader()
+    const decoder = new TextDecoder()
+    let buffer = ''
+    let assistantText = ''
+    let inputTokens = 0
+    let outputTokens = 0
+    let cacheCreationInputTokens = 0
+    let cacheReadInputTokens = 0
+    let sawToken = false
+
+    const applyEvent = (data: string) => {
+      if (!data || data === '[DONE]') return
+      let event: {
+        type?: string
+        error?: { message?: string }
+        message?: { usage?: { input_tokens?: number; cache_creation_input_tokens?: number; cache_read_input_tokens?: number } }
+        delta?: { type?: string; text?: string }
+        usage?: { output_tokens?: number }
+      }
+      try {
+        event = JSON.parse(data)
+      } catch {
+        throw new ChatStreamError('Malformed chat stream', sawToken)
+      }
+      if (event.type === 'error') {
+        throw new ChatStreamError(event.error?.message || 'Chat stream failed', sawToken)
+      }
+      if (event.type === 'message_start') {
+        inputTokens = event.message?.usage?.input_tokens || inputTokens
+        cacheCreationInputTokens = event.message?.usage?.cache_creation_input_tokens || cacheCreationInputTokens
+        cacheReadInputTokens = event.message?.usage?.cache_read_input_tokens || cacheReadInputTokens
+      }
+      if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
+        const text = event.delta.text || ''
+        if (!text) return
+        sawToken = true
+        assistantText += text
+        if (optionsRef.current?.bookId !== sendBookId) return
+        setMessages(prev => prev.map(m => m.id === assistantId ? { ...m, content: assistantText } : m))
+      }
+      if (event.type === 'message_delta') {
+        outputTokens = event.usage?.output_tokens || outputTokens
+      }
+    }
+
+    try {
+      while (true) {
+        const { value, done } = await reader.read()
+        if (done) break
+        buffer += decoder.decode(value, { stream: true })
+        const events = buffer.split(/\n\n/)
+        buffer = events.pop() ?? ''
+        for (const raw of events) {
+          const dataLines = raw.split(/\r?\n/).filter(line => line.startsWith('data:'))
+          for (const line of dataLines) applyEvent(line.slice(5).trim())
+        }
+      }
+      const tail = decoder.decode()
+      if (tail) buffer += tail
+      for (const raw of buffer.split(/\n\n/)) {
+        const dataLines = raw.split(/\r?\n/).filter(line => line.startsWith('data:'))
+        for (const line of dataLines) applyEvent(line.slice(5).trim())
+      }
+    } catch (error) {
+      if (error instanceof ChatStreamError) throw error
+      throw new ChatStreamError('Chat stream interrupted', sawToken)
+    }
+
+    if (optionsRef.current?.bookId !== sendBookId) return
+    const totalInputTokens = inputTokens + cacheCreationInputTokens + cacheReadInputTokens
+    const tokenCount = totalInputTokens + outputTokens
+    if (totalInputTokens > 0 || outputTokens > 0) opts?.onUsage?.(totalInputTokens, outputTokens)
+    setMessages(prev => prev.map(m => m.id === assistantId
+      ? { ...m, content: assistantText || 'Sorry, I could not generate a response.', tokenCount, isComplete: true }
+      : m
+    ))
+  }
+
   const sendMessage = useCallback(async (content: string, highlightedText?: string) => {
     const opts = optionsRef.current
     const currentChapter = opts?.currentChapterNumber
+    const sendBookId = opts?.bookId
 
     const userMessage: ChatMessage = {
       id: generateId(),
@@ -131,6 +231,8 @@ export function useClaude(options?: UseClaudeOptions) {
       timestamp: Date.now(),
       highlightedText,
       chapterNumber: currentChapter,
+      bookId: sendBookId,
+      isComplete: true,
     }
 
     setMessages(prev => [...prev, userMessage])
@@ -168,9 +270,14 @@ export function useClaude(options?: UseClaudeOptions) {
 
       const basePrompt = opts
         ? buildSystemPrompt(opts.bookTitle, opts.bookAuthor, opts.chapterTitle, opts.readingObjective, previousChapterLabels)
-        : 'You are a literary companion helping a reader deeply engage with what they\'re reading. Be conversational and warm. Keep responses concise.'
+        : 'You are a literary companion helping a reader deeply engage with what they\'re reading. Be warm but measured. Keep responses concise. Do not use emoji, emoticons, slang, hype, or chatty filler.'
       const memoryContext = opts?.chatMemory ? `\n\n[${opts.chatMemory}]` : ''
-      const systemPrompt = basePrompt + memoryContext + buildChapterTextContext(opts?.currentChapterText) + buildVisibleTextContext(opts?.visibleText)
+      const chapterContext = buildChapterTextContext(opts?.currentChapterText)
+      const visibleContext = memoryContext + buildVisibleTextContext(opts?.visibleText)
+      const systemPrompt = [
+        { type: 'text', text: basePrompt + chapterContext, cache_control: { type: 'ephemeral' } },
+        { type: 'text', text: visibleContext || '[No additional page context.]' },
+      ]
 
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
@@ -179,15 +286,18 @@ export function useClaude(options?: UseClaudeOptions) {
         headers['Authorization'] = `Bearer ${opts.authToken}`
       }
 
+      const streamEnabled = isStreamingEnabled()
       const requestBody = JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 1024,
         system: systemPrompt,
         messages: apiMessages,
+        ...(streamEnabled ? { stream: true } : {}),
       })
 
       // Retry loop for overloaded errors (up to 3 attempts)
       let data: any
+      const assistantId = generateId()
       for (let attempt = 0; attempt < 3; attempt++) {
         const response = await fetch(apiUrl('/api/chat'), {
           method: 'POST',
@@ -208,6 +318,35 @@ export function useClaude(options?: UseClaudeOptions) {
           return
         }
 
+        const contentType = response.headers.get('content-type') || ''
+        if (streamEnabled && response.ok && contentType.includes('text/event-stream')) {
+          const placeholder: ChatMessage = {
+            id: assistantId,
+            role: 'assistant',
+            content: '',
+            timestamp: Date.now(),
+            chapterNumber: currentChapter,
+            bookId: sendBookId,
+            isComplete: false,
+          }
+          if (optionsRef.current?.bookId === sendBookId) setMessages(prev => [...prev, placeholder])
+          try {
+            await readStream(response, assistantId, sendBookId, currentChapter, opts)
+            return
+          } catch (error) {
+            const failedAfterToken = error instanceof ChatStreamError && error.sawToken
+            if (failedAfterToken) {
+              throw error
+            }
+            setMessages(prev => prev.filter(m => m.id !== assistantId))
+            if (attempt < 2) {
+              await new Promise(r => setTimeout(r, 2000 * (attempt + 1)))
+              continue
+            }
+            throw error
+          }
+        }
+
         data = await response.json()
 
         if (data.error) {
@@ -223,7 +362,9 @@ export function useClaude(options?: UseClaudeOptions) {
       }
 
       const assistantText = data.content?.[0]?.text || 'Sorry, I could not generate a response.'
-      const inputTokens = data.usage?.input_tokens || 0
+      const inputTokens = (data.usage?.input_tokens || 0) +
+        (data.usage?.cache_creation_input_tokens || 0) +
+        (data.usage?.cache_read_input_tokens || 0)
       const outputTokens = data.usage?.output_tokens || 0
       const tokenCount = inputTokens + outputTokens
 
@@ -233,15 +374,17 @@ export function useClaude(options?: UseClaudeOptions) {
       }
 
       const assistantMessage: ChatMessage = {
-        id: generateId(),
+        id: assistantId,
         role: 'assistant',
         content: assistantText,
         timestamp: Date.now(),
         tokenCount,
         chapterNumber: currentChapter,
+        bookId: sendBookId,
+        isComplete: true,
       }
 
-      setMessages(prev => [...prev, assistantMessage])
+      if (optionsRef.current?.bookId === sendBookId) setMessages(prev => [...prev, assistantMessage])
     } catch {
       const errorMessage: ChatMessage = {
         id: generateId(),
@@ -249,8 +392,11 @@ export function useClaude(options?: UseClaudeOptions) {
         content: 'Something went wrong. If this keeps happening, a page refresh usually fixes it.',
         timestamp: Date.now(),
         refreshAction: true,
+        bookId: sendBookId,
+        chapterNumber: currentChapter,
+        isComplete: true,
       }
-      setMessages(prev => [...prev, errorMessage])
+      if (optionsRef.current?.bookId === sendBookId) setMessages(prev => [...prev, errorMessage])
     } finally {
       setIsLoading(false)
     }

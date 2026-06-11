@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { storage } from '../services/storage'
 import type { Note } from '../types'
 
@@ -35,7 +35,12 @@ export function useNotes(bookId: string, chapterNumber: number, totalChapters?: 
   // Persist on change. Skip empty-array writes for keys that don't exist yet —
   // those are nearly always state-init noise (newly-mounted hook for a chapter
   // with no notes) rather than user actions. Also skip out-of-bounds chapters.
+  const prevPersistBookIdRef = useRef(bookId)
   useEffect(() => {
+    if (prevPersistBookIdRef.current !== bookId) {
+      prevPersistBookIdRef.current = bookId
+      return
+    }
     if (!isChapterInBoundsForBook()) return
     if (notes.length === 0 && storage.get<Note[]>(storageKey(bookId, chapterNumber)) === null) return
     storage.set(storageKey(bookId, chapterNumber), notes)

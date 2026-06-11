@@ -320,4 +320,56 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     title: 'Read Julius Caesar by William Shakespeare — Free Online with AI Companion | Tinct',
     description: 'Brutus and Cassius lead the conspiracy. Caesar falls at the foot of Pompey\'s statue on the Ides of March. Then Antony walks to the body, asks to speak at the funeral, and turns the crowd with three words: friends, Romans, countrymen. The play that taught the West what rhetoric can do.',
   },
+  'twelfth-night': {
+    title: 'Read Twelfth Night by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Viola is shipwrecked in Illyria, disguises herself as a boy, and ends up wooing Olivia for Duke Orsino — whom she falls for. Olivia falls for the disguise. Meanwhile Sir Toby and friends gull the steward Malvolio into believing his mistress loves him. Shakespeare\'s most perfectly balanced comedy.',
+  },
+  'measure-for-measure': {
+    title: 'Read Measure for Measure by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'The Duke of Vienna leaves the puritanical Angelo in charge and disappears. Angelo sentences a young man to death for fornication; the man\'s sister, a novice nun, pleads with him; Angelo offers her brother\'s life for her body. The bleakest of the "problem plays" — comedy in name only.',
+  },
+  'henry-iv-part-2': {
+    title: 'Read Henry IV, Part 2 by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Hal\'s coronation looms. The dying king mistakes the prince\'s grief for greed and rages against him. Falstaff rides toward London to claim the favor of the new king — and gets one of the most devastating dismissals in English: I know thee not, old man.',
+  },
+  'merry-wives-of-windsor': {
+    title: 'Read The Merry Wives of Windsor by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Falstaff tries to seduce two respectable Windsor matrons for their money, sending each the same love letter. They compare notes and arrange the most humiliating series of punishments in the canon — including a soaking in the Thames in a laundry basket. The most farcical play and the one Queen Elizabeth supposedly demanded.',
+  },
+  'othello': {
+    title: 'Read Othello by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'A Moorish general in Venice, a trusted ensign who is nothing but malice, and a wife whose only crime is being innocent. Iago whispers jealousy into Othello\'s ear until he murders the woman he loves — Shakespeare\'s most claustrophobic and racially charged tragedy.',
+  },
+  'king-lear': {
+    title: 'Read King Lear by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'The aging king divides his kingdom among his daughters by how loudly they will say they love him. Cordelia refuses to play; her sisters lie. By the storm scene on the heath, Lear is mad and stripped of everything. The darkest and most pitiless of the four great tragedies.',
+  },
+  'much-ado-about-nothing': {
+    title: 'Read Much Ado About Nothing by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Benedick and Beatrice trade insults so sharp their friends decide it must be love, and trick them into it. Meanwhile the villain Don John engineers the slander of Hero on the night of her wedding. Shakespeare\'s wittiest comedy — and a near-tragedy folded into it.',
+  },
+  'taming-of-the-shrew': {
+    title: 'Read The Taming of the Shrew by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Petruchio comes to Padua to wive it wealthily and meets Katharina, the unmarriageable elder daughter of Baptista. He undertakes to tame her; she is more than his match. The comedy that has divided readers for four centuries.',
+  },
+  'antony-and-cleopatra': {
+    title: 'Read Antony and Cleopatra by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Mark Antony, master of the eastern Roman world, loses everything to a love affair with the queen of Egypt. The most expansive of the tragedies — moving across the Mediterranean in 42 scenes — and the most adult.',
+  },
+  'richard-iii': {
+    title: 'Read Richard III by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'Now is the winter of our discontent. The hunchbacked Duke of Gloucester schemes, seduces, and murders his way to the throne of England, only to lose it at Bosworth Field — "A horse! A horse! My kingdom for a horse!" The young Shakespeare\'s breakthrough in tragic villainy.',
+  },
+  'coriolanus': {
+    title: 'Read Coriolanus by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'The Roman general Caius Marcius, renamed Coriolanus for sacking the Volscian capital, returns to Rome a hero — and refuses to flatter the plebeians for the consulship. Banished, he joins his old enemy to march on Rome. The most political of the tragedies and the most ruthlessly proud hero in the canon.',
+  },
+  'cymbeline': {
+    title: 'Read Cymbeline by William Shakespeare — Free Online with AI Companion | Tinct',
+    description: 'A late romance: King Cymbeline of Britain, his banished daughter Imogen, the villain Iachimo who bets he can seduce her, the lost princes raised in a Welsh cave. Wagers, severed heads, a poisoned drink, a Roman invasion — and a recognition scene that pulls thirty threads into one.',
+  },
+  'anna-karenina': {
+    title: 'Read Anna Karenina by Leo Tolstoy — Free Online with AI Companion | Tinct',
+    description: 'A married woman falls in love with a cavalry officer in 1870s Russia and ends up under a train. Around that disaster, Tolstoy lays out the lives of nine other people in detail — Levin and his hayfields, Kitty\'s wedding, Stiva\'s expense accounts. The novel many serious readers call the greatest ever written.',
+  },
 }

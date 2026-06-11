@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import type { ChatMessage, ChatConversation } from '../types'
 import { storage } from '../services/storage'
+import { appendReaderSessionShadow } from '../readerSession/shadow'
 
 const CONVERSATION_GAP_MS = 5 * 60 * 1000 // 5 minutes = new conversation
 
@@ -74,8 +75,21 @@ export function useChatHistory(bookId: string, storageReady = true, heavyLoadedT
     message: ChatMessage,
     chapterNumber: number,
     paragraphIndex?: number,
-  ) => {
-    setConversations(prev => {
+	  ) => {
+	    if (message.bookId && message.bookId !== bookId) {
+	      appendReaderSessionShadow({
+	        kind: 'chat',
+	        detail: {
+	          rejected: true,
+	          reason: 'book-mismatch',
+	          targetBookId: bookId,
+	          messageBookId: message.bookId,
+	          messageId: message.id,
+	        },
+	      })
+	      return
+	    }
+	    setConversations(prev => {
       const now = message.timestamp
       const last = prev[prev.length - 1]
 
@@ -153,9 +167,11 @@ export function useChatHistory(bookId: string, storageReady = true, heavyLoadedT
   }, [])
 
   /** Set an AI-generated summary on a conversation (replaces clutter with clean summary) */
-  const setSummary = useCallback((convId: string, summary: string) => {
+  const setSummary = useCallback((convId: string, summary: string, prompt?: string) => {
     setConversations(prev => {
-      const updated = prev.map(c => c.id === convId ? { ...c, summary } : c)
+      const updated = prev.map(c => c.id === convId
+        ? { ...c, summary, summaryPrompt: prompt, summaryCreatedAt: Date.now() }
+        : c)
       persist(updated)
       return updated
     })
