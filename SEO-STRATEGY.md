@@ -1,6 +1,6 @@
 # Tinct SEO Strategy
 
-**Last updated: 2026-06-10** (first GSC/Bing data review; mediocre→exceptional thesis added)
+**Last updated: 2026-06-12** (Phase 5 mechanical fixes deployed; full sitemap submitted to IndexNow)
 
 ---
 
@@ -275,16 +275,15 @@ Treat SEO as top-of-funnel only. Don't warp the product to optimize for it. Don'
 
 > **2026-06-10:** The beyond-search growth strategy (product moments, launches, press, budget) now lives in `GROWTH-PLAN.md`. This doc stays scoped to the search harvest.
 
-## Current next actions (updated 2026-06-10)
+## Current next actions (updated 2026-06-12)
 
-Superseded items: Bing Webmaster is set up (sitemap submitted 6/5, processing); the audit script exists (`app/scripts/audit-seo.cjs`); the 699-URL freeze was overtaken (surface is 3,956 URLs).
+Superseded items: Bing Webmaster is set up (sitemap submitted 6/5, processing); the audit script exists (`app/scripts/audit-seo.cjs`); the 699-URL freeze was overtaken (surface is 3,956 URLs); Phase 5 mechanical fixes are deployed; AI crawlers are allowed; `llms.txt`/`llms-full.txt` are live; full sitemap IndexNow submission completed 2026-06-12 (3,956 URLs, HTTP 200).
 
-1. Execute REMEDIATION-PLAN.md Phase 5 (og:image, soft-404s, commit SEO tree, lastmod, JSON-LD, internal-link hub, Bing crawl-quota boost, IndexNow run).
-2. Record GSC Pages indexed-vs-discovered ratio here weekly — the health metric for the May expansion. If Google indexes <30% after 4 more weeks, consolidate (noindex the weakest chapter-page tiers) rather than wait.
-3. Anders decides: AI-crawler policy (Phase 5.7) — recommended: open + llms.txt.
-4. Build the first 3 translation-comparison pages (Crime and Punishment, The Odyssey, The Brothers Karamazov) and measure for 4 weeks before scaling to 10.
-5. Danish mirror pilot: same 3 books, hreflang paired with the English pages.
-6. CTR rewrite pass on the query families already showing impressions (GSC Queries → every query with >10 impressions and 0 clicks).
-7. Backlinks: draft the Show HN post ("modern translations of 33 classics, free reader") — the strongest single authority play available; coordinate with marketing lead.
+1. Record GSC Pages indexed-vs-discovered ratio here weekly — the health metric for the May expansion. If Google indexes <30% after 4 more weeks, consolidate (noindex the weakest chapter-page tiers) rather than wait.
+2. Click the Bing crawl-quota boost if not already done in Bing Webmaster Tools.
+3. Build the first 3 translation-comparison pages (Crime and Punishment, The Odyssey, The Brothers Karamazov) and measure for 4 weeks before scaling to 10.
+4. Danish mirror pilot: same 3 books, hreflang paired with the English pages.
+5. CTR rewrite pass on the query families already showing impressions (GSC Queries → every query with >10 impressions and 0 clicks).
+6. Backlinks: draft the Show HN post ("modern translations of 33 classics, free reader") — the strongest single authority play available; coordinate with marketing lead.
 
 No further page-count expansion until the indexed-ratio (item 2) supports it.
