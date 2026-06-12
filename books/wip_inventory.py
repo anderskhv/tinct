@@ -159,7 +159,7 @@ def audio_status(book_id: str, edition: str) -> str:
 
 
 def mechanical_warning(book_id: str) -> str:
-    if book_id in {"wealth-of-nations", "don-quixote", "essays-montaigne"}:
+    if book_id in {"wealth-of-nations", "essays-montaigne"}:
         return "modern-en repair"
     if book_id == "leviathan":
         return "final text QA"
