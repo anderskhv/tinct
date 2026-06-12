@@ -73,8 +73,10 @@ Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports ex
 These are production-critical:
 
 - Position writes must keep `bookId`, `chapterNumber`, page, and paragraph data as a coherent tuple.
+- ReaderSession is the default source for persisted position tuples. Legacy state is only a rollback path, not the architecture to extend.
 - Any code path that changes `currentBookId` must re-derive chapter and saved position for the new book.
 - Position writes must be suspended while overlays/auth/onboarding/loading states can expose stale reader state.
+- User-data writes are versioned through `commit_user_data`; deletes are tombstone writes (`value: null`) so other devices receive the change.
 - Backward chapter writes require a recent user-navigation signal.
 - Positions loaded from storage/cloud must be validated against the actual book structure.
 - Position writes must skip during the render where `bookId` just changed but chapter/paragraph state still belongs to the previous book.

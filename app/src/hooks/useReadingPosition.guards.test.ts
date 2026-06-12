@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildReadingPositionForWrite,
+  shouldUseReaderSessionPositionSource,
 } from './useReadingPosition'
 import type { ReaderBookContext, ReaderLocation } from '../readerSession/types'
 import type { Book, EditionData } from '../types'
@@ -61,6 +62,15 @@ function readerLocation(patch: Partial<ReaderLocation> = {}): ReaderLocation {
 }
 
 describe('buildReadingPositionForWrite — readerSession source switch', () => {
+  it('defaults the live writer to readerSession source with explicit rollback switches', () => {
+    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: null })).toBe(true)
+    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '1' })).toBe(true)
+    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '0' })).toBe(false)
+    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '1', envFlag: 'false' })).toBe(false)
+    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '0', envFlag: 'true' })).toBe(true)
+    expect(shouldUseReaderSessionPositionSource({ hasWindow: false, localFlag: null })).toBe(true)
+  })
+
   it('matches the legacy state-derived tuple when readerSession source is disabled', () => {
     expect(buildReadingPositionForWrite({
       bookId: 'the-awakening',

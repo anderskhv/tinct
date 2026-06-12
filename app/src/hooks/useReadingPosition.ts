@@ -74,13 +74,30 @@ function readerSessionLiveWritesEnabled(): boolean {
   }
 }
 
+export function shouldUseReaderSessionPositionSource(args: {
+  envFlag?: string
+  localFlag?: string | null
+  hasWindow: boolean
+}): boolean {
+  if (args.envFlag === 'false') return false
+  if (args.envFlag === 'true') return true
+  if (!args.hasWindow) return true
+  return args.localFlag !== '0'
+}
+
 function readerSessionPositionSourceEnabled(): boolean {
-  if (import.meta.env.VITE_READER_SESSION_POSITION_SOURCE === 'true') return true
-  if (typeof window === 'undefined') return false
   try {
-    return localStorage.getItem(POSITION_SOURCE_FLAG_KEY) === '1'
+    return shouldUseReaderSessionPositionSource({
+      envFlag: import.meta.env.VITE_READER_SESSION_POSITION_SOURCE,
+      localFlag: typeof window === 'undefined' ? null : localStorage.getItem(POSITION_SOURCE_FLAG_KEY),
+      hasWindow: typeof window !== 'undefined',
+    })
   } catch {
-    return false
+    return shouldUseReaderSessionPositionSource({
+      envFlag: import.meta.env.VITE_READER_SESSION_POSITION_SOURCE,
+      localFlag: null,
+      hasWindow: typeof window !== 'undefined',
+    })
   }
 }
 
