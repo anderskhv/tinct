@@ -2863,13 +2863,17 @@ export default {
       // served for hours after a deploy).
       const isOnboarding = url.pathname.startsWith('/data/onboarding/')
       const cache = caches.default
-      const cacheKey = new Request(url.toString(), { method: 'GET' })
-      const cached = await cache.match(cacheKey)
-      if (cached) {
-        const fixed = new Response(cached.body, cached)
-        fixed.headers.delete('Access-Control-Allow-Origin')
-        fixed.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        return fixed
+      const cacheKeyUrl = new URL(url.toString())
+      cacheKeyUrl.searchParams.set('__tinct_json_cache', '2')
+      const cacheKey = new Request(cacheKeyUrl.toString(), { method: 'GET' })
+      if (request.method === 'GET') {
+        const cached = await cache.match(cacheKey)
+        if (cached) {
+          const fixed = new Response(cached.body, cached)
+          fixed.headers.delete('Access-Control-Allow-Origin')
+          fixed.headers.set('X-Robots-Tag', 'noindex, noarchive')
+          return fixed
+        }
       }
 
       const assetResp = await env.ASSETS.fetch(request)
@@ -2887,7 +2891,7 @@ export default {
         }
         cacheable.headers.delete('Access-Control-Allow-Origin')
         cacheable.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
+        if (request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable
       }
       return new Response(request.method === 'HEAD' ? null : 'Not found', {
