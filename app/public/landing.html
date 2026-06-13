@@ -26,7 +26,7 @@
         var cookies = (document.cookie || '').split(';');
         for (var c = 0; c < cookies.length; c++) {
           if (cookies[c].trim() === 'tinct_auth=1') {
-            window.location.replace('/read');
+            window.location.replace('/app');
             return;
           }
         }
@@ -43,7 +43,7 @@
           if (!/-auth-token(\.\d+)?$/.test(k)) continue;
           var raw = localStorage.getItem(k);
           if (!raw || raw === 'null' || raw === '""') continue;
-          window.location.replace('/read');
+          window.location.replace('/app');
           return; // never reveal landing
         }
       } catch (e) { /* storage unavailable, ignore */ }
@@ -194,8 +194,8 @@
     <nav class="hero-nav">
       <a href="/" class="hero-logo">Tinct<span class="dot">.</span></a>
       <div class="hero-nav-links">
-        <a href="/read?view=library">Library</a>
-        <a href="/read?signin=1">Sign in</a>
+        <a href="/app?view=library">Library</a>
+        <a href="/app?signin=1">Sign in</a>
       </div>
     </nav>
     <h1 class="hero-h1">
@@ -222,7 +222,7 @@
         <div class="start-label">Start free</div>
         <div class="price-big">$0</div>
         <div class="price-note">No account to start. Try Premium <strong>free for 1 month</strong>.</div>
-        <a href="/read" class="btn btn-primary" style="margin-top:14px">Start reading →</a>
+        <a href="/app" class="btn btn-primary" style="margin-top:14px">Start reading →</a>
       </div>
     </div>
     <footer class="site-footer">

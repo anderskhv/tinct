@@ -2772,6 +2772,18 @@ function editionBookIdFromPath(pathname: string): string | null {
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
+    const forwardedProto = request.headers.get('x-forwarded-proto') || url.protocol.replace(':', '')
+    if ((url.hostname === 'www.tinct.app') || (url.hostname === 'tinct.app' && forwardedProto === 'http')) {
+      url.hostname = 'tinct.app'
+      url.protocol = 'https:'
+      return new Response(null, {
+        status: 308,
+        headers: {
+          Location: url.toString(),
+          'Cache-Control': 'public, max-age=3600',
+        },
+      })
+    }
 
     // 403 known bot UAs immediately. Cheap (no KV, no upstream fetch) and
     // keeps the free KV tier intact. Honest crawlers honour this; the rest
@@ -2905,11 +2917,12 @@ export default {
     }
 
     // Root URL serves the landing page (which is index.html after build swap).
-    // SPA is available at /app.html and via SPA fallback for /read/* routes.
+    // SPA is available at /app.html and /app. Plain /read is now the static
+    // crawlable library hub, so signed-in app traffic must not redirect there.
     //
     // Signed-in short-circuit: if the client has a `tinct_auth=1` cookie
-    // (set by the SPA in useAuth on sign-in, cleared on sign-out), 302 to
-    // /read before serving landing.html. This is deterministic across
+      // (set by the SPA in useAuth on sign-in, cleared on sign-out), 302 to
+      // /app before serving landing.html. This is deterministic across
     // browsers/devices and far more reliable than the inline-script
     // localStorage probe in landing.html. That inline script remains as a
     // fallback for cookie-disabled browsers.
@@ -2919,7 +2932,7 @@ export default {
       if (hasAuthCookie) {
         return new Response(null, {
           status: 302,
-          headers: { Location: '/read', 'Cache-Control': 'no-store' },
+          headers: { Location: '/app', 'Cache-Control': 'no-store' },
         })
       }
       // For signed-out users, serve landing.html but mark it no-store so the
