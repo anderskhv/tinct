@@ -23,7 +23,7 @@ import { ShareModal } from './components/ShareModal'
 import { FeatureTour, type TourStep } from './components/FeatureTour'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
-import { isEditionWindowed, loadEdition, loadEditionWindow, reloadEdition } from './data/editionLoader'
+import { editionChapterShardManifestUrl, editionDataUrl, isChapterShardedEdition, isEditionWindowed, loadEdition, loadEditionWindow, reloadEdition } from './data/editionLoader'
 import { AudioStrip } from './components/AudioStrip'
 import { usePreferences } from './hooks/usePreferences'
 import { useHighlights } from './hooks/useHighlights'
@@ -1570,7 +1570,9 @@ export default function App() {
   const prefetchedRef = useRef<Set<string>>(new Set())
   useEffect(() => {
     if (typeof document === 'undefined') return
-    const url = `/data/editions/${book.id}-${primaryEditionKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+    const url = isChapterShardedEdition(book.id, primaryEditionKey)
+      ? editionChapterShardManifestUrl(book.id, primaryEditionKey)
+      : editionDataUrl(book.id, primaryEditionKey)
     if (prefetchedRef.current.has(url)) return
     prefetchedRef.current.add(url)
     const link = document.createElement('link')
@@ -1615,7 +1617,9 @@ export default function App() {
           // request when the user opens that book.
           const edKey = (targetBook.editions[0]?.key) as EditionKey | undefined
           if (!edKey) continue
-          const url = `/data/editions/${c.id}-${edKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+          const url = isChapterShardedEdition(c.id, edKey)
+            ? editionChapterShardManifestUrl(c.id, edKey)
+            : editionDataUrl(c.id, edKey)
           if (prefetchedRef.current.has(url)) continue
           prefetchedRef.current.add(url)
           const link = document.createElement('link')
