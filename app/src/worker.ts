@@ -3,7 +3,7 @@
  * Handles /api/* routes and falls through to static assets for everything else.
  */
 
-import { GENERATED_BOOK_META } from './data/bookMetaGenerated'
+import { GENERATED_BOOK_META, type BookMetaEntry } from './data/bookMetaGenerated'
 
 interface Env {
   ANTHROPIC_API_KEY: string
@@ -2693,10 +2693,12 @@ function isBlockedBot(request: Request): boolean {
 // crawlers see a book-specific title and description instead of the generic
 // SPA title. Only listed bookIds get this treatment; everything else falls
 // through to the SPA shell with its default title.
-const BOOK_META: Record<string, { title: string; description: string; image?: string }> = {
+const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
   odyssey: {
     title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
     description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version, modern Danish also available. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
+    bookName: 'The Odyssey',
+    author: 'Homer',
   },
 }
 
@@ -2706,7 +2708,7 @@ async function serveSpaWithMeta(
   requestMethod: string,
   url: URL,
   env: Env,
-  meta: { title: string; description: string; image?: string },
+  meta: BookMetaEntry & { image?: string },
   canonical: string,
   ogType: string,
 ): Promise<Response | null> {
@@ -2727,7 +2729,23 @@ async function serveSpaWithMeta(
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${meta.title}">
   <meta name="twitter:description" content="${meta.description}">`
-  const rewritten = html.replace(/<title>[^<]*<\/title>/, injected)
+  const bookJsonLd = ogType === 'book'
+    ? `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Book',
+        '@id': `${canonical}#book`,
+        name: meta.bookName,
+        author: { '@type': 'Person', name: meta.author },
+        description: meta.description,
+        url: canonical,
+        image: ogImage,
+        inLanguage: 'en',
+        isAccessibleForFree: true,
+        isPartOf: { '@type': 'WebSite', name: 'Tinct', url: 'https://tinct.app' },
+        publisher: { '@type': 'Organization', name: 'Tinct', url: 'https://tinct.app' },
+      })}</script>`
+    : ''
+  const rewritten = html.replace(/<title>[^<]*<\/title>/, `${injected}${bookJsonLd}`)
   const newResp = new Response(requestMethod === 'HEAD' ? null : rewritten, {
     status: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },

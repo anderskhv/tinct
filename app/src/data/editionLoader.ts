@@ -1,6 +1,7 @@
 import type { EditionData, EditionKey } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 import { perfMark, perfMeasure } from '../utils/perf'
+import { CHAPTER_SHARDED_EDITION_IDS } from './editionShardRegistry'
 
 const cache = new Map<string, EditionData>()
 const inFlight = new Map<string, Promise<EditionData>>()
@@ -28,11 +29,7 @@ interface ChapterShardManifest {
   sections?: EditionData['sections']
 }
 
-const CHAPTER_SHARDED_EDITIONS = new Set<string>([
-  'war-and-peace-original-en',
-  'war-and-peace-modern-en',
-  'war-and-peace-modern-da',
-])
+const CHAPTER_SHARDED_EDITIONS = new Set<string>(CHAPTER_SHARDED_EDITION_IDS)
 
 export function chapterShardedEditionsEnabled(): boolean {
   if (import.meta.env.VITE_CHAPTER_SHARDED_EDITIONS === 'true') return true
@@ -46,6 +43,14 @@ export function chapterShardedEditionsEnabled(): boolean {
 
 export function isChapterShardedEdition(bookId: string, editionKey: EditionKey): boolean {
   return CHAPTER_SHARDED_EDITIONS.has(`${bookId}-${editionKey}`)
+}
+
+export function editionDataUrl(bookId: string, editionKey: EditionKey): string {
+  return `/data/editions/${bookId}-${editionKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+}
+
+export function editionChapterShardManifestUrl(bookId: string, editionKey: EditionKey): string {
+  return `/data/editions-chapters/${bookId}-${editionKey}/manifest.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
 }
 
 function chapterShardWindowEnabled(bookId: string, editionKey: EditionKey): boolean {
@@ -130,7 +135,7 @@ async function loadChapterShardManifest(
   }
   const manifestUrl = opts.bypassCache
     ? `/data/editions-chapters/${bookId}-${editionKey}/manifest.json?fresh=1`
-    : `/data/editions-chapters/${bookId}-${editionKey}/manifest.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+    : editionChapterShardManifestUrl(bookId, editionKey)
   const fetchInit: RequestInit = opts.bypassCache ? { cache: 'no-store' } : {}
   const manifestData = await fetchJson(manifestUrl, fetchInit)
   if (!isChapterShardManifest(manifestData, bookId, editionKey)) {
@@ -298,7 +303,7 @@ async function loadEditionUncached(
   // path because that already takes a `cache: 'no-store'` route.
   const url = opts.bypassCache
     ? `/data/editions/${bookId}-${editionKey}.json?fresh=1`
-    : `/data/editions/${bookId}-${editionKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+    : editionDataUrl(bookId, editionKey)
   const fetchInit: RequestInit = opts.bypassCache ? { cache: 'no-store' } : {}
 
   let response: Response
@@ -402,8 +407,12 @@ async function applyEditionPatches(
 
 /** Force a fresh reload, bypassing both the in-memory and SW cache. */
 export async function reloadEdition(bookId: string, editionKey: EditionKey): Promise<EditionData> {
-  cache.delete(`${bookId}-${editionKey}`)
-  manifestCache.delete(`${bookId}-${editionKey}`)
+  const cacheKey = `${bookId}-${editionKey}`
+  cache.delete(cacheKey)
+  manifestCache.delete(cacheKey)
+  for (const key of chapterShardCache.keys()) {
+    if (key.startsWith(`${cacheKey}-ch`)) chapterShardCache.delete(key)
+  }
   return loadEdition(bookId, editionKey, { bypassCache: true })
 }
 
