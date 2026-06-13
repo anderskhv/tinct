@@ -73,6 +73,7 @@ function cleanPathFromUrl(url) {
 }
 
 function htmlPathForCleanPath(cleanPath) {
+  if (cleanPath === '/read') return path.join(READ_DIR, 'index.html')
   const match = cleanPath.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)$/i)
   if (!match) return null
   return path.join(READ_DIR, match[1], `${match[2]}.html`)
@@ -236,11 +237,11 @@ async function auditLive(base, localUrls, limit) {
   else if (!knownDataRobots.includes('noindex')) fail('known edition JSON is missing X-Robots-Tag noindex')
   else pass('known edition JSON is noindex')
 
-  const heldBackData = await fetchNoBody(`${base}/data/editions/around-the-world-80-days-modern-en.json`, { method: 'HEAD' })
-  const heldBackRobots = heldBackData.headers.get('x-robots-tag') || ''
-  if (heldBackData.status !== 404) fail(`held-back edition JSON returned ${heldBackData.status}, expected 404`)
-  else if (!heldBackRobots.includes('noindex')) fail('held-back edition JSON is missing X-Robots-Tag noindex')
-  else pass('held-back edition JSON returns 404 noindex')
+  const unknownData = await fetchNoBody(`${base}/data/editions/seo-audit-missing-book-modern-en.json`, { method: 'HEAD' })
+  const unknownDataRobots = unknownData.headers.get('x-robots-tag') || ''
+  if (unknownData.status !== 404) fail(`unknown edition JSON returned ${unknownData.status}, expected 404`)
+  else if (!unknownDataRobots.includes('noindex')) fail('unknown edition JSON is missing X-Robots-Tag noindex')
+  else pass('unknown edition JSON returns 404 noindex')
 }
 
 async function main() {

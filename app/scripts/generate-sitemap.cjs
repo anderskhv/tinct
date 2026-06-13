@@ -150,7 +150,7 @@ function buildSitemap(books) {
   lines.push(urlEntry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(path.join(APP_DIR, 'public/about.html')) }))
   lines.push('')
   lines.push('  <!-- Library -->')
-  lines.push(urlEntry(`${ORIGIN}/read`, { changefreq: 'weekly', priority: 0.8, lastmod: lastmodFor(path.join(READ_DIR, 'index.html')) }))
+  lines.push(urlEntry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8, lastmod: lastmodFor(path.join(READ_DIR, 'index.html')) }))
   lines.push('')
 
   // Three buckets: Full-tier books (everything), Stub-tier books
