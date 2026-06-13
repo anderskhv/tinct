@@ -2964,6 +2964,23 @@ export default {
       }
     }
 
+    // Back-compat for old app entry links. Plain /read is the public SEO hub,
+    // but query-bearing /read URLs are app intents such as ?signin=1 or
+    // ?view=library. Signed-in humans also expect /read to open the app, while
+    // crawlers and signed-out visitors can still receive the static hub.
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/read') {
+      const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
+      const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
+      if (url.search || hasAuthCookie) {
+        const appUrl = new URL(url.toString())
+        appUrl.pathname = '/app'
+        return new Response(null, {
+          status: 302,
+          headers: { Location: `${appUrl.pathname}${appUrl.search}`, 'Cache-Control': 'no-store' },
+        })
+      }
+    }
+
     // SEO page clean-URL routing.
     // Per-book pages live as static HTML at /read/{bookId}/(summary|chapters|cast|themes|chapter-N).html.
     // We want clean URLs without .html for crawlers + sharing — but Cloudflare's
