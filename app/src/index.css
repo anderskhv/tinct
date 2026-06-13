@@ -11496,6 +11496,55 @@ body {
   width: 18px;
 }
 
+.book-onboarding-preface-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 4px;
+  border-left: 1px solid var(--paper-deep);
+}
+
+.book-onboarding-preface-language-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 0 6px;
+}
+
+.book-onboarding-preface-language-btn {
+  border: none;
+  border-radius: 3px;
+  min-height: 22px;
+  padding: 4px 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.book-onboarding-preface-language-btn:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: rgba(11, 11, 11, 0.04);
+}
+
+.book-onboarding-preface-language-btn.selected {
+  background: var(--accent);
+  color: var(--text-inverse, #fff);
+}
+
+.book-onboarding-preface-language-btn:disabled {
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 .book-onboarding-close {
   background: none;
   border: none;
@@ -12025,6 +12074,13 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+  .book-onboarding-preface-language {
+    border-left: none;
+    margin-left: 8px;
+  }
+  .book-onboarding-preface-language-label {
+    display: none;
   }
 }
 

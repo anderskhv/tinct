@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
 import { apiUrl } from '../utils/apiUrl'
+import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
 
 interface AngleCard {
   title: string
@@ -114,6 +115,37 @@ function renderMarkdown(text: string): React.ReactNode[] {
     if (paraLines.length > 0) elements.push(<p key={key++}>{renderInline(paraLines.join(' '))}</p>)
   }
   return elements
+}
+
+function PrefaceLanguageToggle({
+  value,
+  danishAvailable,
+  onChange,
+}: {
+  value: OnboardingLanguage
+  danishAvailable: boolean
+  onChange: (language: OnboardingLanguage) => void
+}) {
+  return (
+    <div className="book-onboarding-preface-language" aria-label="Preface language">
+      <span className="book-onboarding-preface-language-label">Preface</span>
+      <button
+        type="button"
+        className={`book-onboarding-preface-language-btn ${value === 'da' ? 'selected' : ''}`}
+        onClick={() => onChange('da')}
+        disabled={!danishAvailable}
+      >
+        Dansk
+      </button>
+      <button
+        type="button"
+        className={`book-onboarding-preface-language-btn ${value === 'en' ? 'selected' : ''}`}
+        onClick={() => onChange('en')}
+      >
+        English
+      </button>
+    </div>
+  )
 }
 
 // Book cover — same shape and styling as in the library, just smaller. Shares
@@ -339,6 +371,22 @@ export function BookOnboarding({
   }
   const [angleMessages, setAngleMessages] = useState<ChatMsg[]>([angleSeed])
 
+  const availableLanguages = useMemo(
+    () => Array.from(new Set(editions.map(e => e.language))),
+    [editions]
+  )
+  const inferredOnboardingLanguage = useMemo(
+    () => inferOnboardingLanguage(editions, editionKey, readingLanguages),
+    [editions, editionKey, readingLanguages]
+  )
+  const [onboardingLanguage, setOnboardingLanguage] = useState<OnboardingLanguage>(inferredOnboardingLanguage)
+  const [onboardingLanguagePicked, setOnboardingLanguagePicked] = useState(false)
+  const [danishOnboardingAvailable, setDanishOnboardingAvailable] = useState(true)
+
+  useEffect(() => {
+    if (!onboardingLanguagePicked) setOnboardingLanguage(inferredOnboardingLanguage)
+  }, [inferredOnboardingLanguage, onboardingLanguagePicked])
+
   // Load per-book onboarding data.
   // The `v=` query param busts the previous 30-day immutable CDN cache
   // (worker.ts cache header was misconfigured before 2026-04-29 evening).
@@ -347,12 +395,17 @@ export function BookOnboarding({
   // JSONs so future content updates don't need a bump.
   useEffect(() => {
     let cancelled = false
-    fetch(`/data/onboarding/${bookId}.json?v=2`)
-      .then(r => (r.ok ? r.json() : null))
-      .then(json => { if (!cancelled) { setData(json); setDataLoaded(true) } })
-      .catch(() => { if (!cancelled) setDataLoaded(true) })
+    setDataLoaded(false)
+    loadOnboardingData<OnboardingData>(bookId, onboardingLanguage)
+      .then(result => {
+        if (cancelled) return
+        setData(result.data)
+        setDataLoaded(true)
+        setDanishOnboardingAvailable(result.danishAvailable)
+        if (onboardingLanguage === 'da' && result.language === 'en') setOnboardingLanguage('en')
+      })
     return () => { cancelled = true }
-  }, [bookId])
+  }, [bookId, onboardingLanguage])
 
   // Dynamic step list: only include steps that have meaningful content.
   // Cast is skipped when there's no cast data for this book (avoids the
@@ -385,12 +438,6 @@ export function BookOnboarding({
   useEffect(() => {
     if (stepIdx >= totalSteps) setStepIdx(Math.max(0, totalSteps - 1))
   }, [stepIdx, totalSteps])
-
-  // Languages actually present in this book's editions. Drives the chip row.
-  const availableLanguages = useMemo(
-    () => Array.from(new Set(editions.map(e => e.language))),
-    [editions]
-  )
 
   // Editions matching the reader's language preferences. If the intersection
   // is empty (e.g. Danish-only reader opens a book with no Danish translation),
@@ -455,6 +502,11 @@ export function BookOnboarding({
     } else {
       onReadingLanguagesChange([...readingLanguages, lang])
     }
+  }
+
+  function pickOnboardingLanguage(language: OnboardingLanguage) {
+    setOnboardingLanguagePicked(true)
+    setOnboardingLanguage(language)
   }
 
   // If the currently-selected edition disappears from the filtered list
@@ -550,6 +602,13 @@ WATCH FOR:
               />
             ))}
           </div>
+          {(availableLanguages.includes('da') || readingLanguages.includes('da')) && (
+            <PrefaceLanguageToggle
+              value={onboardingLanguage}
+              danishAvailable={danishOnboardingAvailable}
+              onChange={pickOnboardingLanguage}
+            />
+          )}
         </div>
 
         <div className="book-onboarding-body">

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, useRef, useLayoutEffect } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
+import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
 
 interface AcclaimEntry {
   quote: string
@@ -128,19 +129,38 @@ export function BookOnboardingPreface({
   const [splitManuallyPicked, setSplitManuallyPicked] = useState(false)
   const [openSplitByDefault, setOpenSplitByDefault] = useState<boolean>(!!defaultOpenSplit)
 
-  useEffect(() => {
-    let cancelled = false
-    fetch(`/data/onboarding/${book.id}.json?v=2`)
-      .then(r => (r.ok ? r.json() : null))
-      .then((d: OnboardingData | null) => { if (!cancelled) setData(d) })
-      .catch(() => { /* ignore */ })
-    return () => { cancelled = true }
-  }, [book.id])
-
   const availableLanguages = useMemo(
     () => Array.from(new Set(editions.map(e => e.language))),
     [editions]
   )
+  const inferredOnboardingLanguage = useMemo(
+    () => inferOnboardingLanguage(editions, editionKey, readingLanguages),
+    [editions, editionKey, readingLanguages]
+  )
+  const [onboardingLanguage, setOnboardingLanguage] = useState<OnboardingLanguage>(inferredOnboardingLanguage)
+  const [onboardingLanguagePicked, setOnboardingLanguagePicked] = useState(false)
+  const [danishOnboardingAvailable, setDanishOnboardingAvailable] = useState(true)
+
+  useEffect(() => {
+    if (!onboardingLanguagePicked) setOnboardingLanguage(inferredOnboardingLanguage)
+  }, [inferredOnboardingLanguage, onboardingLanguagePicked])
+
+  useEffect(() => {
+    let cancelled = false
+    loadOnboardingData<OnboardingData>(book.id, onboardingLanguage)
+      .then(result => {
+        if (cancelled) return
+        setData(result.data)
+        setDanishOnboardingAvailable(result.danishAvailable)
+        if (onboardingLanguage === 'da' && result.language === 'en') setOnboardingLanguage('en')
+      })
+    return () => { cancelled = true }
+  }, [book.id, onboardingLanguage])
+
+  function pickOnboardingLanguage(language: OnboardingLanguage) {
+    setOnboardingLanguagePicked(true)
+    setOnboardingLanguage(language)
+  }
 
   const filteredEditions = useMemo(
     () => editions.filter(e => readingLanguages.includes(e.language)),
@@ -419,6 +439,14 @@ export function BookOnboardingPreface({
 
   return (
     <div ref={frameRef} tabIndex={-1} style={frame}>
+      {(availableLanguages.includes('da') || readingLanguages.includes('da')) && (
+        <PrefaceLanguageToggle
+          value={onboardingLanguage}
+          danishAvailable={danishOnboardingAvailable}
+          onChange={pickOnboardingLanguage}
+          mobile={isMobile}
+        />
+      )}
       <button onClick={finish} style={isMobile ? skipLinkMobile : skipLink} aria-label="Skip directly to Chapter 1">
         {isMobile ? 'Skip →' : 'Skip directly to Chapter 1 →'}
       </button>
@@ -599,6 +627,39 @@ export function BookOnboardingPreface({
           </button>
         )}
       </div>
+    </div>
+  )
+}
+
+function PrefaceLanguageToggle({
+  value,
+  danishAvailable,
+  onChange,
+  mobile,
+}: {
+  value: OnboardingLanguage
+  danishAvailable: boolean
+  onChange: (language: OnboardingLanguage) => void
+  mobile?: boolean
+}) {
+  return (
+    <div style={mobile ? prefaceLanguageToggleMobile : prefaceLanguageToggle} aria-label="Preface language">
+      <span style={prefaceLanguageLabel}>Preface</span>
+      <button
+        type="button"
+        style={prefaceLanguageButton(value === 'da', !danishAvailable)}
+        onClick={() => onChange('da')}
+        disabled={!danishAvailable}
+      >
+        Dansk
+      </button>
+      <button
+        type="button"
+        style={prefaceLanguageButton(value === 'en', false)}
+        onClick={() => onChange('en')}
+      >
+        English
+      </button>
     </div>
   )
 }
@@ -1210,6 +1271,47 @@ const skipLinkMobile: React.CSSProperties = {
   ...skipLink,
   bottom: 4, right: 14,
 }
+const prefaceLanguageToggle: React.CSSProperties = {
+  position: 'absolute',
+  top: 10,
+  left: 24,
+  zIndex: 10,
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 4,
+  padding: 4,
+  background: 'var(--paper)',
+  border: '1px solid var(--paper-deep)',
+  borderRadius: 4,
+}
+const prefaceLanguageToggleMobile: React.CSSProperties = {
+  ...prefaceLanguageToggle,
+  top: 6,
+  left: 12,
+}
+const prefaceLanguageLabel: React.CSSProperties = {
+  padding: '0 6px',
+  fontFamily: 'var(--font-mono)',
+  fontSize: 9,
+  lineHeight: '22px',
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase',
+  color: 'var(--text-tertiary)',
+}
+const prefaceLanguageButton = (selected: boolean, disabled: boolean): React.CSSProperties => ({
+  border: 'none',
+  borderRadius: 3,
+  padding: '4px 8px',
+  minHeight: 22,
+  background: selected ? 'var(--accent)' : 'transparent',
+  color: disabled ? 'var(--text-tertiary)' : selected ? 'var(--text-inverse, #fff)' : 'var(--text-secondary)',
+  cursor: disabled ? 'not-allowed' : 'pointer',
+  fontFamily: 'var(--font-mono)',
+  fontSize: 9,
+  letterSpacing: '0.1em',
+  textTransform: 'uppercase',
+  opacity: disabled ? 0.55 : 1,
+})
 
 const surfaceBase: React.CSSProperties = {
   flex: 1, overflow: 'hidden',
