@@ -20,6 +20,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { renderReadNextSection } = require('./seo/related-books.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const ONBOARDING_DIR = path.join(APP_DIR, 'public/data/onboarding')
@@ -93,6 +94,12 @@ const STYLES = `:root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; 
     .angle-card { padding: 18px 20px; border: 1px solid var(--rule); background: var(--paper-alt); }
     .angle-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; font-style: italic; color: var(--accent); margin-bottom: 6px; }
     .angle-body { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.5; color: var(--ink); margin: 0; }
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 48px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 18px 20px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 14px; line-height: 1.45; color: var(--dim); }
 
     .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 64px 0 0 0; text-align: center; }
     .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
@@ -107,7 +114,7 @@ const STYLES = `:root { --paper: #ece7db; --paper-alt: #dfd8c4; --ink: #0b0b0b; 
       nav.top { padding: 18px 22px; }
       main { padding: 32px 22px 56px; }
       h1.title { font-size: clamp(2rem, 9vw, 3rem); }
-      .figures, .angles { grid-template-columns: 1fr; }
+      .figures, .angles, .guides { grid-template-columns: 1fr; }
       footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }`
 
@@ -238,6 +245,7 @@ ${anglesHtml}
 ${figuresHtml}
     </div>
 ` : ''}
+${renderReadNextSection(id)}
     <p class="end-cta"><a href="/read/${id}">Open ${esc(title)} in the reader →</a></p>
 
   </main>

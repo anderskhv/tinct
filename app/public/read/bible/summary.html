@@ -87,6 +87,13 @@
     .angle-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; font-style: italic; color: var(--accent); margin-bottom: 6px; }
     .angle-body { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; line-height: 1.5; color: var(--ink); margin: 0; }
 
+
+    .guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 48px 0 0 0; }
+    .guide-card { border: 1px solid var(--ink); padding: 18px 20px; text-decoration: none; color: var(--ink); transition: background 0.12s; }
+    .guide-card:hover { background: rgba(31, 74, 92, 0.06); }
+    .guide-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+    .guide-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .guide-desc { font-family: 'EB Garamond', Georgia, serif; font-size: 14px; line-height: 1.45; color: var(--dim); }
     .end-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 64px 0 0 0; text-align: center; }
     .end-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
     .end-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
@@ -100,7 +107,7 @@
       nav.top { padding: 18px 22px; }
       main { padding: 32px 22px 56px; }
       h1.title { font-size: clamp(2rem, 9vw, 3rem); }
-      .figures, .angles { grid-template-columns: 1fr; }
+      .figures, .angles, .guides { grid-template-columns: 1fr; }
       footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -201,6 +208,24 @@
       </div>
     </div>
 
+    <h2 class="section">Read <em>next</em></h2>
+    <div class="guides read-next">
+      <a href="/read/bible-genesis/summary" class="guide-card">
+        <div class="guide-label">Bible &amp; Devotion</div>
+        <div class="guide-title">Genesis</div>
+        <div class="guide-desc">In the beginning. The world is made in seven days, unmade in forty, and remade around a promise to one wandering family. Genesis is...</div>
+      </a>
+      <a href="/read/bible-matthew/summary" class="guide-card">
+        <div class="guide-label">Bible &amp; Devotion</div>
+        <div class="guide-title">Matthew</div>
+        <div class="guide-desc">The longest and most carefully arranged of the four gospels opens with a genealogy that walks from Abraham through David to Jesus...</div>
+      </a>
+      <a href="/read/bible-psalms/summary" class="guide-card">
+        <div class="guide-label">Bible &amp; Devotion</div>
+        <div class="guide-title">Psalms</div>
+        <div class="guide-desc">One hundred and fifty poems, written across six centuries. Praise that does not hesitate. Lament that addresses God in the second...</div>
+      </a>
+    </div>
     <p class="end-cta"><a href="/read/bible">Open The Bible in the reader →</a></p>
 
   </main>

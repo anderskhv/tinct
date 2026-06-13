@@ -107,6 +107,15 @@ function hasBookJsonLd(html) {
   return /<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?["']@type["']\s*:\s*["']Book["'][\s\S]*?<\/script>/i.test(html)
 }
 
+function readNextLinks(html) {
+  const start = html.search(/<h2\s+class=["']section["']>Read\s+<em>next<\/em><\/h2>/i)
+  if (start === -1) return []
+  const rest = html.slice(start)
+  const end = rest.search(/<p\s+class=["']end-cta["']/i)
+  const section = end === -1 ? rest : rest.slice(0, end)
+  return [...section.matchAll(/<a\s+href=["']\/read\/[^"']+\/summary["']/gi)]
+}
+
 function assertNoHeldBackContent(urls) {
   for (const id of HOLD_BACK_BOOK_IDS) {
     const inSitemap = urls.some(url => url.includes(`/read/${id}`))
@@ -168,6 +177,7 @@ function auditLocalStaticPages(urls) {
     if (!description || description.length < 80) fail(`${cleanPath} has missing/short meta description`)
     if (pageCanonical !== url) fail(`${cleanPath} canonical mismatch: expected ${url}, got ${pageCanonical || '(missing)'}`)
     if (html.includes('&amp;amp;')) fail(`${cleanPath} contains double-escaped &amp;amp;`)
+    if (/\/summary$/.test(cleanPath) && readNextLinks(html).length < 3) fail(`${cleanPath} has fewer than 3 Read next links`)
     checked += 1
   }
 

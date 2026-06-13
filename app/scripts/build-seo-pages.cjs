@@ -19,6 +19,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { renderReadNextSection } = require('./seo/related-books.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const ODYSSEY_DIR = path.join(APP_DIR, 'public/read/odyssey')
@@ -956,6 +957,7 @@ ${figures}
       </a>
     </div>
 
+${renderReadNextSection(book.id)}
     <p class="end-cta"><a href="/read/${book.id}">Open ${esc(book.title)} in the reader →</a></p>
 
   </main>
