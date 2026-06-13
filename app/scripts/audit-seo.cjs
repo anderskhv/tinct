@@ -103,6 +103,10 @@ function canonical(html) {
   return html.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i)?.[1] || ''
 }
 
+function hasBookJsonLd(html) {
+  return /<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?["']@type["']\s*:\s*["']Book["'][\s\S]*?<\/script>/i.test(html)
+}
+
 function assertNoHeldBackContent(urls) {
   for (const id of HOLD_BACK_BOOK_IDS) {
     const inSitemap = urls.some(url => url.includes(`/read/${id}`))
@@ -230,6 +234,17 @@ async function auditLive(base, localUrls, limit) {
   if (unknown.status !== 404) fail(`unknown /read book returned ${unknown.status}, expected 404`)
   else if (!unknownRobots.includes('noindex')) fail('unknown /read book is missing X-Robots-Tag noindex')
   else pass('unknown /read book returns 404 noindex')
+
+  const bookShell = await fetchNoBody(`${base}/read/odyssey`)
+  if (bookShell.status !== 200) {
+    fail(`/read/odyssey returned ${bookShell.status}`)
+  } else {
+    const html = await bookShell.text()
+    const pageCanonical = canonical(html)
+    if (pageCanonical !== `${ORIGIN}/read/odyssey`) fail(`/read/odyssey canonical mismatch: ${pageCanonical || '(missing)'}`)
+    if (!hasBookJsonLd(html)) fail('/read/odyssey is missing Book JSON-LD')
+    else pass('/read/odyssey includes Book JSON-LD')
+  }
 
   const knownData = await fetchNoBody(`${base}/data/editions/odyssey-modern-en.json`, { method: 'HEAD' })
   const knownDataRobots = knownData.headers.get('x-robots-tag') || ''

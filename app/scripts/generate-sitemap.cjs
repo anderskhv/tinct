@@ -221,6 +221,8 @@ function buildBookMeta(books) {
   lines.push('export interface BookMetaEntry {')
   lines.push('  title: string')
   lines.push('  description: string')
+  lines.push('  bookName: string')
+  lines.push('  author: string')
   lines.push('}')
   lines.push('')
   lines.push('export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {')
@@ -232,6 +234,8 @@ function buildBookMeta(books) {
     lines.push(`  '${escape(b.id)}': {`)
     lines.push(`    title: '${escape(title)}',`)
     lines.push(`    description: '${escape(description)}',`)
+    lines.push(`    bookName: '${escape(b.title)}',`)
+    lines.push(`    author: '${escape(b.author)}',`)
     lines.push('  },')
   }
   lines.push('}')
