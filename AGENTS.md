@@ -73,9 +73,10 @@ Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports ex
 These are production-critical:
 
 - Position writes must keep `bookId`, `chapterNumber`, page, and paragraph data as a coherent tuple.
-- ReaderSession is the source for persisted position tuples. `App.tsx` owns a reducer-backed `readerSessionState` and passes that to `useReadingPosition`; legacy reader page/chapter state may still drive rendering during migration, but it must not be used as the persisted content tuple.
+- ReaderSession is the source for persisted reader-state tuples. `App.tsx` owns a reducer-backed `readerSessionState` and passes that to `useReadingPosition` and `useReadingLog`; legacy reader page/chapter state may still drive rendering during migration, but it must not be used as the persisted content tuple.
 - Any code path that changes `currentBookId` must re-derive chapter and saved position for the new book.
 - Position writes must be suspended while overlays/auth/onboarding/loading states can expose stale reader state.
+- Reading history/progress writes must require a ready same-book ReaderSession location before touching `reading-log:*` or `progress:*`.
 - User-data writes are versioned through `commit_user_data`; deletes are tombstone writes (`value: null`) so other devices receive the change.
 - Backward chapter writes require a recent user-navigation signal.
 - Positions loaded from storage/cloud must be validated against the actual book structure.

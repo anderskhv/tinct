@@ -203,11 +203,10 @@ In `handleChat` (`worker.ts:240-349`): after `verifyUser` resolves, run `checkRa
 
 ## Phase 3 — Kill the bug class: productionize readerSession + versioned writes
 
-**Status 2026-06-15:** IN PROGRESS, mostly deployed. `readerSession` is now reducer-backed live app state, and `useReadingPosition` delegates write decisions to `readerSession/positionSync.commitReadingPosition()`. The legacy composed-at-save-time content tuple path and `VITE_READER_SESSION_POSITION_SOURCE` / `tinct:reader-session-position-source` rollback switch have been removed. `app/src/readerSession/positionSync.ts` owns validation-gated commits, duplicate suppression, regression guards, current-book pointer writes, and conversion from `ReaderLocation` to `ReadingPosition` rows while preserving layout page fields as metadata. Reading history/progress writes now also require a ready same-book readerSession location before touching `reading-log:*` or `progress:*`.
+**Status 2026-06-15:** CODE COMPLETE, deployed; soaking. `readerSession` is now reducer-backed live app state, and `useReadingPosition` delegates write decisions to `readerSession/positionSync.commitReadingPosition()`. The legacy composed-at-save-time content tuple path and `VITE_READER_SESSION_POSITION_SOURCE` / `tinct:reader-session-position-source` rollback switch have been removed. `app/src/readerSession/positionSync.ts` owns validation-gated commits, duplicate suppression, regression guards, current-book pointer writes, and conversion from `ReaderLocation` to `ReadingPosition` rows while preserving layout page fields as metadata. Reading history/progress writes now also require a ready same-book readerSession location before touching `reading-log:*` or `progress:*`. `AGENTS.md`, `app/AGENTS.md`, and `CLAUDE.md` now describe the same persistence invariants.
 
 Remaining cleanup:
-- Finish retiring legacy UI state from reader/navigation consumers where practical. Rendering still uses `currentChapter/currentPage/totalPages` as adapter state, while durable position/history/progress persistence is gated through readerSession.
-- Keep versioned writes/tombstones under observation; the storage layer already writes through `commit_user_data` and uses tombstones for deletes.
+- Soak and observe cross-device reader state, history/progress, and tombstone/versioned writes. Rendering still uses `currentChapter/currentPage/totalPages` as adapter state, but durable position/history/progress persistence is gated through readerSession.
 
 **This is the structural fix.** Do NOT start until Phases 0-2 are deployed and soaked ≥3 days with no regressions. Plan-mode review with Anders before starting — this touches the Invariants.
 
