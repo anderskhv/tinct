@@ -53,6 +53,7 @@ For these files, inspect nearby logic before editing and avoid opportunistic ref
 
 ## Position Rules
 
+- Persisted position should come from the reducer-backed readerSession passed into `useReadingPosition`; legacy page/chapter state is an adapter while the UI migration continues.
 - Never write a position while the app is in a transient state where book/chapter/page do not belong together.
 - Saved/cloud position is used for restore and direct open, not for overriding an explicit chapter advance.
 - Intentional chapter advance has priority over saved position for that transition only.

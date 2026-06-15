@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState, useEffect, useCallback, useRef, useMemo } from 'react'
+import { Suspense, lazy, useState, useEffect, useCallback, useRef, useMemo, useReducer } from 'react'
 import { Header } from './components/Header'
 import { TrialBanner } from './components/TrialBanner'
 import { Reader } from './components/Reader'
@@ -57,8 +57,9 @@ import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { canPersistLocation } from './readerSession/writer'
+import { initialReaderSession, readerSessionReducer } from './readerSession/reducer'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
-import type { ReaderLocation, ReaderView } from './readerSession/types'
+import type { ReaderView } from './readerSession/types'
 
 const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
 const BookStore = lazy(() => import('./components/BookStore').then(m => ({ default: m.BookStore })))
@@ -1627,33 +1628,89 @@ export default function App() {
     })
   }, [storageReady, libraryIds, book.id])
 
-  const readerSessionLocation = useMemo<ReaderLocation>(() => ({
+  const readerSessionContext = useMemo(() => ({ book, editionData: primaryData }), [book, primaryData])
+  const [readerSessionState, dispatchReaderSession] = useReducer(
+    readerSessionReducer,
+    {
       bookId: book.id,
       chapterNumber: currentChapter,
       paragraphIndex: effectiveParagraph,
       scrollFraction: totalPages > 1 ? currentPage / Math.max(totalPages - 1, 1) : 0,
       editionKey: primaryEditionKey,
       activeView: readerViewFromMobileIndex(activeView),
-      source: 'reader-layout',
-      revision: Date.now(),
-    }), [activeView, book.id, currentChapter, currentPage, effectiveParagraph, primaryEditionKey, totalPages])
-  const readerSessionStatus = (!storageReady || writeSuspended || !primaryData || isLoading)
+    },
+    initialReaderSession,
+  )
+  const derivedReaderSessionStatus = (!storageReady || writeSuspended || !primaryData || isLoading)
     ? 'loading-edition'
     : 'ready'
-  const readerSessionContext = useMemo(() => ({ book, editionData: primaryData }), [book, primaryData])
+
+  useEffect(() => {
+    dispatchReaderSession({ type: 'OPEN_BOOK', bookId: book.id, now: Date.now() })
+  }, [book.id])
+
+  useEffect(() => {
+    if (!primaryData) return
+    const restored = savedPos.current?.bookId === book.id
+      ? {
+          chapterNumber: savedPos.current.chapterNumber,
+          paragraphIndex: savedPos.current.lastParagraphIndex,
+          scrollFraction: savedPos.current.scrollFraction ?? 0,
+          editionKey: primaryEditionKey,
+          activeView: readerViewFromMobileIndex(activeView),
+        }
+      : {
+          chapterNumber: currentChapter,
+          paragraphIndex: effectiveParagraph,
+          scrollFraction: totalPages > 1 ? currentPage / Math.max(totalPages - 1, 1) : 0,
+          editionKey: primaryEditionKey,
+          activeView: readerViewFromMobileIndex(activeView),
+        }
+    dispatchReaderSession({
+      type: 'EDITION_READY',
+      context: readerSessionContext,
+      restored,
+      now: Date.now(),
+    })
+  }, [activeView, book.id, currentChapter, primaryData, primaryEditionKey, readerSessionContext])
+
+  useEffect(() => {
+    if (!primaryData) return
+    dispatchReaderSession({
+      type: 'USER_SELECT_CHAPTER',
+      chapterNumber: currentChapter,
+      paragraphIndex: undefined,
+      context: readerSessionContext,
+      now: Date.now(),
+    })
+  }, [currentChapter, primaryData, readerSessionContext])
+
+  useEffect(() => {
+    if (!primaryData) return
+    dispatchReaderSession({
+      type: 'READER_LAYOUT_READY',
+      page: currentPage,
+      totalPages,
+      firstVisibleParagraph,
+      view: readerViewFromMobileIndex(activeView),
+      context: readerSessionContext,
+      now: Date.now(),
+    })
+  }, [activeView, currentPage, firstVisibleParagraph, primaryData, readerSessionContext, totalPages])
 
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended, {
-    location: readerSessionLocation,
+    location: readerSessionState.location,
     context: readerSessionContext,
-    status: readerSessionStatus,
+    status: derivedReaderSessionStatus === 'ready' ? readerSessionState.status : derivedReaderSessionStatus,
   })
 
   useEffect(() => {
+    const status = derivedReaderSessionStatus === 'ready' ? readerSessionState.status : derivedReaderSessionStatus
     appendReaderSessionShadow({
       kind: 'position',
-      detail: canPersistLocation(readerSessionLocation, readerSessionContext, readerSessionStatus),
+      detail: canPersistLocation(readerSessionState.location, readerSessionContext, status),
     })
-  }, [readerSessionContext, readerSessionLocation, readerSessionStatus])
+  }, [derivedReaderSessionStatus, readerSessionContext, readerSessionState])
 
   // Cross-device live position sync. Applies a remote position only when:
   //   (a) the user has been idle for >30s (silent auto-adopt), or
@@ -1792,6 +1849,13 @@ export default function App() {
 
     targetParagraphRef.current = paragraphIndex
     markUserNav(book.id)
+    dispatchReaderSession({
+      type: 'USER_SELECT_CHAPTER',
+      chapterNumber: chapter,
+      paragraphIndex,
+      context: readerSessionContext,
+      now: Date.now(),
+    })
     setReadSyncSignal(undefined)
     setCompareSyncSignal(undefined)
     // Always reset savedPos so the Reader lands on page 1 of the chosen
@@ -1824,13 +1888,19 @@ export default function App() {
       w.__tinctNavDebug.push({ at: Date.now(), kind: 'navigateToChapter', from: currentChapter, to: chapter, paragraphIndex, editionKey, savedPos: { ...savedPos.current } })
       if (w.__tinctNavDebug.length > 60) w.__tinctNavDebug.shift()
     }
-  }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, book.id])
+  }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, book.id, readerSessionContext])
 
   // Go back to saved position (restores edition + chapter + page)
   const handleBackToPosition = useCallback(() => {
     if (!backPosition) return
     targetParagraphRef.current = undefined
     markUserNav(book.id)
+    dispatchReaderSession({
+      type: 'USER_SELECT_CHAPTER',
+      chapterNumber: backPosition.chapter,
+      context: readerSessionContext,
+      now: Date.now(),
+    })
     // Restore edition
     if (backPosition.style !== preferences.style) setStyle(backPosition.style)
     if (backPosition.language !== preferences.language) setLanguage(backPosition.language)
@@ -1847,7 +1917,7 @@ export default function App() {
     setReaderKey(k => k + 1)
     setBackPosition(null)
     if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
-  }, [backPosition, currentChapter, book.id, preferences.style, preferences.language, setStyle, setLanguage])
+  }, [backPosition, currentChapter, book.id, preferences.style, preferences.language, setStyle, setLanguage, readerSessionContext])
 
   // Handle page changes from Reader — track reading speed
   const handlePageChange = useCallback((page: number, total: number) => {
@@ -3074,6 +3144,11 @@ export default function App() {
       })
       lockMobileNavBriefly()
       markUserNav(book.id)
+      dispatchReaderSession({
+        type: 'USER_NEXT_CHAPTER',
+        context: readerSessionContext,
+        now: Date.now(),
+      })
       const existing = getReadingProgress(book.id)
       const prev = existing?.highestCompletedChapter || 0
       if (currentChapter > prev) {
@@ -3106,7 +3181,7 @@ export default function App() {
         if (window.__tinctNavDebug.length > 40) window.__tinctNavDebug.shift()
       }
     }
-  }, [currentChapter, totalChapters, book.id, lockMobileNavBriefly])
+  }, [currentChapter, totalChapters, book.id, lockMobileNavBriefly, readerSessionContext])
   const handlePrevChapter = useCallback(() => {
     if (currentChapter > 1) {
       appendReaderSessionShadow({
@@ -3116,6 +3191,11 @@ export default function App() {
       })
       lockMobileNavBriefly()
       markUserNav(book.id)
+      dispatchReaderSession({
+        type: 'USER_PREV_CHAPTER',
+        context: readerSessionContext,
+        now: Date.now(),
+      })
       targetParagraphRef.current = undefined
       setReadSyncSignal(undefined)
       setCompareSyncSignal(undefined)
@@ -3140,7 +3220,7 @@ export default function App() {
         if (window.__tinctNavDebug.length > 40) window.__tinctNavDebug.shift()
       }
     }
-  }, [currentChapter, book.id, lockMobileNavBriefly])
+  }, [currentChapter, book.id, lockMobileNavBriefly, readerSessionContext])
 
   // Refs so the debounced user-nav wrappers always see the latest handlers
   // without having to be recreated on every currentChapter change.
