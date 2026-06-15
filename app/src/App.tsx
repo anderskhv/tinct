@@ -510,6 +510,10 @@ export default function App() {
   firstVisibleParagraphRef.current = firstVisibleParagraph
   const compareFirstVisibleParagraphRef = useRef(compareFirstVisibleParagraph)
   compareFirstVisibleParagraphRef.current = compareFirstVisibleParagraph
+  const activeFirstVisibleParagraph =
+    isMobile && activeView === 1 ? compareFirstVisibleParagraph : firstVisibleParagraph
+  const activeFirstVisibleParagraphRef = useRef(activeFirstVisibleParagraph)
+  activeFirstVisibleParagraphRef.current = activeFirstVisibleParagraph
   const prevActiveViewRef = useRef(activeView)
   useEffect(() => {
     const prev = prevActiveViewRef.current
@@ -1515,8 +1519,8 @@ export default function App() {
     })
   }, [addNote, primaryChapter, primaryEditionKey])
 
-  // Effective paragraph: audio position takes priority over reading position
-  const effectiveParagraph = audioPlayingParagraph ?? firstVisibleParagraph
+  // Effective paragraph: audio position takes priority over the visible reader.
+  const effectiveParagraph = audioPlayingParagraph ?? activeFirstVisibleParagraph
   const chapterParagraphCount = primaryChapter?.paragraphs.length
 
   // Suspend position writes whenever an overlay/auth/onboarding flow is in
@@ -1629,6 +1633,7 @@ export default function App() {
   }, [storageReady, libraryIds, book.id])
 
   const readerSessionContext = useMemo(() => ({ book, editionData: primaryData }), [book, primaryData])
+  const readerSessionRestoreSeedRef = useRef<string | null>(null)
   const [readerSessionState, dispatchReaderSession] = useReducer(
     readerSessionReducer,
     {
@@ -1651,7 +1656,11 @@ export default function App() {
 
   useEffect(() => {
     if (!primaryData) return
-    const restored = savedPos.current?.bookId === book.id
+    const restoreSeedKey = `${book.id}:${primaryEditionKey}`
+    const canSeedFromSavedPosition =
+      readerSessionRestoreSeedRef.current !== restoreSeedKey &&
+      savedPos.current?.bookId === book.id
+    const restored = canSeedFromSavedPosition
       ? {
           chapterNumber: savedPos.current.chapterNumber,
           paragraphIndex: savedPos.current.lastParagraphIndex,
@@ -1666,13 +1675,14 @@ export default function App() {
           editionKey: primaryEditionKey,
           activeView: readerViewFromMobileIndex(activeView),
         }
+    readerSessionRestoreSeedRef.current = restoreSeedKey
     dispatchReaderSession({
       type: 'EDITION_READY',
       context: readerSessionContext,
       restored,
       now: Date.now(),
     })
-  }, [activeView, book.id, currentChapter, primaryData, primaryEditionKey, readerSessionContext])
+  }, [book.id, primaryData, primaryEditionKey, readerSessionContext])
 
   useEffect(() => {
     if (!primaryData) return
@@ -1680,12 +1690,12 @@ export default function App() {
       type: 'READER_LAYOUT_READY',
       page: currentPage,
       totalPages,
-      firstVisibleParagraph,
+      firstVisibleParagraph: activeFirstVisibleParagraph,
       view: readerViewFromMobileIndex(activeView),
       context: readerSessionContext,
       now: Date.now(),
     })
-  }, [activeView, currentPage, firstVisibleParagraph, primaryData, readerSessionContext, totalPages])
+  }, [activeFirstVisibleParagraph, activeView, currentPage, primaryData, readerSessionContext, totalPages])
 
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended, {
     location: readerSessionState.location,
@@ -1950,11 +1960,12 @@ export default function App() {
       perfLogSummary()
     }
     if (primaryData) {
+      const paragraph = activeFirstVisibleParagraphRef.current
       dispatchReaderSession({
         type: 'READER_LAYOUT_READY',
         page,
         totalPages: total,
-        firstVisibleParagraph,
+        firstVisibleParagraph: paragraph,
         view: readerViewFromMobileIndex(activeView),
         context: readerSessionContext,
         now: Date.now(),
@@ -1967,7 +1978,7 @@ export default function App() {
       setBackPosition(null)
       if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
     }
-  }, [activeView, firstVisibleParagraph, primaryChapter, primaryData, readerSessionContext, trackPageView, backPosition])
+  }, [activeView, primaryChapter, primaryData, readerSessionContext, trackPageView, backPosition])
 
   const handleReadPageChange = useCallback((page: number, total: number) => {
     if (isMobile && activeView !== 0) return
