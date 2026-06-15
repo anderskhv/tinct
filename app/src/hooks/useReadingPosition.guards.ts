@@ -150,6 +150,29 @@ export function shouldCleanupProgress(args: {
   return highestCompletedChapter > positionChapter + 3
 }
 
+export function getPersistableReaderHistoryLocation<T extends {
+  bookId: string
+  chapterNumber: number
+  paragraphIndex?: number
+  editionKey: string
+}>(args: {
+  bookId: string
+  status: 'ready' | 'switching-book' | 'loading-edition' | undefined
+  location: T | undefined
+  totalChapters?: number
+  allowedEditionKeys?: readonly string[]
+}): T | null {
+  const { bookId, status, location, totalChapters, allowedEditionKeys } = args
+  if (status !== 'ready') return null
+  if (!location) return null
+  if (location.bookId !== bookId) return null
+  if (totalChapters !== undefined && totalChapters > 0) {
+    if (location.chapterNumber < 1 || location.chapterNumber > totalChapters) return null
+  }
+  if (allowedEditionKeys && allowedEditionKeys.length > 0 && !allowedEditionKeys.includes(location.editionKey)) return null
+  return location
+}
+
 /**
  * Migration-direction decider.
  *

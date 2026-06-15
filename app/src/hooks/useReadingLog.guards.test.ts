@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { ensureReadingLogChapter, sanitizeReadingLog } from './useReadingLog.guards'
+import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
 import type { BookReadingLog } from '../types'
 
 describe('sanitizeReadingLog', () => {
@@ -154,5 +155,66 @@ describe('ensureReadingLogChapter', () => {
       readCount: 2,
       lastReadAt: 456,
     })
+  })
+})
+
+describe('getPersistableReaderHistoryLocation', () => {
+  const location = {
+    bookId: 'the-awakening',
+    chapterNumber: 12,
+    paragraphIndex: 4,
+    scrollFraction: 0.5,
+    editionKey: 'original-en',
+    activeView: 'read',
+    source: 'reader-layout',
+    revision: 7,
+  } as const
+
+  it('accepts a ready same-book readerSession location', () => {
+    expect(getPersistableReaderHistoryLocation({
+      bookId: 'the-awakening',
+      status: 'ready',
+      location,
+      totalChapters: 39,
+      allowedEditionKeys: ['original-en'],
+    })).toBe(location)
+  })
+
+  it('blocks history writes while the readerSession is switching books', () => {
+    expect(getPersistableReaderHistoryLocation({
+      bookId: 'the-awakening',
+      status: 'switching-book',
+      location,
+      totalChapters: 39,
+      allowedEditionKeys: ['original-en'],
+    })).toBeNull()
+  })
+
+  it('blocks stale cross-book locations before they can write reading history', () => {
+    expect(getPersistableReaderHistoryLocation({
+      bookId: 'the-awakening',
+      status: 'ready',
+      location: { ...location, bookId: 'bible', chapterNumber: 967, editionKey: 'kjv-en' },
+      totalChapters: 39,
+      allowedEditionKeys: ['original-en'],
+    })).toBeNull()
+  })
+
+  it('blocks chapters and editions outside the active book bounds', () => {
+    expect(getPersistableReaderHistoryLocation({
+      bookId: 'the-awakening',
+      status: 'ready',
+      location: { ...location, chapterNumber: 40 },
+      totalChapters: 39,
+      allowedEditionKeys: ['original-en'],
+    })).toBeNull()
+
+    expect(getPersistableReaderHistoryLocation({
+      bookId: 'the-awakening',
+      status: 'ready',
+      location: { ...location, editionKey: 'kjv-en' },
+      totalChapters: 39,
+      allowedEditionKeys: ['original-en'],
+    })).toBeNull()
   })
 })

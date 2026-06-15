@@ -3,6 +3,8 @@ import { storage } from '../services/storage'
 import { getReadingProgress, getSavedPosition } from './useReadingPosition'
 import type { BookReadingLog, ChapterReadingRecord } from '../types'
 import { ensureReadingLogChapter, sanitizeReadingLog, upsertUsage } from './useReadingLog.guards'
+import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
+import type { ReaderLocation, ReaderSessionState } from '../readerSession/types'
 
 function logKey(bookId: string): string {
   return `reading-log:${bookId}`
@@ -34,11 +36,18 @@ export function useReadingLog(
    */
   totalChapters?: number,
   allowedEditionKeys?: readonly string[],
+  readerSession?: {
+    location: ReaderLocation
+    status: ReaderSessionState['status']
+  },
 ) {
-  function isChapterInBounds(ch: number): boolean {
-    if (!totalChapters || totalChapters <= 0) return true
-    return ch >= 1 && ch <= totalChapters
-  }
+  const persistableLocation = getPersistableReaderHistoryLocation({
+    bookId,
+    status: readerSession?.status,
+    location: readerSession?.location,
+    totalChapters,
+    allowedEditionKeys,
+  })
   const [log, setLog] = useState<BookReadingLog>(() => {
     return sanitizeReadingLog({
       bookId,
@@ -104,7 +113,7 @@ export function useReadingLog(
   const activeSecondsRef = useRef(0)
   const lastActivityRef = useRef(Date.now())
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const prevChapterForTimeRef = useRef(currentChapter)
+  const prevChapterForTimeRef = useRef(persistableLocation?.chapterNumber ?? currentChapter)
 
   // Start/restart the timer
   const startTimer = useCallback(() => {
@@ -170,7 +179,10 @@ export function useReadingLog(
   const prevBookRef = useRef(bookId)
   useEffect(() => {
     if (!storageReady) return
-    const isChapterChange = currentChapter !== prevChapterRef.current
+    if (!persistableLocation) return
+    const activeChapter = persistableLocation.chapterNumber
+    const activeEditionKey = persistableLocation.editionKey
+    const isChapterChange = activeChapter !== prevChapterRef.current
     const isBookChange = bookId !== prevBookRef.current
 
     // Flush time for the chapter we're leaving, restart timer for new chapter
@@ -178,21 +190,13 @@ export function useReadingLog(
       flushTime(prevChapterRef.current)
       activeSecondsRef.current = 0
       startTimer()
-      prevChapterForTimeRef.current = currentChapter
+      prevChapterForTimeRef.current = activeChapter
     }
 
-    prevChapterRef.current = currentChapter
+    prevChapterRef.current = activeChapter
     prevBookRef.current = bookId
     // Record on chapter change or first mount (book change)
     if (!isChapterChange && !isBookChange) return
-    // Cross-book bleed guard (B1, 2026-05-06). On the first render after
-    // bookId switches, `currentChapter` still holds the OLD book's chapter
-    // value — the bleed-guard effect in App.tsx hasn't reset it yet. Writing
-    // here would create a phantom chapter entry under the new book's key
-    // (e.g. ch345 in Awakening which has 39 chapters). Skip; the next
-    // effect run with the corrected chapter value will record properly.
-    if (isBookChange && !isChapterInBounds(currentChapter)) return
-    if (!isChapterInBounds(currentChapter)) return
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
     const shouldCountVisit = isChapterChange || isBookChange
@@ -200,77 +204,83 @@ export function useReadingLog(
       return ensureReadingLogChapter({
         log: prev,
         bookId,
-        chapterNumber: currentChapter,
-        editionKey,
+        chapterNumber: activeChapter,
+        editionKey: activeEditionKey,
         mode,
         countVisit: shouldCountVisit,
         now: Date.now(),
       })
     })
-  }, [currentChapter, bookId, editionKey, storageReady, isAudioPlaying])
+  }, [bookId, storageReady, isAudioPlaying, persistableLocation, flushTime, startTimer])
 
   // Track edition changes within the same chapter
   const prevEditionRef = useRef(editionKey)
   useEffect(() => {
     if (!storageReady) return
-    if (editionKey === prevEditionRef.current) return
-    prevEditionRef.current = editionKey
-    if (!isChapterInBounds(currentChapter)) return
+    if (!persistableLocation) return
+    const activeChapter = persistableLocation.chapterNumber
+    const activeEditionKey = persistableLocation.editionKey
+    if (activeEditionKey === prevEditionRef.current) return
+    prevEditionRef.current = activeEditionKey
 
     setLog(prev => {
-      const existing = prev.chapters[currentChapter]
-      if (!existing || existing.editions.includes(editionKey)) return prev
+      const existing = prev.chapters[activeChapter]
+      if (!existing || existing.editions.includes(activeEditionKey)) return prev
       return {
         ...prev,
         updatedAt: Date.now(),
         chapters: {
           ...prev.chapters,
-          [currentChapter]: {
+          [activeChapter]: {
             ...existing,
-            editions: [...existing.editions, editionKey],
+            editions: [...existing.editions, activeEditionKey],
           },
         },
       }
     })
-  }, [editionKey, currentChapter, storageReady])
+  }, [editionKey, storageReady, persistableLocation])
 
   // Track chapter completion (reached last page)
   useEffect(() => {
     if (!storageReady) return
+    if (!persistableLocation) return
+    const activeChapter = persistableLocation.chapterNumber
     if (totalPages <= 1 || currentPage < totalPages - 1) return
-    if (!isChapterInBounds(currentChapter)) return
 
     setLog(prev => {
-      const existing = prev.chapters[currentChapter]
+      const existing = prev.chapters[activeChapter]
       if (!existing || existing.completed) return prev
       return {
         ...prev,
         updatedAt: Date.now(),
         chapters: {
           ...prev.chapters,
-          [currentChapter]: { ...existing, completed: true },
+          [activeChapter]: { ...existing, completed: true },
         },
       }
     })
-  }, [currentPage, totalPages, currentChapter, storageReady])
+  }, [currentPage, totalPages, storageReady, persistableLocation])
 
   // Track paragraph position within chapter (updates on every paragraph change)
   const prevParagraphRef = useRef(lastParagraphIndex)
   useEffect(() => {
     if (!storageReady) return
-    if (lastParagraphIndex === undefined) return
-    if (lastParagraphIndex === prevParagraphRef.current) return
-    prevParagraphRef.current = lastParagraphIndex
-    if (!isChapterInBounds(currentChapter)) return
+    if (!persistableLocation) return
+    const activeChapter = persistableLocation.chapterNumber
+    const activeEditionKey = persistableLocation.editionKey
+    const activeParagraphIndex = persistableLocation.paragraphIndex
+    if (activeParagraphIndex === undefined) return
+    if (activeParagraphIndex === prevParagraphRef.current) return
+    prevParagraphRef.current = activeParagraphIndex
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
     const pct = totalParagraphs && totalParagraphs > 0
-      ? Math.round(((lastParagraphIndex + 1) / totalParagraphs) * 100)
+      ? Math.round(((activeParagraphIndex + 1) / totalParagraphs) * 100)
       : undefined
     setLog(prev => {
-      const existing = prev.chapters[currentChapter]
+      const existing = prev.chapters[activeChapter]
       if (!existing) return prev
-      const isNewHighWater = existing.lastParagraphIndex === undefined || lastParagraphIndex > existing.lastParagraphIndex
+      const isNewHighWater = existing.lastParagraphIndex === undefined || activeParagraphIndex > existing.lastParagraphIndex
       // Always update editionUsage (tracks read vs listened mode), but only
       // advance lastParagraphIndex if it's a new high water mark
       return {
@@ -278,16 +288,16 @@ export function useReadingLog(
         updatedAt: Date.now(),
         chapters: {
           ...prev.chapters,
-          [currentChapter]: {
+          [activeChapter]: {
             ...existing,
-            lastParagraphIndex: isNewHighWater ? lastParagraphIndex : existing.lastParagraphIndex,
+            lastParagraphIndex: isNewHighWater ? activeParagraphIndex : existing.lastParagraphIndex,
             totalParagraphs: totalParagraphs ?? existing.totalParagraphs,
-            editionUsage: upsertUsage(existing.editionUsage, editionKey, mode, pct),
+            editionUsage: upsertUsage(existing.editionUsage, activeEditionKey, mode, pct),
           },
         },
       }
     })
-  }, [lastParagraphIndex, totalParagraphs, currentChapter, storageReady])
+  }, [totalParagraphs, storageReady, isAudioPlaying, persistableLocation])
 
   // Persist on change
   useEffect(() => {

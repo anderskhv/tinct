@@ -10,7 +10,7 @@ import {
   markUserNav,
 } from '../readerSession/positionSync'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from '../readerSession/types'
-import { shouldSkipOnBookChange } from './useReadingPosition.guards'
+import { getPersistableReaderHistoryLocation, shouldSkipOnBookChange } from './useReadingPosition.guards'
 
 function progressKey(bookId: string): string {
   return `progress:${bookId}`
@@ -241,37 +241,45 @@ export function useReadingPosition(
   useEffect(() => {
     if (!storageReady || !writeUnlockedRef.current) return
     if (totalPages <= 1) return
+    const progressLocation = getPersistableReaderHistoryLocation({
+      bookId,
+      status: readerSession?.status,
+      location: readerSession?.location,
+      totalChapters,
+    })
+    if (!progressLocation) return
     // Cross-book bleed guard for progress writes: if totalChapters isn't known
     // yet (book data still loading) OR chapterNumber is out of range, skip the
     // write. Without this, a stale chapter from a previous book can land in the
     // new book's progress with the OLD book's totalChapters — which is exactly
     // how `progress:nicomachean-ethics` got `totalChapters=1189` (the Bible's
     // chapter count). Diagnosed 2026-05-06.
-    if (totalChapters <= 0 || chapterNumber < 1 || chapterNumber > totalChapters) return
+    if (totalChapters <= 0) return
+    const progressChapter = progressLocation.chapterNumber
     const existing = storage.get<ReadingProgress>(progressKey(bookId))
     const prev = existing?.highestCompletedChapter || 0
 
     // Track both "highest completed" and "current position"
     const pageFraction = totalPages > 1 ? (currentPage + 1) / totalPages : 1
-    const positionPercent = Math.round(((chapterNumber - 1 + pageFraction) / totalChapters) * 100)
+    const positionPercent = Math.round(((progressChapter - 1 + pageFraction) / totalChapters) * 100)
 
     // Mark completed if reached last page of current chapter
-    if (currentPage >= totalPages - 1 && chapterNumber > prev) {
+    if (currentPage >= totalPages - 1 && progressChapter > prev) {
       storage.set<ReadingProgress>(progressKey(bookId), {
         bookId,
-        highestCompletedChapter: chapterNumber,
+        highestCompletedChapter: progressChapter,
         totalChapters,
-        percent: Math.round((chapterNumber / totalChapters) * 100),
+        percent: Math.round((progressChapter / totalChapters) * 100),
         positionPercent,
       })
     }
     // Also: if reading chapter N, at minimum chapters 1 through N-1 are done
-    else if (chapterNumber > 1 && chapterNumber - 1 > prev) {
+    else if (progressChapter > 1 && progressChapter - 1 > prev) {
       storage.set<ReadingProgress>(progressKey(bookId), {
         bookId,
-        highestCompletedChapter: chapterNumber - 1,
+        highestCompletedChapter: progressChapter - 1,
         totalChapters,
-        percent: Math.round(((chapterNumber - 1) / totalChapters) * 100),
+        percent: Math.round(((progressChapter - 1) / totalChapters) * 100),
         positionPercent,
       })
     }
@@ -282,5 +290,5 @@ export function useReadingPosition(
         storage.set<ReadingProgress>(progressKey(bookId), { ...existing, positionPercent })
       }
     }
-  }, [bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady])
+  }, [bookId, currentPage, totalPages, totalChapters, storageReady, readerSession])
 }

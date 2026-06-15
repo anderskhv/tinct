@@ -1775,7 +1775,10 @@ export default function App() {
 
   const isAudioActive = audioPlayingParagraph !== undefined
   const bookEditionKeys = useMemo(() => book.editions.map(ed => ed.key), [book.editions])
-  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters, bookEditionKeys)
+  const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters, bookEditionKeys, {
+    location: readerSessionState.location,
+    status: derivedReaderSessionStatus === 'ready' ? readerSessionState.status : derivedReaderSessionStatus,
+  })
 
   const { threadsData, getMentions } = useThreads(book.id, primaryData)
 
