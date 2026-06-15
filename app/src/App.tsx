@@ -58,6 +58,7 @@ import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { canPersistLocation } from './readerSession/writer'
 import { initialReaderSession, readerSessionReducer } from './readerSession/reducer'
+import { isCloudPositionConfirmedLocally, shouldApplyRemotePosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
 import type { ReaderView } from './readerSession/types'
 
@@ -525,12 +526,12 @@ export default function App() {
       if (cloudPos) {
         hasRestoredFromCloud.current = true
         const localPos = savedPos.current
-        const confirmed =
-          localPos &&
-          currentBookId === targetBookId &&
-          localPos.bookId === cloudPos.bookId &&
-          localPos.chapterNumber === cloudPos.chapterNumber &&
-          Math.abs((localPos.scrollFraction ?? 0) - (cloudPos.scrollFraction ?? 0)) < 0.005
+        const confirmed = isCloudPositionConfirmedLocally({
+          localPos,
+          cloudPos,
+          currentBookId,
+          targetBookId,
+        })
         localFirstDebug(confirmed ? 'cloud-confirmed-position' : 'cloud-corrected-position', {
           bookId: targetBookId,
           localChapter: localPos?.chapterNumber,
@@ -1558,7 +1559,7 @@ export default function App() {
   // `loadEdition` cancellation flag protects against would resurface here.
   const handleRemotePosition = useCallback((remotePos: ReadingPosition) => {
     if (!remotePos || !remotePos.chapterNumber) return
-    if (remotePos.bookId !== book.id) return // B20: ignore stale event for prior book
+    if (!shouldApplyRemotePosition({ remoteBookId: remotePos.bookId, currentBookId: book.id })) return // B20: ignore stale event for prior book
     // Mark this as user-nav so the regression guard widens its window — the
     // remote chapter may legitimately be < local chapter (e.g. user on
     // device B navigated back).
@@ -3183,7 +3184,7 @@ export default function App() {
   // For signed-in users, storageReady alone is not enough: there is one render
   // between Supabase cache hydration and the effect that applies the saved
   // book/chapter. Rendering during that gap flashes/tracks stale localStorage.
-  if (!storageReady || (!!user?.id && !cloudRestoreSettled)) {
+  if (shouldHoldReaderForCloudRestore({ storageReady, isSignedIn: !!user?.id, cloudRestoreSettled })) {
     return (
       <div className="app">
         <div className="loading-shell">
