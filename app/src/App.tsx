@@ -58,7 +58,7 @@ import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
 import { useRemotePositionAdoption } from './readerSession/useRemotePositionAdoption'
-import { getCloudRestoreWinner, getLocalFirstCloudAdoption, paragraphTargetFromPosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
+import { getCloudRestoreWinner, getLocalFirstCloudAdoption, getStartupCloudRestoreTarget, paragraphTargetFromPosition, shouldAttemptStartupCloudPositionRestore, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
 
 const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
@@ -471,14 +471,18 @@ export default function App() {
     refreshLibrary()
     // Current book — switch if cloud disagrees with what we have on screen.
     const cloudBookId = storage.get<string>('tinct-current-book')
-    const validCloudBook = cloudBookId && !!getBook(cloudBookId)
-    const targetBookId = validCloudBook ? cloudBookId : book.id
-    if (validCloudBook && cloudBookId !== currentBookId) {
+    const restoreTarget = getStartupCloudRestoreTarget({
+      cloudBookId,
+      currentBookId: book.id,
+      isKnownBookId: (bookId) => !!getBook(bookId),
+    })
+    const targetBookId = restoreTarget.targetBookId
+    if (restoreTarget.shouldSwitchBook) {
       localFirstDebug(localFirstFromCacheRef.current ? 'cloud-corrected-book' : 'cloud-restored-book', {
         from: currentBookId,
-        to: cloudBookId,
+        to: targetBookId,
       })
-      setCurrentBookId(cloudBookId)
+      setCurrentBookId(targetBookId)
     }
     // Restore reading position only on the FIRST SUCCESSFUL restore. Subsequent
     // restores (e.g. supabaseInitTick fires after the user has been
@@ -491,7 +495,11 @@ export default function App() {
     // localStorage still empty (post-wipe device), the restore got null
     // and was permanently blocked. Now: re-attempt on every supabaseInitTick
     // until we actually have cloud data.
-    if (localFirstFromCacheRef.current && !hasRestoredFromCloud.current && supabaseInitTick > 0) {
+    const shouldRestoreCloudPosition = shouldAttemptStartupCloudPositionRestore({
+      hasRestoredFromCloud: hasRestoredFromCloud.current,
+      supabaseInitTick,
+    })
+    if (localFirstFromCacheRef.current && shouldRestoreCloudPosition) {
       const cloudPos = getSavedPosition(targetBookId)
       markCloudPosition(targetBookId, cloudPos)
       if (cloudPos) {
@@ -520,7 +528,7 @@ export default function App() {
         setCurrentPage(0)
         setReaderKey(k => k + 1)
       }
-    } else if (!hasRestoredFromCloud.current && supabaseInitTick > 0) {
+    } else if (shouldRestoreCloudPosition) {
       const cloudPos = getSavedPosition(targetBookId)
       // Mark cloud-known chapter so the regression guard knows what the
       // authoritative position is. Without this, the first heartbeat
