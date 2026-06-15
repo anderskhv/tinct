@@ -4,6 +4,7 @@
  */
 
 import { GENERATED_BOOK_META, type BookMetaEntry } from './data/bookMetaGenerated'
+import { corsHeaders, getAllowedOrigin, handleOptions, jsonResponse } from './worker/lib/responses'
 
 interface Env {
   ANTHROPIC_API_KEY: string
@@ -23,7 +24,6 @@ interface Env {
 
 // ===== Security Constants =====
 
-const ALLOWED_ORIGINS = ['https://tinct.app', 'https://tinct.ahvelplund.workers.dev', 'capacitor://localhost', 'https://localhost', 'http://localhost']
 const CHAT_MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS_CAP = 2048
 // 100KB was too tight: with 50 messages × full chat history replayed every
@@ -76,36 +76,6 @@ async function checkRateLimit(key: string, kv?: KVNamespace, maxRequests = RATE_
   } catch {
     return true // If KV fails, allow the request (fail open — quota check is the real guard)
   }
-}
-
-// ===== CORS =====
-
-function corsHeaders(request: Request): Record<string, string> {
-  const origin = request.headers.get('origin') || ''
-  // Allow Capacitor origins (capacitor://, https://localhost, null, or empty)
-  const isCapacitorOrigin = !origin || origin === 'null' || origin.startsWith('capacitor://') || origin.startsWith('https://localhost') || origin.startsWith('http://localhost')
-  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : isCapacitorOrigin ? '*' : ALLOWED_ORIGINS[0]
-  return {
-    'Access-Control-Allow-Origin': allowed,
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    'Access-Control-Max-Age': '86400',
-  }
-}
-
-function handleOptions(request: Request): Response {
-  return new Response(null, { status: 204, headers: corsHeaders(request) })
-}
-
-function jsonResponse(data: unknown, status: number, request: Request): Response {
-  return Response.json(data, { status, headers: corsHeaders(request) })
-}
-
-// ===== Origin Validation =====
-
-function getAllowedOrigin(request: Request): string {
-  const origin = request.headers.get('origin') || ''
-  return ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0]
 }
 
 // ===== Constant-Time String Comparison =====
