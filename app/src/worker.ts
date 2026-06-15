@@ -9,6 +9,7 @@ import { htmlEscape, htmlPage } from './worker/lib/html'
 import { isValidUUID, timingSafeEqual } from './worker/lib/security'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
+import { handleEditionPatches } from './worker/routes/editionPatches'
 
 interface Env {
   ANTHROPIC_API_KEY: string
@@ -1126,36 +1127,6 @@ async function handleScheduled(env: Env): Promise<void> {
     }
   } catch {
     // Silent
-  }
-}
-
-// ===== API: Edition Patches =====
-
-async function handleEditionPatches(request: Request, env: Env): Promise<Response> {
-  if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return jsonResponse([], 200, request)
-
-  const url = new URL(request.url)
-  const bookId = url.searchParams.get('bookId') || ''
-  const editionKey = url.searchParams.get('editionKey') || ''
-  if (!bookId || !editionKey) return jsonResponse([], 200, request)
-
-  // Whitelist bookId/editionKey to prevent injection via the `eq.` filter.
-  if (!/^[a-z0-9-]{1,64}$/i.test(bookId) || !/^[a-z0-9-]{1,32}$/i.test(editionKey)) {
-    return jsonResponse([], 200, request)
-  }
-
-  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await checkRateLimit(`patches:${clientIP}`, env.RATE_LIMIT, 30)) {
-    return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
-  }
-
-  try {
-    const res = await supabaseGet(env, `edition_patches?book_id=eq.${encodeURIComponent(bookId)}&edition_key=eq.${encodeURIComponent(editionKey)}&select=chapter_number,paragraph_index,patched_text`)
-    const patches = await res.json()
-    return jsonResponse(patches, 200, request)
-  } catch {
-    return jsonResponse([], 200, request)
   }
 }
 
@@ -2611,7 +2582,7 @@ export default {
       case '/api/admin/issues': return handleAdminIssues(request, env)
       case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env)
       case '/api/fixes-count': return handleFixesCount(request, env)
-      case '/api/edition-patches': return handleEditionPatches(request, env)
+      case '/api/edition-patches': return handleEditionPatches(request, env, checkRateLimit)
       case '/api/audio-manifest': return handleAudioManifest(request, env)
       case '/api/audio-file': return handleAudioFile(request, env)
     }
