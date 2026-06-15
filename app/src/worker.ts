@@ -2717,18 +2717,23 @@ async function serveSpaWithMeta(
 
   const html = await appResp.text()
   const ogImage = meta.image || 'https://tinct.app/og-image.png'
-  const injected = `<title>${meta.title}</title>
-  <meta name="description" content="${meta.description}">
-  <link rel="canonical" href="${canonical}">
-  <meta property="og:title" content="${meta.title}">
-  <meta property="og:description" content="${meta.description}">
-  <meta property="og:url" content="${canonical}">
-  <meta property="og:type" content="${ogType}">
+  const safeTitle = htmlEscape(meta.title)
+  const safeDescription = htmlEscape(meta.description)
+  const safeCanonical = htmlEscape(canonical)
+  const safeOgType = htmlEscape(ogType)
+  const safeOgImage = htmlEscape(ogImage)
+  const injected = `<title>${safeTitle}</title>
+  <meta name="description" content="${safeDescription}">
+  <link rel="canonical" href="${safeCanonical}">
+  <meta property="og:title" content="${safeTitle}">
+  <meta property="og:description" content="${safeDescription}">
+  <meta property="og:url" content="${safeCanonical}">
+  <meta property="og:type" content="${safeOgType}">
   <meta property="og:site_name" content="Tinct">
-  <meta property="og:image" content="${ogImage}">
+  <meta property="og:image" content="${safeOgImage}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${meta.title}">
-  <meta name="twitter:description" content="${meta.description}">`
+  <meta name="twitter:title" content="${safeTitle}">
+  <meta name="twitter:description" content="${safeDescription}">`
   const bookJsonLd = ogType === 'book'
     ? `\n  <script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org',
@@ -2756,6 +2761,8 @@ async function serveSpaWithMeta(
   }
   return newResp
 }
+
+export const serveSpaWithMetaForTest = serveSpaWithMeta
 
 function editionBookIdFromPath(pathname: string): string | null {
   const filename = pathname.split('/').pop() || ''
