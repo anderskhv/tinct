@@ -249,16 +249,16 @@ export default function App() {
         if (typeof window !== 'undefined') {
           const w = window as Window & { __tinctLocalFirstDebug?: Array<Record<string, unknown>> }
           w.__tinctLocalFirstDebug = w.__tinctLocalFirstDebug || []
-          w.__tinctLocalFirstDebug.push({ at: Date.now(), stage: 'local-first-render', keys: Object.keys(localData).length })
+          w.__tinctLocalFirstDebug.push({ at: Date.now(), stage: 'local-cache-present-awaiting-critical-cloud', keys: Object.keys(localData).length })
           if (w.__tinctLocalFirstDebug.length > 40) w.__tinctLocalFirstDebug.shift()
         }
-        installProvider()
-        setCloudRestoreSettled(true)
       }
-      // Timeout: if critical restore takes >5s, render from the signed-in
-      // local mirror instead of leaving the app permanently on the loading shell.
-      // When Supabase eventually resolves, supabaseInitTick re-runs restore with
-      // the real cloud cache and corrects the reader before future writes.
+      // Timeout: if critical restore takes too long, render from the signed-in
+      // local mirror instead of leaving the app on the loading shell. When
+      // Supabase eventually resolves, supabaseInitTick re-runs restore with the
+      // real cloud cache and corrects the reader before future writes. Normal
+      // online startup waits for initCritical so cross-device resume does not
+      // first paint at a stale local position and then jump later.
       const initTimeout = setTimeout(() => {
         console.warn('[App] Supabase critical init timeout — rendering from local mirror while cloud restore continues')
         installProvider()
