@@ -10,6 +10,7 @@ import { isValidUUID, timingSafeEqual } from './worker/lib/security'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
 import { handleEditionPatches } from './worker/routes/editionPatches'
+import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
 
 interface Env {
   ANTHROPIC_API_KEY: string
@@ -1836,37 +1837,6 @@ async function handleReportIssue(request: Request, env: Env, ctx: ExecutionConte
   return jsonResponse({ success: true, reportId }, 200, request)
 }
 
-// ===== API: Report Status =====
-
-async function handleReportStatus(request: Request, env: Env): Promise<Response> {
-  const url = new URL(request.url)
-  const id = url.searchParams.get('id')
-  if (!id || !isValidUUID(id) || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    return jsonResponse({ status: 'unknown' }, 200, request)
-  }
-  try {
-    const res = await supabaseGet(env, `issue_reports?id=eq.${id}&select=status`)
-    const rows = await res.json() as { status: string }[]
-    return jsonResponse({ status: rows?.[0]?.status || 'unknown' }, 200, request)
-  } catch {
-    return jsonResponse({ status: 'unknown' }, 200, request)
-  }
-}
-
-// ===== API: Fixes Count =====
-
-async function handleFixesCount(request: Request, env: Env): Promise<Response> {
-  try {
-    const user = await verifyUser(env, request)
-    if (!user) return jsonResponse({ count: 0 }, 200, request)
-    const res = await supabaseGet(env, `issue_reports?user_id=eq.${user.id}&status=eq.confirmed&rewarded=eq.true&select=id`)
-    const rows = await res.json() as { id: string }[]
-    return jsonResponse({ count: rows?.length || 0 }, 200, request)
-  } catch {
-    return jsonResponse({ count: 0 }, 200, request)
-  }
-}
-
 // ===== API: Approve/Reject Fix =====
 
 async function handleApproveFix(request: Request, env: Env): Promise<Response> {
@@ -2581,7 +2551,7 @@ export default {
       case '/api/approve-fix': return handleApproveFix(request, env)
       case '/api/admin/issues': return handleAdminIssues(request, env)
       case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env)
-      case '/api/fixes-count': return handleFixesCount(request, env)
+      case '/api/fixes-count': return handleFixesCount(request, env, verifyUser)
       case '/api/edition-patches': return handleEditionPatches(request, env, checkRateLimit)
       case '/api/audio-manifest': return handleAudioManifest(request, env)
       case '/api/audio-file': return handleAudioFile(request, env)
