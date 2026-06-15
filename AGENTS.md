@@ -85,6 +85,7 @@ These are production-critical:
 - Read/Compare paragraph sync is chapter-scoped. A sync signal from chapter N must never apply to chapter N+1.
 - On mobile, hidden Read/Compare views must not commit shared `currentPage` or `totalPages`.
 - Reader page/chapter navigation must not open Chat, Feed, or Cast.
+- Chat history is book-scoped. Every persisted chat message must carry the `bookId` it was created under, and chat persistence must reject messages whose `bookId` does not match the target `chat-history:{bookId}` store.
 
 If a rule seems redundant, write or run a focused regression before removing it. These rules exist because similar bugs have repeatedly returned.
 
