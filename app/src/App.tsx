@@ -452,7 +452,13 @@ export default function App() {
   // paragraph target. Same-device stored positions restore from scrollFraction;
   // using lastParagraphIndex as a hard target there can snap reloads to the
   // following page when the first visible paragraph sits near a column boundary.
+  // Paragraph 0/missing is not a useful cross-device anchor; fall back to
+  // scrollFraction so a stale/default paragraph cannot force chapter start.
   const targetParagraphRef = useRef<number | undefined>(undefined)
+  const paragraphTargetFromPosition = useCallback((pos: ReadingPosition | null | undefined): number | undefined => {
+    const paragraph = pos?.lastParagraphIndex
+    return typeof paragraph === 'number' && paragraph > 0 ? paragraph : undefined
+  }, [])
   const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: Language } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -706,7 +712,7 @@ export default function App() {
         markCloudLoaded(targetBookId, cloudPos)
         if (confirmed) return
         savedPos.current = cloudPos
-        targetParagraphRef.current = cloudPos.lastParagraphIndex
+        targetParagraphRef.current = paragraphTargetFromPosition(cloudPos)
         markUserNav(targetBookId)
         setCurrentChapter(cloudPos.chapterNumber)
         setCurrentPage(0)
@@ -725,7 +731,7 @@ export default function App() {
         const winner = pickLatest(localPos, cloudPos)
         if (winner) {
           savedPos.current = winner
-          targetParagraphRef.current = winner === cloudPos ? winner.lastParagraphIndex : undefined
+          targetParagraphRef.current = winner === cloudPos ? paragraphTargetFromPosition(winner) : undefined
           // Restoring from cloud counts as a user-initiated landing point;
           // any write within USER_NAV_GRACE_MS of this is allowed even if
           // it appears to regress (e.g. cloud at chapter 5, local was at
@@ -1000,7 +1006,7 @@ export default function App() {
             return
           }
           savedPos.current = cloudPos
-          targetParagraphRef.current = cloudPos.lastParagraphIndex
+          targetParagraphRef.current = paragraphTargetFromPosition(cloudPos)
           // Prime dedup so the post-layout `onPageChange` echo doesn't write
           // the just-loaded value back to cloud (cross-device echo bug).
           markCloudLoaded(book.id, cloudPos)
@@ -1746,7 +1752,7 @@ export default function App() {
       source: 'remote',
       now: Date.now(),
     })
-    targetParagraphRef.current = remotePos.lastParagraphIndex
+    targetParagraphRef.current = paragraphTargetFromPosition(remotePos)
     savedPos.current = remotePos
     setCurrentChapter(remotePos.chapterNumber)
     setCurrentPage(0)
