@@ -1677,17 +1677,6 @@ export default function App() {
   useEffect(() => {
     if (!primaryData) return
     dispatchReaderSession({
-      type: 'USER_SELECT_CHAPTER',
-      chapterNumber: currentChapter,
-      paragraphIndex: undefined,
-      context: readerSessionContext,
-      now: Date.now(),
-    })
-  }, [currentChapter, primaryData, readerSessionContext])
-
-  useEffect(() => {
-    if (!primaryData) return
-    dispatchReaderSession({
       type: 'READER_LAYOUT_READY',
       page: currentPage,
       totalPages,
