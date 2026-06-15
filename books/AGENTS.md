@@ -221,7 +221,8 @@ Every flagged paragraph requires human inspection. Natural compression is accept
 - English audio uses Kokoro.
 - Danish audio uses Google Chirp.
 - Do not mix engines.
-- For non-English originals, do not invent source-language audio by default. The required audio package is the human English translation, `modern-en`, and `modern-da`.
+- For now, skip `modern-da` audio unless Anders explicitly asks for it. Danish text is still required for publication; Danish audio is opt-in while this rule is in effect.
+- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`; `modern-da` audio is required only when explicitly requested.
 - Generate or regenerate audio only after the relevant text passes QA.
 - If text changes after audio generation, mark the affected book, edition, chapter, and paragraph numbers; regenerate the corresponding audio and manifest before considering the book final.
 - Chapter title audio should be present where the audio pipeline supports it.
@@ -312,7 +313,7 @@ A book is ready for the public registry only when the agreed publishing standard
 - `modern-da` exists
 - all included editions are paragraph-aligned
 - no stubs or untranslated scaffold content remain
-- required audio is generated, manifested, uploaded, and verified: Kokoro for English editions and Chirp for Danish
+- required audio is generated, manifested, uploaded, and verified: Kokoro for English editions; Chirp for Danish only when `modern-da` audio has been explicitly requested
 - onboarding exists
 - registry entry is correct
 - taxonomy is complete

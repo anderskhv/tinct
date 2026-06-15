@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Resume the English Kokoro backlog from the 2026-05-26 R2 audit.
+# Resume the English Kokoro backlog from the 2026-06-15 R2 audit.
 #
 # On RunPod, place this beside run-kokoro-cloud.py or paste its python command:
 #   export CLOUDFLARE_API_TOKEN="cfut_..."
@@ -37,17 +37,5 @@ find /workspace/audio -type f \( -name '*.wav' -o -name '*.mp3' -o -name 'manife
 echo
 
 python3 run-kokoro-cloud.py \
-  essays-montaigne original-en \
-  essays-montaigne modern-en \
-  hume-enquiry original-en \
-  hume-enquiry modern-en \
   kant-groundwork original-en \
-  kant-groundwork modern-en \
-  wealth-of-nations original-en \
-  wealth-of-nations modern-en \
-  anna-karenina original-en \
-  anna-karenina modern-en \
-  frederick-douglass original-en \
-  treasure-island original-en \
-  treasure-island modern-en \
-  werther original-en
+  kant-groundwork modern-en

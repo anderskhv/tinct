@@ -166,7 +166,7 @@ def mechanical_warning(book_id: str) -> str:
     return ""
 
 
-def summarize(book: Book, check_audio: bool) -> dict[str, str]:
+def summarize(book: Book, check_audio: bool, include_da_audio: bool) -> dict[str, str]:
     has_original = bool(load_edition(book.book_id, "original-en"))
     has_modern_en = bool(load_edition(book.book_id, "modern-en"))
     has_modern_da = bool(load_edition(book.book_id, "modern-da"))
@@ -203,10 +203,13 @@ def summarize(book: Book, check_audio: bool) -> dict[str, str]:
         if has_modern_en:
             targets.append(("modern-en", audio_status(book.book_id, "modern-en")))
         en_audio = ",".join(f"{k}:{v}" for k, v in targets) or "n/a"
-        da_audio = audio_status(book.book_id, "modern-da") if has_modern_da else "n/a"
+        if include_da_audio:
+            da_audio = audio_status(book.book_id, "modern-da") if has_modern_da else "n/a"
+        else:
+            da_audio = "skipped" if has_modern_da else "n/a"
         if any(v != "present" for _, v in targets):
             missing.append("english audio")
-        if has_modern_da and da_audio != "present":
+        if include_da_audio and has_modern_da and da_audio != "present":
             missing.append("danish audio")
 
     return {
@@ -223,12 +226,17 @@ def summarize(book: Book, check_audio: bool) -> dict[str, str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--audio", action="store_true", help="check first+last chapter audio on production R2")
+    parser.add_argument(
+        "--include-da-audio",
+        action="store_true",
+        help="also check modern-da audio and treat missing Danish audio as a blocker",
+    )
     args = parser.parse_args()
 
     public, staged = parse_registry()
     known = {b.book_id for b in public + staged}
     books = staged + loose_books(known)
-    rows = [summarize(book, args.audio) for book in books]
+    rows = [summarize(book, args.audio, args.include_da_audio) for book in books]
 
     print(f"WIP books: {len(rows)}")
     print("scope\tbook\teditions\ten_audio\tda_audio\tmissing")

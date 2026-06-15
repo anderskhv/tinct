@@ -189,7 +189,8 @@ Paragraph alignment is sacred. If alignment breaks, stop and fix alignment befor
 - English audio uses Kokoro.
 - Danish audio uses Google Chirp.
 - Do not mix engines.
-- For non-English originals, do not invent source-language audio by default. The required audio package is the human English translation, `modern-en`, and `modern-da`.
+- For now, skip `modern-da` audio unless Anders explicitly asks for it. Danish text is still required for publication; Danish audio is opt-in while this rule is in effect.
+- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`; `modern-da` audio is required only when explicitly requested.
 - Regenerate audio if text changes after audio generation.
 - R2 uploads must use the remote Cloudflare target, not a local emulator.
 
@@ -216,7 +217,7 @@ Every production book must include:
 - paragraph alignment across editions
 - no stubs or untranslated scaffold content
 - no textual apparatus/stub chapters or polluted scene titles
-- required Kokoro/Chirp audio generated, manifested, uploaded, and verified
+- required Kokoro audio generated, manifested, uploaded, and verified; Chirp audio only when `modern-da` audio has been explicitly requested
 - onboarding
 - taxonomy: House, shelves, form, era, and relevant canon/list metadata
 - correct registry entry and edition flags
