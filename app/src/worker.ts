@@ -5,6 +5,9 @@
 
 import { GENERATED_BOOK_META, type BookMetaEntry } from './data/bookMetaGenerated'
 import { corsHeaders, getAllowedOrigin, handleOptions, jsonResponse } from './worker/lib/responses'
+import { htmlEscape, htmlPage } from './worker/lib/html'
+import { isValidUUID, timingSafeEqual } from './worker/lib/security'
+import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate } from './worker/lib/supabase'
 
 interface Env {
   ANTHROPIC_API_KEY: string
@@ -76,82 +79,6 @@ async function checkRateLimit(key: string, kv?: KVNamespace, maxRequests = RATE_
   } catch {
     return true // If KV fails, allow the request (fail open — quota check is the real guard)
   }
-}
-
-// ===== Constant-Time String Comparison =====
-
-function timingSafeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false
-  let result = 0
-  for (let i = 0; i < a.length; i++) {
-    result |= a.charCodeAt(i) ^ b.charCodeAt(i)
-  }
-  return result === 0
-}
-
-// ===== UUID Validation =====
-
-const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
-function isValidUUID(s: string): boolean {
-  return UUID_RE.test(s)
-}
-
-// ===== Supabase Helpers =====
-
-async function supabaseGet(env: Env, path: string) {
-  return fetch(`${env.SUPABASE_URL}/rest/v1/${path}`, {
-    headers: {
-      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
-      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
-    },
-  })
-}
-
-async function supabaseRpc(env: Env, fn: string, params: Record<string, unknown>) {
-  return fetch(`${env.SUPABASE_URL}/rest/v1/rpc/${fn}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
-      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
-    },
-    body: JSON.stringify(params),
-  })
-}
-
-async function supabaseUpdate(env: Env, table: string, id: string, data: Record<string, unknown>) {
-  return fetch(`${env.SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
-      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
-      'Prefer': 'return=minimal',
-    },
-    body: JSON.stringify(data),
-  })
-}
-
-async function supabaseInsert(env: Env, table: string, data: Record<string, unknown>) {
-  return fetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
-      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
-      'Prefer': 'return=representation',
-    },
-    body: JSON.stringify(data),
-  })
-}
-
-function htmlEscape(value: unknown): string {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
 }
 
 type AnthropicSystemBlock = {
@@ -2260,14 +2187,6 @@ button:hover{opacity:0.9}.meta{font-size:0.8rem;color:#999;margin-bottom:12px}</
   } else {
     return new Response(htmlPage('Invalid action', 'Use the approve or reject link from your email.'), { status: 400, headers: { 'Content-Type': 'text/html' } })
   }
-}
-
-function htmlPage(title: string, message: string): string {
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${title} — Tinct</title>
-<style>body{font-family:Georgia,serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f8f5f0;color:#2a2a2a}
-.card{background:#fff;padding:40px 48px;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);text-align:center;max-width:400px}
-h1{font-size:1.3rem;margin:0 0 12px}p{font-size:0.95rem;color:#666;line-height:1.5;margin:0}</style></head>
-<body><div class="card"><h1>${title}</h1><p>${message}</p></div></body></html>`
 }
 
 // ===== API: Audio Manifest Proxy (for Capacitor CORS) =====
