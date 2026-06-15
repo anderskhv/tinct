@@ -154,6 +154,18 @@ Order within phase: 1.1 → 1.2 → 1.3 → 1.4. Each is independent; if one sta
 
 ## Phase 2 — Chat experience (quality-neutral speedups)
 
+**Status 2026-06-15:** DONE and deployed. Audit confirmed:
+- `ChatInput` is extracted and owns input/voice state.
+- Chat message and history rendering use `React.memo` plus memoized markdown rendering.
+- `filteredMessages` and divider derivation are memoized.
+- Chat input uses CSS `field-sizing: content` with the existing JS auto-grow fallback.
+- `/api/chat` supports streaming SSE, charges on first `content_block_delta`, and keeps non-streaming fallback behavior.
+- Client parses streamed `content_block_delta` events incrementally and fences replies by `bookId`.
+- System prompts use cacheable array-form blocks; worker validation accepts and sanitizes string and block-array forms.
+- Chat pre-checks parse JSON early and run rate-limit/profile checks in parallel.
+
+Remaining non-blocking follow-up: add dedicated `useClaude` streaming unit tests and confirm `usage.cache_read_input_tokens > 0` on a live second-turn chat.
+
 Order matters: 2.1 before 2.2 (streaming re-renders the message list per chunk; memoize first).
 
 ### 2.1 Typing lag
@@ -226,6 +238,13 @@ Structural invariant changes land in **AGENTS.md first** (it's the executing age
 ---
 
 ## Phase 4 — Cold-load speed (after Phase 3, which makes #1 safe)
+
+**Status 2026-06-15:** DONE and deployed. Audit confirmed:
+- Local-first signed-in startup path exists via `localFirstFromCacheRef`, with cloud reconciliation and write suspension during startup.
+- Heavy surfaces are lazy-loaded (`BookStore`, `SettingsSheet`, `PricingModal`, `UsageDashboard`, `AdminMetricsDashboard`).
+- Chapter-sharded edition loading exists in `editionLoader` with manifest/window support and focused tests.
+- Self-hosted fonts are wired through `/fonts/tinct-fonts.css` with preloads and `font-display: swap`; app shell/landing do not depend on Google Fonts.
+- Service worker app-shell precache is stamped by `scripts/stamp-sw-app-shell.cjs` with a hash-derived cache name and current app asset/font URLs.
 
 In impact order:
 1. **Local-first render:** remove the <15min restriction on the quick-return path (`App.tsx:181-215`) — render from the localStorage mirror immediately whenever it exists, writes suspended, reconcile cloud in background, shift view only if cloud differs (with the existing position-restore animation). Safe now because Phase 3's versioned writes make a stale-cache render unable to poison cloud state. Target: signed-in repeat visitor sees their page in <1s.
