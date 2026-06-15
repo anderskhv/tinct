@@ -907,20 +907,14 @@ export default function App() {
 
   // Re-sync from Supabase when tab regains focus (cross-device sync)
   const lastSyncRef = useRef(0)
-  const lastHiddenAtRef = useRef(0)
   useEffect(() => {
     const handleVisibility = async () => {
       const now = Date.now()
-      if (document.visibilityState !== 'visible') {
-        lastHiddenAtRef.current = now
-        return
-      }
+      if (document.visibilityState !== 'visible') return
       const provider = supabaseProviderRef.current
       if (!provider || !user) return
       if (!storageReady || !cloudRestoreSettled) return
       if (showStore || libraryEmpty) return
-      const hiddenForMs = lastHiddenAtRef.current ? now - lastHiddenAtRef.current : Number.POSITIVE_INFINITY
-      if (hiddenForMs < 15 * 60 * 1000) return
       if (now - lastSyncRef.current < 5000) return // debounce 5s
       lastSyncRef.current = now
       try {
