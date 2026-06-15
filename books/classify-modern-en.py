@@ -93,6 +93,25 @@ def parse_range(spec, n):
     return range(int(lo), int(hi or lo) + 1)
 
 
+def is_wrapped(s):
+    """True if a paragraph still carries leaked JSON-list scaffolding,
+    e.g. ["...verse / verse..."] (modern-en) or [»...«] (modern-da)."""
+    s = s.strip()
+    return (s.startswith('["') and s.endswith('"]')) or \
+           (s.startswith("[»") and s.endswith("«]"))
+
+
+def is_truncation(base_p, target_p):
+    """True if the rendering elided source content with an ellipsis: the
+    target has ... / … the baseline lacks AND is materially shorter. Catches
+    summarized quotations (the rules forbid condensing quoted passages)."""
+    def ell(x):
+        return "..." in x or "…" in x
+    if not ell(target_p) or ell(base_p):
+        return False
+    return len(target_p.split()) < len(base_p.split()) * 0.92
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("book_id")
@@ -122,6 +141,8 @@ def main():
     weighted_total = 0.0
     identical = 0
     long_paras = 0
+    wrapped_hits = []
+    trunc_hits = []
 
     for i, (a, b) in enumerate(zip(base, target), 1):
         if i not in wanted:
@@ -131,11 +152,15 @@ def main():
         weighted_acc += sim * words
         weighted_total += words
         counts[bucket(sim)] += 1
-        for p, q in zip(a["paragraphs"], b["paragraphs"]):
+        for pi, (p, q) in enumerate(zip(a["paragraphs"], b["paragraphs"])):
             if len(p) >= 80:
                 long_paras += 1
                 if p == q:
                     identical += 1
+            if is_wrapped(q):
+                wrapped_hits.append(f"ch{i} p{pi}")
+            if is_truncation(p, q):
+                trunc_hits.append(f"ch{i} p{pi}")
         if args.per_chapter:
             print(f"  ch {i:>4}  sim {sim:.3f}  {bucket(sim):<10}  {a.get('title','')[:50]}")
 
@@ -152,9 +177,14 @@ def main():
     print(f"  identical long paras: {identical}/{long_paras} = {ident_rate:.1%}   (gate: <= 5%)")
     print(f"  buckets: REAL-HEAVY {counts['REAL-HEAVY']}  REAL {counts['REAL']}  "
           f"LIGHT {counts['LIGHT']}  MECHANICAL {counts['MECHANICAL']}")
+    print(f"  wrapped scaffolding : {len(wrapped_hits)}   (gate: 0)"
+          + (f"   e.g. {', '.join(wrapped_hits[:8])}" if wrapped_hits else ""))
+    print(f"  truncated quotations: {len(trunc_hits)}   (gate: 0)"
+          + (f"   e.g. {', '.join(trunc_hits[:8])}" if trunc_hits else ""))
 
     if args.gate:
-        ok = mean_sim <= 0.75 and light_mech_rate <= 0.05 and ident_rate <= 0.05
+        ok = (mean_sim <= 0.75 and light_mech_rate <= 0.05 and ident_rate <= 0.05
+              and not wrapped_hits and not trunc_hits)
         print("GATE PASS" if ok else "GATE FAIL")
         sys.exit(0 if ok else 1)
 
