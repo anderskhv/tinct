@@ -57,7 +57,7 @@ import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
-import { isCloudPositionConfirmedLocally, shouldApplyRemotePosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
+import { getCloudRestoreWinner, getLocalFirstCloudAdoption, paragraphTargetFromPosition, shouldApplyRemotePosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
 
 const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
@@ -95,22 +95,6 @@ function editionParagraphTotal(data: EditionData | null): number {
 function editionParagraphsBeforeIndex(data: EditionData | null, index: number): number {
   if (!data || index <= 0) return 0
   return data.chapters.slice(0, index).reduce((sum, chapter) => sum + chapterParagraphTotal(chapter), 0)
-}
-
-/** Pick the most recently updated position. Falls back to furthest if no timestamps. */
-function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
-  if (!a) return b
-  if (!b) return a
-  // Prefer most recent timestamp
-  if (a.updatedAt && b.updatedAt) return a.updatedAt >= b.updatedAt ? a : b
-  if (a.updatedAt) return a
-  if (b.updatedAt) return b
-  // No timestamps — fall back to furthest (legacy data)
-  if (a.chapterNumber > b.chapterNumber) return a
-  if (b.chapterNumber > a.chapterNumber) return b
-  const fracA = a.scrollFraction ?? 0
-  const fracB = b.scrollFraction ?? 0
-  return fracA >= fracB ? a : b
 }
 
 type ReaderSyncSignal = { chapterNumber: number; paragraph: number; nonce: number }
@@ -275,10 +259,6 @@ export default function App() {
   // Paragraph 0/missing is not a useful cross-device anchor; fall back to
   // scrollFraction so a stale/default paragraph cannot force chapter start.
   const targetParagraphRef = useRef<number | undefined>(undefined)
-  const paragraphTargetFromPosition = useCallback((pos: ReadingPosition | null | undefined): number | undefined => {
-    const paragraph = pos?.lastParagraphIndex
-    return typeof paragraph === 'number' && paragraph > 0 ? paragraph : undefined
-  }, [])
   const [backPosition, setBackPosition] = useState<{ chapter: number; scrollFraction: number; style: Style; language: Language } | null>(null)
   const backTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -516,25 +496,26 @@ export default function App() {
       if (cloudPos) {
         hasRestoredFromCloud.current = true
         const localPos = savedPos.current
-        const confirmed = isCloudPositionConfirmedLocally({
+        const adoption = getLocalFirstCloudAdoption({
           localPos,
           cloudPos,
           currentBookId,
           targetBookId,
         })
-        localFirstDebug(confirmed ? 'cloud-confirmed-position' : 'cloud-corrected-position', {
+        if (adoption.kind === 'none') return
+        localFirstDebug(adoption.kind === 'confirmed' ? 'cloud-confirmed-position' : 'cloud-corrected-position', {
           bookId: targetBookId,
           localChapter: localPos?.chapterNumber,
-          cloudChapter: cloudPos.chapterNumber,
+          cloudChapter: adoption.position.chapterNumber,
           localFraction: localPos?.scrollFraction,
-          cloudFraction: cloudPos.scrollFraction,
+          cloudFraction: adoption.position.scrollFraction,
         })
-        markCloudLoaded(targetBookId, cloudPos)
-        if (confirmed) return
-        savedPos.current = cloudPos
-        targetParagraphRef.current = paragraphTargetFromPosition(cloudPos)
+        markCloudLoaded(targetBookId, adoption.position)
+        if (adoption.kind === 'confirmed') return
+        savedPos.current = adoption.position
+        targetParagraphRef.current = paragraphTargetFromPosition(adoption.position)
         markUserNav(targetBookId)
-        setCurrentChapter(cloudPos.chapterNumber)
+        setCurrentChapter(adoption.position.chapterNumber)
         setCurrentPage(0)
         setReaderKey(k => k + 1)
       }
@@ -548,7 +529,7 @@ export default function App() {
       if (cloudPos) {
         hasRestoredFromCloud.current = true
         const localPos = savedPos.current
-        const winner = pickLatest(localPos, cloudPos)
+        const winner = getCloudRestoreWinner({ localPos, cloudPos })
         if (winner) {
           savedPos.current = winner
           targetParagraphRef.current = winner === cloudPos ? paragraphTargetFromPosition(winner) : undefined

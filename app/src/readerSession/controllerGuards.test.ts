@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import type { ReadingPosition } from '../types'
-import { isCloudPositionConfirmedLocally, shouldApplyRemotePosition, shouldHoldReaderForCloudRestore } from './controllerGuards'
+import {
+  getCloudRestoreWinner,
+  getLocalFirstCloudAdoption,
+  isCloudPositionConfirmedLocally,
+  paragraphTargetFromPosition,
+  pickLatestPosition,
+  shouldApplyRemotePosition,
+  shouldHoldReaderForCloudRestore,
+} from './controllerGuards'
 
 function position(patch: Partial<ReadingPosition> = {}): ReadingPosition {
   return {
@@ -84,6 +92,69 @@ describe('isCloudPositionConfirmedLocally', () => {
       currentBookId: 'war-and-peace',
       targetBookId: 'war-and-peace',
     })).toBe(false)
+  })
+})
+
+describe('getLocalFirstCloudAdoption', () => {
+  it('does nothing until a cloud position exists', () => {
+    expect(getLocalFirstCloudAdoption({
+      localPos: position(),
+      cloudPos: null,
+      currentBookId: 'war-and-peace',
+      targetBookId: 'war-and-peace',
+    })).toEqual({ kind: 'none' })
+  })
+
+  it('confirms when late cloud matches the local-first reader state', () => {
+    const cloudPos = position()
+    expect(getLocalFirstCloudAdoption({
+      localPos: position({ scrollFraction: 0.4204 }),
+      cloudPos,
+      currentBookId: 'war-and-peace',
+      targetBookId: 'war-and-peace',
+    })).toEqual({ kind: 'confirmed', position: cloudPos })
+  })
+
+  it('corrects when late cloud differs from local-first reader state', () => {
+    const cloudPos = position({ chapterNumber: 12, scrollFraction: 0.7 })
+    expect(getLocalFirstCloudAdoption({
+      localPos: position({ chapterNumber: 10, scrollFraction: 0.42 }),
+      cloudPos,
+      currentBookId: 'war-and-peace',
+      targetBookId: 'war-and-peace',
+    })).toEqual({ kind: 'corrected', position: cloudPos })
+  })
+})
+
+describe('getCloudRestoreWinner', () => {
+  it('chooses cloud when it is newer than local', () => {
+    const localPos = position({ chapterNumber: 8, updatedAt: 100 })
+    const cloudPos = position({ chapterNumber: 10, updatedAt: 200 })
+    expect(getCloudRestoreWinner({ localPos, cloudPos })).toBe(cloudPos)
+  })
+
+  it('chooses local when it is newer than cloud', () => {
+    const localPos = position({ chapterNumber: 11, updatedAt: 300 })
+    const cloudPos = position({ chapterNumber: 10, updatedAt: 200 })
+    expect(getCloudRestoreWinner({ localPos, cloudPos })).toBe(localPos)
+  })
+
+  it('falls back to the furthest chapter when timestamps are missing', () => {
+    const localPos = position({ chapterNumber: 11, updatedAt: undefined })
+    const cloudPos = position({ chapterNumber: 10, updatedAt: undefined })
+    expect(pickLatestPosition(localPos, cloudPos)).toBe(localPos)
+  })
+})
+
+describe('paragraphTargetFromPosition', () => {
+  it('uses positive paragraph anchors for cross-device adoption', () => {
+    expect(paragraphTargetFromPosition(position({ lastParagraphIndex: 18 }))).toBe(18)
+  })
+
+  it('ignores missing, zero, and negative paragraph anchors', () => {
+    expect(paragraphTargetFromPosition(position({ lastParagraphIndex: undefined }))).toBeUndefined()
+    expect(paragraphTargetFromPosition(position({ lastParagraphIndex: 0 }))).toBeUndefined()
+    expect(paragraphTargetFromPosition(position({ lastParagraphIndex: -1 }))).toBeUndefined()
   })
 })
 
