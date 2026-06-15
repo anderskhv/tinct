@@ -203,11 +203,10 @@ In `handleChat` (`worker.ts:240-349`): after `verifyUser` resolves, run `checkRa
 
 ## Phase 3 — Kill the bug class: productionize readerSession + versioned writes
 
-**Status 2026-06-15:** IN PROGRESS, mostly deployed. `readerSession` is now reducer-backed live app state, and `useReadingPosition` gates writes with `canPersistLocation()` then writes the validated readerSession location. The legacy composed-at-save-time content tuple path and `VITE_READER_SESSION_POSITION_SOURCE` / `tinct:reader-session-position-source` rollback switch have been removed. `app/src/readerSession/positionSync.ts` now owns conversion from `ReaderLocation` to `ReadingPosition` rows while preserving layout page fields as metadata.
+**Status 2026-06-15:** IN PROGRESS, mostly deployed. `readerSession` is now reducer-backed live app state, and `useReadingPosition` delegates write decisions to `readerSession/positionSync.commitReadingPosition()`. The legacy composed-at-save-time content tuple path and `VITE_READER_SESSION_POSITION_SOURCE` / `tinct:reader-session-position-source` rollback switch have been removed. `app/src/readerSession/positionSync.ts` owns validation-gated commits, duplicate suppression, regression guards, current-book pointer writes, and conversion from `ReaderLocation` to `ReadingPosition` rows while preserving layout page fields as metadata.
 
 Remaining cleanup:
-- Collapse the hook-level write triggers into an explicit `positionSync.commit(location, cause)` API if we still want that architecture; the current triggers are safe but still live in `useReadingPosition`.
-- Finish retiring legacy UI state from reader/navigation consumers where practical. Rendering still uses `currentChapter/currentPage/totalPages` as adapter state.
+- Finish retiring legacy UI state from reader/navigation consumers where practical. Rendering still uses `currentChapter/currentPage/totalPages` as adapter state, while persistence commits through `positionSync`.
 - Keep versioned writes/tombstones under observation; the storage layer already writes through `commit_user_data` and uses tombstones for deletes.
 
 **This is the structural fix.** Do NOT start until Phases 0-2 are deployed and soaked ≥3 days with no regressions. Plan-mode review with Anders before starting — this touches the Invariants.

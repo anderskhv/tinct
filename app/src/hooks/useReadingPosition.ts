@@ -1,39 +1,19 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { storage } from '../services/storage'
-import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
-import { canPersistLocation } from '../readerSession/writer'
-import { buildReadingPositionForWrite } from '../readerSession/positionSync'
+import type { ReadingPosition, ReadingProgress } from '../types'
+import {
+  commitReadingPosition,
+  getReadingProgress,
+  getSavedPosition,
+  markCloudLoaded,
+  markCloudPosition,
+  markUserNav,
+} from '../readerSession/positionSync'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from '../readerSession/types'
-import { shouldBlockHistoryRegression, shouldBlockRegression, shouldSkipOnBookChange } from './useReadingPosition.guards'
-
-function positionKey(bookId: string): string {
-  return `position:${bookId}`
-}
+import { shouldSkipOnBookChange } from './useReadingPosition.guards'
 
 function progressKey(bookId: string): string {
   return `progress:${bookId}`
-}
-
-function readingLogKey(bookId: string): string {
-  return `reading-log:${bookId}`
-}
-
-function getHistoryHighWaterChapter(bookId: string, totalChapters: number): number {
-  let highWater = 0
-  const progress = storage.get<ReadingProgress>(progressKey(bookId))
-  if (progress?.bookId === bookId && progress.highestCompletedChapter > 0) {
-    highWater = Math.max(highWater, progress.highestCompletedChapter)
-  }
-  const log = storage.get<BookReadingLog>(readingLogKey(bookId))
-  if (log?.bookId === bookId) {
-    for (const rawChapter of Object.keys(log.chapters)) {
-      const chapter = Number(rawChapter)
-      if (!Number.isInteger(chapter) || chapter < 1) continue
-      if (totalChapters > 0 && chapter > totalChapters) continue
-      highWater = Math.max(highWater, chapter)
-    }
-  }
-  return highWater
 }
 
 /** Tagged window so we can confirm in DevTools that the hook is wired up. */
@@ -52,104 +32,7 @@ declare global {
 
 const HEARTBEAT_MS = 30_000
 
-/**
- * Window after a user-initiated navigation in which writes that go BACKWARD
- * relative to cloud's known chapter are allowed. Outside this window, only
- * forward or same-chapter writes are accepted — a heartbeat that fires after
- * a buggy remount can't poison the cloud with default-state chapter 1.
- *
- * 5s is generous: even on a slow Boox, a tap-to-prev-chapter resolves and
- * writes within that window.
- */
-const USER_NAV_GRACE_MS = 5_000
-
-/**
- * Internal: track the last cloud-known chapter per book. Updated by external
- * code (App.tsx restore path, visibility sync) via `markCloudPosition`. Read
- * inside `saveNow` to enforce the regression guard.
- *
- * Lives at module scope so the marker function and the guard share state
- * even when the hook itself unmounts/remounts (which happens on reader
- * remount in some test paths). The hook itself is in App.tsx (so it survives
- * `readerKey` increments), but we belt-and-suspenders the state.
- */
-const cloudKnownChapter = new Map<string, number>()
-
-/**
- * Track the last user-initiated nav timestamp per book. The page-change effect
- * sets this on every page/chapter change in `useReadingPosition`. Other paths
- * (TOC click, prev/next buttons, audio chapter advance) call `markUserNav`
- * directly so heartbeat regression checks know an explicit move just happened.
- */
-const lastUserNavAt = new Map<string, number>()
-
-/**
- * Per-book dedup baseline: what we believe is currently in cloud.
- *
- * Updated on (a) successful position write, (b) cloud restore via
- * `markCloudLoaded`. The next write that matches this value (within
- * scrollFraction tolerance) is skipped — that's the post-layout `onPageChange`
- * echo that would otherwise re-write the just-loaded value with a fresh
- * `updatedAt`, making it "win" last-write-wins against actually-newer writes
- * from other devices. (Cross-device echo bug, 2026-05-02.)
- *
- * Module-scoped (not a hook ref) so cloud-restore in App.tsx can prime it.
- * Stores scrollFraction (cross-device safe) instead of currentPage (which is
- * layout-specific — mobile and desktop have different page numbers for the
- * same content).
- */
-type DedupBaseline = { chapterNumber: number; scrollFraction: number; lastParagraphIndex?: number }
-const dedupBaseline = new Map<string, DedupBaseline>()
-
-/** Round scrollFraction so we dedup across minor layout jitter (~0.1% = ~1 paragraph in a 1000-paragraph chapter). */
-function scrollKey(frac: number): number {
-  return Math.round(frac * 1000)
-}
-
-function dedupMatches(a: DedupBaseline, b: DedupBaseline): boolean {
-  return (
-    a.chapterNumber === b.chapterNumber &&
-    a.lastParagraphIndex === b.lastParagraphIndex &&
-    scrollKey(a.scrollFraction) === scrollKey(b.scrollFraction)
-  )
-}
-
-/**
- * Called by App.tsx whenever cloud delivers a fresh position for a book.
- * The next write that would regress chapter below this value (without a
- * recent user nav signal) gets blocked.
- */
-export function markCloudPosition(bookId: string, position: ReadingPosition | null): void {
-  if (!position || typeof position.chapterNumber !== 'number') return
-  if (position.chapterNumber < 1) return
-  cloudKnownChapter.set(bookId, position.chapterNumber)
-}
-
-/**
- * Called when a position has been loaded from cloud (or localStorage cache)
- * for this book. Primes the dedup baseline so the inevitable post-layout
- * `onPageChange` echo is skipped. Pass `null` to clear (e.g. on logout).
- */
-export function markCloudLoaded(bookId: string, position: ReadingPosition | null): void {
-  if (!position) {
-    dedupBaseline.delete(bookId)
-    return
-  }
-  dedupBaseline.set(bookId, {
-    chapterNumber: position.chapterNumber,
-    scrollFraction: position.scrollFraction ?? 0,
-    lastParagraphIndex: position.lastParagraphIndex,
-  })
-}
-
-/**
- * Called by user-driven navigation handlers (page turn, TOC click, chapter
- * advance, etc.) to widen the write window briefly. Without this, the
- * regression guard would block legitimate user-initiated backward nav.
- */
-export function markUserNav(bookId: string): void {
-  lastUserNavAt.set(bookId, Date.now())
-}
+export { getReadingProgress, getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav }
 
 /**
  * Saves and restores page position per book.
@@ -217,74 +100,26 @@ export function useReadingPosition(
     // still skip page-only writes during layout (no useful page number yet)
     // but always write chapter+paragraph so cross-device restore has something
     // to land on.
-    const now = Date.now()
-    const snapshot = canPersistLocation(s.readerSession.location, s.readerSession.context, s.readerSession.status)
-    if (typeof window !== 'undefined') {
-      const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
-      ;(dbg as typeof dbg & { lastReaderSessionGate?: typeof snapshot }).lastReaderSessionGate = snapshot
-      window.__tinctPositionDebug = dbg
-    }
-    if (!snapshot.canWrite) {
-      recordSkip(`reader-session:${snapshot.reason ?? 'blocked'}:${reason}`)
-      return
-    }
-    const position = buildReadingPositionForWrite({
+    const result = commitReadingPosition({
+      cause: reason,
+      readerSession: s.readerSession,
       currentPage: s.currentPage,
       totalPages: s.totalPages,
-      now,
-      location: s.readerSession.location,
+      totalChapters: s.totalChapters,
     })
-
-    // Skip if the write would land on the same content position as what we
-    // believe is currently in cloud. Three sources of redundant writes:
-    //   (a) heartbeat firing on a stationary reader,
-    //   (b) effect re-fires after a render that didn't actually change pos,
-    //   (c) post-layout `onPageChange` echo immediately after cloud-restore —
-    //       where the Reader emits the page derived from the just-loaded
-    //       scrollFraction, the position effect treats it as a state change,
-    //       and we re-write the cloud value with a fresh `updatedAt`. That
-    //       echo makes a stale loaded value "win" last-write-wins against
-    //       fresher writes from other devices. (2026-05-02 cross-device bug.)
-    //
-    // Compare on scrollFraction (cross-device safe) instead of currentPage
-    // (which is layout-specific — mobile/desktop have different page counts).
-    const baseline = dedupBaseline.get(position.bookId)
-    const candidate: DedupBaseline = {
-      chapterNumber: position.chapterNumber,
-      scrollFraction: position.scrollFraction,
-      lastParagraphIndex: position.lastParagraphIndex,
+    if (typeof window !== 'undefined' && result.gate) {
+      const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
+      ;(dbg as typeof dbg & { lastReaderSessionGate?: typeof result.gate }).lastReaderSessionGate = result.gate
+      window.__tinctPositionDebug = dbg
     }
-    if (baseline && dedupMatches(baseline, candidate)) {
-      recordSkip(`unchanged:${reason}`)
-      return
-    }
-
-    // Backward-regression guard. **INVARIANT 4** in CLAUDE.md.
-    //
-    // Decision lives in `shouldBlockRegression` (pure function, unit-tested
-    // in useReadingPosition.guards.test.ts). Run `npm test` before changing
-    // anything here.
-    //
-    // Rule: if cloud has us at chapter X and we're trying to write chapter
-    // Y<X without a user-nav signal in the last `USER_NAV_GRACE_MS`, the
-    // write is almost certainly a destructive write from a default-state
-    // remount (B19) and gets blocked here.
-    const knownCloudChapter = cloudKnownChapter.get(position.bookId)
-    const lastNav = lastUserNavAt.get(position.bookId) ?? 0
-    if (shouldBlockRegression({
-      attemptedChapter: position.chapterNumber,
-      cloudKnownChapter: knownCloudChapter,
-      lastUserNavAt: lastNav,
-      now: Date.now(),
-      graceMs: USER_NAV_GRACE_MS,
-    })) {
-      recordSkip(`regression-blocked:${reason}:cloud=${knownCloudChapter}>attempt=${position.chapterNumber}`)
-      if (typeof window !== 'undefined') {
+    if (!result.committed) {
+      recordSkip(result.reason)
+      if (result.reason.startsWith('regression-blocked:') && result.position && typeof window !== 'undefined') {
         const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
         dbg.lastRegressionBlock = {
-          bookId: position.bookId,
-          cloudChapter: knownCloudChapter as number,
-          attemptedChapter: position.chapterNumber,
+          bookId: result.position.bookId,
+          cloudChapter: result.cloudChapter as number,
+          attemptedChapter: result.attemptedChapter as number,
           at: Date.now(),
         }
         window.__tinctPositionDebug = dbg
@@ -292,36 +127,10 @@ export function useReadingPosition(
       return
     }
 
-    // Same-book high-water guard. If cloud/local position baseline is absent
-    // or already stale, progress/log history still tells us the book was read
-    // much deeper. A passive page/layout echo back to an earlier chapter must
-    // not overwrite that deeper history; explicit chapter navigation is
-    // allowed only inside the same short user-nav grace window as the cloud
-    // regression guard.
-    const historyHighWater = getHistoryHighWaterChapter(position.bookId, s.totalChapters)
-    if (shouldBlockHistoryRegression({
-      attemptedChapter: position.chapterNumber,
-      historyHighWaterChapter: historyHighWater,
-      lastUserNavAt: lastNav,
-      now: Date.now(),
-      graceMs: USER_NAV_GRACE_MS,
-    })) {
-      recordSkip(`history-regression-blocked:${reason}:history=${historyHighWater}>attempt=${position.chapterNumber}`)
-      return
-    }
-
-    storage.set(positionKey(position.bookId), position)
-    // Also push the current-book pointer so other devices know which book to
-    // open by default. This used to live here, was removed in the Apr 23
-    // commit, and the consequence was that signed-in users on a fresh device
-    // didn't always restore to the right book. Cheap to keep in sync.
-    storage.set('tinct-current-book', position.bookId)
-    dedupBaseline.set(position.bookId, candidate)
-
     if (typeof window !== 'undefined') {
       const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
-      dbg.lastWriteAt = position.updatedAt!
-      dbg.lastWriteValue = position
+      dbg.lastWriteAt = result.position.updatedAt!
+      dbg.lastWriteValue = result.position
       ;(dbg as typeof dbg & { lastWriteSource?: 'reader-session' }).lastWriteSource = 'reader-session'
       dbg.writeCount += 1
       window.__tinctPositionDebug = dbg
@@ -334,7 +143,7 @@ export function useReadingPosition(
   // storageReady flips (cloud just landed).
   useEffect(() => {
     if (!storageReady) return
-    const loaded = storage.get<ReadingPosition>(positionKey(bookId))
+    const loaded = getSavedPosition(bookId)
     markCloudLoaded(bookId, loaded)
   }, [bookId, storageReady])
 
@@ -474,14 +283,4 @@ export function useReadingPosition(
       }
     }
   }, [bookId, chapterNumber, currentPage, totalPages, totalChapters, storageReady])
-}
-
-/** Get saved position for a book (used on initial load) */
-export function getSavedPosition(bookId: string): ReadingPosition | null {
-  return storage.get<ReadingPosition>(positionKey(bookId))
-}
-
-/** Get reading progress for a book */
-export function getReadingProgress(bookId: string): ReadingProgress | null {
-  return storage.get<ReadingProgress>(progressKey(bookId))
 }

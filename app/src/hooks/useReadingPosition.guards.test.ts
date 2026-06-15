@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { buildReadingPositionForWrite } from '../readerSession/positionSync'
+import { buildReadingPositionForWrite, commitReadingPosition, markCloudLoaded } from '../readerSession/positionSync'
 import type { ReaderLocation } from '../readerSession/types'
-import type { Book, EditionData } from '../types'
+import type { Book, EditionData, ReadingPosition } from '../types'
+import { localStorageProvider, setStorageProvider, type StorageProvider } from '../services/storage'
 import {
   shouldBlockRegression,
   clampChapter,
@@ -40,6 +41,32 @@ const editionData: EditionData = {
     { number: 2, title: 'Chapter 2', paragraphs: ['d', 'e', 'f'] },
     { number: 3, title: 'Chapter 3', paragraphs: ['g', 'h', 'i'] },
   ],
+}
+
+function withMemoryStorage(run: (store: Map<string, unknown>) => void) {
+  const store = new Map<string, unknown>()
+  const provider: StorageProvider = {
+    get<T>(key: string): T | null {
+      return (store.get(key) as T | undefined) ?? null
+    },
+    set<T>(key: string, value: T): void {
+      store.set(key, value)
+    },
+    delete(key: string): void {
+      store.delete(key)
+    },
+    getAll<T>(prefix: string): T[] {
+      return Array.from(store.entries())
+        .filter(([key]) => key.startsWith(prefix))
+        .map(([, value]) => value as T)
+    },
+  }
+  setStorageProvider(provider)
+  try {
+    run(store)
+  } finally {
+    setStorageProvider(localStorageProvider)
+  }
 }
 
 function readerLocation(patch: Partial<ReaderLocation> = {}): ReaderLocation {
@@ -90,6 +117,56 @@ describe('buildReadingPositionForWrite — readerSession source of truth', () =>
       lastParagraphIndex: 1,
     })
   })
+})
+
+describe('commitReadingPosition — positionSync boundary', () => {
+  it('writes the validated readerSession position and current-book pointer', () => withMemoryStorage((store) => {
+    markCloudLoaded('the-awakening', null)
+    const result = commitReadingPosition({
+      cause: 'unit-test',
+      readerSession: {
+        location: readerLocation({ chapterNumber: 2, paragraphIndex: 2, scrollFraction: 0.75 }),
+        context: { book, editionData },
+        status: 'ready',
+      },
+      currentPage: 6,
+      totalPages: 9,
+      totalChapters: 3,
+      now: NOW,
+    })
+
+    expect(result.committed).toBe(true)
+    expect(store.get('tinct-current-book')).toBe('the-awakening')
+    expect(store.get('position:the-awakening')).toEqual({
+      bookId: 'the-awakening',
+      chapterNumber: 2,
+      currentPage: 6,
+      totalPages: 9,
+      scrollFraction: 0.75,
+      updatedAt: NOW,
+      lastParagraphIndex: 2,
+    } satisfies ReadingPosition)
+  }))
+
+  it('skips invalid readerSession locations before storage writes', () => withMemoryStorage((store) => {
+    markCloudLoaded('the-awakening', null)
+    const result = commitReadingPosition({
+      cause: 'unit-test',
+      readerSession: {
+        location: readerLocation({ chapterNumber: 99 }),
+        context: { book, editionData },
+        status: 'ready',
+      },
+      currentPage: 6,
+      totalPages: 9,
+      totalChapters: 3,
+      now: NOW,
+    })
+
+    expect(result).toMatchObject({ committed: false, reason: 'reader-session:invalid-location:unit-test' })
+    expect(store.has('tinct-current-book')).toBe(false)
+    expect(store.has('position:the-awakening')).toBe(false)
+  }))
 })
 
 describe('shouldBlockRegression — destructive remount class (B19)', () => {
