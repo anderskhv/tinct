@@ -316,6 +316,12 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'Politics',
     author: 'Aristotle',
   },
+  'leviathan': {
+    title: 'Read Leviathan by Thomas Hobbes — Free Online with AI Companion | Tinct',
+    description: 'Hobbes\'s founding work of political philosophy, written in the shadow of civil war. Without a sovereign to hold men in awe, life in the state of nature is "solitary, poor, nasty, brutish, and short." The social contract — surrendering freedom to an absolute sovereign — is the only escape. A pitiless and enduringly controversial argument for order over liberty.',
+    bookName: 'Leviathan',
+    author: 'Thomas Hobbes',
+  },
   'fear-and-trembling': {
     title: 'Read Fear and Trembling by Søren Kierkegaard — Free Online with AI Companion | Tinct',
     description: 'A short, savage book about Abraham — the father of faith — who is told by God to murder his son. Kierkegaard, writing under the name Johannes de Silentio, refuses every comfortable Hegelian explanation and forces the reader to feel what faith actually demands. The "knight of faith" and the "teleological suspension of the ethical" begin here.',
