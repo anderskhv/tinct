@@ -3181,8 +3181,25 @@ export const ANNA_KARENINA: Book = {
   ],
 }
 
+export const FREDERICK_DOUGLASS: Book = {
+  id: 'frederick-douglass',
+  title: 'Narrative of the Life of Frederick Douglass',
+  author: 'Frederick Douglass',
+  description: 'Born a slave in Maryland, Frederick Douglass taught himself to read in secret, fought off the man hired to break him, and escaped north in 1838. Three years later he wrote this account — naming the masters, the plantations, and the dates — while still legally a fugitive. The most influential of the American slave narratives.',
+  year: 1845,
+  wordCount: 36000,
+  coverColor: '#201a18',
+  coverAccent: '#c0905a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Douglass (1845)', year: 1845, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
 /** All books in the library */
 // Canon staged but not yet translated: HUME_ENQUIRY, KANT_GROUNDWORK, WEALTH_OF_NATIONS.
+// Staged, translated, awaiting audio + Codex publication: FREDERICK_DOUGLASS.
 export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, SOCIAL_CONTRACT, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE]
 
 export const ALL_BOOKS: Book[] = BOOKS
