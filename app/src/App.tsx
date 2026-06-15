@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState, useEffect, useCallback, useRef, useMemo, useReducer } from 'react'
+import { Suspense, lazy, useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { Header } from './components/Header'
 import { TrialBanner } from './components/TrialBanner'
 import { Reader } from './components/Reader'
@@ -56,11 +56,9 @@ import { resolveAudioUrl } from './utils/audioUrl'
 import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
-import { canPersistLocation } from './readerSession/writer'
-import { initialReaderSession, readerSessionReducer } from './readerSession/reducer'
+import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
 import { isCloudPositionConfirmedLocally, shouldApplyRemotePosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
-import type { ReaderView } from './readerSession/types'
 
 const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
 const BookStore = lazy(() => import('./components/BookStore').then(m => ({ default: m.BookStore })))
@@ -117,14 +115,6 @@ function pickLatest(a: ReadingPosition | null, b: ReadingPosition | null): Readi
 
 type ReaderSyncSignal = { chapterNumber: number; paragraph: number; nonce: number }
 const SUPABASE_FOCUS_REFRESH_TIMEOUT_MS = 4000
-
-function readerViewFromMobileIndex(activeView: number): ReaderView {
-  if (activeView === 1) return 'compare'
-  if (activeView === 2) return 'chat'
-  if (activeView === 3) return 'feed'
-  if (activeView === 4) return 'cast'
-  return 'read'
-}
 
 function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promise<T> {
   let timeout: ReturnType<typeof setTimeout> | null = null
@@ -1468,84 +1458,32 @@ export default function App() {
     })
   }, [storageReady, libraryIds, book.id])
 
-  const readerSessionContext = useMemo(() => ({ book, editionData: primaryData }), [book, primaryData])
-  const readerSessionRestoreSeedRef = useRef<string | null>(null)
-  const [readerSessionState, dispatchReaderSession] = useReducer(
-    readerSessionReducer,
-    {
-      bookId: book.id,
-      chapterNumber: currentChapter,
-      paragraphIndex: effectiveParagraph,
-      scrollFraction: totalPages > 1 ? currentPage / Math.max(totalPages - 1, 1) : 0,
-      editionKey: primaryEditionKey,
-      activeView: readerViewFromMobileIndex(activeView),
-    },
-    initialReaderSession,
-  )
-  const derivedReaderSessionStatus = (!storageReady || writeSuspended || !primaryData || isLoading)
-    ? 'loading-edition'
-    : 'ready'
-
-  useEffect(() => {
-    dispatchReaderSession({ type: 'OPEN_BOOK', bookId: book.id, now: Date.now() })
-  }, [book.id])
-
-  useEffect(() => {
-    if (!primaryData) return
-    const restoreSeedKey = `${book.id}:${primaryEditionKey}`
-    const canSeedFromSavedPosition =
-      readerSessionRestoreSeedRef.current !== restoreSeedKey &&
-      savedPos.current?.bookId === book.id
-    const restored = canSeedFromSavedPosition
-      ? {
-          chapterNumber: savedPos.current.chapterNumber,
-          paragraphIndex: savedPos.current.lastParagraphIndex,
-          scrollFraction: savedPos.current.scrollFraction ?? 0,
-          editionKey: primaryEditionKey,
-          activeView: readerViewFromMobileIndex(activeView),
-        }
-      : {
-          chapterNumber: currentChapter,
-          paragraphIndex: effectiveParagraph,
-          scrollFraction: totalPages > 1 ? currentPage / Math.max(totalPages - 1, 1) : 0,
-          editionKey: primaryEditionKey,
-          activeView: readerViewFromMobileIndex(activeView),
-        }
-    readerSessionRestoreSeedRef.current = restoreSeedKey
-    dispatchReaderSession({
-      type: 'EDITION_READY',
-      context: readerSessionContext,
-      restored,
-      now: Date.now(),
-    })
-  }, [book.id, primaryData, primaryEditionKey, readerSessionContext])
-
-  useEffect(() => {
-    if (!primaryData) return
-    dispatchReaderSession({
-      type: 'READER_LAYOUT_READY',
-      page: currentPage,
-      totalPages,
-      firstVisibleParagraph: activeFirstVisibleParagraph,
-      view: readerViewFromMobileIndex(activeView),
-      context: readerSessionContext,
-      now: Date.now(),
-    })
-  }, [activeFirstVisibleParagraph, activeView, currentPage, primaryData, readerSessionContext, totalPages])
+  const {
+    readerSessionContext,
+    readerSessionState,
+    dispatchReaderSession,
+    readerSessionStatus,
+  } = useReaderSessionController({
+    book,
+    primaryData,
+    currentChapter,
+    currentPage,
+    totalPages,
+    effectiveParagraph,
+    activeFirstVisibleParagraph,
+    primaryEditionKey,
+    activeView,
+    storageReady,
+    writeSuspended,
+    isLoading,
+    savedPos,
+  })
 
   useReadingPosition(book.id, currentChapter, currentPage, totalPages, totalChapters, storageReady, effectiveParagraph, writeSuspended, {
     location: readerSessionState.location,
     context: readerSessionContext,
-    status: derivedReaderSessionStatus === 'ready' ? readerSessionState.status : derivedReaderSessionStatus,
+    status: readerSessionStatus,
   })
-
-  useEffect(() => {
-    const status = derivedReaderSessionStatus === 'ready' ? readerSessionState.status : derivedReaderSessionStatus
-    appendReaderSessionShadow({
-      kind: 'position',
-      detail: canPersistLocation(readerSessionState.location, readerSessionContext, status),
-    })
-  }, [derivedReaderSessionStatus, readerSessionContext, readerSessionState])
 
   // Cross-device live position sync. Applies a remote position only when:
   //   (a) the user has been idle for >30s (silent auto-adopt), or
@@ -1613,7 +1551,7 @@ export default function App() {
   const bookEditionKeys = useMemo(() => book.editions.map(ed => ed.key), [book.editions])
   const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters, bookEditionKeys, {
     location: readerSessionState.location,
-    status: derivedReaderSessionStatus === 'ready' ? readerSessionState.status : derivedReaderSessionStatus,
+    status: readerSessionStatus,
   })
 
   const { threadsData, getMentions } = useThreads(book.id, primaryData)
