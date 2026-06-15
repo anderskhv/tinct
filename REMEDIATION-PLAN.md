@@ -27,7 +27,7 @@ Interpret that as:
 
 - **One aggressive implementation workstream through Phases 0-4 is allowed locally.** Do not stop after each phase unless a verification gate fails or a task exposes a new architectural risk.
 - **Keep commits split by numbered task or tight subtask.** Aggressive does not mean one giant commit. Rollback must remain surgical.
-- **Feature-flag the riskiest behavior until final verification:** streaming chat fallback, live `readerSession` position writer, local-first render, and service-worker app-shell precache. Prefer flags/config switches over long-lived parallel code paths.
+- **Feature-flag the riskiest behavior until final verification:** streaming chat fallback, local-first render, and service-worker app-shell precache. Prefer flags/config switches over long-lived parallel code paths. The live `readerSession` position writer has graduated and is no longer behind a source rollback flag.
 - **DB changes are allowed in the aggressive workstream but must be backward-compatible.** Versioned writes/tombstones must let old clients keep working during rollout, and behavior must be disable-able if the new writer misbehaves.
 - **Run focused tests continuously and the full local gate at the end:** guard tests before/after position work, readerSession tests, chat-history tests, auth probe tests, build, verify-bundle, and manual browser verification.
 - **No deploy without explicit approval.** "Aggressive" means local implementation plus verification, not automatic production deploy.
@@ -203,11 +203,18 @@ In `handleChat` (`worker.ts:240-349`): after `verifyUser` resolves, run `checkRa
 
 ## Phase 3 — Kill the bug class: productionize readerSession + versioned writes
 
+**Status 2026-06-15:** IN PROGRESS, mostly deployed. `readerSession` is now reducer-backed live app state, and `useReadingPosition` gates writes with `canPersistLocation()` then writes the validated readerSession location. The legacy composed-at-save-time content tuple path and `VITE_READER_SESSION_POSITION_SOURCE` / `tinct:reader-session-position-source` rollback switch have been removed. `app/src/readerSession/positionSync.ts` now owns conversion from `ReaderLocation` to `ReadingPosition` rows while preserving layout page fields as metadata.
+
+Remaining cleanup:
+- Collapse the hook-level write triggers into an explicit `positionSync.commit(location, cause)` API if we still want that architecture; the current triggers are safe but still live in `useReadingPosition`.
+- Finish retiring legacy UI state from reader/navigation consumers where practical. Rendering still uses `currentChapter/currentPage/totalPages` as adapter state.
+- Keep versioned writes/tombstones under observation; the storage layer already writes through `commit_user_data` and uses tombstones for deletes.
+
 **This is the structural fix.** Do NOT start until Phases 0-2 are deployed and soaked ≥3 days with no regressions. Plan-mode review with Anders before starting — this touches the Invariants.
 
 This is **not** a from-scratch rewrite. The repo already contains the better position-writing model in shadow/prototype form under `app/src/readerSession/`:
 - `readerSession/reducer.ts` models one validated `ReaderLocation` with explicit statuses (`ready`, `switching-book`, `loading-edition`).
-- `readerSession/writer.ts` converts a valid location to a storage position and rejects invalid/cross-book locations.
+- `readerSession/writer.ts` rejects invalid/cross-book locations; `readerSession/positionSync.ts` converts valid locations to storage positions.
 - `readerSession/shadow.ts` logs local would-write decisions to `window.__tinctReaderSessionV2`; it is observational only and does not write production positions.
 - Current focused tests pass under Node 24: `npm test -- readerSession useReadingPosition.guards` → 3 files / 47 tests.
 

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { storage } from '../services/storage'
 import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
-import { canPersistLocation, positionFromLocation } from '../readerSession/writer'
+import { canPersistLocation } from '../readerSession/writer'
+import { buildReadingPositionForWrite } from '../readerSession/positionSync'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from '../readerSession/types'
 import { shouldBlockHistoryRegression, shouldBlockRegression, shouldSkipOnBookChange } from './useReadingPosition.guards'
 
@@ -61,77 +62,6 @@ const HEARTBEAT_MS = 30_000
  * writes within that window.
  */
 const USER_NAV_GRACE_MS = 5_000
-const LIVE_WRITES_FLAG_KEY = 'tinct:reader-session-live-writes'
-const POSITION_SOURCE_FLAG_KEY = 'tinct:reader-session-position-source'
-
-function readerSessionLiveWritesEnabled(): boolean {
-  if (import.meta.env.VITE_READER_SESSION_LIVE_WRITES === 'false') return false
-  if (typeof window === 'undefined') return true
-  try {
-    return localStorage.getItem(LIVE_WRITES_FLAG_KEY) !== '0'
-  } catch {
-    return true
-  }
-}
-
-export function shouldUseReaderSessionPositionSource(args: {
-  envFlag?: string
-  localFlag?: string | null
-  hasWindow: boolean
-}): boolean {
-  if (args.envFlag === 'false') return false
-  if (args.envFlag === 'true') return true
-  if (!args.hasWindow) return true
-  return args.localFlag !== '0'
-}
-
-function readerSessionPositionSourceEnabled(): boolean {
-  try {
-    return shouldUseReaderSessionPositionSource({
-      envFlag: import.meta.env.VITE_READER_SESSION_POSITION_SOURCE,
-      localFlag: typeof window === 'undefined' ? null : localStorage.getItem(POSITION_SOURCE_FLAG_KEY),
-      hasWindow: typeof window !== 'undefined',
-    })
-  } catch {
-    return shouldUseReaderSessionPositionSource({
-      envFlag: import.meta.env.VITE_READER_SESSION_POSITION_SOURCE,
-      localFlag: null,
-      hasWindow: typeof window !== 'undefined',
-    })
-  }
-}
-
-export function buildReadingPositionForWrite(args: {
-  bookId: string
-  chapterNumber: number
-  currentPage: number
-  totalPages: number
-  lastParagraphIndex?: number
-  now: number
-  readerSession?: {
-    location: ReaderLocation
-    context: ReaderBookContext
-    status: ReaderSessionState['status']
-  }
-  useReaderSessionSource?: boolean
-}): ReadingPosition {
-  const haveLayout = args.totalPages > 1
-  if (args.readerSession && args.useReaderSessionSource) {
-    return positionFromLocation(args.readerSession.location, args.now, {
-      currentPage: haveLayout ? args.currentPage : 0,
-      totalPages: haveLayout ? args.totalPages : 1,
-    })
-  }
-  return {
-    bookId: args.bookId,
-    chapterNumber: args.chapterNumber,
-    currentPage: haveLayout ? args.currentPage : 0,
-    totalPages: haveLayout ? args.totalPages : 1,
-    scrollFraction: haveLayout ? args.currentPage / (args.totalPages - 1) : 0,
-    updatedAt: args.now,
-    lastParagraphIndex: args.lastParagraphIndex,
-  }
-}
 
 /**
  * Internal: track the last cloud-known chapter per book. Updated by external
@@ -281,35 +211,28 @@ export function useReadingPosition(
     if (!s.storageReady) { recordSkip(`not-ready:${reason}`); return }
     if (!writeUnlockedRef.current) { recordSkip(`locked:${reason}`); return }
     if (s.writeSuspended) { recordSkip(`suspended:${reason}`); return }
+    if (!s.readerSession) { recordSkip(`reader-session:missing:${reason}`); return }
     // We used to skip when totalPages<=1 even on failsafes. That dropped the
     // last-page save on mobile when the app backgrounded mid-relayout. Now we
     // still skip page-only writes during layout (no useful page number yet)
     // but always write chapter+paragraph so cross-device restore has something
     // to land on.
-    const haveLayout = s.totalPages > 1
     const now = Date.now()
-    if (s.readerSession && readerSessionLiveWritesEnabled()) {
-      const snapshot = canPersistLocation(s.readerSession.location, s.readerSession.context, s.readerSession.status)
-      if (typeof window !== 'undefined') {
-        const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
-        ;(dbg as typeof dbg & { lastReaderSessionGate?: typeof snapshot }).lastReaderSessionGate = snapshot
-        window.__tinctPositionDebug = dbg
-      }
-      if (!snapshot.canWrite) {
-        recordSkip(`reader-session:${snapshot.reason ?? 'blocked'}:${reason}`)
-        return
-      }
+    const snapshot = canPersistLocation(s.readerSession.location, s.readerSession.context, s.readerSession.status)
+    if (typeof window !== 'undefined') {
+      const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
+      ;(dbg as typeof dbg & { lastReaderSessionGate?: typeof snapshot }).lastReaderSessionGate = snapshot
+      window.__tinctPositionDebug = dbg
     }
-    const useReaderSessionSource = readerSessionPositionSourceEnabled()
+    if (!snapshot.canWrite) {
+      recordSkip(`reader-session:${snapshot.reason ?? 'blocked'}:${reason}`)
+      return
+    }
     const position = buildReadingPositionForWrite({
-      bookId: s.bookId,
-      chapterNumber: s.chapterNumber,
       currentPage: s.currentPage,
       totalPages: s.totalPages,
-      lastParagraphIndex: s.lastParagraphIndex,
       now,
-      readerSession: s.readerSession,
-      useReaderSessionSource,
+      location: s.readerSession.location,
     })
 
     // Skip if the write would land on the same content position as what we
@@ -387,20 +310,19 @@ export function useReadingPosition(
       return
     }
 
-    storage.set(positionKey(s.bookId), position)
+    storage.set(positionKey(position.bookId), position)
     // Also push the current-book pointer so other devices know which book to
     // open by default. This used to live here, was removed in the Apr 23
     // commit, and the consequence was that signed-in users on a fresh device
     // didn't always restore to the right book. Cheap to keep in sync.
-    storage.set('tinct-current-book', s.bookId)
+    storage.set('tinct-current-book', position.bookId)
     dedupBaseline.set(position.bookId, candidate)
 
     if (typeof window !== 'undefined') {
       const dbg = window.__tinctPositionDebug ?? { lastWriteAt: 0, lastWriteValue: null, writeCount: 0, lastSkipReason: '' }
       dbg.lastWriteAt = position.updatedAt!
       dbg.lastWriteValue = position
-      ;(dbg as typeof dbg & { lastWriteSource?: 'legacy-state' | 'reader-session' }).lastWriteSource =
-        useReaderSessionSource && s.readerSession ? 'reader-session' : 'legacy-state'
+      ;(dbg as typeof dbg & { lastWriteSource?: 'reader-session' }).lastWriteSource = 'reader-session'
       dbg.writeCount += 1
       window.__tinctPositionDebug = dbg
     }

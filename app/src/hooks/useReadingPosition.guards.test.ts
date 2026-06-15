@@ -1,9 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import {
-  buildReadingPositionForWrite,
-  shouldUseReaderSessionPositionSource,
-} from './useReadingPosition'
-import type { ReaderBookContext, ReaderLocation } from '../readerSession/types'
+import { buildReadingPositionForWrite } from '../readerSession/positionSync'
+import type { ReaderLocation } from '../readerSession/types'
 import type { Book, EditionData } from '../types'
 import {
   shouldBlockRegression,
@@ -45,8 +42,6 @@ const editionData: EditionData = {
   ],
 }
 
-const readerContext: ReaderBookContext = { book, editionData }
-
 function readerLocation(patch: Partial<ReaderLocation> = {}): ReaderLocation {
   return {
     bookId: 'the-awakening',
@@ -61,30 +56,13 @@ function readerLocation(patch: Partial<ReaderLocation> = {}): ReaderLocation {
   }
 }
 
-describe('buildReadingPositionForWrite — readerSession source switch', () => {
-  it('defaults the live writer to readerSession source with explicit rollback switches', () => {
-    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: null })).toBe(true)
-    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '1' })).toBe(true)
-    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '0' })).toBe(false)
-    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '1', envFlag: 'false' })).toBe(false)
-    expect(shouldUseReaderSessionPositionSource({ hasWindow: true, localFlag: '0', envFlag: 'true' })).toBe(true)
-    expect(shouldUseReaderSessionPositionSource({ hasWindow: false, localFlag: null })).toBe(true)
-  })
-
-  it('matches the legacy state-derived tuple when readerSession source is disabled', () => {
+describe('buildReadingPositionForWrite — readerSession source of truth', () => {
+  it('uses readerSession as the content tuple and preserves layout page fields as metadata', () => {
     expect(buildReadingPositionForWrite({
-      bookId: 'the-awakening',
-      chapterNumber: 2,
       currentPage: 4,
       totalPages: 9,
-      lastParagraphIndex: 1,
       now: NOW,
-      readerSession: {
-        location: readerLocation({ chapterNumber: 3, paragraphIndex: 2, scrollFraction: 0.75 }),
-        context: readerContext,
-        status: 'ready',
-      },
-      useReaderSessionSource: false,
+      location: readerLocation({ chapterNumber: 2, paragraphIndex: 1, scrollFraction: 0.5 }),
     })).toEqual({
       bookId: 'the-awakening',
       chapterNumber: 2,
@@ -96,45 +74,12 @@ describe('buildReadingPositionForWrite — readerSession source switch', () => {
     })
   })
 
-  it('uses the validated readerSession location as the content tuple when enabled', () => {
+  it('keeps layout unavailable writes chapter/paragraph-only from readerSession', () => {
     expect(buildReadingPositionForWrite({
-      bookId: 'the-awakening',
-      chapterNumber: 1,
-      currentPage: 4,
-      totalPages: 9,
-      lastParagraphIndex: 0,
-      now: NOW,
-      readerSession: {
-        location: readerLocation({ chapterNumber: 2, paragraphIndex: 1, scrollFraction: 0.5 }),
-        context: readerContext,
-        status: 'ready',
-      },
-      useReaderSessionSource: true,
-    })).toEqual({
-      bookId: 'the-awakening',
-      chapterNumber: 2,
-      currentPage: 4,
-      totalPages: 9,
-      scrollFraction: 0.5,
-      updatedAt: NOW,
-      lastParagraphIndex: 1,
-    })
-  })
-
-  it('keeps layout unavailable writes chapter/paragraph-only under either source', () => {
-    expect(buildReadingPositionForWrite({
-      bookId: 'the-awakening',
-      chapterNumber: 2,
       currentPage: 4,
       totalPages: 1,
-      lastParagraphIndex: 1,
       now: NOW,
-      readerSession: {
-        location: readerLocation({ chapterNumber: 2, paragraphIndex: 1, scrollFraction: 0.5 }),
-        context: readerContext,
-        status: 'ready',
-      },
-      useReaderSessionSource: true,
+      location: readerLocation({ chapterNumber: 2, paragraphIndex: 1, scrollFraction: 0.5 }),
     })).toEqual({
       bookId: 'the-awakening',
       chapterNumber: 2,
