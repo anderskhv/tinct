@@ -1,13 +1,6 @@
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
-import { apiUrl } from '../utils/apiUrl'
 import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
-
-interface AngleCard {
-  title: string
-  text: string
-  angleObjective: string
-}
 
 interface CastMember {
   name: string
@@ -38,7 +31,6 @@ interface OnboardingData {
   about?: string
   acclaim?: AcclaimEntry[]
   whyItMatters?: WhyItMattersItem[]
-  angleCards?: AngleCard[]
   cast?: CastMember[]
 }
 
@@ -69,53 +61,6 @@ interface BookOnboardingProps {
 }
 
 const LANG_LABELS: Record<string, string> = { en: 'English', da: 'Danish' }
-
-// ── Minimal markdown renderer (bold, italic, bullet list) ────
-function renderInline(text: string): React.ReactNode {
-  if (!text.includes('*')) return text
-  const parts: React.ReactNode[] = []
-  const regex = /(\*\*(.+?)\*\*|\*(.+?)\*)/g
-  let lastIndex = 0
-  let match: RegExpExecArray | null
-  let key = 0
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
-    if (match[2]) parts.push(<strong key={key++}>{match[2]}</strong>)
-    else if (match[3]) parts.push(<em key={key++}>{match[3]}</em>)
-    lastIndex = match.index + match[0].length
-  }
-  if (lastIndex < text.length) parts.push(text.slice(lastIndex))
-  return parts
-}
-
-function renderMarkdown(text: string): React.ReactNode[] {
-  const lines = text.split('\n')
-  const elements: React.ReactNode[] = []
-  let key = 0
-  let i = 0
-  while (i < lines.length) {
-    const line = lines[i]
-    if (!line.trim()) { i++; continue }
-    // Bullet list
-    if (line.match(/^\s*[-*]\s+/)) {
-      const items: React.ReactNode[] = []
-      while (i < lines.length && lines[i].match(/^\s*[-*]\s+/)) {
-        items.push(<li key={key++}>{renderInline(lines[i].replace(/^\s*[-*]\s+/, ''))}</li>)
-        i++
-      }
-      elements.push(<ul key={key++} className="angle-md-list">{items}</ul>)
-      continue
-    }
-    // Paragraph
-    const paraLines: string[] = []
-    while (i < lines.length && lines[i].trim() && !lines[i].match(/^\s*[-*]\s+/)) {
-      paraLines.push(lines[i])
-      i++
-    }
-    if (paraLines.length > 0) elements.push(<p key={key++}>{renderInline(paraLines.join(' '))}</p>)
-  }
-  return elements
-}
 
 function PrefaceLanguageToggle({
   value,
@@ -171,157 +116,14 @@ function BookCover({ book }: { book: Book }) {
   )
 }
 
-// ── Angle chat ────────────────────────────────────────────────
-// Interactive chat to help the reader articulate their reading angle. Uses
-// Claude Sonnet via the shared /api/chat endpoint with a topic-locked system
-// prompt. User can iterate as long as they want, then lock in (uses their last
-// message as the angle) or skip entirely.
-type ChatMsg = { role: 'user' | 'assistant'; content: string }
-
-function AngleChat({ book, messages, setMessages, onSetAngle, onSkip }: {
-  book: Book
-  messages: ChatMsg[]
-  setMessages: React.Dispatch<React.SetStateAction<ChatMsg[]>>
-  /** Receives the conversation so the parent can ask the AI to summarize the
-   * actual angle, not pick the user's last raw message (which could be
-   * "yes" or off-topic). */
-  onSetAngle: (conversation: ChatMsg[]) => void
-  onSkip: () => void
-}) {
-  const [input, setInput] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const scrollRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
-  }, [messages])
-
-  // Detect short affirmative replies ("yes", "y", "yeah", "sure", "ok")
-  function isYes(text: string): boolean {
-    const n = text.trim().toLowerCase().replace(/[.!]$/, '')
-    return n === 'yes' || n === 'y' || n === 'yeah' || n === 'yep' || n === 'sure' || n === 'ok' || n === 'okay'
-  }
-
-  function lockInWith(extraMessages: ChatMsg[] = []) {
-    // Pass the full conversation (minus the UI-only seed) so the parent can
-    // call the AI for a final angle summary. Optionally include a trailing
-    // message like "yes" so the summary reflects acceptance context.
-    const conversation = messages.filter((_, i) => i > 0).concat(extraMessages)
-    onSetAngle(conversation)
-  }
-
-  async function send() {
-    const text = input.trim()
-    if (!text || isLoading) return
-
-    // "yes" / "sure" / "ok" shortcut: accept the AI's proposed angle. We
-    // pass the whole conversation plus a trailing "yes" so the summarizer
-    // can see the acceptance context.
-    if (isYes(text) && messages.some(m => m.role === 'user')) {
-      lockInWith([{ role: 'user', content: text }])
-      return
-    }
-
-    const newMessages = [...messages, { role: 'user' as const, content: text }]
-    setMessages(newMessages)
-    setInput('')
-    setIsLoading(true)
-    try {
-      const apiMessages = newMessages.filter((_, i) => i > 0) // strip UI-only seed
-      const res = await fetch(apiUrl('/api/angle-chat'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          bookTitle: book.title,
-          bookAuthor: book.author,
-          messages: apiMessages,
-        }),
-      })
-      const data = await res.json()
-      const reply = data.content?.[0]?.text || "I couldn't respond just now. Try again in a moment."
-      setMessages([...newMessages, { role: 'assistant', content: reply }])
-    } catch {
-      setMessages([...newMessages, { role: 'assistant', content: 'Something went wrong. Try again.' }])
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      send()
-    }
-  }
-
-  function lockIn() {
-    if (!hasUserMessage) { onSkip(); return }
-    lockInWith()
-  }
-
-  const hasUserMessage = messages.some(m => m.role === 'user')
-
-  return (
-    <div className="angle-chat">
-      {/* Single unified chat window — messages and input share one bordered
-       * container so it reads as one chat surface, not two stacked boxes. */}
-      <div className="angle-chat-window">
-        <div className="angle-chat-messages" ref={scrollRef}>
-          {messages.map((m, i) => (
-            <div key={i} className={`angle-chat-msg angle-chat-msg-${m.role}`}>
-              {m.role === 'assistant' ? renderMarkdown(m.content) : m.content}
-            </div>
-          ))}
-          {isLoading && (
-            <div className="angle-chat-msg angle-chat-msg-assistant angle-chat-loading">Thinking…</div>
-          )}
-        </div>
-
-        <div className="angle-chat-input-row">
-          <textarea
-            className="angle-chat-input"
-            placeholder={`Type your reply, or "yes" to accept…`}
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            rows={1}
-            disabled={isLoading}
-            autoFocus
-          />
-          <button
-            className="angle-chat-send"
-            onClick={send}
-            disabled={!input.trim() || isLoading}
-            aria-label="Send"
-          >→</button>
-        </div>
-      </div>
-
-      <div className="angle-chat-actions">
-        <button
-          className="angle-chat-lock"
-          onClick={lockIn}
-          disabled={!hasUserMessage}
-        >
-          Use this as my angle →
-        </button>
-        <button className="angle-chat-skip" onClick={onSkip}>Skip for now</button>
-      </div>
-    </div>
-  )
-}
-
 // ── Main onboarding component ───────────────────────────────
 // Step ordering changed 2026-04-29 (Book Onboarding v2). New flow:
 //   1. about         — book description + acclaim quotes (was bundled into edition step)
 //   2. why-matters   — three "Why it still matters" items
 //   3. edition       — pick primary + Compare default = inverse-of-primary (not empty)
 //   4. cast          — meet the key figures
-//   5. angles        — card-pick of 4 angles + "Just start reading" (replaces AngleChat)
-//   6. account       — anonymous-only sign-up CTA
-// Legacy 'angle-confirm' step removed; AngleChat helper retained as dead code in
-// case we revive AI-iteration later.
-type StepKey = 'about' | 'why-matters' | 'edition' | 'cast' | 'angles' | 'account'
+//   5. account       — anonymous-only sign-up CTA
+type StepKey = 'about' | 'why-matters' | 'edition' | 'cast' | 'account'
 
 export function BookOnboarding({
   book,
@@ -360,16 +162,6 @@ export function BookOnboarding({
   // (Anders, 2026-04-29 — better than empty default).
   const [splitManuallyPicked, setSplitManuallyPicked] = useState(false)
   const [angle, setAngle] = useState('')
-  const [angleLocked, setAngleLocked] = useState(false)
-  const [angleNotes, setAngleNotes] = useState<string | null>(null)
-  const [angleNotesLoading, setAngleNotesLoading] = useState(false)
-  // Chat messages lifted out of AngleChat so "Refine angle" returns to the
-  // same conversation instead of a blank slate.
-  const angleSeed: ChatMsg = {
-    role: 'assistant',
-    content: `Tell me what draws you to *${book.title}*. A theme, a question, a tension you want to sit with. I'll help you sharpen it.`,
-  }
-  const [angleMessages, setAngleMessages] = useState<ChatMsg[]>([angleSeed])
 
   const availableLanguages = useMemo(
     () => Array.from(new Set(editions.map(e => e.language))),
@@ -421,10 +213,6 @@ export function BookOnboarding({
     if (data?.whyItMatters && data.whyItMatters.length > 0) steps.push('why-matters')
     steps.push('edition')
     if (data?.cast && data.cast.length > 0) steps.push('cast')
-    // Reading-angles step removed from the flow 2026-04-30 (Anders) — the
-    // "optional · free for everyone" framing felt off, and angles will live
-    // in the chat experience later. The card-pick renderer + JSON
-    // angleCards data are kept in place for when we revive it.
     if (showAccountStep) steps.push('account')
     return steps
   }, [mode, data?.about, data?.whyItMatters, data?.cast, showAccountStep, dataLoaded])
@@ -528,59 +316,6 @@ export function BookOnboarding({
 
   function finish() {
     onComplete({ editionKey, splitEditionKey, angle: angle.trim() })
-  }
-
-  // Called when the user locks in an angle from the chat. Receives the full
-  // conversation and asks the AI to derive the actual reading angle + three
-  // things to watch for. This avoids "last-user-message = angle" pitfalls
-  // (like off-topic final messages being captured as the angle verbatim).
-  async function handleAngleLockIn(conversation: Array<{ role: 'user' | 'assistant'; content: string }>) {
-    setAngleLocked(true)
-    setStepIdx(idx => idx + 1) // advance to angle-confirm
-    setAngle('') // cleared during the API call; filled in when response arrives
-    setAngleNotes(null)
-    setAngleNotesLoading(true)
-    try {
-      const res = await fetch(apiUrl('/api/angle-chat'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          bookTitle: book.title,
-          bookAuthor: book.author,
-          messages: [
-            ...conversation,
-            {
-              role: 'user',
-              content: `Finalize my reading angle based on our conversation above. Respond in this EXACT format, nothing else:
-
-ANGLE: [one clear sentence starting with "I want to…" describing my reading angle for this book. Ignore any off-topic messages in the conversation — only use the genuine reading interest I expressed. If my stated interest is a stretch for this book, frame the angle honestly so the notes below can help me find what's actually there.]
-
-WATCH FOR:
-- **[short bold header]** — [one sentence explaining what to notice]
-- **[short bold header]** — [one sentence explaining what to notice]
-- **[short bold header]** — [one sentence explaining what to notice]`,
-            },
-          ],
-        }),
-      })
-      const data = await res.json()
-      const full = data.content?.[0]?.text || ''
-      const angleMatch = full.match(/ANGLE:\s*([^\n]+)/i)
-      const watchMatch = full.match(/WATCH FOR:\s*([\s\S]+)/i)
-      setAngle(angleMatch ? angleMatch[1].trim() : full.slice(0, 200))
-      setAngleNotes(watchMatch ? watchMatch[1].trim() : null)
-    } catch {
-      setAngle('')
-      setAngleNotes(null)
-    } finally {
-      setAngleNotesLoading(false)
-    }
-  }
-
-  function handleAngleSkip() {
-    setAngleLocked(false)
-    setAngle('')
-    setStepIdx(idx => idx + 1) // advance past angle (angle-confirm won't exist)
   }
 
   const displayTitle = data?.title || book.title
@@ -796,45 +531,6 @@ WATCH FOR:
             </div>
           )}
 
-          {/* Step: angles — card-pick of 4 angle cards + "Just start reading"
-              5th card. Replaces the previous AngleChat (AI conversation) per
-              Anders's Book Onboarding v2 — simpler, free, no chat.
-              Selecting a card sets `angle` to its angleObjective string;
-              selecting "Just start reading" clears it. */}
-          {currentStep === 'angles' && data?.angleCards && (
-            <div className="book-onboarding-step">
-              <div className="book-onboarding-eyebrow">Optional · free for everyone</div>
-              <h2 className="book-onboarding-step-title">Pick a reading angle</h2>
-              <p className="book-onboarding-step-sub">
-                An angle changes what you notice. Pick one — or skip and just start reading.
-              </p>
-              <div className="book-onboarding-angle-cards">
-                {data.angleCards.map((card, i) => {
-                  const selected = angle === card.angleObjective
-                  return (
-                    <button
-                      key={i}
-                      type="button"
-                      className={`book-onboarding-angle-card ${selected ? 'selected' : ''}`}
-                      onClick={() => setAngle(card.angleObjective)}
-                    >
-                      <div className="book-onboarding-angle-card-title">{card.title}</div>
-                      <div className="book-onboarding-angle-card-text">{card.text}</div>
-                    </button>
-                  )
-                })}
-                <button
-                  type="button"
-                  className={`book-onboarding-angle-card book-onboarding-angle-skip ${angle === '' ? 'selected' : ''}`}
-                  onClick={() => setAngle('')}
-                >
-                  <div className="book-onboarding-angle-card-title">Just start reading</div>
-                  <div className="book-onboarding-angle-card-text">Skip the angle. The book works either way.</div>
-                </button>
-              </div>
-            </div>
-          )}
-
           {/* Step: cast */}
           {currentStep === 'cast' && (
             <div className="book-onboarding-step">
@@ -892,32 +588,16 @@ WATCH FOR:
           )}
         </div>
 
-        {/* Footer: hidden on the angle step (AngleChat provides its own actions)
-         * and on the account step (it has its own primary + skip). */}
-        {currentStep && currentStep !== 'angle' && currentStep !== 'account' && (
+        {/* Footer: hidden on the account step because it has its own primary + skip actions. */}
+        {currentStep && currentStep !== 'account' && (
           <div className="book-onboarding-foot">
             {currentStep === 'edition' && onBackToLibrary && (
               <button className="book-onboarding-foot-ghost" onClick={onBackToLibrary}>
                 ← Library
               </button>
             )}
-            {stepIdx > 0 && currentStep !== 'angle-confirm' && currentStep !== 'edition' && (
+            {stepIdx > 0 && currentStep !== 'edition' && (
               <button className="book-onboarding-foot-ghost" onClick={back}>← Back</button>
-            )}
-            {currentStep === 'angle-confirm' && (
-              <button
-                className="book-onboarding-foot-ghost"
-                onClick={() => {
-                  // Keep angleMessages intact — user returns to their chat.
-                  setAngleLocked(false)
-                  setAngle('')
-                  setAngleNotes(null)
-                  const angleIdx = activeSteps.indexOf('angle')
-                  if (angleIdx >= 0) setStepIdx(angleIdx)
-                }}
-              >
-                ← Refine angle
-              </button>
             )}
             <button className="book-onboarding-foot-primary" onClick={next}>
               {isLastStep ? 'Begin reading' : 'Continue'} →

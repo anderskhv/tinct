@@ -1,7 +1,6 @@
 import { memo, useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import type { ChatMessage, ChatConversation } from '../types'
 import { BalanceIndicator } from './BalanceIndicator'
-import { ContextualAnglePrompt } from './ContextualAnglePrompt'
 import { formatRelative, formatAbsolute } from '../utils/formatRelative'
 
 // Web Speech API types

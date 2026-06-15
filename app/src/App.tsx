@@ -4,7 +4,6 @@ import { TrialBanner } from './components/TrialBanner'
 import { Reader } from './components/Reader'
 import { SplitReader } from './components/SplitReader'
 import { SidePanel } from './components/SidePanel'
-import { Onboarding } from './components/Onboarding'
 import { BookOnboarding, type BookOnboardingResult } from './components/BookOnboarding'
 import { BookOnboardingPreface } from './components/BookOnboardingPreface'
 import { ProgressPrompt } from './components/ProgressPrompt'
@@ -1731,13 +1730,6 @@ export default function App() {
     handlePageChange(page, total)
   }, [isMobile, activeView, lockMobileNavBriefly, handlePageChange])
 
-  // Onboarding complete handler
-  const handleOnboardingComplete = useCallback((objective: string) => {
-    setReadingObjective(objective)
-    if (objective) storage.set(`reading-angle:${book.id}`, objective)
-    setOnboardingComplete(true)
-  }, [setReadingObjective, setOnboardingComplete, book.id])
-
   // Per-book wrapper around setReadingObjective. Every "user changed the
   // reading angle" code path (settings sheet, inline editor, mobile
   // settings) goes through this so the angle persists keyed by current
@@ -3195,6 +3187,8 @@ export default function App() {
               }
               handleBookChange(bookId)  // handleBookChange now updates URL too
               setShowStore(false)
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+              requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
             }}
             onClose={!libraryEmpty ? () => setShowStore(false) : undefined}
           />

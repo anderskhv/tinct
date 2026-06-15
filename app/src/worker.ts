@@ -9,7 +9,6 @@ import { htmlEscape, htmlPage } from './worker/lib/html'
 import { isValidUUID } from './worker/lib/security'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
-import { handleAngleChat } from './worker/routes/angleChat'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -2013,7 +2012,6 @@ export default {
 
     switch (url.pathname) {
       case '/api/chat': return handleChat(request, env, ctx)
-      case '/api/angle-chat': return handleAngleChat(request, env, checkRateLimit, CHAT_MODEL)
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser)
       case '/api/webhook': return handleWebhook(request, env)
