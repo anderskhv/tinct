@@ -57,7 +57,8 @@ import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
-import { getCloudRestoreWinner, getLocalFirstCloudAdoption, paragraphTargetFromPosition, shouldApplyRemotePosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
+import { useRemotePositionAdoption } from './readerSession/useRemotePositionAdoption'
+import { getCloudRestoreWinner, getLocalFirstCloudAdoption, paragraphTargetFromPosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
 
 const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
@@ -1466,48 +1467,20 @@ export default function App() {
     status: readerSessionStatus,
   })
 
-  // Cross-device live position sync. Applies a remote position only when:
-  //   (a) the user has been idle for >30s (silent auto-adopt), or
-  //   (b) follow-mode is on (always adopt)
-  // Otherwise just shows a toast so the user knows another device moved.
-  //
-  // **Race guard (B20):** the remote event carries `bookId`. We re-check
-  // `book.id === remotePos.bookId` *inside* the apply callback so an event
-  // fired between book A's last write and the user switching to book B can't
-  // chapter-swap into B. Without this, the same race the existing
-  // `loadEdition` cancellation flag protects against would resurface here.
-  const handleRemotePosition = useCallback((remotePos: ReadingPosition) => {
-    if (!remotePos || !remotePos.chapterNumber) return
-    if (!shouldApplyRemotePosition({ remoteBookId: remotePos.bookId, currentBookId: book.id })) return // B20: ignore stale event for prior book
-    // Mark this as user-nav so the regression guard widens its window — the
-    // remote chapter may legitimately be < local chapter (e.g. user on
-    // device B navigated back).
-    markUserNav(book.id)
-    markCloudPosition(book.id, remotePos)
-    markCloudLoaded(book.id, remotePos)
-    dispatchReaderSession({
-      type: 'RESTORE_POSITION',
-      location: {
-        bookId: remotePos.bookId,
-        chapterNumber: remotePos.chapterNumber,
-        paragraphIndex: remotePos.lastParagraphIndex,
-        scrollFraction: remotePos.scrollFraction ?? 0,
-        editionKey: primaryEditionKey,
-        activeView: readerViewFromMobileIndex(activeView),
-        source: 'remote',
-        revision: readerSessionState.location.revision,
-      },
-      context: readerSessionContext,
-      source: 'remote',
-      now: Date.now(),
-    })
-    targetParagraphRef.current = paragraphTargetFromPosition(remotePos)
-    savedPos.current = remotePos
-    setCurrentChapter(remotePos.chapterNumber)
-    setCurrentPage(0)
-    setTotalPages(1) // gate writes during relayout
-    setReaderKey(k => k + 1)
-  }, [activeView, book.id, primaryEditionKey, readerSessionContext, readerSessionState.location.revision])
+  const handleRemotePosition = useRemotePositionAdoption({
+    bookId: book.id,
+    primaryEditionKey,
+    activeView,
+    readerSessionContext,
+    readerSessionRevision: readerSessionState.location.revision,
+    dispatchReaderSession,
+    savedPos,
+    targetParagraphRef,
+    setCurrentChapter,
+    setCurrentPage,
+    setTotalPages,
+    setReaderKey,
+  })
 
   const { syncToast } = useRemoteSync({
     bookId: book.id,
