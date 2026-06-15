@@ -1731,13 +1731,29 @@ export default function App() {
     markUserNav(book.id)
     markCloudPosition(book.id, remotePos)
     markCloudLoaded(book.id, remotePos)
+    dispatchReaderSession({
+      type: 'RESTORE_POSITION',
+      location: {
+        bookId: remotePos.bookId,
+        chapterNumber: remotePos.chapterNumber,
+        paragraphIndex: remotePos.lastParagraphIndex,
+        scrollFraction: remotePos.scrollFraction ?? 0,
+        editionKey: primaryEditionKey,
+        activeView: readerViewFromMobileIndex(activeView),
+        source: 'remote',
+        revision: readerSessionState.location.revision,
+      },
+      context: readerSessionContext,
+      source: 'remote',
+      now: Date.now(),
+    })
     targetParagraphRef.current = undefined
     savedPos.current = remotePos
     setCurrentChapter(remotePos.chapterNumber)
     setCurrentPage(0)
     setTotalPages(1) // gate writes during relayout
     setReaderKey(k => k + 1)
-  }, [book.id])
+  }, [activeView, book.id, primaryEditionKey, readerSessionContext, readerSessionState.location.revision])
 
   const { syncToast } = useRemoteSync({
     bookId: book.id,
@@ -3013,8 +3029,15 @@ export default function App() {
       event: 'AUDIO_PARAGRAPH_CHANGED',
       detail: { bookId: book.id, chapterNumber: currentChapter, paragraphIndex },
     })
+    dispatchReaderSession({
+      type: 'AUDIO_PARAGRAPH_CHANGED',
+      chapterNumber: currentChapter,
+      paragraphIndex,
+      context: readerSessionContext,
+      now: Date.now(),
+    })
     setAudioPlayingParagraph(paragraphIndex)
-  }, [book.id, currentChapter])
+  }, [book.id, currentChapter, readerSessionContext])
 
   const handleBookComplete = useCallback((source: 'audio' | 'text') => {
     if (totalChapters <= 0) return
