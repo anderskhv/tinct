@@ -3,10 +3,12 @@ import type { ReadingPosition } from '../types'
 import {
   getCloudRestoreWinner,
   getLocalFirstCloudAdoption,
+  getStartupCloudRestoreTarget,
   isCloudPositionConfirmedLocally,
   paragraphTargetFromPosition,
   pickLatestPosition,
   shouldApplyRemotePosition,
+  shouldAttemptStartupCloudPositionRestore,
   shouldHoldReaderForCloudRestore,
 } from './controllerGuards'
 
@@ -53,6 +55,75 @@ describe('shouldHoldReaderForCloudRestore', () => {
       storageReady: true,
       isSignedIn: true,
       cloudRestoreSettled: true,
+    })).toBe(false)
+  })
+})
+
+describe('getStartupCloudRestoreTarget', () => {
+  const known = new Set(['war-and-peace', 'anna-karenina'])
+  const isKnownBookId = (bookId: string) => known.has(bookId)
+
+  it('uses and switches to a valid cloud current-book pointer', () => {
+    expect(getStartupCloudRestoreTarget({
+      cloudBookId: 'anna-karenina',
+      currentBookId: 'war-and-peace',
+      isKnownBookId,
+    })).toEqual({
+      targetBookId: 'anna-karenina',
+      shouldSwitchBook: true,
+    })
+  })
+
+  it('uses valid same-book cloud pointer without switching', () => {
+    expect(getStartupCloudRestoreTarget({
+      cloudBookId: 'war-and-peace',
+      currentBookId: 'war-and-peace',
+      isKnownBookId,
+    })).toEqual({
+      targetBookId: 'war-and-peace',
+      shouldSwitchBook: false,
+    })
+  })
+
+  it('ignores missing and unknown cloud pointers', () => {
+    expect(getStartupCloudRestoreTarget({
+      cloudBookId: null,
+      currentBookId: 'war-and-peace',
+      isKnownBookId,
+    })).toEqual({
+      targetBookId: 'war-and-peace',
+      shouldSwitchBook: false,
+    })
+    expect(getStartupCloudRestoreTarget({
+      cloudBookId: 'draft-book',
+      currentBookId: 'war-and-peace',
+      isKnownBookId,
+    })).toEqual({
+      targetBookId: 'war-and-peace',
+      shouldSwitchBook: false,
+    })
+  })
+})
+
+describe('shouldAttemptStartupCloudPositionRestore', () => {
+  it('waits for Supabase init to populate the position cache', () => {
+    expect(shouldAttemptStartupCloudPositionRestore({
+      hasRestoredFromCloud: false,
+      supabaseInitTick: 0,
+    })).toBe(false)
+  })
+
+  it('runs once cloud init has ticked and no cloud restore has succeeded', () => {
+    expect(shouldAttemptStartupCloudPositionRestore({
+      hasRestoredFromCloud: false,
+      supabaseInitTick: 1,
+    })).toBe(true)
+  })
+
+  it('does not rerun after a successful cloud restore', () => {
+    expect(shouldAttemptStartupCloudPositionRestore({
+      hasRestoredFromCloud: true,
+      supabaseInitTick: 2,
     })).toBe(false)
   })
 })

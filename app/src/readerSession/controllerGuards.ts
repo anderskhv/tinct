@@ -5,6 +5,11 @@ export type LocalFirstCloudAdoption =
   | { kind: 'confirmed'; position: ReadingPosition }
   | { kind: 'corrected'; position: ReadingPosition }
 
+export type StartupCloudRestoreTarget = {
+  targetBookId: string
+  shouldSwitchBook: boolean
+}
+
 /** Pick the most recently updated position. Falls back to furthest if no timestamps. */
 export function pickLatestPosition(a: ReadingPosition | null, b: ReadingPosition | null): ReadingPosition | null {
   if (!a) return b
@@ -31,6 +36,28 @@ export function shouldHoldReaderForCloudRestore(args: {
 }): boolean {
   const { storageReady, isSignedIn, cloudRestoreSettled } = args
   return !storageReady || (isSignedIn && !cloudRestoreSettled)
+}
+
+export function getStartupCloudRestoreTarget(args: {
+  cloudBookId: string | null | undefined
+  currentBookId: string
+  isKnownBookId: (bookId: string) => boolean
+}): StartupCloudRestoreTarget {
+  const { cloudBookId, currentBookId, isKnownBookId } = args
+  const validCloudBook = Boolean(cloudBookId && isKnownBookId(cloudBookId))
+  const targetBookId = validCloudBook ? cloudBookId! : currentBookId
+  return {
+    targetBookId,
+    shouldSwitchBook: validCloudBook && cloudBookId !== currentBookId,
+  }
+}
+
+export function shouldAttemptStartupCloudPositionRestore(args: {
+  hasRestoredFromCloud: boolean
+  supabaseInitTick: number
+}): boolean {
+  const { hasRestoredFromCloud, supabaseInitTick } = args
+  return !hasRestoredFromCloud && supabaseInitTick > 0
 }
 
 export function isCloudPositionConfirmedLocally(args: {
