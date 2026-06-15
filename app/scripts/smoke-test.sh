@@ -25,13 +25,22 @@ else
   fail "Landing page did not load"
 fi
 
-# 1b. SPA loads at /read
-echo "1b. App"
-HTML=$(curl -sf "$URL/read" 2>/dev/null || echo "FAIL")
-if echo "$HTML" | grep -q '<div id="root"'; then
-  pass "SPA loads at /read with root div"
+# 1b. Static library hub loads at /read
+echo "1b. Library hub"
+LIBRARY=$(curl -sLf "$URL/read" 2>/dev/null || echo "FAIL")
+if echo "$LIBRARY" | grep -q 'The Tinct Library'; then
+  pass "Static library hub loads at /read"
 else
-  fail "SPA did not load at /read"
+  fail "Static library hub did not load at /read"
+fi
+
+# 1c. SPA loads at /app
+echo "1c. App"
+HTML=$(curl -sf "$URL/app" 2>/dev/null || echo "FAIL")
+if echo "$HTML" | grep -q '<div id="root"'; then
+  pass "SPA loads at /app with root div"
+else
+  fail "SPA did not load at /app"
 fi
 
 # 2. JS bundle exists and loads
@@ -117,9 +126,9 @@ fi
 #    `media-src`, audio falls back to default-src and browser policy changes
 #    causing audio play to silently cascade through the chapter.)
 echo "8. CSP audio allowlist"
-CSP_HEADER=$(curl -sI "$URL/read" 2>/dev/null | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" { $1=""; sub(/^ /, ""); print }')
+CSP_HEADER=$(curl -sI "$URL/app" 2>/dev/null | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" { $1=""; sub(/^ /, ""); print }')
 if [ -z "$CSP_HEADER" ]; then
-  fail "CSP header missing from /read"
+  fail "CSP header missing from /app"
 elif echo "$CSP_HEADER" | grep -q "media-src 'self'"; then
   pass "CSP media-src allows same-origin audio"
 else
