@@ -1960,6 +1960,17 @@ export default function App() {
       perfMeasure('position-restored', 'book-switch-start', 'position-restored')
       perfLogSummary()
     }
+    if (primaryData) {
+      dispatchReaderSession({
+        type: 'READER_LAYOUT_READY',
+        page,
+        totalPages: total,
+        firstVisibleParagraph,
+        view: readerViewFromMobileIndex(activeView),
+        context: readerSessionContext,
+        now: Date.now(),
+      })
+    }
     setCurrentPage(page)
     setTotalPages(total)
     // Dismiss back-to-position on manual page turn (but not on initial layout)
@@ -1967,7 +1978,7 @@ export default function App() {
       setBackPosition(null)
       if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
     }
-  }, [primaryChapter, trackPageView, backPosition])
+  }, [activeView, firstVisibleParagraph, primaryChapter, primaryData, readerSessionContext, trackPageView, backPosition])
 
   const handleReadPageChange = useCallback((page: number, total: number) => {
     if (isMobile && activeView !== 0) return
