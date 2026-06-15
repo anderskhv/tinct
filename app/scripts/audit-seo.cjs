@@ -107,6 +107,10 @@ function hasBookJsonLd(html) {
   return /<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?["']@type["']\s*:\s*["']Book["'][\s\S]*?<\/script>/i.test(html)
 }
 
+function hasBreadcrumbJsonLd(html) {
+  return /<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?["']@type["']\s*:\s*["']BreadcrumbList["'][\s\S]*?<\/script>/i.test(html)
+}
+
 function readNextLinks(html) {
   const start = html.search(/<h2\s+class=["']section["']>Read\s+<em>next<\/em><\/h2>/i)
   if (start === -1) return []
@@ -177,6 +181,7 @@ function auditLocalStaticPages(urls) {
     if (!description || description.length < 80) fail(`${cleanPath} has missing/short meta description`)
     if (pageCanonical !== url) fail(`${cleanPath} canonical mismatch: expected ${url}, got ${pageCanonical || '(missing)'}`)
     if (html.includes('&amp;amp;')) fail(`${cleanPath} contains double-escaped &amp;amp;`)
+    if (/^\/read\/[a-z0-9-]+\//i.test(cleanPath) && !hasBreadcrumbJsonLd(html)) fail(`${cleanPath} has no BreadcrumbList JSON-LD`)
     if (/\/summary$/.test(cleanPath) && readNextLinks(html).length < 3) fail(`${cleanPath} has fewer than 3 Read next links`)
     checked += 1
   }
@@ -234,6 +239,7 @@ async function auditLive(base, localUrls, limit) {
       if (!description || description.length < 80) fail(`live ${canonicalUrl} has missing/short meta description`)
       if (pageCanonical !== canonicalUrl) fail(`live ${canonicalUrl} canonical mismatch: ${pageCanonical || '(missing)'}`)
       if (html.includes('&amp;amp;')) fail(`live ${canonicalUrl} contains double-escaped &amp;amp;`)
+      if (/^\/read\/[a-z0-9-]+\//i.test(new URL(canonicalUrl).pathname) && !hasBreadcrumbJsonLd(html)) fail(`live ${canonicalUrl} has no BreadcrumbList JSON-LD`)
     }
     checked += 1
   }

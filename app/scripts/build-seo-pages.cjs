@@ -423,9 +423,33 @@ const STYLES_SUMMARY = `${STYLES_COMMON}
 // PAGE TEMPLATES
 // =====================================================================
 
+function breadcrumbJsonLd(items) {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }, null, 2)
+}
+
+function bookBreadcrumbJsonLd(book, currentName, canonical) {
+  return breadcrumbJsonLd([
+    { name: 'Tinct', url: 'https://tinct.app/' },
+    { name: 'Library', url: 'https://tinct.app/read' },
+    { name: book.title, url: `https://tinct.app/read/${book.id}/summary` },
+    { name: currentName, url: canonical },
+  ])
+}
+
 function head({ title, description, canonical, jsonLd }) {
   title = normalizeChapterCopy(title)
   description = normalizeChapterCopy(description)
+  const jsonLdItems = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : [])
+  const jsonLdScripts = jsonLdItems.map(item => `\n\n  <script type="application/ld+json">\n  ${item}\n  </script>`).join('')
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -444,7 +468,7 @@ function head({ title, description, canonical, jsonLd }) {
   <meta property="og:site_name" content="Tinct">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
-  <meta name="twitter:description" content="${esc(description)}">${jsonLd ? `\n\n  <script type="application/ld+json">\n  ${jsonLd}\n  </script>` : ''}
+  <meta name="twitter:description" content="${esc(description)}">${jsonLdScripts}
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preload" href="/fonts/f6667783-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2" as="font" type="font/woff2" crossorigin>
@@ -500,7 +524,9 @@ function renderChapter(book, ch) {
     ? `      <a href="/read/${book.id}/chapter-${nextCh.n}" class="nav-next"><div class="nav-label">Next · Chapter ${nextCh.n} →</div><div class="nav-title">${esc(chapterTitle(nextCh))}</div></a>`
     : `      <span class="nav-spacer"></span>`
 
-  return `${head({ title, description, canonical })}
+  const jsonLd = bookBreadcrumbJsonLd(book, `Chapter ${ch.n}`, canonical)
+
+  return `${head({ title, description, canonical, jsonLd })}
 
   <style>
     ${STYLES_CHAPTER}
@@ -601,7 +627,9 @@ function renderChapters(book) {
     return heading + articles
   }).join('\n\n')
 
-  return `${head({ title, description, canonical })}
+  const jsonLd = bookBreadcrumbJsonLd(book, 'Chapter guide', canonical)
+
+  return `${head({ title, description, canonical, jsonLd })}
 
   <style>
     ${STYLES_CHAPTERS_INDEX}
@@ -681,7 +709,9 @@ ${where}
     </div>`
   }).join('\n\n')
 
-  return `${head({ title, description, canonical })}
+  const jsonLd = bookBreadcrumbJsonLd(book, 'Themes and analysis', canonical)
+
+  return `${head({ title, description, canonical, jsonLd })}
 
   <style>
     ${STYLES_THEMES}
@@ -771,7 +801,9 @@ ${where}
     return `    <h2 class="group">${g.label.replace(/·\s(.+)/, '· <em>$1</em>')}</h2>${g.subtitle ? `\n    <p class="group-sub">${esc(g.subtitle)}</p>` : ''}\n\n${chars}`
   }).join('\n\n')
 
-  return `${head({ title, description, canonical })}
+  const jsonLd = bookBreadcrumbJsonLd(book, 'Characters', canonical)
+
+  return `${head({ title, description, canonical, jsonLd })}
 
   <style>
     ${STYLES_CAST}
@@ -872,7 +904,7 @@ function renderSummary(book) {
       </div>`
   ).join('\n')
 
-  return `${head({ title, description, canonical, jsonLd })}
+  return `${head({ title, description, canonical, jsonLd: [jsonLd, bookBreadcrumbJsonLd(book, book.title, canonical)] })}
 
   <style>
     ${STYLES_SUMMARY}
