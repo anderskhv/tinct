@@ -16,7 +16,7 @@ interface ThreadsProps {
   chapterLabelByNumber?: Record<number, string>
 }
 
-type RoleFilter = 'all' | 'mortal' | 'god' | 'creature' | 'people'
+type RoleFilter = 'all' | ThreadCharacter['role']
 type Prominence = 'major' | 'supporting' | 'minor'
 
 interface LeafBook {
@@ -48,6 +48,8 @@ const ROLE_LABEL: Record<ThreadCharacter['role'], string> = {
   god: 'God',
   creature: 'Creature',
   people: 'People',
+  concept: 'Concept',
+  narrator: 'Narrator',
 }
 
 export function Threads({
@@ -415,7 +417,7 @@ export function Threads({
           {currentSubBook && <span className="threads-scope">&nbsp;— {currentSubBook.title}</span>}
         </h3>
         <div className="threads-filters">
-          {(['all', 'mortal', 'god', 'creature', 'people'] as const).map(f => (
+          {(['all', 'mortal', 'god', 'creature', 'people', 'concept', 'narrator'] as const).map(f => (
             <button
               key={f}
               className={`threads-filter-btn ${filter === f ? 'threads-filter-active' : ''}`}
@@ -425,7 +427,9 @@ export function Threads({
                 : f === 'mortal' ? 'Mortals'
                 : f === 'god' ? 'Gods'
                 : f === 'creature' ? 'Creatures'
-                : 'Peoples'}
+                : f === 'people' ? 'Peoples'
+                : f === 'concept' ? 'Concepts'
+                : 'Narrators'}
             </button>
           ))}
         </div>

@@ -4150,6 +4150,26 @@ body {
   color: #b39ad6;
 }
 
+.thread-role-concept {
+  background: #dce6ea;
+  color: #365f6d;
+}
+
+[data-theme="dark"] .thread-role-concept {
+  background: #243941;
+  color: #8fb5c1;
+}
+
+.thread-role-narrator {
+  background: #e6dfd4;
+  color: #6b5842;
+}
+
+[data-theme="dark"] .thread-role-narrator {
+  background: #3a3228;
+  color: #c0a98a;
+}
+
 .thread-card-minor {
   opacity: 0.85;
 }

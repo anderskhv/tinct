@@ -556,4 +556,16 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'Anna Karenina',
     author: 'Leo Tolstoy',
   },
+  'don-quixote': {
+    title: 'Read Don Quixote by Miguel de Cervantes — Free Online with AI Companion | Tinct',
+    description: 'A country gentleman reads too many books of chivalry and rides out as a knight-errant on a starved horse, with a peasant for a squire and a windmill for a giant. The first modern novel — and the only one that holds up against everything that came after.',
+    bookName: 'Don Quixote',
+    author: 'Miguel de Cervantes',
+  },
+  'essays-montaigne': {
+    title: 'Read Essays by Michel de Montaigne — Free Online with AI Companion | Tinct',
+    description: 'A French nobleman retires to his tower at age 38 and starts writing about whatever he is thinking — his kidney stones, his cat, what makes a good death, why he prefers travel to staying home. The book that invented the personal essay and the first attempt by a European to write himself onto the page.',
+    bookName: 'Essays',
+    author: 'Michel de Montaigne',
+  },
 }
