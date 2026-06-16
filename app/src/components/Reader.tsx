@@ -6,6 +6,8 @@ import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 import { lookup as dictLookup } from '../services/dictionary'
 import type { DictResult } from '../services/dictionary'
+import { getDomPointForOffset, getOffsetWithinParagraph, pointCompare } from './reader/selectionGeometry'
+import type { SelectionSegment, TextPoint } from './reader/selectionGeometry'
 
 interface SelectionInfo {
   x: number
@@ -20,18 +22,6 @@ interface SelectionInfo {
   existingHighlightId?: string
   existingNote?: string
   noteEditMode?: boolean
-}
-
-interface TextPoint {
-  paragraphIndex: number
-  offset: number
-}
-
-interface SelectionSegment {
-  paragraphIndex: number
-  startOffset: number
-  endOffset: number
-  text: string
 }
 
 interface CustomSelection {
@@ -747,35 +737,6 @@ export function Reader({
     return isVerse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
   }, [paragraphs, isVerse])
 
-  const getDomPointForOffset = useCallback((paragraphEl: Element, targetOffset: number): { node: Text; offset: number } | null => {
-    const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
-    let charCount = 0
-    let node: Node | null
-    while ((node = walker.nextNode())) {
-      const text = node.textContent || ''
-      const next = charCount + text.length
-      if (targetOffset <= next) {
-        return { node: node as Text, offset: Math.max(0, Math.min(text.length, targetOffset - charCount)) }
-      }
-      charCount = next
-    }
-    return null
-  }, [])
-
-  const getOffsetWithinParagraph = useCallback((paragraphEl: Element, targetNode: Node, targetOffset: number): number | null => {
-    const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
-    let charCount = 0
-    let node: Node | null
-    while ((node = walker.nextNode())) {
-      const text = node.textContent || ''
-      if (node === targetNode) {
-        return charCount + Math.max(0, Math.min(text.length, targetOffset))
-      }
-      charCount += text.length
-    }
-    return null
-  }, [])
-
   const buildRangeSelectionSegments = useCallback((range: Range): SelectionSegment[] => {
     const content = contentRef.current
     if (!content) return []
@@ -807,7 +768,7 @@ export function Reader({
       }
     }
     return segments
-  }, [getOffsetWithinParagraph, normalizedParagraph])
+  }, [normalizedParagraph])
 
   const getTextPointFromClientPoint = useCallback((x: number, y: number): TextPoint | null => {
     const content = contentRef.current
@@ -864,12 +825,6 @@ export function Reader({
     return { paragraphIndex: point.paragraphIndex, offset: start === point.offset ? end : start }
   }, [normalizedParagraph])
 
-  const pointCompare = (a: TextPoint, b: TextPoint) => (
-    a.paragraphIndex === b.paragraphIndex
-      ? a.offset - b.offset
-      : a.paragraphIndex - b.paragraphIndex
-  )
-
   const buildSelectionSegments = useCallback((anchor: TextPoint, focus: TextPoint): SelectionSegment[] => {
     const forward = pointCompare(anchor, focus) <= 0
     const start = forward ? anchor : focus
@@ -906,7 +861,7 @@ export function Reader({
     } catch {
       return undefined
     }
-  }, [getDomPointForOffset])
+  }, [])
 
   const showCustomSelectionPopup = useCallback((selection: CustomSelection) => {
     const last = selection.segments[selection.segments.length - 1]
