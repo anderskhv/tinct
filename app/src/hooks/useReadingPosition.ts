@@ -10,7 +10,7 @@ import {
   markUserNav,
 } from '../readerSession/positionSync'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from '../readerSession/types'
-import { getPersistableReaderHistoryLocation, shouldSkipOnBookChange } from './useReadingPosition.guards'
+import { buildReadingProgressUpdate, getPersistableReaderHistoryLocation, shouldSkipOnBookChange } from './useReadingPosition.guards'
 
 function progressKey(bookId: string): string {
   return `progress:${bookId}`
@@ -257,38 +257,16 @@ export function useReadingPosition(
     if (totalChapters <= 0) return
     const progressChapter = progressLocation.chapterNumber
     const existing = storage.get<ReadingProgress>(progressKey(bookId))
-    const prev = existing?.highestCompletedChapter || 0
-
-    // Track both "highest completed" and "current position"
-    const pageFraction = totalPages > 1 ? (currentPage + 1) / totalPages : 1
-    const positionPercent = Math.round(((progressChapter - 1 + pageFraction) / totalChapters) * 100)
-
-    // Mark completed if reached last page of current chapter
-    if (currentPage >= totalPages - 1 && progressChapter > prev) {
-      storage.set<ReadingProgress>(progressKey(bookId), {
-        bookId,
-        highestCompletedChapter: progressChapter,
-        totalChapters,
-        percent: Math.round((progressChapter / totalChapters) * 100),
-        positionPercent,
-      })
-    }
-    // Also: if reading chapter N, at minimum chapters 1 through N-1 are done
-    else if (progressChapter > 1 && progressChapter - 1 > prev) {
-      storage.set<ReadingProgress>(progressKey(bookId), {
-        bookId,
-        highestCompletedChapter: progressChapter - 1,
-        totalChapters,
-        percent: Math.round(((progressChapter - 1) / totalChapters) * 100),
-        positionPercent,
-      })
-    }
-    // Always update position percent even if no new chapter completed
-    else {
-      const existing = storage.get<ReadingProgress>(progressKey(bookId))
-      if (existing) {
-        storage.set<ReadingProgress>(progressKey(bookId), { ...existing, positionPercent })
-      }
+    const nextProgress = buildReadingProgressUpdate({
+      bookId,
+      progressChapter,
+      currentPage,
+      totalPages,
+      totalChapters,
+      existing,
+    })
+    if (nextProgress) {
+      storage.set<ReadingProgress>(progressKey(bookId), nextProgress)
     }
   }, [bookId, currentPage, totalPages, totalChapters, storageReady, readerSession])
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ensureReadingLogChapter, sanitizeReadingLog } from './useReadingLog.guards'
+import { ensureReadingLogChapter, getReadingLogTransition, sanitizeReadingLog } from './useReadingLog.guards'
 import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
 import type { BookReadingLog } from '../types'
 
@@ -154,6 +154,36 @@ describe('ensureReadingLogChapter', () => {
       editions: ['kjv-en', 'web-en'],
       readCount: 2,
       lastReadAt: 456,
+    })
+  })
+})
+
+describe('getReadingLogTransition', () => {
+  it('treats the first ready readerSession location as initialization, not a legacy currentChapter transition', () => {
+    expect(getReadingLogTransition({
+      previousBookId: 'odyssey',
+      previousChapter: null,
+      bookId: 'odyssey',
+      activeChapter: 5,
+    })).toEqual({
+      isFirstPersistableLocation: true,
+      isChapterChange: false,
+      isBookChange: false,
+      chapterToFlush: null,
+    })
+  })
+
+  it('uses the previous persistable readerSession chapter for real transitions', () => {
+    expect(getReadingLogTransition({
+      previousBookId: 'odyssey',
+      previousChapter: 5,
+      bookId: 'odyssey',
+      activeChapter: 6,
+    })).toEqual({
+      isFirstPersistableLocation: false,
+      isChapterChange: true,
+      isBookChange: false,
+      chapterToFlush: 5,
     })
   })
 })

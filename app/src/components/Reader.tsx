@@ -227,6 +227,7 @@ export function Reader({
   const totalPagesRef = useRef(totalPages)
   totalPagesRef.current = totalPages
   const initialPageRef = useRef(initialPage)
+  const targetParagraphRef = useRef(targetParagraphIndex)
   const userNavigatedRef = useRef(false)
   // Phantom-click guard. On chapter advance the Reader unmounts/remounts
   // at the same DOM coordinates; on Boox/Capacitor WebView the touch
@@ -321,6 +322,21 @@ export function Reader({
     if (w.__tinctNavDebug.length > 80) w.__tinctNavDebug.shift()
   }, [chapterTitle, isAudioPlaying, playingParagraphIndex])
 
+  useEffect(() => {
+    if (initialPage === undefined) return
+    if (targetParagraphRef.current !== undefined) return
+    if (userNavigatedRef.current) return
+    initialPageRef.current = initialPage
+    if (totalPagesRef.current > 1 && initialPage >= 0 && initialPage <= 1) {
+      const targetPage = Math.round(initialPage * (totalPagesRef.current - 1))
+      if (targetPage !== currentPageRef.current) {
+        tracePageSet('initial-page-prop', targetPage, { frac: initialPage, totalPages: totalPagesRef.current })
+        currentPageRef.current = targetPage
+        setCurrentPage(targetPage)
+      }
+    }
+  }, [initialPage, tracePageSet])
+
   useLayoutEffect(() => {
     if (!isActive) return
     recalcPages()
@@ -395,7 +411,6 @@ export function Reader({
   }, [isActive, paragraphs, chapterTitle, recalcPages, panelOpen, fontSize, fontFamily, layoutSignal])
 
   // Restore position from initialPage fraction or targetParagraphIndex after layout settles
-  const targetParagraphRef = useRef(targetParagraphIndex)
 
   const tryScrollToParagraph = useCallback(() => {
     const paraIdx = targetParagraphRef.current

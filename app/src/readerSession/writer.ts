@@ -11,12 +11,15 @@ export function positionFromLocation(
   const currentPage = totalPages > 1
     ? Math.min(Math.max(0, layout?.currentPage ?? 0), totalPages - 1)
     : 0
+  const scrollFraction = totalPages > 1
+    ? currentPage / Math.max(totalPages - 1, 1)
+    : location.scrollFraction
   return {
     bookId: location.bookId,
     chapterNumber: location.chapterNumber,
     currentPage,
     totalPages,
-    scrollFraction: location.scrollFraction,
+    scrollFraction,
     updatedAt: now,
     lastParagraphIndex: location.paragraphIndex,
   }

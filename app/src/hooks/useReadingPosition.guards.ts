@@ -150,6 +150,58 @@ export function shouldCleanupProgress(args: {
   return highestCompletedChapter > positionChapter + 3
 }
 
+export type ReadingProgressUpdate = {
+  bookId: string
+  highestCompletedChapter: number
+  totalChapters: number
+  percent: number
+  positionPercent?: number
+}
+
+export function buildReadingProgressUpdate(args: {
+  bookId: string
+  progressChapter: number
+  currentPage: number
+  totalPages: number
+  totalChapters: number
+  existing?: ReadingProgressUpdate | null
+}): ReadingProgressUpdate | null {
+  const { bookId, progressChapter, currentPage, totalPages, totalChapters, existing } = args
+  if (totalPages <= 1) return null
+  if (totalChapters <= 0) return null
+  if (progressChapter < 1 || progressChapter > totalChapters) return null
+
+  const previousCompleted = existing?.highestCompletedChapter || 0
+  const pageFraction = (currentPage + 1) / totalPages
+  const positionPercent = Math.round(((progressChapter - 1 + pageFraction) / totalChapters) * 100)
+
+  if (currentPage >= totalPages - 1 && progressChapter > previousCompleted) {
+    return {
+      bookId,
+      highestCompletedChapter: progressChapter,
+      totalChapters,
+      percent: Math.round((progressChapter / totalChapters) * 100),
+      positionPercent,
+    }
+  }
+
+  if (progressChapter > 1 && progressChapter - 1 > previousCompleted) {
+    return {
+      bookId,
+      highestCompletedChapter: progressChapter - 1,
+      totalChapters,
+      percent: Math.round(((progressChapter - 1) / totalChapters) * 100),
+      positionPercent,
+    }
+  }
+
+  if (existing) {
+    return { ...existing, positionPercent }
+  }
+
+  return null
+}
+
 export function getPersistableReaderHistoryLocation<T extends {
   bookId: string
   chapterNumber: number

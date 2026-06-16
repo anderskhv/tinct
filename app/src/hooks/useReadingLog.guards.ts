@@ -72,6 +72,31 @@ export function ensureReadingLogChapter(args: {
   }
 }
 
+export function getReadingLogTransition(args: {
+  previousBookId: string
+  previousChapter: number | null
+  bookId: string
+  activeChapter: number
+}): {
+  isFirstPersistableLocation: boolean
+  isChapterChange: boolean
+  isBookChange: boolean
+  chapterToFlush: number | null
+} {
+  const { previousBookId, previousChapter, bookId, activeChapter } = args
+  const isFirstPersistableLocation = previousChapter === null
+  const isChapterChange = !isFirstPersistableLocation && activeChapter !== previousChapter
+  const isBookChange = bookId !== previousBookId
+  return {
+    isFirstPersistableLocation,
+    isChapterChange,
+    isBookChange,
+    chapterToFlush: (isChapterChange || isBookChange) && previousChapter !== null
+      ? previousChapter
+      : null,
+  }
+}
+
 /** Upsert an edition usage entry, preserving existing entries */
 export function upsertUsage(existing: EditionUsage[] | undefined, key: string, mode: ReadingMode, percent?: number): EditionUsage[] {
   const arr = existing ? [...existing] : []

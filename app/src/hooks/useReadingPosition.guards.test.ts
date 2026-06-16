@@ -12,6 +12,7 @@ import {
   shouldSkipOnBookChange,
   shouldBlockHistoryRegression,
   shouldCleanupProgress,
+  buildReadingProgressUpdate,
 } from './useReadingPosition.guards'
 
 /**
@@ -146,6 +147,52 @@ describe('commitReadingPosition — positionSync boundary', () => {
       updatedAt: NOW,
       lastParagraphIndex: 2,
     } satisfies ReadingPosition)
+  }))
+
+  it('writes windowed absolute Bible chapter positions by actual loaded chapter number', () => withMemoryStorage((store) => {
+    markCloudLoaded('bible', null)
+    const result = commitReadingPosition({
+      cause: 'page-change',
+      readerSession: {
+        location: readerLocation({
+          bookId: 'bible',
+          chapterNumber: 677,
+          paragraphIndex: 2,
+          editionKey: 'kjv-en',
+          scrollFraction: 0,
+        }),
+        context: {
+          book: {
+            id: 'bible',
+            title: 'Bible',
+            author: 'Various',
+            editions: [{ key: 'kjv-en', language: 'en', style: 'kjv', label: 'KJV', aligned: true }],
+          },
+          editionData: {
+            chapters: [676, 677, 678].map(number => ({
+              number,
+              title: `Chapter ${number}`,
+              paragraphs: ['p0', 'p1', 'p2', 'p3'],
+            })),
+          },
+        },
+        status: 'ready',
+      },
+      currentPage: 3,
+      totalPages: 5,
+      totalChapters: 1189,
+      now: NOW,
+    })
+
+    expect(result.committed).toBe(true)
+    expect(store.get('position:bible')).toMatchObject({
+      bookId: 'bible',
+      chapterNumber: 677,
+      currentPage: 3,
+      totalPages: 5,
+      scrollFraction: 0.75,
+      lastParagraphIndex: 2,
+    })
   }))
 
   it('skips invalid readerSession locations before storage writes', () => withMemoryStorage((store) => {
@@ -479,5 +526,95 @@ describe('shouldCleanupProgress — finished-book preservation', () => {
         hasCompletedRecord: false,
       }),
     ).toBe(false)
+  })
+})
+
+describe('buildReadingProgressUpdate — readerSession progress chapter', () => {
+  it('marks the readerSession chapter complete on the last page', () => {
+    expect(buildReadingProgressUpdate({
+      bookId: 'the-awakening',
+      progressChapter: 3,
+      currentPage: 9,
+      totalPages: 10,
+      totalChapters: 10,
+      existing: { bookId: 'the-awakening', highestCompletedChapter: 2, totalChapters: 10, percent: 20 },
+    })).toEqual({
+      bookId: 'the-awakening',
+      highestCompletedChapter: 3,
+      totalChapters: 10,
+      percent: 30,
+      positionPercent: 30,
+    })
+  })
+
+  it('marks previous chapters complete when reading a later readerSession chapter', () => {
+    expect(buildReadingProgressUpdate({
+      bookId: 'the-awakening',
+      progressChapter: 5,
+      currentPage: 1,
+      totalPages: 10,
+      totalChapters: 10,
+      existing: { bookId: 'the-awakening', highestCompletedChapter: 2, totalChapters: 10, percent: 20 },
+    })).toEqual({
+      bookId: 'the-awakening',
+      highestCompletedChapter: 4,
+      totalChapters: 10,
+      percent: 40,
+      positionPercent: 42,
+    })
+  })
+
+  it('updates only positionPercent when no new chapter is completed', () => {
+    expect(buildReadingProgressUpdate({
+      bookId: 'the-awakening',
+      progressChapter: 3,
+      currentPage: 4,
+      totalPages: 10,
+      totalChapters: 10,
+      existing: {
+        bookId: 'the-awakening',
+        highestCompletedChapter: 3,
+        totalChapters: 10,
+        percent: 30,
+        positionPercent: 25,
+      },
+    })).toEqual({
+      bookId: 'the-awakening',
+      highestCompletedChapter: 3,
+      totalChapters: 10,
+      percent: 30,
+      positionPercent: 25,
+    })
+  })
+
+  it('does not create progress from positionPercent alone', () => {
+    expect(buildReadingProgressUpdate({
+      bookId: 'the-awakening',
+      progressChapter: 1,
+      currentPage: 0,
+      totalPages: 10,
+      totalChapters: 10,
+      existing: null,
+    })).toBeNull()
+  })
+
+  it('skips progress while layout or chapter bounds are not trustworthy', () => {
+    expect(buildReadingProgressUpdate({
+      bookId: 'the-awakening',
+      progressChapter: 2,
+      currentPage: 0,
+      totalPages: 1,
+      totalChapters: 10,
+      existing: null,
+    })).toBeNull()
+
+    expect(buildReadingProgressUpdate({
+      bookId: 'the-awakening',
+      progressChapter: 99,
+      currentPage: 0,
+      totalPages: 10,
+      totalChapters: 10,
+      existing: null,
+    })).toBeNull()
   })
 })

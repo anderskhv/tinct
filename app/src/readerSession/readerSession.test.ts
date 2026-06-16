@@ -33,8 +33,19 @@ function editionData(chapters: number, paragraphs = 3): EditionData {
   }
 }
 
+function editionDataForChapterNumbers(chapters: number[], paragraphs = 3): EditionData {
+  return {
+    chapters: chapters.map(number => ({
+      number,
+      title: `Chapter ${number}`,
+      paragraphs: Array.from({ length: paragraphs }, (_p, j) => `p${j}`),
+    })),
+  }
+}
+
 const awakeningContext: ReaderBookContext = { book, editionData: editionData(39, 4) }
 const bibleContext: ReaderBookContext = { book: bible, editionData: editionData(1189, 2) }
+const windowedBibleContext: ReaderBookContext = { book: bible, editionData: editionDataForChapterNumbers([676, 677, 678], 4) }
 
 function location(patch: Partial<ReaderLocation> = {}): ReaderLocation {
   return {
@@ -134,6 +145,31 @@ describe('readerSessionReducer', () => {
 
     expect(next).toBe(state)
   })
+
+  it('validates windowed absolute chapter numbers by actual chapter number, not loaded count', () => {
+    const loc = location({ bookId: 'bible', chapterNumber: 677, paragraphIndex: 2, editionKey: 'kjv-en' })
+
+    expect(isValidLocation(loc, windowedBibleContext)).toBe(true)
+    expect(canPersistLocation(loc, windowedBibleContext, 'ready').canWrite).toBe(true)
+    expect(isValidLocation(location({ bookId: 'bible', chapterNumber: 4, editionKey: 'kjv-en' }), windowedBibleContext)).toBe(false)
+  })
+
+  it('uses adjacent loaded chapter numbers for windowed next and previous transitions', () => {
+    const state = initialReaderSession(location({ bookId: 'bible', chapterNumber: 677, paragraphIndex: 1, editionKey: 'kjv-en' }))
+    const next = readerSessionReducer(state, {
+      type: 'USER_NEXT_CHAPTER',
+      context: windowedBibleContext,
+      now: 100,
+    })
+    const prev = readerSessionReducer(next, {
+      type: 'USER_PREV_CHAPTER',
+      context: windowedBibleContext,
+      now: 110,
+    })
+
+    expect(next.location).toMatchObject({ chapterNumber: 678, scrollFraction: 0 })
+    expect(prev.location).toMatchObject({ chapterNumber: 677, scrollFraction: 1 })
+  })
 })
 
 describe('readerSession writer', () => {
@@ -224,6 +260,16 @@ describe('readerSession writer', () => {
       currentPage: 7,
       totalPages: 15,
       scrollFraction: 0.5,
+    })
+  })
+
+  it('derives persisted scroll fraction from settled layout so reload resumes the visible page', () => {
+    expect(positionFromLocation(location({ chapterNumber: 30, scrollFraction: 0 }), 100, { currentPage: 3, totalPages: 10 })).toMatchObject({
+      bookId: 'the-awakening',
+      chapterNumber: 30,
+      currentPage: 3,
+      totalPages: 10,
+      scrollFraction: 3 / 9,
     })
   })
 })

@@ -56,10 +56,34 @@ export function useOffline() {
   // Register service worker
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {
+      let reloadingForUpdate = false
+      const hadController = !!navigator.serviceWorker.controller
+      const handleControllerChange = () => {
+        if (!hadController) return
+        if (reloadingForUpdate) return
+        reloadingForUpdate = true
+        window.location.reload()
+      }
+      navigator.serviceWorker.addEventListener('controllerchange', handleControllerChange)
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        registration.update().catch(() => {})
+        if (registration.waiting) {
+          registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+        }
+        registration.addEventListener('updatefound', () => {
+          const worker = registration.installing
+          if (!worker) return
+          worker.addEventListener('statechange', () => {
+            if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+              worker.postMessage({ type: 'SKIP_WAITING' })
+            }
+          })
+        })
+      }).catch(() => {
         // SW registration failed — offline mode won't intercept fetches
         // but direct Cache API usage in download still works
       })
+      return () => navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange)
     }
   }, [])
 

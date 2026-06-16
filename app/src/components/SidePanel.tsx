@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Chat } from './Chat'
 import { Feed } from './Feed'
 import { Threads } from './Threads'
@@ -146,6 +147,10 @@ export function SidePanel(props: SidePanelProps) {
   const { canUse, tier } = useTierContext()
   const canChat = canUse('ai-chat')
   const canCast = canUse('cast')
+  const currentChapterChatConversations = useMemo(
+    () => chatConversations.filter(c => c.chapterNumber === currentChapter),
+    [chatConversations, currentChapter],
+  )
 
   // Tab visibility (2026-05-06 design): tabs are always visible regardless of
   // tier so locked-feature pitches can act as conversion surfaces. Settings
@@ -198,7 +203,7 @@ export function SidePanel(props: SidePanelProps) {
         isAnonymous={isAnonymous}
         onTopUp={onTopUp}
         onSignIn={onSignIn}
-        chatConversations={chatConversations}
+        chatConversations={currentChapterChatConversations}
         onNavigateToChapter={onNavigateToChapter}
       />
     )

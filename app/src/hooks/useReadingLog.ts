@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { storage } from '../services/storage'
 import { getReadingProgress, getSavedPosition } from './useReadingPosition'
 import type { BookReadingLog, ChapterReadingRecord } from '../types'
-import { ensureReadingLogChapter, sanitizeReadingLog, upsertUsage } from './useReadingLog.guards'
+import { ensureReadingLogChapter, getReadingLogTransition, sanitizeReadingLog, upsertUsage } from './useReadingLog.guards'
 import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
 import type { ReaderLocation, ReaderSessionState } from '../readerSession/types'
 
@@ -113,7 +113,7 @@ export function useReadingLog(
   const activeSecondsRef = useRef(0)
   const lastActivityRef = useRef(Date.now())
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const prevChapterForTimeRef = useRef(persistableLocation?.chapterNumber ?? currentChapter)
+  const prevChapterForTimeRef = useRef<number | null>(persistableLocation?.chapterNumber ?? null)
 
   // Start/restart the timer
   const startTimer = useCallback(() => {
@@ -164,7 +164,7 @@ export function useReadingLog(
   useEffect(() => {
     const handleVisibility = () => {
       if (document.visibilityState === 'hidden') {
-        flushTime(prevChapterForTimeRef.current)
+        if (prevChapterForTimeRef.current !== null) flushTime(prevChapterForTimeRef.current)
       } else {
         // Resumed — restart timer
         startTimer()
@@ -175,21 +175,28 @@ export function useReadingLog(
   }, [flushTime, startTimer])
 
   // Track chapter visits — only increment on actual chapter changes
-  const prevChapterRef = useRef(currentChapter)
+  const prevChapterRef = useRef<number | null>(persistableLocation?.chapterNumber ?? null)
   const prevBookRef = useRef(bookId)
   useEffect(() => {
     if (!storageReady) return
     if (!persistableLocation) return
     const activeChapter = persistableLocation.chapterNumber
     const activeEditionKey = persistableLocation.editionKey
-    const isChapterChange = activeChapter !== prevChapterRef.current
-    const isBookChange = bookId !== prevBookRef.current
+    const transition = getReadingLogTransition({
+      previousBookId: prevBookRef.current,
+      previousChapter: prevChapterRef.current,
+      bookId,
+      activeChapter,
+    })
+    const { isFirstPersistableLocation, isChapterChange, isBookChange } = transition
 
     // Flush time for the chapter we're leaving, restart timer for new chapter
     if (isChapterChange || isBookChange) {
-      flushTime(prevChapterRef.current)
+      if (transition.chapterToFlush !== null) flushTime(transition.chapterToFlush)
       activeSecondsRef.current = 0
       startTimer()
+      prevChapterForTimeRef.current = activeChapter
+    } else if (isFirstPersistableLocation) {
       prevChapterForTimeRef.current = activeChapter
     }
 

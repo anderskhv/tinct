@@ -1,7 +1,22 @@
 import type { ReaderBookContext, ReaderLocation, ReaderSessionEvent, ReaderSessionState } from './types'
 
+function chapterNumbers(context: ReaderBookContext): number[] {
+  return context.editionData?.chapters.map(ch => ch.number).filter(Number.isFinite) ?? []
+}
+
 function chapterCount(context: ReaderBookContext): number {
-  return context.editionData?.chapters.length ?? 0
+  return chapterNumbers(context).length
+}
+
+function hasChapter(context: ReaderBookContext, chapterNumber: number): boolean {
+  return chapterNumbers(context).includes(chapterNumber)
+}
+
+function adjacentChapterNumber(context: ReaderBookContext, chapterNumber: number, direction: 1 | -1): number | null {
+  const numbers = chapterNumbers(context).sort((a, b) => a - b)
+  const index = numbers.indexOf(chapterNumber)
+  if (index < 0) return null
+  return numbers[index + direction] ?? null
 }
 
 function paragraphCount(context: ReaderBookContext, chapterNumber: number): number {
@@ -12,9 +27,7 @@ function paragraphCount(context: ReaderBookContext, chapterNumber: number): numb
 export function isValidLocation(location: Pick<ReaderLocation, 'bookId' | 'chapterNumber' | 'paragraphIndex' | 'editionKey'>, context: ReaderBookContext): boolean {
   if (location.bookId !== context.book.id) return false
   if (!context.book.editions.some(ed => ed.key === location.editionKey)) return false
-  const totalChapters = chapterCount(context)
-  if (totalChapters <= 0) return false
-  if (location.chapterNumber < 1 || location.chapterNumber > totalChapters) return false
+  if (!hasChapter(context, location.chapterNumber)) return false
   if (location.paragraphIndex !== undefined) {
     const totalParagraphs = paragraphCount(context, location.chapterNumber)
     if (totalParagraphs <= 0) return false
@@ -130,11 +143,11 @@ export function readerSessionReducer(state: ReaderSessionState, event: ReaderSes
 
     case 'USER_NEXT_CHAPTER': {
       if (state.status !== 'ready') return state
-      const total = chapterCount(event.context)
-      if (state.location.chapterNumber >= total) return state
+      const nextChapter = adjacentChapterNumber(event.context, state.location.chapterNumber, 1)
+      if (nextChapter == null) return state
       return {
         ...withLocation(state, {
-          chapterNumber: state.location.chapterNumber + 1,
+          chapterNumber: nextChapter,
           paragraphIndex: undefined,
           scrollFraction: 0,
         }, 'user'),
@@ -143,10 +156,12 @@ export function readerSessionReducer(state: ReaderSessionState, event: ReaderSes
     }
 
     case 'USER_PREV_CHAPTER': {
-      if (state.status !== 'ready' || state.location.chapterNumber <= 1) return state
+      if (state.status !== 'ready') return state
+      const prevChapter = adjacentChapterNumber(event.context, state.location.chapterNumber, -1)
+      if (prevChapter == null) return state
       return {
         ...withLocation(state, {
-          chapterNumber: state.location.chapterNumber - 1,
+          chapterNumber: prevChapter,
           paragraphIndex: undefined,
           scrollFraction: 1,
         }, 'user'),
@@ -188,10 +203,10 @@ export function readerSessionReducer(state: ReaderSessionState, event: ReaderSes
 
     case 'AUDIO_CHAPTER_COMPLETED': {
       if (state.status !== 'ready') return state
-      const total = chapterCount(event.context)
-      if (state.location.chapterNumber >= total) return state
+      const nextChapter = adjacentChapterNumber(event.context, state.location.chapterNumber, 1)
+      if (nextChapter == null) return state
       return withLocation(state, {
-        chapterNumber: state.location.chapterNumber + 1,
+        chapterNumber: nextChapter,
         paragraphIndex: undefined,
         scrollFraction: 0,
       }, 'audio')

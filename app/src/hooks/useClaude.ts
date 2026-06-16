@@ -45,6 +45,8 @@ If asked to explain something in simpler terms, do so without condescension. If 
 
 Keep responses concise unless asked for more detail. Use short paragraphs. Reference specific characters by name and connect passages to the broader narrative.
 
+Answer the reader's latest message only. Treat earlier user messages as history, not as pending questions to answer again, unless the latest message explicitly asks you to revisit them.
+
 Tone: measured, literary, and calm. Do not use emoji, emoticons, exclamation-heavy phrasing, slang, hype, or chatty filler. Prefer precise, grounded prose over playful encouragement.`
 
   if (readingObjective) {
@@ -95,6 +97,13 @@ class ChatStreamError extends Error {
     this.name = 'ChatStreamError'
     this.sawToken = sawToken
   }
+}
+
+export function selectChatRequestHistory(messages: ChatMessage[], currentChapter: number | undefined, limit: number): ChatMessage[] {
+  if (currentChapter == null) return messages.slice(-limit)
+  return messages
+    .filter(message => message.chapterNumber === currentChapter)
+    .slice(-limit)
 }
 
 function isStreamingEnabled(): boolean {
@@ -245,7 +254,7 @@ export function useClaude(options?: UseClaudeOptions) {
       // below. Long sessions used to blow past the worker's body cap and
       // return 413; trimming here is the structural fix.
       const HISTORY_TURNS = 20
-      const recentHistory = messages.slice(-HISTORY_TURNS)
+      const recentHistory = selectChatRequestHistory(messages, currentChapter, HISTORY_TURNS)
       const apiMessages = [...recentHistory, userMessage].map(m => {
         let text = m.content
         if (m.highlightedText && m.role === 'user') {
