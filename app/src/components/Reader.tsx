@@ -4,10 +4,9 @@ import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
-import { lookup as dictLookup } from '../services/dictionary'
-import type { DictResult } from '../services/dictionary'
 import { getDomPointForOffset, getOffsetWithinParagraph, pointCompare } from './reader/selectionGeometry'
 import type { SelectionSegment, TextPoint } from './reader/selectionGeometry'
+import { useDefine } from './reader/useDefine'
 
 interface SelectionInfo {
   x: number
@@ -164,10 +163,15 @@ export function Reader({
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const [noteInput, setNoteInput] = useState('')
   const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note' | 'define'>('main')
-  const [defineQuery, setDefineQuery] = useState('')
-  const [defineResult, setDefineResult] = useState<DictResult | null>(null)
-  const [defineLoading, setDefineLoading] = useState(false)
-  const [defineNotFound, setDefineNotFound] = useState(false)
+  const {
+    query: defineQuery,
+    setQuery: setDefineQuery,
+    result: defineResult,
+    loading: defineLoading,
+    notFound: defineNotFound,
+    begin: beginDefine,
+    run: runDefine,
+  } = useDefine()
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
@@ -1207,39 +1211,9 @@ export function Reader({
 
   const handleDefine = useCallback(() => {
     if (!selectionPopup) return
-    const raw = selectionPopup.text.trim()
-    // Single word → look up directly. Multi-word → open the panel with the
-    // full selected phrase as a starting query the user can edit.
-    const isSingleWord = !/\s/.test(raw)
-    setDefineQuery(isSingleWord ? raw : '')
-    setDefineResult(null)
-    setDefineNotFound(false)
+    beginDefine(selectionPopup.text)
     setPopupMode('define')
-    if (isSingleWord) {
-      setDefineLoading(true)
-      dictLookup(raw).then(res => {
-        setDefineLoading(false)
-        setDefineResult(res)
-        setDefineNotFound(!res)
-      })
-    }
-  }, [selectionPopup])
-
-  const runDefine = useCallback((q: string) => {
-    const trimmed = q.trim()
-    if (!trimmed) {
-      setDefineResult(null)
-      setDefineNotFound(false)
-      return
-    }
-    setDefineLoading(true)
-    setDefineNotFound(false)
-    dictLookup(trimmed).then(res => {
-      setDefineLoading(false)
-      setDefineResult(res)
-      setDefineNotFound(!res)
-    })
-  }, [])
+  }, [selectionPopup, beginDefine])
 
   const handleCopy = useCallback(() => {
     if (!selectionPopup) return
