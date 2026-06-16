@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type Dispatch, type MutableRefObject } from 'react'
 import { ODYSSEY, getBook } from '../data/bookRegistry'
 import { storage } from '../services/storage'
-import type { EditionKey, ReadingPosition, ReadingProgress } from '../types'
+import type { EditionKey, ReadingPosition } from '../types'
 import { perfStartSwitch } from '../utils/perf'
 import { appendReaderSessionShadow } from '../readerSession/shadow'
 import {
@@ -15,7 +15,7 @@ import {
 import { readerViewFromMobileIndex } from '../readerSession/useReaderSessionController'
 import type { ReaderBookContext, ReaderSessionEvent } from '../readerSession/types'
 import { getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav } from './useReadingPosition'
-import { buildReadingProgressUpdate } from './useReadingPosition.guards'
+import { commitReadingProgress } from '../readerSession/positionSync'
 
 type ReaderControllerOptions = {
   activeViewRef?: MutableRefObject<number>
@@ -67,9 +67,6 @@ function replaceReaderUrl(bookId: string): void {
   } catch { /* ignore */ }
 }
 
-function progressKey(bookId: string): string {
-  return `progress:${bookId}`
-}
 
 export function useReaderController(options: ReaderControllerOptions = {}) {
   const [currentBookId, setCurrentBookId] = useState(() => {
@@ -480,18 +477,18 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
       now: Date.now(),
     })
 
-    const existing = storage.get<ReadingProgress>(progressKey(book.id))
-    const completedProgress = buildReadingProgressUpdate({
+    // Record completion of the chapter being LEFT. progressChapter is the
+    // PRE-advance chapter on purpose: the USER_NEXT_CHAPTER dispatch above has
+    // already advanced the readerSession location, so deriving the chapter from
+    // it would over-report by one. The synthetic last-page layout (1/2) makes
+    // buildReadingProgressUpdate mark this chapter completed.
+    commitReadingProgress({
       bookId: book.id,
       progressChapter: currentChapter,
       currentPage: 1,
       totalPages: 2,
       totalChapters,
-      existing,
     })
-    if (completedProgress) {
-      storage.set<ReadingProgress>(progressKey(book.id), completedProgress)
-    }
 
     if (options.targetParagraphRef) options.targetParagraphRef.current = undefined
     savedPos.current = {
