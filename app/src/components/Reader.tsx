@@ -4,7 +4,13 @@ import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
-import { getDomPointForOffset, getOffsetWithinParagraph, pointCompare } from './reader/selectionGeometry'
+import {
+  pointCompare,
+  buildSelectionSegments as buildSelectionSegmentsGeom,
+  buildRangeSelectionSegments as buildRangeSelectionSegmentsGeom,
+  getTextPointFromClientPoint as getTextPointFromClientPointGeom,
+  getHandlePoint as getHandlePointGeom,
+} from './reader/selectionGeometry'
 import type { SelectionSegment, TextPoint } from './reader/selectionGeometry'
 import { useDefine } from './reader/useDefine'
 
@@ -741,130 +747,26 @@ export function Reader({
     return isVerse ? text : text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
   }, [paragraphs, isVerse])
 
+  // Thin wrappers over reader/selectionGeometry (pure, tested). They supply the
+  // live content element + paragraph-text resolver; the geometry logic lives in
+  // the module. Behavior (and these callbacks' identities) is unchanged.
   const buildRangeSelectionSegments = useCallback((range: Range): SelectionSegment[] => {
     const content = contentRef.current
-    if (!content) return []
-    const segments: SelectionSegment[] = []
-    const paragraphEls = Array.from(content.querySelectorAll('[data-paragraph-index]'))
-    for (const paragraphEl of paragraphEls) {
-      if (!range.intersectsNode(paragraphEl)) continue
-      const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
-      if (!Number.isFinite(paragraphIndex)) continue
-      const text = normalizedParagraph(paragraphIndex)
-      if (!text) continue
-
-      let startOffset = 0
-      let endOffset = text.length
-      if (paragraphEl.contains(range.startContainer)) {
-        const start = getOffsetWithinParagraph(paragraphEl, range.startContainer, range.startOffset)
-        if (start !== null) startOffset = start
-      }
-      if (paragraphEl.contains(range.endContainer)) {
-        const end = getOffsetWithinParagraph(paragraphEl, range.endContainer, range.endOffset)
-        if (end !== null) endOffset = end
-      }
-
-      const correctedStart = paragraphIndex === 0 && startOffset === 1 ? 0 : startOffset
-      const start = Math.max(0, Math.min(text.length, correctedStart))
-      const end = Math.max(0, Math.min(text.length, endOffset))
-      if (end > start) {
-        segments.push({ paragraphIndex, startOffset: start, endOffset: end, text: text.slice(start, end) })
-      }
-    }
-    return segments
+    return content ? buildRangeSelectionSegmentsGeom(content, range, normalizedParagraph) : []
   }, [normalizedParagraph])
 
   const getTextPointFromClientPoint = useCallback((x: number, y: number): TextPoint | null => {
     const content = contentRef.current
-    if (!content) return null
-    const docWithCaret = document as Document & {
-      caretRangeFromPoint?: (x: number, y: number) => Range | null
-      caretPositionFromPoint?: (x: number, y: number) => { offsetNode: Node; offset: number } | null
-    }
-    let node: Node | null = null
-    let offset = 0
-    const range = docWithCaret.caretRangeFromPoint?.(x, y)
-    if (range) {
-      node = range.startContainer
-      offset = range.startOffset
-    } else {
-      const pos = docWithCaret.caretPositionFromPoint?.(x, y)
-      if (pos) {
-        node = pos.offsetNode
-        offset = pos.offset
-      }
-    }
-    if (!node) return null
-    const el = node.nodeType === Node.TEXT_NODE ? node.parentElement : node as HTMLElement
-    const paragraphEl = el?.closest?.('[data-paragraph-index]')
-    if (!paragraphEl || !content.contains(paragraphEl)) return null
-    const paragraphIndex = parseInt(paragraphEl.getAttribute('data-paragraph-index') || '0', 10)
-    if (!Number.isFinite(paragraphIndex)) return null
-    if (node.nodeType !== Node.TEXT_NODE) {
-      const text = normalizedParagraph(paragraphIndex)
-      return { paragraphIndex, offset: Math.max(0, Math.min(text.length, offset)) }
-    }
-    const walker = document.createTreeWalker(paragraphEl, NodeFilter.SHOW_TEXT)
-    let charCount = 0
-    let current: Node | null
-    while ((current = walker.nextNode())) {
-      if (current === node) {
-        const text = normalizedParagraph(paragraphIndex)
-        return { paragraphIndex, offset: Math.max(0, Math.min(text.length, charCount + offset)) }
-      }
-      charCount += (current.textContent || '').length
-    }
-    return null
-  }, [normalizedParagraph])
-
-  const expandToWord = useCallback((point: TextPoint): TextPoint => {
-    const text = normalizedParagraph(point.paragraphIndex)
-    if (!text) return point
-    const isWord = (ch: string) => /[\p{L}\p{N}'’.-]/u.test(ch)
-    let start = Math.max(0, Math.min(text.length, point.offset))
-    while (start > 0 && isWord(text[start - 1])) start--
-    let end = Math.max(0, Math.min(text.length, point.offset))
-    while (end < text.length && isWord(text[end])) end++
-    if (end <= start) end = Math.min(text.length, start + 1)
-    return { paragraphIndex: point.paragraphIndex, offset: start === point.offset ? end : start }
+    return content ? getTextPointFromClientPointGeom(content, x, y, normalizedParagraph) : null
   }, [normalizedParagraph])
 
   const buildSelectionSegments = useCallback((anchor: TextPoint, focus: TextPoint): SelectionSegment[] => {
-    const forward = pointCompare(anchor, focus) <= 0
-    const start = forward ? anchor : focus
-    const end = forward ? focus : anchor
-    const segments: SelectionSegment[] = []
-    for (let p = start.paragraphIndex; p <= end.paragraphIndex; p++) {
-      const text = normalizedParagraph(p)
-      const s = p === start.paragraphIndex ? start.offset : 0
-      const e = p === end.paragraphIndex ? end.offset : text.length
-      if (e > s) {
-        segments.push({ paragraphIndex: p, startOffset: s, endOffset: e, text: text.slice(s, e) })
-      }
-    }
-    return segments
+    return buildSelectionSegmentsGeom(anchor, focus, normalizedParagraph)
   }, [normalizedParagraph])
 
   const getHandlePoint = useCallback((point: TextPoint, preferEnd = false): { x: number; y: number } | undefined => {
     const content = contentRef.current
-    if (!content) return undefined
-    const paragraphEl = content.querySelector(`[data-paragraph-index="${point.paragraphIndex}"]`)
-    if (!paragraphEl) return undefined
-    const dom = getDomPointForOffset(paragraphEl, point.offset)
-    if (!dom) return undefined
-    try {
-      const range = document.createRange()
-      const textLen = dom.node.textContent?.length || 0
-      const start = Math.max(0, Math.min(textLen, dom.offset))
-      const end = Math.max(start, Math.min(textLen, start + 1))
-      range.setStart(dom.node, start)
-      range.setEnd(dom.node, end)
-      const rect = range.getClientRects()[0] || range.getBoundingClientRect()
-      if (!rect) return undefined
-      return { x: preferEnd ? rect.right : rect.left, y: rect.bottom }
-    } catch {
-      return undefined
-    }
+    return content ? getHandlePointGeom(content, point, preferEnd) : undefined
   }, [])
 
   const showCustomSelectionPopup = useCallback((selection: CustomSelection) => {
