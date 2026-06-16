@@ -19,12 +19,16 @@ Tinct has strong production invariants around reader position, storage, sync, an
    - Leaves reader/book restore adoption in `App.tsx` for now.
 2. Extract a reader controller. **Started.**
    - Owns book/chapter/page/session state, saved position, book switching, and remote/cloud adoption.
-3. Continue readerSession migration. **Not started.**
-   - Make readerSession the only persisted content tuple input.
+3. Continue readerSession migration. **Done (bounded "finish + verify").**
+   - readerSession.location is the single source for all reading-time persisted
+     content-tuple writes (position, progress, reading-log).
+   - Scope was the *persisted-input* property only — NOT the full inversion
+     (readerSession driving rendering / deleting legacy `currentChapter`), which
+     remains future work overlapping slice 4.
 4. Split `Reader.tsx` by behavior. **Not started.**
    - Start with pagination/navigation extraction and preserve behavior.
-5. Split `worker.ts` by route group. **In progress.**
-   - Move routes mechanically with existing tests after each group.
+5. Split `worker.ts` by route group. **Done.**
+   - Moved routes mechanically with existing tests after each group.
 6. Split CSS by surface opportunistically. **Only dead CSS cleanup so far.**
    - Avoid broad visual churn.
 
@@ -39,6 +43,25 @@ Tinct has strong production invariants around reader position, storage, sync, an
 - `localFirstFromCacheRef`
 
 Reader position restore and adoption remain in `App.tsx` until they can be moved behind a reader-controller boundary.
+
+### readerSession as the single persisted-tuple source (slice 3)
+
+All reading-time persisted content-tuple writes derive from `readerSession.location`:
+
+- Position: `useReadingPosition.saveNow` → `commitReadingPosition` (`readerSession/positionSync.ts`).
+- Progress: `commitReadingProgress` (`positionSync.ts`) is the single progress-write point; `useReadingPosition` (steady-state) and `useReaderController` (chapter-advance) both call it. Progress stays **monotonic-only** — no dedup/regression guards (those are position semantics).
+- Reading-log: `useReadingLog` via `getPersistableReaderHistoryLocation`.
+- Pinned by `readerSession/positionSync.test.ts` (new) plus the existing guard/controller tests.
+
+Intentionally **excluded** from this slice (do not "consolidate" without a separate audit):
+
+- Sign-in migration writes in `useStorageBootstrap` (Supabase write semantics, fenced off).
+- `tinct-current-book` pointer writes in `useReaderController` (a book pointer, not a content tuple; also co-written by `commitReadingPosition`).
+
+Two intentional **bypasses** of the persisted-tuple path, by design:
+
+- Terminal book-completion write in `App.tsx` `handleBookComplete` — records 100% from `totalChapters`, guarded by `readerSessionState.location.bookId === book.id` but NOT by session status (completion must not be dropped at end-of-book).
+- Fresh-start store-open reset in `App.tsx` — rewinds to chapter 1 (would be regression-blocked by `commitReadingPosition`); re-seeds the cloud/dedup baselines via `markCloudPosition`/`markCloudLoaded`.
 
 Worker route extraction shipped in several small deployable commits:
 
@@ -132,13 +155,14 @@ Do not remove these without a specific compatibility audit.
 
 ## Next Good Slice
 
-The Worker route split is done enough to move on. The reader controller owns the basic state tuple, user-driven book switching, direct book-id change recovery, startup cloud/current-book restore, focus/visibility position adoption, real-time remote-position adoption, core chapter next/previous transitions, explicit chapter selection, back-position return, and invalid-position/blank-reader reset mechanics. The next ambitious extraction is remaining direct chapter setter consolidation:
+The Worker route split (slice 5) and the bounded readerSession persisted-tuple migration (slice 3) are done. The reader controller owns the basic state tuple, user-driven book switching, direct book-id change recovery, startup cloud/current-book restore, focus/visibility position adoption, real-time remote-position adoption, core chapter next/previous transitions, explicit chapter selection, back-position return, and invalid-position/blank-reader reset mechanics.
 
-1. Replace remaining user-visible direct `setCurrentChapter` paths with controller helpers where safe.
-   - Keep `useReadingPosition` and `useReadingLog` wired to `readerSessionState.location`.
-   - Start with deep-link chapter application and onboarding/current-book jump paths.
-   - Leave pure recovery guards and render-time bounds clamps alone unless the reset semantics are fully covered.
-   - Add focused regression coverage before replacing any direct setter that can affect persisted position.
+Two candidate next slices, both higher-risk than what's shipped so far:
+
+1. **Slice 4 — split `Reader.tsx` (2,000+ lines) + `SplitReader.tsx` by behavior.** Start with pagination/navigation extraction, preserve behavior. Touches the pagination + mobile viewport handling recently stabilized (the `svh` fix) — go carefully, screenshot-verify.
+2. **The full readerSession inversion** (beyond slice 3's scope): make `readerSession.location` the upstream source that drives rendering and delete the legacy `currentChapter`/`currentPage` parallel state. Large, invariant-heavy.
+
+Smaller safe leftover: replace remaining user-visible direct `setCurrentChapter` paths with controller helpers where safe (deep-link `?chapter=` first). Leave pure recovery guards and render-time bounds clamps alone unless reset semantics are fully covered. Add focused regression coverage before replacing any direct setter that can affect persisted position.
 
 Avoid touching next unless specifically scheduled:
 
