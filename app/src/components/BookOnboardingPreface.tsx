@@ -644,14 +644,14 @@ function PrefaceLanguageToggle({
 }) {
   return (
     <div style={mobile ? prefaceLanguageToggleMobile : prefaceLanguageToggle} aria-label="Preface language">
-      <span style={prefaceLanguageLabel}>Preface</span>
+      <span style={prefaceLanguageLabel}>Preface language</span>
       <button
         type="button"
         style={prefaceLanguageButton(value === 'da', !danishAvailable)}
         onClick={() => onChange('da')}
         disabled={!danishAvailable}
       >
-        Dansk
+        Danish
       </button>
       <button
         type="button"
@@ -1273,41 +1273,44 @@ const skipLinkMobile: React.CSSProperties = {
 }
 const prefaceLanguageToggle: React.CSSProperties = {
   position: 'absolute',
-  top: 10,
-  left: 24,
+  top: 12,
+  left: 28,
   zIndex: 10,
   display: 'inline-flex',
   alignItems: 'center',
-  gap: 4,
-  padding: 4,
+  gap: 6,
+  padding: '6px 7px',
   background: 'var(--paper)',
-  border: '1px solid var(--paper-deep)',
-  borderRadius: 4,
+  border: '1px solid var(--border-color)',
+  borderRadius: 6,
+  boxShadow: '0 4px 14px rgba(0,0,0,0.05)',
 }
 const prefaceLanguageToggleMobile: React.CSSProperties = {
   ...prefaceLanguageToggle,
   top: 6,
   left: 12,
+  maxWidth: 'calc(100vw - 24px)',
 }
 const prefaceLanguageLabel: React.CSSProperties = {
-  padding: '0 6px',
+  padding: '0 7px 0 4px',
   fontFamily: 'var(--font-mono)',
-  fontSize: 9,
-  lineHeight: '22px',
+  fontSize: 10,
+  lineHeight: '24px',
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
-  color: 'var(--text-tertiary)',
+  color: 'var(--text-secondary)',
+  whiteSpace: 'nowrap',
 }
 const prefaceLanguageButton = (selected: boolean, disabled: boolean): React.CSSProperties => ({
   border: 'none',
-  borderRadius: 3,
-  padding: '4px 8px',
-  minHeight: 22,
+  borderRadius: 5,
+  padding: '5px 10px',
+  minHeight: 26,
   background: selected ? 'var(--accent)' : 'transparent',
   color: disabled ? 'var(--text-tertiary)' : selected ? 'var(--text-inverse, #fff)' : 'var(--text-secondary)',
   cursor: disabled ? 'not-allowed' : 'pointer',
   fontFamily: 'var(--font-mono)',
-  fontSize: 9,
+  fontSize: 10,
   letterSpacing: '0.1em',
   textTransform: 'uppercase',
   opacity: disabled ? 0.55 : 1,
@@ -1648,8 +1651,11 @@ const castList: React.CSSProperties = {
 }
 const castEntry: React.CSSProperties = {
   display: 'block',
-  marginBottom: '1rem',
-  breakInside: 'avoid', // keep each cast entry intact across column breaks
+  marginBottom: '1.2rem',
+  paddingTop: '0.05rem',
+  breakInside: 'avoid',
+  pageBreakInside: 'avoid',
+  WebkitColumnBreakInside: 'avoid',
 }
 // Mobile: stack name above description so the description gets the full
 // width of the narrow phone column instead of being squeezed into half.
@@ -1659,16 +1665,17 @@ const castEntryStacked: React.CSSProperties = {
   breakInside: 'avoid',
 }
 const castName: React.CSSProperties = {
-  display: 'inline',
+  display: 'block',
   fontFamily: 'var(--font-display)', fontWeight: 500,
   fontStyle: 'italic',
-  fontSize: '1.1em', color: 'var(--text-primary)',
+  fontSize: '1.12em', color: 'var(--text-primary)',
+  lineHeight: 1.15,
   letterSpacing: '0.01em',
-  margin: '0 0.45em 0 0',
-  whiteSpace: 'nowrap',
+  margin: '0 0 0.08rem',
+  whiteSpace: 'normal',
 }
 const castBody: React.CSSProperties = {
-  display: 'inline',
+  display: 'block',
   fontFamily: 'var(--font-serif)',
   fontSize: '0.95em', lineHeight: 1.55,
   color: 'var(--text-primary)',
