@@ -53,18 +53,18 @@ export function useOffline() {
     }
   }, [])
 
-  // Register service worker
+  // Register service worker.
+  //
+  // Updates apply SILENTLY: a new worker skip-waits and takes over so the next
+  // navigation serves fresh assets. We deliberately do NOT listen for
+  // `controllerchange` and `window.location.reload()` here. Force-reloading on
+  // every SW update yanked the reader out from under the user every time the
+  // tab regained focus (and loop-reloaded on mobile, where the browser
+  // re-checks the SW aggressively on tab-show). Losing the reader's place is
+  // the worst UX failure — a slightly-stale bundle until the next real
+  // navigation is strictly better.
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      let reloadingForUpdate = false
-      const hadController = !!navigator.serviceWorker.controller
-      const handleControllerChange = () => {
-        if (!hadController) return
-        if (reloadingForUpdate) return
-        reloadingForUpdate = true
-        window.location.reload()
-      }
-      navigator.serviceWorker.addEventListener('controllerchange', handleControllerChange)
       navigator.serviceWorker.register('/sw.js').then(registration => {
         registration.update().catch(() => {})
         if (registration.waiting) {
@@ -83,7 +83,6 @@ export function useOffline() {
         // SW registration failed — offline mode won't intercept fetches
         // but direct Cache API usage in download still works
       })
-      return () => navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange)
     }
   }, [])
 

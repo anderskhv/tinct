@@ -842,11 +842,15 @@ export default function App() {
 
   const chatLoadedForBookRef = useRef<string | null>(null)
   useEffect(() => {
-    const chatLoadKey = `${book.id}:${currentChapter}`
-    if (chatLoadedForBookRef.current !== chatLoadKey) {
-      chatLoadedForBookRef.current = chatLoadKey
+    // Chat is ONE continuous conversation PER BOOK (not per chapter). The pane
+    // shows the whole book's history with render-time chapter dividers (see
+    // Chat.tsx); keying/filtering this by currentChapter blanks the pane any
+    // time you're reading a chapter you haven't chatted in. The stale-question
+    // fix lives at the API layer (selectChatRequestHistory), not here.
+    if (chatLoadedForBookRef.current !== book.id) {
+      chatLoadedForBookRef.current = book.id
       clearMessages()
-      lastRecordedMsgRef.current = null  // reset for the new book/chapter history
+      lastRecordedMsgRef.current = null  // reset for the new book's history
     }
     if (chatConversations.length === 0) return
     const allMsgs: ChatMessage[] = []
@@ -854,13 +858,11 @@ export default function App() {
       // Defensive filter: storage is keyed per book, but legacy/future bugs
       // could mix. Only show messages whose bookId matches (or is unset).
       if (conv.bookId && conv.bookId !== book.id) continue
-      if (conv.chapterNumber !== currentChapter) continue
       allMsgs.push(...conv.messages
         .filter(m =>
           !m.chapterDivider &&             // skip persisted chapter-divider markers (legacy bug)
           (m.content || '').trim() !== '' && // skip the empty bodies left behind by that bug
-          (!m.bookId || m.bookId === book.id) &&
-          (m.chapterNumber == null || m.chapterNumber === currentChapter)
+          (!m.bookId || m.bookId === book.id)
         )
         // Backfill chapterNumber from the conversation's chapter when the
         // message itself doesn't have one. Older messages predate the
@@ -880,7 +882,7 @@ export default function App() {
       const last = allMsgs[allMsgs.length - 1]
       if (last?.id) lastRecordedMsgRef.current = last.id
     }
-  }, [chatConversations, loadMessages, clearMessages, book.id, currentChapter])
+  }, [chatConversations, loadMessages, clearMessages, book.id])
 
   // One-shot cleanup: prior code persisted chapter-divider markers as fake
   // assistant messages with empty content. They polluted chat-history blobs
