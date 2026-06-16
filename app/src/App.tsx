@@ -19,6 +19,7 @@ import { BottomBar } from './components/BottomBar'
 import type { BottomBarHandle } from './components/BottomBar'
 import { TocOverlay } from './components/TocOverlay'
 import { ShareModal } from './components/ShareModal'
+import { NavDebugOverlay } from './components/NavDebugOverlay'
 import { FeatureTour, type TourStep } from './components/FeatureTour'
 import { TierProvider } from './contexts/TierContext'
 import { ALL_BOOKS as BOOKS, ODYSSEY, getBook } from './data/bookRegistry'
@@ -3333,7 +3334,13 @@ export default function App() {
                   isVerse={splitIsVerse}
                   onPageChange={handleComparePageChange}
                   onFirstVisibleParagraph={setCompareFirstVisibleParagraph}
-                  initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined}
+                  // When we've just switched to Compare we have a paragraph sync
+                  // signal — anchor on THAT (paragraph-aligned across editions).
+                  // Do NOT also feed scrollFraction: Read and Compare are
+                  // different editions paginated differently, so the saved
+                  // fraction is the OTHER edition's and fights the paragraph
+                  // anchor ("two positions fighting" flutter on mobile).
+                  initialPage={validCompareSyncSignal ? undefined : (savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? undefined) : undefined)}
                   targetParagraphIndex={validCompareSyncSignal?.paragraph}
                   targetParagraphNonce={validCompareSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
@@ -3808,6 +3815,7 @@ export default function App() {
         onUpgrade={() => { setAudioPitchKind(null); setShowUsageDashboard(true) }}
       />
 
+      <NavDebugOverlay />
     </TierProvider>
   )
 }
