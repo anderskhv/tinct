@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import type { Book, ReadingPosition, ReadingProgress } from '../types'
 import { getReadingProgress, getSavedPosition } from '../hooks/useReadingPosition'
@@ -124,6 +124,11 @@ export function BookStore({ books, libraryIds, onRemoveBook, onSelectBook, onClo
   const [formFilter, setFormFilter] = useState('all')
   const [canonId, setCanonId] = useState(LIBRARY_READING_LISTS[0]?.id || '')
   const [detailId, setDetailId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!detailId) return
+    document.querySelector('.library-store')?.scrollTo({ top: 0, behavior: 'auto' })
+  }, [detailId])
 
   const items = useMemo<LibraryItem[]>(() => {
     const booksById = new Map(books.map(book => [book.id, book]))
