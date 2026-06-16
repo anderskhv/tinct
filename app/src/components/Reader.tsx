@@ -358,6 +358,12 @@ export function Reader({
   // backward chapter nav lands on second-to-last or first page instead of
   // last. Stops once the user manually navigates.
   useEffect(() => {
+    // Defer to a pending paragraph anchor — the paragraph is edition-independent
+    // and authoritative. Its two sibling restore effects already bail when
+    // targetParagraphRef is set; this one didn't, so on mobile (where the
+    // paragraph resolve is briefly flaky) the scroll-fraction kept re-applying
+    // page 0 and fought the paragraph restore (→8) = the chapter-start flutter.
+    if (targetParagraphRef.current !== undefined) return
     const frac = initialPageRef.current
     if (frac === undefined || totalPages <= 1) return
     if (userNavigatedRef.current) return
