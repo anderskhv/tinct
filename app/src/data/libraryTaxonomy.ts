@@ -2395,7 +2395,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
-    "id": "enquiry-hume",
+    "id": "hume-enquiry",
     "title": "An Enquiry Concerning Human Understanding",
     "author": "David Hume",
     "year": "1748",
@@ -2403,7 +2403,6 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "form": "philosophy",
     "era": "early-modern",
     "hue": 215,
-    "stub": true,
     "blurb": "A devastating empiricism, written to be readable.",
     "themes": [
       "causation",
@@ -2443,7 +2442,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
-    "id": "wealth-nations",
+    "id": "wealth-of-nations",
     "title": "The Wealth of Nations",
     "author": "Adam Smith",
     "year": "1776",
@@ -2451,7 +2450,6 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "form": "political",
     "era": "early-modern",
     "hue": 90,
-    "stub": true,
     "blurb": "The invisible hand of the market, in five long books.",
     "themes": [
       "markets",
@@ -3118,7 +3116,7 @@ export const LIBRARY_READING_LISTS: LibraryReadingList[] = [
         "id": "paradise-lost"
       },
       {
-        "id": "enquiry-hume"
+        "id": "hume-enquiry"
       },
       {
         "id": "discourse-on-inequality"
@@ -3127,7 +3125,7 @@ export const LIBRARY_READING_LISTS: LibraryReadingList[] = [
         "id": "social-contract"
       },
       {
-        "id": "wealth-nations"
+        "id": "wealth-of-nations"
       },
       {
         "id": "groundwork-kant"

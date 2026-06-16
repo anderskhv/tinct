@@ -215,7 +215,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== CACHE_NAME && k !== APP_SHELL_CACHE_NAME).map(k => caches.delete(k)))
-    )
+    ).then(() => self.clients.claim())
   )
 })
 
@@ -236,6 +236,11 @@ async function precacheAppShell() {
 
 // Listen for download requests from the main thread
 self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting()
+    return
+  }
+
   if (event.data?.type === 'CACHE_URLS') {
     const urls = event.data.urls
     event.waitUntil(

@@ -340,11 +340,23 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'Second Treatise of Government',
     author: 'John Locke',
   },
+  'hume-enquiry': {
+    title: 'Read An Enquiry Concerning Human Understanding by David Hume — Free Online with AI Companion | Tinct',
+    description: 'Hume\'s short revision of his abandoned Treatise: what knowledge is, why induction can\'t be justified, why miracles can\'t outweigh ordinary evidence, why the self is just a bundle of perceptions. The clearest statement of empiricism in English, and the book that woke Kant from his "dogmatic slumber."',
+    bookName: 'An Enquiry Concerning Human Understanding',
+    author: 'David Hume',
+  },
   'social-contract': {
     title: 'Read The Social Contract by Jean-Jacques Rousseau — Free Online with AI Companion | Tinct',
     description: 'Man is born free, and everywhere he is in chains. Rousseau\'s short, dense argument for the only legitimate form of authority: a contract among equals, governed by the general will. The book the French Revolution thought it was reading.',
     bookName: 'The Social Contract',
     author: 'Jean-Jacques Rousseau',
+  },
+  'wealth-of-nations': {
+    title: 'Read The Wealth of Nations by Adam Smith — Free Online with AI Companion | Tinct',
+    description: 'A Scottish moral philosopher writes the founding text of modern economics: the division of labor in the pin factory, the invisible hand of markets, what makes nations rich. The book that shaped two centuries of policy and still anchors the debate.',
+    bookName: 'The Wealth of Nations',
+    author: 'Adam Smith',
   },
   'faust-part-1': {
     title: 'Read Faust, Part One by Johann Wolfgang von Goethe — Free Online with AI Companion | Tinct',
