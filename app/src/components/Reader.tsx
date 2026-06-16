@@ -423,6 +423,24 @@ export function Reader({
     return true
   }, [getColWidth, getGap, totalPages, tracePageSet])
 
+  // Retry the paragraph restore on a short schedule. The effect below only
+  // retries when `totalPages` changes; on mobile the first attempt often fails
+  // (`offsetLeft===0` before layout settles) and totalPages can stabilize before
+  // it resolves, leaving the reader stuck at page 0 (chapter start). These timed
+  // retries land the paragraph once layout is ready. Idempotent: tryScrollToParagraph
+  // clears targetParagraphRef on success, so later timers no-op. Only arms when a
+  // paragraph anchor is pending — desktop (which resolves on the first pass) and
+  // the fraction-restore path are unaffected.
+  useEffect(() => {
+    if (!isActive) return
+    if (targetParagraphRef.current === undefined) return
+    if (tryScrollToParagraph()) return
+    const timers = [120, 350, 700, 1200, 1800].map(ms => setTimeout(() => {
+      if (targetParagraphRef.current !== undefined) tryScrollToParagraph()
+    }, ms))
+    return () => timers.forEach(clearTimeout)
+  }, [isActive, tryScrollToParagraph, targetParagraphIndex, targetParagraphNonce, paragraphs, chapterTitle])
+
   useEffect(() => {
     // targetParagraphIndex takes priority over initialPage
     if (targetParagraphRef.current !== undefined) {
