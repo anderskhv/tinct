@@ -3159,8 +3159,8 @@ export const WEALTH_OF_NATIONS: Book = {
   coverColor: '#1f2820',
   coverAccent: '#c8b070',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Smith (1776)', year: 1776, aligned: true },
-    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Smith (1776)', year: 1776, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
   ],
 }
