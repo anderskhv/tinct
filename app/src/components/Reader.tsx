@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
 import { HIGHLIGHT_COLORS } from '../types'
-import { apiUrl } from '../utils/apiUrl'
+import { pollIssueStatus, submitIssueReport } from './reader/issueReport'
 import {
   pointCompare,
   buildSelectionSegments as buildSelectionSegmentsGeom,
@@ -1187,42 +1187,18 @@ export function Reader({
     if (!selectionPopup || !issueTag) return
     setIssueSubmitting(true)
     try {
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-      if (authToken) headers['Authorization'] = `Bearer ${authToken}`
-      const res = await fetch(apiUrl('/api/report-issue'), {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          bookId: bookId || '',
-          editionKey: editionKey || '',
-          chapterNumber: currentChapter ?? 0,
-          paragraphIndex: selectionPopup.paragraphIndex,
-          selectedText: selectionPopup.text,
-          tag: issueTag,
-          comment: issueComment.trim() || undefined,
-        }),
+      const { reportId } = await submitIssueReport({
+        authToken,
+        bookId: bookId || '',
+        editionKey: editionKey || '',
+        chapterNumber: currentChapter ?? 0,
+        paragraphIndex: selectionPopup.paragraphIndex,
+        selectedText: selectionPopup.text,
+        tag: issueTag,
+        comment: issueComment.trim() || undefined,
       })
-      if (!res.ok) throw new Error(`${res.status}`)
-      const data = await res.json() as { reportId?: string }
       window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Thank you. We\'re reviewing your report now. For every 5 approved fixes, you get a free month.' } }))
-      // Poll for evaluation result
-      if (data.reportId) {
-        let attempts = 0
-        const poll = setInterval(async () => {
-          attempts++
-          if (attempts > 20) { clearInterval(poll); return } // stop after ~60s
-          try {
-            const statusRes = await fetch(apiUrl(`/api/report-status?id=${data.reportId}`))
-            const statusData = await statusRes.json() as { status: string }
-            if (statusData.status === 'confirmed') {
-              clearInterval(poll)
-              window.dispatchEvent(new CustomEvent('tinct:issue-fixed'))
-            } else if (statusData.status === 'rejected' || statusData.status === 'needs_review') {
-              clearInterval(poll)
-            }
-          } catch { /* keep polling */ }
-        }, 3000)
-      }
+      if (reportId) pollIssueStatus(reportId)
     } catch {
       window.dispatchEvent(new CustomEvent('tinct:toast', { detail: { message: 'Something went wrong submitting the report. Please try again.' } }))
     }
