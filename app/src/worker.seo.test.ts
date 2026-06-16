@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import worker, { serveSpaWithMetaForTest } from './worker'
+import { handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
 
 function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app</body></html>') {
   return {
@@ -147,5 +148,40 @@ describe('worker SEO routing', () => {
       headers: { 'User-Agent': 'Bytespider/1.0' },
     }), routerEnv() as never, ctx)
     expect(blocked.status).toBe(403)
+  })
+})
+
+describe('worker static routing helpers', () => {
+  it('serves the IndexNow key dynamically', async () => {
+    const resp = handleIndexNowVerification(
+      new Request('https://tinct.app/abc123XYZ.txt'),
+      { INDEXNOW_KEY: 'abc123XYZ', ASSETS: { fetch: async () => new Response('not used') } },
+    )
+
+    expect(resp?.status).toBe(200)
+    expect(resp?.headers.get('Cache-Control')).toBe('public, max-age=3600')
+    expect(await resp!.text()).toBe('abc123XYZ')
+  })
+
+  it('rejects cross-site JSON data embeds before asset fetch', async () => {
+    let assetFetches = 0
+    const resp = await handleSeoAndStaticRequest(
+      new Request('https://tinct.app/data/editions/odyssey-modern-en.json', {
+        headers: { 'sec-fetch-site': 'cross-site' },
+      }),
+      {
+        ASSETS: {
+          fetch: async () => {
+            assetFetches += 1
+            return new Response('{}', { headers: { 'Content-Type': 'application/json' } })
+          },
+        },
+      },
+      ctx,
+    )
+
+    expect(resp.status).toBe(403)
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(assetFetches).toBe(0)
   })
 })
