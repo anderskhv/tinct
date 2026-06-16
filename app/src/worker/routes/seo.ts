@@ -348,7 +348,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
       // generated meta from bookRegistry is the fallback so every book in
       // the sitemap has unique <title>/<meta description> and we don't
-      // hand Google 60+ duplicate-content URLs.
+      // hand Google many duplicate-content URLs.
       const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
       if (meta) {
         const bookResp = await serveSpaWithMeta(request.method, url, env, meta, `https://tinct.app/read/${bookId}`, 'book')
