@@ -1,6 +1,6 @@
 import { storage } from '../services/storage'
 import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
-import { shouldBlockHistoryRegression, shouldBlockRegression } from '../hooks/useReadingPosition.guards'
+import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression } from '../hooks/useReadingPosition.guards'
 import { canPersistLocation, positionFromLocation } from './writer'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from './types'
 
@@ -164,6 +164,49 @@ export function commitReadingPosition(args: PositionCommitInput): PositionCommit
   storage.set('tinct-current-book', position.bookId)
   dedupBaseline.set(position.bookId, candidate)
   return { committed: true, position, gate }
+}
+
+export interface ProgressCommitInput {
+  bookId: string
+  /** The chapter whose completion is being recorded. Supplied EXPLICITLY by the
+   *  caller, never derived inside this helper: the chapter-advance caller passes
+   *  the pre-advance chapter (the one just finished), so deriving from a
+   *  reader-session location that may have already advanced would over-report by
+   *  one. The steady-state caller passes the readerSession-derived chapter. */
+  progressChapter: number
+  /** Caller-supplied layout. Steady-state passes the real page/totalPages;
+   *  chapter-advance passes a synthetic last-page (currentPage:1,totalPages:2) so
+   *  buildReadingProgressUpdate marks the chapter completed. Never synthesized here. */
+  currentPage: number
+  totalPages: number
+  totalChapters: number
+}
+
+export type ProgressCommitResult =
+  | { committed: true; progress: ReadingProgress }
+  | { committed: false; reason: string }
+
+// Progress is MONOTONIC by construction (buildReadingProgressUpdate only raises
+// highestCompletedChapter). Deliberately NOT subject to the dedup / backward-
+// regression guards that gate position writes — those would be a behavior change
+// and are unnecessary here. This is the single write point for `progress:` from
+// reading-time paths; the terminal book-completion write in App.tsx is the one
+// intentional exception (it records 100% regardless of current location).
+export function commitReadingProgress(args: ProgressCommitInput): ProgressCommitResult {
+  const { bookId, progressChapter, currentPage, totalPages, totalChapters } = args
+  if (totalChapters <= 0) return { committed: false, reason: 'no-chapters' }
+  const existing = storage.get<ReadingProgress>(progressKey(bookId))
+  const next = buildReadingProgressUpdate({
+    bookId,
+    progressChapter,
+    currentPage,
+    totalPages,
+    totalChapters,
+    existing,
+  })
+  if (!next) return { committed: false, reason: 'no-update' }
+  storage.set<ReadingProgress>(progressKey(bookId), next)
+  return { committed: true, progress: next }
 }
 
 export function getSavedPosition(bookId: string): ReadingPosition | null {

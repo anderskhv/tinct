@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from 'react'
-import { storage } from '../services/storage'
-import type { ReadingPosition, ReadingProgress } from '../types'
+import type { ReadingPosition } from '../types'
 import {
   commitReadingPosition,
+  commitReadingProgress,
   getReadingProgress,
   getSavedPosition,
   markCloudLoaded,
@@ -10,11 +10,7 @@ import {
   markUserNav,
 } from '../readerSession/positionSync'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from '../readerSession/types'
-import { buildReadingProgressUpdate, getPersistableReaderHistoryLocation, shouldSkipOnBookChange } from './useReadingPosition.guards'
-
-function progressKey(bookId: string): string {
-  return `progress:${bookId}`
-}
+import { getPersistableReaderHistoryLocation, shouldSkipOnBookChange } from './useReadingPosition.guards'
 
 /** Tagged window so we can confirm in DevTools that the hook is wired up. */
 declare global {
@@ -255,18 +251,15 @@ export function useReadingPosition(
     // how `progress:nicomachean-ethics` got `totalChapters=1189` (the Bible's
     // chapter count). Diagnosed 2026-05-06.
     if (totalChapters <= 0) return
-    const progressChapter = progressLocation.chapterNumber
-    const existing = storage.get<ReadingProgress>(progressKey(bookId))
-    const nextProgress = buildReadingProgressUpdate({
+    // Single write point for `progress:` from reading-time paths — derives the
+    // chapter from the readerSession location (via getPersistableReaderHistoryLocation
+    // above), keeping readerSession the sole persisted-tuple source.
+    commitReadingProgress({
       bookId,
-      progressChapter,
+      progressChapter: progressLocation.chapterNumber,
       currentPage,
       totalPages,
       totalChapters,
-      existing,
     })
-    if (nextProgress) {
-      storage.set<ReadingProgress>(progressKey(bookId), nextProgress)
-    }
   }, [bookId, currentPage, totalPages, totalChapters, storageReady, readerSession])
 }
