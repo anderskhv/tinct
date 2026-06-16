@@ -859,6 +859,13 @@ export function Reader({
     else applyCustomSelection(current.anchor, point, false)
   }, [applyCustomSelection, atEffectiveFirstPage, atEffectiveLastPage, effectiveTotalPages, getTextPointFromClientPoint, readerRef])
 
+  // Timestamp of the last existing-highlight popup open. On mobile/Boox, tapping
+  // a highlight can make the OS natively select that word, which fires
+  // `selectionchange` → handleMouseUp and replaced/dismissed the just-opened
+  // highlight popup (the "menu flashes and disappears" bug). handleMouseUp bails
+  // for a short window after this, so the tap-a-highlight popup survives.
+  const existingHighlightOpenedAtRef = useRef(0)
+
   const showExistingHighlightPopup = useCallback((markEl: HTMLElement) => {
     if (disableHighlight) return false
     const highlightId = markEl.getAttribute('data-highlight-id')
@@ -890,6 +897,7 @@ export function Reader({
       existingHighlightId: highlightId,
       existingNote,
     })
+    existingHighlightOpenedAtRef.current = Date.now()
     return true
   }, [clearSelectionPreview, disableHighlight, highlights])
 
@@ -986,6 +994,9 @@ export function Reader({
   }, [currentPage, goToPage, readerRef, onParagraphClick, isAudioPlaying, onNextChapter, onPrevChapter, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, selectionPopup, dismissPopup, showExistingHighlightPopup])
 
   const handleMouseUp = useCallback(() => {
+    // Just opened an existing-highlight popup (tap on a highlight). Ignore the
+    // OS's native word-selection that follows, so it doesn't replace/dismiss it.
+    if (Date.now() - existingHighlightOpenedAtRef.current < 600) return
     const selection = window.getSelection()
     if (!selection || selection.isCollapsed || !selection.toString().trim()) {
       setTimeout(() => dismissPopup(), 200)
