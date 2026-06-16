@@ -3288,7 +3288,11 @@ export default function App() {
                   onPageChange={handleReadPageChange}
                   onFirstVisibleParagraph={setFirstVisibleParagraph}
                   onVisibleParagraphsChange={setVisibleParagraphIndices}
-                  initialPage={savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined}
+                  // When snapping Read to Compare's position on tab-switch, anchor
+                  // on the synced paragraph only — not the saved scrollFraction,
+                  // which is the OTHER edition's and fights it (mirror of the
+                  // Compare-tab fix). Without a sync signal, restore normally.
+                  initialPage={validReadSyncSignal ? undefined : (savedPos.current?.chapterNumber === currentChapter ? (savedPos.current?.scrollFraction ?? (savedPos.current?.totalPages > 1 ? savedPos.current.currentPage / (savedPos.current.totalPages - 1) : undefined)) : undefined)}
                   isVerse={primaryIsVerse}
                   targetParagraphIndex={validReadSyncSignal?.paragraph ?? targetParagraphRef.current}
                   targetParagraphNonce={validReadSyncSignal?.nonce}
