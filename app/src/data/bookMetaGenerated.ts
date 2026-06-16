@@ -358,6 +358,12 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Wealth of Nations',
     author: 'Adam Smith',
   },
+  'werther': {
+    title: 'Read The Sorrows of Young Werther by Johann Wolfgang von Goethe — Free Online with AI Companion | Tinct',
+    description: 'Goethe\'s explosive early novel of feeling: Werther falls in love with Lotte, who is promised to another man, and turns private longing into a literary event that swept Europe. A short, dangerous book about desire, self-dramatization, and the cost of making life answer to emotion.',
+    bookName: 'The Sorrows of Young Werther',
+    author: 'Johann Wolfgang von Goethe',
+  },
   'faust-part-1': {
     title: 'Read Faust, Part One by Johann Wolfgang von Goethe — Free Online with AI Companion | Tinct',
     description: 'The scholar who has mastered every science still finds himself unable to live, makes a pact with Mephistopheles, and is led through pleasure, Walpurgis-Night, and the destruction of Gretchen. The defining work of German literature — and the play that taught the modern world how to talk about ambition, knowledge, and damnation.',

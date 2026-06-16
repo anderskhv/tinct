@@ -1588,6 +1588,30 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
+    "id": "werther",
+    "title": "The Sorrows of Young Werther",
+    "author": "Johann Wolfgang von Goethe",
+    "year": "1774",
+    "ySort": 1774,
+    "form": "novel",
+    "era": "early-modern",
+    "hue": 25,
+    "blurb": "A young man writes himself into love and despair.",
+    "themes": [
+      "romanticism",
+      "desire",
+      "melancholy"
+    ],
+    "shelves": [
+      "satirical-novels",
+      "modern-philosophy"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
     "id": "faust-part-1",
     "title": "Faust, Part One",
     "author": "Johann Wolfgang von Goethe",
@@ -2232,7 +2256,6 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "form": "novel",
     "era": "early-modern",
     "hue": 35,
-    "stub": true,
     "blurb": "A knight, a squire, a windmill. The first modern novel.",
     "themes": [
       "illusion",
@@ -2256,7 +2279,6 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "form": "philosophy",
     "era": "early-modern",
     "hue": 60,
-    "stub": true,
     "blurb": "The book that invented the essay — \"What do I know?\"",
     "themes": [
       "self",
@@ -2355,7 +2377,6 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "form": "novel",
     "era": "modern",
     "hue": 25,
-    "stub": true,
     "blurb": "All happy families are alike.",
     "themes": [
       "marriage",
