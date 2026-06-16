@@ -30,6 +30,14 @@ export function shouldSkipInitialLibraryWrite(existing: string[] | null | undefi
   return sameIds(unique(existing || []), unique(next))
 }
 
+export function shouldAdoptInitialLibraryFromStorage(
+  existing: string[] | null | undefined,
+  next: string[],
+  mode: LibraryWriteMode,
+): boolean {
+  return mode === 'replace' && Array.isArray(existing) && !sameIds(unique(existing), unique(next))
+}
+
 /**
  * Opening a not-yet-added book whose store card has no visible progress is a
  * fresh-start action. It must not restore a stale hidden `position:*` row.

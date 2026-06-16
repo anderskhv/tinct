@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { storage } from '../services/storage'
-import { resolveLibraryWrite, shouldSkipInitialLibraryWrite, type LibraryWriteMode } from './useLibrary.guards'
+import { resolveLibraryWrite, shouldAdoptInitialLibraryFromStorage, shouldSkipInitialLibraryWrite, type LibraryWriteMode } from './useLibrary.guards'
 
 const LIBRARY_KEY = 'library'
 
@@ -22,6 +22,11 @@ export function useLibrary(storageReady = true) {
     const existing = storage.get<string[]>(LIBRARY_KEY)
     if (!writeUnlockedRef.current) {
       writeUnlockedRef.current = true
+      if (shouldAdoptInitialLibraryFromStorage(existing, libraryIds, pendingWriteModeRef.current)) {
+        pendingWriteModeRef.current = 'replace'
+        setLibraryIds(existing || [])
+        return
+      }
       if (shouldSkipInitialLibraryWrite(existing, libraryIds)) return
     }
     const next = resolveLibraryWrite(existing, libraryIds, pendingWriteModeRef.current)

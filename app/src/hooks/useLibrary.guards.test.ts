@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { resolveLibraryWrite, shouldSkipInitialLibraryWrite, shouldStartFreshFromStoreOpen } from './useLibrary.guards'
+import { resolveLibraryWrite, shouldAdoptInitialLibraryFromStorage, shouldSkipInitialLibraryWrite, shouldStartFreshFromStoreOpen } from './useLibrary.guards'
 
 describe('resolveLibraryWrite', () => {
   it('unions existing library ids on add so stale clients do not drop books', () => {
@@ -22,6 +22,16 @@ describe('shouldSkipInitialLibraryWrite', () => {
 
   it('does not drop a real add that happened before the first persistence effect unlocked', () => {
     expect(shouldSkipInitialLibraryWrite(['bible'], ['bible', 'war-and-peace'])).toBe(false)
+  })
+})
+
+describe('shouldAdoptInitialLibraryFromStorage', () => {
+  it('adopts hydrated storage on the first replace-mode pass instead of overwriting it', () => {
+    expect(shouldAdoptInitialLibraryFromStorage(['bible', 'hamlet'], ['bible'], 'replace')).toBe(true)
+  })
+
+  it('does not adopt storage over a real add queued before writes unlock', () => {
+    expect(shouldAdoptInitialLibraryFromStorage(['bible'], ['bible', 'hamlet'], 'add')).toBe(false)
   })
 })
 

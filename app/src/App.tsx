@@ -513,12 +513,14 @@ export default function App() {
     const unsubscribe = provider.onChange((key, _value) => {
       if (key === 'preferences') {
         refreshFromStorage()
+      } else if (key === 'library') {
+        refreshLibrary()
       } else if (key === '__heavy_loaded__') {
         setHeavyLoadedTick(t => t + 1)
       }
     })
     return unsubscribe
-  }, [refreshFromStorage])
+  }, [refreshFromStorage, refreshLibrary])
 
   // Hoisted derivations needed by the visibility effect below.
   // Defined here (not lower down) to avoid TDZ in dep arrays.
