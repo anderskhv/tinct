@@ -2438,6 +2438,15 @@ export default function App() {
 
   const handleBookComplete = useCallback((source: 'audio' | 'text') => {
     if (totalChapters <= 0) return
+    // Wrong-book guard: only record completion when the readerSession location
+    // agrees we're on this book. A completion event arriving mid book-switch
+    // (location still on another book) must not write this book's progress with
+    // a mismatched totalChapters. This is the slice-3 "readerSession is the
+    // source" check. We intentionally do NOT gate on readerSession STATUS —
+    // completion is a terminal fact derived from totalChapters and must not be
+    // dropped just because the session is mid-layout at end-of-book. This is the
+    // one intentional progress: write that bypasses commitReadingProgress.
+    if (readerSessionState.location.bookId !== book.id) return
     storage.set(`progress:${book.id}`, {
       bookId: book.id,
       highestCompletedChapter: totalChapters,
@@ -2465,7 +2474,7 @@ export default function App() {
         window.speechSynthesis.speak(utterance)
       } catch { /* speech synthesis is best-effort */ }
     }
-  }, [book.id, currentChapter, effectiveAudioEditionKey, primaryEditionKey, totalChapters, user?.id])
+  }, [book.id, currentChapter, effectiveAudioEditionKey, primaryEditionKey, readerSessionState.location.bookId, totalChapters, user?.id])
 
   const textCompletionFiredRef = useRef('')
   useEffect(() => {
@@ -2739,6 +2748,15 @@ export default function App() {
               const hasProgress = options.hasProgress || !!getReadingProgress(bookId)
               if (!wasInLibrary) addBook(bookId)
               if (shouldStartFreshFromStoreOpen({ wasInLibrary, hasProgress })) {
+                // INTENTIONAL DIRECT RESET — do NOT route through
+                // commitReadingPosition. This deliberately rewinds to chapter 1,
+                // which the position-write path would (correctly) reject as a
+                // backward regression / dedup no-op. The markCloudPosition /
+                // markCloudLoaded calls below re-seed the regression + dedup
+                // baselines to chapter 1 so a subsequent genuine forward read is
+                // not itself blocked. This is one of the two intentional bypasses
+                // of the readerSession persisted-tuple path (the other is the
+                // terminal book-completion write in handleBookComplete).
                 const freshPosition: ReadingPosition = {
                   bookId,
                   chapterNumber: 1,
