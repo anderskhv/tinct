@@ -604,4 +604,10 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'Essays',
     author: 'Michel de Montaigne',
   },
+  'ivan-ilyich': {
+    title: 'Read The Death of Ivan Ilyich by Leo Tolstoy — Free Online with AI Companion | Tinct',
+    description: 'Tolstoy\'s short, pitiless masterpiece. A successful judge who has done everything right falls ill, and over the long course of his dying is forced to face the one question he never asked: whether the correct, pleasant, respectable life he built was the wrong one all along. The most searching account in fiction of what it is to die — with a peasant servant\'s plain kindness the only honest thing in the room.',
+    bookName: 'The Death of Ivan Ilyich',
+    author: 'Leo Tolstoy',
+  },
 }
