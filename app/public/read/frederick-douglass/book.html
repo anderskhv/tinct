@@ -11,91 +11,103 @@
   <meta property="og:url" content="https://tinct.app/read/frederick-douglass">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/frederick-douglass#book","name":"Narrative of the Life of Frederick Douglass","author":{"@type":"Person","name":"Frederick Douglass"},"description":"Born a slave in Maryland, Frederick Douglass taught himself to read in secret, fought off the man hired to break him, and escaped north in 1838. Three years later he wrote this account — naming the masters, the plantations, and the dates — while still legally a fugitive. The most influential of the American slave narratives.","url":"https://tinct.app/read/frederick-douglass","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/frederick-douglass?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/frederick-douglass?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Narrative of the Life of Frederick Douglass</h1>
-    <p class="dek">by Frederick Douglass</p>
-    <p class="description">Born a slave in Maryland, Frederick Douglass taught himself to read in secret, fought off the man hired to break him, and escaped north in 1838. Three years later he wrote this account — naming the masters, the plantations, and the dates — while still legally a fugitive. The most influential of the American slave narratives.</p>
-    <a class="cta" href="/read/frederick-douglass?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Chapter 1</h2>
-      <p>I was born in Tuckahoe, near Hillsborough, and about twelve miles from Easton, in Talbot county, Maryland. I have no accurate knowledge of my age, never having seen any authentic record containing it. By far the larger part of the slaves know as little of their ages as horses know of theirs, and it is the wish of most masters within my knowledge to keep their slaves thus ignorant. I do not remember to have ever met a slave who could tell of his birthday. They seldom come nearer to it than planting-time, harvest-time, cherry-time, spring-time, or fall-time. A want of information concerning my own was a source of unhappiness to me even during childhood. The white children could tell their ages. I could not tell why I ought to be deprived of the same privilege. I was not allowed to make any inquiries of my master concerning it. He deemed all such inquiries on the part of a slave improper and impertinent, and evidence of a restless spirit. The nearest estimate I can give makes me now between twenty-seven and twenty-eight years of age. I come to this, from hearing my master say, some time during 1835, I was about seventeen years old.</p>
-      <p>My mother was named Harriet Bailey. She was the daughter of Isaac and Betsey Bailey, both colored, and quite dark. My mother was of a darker complexion than either my grandmother or grandfather.</p>
-      <p>My father was a white man. He was admitted to be such by all I ever heard speak of my parentage. The opinion was also whispered that my master was my father; but of the correctness of this opinion, I know nothing; the means of knowing was withheld from me. My mother and I were separated when I was but an infant—before I knew her as my mother. It is a common custom, in the part of Maryland from which I ran away, to part children from their mothers at a very early age. Frequently, before the child has reached its twelfth month, its mother is taken from it, and hired out on some farm a considerable distance off, and the child is placed under the care of an old woman, too old for field labor. For what this separation is done, I do not know, unless it be to hinder the development of the child’s affection toward its mother, and to blunt and destroy the natural affection of the mother for the child. This is the inevitable result.</p>
-      <p>I never saw my mother, to know her as such, more than four or five times in my life; and each of these times was very short in duration, and at night. She was hired by a Mr. Stewart, who lived about twelve miles from my home. She made her journeys to see me in the night, travelling the whole distance on foot, after the performance of her day’s work. She was a field hand, and a whipping is the penalty of not being in the field at sunrise, unless a slave has special permission from his or her master to the contrary—a permission which they seldom get, and one that gives to him that gives it the proud name of being a kind master. I do not recollect of ever seeing my mother by the light of day. She was with me in the night. She would lie down with me, and get me to sleep, but long before I waked she was gone. Very little communication ever took place between us. Death soon ended what little we could have while she lived, and with it her hardships and suffering. She died when I was about seven years old, on one of my master’s farms, near Lee’s Mill. I was not allowed to be present during her illness, at her death, or burial. She was gone long before I knew any thing about...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/frederick-douglass/chapter-1">Chapter 1</a></li>
-<li><a href="/read/frederick-douglass/chapter-2">Chapter 2</a></li>
-<li><a href="/read/frederick-douglass/chapter-3">Chapter 3</a></li>
-<li><a href="/read/frederick-douglass/chapter-4">Chapter 4</a></li>
-<li><a href="/read/frederick-douglass/chapter-5">Chapter 5</a></li>
-<li><a href="/read/frederick-douglass/chapter-6">Chapter 6</a></li>
-<li><a href="/read/frederick-douglass/chapter-7">Chapter 7</a></li>
-<li><a href="/read/frederick-douglass/chapter-8">Chapter 8</a></li>
-<li><a href="/read/frederick-douglass/chapter-9">Chapter 9</a></li>
-<li><a href="/read/frederick-douglass/chapter-10">Chapter 10</a></li>
-<li><a href="/read/frederick-douglass/chapter-11">Chapter 11</a></li>
-<li><a href="/read/frederick-douglass/chapter-12">Appendix</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Narrative of the Life of Frederick Douglass</span>
   </div>
-  <footer>Read Narrative of the Life of Frederick Douglass free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Narrative of the Life of Frederick Douglass</h1>
+  <p class="byline">by Frederick Douglass</p>
+  <p class="hook">Born a slave in Maryland, Frederick Douglass taught himself to read in secret, fought off the man hired to break him, and escaped north in 1838. Three years later he wrote this account — naming the masters, the plantations, and the dates — while still legally a fugitive. The most influential of the American slave narratives.</p>
+  <a class="primary-cta" href="/read/frederick-douglass?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/frederick-douglass/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/frederick-douglass/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Appendix</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Chapter 1</h2>
+  <div class="body">
+    <p>I was born in Tuckahoe, near Hillsborough, and about twelve miles from Easton, in Talbot county, Maryland. I have no accurate knowledge of my age, never having seen any authentic record containing it. By far the larger part of the slaves know as little of their ages as horses know of theirs, and it is the wish of most masters within my knowledge to keep their slaves thus ignorant. I do not remember to have ever met a slave who could tell of his birthday. They seldom come nearer to it than planting-time, harvest-time, cherry-time, spring-time, or fall-time. A want of information concerning my own was a source of unhappiness to me even during childhood. The white children could tell their ages. I could not tell why I ought to be deprived of the same privilege. I was not allowed to make any inquiries of my master concerning it. He deemed all such inquiries on the part of a slave improper and impertinent, and evidence of a restless spirit. The nearest estimate I can give makes me now between twenty-seven and twenty-eight years of age. I come to this, from hearing my master say, some time during 1835, I was about seventeen years old.</p>
+    <p>My mother was named Harriet Bailey. She was the daughter of Isaac and Betsey Bailey, both colored, and quite dark. My mother was of a darker complexion than either my grandmother or grandfather.</p>
+    <p>My father was a white man. He was admitted to be such by all I ever heard speak of my parentage. The opinion was also whispered that my master was my father; but of the correctness of this opinion, I know nothing; the means of knowing was withheld from me. My mother and I were separated when I was but an infant—before I knew her as my mother. It is a common custom, in the part of Maryland from which I ran away, to part children from their mothers at a very early age. Frequently, before the child has reached its twelfth month, its mother is taken from it, and hired out on some farm a considerable distance off, and the child is placed under the care of an old woman, too old for field labor. For what this separation is done, I do not know, unless it be to hinder the development of the child’s affection toward its mother, and to blunt and destroy the natural affection of the mother for the child. This is the inevitable result.</p>
+    <p>I never saw my mother, to know her as such, more than four or five times in my life; and each of these times was very short in duration, and at night. She was hired by a Mr. Stewart, who lived about twelve miles from my home. She made her journeys to see me in the night, travelling the whole distance on foot, after the performance of her day’s work. She was a field hand, and a whipping is the penalty of not being in the field at sunrise, unless a slave has special permission from his or her master to the contrary—a permission which they seldom get, and one that gives to him that gives it the proud name of being a kind master. I do not recollect of ever seeing my mother by the light of day. She was with me in the night. She would lie down with me, and get me to sleep, but long before I waked she was gone. Very little communication ever took place between us. Death soon ended what little we could have while she lived, and with it her hardships and suffering. She died when I was about seven years old, on one of my master’s farms, near Lee’s Mill. I was not allowed to be present during her illness, at her death, or burial. She was gone long before I knew any thing about...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Narrative of the Life of Frederick Douglass free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/frederick-douglass?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

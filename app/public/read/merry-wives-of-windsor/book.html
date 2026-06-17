@@ -11,131 +11,143 @@
   <meta property="og:url" content="https://tinct.app/read/merry-wives-of-windsor">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/merry-wives-of-windsor#book","name":"The Merry Wives of Windsor","author":{"@type":"Person","name":"William Shakespeare"},"description":"Falstaff tries to seduce two respectable Windsor matrons for their money, sending each the same love letter. They compare notes and arrange the most humiliating series of punishments in the canon — including a soaking in the Thames in a laundry basket. The most farcical play and the one Queen Elizabeth supposedly demanded.","url":"https://tinct.app/read/merry-wives-of-windsor","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/merry-wives-of-windsor?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/merry-wives-of-windsor?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>The Merry Wives of Windsor</h1>
-    <p class="dek">by William Shakespeare</p>
-    <p class="description">Falstaff tries to seduce two respectable Windsor matrons for their money, sending each the same love letter. They compare notes and arrange the most humiliating series of punishments in the canon — including a soaking in the Thames in a laundry basket. The most farcical play and the one Queen Elizabeth supposedly demanded.</p>
-    <a class="cta" href="/read/merry-wives-of-windsor?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Act 1, Scene 1 — Windsor. Before Page’s house</h2>
-      <p>_Enter JUSTICE SHALLOW, SLENDER, and SIR HUGH EVANS._</p>
-      <p>_Shal._ Sir Hugh, persuade me not; I will make a Star-chamber matter of it: if he were twenty Sir John Falstaffs, he shall not abuse Robert Shallow, esquire.</p>
-      <p>_Slen._ In the county of Gloucester, justice of peace and ‘Coram.’ 5</p>
-      <p>_Shal._ Ay, cousin Slender, and ‘Custalorum.’</p>
-      <p>_Slen._ Ay, and ‘Rato-lorum’ too; and a gentleman born, master parson; who writes himself ‘Armigero,’ in any bill, warrant, quittance, or obligation, ‘Armigero.’</p>
-      <p>_Shal._ Ay, that I do; and have done any time these 10 three hundred years.</p>
-      <p>_Slen._ All his successors gone before him hath done’t; and all his ancestors that come after him may: they may give the dozen white luces in their coat. 15</p>
-      <p>_Shal._ It is an old coat.</p>
-      <p>_Evans._ The dozen white louses do become an old coat well; it agrees well, passant; it is a familiar beast to man, and signifies love.</p>
-      <p>_Shal._ The luce is the fresh fish; the salt fish is an old coat. 20</p>
-      <p>_Slen._ I may quarter, coz.</p>
-      <p>_Shal._ You may, by marrying.</p>
-      <p>_Evans._ It is marring indeed, if he quarter it.</p>
-      <p>_Shal._ Not a whit.</p>
-      <p>_Evans._ Yes, py’r lady; if he has a quarter of your 25 coat, there is but three skirts for yourself, in my simple conjectures: but that is all one. If Sir John Falstaff have committed disparagements unto you, I am of the church, and will be glad to do my benevolence to make atonements and compremises between you. 30</p>
-      <p>_Shal._ The council shall hear it; it is a riot.</p>
-      <p>_Evans._ It is not meet the council hear a riot; there is no fear of Got in a riot: the council, look you, shall desire to hear the fear of Got, and not to hear a riot; take your vizaments in that. 35</p>
-      <p>_Shal._ Ha! o’ my life, if I were young again, the sword should end it.</p>
-      <p>_Evans._ It is petter that friends is the sword, and end it: and there is also another device in my prain, which peradventure prings goot discretions with it:--there is Anne 40 Page, which is daughter to Master Thomas Page, which is pretty virginity.</p>
-      <p>_Slen._ Mistress Anne Page? She has brown hair, and speaks small like a woman.</p>
-      <p>_Evans._ It is that fery person for all the orld, as just as 45 you will desire; and seven hundred pounds of moneys, and gold and silver, is her grandsire upon his death’s-bed (Got deliver to a joyful resurrections!) give, when she is able to overtake seventeen years old: it were a goot motion if we leave our pribbles and prabbles, and desire a marriage between 50 Master Abraham and Mistress Anne Page.</p>
-      <p>_Slen._ Did her grandsire leave her seven hundred pound?</p>
-      <p>_Evans._ Ay, and her father is make her a petter penny.</p>
-      <p>_Slen._ I know the young gentlewoman; she has good gifts. 55</p>
-      <p>_Evans._ Seven hundred pounds and possibilities is goot gifts.</p>
-      <p>_Shal._ Well, let us see honest Master Page. Is Falstaff there?</p>
-      <p>_Evans._ Shall I tell you a lie? I do despise a liar as I do 60 despise one that is false, or as I despise one that is not true. The knight, Sir John, is there; and, I beseech you, be ruled by your well-willers. I will peat the door for Master Page.</p>
-      <p>[_Knocks_] What, hoa! Got pless your house here!</p>
-      <p>_Page._ [_Within_] Who’s there? 65</p>
-      <p>_Enter PAGE._</p>
-      <p>_Evans._ Here is Got’s plessing, and your friend, and Justice Shallow; and here young Master Slender, that peradventures shall tell you another tale, if matters grow to your likings.</p>
-      <p>_Page._ I am glad to see your worships well. I thank 70 you for my venison, Master Shallow.</p>
-      <p>_Shal._ Master Page, I am glad to see you: much good do it your good heart! I wished your venison better; it was ill killed. How doth good Mistress Page?--and I thank you always with my heart,...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/merry-wives-of-windsor/chapter-1">Act 1, Scene 1 — Windsor. Before Page’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-2">Act 1, Scene 2 — The same</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-3">Act 1, Scene 3 — A room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-4">Act 1, Scene 4 — A room in Doctor Caius’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-5">Act 2, Scene 1 — Before Page’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-6">Act 2, Scene 2 — A room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-7">Act 2, Scene 3 — A field near Windsor</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-8">Act 3, Scene 1 — A field near Frogmore</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-9">Act 3, Scene 2 — The street, in Windsor</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-10">Act 3, Scene 3 — A room in Ford’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-11">Act 3, Scene 4 — A room in Page’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-12">Act 3, Scene 5 — A room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-13">Act 4, Scene 1 — A street</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-14">Act 4, Scene 2 — A room in Ford’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-15">Act 4, Scene 3 — A room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-16">Act 4, Scene 4 — A room in Ford’s house</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-17">Act 4, Scene 5 — A room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-18">Act 4, Scene 6 — The same. Another room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-19">Act 5, Scene 1 — A room in the Garter Inn</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-20">Act 5, Scene 2 — Windsor Park</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-21">Act 5, Scene 3 — A street leading to the Park</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-22">Act 5, Scene 4 — Windsor Park</a></li>
-<li><a href="/read/merry-wives-of-windsor/chapter-23">Act 5, Scene 5 — Another part of the Park</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>The Merry Wives of Windsor</span>
   </div>
-  <footer>Read The Merry Wives of Windsor free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">The Merry Wives of Windsor</h1>
+  <p class="byline">by William Shakespeare</p>
+  <p class="hook">Falstaff tries to seduce two respectable Windsor matrons for their money, sending each the same love letter. They compare notes and arrange the most humiliating series of punishments in the canon — including a soaking in the Thames in a laundry basket. The most farcical play and the one Queen Elizabeth supposedly demanded.</p>
+  <a class="primary-cta" href="/read/merry-wives-of-windsor?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/merry-wives-of-windsor/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Act 1, Scene 1 — Windsor. Before Page’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Act 1, Scene 2 — The same</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Act 1, Scene 3 — A room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Act 1, Scene 4 — A room in Doctor Caius’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Act 2, Scene 1 — Before Page’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Act 2, Scene 2 — A room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Act 2, Scene 3 — A field near Windsor</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Act 3, Scene 1 — A field near Frogmore</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Act 3, Scene 2 — The street, in Windsor</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Act 3, Scene 3 — A room in Ford’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Act 3, Scene 4 — A room in Page’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Act 3, Scene 5 — A room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Act 4, Scene 1 — A street</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Act 4, Scene 2 — A room in Ford’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Act 4, Scene 3 — A room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Act 4, Scene 4 — A room in Ford’s house</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Act 4, Scene 5 — A room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Act 4, Scene 6 — The same. Another room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Act 5, Scene 1 — A room in the Garter Inn</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Act 5, Scene 2 — Windsor Park</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Act 5, Scene 3 — A street leading to the Park</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Act 5, Scene 4 — Windsor Park</span></a></li>
+<li><a href="/read/merry-wives-of-windsor/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Act 5, Scene 5 — Another part of the Park</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Act 1, Scene 1 — Windsor. Before Page’s house</h2>
+  <div class="body">
+    <p>_Enter JUSTICE SHALLOW, SLENDER, and SIR HUGH EVANS._</p>
+    <p>_Shal._ Sir Hugh, persuade me not; I will make a Star-chamber matter of it: if he were twenty Sir John Falstaffs, he shall not abuse Robert Shallow, esquire.</p>
+    <p>_Slen._ In the county of Gloucester, justice of peace and ‘Coram.’ 5</p>
+    <p>_Shal._ Ay, cousin Slender, and ‘Custalorum.’</p>
+    <p>_Slen._ Ay, and ‘Rato-lorum’ too; and a gentleman born, master parson; who writes himself ‘Armigero,’ in any bill, warrant, quittance, or obligation, ‘Armigero.’</p>
+    <p>_Shal._ Ay, that I do; and have done any time these 10 three hundred years.</p>
+    <p>_Slen._ All his successors gone before him hath done’t; and all his ancestors that come after him may: they may give the dozen white luces in their coat. 15</p>
+    <p>_Shal._ It is an old coat.</p>
+    <p>_Evans._ The dozen white louses do become an old coat well; it agrees well, passant; it is a familiar beast to man, and signifies love.</p>
+    <p>_Shal._ The luce is the fresh fish; the salt fish is an old coat. 20</p>
+    <p>_Slen._ I may quarter, coz.</p>
+    <p>_Shal._ You may, by marrying.</p>
+    <p>_Evans._ It is marring indeed, if he quarter it.</p>
+    <p>_Shal._ Not a whit.</p>
+    <p>_Evans._ Yes, py’r lady; if he has a quarter of your 25 coat, there is but three skirts for yourself, in my simple conjectures: but that is all one. If Sir John Falstaff have committed disparagements unto you, I am of the church, and will be glad to do my benevolence to make atonements and compremises between you. 30</p>
+    <p>_Shal._ The council shall hear it; it is a riot.</p>
+    <p>_Evans._ It is not meet the council hear a riot; there is no fear of Got in a riot: the council, look you, shall desire to hear the fear of Got, and not to hear a riot; take your vizaments in that. 35</p>
+    <p>_Shal._ Ha! o’ my life, if I were young again, the sword should end it.</p>
+    <p>_Evans._ It is petter that friends is the sword, and end it: and there is also another device in my prain, which peradventure prings goot discretions with it:--there is Anne 40 Page, which is daughter to Master Thomas Page, which is pretty virginity.</p>
+    <p>_Slen._ Mistress Anne Page? She has brown hair, and speaks small like a woman.</p>
+    <p>_Evans._ It is that fery person for all the orld, as just as 45 you will desire; and seven hundred pounds of moneys, and gold and silver, is her grandsire upon his death’s-bed (Got deliver to a joyful resurrections!) give, when she is able to overtake seventeen years old: it were a goot motion if we leave our pribbles and prabbles, and desire a marriage between 50 Master Abraham and Mistress Anne Page.</p>
+    <p>_Slen._ Did her grandsire leave her seven hundred pound?</p>
+    <p>_Evans._ Ay, and her father is make her a petter penny.</p>
+    <p>_Slen._ I know the young gentlewoman; she has good gifts. 55</p>
+    <p>_Evans._ Seven hundred pounds and possibilities is goot gifts.</p>
+    <p>_Shal._ Well, let us see honest Master Page. Is Falstaff there?</p>
+    <p>_Evans._ Shall I tell you a lie? I do despise a liar as I do 60 despise one that is false, or as I despise one that is not true. The knight, Sir John, is there; and, I beseech you, be ruled by your well-willers. I will peat the door for Master Page.</p>
+    <p>[_Knocks_] What, hoa! Got pless your house here!</p>
+    <p>_Page._ [_Within_] Who’s there? 65</p>
+    <p>_Enter PAGE._</p>
+    <p>_Evans._ Here is Got’s plessing, and your friend, and Justice Shallow; and here young Master Slender, that peradventures shall tell you another tale, if matters grow to your likings.</p>
+    <p>_Page._ I am glad to see your worships well. I thank 70 you for my venison, Master Shallow.</p>
+    <p>_Shal._ Master Page, I am glad to see you: much good do it your good heart! I wished your venison better; it was ill killed. How doth good Mistress Page?--and I thank you always with my heart,...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read The Merry Wives of Windsor free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/merry-wives-of-windsor?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

@@ -11,175 +11,187 @@
   <meta property="og:url" content="https://tinct.app/read/democracy-in-america">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/democracy-in-america#book","name":"Democracy in America","author":{"@type":"Person","name":"Alexis de Tocqueville"},"description":"A young French aristocrat travels the United States in 1831 and returns with the first, and still the most penetrating, analysis of democratic life — its equality, its restlessness, its softness, and the strange new tyranny of the majority.","url":"https://tinct.app/read/democracy-in-america","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/democracy-in-america?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/democracy-in-america?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Democracy in America</h1>
-    <p class="dek">by Alexis de Tocqueville</p>
-    <p class="description">A young French aristocrat travels the United States in 1831 and returns with the first, and still the most penetrating, analysis of democratic life — its equality, its restlessness, its softness, and the strange new tyranny of the majority.</p>
-    <a class="cta" href="/read/democracy-in-america?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Introductory Chapter</h2>
-      <p>Amongst the novel objects that attracted my attention during my stay in the United States, nothing struck me more forcibly than the general equality of conditions. I readily discovered the prodigious influence which this primary fact exercises on the whole course of society, by giving a certain direction to public opinion, and a certain tenor to the laws; by imparting new maxims to the governing powers, and peculiar habits to the governed. I speedily perceived that the influence of this fact extends far beyond the political character and the laws of the country, and that it has no less empire over civil society than over the Government; it creates opinions, engenders sentiments, suggests the ordinary practices of life, and modifies whatever it does not produce. The more I advanced in the study of American society, the more I perceived that the equality of conditions is the fundamental fact from which all others seem to be derived, and the central point at which all my observations constantly terminated.</p>
-      <p>I then turned my thoughts to our own hemisphere, where I imagined that I discerned something analogous to the spectacle which the New World presented to me. I observed that the equality of conditions is daily progressing towards those extreme limits which it seems to have reached in the United States, and that the democracy which governs the American communities appears to be rapidly rising into power in Europe. I hence conceived the idea of the book which is now before the reader.</p>
-      <p>It is evident to all alike that a great democratic revolution is going on amongst us; but there are two opinions as to its nature and consequences. To some it appears to be a novel accident, which as such may still be checked; to others it seems irresistible, because it is the most uniform, the most ancient, and the most permanent tendency which is to be found in history. Let us recollect the situation of France seven hundred years ago, when the territory was divided amongst a small number of families, who were the owners of the soil and the rulers of the inhabitants; the right of governing descended with the family inheritance from generation to generation; force was the only means by which man could act on man, and landed property was the sole source of power. Soon, however, the political power of the clergy was founded, and began to exert itself: the clergy opened its ranks to all classes, to the poor and the rich, the villein and the lord; equality penetrated into the Government through the Church, and the being who as a serf must have vegetated in perpetual bondage took his place as a priest in the midst of nobles, and not infrequently above the heads of kings.</p>
-      <p>The different relations of men became more complicated and more numerous as society gradually became more stable and more civilized. Thence the want of civil laws was felt; and the order of legal functionaries soon rose from the obscurity of the tribunals and their dusty chambers, to appear at the court of the monarch, by the side of the feudal barons in their ermine and their mail. Whilst the kings were ruining themselves by their great enterprises, and the nobles exhausting their resources by private wars, the lower orders were enriching themselves by commerce. The influence of money began to be perceptible in State affairs. The transactions of business opened a new road to power, and the financier rose to a station of political influence in which he was at once flattered and despised. Gradually the spread of mental acquirements, and the increasing taste for literature and art, opened chances of success to talent; science became a means of government, intelligence led to social power, and the man of letters took a part in the affairs of the State. The value attached to the privileges of birth decreased...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/democracy-in-america/chapter-1">Introductory Chapter</a></li>
-<li><a href="/read/democracy-in-america/chapter-2">Chapter 1 — Exterior Form Of North America</a></li>
-<li><a href="/read/democracy-in-america/chapter-3">Chapter 2 — Origin Of The Anglo-Americans</a></li>
-<li><a href="/read/democracy-in-america/chapter-4">Chapter 3 — Social Conditions Of The Anglo-Americans</a></li>
-<li><a href="/read/democracy-in-america/chapter-5">Chapter 4 — The Principle Of The Sovereignty Of The People In America</a></li>
-<li><a href="/read/democracy-in-america/chapter-6">Chapter 5 — Necessity Of Examining The Condition Of The States Before That Of The Union At Large</a></li>
-<li><a href="/read/democracy-in-america/chapter-7">Chapter 6 — Judicial Power In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-8">Chapter 7 — Political Jurisdiction In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-9">Chapter 8 — The Federal Constitution</a></li>
-<li><a href="/read/democracy-in-america/chapter-10">Chapter 9 — Why The People May Strictly Be Said To Govern In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-11">Chapter 10 — Parties In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-12">Chapter 11 — Liberty Of The Press In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-13">Chapter 12 — Political Associations In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-14">Chapter 13 — Government Of The Democracy In America</a></li>
-<li><a href="/read/democracy-in-america/chapter-15">Chapter 14 — Advantages American Society Derive From Democracy</a></li>
-<li><a href="/read/democracy-in-america/chapter-16">Chapter 15 — Unlimited Power Of Majority, And Its Consequences</a></li>
-<li><a href="/read/democracy-in-america/chapter-17">Chapter 16 — Causes Mitigating Tyranny In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-18">Chapter 17 — Principal Causes Maintaining The Democratic Republic In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-19">Chapter 18 — Future Condition Of Three Races In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-20">Conclusion</a></li>
-<li><a href="/read/democracy-in-america/chapter-21">Author&#39;s Preface to the Second Volume</a></li>
-<li><a href="/read/democracy-in-america/chapter-22">Chapter 1 — Philosophical Method Among the Americans</a></li>
-<li><a href="/read/democracy-in-america/chapter-23">Chapter 2 — Of The Principal Source Of Belief Among Democratic Nations</a></li>
-<li><a href="/read/democracy-in-america/chapter-24">Chapter 3 — Why The Americans Display More Readiness And More Taste For General Ideas Than Their Forefathers, The English.</a></li>
-<li><a href="/read/democracy-in-america/chapter-25">Chapter 4 — Why The Americans Have Never Been So Eager As The French For General Ideas In Political Matters</a></li>
-<li><a href="/read/democracy-in-america/chapter-26">Chapter 5 — Of The Manner In Which Religion In The United States Avails Itself Of Democratic Tendencies</a></li>
-<li><a href="/read/democracy-in-america/chapter-27">Chapter 6 — Of The Progress Of Roman Catholicism In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-28">Chapter 7 — Of The Cause Of A Leaning To Pantheism Amongst Democratic Nations</a></li>
-<li><a href="/read/democracy-in-america/chapter-29">Chapter 8 — The Principle Of Equality Suggests To The Americans The Idea Of The Indefinite Perfectibility Of Man</a></li>
-<li><a href="/read/democracy-in-america/chapter-30">Chapter 9 — The Example Of The Americans Does Not Prove That A Democratic People Can Have No Aptitude And No Taste For Science, Literature, Or Art</a></li>
-<li><a href="/read/democracy-in-america/chapter-31">Chapter 10 — Why The Americans Are More Addicted To Practical Than To Theoretical Science</a></li>
-<li><a href="/read/democracy-in-america/chapter-32">Chapter 11 — Of The Spirit In Which The Americans Cultivate The Arts</a></li>
-<li><a href="/read/democracy-in-america/chapter-33">Chapter 12 — Why The Americans Raise Some Monuments So Insignificant, And Others So Important</a></li>
-<li><a href="/read/democracy-in-america/chapter-34">Chapter 13 — Literary Characteristics Of Democratic Ages</a></li>
-<li><a href="/read/democracy-in-america/chapter-35">Chapter 14 — The Trade Of Literature</a></li>
-<li><a href="/read/democracy-in-america/chapter-36">Chapter 15 — The Study Of Greek And Latin Literature Peculiarly Useful In Democratic Communities</a></li>
-<li><a href="/read/democracy-in-america/chapter-37">Chapter 16 — The Effect Of Democracy On Language</a></li>
-<li><a href="/read/democracy-in-america/chapter-38">Chapter 17 — Of Some Of The Sources Of Poetry Amongst Democratic Nations</a></li>
-<li><a href="/read/democracy-in-america/chapter-39">Chapter 18 — Of The Inflated Style Of American Writers And Orators</a></li>
-<li><a href="/read/democracy-in-america/chapter-40">Chapter 19 — Some Observations On The Drama Amongst Democratic Nations</a></li>
-<li><a href="/read/democracy-in-america/chapter-41">Chapter 20 — Characteristics Of Historians In Democratic Ages</a></li>
-<li><a href="/read/democracy-in-america/chapter-42">Chapter 21 — Of Parliamentary Eloquence In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-43">Chapter 1 — Why Democratic Nations Show A More Ardent And Enduring Love Of Equality Than Of Liberty</a></li>
-<li><a href="/read/democracy-in-america/chapter-44">Chapter 2 — Of Individualism In Democratic Countries</a></li>
-<li><a href="/read/democracy-in-america/chapter-45">Chapter 3 — Individualism Stronger At The Close Of A Democratic Revolution Than At Other Periods</a></li>
-<li><a href="/read/democracy-in-america/chapter-46">Chapter 4 — That The Americans Combat The Effects Of Individualism By Free Institutions</a></li>
-<li><a href="/read/democracy-in-america/chapter-47">Chapter 5 — Of The Use Which The Americans Make Of Public Associations In Civil Life</a></li>
-<li><a href="/read/democracy-in-america/chapter-48">Chapter 6 — Of The Relation Between Public Associations And Newspapers</a></li>
-<li><a href="/read/democracy-in-america/chapter-49">Chapter 7 — Connection Of Civil And Political Associations</a></li>
-<li><a href="/read/democracy-in-america/chapter-50">Chapter 8 — The Americans Combat Individualism By The Principle Of Interest Rightly Understood</a></li>
-<li><a href="/read/democracy-in-america/chapter-51">Chapter 9 — That The Americans Apply The Principle Of Interest Rightly Understood To Religious Matters</a></li>
-<li><a href="/read/democracy-in-america/chapter-52">Chapter 10 — Of The Taste For Physical Well-Being In America</a></li>
-<li><a href="/read/democracy-in-america/chapter-53">Chapter 11 — Peculiar Effects Of The Love Of Physical Gratifications In Democratic Ages</a></li>
-<li><a href="/read/democracy-in-america/chapter-54">Chapter 12 — Causes Of Fanatical Enthusiasm In Some Americans</a></li>
-<li><a href="/read/democracy-in-america/chapter-55">Chapter 13 — Causes Of The Restless Spirit Of Americans In The Midst Of Their Prosperity</a></li>
-<li><a href="/read/democracy-in-america/chapter-56">Chapter 14 — Taste For Physical Gratifications United In America To Love Of Freedom And Attention To Public Affairs</a></li>
-<li><a href="/read/democracy-in-america/chapter-57">Chapter 15 — That Religious Belief Sometimes Turns The Thoughts Of The Americans To Immaterial Pleasures</a></li>
-<li><a href="/read/democracy-in-america/chapter-58">Chapter 16 — That Excessive Care Of Worldly Welfare May Impair That Welfare</a></li>
-<li><a href="/read/democracy-in-america/chapter-59">Chapter 17 — That In Times Marked By Equality Of Conditions And Sceptical Opinions, It Is Important To Remove To A Distance The Objects Of Human Actions</a></li>
-<li><a href="/read/democracy-in-america/chapter-60">Chapter 18 — That Amongst The Americans All Honest Callings Are Honorable</a></li>
-<li><a href="/read/democracy-in-america/chapter-61">Chapter 19 — That Almost All The Americans Follow Industrial Callings</a></li>
-<li><a href="/read/democracy-in-america/chapter-62">Chapter 20 — That Aristocracy May Be Engendered By Manufactures</a></li>
-<li><a href="/read/democracy-in-america/chapter-63">Chapter 1 — That Manners Are Softened As Social Conditions Become More Equal</a></li>
-<li><a href="/read/democracy-in-america/chapter-64">Chapter 2 — That Democracy Renders The Habitual Intercourse Of The Americans Simple And Easy</a></li>
-<li><a href="/read/democracy-in-america/chapter-65">Chapter 3 — Why The Americans Show So Little Sensitiveness In Their Own Country, And Are So Sensitive In Europe</a></li>
-<li><a href="/read/democracy-in-america/chapter-66">Chapter 4 — Consequences Of The Three Preceding Chapters</a></li>
-<li><a href="/read/democracy-in-america/chapter-67">Chapter 5 — How Democracy Affects the Relation Of Masters And Servants</a></li>
-<li><a href="/read/democracy-in-america/chapter-68">Chapter 6 — That Democratic Institutions And Manners Tend To Raise Rents And Shorten The Terms Of Leases</a></li>
-<li><a href="/read/democracy-in-america/chapter-69">Chapter 7 — Influence Of Democracy On Wages</a></li>
-<li><a href="/read/democracy-in-america/chapter-70">Chapter 8 — Influence Of Democracy On Kindred</a></li>
-<li><a href="/read/democracy-in-america/chapter-71">Chapter 9 — Education Of Young Women In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-72">Chapter 10 — The Young Woman In The Character Of A Wife</a></li>
-<li><a href="/read/democracy-in-america/chapter-73">Chapter 11 — That The Equality Of Conditions Contributes To The Maintenance Of Good Morals In America</a></li>
-<li><a href="/read/democracy-in-america/chapter-74">Chapter 12 — How The Americans Understand The Equality Of The Sexes</a></li>
-<li><a href="/read/democracy-in-america/chapter-75">Chapter 13 — That The Principle Of Equality Naturally Divides The Americans Into A Number Of Small Private Circles</a></li>
-<li><a href="/read/democracy-in-america/chapter-76">Chapter 14 — Some Reflections On American Manners</a></li>
-<li><a href="/read/democracy-in-america/chapter-77">Chapter 15 — Of The Gravity Of The Americans, And Why It Does Not Prevent Them From Often Committing Inconsiderate Actions</a></li>
-<li><a href="/read/democracy-in-america/chapter-78">Chapter 16 — Why The National Vanity Of The Americans Is More Restless And Captious Than That Of The English</a></li>
-<li><a href="/read/democracy-in-america/chapter-79">Chapter 17 — That The Aspect Of Society In The United States Is At Once Excited And Monotonous</a></li>
-<li><a href="/read/democracy-in-america/chapter-80">Chapter 18 — Of Honor In The United States And In Democratic Communities</a></li>
-<li><a href="/read/democracy-in-america/chapter-81">Chapter 19 — Why So Many Ambitious Men And So Little Lofty Ambition Are To Be Found In The United States</a></li>
-<li><a href="/read/democracy-in-america/chapter-82">Chapter 20 — The Trade Of Place-Hunting In Certain Democratic Countries</a></li>
-<li><a href="/read/democracy-in-america/chapter-83">Chapter 21 — Why Great Revolutions Will Become More Rare</a></li>
-<li><a href="/read/democracy-in-america/chapter-84">Chapter 22 — Why Democratic Nations Are Naturally Desirous Of Peace, And Democratic Armies Of War</a></li>
-<li><a href="/read/democracy-in-america/chapter-85">Chapter 23 — Which Is The Most Warlike And Most Revolutionary Class In Democratic Armies?</a></li>
-<li><a href="/read/democracy-in-america/chapter-86">Chapter 24 — Causes Which Render Democratic Armies Weaker Than Other Armies At The Outset Of A Campaign, And More Formidable In Protracted Warfare</a></li>
-<li><a href="/read/democracy-in-america/chapter-87">Chapter 25 — Of Discipline In Democratic Armies</a></li>
-<li><a href="/read/democracy-in-america/chapter-88">Chapter 26 — Some Considerations On War In Democratic Communities</a></li>
-<li><a href="/read/democracy-in-america/chapter-89">Chapter 1 — That Equality Naturally Gives Men A Taste For Free Institutions</a></li>
-<li><a href="/read/democracy-in-america/chapter-90">Chapter 2 — That The Notions Of Democratic Nations On Government Are Naturally Favorable To The Concentration Of Power</a></li>
-<li><a href="/read/democracy-in-america/chapter-91">Chapter 3 — That The Sentiments Of Democratic Nations Accord With Their Opinions In Leading Them To Concentrate Political Power</a></li>
-<li><a href="/read/democracy-in-america/chapter-92">Chapter 4 — Of Certain Peculiar And Accidental Causes Which Either Lead A People To Complete Centralization Of Government, Or Which Divert Them From It</a></li>
-<li><a href="/read/democracy-in-america/chapter-93">Chapter 5 — That Amongst The European Nations Of Our Time The Power Of Governments Is Increasing, Although The Persons Who Govern Are Less Stable</a></li>
-<li><a href="/read/democracy-in-america/chapter-94">Chapter 6 — What Sort Of Despotism Democratic Nations Have To Fear</a></li>
-<li><a href="/read/democracy-in-america/chapter-95">Chapter 7 — Continuation Of The Preceding Chapters</a></li>
-<li><a href="/read/democracy-in-america/chapter-96">Chapter 8 — General Survey Of The Subject</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Democracy in America</span>
   </div>
-  <footer>Read Democracy in America free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Democracy in America</h1>
+  <p class="byline">by Alexis de Tocqueville</p>
+  <p class="hook">A young French aristocrat travels the United States in 1831 and returns with the first, and still the most penetrating, analysis of democratic life — its equality, its restlessness, its softness, and the strange new tyranny of the majority.</p>
+  <a class="primary-cta" href="/read/democracy-in-america?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/democracy-in-america/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Introductory Chapter</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Chapter 1 — Exterior Form Of North America</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Chapter 2 — Origin Of The Anglo-Americans</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Chapter 3 — Social Conditions Of The Anglo-Americans</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Chapter 4 — The Principle Of The Sovereignty Of The People In America</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Chapter 5 — Necessity Of Examining The Condition Of The States Before That Of The Union At Large</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Chapter 6 — Judicial Power In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Chapter 7 — Political Jurisdiction In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Chapter 8 — The Federal Constitution</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Chapter 9 — Why The People May Strictly Be Said To Govern In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Chapter 10 — Parties In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Chapter 11 — Liberty Of The Press In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Chapter 12 — Political Associations In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Chapter 13 — Government Of The Democracy In America</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Chapter 14 — Advantages American Society Derive From Democracy</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Chapter 15 — Unlimited Power Of Majority, And Its Consequences</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Chapter 16 — Causes Mitigating Tyranny In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Chapter 17 — Principal Causes Maintaining The Democratic Republic In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Chapter 18 — Future Condition Of Three Races In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Conclusion</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Author&#39;s Preface to the Second Volume</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Chapter 1 — Philosophical Method Among the Americans</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Chapter 2 — Of The Principal Source Of Belief Among Democratic Nations</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Chapter 3 — Why The Americans Display More Readiness And More Taste For General Ideas Than Their Forefathers, The English.</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Chapter 4 — Why The Americans Have Never Been So Eager As The French For General Ideas In Political Matters</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Chapter 5 — Of The Manner In Which Religion In The United States Avails Itself Of Democratic Tendencies</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">Chapter 6 — Of The Progress Of Roman Catholicism In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">Chapter 7 — Of The Cause Of A Leaning To Pantheism Amongst Democratic Nations</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">Chapter 8 — The Principle Of Equality Suggests To The Americans The Idea Of The Indefinite Perfectibility Of Man</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">Chapter 9 — The Example Of The Americans Does Not Prove That A Democratic People Can Have No Aptitude And No Taste For Science, Literature, Or Art</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">Chapter 10 — Why The Americans Are More Addicted To Practical Than To Theoretical Science</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">Chapter 11 — Of The Spirit In Which The Americans Cultivate The Arts</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">Chapter 12 — Why The Americans Raise Some Monuments So Insignificant, And Others So Important</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">Chapter 13 — Literary Characteristics Of Democratic Ages</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">Chapter 14 — The Trade Of Literature</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">Chapter 15 — The Study Of Greek And Latin Literature Peculiarly Useful In Democratic Communities</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">Chapter 16 — The Effect Of Democracy On Language</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-38"><span class="glance-num">Chapter 38</span><span class="glance-text">Chapter 17 — Of Some Of The Sources Of Poetry Amongst Democratic Nations</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-39"><span class="glance-num">Chapter 39</span><span class="glance-text">Chapter 18 — Of The Inflated Style Of American Writers And Orators</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-40"><span class="glance-num">Chapter 40</span><span class="glance-text">Chapter 19 — Some Observations On The Drama Amongst Democratic Nations</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-41"><span class="glance-num">Chapter 41</span><span class="glance-text">Chapter 20 — Characteristics Of Historians In Democratic Ages</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-42"><span class="glance-num">Chapter 42</span><span class="glance-text">Chapter 21 — Of Parliamentary Eloquence In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-43"><span class="glance-num">Chapter 43</span><span class="glance-text">Chapter 1 — Why Democratic Nations Show A More Ardent And Enduring Love Of Equality Than Of Liberty</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-44"><span class="glance-num">Chapter 44</span><span class="glance-text">Chapter 2 — Of Individualism In Democratic Countries</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-45"><span class="glance-num">Chapter 45</span><span class="glance-text">Chapter 3 — Individualism Stronger At The Close Of A Democratic Revolution Than At Other Periods</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-46"><span class="glance-num">Chapter 46</span><span class="glance-text">Chapter 4 — That The Americans Combat The Effects Of Individualism By Free Institutions</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-47"><span class="glance-num">Chapter 47</span><span class="glance-text">Chapter 5 — Of The Use Which The Americans Make Of Public Associations In Civil Life</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-48"><span class="glance-num">Chapter 48</span><span class="glance-text">Chapter 6 — Of The Relation Between Public Associations And Newspapers</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-49"><span class="glance-num">Chapter 49</span><span class="glance-text">Chapter 7 — Connection Of Civil And Political Associations</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-50"><span class="glance-num">Chapter 50</span><span class="glance-text">Chapter 8 — The Americans Combat Individualism By The Principle Of Interest Rightly Understood</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-51"><span class="glance-num">Chapter 51</span><span class="glance-text">Chapter 9 — That The Americans Apply The Principle Of Interest Rightly Understood To Religious Matters</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-52"><span class="glance-num">Chapter 52</span><span class="glance-text">Chapter 10 — Of The Taste For Physical Well-Being In America</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-53"><span class="glance-num">Chapter 53</span><span class="glance-text">Chapter 11 — Peculiar Effects Of The Love Of Physical Gratifications In Democratic Ages</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-54"><span class="glance-num">Chapter 54</span><span class="glance-text">Chapter 12 — Causes Of Fanatical Enthusiasm In Some Americans</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-55"><span class="glance-num">Chapter 55</span><span class="glance-text">Chapter 13 — Causes Of The Restless Spirit Of Americans In The Midst Of Their Prosperity</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-56"><span class="glance-num">Chapter 56</span><span class="glance-text">Chapter 14 — Taste For Physical Gratifications United In America To Love Of Freedom And Attention To Public Affairs</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-57"><span class="glance-num">Chapter 57</span><span class="glance-text">Chapter 15 — That Religious Belief Sometimes Turns The Thoughts Of The Americans To Immaterial Pleasures</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-58"><span class="glance-num">Chapter 58</span><span class="glance-text">Chapter 16 — That Excessive Care Of Worldly Welfare May Impair That Welfare</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-59"><span class="glance-num">Chapter 59</span><span class="glance-text">Chapter 17 — That In Times Marked By Equality Of Conditions And Sceptical Opinions, It Is Important To Remove To A Distance The Objects Of Human Actions</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-60"><span class="glance-num">Chapter 60</span><span class="glance-text">Chapter 18 — That Amongst The Americans All Honest Callings Are Honorable</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-61"><span class="glance-num">Chapter 61</span><span class="glance-text">Chapter 19 — That Almost All The Americans Follow Industrial Callings</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-62"><span class="glance-num">Chapter 62</span><span class="glance-text">Chapter 20 — That Aristocracy May Be Engendered By Manufactures</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-63"><span class="glance-num">Chapter 63</span><span class="glance-text">Chapter 1 — That Manners Are Softened As Social Conditions Become More Equal</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-64"><span class="glance-num">Chapter 64</span><span class="glance-text">Chapter 2 — That Democracy Renders The Habitual Intercourse Of The Americans Simple And Easy</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-65"><span class="glance-num">Chapter 65</span><span class="glance-text">Chapter 3 — Why The Americans Show So Little Sensitiveness In Their Own Country, And Are So Sensitive In Europe</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-66"><span class="glance-num">Chapter 66</span><span class="glance-text">Chapter 4 — Consequences Of The Three Preceding Chapters</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-67"><span class="glance-num">Chapter 67</span><span class="glance-text">Chapter 5 — How Democracy Affects the Relation Of Masters And Servants</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-68"><span class="glance-num">Chapter 68</span><span class="glance-text">Chapter 6 — That Democratic Institutions And Manners Tend To Raise Rents And Shorten The Terms Of Leases</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-69"><span class="glance-num">Chapter 69</span><span class="glance-text">Chapter 7 — Influence Of Democracy On Wages</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-70"><span class="glance-num">Chapter 70</span><span class="glance-text">Chapter 8 — Influence Of Democracy On Kindred</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-71"><span class="glance-num">Chapter 71</span><span class="glance-text">Chapter 9 — Education Of Young Women In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-72"><span class="glance-num">Chapter 72</span><span class="glance-text">Chapter 10 — The Young Woman In The Character Of A Wife</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-73"><span class="glance-num">Chapter 73</span><span class="glance-text">Chapter 11 — That The Equality Of Conditions Contributes To The Maintenance Of Good Morals In America</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-74"><span class="glance-num">Chapter 74</span><span class="glance-text">Chapter 12 — How The Americans Understand The Equality Of The Sexes</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-75"><span class="glance-num">Chapter 75</span><span class="glance-text">Chapter 13 — That The Principle Of Equality Naturally Divides The Americans Into A Number Of Small Private Circles</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-76"><span class="glance-num">Chapter 76</span><span class="glance-text">Chapter 14 — Some Reflections On American Manners</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-77"><span class="glance-num">Chapter 77</span><span class="glance-text">Chapter 15 — Of The Gravity Of The Americans, And Why It Does Not Prevent Them From Often Committing Inconsiderate Actions</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-78"><span class="glance-num">Chapter 78</span><span class="glance-text">Chapter 16 — Why The National Vanity Of The Americans Is More Restless And Captious Than That Of The English</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-79"><span class="glance-num">Chapter 79</span><span class="glance-text">Chapter 17 — That The Aspect Of Society In The United States Is At Once Excited And Monotonous</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-80"><span class="glance-num">Chapter 80</span><span class="glance-text">Chapter 18 — Of Honor In The United States And In Democratic Communities</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-81"><span class="glance-num">Chapter 81</span><span class="glance-text">Chapter 19 — Why So Many Ambitious Men And So Little Lofty Ambition Are To Be Found In The United States</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-82"><span class="glance-num">Chapter 82</span><span class="glance-text">Chapter 20 — The Trade Of Place-Hunting In Certain Democratic Countries</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-83"><span class="glance-num">Chapter 83</span><span class="glance-text">Chapter 21 — Why Great Revolutions Will Become More Rare</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-84"><span class="glance-num">Chapter 84</span><span class="glance-text">Chapter 22 — Why Democratic Nations Are Naturally Desirous Of Peace, And Democratic Armies Of War</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-85"><span class="glance-num">Chapter 85</span><span class="glance-text">Chapter 23 — Which Is The Most Warlike And Most Revolutionary Class In Democratic Armies?</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-86"><span class="glance-num">Chapter 86</span><span class="glance-text">Chapter 24 — Causes Which Render Democratic Armies Weaker Than Other Armies At The Outset Of A Campaign, And More Formidable In Protracted Warfare</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-87"><span class="glance-num">Chapter 87</span><span class="glance-text">Chapter 25 — Of Discipline In Democratic Armies</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-88"><span class="glance-num">Chapter 88</span><span class="glance-text">Chapter 26 — Some Considerations On War In Democratic Communities</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-89"><span class="glance-num">Chapter 89</span><span class="glance-text">Chapter 1 — That Equality Naturally Gives Men A Taste For Free Institutions</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-90"><span class="glance-num">Chapter 90</span><span class="glance-text">Chapter 2 — That The Notions Of Democratic Nations On Government Are Naturally Favorable To The Concentration Of Power</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-91"><span class="glance-num">Chapter 91</span><span class="glance-text">Chapter 3 — That The Sentiments Of Democratic Nations Accord With Their Opinions In Leading Them To Concentrate Political Power</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-92"><span class="glance-num">Chapter 92</span><span class="glance-text">Chapter 4 — Of Certain Peculiar And Accidental Causes Which Either Lead A People To Complete Centralization Of Government, Or Which Divert Them From It</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-93"><span class="glance-num">Chapter 93</span><span class="glance-text">Chapter 5 — That Amongst The European Nations Of Our Time The Power Of Governments Is Increasing, Although The Persons Who Govern Are Less Stable</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-94"><span class="glance-num">Chapter 94</span><span class="glance-text">Chapter 6 — What Sort Of Despotism Democratic Nations Have To Fear</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-95"><span class="glance-num">Chapter 95</span><span class="glance-text">Chapter 7 — Continuation Of The Preceding Chapters</span></a></li>
+<li><a href="/read/democracy-in-america/chapter-96"><span class="glance-num">Chapter 96</span><span class="glance-text">Chapter 8 — General Survey Of The Subject</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Introductory Chapter</h2>
+  <div class="body">
+    <p>Amongst the novel objects that attracted my attention during my stay in the United States, nothing struck me more forcibly than the general equality of conditions. I readily discovered the prodigious influence which this primary fact exercises on the whole course of society, by giving a certain direction to public opinion, and a certain tenor to the laws; by imparting new maxims to the governing powers, and peculiar habits to the governed. I speedily perceived that the influence of this fact extends far beyond the political character and the laws of the country, and that it has no less empire over civil society than over the Government; it creates opinions, engenders sentiments, suggests the ordinary practices of life, and modifies whatever it does not produce. The more I advanced in the study of American society, the more I perceived that the equality of conditions is the fundamental fact from which all others seem to be derived, and the central point at which all my observations constantly terminated.</p>
+    <p>I then turned my thoughts to our own hemisphere, where I imagined that I discerned something analogous to the spectacle which the New World presented to me. I observed that the equality of conditions is daily progressing towards those extreme limits which it seems to have reached in the United States, and that the democracy which governs the American communities appears to be rapidly rising into power in Europe. I hence conceived the idea of the book which is now before the reader.</p>
+    <p>It is evident to all alike that a great democratic revolution is going on amongst us; but there are two opinions as to its nature and consequences. To some it appears to be a novel accident, which as such may still be checked; to others it seems irresistible, because it is the most uniform, the most ancient, and the most permanent tendency which is to be found in history. Let us recollect the situation of France seven hundred years ago, when the territory was divided amongst a small number of families, who were the owners of the soil and the rulers of the inhabitants; the right of governing descended with the family inheritance from generation to generation; force was the only means by which man could act on man, and landed property was the sole source of power. Soon, however, the political power of the clergy was founded, and began to exert itself: the clergy opened its ranks to all classes, to the poor and the rich, the villein and the lord; equality penetrated into the Government through the Church, and the being who as a serf must have vegetated in perpetual bondage took his place as a priest in the midst of nobles, and not infrequently above the heads of kings.</p>
+    <p>The different relations of men became more complicated and more numerous as society gradually became more stable and more civilized. Thence the want of civil laws was felt; and the order of legal functionaries soon rose from the obscurity of the tribunals and their dusty chambers, to appear at the court of the monarch, by the side of the feudal barons in their ermine and their mail. Whilst the kings were ruining themselves by their great enterprises, and the nobles exhausting their resources by private wars, the lower orders were enriching themselves by commerce. The influence of money began to be perceptible in State affairs. The transactions of business opened a new road to power, and the financier rose to a station of political influence in which he was at once flattered and despised. Gradually the spread of mental acquirements, and the increasing taste for literature and art, opened chances of success to talent; science became a means of government, intelligence led to social power, and the man of letters took a part in the affairs of the State. The value attached to the privileges of birth decreased...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Democracy in America free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/democracy-in-america?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

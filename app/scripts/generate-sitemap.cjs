@@ -171,43 +171,51 @@ function metaDescription(book, chapter, paragraphs) {
 
 function seoStyles() {
   return `<style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>`
 }
@@ -226,6 +234,8 @@ function pageShell({ title, description, canonical, body, jsonLd }) {
   <meta property="og:url" content="${escapeHtml(canonical)}">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
   ${seoStyles()}
 </head>
@@ -245,37 +255,39 @@ function buildBookIndexPage(book, edition) {
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
   const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</a></li>`)
+    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
-  const body = `<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="${readerHref}">Open reader</a>
-  </nav>
-</header>
+  const body = `<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="${readerHref}" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>${escapeHtml(book.title)}</h1>
-    <p class="dek">by ${escapeHtml(book.author)}</p>
-    <p class="description">${escapeHtml(description)}</p>
-    <a class="cta" href="${readerHref}">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>${escapeHtml(firstChapter.title || 'Opening')}</h2>
-      ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n      ')}
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-${chapterLinks}
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
   </div>
-  <footer>Read ${escapeHtml(book.title)} free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
-</main>`
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">${escapeHtml(book.title)}</h1>
+  <p class="byline">by ${escapeHtml(book.author)}</p>
+  <p class="hook">${escapeHtml(description)}</p>
+  <a class="primary-cta" href="${readerHref}">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+${chapterLinks}
+    </ol>
+  </section>
+
+  <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
+  <div class="body">
+    ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
+  </div>
+</main>
+<footer class="site">
+  <span>Read ${escapeHtml(book.title)} free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="${readerHref}">Open reader</a></span>
+</footer>`
   return pageShell({
     title: `Read ${book.title} by ${book.author} Free Online | Tinct`,
     description,

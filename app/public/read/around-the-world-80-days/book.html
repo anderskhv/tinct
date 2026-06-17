@@ -11,120 +11,132 @@
   <meta property="og:url" content="https://tinct.app/read/around-the-world-80-days">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/around-the-world-80-days#book","name":"Around the World in Eighty Days","author":{"@type":"Person","name":"Jules Verne"},"description":"Phileas Fogg, the most precise man in London, bets his fortune that he can circle the globe in eighty days. From London to Bombay to Yokohama to New York — a race against time, a detective on his heels, and a rescue along the way. Verne's great comedy of English phlegm against the chaos of the world.","url":"https://tinct.app/read/around-the-world-80-days","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/around-the-world-80-days?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/around-the-world-80-days?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Around the World in Eighty Days</h1>
-    <p class="dek">by Jules Verne</p>
-    <p class="description">Phileas Fogg, the most precise man in London, bets his fortune that he can circle the globe in eighty days. From London to Bombay to Yokohama to New York — a race against time, a detective on his heels, and a rescue along the way. Verne&#39;s great comedy of English phlegm against the chaos of the world.</p>
-    <a class="cta" href="/read/around-the-world-80-days?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Chapter 1. In which Phileas Fogg and Passepartout Accept each Other, the One as Master, the Other as Man</h2>
-      <p>Mr. Phileas Fogg lived, in 1872, at No. 7, Saville Row, Burlington Gardens, the house in which Sheridan died in 1814. He was one of the most noticeable members of the Reform Club, though he seemed always to avoid attracting attention; an enigmatical personage, about whom little was known, except that he was a polished man of the world. People said that he resembled Byron—at least that his head was Byronic; but he was a bearded, tranquil Byron, who might live on a thousand years without growing old.</p>
-      <p>Certainly an Englishman, it was more doubtful whether Phileas Fogg was a Londoner. He was never seen on ’Change, nor at the Bank, nor in the counting-rooms of the “City”; no ships ever came into London docks of which he was the owner; he had no public employment; he had never been entered at any of the Inns of Court, either at the Temple, or Lincoln’s Inn, or Gray’s Inn; nor had his voice ever resounded in the Court of Chancery, or in the Exchequer, or the Queen’s Bench, or the Ecclesiastical Courts. He certainly was not a manufacturer; nor was he a merchant or a gentleman farmer. His name was strange to the scientific and learned societies, and he never was known to take part in the sage deliberations of the Royal Institution or the London Institution, the Artisan’s Association, or the Institution of Arts and Sciences. He belonged, in fact, to none of the numerous societies which swarm in the English capital, from the Harmonic to that of the Entomologists, founded mainly for the purpose of abolishing pernicious insects.</p>
-      <p>Phileas Fogg was a member of the Reform, and that was all.</p>
-      <p>The way in which he got admission to this exclusive club was simple enough.</p>
-      <p>He was recommended by the Barings, with whom he had an open credit. His cheques were regularly paid at sight from his account current, which was always flush.</p>
-      <p>Was Phileas Fogg rich? Undoubtedly. But those who knew him best could not imagine how he had made his fortune, and Mr. Fogg was the last person to whom to apply for the information. He was not lavish, nor, on the contrary, avaricious; for, whenever he knew that money was needed for a noble, useful, or benevolent purpose, he supplied it quietly and sometimes anonymously. He was, in short, the least communicative of men. He talked very little, and seemed all the more mysterious for his taciturn manner. His daily habits were quite open to observation; but whatever he did was so exactly the same thing that he had always done before, that the wits of the curious were fairly puzzled.</p>
-      <p>Had he travelled? It was likely, for no one seemed to know the world more familiarly; there was no spot so secluded that he did not appear to have an intimate acquaintance with it. He often corrected, with a few clear words, the thousand conjectures advanced by members of the club as to lost and unheard-of travellers, pointing out the true probabilities, and seeming as if gifted with a sort of second sight, so often did events justify his predictions. He must have travelled everywhere, at least in the spirit.</p>
-      <p>It was at least certain that Phileas Fogg had not absented himself from London for many years. Those who were honoured by a better acquaintance with him than the rest, declared that nobody could pretend to have ever seen him anywhere else. His sole pastimes were reading the papers and playing whist. He often won at this game, which, as a silent one, harmonised with his nature; but his winnings never went into his purse, being reserved as a fund for his charities. Mr. Fogg played, not to win, but for the sake of playing. The game was in his eyes a contest, a struggle with a difficulty, yet a motionless, unwearying struggle, congenial to his...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/around-the-world-80-days/chapter-1">Chapter 1. In which Phileas Fogg and Passepartout Accept each Other, the One as Master, the Other as Man</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-2">Chapter 2. In which Passepartout is Convinced that He Has at Last Found His Ideal</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-3">Chapter 3. In which a Conversation Takes Place which Seems Likely to Cost Phileas Fogg Dear</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-4">Chapter 4. In which Phileas Fogg Astounds Passepartout, His Servant</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-5">Chapter 5. In which a New Species of Funds, Unknown to the Moneyed Men, Appears on ’change</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-6">Chapter 6. In which Fix, the Detective, Betrays a Very Natural Impatience</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-7">Chapter 7. Which Once More Demonstrates the Uselessness of Passports as Aids to Detectives</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-8">Chapter 8. In which Passepartout Talks Rather More, Perhaps, than is Prudent</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-9">Chapter 9. In which the Red Sea and the Indian Ocean Prove Propitious to the Designs of Phileas Fogg</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-10">Chapter 10. In which Passepartout is only too Glad to Get Off with the Loss of His Shoes</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-11">Chapter 11. In which Phileas Fogg Secures a Curious Means of Conveyance at a Fabulous Price</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-12">Chapter 12. In which Phileas Fogg and His Companions Venture Across the Indian Forests, and What Ensued</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-13">Chapter 13. In which Passepartout Receives a New Proof that Fortune Favors the Brave</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-14">Chapter 14. In which Phileas Fogg Descends the Whole Length of the Beautiful Valley of the Ganges Without Ever Thinking of Seeing It</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-15">Chapter 15. In which the Bag of Banknotes Disgorges Some Thousands of Pounds More</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-16">Chapter 16. In which Fix Does Not Seem to Understand in the Least What is Said to Him</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-17">Chapter 17. Showing What Happened on the Voyage from Singapore to Hong Kong</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-18">Chapter 18. In which Phileas Fogg, Passepartout, and Fix Go each about His Business</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-19">Chapter 19. In which Passepartout Takes a too Great Interest in His Master, and What Comes of It</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-20">Chapter 20. In which Fix Comes Face to Face with Phileas Fogg</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-21">Chapter 21. In which the Master of the “tankadere” Runs Great Risk of Losing a Reward of Two Hundred Pounds</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-22">Chapter 22. In which Passepartout Finds Out That, Even at the Antipodes, it is Convenient to Have Some Money in One’s Pocket</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-23">Chapter 23. In which Passepartout’s Nose Becomes Outrageously Long</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-24">Chapter 24. During which Mr. Fogg and Party Cross the Pacific Ocean</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-25">Chapter 25. In which a Slight Glimpse is Had of San Francisco</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-26">Chapter 26. In which Phileas Fogg and Party Travel by the Pacific Railroad</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-27">Chapter 27. In which Passepartout Undergoes, at a Speed of Twenty Miles an Hour, a Course of Mormon History</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-28">Chapter 28. In which Passepartout Does Not Succeed in Making Anybody Listen to Reason</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-29">Chapter 29. In which Certain Incidents are Narrated which are only to be Met with on American Railroads</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-30">Chapter 30. In which Phileas Fogg Simply Does His Duty</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-31">Chapter 31. In which Fix, the Detective, Considerably Furthers the Interests of Phileas Fogg</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-32">Chapter 32. In which Phileas Fogg Engages in a Direct Struggle with Bad Fortune</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-33">Chapter 33. In which Phileas Fogg Shows Himself Equal to the Occasion</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-34">Chapter 34. In which Phileas Fogg at Last Reaches London</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-35">Chapter 35. In which Phileas Fogg Does Not Have to Repeat His Orders to Passepartout Twice</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-36">Chapter 36. In which Phileas Fogg’s Name is Once More at a Premium on ’change</a></li>
-<li><a href="/read/around-the-world-80-days/chapter-37">Chapter 37. In which it is Shown that Phileas Fogg Gained Nothing by His Tour Around the World, Unless it Were Happiness</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Around the World in Eighty Days</span>
   </div>
-  <footer>Read Around the World in Eighty Days free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Around the World in Eighty Days</h1>
+  <p class="byline">by Jules Verne</p>
+  <p class="hook">Phileas Fogg, the most precise man in London, bets his fortune that he can circle the globe in eighty days. From London to Bombay to Yokohama to New York — a race against time, a detective on his heels, and a rescue along the way. Verne&#39;s great comedy of English phlegm against the chaos of the world.</p>
+  <a class="primary-cta" href="/read/around-the-world-80-days?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/around-the-world-80-days/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Chapter 1. In which Phileas Fogg and Passepartout Accept each Other, the One as Master, the Other as Man</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Chapter 2. In which Passepartout is Convinced that He Has at Last Found His Ideal</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Chapter 3. In which a Conversation Takes Place which Seems Likely to Cost Phileas Fogg Dear</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Chapter 4. In which Phileas Fogg Astounds Passepartout, His Servant</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Chapter 5. In which a New Species of Funds, Unknown to the Moneyed Men, Appears on ’change</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Chapter 6. In which Fix, the Detective, Betrays a Very Natural Impatience</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Chapter 7. Which Once More Demonstrates the Uselessness of Passports as Aids to Detectives</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Chapter 8. In which Passepartout Talks Rather More, Perhaps, than is Prudent</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Chapter 9. In which the Red Sea and the Indian Ocean Prove Propitious to the Designs of Phileas Fogg</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Chapter 10. In which Passepartout is only too Glad to Get Off with the Loss of His Shoes</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Chapter 11. In which Phileas Fogg Secures a Curious Means of Conveyance at a Fabulous Price</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Chapter 12. In which Phileas Fogg and His Companions Venture Across the Indian Forests, and What Ensued</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Chapter 13. In which Passepartout Receives a New Proof that Fortune Favors the Brave</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Chapter 14. In which Phileas Fogg Descends the Whole Length of the Beautiful Valley of the Ganges Without Ever Thinking of Seeing It</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Chapter 15. In which the Bag of Banknotes Disgorges Some Thousands of Pounds More</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Chapter 16. In which Fix Does Not Seem to Understand in the Least What is Said to Him</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Chapter 17. Showing What Happened on the Voyage from Singapore to Hong Kong</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Chapter 18. In which Phileas Fogg, Passepartout, and Fix Go each about His Business</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Chapter 19. In which Passepartout Takes a too Great Interest in His Master, and What Comes of It</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Chapter 20. In which Fix Comes Face to Face with Phileas Fogg</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Chapter 21. In which the Master of the “tankadere” Runs Great Risk of Losing a Reward of Two Hundred Pounds</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Chapter 22. In which Passepartout Finds Out That, Even at the Antipodes, it is Convenient to Have Some Money in One’s Pocket</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Chapter 23. In which Passepartout’s Nose Becomes Outrageously Long</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Chapter 24. During which Mr. Fogg and Party Cross the Pacific Ocean</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Chapter 25. In which a Slight Glimpse is Had of San Francisco</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Chapter 26. In which Phileas Fogg and Party Travel by the Pacific Railroad</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">Chapter 27. In which Passepartout Undergoes, at a Speed of Twenty Miles an Hour, a Course of Mormon History</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">Chapter 28. In which Passepartout Does Not Succeed in Making Anybody Listen to Reason</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">Chapter 29. In which Certain Incidents are Narrated which are only to be Met with on American Railroads</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">Chapter 30. In which Phileas Fogg Simply Does His Duty</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">Chapter 31. In which Fix, the Detective, Considerably Furthers the Interests of Phileas Fogg</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">Chapter 32. In which Phileas Fogg Engages in a Direct Struggle with Bad Fortune</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">Chapter 33. In which Phileas Fogg Shows Himself Equal to the Occasion</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">Chapter 34. In which Phileas Fogg at Last Reaches London</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">Chapter 35. In which Phileas Fogg Does Not Have to Repeat His Orders to Passepartout Twice</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">Chapter 36. In which Phileas Fogg’s Name is Once More at a Premium on ’change</span></a></li>
+<li><a href="/read/around-the-world-80-days/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">Chapter 37. In which it is Shown that Phileas Fogg Gained Nothing by His Tour Around the World, Unless it Were Happiness</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Chapter 1. In which Phileas Fogg and Passepartout Accept each Other, the One as Master, the Other as Man</h2>
+  <div class="body">
+    <p>Mr. Phileas Fogg lived, in 1872, at No. 7, Saville Row, Burlington Gardens, the house in which Sheridan died in 1814. He was one of the most noticeable members of the Reform Club, though he seemed always to avoid attracting attention; an enigmatical personage, about whom little was known, except that he was a polished man of the world. People said that he resembled Byron—at least that his head was Byronic; but he was a bearded, tranquil Byron, who might live on a thousand years without growing old.</p>
+    <p>Certainly an Englishman, it was more doubtful whether Phileas Fogg was a Londoner. He was never seen on ’Change, nor at the Bank, nor in the counting-rooms of the “City”; no ships ever came into London docks of which he was the owner; he had no public employment; he had never been entered at any of the Inns of Court, either at the Temple, or Lincoln’s Inn, or Gray’s Inn; nor had his voice ever resounded in the Court of Chancery, or in the Exchequer, or the Queen’s Bench, or the Ecclesiastical Courts. He certainly was not a manufacturer; nor was he a merchant or a gentleman farmer. His name was strange to the scientific and learned societies, and he never was known to take part in the sage deliberations of the Royal Institution or the London Institution, the Artisan’s Association, or the Institution of Arts and Sciences. He belonged, in fact, to none of the numerous societies which swarm in the English capital, from the Harmonic to that of the Entomologists, founded mainly for the purpose of abolishing pernicious insects.</p>
+    <p>Phileas Fogg was a member of the Reform, and that was all.</p>
+    <p>The way in which he got admission to this exclusive club was simple enough.</p>
+    <p>He was recommended by the Barings, with whom he had an open credit. His cheques were regularly paid at sight from his account current, which was always flush.</p>
+    <p>Was Phileas Fogg rich? Undoubtedly. But those who knew him best could not imagine how he had made his fortune, and Mr. Fogg was the last person to whom to apply for the information. He was not lavish, nor, on the contrary, avaricious; for, whenever he knew that money was needed for a noble, useful, or benevolent purpose, he supplied it quietly and sometimes anonymously. He was, in short, the least communicative of men. He talked very little, and seemed all the more mysterious for his taciturn manner. His daily habits were quite open to observation; but whatever he did was so exactly the same thing that he had always done before, that the wits of the curious were fairly puzzled.</p>
+    <p>Had he travelled? It was likely, for no one seemed to know the world more familiarly; there was no spot so secluded that he did not appear to have an intimate acquaintance with it. He often corrected, with a few clear words, the thousand conjectures advanced by members of the club as to lost and unheard-of travellers, pointing out the true probabilities, and seeming as if gifted with a sort of second sight, so often did events justify his predictions. He must have travelled everywhere, at least in the spirit.</p>
+    <p>It was at least certain that Phileas Fogg had not absented himself from London for many years. Those who were honoured by a better acquaintance with him than the rest, declared that nobody could pretend to have ever seen him anywhere else. His sole pastimes were reading the papers and playing whist. He often won at this game, which, as a silent one, harmonised with his nature; but his winnings never went into his purse, being reserved as a fund for his charities. Mr. Fogg played, not to win, but for the sake of playing. The game was in his eyes a contest, a struggle with a difficulty, yet a motionless, unwearying struggle, congenial to his...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Around the World in Eighty Days free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/around-the-world-80-days?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

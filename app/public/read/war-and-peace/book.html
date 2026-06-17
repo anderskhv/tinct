@@ -11,454 +11,466 @@
   <meta property="og:url" content="https://tinct.app/read/war-and-peace">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/war-and-peace#book","name":"War and Peace","author":{"@type":"Person","name":"Leo Tolstoy"},"description":"The sweeping epic of Russian society during the Napoleonic Wars. Five aristocratic families navigate love, death, and the search for meaning across battlefields and ballrooms.","url":"https://tinct.app/read/war-and-peace","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/war-and-peace?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/war-and-peace?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>War and Peace</h1>
-    <p class="dek">by Leo Tolstoy</p>
-    <p class="description">The sweeping epic of Russian society during the Napoleonic Wars. Five aristocratic families navigate love, death, and the search for meaning across battlefields and ballrooms.</p>
-    <a class="cta" href="/read/war-and-peace?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Book One (1805) — Chapter 1</h2>
-      <p>“Well, Prince, so Genoa and Lucca are now just family estates of the Buonapartes. But I warn you, if you don’t tell me that this means war, if you still try to defend the infamies and horrors perpetrated by that Antichrist—I really believe he is Antichrist—I will have nothing more to do with you and you are no longer my friend, no longer my ‘faithful slave,’ as you call yourself! But how do you do? I see I have frightened you—sit down and tell me all the news.”</p>
-      <p>It was in July, 1805, and the speaker was the well-known Anna Pávlovna Schérer, maid of honor and favorite of the Empress Márya Fëdorovna. With these words she greeted Prince Vasíli Kurágin, a man of high rank and importance, who was the first to arrive at her reception. Anna Pávlovna had had a cough for some days. She was, as she said, suffering from la grippe; grippe being then a new word in St. Petersburg, used only by the elite.</p>
-      <p>All her invitations without exception, written in French, and delivered by a scarlet-liveried footman that morning, ran as follows:</p>
-      <p>“If you have nothing better to do, Count (or Prince), and if the prospect of spending an evening with a poor invalid is not too terrible, I shall be very charmed to see you tonight between 7 and 10—Annette Schérer.”</p>
-      <p>“Heavens! what a virulent attack!” replied the prince, not in the least disconcerted by this reception. He had just entered, wearing an embroidered court uniform, knee breeches, and shoes, and had stars on his breast and a serene expression on his flat face. He spoke in that refined French in which our grandfathers not only spoke but thought, and with the gentle, patronizing intonation natural to a man of importance who had grown old in society and at court. He went up to Anna Pávlovna, kissed her hand, presenting to her his bald, scented, and shining head, and complacently seated himself on the sofa.</p>
-      <p>“First of all, dear friend, tell me how you are. Set your friend’s mind at rest,” said he without altering his tone, beneath the politeness and affected sympathy of which indifference and even irony could be discerned.</p>
-      <p>“Can one be well while suffering morally? Can one be calm in times like these if one has any feeling?” said Anna Pávlovna. “You are staying the whole evening, I hope?”</p>
-      <p>“And the fete at the English ambassador’s? Today is Wednesday. I must put in an appearance there,” said the prince. “My daughter is coming for me to take me there.”</p>
-      <p>“I thought today’s fete had been canceled. I confess all these festivities and fireworks are becoming wearisome.”</p>
-      <p>“If they had known that you wished it, the entertainment would have been put off,” said the prince, who, like a wound-up clock, by force of habit said things he did not even wish to be believed.</p>
-      <p>“Don’t tease! Well, and what has been decided about Novosíltsev’s dispatch? You know everything.”</p>
-      <p>“What can one say about it?” replied the prince in a cold, listless tone. “What has been decided? They have decided that Buonaparte has burnt his boats, and I believe that we are ready to burn ours.”</p>
-      <p>Prince Vasíli always spoke languidly, like an actor repeating a stale part. Anna Pávlovna Schérer on the contrary, despite her forty years, overflowed with animation and impulsiveness. To be an enthusiast had become her social vocation and, sometimes even when she did not feel like it, she became enthusiastic in order not to disappoint the expectations of those who knew her. The subdued smile which, though it did not suit her faded features, always played round her lips expressed, as in a spoiled child, a continual consciousness of her charming defect, which she neither wished, nor could, nor considered it necessary, to correct.</p>
-      <p>In the midst of a conversation on political matters Anna Pávlovna burst out:</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/war-and-peace/chapter-1">Book One (1805) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-2">Book One (1805) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-3">Book One (1805) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-4">Book One (1805) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-5">Book One (1805) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-6">Book One (1805) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-7">Book One (1805) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-8">Book One (1805) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-9">Book One (1805) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-10">Book One (1805) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-11">Book One (1805) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-12">Book One (1805) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-13">Book One (1805) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-14">Book One (1805) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-15">Book One (1805) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-16">Book One (1805) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-17">Book One (1805) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-18">Book One (1805) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-19">Book One (1805) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-20">Book One (1805) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-21">Book One (1805) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-22">Book One (1805) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-23">Book One (1805) — Chapter 23</a></li>
-<li><a href="/read/war-and-peace/chapter-24">Book One (1805) — Chapter 24</a></li>
-<li><a href="/read/war-and-peace/chapter-25">Book One (1805) — Chapter 25</a></li>
-<li><a href="/read/war-and-peace/chapter-26">Book One (1805) — Chapter 26</a></li>
-<li><a href="/read/war-and-peace/chapter-27">Book One (1805) — Chapter 27</a></li>
-<li><a href="/read/war-and-peace/chapter-28">Book Two (1805) — Chapter 28</a></li>
-<li><a href="/read/war-and-peace/chapter-29">Book Two (1805) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-30">Book Two (1805) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-31">Book Two (1805) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-32">Book Two (1805) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-33">Book Two (1805) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-34">Book Two (1805) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-35">Book Two (1805) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-36">Book Two (1805) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-37">Book Two (1805) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-38">Book Two (1805) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-39">Book Two (1805) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-40">Book Two (1805) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-41">Book Two (1805) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-42">Book Two (1805) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-43">Book Two (1805) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-44">Book Two (1805) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-45">Book Two (1805) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-46">Book Two (1805) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-47">Book Two (1805) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-48">Book Two (1805) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-49">Book Three (1805) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-50">Book Three (1805) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-51">Book Three (1805) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-52">Book Three (1805) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-53">Book Three (1805) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-54">Book Three (1805) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-55">Book Three (1805) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-56">Book Three (1805) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-57">Book Three (1805) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-58">Book Three (1805) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-59">Book Three (1805) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-60">Book Three (1805) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-61">Book Three (1805) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-62">Book Three (1805) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-63">Book Three (1805) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-64">Book Three (1805) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-65">Book Three (1805) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-66">Book Three (1805) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-67">Book Three (1805) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-68">Book Four (1806) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-69">Book Four (1806) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-70">Book Four (1806) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-71">Book Four (1806) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-72">Book Four (1806) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-73">Book Four (1806) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-74">Book Four (1806) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-75">Book Four (1806) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-76">Book Four (1806) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-77">Book Four (1806) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-78">Book Four (1806) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-79">Book Four (1806) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-80">Book Four (1806) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-81">Book Four (1806) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-82">Book Four (1806) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-83">Book Four (1806) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-84">Book Five (1806 - 07) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-85">Book Five (1806 - 07) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-86">Book Five (1806 - 07) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-87">Book Five (1806 - 07) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-88">Book Five (1806 - 07) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-89">Book Five (1806 - 07) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-90">Book Five (1806 - 07) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-91">Book Five (1806 - 07) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-92">Book Five (1806 - 07) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-93">Book Five (1806 - 07) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-94">Book Five (1806 - 07) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-95">Book Five (1806 - 07) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-96">Book Five (1806 - 07) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-97">Book Five (1806 - 07) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-98">Book Five (1806 - 07) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-99">Book Five (1806 - 07) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-100">Book Five (1806 - 07) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-101">Book Five (1806 - 07) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-102">Book Five (1806 - 07) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-103">Book Five (1806 - 07) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-104">Book Five (1806 - 07) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-105">Book Five (1806 - 07) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-106">Book Six (1808 - 10) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-107">Book Six (1808 - 10) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-108">Book Six (1808 - 10) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-109">Book Six (1808 - 10) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-110">Book Six (1808 - 10) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-111">Book Six (1808 - 10) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-112">Book Six (1808 - 10) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-113">Book Six (1808 - 10) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-114">Book Six (1808 - 10) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-115">Book Six (1808 - 10) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-116">Book Six (1808 - 10) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-117">Book Six (1808 - 10) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-118">Book Six (1808 - 10) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-119">Book Six (1808 - 10) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-120">Book Six (1808 - 10) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-121">Book Six (1808 - 10) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-122">Book Six (1808 - 10) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-123">Book Six (1808 - 10) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-124">Book Six (1808 - 10) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-125">Book Six (1808 - 10) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-126">Book Six (1808 - 10) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-127">Book Six (1808 - 10) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-128">Book Six (1808 - 10) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-129">Book Six (1808 - 10) — Chapter 23</a></li>
-<li><a href="/read/war-and-peace/chapter-130">Book Six (1808 - 10) — Chapter 24</a></li>
-<li><a href="/read/war-and-peace/chapter-131">Book Six (1808 - 10) — Chapter 25</a></li>
-<li><a href="/read/war-and-peace/chapter-132">Book Seven (1810 - 11) — Chapter 26</a></li>
-<li><a href="/read/war-and-peace/chapter-133">Book Seven (1810 - 11) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-134">Book Seven (1810 - 11) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-135">Book Seven (1810 - 11) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-136">Book Seven (1810 - 11) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-137">Book Seven (1810 - 11) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-138">Book Seven (1810 - 11) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-139">Book Seven (1810 - 11) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-140">Book Seven (1810 - 11) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-141">Book Seven (1810 - 11) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-142">Book Seven (1810 - 11) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-143">Book Seven (1810 - 11) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-144">Book Seven (1810 - 11) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-145">Book Eight (1811 - 12) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-146">Book Eight (1811 - 12) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-147">Book Eight (1811 - 12) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-148">Book Eight (1811 - 12) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-149">Book Eight (1811 - 12) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-150">Book Eight (1811 - 12) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-151">Book Eight (1811 - 12) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-152">Book Eight (1811 - 12) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-153">Book Eight (1811 - 12) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-154">Book Eight (1811 - 12) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-155">Book Eight (1811 - 12) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-156">Book Eight (1811 - 12) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-157">Book Eight (1811 - 12) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-158">Book Eight (1811 - 12) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-159">Book Eight (1811 - 12) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-160">Book Eight (1811 - 12) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-161">Book Eight (1811 - 12) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-162">Book Eight (1811 - 12) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-163">Book Eight (1811 - 12) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-164">Book Eight (1811 - 12) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-165">Book Eight (1811 - 12) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-166">Book Eight (1811 - 12) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-167">Book Nine (1812) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-168">Book Nine (1812) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-169">Book Nine (1812) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-170">Book Nine (1812) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-171">Book Nine (1812) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-172">Book Nine (1812) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-173">Book Nine (1812) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-174">Book Nine (1812) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-175">Book Nine (1812) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-176">Book Nine (1812) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-177">Book Nine (1812) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-178">Book Nine (1812) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-179">Book Nine (1812) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-180">Book Nine (1812) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-181">Book Nine (1812) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-182">Book Nine (1812) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-183">Book Nine (1812) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-184">Book Nine (1812) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-185">Book Nine (1812) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-186">Book Nine (1812) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-187">Book Nine (1812) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-188">Book Nine (1812) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-189">Book Nine (1812) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-190">Book Ten (1812) — Chapter 23</a></li>
-<li><a href="/read/war-and-peace/chapter-191">Book Ten (1812) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-192">Book Ten (1812) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-193">Book Ten (1812) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-194">Book Ten (1812) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-195">Book Ten (1812) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-196">Book Ten (1812) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-197">Book Ten (1812) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-198">Book Ten (1812) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-199">Book Ten (1812) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-200">Book Ten (1812) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-201">Book Ten (1812) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-202">Book Ten (1812) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-203">Book Ten (1812) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-204">Book Ten (1812) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-205">Book Ten (1812) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-206">Book Ten (1812) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-207">Book Ten (1812) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-208">Book Ten (1812) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-209">Book Ten (1812) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-210">Book Ten (1812) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-211">Book Ten (1812) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-212">Book Ten (1812) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-213">Book Ten (1812) — Chapter 23</a></li>
-<li><a href="/read/war-and-peace/chapter-214">Book Ten (1812) — Chapter 24</a></li>
-<li><a href="/read/war-and-peace/chapter-215">Book Ten (1812) — Chapter 25</a></li>
-<li><a href="/read/war-and-peace/chapter-216">Book Ten (1812) — Chapter 26</a></li>
-<li><a href="/read/war-and-peace/chapter-217">Book Ten (1812) — Chapter 27</a></li>
-<li><a href="/read/war-and-peace/chapter-218">Book Ten (1812) — Chapter 28</a></li>
-<li><a href="/read/war-and-peace/chapter-219">Book Ten (1812) — Chapter 29</a></li>
-<li><a href="/read/war-and-peace/chapter-220">Book Ten (1812) — Chapter 30</a></li>
-<li><a href="/read/war-and-peace/chapter-221">Book Ten (1812) — Chapter 31</a></li>
-<li><a href="/read/war-and-peace/chapter-222">Book Ten (1812) — Chapter 32</a></li>
-<li><a href="/read/war-and-peace/chapter-223">Book Ten (1812) — Chapter 33</a></li>
-<li><a href="/read/war-and-peace/chapter-224">Book Ten (1812) — Chapter 34</a></li>
-<li><a href="/read/war-and-peace/chapter-225">Book Ten (1812) — Chapter 35</a></li>
-<li><a href="/read/war-and-peace/chapter-226">Book Ten (1812) — Chapter 36</a></li>
-<li><a href="/read/war-and-peace/chapter-227">Book Ten (1812) — Chapter 37</a></li>
-<li><a href="/read/war-and-peace/chapter-228">Book Ten (1812) — Chapter 38</a></li>
-<li><a href="/read/war-and-peace/chapter-229">Book Eleven (1812) — Chapter 39</a></li>
-<li><a href="/read/war-and-peace/chapter-230">Book Eleven (1812) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-231">Book Eleven (1812) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-232">Book Eleven (1812) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-233">Book Eleven (1812) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-234">Book Eleven (1812) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-235">Book Eleven (1812) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-236">Book Eleven (1812) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-237">Book Eleven (1812) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-238">Book Eleven (1812) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-239">Book Eleven (1812) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-240">Book Eleven (1812) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-241">Book Eleven (1812) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-242">Book Eleven (1812) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-243">Book Eleven (1812) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-244">Book Eleven (1812) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-245">Book Eleven (1812) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-246">Book Eleven (1812) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-247">Book Eleven (1812) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-248">Book Eleven (1812) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-249">Book Eleven (1812) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-250">Book Eleven (1812) — Chapter 21</a></li>
-<li><a href="/read/war-and-peace/chapter-251">Book Eleven (1812) — Chapter 22</a></li>
-<li><a href="/read/war-and-peace/chapter-252">Book Eleven (1812) — Chapter 23</a></li>
-<li><a href="/read/war-and-peace/chapter-253">Book Eleven (1812) — Chapter 24</a></li>
-<li><a href="/read/war-and-peace/chapter-254">Book Eleven (1812) — Chapter 25</a></li>
-<li><a href="/read/war-and-peace/chapter-255">Book Eleven (1812) — Chapter 26</a></li>
-<li><a href="/read/war-and-peace/chapter-256">Book Eleven (1812) — Chapter 27</a></li>
-<li><a href="/read/war-and-peace/chapter-257">Book Eleven (1812) — Chapter 28</a></li>
-<li><a href="/read/war-and-peace/chapter-258">Book Eleven (1812) — Chapter 29</a></li>
-<li><a href="/read/war-and-peace/chapter-259">Book Eleven (1812) — Chapter 30</a></li>
-<li><a href="/read/war-and-peace/chapter-260">Book Eleven (1812) — Chapter 31</a></li>
-<li><a href="/read/war-and-peace/chapter-261">Book Eleven (1812) — Chapter 32</a></li>
-<li><a href="/read/war-and-peace/chapter-262">Book Eleven (1812) — Chapter 33</a></li>
-<li><a href="/read/war-and-peace/chapter-263">Book Twelve (1812) — Chapter 34</a></li>
-<li><a href="/read/war-and-peace/chapter-264">Book Twelve (1812) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-265">Book Twelve (1812) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-266">Book Twelve (1812) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-267">Book Twelve (1812) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-268">Book Twelve (1812) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-269">Book Twelve (1812) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-270">Book Twelve (1812) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-271">Book Twelve (1812) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-272">Book Twelve (1812) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-273">Book Twelve (1812) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-274">Book Twelve (1812) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-275">Book Twelve (1812) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-276">Book Twelve (1812) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-277">Book Twelve (1812) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-278">Book Twelve (1812) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-279">Book Thirteen (1812) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-280">Book Thirteen (1812) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-281">Book Thirteen (1812) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-282">Book Thirteen (1812) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-283">Book Thirteen (1812) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-284">Book Thirteen (1812) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-285">Book Thirteen (1812) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-286">Book Thirteen (1812) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-287">Book Thirteen (1812) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-288">Book Thirteen (1812) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-289">Book Thirteen (1812) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-290">Book Thirteen (1812) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-291">Book Thirteen (1812) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-292">Book Thirteen (1812) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-293">Book Thirteen (1812) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-294">Book Thirteen (1812) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-295">Book Thirteen (1812) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-296">Book Thirteen (1812) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-297">Book Thirteen (1812) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-298">Book Fourteen (1812) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-299">Book Fourteen (1812) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-300">Book Fourteen (1812) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-301">Book Fourteen (1812) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-302">Book Fourteen (1812) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-303">Book Fourteen (1812) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-304">Book Fourteen (1812) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-305">Book Fourteen (1812) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-306">Book Fourteen (1812) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-307">Book Fourteen (1812) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-308">Book Fourteen (1812) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-309">Book Fourteen (1812) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-310">Book Fourteen (1812) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-311">Book Fourteen (1812) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-312">Book Fourteen (1812) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-313">Book Fourteen (1812) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-314">Book Fourteen (1812) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-315">Book Fourteen (1812) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-316">Book Fourteen (1812) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-317">Book Fifteen (1812 - 13) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-318">Book Fifteen (1812 - 13) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-319">Book Fifteen (1812 - 13) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-320">Book Fifteen (1812 - 13) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-321">Book Fifteen (1812 - 13) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-322">Book Fifteen (1812 - 13) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-323">Book Fifteen (1812 - 13) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-324">Book Fifteen (1812 - 13) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-325">Book Fifteen (1812 - 13) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-326">Book Fifteen (1812 - 13) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-327">Book Fifteen (1812 - 13) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-328">Book Fifteen (1812 - 13) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-329">Book Fifteen (1812 - 13) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-330">Book Fifteen (1812 - 13) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-331">Book Fifteen (1812 - 13) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-332">Book Fifteen (1812 - 13) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-333">Book Fifteen (1812 - 13) — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-334">Book Fifteen (1812 - 13) — Chapter 17</a></li>
-<li><a href="/read/war-and-peace/chapter-335">Book Fifteen (1812 - 13) — Chapter 18</a></li>
-<li><a href="/read/war-and-peace/chapter-336">Book Fifteen (1812 - 13) — Chapter 19</a></li>
-<li><a href="/read/war-and-peace/chapter-337">First Epilogue (1813 - 20) — Chapter 20</a></li>
-<li><a href="/read/war-and-peace/chapter-338">First Epilogue (1813 - 20) — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-339">First Epilogue (1813 - 20) — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-340">First Epilogue (1813 - 20) — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-341">First Epilogue (1813 - 20) — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-342">First Epilogue (1813 - 20) — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-343">First Epilogue (1813 - 20) — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-344">First Epilogue (1813 - 20) — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-345">First Epilogue (1813 - 20) — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-346">First Epilogue (1813 - 20) — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-347">First Epilogue (1813 - 20) — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-348">First Epilogue (1813 - 20) — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-349">First Epilogue (1813 - 20) — Chapter 12</a></li>
-<li><a href="/read/war-and-peace/chapter-350">First Epilogue (1813 - 20) — Chapter 13</a></li>
-<li><a href="/read/war-and-peace/chapter-351">First Epilogue (1813 - 20) — Chapter 14</a></li>
-<li><a href="/read/war-and-peace/chapter-352">First Epilogue (1813 - 20) — Chapter 15</a></li>
-<li><a href="/read/war-and-peace/chapter-353">Second Epilogue — Chapter 16</a></li>
-<li><a href="/read/war-and-peace/chapter-354">Second Epilogue — Chapter 1</a></li>
-<li><a href="/read/war-and-peace/chapter-355">Second Epilogue — Chapter 2</a></li>
-<li><a href="/read/war-and-peace/chapter-356">Second Epilogue — Chapter 3</a></li>
-<li><a href="/read/war-and-peace/chapter-357">Second Epilogue — Chapter 4</a></li>
-<li><a href="/read/war-and-peace/chapter-358">Second Epilogue — Chapter 5</a></li>
-<li><a href="/read/war-and-peace/chapter-359">Second Epilogue — Chapter 6</a></li>
-<li><a href="/read/war-and-peace/chapter-360">Second Epilogue — Chapter 7</a></li>
-<li><a href="/read/war-and-peace/chapter-361">Second Epilogue — Chapter 8</a></li>
-<li><a href="/read/war-and-peace/chapter-362">Second Epilogue — Chapter 9</a></li>
-<li><a href="/read/war-and-peace/chapter-363">Second Epilogue — Chapter 10</a></li>
-<li><a href="/read/war-and-peace/chapter-364">Second Epilogue — Chapter 11</a></li>
-<li><a href="/read/war-and-peace/chapter-365">Second Epilogue — Chapter 12</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>War and Peace</span>
   </div>
-  <footer>Read War and Peace free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">War and Peace</h1>
+  <p class="byline">by Leo Tolstoy</p>
+  <p class="hook">The sweeping epic of Russian society during the Napoleonic Wars. Five aristocratic families navigate love, death, and the search for meaning across battlefields and ballrooms.</p>
+  <a class="primary-cta" href="/read/war-and-peace?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/war-and-peace/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Book One (1805) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Book One (1805) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Book One (1805) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Book One (1805) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Book One (1805) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Book One (1805) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Book One (1805) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Book One (1805) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Book One (1805) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Book One (1805) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Book One (1805) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Book One (1805) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Book One (1805) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Book One (1805) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Book One (1805) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Book One (1805) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Book One (1805) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Book One (1805) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Book One (1805) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Book One (1805) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Book One (1805) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Book One (1805) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Book One (1805) — Chapter 23</span></a></li>
+<li><a href="/read/war-and-peace/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Book One (1805) — Chapter 24</span></a></li>
+<li><a href="/read/war-and-peace/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Book One (1805) — Chapter 25</span></a></li>
+<li><a href="/read/war-and-peace/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Book One (1805) — Chapter 26</span></a></li>
+<li><a href="/read/war-and-peace/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">Book One (1805) — Chapter 27</span></a></li>
+<li><a href="/read/war-and-peace/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">Book Two (1805) — Chapter 28</span></a></li>
+<li><a href="/read/war-and-peace/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">Book Two (1805) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">Book Two (1805) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">Book Two (1805) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">Book Two (1805) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">Book Two (1805) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">Book Two (1805) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">Book Two (1805) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">Book Two (1805) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">Book Two (1805) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-38"><span class="glance-num">Chapter 38</span><span class="glance-text">Book Two (1805) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-39"><span class="glance-num">Chapter 39</span><span class="glance-text">Book Two (1805) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-40"><span class="glance-num">Chapter 40</span><span class="glance-text">Book Two (1805) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-41"><span class="glance-num">Chapter 41</span><span class="glance-text">Book Two (1805) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-42"><span class="glance-num">Chapter 42</span><span class="glance-text">Book Two (1805) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-43"><span class="glance-num">Chapter 43</span><span class="glance-text">Book Two (1805) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-44"><span class="glance-num">Chapter 44</span><span class="glance-text">Book Two (1805) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-45"><span class="glance-num">Chapter 45</span><span class="glance-text">Book Two (1805) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-46"><span class="glance-num">Chapter 46</span><span class="glance-text">Book Two (1805) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-47"><span class="glance-num">Chapter 47</span><span class="glance-text">Book Two (1805) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-48"><span class="glance-num">Chapter 48</span><span class="glance-text">Book Two (1805) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-49"><span class="glance-num">Chapter 49</span><span class="glance-text">Book Three (1805) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-50"><span class="glance-num">Chapter 50</span><span class="glance-text">Book Three (1805) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-51"><span class="glance-num">Chapter 51</span><span class="glance-text">Book Three (1805) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-52"><span class="glance-num">Chapter 52</span><span class="glance-text">Book Three (1805) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-53"><span class="glance-num">Chapter 53</span><span class="glance-text">Book Three (1805) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-54"><span class="glance-num">Chapter 54</span><span class="glance-text">Book Three (1805) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-55"><span class="glance-num">Chapter 55</span><span class="glance-text">Book Three (1805) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-56"><span class="glance-num">Chapter 56</span><span class="glance-text">Book Three (1805) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-57"><span class="glance-num">Chapter 57</span><span class="glance-text">Book Three (1805) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-58"><span class="glance-num">Chapter 58</span><span class="glance-text">Book Three (1805) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-59"><span class="glance-num">Chapter 59</span><span class="glance-text">Book Three (1805) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-60"><span class="glance-num">Chapter 60</span><span class="glance-text">Book Three (1805) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-61"><span class="glance-num">Chapter 61</span><span class="glance-text">Book Three (1805) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-62"><span class="glance-num">Chapter 62</span><span class="glance-text">Book Three (1805) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-63"><span class="glance-num">Chapter 63</span><span class="glance-text">Book Three (1805) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-64"><span class="glance-num">Chapter 64</span><span class="glance-text">Book Three (1805) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-65"><span class="glance-num">Chapter 65</span><span class="glance-text">Book Three (1805) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-66"><span class="glance-num">Chapter 66</span><span class="glance-text">Book Three (1805) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-67"><span class="glance-num">Chapter 67</span><span class="glance-text">Book Three (1805) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-68"><span class="glance-num">Chapter 68</span><span class="glance-text">Book Four (1806) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-69"><span class="glance-num">Chapter 69</span><span class="glance-text">Book Four (1806) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-70"><span class="glance-num">Chapter 70</span><span class="glance-text">Book Four (1806) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-71"><span class="glance-num">Chapter 71</span><span class="glance-text">Book Four (1806) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-72"><span class="glance-num">Chapter 72</span><span class="glance-text">Book Four (1806) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-73"><span class="glance-num">Chapter 73</span><span class="glance-text">Book Four (1806) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-74"><span class="glance-num">Chapter 74</span><span class="glance-text">Book Four (1806) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-75"><span class="glance-num">Chapter 75</span><span class="glance-text">Book Four (1806) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-76"><span class="glance-num">Chapter 76</span><span class="glance-text">Book Four (1806) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-77"><span class="glance-num">Chapter 77</span><span class="glance-text">Book Four (1806) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-78"><span class="glance-num">Chapter 78</span><span class="glance-text">Book Four (1806) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-79"><span class="glance-num">Chapter 79</span><span class="glance-text">Book Four (1806) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-80"><span class="glance-num">Chapter 80</span><span class="glance-text">Book Four (1806) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-81"><span class="glance-num">Chapter 81</span><span class="glance-text">Book Four (1806) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-82"><span class="glance-num">Chapter 82</span><span class="glance-text">Book Four (1806) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-83"><span class="glance-num">Chapter 83</span><span class="glance-text">Book Four (1806) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-84"><span class="glance-num">Chapter 84</span><span class="glance-text">Book Five (1806 - 07) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-85"><span class="glance-num">Chapter 85</span><span class="glance-text">Book Five (1806 - 07) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-86"><span class="glance-num">Chapter 86</span><span class="glance-text">Book Five (1806 - 07) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-87"><span class="glance-num">Chapter 87</span><span class="glance-text">Book Five (1806 - 07) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-88"><span class="glance-num">Chapter 88</span><span class="glance-text">Book Five (1806 - 07) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-89"><span class="glance-num">Chapter 89</span><span class="glance-text">Book Five (1806 - 07) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-90"><span class="glance-num">Chapter 90</span><span class="glance-text">Book Five (1806 - 07) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-91"><span class="glance-num">Chapter 91</span><span class="glance-text">Book Five (1806 - 07) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-92"><span class="glance-num">Chapter 92</span><span class="glance-text">Book Five (1806 - 07) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-93"><span class="glance-num">Chapter 93</span><span class="glance-text">Book Five (1806 - 07) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-94"><span class="glance-num">Chapter 94</span><span class="glance-text">Book Five (1806 - 07) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-95"><span class="glance-num">Chapter 95</span><span class="glance-text">Book Five (1806 - 07) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-96"><span class="glance-num">Chapter 96</span><span class="glance-text">Book Five (1806 - 07) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-97"><span class="glance-num">Chapter 97</span><span class="glance-text">Book Five (1806 - 07) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-98"><span class="glance-num">Chapter 98</span><span class="glance-text">Book Five (1806 - 07) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-99"><span class="glance-num">Chapter 99</span><span class="glance-text">Book Five (1806 - 07) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-100"><span class="glance-num">Chapter 100</span><span class="glance-text">Book Five (1806 - 07) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-101"><span class="glance-num">Chapter 101</span><span class="glance-text">Book Five (1806 - 07) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-102"><span class="glance-num">Chapter 102</span><span class="glance-text">Book Five (1806 - 07) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-103"><span class="glance-num">Chapter 103</span><span class="glance-text">Book Five (1806 - 07) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-104"><span class="glance-num">Chapter 104</span><span class="glance-text">Book Five (1806 - 07) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-105"><span class="glance-num">Chapter 105</span><span class="glance-text">Book Five (1806 - 07) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-106"><span class="glance-num">Chapter 106</span><span class="glance-text">Book Six (1808 - 10) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-107"><span class="glance-num">Chapter 107</span><span class="glance-text">Book Six (1808 - 10) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-108"><span class="glance-num">Chapter 108</span><span class="glance-text">Book Six (1808 - 10) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-109"><span class="glance-num">Chapter 109</span><span class="glance-text">Book Six (1808 - 10) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-110"><span class="glance-num">Chapter 110</span><span class="glance-text">Book Six (1808 - 10) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-111"><span class="glance-num">Chapter 111</span><span class="glance-text">Book Six (1808 - 10) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-112"><span class="glance-num">Chapter 112</span><span class="glance-text">Book Six (1808 - 10) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-113"><span class="glance-num">Chapter 113</span><span class="glance-text">Book Six (1808 - 10) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-114"><span class="glance-num">Chapter 114</span><span class="glance-text">Book Six (1808 - 10) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-115"><span class="glance-num">Chapter 115</span><span class="glance-text">Book Six (1808 - 10) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-116"><span class="glance-num">Chapter 116</span><span class="glance-text">Book Six (1808 - 10) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-117"><span class="glance-num">Chapter 117</span><span class="glance-text">Book Six (1808 - 10) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-118"><span class="glance-num">Chapter 118</span><span class="glance-text">Book Six (1808 - 10) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-119"><span class="glance-num">Chapter 119</span><span class="glance-text">Book Six (1808 - 10) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-120"><span class="glance-num">Chapter 120</span><span class="glance-text">Book Six (1808 - 10) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-121"><span class="glance-num">Chapter 121</span><span class="glance-text">Book Six (1808 - 10) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-122"><span class="glance-num">Chapter 122</span><span class="glance-text">Book Six (1808 - 10) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-123"><span class="glance-num">Chapter 123</span><span class="glance-text">Book Six (1808 - 10) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-124"><span class="glance-num">Chapter 124</span><span class="glance-text">Book Six (1808 - 10) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-125"><span class="glance-num">Chapter 125</span><span class="glance-text">Book Six (1808 - 10) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-126"><span class="glance-num">Chapter 126</span><span class="glance-text">Book Six (1808 - 10) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-127"><span class="glance-num">Chapter 127</span><span class="glance-text">Book Six (1808 - 10) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-128"><span class="glance-num">Chapter 128</span><span class="glance-text">Book Six (1808 - 10) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-129"><span class="glance-num">Chapter 129</span><span class="glance-text">Book Six (1808 - 10) — Chapter 23</span></a></li>
+<li><a href="/read/war-and-peace/chapter-130"><span class="glance-num">Chapter 130</span><span class="glance-text">Book Six (1808 - 10) — Chapter 24</span></a></li>
+<li><a href="/read/war-and-peace/chapter-131"><span class="glance-num">Chapter 131</span><span class="glance-text">Book Six (1808 - 10) — Chapter 25</span></a></li>
+<li><a href="/read/war-and-peace/chapter-132"><span class="glance-num">Chapter 132</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 26</span></a></li>
+<li><a href="/read/war-and-peace/chapter-133"><span class="glance-num">Chapter 133</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-134"><span class="glance-num">Chapter 134</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-135"><span class="glance-num">Chapter 135</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-136"><span class="glance-num">Chapter 136</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-137"><span class="glance-num">Chapter 137</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-138"><span class="glance-num">Chapter 138</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-139"><span class="glance-num">Chapter 139</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-140"><span class="glance-num">Chapter 140</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-141"><span class="glance-num">Chapter 141</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-142"><span class="glance-num">Chapter 142</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-143"><span class="glance-num">Chapter 143</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-144"><span class="glance-num">Chapter 144</span><span class="glance-text">Book Seven (1810 - 11) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-145"><span class="glance-num">Chapter 145</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-146"><span class="glance-num">Chapter 146</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-147"><span class="glance-num">Chapter 147</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-148"><span class="glance-num">Chapter 148</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-149"><span class="glance-num">Chapter 149</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-150"><span class="glance-num">Chapter 150</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-151"><span class="glance-num">Chapter 151</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-152"><span class="glance-num">Chapter 152</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-153"><span class="glance-num">Chapter 153</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-154"><span class="glance-num">Chapter 154</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-155"><span class="glance-num">Chapter 155</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-156"><span class="glance-num">Chapter 156</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-157"><span class="glance-num">Chapter 157</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-158"><span class="glance-num">Chapter 158</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-159"><span class="glance-num">Chapter 159</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-160"><span class="glance-num">Chapter 160</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-161"><span class="glance-num">Chapter 161</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-162"><span class="glance-num">Chapter 162</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-163"><span class="glance-num">Chapter 163</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-164"><span class="glance-num">Chapter 164</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-165"><span class="glance-num">Chapter 165</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-166"><span class="glance-num">Chapter 166</span><span class="glance-text">Book Eight (1811 - 12) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-167"><span class="glance-num">Chapter 167</span><span class="glance-text">Book Nine (1812) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-168"><span class="glance-num">Chapter 168</span><span class="glance-text">Book Nine (1812) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-169"><span class="glance-num">Chapter 169</span><span class="glance-text">Book Nine (1812) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-170"><span class="glance-num">Chapter 170</span><span class="glance-text">Book Nine (1812) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-171"><span class="glance-num">Chapter 171</span><span class="glance-text">Book Nine (1812) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-172"><span class="glance-num">Chapter 172</span><span class="glance-text">Book Nine (1812) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-173"><span class="glance-num">Chapter 173</span><span class="glance-text">Book Nine (1812) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-174"><span class="glance-num">Chapter 174</span><span class="glance-text">Book Nine (1812) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-175"><span class="glance-num">Chapter 175</span><span class="glance-text">Book Nine (1812) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-176"><span class="glance-num">Chapter 176</span><span class="glance-text">Book Nine (1812) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-177"><span class="glance-num">Chapter 177</span><span class="glance-text">Book Nine (1812) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-178"><span class="glance-num">Chapter 178</span><span class="glance-text">Book Nine (1812) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-179"><span class="glance-num">Chapter 179</span><span class="glance-text">Book Nine (1812) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-180"><span class="glance-num">Chapter 180</span><span class="glance-text">Book Nine (1812) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-181"><span class="glance-num">Chapter 181</span><span class="glance-text">Book Nine (1812) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-182"><span class="glance-num">Chapter 182</span><span class="glance-text">Book Nine (1812) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-183"><span class="glance-num">Chapter 183</span><span class="glance-text">Book Nine (1812) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-184"><span class="glance-num">Chapter 184</span><span class="glance-text">Book Nine (1812) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-185"><span class="glance-num">Chapter 185</span><span class="glance-text">Book Nine (1812) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-186"><span class="glance-num">Chapter 186</span><span class="glance-text">Book Nine (1812) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-187"><span class="glance-num">Chapter 187</span><span class="glance-text">Book Nine (1812) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-188"><span class="glance-num">Chapter 188</span><span class="glance-text">Book Nine (1812) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-189"><span class="glance-num">Chapter 189</span><span class="glance-text">Book Nine (1812) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-190"><span class="glance-num">Chapter 190</span><span class="glance-text">Book Ten (1812) — Chapter 23</span></a></li>
+<li><a href="/read/war-and-peace/chapter-191"><span class="glance-num">Chapter 191</span><span class="glance-text">Book Ten (1812) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-192"><span class="glance-num">Chapter 192</span><span class="glance-text">Book Ten (1812) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-193"><span class="glance-num">Chapter 193</span><span class="glance-text">Book Ten (1812) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-194"><span class="glance-num">Chapter 194</span><span class="glance-text">Book Ten (1812) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-195"><span class="glance-num">Chapter 195</span><span class="glance-text">Book Ten (1812) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-196"><span class="glance-num">Chapter 196</span><span class="glance-text">Book Ten (1812) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-197"><span class="glance-num">Chapter 197</span><span class="glance-text">Book Ten (1812) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-198"><span class="glance-num">Chapter 198</span><span class="glance-text">Book Ten (1812) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-199"><span class="glance-num">Chapter 199</span><span class="glance-text">Book Ten (1812) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-200"><span class="glance-num">Chapter 200</span><span class="glance-text">Book Ten (1812) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-201"><span class="glance-num">Chapter 201</span><span class="glance-text">Book Ten (1812) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-202"><span class="glance-num">Chapter 202</span><span class="glance-text">Book Ten (1812) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-203"><span class="glance-num">Chapter 203</span><span class="glance-text">Book Ten (1812) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-204"><span class="glance-num">Chapter 204</span><span class="glance-text">Book Ten (1812) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-205"><span class="glance-num">Chapter 205</span><span class="glance-text">Book Ten (1812) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-206"><span class="glance-num">Chapter 206</span><span class="glance-text">Book Ten (1812) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-207"><span class="glance-num">Chapter 207</span><span class="glance-text">Book Ten (1812) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-208"><span class="glance-num">Chapter 208</span><span class="glance-text">Book Ten (1812) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-209"><span class="glance-num">Chapter 209</span><span class="glance-text">Book Ten (1812) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-210"><span class="glance-num">Chapter 210</span><span class="glance-text">Book Ten (1812) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-211"><span class="glance-num">Chapter 211</span><span class="glance-text">Book Ten (1812) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-212"><span class="glance-num">Chapter 212</span><span class="glance-text">Book Ten (1812) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-213"><span class="glance-num">Chapter 213</span><span class="glance-text">Book Ten (1812) — Chapter 23</span></a></li>
+<li><a href="/read/war-and-peace/chapter-214"><span class="glance-num">Chapter 214</span><span class="glance-text">Book Ten (1812) — Chapter 24</span></a></li>
+<li><a href="/read/war-and-peace/chapter-215"><span class="glance-num">Chapter 215</span><span class="glance-text">Book Ten (1812) — Chapter 25</span></a></li>
+<li><a href="/read/war-and-peace/chapter-216"><span class="glance-num">Chapter 216</span><span class="glance-text">Book Ten (1812) — Chapter 26</span></a></li>
+<li><a href="/read/war-and-peace/chapter-217"><span class="glance-num">Chapter 217</span><span class="glance-text">Book Ten (1812) — Chapter 27</span></a></li>
+<li><a href="/read/war-and-peace/chapter-218"><span class="glance-num">Chapter 218</span><span class="glance-text">Book Ten (1812) — Chapter 28</span></a></li>
+<li><a href="/read/war-and-peace/chapter-219"><span class="glance-num">Chapter 219</span><span class="glance-text">Book Ten (1812) — Chapter 29</span></a></li>
+<li><a href="/read/war-and-peace/chapter-220"><span class="glance-num">Chapter 220</span><span class="glance-text">Book Ten (1812) — Chapter 30</span></a></li>
+<li><a href="/read/war-and-peace/chapter-221"><span class="glance-num">Chapter 221</span><span class="glance-text">Book Ten (1812) — Chapter 31</span></a></li>
+<li><a href="/read/war-and-peace/chapter-222"><span class="glance-num">Chapter 222</span><span class="glance-text">Book Ten (1812) — Chapter 32</span></a></li>
+<li><a href="/read/war-and-peace/chapter-223"><span class="glance-num">Chapter 223</span><span class="glance-text">Book Ten (1812) — Chapter 33</span></a></li>
+<li><a href="/read/war-and-peace/chapter-224"><span class="glance-num">Chapter 224</span><span class="glance-text">Book Ten (1812) — Chapter 34</span></a></li>
+<li><a href="/read/war-and-peace/chapter-225"><span class="glance-num">Chapter 225</span><span class="glance-text">Book Ten (1812) — Chapter 35</span></a></li>
+<li><a href="/read/war-and-peace/chapter-226"><span class="glance-num">Chapter 226</span><span class="glance-text">Book Ten (1812) — Chapter 36</span></a></li>
+<li><a href="/read/war-and-peace/chapter-227"><span class="glance-num">Chapter 227</span><span class="glance-text">Book Ten (1812) — Chapter 37</span></a></li>
+<li><a href="/read/war-and-peace/chapter-228"><span class="glance-num">Chapter 228</span><span class="glance-text">Book Ten (1812) — Chapter 38</span></a></li>
+<li><a href="/read/war-and-peace/chapter-229"><span class="glance-num">Chapter 229</span><span class="glance-text">Book Eleven (1812) — Chapter 39</span></a></li>
+<li><a href="/read/war-and-peace/chapter-230"><span class="glance-num">Chapter 230</span><span class="glance-text">Book Eleven (1812) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-231"><span class="glance-num">Chapter 231</span><span class="glance-text">Book Eleven (1812) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-232"><span class="glance-num">Chapter 232</span><span class="glance-text">Book Eleven (1812) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-233"><span class="glance-num">Chapter 233</span><span class="glance-text">Book Eleven (1812) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-234"><span class="glance-num">Chapter 234</span><span class="glance-text">Book Eleven (1812) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-235"><span class="glance-num">Chapter 235</span><span class="glance-text">Book Eleven (1812) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-236"><span class="glance-num">Chapter 236</span><span class="glance-text">Book Eleven (1812) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-237"><span class="glance-num">Chapter 237</span><span class="glance-text">Book Eleven (1812) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-238"><span class="glance-num">Chapter 238</span><span class="glance-text">Book Eleven (1812) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-239"><span class="glance-num">Chapter 239</span><span class="glance-text">Book Eleven (1812) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-240"><span class="glance-num">Chapter 240</span><span class="glance-text">Book Eleven (1812) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-241"><span class="glance-num">Chapter 241</span><span class="glance-text">Book Eleven (1812) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-242"><span class="glance-num">Chapter 242</span><span class="glance-text">Book Eleven (1812) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-243"><span class="glance-num">Chapter 243</span><span class="glance-text">Book Eleven (1812) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-244"><span class="glance-num">Chapter 244</span><span class="glance-text">Book Eleven (1812) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-245"><span class="glance-num">Chapter 245</span><span class="glance-text">Book Eleven (1812) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-246"><span class="glance-num">Chapter 246</span><span class="glance-text">Book Eleven (1812) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-247"><span class="glance-num">Chapter 247</span><span class="glance-text">Book Eleven (1812) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-248"><span class="glance-num">Chapter 248</span><span class="glance-text">Book Eleven (1812) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-249"><span class="glance-num">Chapter 249</span><span class="glance-text">Book Eleven (1812) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-250"><span class="glance-num">Chapter 250</span><span class="glance-text">Book Eleven (1812) — Chapter 21</span></a></li>
+<li><a href="/read/war-and-peace/chapter-251"><span class="glance-num">Chapter 251</span><span class="glance-text">Book Eleven (1812) — Chapter 22</span></a></li>
+<li><a href="/read/war-and-peace/chapter-252"><span class="glance-num">Chapter 252</span><span class="glance-text">Book Eleven (1812) — Chapter 23</span></a></li>
+<li><a href="/read/war-and-peace/chapter-253"><span class="glance-num">Chapter 253</span><span class="glance-text">Book Eleven (1812) — Chapter 24</span></a></li>
+<li><a href="/read/war-and-peace/chapter-254"><span class="glance-num">Chapter 254</span><span class="glance-text">Book Eleven (1812) — Chapter 25</span></a></li>
+<li><a href="/read/war-and-peace/chapter-255"><span class="glance-num">Chapter 255</span><span class="glance-text">Book Eleven (1812) — Chapter 26</span></a></li>
+<li><a href="/read/war-and-peace/chapter-256"><span class="glance-num">Chapter 256</span><span class="glance-text">Book Eleven (1812) — Chapter 27</span></a></li>
+<li><a href="/read/war-and-peace/chapter-257"><span class="glance-num">Chapter 257</span><span class="glance-text">Book Eleven (1812) — Chapter 28</span></a></li>
+<li><a href="/read/war-and-peace/chapter-258"><span class="glance-num">Chapter 258</span><span class="glance-text">Book Eleven (1812) — Chapter 29</span></a></li>
+<li><a href="/read/war-and-peace/chapter-259"><span class="glance-num">Chapter 259</span><span class="glance-text">Book Eleven (1812) — Chapter 30</span></a></li>
+<li><a href="/read/war-and-peace/chapter-260"><span class="glance-num">Chapter 260</span><span class="glance-text">Book Eleven (1812) — Chapter 31</span></a></li>
+<li><a href="/read/war-and-peace/chapter-261"><span class="glance-num">Chapter 261</span><span class="glance-text">Book Eleven (1812) — Chapter 32</span></a></li>
+<li><a href="/read/war-and-peace/chapter-262"><span class="glance-num">Chapter 262</span><span class="glance-text">Book Eleven (1812) — Chapter 33</span></a></li>
+<li><a href="/read/war-and-peace/chapter-263"><span class="glance-num">Chapter 263</span><span class="glance-text">Book Twelve (1812) — Chapter 34</span></a></li>
+<li><a href="/read/war-and-peace/chapter-264"><span class="glance-num">Chapter 264</span><span class="glance-text">Book Twelve (1812) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-265"><span class="glance-num">Chapter 265</span><span class="glance-text">Book Twelve (1812) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-266"><span class="glance-num">Chapter 266</span><span class="glance-text">Book Twelve (1812) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-267"><span class="glance-num">Chapter 267</span><span class="glance-text">Book Twelve (1812) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-268"><span class="glance-num">Chapter 268</span><span class="glance-text">Book Twelve (1812) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-269"><span class="glance-num">Chapter 269</span><span class="glance-text">Book Twelve (1812) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-270"><span class="glance-num">Chapter 270</span><span class="glance-text">Book Twelve (1812) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-271"><span class="glance-num">Chapter 271</span><span class="glance-text">Book Twelve (1812) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-272"><span class="glance-num">Chapter 272</span><span class="glance-text">Book Twelve (1812) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-273"><span class="glance-num">Chapter 273</span><span class="glance-text">Book Twelve (1812) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-274"><span class="glance-num">Chapter 274</span><span class="glance-text">Book Twelve (1812) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-275"><span class="glance-num">Chapter 275</span><span class="glance-text">Book Twelve (1812) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-276"><span class="glance-num">Chapter 276</span><span class="glance-text">Book Twelve (1812) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-277"><span class="glance-num">Chapter 277</span><span class="glance-text">Book Twelve (1812) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-278"><span class="glance-num">Chapter 278</span><span class="glance-text">Book Twelve (1812) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-279"><span class="glance-num">Chapter 279</span><span class="glance-text">Book Thirteen (1812) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-280"><span class="glance-num">Chapter 280</span><span class="glance-text">Book Thirteen (1812) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-281"><span class="glance-num">Chapter 281</span><span class="glance-text">Book Thirteen (1812) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-282"><span class="glance-num">Chapter 282</span><span class="glance-text">Book Thirteen (1812) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-283"><span class="glance-num">Chapter 283</span><span class="glance-text">Book Thirteen (1812) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-284"><span class="glance-num">Chapter 284</span><span class="glance-text">Book Thirteen (1812) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-285"><span class="glance-num">Chapter 285</span><span class="glance-text">Book Thirteen (1812) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-286"><span class="glance-num">Chapter 286</span><span class="glance-text">Book Thirteen (1812) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-287"><span class="glance-num">Chapter 287</span><span class="glance-text">Book Thirteen (1812) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-288"><span class="glance-num">Chapter 288</span><span class="glance-text">Book Thirteen (1812) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-289"><span class="glance-num">Chapter 289</span><span class="glance-text">Book Thirteen (1812) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-290"><span class="glance-num">Chapter 290</span><span class="glance-text">Book Thirteen (1812) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-291"><span class="glance-num">Chapter 291</span><span class="glance-text">Book Thirteen (1812) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-292"><span class="glance-num">Chapter 292</span><span class="glance-text">Book Thirteen (1812) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-293"><span class="glance-num">Chapter 293</span><span class="glance-text">Book Thirteen (1812) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-294"><span class="glance-num">Chapter 294</span><span class="glance-text">Book Thirteen (1812) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-295"><span class="glance-num">Chapter 295</span><span class="glance-text">Book Thirteen (1812) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-296"><span class="glance-num">Chapter 296</span><span class="glance-text">Book Thirteen (1812) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-297"><span class="glance-num">Chapter 297</span><span class="glance-text">Book Thirteen (1812) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-298"><span class="glance-num">Chapter 298</span><span class="glance-text">Book Fourteen (1812) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-299"><span class="glance-num">Chapter 299</span><span class="glance-text">Book Fourteen (1812) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-300"><span class="glance-num">Chapter 300</span><span class="glance-text">Book Fourteen (1812) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-301"><span class="glance-num">Chapter 301</span><span class="glance-text">Book Fourteen (1812) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-302"><span class="glance-num">Chapter 302</span><span class="glance-text">Book Fourteen (1812) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-303"><span class="glance-num">Chapter 303</span><span class="glance-text">Book Fourteen (1812) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-304"><span class="glance-num">Chapter 304</span><span class="glance-text">Book Fourteen (1812) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-305"><span class="glance-num">Chapter 305</span><span class="glance-text">Book Fourteen (1812) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-306"><span class="glance-num">Chapter 306</span><span class="glance-text">Book Fourteen (1812) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-307"><span class="glance-num">Chapter 307</span><span class="glance-text">Book Fourteen (1812) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-308"><span class="glance-num">Chapter 308</span><span class="glance-text">Book Fourteen (1812) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-309"><span class="glance-num">Chapter 309</span><span class="glance-text">Book Fourteen (1812) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-310"><span class="glance-num">Chapter 310</span><span class="glance-text">Book Fourteen (1812) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-311"><span class="glance-num">Chapter 311</span><span class="glance-text">Book Fourteen (1812) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-312"><span class="glance-num">Chapter 312</span><span class="glance-text">Book Fourteen (1812) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-313"><span class="glance-num">Chapter 313</span><span class="glance-text">Book Fourteen (1812) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-314"><span class="glance-num">Chapter 314</span><span class="glance-text">Book Fourteen (1812) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-315"><span class="glance-num">Chapter 315</span><span class="glance-text">Book Fourteen (1812) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-316"><span class="glance-num">Chapter 316</span><span class="glance-text">Book Fourteen (1812) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-317"><span class="glance-num">Chapter 317</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-318"><span class="glance-num">Chapter 318</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-319"><span class="glance-num">Chapter 319</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-320"><span class="glance-num">Chapter 320</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-321"><span class="glance-num">Chapter 321</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-322"><span class="glance-num">Chapter 322</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-323"><span class="glance-num">Chapter 323</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-324"><span class="glance-num">Chapter 324</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-325"><span class="glance-num">Chapter 325</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-326"><span class="glance-num">Chapter 326</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-327"><span class="glance-num">Chapter 327</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-328"><span class="glance-num">Chapter 328</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-329"><span class="glance-num">Chapter 329</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-330"><span class="glance-num">Chapter 330</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-331"><span class="glance-num">Chapter 331</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-332"><span class="glance-num">Chapter 332</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-333"><span class="glance-num">Chapter 333</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-334"><span class="glance-num">Chapter 334</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 17</span></a></li>
+<li><a href="/read/war-and-peace/chapter-335"><span class="glance-num">Chapter 335</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 18</span></a></li>
+<li><a href="/read/war-and-peace/chapter-336"><span class="glance-num">Chapter 336</span><span class="glance-text">Book Fifteen (1812 - 13) — Chapter 19</span></a></li>
+<li><a href="/read/war-and-peace/chapter-337"><span class="glance-num">Chapter 337</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 20</span></a></li>
+<li><a href="/read/war-and-peace/chapter-338"><span class="glance-num">Chapter 338</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-339"><span class="glance-num">Chapter 339</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-340"><span class="glance-num">Chapter 340</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-341"><span class="glance-num">Chapter 341</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-342"><span class="glance-num">Chapter 342</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-343"><span class="glance-num">Chapter 343</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-344"><span class="glance-num">Chapter 344</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-345"><span class="glance-num">Chapter 345</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-346"><span class="glance-num">Chapter 346</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-347"><span class="glance-num">Chapter 347</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-348"><span class="glance-num">Chapter 348</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-349"><span class="glance-num">Chapter 349</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 12</span></a></li>
+<li><a href="/read/war-and-peace/chapter-350"><span class="glance-num">Chapter 350</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 13</span></a></li>
+<li><a href="/read/war-and-peace/chapter-351"><span class="glance-num">Chapter 351</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 14</span></a></li>
+<li><a href="/read/war-and-peace/chapter-352"><span class="glance-num">Chapter 352</span><span class="glance-text">First Epilogue (1813 - 20) — Chapter 15</span></a></li>
+<li><a href="/read/war-and-peace/chapter-353"><span class="glance-num">Chapter 353</span><span class="glance-text">Second Epilogue — Chapter 16</span></a></li>
+<li><a href="/read/war-and-peace/chapter-354"><span class="glance-num">Chapter 354</span><span class="glance-text">Second Epilogue — Chapter 1</span></a></li>
+<li><a href="/read/war-and-peace/chapter-355"><span class="glance-num">Chapter 355</span><span class="glance-text">Second Epilogue — Chapter 2</span></a></li>
+<li><a href="/read/war-and-peace/chapter-356"><span class="glance-num">Chapter 356</span><span class="glance-text">Second Epilogue — Chapter 3</span></a></li>
+<li><a href="/read/war-and-peace/chapter-357"><span class="glance-num">Chapter 357</span><span class="glance-text">Second Epilogue — Chapter 4</span></a></li>
+<li><a href="/read/war-and-peace/chapter-358"><span class="glance-num">Chapter 358</span><span class="glance-text">Second Epilogue — Chapter 5</span></a></li>
+<li><a href="/read/war-and-peace/chapter-359"><span class="glance-num">Chapter 359</span><span class="glance-text">Second Epilogue — Chapter 6</span></a></li>
+<li><a href="/read/war-and-peace/chapter-360"><span class="glance-num">Chapter 360</span><span class="glance-text">Second Epilogue — Chapter 7</span></a></li>
+<li><a href="/read/war-and-peace/chapter-361"><span class="glance-num">Chapter 361</span><span class="glance-text">Second Epilogue — Chapter 8</span></a></li>
+<li><a href="/read/war-and-peace/chapter-362"><span class="glance-num">Chapter 362</span><span class="glance-text">Second Epilogue — Chapter 9</span></a></li>
+<li><a href="/read/war-and-peace/chapter-363"><span class="glance-num">Chapter 363</span><span class="glance-text">Second Epilogue — Chapter 10</span></a></li>
+<li><a href="/read/war-and-peace/chapter-364"><span class="glance-num">Chapter 364</span><span class="glance-text">Second Epilogue — Chapter 11</span></a></li>
+<li><a href="/read/war-and-peace/chapter-365"><span class="glance-num">Chapter 365</span><span class="glance-text">Second Epilogue — Chapter 12</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Book One (1805) — Chapter 1</h2>
+  <div class="body">
+    <p>“Well, Prince, so Genoa and Lucca are now just family estates of the Buonapartes. But I warn you, if you don’t tell me that this means war, if you still try to defend the infamies and horrors perpetrated by that Antichrist—I really believe he is Antichrist—I will have nothing more to do with you and you are no longer my friend, no longer my ‘faithful slave,’ as you call yourself! But how do you do? I see I have frightened you—sit down and tell me all the news.”</p>
+    <p>It was in July, 1805, and the speaker was the well-known Anna Pávlovna Schérer, maid of honor and favorite of the Empress Márya Fëdorovna. With these words she greeted Prince Vasíli Kurágin, a man of high rank and importance, who was the first to arrive at her reception. Anna Pávlovna had had a cough for some days. She was, as she said, suffering from la grippe; grippe being then a new word in St. Petersburg, used only by the elite.</p>
+    <p>All her invitations without exception, written in French, and delivered by a scarlet-liveried footman that morning, ran as follows:</p>
+    <p>“If you have nothing better to do, Count (or Prince), and if the prospect of spending an evening with a poor invalid is not too terrible, I shall be very charmed to see you tonight between 7 and 10—Annette Schérer.”</p>
+    <p>“Heavens! what a virulent attack!” replied the prince, not in the least disconcerted by this reception. He had just entered, wearing an embroidered court uniform, knee breeches, and shoes, and had stars on his breast and a serene expression on his flat face. He spoke in that refined French in which our grandfathers not only spoke but thought, and with the gentle, patronizing intonation natural to a man of importance who had grown old in society and at court. He went up to Anna Pávlovna, kissed her hand, presenting to her his bald, scented, and shining head, and complacently seated himself on the sofa.</p>
+    <p>“First of all, dear friend, tell me how you are. Set your friend’s mind at rest,” said he without altering his tone, beneath the politeness and affected sympathy of which indifference and even irony could be discerned.</p>
+    <p>“Can one be well while suffering morally? Can one be calm in times like these if one has any feeling?” said Anna Pávlovna. “You are staying the whole evening, I hope?”</p>
+    <p>“And the fete at the English ambassador’s? Today is Wednesday. I must put in an appearance there,” said the prince. “My daughter is coming for me to take me there.”</p>
+    <p>“I thought today’s fete had been canceled. I confess all these festivities and fireworks are becoming wearisome.”</p>
+    <p>“If they had known that you wished it, the entertainment would have been put off,” said the prince, who, like a wound-up clock, by force of habit said things he did not even wish to be believed.</p>
+    <p>“Don’t tease! Well, and what has been decided about Novosíltsev’s dispatch? You know everything.”</p>
+    <p>“What can one say about it?” replied the prince in a cold, listless tone. “What has been decided? They have decided that Buonaparte has burnt his boats, and I believe that we are ready to burn ours.”</p>
+    <p>Prince Vasíli always spoke languidly, like an actor repeating a stale part. Anna Pávlovna Schérer on the contrary, despite her forty years, overflowed with animation and impulsiveness. To be an enthusiast had become her social vocation and, sometimes even when she did not feel like it, she became enthusiastic in order not to disappoint the expectations of those who knew her. The subdued smile which, though it did not suit her faded features, always played round her lips expressed, as in a spoiled child, a continual consciousness of her charming defect, which she neither wished, nor could, nor considered it necessary, to correct.</p>
+    <p>In the midst of a conversation on political matters Anna Pávlovna burst out:</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read War and Peace free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/war-and-peace?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

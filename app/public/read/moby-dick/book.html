@@ -11,217 +11,229 @@
   <meta property="og:url" content="https://tinct.app/read/moby-dick">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/moby-dick#book","name":"Moby Dick","author":{"@type":"Person","name":"Herman Melville"},"description":"Call me Ishmael. A young sailor boards the whaling ship Pequod, captained by the monomaniac Ahab, who will hunt the great white whale to the ends of the earth — and beyond reason.","url":"https://tinct.app/read/moby-dick","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/moby-dick?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/moby-dick?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Moby Dick</h1>
-    <p class="dek">by Herman Melville</p>
-    <p class="description">Call me Ishmael. A young sailor boards the whaling ship Pequod, captained by the monomaniac Ahab, who will hunt the great white whale to the ends of the earth — and beyond reason.</p>
-    <a class="cta" href="/read/moby-dick?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Chapter 1 — Loomings</h2>
-      <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
-      <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
-      <p>Circumambulate the city of a dreamy Sabbath afternoon. Go from Corlears Hook to Coenties Slip, and from thence, by Whitehall, northward. What do you see?—Posted like silent sentinels all around the town, stand thousands upon thousands of mortal men fixed in ocean reveries. Some leaning against the spiles; some seated upon the pier-heads; some looking over the bulwarks of ships from China; some high aloft in the rigging, as if striving to get a still better seaward peep. But these are all landsmen; of week days pent up in lath and plaster—tied to counters, nailed to benches, clinched to desks. How then is this? Are the green fields gone? What do they here?</p>
-      <p>But look! here come more crowds, pacing straight for the water, and seemingly bound for a dive. Strange! Nothing will content them but the extremest limit of the land; loitering under the shady lee of yonder warehouses will not suffice. No. They must get just as nigh the water as they possibly can without falling in. And there they stand—miles of them—leagues. Inlanders all, they come from lanes and alleys, streets and avenues—north, east, south, and west. Yet here they all unite. Tell me, does the magnetic virtue of the needles of the compasses of all those ships attract them thither?</p>
-      <p>Once more. Say you are in the country; in some high land of lakes. Take almost any path you please, and ten to one it carries you down in a dale, and leaves you there by a pool in the stream. There is magic in it. Let the most absent-minded of men be plunged in his deepest reveries—stand that man on his legs, set his feet a-going, and he will infallibly lead you to water, if water there be in all that region. Should you ever be athirst in the great American desert, try this experiment, if your caravan happen to be supplied with a metaphysical professor. Yes, as every one knows, meditation and water are wedded for ever.</p>
-      <p>But here is an artist. He desires to paint you the dreamiest, shadiest, quietest, most enchanting bit of romantic landscape in all the valley of the Saco. What is the chief element he employs? There stand his trees, each with a hollow trunk, as if a hermit and a crucifix were...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/moby-dick/chapter-1">Chapter 1 — Loomings</a></li>
-<li><a href="/read/moby-dick/chapter-2">Chapter 2 — The Carpet-Bag</a></li>
-<li><a href="/read/moby-dick/chapter-3">Chapter 3 — The Spouter-Inn</a></li>
-<li><a href="/read/moby-dick/chapter-4">Chapter 4 — The Counterpane</a></li>
-<li><a href="/read/moby-dick/chapter-5">Chapter 5 — Breakfast</a></li>
-<li><a href="/read/moby-dick/chapter-6">Chapter 6 — The Street</a></li>
-<li><a href="/read/moby-dick/chapter-7">Chapter 7 — The Chapel</a></li>
-<li><a href="/read/moby-dick/chapter-8">Chapter 8 — The Pulpit</a></li>
-<li><a href="/read/moby-dick/chapter-9">Chapter 9 — The Sermon</a></li>
-<li><a href="/read/moby-dick/chapter-10">Chapter 10 — A Bosom Friend</a></li>
-<li><a href="/read/moby-dick/chapter-11">Chapter 11 — Nightgown</a></li>
-<li><a href="/read/moby-dick/chapter-12">Chapter 12 — Biographical</a></li>
-<li><a href="/read/moby-dick/chapter-13">Chapter 13 — Wheelbarrow</a></li>
-<li><a href="/read/moby-dick/chapter-14">Chapter 14 — Nantucket</a></li>
-<li><a href="/read/moby-dick/chapter-15">Chapter 15 — Chowder</a></li>
-<li><a href="/read/moby-dick/chapter-16">Chapter 16 — The Ship</a></li>
-<li><a href="/read/moby-dick/chapter-17">Chapter 17 — The Ramadan</a></li>
-<li><a href="/read/moby-dick/chapter-18">Chapter 18 — His Mark</a></li>
-<li><a href="/read/moby-dick/chapter-19">Chapter 19 — The Prophet</a></li>
-<li><a href="/read/moby-dick/chapter-20">Chapter 20 — All Astir</a></li>
-<li><a href="/read/moby-dick/chapter-21">Chapter 21 — Going Aboard</a></li>
-<li><a href="/read/moby-dick/chapter-22">Chapter 22 — Merry Christmas</a></li>
-<li><a href="/read/moby-dick/chapter-23">Chapter 23 — The Lee Shore</a></li>
-<li><a href="/read/moby-dick/chapter-24">Chapter 24 — The Advocate</a></li>
-<li><a href="/read/moby-dick/chapter-25">Chapter 25 — Postscript</a></li>
-<li><a href="/read/moby-dick/chapter-26">Chapter 26 — Knights and Squires</a></li>
-<li><a href="/read/moby-dick/chapter-27">Chapter 27 — Knights and Squires</a></li>
-<li><a href="/read/moby-dick/chapter-28">Chapter 28 — Ahab</a></li>
-<li><a href="/read/moby-dick/chapter-29">Chapter 29 — Enter Ahab; to Him, Stubb</a></li>
-<li><a href="/read/moby-dick/chapter-30">Chapter 30 — The Pipe</a></li>
-<li><a href="/read/moby-dick/chapter-31">Chapter 31 — Queen Mab</a></li>
-<li><a href="/read/moby-dick/chapter-32">Chapter 32 — Cetology</a></li>
-<li><a href="/read/moby-dick/chapter-33">Chapter 33 — The Specksnyder</a></li>
-<li><a href="/read/moby-dick/chapter-34">Chapter 34 — The Cabin-Table</a></li>
-<li><a href="/read/moby-dick/chapter-35">Chapter 35 — The Mast-Head</a></li>
-<li><a href="/read/moby-dick/chapter-36">Chapter 36 — The Quarter-Deck</a></li>
-<li><a href="/read/moby-dick/chapter-37">Chapter 37 — Sunset</a></li>
-<li><a href="/read/moby-dick/chapter-38">Chapter 38 — Dusk</a></li>
-<li><a href="/read/moby-dick/chapter-39">Chapter 39 — First Night-Watch</a></li>
-<li><a href="/read/moby-dick/chapter-40">Chapter 40 — Midnight, Forecastle</a></li>
-<li><a href="/read/moby-dick/chapter-41">Chapter 41 — Moby Dick</a></li>
-<li><a href="/read/moby-dick/chapter-42">Chapter 42 — The Whiteness of the Whale</a></li>
-<li><a href="/read/moby-dick/chapter-43">Chapter 43 — Hark!</a></li>
-<li><a href="/read/moby-dick/chapter-44">Chapter 44 — The Chart</a></li>
-<li><a href="/read/moby-dick/chapter-45">Chapter 45 — The Affidavit</a></li>
-<li><a href="/read/moby-dick/chapter-46">Chapter 46 — Surmises</a></li>
-<li><a href="/read/moby-dick/chapter-47">Chapter 47 — The Mat-Maker</a></li>
-<li><a href="/read/moby-dick/chapter-48">Chapter 48 — The First Lowering</a></li>
-<li><a href="/read/moby-dick/chapter-49">Chapter 49 — The Hyena</a></li>
-<li><a href="/read/moby-dick/chapter-50">Chapter 50 — Ahab’s Boat and Crew. Fedallah</a></li>
-<li><a href="/read/moby-dick/chapter-51">Chapter 51 — The Spirit-Spout</a></li>
-<li><a href="/read/moby-dick/chapter-52">Chapter 52 — The Albatross</a></li>
-<li><a href="/read/moby-dick/chapter-53">Chapter 53 — The Gam</a></li>
-<li><a href="/read/moby-dick/chapter-54">Chapter 54 — The Town-Ho’s Story</a></li>
-<li><a href="/read/moby-dick/chapter-55">Chapter 55 — Of the Monstrous Pictures of Whales</a></li>
-<li><a href="/read/moby-dick/chapter-56">Chapter 56 — Of the Less Erroneous Pictures of Whales, and the True</a></li>
-<li><a href="/read/moby-dick/chapter-57">Chapter 57 — Of Whales in Paint; in Teeth; in Wood; in Sheet-Iron; in</a></li>
-<li><a href="/read/moby-dick/chapter-58">Chapter 58 — Brit</a></li>
-<li><a href="/read/moby-dick/chapter-59">Chapter 59 — Squid</a></li>
-<li><a href="/read/moby-dick/chapter-60">Chapter 60 — The Line</a></li>
-<li><a href="/read/moby-dick/chapter-61">Chapter 61 — Stubb Kills a Whale</a></li>
-<li><a href="/read/moby-dick/chapter-62">Chapter 62 — The Dart</a></li>
-<li><a href="/read/moby-dick/chapter-63">Chapter 63 — The Crotch</a></li>
-<li><a href="/read/moby-dick/chapter-64">Chapter 64 — Stubb’s Supper</a></li>
-<li><a href="/read/moby-dick/chapter-65">Chapter 65 — The Whale as a Dish</a></li>
-<li><a href="/read/moby-dick/chapter-66">Chapter 66 — The Shark Massacre</a></li>
-<li><a href="/read/moby-dick/chapter-67">Chapter 67 — Cutting In</a></li>
-<li><a href="/read/moby-dick/chapter-68">Chapter 68 — The Blanket</a></li>
-<li><a href="/read/moby-dick/chapter-69">Chapter 69 — The Funeral</a></li>
-<li><a href="/read/moby-dick/chapter-70">Chapter 70 — The Sphynx</a></li>
-<li><a href="/read/moby-dick/chapter-71">Chapter 71 — The Jeroboam’s Story</a></li>
-<li><a href="/read/moby-dick/chapter-72">Chapter 72 — The Monkey-Rope</a></li>
-<li><a href="/read/moby-dick/chapter-73">Chapter 73 — Stubb and Flask kill a Right Whale; and Then Have a Talk</a></li>
-<li><a href="/read/moby-dick/chapter-74">Chapter 74 — The Sperm Whale’s Head—Contrasted View</a></li>
-<li><a href="/read/moby-dick/chapter-75">Chapter 75 — The Right Whale’s Head—Contrasted View</a></li>
-<li><a href="/read/moby-dick/chapter-76">Chapter 76 — The Battering-Ram</a></li>
-<li><a href="/read/moby-dick/chapter-77">Chapter 77 — The Great Heidelburgh Tun</a></li>
-<li><a href="/read/moby-dick/chapter-78">Chapter 78 — Cistern and Buckets</a></li>
-<li><a href="/read/moby-dick/chapter-79">Chapter 79 — The Prairie</a></li>
-<li><a href="/read/moby-dick/chapter-80">Chapter 80 — The Nut</a></li>
-<li><a href="/read/moby-dick/chapter-81">Chapter 81 — The Pequod Meets The Virgin</a></li>
-<li><a href="/read/moby-dick/chapter-82">Chapter 82 — The Honor and Glory of Whaling</a></li>
-<li><a href="/read/moby-dick/chapter-83">Chapter 83 — Jonah Historically Regarded</a></li>
-<li><a href="/read/moby-dick/chapter-84">Chapter 84 — Pitchpoling</a></li>
-<li><a href="/read/moby-dick/chapter-85">Chapter 85 — The Fountain</a></li>
-<li><a href="/read/moby-dick/chapter-86">Chapter 86 — The Tail</a></li>
-<li><a href="/read/moby-dick/chapter-87">Chapter 87 — The Grand Armada</a></li>
-<li><a href="/read/moby-dick/chapter-88">Chapter 88 — Schools and Schoolmasters</a></li>
-<li><a href="/read/moby-dick/chapter-89">Chapter 89 — Fast-Fish and Loose-Fish</a></li>
-<li><a href="/read/moby-dick/chapter-90">Chapter 90 — Heads or Tails</a></li>
-<li><a href="/read/moby-dick/chapter-91">Chapter 91 — The Pequod Meets The Rose-Bud</a></li>
-<li><a href="/read/moby-dick/chapter-92">Chapter 92 — Ambergris</a></li>
-<li><a href="/read/moby-dick/chapter-93">Chapter 93 — The Castaway</a></li>
-<li><a href="/read/moby-dick/chapter-94">Chapter 94 — A Squeeze of the Hand</a></li>
-<li><a href="/read/moby-dick/chapter-95">Chapter 95 — The Cassock</a></li>
-<li><a href="/read/moby-dick/chapter-96">Chapter 96 — The Try-Works</a></li>
-<li><a href="/read/moby-dick/chapter-97">Chapter 97 — The Lamp</a></li>
-<li><a href="/read/moby-dick/chapter-98">Chapter 98 — Stowing Down and Clearing Up</a></li>
-<li><a href="/read/moby-dick/chapter-99">Chapter 99 — The Doubloon</a></li>
-<li><a href="/read/moby-dick/chapter-100">Chapter 100 — Leg and Arm</a></li>
-<li><a href="/read/moby-dick/chapter-101">Chapter 101 — The Decanter</a></li>
-<li><a href="/read/moby-dick/chapter-102">Chapter 102 — A Bower in the Arsacides</a></li>
-<li><a href="/read/moby-dick/chapter-103">Chapter 103 — Measurement of The Whale’s Skeleton</a></li>
-<li><a href="/read/moby-dick/chapter-104">Chapter 104 — The Fossil Whale</a></li>
-<li><a href="/read/moby-dick/chapter-105">Chapter 105 — Does the Whale’s Magnitude Diminish?—Will He Perish?</a></li>
-<li><a href="/read/moby-dick/chapter-106">Chapter 106 — Ahab’s Leg</a></li>
-<li><a href="/read/moby-dick/chapter-107">Chapter 107 — The Carpenter</a></li>
-<li><a href="/read/moby-dick/chapter-108">Chapter 108 — Ahab and the Carpenter</a></li>
-<li><a href="/read/moby-dick/chapter-109">Chapter 109 — Ahab and Starbuck in the Cabin</a></li>
-<li><a href="/read/moby-dick/chapter-110">Chapter 110 — Queequeg in His Coffin</a></li>
-<li><a href="/read/moby-dick/chapter-111">Chapter 111 — The Pacific</a></li>
-<li><a href="/read/moby-dick/chapter-112">Chapter 112 — The Blacksmith</a></li>
-<li><a href="/read/moby-dick/chapter-113">Chapter 113 — The Forge</a></li>
-<li><a href="/read/moby-dick/chapter-114">Chapter 114 — The Gilder</a></li>
-<li><a href="/read/moby-dick/chapter-115">Chapter 115 — The Pequod Meets The Bachelor</a></li>
-<li><a href="/read/moby-dick/chapter-116">Chapter 116 — The Dying Whale</a></li>
-<li><a href="/read/moby-dick/chapter-117">Chapter 117 — The Whale Watch</a></li>
-<li><a href="/read/moby-dick/chapter-118">Chapter 118 — The Quadrant</a></li>
-<li><a href="/read/moby-dick/chapter-119">Chapter 119 — The Candles</a></li>
-<li><a href="/read/moby-dick/chapter-120">Chapter 120 — The Deck Towards the End of the First Night Watch</a></li>
-<li><a href="/read/moby-dick/chapter-121">Chapter 121 — Midnight.—The Forecastle Bulwarks</a></li>
-<li><a href="/read/moby-dick/chapter-122">Chapter 122 — Midnight Aloft.—Thunder and Lightning</a></li>
-<li><a href="/read/moby-dick/chapter-123">Chapter 123 — The Musket</a></li>
-<li><a href="/read/moby-dick/chapter-124">Chapter 124 — The Needle</a></li>
-<li><a href="/read/moby-dick/chapter-125">Chapter 125 — The Log and Line</a></li>
-<li><a href="/read/moby-dick/chapter-126">Chapter 126 — The Life-Buoy</a></li>
-<li><a href="/read/moby-dick/chapter-127">Chapter 127 — The Deck</a></li>
-<li><a href="/read/moby-dick/chapter-128">Chapter 128 — The Pequod Meets The Rachel</a></li>
-<li><a href="/read/moby-dick/chapter-129">Chapter 129 — The Cabin</a></li>
-<li><a href="/read/moby-dick/chapter-130">Chapter 130 — The Hat</a></li>
-<li><a href="/read/moby-dick/chapter-131">Chapter 131 — The Pequod Meets The Delight</a></li>
-<li><a href="/read/moby-dick/chapter-132">Chapter 132 — The Symphony</a></li>
-<li><a href="/read/moby-dick/chapter-133">Chapter 133 — The Chase—First Day</a></li>
-<li><a href="/read/moby-dick/chapter-134">Chapter 134 — The Chase—Second Day</a></li>
-<li><a href="/read/moby-dick/chapter-135">Chapter 135 — The Chase.—Third Day</a></li>
-<li><a href="/read/moby-dick/chapter-136">Epilogue — The Drama&#39;s Done</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Moby Dick</span>
   </div>
-  <footer>Read Moby Dick free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Moby Dick</h1>
+  <p class="byline">by Herman Melville</p>
+  <p class="hook">Call me Ishmael. A young sailor boards the whaling ship Pequod, captained by the monomaniac Ahab, who will hunt the great white whale to the ends of the earth — and beyond reason.</p>
+  <a class="primary-cta" href="/read/moby-dick?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/moby-dick/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Chapter 1 — Loomings</span></a></li>
+<li><a href="/read/moby-dick/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Chapter 2 — The Carpet-Bag</span></a></li>
+<li><a href="/read/moby-dick/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Chapter 3 — The Spouter-Inn</span></a></li>
+<li><a href="/read/moby-dick/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Chapter 4 — The Counterpane</span></a></li>
+<li><a href="/read/moby-dick/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Chapter 5 — Breakfast</span></a></li>
+<li><a href="/read/moby-dick/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Chapter 6 — The Street</span></a></li>
+<li><a href="/read/moby-dick/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Chapter 7 — The Chapel</span></a></li>
+<li><a href="/read/moby-dick/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Chapter 8 — The Pulpit</span></a></li>
+<li><a href="/read/moby-dick/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Chapter 9 — The Sermon</span></a></li>
+<li><a href="/read/moby-dick/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Chapter 10 — A Bosom Friend</span></a></li>
+<li><a href="/read/moby-dick/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Chapter 11 — Nightgown</span></a></li>
+<li><a href="/read/moby-dick/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Chapter 12 — Biographical</span></a></li>
+<li><a href="/read/moby-dick/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Chapter 13 — Wheelbarrow</span></a></li>
+<li><a href="/read/moby-dick/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Chapter 14 — Nantucket</span></a></li>
+<li><a href="/read/moby-dick/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Chapter 15 — Chowder</span></a></li>
+<li><a href="/read/moby-dick/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Chapter 16 — The Ship</span></a></li>
+<li><a href="/read/moby-dick/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Chapter 17 — The Ramadan</span></a></li>
+<li><a href="/read/moby-dick/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Chapter 18 — His Mark</span></a></li>
+<li><a href="/read/moby-dick/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Chapter 19 — The Prophet</span></a></li>
+<li><a href="/read/moby-dick/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Chapter 20 — All Astir</span></a></li>
+<li><a href="/read/moby-dick/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Chapter 21 — Going Aboard</span></a></li>
+<li><a href="/read/moby-dick/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Chapter 22 — Merry Christmas</span></a></li>
+<li><a href="/read/moby-dick/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Chapter 23 — The Lee Shore</span></a></li>
+<li><a href="/read/moby-dick/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Chapter 24 — The Advocate</span></a></li>
+<li><a href="/read/moby-dick/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Chapter 25 — Postscript</span></a></li>
+<li><a href="/read/moby-dick/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Chapter 26 — Knights and Squires</span></a></li>
+<li><a href="/read/moby-dick/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">Chapter 27 — Knights and Squires</span></a></li>
+<li><a href="/read/moby-dick/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">Chapter 28 — Ahab</span></a></li>
+<li><a href="/read/moby-dick/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">Chapter 29 — Enter Ahab; to Him, Stubb</span></a></li>
+<li><a href="/read/moby-dick/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">Chapter 30 — The Pipe</span></a></li>
+<li><a href="/read/moby-dick/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">Chapter 31 — Queen Mab</span></a></li>
+<li><a href="/read/moby-dick/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">Chapter 32 — Cetology</span></a></li>
+<li><a href="/read/moby-dick/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">Chapter 33 — The Specksnyder</span></a></li>
+<li><a href="/read/moby-dick/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">Chapter 34 — The Cabin-Table</span></a></li>
+<li><a href="/read/moby-dick/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">Chapter 35 — The Mast-Head</span></a></li>
+<li><a href="/read/moby-dick/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">Chapter 36 — The Quarter-Deck</span></a></li>
+<li><a href="/read/moby-dick/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">Chapter 37 — Sunset</span></a></li>
+<li><a href="/read/moby-dick/chapter-38"><span class="glance-num">Chapter 38</span><span class="glance-text">Chapter 38 — Dusk</span></a></li>
+<li><a href="/read/moby-dick/chapter-39"><span class="glance-num">Chapter 39</span><span class="glance-text">Chapter 39 — First Night-Watch</span></a></li>
+<li><a href="/read/moby-dick/chapter-40"><span class="glance-num">Chapter 40</span><span class="glance-text">Chapter 40 — Midnight, Forecastle</span></a></li>
+<li><a href="/read/moby-dick/chapter-41"><span class="glance-num">Chapter 41</span><span class="glance-text">Chapter 41 — Moby Dick</span></a></li>
+<li><a href="/read/moby-dick/chapter-42"><span class="glance-num">Chapter 42</span><span class="glance-text">Chapter 42 — The Whiteness of the Whale</span></a></li>
+<li><a href="/read/moby-dick/chapter-43"><span class="glance-num">Chapter 43</span><span class="glance-text">Chapter 43 — Hark!</span></a></li>
+<li><a href="/read/moby-dick/chapter-44"><span class="glance-num">Chapter 44</span><span class="glance-text">Chapter 44 — The Chart</span></a></li>
+<li><a href="/read/moby-dick/chapter-45"><span class="glance-num">Chapter 45</span><span class="glance-text">Chapter 45 — The Affidavit</span></a></li>
+<li><a href="/read/moby-dick/chapter-46"><span class="glance-num">Chapter 46</span><span class="glance-text">Chapter 46 — Surmises</span></a></li>
+<li><a href="/read/moby-dick/chapter-47"><span class="glance-num">Chapter 47</span><span class="glance-text">Chapter 47 — The Mat-Maker</span></a></li>
+<li><a href="/read/moby-dick/chapter-48"><span class="glance-num">Chapter 48</span><span class="glance-text">Chapter 48 — The First Lowering</span></a></li>
+<li><a href="/read/moby-dick/chapter-49"><span class="glance-num">Chapter 49</span><span class="glance-text">Chapter 49 — The Hyena</span></a></li>
+<li><a href="/read/moby-dick/chapter-50"><span class="glance-num">Chapter 50</span><span class="glance-text">Chapter 50 — Ahab’s Boat and Crew. Fedallah</span></a></li>
+<li><a href="/read/moby-dick/chapter-51"><span class="glance-num">Chapter 51</span><span class="glance-text">Chapter 51 — The Spirit-Spout</span></a></li>
+<li><a href="/read/moby-dick/chapter-52"><span class="glance-num">Chapter 52</span><span class="glance-text">Chapter 52 — The Albatross</span></a></li>
+<li><a href="/read/moby-dick/chapter-53"><span class="glance-num">Chapter 53</span><span class="glance-text">Chapter 53 — The Gam</span></a></li>
+<li><a href="/read/moby-dick/chapter-54"><span class="glance-num">Chapter 54</span><span class="glance-text">Chapter 54 — The Town-Ho’s Story</span></a></li>
+<li><a href="/read/moby-dick/chapter-55"><span class="glance-num">Chapter 55</span><span class="glance-text">Chapter 55 — Of the Monstrous Pictures of Whales</span></a></li>
+<li><a href="/read/moby-dick/chapter-56"><span class="glance-num">Chapter 56</span><span class="glance-text">Chapter 56 — Of the Less Erroneous Pictures of Whales, and the True</span></a></li>
+<li><a href="/read/moby-dick/chapter-57"><span class="glance-num">Chapter 57</span><span class="glance-text">Chapter 57 — Of Whales in Paint; in Teeth; in Wood; in Sheet-Iron; in</span></a></li>
+<li><a href="/read/moby-dick/chapter-58"><span class="glance-num">Chapter 58</span><span class="glance-text">Chapter 58 — Brit</span></a></li>
+<li><a href="/read/moby-dick/chapter-59"><span class="glance-num">Chapter 59</span><span class="glance-text">Chapter 59 — Squid</span></a></li>
+<li><a href="/read/moby-dick/chapter-60"><span class="glance-num">Chapter 60</span><span class="glance-text">Chapter 60 — The Line</span></a></li>
+<li><a href="/read/moby-dick/chapter-61"><span class="glance-num">Chapter 61</span><span class="glance-text">Chapter 61 — Stubb Kills a Whale</span></a></li>
+<li><a href="/read/moby-dick/chapter-62"><span class="glance-num">Chapter 62</span><span class="glance-text">Chapter 62 — The Dart</span></a></li>
+<li><a href="/read/moby-dick/chapter-63"><span class="glance-num">Chapter 63</span><span class="glance-text">Chapter 63 — The Crotch</span></a></li>
+<li><a href="/read/moby-dick/chapter-64"><span class="glance-num">Chapter 64</span><span class="glance-text">Chapter 64 — Stubb’s Supper</span></a></li>
+<li><a href="/read/moby-dick/chapter-65"><span class="glance-num">Chapter 65</span><span class="glance-text">Chapter 65 — The Whale as a Dish</span></a></li>
+<li><a href="/read/moby-dick/chapter-66"><span class="glance-num">Chapter 66</span><span class="glance-text">Chapter 66 — The Shark Massacre</span></a></li>
+<li><a href="/read/moby-dick/chapter-67"><span class="glance-num">Chapter 67</span><span class="glance-text">Chapter 67 — Cutting In</span></a></li>
+<li><a href="/read/moby-dick/chapter-68"><span class="glance-num">Chapter 68</span><span class="glance-text">Chapter 68 — The Blanket</span></a></li>
+<li><a href="/read/moby-dick/chapter-69"><span class="glance-num">Chapter 69</span><span class="glance-text">Chapter 69 — The Funeral</span></a></li>
+<li><a href="/read/moby-dick/chapter-70"><span class="glance-num">Chapter 70</span><span class="glance-text">Chapter 70 — The Sphynx</span></a></li>
+<li><a href="/read/moby-dick/chapter-71"><span class="glance-num">Chapter 71</span><span class="glance-text">Chapter 71 — The Jeroboam’s Story</span></a></li>
+<li><a href="/read/moby-dick/chapter-72"><span class="glance-num">Chapter 72</span><span class="glance-text">Chapter 72 — The Monkey-Rope</span></a></li>
+<li><a href="/read/moby-dick/chapter-73"><span class="glance-num">Chapter 73</span><span class="glance-text">Chapter 73 — Stubb and Flask kill a Right Whale; and Then Have a Talk</span></a></li>
+<li><a href="/read/moby-dick/chapter-74"><span class="glance-num">Chapter 74</span><span class="glance-text">Chapter 74 — The Sperm Whale’s Head—Contrasted View</span></a></li>
+<li><a href="/read/moby-dick/chapter-75"><span class="glance-num">Chapter 75</span><span class="glance-text">Chapter 75 — The Right Whale’s Head—Contrasted View</span></a></li>
+<li><a href="/read/moby-dick/chapter-76"><span class="glance-num">Chapter 76</span><span class="glance-text">Chapter 76 — The Battering-Ram</span></a></li>
+<li><a href="/read/moby-dick/chapter-77"><span class="glance-num">Chapter 77</span><span class="glance-text">Chapter 77 — The Great Heidelburgh Tun</span></a></li>
+<li><a href="/read/moby-dick/chapter-78"><span class="glance-num">Chapter 78</span><span class="glance-text">Chapter 78 — Cistern and Buckets</span></a></li>
+<li><a href="/read/moby-dick/chapter-79"><span class="glance-num">Chapter 79</span><span class="glance-text">Chapter 79 — The Prairie</span></a></li>
+<li><a href="/read/moby-dick/chapter-80"><span class="glance-num">Chapter 80</span><span class="glance-text">Chapter 80 — The Nut</span></a></li>
+<li><a href="/read/moby-dick/chapter-81"><span class="glance-num">Chapter 81</span><span class="glance-text">Chapter 81 — The Pequod Meets The Virgin</span></a></li>
+<li><a href="/read/moby-dick/chapter-82"><span class="glance-num">Chapter 82</span><span class="glance-text">Chapter 82 — The Honor and Glory of Whaling</span></a></li>
+<li><a href="/read/moby-dick/chapter-83"><span class="glance-num">Chapter 83</span><span class="glance-text">Chapter 83 — Jonah Historically Regarded</span></a></li>
+<li><a href="/read/moby-dick/chapter-84"><span class="glance-num">Chapter 84</span><span class="glance-text">Chapter 84 — Pitchpoling</span></a></li>
+<li><a href="/read/moby-dick/chapter-85"><span class="glance-num">Chapter 85</span><span class="glance-text">Chapter 85 — The Fountain</span></a></li>
+<li><a href="/read/moby-dick/chapter-86"><span class="glance-num">Chapter 86</span><span class="glance-text">Chapter 86 — The Tail</span></a></li>
+<li><a href="/read/moby-dick/chapter-87"><span class="glance-num">Chapter 87</span><span class="glance-text">Chapter 87 — The Grand Armada</span></a></li>
+<li><a href="/read/moby-dick/chapter-88"><span class="glance-num">Chapter 88</span><span class="glance-text">Chapter 88 — Schools and Schoolmasters</span></a></li>
+<li><a href="/read/moby-dick/chapter-89"><span class="glance-num">Chapter 89</span><span class="glance-text">Chapter 89 — Fast-Fish and Loose-Fish</span></a></li>
+<li><a href="/read/moby-dick/chapter-90"><span class="glance-num">Chapter 90</span><span class="glance-text">Chapter 90 — Heads or Tails</span></a></li>
+<li><a href="/read/moby-dick/chapter-91"><span class="glance-num">Chapter 91</span><span class="glance-text">Chapter 91 — The Pequod Meets The Rose-Bud</span></a></li>
+<li><a href="/read/moby-dick/chapter-92"><span class="glance-num">Chapter 92</span><span class="glance-text">Chapter 92 — Ambergris</span></a></li>
+<li><a href="/read/moby-dick/chapter-93"><span class="glance-num">Chapter 93</span><span class="glance-text">Chapter 93 — The Castaway</span></a></li>
+<li><a href="/read/moby-dick/chapter-94"><span class="glance-num">Chapter 94</span><span class="glance-text">Chapter 94 — A Squeeze of the Hand</span></a></li>
+<li><a href="/read/moby-dick/chapter-95"><span class="glance-num">Chapter 95</span><span class="glance-text">Chapter 95 — The Cassock</span></a></li>
+<li><a href="/read/moby-dick/chapter-96"><span class="glance-num">Chapter 96</span><span class="glance-text">Chapter 96 — The Try-Works</span></a></li>
+<li><a href="/read/moby-dick/chapter-97"><span class="glance-num">Chapter 97</span><span class="glance-text">Chapter 97 — The Lamp</span></a></li>
+<li><a href="/read/moby-dick/chapter-98"><span class="glance-num">Chapter 98</span><span class="glance-text">Chapter 98 — Stowing Down and Clearing Up</span></a></li>
+<li><a href="/read/moby-dick/chapter-99"><span class="glance-num">Chapter 99</span><span class="glance-text">Chapter 99 — The Doubloon</span></a></li>
+<li><a href="/read/moby-dick/chapter-100"><span class="glance-num">Chapter 100</span><span class="glance-text">Chapter 100 — Leg and Arm</span></a></li>
+<li><a href="/read/moby-dick/chapter-101"><span class="glance-num">Chapter 101</span><span class="glance-text">Chapter 101 — The Decanter</span></a></li>
+<li><a href="/read/moby-dick/chapter-102"><span class="glance-num">Chapter 102</span><span class="glance-text">Chapter 102 — A Bower in the Arsacides</span></a></li>
+<li><a href="/read/moby-dick/chapter-103"><span class="glance-num">Chapter 103</span><span class="glance-text">Chapter 103 — Measurement of The Whale’s Skeleton</span></a></li>
+<li><a href="/read/moby-dick/chapter-104"><span class="glance-num">Chapter 104</span><span class="glance-text">Chapter 104 — The Fossil Whale</span></a></li>
+<li><a href="/read/moby-dick/chapter-105"><span class="glance-num">Chapter 105</span><span class="glance-text">Chapter 105 — Does the Whale’s Magnitude Diminish?—Will He Perish?</span></a></li>
+<li><a href="/read/moby-dick/chapter-106"><span class="glance-num">Chapter 106</span><span class="glance-text">Chapter 106 — Ahab’s Leg</span></a></li>
+<li><a href="/read/moby-dick/chapter-107"><span class="glance-num">Chapter 107</span><span class="glance-text">Chapter 107 — The Carpenter</span></a></li>
+<li><a href="/read/moby-dick/chapter-108"><span class="glance-num">Chapter 108</span><span class="glance-text">Chapter 108 — Ahab and the Carpenter</span></a></li>
+<li><a href="/read/moby-dick/chapter-109"><span class="glance-num">Chapter 109</span><span class="glance-text">Chapter 109 — Ahab and Starbuck in the Cabin</span></a></li>
+<li><a href="/read/moby-dick/chapter-110"><span class="glance-num">Chapter 110</span><span class="glance-text">Chapter 110 — Queequeg in His Coffin</span></a></li>
+<li><a href="/read/moby-dick/chapter-111"><span class="glance-num">Chapter 111</span><span class="glance-text">Chapter 111 — The Pacific</span></a></li>
+<li><a href="/read/moby-dick/chapter-112"><span class="glance-num">Chapter 112</span><span class="glance-text">Chapter 112 — The Blacksmith</span></a></li>
+<li><a href="/read/moby-dick/chapter-113"><span class="glance-num">Chapter 113</span><span class="glance-text">Chapter 113 — The Forge</span></a></li>
+<li><a href="/read/moby-dick/chapter-114"><span class="glance-num">Chapter 114</span><span class="glance-text">Chapter 114 — The Gilder</span></a></li>
+<li><a href="/read/moby-dick/chapter-115"><span class="glance-num">Chapter 115</span><span class="glance-text">Chapter 115 — The Pequod Meets The Bachelor</span></a></li>
+<li><a href="/read/moby-dick/chapter-116"><span class="glance-num">Chapter 116</span><span class="glance-text">Chapter 116 — The Dying Whale</span></a></li>
+<li><a href="/read/moby-dick/chapter-117"><span class="glance-num">Chapter 117</span><span class="glance-text">Chapter 117 — The Whale Watch</span></a></li>
+<li><a href="/read/moby-dick/chapter-118"><span class="glance-num">Chapter 118</span><span class="glance-text">Chapter 118 — The Quadrant</span></a></li>
+<li><a href="/read/moby-dick/chapter-119"><span class="glance-num">Chapter 119</span><span class="glance-text">Chapter 119 — The Candles</span></a></li>
+<li><a href="/read/moby-dick/chapter-120"><span class="glance-num">Chapter 120</span><span class="glance-text">Chapter 120 — The Deck Towards the End of the First Night Watch</span></a></li>
+<li><a href="/read/moby-dick/chapter-121"><span class="glance-num">Chapter 121</span><span class="glance-text">Chapter 121 — Midnight.—The Forecastle Bulwarks</span></a></li>
+<li><a href="/read/moby-dick/chapter-122"><span class="glance-num">Chapter 122</span><span class="glance-text">Chapter 122 — Midnight Aloft.—Thunder and Lightning</span></a></li>
+<li><a href="/read/moby-dick/chapter-123"><span class="glance-num">Chapter 123</span><span class="glance-text">Chapter 123 — The Musket</span></a></li>
+<li><a href="/read/moby-dick/chapter-124"><span class="glance-num">Chapter 124</span><span class="glance-text">Chapter 124 — The Needle</span></a></li>
+<li><a href="/read/moby-dick/chapter-125"><span class="glance-num">Chapter 125</span><span class="glance-text">Chapter 125 — The Log and Line</span></a></li>
+<li><a href="/read/moby-dick/chapter-126"><span class="glance-num">Chapter 126</span><span class="glance-text">Chapter 126 — The Life-Buoy</span></a></li>
+<li><a href="/read/moby-dick/chapter-127"><span class="glance-num">Chapter 127</span><span class="glance-text">Chapter 127 — The Deck</span></a></li>
+<li><a href="/read/moby-dick/chapter-128"><span class="glance-num">Chapter 128</span><span class="glance-text">Chapter 128 — The Pequod Meets The Rachel</span></a></li>
+<li><a href="/read/moby-dick/chapter-129"><span class="glance-num">Chapter 129</span><span class="glance-text">Chapter 129 — The Cabin</span></a></li>
+<li><a href="/read/moby-dick/chapter-130"><span class="glance-num">Chapter 130</span><span class="glance-text">Chapter 130 — The Hat</span></a></li>
+<li><a href="/read/moby-dick/chapter-131"><span class="glance-num">Chapter 131</span><span class="glance-text">Chapter 131 — The Pequod Meets The Delight</span></a></li>
+<li><a href="/read/moby-dick/chapter-132"><span class="glance-num">Chapter 132</span><span class="glance-text">Chapter 132 — The Symphony</span></a></li>
+<li><a href="/read/moby-dick/chapter-133"><span class="glance-num">Chapter 133</span><span class="glance-text">Chapter 133 — The Chase—First Day</span></a></li>
+<li><a href="/read/moby-dick/chapter-134"><span class="glance-num">Chapter 134</span><span class="glance-text">Chapter 134 — The Chase—Second Day</span></a></li>
+<li><a href="/read/moby-dick/chapter-135"><span class="glance-num">Chapter 135</span><span class="glance-text">Chapter 135 — The Chase.—Third Day</span></a></li>
+<li><a href="/read/moby-dick/chapter-136"><span class="glance-num">Chapter 136</span><span class="glance-text">Epilogue — The Drama&#39;s Done</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Chapter 1 — Loomings</h2>
+  <div class="body">
+    <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+    <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+    <p>Circumambulate the city of a dreamy Sabbath afternoon. Go from Corlears Hook to Coenties Slip, and from thence, by Whitehall, northward. What do you see?—Posted like silent sentinels all around the town, stand thousands upon thousands of mortal men fixed in ocean reveries. Some leaning against the spiles; some seated upon the pier-heads; some looking over the bulwarks of ships from China; some high aloft in the rigging, as if striving to get a still better seaward peep. But these are all landsmen; of week days pent up in lath and plaster—tied to counters, nailed to benches, clinched to desks. How then is this? Are the green fields gone? What do they here?</p>
+    <p>But look! here come more crowds, pacing straight for the water, and seemingly bound for a dive. Strange! Nothing will content them but the extremest limit of the land; loitering under the shady lee of yonder warehouses will not suffice. No. They must get just as nigh the water as they possibly can without falling in. And there they stand—miles of them—leagues. Inlanders all, they come from lanes and alleys, streets and avenues—north, east, south, and west. Yet here they all unite. Tell me, does the magnetic virtue of the needles of the compasses of all those ships attract them thither?</p>
+    <p>Once more. Say you are in the country; in some high land of lakes. Take almost any path you please, and ten to one it carries you down in a dale, and leaves you there by a pool in the stream. There is magic in it. Let the most absent-minded of men be plunged in his deepest reveries—stand that man on his legs, set his feet a-going, and he will infallibly lead you to water, if water there be in all that region. Should you ever be athirst in the great American desert, try this experiment, if your caravan happen to be supplied with a metaphysical professor. Yes, as every one knows, meditation and water are wedded for ever.</p>
+    <p>But here is an artist. He desires to paint you the dreamiest, shadiest, quietest, most enchanting bit of romantic landscape in all the valley of the Saco. What is the chief element he employs? There stand his trees, each with a hollow trunk, as if a hermit and a crucifix were...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Moby Dick free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/moby-dick?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

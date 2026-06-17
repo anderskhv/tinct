@@ -11,131 +11,143 @@
   <meta property="og:url" content="https://tinct.app/read/king-lear">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/king-lear#book","name":"King Lear","author":{"@type":"Person","name":"William Shakespeare"},"description":"The aging king divides his kingdom among his daughters by how loudly they will say they love him. Cordelia refuses to play; her sisters lie. By the storm scene on the heath, Lear is mad and stripped of everything. The darkest and most pitiless of the four great tragedies.","url":"https://tinct.app/read/king-lear","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/king-lear?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/king-lear?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>King Lear</h1>
-    <p class="dek">by William Shakespeare</p>
-    <p class="description">The aging king divides his kingdom among his daughters by how loudly they will say they love him. Cordelia refuses to play; her sisters lie. By the storm scene on the heath, Lear is mad and stripped of everything. The darkest and most pitiless of the four great tragedies.</p>
-    <a class="cta" href="/read/king-lear?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Act 1, Scene 1 — A Room of State in King Lear’s Palace</h2>
-      <p>Enter Kent, Gloucester and Edmund.</p>
-      <p>KENT. I thought the King had more affected the Duke of Albany than Cornwall.</p>
-      <p>GLOUCESTER. It did always seem so to us; but now, in the division of the kingdom, it appears not which of the Dukes he values most, for qualities are so weighed that curiosity in neither can make choice of either’s moiety.</p>
-      <p>KENT. Is not this your son, my lord?</p>
-      <p>GLOUCESTER. His breeding, sir, hath been at my charge: I have so often blush’d to acknowledge him that now I am braz’d to’t.</p>
-      <p>KENT. I cannot conceive you.</p>
-      <p>GLOUCESTER. Sir, this young fellow’s mother could; whereupon she grew round-wombed, and had indeed, sir, a son for her cradle ere she had a husband for her bed. Do you smell a fault?</p>
-      <p>KENT. I cannot wish the fault undone, the issue of it being so proper.</p>
-      <p>GLOUCESTER. But I have a son, sir, by order of law, some year elder than this, who yet is no dearer in my account: though this knave came something saucily to the world before he was sent for, yet was his mother fair; there was good sport at his making, and the whoreson must be acknowledged. Do you know this noble gentleman, Edmund?</p>
-      <p>EDMUND. No, my lord.</p>
-      <p>GLOUCESTER. My Lord of Kent: remember him hereafter as my honourable friend.</p>
-      <p>EDMUND. My services to your lordship.</p>
-      <p>KENT. I must love you, and sue to know you better.</p>
-      <p>EDMUND. Sir, I shall study deserving.</p>
-      <p>GLOUCESTER. He hath been out nine years, and away he shall again. The King is coming.</p>
-      <p>[_Sennet within._]</p>
-      <p>Enter Lear, Cornwall, Albany, Goneril, Regan, Cordelia and Attendants.</p>
-      <p>LEAR. Attend the lords of France and Burgundy, Gloucester.</p>
-      <p>GLOUCESTER. I shall, my lord.</p>
-      <p>[_Exeunt Gloucester and Edmund._]</p>
-      <p>LEAR. Meantime we shall express our darker purpose. Give me the map there. Know that we have divided In three our kingdom: and ’tis our fast intent To shake all cares and business from our age; Conferring them on younger strengths, while we Unburden’d crawl toward death. Our son of Cornwall, And you, our no less loving son of Albany, We have this hour a constant will to publish Our daughters’ several dowers, that future strife May be prevented now. The princes, France and Burgundy, Great rivals in our youngest daughter’s love, Long in our court have made their amorous sojourn, And here are to be answer’d. Tell me, my daughters,— Since now we will divest us both of rule, Interest of territory, cares of state,— Which of you shall we say doth love us most? That we our largest bounty may extend Where nature doth with merit challenge.—Goneril, Our eldest born, speak first.</p>
-      <p>GONERIL. Sir, I love you more than word can wield the matter; Dearer than eyesight, space, and liberty; Beyond what can be valu’d, rich or rare; No less than life, with grace, health, beauty, honour; As much as child e’er lov’d, or father found; A love that makes breath poor and speech unable; Beyond all manner of so much I love you.</p>
-      <p>CORDELIA.</p>
-      <p>[_Aside._] What shall Cordelia speak? Love, and be silent.</p>
-      <p>LEAR. Of all these bounds, even from this line to this, With shadowy forests and with champains rich’d, With plenteous rivers and wide-skirted meads, We make thee lady: to thine and Albany’s issue Be this perpetual.—What says our second daughter, Our dearest Regan, wife of Cornwall? Speak.</p>
-      <p>REGAN. Sir, I am made of the self mettle as my sister, And prize me at her worth. In my true heart I find she names my very deed of love; Only she comes too short, that I profess Myself an enemy to all other joys Which the most precious square of sense possesses, And find I am alone felicitate In your dear highness’ love.</p>
-      <p>CORDELIA.</p>
-      <p>[_Aside._] Then poor Cordelia,</p>
-      <p>And yet not so; since, I am sure, my love’s More ponderous than my tongue.</p>
-      <p>LEAR. To...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/king-lear/chapter-1">Act 1, Scene 1 — A Room of State in King Lear’s Palace</a></li>
-<li><a href="/read/king-lear/chapter-2">Act 1, Scene 2 — A Hall in the Earl of Gloucester’s Castle</a></li>
-<li><a href="/read/king-lear/chapter-3">Act 1, Scene 3 — A Room in the Duke of Albany’s Palace</a></li>
-<li><a href="/read/king-lear/chapter-4">Act 1, Scene 4 — A Hall in Albany’s Palace</a></li>
-<li><a href="/read/king-lear/chapter-5">Act 1, Scene 5 — Court before the Duke of Albany’s Palace</a></li>
-<li><a href="/read/king-lear/chapter-6">Act 2, Scene 1 — A court within the Castle of the Earl of Gloucester</a></li>
-<li><a href="/read/king-lear/chapter-7">Act 2, Scene 2 — Before Gloucester’s Castle</a></li>
-<li><a href="/read/king-lear/chapter-8">Act 2, Scene 3 — The open Country</a></li>
-<li><a href="/read/king-lear/chapter-9">Act 2, Scene 4 — Before Gloucester’s Castle; Kent in the stocks</a></li>
-<li><a href="/read/king-lear/chapter-10">Act 3, Scene 1 — A Heath</a></li>
-<li><a href="/read/king-lear/chapter-11">Act 3, Scene 2 — Another part of the heath</a></li>
-<li><a href="/read/king-lear/chapter-12">Act 3, Scene 3 — A Room in Gloucester’s Castle</a></li>
-<li><a href="/read/king-lear/chapter-13">Act 3, Scene 4 — A part of the Heath with a Hovel</a></li>
-<li><a href="/read/king-lear/chapter-14">Act 3, Scene 5 — A Room in Gloucester’s Castle</a></li>
-<li><a href="/read/king-lear/chapter-15">Act 3, Scene 6 — A Chamber in a Farmhouse adjoining the Castle</a></li>
-<li><a href="/read/king-lear/chapter-16">Act 3, Scene 7 — A Room in Gloucester’s Castle</a></li>
-<li><a href="/read/king-lear/chapter-17">Act 4, Scene 1 — The heath</a></li>
-<li><a href="/read/king-lear/chapter-18">Act 4, Scene 2 — Before the Duke of Albany’s Palace</a></li>
-<li><a href="/read/king-lear/chapter-19">Act 4, Scene 3 — The French camp near Dover</a></li>
-<li><a href="/read/king-lear/chapter-20">Act 4, Scene 4 — The French camp. A Tent</a></li>
-<li><a href="/read/king-lear/chapter-21">Act 4, Scene 5 — A Room in Gloucester’s Castle</a></li>
-<li><a href="/read/king-lear/chapter-22">Act 4, Scene 6 — The country near Dover</a></li>
-<li><a href="/read/king-lear/chapter-23">Act 4, Scene 7 — A Tent in the French Camp</a></li>
-<li><a href="/read/king-lear/chapter-24">Act 5, Scene 1 — The Camp of the British Forces near Dover</a></li>
-<li><a href="/read/king-lear/chapter-25">Act 5, Scene 2 — A field between the two Camps</a></li>
-<li><a href="/read/king-lear/chapter-26">Act 5, Scene 3 — The British Camp near Dover</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>King Lear</span>
   </div>
-  <footer>Read King Lear free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">King Lear</h1>
+  <p class="byline">by William Shakespeare</p>
+  <p class="hook">The aging king divides his kingdom among his daughters by how loudly they will say they love him. Cordelia refuses to play; her sisters lie. By the storm scene on the heath, Lear is mad and stripped of everything. The darkest and most pitiless of the four great tragedies.</p>
+  <a class="primary-cta" href="/read/king-lear?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/king-lear/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Act 1, Scene 1 — A Room of State in King Lear’s Palace</span></a></li>
+<li><a href="/read/king-lear/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Act 1, Scene 2 — A Hall in the Earl of Gloucester’s Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Act 1, Scene 3 — A Room in the Duke of Albany’s Palace</span></a></li>
+<li><a href="/read/king-lear/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Act 1, Scene 4 — A Hall in Albany’s Palace</span></a></li>
+<li><a href="/read/king-lear/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Act 1, Scene 5 — Court before the Duke of Albany’s Palace</span></a></li>
+<li><a href="/read/king-lear/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Act 2, Scene 1 — A court within the Castle of the Earl of Gloucester</span></a></li>
+<li><a href="/read/king-lear/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Act 2, Scene 2 — Before Gloucester’s Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Act 2, Scene 3 — The open Country</span></a></li>
+<li><a href="/read/king-lear/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Act 2, Scene 4 — Before Gloucester’s Castle; Kent in the stocks</span></a></li>
+<li><a href="/read/king-lear/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Act 3, Scene 1 — A Heath</span></a></li>
+<li><a href="/read/king-lear/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Act 3, Scene 2 — Another part of the heath</span></a></li>
+<li><a href="/read/king-lear/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Act 3, Scene 3 — A Room in Gloucester’s Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Act 3, Scene 4 — A part of the Heath with a Hovel</span></a></li>
+<li><a href="/read/king-lear/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Act 3, Scene 5 — A Room in Gloucester’s Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Act 3, Scene 6 — A Chamber in a Farmhouse adjoining the Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Act 3, Scene 7 — A Room in Gloucester’s Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Act 4, Scene 1 — The heath</span></a></li>
+<li><a href="/read/king-lear/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Act 4, Scene 2 — Before the Duke of Albany’s Palace</span></a></li>
+<li><a href="/read/king-lear/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Act 4, Scene 3 — The French camp near Dover</span></a></li>
+<li><a href="/read/king-lear/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Act 4, Scene 4 — The French camp. A Tent</span></a></li>
+<li><a href="/read/king-lear/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Act 4, Scene 5 — A Room in Gloucester’s Castle</span></a></li>
+<li><a href="/read/king-lear/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Act 4, Scene 6 — The country near Dover</span></a></li>
+<li><a href="/read/king-lear/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Act 4, Scene 7 — A Tent in the French Camp</span></a></li>
+<li><a href="/read/king-lear/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Act 5, Scene 1 — The Camp of the British Forces near Dover</span></a></li>
+<li><a href="/read/king-lear/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Act 5, Scene 2 — A field between the two Camps</span></a></li>
+<li><a href="/read/king-lear/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Act 5, Scene 3 — The British Camp near Dover</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Act 1, Scene 1 — A Room of State in King Lear’s Palace</h2>
+  <div class="body">
+    <p>Enter Kent, Gloucester and Edmund.</p>
+    <p>KENT. I thought the King had more affected the Duke of Albany than Cornwall.</p>
+    <p>GLOUCESTER. It did always seem so to us; but now, in the division of the kingdom, it appears not which of the Dukes he values most, for qualities are so weighed that curiosity in neither can make choice of either’s moiety.</p>
+    <p>KENT. Is not this your son, my lord?</p>
+    <p>GLOUCESTER. His breeding, sir, hath been at my charge: I have so often blush’d to acknowledge him that now I am braz’d to’t.</p>
+    <p>KENT. I cannot conceive you.</p>
+    <p>GLOUCESTER. Sir, this young fellow’s mother could; whereupon she grew round-wombed, and had indeed, sir, a son for her cradle ere she had a husband for her bed. Do you smell a fault?</p>
+    <p>KENT. I cannot wish the fault undone, the issue of it being so proper.</p>
+    <p>GLOUCESTER. But I have a son, sir, by order of law, some year elder than this, who yet is no dearer in my account: though this knave came something saucily to the world before he was sent for, yet was his mother fair; there was good sport at his making, and the whoreson must be acknowledged. Do you know this noble gentleman, Edmund?</p>
+    <p>EDMUND. No, my lord.</p>
+    <p>GLOUCESTER. My Lord of Kent: remember him hereafter as my honourable friend.</p>
+    <p>EDMUND. My services to your lordship.</p>
+    <p>KENT. I must love you, and sue to know you better.</p>
+    <p>EDMUND. Sir, I shall study deserving.</p>
+    <p>GLOUCESTER. He hath been out nine years, and away he shall again. The King is coming.</p>
+    <p>[_Sennet within._]</p>
+    <p>Enter Lear, Cornwall, Albany, Goneril, Regan, Cordelia and Attendants.</p>
+    <p>LEAR. Attend the lords of France and Burgundy, Gloucester.</p>
+    <p>GLOUCESTER. I shall, my lord.</p>
+    <p>[_Exeunt Gloucester and Edmund._]</p>
+    <p>LEAR. Meantime we shall express our darker purpose. Give me the map there. Know that we have divided In three our kingdom: and ’tis our fast intent To shake all cares and business from our age; Conferring them on younger strengths, while we Unburden’d crawl toward death. Our son of Cornwall, And you, our no less loving son of Albany, We have this hour a constant will to publish Our daughters’ several dowers, that future strife May be prevented now. The princes, France and Burgundy, Great rivals in our youngest daughter’s love, Long in our court have made their amorous sojourn, And here are to be answer’d. Tell me, my daughters,— Since now we will divest us both of rule, Interest of territory, cares of state,— Which of you shall we say doth love us most? That we our largest bounty may extend Where nature doth with merit challenge.—Goneril, Our eldest born, speak first.</p>
+    <p>GONERIL. Sir, I love you more than word can wield the matter; Dearer than eyesight, space, and liberty; Beyond what can be valu’d, rich or rare; No less than life, with grace, health, beauty, honour; As much as child e’er lov’d, or father found; A love that makes breath poor and speech unable; Beyond all manner of so much I love you.</p>
+    <p>CORDELIA.</p>
+    <p>[_Aside._] What shall Cordelia speak? Love, and be silent.</p>
+    <p>LEAR. Of all these bounds, even from this line to this, With shadowy forests and with champains rich’d, With plenteous rivers and wide-skirted meads, We make thee lady: to thine and Albany’s issue Be this perpetual.—What says our second daughter, Our dearest Regan, wife of Cornwall? Speak.</p>
+    <p>REGAN. Sir, I am made of the self mettle as my sister, And prize me at her worth. In my true heart I find she names my very deed of love; Only she comes too short, that I profess Myself an enemy to all other joys Which the most precious square of sense possesses, And find I am alone felicitate In your dear highness’ love.</p>
+    <p>CORDELIA.</p>
+    <p>[_Aside._] Then poor Cordelia,</p>
+    <p>And yet not so; since, I am sure, my love’s More ponderous than my tongue.</p>
+    <p>LEAR. To...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read King Lear free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/king-lear?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

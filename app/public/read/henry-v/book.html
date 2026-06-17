@@ -11,116 +11,128 @@
   <meta property="og:url" content="https://tinct.app/read/henry-v">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/henry-v#book","name":"Henry V","author":{"@type":"Person","name":"William Shakespeare"},"description":"The young king who once caroused with Falstaff invades France, defeats five-to-one odds at Agincourt, and woos a princess in broken French. \"We few, we happy few, we band of brothers\" — the most-quoted speech about leadership in English.","url":"https://tinct.app/read/henry-v","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/henry-v?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/henry-v?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Henry V</h1>
-    <p class="dek">by William Shakespeare</p>
-    <p class="description">The young king who once caroused with Falstaff invades France, defeats five-to-one odds at Agincourt, and woos a princess in broken French. &quot;We few, we happy few, we band of brothers&quot; — the most-quoted speech about leadership in English.</p>
-    <a class="cta" href="/read/henry-v?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Act 1, Scene 1 — London. An ante-chamber in the King’s palace</h2>
-      <p>Enter the Archbishop of Canterbury and the Bishop of Ely.</p>
-      <p>CANTERBURY. My lord, I’ll tell you, that self bill is urg’d Which in the eleventh year of the last king’s reign Was like, and had indeed against us passed But that the scambling and unquiet time Did push it out of farther question.</p>
-      <p>ELY. But how, my lord, shall we resist it now?</p>
-      <p>CANTERBURY. It must be thought on. If it pass against us, We lose the better half of our possession: For all the temporal lands, which men devout By testament have given to the Church, Would they strip from us; being valu’d thus: As much as would maintain, to the King’s honour, Full fifteen earls and fifteen hundred knights, Six thousand and two hundred good esquires; And, to relief of lazars and weak age, Of indigent faint souls past corporal toil, A hundred almshouses right well supplied; And to the coffers of the King beside, A thousand pounds by th’ year. Thus runs the bill.</p>
-      <p>ELY. This would drink deep.</p>
-      <p>CANTERBURY. ’Twould drink the cup and all.</p>
-      <p>ELY. But what prevention?</p>
-      <p>CANTERBURY. The King is full of grace and fair regard.</p>
-      <p>ELY. And a true lover of the holy Church.</p>
-      <p>CANTERBURY. The courses of his youth promis’d it not. The breath no sooner left his father’s body But that his wildness, mortified in him, Seemed to die too; yea, at that very moment Consideration like an angel came And whipped th’ offending Adam out of him, Leaving his body as a paradise T’ envelope and contain celestial spirits. Never was such a sudden scholar made, Never came reformation in a flood With such a heady currance scouring faults, Nor never Hydra-headed wilfulness So soon did lose his seat, and all at once, As in this king.</p>
-      <p>ELY. We are blessed in the change.</p>
-      <p>CANTERBURY. Hear him but reason in divinity And, all-admiring, with an inward wish You would desire the King were made a prelate; Hear him debate of commonwealth affairs, You would say it hath been all in all his study; List his discourse of war, and you shall hear A fearful battle rendered you in music; Turn him to any cause of policy, The Gordian knot of it he will unloose, Familiar as his garter; that, when he speaks, The air, a chartered libertine, is still, And the mute wonder lurketh in men’s ears To steal his sweet and honeyed sentences; So that the art and practic part of life Must be the mistress to this theoric: Which is a wonder how his Grace should glean it, Since his addiction was to courses vain, His companies unlettered, rude, and shallow, His hours filled up with riots, banquets, sports, And never noted in him any study, Any retirement, any sequestration From open haunts and popularity.</p>
-      <p>ELY. The strawberry grows underneath the nettle, And wholesome berries thrive and ripen best Neighboured by fruit of baser quality; And so the Prince obscured his contemplation Under the veil of wildness, which, no doubt, Grew like the summer grass, fastest by night, Unseen, yet crescive in his faculty.</p>
-      <p>CANTERBURY. It must be so, for miracles are ceased, And therefore we must needs admit the means How things are perfected.</p>
-      <p>ELY. But, my good lord, How now for mitigation of this bill Urged by the Commons? Doth his Majesty Incline to it, or no?</p>
-      <p>CANTERBURY. He seems indifferent, Or rather swaying more upon our part Than cherishing th’ exhibitors against us; For I have made an offer to his Majesty, Upon our spiritual convocation And in regard of causes now in hand, Which I have opened to his Grace at large, As touching France, to give a greater sum Than ever at one time the clergy yet Did to his predecessors part withal.</p>
-      <p>ELY. How did this offer seem received, my lord?</p>
-      <p>CANTERBURY. With good acceptance of his Majesty; Save that there...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/henry-v/chapter-1">Act 1, Scene 1 — London. An ante-chamber in the King’s palace</a></li>
-<li><a href="/read/henry-v/chapter-2">Act 1, Scene 2 — The same. The presence chamber</a></li>
-<li><a href="/read/henry-v/chapter-3">Act 2, Scene 1 — London. A street</a></li>
-<li><a href="/read/henry-v/chapter-4">Act 2, Scene 2 — Southampton. A council-chamber</a></li>
-<li><a href="/read/henry-v/chapter-5">Act 2, Scene 3 — London. Before a tavern</a></li>
-<li><a href="/read/henry-v/chapter-6">Act 2, Scene 4 — France. The King’s palace</a></li>
-<li><a href="/read/henry-v/chapter-7">Act 3, Scene 1 — France. Before Harfleur</a></li>
-<li><a href="/read/henry-v/chapter-8">Act 3, Scene 2 — The same</a></li>
-<li><a href="/read/henry-v/chapter-9">Act 3, Scene 3 — Before the gates</a></li>
-<li><a href="/read/henry-v/chapter-10">Act 3, Scene 4 — The French King’s palace</a></li>
-<li><a href="/read/henry-v/chapter-11">Act 3, Scene 5 — The same</a></li>
-<li><a href="/read/henry-v/chapter-12">Act 3, Scene 6 — The English camp in Picardy</a></li>
-<li><a href="/read/henry-v/chapter-13">Act 3, Scene 7 — The French camp, near Agincourt</a></li>
-<li><a href="/read/henry-v/chapter-14">Act 4, Scene 1 — The English camp at Agincourt</a></li>
-<li><a href="/read/henry-v/chapter-15">Act 4, Scene 2 — The French camp</a></li>
-<li><a href="/read/henry-v/chapter-16">Act 4, Scene 3 — The English camp</a></li>
-<li><a href="/read/henry-v/chapter-17">Act 4, Scene 4 — The field of battle</a></li>
-<li><a href="/read/henry-v/chapter-18">Act 4, Scene 5 — Another part of the field</a></li>
-<li><a href="/read/henry-v/chapter-19">Act 4, Scene 6 — Another part of the field</a></li>
-<li><a href="/read/henry-v/chapter-20">Act 4, Scene 7 — Another part of the field</a></li>
-<li><a href="/read/henry-v/chapter-21">Act 4, Scene 8 — Before King Henry’s pavilion</a></li>
-<li><a href="/read/henry-v/chapter-22">Act 5, Scene 1 — France. The English camp</a></li>
-<li><a href="/read/henry-v/chapter-23">Act 5, Scene 2 — France. A royal palace</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Henry V</span>
   </div>
-  <footer>Read Henry V free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Henry V</h1>
+  <p class="byline">by William Shakespeare</p>
+  <p class="hook">The young king who once caroused with Falstaff invades France, defeats five-to-one odds at Agincourt, and woos a princess in broken French. &quot;We few, we happy few, we band of brothers&quot; — the most-quoted speech about leadership in English.</p>
+  <a class="primary-cta" href="/read/henry-v?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/henry-v/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Act 1, Scene 1 — London. An ante-chamber in the King’s palace</span></a></li>
+<li><a href="/read/henry-v/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Act 1, Scene 2 — The same. The presence chamber</span></a></li>
+<li><a href="/read/henry-v/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Act 2, Scene 1 — London. A street</span></a></li>
+<li><a href="/read/henry-v/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Act 2, Scene 2 — Southampton. A council-chamber</span></a></li>
+<li><a href="/read/henry-v/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Act 2, Scene 3 — London. Before a tavern</span></a></li>
+<li><a href="/read/henry-v/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Act 2, Scene 4 — France. The King’s palace</span></a></li>
+<li><a href="/read/henry-v/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Act 3, Scene 1 — France. Before Harfleur</span></a></li>
+<li><a href="/read/henry-v/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Act 3, Scene 2 — The same</span></a></li>
+<li><a href="/read/henry-v/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Act 3, Scene 3 — Before the gates</span></a></li>
+<li><a href="/read/henry-v/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Act 3, Scene 4 — The French King’s palace</span></a></li>
+<li><a href="/read/henry-v/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Act 3, Scene 5 — The same</span></a></li>
+<li><a href="/read/henry-v/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Act 3, Scene 6 — The English camp in Picardy</span></a></li>
+<li><a href="/read/henry-v/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Act 3, Scene 7 — The French camp, near Agincourt</span></a></li>
+<li><a href="/read/henry-v/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Act 4, Scene 1 — The English camp at Agincourt</span></a></li>
+<li><a href="/read/henry-v/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Act 4, Scene 2 — The French camp</span></a></li>
+<li><a href="/read/henry-v/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Act 4, Scene 3 — The English camp</span></a></li>
+<li><a href="/read/henry-v/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Act 4, Scene 4 — The field of battle</span></a></li>
+<li><a href="/read/henry-v/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Act 4, Scene 5 — Another part of the field</span></a></li>
+<li><a href="/read/henry-v/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Act 4, Scene 6 — Another part of the field</span></a></li>
+<li><a href="/read/henry-v/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Act 4, Scene 7 — Another part of the field</span></a></li>
+<li><a href="/read/henry-v/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Act 4, Scene 8 — Before King Henry’s pavilion</span></a></li>
+<li><a href="/read/henry-v/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Act 5, Scene 1 — France. The English camp</span></a></li>
+<li><a href="/read/henry-v/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Act 5, Scene 2 — France. A royal palace</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Act 1, Scene 1 — London. An ante-chamber in the King’s palace</h2>
+  <div class="body">
+    <p>Enter the Archbishop of Canterbury and the Bishop of Ely.</p>
+    <p>CANTERBURY. My lord, I’ll tell you, that self bill is urg’d Which in the eleventh year of the last king’s reign Was like, and had indeed against us passed But that the scambling and unquiet time Did push it out of farther question.</p>
+    <p>ELY. But how, my lord, shall we resist it now?</p>
+    <p>CANTERBURY. It must be thought on. If it pass against us, We lose the better half of our possession: For all the temporal lands, which men devout By testament have given to the Church, Would they strip from us; being valu’d thus: As much as would maintain, to the King’s honour, Full fifteen earls and fifteen hundred knights, Six thousand and two hundred good esquires; And, to relief of lazars and weak age, Of indigent faint souls past corporal toil, A hundred almshouses right well supplied; And to the coffers of the King beside, A thousand pounds by th’ year. Thus runs the bill.</p>
+    <p>ELY. This would drink deep.</p>
+    <p>CANTERBURY. ’Twould drink the cup and all.</p>
+    <p>ELY. But what prevention?</p>
+    <p>CANTERBURY. The King is full of grace and fair regard.</p>
+    <p>ELY. And a true lover of the holy Church.</p>
+    <p>CANTERBURY. The courses of his youth promis’d it not. The breath no sooner left his father’s body But that his wildness, mortified in him, Seemed to die too; yea, at that very moment Consideration like an angel came And whipped th’ offending Adam out of him, Leaving his body as a paradise T’ envelope and contain celestial spirits. Never was such a sudden scholar made, Never came reformation in a flood With such a heady currance scouring faults, Nor never Hydra-headed wilfulness So soon did lose his seat, and all at once, As in this king.</p>
+    <p>ELY. We are blessed in the change.</p>
+    <p>CANTERBURY. Hear him but reason in divinity And, all-admiring, with an inward wish You would desire the King were made a prelate; Hear him debate of commonwealth affairs, You would say it hath been all in all his study; List his discourse of war, and you shall hear A fearful battle rendered you in music; Turn him to any cause of policy, The Gordian knot of it he will unloose, Familiar as his garter; that, when he speaks, The air, a chartered libertine, is still, And the mute wonder lurketh in men’s ears To steal his sweet and honeyed sentences; So that the art and practic part of life Must be the mistress to this theoric: Which is a wonder how his Grace should glean it, Since his addiction was to courses vain, His companies unlettered, rude, and shallow, His hours filled up with riots, banquets, sports, And never noted in him any study, Any retirement, any sequestration From open haunts and popularity.</p>
+    <p>ELY. The strawberry grows underneath the nettle, And wholesome berries thrive and ripen best Neighboured by fruit of baser quality; And so the Prince obscured his contemplation Under the veil of wildness, which, no doubt, Grew like the summer grass, fastest by night, Unseen, yet crescive in his faculty.</p>
+    <p>CANTERBURY. It must be so, for miracles are ceased, And therefore we must needs admit the means How things are perfected.</p>
+    <p>ELY. But, my good lord, How now for mitigation of this bill Urged by the Commons? Doth his Majesty Incline to it, or no?</p>
+    <p>CANTERBURY. He seems indifferent, Or rather swaying more upon our part Than cherishing th’ exhibitors against us; For I have made an offer to his Majesty, Upon our spiritual convocation And in regard of causes now in hand, Which I have opened to his Grace at large, As touching France, to give a greater sum Than ever at one time the clergy yet Did to his predecessors part withal.</p>
+    <p>ELY. How did this offer seem received, my lord?</p>
+    <p>CANTERBURY. With good acceptance of his Majesty; Save that there...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Henry V free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/henry-v?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

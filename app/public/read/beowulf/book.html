@@ -11,124 +11,136 @@
   <meta property="og:url" content="https://tinct.app/read/beowulf">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/beowulf#book","name":"Beowulf","author":{"@type":"Person","name":"Anonymous"},"description":"The oldest surviving epic in English. A Geatish warrior crosses the sea to fight three monsters across a lifetime — Grendel, Grendel's mother, and a dragon — in a poem about courage, kingship, and the long defeat that all heroes face.","url":"https://tinct.app/read/beowulf","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/beowulf?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/beowulf?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Beowulf</h1>
-    <p class="dek">by Anonymous</p>
-    <p class="description">The oldest surviving epic in English. A Geatish warrior crosses the sea to fight three monsters across a lifetime — Grendel, Grendel&#39;s mother, and a dragon — in a poem about courage, kingship, and the long defeat that all heroes face.</p>
-    <a class="cta" href="/read/beowulf?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Fitt I — The Life and Death of Scyld</h2>
-      <p>Lo! the Spear-Danes&#39; glory through splendid achievements The folk-kings&#39; former fame we have heard of, How princes displayed then their prowess-in-battle.</p>
-      <p>Oft Scyld the Scefing from scathers in numbers From many a people their mead-benches tore. Since first he found him friendless and wretched, The earl had had terror: comfort he got for it, Waxed &#39;neath the welkin, world-honor gained, Till all his neighbors o&#39;er sea were compelled to Bow to his bidding and bring him their tribute: An excellent atheling! After was borne him</p>
-      <p>A son and heir, young in his dwelling, Whom God-Father sent to solace the people. He had marked the misery malice had caused them, That reaved of their rulers they wretched had erstwhile Long been afflicted. The Lord, in requital, Wielder of Glory, with world-honor blessed him. Famed was Beowulf, far spread the glory Of Scyld&#39;s great son in the lands of the Danemen. So the carle that is young, by kindnesses rendered The friends of his father, with fees in abundance Must be able to earn that when age approacheth Eager companions aid him requitingly, When war assaults him serve him as liegemen: By praise-worthy actions must honor be got &#39;Mong all of the races. At the hour that was fated</p>
-      <p>Scyld then departed to the All-Father&#39;s keeping Warlike to wend him; away then they bare him To the flood of the current, his fond-loving comrades, As himself he had bidden, while the friend of the Scyldings Word-sway wielded, and the well-lovèd land-prince Long did rule them. The ring-stemmèd vessel, Bark of the atheling, lay there at anchor, Icy in glimmer and eager for sailing; The belovèd leader laid they down there, Giver of rings, on the breast of the vessel, The famed by the mainmast. A many of jewels, Of fretted embossings, from far-lands brought over, Was placed near at hand then; and heard I not ever That a folk ever furnished a float more superbly With weapons of warfare, weeds for the battle, Bills and burnies; on his bosom sparkled Many a jewel that with him must travel On the flush of the flood afar on the current. And favors no fewer they furnished him soothly, Excellent folk-gems, than others had given him</p>
-      <p>Who when first he was born outward did send him Lone on the main, the merest of infants: And a gold-fashioned standard they stretched under heaven High o&#39;er his head, let the holm-currents bear him, Seaward consigned him: sad was their spirit, Their mood very mournful. Men are not able</p>
-      <p>Soothly to tell us, they in halls who reside, Heroes under heaven, to what haven he hied.</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/beowulf/chapter-1">Fitt I — The Life and Death of Scyld</a></li>
-<li><a href="/read/beowulf/chapter-2">Fitt II — Scyld&#39;s Successors — Hrothgar&#39;s Great Mead-hall</a></li>
-<li><a href="/read/beowulf/chapter-3">Fitt III — Grendel the Murderer</a></li>
-<li><a href="/read/beowulf/chapter-4">Fitt IV — Beowulf Goes to Hrothgar&#39;s Assistance</a></li>
-<li><a href="/read/beowulf/chapter-5">Fitt V — The Geats Reach Heorot</a></li>
-<li><a href="/read/beowulf/chapter-6">Fitt VI — Beowulf Introduces Himself at the Palace</a></li>
-<li><a href="/read/beowulf/chapter-7">Fitt VII — Hrothgar and Beowulf</a></li>
-<li><a href="/read/beowulf/chapter-8">Fitt VIII — Hrothgar and Beowulf — Continued</a></li>
-<li><a href="/read/beowulf/chapter-9">Fitt IX — Unferth Taunts Beowulf</a></li>
-<li><a href="/read/beowulf/chapter-10">Fitt X — Beowulf Silences Unferth — Glee is High</a></li>
-<li><a href="/read/beowulf/chapter-11">Fitt XI — All Sleep Save One</a></li>
-<li><a href="/read/beowulf/chapter-12">Fitt XII — Grendel and Beowulf</a></li>
-<li><a href="/read/beowulf/chapter-13">Fitt XIII — Grendel is Vanquished</a></li>
-<li><a href="/read/beowulf/chapter-14">Fitt XIV — Rejoicing of the Danes</a></li>
-<li><a href="/read/beowulf/chapter-15">Fitt XV — Hrothgar&#39;s Gratitude</a></li>
-<li><a href="/read/beowulf/chapter-16">Fitt XVI — Hrothgar Lavishes Gifts Upon His Deliverer</a></li>
-<li><a href="/read/beowulf/chapter-17">Fitt XVII — Banquet (continued) — The Scop&#39;s Song of Finn and Hnæf</a></li>
-<li><a href="/read/beowulf/chapter-18">Fitt XVIII — The Finn Episode (continued) — The Banquet Continues</a></li>
-<li><a href="/read/beowulf/chapter-19">Fitt XIX — Beowulf Receives Further Honor</a></li>
-<li><a href="/read/beowulf/chapter-20">Fitt XX — The Mother of Grendel</a></li>
-<li><a href="/read/beowulf/chapter-21">Fitt XXI — Hrothgar&#39;s Account of the Monsters</a></li>
-<li><a href="/read/beowulf/chapter-22">Fitt XXII — Beowulf Seeks Grendel&#39;s Mother</a></li>
-<li><a href="/read/beowulf/chapter-23">Fitt XXIII — Beowulf&#39;s Fight with Grendel&#39;s Mother</a></li>
-<li><a href="/read/beowulf/chapter-24">Fitt XXIV — Beowulf is Double-conqueror</a></li>
-<li><a href="/read/beowulf/chapter-25">Fitt XXV — Beowulf Brings His Trophies — Hrothgar&#39;s Gratitude</a></li>
-<li><a href="/read/beowulf/chapter-26">Fitt XXVI — Hrothgar Moralizes — Rest After Labor</a></li>
-<li><a href="/read/beowulf/chapter-27">Fitt XXVII — Sorrow at Parting</a></li>
-<li><a href="/read/beowulf/chapter-28">Fitt XXVIII — The Homeward Journey — The Two Queens</a></li>
-<li><a href="/read/beowulf/chapter-29">Fitt XXIX — Beowulf and Higelac</a></li>
-<li><a href="/read/beowulf/chapter-30">Fitt XXX — Beowulf Narrates His Adventures to Higelac</a></li>
-<li><a href="/read/beowulf/chapter-31">Fitt XXXI — Gift-giving is Mutual</a></li>
-<li><a href="/read/beowulf/chapter-32">Fitt XXXII — The Hoard and the Dragon</a></li>
-<li><a href="/read/beowulf/chapter-33">Fitt XXXIII — Brave Though Aged — Reminiscences</a></li>
-<li><a href="/read/beowulf/chapter-34">Fitt XXXIV — Beowulf Seeks the Dragon — Beowulf&#39;s Reminiscences</a></li>
-<li><a href="/read/beowulf/chapter-35">Fitt XXXV — Reminiscences (continued) — Beowulf&#39;s Last Battle</a></li>
-<li><a href="/read/beowulf/chapter-36">Fitt XXXVI — Wiglaf the Trusty — Beowulf is Deserted by Friends and by Sword</a></li>
-<li><a href="/read/beowulf/chapter-37">Fitt XXXVII — The Fatal Struggle — Beowulf&#39;s Last Moments</a></li>
-<li><a href="/read/beowulf/chapter-38">Fitt XXXVIII — Wiglaf Plunders the Dragon&#39;s Den — Beowulf&#39;s Death</a></li>
-<li><a href="/read/beowulf/chapter-39">Fitt XXXIX — The Dead Foes — Wiglaf&#39;s Bitter Taunts</a></li>
-<li><a href="/read/beowulf/chapter-40">Fitt XL — The Messenger of Death</a></li>
-<li><a href="/read/beowulf/chapter-41">Fitt XLI — The Messenger&#39;s Retrospect</a></li>
-<li><a href="/read/beowulf/chapter-42">Fitt XLII — Wiglaf&#39;s Sad Story — The Hoard Carried Off</a></li>
-<li><a href="/read/beowulf/chapter-43">Fitt XLIII — The Burning of Beowulf</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Beowulf</span>
   </div>
-  <footer>Read Beowulf free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Beowulf</h1>
+  <p class="byline">by Anonymous</p>
+  <p class="hook">The oldest surviving epic in English. A Geatish warrior crosses the sea to fight three monsters across a lifetime — Grendel, Grendel&#39;s mother, and a dragon — in a poem about courage, kingship, and the long defeat that all heroes face.</p>
+  <a class="primary-cta" href="/read/beowulf?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/beowulf/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Fitt I — The Life and Death of Scyld</span></a></li>
+<li><a href="/read/beowulf/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Fitt II — Scyld&#39;s Successors — Hrothgar&#39;s Great Mead-hall</span></a></li>
+<li><a href="/read/beowulf/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Fitt III — Grendel the Murderer</span></a></li>
+<li><a href="/read/beowulf/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Fitt IV — Beowulf Goes to Hrothgar&#39;s Assistance</span></a></li>
+<li><a href="/read/beowulf/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Fitt V — The Geats Reach Heorot</span></a></li>
+<li><a href="/read/beowulf/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Fitt VI — Beowulf Introduces Himself at the Palace</span></a></li>
+<li><a href="/read/beowulf/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Fitt VII — Hrothgar and Beowulf</span></a></li>
+<li><a href="/read/beowulf/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Fitt VIII — Hrothgar and Beowulf — Continued</span></a></li>
+<li><a href="/read/beowulf/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Fitt IX — Unferth Taunts Beowulf</span></a></li>
+<li><a href="/read/beowulf/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Fitt X — Beowulf Silences Unferth — Glee is High</span></a></li>
+<li><a href="/read/beowulf/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Fitt XI — All Sleep Save One</span></a></li>
+<li><a href="/read/beowulf/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Fitt XII — Grendel and Beowulf</span></a></li>
+<li><a href="/read/beowulf/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Fitt XIII — Grendel is Vanquished</span></a></li>
+<li><a href="/read/beowulf/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Fitt XIV — Rejoicing of the Danes</span></a></li>
+<li><a href="/read/beowulf/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Fitt XV — Hrothgar&#39;s Gratitude</span></a></li>
+<li><a href="/read/beowulf/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Fitt XVI — Hrothgar Lavishes Gifts Upon His Deliverer</span></a></li>
+<li><a href="/read/beowulf/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Fitt XVII — Banquet (continued) — The Scop&#39;s Song of Finn and Hnæf</span></a></li>
+<li><a href="/read/beowulf/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Fitt XVIII — The Finn Episode (continued) — The Banquet Continues</span></a></li>
+<li><a href="/read/beowulf/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Fitt XIX — Beowulf Receives Further Honor</span></a></li>
+<li><a href="/read/beowulf/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Fitt XX — The Mother of Grendel</span></a></li>
+<li><a href="/read/beowulf/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Fitt XXI — Hrothgar&#39;s Account of the Monsters</span></a></li>
+<li><a href="/read/beowulf/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Fitt XXII — Beowulf Seeks Grendel&#39;s Mother</span></a></li>
+<li><a href="/read/beowulf/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Fitt XXIII — Beowulf&#39;s Fight with Grendel&#39;s Mother</span></a></li>
+<li><a href="/read/beowulf/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Fitt XXIV — Beowulf is Double-conqueror</span></a></li>
+<li><a href="/read/beowulf/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Fitt XXV — Beowulf Brings His Trophies — Hrothgar&#39;s Gratitude</span></a></li>
+<li><a href="/read/beowulf/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Fitt XXVI — Hrothgar Moralizes — Rest After Labor</span></a></li>
+<li><a href="/read/beowulf/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">Fitt XXVII — Sorrow at Parting</span></a></li>
+<li><a href="/read/beowulf/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">Fitt XXVIII — The Homeward Journey — The Two Queens</span></a></li>
+<li><a href="/read/beowulf/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">Fitt XXIX — Beowulf and Higelac</span></a></li>
+<li><a href="/read/beowulf/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">Fitt XXX — Beowulf Narrates His Adventures to Higelac</span></a></li>
+<li><a href="/read/beowulf/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">Fitt XXXI — Gift-giving is Mutual</span></a></li>
+<li><a href="/read/beowulf/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">Fitt XXXII — The Hoard and the Dragon</span></a></li>
+<li><a href="/read/beowulf/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">Fitt XXXIII — Brave Though Aged — Reminiscences</span></a></li>
+<li><a href="/read/beowulf/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">Fitt XXXIV — Beowulf Seeks the Dragon — Beowulf&#39;s Reminiscences</span></a></li>
+<li><a href="/read/beowulf/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">Fitt XXXV — Reminiscences (continued) — Beowulf&#39;s Last Battle</span></a></li>
+<li><a href="/read/beowulf/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">Fitt XXXVI — Wiglaf the Trusty — Beowulf is Deserted by Friends and by Sword</span></a></li>
+<li><a href="/read/beowulf/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">Fitt XXXVII — The Fatal Struggle — Beowulf&#39;s Last Moments</span></a></li>
+<li><a href="/read/beowulf/chapter-38"><span class="glance-num">Chapter 38</span><span class="glance-text">Fitt XXXVIII — Wiglaf Plunders the Dragon&#39;s Den — Beowulf&#39;s Death</span></a></li>
+<li><a href="/read/beowulf/chapter-39"><span class="glance-num">Chapter 39</span><span class="glance-text">Fitt XXXIX — The Dead Foes — Wiglaf&#39;s Bitter Taunts</span></a></li>
+<li><a href="/read/beowulf/chapter-40"><span class="glance-num">Chapter 40</span><span class="glance-text">Fitt XL — The Messenger of Death</span></a></li>
+<li><a href="/read/beowulf/chapter-41"><span class="glance-num">Chapter 41</span><span class="glance-text">Fitt XLI — The Messenger&#39;s Retrospect</span></a></li>
+<li><a href="/read/beowulf/chapter-42"><span class="glance-num">Chapter 42</span><span class="glance-text">Fitt XLII — Wiglaf&#39;s Sad Story — The Hoard Carried Off</span></a></li>
+<li><a href="/read/beowulf/chapter-43"><span class="glance-num">Chapter 43</span><span class="glance-text">Fitt XLIII — The Burning of Beowulf</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Fitt I — The Life and Death of Scyld</h2>
+  <div class="body">
+    <p>Lo! the Spear-Danes&#39; glory through splendid achievements The folk-kings&#39; former fame we have heard of, How princes displayed then their prowess-in-battle.</p>
+    <p>Oft Scyld the Scefing from scathers in numbers From many a people their mead-benches tore. Since first he found him friendless and wretched, The earl had had terror: comfort he got for it, Waxed &#39;neath the welkin, world-honor gained, Till all his neighbors o&#39;er sea were compelled to Bow to his bidding and bring him their tribute: An excellent atheling! After was borne him</p>
+    <p>A son and heir, young in his dwelling, Whom God-Father sent to solace the people. He had marked the misery malice had caused them, That reaved of their rulers they wretched had erstwhile Long been afflicted. The Lord, in requital, Wielder of Glory, with world-honor blessed him. Famed was Beowulf, far spread the glory Of Scyld&#39;s great son in the lands of the Danemen. So the carle that is young, by kindnesses rendered The friends of his father, with fees in abundance Must be able to earn that when age approacheth Eager companions aid him requitingly, When war assaults him serve him as liegemen: By praise-worthy actions must honor be got &#39;Mong all of the races. At the hour that was fated</p>
+    <p>Scyld then departed to the All-Father&#39;s keeping Warlike to wend him; away then they bare him To the flood of the current, his fond-loving comrades, As himself he had bidden, while the friend of the Scyldings Word-sway wielded, and the well-lovèd land-prince Long did rule them. The ring-stemmèd vessel, Bark of the atheling, lay there at anchor, Icy in glimmer and eager for sailing; The belovèd leader laid they down there, Giver of rings, on the breast of the vessel, The famed by the mainmast. A many of jewels, Of fretted embossings, from far-lands brought over, Was placed near at hand then; and heard I not ever That a folk ever furnished a float more superbly With weapons of warfare, weeds for the battle, Bills and burnies; on his bosom sparkled Many a jewel that with him must travel On the flush of the flood afar on the current. And favors no fewer they furnished him soothly, Excellent folk-gems, than others had given him</p>
+    <p>Who when first he was born outward did send him Lone on the main, the merest of infants: And a gold-fashioned standard they stretched under heaven High o&#39;er his head, let the holm-currents bear him, Seaward consigned him: sad was their spirit, Their mood very mournful. Men are not able</p>
+    <p>Soothly to tell us, they in halls who reside, Heroes under heaven, to what haven he hied.</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Beowulf free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/beowulf?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

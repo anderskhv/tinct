@@ -11,173 +11,185 @@
   <meta property="og:url" content="https://tinct.app/read/brothers-karamazov">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/brothers-karamazov#book","name":"The Brothers Karamazov","author":{"@type":"Person","name":"Fyodor Dostoevsky"},"description":"Dostoevsky's final novel: three brothers and their father, a murder, a trial, and the deepest questions of faith, doubt, and human freedom. Includes the legendary parable \"The Grand Inquisitor.\"","url":"https://tinct.app/read/brothers-karamazov","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/brothers-karamazov?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/brothers-karamazov?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>The Brothers Karamazov</h1>
-    <p class="dek">by Fyodor Dostoevsky</p>
-    <p class="description">Dostoevsky&#39;s final novel: three brothers and their father, a murder, a trial, and the deepest questions of faith, doubt, and human freedom. Includes the legendary parable &quot;The Grand Inquisitor.&quot;</p>
-    <a class="cta" href="/read/brothers-karamazov?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>I. Fyodor Pavlovitch Karamazov</h2>
-      <p>Alexey Fyodorovitch Karamazov was the third son of Fyodor Pavlovitch Karamazov, a land owner well known in our district in his own day, and still remembered among us owing to his gloomy and tragic death, which happened thirteen years ago, and which I shall describe in its proper place. For the present I will only say that this “landowner”—for so we used to call him, although he hardly spent a day of his life on his own estate—was a strange type, yet one pretty frequently to be met with, a type abject and vicious and at the same time senseless. But he was one of those senseless persons who are very well capable of looking after their worldly affairs, and, apparently, after nothing else. Fyodor Pavlovitch, for instance, began with next to nothing; his estate was of the smallest; he ran to dine at other men’s tables, and fastened on them as a toady, yet at his death it appeared that he had a hundred thousand roubles in hard cash. At the same time, he was all his life one of the most senseless, fantastical fellows in the whole district. I repeat, it was not stupidity—the majority of these fantastical fellows are shrewd and intelligent enough—but just senselessness, and a peculiar national form of it.</p>
-      <p>He was married twice, and had three sons, the eldest, Dmitri, by his first wife, and two, Ivan and Alexey, by his second. Fyodor Pavlovitch’s first wife, Adelaïda Ivanovna, belonged to a fairly rich and distinguished noble family, also landowners in our district, the Miüsovs. How it came to pass that an heiress, who was also a beauty, and moreover one of those vigorous, intelligent girls, so common in this generation, but sometimes also to be found in the last, could have married such a worthless, puny weakling, as we all called him, I won’t attempt to explain. I knew a young lady of the last “romantic” generation who after some years of an enigmatic passion for a gentleman, whom she might quite easily have married at any moment, invented insuperable obstacles to their union, and ended by throwing herself one stormy night into a rather deep and rapid river from a high bank, almost a precipice, and so perished, entirely to satisfy her own caprice, and to be like Shakespeare’s Ophelia. Indeed, if this precipice, a chosen and favorite spot of hers, had been less picturesque, if there had been a prosaic flat bank in its place, most likely the suicide would never have taken place. This is a fact, and probably there have been not a few similar instances in the last two or three generations. Adelaïda Ivanovna Miüsov’s action was similarly, no doubt, an echo of other people’s ideas, and was due to the irritation caused by lack of mental freedom. She wanted, perhaps, to show her feminine independence, to override class distinctions and the despotism of her family. And a pliable imagination persuaded her, we must suppose, for a brief moment, that Fyodor Pavlovitch, in spite of his parasitic position, was one of the bold and ironical spirits of that progressive epoch, though he was, in fact, an ill-natured buffoon and nothing more. What gave the marriage piquancy was that it was preceded by an elopement, and this greatly captivated Adelaïda Ivanovna’s fancy. Fyodor Pavlovitch’s position at the time made him specially eager for any such enterprise, for he was passionately anxious to make a career in one way or another. To attach himself to a good family and obtain a dowry was an alluring prospect. As for mutual love it did not exist apparently, either in the bride or in him, in spite of Adelaïda Ivanovna’s beauty. This was, perhaps, a unique case of the kind in the life of Fyodor Pavlovitch, who was always of a voluptuous temper, and ready to run after any petticoat on the slightest encouragement....</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/brothers-karamazov/chapter-1">I. Fyodor Pavlovitch Karamazov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-2">II. He Gets Rid Of His Eldest Son</a></li>
-<li><a href="/read/brothers-karamazov/chapter-3">III. The Second Marriage And The Second Family</a></li>
-<li><a href="/read/brothers-karamazov/chapter-4">IV. The Third Son, Alyosha</a></li>
-<li><a href="/read/brothers-karamazov/chapter-5">V. Elders</a></li>
-<li><a href="/read/brothers-karamazov/chapter-6">I. They Arrive At The Monastery</a></li>
-<li><a href="/read/brothers-karamazov/chapter-7">II. The Old Buffoon</a></li>
-<li><a href="/read/brothers-karamazov/chapter-8">III. Peasant Women Who Have Faith</a></li>
-<li><a href="/read/brothers-karamazov/chapter-9">IV. A Lady Of Little Faith</a></li>
-<li><a href="/read/brothers-karamazov/chapter-10">V. So Be It! So Be It!</a></li>
-<li><a href="/read/brothers-karamazov/chapter-11">VI. Why Is Such A Man Alive?</a></li>
-<li><a href="/read/brothers-karamazov/chapter-12">VII. A Young Man Bent On A Career</a></li>
-<li><a href="/read/brothers-karamazov/chapter-13">VIII. The Scandalous Scene</a></li>
-<li><a href="/read/brothers-karamazov/chapter-14">I. In The Servants’ Quarters</a></li>
-<li><a href="/read/brothers-karamazov/chapter-15">II. Lizaveta</a></li>
-<li><a href="/read/brothers-karamazov/chapter-16">III. The Confession Of A Passionate Heart—In Verse</a></li>
-<li><a href="/read/brothers-karamazov/chapter-17">IV. The Confession Of A Passionate Heart—In Anecdote</a></li>
-<li><a href="/read/brothers-karamazov/chapter-18">V. The Confession Of A Passionate Heart—“Heels Up”</a></li>
-<li><a href="/read/brothers-karamazov/chapter-19">VI. Smerdyakov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-20">VII. The Controversy</a></li>
-<li><a href="/read/brothers-karamazov/chapter-21">VIII. Over The Brandy</a></li>
-<li><a href="/read/brothers-karamazov/chapter-22">IX. The Sensualists</a></li>
-<li><a href="/read/brothers-karamazov/chapter-23">X. Both Together</a></li>
-<li><a href="/read/brothers-karamazov/chapter-24">XI. Another Reputation Ruined</a></li>
-<li><a href="/read/brothers-karamazov/chapter-25">I. Father Ferapont</a></li>
-<li><a href="/read/brothers-karamazov/chapter-26">II. At His Father’s</a></li>
-<li><a href="/read/brothers-karamazov/chapter-27">III. A Meeting With The Schoolboys</a></li>
-<li><a href="/read/brothers-karamazov/chapter-28">IV. At The Hohlakovs’</a></li>
-<li><a href="/read/brothers-karamazov/chapter-29">V. A Laceration In The Drawing-Room</a></li>
-<li><a href="/read/brothers-karamazov/chapter-30">VI. A Laceration In The Cottage</a></li>
-<li><a href="/read/brothers-karamazov/chapter-31">VII. And In The Open Air</a></li>
-<li><a href="/read/brothers-karamazov/chapter-32">I. The Engagement</a></li>
-<li><a href="/read/brothers-karamazov/chapter-33">II. Smerdyakov With A Guitar</a></li>
-<li><a href="/read/brothers-karamazov/chapter-34">III. The Brothers Make Friends</a></li>
-<li><a href="/read/brothers-karamazov/chapter-35">IV. Rebellion</a></li>
-<li><a href="/read/brothers-karamazov/chapter-36">V. The Grand Inquisitor</a></li>
-<li><a href="/read/brothers-karamazov/chapter-37">VI. For Awhile A Very Obscure One</a></li>
-<li><a href="/read/brothers-karamazov/chapter-38">VII. “It’s Always Worth While Speaking To A Clever Man”</a></li>
-<li><a href="/read/brothers-karamazov/chapter-39">I. Father Zossima And His Visitors</a></li>
-<li><a href="/read/brothers-karamazov/chapter-40">II. The Duel</a></li>
-<li><a href="/read/brothers-karamazov/chapter-41">III. Conversations And Exhortations Of Father Zossima</a></li>
-<li><a href="/read/brothers-karamazov/chapter-42">I. The Breath Of Corruption</a></li>
-<li><a href="/read/brothers-karamazov/chapter-43">II. A Critical Moment</a></li>
-<li><a href="/read/brothers-karamazov/chapter-44">III. An Onion</a></li>
-<li><a href="/read/brothers-karamazov/chapter-45">IV. Cana Of Galilee</a></li>
-<li><a href="/read/brothers-karamazov/chapter-46">I. Kuzma Samsonov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-47">II. Lyagavy</a></li>
-<li><a href="/read/brothers-karamazov/chapter-48">III. Gold-Mines</a></li>
-<li><a href="/read/brothers-karamazov/chapter-49">IV. In The Dark</a></li>
-<li><a href="/read/brothers-karamazov/chapter-50">V. A Sudden Resolution</a></li>
-<li><a href="/read/brothers-karamazov/chapter-51">VI. “I Am Coming, Too!”</a></li>
-<li><a href="/read/brothers-karamazov/chapter-52">VII. The First And Rightful Lover</a></li>
-<li><a href="/read/brothers-karamazov/chapter-53">VIII. Delirium</a></li>
-<li><a href="/read/brothers-karamazov/chapter-54">I. The Beginning Of Perhotin’s Official Career</a></li>
-<li><a href="/read/brothers-karamazov/chapter-55">II. The Alarm</a></li>
-<li><a href="/read/brothers-karamazov/chapter-56">III. The Sufferings Of A Soul, The First Ordeal</a></li>
-<li><a href="/read/brothers-karamazov/chapter-57">IV. The Second Ordeal</a></li>
-<li><a href="/read/brothers-karamazov/chapter-58">V. The Third Ordeal</a></li>
-<li><a href="/read/brothers-karamazov/chapter-59">VI. The Prosecutor Catches Mitya</a></li>
-<li><a href="/read/brothers-karamazov/chapter-60">VII. Mitya’s Great Secret. Received With Hisses</a></li>
-<li><a href="/read/brothers-karamazov/chapter-61">VIII. The Evidence Of The Witnesses. The Babe</a></li>
-<li><a href="/read/brothers-karamazov/chapter-62">IX. They Carry Mitya Away</a></li>
-<li><a href="/read/brothers-karamazov/chapter-63">I. Kolya Krassotkin</a></li>
-<li><a href="/read/brothers-karamazov/chapter-64">II. Children</a></li>
-<li><a href="/read/brothers-karamazov/chapter-65">III. The Schoolboy</a></li>
-<li><a href="/read/brothers-karamazov/chapter-66">IV. The Lost Dog</a></li>
-<li><a href="/read/brothers-karamazov/chapter-67">V. By Ilusha’s Bedside</a></li>
-<li><a href="/read/brothers-karamazov/chapter-68">VI. Precocity</a></li>
-<li><a href="/read/brothers-karamazov/chapter-69">VII. Ilusha</a></li>
-<li><a href="/read/brothers-karamazov/chapter-70">I. At Grushenka’s</a></li>
-<li><a href="/read/brothers-karamazov/chapter-71">II. The Injured Foot</a></li>
-<li><a href="/read/brothers-karamazov/chapter-72">III. A Little Demon</a></li>
-<li><a href="/read/brothers-karamazov/chapter-73">IV. A Hymn And A Secret</a></li>
-<li><a href="/read/brothers-karamazov/chapter-74">V. Not You, Not You!</a></li>
-<li><a href="/read/brothers-karamazov/chapter-75">VI. The First Interview With Smerdyakov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-76">VII. The Second Visit To Smerdyakov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-77">VIII. The Third And Last Interview With Smerdyakov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-78">IX. The Devil. Ivan’s Nightmare</a></li>
-<li><a href="/read/brothers-karamazov/chapter-79">X. “It Was He Who Said That”</a></li>
-<li><a href="/read/brothers-karamazov/chapter-80">I. The Fatal Day</a></li>
-<li><a href="/read/brothers-karamazov/chapter-81">II. Dangerous Witnesses</a></li>
-<li><a href="/read/brothers-karamazov/chapter-82">III. The Medical Experts And A Pound Of Nuts</a></li>
-<li><a href="/read/brothers-karamazov/chapter-83">IV. Fortune Smiles On Mitya</a></li>
-<li><a href="/read/brothers-karamazov/chapter-84">V. A Sudden Catastrophe</a></li>
-<li><a href="/read/brothers-karamazov/chapter-85">VI. The Prosecutor’s Speech. Sketches Of Character</a></li>
-<li><a href="/read/brothers-karamazov/chapter-86">VII. An Historical Survey</a></li>
-<li><a href="/read/brothers-karamazov/chapter-87">VIII. A Treatise On Smerdyakov</a></li>
-<li><a href="/read/brothers-karamazov/chapter-88">IX. The Galloping Troika. The End Of The Prosecutor’s Speech.</a></li>
-<li><a href="/read/brothers-karamazov/chapter-89">X. The Speech For The Defense. An Argument That Cuts Both Ways</a></li>
-<li><a href="/read/brothers-karamazov/chapter-90">XI. There Was No Money. There Was No Robbery</a></li>
-<li><a href="/read/brothers-karamazov/chapter-91">XII. And There Was No Murder Either</a></li>
-<li><a href="/read/brothers-karamazov/chapter-92">XIII. A Corrupter Of Thought</a></li>
-<li><a href="/read/brothers-karamazov/chapter-93">XIV. The Peasants Stand Firm</a></li>
-<li><a href="/read/brothers-karamazov/chapter-94">I. Plans For Mitya’s Escape</a></li>
-<li><a href="/read/brothers-karamazov/chapter-95">II. For A Moment The Lie Becomes Truth</a></li>
-<li><a href="/read/brothers-karamazov/chapter-96">III. Ilusha’s Funeral. The Speech At The Stone</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>The Brothers Karamazov</span>
   </div>
-  <footer>Read The Brothers Karamazov free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">The Brothers Karamazov</h1>
+  <p class="byline">by Fyodor Dostoevsky</p>
+  <p class="hook">Dostoevsky&#39;s final novel: three brothers and their father, a murder, a trial, and the deepest questions of faith, doubt, and human freedom. Includes the legendary parable &quot;The Grand Inquisitor.&quot;</p>
+  <a class="primary-cta" href="/read/brothers-karamazov?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/brothers-karamazov/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">I. Fyodor Pavlovitch Karamazov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">II. He Gets Rid Of His Eldest Son</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">III. The Second Marriage And The Second Family</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">IV. The Third Son, Alyosha</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">V. Elders</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">I. They Arrive At The Monastery</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">II. The Old Buffoon</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">III. Peasant Women Who Have Faith</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">IV. A Lady Of Little Faith</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">V. So Be It! So Be It!</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">VI. Why Is Such A Man Alive?</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">VII. A Young Man Bent On A Career</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">VIII. The Scandalous Scene</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">I. In The Servants’ Quarters</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">II. Lizaveta</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">III. The Confession Of A Passionate Heart—In Verse</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">IV. The Confession Of A Passionate Heart—In Anecdote</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">V. The Confession Of A Passionate Heart—“Heels Up”</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">VI. Smerdyakov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">VII. The Controversy</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">VIII. Over The Brandy</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">IX. The Sensualists</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">X. Both Together</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">XI. Another Reputation Ruined</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">I. Father Ferapont</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">II. At His Father’s</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">III. A Meeting With The Schoolboys</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">IV. At The Hohlakovs’</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">V. A Laceration In The Drawing-Room</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">VI. A Laceration In The Cottage</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">VII. And In The Open Air</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">I. The Engagement</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">II. Smerdyakov With A Guitar</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">III. The Brothers Make Friends</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">IV. Rebellion</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">V. The Grand Inquisitor</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">VI. For Awhile A Very Obscure One</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-38"><span class="glance-num">Chapter 38</span><span class="glance-text">VII. “It’s Always Worth While Speaking To A Clever Man”</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-39"><span class="glance-num">Chapter 39</span><span class="glance-text">I. Father Zossima And His Visitors</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-40"><span class="glance-num">Chapter 40</span><span class="glance-text">II. The Duel</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-41"><span class="glance-num">Chapter 41</span><span class="glance-text">III. Conversations And Exhortations Of Father Zossima</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-42"><span class="glance-num">Chapter 42</span><span class="glance-text">I. The Breath Of Corruption</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-43"><span class="glance-num">Chapter 43</span><span class="glance-text">II. A Critical Moment</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-44"><span class="glance-num">Chapter 44</span><span class="glance-text">III. An Onion</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-45"><span class="glance-num">Chapter 45</span><span class="glance-text">IV. Cana Of Galilee</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-46"><span class="glance-num">Chapter 46</span><span class="glance-text">I. Kuzma Samsonov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-47"><span class="glance-num">Chapter 47</span><span class="glance-text">II. Lyagavy</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-48"><span class="glance-num">Chapter 48</span><span class="glance-text">III. Gold-Mines</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-49"><span class="glance-num">Chapter 49</span><span class="glance-text">IV. In The Dark</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-50"><span class="glance-num">Chapter 50</span><span class="glance-text">V. A Sudden Resolution</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-51"><span class="glance-num">Chapter 51</span><span class="glance-text">VI. “I Am Coming, Too!”</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-52"><span class="glance-num">Chapter 52</span><span class="glance-text">VII. The First And Rightful Lover</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-53"><span class="glance-num">Chapter 53</span><span class="glance-text">VIII. Delirium</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-54"><span class="glance-num">Chapter 54</span><span class="glance-text">I. The Beginning Of Perhotin’s Official Career</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-55"><span class="glance-num">Chapter 55</span><span class="glance-text">II. The Alarm</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-56"><span class="glance-num">Chapter 56</span><span class="glance-text">III. The Sufferings Of A Soul, The First Ordeal</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-57"><span class="glance-num">Chapter 57</span><span class="glance-text">IV. The Second Ordeal</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-58"><span class="glance-num">Chapter 58</span><span class="glance-text">V. The Third Ordeal</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-59"><span class="glance-num">Chapter 59</span><span class="glance-text">VI. The Prosecutor Catches Mitya</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-60"><span class="glance-num">Chapter 60</span><span class="glance-text">VII. Mitya’s Great Secret. Received With Hisses</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-61"><span class="glance-num">Chapter 61</span><span class="glance-text">VIII. The Evidence Of The Witnesses. The Babe</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-62"><span class="glance-num">Chapter 62</span><span class="glance-text">IX. They Carry Mitya Away</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-63"><span class="glance-num">Chapter 63</span><span class="glance-text">I. Kolya Krassotkin</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-64"><span class="glance-num">Chapter 64</span><span class="glance-text">II. Children</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-65"><span class="glance-num">Chapter 65</span><span class="glance-text">III. The Schoolboy</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-66"><span class="glance-num">Chapter 66</span><span class="glance-text">IV. The Lost Dog</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-67"><span class="glance-num">Chapter 67</span><span class="glance-text">V. By Ilusha’s Bedside</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-68"><span class="glance-num">Chapter 68</span><span class="glance-text">VI. Precocity</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-69"><span class="glance-num">Chapter 69</span><span class="glance-text">VII. Ilusha</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-70"><span class="glance-num">Chapter 70</span><span class="glance-text">I. At Grushenka’s</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-71"><span class="glance-num">Chapter 71</span><span class="glance-text">II. The Injured Foot</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-72"><span class="glance-num">Chapter 72</span><span class="glance-text">III. A Little Demon</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-73"><span class="glance-num">Chapter 73</span><span class="glance-text">IV. A Hymn And A Secret</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-74"><span class="glance-num">Chapter 74</span><span class="glance-text">V. Not You, Not You!</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-75"><span class="glance-num">Chapter 75</span><span class="glance-text">VI. The First Interview With Smerdyakov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-76"><span class="glance-num">Chapter 76</span><span class="glance-text">VII. The Second Visit To Smerdyakov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-77"><span class="glance-num">Chapter 77</span><span class="glance-text">VIII. The Third And Last Interview With Smerdyakov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-78"><span class="glance-num">Chapter 78</span><span class="glance-text">IX. The Devil. Ivan’s Nightmare</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-79"><span class="glance-num">Chapter 79</span><span class="glance-text">X. “It Was He Who Said That”</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-80"><span class="glance-num">Chapter 80</span><span class="glance-text">I. The Fatal Day</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-81"><span class="glance-num">Chapter 81</span><span class="glance-text">II. Dangerous Witnesses</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-82"><span class="glance-num">Chapter 82</span><span class="glance-text">III. The Medical Experts And A Pound Of Nuts</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-83"><span class="glance-num">Chapter 83</span><span class="glance-text">IV. Fortune Smiles On Mitya</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-84"><span class="glance-num">Chapter 84</span><span class="glance-text">V. A Sudden Catastrophe</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-85"><span class="glance-num">Chapter 85</span><span class="glance-text">VI. The Prosecutor’s Speech. Sketches Of Character</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-86"><span class="glance-num">Chapter 86</span><span class="glance-text">VII. An Historical Survey</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-87"><span class="glance-num">Chapter 87</span><span class="glance-text">VIII. A Treatise On Smerdyakov</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-88"><span class="glance-num">Chapter 88</span><span class="glance-text">IX. The Galloping Troika. The End Of The Prosecutor’s Speech.</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-89"><span class="glance-num">Chapter 89</span><span class="glance-text">X. The Speech For The Defense. An Argument That Cuts Both Ways</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-90"><span class="glance-num">Chapter 90</span><span class="glance-text">XI. There Was No Money. There Was No Robbery</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-91"><span class="glance-num">Chapter 91</span><span class="glance-text">XII. And There Was No Murder Either</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-92"><span class="glance-num">Chapter 92</span><span class="glance-text">XIII. A Corrupter Of Thought</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-93"><span class="glance-num">Chapter 93</span><span class="glance-text">XIV. The Peasants Stand Firm</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-94"><span class="glance-num">Chapter 94</span><span class="glance-text">I. Plans For Mitya’s Escape</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-95"><span class="glance-num">Chapter 95</span><span class="glance-text">II. For A Moment The Lie Becomes Truth</span></a></li>
+<li><a href="/read/brothers-karamazov/chapter-96"><span class="glance-num">Chapter 96</span><span class="glance-text">III. Ilusha’s Funeral. The Speech At The Stone</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">I. Fyodor Pavlovitch Karamazov</h2>
+  <div class="body">
+    <p>Alexey Fyodorovitch Karamazov was the third son of Fyodor Pavlovitch Karamazov, a land owner well known in our district in his own day, and still remembered among us owing to his gloomy and tragic death, which happened thirteen years ago, and which I shall describe in its proper place. For the present I will only say that this “landowner”—for so we used to call him, although he hardly spent a day of his life on his own estate—was a strange type, yet one pretty frequently to be met with, a type abject and vicious and at the same time senseless. But he was one of those senseless persons who are very well capable of looking after their worldly affairs, and, apparently, after nothing else. Fyodor Pavlovitch, for instance, began with next to nothing; his estate was of the smallest; he ran to dine at other men’s tables, and fastened on them as a toady, yet at his death it appeared that he had a hundred thousand roubles in hard cash. At the same time, he was all his life one of the most senseless, fantastical fellows in the whole district. I repeat, it was not stupidity—the majority of these fantastical fellows are shrewd and intelligent enough—but just senselessness, and a peculiar national form of it.</p>
+    <p>He was married twice, and had three sons, the eldest, Dmitri, by his first wife, and two, Ivan and Alexey, by his second. Fyodor Pavlovitch’s first wife, Adelaïda Ivanovna, belonged to a fairly rich and distinguished noble family, also landowners in our district, the Miüsovs. How it came to pass that an heiress, who was also a beauty, and moreover one of those vigorous, intelligent girls, so common in this generation, but sometimes also to be found in the last, could have married such a worthless, puny weakling, as we all called him, I won’t attempt to explain. I knew a young lady of the last “romantic” generation who after some years of an enigmatic passion for a gentleman, whom she might quite easily have married at any moment, invented insuperable obstacles to their union, and ended by throwing herself one stormy night into a rather deep and rapid river from a high bank, almost a precipice, and so perished, entirely to satisfy her own caprice, and to be like Shakespeare’s Ophelia. Indeed, if this precipice, a chosen and favorite spot of hers, had been less picturesque, if there had been a prosaic flat bank in its place, most likely the suicide would never have taken place. This is a fact, and probably there have been not a few similar instances in the last two or three generations. Adelaïda Ivanovna Miüsov’s action was similarly, no doubt, an echo of other people’s ideas, and was due to the irritation caused by lack of mental freedom. She wanted, perhaps, to show her feminine independence, to override class distinctions and the despotism of her family. And a pliable imagination persuaded her, we must suppose, for a brief moment, that Fyodor Pavlovitch, in spite of his parasitic position, was one of the bold and ironical spirits of that progressive epoch, though he was, in fact, an ill-natured buffoon and nothing more. What gave the marriage piquancy was that it was preceded by an elopement, and this greatly captivated Adelaïda Ivanovna’s fancy. Fyodor Pavlovitch’s position at the time made him specially eager for any such enterprise, for he was passionately anxious to make a career in one way or another. To attach himself to a good family and obtain a dowry was an alluring prospect. As for mutual love it did not exist apparently, either in the bride or in him, in spite of Adelaïda Ivanovna’s beauty. This was, perhaps, a unique case of the kind in the life of Fyodor Pavlovitch, who was always of a voluptuous temper, and ready to run after any petticoat on the slightest encouragement....</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read The Brothers Karamazov free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/brothers-karamazov?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

@@ -11,85 +11,97 @@
   <meta property="og:url" content="https://tinct.app/read/kant-groundwork">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/kant-groundwork#book","name":"Groundwork of the Metaphysics of Morals","author":{"@type":"Person","name":"Immanuel Kant"},"description":"Kant's shortest book and the entry-point to his ethics. He sets out to derive the moral law from pure reason alone, arrives at the categorical imperative — act only on a maxim you could will as a universal law — and rebuilds the entire foundation of modern ethical philosophy.","url":"https://tinct.app/read/kant-groundwork","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/kant-groundwork?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/kant-groundwork?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Groundwork of the Metaphysics of Morals</h1>
-    <p class="dek">by Immanuel Kant</p>
-    <p class="description">Kant&#39;s shortest book and the entry-point to his ethics. He sets out to derive the moral law from pure reason alone, arrives at the categorical imperative — act only on a maxim you could will as a universal law — and rebuilds the entire foundation of modern ethical philosophy.</p>
-    <a class="cta" href="/read/kant-groundwork?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Preface</h2>
-      <p>Ancient Greek philosophy was divided into three sciences: physics, ethics, and logic. This division is perfectly suitable to the nature of the thing; and the only improvement that can be made in it is to add the principle on which it is based, so that we may both satisfy ourselves of its completeness, and also be able to determine correctly the necessary subdivisions.</p>
-      <p>All rational knowledge is either material or formal: the former considers some object, the latter is concerned only with the form of the understanding and of the reason itself, and with the universal laws of thought in general without distinction of its objects. Formal philosophy is called logic. Material philosophy, however, which has to do with determinate objects and the laws to which they are subject, is again twofold; for these laws are either laws of nature or of freedom. The science of the former is physics, that of the latter, ethics; they are also called natural philosophy and moral philosophy respectively.</p>
-      <p>Logic cannot have any empirical part; that is, a part in which the universal and necessary laws of thought should rest on grounds taken from experience; otherwise it would not be logic, i.e., a canon for the understanding or the reason, valid for all thought, and capable of demonstration. Natural and moral philosophy, on the contrary, can each have their empirical part, since the former has to determine the laws of nature as an object of experience; the latter the laws of the human will, so far as it is affected by nature: the former, however, being laws according to which everything does happen; the latter, laws according to which everything ought to happen. Ethics, however, must also consider the conditions under which what ought to happen frequently does not.</p>
-      <p>We may call all philosophy empirical, so far as it is based on grounds of experience: on the other hand, that which delivers its doctrines from a priori principles alone we may call pure philosophy. When the latter is merely formal it is logic; if it is restricted to definite objects of the understanding it is metaphysic.</p>
-      <p>In this way there arises the idea of a twofold metaphysic- a metaphysic of nature and a metaphysic of morals. Physics will thus have an empirical and also a rational part. It is the same with Ethics; but here the empirical part might have the special name of practical anthropology, the name morality being appropriated to the rational part.</p>
-      <p>All trades, arts, and handiworks have gained by division of labour, namely, when, instead of one man doing everything, each confines himself to a certain kind of work distinct from others in the treatment it requires, so as to be able to perform it with greater facility and in the greatest perfection. Where the different kinds of work are not distinguished and divided, where everyone is a jack-of-all-trades, there manufactures remain still in the greatest barbarism. It might deserve to be considered whether pure philosophy in all its parts does not require a man specially devoted to it, and whether it would not be better for the whole business of science if those who, to please the tastes of the public, are wont to blend the rational and empirical elements together, mixed in all sorts of proportions unknown to themselves, and who call themselves independent thinkers, giving the name of minute philosophers to those who apply themselves to the rational part only- if these, I say, were warned not to carry on two employments together which differ widely in the treatment they demand, for each of which perhaps a special talent is required, and the combination of which in one person only produces bunglers. But I only ask here whether the nature of science does not require that we should always carefully separate the empirical from the rational part, and prefix to Physics proper (or empirical physics) a metaphysic...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/kant-groundwork/chapter-1">Preface</a></li>
-<li><a href="/read/kant-groundwork/chapter-2">Section I — Transition from Common Rational Knowledge of Morals to Philosophical Knowledge of Morals</a></li>
-<li><a href="/read/kant-groundwork/chapter-3">Section II — Transition from Popular Moral Philosophy to the Metaphysics of Morals</a></li>
-<li><a href="/read/kant-groundwork/chapter-4">Section III — Transition from the Metaphysics of Morals to the Critique of Pure Practical Reason</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Groundwork of the Metaphysics of Morals</span>
   </div>
-  <footer>Read Groundwork of the Metaphysics of Morals free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Groundwork of the Metaphysics of Morals</h1>
+  <p class="byline">by Immanuel Kant</p>
+  <p class="hook">Kant&#39;s shortest book and the entry-point to his ethics. He sets out to derive the moral law from pure reason alone, arrives at the categorical imperative — act only on a maxim you could will as a universal law — and rebuilds the entire foundation of modern ethical philosophy.</p>
+  <a class="primary-cta" href="/read/kant-groundwork?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/kant-groundwork/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Preface</span></a></li>
+<li><a href="/read/kant-groundwork/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Section I — Transition from Common Rational Knowledge of Morals to Philosophical Knowledge of Morals</span></a></li>
+<li><a href="/read/kant-groundwork/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Section II — Transition from Popular Moral Philosophy to the Metaphysics of Morals</span></a></li>
+<li><a href="/read/kant-groundwork/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Section III — Transition from the Metaphysics of Morals to the Critique of Pure Practical Reason</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Preface</h2>
+  <div class="body">
+    <p>Ancient Greek philosophy was divided into three sciences: physics, ethics, and logic. This division is perfectly suitable to the nature of the thing; and the only improvement that can be made in it is to add the principle on which it is based, so that we may both satisfy ourselves of its completeness, and also be able to determine correctly the necessary subdivisions.</p>
+    <p>All rational knowledge is either material or formal: the former considers some object, the latter is concerned only with the form of the understanding and of the reason itself, and with the universal laws of thought in general without distinction of its objects. Formal philosophy is called logic. Material philosophy, however, which has to do with determinate objects and the laws to which they are subject, is again twofold; for these laws are either laws of nature or of freedom. The science of the former is physics, that of the latter, ethics; they are also called natural philosophy and moral philosophy respectively.</p>
+    <p>Logic cannot have any empirical part; that is, a part in which the universal and necessary laws of thought should rest on grounds taken from experience; otherwise it would not be logic, i.e., a canon for the understanding or the reason, valid for all thought, and capable of demonstration. Natural and moral philosophy, on the contrary, can each have their empirical part, since the former has to determine the laws of nature as an object of experience; the latter the laws of the human will, so far as it is affected by nature: the former, however, being laws according to which everything does happen; the latter, laws according to which everything ought to happen. Ethics, however, must also consider the conditions under which what ought to happen frequently does not.</p>
+    <p>We may call all philosophy empirical, so far as it is based on grounds of experience: on the other hand, that which delivers its doctrines from a priori principles alone we may call pure philosophy. When the latter is merely formal it is logic; if it is restricted to definite objects of the understanding it is metaphysic.</p>
+    <p>In this way there arises the idea of a twofold metaphysic- a metaphysic of nature and a metaphysic of morals. Physics will thus have an empirical and also a rational part. It is the same with Ethics; but here the empirical part might have the special name of practical anthropology, the name morality being appropriated to the rational part.</p>
+    <p>All trades, arts, and handiworks have gained by division of labour, namely, when, instead of one man doing everything, each confines himself to a certain kind of work distinct from others in the treatment it requires, so as to be able to perform it with greater facility and in the greatest perfection. Where the different kinds of work are not distinguished and divided, where everyone is a jack-of-all-trades, there manufactures remain still in the greatest barbarism. It might deserve to be considered whether pure philosophy in all its parts does not require a man specially devoted to it, and whether it would not be better for the whole business of science if those who, to please the tastes of the public, are wont to blend the rational and empirical elements together, mixed in all sorts of proportions unknown to themselves, and who call themselves independent thinkers, giving the name of minute philosophers to those who apply themselves to the rational part only- if these, I say, were warned not to carry on two employments together which differ widely in the treatment they demand, for each of which perhaps a special talent is required, and the combination of which in one person only produces bunglers. But I only ask here whether the nature of science does not require that we should always carefully separate the empirical from the rational part, and prefix to Physics proper (or empirical physics) a metaphysic...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Groundwork of the Metaphysics of Morals free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/kant-groundwork?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>

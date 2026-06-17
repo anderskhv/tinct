@@ -11,322 +11,334 @@
   <meta property="og:url" content="https://tinct.app/read/anna-karenina">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/anna-karenina#book","name":"Anna Karenina","author":{"@type":"Person","name":"Leo Tolstoy"},"description":"A married woman falls in love with a cavalry officer in 1870s Russia and ends up under a train. Around that disaster, Tolstoy lays out the lives of nine other people in detail — Levin and his hayfields, Kitty's wedding, Stiva's expense accounts. The novel many serious readers call the greatest ever written.","url":"https://tinct.app/read/anna-karenina","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
-    a { color: #713722; }
-    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
-    .brand span { color: #8a735d; font-weight: 400; }
-    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
-    .top-actions a { color: #5f554b; text-decoration: none; }
-    .top-actions .open-link { color: #713722; font-weight: 650; }
-    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
-    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
-    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
-    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
-    p { font-size: 1.08rem; margin: 0 0 1rem; }
-    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
-    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
-    article { max-width: 720px; }
-    article p { font-size: 1.06rem; }
-    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
-    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
-    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
-    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
-    li a { text-decoration: none; }
-    li a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
-    @media (max-width: 820px) {
-      .topbar { padding: 0 14px; }
-      .top-actions { gap: 10px; }
-      .top-actions a:not(.open-link) { display: none; }
-      main { padding: 26px 18px 52px; }
-      .layout { display: block; padding-top: 28px; }
-      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
-      ol { max-height: none; }
+    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { min-height: 100vh; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+    .top-cta:hover { background: var(--ink); color: var(--paper); }
+    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
+    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--ink); }
+    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
+    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
+    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
+    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
+    .primary-cta:hover { background: var(--ink); color: var(--paper); }
+    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .glance li { counter-increment: gl; }
+    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: var(--accent); }
+    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
+    .body { max-width: 860px; }
+    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
+    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    footer.site a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
+    @media (max-width: 720px) {
+      nav.top { padding: 18px 22px; }
+      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
+      main { padding: 32px 22px 56px; }
+      .hook { font-size: 21px; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/">Tinct<span>.</span></a>
-  <nav class="top-actions" aria-label="Book navigation">
-    <a href="/read/">Library</a>
-    <a class="open-link" href="/read/anna-karenina?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a>
-  </nav>
-</header>
+<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="/read/anna-karenina?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+</nav>
 <main>
-  <section class="hero">
-    <p class="kicker">Free online book</p>
-    <h1>Anna Karenina</h1>
-    <p class="dek">by Leo Tolstoy</p>
-    <p class="description">A married woman falls in love with a cavalry officer in 1870s Russia and ends up under a train. Around that disaster, Tolstoy lays out the lives of nine other people in detail — Levin and his hayfields, Kitty&#39;s wedding, Stiva&#39;s expense accounts. The novel many serious readers call the greatest ever written.</p>
-    <a class="cta" href="/read/anna-karenina?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct</a>
-  </section>
-  <div class="layout">
-    <article>
-      <h2>Chapter 1</h2>
-      <p>Happy families are all alike; every unhappy family is unhappy in its own way.</p>
-      <p>Everything was in confusion in the Oblonskys’ house. The wife had discovered that the husband was carrying on an intrigue with a French girl, who had been a governess in their family, and she had announced to her husband that she could not go on living in the same house with him. This position of affairs had now lasted three days, and not only the husband and wife themselves, but all the members of their family and household, were painfully conscious of it. Every person in the house felt that there was no sense in their living together, and that the stray people brought together by chance in any inn had more in common with one another than they, the members of the family and household of the Oblonskys. The wife did not leave her own room, the husband had not been at home for three days. The children ran wild all over the house; the English governess quarreled with the housekeeper, and wrote to a friend asking her to look out for a new situation for her; the man-cook had walked off the day before just at dinner time; the kitchen-maid, and the coachman had given warning.</p>
-      <p>Three days after the quarrel, Prince Stepan Arkadyevitch Oblonsky—Stiva, as he was called in the fashionable world—woke up at his usual hour, that is, at eight o’clock in the morning, not in his wife’s bedroom, but on the leather-covered sofa in his study. He turned over his stout, well-cared-for person on the springy sofa, as though he would sink into a long sleep again; he vigorously embraced the pillow on the other side and buried his face in it; but all at once he jumped up, sat up on the sofa, and opened his eyes.</p>
-      <p>“Yes, yes, how was it now?” he thought, going over his dream. “Now, how was it? To be sure! Alabin was giving a dinner at Darmstadt; no, not Darmstadt, but something American. Yes, but then, Darmstadt was in America. Yes, Alabin was giving a dinner on glass tables, and the tables sang, _Il mio tesoro_—not _Il mio tesoro_ though, but something better, and there were some sort of little decanters on the table, and they were women, too,” he remembered.</p>
-      <p>Stepan Arkadyevitch’s eyes twinkled gaily, and he pondered with a smile. “Yes, it was nice, very nice. There was a great deal more that was delightful, only there’s no putting it into words, or even expressing it in one’s thoughts awake.” And noticing a gleam of light peeping in beside one of the serge curtains, he cheerfully dropped his feet over the edge of the sofa, and felt about with them for his slippers, a present on his last birthday, worked for him by his wife on gold-colored morocco. And, as he had done every day for the last nine years, he stretched out his hand, without getting up, towards the place where his dressing-gown always hung in his bedroom. And thereupon he suddenly remembered that he was not sleeping in his wife’s room, but in his study, and why: the smile vanished from his face, he knitted his brows.</p>
-      <p>“Ah, ah, ah! Oo!...” he muttered, recalling everything that had happened. And again every detail of his quarrel with his wife was present to his imagination, all the hopelessness of his position, and worst of all, his own fault.</p>
-      <p>“Yes, she won’t forgive me, and she can’t forgive me. And the most awful thing about it is that it’s all my fault—all my fault, though I’m not to blame. That’s the point of the whole situation,” he reflected. “Oh, oh, oh!” he kept repeating in despair, as he remembered the acutely painful sensations caused him by this quarrel.</p>
-      <p>Most unpleasant of all was the first minute when, on coming, happy and good-humored, from...</p>
-    </article>
-    <aside class="chapters" aria-label="Chapters">
-      <h2>Chapters</h2>
-      <ol>
-<li><a href="/read/anna-karenina/chapter-1">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-2">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-3">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-4">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-5">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-6">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-7">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-8">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-9">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-10">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-11">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-12">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-13">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-14">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-15">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-16">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-17">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-18">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-19">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-20">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-21">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-22">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-23">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-24">Chapter 24</a></li>
-<li><a href="/read/anna-karenina/chapter-25">Chapter 25</a></li>
-<li><a href="/read/anna-karenina/chapter-26">Chapter 26</a></li>
-<li><a href="/read/anna-karenina/chapter-27">Chapter 27</a></li>
-<li><a href="/read/anna-karenina/chapter-28">Chapter 28</a></li>
-<li><a href="/read/anna-karenina/chapter-29">Chapter 29</a></li>
-<li><a href="/read/anna-karenina/chapter-30">Chapter 30</a></li>
-<li><a href="/read/anna-karenina/chapter-31">Chapter 31</a></li>
-<li><a href="/read/anna-karenina/chapter-32">Chapter 32</a></li>
-<li><a href="/read/anna-karenina/chapter-33">Chapter 33</a></li>
-<li><a href="/read/anna-karenina/chapter-34">Chapter 34</a></li>
-<li><a href="/read/anna-karenina/chapter-35">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-36">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-37">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-38">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-39">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-40">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-41">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-42">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-43">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-44">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-45">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-46">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-47">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-48">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-49">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-50">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-51">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-52">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-53">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-54">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-55">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-56">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-57">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-58">Chapter 24</a></li>
-<li><a href="/read/anna-karenina/chapter-59">Chapter 25</a></li>
-<li><a href="/read/anna-karenina/chapter-60">Chapter 26</a></li>
-<li><a href="/read/anna-karenina/chapter-61">Chapter 27</a></li>
-<li><a href="/read/anna-karenina/chapter-62">Chapter 28</a></li>
-<li><a href="/read/anna-karenina/chapter-63">Chapter 29</a></li>
-<li><a href="/read/anna-karenina/chapter-64">Chapter 30</a></li>
-<li><a href="/read/anna-karenina/chapter-65">Chapter 31</a></li>
-<li><a href="/read/anna-karenina/chapter-66">Chapter 32</a></li>
-<li><a href="/read/anna-karenina/chapter-67">Chapter 33</a></li>
-<li><a href="/read/anna-karenina/chapter-68">Chapter 34</a></li>
-<li><a href="/read/anna-karenina/chapter-69">Chapter 35</a></li>
-<li><a href="/read/anna-karenina/chapter-70">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-71">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-72">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-73">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-74">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-75">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-76">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-77">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-78">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-79">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-80">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-81">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-82">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-83">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-84">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-85">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-86">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-87">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-88">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-89">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-90">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-91">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-92">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-93">Chapter 24</a></li>
-<li><a href="/read/anna-karenina/chapter-94">Chapter 25</a></li>
-<li><a href="/read/anna-karenina/chapter-95">Chapter 26</a></li>
-<li><a href="/read/anna-karenina/chapter-96">Chapter 27</a></li>
-<li><a href="/read/anna-karenina/chapter-97">Chapter 28</a></li>
-<li><a href="/read/anna-karenina/chapter-98">Chapter 29</a></li>
-<li><a href="/read/anna-karenina/chapter-99">Chapter 30</a></li>
-<li><a href="/read/anna-karenina/chapter-100">Chapter 31</a></li>
-<li><a href="/read/anna-karenina/chapter-101">Chapter 32</a></li>
-<li><a href="/read/anna-karenina/chapter-102">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-103">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-104">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-105">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-106">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-107">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-108">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-109">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-110">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-111">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-112">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-113">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-114">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-115">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-116">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-117">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-118">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-119">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-120">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-121">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-122">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-123">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-124">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-125">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-126">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-127">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-128">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-129">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-130">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-131">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-132">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-133">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-134">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-135">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-136">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-137">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-138">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-139">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-140">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-141">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-142">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-143">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-144">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-145">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-146">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-147">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-148">Chapter 24</a></li>
-<li><a href="/read/anna-karenina/chapter-149">Chapter 25</a></li>
-<li><a href="/read/anna-karenina/chapter-150">Chapter 26</a></li>
-<li><a href="/read/anna-karenina/chapter-151">Chapter 27</a></li>
-<li><a href="/read/anna-karenina/chapter-152">Chapter 28</a></li>
-<li><a href="/read/anna-karenina/chapter-153">Chapter 29</a></li>
-<li><a href="/read/anna-karenina/chapter-154">Chapter 30</a></li>
-<li><a href="/read/anna-karenina/chapter-155">Chapter 31</a></li>
-<li><a href="/read/anna-karenina/chapter-156">Chapter 32</a></li>
-<li><a href="/read/anna-karenina/chapter-157">Chapter 33</a></li>
-<li><a href="/read/anna-karenina/chapter-158">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-159">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-160">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-161">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-162">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-163">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-164">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-165">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-166">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-167">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-168">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-169">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-170">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-171">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-172">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-173">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-174">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-175">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-176">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-177">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-178">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-179">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-180">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-181">Chapter 24</a></li>
-<li><a href="/read/anna-karenina/chapter-182">Chapter 25</a></li>
-<li><a href="/read/anna-karenina/chapter-183">Chapter 26</a></li>
-<li><a href="/read/anna-karenina/chapter-184">Chapter 27</a></li>
-<li><a href="/read/anna-karenina/chapter-185">Chapter 28</a></li>
-<li><a href="/read/anna-karenina/chapter-186">Chapter 29</a></li>
-<li><a href="/read/anna-karenina/chapter-187">Chapter 30</a></li>
-<li><a href="/read/anna-karenina/chapter-188">Chapter 31</a></li>
-<li><a href="/read/anna-karenina/chapter-189">Chapter 32</a></li>
-<li><a href="/read/anna-karenina/chapter-190">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-191">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-192">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-193">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-194">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-195">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-196">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-197">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-198">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-199">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-200">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-201">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-202">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-203">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-204">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-205">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-206">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-207">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-208">Chapter 19</a></li>
-<li><a href="/read/anna-karenina/chapter-209">Chapter 20</a></li>
-<li><a href="/read/anna-karenina/chapter-210">Chapter 21</a></li>
-<li><a href="/read/anna-karenina/chapter-211">Chapter 22</a></li>
-<li><a href="/read/anna-karenina/chapter-212">Chapter 23</a></li>
-<li><a href="/read/anna-karenina/chapter-213">Chapter 24</a></li>
-<li><a href="/read/anna-karenina/chapter-214">Chapter 25</a></li>
-<li><a href="/read/anna-karenina/chapter-215">Chapter 26</a></li>
-<li><a href="/read/anna-karenina/chapter-216">Chapter 27</a></li>
-<li><a href="/read/anna-karenina/chapter-217">Chapter 28</a></li>
-<li><a href="/read/anna-karenina/chapter-218">Chapter 29</a></li>
-<li><a href="/read/anna-karenina/chapter-219">Chapter 30</a></li>
-<li><a href="/read/anna-karenina/chapter-220">Chapter 31</a></li>
-<li><a href="/read/anna-karenina/chapter-221">Chapter 1</a></li>
-<li><a href="/read/anna-karenina/chapter-222">Chapter 2</a></li>
-<li><a href="/read/anna-karenina/chapter-223">Chapter 3</a></li>
-<li><a href="/read/anna-karenina/chapter-224">Chapter 4</a></li>
-<li><a href="/read/anna-karenina/chapter-225">Chapter 5</a></li>
-<li><a href="/read/anna-karenina/chapter-226">Chapter 6</a></li>
-<li><a href="/read/anna-karenina/chapter-227">Chapter 7</a></li>
-<li><a href="/read/anna-karenina/chapter-228">Chapter 8</a></li>
-<li><a href="/read/anna-karenina/chapter-229">Chapter 9</a></li>
-<li><a href="/read/anna-karenina/chapter-230">Chapter 10</a></li>
-<li><a href="/read/anna-karenina/chapter-231">Chapter 11</a></li>
-<li><a href="/read/anna-karenina/chapter-232">Chapter 12</a></li>
-<li><a href="/read/anna-karenina/chapter-233">Chapter 13</a></li>
-<li><a href="/read/anna-karenina/chapter-234">Chapter 14</a></li>
-<li><a href="/read/anna-karenina/chapter-235">Chapter 15</a></li>
-<li><a href="/read/anna-karenina/chapter-236">Chapter 16</a></li>
-<li><a href="/read/anna-karenina/chapter-237">Chapter 17</a></li>
-<li><a href="/read/anna-karenina/chapter-238">Chapter 18</a></li>
-<li><a href="/read/anna-karenina/chapter-239">Chapter 19</a></li>
-      </ol>
-    </aside>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Anna Karenina</span>
   </div>
-  <footer>Read Anna Karenina free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+
+  <div class="booknum">Free online book</div>
+  <h1 class="title">Anna Karenina</h1>
+  <p class="byline">by Leo Tolstoy</p>
+  <p class="hook">A married woman falls in love with a cavalry officer in 1870s Russia and ends up under a train. Around that disaster, Tolstoy lays out the lives of nine other people in detail — Levin and his hayfields, Kitty&#39;s wedding, Stiva&#39;s expense accounts. The novel many serious readers call the greatest ever written.</p>
+  <a class="primary-cta" href="/read/anna-karenina?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
+
+  <section class="glance-section" aria-label="Chapters">
+    <div class="glance-label">Chapters</div>
+    <ol class="glance">
+<li><a href="/read/anna-karenina/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-2"><span class="glance-num">Chapter 2</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-3"><span class="glance-num">Chapter 3</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-4"><span class="glance-num">Chapter 4</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-5"><span class="glance-num">Chapter 5</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-6"><span class="glance-num">Chapter 6</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-7"><span class="glance-num">Chapter 7</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-8"><span class="glance-num">Chapter 8</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-9"><span class="glance-num">Chapter 9</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-10"><span class="glance-num">Chapter 10</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-11"><span class="glance-num">Chapter 11</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-12"><span class="glance-num">Chapter 12</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-13"><span class="glance-num">Chapter 13</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-14"><span class="glance-num">Chapter 14</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-15"><span class="glance-num">Chapter 15</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-16"><span class="glance-num">Chapter 16</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-17"><span class="glance-num">Chapter 17</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-18"><span class="glance-num">Chapter 18</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-19"><span class="glance-num">Chapter 19</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-20"><span class="glance-num">Chapter 20</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-21"><span class="glance-num">Chapter 21</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-22"><span class="glance-num">Chapter 22</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-23"><span class="glance-num">Chapter 23</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-24"><span class="glance-num">Chapter 24</span><span class="glance-text">Chapter 24</span></a></li>
+<li><a href="/read/anna-karenina/chapter-25"><span class="glance-num">Chapter 25</span><span class="glance-text">Chapter 25</span></a></li>
+<li><a href="/read/anna-karenina/chapter-26"><span class="glance-num">Chapter 26</span><span class="glance-text">Chapter 26</span></a></li>
+<li><a href="/read/anna-karenina/chapter-27"><span class="glance-num">Chapter 27</span><span class="glance-text">Chapter 27</span></a></li>
+<li><a href="/read/anna-karenina/chapter-28"><span class="glance-num">Chapter 28</span><span class="glance-text">Chapter 28</span></a></li>
+<li><a href="/read/anna-karenina/chapter-29"><span class="glance-num">Chapter 29</span><span class="glance-text">Chapter 29</span></a></li>
+<li><a href="/read/anna-karenina/chapter-30"><span class="glance-num">Chapter 30</span><span class="glance-text">Chapter 30</span></a></li>
+<li><a href="/read/anna-karenina/chapter-31"><span class="glance-num">Chapter 31</span><span class="glance-text">Chapter 31</span></a></li>
+<li><a href="/read/anna-karenina/chapter-32"><span class="glance-num">Chapter 32</span><span class="glance-text">Chapter 32</span></a></li>
+<li><a href="/read/anna-karenina/chapter-33"><span class="glance-num">Chapter 33</span><span class="glance-text">Chapter 33</span></a></li>
+<li><a href="/read/anna-karenina/chapter-34"><span class="glance-num">Chapter 34</span><span class="glance-text">Chapter 34</span></a></li>
+<li><a href="/read/anna-karenina/chapter-35"><span class="glance-num">Chapter 35</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-36"><span class="glance-num">Chapter 36</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-37"><span class="glance-num">Chapter 37</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-38"><span class="glance-num">Chapter 38</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-39"><span class="glance-num">Chapter 39</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-40"><span class="glance-num">Chapter 40</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-41"><span class="glance-num">Chapter 41</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-42"><span class="glance-num">Chapter 42</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-43"><span class="glance-num">Chapter 43</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-44"><span class="glance-num">Chapter 44</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-45"><span class="glance-num">Chapter 45</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-46"><span class="glance-num">Chapter 46</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-47"><span class="glance-num">Chapter 47</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-48"><span class="glance-num">Chapter 48</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-49"><span class="glance-num">Chapter 49</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-50"><span class="glance-num">Chapter 50</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-51"><span class="glance-num">Chapter 51</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-52"><span class="glance-num">Chapter 52</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-53"><span class="glance-num">Chapter 53</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-54"><span class="glance-num">Chapter 54</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-55"><span class="glance-num">Chapter 55</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-56"><span class="glance-num">Chapter 56</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-57"><span class="glance-num">Chapter 57</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-58"><span class="glance-num">Chapter 58</span><span class="glance-text">Chapter 24</span></a></li>
+<li><a href="/read/anna-karenina/chapter-59"><span class="glance-num">Chapter 59</span><span class="glance-text">Chapter 25</span></a></li>
+<li><a href="/read/anna-karenina/chapter-60"><span class="glance-num">Chapter 60</span><span class="glance-text">Chapter 26</span></a></li>
+<li><a href="/read/anna-karenina/chapter-61"><span class="glance-num">Chapter 61</span><span class="glance-text">Chapter 27</span></a></li>
+<li><a href="/read/anna-karenina/chapter-62"><span class="glance-num">Chapter 62</span><span class="glance-text">Chapter 28</span></a></li>
+<li><a href="/read/anna-karenina/chapter-63"><span class="glance-num">Chapter 63</span><span class="glance-text">Chapter 29</span></a></li>
+<li><a href="/read/anna-karenina/chapter-64"><span class="glance-num">Chapter 64</span><span class="glance-text">Chapter 30</span></a></li>
+<li><a href="/read/anna-karenina/chapter-65"><span class="glance-num">Chapter 65</span><span class="glance-text">Chapter 31</span></a></li>
+<li><a href="/read/anna-karenina/chapter-66"><span class="glance-num">Chapter 66</span><span class="glance-text">Chapter 32</span></a></li>
+<li><a href="/read/anna-karenina/chapter-67"><span class="glance-num">Chapter 67</span><span class="glance-text">Chapter 33</span></a></li>
+<li><a href="/read/anna-karenina/chapter-68"><span class="glance-num">Chapter 68</span><span class="glance-text">Chapter 34</span></a></li>
+<li><a href="/read/anna-karenina/chapter-69"><span class="glance-num">Chapter 69</span><span class="glance-text">Chapter 35</span></a></li>
+<li><a href="/read/anna-karenina/chapter-70"><span class="glance-num">Chapter 70</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-71"><span class="glance-num">Chapter 71</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-72"><span class="glance-num">Chapter 72</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-73"><span class="glance-num">Chapter 73</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-74"><span class="glance-num">Chapter 74</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-75"><span class="glance-num">Chapter 75</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-76"><span class="glance-num">Chapter 76</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-77"><span class="glance-num">Chapter 77</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-78"><span class="glance-num">Chapter 78</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-79"><span class="glance-num">Chapter 79</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-80"><span class="glance-num">Chapter 80</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-81"><span class="glance-num">Chapter 81</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-82"><span class="glance-num">Chapter 82</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-83"><span class="glance-num">Chapter 83</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-84"><span class="glance-num">Chapter 84</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-85"><span class="glance-num">Chapter 85</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-86"><span class="glance-num">Chapter 86</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-87"><span class="glance-num">Chapter 87</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-88"><span class="glance-num">Chapter 88</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-89"><span class="glance-num">Chapter 89</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-90"><span class="glance-num">Chapter 90</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-91"><span class="glance-num">Chapter 91</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-92"><span class="glance-num">Chapter 92</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-93"><span class="glance-num">Chapter 93</span><span class="glance-text">Chapter 24</span></a></li>
+<li><a href="/read/anna-karenina/chapter-94"><span class="glance-num">Chapter 94</span><span class="glance-text">Chapter 25</span></a></li>
+<li><a href="/read/anna-karenina/chapter-95"><span class="glance-num">Chapter 95</span><span class="glance-text">Chapter 26</span></a></li>
+<li><a href="/read/anna-karenina/chapter-96"><span class="glance-num">Chapter 96</span><span class="glance-text">Chapter 27</span></a></li>
+<li><a href="/read/anna-karenina/chapter-97"><span class="glance-num">Chapter 97</span><span class="glance-text">Chapter 28</span></a></li>
+<li><a href="/read/anna-karenina/chapter-98"><span class="glance-num">Chapter 98</span><span class="glance-text">Chapter 29</span></a></li>
+<li><a href="/read/anna-karenina/chapter-99"><span class="glance-num">Chapter 99</span><span class="glance-text">Chapter 30</span></a></li>
+<li><a href="/read/anna-karenina/chapter-100"><span class="glance-num">Chapter 100</span><span class="glance-text">Chapter 31</span></a></li>
+<li><a href="/read/anna-karenina/chapter-101"><span class="glance-num">Chapter 101</span><span class="glance-text">Chapter 32</span></a></li>
+<li><a href="/read/anna-karenina/chapter-102"><span class="glance-num">Chapter 102</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-103"><span class="glance-num">Chapter 103</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-104"><span class="glance-num">Chapter 104</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-105"><span class="glance-num">Chapter 105</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-106"><span class="glance-num">Chapter 106</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-107"><span class="glance-num">Chapter 107</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-108"><span class="glance-num">Chapter 108</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-109"><span class="glance-num">Chapter 109</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-110"><span class="glance-num">Chapter 110</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-111"><span class="glance-num">Chapter 111</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-112"><span class="glance-num">Chapter 112</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-113"><span class="glance-num">Chapter 113</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-114"><span class="glance-num">Chapter 114</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-115"><span class="glance-num">Chapter 115</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-116"><span class="glance-num">Chapter 116</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-117"><span class="glance-num">Chapter 117</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-118"><span class="glance-num">Chapter 118</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-119"><span class="glance-num">Chapter 119</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-120"><span class="glance-num">Chapter 120</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-121"><span class="glance-num">Chapter 121</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-122"><span class="glance-num">Chapter 122</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-123"><span class="glance-num">Chapter 123</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-124"><span class="glance-num">Chapter 124</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-125"><span class="glance-num">Chapter 125</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-126"><span class="glance-num">Chapter 126</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-127"><span class="glance-num">Chapter 127</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-128"><span class="glance-num">Chapter 128</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-129"><span class="glance-num">Chapter 129</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-130"><span class="glance-num">Chapter 130</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-131"><span class="glance-num">Chapter 131</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-132"><span class="glance-num">Chapter 132</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-133"><span class="glance-num">Chapter 133</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-134"><span class="glance-num">Chapter 134</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-135"><span class="glance-num">Chapter 135</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-136"><span class="glance-num">Chapter 136</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-137"><span class="glance-num">Chapter 137</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-138"><span class="glance-num">Chapter 138</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-139"><span class="glance-num">Chapter 139</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-140"><span class="glance-num">Chapter 140</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-141"><span class="glance-num">Chapter 141</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-142"><span class="glance-num">Chapter 142</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-143"><span class="glance-num">Chapter 143</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-144"><span class="glance-num">Chapter 144</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-145"><span class="glance-num">Chapter 145</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-146"><span class="glance-num">Chapter 146</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-147"><span class="glance-num">Chapter 147</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-148"><span class="glance-num">Chapter 148</span><span class="glance-text">Chapter 24</span></a></li>
+<li><a href="/read/anna-karenina/chapter-149"><span class="glance-num">Chapter 149</span><span class="glance-text">Chapter 25</span></a></li>
+<li><a href="/read/anna-karenina/chapter-150"><span class="glance-num">Chapter 150</span><span class="glance-text">Chapter 26</span></a></li>
+<li><a href="/read/anna-karenina/chapter-151"><span class="glance-num">Chapter 151</span><span class="glance-text">Chapter 27</span></a></li>
+<li><a href="/read/anna-karenina/chapter-152"><span class="glance-num">Chapter 152</span><span class="glance-text">Chapter 28</span></a></li>
+<li><a href="/read/anna-karenina/chapter-153"><span class="glance-num">Chapter 153</span><span class="glance-text">Chapter 29</span></a></li>
+<li><a href="/read/anna-karenina/chapter-154"><span class="glance-num">Chapter 154</span><span class="glance-text">Chapter 30</span></a></li>
+<li><a href="/read/anna-karenina/chapter-155"><span class="glance-num">Chapter 155</span><span class="glance-text">Chapter 31</span></a></li>
+<li><a href="/read/anna-karenina/chapter-156"><span class="glance-num">Chapter 156</span><span class="glance-text">Chapter 32</span></a></li>
+<li><a href="/read/anna-karenina/chapter-157"><span class="glance-num">Chapter 157</span><span class="glance-text">Chapter 33</span></a></li>
+<li><a href="/read/anna-karenina/chapter-158"><span class="glance-num">Chapter 158</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-159"><span class="glance-num">Chapter 159</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-160"><span class="glance-num">Chapter 160</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-161"><span class="glance-num">Chapter 161</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-162"><span class="glance-num">Chapter 162</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-163"><span class="glance-num">Chapter 163</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-164"><span class="glance-num">Chapter 164</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-165"><span class="glance-num">Chapter 165</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-166"><span class="glance-num">Chapter 166</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-167"><span class="glance-num">Chapter 167</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-168"><span class="glance-num">Chapter 168</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-169"><span class="glance-num">Chapter 169</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-170"><span class="glance-num">Chapter 170</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-171"><span class="glance-num">Chapter 171</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-172"><span class="glance-num">Chapter 172</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-173"><span class="glance-num">Chapter 173</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-174"><span class="glance-num">Chapter 174</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-175"><span class="glance-num">Chapter 175</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-176"><span class="glance-num">Chapter 176</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-177"><span class="glance-num">Chapter 177</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-178"><span class="glance-num">Chapter 178</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-179"><span class="glance-num">Chapter 179</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-180"><span class="glance-num">Chapter 180</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-181"><span class="glance-num">Chapter 181</span><span class="glance-text">Chapter 24</span></a></li>
+<li><a href="/read/anna-karenina/chapter-182"><span class="glance-num">Chapter 182</span><span class="glance-text">Chapter 25</span></a></li>
+<li><a href="/read/anna-karenina/chapter-183"><span class="glance-num">Chapter 183</span><span class="glance-text">Chapter 26</span></a></li>
+<li><a href="/read/anna-karenina/chapter-184"><span class="glance-num">Chapter 184</span><span class="glance-text">Chapter 27</span></a></li>
+<li><a href="/read/anna-karenina/chapter-185"><span class="glance-num">Chapter 185</span><span class="glance-text">Chapter 28</span></a></li>
+<li><a href="/read/anna-karenina/chapter-186"><span class="glance-num">Chapter 186</span><span class="glance-text">Chapter 29</span></a></li>
+<li><a href="/read/anna-karenina/chapter-187"><span class="glance-num">Chapter 187</span><span class="glance-text">Chapter 30</span></a></li>
+<li><a href="/read/anna-karenina/chapter-188"><span class="glance-num">Chapter 188</span><span class="glance-text">Chapter 31</span></a></li>
+<li><a href="/read/anna-karenina/chapter-189"><span class="glance-num">Chapter 189</span><span class="glance-text">Chapter 32</span></a></li>
+<li><a href="/read/anna-karenina/chapter-190"><span class="glance-num">Chapter 190</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-191"><span class="glance-num">Chapter 191</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-192"><span class="glance-num">Chapter 192</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-193"><span class="glance-num">Chapter 193</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-194"><span class="glance-num">Chapter 194</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-195"><span class="glance-num">Chapter 195</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-196"><span class="glance-num">Chapter 196</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-197"><span class="glance-num">Chapter 197</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-198"><span class="glance-num">Chapter 198</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-199"><span class="glance-num">Chapter 199</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-200"><span class="glance-num">Chapter 200</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-201"><span class="glance-num">Chapter 201</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-202"><span class="glance-num">Chapter 202</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-203"><span class="glance-num">Chapter 203</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-204"><span class="glance-num">Chapter 204</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-205"><span class="glance-num">Chapter 205</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-206"><span class="glance-num">Chapter 206</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-207"><span class="glance-num">Chapter 207</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-208"><span class="glance-num">Chapter 208</span><span class="glance-text">Chapter 19</span></a></li>
+<li><a href="/read/anna-karenina/chapter-209"><span class="glance-num">Chapter 209</span><span class="glance-text">Chapter 20</span></a></li>
+<li><a href="/read/anna-karenina/chapter-210"><span class="glance-num">Chapter 210</span><span class="glance-text">Chapter 21</span></a></li>
+<li><a href="/read/anna-karenina/chapter-211"><span class="glance-num">Chapter 211</span><span class="glance-text">Chapter 22</span></a></li>
+<li><a href="/read/anna-karenina/chapter-212"><span class="glance-num">Chapter 212</span><span class="glance-text">Chapter 23</span></a></li>
+<li><a href="/read/anna-karenina/chapter-213"><span class="glance-num">Chapter 213</span><span class="glance-text">Chapter 24</span></a></li>
+<li><a href="/read/anna-karenina/chapter-214"><span class="glance-num">Chapter 214</span><span class="glance-text">Chapter 25</span></a></li>
+<li><a href="/read/anna-karenina/chapter-215"><span class="glance-num">Chapter 215</span><span class="glance-text">Chapter 26</span></a></li>
+<li><a href="/read/anna-karenina/chapter-216"><span class="glance-num">Chapter 216</span><span class="glance-text">Chapter 27</span></a></li>
+<li><a href="/read/anna-karenina/chapter-217"><span class="glance-num">Chapter 217</span><span class="glance-text">Chapter 28</span></a></li>
+<li><a href="/read/anna-karenina/chapter-218"><span class="glance-num">Chapter 218</span><span class="glance-text">Chapter 29</span></a></li>
+<li><a href="/read/anna-karenina/chapter-219"><span class="glance-num">Chapter 219</span><span class="glance-text">Chapter 30</span></a></li>
+<li><a href="/read/anna-karenina/chapter-220"><span class="glance-num">Chapter 220</span><span class="glance-text">Chapter 31</span></a></li>
+<li><a href="/read/anna-karenina/chapter-221"><span class="glance-num">Chapter 221</span><span class="glance-text">Chapter 1</span></a></li>
+<li><a href="/read/anna-karenina/chapter-222"><span class="glance-num">Chapter 222</span><span class="glance-text">Chapter 2</span></a></li>
+<li><a href="/read/anna-karenina/chapter-223"><span class="glance-num">Chapter 223</span><span class="glance-text">Chapter 3</span></a></li>
+<li><a href="/read/anna-karenina/chapter-224"><span class="glance-num">Chapter 224</span><span class="glance-text">Chapter 4</span></a></li>
+<li><a href="/read/anna-karenina/chapter-225"><span class="glance-num">Chapter 225</span><span class="glance-text">Chapter 5</span></a></li>
+<li><a href="/read/anna-karenina/chapter-226"><span class="glance-num">Chapter 226</span><span class="glance-text">Chapter 6</span></a></li>
+<li><a href="/read/anna-karenina/chapter-227"><span class="glance-num">Chapter 227</span><span class="glance-text">Chapter 7</span></a></li>
+<li><a href="/read/anna-karenina/chapter-228"><span class="glance-num">Chapter 228</span><span class="glance-text">Chapter 8</span></a></li>
+<li><a href="/read/anna-karenina/chapter-229"><span class="glance-num">Chapter 229</span><span class="glance-text">Chapter 9</span></a></li>
+<li><a href="/read/anna-karenina/chapter-230"><span class="glance-num">Chapter 230</span><span class="glance-text">Chapter 10</span></a></li>
+<li><a href="/read/anna-karenina/chapter-231"><span class="glance-num">Chapter 231</span><span class="glance-text">Chapter 11</span></a></li>
+<li><a href="/read/anna-karenina/chapter-232"><span class="glance-num">Chapter 232</span><span class="glance-text">Chapter 12</span></a></li>
+<li><a href="/read/anna-karenina/chapter-233"><span class="glance-num">Chapter 233</span><span class="glance-text">Chapter 13</span></a></li>
+<li><a href="/read/anna-karenina/chapter-234"><span class="glance-num">Chapter 234</span><span class="glance-text">Chapter 14</span></a></li>
+<li><a href="/read/anna-karenina/chapter-235"><span class="glance-num">Chapter 235</span><span class="glance-text">Chapter 15</span></a></li>
+<li><a href="/read/anna-karenina/chapter-236"><span class="glance-num">Chapter 236</span><span class="glance-text">Chapter 16</span></a></li>
+<li><a href="/read/anna-karenina/chapter-237"><span class="glance-num">Chapter 237</span><span class="glance-text">Chapter 17</span></a></li>
+<li><a href="/read/anna-karenina/chapter-238"><span class="glance-num">Chapter 238</span><span class="glance-text">Chapter 18</span></a></li>
+<li><a href="/read/anna-karenina/chapter-239"><span class="glance-num">Chapter 239</span><span class="glance-text">Chapter 19</span></a></li>
+    </ol>
+  </section>
+
+  <h2 class="section">Chapter 1</h2>
+  <div class="body">
+    <p>Happy families are all alike; every unhappy family is unhappy in its own way.</p>
+    <p>Everything was in confusion in the Oblonskys’ house. The wife had discovered that the husband was carrying on an intrigue with a French girl, who had been a governess in their family, and she had announced to her husband that she could not go on living in the same house with him. This position of affairs had now lasted three days, and not only the husband and wife themselves, but all the members of their family and household, were painfully conscious of it. Every person in the house felt that there was no sense in their living together, and that the stray people brought together by chance in any inn had more in common with one another than they, the members of the family and household of the Oblonskys. The wife did not leave her own room, the husband had not been at home for three days. The children ran wild all over the house; the English governess quarreled with the housekeeper, and wrote to a friend asking her to look out for a new situation for her; the man-cook had walked off the day before just at dinner time; the kitchen-maid, and the coachman had given warning.</p>
+    <p>Three days after the quarrel, Prince Stepan Arkadyevitch Oblonsky—Stiva, as he was called in the fashionable world—woke up at his usual hour, that is, at eight o’clock in the morning, not in his wife’s bedroom, but on the leather-covered sofa in his study. He turned over his stout, well-cared-for person on the springy sofa, as though he would sink into a long sleep again; he vigorously embraced the pillow on the other side and buried his face in it; but all at once he jumped up, sat up on the sofa, and opened his eyes.</p>
+    <p>“Yes, yes, how was it now?” he thought, going over his dream. “Now, how was it? To be sure! Alabin was giving a dinner at Darmstadt; no, not Darmstadt, but something American. Yes, but then, Darmstadt was in America. Yes, Alabin was giving a dinner on glass tables, and the tables sang, _Il mio tesoro_—not _Il mio tesoro_ though, but something better, and there were some sort of little decanters on the table, and they were women, too,” he remembered.</p>
+    <p>Stepan Arkadyevitch’s eyes twinkled gaily, and he pondered with a smile. “Yes, it was nice, very nice. There was a great deal more that was delightful, only there’s no putting it into words, or even expressing it in one’s thoughts awake.” And noticing a gleam of light peeping in beside one of the serge curtains, he cheerfully dropped his feet over the edge of the sofa, and felt about with them for his slippers, a present on his last birthday, worked for him by his wife on gold-colored morocco. And, as he had done every day for the last nine years, he stretched out his hand, without getting up, towards the place where his dressing-gown always hung in his bedroom. And thereupon he suddenly remembered that he was not sleeping in his wife’s room, but in his study, and why: the smile vanished from his face, he knitted his brows.</p>
+    <p>“Ah, ah, ah! Oo!...” he muttered, recalling everything that had happened. And again every detail of his quarrel with his wife was present to his imagination, all the hopelessness of his position, and worst of all, his own fault.</p>
+    <p>“Yes, she won’t forgive me, and she can’t forgive me. And the most awful thing about it is that it’s all my fault—all my fault, though I’m not to blame. That’s the point of the whole situation,” he reflected. “Oh, oh, oh!” he kept repeating in despair, as he remembered the acutely painful sensations caused him by this quarrel.</p>
+    <p>Most unpleasant of all was the first minute when, on coming, happy and good-humored, from...</p>
+  </div>
 </main>
+<footer class="site">
+  <span>Read Anna Karenina free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/read/anna-karenina?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+</footer>
 </body>
 </html>
