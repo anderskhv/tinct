@@ -27,7 +27,8 @@ python3 books/wip_inventory.py
 python3 books/wip_inventory.py --audio
 ```
 
-3. Verify production still matches the checkpoint:
+3. Do not deploy from the primary local repo until it is reconciled. At shutdown it was dirty and diverged from `origin/main`; the good SEO state is reproducible from `origin/main` and the clean deploy worktree, not from that stale local checkout.
+4. Verify production still matches the checkpoint:
 
 ```bash
 cd app
@@ -35,7 +36,7 @@ export PATH=/Users/andershvelplund/.nvm/versions/node/v24.13.0/bin:$PATH
 bash scripts/smoke-test.sh
 ```
 
-4. Check the SEO surface:
+5. Check the SEO surface:
 
 ```bash
 curl -I https://tinct.app/read/odyssey

@@ -39,6 +39,7 @@ Shipped:
   - `Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct`.
 - Generated static book pages now include Open Graph and Twitter card image tags.
 - No `sitemap 2.xml` duplicate exists in the clean deploy worktree.
+- Operational caveat: the primary local checkout was dirty and diverged at shutdown, and may still contain stale generated SEO files plus `app/public/sitemap 2.xml`. Treat `origin/main` or a fresh clean worktree as the reproducible SEO source before any deploy.
 
 Deployment:
 
