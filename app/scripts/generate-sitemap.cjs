@@ -240,6 +240,7 @@ function buildBookIndexPage(book, edition) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
+  const readerHref = `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
   const description = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
@@ -250,7 +251,7 @@ function buildBookIndexPage(book, edition) {
   <a class="brand" href="/">Tinct<span>.</span></a>
   <nav class="top-actions" aria-label="Book navigation">
     <a href="/read/">Library</a>
-    <a class="open-link" href="/read/${book.id}?chapter=1">Open reader</a>
+    <a class="open-link" href="${readerHref}">Open reader</a>
   </nav>
 </header>
 <main>
@@ -259,7 +260,7 @@ function buildBookIndexPage(book, edition) {
     <h1>${escapeHtml(book.title)}</h1>
     <p class="dek">by ${escapeHtml(book.author)}</p>
     <p class="description">${escapeHtml(description)}</p>
-    <a class="cta" href="/read/${book.id}?chapter=1">Start reading in Tinct</a>
+    <a class="cta" href="${readerHref}">Start reading in Tinct</a>
   </section>
   <div class="layout">
     <article>

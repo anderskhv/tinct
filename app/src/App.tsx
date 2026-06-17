@@ -101,6 +101,43 @@ function editionParagraphsBeforeIndex(data: EditionData | null, index: number): 
 
 type ReaderSyncSignal = { chapterNumber: number; paragraph: number; nonce: number }
 
+type BookEditionSelection = {
+  primaryEditionKey?: EditionKey
+  splitEditionKey?: EditionKey
+  splitView?: boolean
+}
+
+const bookEditionSelectionKey = (bookId: string) => `book-editions:${bookId}`
+
+function editionExists(book: { editions: { key: EditionKey }[] }, key: EditionKey | undefined): key is EditionKey {
+  return !!key && book.editions.some(ed => ed.key === key)
+}
+
+function defaultPrimaryEditionKey(book: { editions: { key: EditionKey; style: Style; language: Language }[] }): EditionKey {
+  return book.editions.find(ed => ed.key === 'original-en')?.key
+    || book.editions.find(ed => ed.style === 'original' && ed.language === 'en')?.key
+    || book.editions.find(ed => ed.language === 'en')?.key
+    || book.editions[0]?.key
+    || 'original-en'
+}
+
+function defaultSplitEditionKey(book: { editions: { key: EditionKey; style: Style; language: Language; aligned?: boolean }[] }, primaryKey: EditionKey): EditionKey {
+  return book.editions.find(ed => ed.key === 'modern-en' && ed.aligned)?.key
+    || book.editions.find(ed => ed.style === 'modern' && ed.language === 'en' && ed.aligned)?.key
+    || book.editions.find(ed => ed.aligned && ed.key !== primaryKey)?.key
+    || book.editions.find(ed => ed.key !== primaryKey)?.key
+    || primaryKey
+}
+
+function editionParts(key: EditionKey, fallback: { style: Style; language: Language }): { style: Style; language: Language } {
+  const [style, ...languageParts] = key.split('-')
+  const language = languageParts.join('-')
+  return {
+    style: (style || fallback.style) as Style,
+    language: (language || fallback.language) as Language,
+  }
+}
+
 export default function App() {
   useEffect(() => {
     installReaderSessionShadowDebug()
@@ -240,6 +277,54 @@ export default function App() {
     totalChaptersRef,
     user,
   })
+
+  const [bookEditionSelection, setBookEditionSelection] = useState<BookEditionSelection | null>(null)
+
+  const persistBookEditionSelection = useCallback((partial: BookEditionSelection) => {
+    setBookEditionSelection(prev => {
+      const next = { ...(prev || {}), ...partial }
+      storage.set(bookEditionSelectionKey(book.id), next)
+      return next
+    })
+  }, [book.id])
+
+  const applyPrimaryEditionKey = useCallback((editionKey: EditionKey) => {
+    const ed = book.editions.find(e => e.key === editionKey)
+    if (!ed) return
+    setLanguage(ed.language)
+    setStyle(ed.style)
+    persistBookEditionSelection({ primaryEditionKey: ed.key })
+  }, [book.editions, setLanguage, setStyle, persistBookEditionSelection])
+
+  const applySplitEditionKey = useCallback((editionKey: EditionKey) => {
+    if (!editionExists(book, editionKey)) return
+    setSplitEditionKey(editionKey)
+    persistBookEditionSelection({ splitEditionKey: editionKey })
+  }, [book, setSplitEditionKey, persistBookEditionSelection])
+
+  useEffect(() => {
+    if (!storageReady) return
+    const stored = storage.get<BookEditionSelection>(bookEditionSelectionKey(book.id)) || {}
+    const primaryKey = editionExists(book, stored.primaryEditionKey)
+      ? stored.primaryEditionKey
+      : defaultPrimaryEditionKey(book)
+    const splitKey = editionExists(book, stored.splitEditionKey)
+      ? stored.splitEditionKey
+      : defaultSplitEditionKey(book, primaryKey)
+    const next = {
+      primaryEditionKey: primaryKey,
+      splitEditionKey: splitKey,
+      splitView: !!stored.splitView,
+    }
+    setBookEditionSelection(next)
+    const primary = book.editions.find(ed => ed.key === primaryKey)
+    if (primary) {
+      setLanguage(primary.language)
+      setStyle(primary.style)
+    }
+    setSplitEditionKey(splitKey)
+    if (!!stored.splitView !== preferences.splitView) toggleSplitView()
+  }, [book.id, book.editions, storageReady])
 
   // Library books (filtered to what user has added)
   const libraryBooks = useMemo(() => {
@@ -599,12 +684,10 @@ export default function App() {
   // 'original' style — only kjv-en, web-en, modern-en, modern-da). Without
   // this, the app tries to fetch bible-original-en.json, 404s, and shows
   // "Edition returned invalid JSON".
-  const requestedEditionKey = makeEditionKey(preferences.style, preferences.language)
-  const primaryEditionKey = book.editions.some(ed => ed.key === requestedEditionKey)
+  const requestedEditionKey = bookEditionSelection?.primaryEditionKey || makeEditionKey(preferences.style, preferences.language)
+  const primaryEditionKey = editionExists(book, requestedEditionKey)
     ? requestedEditionKey
-    : (book.editions.find(ed => ed.language === preferences.language)?.key
-       ?? book.editions[0]?.key
-       ?? requestedEditionKey)
+    : defaultPrimaryEditionKey(book)
   primaryEditionKeyRef.current = primaryEditionKey
   // Bounds check: clamp chapter to valid range after data loads
   if (currentChapter > totalChapters && totalChapters > 0) {
@@ -1290,8 +1373,12 @@ export default function App() {
       const parts = editionKey.split('-')
       const hlStyle = parts[0] as Style
       const hlLang = parts.slice(1).join('-') as 'en' | 'da'
-      if (hlStyle !== preferences.style) setStyle(hlStyle)
-      if (hlLang !== preferences.language) setLanguage(hlLang)
+      const ed = book.editions.find(e => e.key === editionKey)
+      if (ed) applyPrimaryEditionKey(ed.key)
+      else {
+        if (hlStyle !== preferences.style) setStyle(hlStyle)
+        if (hlLang !== preferences.language) setLanguage(hlLang)
+      }
     }
 
     if (handleNavigateToChapterCore(chapter, paragraphIndex, editionKey)) {
@@ -1305,19 +1392,23 @@ export default function App() {
       // the same value when no paragraph target was set.
       setFirstVisibleParagraph(paragraphIndex ?? 0)
     }
-  }, [currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, handleNavigateToChapterCore])
+  }, [book.editions, currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, applyPrimaryEditionKey, handleNavigateToChapterCore])
 
   // Go back to saved position (restores edition + chapter + page)
   const handleBackToPosition = useCallback(() => {
     if (!backPosition) return
     if (handleBackToPositionCore(backPosition)) {
       // Restore edition
-      if (backPosition.style !== preferences.style) setStyle(backPosition.style)
-      if (backPosition.language !== preferences.language) setLanguage(backPosition.language)
+      const key = makeEditionKey(backPosition.style, backPosition.language)
+      if (editionExists(book, key)) applyPrimaryEditionKey(key)
+      else {
+        if (backPosition.style !== preferences.style) setStyle(backPosition.style)
+        if (backPosition.language !== preferences.language) setLanguage(backPosition.language)
+      }
       setBackPosition(null)
       if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
     }
-  }, [backPosition, preferences.style, preferences.language, setStyle, setLanguage, handleBackToPositionCore])
+  }, [backPosition, book, preferences.style, preferences.language, setStyle, setLanguage, applyPrimaryEditionKey, handleBackToPositionCore])
 
   // Handle page changes from Reader — track reading speed
   const handlePageChange = useCallback((page: number, total: number) => {
@@ -1437,14 +1528,33 @@ export default function App() {
             const params = new URLSearchParams(window.location.search)
             const chapterParam = params.get('chapter')
             const editionParam = params.get('edition')
-            if (chapterParam || editionParam) {
+            const compareParam = params.get('compare')
+            const splitParam = params.get('split')
+            if (chapterParam || editionParam || compareParam || splitParam) {
               storage.set(`book-onboarded:${target.id}`, true)
               if (editionParam) {
                 const ed = target.editions.find(e => e.key === editionParam)
                 if (ed) {
                   setLanguage(ed.language)
                   setStyle(ed.style)
+                  storage.set(bookEditionSelectionKey(target.id), {
+                    ...(storage.get<BookEditionSelection>(bookEditionSelectionKey(target.id)) || {}),
+                    primaryEditionKey: ed.key,
+                  })
                 }
+              }
+              if (compareParam && target.editions.some(e => e.key === compareParam)) {
+                setSplitEditionKey(compareParam as EditionKey)
+                storage.set(bookEditionSelectionKey(target.id), {
+                  ...(storage.get<BookEditionSelection>(bookEditionSelectionKey(target.id)) || {}),
+                  splitEditionKey: compareParam as EditionKey,
+                  splitView: splitParam === '1' || splitParam === 'true',
+                })
+              } else if (splitParam === '1' || splitParam === 'true') {
+                storage.set(bookEditionSelectionKey(target.id), {
+                  ...(storage.get<BookEditionSelection>(bookEditionSelectionKey(target.id)) || {}),
+                  splitView: true,
+                })
               }
               if (chapterParam) {
                 const n = parseInt(chapterParam, 10)
@@ -1541,7 +1651,9 @@ export default function App() {
     try { params = new URLSearchParams(window.location.search) } catch { return }
     const chapterParam = params.get('chapter')
     const editionParam = params.get('edition')
-    if (!chapterParam && !editionParam) {
+    const compareParam = params.get('compare')
+    const splitParam = params.get('split')
+    if (!chapterParam && !editionParam && !compareParam && !splitParam) {
       deepLinkConsumedRef.current = true
       return
     }
@@ -1556,9 +1668,16 @@ export default function App() {
     if (editionParam) {
       const ed = book.editions.find(e => e.key === editionParam)
       if (ed) {
-        setLanguage(ed.language)
-        setStyle(ed.style)
+        applyPrimaryEditionKey(ed.key)
       }
+    }
+    if (compareParam) {
+      const ed = book.editions.find(e => e.key === compareParam)
+      if (ed) applySplitEditionKey(ed.key)
+    }
+    if (splitParam === '1' || splitParam === 'true') {
+      persistBookEditionSelection({ splitView: true })
+      if (!preferences.splitView) toggleSplitView()
     }
     storage.set(`book-onboarded:${book.id}`, true)
     setForcedPrefaceBookId(current => current === book.id ? null : current)
@@ -1591,7 +1710,7 @@ export default function App() {
 
     try { window.history.replaceState({}, '', window.location.pathname) } catch { /* ignore */ }
     deepLinkConsumedRef.current = true
-  }, [storageReady, book.id, book.editions, setLanguage, setStyle])
+  }, [storageReady, book.id, book.editions, applyPrimaryEditionKey, applySplitEditionKey, persistBookEditionSelection, preferences.splitView, toggleSplitView])
 
   // Book Onboarding trigger — fires when current book hasn't been onboarded yet.
   // Uses ONLY the explicit flag (set on completion or close, plus the migration
@@ -1653,11 +1772,10 @@ export default function App() {
   const handleBookOnboardingComplete = useCallback((result: BookOnboardingResult) => {
     const chosenEdition = book.editions.find(e => e.key === result.editionKey)
     if (chosenEdition) {
-      setLanguage(chosenEdition.language)
-      setStyle(chosenEdition.style)
+      applyPrimaryEditionKey(chosenEdition.key)
     }
     if (result.splitEditionKey) {
-      setSplitEditionKey(result.splitEditionKey)
+      applySplitEditionKey(result.splitEditionKey)
     }
     // Open split-view by default unless explicitly turned off (preface flow).
     // Classical onboarding leaves openSplitByDefault undefined, preserving the
@@ -1667,6 +1785,7 @@ export default function App() {
         ? !!result.splitEditionKey
         : result.openSplitByDefault && !!result.splitEditionKey
     if (wantSplitOpen !== preferences.splitView) toggleSplitView()
+    persistBookEditionSelection({ splitView: wantSplitOpen })
     if (result.audioEditionKey) {
       setAudioEditionKey(result.audioEditionKey)
     }
@@ -1688,7 +1807,7 @@ export default function App() {
       setAuthModalMode('signup')
       setShowAuthModal(true)
     }
-  }, [book.id, book.editions, setLanguage, setStyle, setSplitEditionKey, preferences.splitView, toggleSplitView, setReadingObjective, setOnboardingComplete, user, entrySource])
+  }, [book.id, book.editions, applyPrimaryEditionKey, applySplitEditionKey, preferences.splitView, toggleSplitView, persistBookEditionSelection, setReadingObjective, setOnboardingComplete, user, entrySource])
 
   const handleBookOnboardingClose = useCallback(() => {
     storage.set(`book-onboarded:${book.id}`, true)
@@ -1796,15 +1915,16 @@ export default function App() {
   // no preference is set (or when the saved key isn't valid for this book)
   // prefers a *different* edition for usefulness, but only as a default.
   const splitEditionKey = useMemo(() => {
-    const preferred = preferences.splitEditionKey
+    const preferred = bookEditionSelection?.splitEditionKey || preferences.splitEditionKey
     const exists = alignedEditions.some(ed => ed.key === preferred)
     if (exists) return preferred
     // No saved preference matches: prefer something different from primary
     // for a useful first-time split-view, then any aligned edition.
-    return alignedEditions.find(ed => ed.key !== primaryEditionKey)?.key
+    return alignedEditions.find(ed => ed.key === defaultSplitEditionKey(book, primaryEditionKey))?.key
+      || alignedEditions.find(ed => ed.key !== primaryEditionKey)?.key
       || alignedEditions[0]?.key
       || 'modern-en'
-  }, [preferences.splitEditionKey, alignedEditions, primaryEditionKey])
+  }, [book, bookEditionSelection?.splitEditionKey, preferences.splitEditionKey, alignedEditions, primaryEditionKey])
 
   // Load primary edition.
   //
@@ -2159,9 +2279,9 @@ export default function App() {
     )
     if (!hasStyle) {
       const fallback = book.editions.find(ed => ed.language === preferences.language)
-      if (fallback) setStyle(fallback.style)
+      if (fallback) applyPrimaryEditionKey(fallback.key)
     }
-  }, [preferences.language, preferences.style, setStyle])
+  }, [book.editions, preferences.language, preferences.style, applyPrimaryEditionKey])
 
   // Handle text selection → chat
   const handleTextSelect = useCallback((text: string) => {
@@ -2619,19 +2739,30 @@ export default function App() {
       scrollFraction: frac,
       lastParagraphIndex: visiblePara,
     }
+    persistBookEditionSelection({ splitView: !preferences.splitView })
     toggleSplitView()
     setReaderKey(k => k + 1)
-  }, [toggleSplitView, currentPage, totalPages, currentChapter, book.id, firstVisibleParagraph])
+  }, [toggleSplitView, currentPage, totalPages, currentChapter, book.id, firstVisibleParagraph, preferences.splitView, persistBookEditionSelection])
+
+  const handleLanguageChange = useCallback((newLanguage: Language) => {
+    const primary = book.editions.find(ed => ed.language === newLanguage && ed.style === preferences.style)
+      || book.editions.find(ed => ed.language === newLanguage)
+    if (primary) applyPrimaryEditionKey(primary.key)
+    else setLanguage(newLanguage)
+  }, [book.editions, preferences.style, applyPrimaryEditionKey, setLanguage])
 
   // Handle style change with fallback for split edition
   const handleStyleChange = useCallback((newStyle: Style) => {
-    setStyle(newStyle)
     const newPrimaryKey = makeEditionKey(newStyle, preferences.language)
+    const primary = book.editions.find(ed => ed.key === newPrimaryKey)
+      || book.editions.find(ed => ed.style === newStyle)
+    if (primary) applyPrimaryEditionKey(primary.key)
+    else setStyle(newStyle)
     if (newPrimaryKey === splitEditionKey) {
       const alt = alignedEditions.find(ed => ed.key !== newPrimaryKey)
-      if (alt) setSplitEditionKey(alt.key)
+      if (alt) applySplitEditionKey(alt.key)
     }
-  }, [setStyle, preferences.language, splitEditionKey, alignedEditions, setSplitEditionKey])
+  }, [book.editions, setStyle, preferences.language, splitEditionKey, alignedEditions, applyPrimaryEditionKey, applySplitEditionKey])
 
   // Inline objective editor state
   const [inlineObjective, setInlineObjective] = useState(preferences.readingObjective)
@@ -2877,11 +3008,11 @@ export default function App() {
             primaryEditionKey={primaryEditionKey}
             language={preferences.language}
             style={preferences.style}
-            onLanguageChange={setLanguage}
+            onLanguageChange={handleLanguageChange}
             onStyleChange={handleStyleChange}
             alignedEditions={book.editions.filter(ed => ed.aligned)}
-            splitEditionKey={preferences.splitEditionKey}
-            onSplitEditionChange={setSplitEditionKey}
+            splitEditionKey={splitEditionKey}
+            onSplitEditionChange={applySplitEditionKey}
             splitView={preferences.splitView}
             onToggleSplitView={handleToggleSplitView}
             onPrefetchSplitEdition={handleSplitTogglePrefetch}
@@ -3101,7 +3232,7 @@ export default function App() {
         currentBookId={book.id}
         onBookChange={handleBookChange}
         language={preferences.language}
-        onLanguageChange={setLanguage}
+        onLanguageChange={handleLanguageChange}
         style={preferences.style}
         onStyleChange={handleStyleChange}
         availableStyles={availableStyles}
@@ -3183,8 +3314,8 @@ export default function App() {
         progressDisplay={preferences.progressDisplay}
         onProgressDisplayChange={setProgressDisplay}
         isMobile={isMobile}
-        splitEditionKey={preferences.splitEditionKey}
-        onSplitEditionChange={setSplitEditionKey}
+        splitEditionKey={splitEditionKey}
+        onSplitEditionChange={applySplitEditionKey}
         alignedEditions={book.editions.filter(ed => ed.aligned).map(ed => ({ key: ed.key, label: ed.label }))}
         audioEditions={book.editions.filter(ed => ed.hasAudio).map(ed => ({ key: ed.key, label: ed.label }))}
         audioEditionKey={effectiveAudioEditionKey}
@@ -3262,7 +3393,7 @@ export default function App() {
                   readingLanguages={preferences.readingLanguages}
                   onReadingLanguagesChange={setReadingLanguages}
                   defaultAudioEditionKey={effectiveAudioEditionKey as EditionKey | undefined}
-                  defaultSplitEditionKey={preferences.splitEditionKey as EditionKey | undefined}
+                  defaultSplitEditionKey={splitEditionKey as EditionKey | undefined}
                   defaultOpenSplit={preferences.splitView}
                   isPremium={isSubscribed}
                   isMobile={isMobile}
@@ -3445,7 +3576,7 @@ export default function App() {
                 readingLanguages={preferences.readingLanguages}
                 onReadingLanguagesChange={setReadingLanguages}
                 defaultAudioEditionKey={effectiveAudioEditionKey as EditionKey | undefined}
-                defaultSplitEditionKey={preferences.splitEditionKey as EditionKey | undefined}
+                defaultSplitEditionKey={splitEditionKey as EditionKey | undefined}
                 defaultOpenSplit={preferences.splitView}
                 isPremium={isSubscribed}
                 isMobile={isMobile}
