@@ -2663,6 +2663,16 @@ body {
   text-align: left;
 }
 
+@media (min-width: 1200px) {
+  .split-reader-columns .split-reader-grid,
+  .split-reader-columns .split-column-headers,
+  .split-reader-columns .chapter-header,
+  .split-row,
+  .split-edition-intro {
+    max-width: min(1600px, calc(100vw - 220px));
+  }
+}
+
 .split-edition-intro-card {
   border-top: 1px solid var(--border-light);
   padding-top: 10px;
