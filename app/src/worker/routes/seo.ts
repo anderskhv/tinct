@@ -353,7 +353,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if ((request.method === 'GET' || request.method === 'HEAD') && bookMatch) {
       const bookId = bookMatch[1].toLowerCase()
       if (!url.search) {
-        const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book.html`, env)
+        const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
         if (staticBookResp) return staticBookResp
       }
       // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
