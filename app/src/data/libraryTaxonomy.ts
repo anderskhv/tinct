@@ -1518,6 +1518,29 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
+    "id": "kant-groundwork",
+    "title": "Groundwork of the Metaphysics of Morals",
+    "author": "Immanuel Kant",
+    "year": "1785",
+    "ySort": 1785,
+    "form": "philosophy",
+    "era": "early-modern",
+    "hue": 265,
+    "blurb": "Duty, reason, and the categorical imperative in its shortest form.",
+    "themes": [
+      "ethics",
+      "duty",
+      "reason"
+    ],
+    "shelves": [
+      "modern-philosophy"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
     "id": "vindication-rights-of-woman",
     "title": "A Vindication of the Rights of Woman",
     "author": "Mary Wollstonecraft",
@@ -1726,6 +1749,29 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ],
     "shelves": [
       "christian-philosophy"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "frederick-douglass",
+    "title": "Narrative of the Life of Frederick Douglass",
+    "author": "Frederick Douglass",
+    "year": "1845",
+    "ySort": 1845,
+    "form": "memoir",
+    "era": "modern",
+    "hue": 25,
+    "blurb": "The most influential American slave narrative, written while its author was still legally a fugitive.",
+    "themes": [
+      "slavery",
+      "literacy",
+      "freedom"
+    ],
+    "shelves": [
+      "on-power"
     ],
     "langs": [
       "EN",

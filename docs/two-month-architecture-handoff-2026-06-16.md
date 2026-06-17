@@ -103,7 +103,35 @@ See `docs/position-anchor-plan.md` for the detailed proposal.
    - selection engine extraction first, if there is an active selection bug;
    - pagination extraction only with mobile and desktop screenshot/device verification.
 5. Add a pre-deploy guard so staged book files cannot accidentally publish just because they exist in `app/public/data`.
-6. Keep book production and app deployment work separated. Run `python3 books/wip_inventory.py` before making publication claims.
+6. Fix the SEO/crawlability weakness described below: Tinct's crawler-visible reader pages are too shell-like compared with the actual content surface.
+7. Keep book production and app deployment work separated. Run `python3 books/wip_inventory.py` before making publication claims.
+
+## SEO And Bing Crawl Capacity
+
+Bing Webmaster Tools reported "Limited crawl capacity on website" in June 2026. The useful comparison was Poetry Editor, which has roughly 15k pages and does not show the same warning. Page count and raw server speed are probably not the main cause.
+
+The stronger diagnosis:
+
+- Tinct reader/book URLs currently return mostly identical React shell HTML.
+- The real book text is loaded client-side from `/data/*.json`.
+- `/data/` is intentionally blocked in `robots.txt`, so crawlers that do not spend JavaScript rendering budget see very little unique page body content.
+- This makes thousands of `/read/...` URLs look thin or duplicate to Bing, which is exactly the kind of site where Bing rations crawl capacity.
+- Poetry Editor pages include substantial unique poem/analysis text in raw HTML, so they are cheap and valuable for crawlers to fetch.
+
+Do not respond by blocking the useful `/read/...` URLs. The better roadmap item is to make those URLs crawler-useful.
+
+Recommended scope:
+
+1. Prerender meaningful, unique content into static reader/book HTML:
+   - book hub pages should include unique book description and useful internal links;
+   - chapter pages should include the chapter title plus a substantial safe excerpt/opening text;
+   - keep the React app handoff intact for interactive reading.
+2. Split the sitemap into a sitemap index with separate static/book/chapter sitemaps.
+3. Keep sitemap `lastmod` stable unless content actually changes.
+4. Change SEO/static page cache headers away from blanket `no-store` where safe.
+5. Raise Bing crawl quota in Webmaster Tools as a harmless operational step, but treat it as secondary.
+
+This is comeback-roadmap work, not an emergency travel fix.
 
 ## Commands To Re-Establish Confidence
 
