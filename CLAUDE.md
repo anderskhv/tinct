@@ -1,5 +1,16 @@
 # AI-Enhanced Reading Platform — Tinct
 
+> **2026-06-17 update:** This file is historical and contains stale counts,
+> old sprint state, and Claude-specific workflow rules. For current project
+> state and next steps, read `AGENTS.md` first, then
+> `docs/two-month-project-pipeline-2026-06-17.md`.
+>
+> Current shutdown checkpoint: 100 live books, latest deployed Worker
+> `1fece18c-5bf3-4f6a-9943-2ad629544477`, Desktop APK at
+> `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`.
+> Do not deploy unless Anders explicitly asks, and run `npm run deploy` from `app/`
+> rather than raw Wrangler.
+
 ## Organization
 
 Project CEO for Tinct. Group CEO is `../../CLAUDE.md` — that handles session protocol (Garmin, calendar, morning check-in). You handle this project's code and tasks.

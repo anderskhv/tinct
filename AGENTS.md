@@ -22,6 +22,10 @@ For a quick cross-workstream overview, read `PIPELINES.md` or run:
 bash scripts/tinct-status.sh
 ```
 
+For the post-travel resume plan across architecture, APK, SEO, and content,
+read `docs/two-month-project-pipeline-2026-06-17.md` first. It is the current
+high-level project pipeline as of the June 17, 2026 shutdown checkpoint.
+
 For book publication/WIP inventory, do not answer from memory or stale markdown.
 Run the current-file inventory instead:
 
