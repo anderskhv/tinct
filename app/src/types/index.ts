@@ -174,7 +174,7 @@ export interface ThreadCharacter {
   id: string
   name: Record<string, string>
   epithet: Record<string, string>
-  role: 'mortal' | 'god' | 'creature' | 'people' | 'concept' | 'narrator'
+  role: string
   /** Display tier. Defaults to 'supporting' when omitted. Minor entries
    *  may omit per-chapter summaries and rely on `description` instead. */
   prominence?: 'major' | 'supporting' | 'minor'

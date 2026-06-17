@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import type { ThreadCharacter, CharacterMention, Language, Section } from '../types'
 
 interface ThreadsProps {
@@ -16,7 +16,7 @@ interface ThreadsProps {
   chapterLabelByNumber?: Record<number, string>
 }
 
-type RoleFilter = 'all' | ThreadCharacter['role']
+type RoleFilter = 'all' | string
 type Prominence = 'major' | 'supporting' | 'minor'
 
 interface LeafBook {
@@ -43,13 +43,49 @@ function flattenLeafBooks(sections?: Section[]): LeafBook[] {
 
 const PROMINENCE_RANK: Record<Prominence, number> = { major: 0, supporting: 1, minor: 2 }
 
-const ROLE_LABEL: Record<ThreadCharacter['role'], string> = {
+const ROLE_LABEL: Record<string, string> = {
   mortal: 'Mortal',
   god: 'God',
   creature: 'Creature',
   people: 'People',
   concept: 'Concept',
   narrator: 'Narrator',
+  thinker: 'Thinker',
+  historical: 'Historical figure',
+  'fallen-angel': 'Fallen angel',
+  protagonist: 'Protagonist',
+  antagonist: 'Antagonist',
+  abstraction: 'Abstraction',
+  angel: 'Angel',
+  divine: 'Divine',
+  allegorical: 'Allegorical figure',
+  mentor: 'Mentor',
+  institution: 'Institution',
+  sovereign: 'Sovereign',
+  object: 'Object',
+}
+
+function roleLabel(role: string): string {
+  if (ROLE_LABEL[role]) return ROLE_LABEL[role]
+  return role
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+}
+
+function roleFilterLabel(role: RoleFilter): string {
+  if (role === 'all') return 'All'
+  const label = roleLabel(role)
+  if (role === 'people') return 'Peoples'
+  if (role === 'historical') return 'Historical'
+  if (label.endsWith('s')) return label
+  if (label.endsWith('y')) return `${label.slice(0, -1)}ies`
+  return `${label}s`
+}
+
+function roleClass(role: string): string {
+  return role.toLowerCase().replace(/[^a-z0-9_-]+/g, '-')
 }
 
 export function Threads({
@@ -119,8 +155,8 @@ export function Threads({
     return ids
   }, [visibleParagraphs, characters])
 
-  const filtered = useMemo(() => {
-    let chars = characters.filter(c => {
+  const scopedCharacters = useMemo(() => {
+    return characters.filter(c => {
       const chapterNums = Object.keys(c.chapters).map(Number)
       if (currentSubBookChapters) {
         // Sectioned book: include if char appears in current sub-book at all
@@ -131,6 +167,21 @@ export function Threads({
       // Non-sectioned book: existing behavior — appeared up to current chapter.
       return chapterNums.some(n => n <= currentChapter)
     })
+  }, [characters, currentChapter, currentSubBookChapters])
+
+  const availableRoles = useMemo(() => {
+    return Array.from(new Set(scopedCharacters.map(c => c.role).filter(Boolean)))
+      .sort((a, b) => roleLabel(a).localeCompare(roleLabel(b)))
+  }, [scopedCharacters])
+
+  useEffect(() => {
+    if (filter !== 'all' && !availableRoles.includes(filter)) {
+      setFilter('all')
+    }
+  }, [availableRoles, filter])
+
+  const filtered = useMemo(() => {
+    let chars = scopedCharacters
     if (filter !== 'all') chars = chars.filter(c => c.role === filter)
     return [...chars].sort((a, b) => {
       const aOnPage = onPageCharIds.has(a.id) ? 1 : 0
@@ -147,7 +198,7 @@ export function Threads({
         .length
       return count(b) - count(a)
     })
-  }, [characters, filter, currentChapter, onPageCharIds, currentSubBookChapters])
+  }, [scopedCharacters, filter, currentChapter, onPageCharIds, currentSubBookChapters])
 
   // Split into shown (major + supporting) and hidden (minor) for the toggle.
   const visibleChars = useMemo(
@@ -231,8 +282,8 @@ export function Threads({
             <span className="thread-epithet">{displayEpithet}</span>
           </div>
           <div className="thread-card-meta">
-            <span className={`thread-role thread-role-${char.role}`}>
-              {ROLE_LABEL[char.role]}
+            <span className={`thread-role thread-role-${roleClass(char.role)}`}>
+              {roleLabel(char.role)}
             </span>
             {!isMinor && (
               <span className="thread-chapter-count">
@@ -417,19 +468,13 @@ export function Threads({
           {currentSubBook && <span className="threads-scope">&nbsp;— {currentSubBook.title}</span>}
         </h3>
         <div className="threads-filters">
-          {(['all', 'mortal', 'god', 'creature', 'people', 'concept', 'narrator'] as const).map(f => (
+          {(['all', ...availableRoles] as const).map(f => (
             <button
               key={f}
               className={`threads-filter-btn ${filter === f ? 'threads-filter-active' : ''}`}
               onClick={() => setFilter(f)}
             >
-              {f === 'all' ? 'All'
-                : f === 'mortal' ? 'Mortals'
-                : f === 'god' ? 'Gods'
-                : f === 'creature' ? 'Creatures'
-                : f === 'people' ? 'Peoples'
-                : f === 'concept' ? 'Concepts'
-                : 'Narrators'}
+              {roleFilterLabel(f)}
             </button>
           ))}
         </div>

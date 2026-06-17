@@ -42,6 +42,8 @@
   --header-height: 56px;
   --panel-width: 400px;
   --reader-max-width: 780px;
+  --chat-font-size: clamp(0.94rem, var(--font-size-reader, 1rem), 1.08rem);
+  --chat-input-font-size: clamp(0.94rem, var(--font-size-reader, 1rem), 1.04rem);
 
   /* Highlight colors (text background — muted) */
   --highlight-gold: #f5e6c8;
@@ -1244,7 +1246,7 @@ body {
    keeps the most reading area on small screens. */
 .page-nav {
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -2159,8 +2161,8 @@ body {
   /* Same nudge as .chat-input — sans-serif feels heavier than the
      italic-serif body at the same numeric size, so we tune slightly
      smaller for visual parity. */
-  font-size: 0.86rem;
-  line-height: 1.6;
+  font-size: var(--chat-font-size);
+  line-height: 1.58;
   margin-bottom: 6px;
 }
 
@@ -2196,7 +2198,7 @@ body {
 
 .chat-highlight blockquote {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: clamp(0.9rem, var(--chat-font-size), 1.03rem);
   font-style: italic;
   color: var(--text-secondary);
   border-left: 2px solid var(--accent-subtle);
@@ -2294,7 +2296,7 @@ body {
   /* Size sits below the book body (~1rem) so the input doesn't visually
      dominate the reading column. Sans-serif weight against italic-serif
      body needed a smaller numeric size to feel commensurate. */
-  font-size: 0.84rem;
+  font-size: var(--chat-input-font-size);
   font-family: var(--font-sans);
   resize: none;
   line-height: 1.4;
@@ -7834,15 +7836,16 @@ body {
   }
 
   .reader-columns {
-    /* Round 2 — tighter still: footer sits ~4px from reader bottom; we
+    /* Footer has a few pixels of breathing room above the text on Boox while
+       still staying tighter than the old bottom chrome.
        only need enough column padding to keep text from sliding under
        the footer. */
-    padding: 12px 16px 26px;
+    padding: 12px 16px 32px;
     column-gap: 40px;
   }
 
   .app.audio-strip-open .reader-columns {
-    padding-bottom: calc(26px + var(--mobile-audio-strip-height));
+    padding-bottom: calc(32px + var(--mobile-audio-strip-height));
   }
 
   .mobile-compare-header {
@@ -7898,17 +7901,14 @@ body {
     font-size: var(--font-size-reader, 1.2rem);
   }
 
-  /* Page nav (running footer) — pinned tighter on mobile (bottom: 4px)
-     than desktop (10px). Mobile gets its visual buffer from the
-     .mobile-nav tab bar that sits below the reader; pulling the
-     footer tight against the reader edge maximizes reading area on
-     small screens. */
+  /* Page nav (running footer) — still tighter on mobile than desktop, but
+     with a few extra pixels so Boox text doesn't crowd the footer. */
   .page-nav {
-    bottom: 4px;
+    bottom: 8px;
   }
 
   .app.audio-strip-open .page-nav {
-    bottom: calc(var(--mobile-audio-strip-height) + 4px);
+    bottom: calc(var(--mobile-audio-strip-height) + 8px);
   }
 
   /* Side panel — full width on mobile, explicit height for scroll chain */
@@ -7988,7 +7988,7 @@ body {
   }
 
   .chat-input {
-    font-size: 16px; /* Prevents iOS Safari auto-zoom on focus */
+    font-size: max(16px, var(--chat-input-font-size)); /* Prevents iOS Safari auto-zoom on focus */
     padding: 8px 12px;
     min-height: 36px;
     box-sizing: border-box;
@@ -9064,6 +9064,81 @@ body {
   font-size: 0.95rem;
   padding: 10px 16px;
 }
+
+[data-eink] {
+  --chat-font-size: clamp(1.02rem, var(--font-size-reader, 1.08rem), 1.18rem);
+  --chat-input-font-size: clamp(1rem, var(--font-size-reader, 1.05rem), 1.12rem);
+}
+
+[data-eink] .chat-history-preview,
+[data-eink] .chat-empty-hint,
+[data-eink] .chat-pending-text {
+  font-size: 1rem;
+  color: #000;
+}
+
+[data-eink] .selection-popup {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: none;
+}
+
+[data-eink] .popup-icon-btn,
+[data-eink] .popup-back-btn,
+[data-eink] .popup-button {
+  color: #000;
+}
+
+[data-eink] .popup-icon-btn:hover,
+[data-eink] .popup-back-btn:hover,
+[data-eink] .popup-button:hover,
+[data-eink] .popup-button-primary:hover {
+  background: #e6e6e6;
+}
+
+[data-eink] .popup-divider {
+  background: #000;
+}
+
+[data-eink] .popup-define-input,
+[data-eink] .popup-note-input {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+
+[data-eink] .popup-define-input::placeholder,
+[data-eink] .popup-note-input::placeholder {
+  color: #666;
+}
+
+[data-eink] .popup-define-status,
+[data-eink] .popup-define-note {
+  color: #333;
+}
+
+[data-eink] .popup-tag-chip,
+[data-eink] .popup-button {
+  background: #fff;
+  border-color: #000;
+}
+
+[data-eink] .popup-tag-chip.selected,
+[data-eink] .popup-button-primary {
+  background: #000;
+  color: #fff;
+}
+
+[data-eink] .popup-color-dot {
+  border-color: #000;
+}
+
+[data-eink] .popup-color-dot.highlight-gold { background: #f5f5f5; }
+[data-eink] .popup-color-dot.highlight-rose { background: #dcdcdc; }
+[data-eink] .popup-color-dot.highlight-sage { background: #c8c8c8; }
+[data-eink] .popup-color-dot.highlight-sky { background: #b4b4b4; }
+[data-eink] .popup-color-dot.highlight-lavender { background: #9e9e9e; }
 
 /* Menus and buttons — bigger touch targets */
 [data-eink] .menu-toggle-btn,
@@ -10522,12 +10597,12 @@ body {
   --bg-hover: #eee;
   --bg-chat-user: #eee;
   --bg-highlight: #d9d9d9;
-  --bg-popup: #000;
+  --bg-popup: #fff;
 
   --text-primary: #000;
   --text-secondary: #5a5a5a;
   --text-tertiary: #9e9e9e;
-  --text-inverse: #fff;
+  --text-inverse: #000;
 
   --border-color: #000;
   --border-light: #5a5a5a;
