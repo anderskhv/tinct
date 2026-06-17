@@ -3222,6 +3222,25 @@ export const FREDERICK_DOUGLASS: Book = {
 }
 
 /** All books in the library */
+// Staged — content package complete (original-en / modern-en / modern-da all aligned,
+// onboarding + threads present). NOT in BOOKS: awaiting Kokoro English audio + Codex
+// final publication. modern-en gate PASS (weighted 0.712, 0 light/mechanical).
+export const TREASURE_ISLAND: Book = {
+  id: 'treasure-island',
+  title: 'Treasure Island',
+  author: 'Robert Louis Stevenson',
+  description: 'The book that fixed the shape of every pirate story since — the map marked with an X, the black spot, the one-legged sea-cook with a parrot on his shoulder. Young Jim Hawkins ships out after buried gold and discovers that the most charming man aboard is also the most dangerous. Stevenson\'s tale of Long John Silver, courage, and greed.',
+  year: 1883,
+  wordCount: 67000,
+  coverColor: '#16323f',
+  coverAccent: '#c79a3e',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Stevenson (1883)', year: 1883, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+  ],
+}
+
 export const BOOKS: Book[] = [ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE]
 
 export const ALL_BOOKS: Book[] = BOOKS
