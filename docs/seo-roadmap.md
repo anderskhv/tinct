@@ -1,21 +1,67 @@
 # SEO page roadmap — all books
 
-**Last updated:** 2026-05-11
+**Last updated:** 2026-06-17
 
 This is the staged rollout plan for SEO companion pages across Tinct's full catalog. The Odyssey is the calibration. Every other book gets some form of SEO treatment, but the depth varies — see the "scope tiers" section below.
 
 ## Current state
 
-- **Sitemap**: 699 URLs at https://tinct.app/sitemap.xml, auto-regenerated from `bookRegistry.ts` via `app/scripts/generate-sitemap.cjs` on every build.
-- **Per-book meta**: every `/read/{bookId}` URL has unique `<title>` and `<meta description>`, derived from the registry by the same script.
-- **Public book routes**: 63.
-- **Full SEO page sets shipped**: 27 / 63 books.
-- **Stub SEO summaries shipped**: 36 / 63 books.
+- **Sitemap**: 3,965 URLs at https://tinct.app/sitemap.xml, auto-regenerated from `bookRegistry.ts` via `app/scripts/generate-sitemap.cjs` on every build.
+- **Public book routes**: 100.
+- **Generated book landing pages**: 100 / 100 at `/read/{bookId}`. These are crawler-visible static HTML pages, not empty SPA shells.
+- **Per-book meta**: every generated book page has a unique title and description. Generated titles are capped at 60 chars and descriptions at 155 chars, except explicit hand-tuned marquee exceptions such as Odyssey.
+- **Social cards**: generated book pages include `og:image`, `twitter:card`, and `twitter:image`; default image is `https://tinct.app/og-image.png`.
+- **Full SEO page sets shipped**: 64 / 100 books.
+- **Stub SEO summaries shipped**: 1 / 100 books.
 - **Clean URL routing**: Worker serves static SEO HTML at `/read/{bookId}/summary`, `/themes`, `/chapters`, `/cast`, and `/chapter-N`.
 - **Indexing guardrails**: unknown `/read/{bookId}` routes return `404 noindex`; `/data/editions/*.json` responses carry `X-Robots-Tag: noindex, noarchive`; unregistered book IDs are blocked.
 - **GSC verified**: yes (`tinct.app`).
-- **Bing**: not yet — import-from-GSC pending.
-- **Untracked SEO source data**: many `app/scripts/seo/*.cjs` files are currently local/uncommitted. Treat them as a review queue, not shipped source of truth.
+- **Bing**: IndexNow is configured and was successfully submitted on 2026-06-17. Bing crawl quota still needs a manual boost in Bing Webmaster Tools.
+- **Latest production verification**: `/read/odyssey` returns the hand-tuned Odyssey title and a resolving `og:image` (`image/png`, HTTP 200).
+
+## 2026-06-17 checkpoint
+
+Shipped:
+
+- 100-book registry is live, including Ivan Ilyich.
+- Generated `/read/{bookId}/book.html` pages are committed for all 100 books and served at clean `/read/{bookId}` URLs.
+- Generated metadata now uses CTR-oriented copy:
+  - free/no-ads lead;
+  - modern English compare;
+  - AI companion;
+  - Cast guide;
+  - audio.
+- Generated metadata caps:
+  - title <= 60 chars for generated titles;
+  - description <= 155 chars;
+  - long titles switch to value-prop-first form, e.g. `Free Classic Reader: ... | Tinct`.
+- Odyssey remains a hand-tuned marquee exception with the longer title:
+  - `Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct`.
+- Generated static book pages now include Open Graph and Twitter card image tags.
+- No `sitemap 2.xml` duplicate exists in the clean deploy worktree.
+
+Deployment:
+
+- Worker version: `1fece18c-5bf3-4f6a-9943-2ad629544477`
+- Commit: `8c0ce4fba seo: add social cards to generated book pages`
+- Smoke test: 15/15 passing.
+- Verification gates: `npm run build`, `npm run verify-bundle`, and `npm test -- --run` passed before deploy.
+
+## Next SEO moves
+
+1. Build strategic translation-comparison pages. This is now the highest-leverage SEO work, not more basic plumbing.
+   - Start with Crime and Punishment.
+   - Target queries like `Crime and Punishment modern English`, `best translation of Crime and Punishment`, and `Crime and Punishment free online`.
+   - The page should make Tinct the answer: original/public-domain text, modern English comparison, no ads, AI companion, Cast, audio.
+2. Split the sitemap into a sitemap index:
+   - static marketing/library;
+   - book landing pages;
+   - full-tier chapter/theme/cast pages;
+   - future strategic pages.
+3. Stabilize `lastmod` so it changes only when relevant content changes. Current regeneration can still churn dates if source mtimes move.
+4. Add cacheable headers for SEO/static pages where safe. Avoid blanket `no-store` for crawler-facing static pages.
+5. In Bing Webmaster Tools, manually raise crawl quota and resubmit/fetch the sitemap after the final travel deploy.
+6. Consider promoting Ivan Ilyich from generated landing page to a Full or focused strategic page set. It is short, curriculum-friendly, and now has onboarding + threads.
 
 ## Scope tiers
 

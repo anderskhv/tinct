@@ -8,8 +8,8 @@ Purpose: preserve the current architecture state, production invariants, and rec
 
 - Production app is deployed and smoke-tested as of 2026-06-17.
 - Latest deploy:
-  - Worker version: `79ec8b96-24b7-4d34-a5a3-f53d86d27dd3`
-  - Commit: `b2d8cc57b seo: add Ivan Ilyich generated pages`
+  - Worker version: `1fece18c-5bf3-4f6a-9943-2ad629544477`
+  - Commit: `8c0ce4fba seo: add social cards to generated book pages`
   - Production smoke test: 15/15 passing.
   - Full app verification before deploy: `npm run build`, `npm run verify-bundle`, and `npm test -- --run` all passed.
 - Android test APK built from this deployed source:
@@ -71,6 +71,7 @@ Purpose: preserve the current architecture state, production invariants, and rec
 - Made reader edition choices per-book so opening from SEO defaults to original English + modern English split view, while choices made in one book do not bleed into another.
 - Added a collapsible Key Figures reminder in Cast and linked those figures to their normal Cast cards.
 - Improved generated book SEO landing pages so their layout matches the curated SEO chapter pages more closely.
+- Capped generated SEO titles/descriptions and added Open Graph/Twitter card images to generated book landing pages.
 - Updated the public landing page copy to say "100 books".
 
 ## Position Anchor Direction
@@ -147,6 +148,7 @@ Completed before travel:
 - Book landing pages are now served from explicit prerendered assets instead of generic shells.
 - Generated book landing pages have crawler-visible book descriptions, edition links, and internal links.
 - Generated book landing page layout was adjusted to match the better curated SEO chapter-page style.
+- Generated book landing pages now include social-card images, and Odyssey was verified live with its hand-tuned title plus resolving `og:image`.
 - IndexNow was run manually after the final 2026-06-17 deploy.
 
 Remaining scope:
