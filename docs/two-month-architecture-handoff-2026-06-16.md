@@ -8,23 +8,21 @@ Purpose: preserve the current architecture state, production invariants, and rec
 
 - Production app is deployed and smoke-tested as of 2026-06-17.
 - Latest deploy:
-  - Worker version: `0d9dcf58-b4fc-4fe9-9576-52aa42f2db49`
-  - Commit: `395a6bfcc landing: show 100 books`
+  - Worker version: `79ec8b96-24b7-4d34-a5a3-f53d86d27dd3`
+  - Commit: `b2d8cc57b seo: add Ivan Ilyich generated pages`
   - Production smoke test: 15/15 passing.
   - Full app verification before deploy: `npm run build`, `npm run verify-bundle`, and `npm test -- --run` all passed.
 - Android test APK built from this deployed source:
   - `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`
   - Size: about 224 MB.
 - IndexNow was submitted after deploy:
-  - 3,964 URLs from `app/public/sitemap.xml`
+  - 3,965 URLs from `app/public/sitemap.xml`
   - key file verified at `https://tinct.app/5a6b72273730443da563f8cf68e1519c.txt`
   - IndexNow response: HTTP 200.
-- Important count caveat:
-  - The deployed clean worktree generated 99 book landing pages.
-  - The landing page says "100 books" because Anders requested that copy.
-  - Ivan Ilyich exists as committed local book work in the main repo, but those commits are not in remote `main` or the APK listed above.
-  - As of this handoff, `https://tinct.app/read/ivan-ilyich` returns 404 and `ivan-ilyich` is not in the deployed sitemap.
-  - First follow-up: reconcile and publish the Ivan Ilyich commits, or change the landing copy back to match the deployed registry.
+- Ivan Ilyich is now live as the 100th book:
+  - `https://tinct.app/read/ivan-ilyich` returns 200.
+  - `ivan-ilyich` is included in the deployed sitemap.
+  - The generated build writes 100 book landing pages.
 - Werther is live. Audio manifests for `original-en` and `modern-en` chapters 1-84 were checked through the Worker before publication.
 - Treasure Island modern-en repair work must not be assumed live. A WIP commit was kept out of production and preserved on branch `preserve/treasure-island-wip-e341bc5e`. There may also be local uncommitted Treasure Island edits in `app/public/data/editions/treasure-island-modern-en.json`.
 
@@ -115,22 +113,18 @@ See `docs/position-anchor-plan.md` for the detailed proposal.
 
 ## Recommended Next Moves After Travel
 
-1. Reconcile the Ivan Ilyich / 100-book state before making any publication claim:
-   - local main contains committed Ivan Ilyich work;
-   - remote `main`, production, and the APK currently do not;
-   - either merge/publish Ivan Ilyich with full verification or change the landing count back to match the live registry.
-2. Do not start with architecture work. First install and use `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`, and collect any field bugs from actual reading.
-3. If reading position is stable in real use, keep the app as-is until there is a concrete bug or clearly bounded refactor.
-4. If position issues remain, implement paragraph plus intra-paragraph offset from `docs/position-anchor-plan.md` before deeper Reader refactors.
-5. Finish Slice 4 only in small pieces:
+1. Do not start with architecture work. First install and use `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`, and collect any field bugs from actual reading.
+2. If reading position is stable in real use, keep the app as-is until there is a concrete bug or clearly bounded refactor.
+3. If position issues remain, implement paragraph plus intra-paragraph offset from `docs/position-anchor-plan.md` before deeper Reader refactors.
+4. Finish Slice 4 only in small pieces:
    - selection engine extraction first, if there is an active selection bug;
    - pagination extraction only with mobile and desktop screenshot/device verification.
-6. Add a pre-deploy guard so staged book files cannot accidentally publish just because they exist in `app/public/data`.
-7. Continue the SEO roadmap from strategy-level pages, not more plumbing:
+5. Add a pre-deploy guard so staged book files cannot accidentally publish just because they exist in `app/public/data`.
+6. Continue the SEO roadmap from strategy-level pages, not more plumbing:
    - translation-comparison pages are the next high-leverage item;
    - start with `Crime and Punishment in modern English` / `best translation of Crime and Punishment`;
    - then scale to Russians and epics.
-8. Keep book production and app deployment work separated. Run `python3 books/wip_inventory.py` before making publication claims.
+7. Keep book production and app deployment work separated. Run `python3 books/wip_inventory.py` before making publication claims.
 
 ## SEO And Bing Crawl Capacity
 
