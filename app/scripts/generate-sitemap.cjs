@@ -36,6 +36,8 @@ const OUT_META = path.join(APP_DIR, 'src/data/bookMetaGenerated.ts')
 const ORIGIN = 'https://tinct.app'
 const BUILD_DATE = new Date().toISOString().slice(0, 10)
 const SEO_EXCERPT_WORDS = 1200
+const MAX_META_TITLE_CHARS = 60
+const MAX_META_DESCRIPTION_CHARS = 155
 
 // --- Parse the registry --------------------------------------------------
 
@@ -140,6 +142,47 @@ function plainText(value) {
     .trim()
 }
 
+function clipAtWord(text, maxChars, suffix = '...') {
+  const normalized = plainText(text)
+  if (normalized.length <= maxChars) return normalized
+  const room = Math.max(1, maxChars - suffix.length)
+  const clipped = normalized.slice(0, room).replace(/\s+\S*$/, '').trimEnd()
+  return `${clipped || normalized.slice(0, room).trimEnd()}${suffix}`
+}
+
+function cappedWithFixedParts(prefix, middle, suffix, maxChars) {
+  const cleanPrefix = String(prefix || '').replace(/\s+/g, ' ')
+  const cleanMiddle = plainText(middle)
+  const cleanSuffix = String(suffix || '').replace(/\s+/g, ' ')
+  const full = `${cleanPrefix}${cleanMiddle}${cleanSuffix}`
+  if (full.length <= maxChars) return full
+
+  const room = maxChars - cleanPrefix.length - cleanSuffix.length
+  if (room <= 4) return clipAtWord(full, maxChars)
+  return `${cleanPrefix}${clipAtWord(cleanMiddle, room)}${cleanSuffix}`
+}
+
+function seoBookTitle(book) {
+  const full = `Read ${plainText(book.title)} Free Online | Tinct`
+  if (full.length <= MAX_META_TITLE_CHARS) return full
+  return cappedWithFixedParts('Free Classic Reader: ', book.title, ' | Tinct', MAX_META_TITLE_CHARS)
+}
+
+function seoChapterTitle(book, chapterTitle) {
+  return cappedWithFixedParts('Free Chapter: ', `${book.title} - ${chapterTitle}`, ' | Tinct', MAX_META_TITLE_CHARS)
+}
+
+function seoBookDescription(book) {
+  const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
+  if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
+  const compact = `Read free, no ads. Modern compare, AI guide, cast, and audio for ${book.title}.`
+  return clipAtWord(compact, MAX_META_DESCRIPTION_CHARS)
+}
+
+function capMetaDescription(text) {
+  return clipAtWord(text, MAX_META_DESCRIPTION_CHARS)
+}
+
 function truncateWords(text, maxWords = SEO_EXCERPT_WORDS) {
   const words = plainText(text).split(' ').filter(Boolean)
   if (words.length <= maxWords) return words.join(' ')
@@ -166,7 +209,7 @@ function metaDescription(book, chapter, paragraphs) {
   const base = first
     ? truncateWords(first, 28)
     : `Read ${book.title} by ${book.author} free online on Tinct.`
-  return base.length > 180 ? `${base.slice(0, 177).replace(/\s+\S*$/, '')}...` : base
+  return capMetaDescription(base)
 }
 
 function seoStyles() {
@@ -251,9 +294,10 @@ function buildBookIndexPage(book, edition) {
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
   const readerHref = `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
-  const description = (book.description && book.description.length >= 60)
+  const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
+  const description = seoBookDescription(book)
   const chapterLinks = chapters
     .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
@@ -269,7 +313,7 @@ function buildBookIndexPage(book, edition) {
   <div class="booknum">Free online book</div>
   <h1 class="title">${escapeHtml(book.title)}</h1>
   <p class="byline">by ${escapeHtml(book.author)}</p>
-  <p class="hook">${escapeHtml(description)}</p>
+  <p class="hook">${escapeHtml(hook)}</p>
   <a class="primary-cta" href="${readerHref}">Start reading in Tinct →</a>
 
   <section class="glance-section" aria-label="Chapters">
@@ -289,7 +333,7 @@ ${chapterLinks}
   <span class="footer-links"><a href="/read/">Library</a><a href="${readerHref}">Open reader</a></span>
 </footer>`
   return pageShell({
-    title: `Read ${book.title} by ${book.author} Free Online | Tinct`,
+    title: seoBookTitle(book),
     description,
     canonical: `${ORIGIN}/read/${book.id}`,
     body,
@@ -324,7 +368,7 @@ function buildGeneratedChapterPage(book, edition, chapter, index) {
   <footer>This crawler-readable excerpt links into Tinct's full reader for synced editions, cast, notes, and chat.</footer>
 </main>`
   return pageShell({
-    title: `${book.title}: ${chapterTitle} — Read Free Online | Tinct`,
+    title: seoChapterTitle(book, chapterTitle),
     description,
     canonical: `${ORIGIN}/read/${book.id}/chapter-${number}`,
     body,
@@ -478,9 +522,8 @@ function buildBookMeta(books) {
   lines.push('export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {')
   for (const b of books) {
     if (!b.title || !b.author) continue
-    const title = `Read ${b.title} by ${b.author} — Free Online with AI Companion | Tinct`
-    const fallback = `Read ${b.title} by ${b.author} free online on Tinct. Authoritative translation paragraph-aligned with a modern English version, plus a context-aware AI reading companion, character tracker, and synced audiobook. No account needed to start.`
-    const description = (b.description && b.description.length >= 60) ? b.description : fallback
+    const title = seoBookTitle(b)
+    const description = seoBookDescription(b)
     lines.push(`  '${escape(b.id)}': {`)
     lines.push(`    title: '${escape(title)}',`)
     lines.push(`    description: '${escape(description)}',`)
@@ -522,4 +565,16 @@ if (require.main === module) {
   }
 }
 
-module.exports = { loadPublicBooks, buildSitemap, buildBookMeta, chapterCount, hasSeoPages, generateReaderSeoPages }
+module.exports = {
+  loadPublicBooks,
+  buildSitemap,
+  buildBookMeta,
+  chapterCount,
+  hasSeoPages,
+  generateReaderSeoPages,
+  seoBookTitle,
+  seoBookDescription,
+  metaDescription,
+  MAX_META_TITLE_CHARS,
+  MAX_META_DESCRIPTION_CHARS,
+}
