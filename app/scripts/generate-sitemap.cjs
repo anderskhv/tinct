@@ -38,6 +38,12 @@ const BUILD_DATE = new Date().toISOString().slice(0, 10)
 const SEO_EXCERPT_WORDS = 1200
 const MAX_META_TITLE_CHARS = 60
 const MAX_META_DESCRIPTION_CHARS = 155
+const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image.png`
+const MANUAL_BOOK_META = {
+  odyssey: {
+    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
+  },
+}
 
 // --- Parse the registry --------------------------------------------------
 
@@ -163,6 +169,8 @@ function cappedWithFixedParts(prefix, middle, suffix, maxChars) {
 }
 
 function seoBookTitle(book) {
+  const manual = MANUAL_BOOK_META[book.id]
+  if (manual?.title) return manual.title
   const full = `Read ${plainText(book.title)} Free Online | Tinct`
   if (full.length <= MAX_META_TITLE_CHARS) return full
   return cappedWithFixedParts('Free Classic Reader: ', book.title, ' | Tinct', MAX_META_TITLE_CHARS)
@@ -263,7 +271,7 @@ function seoStyles() {
   </style>`
 }
 
-function pageShell({ title, description, canonical, body, jsonLd }) {
+function pageShell({ title, description, canonical, body, jsonLd, image = DEFAULT_OG_IMAGE }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -277,6 +285,11 @@ function pageShell({ title, description, canonical, body, jsonLd }) {
   <meta property="og:url" content="${escapeHtml(canonical)}">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
+  <meta property="og:image" content="${escapeHtml(image)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${escapeHtml(image)}">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}

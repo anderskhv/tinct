@@ -11,7 +11,7 @@ export interface BookMetaEntry {
 
 export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
   'odyssey': {
-    title: 'Read The Odyssey Free Online | Tinct',
+    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
     description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Odyssey.',
     bookName: 'The Odyssey',
     author: 'Homer',

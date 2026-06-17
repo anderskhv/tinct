@@ -88,7 +88,8 @@ async function serveSpaWithMeta(
   <meta property="og:image" content="${safeOgImage}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">
-  <meta name="twitter:description" content="${safeDescription}">`
+  <meta name="twitter:description" content="${safeDescription}">
+  <meta name="twitter:image" content="${safeOgImage}">`
   const bookJsonLd = ogType === 'book'
     ? `\n  <script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org',
