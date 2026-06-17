@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo, useRef } from 'react'
 import type { ThreadCharacter, CharacterMention, Language, Section } from '../types'
 
 interface ThreadsProps {
@@ -107,10 +107,12 @@ export function Threads({
   chapterLabelByNumber,
 }: ThreadsProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [focusedKeyFigureId, setFocusedKeyFigureId] = useState<string | null>(null)
   const [spoilerIds, setSpoilerIds] = useState<Set<string>>(new Set())
   const [filter, setFilter] = useState<RoleFilter>('all')
   const [showMinors, setShowMinors] = useState(false)
-  const [mainCastOpen, setMainCastOpen] = useState(true)
+  const [mainCastOpen, setMainCastOpen] = useState(false)
+  const cardRefs = useRef(new Map<string, HTMLDivElement>())
 
   const summaryKey = useMemo(() => {
     const valid = ['modern-en', 'kids-en', 'modern-da', 'kids-da']
@@ -239,6 +241,7 @@ export function Threads({
   }, [scopedCharacters, onPageCharIds, currentSubBookChapters, currentChapter])
 
   const toggleExpand = (id: string) => {
+    setFocusedKeyFigureId(null)
     setExpandedId(prev => prev === id ? null : id)
   }
 
@@ -302,7 +305,11 @@ export function Threads({
     return (
       <div
         key={char.id}
-        className={`thread-card ${isExpanded ? 'thread-card-expanded' : ''} ${!isOnPage && visibleParagraphs && visibleParagraphs.length > 0 ? 'thread-card-offpage' : ''} thread-card-${prominence}`}
+        ref={node => {
+          if (node) cardRefs.current.set(char.id, node)
+          else cardRefs.current.delete(char.id)
+        }}
+        className={`thread-card ${isExpanded ? 'thread-card-expanded' : ''} ${focusedKeyFigureId === char.id ? 'thread-card-key-focus' : ''} ${!isOnPage && visibleParagraphs && visibleParagraphs.length > 0 ? 'thread-card-offpage' : ''} thread-card-${prominence}`}
       >
         <div className="thread-card-header" onClick={() => toggleExpand(char.id)}>
           <div className="thread-card-title">
@@ -516,11 +523,16 @@ export function Threads({
                 <button
                   key={char.id}
                   className={`main-cast-item ${isOnPage ? 'main-cast-item-current' : ''}`}
-                  onClick={() => {
-                    setFilter('all')
-                    setExpandedId(prev => prev === char.id ? null : char.id)
-                  }}
-                >
+	                  onClick={() => {
+	                    setFilter('all')
+	                    setShowMinors(false)
+	                    setExpandedId(char.id)
+	                    setFocusedKeyFigureId(char.id)
+	                    requestAnimationFrame(() => {
+	                      cardRefs.current.get(char.id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+	                    })
+	                  }}
+	                >
                   <span className="main-cast-name-row">
                     <span className="main-cast-name">{displayName}</span>
                     <span className={`thread-role thread-role-${roleClass(char.role)}`}>

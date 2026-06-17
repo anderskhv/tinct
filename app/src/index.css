@@ -4205,6 +4205,12 @@ body {
   border-color: var(--border-color);
 }
 
+.thread-card-key-focus {
+  border-color: color-mix(in srgb, var(--accent) 62%, var(--border-color));
+  background: color-mix(in srgb, var(--accent-subtle) 30%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
 .thread-card-expanded {
   border-color: var(--accent-subtle);
 }
