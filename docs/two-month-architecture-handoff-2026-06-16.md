@@ -6,11 +6,25 @@ Purpose: preserve the current architecture state, production invariants, and rec
 
 ## Current Production Baseline
 
-- Production app is deployed and smoke-tested as of 2026-06-16.
-- Latest deploy for the mobile Library text-overlap fix:
-  - Worker version: `a3717529-f6bb-4b1c-9b46-362bf085fd97`
-  - Commit: `978e3a6e fix: prevent mobile library card text overlap`
+- Production app is deployed and smoke-tested as of 2026-06-17.
+- Latest deploy:
+  - Worker version: `0d9dcf58-b4fc-4fe9-9576-52aa42f2db49`
+  - Commit: `395a6bfcc landing: show 100 books`
   - Production smoke test: 15/15 passing.
+  - Full app verification before deploy: `npm run build`, `npm run verify-bundle`, and `npm test -- --run` all passed.
+- Android test APK built from this deployed source:
+  - `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`
+  - Size: about 224 MB.
+- IndexNow was submitted after deploy:
+  - 3,964 URLs from `app/public/sitemap.xml`
+  - key file verified at `https://tinct.app/5a6b72273730443da563f8cf68e1519c.txt`
+  - IndexNow response: HTTP 200.
+- Important count caveat:
+  - The deployed clean worktree generated 99 book landing pages.
+  - The landing page says "100 books" because Anders requested that copy.
+  - Ivan Ilyich exists as committed local book work in the main repo, but those commits are not in remote `main` or the APK listed above.
+  - As of this handoff, `https://tinct.app/read/ivan-ilyich` returns 404 and `ivan-ilyich` is not in the deployed sitemap.
+  - First follow-up: reconcile and publish the Ivan Ilyich commits, or change the landing copy back to match the deployed registry.
 - Werther is live. Audio manifests for `original-en` and `modern-en` chapters 1-84 were checked through the Worker before publication.
 - Treasure Island modern-en repair work must not be assumed live. A WIP commit was kept out of production and preserved on branch `preserve/treasure-island-wip-e341bc5e`. There may also be local uncommitted Treasure Island edits in `app/public/data/editions/treasure-island-modern-en.json`.
 
@@ -55,6 +69,11 @@ Purpose: preserve the current architecture state, production invariants, and rec
 - Fixed Library selection scroll behavior.
 - Fixed mobile Library card text overlap by constraining search-result cards and text width.
 - Improved preface/cast overlay readability and made the Danish translation toggle more visible.
+- Made desktop split/Compare reading use more of the available wide screen by raising the split content cap on desktop. This was a CSS-only width change; paragraph pairing/alignment logic was not touched.
+- Made reader edition choices per-book so opening from SEO defaults to original English + modern English split view, while choices made in one book do not bleed into another.
+- Added a collapsible Key Figures reminder in Cast and linked those figures to their normal Cast cards.
+- Improved generated book SEO landing pages so their layout matches the curated SEO chapter pages more closely.
+- Updated the public landing page copy to say "100 books".
 
 ## Position Anchor Direction
 
@@ -96,15 +115,22 @@ See `docs/position-anchor-plan.md` for the detailed proposal.
 
 ## Recommended Next Moves After Travel
 
-1. Do not start with architecture work. First build and use the APK, and collect any field bugs from actual reading.
-2. If reading position is stable in real use, keep the app as-is until there is a concrete bug or clearly bounded refactor.
-3. If position issues remain, implement paragraph plus intra-paragraph offset from `docs/position-anchor-plan.md` before deeper Reader refactors.
-4. Finish Slice 4 only in small pieces:
+1. Reconcile the Ivan Ilyich / 100-book state before making any publication claim:
+   - local main contains committed Ivan Ilyich work;
+   - remote `main`, production, and the APK currently do not;
+   - either merge/publish Ivan Ilyich with full verification or change the landing count back to match the live registry.
+2. Do not start with architecture work. First install and use `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`, and collect any field bugs from actual reading.
+3. If reading position is stable in real use, keep the app as-is until there is a concrete bug or clearly bounded refactor.
+4. If position issues remain, implement paragraph plus intra-paragraph offset from `docs/position-anchor-plan.md` before deeper Reader refactors.
+5. Finish Slice 4 only in small pieces:
    - selection engine extraction first, if there is an active selection bug;
    - pagination extraction only with mobile and desktop screenshot/device verification.
-5. Add a pre-deploy guard so staged book files cannot accidentally publish just because they exist in `app/public/data`.
-6. Fix the SEO/crawlability weakness described below: Tinct's crawler-visible reader pages are too shell-like compared with the actual content surface.
-7. Keep book production and app deployment work separated. Run `python3 books/wip_inventory.py` before making publication claims.
+6. Add a pre-deploy guard so staged book files cannot accidentally publish just because they exist in `app/public/data`.
+7. Continue the SEO roadmap from strategy-level pages, not more plumbing:
+   - translation-comparison pages are the next high-leverage item;
+   - start with `Crime and Punishment in modern English` / `best translation of Crime and Punishment`;
+   - then scale to Russians and epics.
+8. Keep book production and app deployment work separated. Run `python3 books/wip_inventory.py` before making publication claims.
 
 ## SEO And Bing Crawl Capacity
 
@@ -122,13 +148,19 @@ Do not respond by blocking the useful `/read/...` URLs. The better roadmap item 
 
 Recommended scope:
 
-1. Prerender meaningful, unique content into static reader/book HTML:
-   - book hub pages should include unique book description and useful internal links;
-   - chapter pages should include the chapter title plus a substantial safe excerpt/opening text;
-   - keep the React app handoff intact for interactive reading.
-2. Split the sitemap into a sitemap index with separate static/book/chapter sitemaps.
-3. Keep sitemap `lastmod` stable unless content actually changes.
-4. Change SEO/static page cache headers away from blanket `no-store` where safe.
+Completed before travel:
+
+- Book landing pages are now served from explicit prerendered assets instead of generic shells.
+- Generated book landing pages have crawler-visible book descriptions, edition links, and internal links.
+- Generated book landing page layout was adjusted to match the better curated SEO chapter-page style.
+- IndexNow was run manually after the final 2026-06-17 deploy.
+
+Remaining scope:
+
+1. Split the sitemap into a sitemap index with separate static/book/chapter sitemaps.
+2. Keep sitemap `lastmod` stable unless content actually changes.
+3. Change SEO/static page cache headers away from blanket `no-store` where safe.
+4. Add strategic translation-comparison pages. This is likely higher leverage than more technical SEO cleanup.
 5. Raise Bing crawl quota in Webmaster Tools as a harmless operational step, but treat it as secondary.
 
 This is comeback-roadmap work, not an emergency travel fix.
@@ -169,6 +201,10 @@ cd app
 export PATH=/Users/andershvelplund/.nvm/versions/node/v24.13.0/bin:$PATH
 npm run build:android
 cd android
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export ANDROID_HOME="/Users/andershvelplund/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 ./gradlew assembleDebug
 ```
 
