@@ -296,7 +296,7 @@ function generateReaderSeoPages(books) {
     const dir = path.join(READ_DIR, book.id)
     fs.mkdirSync(dir, { recursive: true })
 
-    fs.writeFileSync(path.join(dir, 'index.html'), buildBookIndexPage(book, edition))
+    fs.writeFileSync(path.join(dir, 'book.html'), buildBookIndexPage(book, edition))
     indexes += 1
   }
   return { indexes, chapters: 0 }
@@ -370,7 +370,7 @@ function buildSitemap(books) {
   for (const b of fullBooks) {
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'index.html'), editionPath(b.id)) }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(pagePath(b.id, 'themes.html')) }))
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'chapters.html')) }))
@@ -384,7 +384,7 @@ function buildSitemap(books) {
   if (stubBooks.length > 0) {
     lines.push('  <!-- Stub-tier books — summary.html only -->')
     for (const b of stubBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'index.html'), editionPath(b.id)) }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
       lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
     }
     lines.push('')
@@ -393,7 +393,7 @@ function buildSitemap(books) {
   if (noSeoBooks.length > 0) {
     lines.push('  <!-- Book landing pages only; chapter pages are added when curated/generated pages exist. -->')
     for (const b of noSeoBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, 'index.html'), editionPath(b.id)) }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
     }
   }
 
