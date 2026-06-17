@@ -35,6 +35,7 @@ const OUT_META = path.join(APP_DIR, 'src/data/bookMetaGenerated.ts')
 
 const ORIGIN = 'https://tinct.app'
 const BUILD_DATE = new Date().toISOString().slice(0, 10)
+const SEO_EXCERPT_WORDS = 1200
 
 // --- Parse the registry --------------------------------------------------
 
@@ -101,6 +102,204 @@ function chapterCount(bookId) {
     console.warn(`[sitemap] Failed to read chapters for ${bookId}: ${err.message}`)
     return 0
   }
+}
+
+function preferredEditionPath(bookId) {
+  const candidates = [
+    path.join(EDITIONS_DIR, `${bookId}-original-en.json`),
+    path.join(EDITIONS_DIR, `${bookId}-modern-en.json`),
+  ]
+  return candidates.find(file => fs.existsSync(file)) || candidates[1]
+}
+
+function loadPreferredEdition(bookId) {
+  const file = preferredEditionPath(bookId)
+  if (!fs.existsSync(file)) return null
+  try {
+    const data = JSON.parse(fs.readFileSync(file, 'utf8'))
+    if (!Array.isArray(data.chapters)) return null
+    return { file, data }
+  } catch (err) {
+    console.warn(`[sitemap] Failed to read SEO edition for ${bookId}: ${err.message}`)
+    return null
+  }
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function plainText(value) {
+  return String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function truncateWords(text, maxWords = SEO_EXCERPT_WORDS) {
+  const words = plainText(text).split(' ').filter(Boolean)
+  if (words.length <= maxWords) return words.join(' ')
+  return `${words.slice(0, maxWords).join(' ')}...`
+}
+
+function paragraphExcerpt(paragraphs, maxWords = SEO_EXCERPT_WORDS) {
+  const result = []
+  let count = 0
+  for (const raw of paragraphs || []) {
+    const text = plainText(raw)
+    if (!text) continue
+    const words = text.split(' ').filter(Boolean)
+    if (count >= maxWords) break
+    const remaining = maxWords - count
+    result.push(words.length > remaining ? `${words.slice(0, remaining).join(' ')}...` : text)
+    count += Math.min(words.length, remaining)
+  }
+  return result
+}
+
+function metaDescription(book, chapter, paragraphs) {
+  const first = plainText((paragraphs || []).join(' '))
+  const base = first
+    ? truncateWords(first, 28)
+    : `Read ${book.title} by ${book.author} free online on Tinct.`
+  return base.length > 180 ? `${base.slice(0, 177).replace(/\s+\S*$/, '')}...` : base
+}
+
+function seoStyles() {
+  return `<style>
+    :root { color-scheme: light; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
+    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
+    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    p { font-size: 1.08rem; margin: 0 0 1rem; }
+    a { color: #6f3322; }
+    .dek { color: #51463d; font-size: 1.15rem; }
+    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
+    ol { padding-left: 1.4rem; }
+    li { margin: 0.35rem 0; }
+    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+  </style>`
+}
+
+function pageShell({ title, description, canonical, body, jsonLd }) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <link rel="canonical" href="${escapeHtml(canonical)}">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${escapeHtml(canonical)}">
+  <meta property="og:type" content="book">
+  <meta property="og:site_name" content="Tinct">
+  ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
+  ${seoStyles()}
+</head>
+<body>
+${body}
+</body>
+</html>
+`
+}
+
+function buildBookIndexPage(book, edition) {
+  const chapters = edition.data.chapters || []
+  const firstChapter = chapters[0] || {}
+  const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
+  const description = (book.description && book.description.length >= 60)
+    ? book.description
+    : `Read ${book.title} by ${book.author} free online on Tinct.`
+  const chapterLinks = chapters
+    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</a></li>`)
+    .join('\n')
+  const body = `<main>
+  <nav><a href="/read/">Tinct library</a></nav>
+  <p class="kicker">Free online book</p>
+  <h1>${escapeHtml(book.title)}</h1>
+  <p class="dek">by ${escapeHtml(book.author)}</p>
+  <p>${escapeHtml(description)}</p>
+  <a class="cta" href="/read/${book.id}?chapter=1">Start reading in Tinct</a>
+  <h2>${escapeHtml(firstChapter.title || 'Opening')}</h2>
+  ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
+  <h2>Chapters</h2>
+  <ol>
+${chapterLinks}
+  </ol>
+  <footer>Read ${escapeHtml(book.title)} free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
+</main>`
+  return pageShell({
+    title: `Read ${book.title} by ${book.author} Free Online | Tinct`,
+    description,
+    canonical: `${ORIGIN}/read/${book.id}`,
+    body,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Book',
+      '@id': `${ORIGIN}/read/${book.id}#book`,
+      name: book.title,
+      author: { '@type': 'Person', name: book.author },
+      description,
+      url: `${ORIGIN}/read/${book.id}`,
+      isAccessibleForFree: true,
+      publisher: { '@type': 'Organization', name: 'Tinct', url: ORIGIN },
+    },
+  })
+}
+
+function buildGeneratedChapterPage(book, edition, chapter, index) {
+  const number = index + 1
+  const paragraphs = paragraphExcerpt(chapter.paragraphs || [], SEO_EXCERPT_WORDS)
+  const chapterTitle = chapter.title || `Chapter ${number}`
+  const description = metaDescription(book, chapter, paragraphs)
+  const body = `<main>
+  <nav><a href="/read/${book.id}">${escapeHtml(book.title)}</a> / <a href="/read/">Tinct library</a></nav>
+  <p class="kicker">Chapter ${number}</p>
+  <h1>${escapeHtml(chapterTitle)}</h1>
+  <p class="dek">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
+  <a class="cta" href="/read/${book.id}?chapter=${number}">Open this chapter in Tinct</a>
+  <article>
+  ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
+  </article>
+  <footer>This crawler-readable excerpt links into Tinct's full reader for synced editions, cast, notes, and chat.</footer>
+</main>`
+  return pageShell({
+    title: `${book.title}: ${chapterTitle} — Read Free Online | Tinct`,
+    description,
+    canonical: `${ORIGIN}/read/${book.id}/chapter-${number}`,
+    body,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Chapter',
+      name: chapterTitle,
+      position: number,
+      isPartOf: { '@type': 'Book', name: book.title, author: { '@type': 'Person', name: book.author } },
+      url: `${ORIGIN}/read/${book.id}/chapter-${number}`,
+    },
+  })
+}
+
+function generateReaderSeoPages(books) {
+  let indexes = 0
+  for (const book of books) {
+    const edition = loadPreferredEdition(book.id)
+    if (!edition) continue
+    const dir = path.join(READ_DIR, book.id)
+    fs.mkdirSync(dir, { recursive: true })
+
+    fs.writeFileSync(path.join(dir, 'index.html'), buildBookIndexPage(book, edition))
+    indexes += 1
+  }
+  return { indexes, chapters: 0 }
 }
 
 function hasSeoPages(bookId) {
@@ -171,7 +370,7 @@ function buildSitemap(books) {
   for (const b of fullBooks) {
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(editionPath(b.id)) }))
+    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'index.html'), editionPath(b.id)) }))
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(pagePath(b.id, 'themes.html')) }))
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'chapters.html')) }))
@@ -185,16 +384,16 @@ function buildSitemap(books) {
   if (stubBooks.length > 0) {
     lines.push('  <!-- Stub-tier books — summary.html only -->')
     for (const b of stubBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(editionPath(b.id)) }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'index.html'), editionPath(b.id)) }))
       lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
     }
     lines.push('')
   }
 
   if (noSeoBooks.length > 0) {
-    lines.push('  <!-- SPA reader entries (no static SEO pages yet) -->')
+    lines.push('  <!-- Book landing pages only; chapter pages are added when curated/generated pages exist. -->')
     for (const b of noSeoBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(editionPath(b.id)) }))
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, 'index.html'), editionPath(b.id)) }))
     }
   }
 
@@ -247,6 +446,8 @@ function buildBookMeta(books) {
 
 function main() {
   const books = loadPublicBooks()
+  const generated = generateReaderSeoPages(books)
+  console.log(`[sitemap] Wrote ${generated.indexes} book landing pages and ${generated.chapters} generated chapter pages under public/read/`)
 
   const xml = buildSitemap(books)
   fs.writeFileSync(OUT_SITEMAP, xml)
@@ -270,4 +471,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { loadPublicBooks, buildSitemap, buildBookMeta, chapterCount, hasSeoPages }
+module.exports = { loadPublicBooks, buildSitemap, buildBookMeta, chapterCount, hasSeoPages, generateReaderSeoPages }

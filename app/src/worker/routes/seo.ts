@@ -119,6 +119,27 @@ async function serveSpaWithMeta(
 
 export const serveSpaWithMetaForTest = serveSpaWithMeta
 
+async function serveStaticHtml(
+  requestMethod: string,
+  request: Request,
+  url: URL,
+  pathname: string,
+  env: SeoEnv,
+): Promise<Response | null> {
+  const assetUrl = new URL(url.toString())
+  assetUrl.pathname = pathname
+  assetUrl.search = ''
+  const assetResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), request))
+  if (assetResp.status !== 200) return null
+
+  const newResp = new Response(requestMethod === 'HEAD' ? null : assetResp.body, assetResp)
+  newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    newResp.headers.set(key, value)
+  }
+  return newResp
+}
+
 function editionBookIdFromPath(pathname: string): string | null {
   const filename = pathname.split('/').pop() || ''
   if (!filename.endsWith('.json')) return null
@@ -302,22 +323,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // that happens. SEO_STRATEGY.md has the full routing table.
     const seoMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && seoMatch) {
-      const seoUrl = new URL(request.url)
-      seoUrl.pathname = `/read/${seoMatch[1]}/${seoMatch[2]}.html`
-      const seoResp = await env.ASSETS.fetch(new Request(seoUrl.toString(), request))
-      if (seoResp.status === 200) {
-        const newResp = new Response(seoResp.body, seoResp)
-        newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
-        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-          newResp.headers.set(key, value)
-        }
-        if (request.method === 'HEAD') return new Response(null, {
-          status: newResp.status,
-          statusText: newResp.statusText,
-          headers: newResp.headers,
-        })
-        return newResp
-      }
+      const seoResp = await serveStaticHtml(request.method, request, url, `/read/${seoMatch[1]}/${seoMatch[2]}.html`, env)
+      if (seoResp) return seoResp
       // SEO file not found — fall through to SPA fallback below
     }
 
@@ -345,6 +352,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     const bookMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && bookMatch) {
       const bookId = bookMatch[1].toLowerCase()
+      if (!url.search) {
+        const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/index.html`, env)
+        if (staticBookResp) return staticBookResp
+      }
       // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
       // generated meta from bookRegistry is the fallback so every book in
       // the sitemap has unique <title>/<meta description> and we don't

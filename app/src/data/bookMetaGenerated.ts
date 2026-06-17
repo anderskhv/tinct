@@ -244,6 +244,12 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'Beyond Good and Evil',
     author: 'Friedrich Nietzsche',
   },
+  'kant-groundwork': {
+    title: 'Read Groundwork of the Metaphysics of Morals by Immanuel Kant — Free Online with AI Companion | Tinct',
+    description: 'Kant\'s shortest book and the entry-point to his ethics. He sets out to derive the moral law from pure reason alone, arrives at the categorical imperative — act only on a maxim you could will as a universal law — and rebuilds the entire foundation of modern ethical philosophy.',
+    bookName: 'Groundwork of the Metaphysics of Morals',
+    author: 'Immanuel Kant',
+  },
   'beowulf': {
     title: 'Read Beowulf by Anonymous — Free Online with AI Companion | Tinct',
     description: 'The oldest surviving epic in English. A Geatish warrior crosses the sea to fight three monsters across a lifetime — Grendel, Grendel\'s mother, and a dragon — in a poem about courage, kingship, and the long defeat that all heroes face.',
@@ -417,6 +423,12 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     description: 'Eighty-five newspaper essays written by Hamilton, Madison, and Jay in 1787-88 to defend the proposed Constitution. The most influential work of political theory in American history — including Madison\'s celebrated "factions" paper (No. 10), the "if men were angels" argument for checks and balances (No. 51), and Hamilton\'s case for judicial review (No. 78).',
     bookName: 'The Federalist Papers',
     author: 'Hamilton, Madison, Jay (as "Publius")',
+  },
+  'frederick-douglass': {
+    title: 'Read Narrative of the Life of Frederick Douglass by Frederick Douglass — Free Online with AI Companion | Tinct',
+    description: 'Born a slave in Maryland, Frederick Douglass taught himself to read in secret, fought off the man hired to break him, and escaped north in 1838. Three years later he wrote this account — naming the masters, the plantations, and the dates — while still legally a fugitive. The most influential of the American slave narratives.',
+    bookName: 'Narrative of the Life of Frederick Douglass',
+    author: 'Frederick Douglass',
   },
   'a-little-princess': {
     title: 'Read A Little Princess by Frances Hodgson Burnett — Free Online with AI Companion | Tinct',
