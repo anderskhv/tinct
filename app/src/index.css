@@ -4062,10 +4062,11 @@ body {
 }
 
 .main-cast {
-  border: 1px solid var(--border-light);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border-light));
   border-radius: 8px;
-  background: color-mix(in srgb, var(--bg-panel) 64%, transparent);
-  margin-bottom: 10px;
+  background: color-mix(in srgb, var(--accent-subtle) 24%, var(--bg-panel));
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 18%, transparent);
+  margin-bottom: 14px;
   overflow: hidden;
 }
 
@@ -4078,7 +4079,7 @@ body {
   background: transparent;
   border: none;
   color: var(--text-primary);
-  padding: 9px 11px;
+  padding: 11px 12px 9px;
   cursor: pointer;
   text-align: left;
 }
@@ -4091,13 +4092,22 @@ body {
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
+  flex-wrap: wrap;
   min-width: 0;
 }
 
 .main-cast-title {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.main-cast-subtitle {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .main-cast-count {
@@ -4119,8 +4129,8 @@ body {
 .main-cast-list {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  padding: 0 6px 7px;
+  gap: 4px;
+  padding: 0 8px 9px;
 }
 
 .main-cast-item {
@@ -4128,11 +4138,11 @@ body {
   flex-direction: column;
   gap: 2px;
   width: 100%;
-  background: transparent;
-  border: none;
+  background: color-mix(in srgb, var(--bg-panel) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-light) 82%, transparent);
   border-radius: 6px;
   color: var(--text-primary);
-  padding: 7px 6px;
+  padding: 8px 9px;
   text-align: left;
   cursor: pointer;
 }

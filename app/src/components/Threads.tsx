@@ -218,18 +218,24 @@ export function Threads({
   )
 
   const mainCast = useMemo(() => {
-    return scopedCharacters
+    const count = (c: ThreadCharacter) => Object.keys(c.chapters)
+      .map(Number)
+      .filter(n => currentSubBookChapters ? currentSubBookChapters.has(n) : n <= currentChapter)
+      .length
+    const sortByRelevance = (a: ThreadCharacter, b: ThreadCharacter) => {
+      const aOnPage = onPageCharIds.has(a.id) ? 1 : 0
+      const bOnPage = onPageCharIds.has(b.id) ? 1 : 0
+      if (aOnPage !== bOnPage) return bOnPage - aOnPage
+      return count(b) - count(a)
+    }
+    const explicitMajor = scopedCharacters
       .filter(c => (c.prominence ?? 'supporting') === 'major')
-      .sort((a, b) => {
-        const aOnPage = onPageCharIds.has(a.id) ? 1 : 0
-        const bOnPage = onPageCharIds.has(b.id) ? 1 : 0
-        if (aOnPage !== bOnPage) return bOnPage - aOnPage
-        const count = (c: ThreadCharacter) => Object.keys(c.chapters)
-          .map(Number)
-          .filter(n => currentSubBookChapters ? currentSubBookChapters.has(n) : n <= currentChapter)
-          .length
-        return count(b) - count(a)
-      })
+      .sort(sortByRelevance)
+    if (explicitMajor.length > 0) return explicitMajor
+    return scopedCharacters
+      .filter(c => (c.prominence ?? 'supporting') !== 'minor')
+      .sort(sortByRelevance)
+      .slice(0, 6)
   }, [scopedCharacters, onPageCharIds, currentSubBookChapters, currentChapter])
 
   const toggleExpand = (id: string) => {
@@ -492,7 +498,8 @@ export function Threads({
           aria-expanded={mainCastOpen}
         >
           <span className="main-cast-toggle-left">
-            <span className="main-cast-title">Main cast</span>
+            <span className="main-cast-title">Key figures</span>
+            <span className="main-cast-subtitle">Quick reminder</span>
             <span className="main-cast-count">{mainCast.length}</span>
           </span>
           <span className="main-cast-toggle-text">{mainCastOpen ? 'Minimize' : 'Show'}</span>
