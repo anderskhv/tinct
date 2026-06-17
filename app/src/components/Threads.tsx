@@ -65,7 +65,12 @@ const ROLE_LABEL: Record<string, string> = {
   object: 'Object',
 }
 
-function roleLabel(role: string): string {
+function hasDivineRoles(roles: string[]): boolean {
+  return roles.some(role => ['god', 'divine', 'angel', 'fallen-angel'].includes(role))
+}
+
+function roleLabel(role: string, roles: string[] = []): string {
+  if (role === 'mortal' && !hasDivineRoles(roles)) return 'Character'
   if (ROLE_LABEL[role]) return ROLE_LABEL[role]
   return role
     .split(/[-_\s]+/)
@@ -74,9 +79,10 @@ function roleLabel(role: string): string {
     .join(' ')
 }
 
-function roleFilterLabel(role: RoleFilter): string {
+function roleFilterLabel(role: RoleFilter, roles: string[]): string {
   if (role === 'all') return 'All'
-  const label = roleLabel(role)
+  const label = roleLabel(role, roles)
+  if (role === 'mortal' && !hasDivineRoles(roles)) return 'Characters'
   if (role === 'people') return 'Peoples'
   if (role === 'historical') return 'Historical'
   if (label.endsWith('s')) return label
@@ -104,6 +110,7 @@ export function Threads({
   const [spoilerIds, setSpoilerIds] = useState<Set<string>>(new Set())
   const [filter, setFilter] = useState<RoleFilter>('all')
   const [showMinors, setShowMinors] = useState(false)
+  const [mainCastOpen, setMainCastOpen] = useState(true)
 
   const summaryKey = useMemo(() => {
     const valid = ['modern-en', 'kids-en', 'modern-da', 'kids-da']
@@ -210,6 +217,21 @@ export function Threads({
     [filtered]
   )
 
+  const mainCast = useMemo(() => {
+    return scopedCharacters
+      .filter(c => (c.prominence ?? 'supporting') === 'major')
+      .sort((a, b) => {
+        const aOnPage = onPageCharIds.has(a.id) ? 1 : 0
+        const bOnPage = onPageCharIds.has(b.id) ? 1 : 0
+        if (aOnPage !== bOnPage) return bOnPage - aOnPage
+        const count = (c: ThreadCharacter) => Object.keys(c.chapters)
+          .map(Number)
+          .filter(n => currentSubBookChapters ? currentSubBookChapters.has(n) : n <= currentChapter)
+          .length
+        return count(b) - count(a)
+      })
+  }, [scopedCharacters, onPageCharIds, currentSubBookChapters, currentChapter])
+
   const toggleExpand = (id: string) => {
     setExpandedId(prev => prev === id ? null : id)
   }
@@ -283,7 +305,7 @@ export function Threads({
           </div>
           <div className="thread-card-meta">
             <span className={`thread-role thread-role-${roleClass(char.role)}`}>
-              {roleLabel(char.role)}
+              {roleLabel(char.role, availableRoles)}
             </span>
             {!isMinor && (
               <span className="thread-chapter-count">
@@ -460,6 +482,55 @@ export function Threads({
     )
   }
 
+  const renderMainCast = () => {
+    if (mainCast.length === 0) return null
+    return (
+      <section className={`main-cast ${mainCastOpen ? 'main-cast-open' : 'main-cast-collapsed'}`} aria-label="Main cast reminder">
+        <button
+          className="main-cast-toggle"
+          onClick={() => setMainCastOpen(open => !open)}
+          aria-expanded={mainCastOpen}
+        >
+          <span className="main-cast-toggle-left">
+            <span className="main-cast-title">Main cast</span>
+            <span className="main-cast-count">{mainCast.length}</span>
+          </span>
+          <span className="main-cast-toggle-text">{mainCastOpen ? 'Minimize' : 'Show'}</span>
+        </button>
+
+        {mainCastOpen && (
+          <div className="main-cast-list">
+            {mainCast.map(char => {
+              const displayName = char.name[language] || char.name.en
+              const displayEpithet = char.epithet[language] || char.epithet.en
+              const description = char.description?.[language] || char.description?.en
+              const isOnPage = onPageCharIds.has(char.id)
+              return (
+                <button
+                  key={char.id}
+                  className={`main-cast-item ${isOnPage ? 'main-cast-item-current' : ''}`}
+                  onClick={() => {
+                    setFilter('all')
+                    setExpandedId(prev => prev === char.id ? null : char.id)
+                  }}
+                >
+                  <span className="main-cast-name-row">
+                    <span className="main-cast-name">{displayName}</span>
+                    <span className={`thread-role thread-role-${roleClass(char.role)}`}>
+                      {roleLabel(char.role, availableRoles)}
+                    </span>
+                  </span>
+                  {displayEpithet && <span className="main-cast-epithet">{displayEpithet}</span>}
+                  {description && <span className="main-cast-description">{description}</span>}
+                </button>
+              )
+            })}
+          </div>
+        )}
+      </section>
+    )
+  }
+
   return (
     <div className="threads">
       <div className="threads-header">
@@ -474,13 +545,14 @@ export function Threads({
               className={`threads-filter-btn ${filter === f ? 'threads-filter-active' : ''}`}
               onClick={() => setFilter(f)}
             >
-              {roleFilterLabel(f)}
+              {roleFilterLabel(f, availableRoles)}
             </button>
           ))}
         </div>
       </div>
 
       <div className="threads-content">
+        {renderMainCast()}
         {filtered.length === 0 ? (
           <div className="threads-empty">
             <p className="threads-empty-text">No characters in this category.</p>
