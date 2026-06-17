@@ -172,19 +172,43 @@ function metaDescription(book, chapter, paragraphs) {
 function seoStyles() {
   return `<style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>`
 }
 
@@ -222,19 +246,33 @@ function buildBookIndexPage(book, edition) {
   const chapterLinks = chapters
     .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</a></li>`)
     .join('\n')
-  const body = `<main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>${escapeHtml(book.title)}</h1>
-  <p class="dek">by ${escapeHtml(book.author)}</p>
-  <p>${escapeHtml(description)}</p>
-  <a class="cta" href="/read/${book.id}?chapter=1">Start reading in Tinct</a>
-  <h2>${escapeHtml(firstChapter.title || 'Opening')}</h2>
-  ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
-  <h2>Chapters</h2>
-  <ol>
+  const body = `<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/${book.id}?chapter=1">Open reader</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>${escapeHtml(book.title)}</h1>
+    <p class="dek">by ${escapeHtml(book.author)}</p>
+    <p class="description">${escapeHtml(description)}</p>
+    <a class="cta" href="/read/${book.id}?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>${escapeHtml(firstChapter.title || 'Opening')}</h2>
+      ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n      ')}
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 ${chapterLinks}
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read ${escapeHtml(book.title)} free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>`
   return pageShell({

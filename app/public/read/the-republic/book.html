@@ -14,53 +14,89 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/the-republic#book","name":"The Republic","author":{"@type":"Person","name":"Plato"},"description":"Socrates and his friends spend one long night asking the hardest question: what is justice? Along the way they build a city in words, discover the Forms, and descend into a cave. Philosophy begins here.","url":"https://tinct.app/read/the-republic","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/the-republic?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>The Republic</h1>
-  <p class="dek">by Plato</p>
-  <p>Socrates and his friends spend one long night asking the hardest question: what is justice? Along the way they build a city in words, discover the Forms, and descend into a cave. Philosophy begins here.</p>
-  <a class="cta" href="/read/the-republic?chapter=1">Start reading in Tinct</a>
-  <h2>Book 1</h2>
-  <p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess (Bendis, the Thracian Artemis.); and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, we turned in the direction of the city; and at that instant Polemarchus the son of Cephalus chanced to catch sight of us from a distance as we were starting on our way home, and told his servant to run and bid us wait for him. The servant took hold of me by the cloak behind, and said: Polemarchus desires you to wait.</p>
-  <p>I turned round, and asked him where his master was.</p>
-  <p>There he is, said the youth, coming after you, if you will only wait.</p>
-  <p>Certainly we will, said Glaucon; and in a few minutes Polemarchus appeared, and with him Adeimantus, Glaucon’s brother, Niceratus the son of Nicias, and several others who had been at the procession.</p>
-  <p>Polemarchus said to me: I perceive, Socrates, that you and your companion are already on your way to the city.</p>
-  <p>You are not far wrong, I said.</p>
-  <p>But do you see, he rejoined, how many we are?</p>
-  <p>Of course.</p>
-  <p>And are you stronger than all these? for if not, you will have to remain where you are.</p>
-  <p>May there not be the alternative, I said, that we may persuade you to let us go?</p>
-  <p>But can you persuade us, if we refuse to listen to you? he said.</p>
-  <p>Certainly not, replied Glaucon.</p>
-  <p>Then we are not going to listen; of that you may be assured.</p>
-  <p>Adeimantus added: Has no one told you of the torch-race on horseback in honour of the goddess which will take place in the evening?</p>
-  <p>With horses! I replied: That is a novelty. Will horsemen carry torches and pass them one to another during the race?</p>
-  <p>Yes, said Polemarchus, and not only so, but a festival will be celebrated at night, which you certainly ought to see. Let us rise soon after supper and see this festival; there will be a gathering of young men, and we will have a good talk. Stay then, and do not be perverse.</p>
-  <p>Glaucon said: I suppose, since you insist, that we must.</p>
-  <p>Very good, I replied.</p>
-  <p>Accordingly we went with Polemarchus to his house; and there we found his brothers Lysias and Euthydemus, and with them Thrasymachus the Chalcedonian, Charmantides the Paeanian, and Cleitophon the son of Aristonymus. There too was Cephalus the father of Polemarchus, whom I had not seen for a long time, and I thought him very much aged. He was seated on a cushioned chair, and had a garland on his head, for he had been sacrificing in the court; and there were some other chairs in the room arranged in a semicircle, upon which we sat down by him. He saluted me eagerly, and then he said:—</p>
-  <p>You don’t come to see me, Socrates, as often as you ought: If I were still able to go and see you I would not ask you to come to me. But at my age I can hardly get to the city, and therefore you should come oftener to the Piraeus. For let me tell you, that the more the pleasures of the body fade away, the greater to me is the pleasure and charm of conversation. Do not then deny my request, but make our house your resort and keep company with these young men; we are old friends, and you will be quite at home with us.</p>
-  <p>I replied: There is nothing which for my part I like better, Cephalus, than conversing with aged men; for I regard them...</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>The Republic</h1>
+    <p class="dek">by Plato</p>
+    <p class="description">Socrates and his friends spend one long night asking the hardest question: what is justice? Along the way they build a city in words, discover the Forms, and descend into a cave. Philosophy begins here.</p>
+    <a class="cta" href="/read/the-republic?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Book 1</h2>
+      <p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess (Bendis, the Thracian Artemis.); and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, we turned in the direction of the city; and at that instant Polemarchus the son of Cephalus chanced to catch sight of us from a distance as we were starting on our way home, and told his servant to run and bid us wait for him. The servant took hold of me by the cloak behind, and said: Polemarchus desires you to wait.</p>
+      <p>I turned round, and asked him where his master was.</p>
+      <p>There he is, said the youth, coming after you, if you will only wait.</p>
+      <p>Certainly we will, said Glaucon; and in a few minutes Polemarchus appeared, and with him Adeimantus, Glaucon’s brother, Niceratus the son of Nicias, and several others who had been at the procession.</p>
+      <p>Polemarchus said to me: I perceive, Socrates, that you and your companion are already on your way to the city.</p>
+      <p>You are not far wrong, I said.</p>
+      <p>But do you see, he rejoined, how many we are?</p>
+      <p>Of course.</p>
+      <p>And are you stronger than all these? for if not, you will have to remain where you are.</p>
+      <p>May there not be the alternative, I said, that we may persuade you to let us go?</p>
+      <p>But can you persuade us, if we refuse to listen to you? he said.</p>
+      <p>Certainly not, replied Glaucon.</p>
+      <p>Then we are not going to listen; of that you may be assured.</p>
+      <p>Adeimantus added: Has no one told you of the torch-race on horseback in honour of the goddess which will take place in the evening?</p>
+      <p>With horses! I replied: That is a novelty. Will horsemen carry torches and pass them one to another during the race?</p>
+      <p>Yes, said Polemarchus, and not only so, but a festival will be celebrated at night, which you certainly ought to see. Let us rise soon after supper and see this festival; there will be a gathering of young men, and we will have a good talk. Stay then, and do not be perverse.</p>
+      <p>Glaucon said: I suppose, since you insist, that we must.</p>
+      <p>Very good, I replied.</p>
+      <p>Accordingly we went with Polemarchus to his house; and there we found his brothers Lysias and Euthydemus, and with them Thrasymachus the Chalcedonian, Charmantides the Paeanian, and Cleitophon the son of Aristonymus. There too was Cephalus the father of Polemarchus, whom I had not seen for a long time, and I thought him very much aged. He was seated on a cushioned chair, and had a garland on his head, for he had been sacrificing in the court; and there were some other chairs in the room arranged in a semicircle, upon which we sat down by him. He saluted me eagerly, and then he said:—</p>
+      <p>You don’t come to see me, Socrates, as often as you ought: If I were still able to go and see you I would not ask you to come to me. But at my age I can hardly get to the city, and therefore you should come oftener to the Piraeus. For let me tell you, that the more the pleasures of the body fade away, the greater to me is the pleasure and charm of conversation. Do not then deny my request, but make our house your resort and keep company with these young men; we are old friends, and you will be quite at home with us.</p>
+      <p>I replied: There is nothing which for my part I like better, Cephalus, than conversing with aged men; for I regard them...</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/the-republic/chapter-1">Book 1</a></li>
 <li><a href="/read/the-republic/chapter-2">Book 2</a></li>
 <li><a href="/read/the-republic/chapter-3">Book 3</a></li>
@@ -71,7 +107,9 @@
 <li><a href="/read/the-republic/chapter-8">Book 8</a></li>
 <li><a href="/read/the-republic/chapter-9">Book 9</a></li>
 <li><a href="/read/the-republic/chapter-10">Book 10</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read The Republic free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

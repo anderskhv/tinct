@@ -14,75 +14,111 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/the-tempest#book","name":"The Tempest","author":{"@type":"Person","name":"William Shakespeare"},"description":"A sorcerer on a remote island conjures a storm to shipwreck his enemies — then chooses mercy over revenge. Shakespeare's farewell to the stage: magic, forgiveness, and letting go.","url":"https://tinct.app/read/the-tempest","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/the-tempest?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>The Tempest</h1>
-  <p class="dek">by William Shakespeare</p>
-  <p>A sorcerer on a remote island conjures a storm to shipwreck his enemies — then chooses mercy over revenge. Shakespeare&#39;s farewell to the stage: magic, forgiveness, and letting go.</p>
-  <a class="cta" href="/read/the-tempest?chapter=1">Start reading in Tinct</a>
-  <h2>Act 1, Scene 1 — On a Ship at Sea</h2>
-  <p>[Enter a Master and a Boatswain]</p>
-  <p>MASTER. Boatswain!</p>
-  <p>BOATSWAIN. Here, master: what cheer?</p>
-  <p>MASTER. Good, speak to the mariners: fall to&#39;t, yarely, or we run ourselves aground: bestir, bestir.</p>
-  <p>[Exit]</p>
-  <p>[Enter Mariners]</p>
-  <p>BOATSWAIN. Heigh, my hearts! cheerly, cheerly, my hearts! yare, yare! Take in the topsail. Tend to the master&#39;s whistle. Blow, till thou burst thy wind, if room enough!</p>
-  <p>[Enter ALONSO, SEBASTIAN, ANTONIO, FERDINAND, GONZALO, and others]</p>
-  <p>ALONSO. Good boatswain, have care. Where&#39;s the master? Play the men.</p>
-  <p>BOATSWAIN. I pray now, keep below.</p>
-  <p>ANTONIO. Where is the master, boatswain?</p>
-  <p>BOATSWAIN. Do you not hear him? You mar our labour: keep your cabins: you do assist the storm.</p>
-  <p>GONZALO. Nay, good, be patient.</p>
-  <p>BOATSWAIN. When the sea is. Hence! What cares these roarers for the name of king? To cabin: silence! trouble us not.</p>
-  <p>GONZALO. Good, yet remember whom thou hast aboard.</p>
-  <p>BOATSWAIN. None that I more love than myself. You are a counsellor; if you can command these elements to silence, and work the peace of the present, we will not hand a rope more; use your authority: if you cannot, give thanks you have lived so long, and make yourself ready in your cabin for the mischance of the hour, if it so hap. Cheerly, good hearts! Out of our way, I say.</p>
-  <p>[Exit]</p>
-  <p>GONZALO. I have great comfort from this fellow: methinks he hath no drowning mark upon him; his complexion is perfect gallows. Stand fast, good Fate, to his hanging: make the rope of his destiny our cable, for our own doth little advantage. If he be not born to be hanged, our case is miserable.</p>
-  <p>[Exeunt]</p>
-  <p>[Re-enter Boatswain]</p>
-  <p>BOATSWAIN. Down with the topmast! yare! lower, lower! Bring her to try with main-course.</p>
-  <p>[A cry within]</p>
-  <p>BOATSWAIN. A plague upon this howling! they are louder than the weather or our office.</p>
-  <p>[Re-enter SEBASTIAN, ANTONIO, and GONZALO]</p>
-  <p>BOATSWAIN. Yet again! what do you here? Shall we give o&#39;er and drown? Have you a mind to sink?</p>
-  <p>SEBASTIAN. A pox o&#39; your throat, you bawling, blasphemous, incharitable dog!</p>
-  <p>BOATSWAIN. Work you then.</p>
-  <p>ANTONIO. Hang, cur! hang, you whoreson, insolent noisemaker! We are less afraid to be drowned than thou art.</p>
-  <p>GONZALO. I&#39;ll warrant him for drowning; though the ship were no stronger than a nutshell and as leaky as an unstanched wench.</p>
-  <p>BOATSWAIN. Lay her a-hold, a-hold! set her two courses off to sea again; lay her off.</p>
-  <p>[Enter Mariners wet]</p>
-  <p>MARINERS. All lost! to prayers, to prayers! all lost!</p>
-  <p>BOATSWAIN. What, must our mouths be cold?</p>
-  <p>GONZALO. The king and prince at prayers! let&#39;s assist them, For our case is as theirs.</p>
-  <p>SEBASTIAN. I&#39;m out of patience.</p>
-  <p>ANTONIO. We are merely cheated of our lives by drunkards: This wide-chapp&#39;d rascal--would thou mightst lie drowning The washing of ten tides!</p>
-  <p>GONZALO. He&#39;ll be hang&#39;d yet, Though every drop of water swear against it And gape at widest to glut him.</p>
-  <p>[A confused noise within: &#39;Mercy on us!&#39;-- &#39;We split, we split!&#39;--&#39;Farewell, my wife and children!&#39;-- &#39;Farewell, brother!&#39;--&#39;We split, we split, we split!&#39;]</p>
-  <p>ANTONIO. Let&#39;s all sink with the king.</p>
-  <p>SEBASTIAN. Let&#39;s take leave of him.</p>
-  <p>[Exeunt ANTONIO and SEBASTIAN]</p>
-  <p>GONZALO. Now would I give a thousand furlongs of sea for an acre of barren ground, long heath, brown furze, any thing. The wills above be done! but I would fain die a dry death.</p>
-  <p>[Exeunt]</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>The Tempest</h1>
+    <p class="dek">by William Shakespeare</p>
+    <p class="description">A sorcerer on a remote island conjures a storm to shipwreck his enemies — then chooses mercy over revenge. Shakespeare&#39;s farewell to the stage: magic, forgiveness, and letting go.</p>
+    <a class="cta" href="/read/the-tempest?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Act 1, Scene 1 — On a Ship at Sea</h2>
+      <p>[Enter a Master and a Boatswain]</p>
+      <p>MASTER. Boatswain!</p>
+      <p>BOATSWAIN. Here, master: what cheer?</p>
+      <p>MASTER. Good, speak to the mariners: fall to&#39;t, yarely, or we run ourselves aground: bestir, bestir.</p>
+      <p>[Exit]</p>
+      <p>[Enter Mariners]</p>
+      <p>BOATSWAIN. Heigh, my hearts! cheerly, cheerly, my hearts! yare, yare! Take in the topsail. Tend to the master&#39;s whistle. Blow, till thou burst thy wind, if room enough!</p>
+      <p>[Enter ALONSO, SEBASTIAN, ANTONIO, FERDINAND, GONZALO, and others]</p>
+      <p>ALONSO. Good boatswain, have care. Where&#39;s the master? Play the men.</p>
+      <p>BOATSWAIN. I pray now, keep below.</p>
+      <p>ANTONIO. Where is the master, boatswain?</p>
+      <p>BOATSWAIN. Do you not hear him? You mar our labour: keep your cabins: you do assist the storm.</p>
+      <p>GONZALO. Nay, good, be patient.</p>
+      <p>BOATSWAIN. When the sea is. Hence! What cares these roarers for the name of king? To cabin: silence! trouble us not.</p>
+      <p>GONZALO. Good, yet remember whom thou hast aboard.</p>
+      <p>BOATSWAIN. None that I more love than myself. You are a counsellor; if you can command these elements to silence, and work the peace of the present, we will not hand a rope more; use your authority: if you cannot, give thanks you have lived so long, and make yourself ready in your cabin for the mischance of the hour, if it so hap. Cheerly, good hearts! Out of our way, I say.</p>
+      <p>[Exit]</p>
+      <p>GONZALO. I have great comfort from this fellow: methinks he hath no drowning mark upon him; his complexion is perfect gallows. Stand fast, good Fate, to his hanging: make the rope of his destiny our cable, for our own doth little advantage. If he be not born to be hanged, our case is miserable.</p>
+      <p>[Exeunt]</p>
+      <p>[Re-enter Boatswain]</p>
+      <p>BOATSWAIN. Down with the topmast! yare! lower, lower! Bring her to try with main-course.</p>
+      <p>[A cry within]</p>
+      <p>BOATSWAIN. A plague upon this howling! they are louder than the weather or our office.</p>
+      <p>[Re-enter SEBASTIAN, ANTONIO, and GONZALO]</p>
+      <p>BOATSWAIN. Yet again! what do you here? Shall we give o&#39;er and drown? Have you a mind to sink?</p>
+      <p>SEBASTIAN. A pox o&#39; your throat, you bawling, blasphemous, incharitable dog!</p>
+      <p>BOATSWAIN. Work you then.</p>
+      <p>ANTONIO. Hang, cur! hang, you whoreson, insolent noisemaker! We are less afraid to be drowned than thou art.</p>
+      <p>GONZALO. I&#39;ll warrant him for drowning; though the ship were no stronger than a nutshell and as leaky as an unstanched wench.</p>
+      <p>BOATSWAIN. Lay her a-hold, a-hold! set her two courses off to sea again; lay her off.</p>
+      <p>[Enter Mariners wet]</p>
+      <p>MARINERS. All lost! to prayers, to prayers! all lost!</p>
+      <p>BOATSWAIN. What, must our mouths be cold?</p>
+      <p>GONZALO. The king and prince at prayers! let&#39;s assist them, For our case is as theirs.</p>
+      <p>SEBASTIAN. I&#39;m out of patience.</p>
+      <p>ANTONIO. We are merely cheated of our lives by drunkards: This wide-chapp&#39;d rascal--would thou mightst lie drowning The washing of ten tides!</p>
+      <p>GONZALO. He&#39;ll be hang&#39;d yet, Though every drop of water swear against it And gape at widest to glut him.</p>
+      <p>[A confused noise within: &#39;Mercy on us!&#39;-- &#39;We split, we split!&#39;--&#39;Farewell, my wife and children!&#39;-- &#39;Farewell, brother!&#39;--&#39;We split, we split, we split!&#39;]</p>
+      <p>ANTONIO. Let&#39;s all sink with the king.</p>
+      <p>SEBASTIAN. Let&#39;s take leave of him.</p>
+      <p>[Exeunt ANTONIO and SEBASTIAN]</p>
+      <p>GONZALO. Now would I give a thousand furlongs of sea for an acre of barren ground, long heath, brown furze, any thing. The wills above be done! but I would fain die a dry death.</p>
+      <p>[Exeunt]</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/the-tempest/chapter-1">Act 1, Scene 1 — On a Ship at Sea</a></li>
 <li><a href="/read/the-tempest/chapter-2">Act 1, Scene 2 — The Island, Before Prospero&#39;s Cell</a></li>
 <li><a href="/read/the-tempest/chapter-3">Act 2, Scene 1 — Another Part of the Island</a></li>
@@ -93,7 +129,9 @@
 <li><a href="/read/the-tempest/chapter-8">Act 4, Scene 1 — Before Prospero&#39;s Cell</a></li>
 <li><a href="/read/the-tempest/chapter-9">Act 5, Scene 1 — Before Prospero&#39;s Cell</a></li>
 <li><a href="/read/the-tempest/chapter-10">Epilogue — Spoken by Prospero</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read The Tempest free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

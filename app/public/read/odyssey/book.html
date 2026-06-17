@@ -14,38 +14,74 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/odyssey#book","name":"The Odyssey","author":{"@type":"Person","name":"Homer"},"description":"The epic journey of Odysseus as he struggles to return home after the Trojan War. Monsters, gods, and the endurance of the human spirit across twenty years of wandering.","url":"https://tinct.app/read/odyssey","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/odyssey?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>The Odyssey</h1>
-  <p class="dek">by Homer</p>
-  <p>The epic journey of Odysseus as he struggles to return home after the Trojan War. Monsters, gods, and the endurance of the human spirit across twenty years of wandering.</p>
-  <a class="cta" href="/read/odyssey?chapter=1">Start reading in Tinct</a>
-  <h2>Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors</h2>
-  <p>Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home; but do what he might he could not save his men, for they perished through their own sheer folly in eating the cattle of the Sun-god Hyperion; so the god prevented them from ever reaching home. Tell me, too, about all these things, oh daughter of Jove, from whatsoever source you may know them.</p>
-  <p>So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him. But as years went by, there came a time when the gods settled that he should go back to Ithaca; even then, however, when he was among his own people, his troubles were not yet over; nevertheless all the gods had now begun to pity him except Neptune, who still persecuted him without ceasing and would not let him get home.</p>
-  <p>Now Neptune had gone off to the Ethiopians, who are at the world’s end, and lie in two halves, the one looking West and the other East. He had gone there to accept a hecatomb of sheep and oxen, and was enjoying himself at his festival; but the other gods met in the house of Olympian Jove, and the sire of gods and men spoke first. At that moment he was thinking of Aegisthus, who had been killed by Agamemnon’s son Orestes; so he said to the other gods:</p>
-  <p>“See now, how men lay blame upon us gods for what is after all nothing but their own folly. Look at Aegisthus; he must needs make love to Agamemnon’s wife unrighteously and then kill Agamemnon, though he knew it would be the death of him; for I sent Mercury to warn him not to do either of these things, inasmuch as Orestes would be sure to take his revenge when he grew up and wanted to return home. Mercury told him this in all good will but he would not listen, and now he has paid for everything in full.”</p>
-  <p>Then Minerva said, “Father, son of Saturn, King of kings, it served Aegisthus right, and so it would any one else who does as he did; but Aegisthus is neither here nor there; it is for Ulysses that my heart bleeds, when I think of his sufferings in that lonely sea-girt island, far away, poor man, from all his friends. It is an island covered with forest, in the very middle of the sea, and a goddess lives there, daughter of the magician Atlas, who looks after the bottom of the ocean, and carries the great columns that keep heaven and earth asunder. This daughter of Atlas has got hold of poor unhappy Ulysses, and keeps trying by every kind of blandishment to make him forget his home, so that he is tired of life, and thinks of nothing but how he may once more see the smoke of his own chimneys. You, sir, take no heed of this, and yet when Ulysses was before Troy did he not propitiate you with many a burnt sacrifice? Why then should you keep on being so angry with him?”</p>
-  <p>And Jove said, “My child, what are you talking about? How can I forget Ulysses than whom there is no more capable man on earth, nor more liberal in his offerings to the immortal gods that live in heaven? Bear in mind, however, that Neptune is still furious with Ulysses for...</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>The Odyssey</h1>
+    <p class="dek">by Homer</p>
+    <p class="description">The epic journey of Odysseus as he struggles to return home after the Trojan War. Monsters, gods, and the endurance of the human spirit across twenty years of wandering.</p>
+    <a class="cta" href="/read/odyssey?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors</h2>
+      <p>Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home; but do what he might he could not save his men, for they perished through their own sheer folly in eating the cattle of the Sun-god Hyperion; so the god prevented them from ever reaching home. Tell me, too, about all these things, oh daughter of Jove, from whatsoever source you may know them.</p>
+      <p>So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him. But as years went by, there came a time when the gods settled that he should go back to Ithaca; even then, however, when he was among his own people, his troubles were not yet over; nevertheless all the gods had now begun to pity him except Neptune, who still persecuted him without ceasing and would not let him get home.</p>
+      <p>Now Neptune had gone off to the Ethiopians, who are at the world’s end, and lie in two halves, the one looking West and the other East. He had gone there to accept a hecatomb of sheep and oxen, and was enjoying himself at his festival; but the other gods met in the house of Olympian Jove, and the sire of gods and men spoke first. At that moment he was thinking of Aegisthus, who had been killed by Agamemnon’s son Orestes; so he said to the other gods:</p>
+      <p>“See now, how men lay blame upon us gods for what is after all nothing but their own folly. Look at Aegisthus; he must needs make love to Agamemnon’s wife unrighteously and then kill Agamemnon, though he knew it would be the death of him; for I sent Mercury to warn him not to do either of these things, inasmuch as Orestes would be sure to take his revenge when he grew up and wanted to return home. Mercury told him this in all good will but he would not listen, and now he has paid for everything in full.”</p>
+      <p>Then Minerva said, “Father, son of Saturn, King of kings, it served Aegisthus right, and so it would any one else who does as he did; but Aegisthus is neither here nor there; it is for Ulysses that my heart bleeds, when I think of his sufferings in that lonely sea-girt island, far away, poor man, from all his friends. It is an island covered with forest, in the very middle of the sea, and a goddess lives there, daughter of the magician Atlas, who looks after the bottom of the ocean, and carries the great columns that keep heaven and earth asunder. This daughter of Atlas has got hold of poor unhappy Ulysses, and keeps trying by every kind of blandishment to make him forget his home, so that he is tired of life, and thinks of nothing but how he may once more see the smoke of his own chimneys. You, sir, take no heed of this, and yet when Ulysses was before Troy did he not propitiate you with many a burnt sacrifice? Why then should you keep on being so angry with him?”</p>
+      <p>And Jove said, “My child, what are you talking about? How can I forget Ulysses than whom there is no more capable man on earth, nor more liberal in his offerings to the immortal gods that live in heaven? Bear in mind, however, that Neptune is still furious with Ulysses for...</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/odyssey/chapter-1">Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors</a></li>
 <li><a href="/read/odyssey/chapter-2">Book 2 — Assembly of the people of Ithaca—speeches of Telemachus and of the suitors—Telemachus makes his preparations and starts for Pylos with Minerva disguised as Mentor</a></li>
 <li><a href="/read/odyssey/chapter-3">Book 3 — Telemachus visits Nestor at Pylos</a></li>
@@ -70,7 +106,9 @@
 <li><a href="/read/odyssey/chapter-22">Book 22 — The killing of the suitors—the maids who have misconducted themselves are made to cleanse the cloisters and are then hanged</a></li>
 <li><a href="/read/odyssey/chapter-23">Book 23 — Penelope eventually recognises her husband—early in the morning Ulysses, Telemachus, Eumaeus, and Philoetius leave the town</a></li>
 <li><a href="/read/odyssey/chapter-24">Book 24 — The ghosts of the suitors in Hades—Ulysses and his men go to the house of Laertes—the people of Ithaca come out to attack Ulysses, but Minerva concludes a peace</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read The Odyssey free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

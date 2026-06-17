@@ -14,39 +14,75 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/imitation-of-christ#book","name":"The Imitation of Christ","author":{"@type":"Person","name":"Thomas à Kempis"},"description":"The most widely read Christian devotional work after the Bible. In 114 short chapters, Thomas à Kempis counsels the reader toward humility, inner peace, and the practice of following Christ in daily life.","url":"https://tinct.app/read/imitation-of-christ","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/imitation-of-christ?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>The Imitation of Christ</h1>
-  <p class="dek">by Thomas à Kempis</p>
-  <p>The most widely read Christian devotional work after the Bible. In 114 short chapters, Thomas à Kempis counsels the reader toward humility, inner peace, and the practice of following Christ in daily life.</p>
-  <a class="cta" href="/read/imitation-of-christ?chapter=1">Start reading in Tinct</a>
-  <h2>Chapter 1</h2>
-  <p>Of the imitation of Christ, and of contempt of the world and all its vanities</p>
-  <p>_He that followeth me shall not walk in darkness_,(1) saith the Lord. These are the words of Christ; and they teach us how far we must imitate His life and character, if we seek true illumination, and deliverance from all blindness of heart. Let it be our most earnest study, therefore, to dwell upon the life of Jesus Christ.</p>
-  <p>2. His teaching surpasseth all teaching of holy men, and such as have His Spirit find therein the hidden manna.(2) But there are many who, though they frequently hear the Gospel, yet feel but little longing after it, because they have not the mind of Christ. He, therefore, that will fully and with true wisdom understand the words of Christ, let him strive to conform his whole life to that mind of Christ.</p>
-  <p>3. What doth it profit thee to enter into deep discussion concerning the Holy Trinity, if thou lack humility, and be thus displeasing to the Trinity? For verily it is not deep words that make a man holy and upright; it is a good life which maketh a man dear to God. I had rather feel contrition than be skilful in the definition thereof. If thou knewest the whole Bible, and the sayings of all the philosophers, what should all this profit thee without the love and grace of God? Vanity of vanities, all is vanity, save to love God, and Him only to serve. That is the highest wisdom, to cast the world behind us, and to reach forward to the heavenly kingdom.</p>
-  <p>4. It is vanity then to seek after, and to trust in, the riches that shall perish. It is vanity, too, to covet honours, and to lift up ourselves on high. It is vanity to follow the desires of the flesh and be led by them, for this shall bring misery at the last. It is vanity to desire a long life, and to have little care for a good life. It is vanity to take thought only for the life which now is, and not to look forward to the things which shall be hereafter. It is vanity to love that which quickly passeth away, and not to hasten where eternal joy abideth.</p>
-  <p>5. Be ofttimes mindful of the saying,(3) The eye is not satisfied with seeing, nor the ear with hearing. Strive, therefore, to turn away thy heart from the love of the things that are seen, and to set it upon the things that are not seen. For they who follow after their own fleshly lusts, defile the conscience, and destroy the grace of God.</p>
-  <p>(1) John viii. 12. (2) Revelations ii. 17. (3) Ecclesiastes i. 8.</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>The Imitation of Christ</h1>
+    <p class="dek">by Thomas à Kempis</p>
+    <p class="description">The most widely read Christian devotional work after the Bible. In 114 short chapters, Thomas à Kempis counsels the reader toward humility, inner peace, and the practice of following Christ in daily life.</p>
+    <a class="cta" href="/read/imitation-of-christ?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Chapter 1</h2>
+      <p>Of the imitation of Christ, and of contempt of the world and all its vanities</p>
+      <p>_He that followeth me shall not walk in darkness_,(1) saith the Lord. These are the words of Christ; and they teach us how far we must imitate His life and character, if we seek true illumination, and deliverance from all blindness of heart. Let it be our most earnest study, therefore, to dwell upon the life of Jesus Christ.</p>
+      <p>2. His teaching surpasseth all teaching of holy men, and such as have His Spirit find therein the hidden manna.(2) But there are many who, though they frequently hear the Gospel, yet feel but little longing after it, because they have not the mind of Christ. He, therefore, that will fully and with true wisdom understand the words of Christ, let him strive to conform his whole life to that mind of Christ.</p>
+      <p>3. What doth it profit thee to enter into deep discussion concerning the Holy Trinity, if thou lack humility, and be thus displeasing to the Trinity? For verily it is not deep words that make a man holy and upright; it is a good life which maketh a man dear to God. I had rather feel contrition than be skilful in the definition thereof. If thou knewest the whole Bible, and the sayings of all the philosophers, what should all this profit thee without the love and grace of God? Vanity of vanities, all is vanity, save to love God, and Him only to serve. That is the highest wisdom, to cast the world behind us, and to reach forward to the heavenly kingdom.</p>
+      <p>4. It is vanity then to seek after, and to trust in, the riches that shall perish. It is vanity, too, to covet honours, and to lift up ourselves on high. It is vanity to follow the desires of the flesh and be led by them, for this shall bring misery at the last. It is vanity to desire a long life, and to have little care for a good life. It is vanity to take thought only for the life which now is, and not to look forward to the things which shall be hereafter. It is vanity to love that which quickly passeth away, and not to hasten where eternal joy abideth.</p>
+      <p>5. Be ofttimes mindful of the saying,(3) The eye is not satisfied with seeing, nor the ear with hearing. Strive, therefore, to turn away thy heart from the love of the things that are seen, and to set it upon the things that are not seen. For they who follow after their own fleshly lusts, defile the conscience, and destroy the grace of God.</p>
+      <p>(1) John viii. 12. (2) Revelations ii. 17. (3) Ecclesiastes i. 8.</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/imitation-of-christ/chapter-1">Chapter 1</a></li>
 <li><a href="/read/imitation-of-christ/chapter-2">Chapter 2</a></li>
 <li><a href="/read/imitation-of-christ/chapter-3">Chapter 3</a></li>
@@ -161,7 +197,9 @@
 <li><a href="/read/imitation-of-christ/chapter-112">Chapter 16</a></li>
 <li><a href="/read/imitation-of-christ/chapter-113">Chapter 17</a></li>
 <li><a href="/read/imitation-of-christ/chapter-114">Chapter 18</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read The Imitation of Christ free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

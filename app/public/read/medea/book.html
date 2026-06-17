@@ -14,39 +14,75 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/medea#book","name":"Medea","author":{"@type":"Person","name":"Euripides"},"description":"Medea has given up everything for Jason — her father, her country, her brother — and now he is leaving her for a princess of Corinth. Her revenge will be calibrated to destroy what he loves most. The play that gave us a heroine more terrifying than any villain.","url":"https://tinct.app/read/medea","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/medea?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>Medea</h1>
-  <p class="dek">by Euripides</p>
-  <p>Medea has given up everything for Jason — her father, her country, her brother — and now he is leaving her for a princess of Corinth. Her revenge will be calibrated to destroy what he loves most. The play that gave us a heroine more terrifying than any villain.</p>
-  <a class="cta" href="/read/medea?chapter=1">Start reading in Tinct</a>
-  <h2>Prologue</h2>
-  <p>_The Scene represents the front of_ MEDEA&#39;S _House in Corinth. A road to the right leads towards the royal castle, one on the left to the harbour. The_ NURSE _is discovered alone_. [_The_ CHILDREN _and their_ ATTENDANT _come in_.</p>
-  <p>NURSE. Would God no Argo e&#39;er had winged the seas To Colchis through the blue Symplegades: No shaft of riven pine in Pelion&#39;s glen Shaped that first oar-blade in the hands of men Valiant, who won, to save King Pelias&#39; vow, The fleece All-golden! Never then, I trow, Mine own princess, her spirit wounded sore With love of Jason, to the encastled shore Had sailed of old Iolcos: never wrought The daughters of King Pelias, knowing not, To spill their father&#39;s life: nor fled in fear, Hunted for that fierce sin, to Corinth here With Jason and her babes. This folk at need Stood friend to her, and she in word and deed Served alway Jason. Surely this doth bind, Through all ill days, the hurts of humankind, When man and woman in one music move. But now, the world is angry, and true love Sick as with poison. Jason doth forsake My mistress and his own two sons, to make His couch in a king&#39;s chamber. He must wed: Wed with this Creon&#39;s child, who now is head And chief of Corinth. Wherefore sore betrayed Medea calleth up the oath they made, They two, and wakes the clasped hands again, The troth surpassing speech, and cries amain On God in heaven to mark the end, and how Jason hath paid his debt. All fasting now And cold, her body yielded up to pain, Her days a waste of weeping, she hath lain, Since first she knew that he was false. Her eyes Are lifted not; and all her visage lies In the dust. If friends will speak, she hears no more Than some dead rock or wave that beats the shore: Only the white throat in a sudden shame May writhe, and all alone she moans the name Of father, and land, and home, forsook that day For this man&#39;s sake, who casteth her away. Not to be quite shut out from home . . . alas, She knoweth now how rare a thing that was! Methinks she hath a dread, not joy, to see Her children near. &#39;Tis this that maketh me Most tremble, lest she do I know not what. Her heart is no light thing, and useth not To brook much wrong. I know that woman, aye, And dread her! Will she creep alone to die Bleeding in that old room, where still is laid Lord Jason&#39;s bed? She hath for that a blade Made keen. Or slay the bridegroom and the king, And win herself God knows what direr thing? &#39;Tis a fell spirit. Few, I ween, shall stir Her hate unscathed, or lightly humble her. Ha! &#39;Tis the children from their games again, Rested and gay; and all their mother&#39;s pain Forgotten! Young lives ever turn from gloom!</p>
-  <p>ATTENDANT. Thou ancient treasure of my lady&#39;s room, What mak&#39;st thou here before the gates alone, And alway turning on thy lips some moan Of old mischances? Will our mistress be Content, this long time to be left by thee?</p>
-  <p>NURSE. Grey guard of Jason&#39;s children, a good thrall Hath his own grief, if any hurt befall His masters. Aye, it holds one&#39;s heart! . . . Meseems I have strayed out so deep in evil dreams, I longed to rest me here alone, and cry Medea&#39;s wrongs to this still Earth and Sky.</p>
-  <p>ATTENDANT. How? Are the tears yet running in her eyes?</p>
-  <p>NURSE. &#39;Twere good to be like thee! . . . Her sorrow lies Scarce wakened yet, not half its perils wrought. [_He moves towards the house, but the_ NURSE _checks him_.</p>
-  <p>ATTENDANT. Mad spirit! . . . if a man may speak his...</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>Medea</h1>
+    <p class="dek">by Euripides</p>
+    <p class="description">Medea has given up everything for Jason — her father, her country, her brother — and now he is leaving her for a princess of Corinth. Her revenge will be calibrated to destroy what he loves most. The play that gave us a heroine more terrifying than any villain.</p>
+    <a class="cta" href="/read/medea?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Prologue</h2>
+      <p>_The Scene represents the front of_ MEDEA&#39;S _House in Corinth. A road to the right leads towards the royal castle, one on the left to the harbour. The_ NURSE _is discovered alone_. [_The_ CHILDREN _and their_ ATTENDANT _come in_.</p>
+      <p>NURSE. Would God no Argo e&#39;er had winged the seas To Colchis through the blue Symplegades: No shaft of riven pine in Pelion&#39;s glen Shaped that first oar-blade in the hands of men Valiant, who won, to save King Pelias&#39; vow, The fleece All-golden! Never then, I trow, Mine own princess, her spirit wounded sore With love of Jason, to the encastled shore Had sailed of old Iolcos: never wrought The daughters of King Pelias, knowing not, To spill their father&#39;s life: nor fled in fear, Hunted for that fierce sin, to Corinth here With Jason and her babes. This folk at need Stood friend to her, and she in word and deed Served alway Jason. Surely this doth bind, Through all ill days, the hurts of humankind, When man and woman in one music move. But now, the world is angry, and true love Sick as with poison. Jason doth forsake My mistress and his own two sons, to make His couch in a king&#39;s chamber. He must wed: Wed with this Creon&#39;s child, who now is head And chief of Corinth. Wherefore sore betrayed Medea calleth up the oath they made, They two, and wakes the clasped hands again, The troth surpassing speech, and cries amain On God in heaven to mark the end, and how Jason hath paid his debt. All fasting now And cold, her body yielded up to pain, Her days a waste of weeping, she hath lain, Since first she knew that he was false. Her eyes Are lifted not; and all her visage lies In the dust. If friends will speak, she hears no more Than some dead rock or wave that beats the shore: Only the white throat in a sudden shame May writhe, and all alone she moans the name Of father, and land, and home, forsook that day For this man&#39;s sake, who casteth her away. Not to be quite shut out from home . . . alas, She knoweth now how rare a thing that was! Methinks she hath a dread, not joy, to see Her children near. &#39;Tis this that maketh me Most tremble, lest she do I know not what. Her heart is no light thing, and useth not To brook much wrong. I know that woman, aye, And dread her! Will she creep alone to die Bleeding in that old room, where still is laid Lord Jason&#39;s bed? She hath for that a blade Made keen. Or slay the bridegroom and the king, And win herself God knows what direr thing? &#39;Tis a fell spirit. Few, I ween, shall stir Her hate unscathed, or lightly humble her. Ha! &#39;Tis the children from their games again, Rested and gay; and all their mother&#39;s pain Forgotten! Young lives ever turn from gloom!</p>
+      <p>ATTENDANT. Thou ancient treasure of my lady&#39;s room, What mak&#39;st thou here before the gates alone, And alway turning on thy lips some moan Of old mischances? Will our mistress be Content, this long time to be left by thee?</p>
+      <p>NURSE. Grey guard of Jason&#39;s children, a good thrall Hath his own grief, if any hurt befall His masters. Aye, it holds one&#39;s heart! . . . Meseems I have strayed out so deep in evil dreams, I longed to rest me here alone, and cry Medea&#39;s wrongs to this still Earth and Sky.</p>
+      <p>ATTENDANT. How? Are the tears yet running in her eyes?</p>
+      <p>NURSE. &#39;Twere good to be like thee! . . . Her sorrow lies Scarce wakened yet, not half its perils wrought. [_He moves towards the house, but the_ NURSE _checks him_.</p>
+      <p>ATTENDANT. Mad spirit! . . . if a man may speak his...</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/medea/chapter-1">Prologue</a></li>
 <li><a href="/read/medea/chapter-2">Parodos</a></li>
 <li><a href="/read/medea/chapter-3">First Episode</a></li>
@@ -54,7 +90,9 @@
 <li><a href="/read/medea/chapter-5">Third Episode</a></li>
 <li><a href="/read/medea/chapter-6">Fourth Episode</a></li>
 <li><a href="/read/medea/chapter-7">Exodos</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read Medea free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

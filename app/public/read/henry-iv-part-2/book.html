@@ -14,61 +14,97 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/henry-iv-part-2#book","name":"Henry IV, Part 2","author":{"@type":"Person","name":"William Shakespeare"},"description":"Hal's coronation looms. The dying king mistakes the prince's grief for greed and rages against him. Falstaff rides toward London to claim the favor of the new king — and gets one of the most devastating dismissals in English: I know thee not, old man.","url":"https://tinct.app/read/henry-iv-part-2","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/henry-iv-part-2?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>Henry IV, Part 2</h1>
-  <p class="dek">by William Shakespeare</p>
-  <p>Hal&#39;s coronation looms. The dying king mistakes the prince&#39;s grief for greed and rages against him. Falstaff rides toward London to claim the favor of the new king — and gets one of the most devastating dismissals in English: I know thee not, old man.</p>
-  <a class="cta" href="/read/henry-iv-part-2?chapter=1">Start reading in Tinct</a>
-  <h2>Act 1, Scene 1 — The same</h2>
-  <p>Enter Lord Bardolph.</p>
-  <p>LORD BARDOLPH. Who keeps the gate here, ho?</p>
-  <p>The Porter opens the gate.</p>
-  <p>Where is the Earl?</p>
-  <p>PORTER. What shall I say you are?</p>
-  <p>LORD BARDOLPH. Tell thou the Earl That the Lord Bardolph doth attend him here.</p>
-  <p>PORTER. His lordship is walk’d forth into the orchard. Please it your honour knock but at the gate, And he himself will answer.</p>
-  <p>Enter Northumberland.</p>
-  <p>LORD BARDOLPH. Here comes the Earl.</p>
-  <p>[_Exit Porter._]</p>
-  <p>NORTHUMBERLAND. What news, Lord Bardolph? Every minute now Should be the father of some stratagem. The times are wild; contention, like a horse Full of high feeding, madly hath broke loose And bears down all before him.</p>
-  <p>LORD BARDOLPH. Noble earl, I bring you certain news from Shrewsbury.</p>
-  <p>NORTHUMBERLAND. Good, an God will!</p>
-  <p>LORD BARDOLPH. As good as heart can wish. The King is almost wounded to the death; And, in the fortune of my lord your son, Prince Harry slain outright; and both the Blunts Kill’d by the hand of Douglas; young Prince John And Westmoreland and Stafford fled the field; And Harry Monmouth’s brawn, the hulk Sir John, Is prisoner to your son. O, such a day, So fought, so follow’d and so fairly won, Came not till now to dignify the times Since Caesar’s fortunes!</p>
-  <p>NORTHUMBERLAND. How is this derived? Saw you the field? Came you from Shrewsbury?</p>
-  <p>LORD BARDOLPH. I spake with one, my lord, that came from thence, A gentleman well bred and of good name, That freely render’d me these news for true.</p>
-  <p>NORTHUMBERLAND. Here comes my servant Travers, whom I sent On Tuesday last to listen after news.</p>
-  <p>Enter Travers.</p>
-  <p>LORD BARDOLPH. My lord, I over-rode him on the way, And he is furnish’d with no certainties More than he haply may retail from me.</p>
-  <p>NORTHUMBERLAND. Now, Travers, what good tidings comes with you?</p>
-  <p>TRAVERS. My lord, Sir John Umfrevile turn’d me back With joyful tidings, and, being better horsed, Out-rode me. After him came spurring hard A gentleman, almost forspent with speed, That stopp’d by me to breathe his bloodied horse. He ask’d the way to Chester, and of him I did demand what news from Shrewsbury. He told me that rebellion had bad luck And that young Harry Percy’s spur was cold. With that he gave his able horse the head, And bending forward struck his armed heels Against the panting sides of his poor jade Up to the rowel-head, and starting so He seem’d in running to devour the way, Staying no longer question.</p>
-  <p>NORTHUMBERLAND. Ha? Again: Said he young Harry Percy’s spur was cold? Of Hotspur, Coldspur? That rebellion Had met ill luck?</p>
-  <p>LORD BARDOLPH. My lord, I’ll tell you what: If my young lord your son have not the day, Upon mine honour, for a silken point I’ll give my barony, never talk of it.</p>
-  <p>NORTHUMBERLAND. Why should that gentleman that rode by Travers Give then such instances of loss?</p>
-  <p>LORD BARDOLPH. Who, he? He was some hilding fellow that had stolen The horse he rode on, and, upon my life, Spoke at a venture. Look, here comes more news.</p>
-  <p>Enter Morton.</p>
-  <p>NORTHUMBERLAND. Yea, this man’s brow, like to a title-leaf, Foretells the nature of a tragic volume. So looks the strand whereon the imperious flood Hath left a witness’d usurpation. Say, Morton, didst thou come from Shrewsbury?</p>
-  <p>MORTON. I ran from Shrewsbury, my noble lord, Where hateful death put on his ugliest mask To fright our party.</p>
-  <p>NORTHUMBERLAND. How doth my son and brother? Thou tremblest, and the whiteness in thy cheek Is apter than thy tongue to tell thy errand. Even such a man, so faint, so spiritless, So dull, so dread in look, so woe-begone, Drew Priam’s curtain in the dead of night, And would have told him half his Troy was burnt; But Priam found the fire ere he his tongue, And I my Percy’s death ere thou report’st it....</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>Henry IV, Part 2</h1>
+    <p class="dek">by William Shakespeare</p>
+    <p class="description">Hal&#39;s coronation looms. The dying king mistakes the prince&#39;s grief for greed and rages against him. Falstaff rides toward London to claim the favor of the new king — and gets one of the most devastating dismissals in English: I know thee not, old man.</p>
+    <a class="cta" href="/read/henry-iv-part-2?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Act 1, Scene 1 — The same</h2>
+      <p>Enter Lord Bardolph.</p>
+      <p>LORD BARDOLPH. Who keeps the gate here, ho?</p>
+      <p>The Porter opens the gate.</p>
+      <p>Where is the Earl?</p>
+      <p>PORTER. What shall I say you are?</p>
+      <p>LORD BARDOLPH. Tell thou the Earl That the Lord Bardolph doth attend him here.</p>
+      <p>PORTER. His lordship is walk’d forth into the orchard. Please it your honour knock but at the gate, And he himself will answer.</p>
+      <p>Enter Northumberland.</p>
+      <p>LORD BARDOLPH. Here comes the Earl.</p>
+      <p>[_Exit Porter._]</p>
+      <p>NORTHUMBERLAND. What news, Lord Bardolph? Every minute now Should be the father of some stratagem. The times are wild; contention, like a horse Full of high feeding, madly hath broke loose And bears down all before him.</p>
+      <p>LORD BARDOLPH. Noble earl, I bring you certain news from Shrewsbury.</p>
+      <p>NORTHUMBERLAND. Good, an God will!</p>
+      <p>LORD BARDOLPH. As good as heart can wish. The King is almost wounded to the death; And, in the fortune of my lord your son, Prince Harry slain outright; and both the Blunts Kill’d by the hand of Douglas; young Prince John And Westmoreland and Stafford fled the field; And Harry Monmouth’s brawn, the hulk Sir John, Is prisoner to your son. O, such a day, So fought, so follow’d and so fairly won, Came not till now to dignify the times Since Caesar’s fortunes!</p>
+      <p>NORTHUMBERLAND. How is this derived? Saw you the field? Came you from Shrewsbury?</p>
+      <p>LORD BARDOLPH. I spake with one, my lord, that came from thence, A gentleman well bred and of good name, That freely render’d me these news for true.</p>
+      <p>NORTHUMBERLAND. Here comes my servant Travers, whom I sent On Tuesday last to listen after news.</p>
+      <p>Enter Travers.</p>
+      <p>LORD BARDOLPH. My lord, I over-rode him on the way, And he is furnish’d with no certainties More than he haply may retail from me.</p>
+      <p>NORTHUMBERLAND. Now, Travers, what good tidings comes with you?</p>
+      <p>TRAVERS. My lord, Sir John Umfrevile turn’d me back With joyful tidings, and, being better horsed, Out-rode me. After him came spurring hard A gentleman, almost forspent with speed, That stopp’d by me to breathe his bloodied horse. He ask’d the way to Chester, and of him I did demand what news from Shrewsbury. He told me that rebellion had bad luck And that young Harry Percy’s spur was cold. With that he gave his able horse the head, And bending forward struck his armed heels Against the panting sides of his poor jade Up to the rowel-head, and starting so He seem’d in running to devour the way, Staying no longer question.</p>
+      <p>NORTHUMBERLAND. Ha? Again: Said he young Harry Percy’s spur was cold? Of Hotspur, Coldspur? That rebellion Had met ill luck?</p>
+      <p>LORD BARDOLPH. My lord, I’ll tell you what: If my young lord your son have not the day, Upon mine honour, for a silken point I’ll give my barony, never talk of it.</p>
+      <p>NORTHUMBERLAND. Why should that gentleman that rode by Travers Give then such instances of loss?</p>
+      <p>LORD BARDOLPH. Who, he? He was some hilding fellow that had stolen The horse he rode on, and, upon my life, Spoke at a venture. Look, here comes more news.</p>
+      <p>Enter Morton.</p>
+      <p>NORTHUMBERLAND. Yea, this man’s brow, like to a title-leaf, Foretells the nature of a tragic volume. So looks the strand whereon the imperious flood Hath left a witness’d usurpation. Say, Morton, didst thou come from Shrewsbury?</p>
+      <p>MORTON. I ran from Shrewsbury, my noble lord, Where hateful death put on his ugliest mask To fright our party.</p>
+      <p>NORTHUMBERLAND. How doth my son and brother? Thou tremblest, and the whiteness in thy cheek Is apter than thy tongue to tell thy errand. Even such a man, so faint, so spiritless, So dull, so dread in look, so woe-begone, Drew Priam’s curtain in the dead of night, And would have told him half his Troy was burnt; But Priam found the fire ere he his tongue, And I my Percy’s death ere thou report’st it....</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/henry-iv-part-2/chapter-1">Act 1, Scene 1 — The same</a></li>
 <li><a href="/read/henry-iv-part-2/chapter-2">Act 1, Scene 2 — London. A street</a></li>
 <li><a href="/read/henry-iv-part-2/chapter-3">Act 1, Scene 3 — York. The Archbishop’s palace</a></li>
@@ -88,7 +124,9 @@
 <li><a href="/read/henry-iv-part-2/chapter-17">Act 5, Scene 3 — Gloucestershire. Shallow’s orchard</a></li>
 <li><a href="/read/henry-iv-part-2/chapter-18">Act 5, Scene 4 — London. A street</a></li>
 <li><a href="/read/henry-iv-part-2/chapter-19">Act 5, Scene 5 — A public place near Westminster Abbey</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read Henry IV, Part 2 free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

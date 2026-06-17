@@ -14,60 +14,96 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/as-you-like-it#book","name":"As You Like It","author":{"@type":"Person","name":"William Shakespeare"},"description":"Rosalind, exiled from her uncle's court, escapes to the Forest of Arden disguised as a boy and meets the man she loves, who doesn't recognize her. The play that gave us \"All the world's a stage\" and the model of pastoral comedy.","url":"https://tinct.app/read/as-you-like-it","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/as-you-like-it?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>As You Like It</h1>
-  <p class="dek">by William Shakespeare</p>
-  <p>Rosalind, exiled from her uncle&#39;s court, escapes to the Forest of Arden disguised as a boy and meets the man she loves, who doesn&#39;t recognize her. The play that gave us &quot;All the world&#39;s a stage&quot; and the model of pastoral comedy.</p>
-  <a class="cta" href="/read/as-you-like-it?chapter=1">Start reading in Tinct</a>
-  <h2>Act 1, Scene 2</h2>
-  <p>A lawn before the DUKE&#39;S palace</p>
-  <p>Enter ROSALIND and CELIA</p>
-  <p>CELIA. I pray thee, Rosalind, sweet my coz, be merry.</p>
-  <p>ROSALIND. Dear Celia, I show more mirth than I am mistress of; and would you yet I were merrier? Unless you could teach me to forget a banished father, you must not learn me how to remember any extraordinary pleasure.</p>
-  <p>CELIA. Herein I see thou lov&#39;st me not with the full weight that I love thee. If my uncle, thy banished father, had banished thy uncle, the Duke my father, so thou hadst been still with me, I could have taught my love to take thy father for mine; so wouldst thou, if the truth of thy love to me were so righteously temper&#39;d as mine is to thee.</p>
-  <p>ROSALIND. Well, I will forget the condition of my estate, to rejoice in yours.</p>
-  <p>CELIA. You know my father hath no child but I, nor none is like to have; and, truly, when he dies thou shalt be his heir; for what he hath taken away from thy father perforce, I will render thee again in affection. By mine honour, I will; and when I break that oath, let me turn monster; therefore, my sweet Rose, my dear Rose, be merry.</p>
-  <p>ROSALIND. From henceforth I will, coz, and devise sports. Let me see; what think you of falling in love?</p>
-  <p>CELIA. Marry, I prithee, do, to make sport withal; but love no man in good earnest, nor no further in sport neither than with safety of a pure blush thou mayst in honour come off again.</p>
-  <p>ROSALIND. What shall be our sport, then?</p>
-  <p>CELIA. Let us sit and mock the good housewife Fortune from her wheel, that her gifts may henceforth be bestowed equally.</p>
-  <p>ROSALIND. I would we could do so; for her benefits are mightily misplaced; and the bountiful blind woman doth most mistake in her gifts to women.</p>
-  <p>CELIA. &#39;Tis true; for those that she makes fair she scarce makes honest; and those that she makes honest she makes very ill-favouredly.</p>
-  <p>ROSALIND. Nay; now thou goest from Fortune&#39;s office to Nature&#39;s: Fortune reigns in gifts of the world, not in the lineaments of Nature.</p>
-  <p>Enter TOUCHSTONE</p>
-  <p>CELIA. No; when Nature hath made a fair creature, may she not by Fortune fall into the fire? Though Nature hath given us wit to flout at Fortune, hath not Fortune sent in this fool to cut off the argument?</p>
-  <p>ROSALIND. Indeed, there is Fortune too hard for Nature, when Fortune makes Nature&#39;s natural the cutter-off of Nature&#39;s wit.</p>
-  <p>CELIA. Peradventure this is not Fortune&#39;s work neither, but Nature&#39;s, who perceiveth our natural wits too dull to reason of such goddesses, and hath sent this natural for our whetstone; for always the dullness of the fool is the whetstone of the wits. How now, wit! Whither wander you?</p>
-  <p>TOUCHSTONE. Mistress, you must come away to your father.</p>
-  <p>CELIA. Were you made the messenger?</p>
-  <p>TOUCHSTONE. No, by mine honour; but I was bid to come for you.</p>
-  <p>ROSALIND. Where learned you that oath, fool?</p>
-  <p>TOUCHSTONE. Of a certain knight that swore by his honour they were good pancakes, and swore by his honour the mustard was naught. Now I&#39;ll stand to it, the pancakes were naught and the mustard was good, and yet was not the knight forsworn.</p>
-  <p>CELIA. How prove you that, in the great heap of your knowledge?</p>
-  <p>ROSALIND. Ay, marry, now unmuzzle your wisdom.</p>
-  <p>TOUCHSTONE. Stand you both forth now: stroke your chins, and swear by your beards that I am a knave.</p>
-  <p>CELIA. By our beards, if we had them, thou art.</p>
-  <p>TOUCHSTONE. By my knavery, if I had it, then I were. But if you swear by that that is not, you are not forsworn; no more was this knight, swearing by his honour, for he never had any; or if he had, he had sworn it away before...</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>As You Like It</h1>
+    <p class="dek">by William Shakespeare</p>
+    <p class="description">Rosalind, exiled from her uncle&#39;s court, escapes to the Forest of Arden disguised as a boy and meets the man she loves, who doesn&#39;t recognize her. The play that gave us &quot;All the world&#39;s a stage&quot; and the model of pastoral comedy.</p>
+    <a class="cta" href="/read/as-you-like-it?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Act 1, Scene 2</h2>
+      <p>A lawn before the DUKE&#39;S palace</p>
+      <p>Enter ROSALIND and CELIA</p>
+      <p>CELIA. I pray thee, Rosalind, sweet my coz, be merry.</p>
+      <p>ROSALIND. Dear Celia, I show more mirth than I am mistress of; and would you yet I were merrier? Unless you could teach me to forget a banished father, you must not learn me how to remember any extraordinary pleasure.</p>
+      <p>CELIA. Herein I see thou lov&#39;st me not with the full weight that I love thee. If my uncle, thy banished father, had banished thy uncle, the Duke my father, so thou hadst been still with me, I could have taught my love to take thy father for mine; so wouldst thou, if the truth of thy love to me were so righteously temper&#39;d as mine is to thee.</p>
+      <p>ROSALIND. Well, I will forget the condition of my estate, to rejoice in yours.</p>
+      <p>CELIA. You know my father hath no child but I, nor none is like to have; and, truly, when he dies thou shalt be his heir; for what he hath taken away from thy father perforce, I will render thee again in affection. By mine honour, I will; and when I break that oath, let me turn monster; therefore, my sweet Rose, my dear Rose, be merry.</p>
+      <p>ROSALIND. From henceforth I will, coz, and devise sports. Let me see; what think you of falling in love?</p>
+      <p>CELIA. Marry, I prithee, do, to make sport withal; but love no man in good earnest, nor no further in sport neither than with safety of a pure blush thou mayst in honour come off again.</p>
+      <p>ROSALIND. What shall be our sport, then?</p>
+      <p>CELIA. Let us sit and mock the good housewife Fortune from her wheel, that her gifts may henceforth be bestowed equally.</p>
+      <p>ROSALIND. I would we could do so; for her benefits are mightily misplaced; and the bountiful blind woman doth most mistake in her gifts to women.</p>
+      <p>CELIA. &#39;Tis true; for those that she makes fair she scarce makes honest; and those that she makes honest she makes very ill-favouredly.</p>
+      <p>ROSALIND. Nay; now thou goest from Fortune&#39;s office to Nature&#39;s: Fortune reigns in gifts of the world, not in the lineaments of Nature.</p>
+      <p>Enter TOUCHSTONE</p>
+      <p>CELIA. No; when Nature hath made a fair creature, may she not by Fortune fall into the fire? Though Nature hath given us wit to flout at Fortune, hath not Fortune sent in this fool to cut off the argument?</p>
+      <p>ROSALIND. Indeed, there is Fortune too hard for Nature, when Fortune makes Nature&#39;s natural the cutter-off of Nature&#39;s wit.</p>
+      <p>CELIA. Peradventure this is not Fortune&#39;s work neither, but Nature&#39;s, who perceiveth our natural wits too dull to reason of such goddesses, and hath sent this natural for our whetstone; for always the dullness of the fool is the whetstone of the wits. How now, wit! Whither wander you?</p>
+      <p>TOUCHSTONE. Mistress, you must come away to your father.</p>
+      <p>CELIA. Were you made the messenger?</p>
+      <p>TOUCHSTONE. No, by mine honour; but I was bid to come for you.</p>
+      <p>ROSALIND. Where learned you that oath, fool?</p>
+      <p>TOUCHSTONE. Of a certain knight that swore by his honour they were good pancakes, and swore by his honour the mustard was naught. Now I&#39;ll stand to it, the pancakes were naught and the mustard was good, and yet was not the knight forsworn.</p>
+      <p>CELIA. How prove you that, in the great heap of your knowledge?</p>
+      <p>ROSALIND. Ay, marry, now unmuzzle your wisdom.</p>
+      <p>TOUCHSTONE. Stand you both forth now: stroke your chins, and swear by your beards that I am a knave.</p>
+      <p>CELIA. By our beards, if we had them, thou art.</p>
+      <p>TOUCHSTONE. By my knavery, if I had it, then I were. But if you swear by that that is not, you are not forsworn; no more was this knight, swearing by his honour, for he never had any; or if he had, he had sworn it away before...</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/as-you-like-it/chapter-1">Act 1, Scene 2</a></li>
 <li><a href="/read/as-you-like-it/chapter-2">Act 1, Scene 3</a></li>
 <li><a href="/read/as-you-like-it/chapter-3">Act 1, Scene 2</a></li>
@@ -85,7 +121,9 @@
 <li><a href="/read/as-you-like-it/chapter-15">Act 1, Scene 2</a></li>
 <li><a href="/read/as-you-like-it/chapter-16">Act 1, Scene 3</a></li>
 <li><a href="/read/as-you-like-it/chapter-17">Act 1, Scene 4</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read As You Like It free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

@@ -14,40 +14,76 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/candide#book","name":"Candide","author":{"@type":"Person","name":"Voltaire"},"description":"Voltaire's attack on Leibnizian optimism. A young man is tutored in the belief that this is \"the best of all possible worlds\" — then the world systematically dismantles that belief through earthquake, war, plague, Inquisition, and the slave trade. Ends with the most famous closing line in the Enlightenment: \"we must cultivate our garden.\"","url":"https://tinct.app/read/candide","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/candide?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>Candide</h1>
-  <p class="dek">by Voltaire</p>
-  <p>Voltaire&#39;s attack on Leibnizian optimism. A young man is tutored in the belief that this is &quot;the best of all possible worlds&quot; — then the world systematically dismantles that belief through earthquake, war, plague, Inquisition, and the slave trade. Ends with the most famous closing line in the Enlightenment: &quot;we must cultivate our garden.&quot;</p>
-  <a class="cta" href="/read/candide?chapter=1">Start reading in Tinct</a>
-  <h2>Chapter 1 — How Candide Was Brought Up in a Magnificent Castle, and How He Was Expelled Thence</h2>
-  <p>In a castle of Westphalia, belonging to the Baron of Thunder-ten-Tronckh, lived a youth, whom nature had endowed with the most gentle manners. His countenance was a true picture of his soul. He combined a true judgment with simplicity of spirit, which was the reason, I apprehend, of his being called Candide. The old servants of the family suspected him to have been the son of the Baron&#39;s sister, by a good, honest gentleman of the neighborhood, whom that young lady would never marry because he had been able to prove only seventy-one quarterings, the rest of his genealogical tree having been lost through the injuries of time.</p>
-  <p>The Baron was one of the most powerful lords in Westphalia, for his castle had not only a gate, but windows. His great hall, even, was hung with tapestry. All the dogs of his farm-yards formed a pack of hounds at need; his grooms were his huntsmen; and the curate of the village was his grand almoner. They called him &quot;My Lord,&quot; and laughed at all his stories.</p>
-  <p>The Baron&#39;s lady weighed about three hundred and fifty pounds, and was therefore a person of great consideration, and she did the honours of the house with a dignity that commanded still greater respect. Her daughter Cunegonde was seventeen years of age, fresh-coloured, comely, plump, and desirable. The Baron&#39;s son seemed to be in every respect worthy of his father. The Preceptor Pangloss[1] was the oracle of the family, and little Candide heard his lessons with all the good faith of his age and character.</p>
-  <p>Pangloss was professor of metaphysico-theologico-cosmolo-nigology. He proved admirably that there is no effect without a cause, and that, in this best of all possible worlds, the Baron&#39;s castle was the most magnificent of castles, and his lady the best of all possible Baronesses.</p>
-  <p>&quot;It is demonstrable,&quot; said he, &quot;that things cannot be otherwise than as they are; for all being created for an end, all is necessarily for the best end. Observe, that the nose has been formed to bear spectacles--thus we have spectacles. Legs are visibly designed for stockings--and we have stockings. Stones were made to be hewn, and to construct castles--therefore my lord has a magnificent castle; for the greatest baron in the province ought to be the best lodged. Pigs were made to be eaten--therefore we eat pork all the year round. Consequently they who assert that all is well have said a foolish thing, they should have said all is for the best.&quot;</p>
-  <p>Candide listened attentively and believed innocently; for he thought Miss Cunegonde extremely beautiful, though he never had the courage to tell her so. He concluded that after the happiness of being born of Baron of Thunder-ten-Tronckh, the second degree of happiness was to be Miss Cunegonde, the third that of seeing her every day, and the fourth that of hearing Master Pangloss, the greatest philosopher of the whole province, and consequently of the whole world.</p>
-  <p>One day Cunegonde, while walking near the castle, in a little wood which they called a park, saw between the bushes, Dr. Pangloss giving a lesson in experimental natural philosophy to her mother&#39;s chamber-maid, a little brown wench, very pretty and very docile. As Miss Cunegonde had a great disposition for the sciences, she breathlessly observed the repeated experiments of which she was a witness; she clearly perceived the force of the Doctor&#39;s reasons, the effects, and the causes; she turned back greatly flurried, quite pensive, and filled with the desire to be learned; dreaming that she might well be a _sufficient reason_ for young Candide, and he for her.</p>
-  <p>She met Candide on reaching the castle and blushed; Candide blushed also; she wished him good morrow in a faltering tone, and Candide spoke to her without knowing what he said. The next day after dinner, as they went from table, Cunegonde and Candide found themselves behind...</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>Candide</h1>
+    <p class="dek">by Voltaire</p>
+    <p class="description">Voltaire&#39;s attack on Leibnizian optimism. A young man is tutored in the belief that this is &quot;the best of all possible worlds&quot; — then the world systematically dismantles that belief through earthquake, war, plague, Inquisition, and the slave trade. Ends with the most famous closing line in the Enlightenment: &quot;we must cultivate our garden.&quot;</p>
+    <a class="cta" href="/read/candide?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Chapter 1 — How Candide Was Brought Up in a Magnificent Castle, and How He Was Expelled Thence</h2>
+      <p>In a castle of Westphalia, belonging to the Baron of Thunder-ten-Tronckh, lived a youth, whom nature had endowed with the most gentle manners. His countenance was a true picture of his soul. He combined a true judgment with simplicity of spirit, which was the reason, I apprehend, of his being called Candide. The old servants of the family suspected him to have been the son of the Baron&#39;s sister, by a good, honest gentleman of the neighborhood, whom that young lady would never marry because he had been able to prove only seventy-one quarterings, the rest of his genealogical tree having been lost through the injuries of time.</p>
+      <p>The Baron was one of the most powerful lords in Westphalia, for his castle had not only a gate, but windows. His great hall, even, was hung with tapestry. All the dogs of his farm-yards formed a pack of hounds at need; his grooms were his huntsmen; and the curate of the village was his grand almoner. They called him &quot;My Lord,&quot; and laughed at all his stories.</p>
+      <p>The Baron&#39;s lady weighed about three hundred and fifty pounds, and was therefore a person of great consideration, and she did the honours of the house with a dignity that commanded still greater respect. Her daughter Cunegonde was seventeen years of age, fresh-coloured, comely, plump, and desirable. The Baron&#39;s son seemed to be in every respect worthy of his father. The Preceptor Pangloss[1] was the oracle of the family, and little Candide heard his lessons with all the good faith of his age and character.</p>
+      <p>Pangloss was professor of metaphysico-theologico-cosmolo-nigology. He proved admirably that there is no effect without a cause, and that, in this best of all possible worlds, the Baron&#39;s castle was the most magnificent of castles, and his lady the best of all possible Baronesses.</p>
+      <p>&quot;It is demonstrable,&quot; said he, &quot;that things cannot be otherwise than as they are; for all being created for an end, all is necessarily for the best end. Observe, that the nose has been formed to bear spectacles--thus we have spectacles. Legs are visibly designed for stockings--and we have stockings. Stones were made to be hewn, and to construct castles--therefore my lord has a magnificent castle; for the greatest baron in the province ought to be the best lodged. Pigs were made to be eaten--therefore we eat pork all the year round. Consequently they who assert that all is well have said a foolish thing, they should have said all is for the best.&quot;</p>
+      <p>Candide listened attentively and believed innocently; for he thought Miss Cunegonde extremely beautiful, though he never had the courage to tell her so. He concluded that after the happiness of being born of Baron of Thunder-ten-Tronckh, the second degree of happiness was to be Miss Cunegonde, the third that of seeing her every day, and the fourth that of hearing Master Pangloss, the greatest philosopher of the whole province, and consequently of the whole world.</p>
+      <p>One day Cunegonde, while walking near the castle, in a little wood which they called a park, saw between the bushes, Dr. Pangloss giving a lesson in experimental natural philosophy to her mother&#39;s chamber-maid, a little brown wench, very pretty and very docile. As Miss Cunegonde had a great disposition for the sciences, she breathlessly observed the repeated experiments of which she was a witness; she clearly perceived the force of the Doctor&#39;s reasons, the effects, and the causes; she turned back greatly flurried, quite pensive, and filled with the desire to be learned; dreaming that she might well be a _sufficient reason_ for young Candide, and he for her.</p>
+      <p>She met Candide on reaching the castle and blushed; Candide blushed also; she wished him good morrow in a faltering tone, and Candide spoke to her without knowing what he said. The next day after dinner, as they went from table, Cunegonde and Candide found themselves behind...</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/candide/chapter-1">Chapter 1 — How Candide Was Brought Up in a Magnificent Castle, and How He Was Expelled Thence</a></li>
 <li><a href="/read/candide/chapter-2">Chapter 2 — What Became of Candide Among the Bulgarians</a></li>
 <li><a href="/read/candide/chapter-3">Chapter 3 — How Candide Made His Escape from the Bulgarians, and What Afterwards Became of Him</a></li>
@@ -78,7 +114,9 @@
 <li><a href="/read/candide/chapter-28">Chapter 28 — What Happened to Candide, Cunegonde, Pangloss, Martin, Etc</a></li>
 <li><a href="/read/candide/chapter-29">Chapter 29 — How Candide Found Cunegonde and the Old Woman Again</a></li>
 <li><a href="/read/candide/chapter-30">Chapter 30 — The Conclusion</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read Candide free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

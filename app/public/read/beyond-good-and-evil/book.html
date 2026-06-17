@@ -14,33 +14,69 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/beyond-good-and-evil#book","name":"Beyond Good and Evil","author":{"@type":"Person","name":"Friedrich Nietzsche"},"description":"Nietzsche at his most corrosive and most exhilarating. A frontal attack on the dogmas of philosophers, the pieties of Christianity, and the democratic instinct — and a sketch of the \"free spirit\" who would live beyond the old moral categories. Master-morality, slave-morality, the will to power, and the question: what is noble?","url":"https://tinct.app/read/beyond-good-and-evil","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/beyond-good-and-evil?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>Beyond Good and Evil</h1>
-  <p class="dek">by Friedrich Nietzsche</p>
-  <p>Nietzsche at his most corrosive and most exhilarating. A frontal attack on the dogmas of philosophers, the pieties of Christianity, and the democratic instinct — and a sketch of the &quot;free spirit&quot; who would live beyond the old moral categories. Master-morality, slave-morality, the will to power, and the question: what is noble?</p>
-  <a class="cta" href="/read/beyond-good-and-evil?chapter=1">Start reading in Tinct</a>
-  <h2>Preface</h2>
-  <p>SUPPOSING that Truth is a woman--what then? Is there not ground for suspecting that all philosophers, in so far as they have been dogmatists, have failed to understand women--that the terrible seriousness and clumsy importunity with which they have usually paid their addresses to Truth, have been unskilled and unseemly methods for winning a woman? Certainly she has never allowed herself to be won; and at present every kind of dogma stands with sad and discouraged mien--IF, indeed, it stands at all! For there are scoffers who maintain that it has fallen, that all dogma lies on the ground--nay more, that it is at its last gasp. But to speak seriously, there are good grounds for hoping that all dogmatizing in philosophy, whatever solemn, whatever conclusive and decided airs it has assumed, may have been only a noble puerilism and tyronism; and probably the time is at hand when it will be once and again understood WHAT has actually sufficed for the basis of such imposing and absolute philosophical edifices as the dogmatists have hitherto reared: perhaps some popular superstition of immemorial time (such as the soul-superstition, which, in the form of subject- and ego-superstition, has not yet ceased doing mischief): perhaps some play upon words, a deception on the part of grammar, or an audacious generalization of very restricted, very personal, very human--all-too-human facts. The philosophy of the dogmatists, it is to be hoped, was only a promise for thousands of years afterwards, as was astrology in still earlier times, in the service of which probably more labour, gold, acuteness, and patience have been spent than on any actual science hitherto: we owe to it, and to its &quot;super-terrestrial&quot; pretensions in Asia and Egypt, the grand style of architecture. It seems that in order to inscribe themselves upon the heart of humanity with everlasting claims, all great things have first to wander about the earth as enormous and awe-inspiring caricatures: dogmatic philosophy has been a caricature of this kind--for instance, the Vedanta doctrine in Asia, and Platonism in Europe. Let us not be ungrateful to it, although it must certainly be confessed that the worst, the most tiresome, and the most dangerous of errors hitherto has been a dogmatist error--namely, Plato&#39;s invention of Pure Spirit and the Good in Itself. But now when it has been surmounted, when Europe, rid of this nightmare, can again draw breath freely and at least enjoy a healthier--sleep, we, WHOSE DUTY IS WAKEFULNESS ITSELF, are the heirs of all the strength which the struggle against this error has fostered. It amounted to the very inversion of truth, and the denial of the PERSPECTIVE--the fundamental condition--of life, to speak of Spirit and the Good as Plato spoke of them; indeed one might ask, as a physician: &quot;How did such a malady attack that finest product of antiquity, Plato? Had the wicked Socrates really corrupted him? Was Socrates after all a corrupter of youths, and deserved his hemlock?&quot; But the struggle against Plato, or--to speak plainer, and for the &quot;people&quot;--the struggle against the ecclesiastical oppression of millenniums of Christianity (FOR CHRISTIANITY IS PLATONISM FOR THE &quot;PEOPLE&quot;), produced in Europe a magnificent tension of soul, such as had not existed anywhere previously; with such a tensely strained bow one can now aim at the furthest goals. As a matter of fact, the European feels this tension as a state of distress, and twice attempts have been made in grand style to unbend the bow: once by means of Jesuitism, and the second time by means of democratic enlightenment--which, with the aid of liberty of the press and newspaper-reading, might, in fact, bring it about that the spirit would not so easily find itself in &quot;distress&quot;! (The Germans invented gunpowder--all credit to them! but they again made things square--they invented printing.) But we, who are neither Jesuits, nor democrats, nor even sufficiently Germans, we GOOD EUROPEANS, and...</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>Beyond Good and Evil</h1>
+    <p class="dek">by Friedrich Nietzsche</p>
+    <p class="description">Nietzsche at his most corrosive and most exhilarating. A frontal attack on the dogmas of philosophers, the pieties of Christianity, and the democratic instinct — and a sketch of the &quot;free spirit&quot; who would live beyond the old moral categories. Master-morality, slave-morality, the will to power, and the question: what is noble?</p>
+    <a class="cta" href="/read/beyond-good-and-evil?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>Preface</h2>
+      <p>SUPPOSING that Truth is a woman--what then? Is there not ground for suspecting that all philosophers, in so far as they have been dogmatists, have failed to understand women--that the terrible seriousness and clumsy importunity with which they have usually paid their addresses to Truth, have been unskilled and unseemly methods for winning a woman? Certainly she has never allowed herself to be won; and at present every kind of dogma stands with sad and discouraged mien--IF, indeed, it stands at all! For there are scoffers who maintain that it has fallen, that all dogma lies on the ground--nay more, that it is at its last gasp. But to speak seriously, there are good grounds for hoping that all dogmatizing in philosophy, whatever solemn, whatever conclusive and decided airs it has assumed, may have been only a noble puerilism and tyronism; and probably the time is at hand when it will be once and again understood WHAT has actually sufficed for the basis of such imposing and absolute philosophical edifices as the dogmatists have hitherto reared: perhaps some popular superstition of immemorial time (such as the soul-superstition, which, in the form of subject- and ego-superstition, has not yet ceased doing mischief): perhaps some play upon words, a deception on the part of grammar, or an audacious generalization of very restricted, very personal, very human--all-too-human facts. The philosophy of the dogmatists, it is to be hoped, was only a promise for thousands of years afterwards, as was astrology in still earlier times, in the service of which probably more labour, gold, acuteness, and patience have been spent than on any actual science hitherto: we owe to it, and to its &quot;super-terrestrial&quot; pretensions in Asia and Egypt, the grand style of architecture. It seems that in order to inscribe themselves upon the heart of humanity with everlasting claims, all great things have first to wander about the earth as enormous and awe-inspiring caricatures: dogmatic philosophy has been a caricature of this kind--for instance, the Vedanta doctrine in Asia, and Platonism in Europe. Let us not be ungrateful to it, although it must certainly be confessed that the worst, the most tiresome, and the most dangerous of errors hitherto has been a dogmatist error--namely, Plato&#39;s invention of Pure Spirit and the Good in Itself. But now when it has been surmounted, when Europe, rid of this nightmare, can again draw breath freely and at least enjoy a healthier--sleep, we, WHOSE DUTY IS WAKEFULNESS ITSELF, are the heirs of all the strength which the struggle against this error has fostered. It amounted to the very inversion of truth, and the denial of the PERSPECTIVE--the fundamental condition--of life, to speak of Spirit and the Good as Plato spoke of them; indeed one might ask, as a physician: &quot;How did such a malady attack that finest product of antiquity, Plato? Had the wicked Socrates really corrupted him? Was Socrates after all a corrupter of youths, and deserved his hemlock?&quot; But the struggle against Plato, or--to speak plainer, and for the &quot;people&quot;--the struggle against the ecclesiastical oppression of millenniums of Christianity (FOR CHRISTIANITY IS PLATONISM FOR THE &quot;PEOPLE&quot;), produced in Europe a magnificent tension of soul, such as had not existed anywhere previously; with such a tensely strained bow one can now aim at the furthest goals. As a matter of fact, the European feels this tension as a state of distress, and twice attempts have been made in grand style to unbend the bow: once by means of Jesuitism, and the second time by means of democratic enlightenment--which, with the aid of liberty of the press and newspaper-reading, might, in fact, bring it about that the spirit would not so easily find itself in &quot;distress&quot;! (The Germans invented gunpowder--all credit to them! but they again made things square--they invented printing.) But we, who are neither Jesuits, nor democrats, nor even sufficiently Germans, we GOOD EUROPEANS, and...</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/beyond-good-and-evil/chapter-1">Preface</a></li>
 <li><a href="/read/beyond-good-and-evil/chapter-2">Chapter 1 — Prejudices of Philosophers</a></li>
 <li><a href="/read/beyond-good-and-evil/chapter-3">Chapter 2 — The Free Spirit</a></li>
@@ -52,7 +88,9 @@
 <li><a href="/read/beyond-good-and-evil/chapter-9">Chapter 8 — Peoples and Countries</a></li>
 <li><a href="/read/beyond-good-and-evil/chapter-10">Chapter 9 — What Is Noble?</a></li>
 <li><a href="/read/beyond-good-and-evil/chapter-11">From the Heights (Poem)</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read Beyond Good and Evil free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>

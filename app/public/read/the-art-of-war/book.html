@@ -14,63 +14,99 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/the-art-of-war#book","name":"The Art of War","author":{"@type":"Person","name":"Sun Tzu"},"description":"Thirteen chapters on strategy, deception, and the nature of conflict — written 2,500 years ago, still the sharpest manual on how to win without fighting.","url":"https://tinct.app/read/the-art-of-war","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #251f1a; background: #fbf7ef; line-height: 1.65; }
-    main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
-    nav, .kicker, .cta, footer { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .kicker { color: #756453; font-size: 0.9rem; margin: 0 0 8px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: 0; }
-    h2 { font-size: 1.45rem; line-height: 1.2; margin: 36px 0 12px; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #261f18; background: #f7f1e7; line-height: 1.62; }
+    a { color: #713722; }
+    .topbar { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; border-bottom: 1px solid #ded4c5; background: #f3ecdf; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .brand { color: #241e18; font-family: Georgia, 'Times New Roman', serif; font-size: 1.18rem; font-weight: 700; text-decoration: none; }
+    .brand span { color: #8a735d; font-weight: 400; }
+    .top-actions { display: flex; align-items: center; gap: 16px; font-size: 0.86rem; }
+    .top-actions a { color: #5f554b; text-decoration: none; }
+    .top-actions .open-link { color: #713722; font-weight: 650; }
+    main { max-width: 1060px; margin: 0 auto; padding: 34px 24px 66px; }
+    .hero { border-bottom: 1px solid #dfd4c5; padding: 0 0 26px; }
+    .kicker, .cta, footer, .chapters, .meta-line { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .kicker { color: #7f6e5c; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.08em; margin: 0 0 8px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.02; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); line-height: 1.18; margin: 0 0 18px; }
     p { font-size: 1.08rem; margin: 0 0 1rem; }
-    a { color: #6f3322; }
-    .dek { color: #51463d; font-size: 1.15rem; }
-    .cta { display: inline-block; margin: 18px 0 24px; padding: 10px 14px; border: 1px solid #6f3322; border-radius: 6px; text-decoration: none; background: #fffaf2; }
-    ol { padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    footer { border-top: 1px solid #e3d7c8; margin-top: 40px; padding-top: 18px; color: #756453; font-size: 0.9rem; }
+    .dek { color: #67594c; font-size: 1.08rem; margin-bottom: 22px; }
+    .description { color: #312920; font-size: 1.08rem; max-width: 760px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; min-height: 42px; padding: 0 16px; border: 1px solid #713722; border-radius: 7px; color: #fff; text-decoration: none; background: #713722; font-weight: 650; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 54px; align-items: start; padding-top: 34px; }
+    article { max-width: 720px; }
+    article p { font-size: 1.06rem; }
+    .chapters { position: sticky; top: 18px; border-left: 1px solid #e0d5c6; padding-left: 22px; }
+    .chapters h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; margin: 0 0 12px; }
+    ol { list-style: decimal; margin: 0; max-height: 70vh; overflow: auto; padding-left: 1.25rem; }
+    li { color: #8a7a68; font-size: 0.9rem; margin: 0.35rem 0; padding-left: 0.15rem; }
+    li a { text-decoration: none; }
+    li a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid #dfd4c5; margin-top: 44px; padding-top: 18px; color: #746657; font-size: 0.9rem; }
+    @media (max-width: 820px) {
+      .topbar { padding: 0 14px; }
+      .top-actions { gap: 10px; }
+      .top-actions a:not(.open-link) { display: none; }
+      main { padding: 26px 18px 52px; }
+      .layout { display: block; padding-top: 28px; }
+      .chapters { position: static; border-left: 0; border-top: 1px solid #dfd4c5; margin-top: 34px; padding: 22px 0 0; }
+      ol { max-height: none; }
+    }
   </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/">Tinct<span>.</span></a>
+  <nav class="top-actions" aria-label="Book navigation">
+    <a href="/read/">Library</a>
+    <a class="open-link" href="/read/the-art-of-war?chapter=1">Open reader</a>
+  </nav>
+</header>
 <main>
-  <nav><a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Free online book</p>
-  <h1>The Art of War</h1>
-  <p class="dek">by Sun Tzu</p>
-  <p>Thirteen chapters on strategy, deception, and the nature of conflict — written 2,500 years ago, still the sharpest manual on how to win without fighting.</p>
-  <a class="cta" href="/read/the-art-of-war?chapter=1">Start reading in Tinct</a>
-  <h2>I — Laying Plans</h2>
-  <p>1. Sun Tzŭ said: The art of war is of vital importance to the State.</p>
-  <p>2. It is a matter of life and death, a road either to safety or to ruin. Hence it is a subject of inquiry which can on no account be neglected.</p>
-  <p>3. The art of war, then, is governed by five constant factors, to be taken into account in one’s deliberations, when seeking to determine the conditions obtaining in the field.</p>
-  <p>4. These are: (1) The Moral Law; (2) Heaven; (3) Earth; (4) The Commander; (5) Method and discipline.</p>
-  <p>5, 6. The Moral Law causes the people to be in complete accord with their ruler, so that they will follow him regardless of their lives, undismayed by any danger.</p>
-  <p>7. Heaven signifies night and day, cold and heat, times and seasons.</p>
-  <p>8. Earth comprises distances, great and small; danger and security; open ground and narrow passes; the chances of life and death.</p>
-  <p>9. The Commander stands for the virtues of wisdom, sincerity, benevolence, courage and strictness.</p>
-  <p>10. By Method and discipline are to be understood the marshalling of the army in its proper subdivisions, the gradations of rank among the officers, the maintenance of roads by which supplies may reach the army, and the control of military expenditure.</p>
-  <p>11. These five heads should be familiar to every general: he who knows them will be victorious; he who knows them not will fail.</p>
-  <p>12. Therefore, in your deliberations, when seeking to determine the military conditions, let them be made the basis of a comparison, in this wise:—</p>
-  <p>13. (1) Which of the two sovereigns is imbued with the Moral law?</p>
-  <p>(2) Which of the two generals has most ability? (3) With whom lie the advantages derived from Heaven and Earth?</p>
-  <p>(4) On which side is discipline most rigorously enforced? (5) Which army is the stronger?</p>
-  <p>(6) On which side are officers and men more highly trained?</p>
-  <p>(7) In which army is there the greater constancy both in reward and punishment?</p>
-  <p>14. By means of these seven considerations I can forecast victory or defeat.</p>
-  <p>15. The general that hearkens to my counsel and acts upon it, will conquer:—let such a one be retained in command! The general that hearkens not to my counsel nor acts upon it, will suffer defeat:—let such a one be dismissed!</p>
-  <p>16. While heeding the profit of my counsel, avail yourself also of any helpful circumstances over and beyond the ordinary rules.</p>
-  <p>17. According as circumstances are favourable, one should modify one’s plans.</p>
-  <p>18. All warfare is based on deception.</p>
-  <p>19. Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near.</p>
-  <p>20. Hold out baits to entice the enemy. Feign disorder, and crush him.</p>
-  <p>21. If he is secure at all points, be prepared for him. If he is in superior strength, evade him.</p>
-  <p>22. If your opponent is of choleric temper, seek to irritate him. Pretend to be weak, that he may grow arrogant.</p>
-  <p>23. If he is taking his ease, give him no rest.</p>
-  <p>If his forces are united, separate them.</p>
-  <p>24. Attack him where he is unprepared, appear where you are not expected.</p>
-  <p>25. These military devices, leading to victory, must not be divulged beforehand.</p>
-  <p>26. Now the general who wins a battle makes many calculations in his temple ere the battle is fought.</p>
-  <p>The general who loses a battle makes but few calculations beforehand. Thus do many calculations lead to victory, and few calculations to defeat: how much more no calculation at all! It is by attention to this point that I can foresee who is likely to win or lose.</p>
-  <h2>Chapters</h2>
-  <ol>
+  <section class="hero">
+    <p class="kicker">Free online book</p>
+    <h1>The Art of War</h1>
+    <p class="dek">by Sun Tzu</p>
+    <p class="description">Thirteen chapters on strategy, deception, and the nature of conflict — written 2,500 years ago, still the sharpest manual on how to win without fighting.</p>
+    <a class="cta" href="/read/the-art-of-war?chapter=1">Start reading in Tinct</a>
+  </section>
+  <div class="layout">
+    <article>
+      <h2>I — Laying Plans</h2>
+      <p>1. Sun Tzŭ said: The art of war is of vital importance to the State.</p>
+      <p>2. It is a matter of life and death, a road either to safety or to ruin. Hence it is a subject of inquiry which can on no account be neglected.</p>
+      <p>3. The art of war, then, is governed by five constant factors, to be taken into account in one’s deliberations, when seeking to determine the conditions obtaining in the field.</p>
+      <p>4. These are: (1) The Moral Law; (2) Heaven; (3) Earth; (4) The Commander; (5) Method and discipline.</p>
+      <p>5, 6. The Moral Law causes the people to be in complete accord with their ruler, so that they will follow him regardless of their lives, undismayed by any danger.</p>
+      <p>7. Heaven signifies night and day, cold and heat, times and seasons.</p>
+      <p>8. Earth comprises distances, great and small; danger and security; open ground and narrow passes; the chances of life and death.</p>
+      <p>9. The Commander stands for the virtues of wisdom, sincerity, benevolence, courage and strictness.</p>
+      <p>10. By Method and discipline are to be understood the marshalling of the army in its proper subdivisions, the gradations of rank among the officers, the maintenance of roads by which supplies may reach the army, and the control of military expenditure.</p>
+      <p>11. These five heads should be familiar to every general: he who knows them will be victorious; he who knows them not will fail.</p>
+      <p>12. Therefore, in your deliberations, when seeking to determine the military conditions, let them be made the basis of a comparison, in this wise:—</p>
+      <p>13. (1) Which of the two sovereigns is imbued with the Moral law?</p>
+      <p>(2) Which of the two generals has most ability? (3) With whom lie the advantages derived from Heaven and Earth?</p>
+      <p>(4) On which side is discipline most rigorously enforced? (5) Which army is the stronger?</p>
+      <p>(6) On which side are officers and men more highly trained?</p>
+      <p>(7) In which army is there the greater constancy both in reward and punishment?</p>
+      <p>14. By means of these seven considerations I can forecast victory or defeat.</p>
+      <p>15. The general that hearkens to my counsel and acts upon it, will conquer:—let such a one be retained in command! The general that hearkens not to my counsel nor acts upon it, will suffer defeat:—let such a one be dismissed!</p>
+      <p>16. While heeding the profit of my counsel, avail yourself also of any helpful circumstances over and beyond the ordinary rules.</p>
+      <p>17. According as circumstances are favourable, one should modify one’s plans.</p>
+      <p>18. All warfare is based on deception.</p>
+      <p>19. Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near.</p>
+      <p>20. Hold out baits to entice the enemy. Feign disorder, and crush him.</p>
+      <p>21. If he is secure at all points, be prepared for him. If he is in superior strength, evade him.</p>
+      <p>22. If your opponent is of choleric temper, seek to irritate him. Pretend to be weak, that he may grow arrogant.</p>
+      <p>23. If he is taking his ease, give him no rest.</p>
+      <p>If his forces are united, separate them.</p>
+      <p>24. Attack him where he is unprepared, appear where you are not expected.</p>
+      <p>25. These military devices, leading to victory, must not be divulged beforehand.</p>
+      <p>26. Now the general who wins a battle makes many calculations in his temple ere the battle is fought.</p>
+      <p>The general who loses a battle makes but few calculations beforehand. Thus do many calculations lead to victory, and few calculations to defeat: how much more no calculation at all! It is by attention to this point that I can foresee who is likely to win or lose.</p>
+    </article>
+    <aside class="chapters" aria-label="Chapters">
+      <h2>Chapters</h2>
+      <ol>
 <li><a href="/read/the-art-of-war/chapter-1">I — Laying Plans</a></li>
 <li><a href="/read/the-art-of-war/chapter-2">II — Waging War</a></li>
 <li><a href="/read/the-art-of-war/chapter-3">III — Attack by Stratagem</a></li>
@@ -84,7 +120,9 @@
 <li><a href="/read/the-art-of-war/chapter-11">XI — The Nine Situations</a></li>
 <li><a href="/read/the-art-of-war/chapter-12">XII — The Attack by Fire</a></li>
 <li><a href="/read/the-art-of-war/chapter-13">XIII — The Use of Spies</a></li>
-  </ol>
+      </ol>
+    </aside>
+  </div>
   <footer>Read The Art of War free online on Tinct, with aligned editions, notes, cast, and an AI reading companion.</footer>
 </main>
 </body>
