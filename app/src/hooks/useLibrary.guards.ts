@@ -22,7 +22,10 @@ function sameIds(a: string[], b: string[]): boolean {
  */
 export function resolveLibraryWrite(existing: string[] | null | undefined, next: string[], mode: LibraryWriteMode): string[] {
   const normalizedNext = unique(next)
-  if (mode !== 'add') return normalizedNext
+  // `replace` is emitted by passive React persistence. It is not evidence of
+  // a user intentionally removing books, so it must not shrink a newer cloud
+  // library held by this stale device.
+  if (mode === 'remove') return normalizedNext
   return unique([...(existing || []), ...normalizedNext])
 }
 

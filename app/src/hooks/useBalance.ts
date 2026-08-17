@@ -32,7 +32,10 @@ export function useBalance(
   user?: User | null,
   options: UseBalanceOptions = {},
 ): UseBalanceReturn {
-  const authPendingForKnownUser = !session && options.authLoading && options.likelyAuthenticated
+  // A cached Supabase session can be temporarily unavailable offline. Keep
+  // that reader in known-user mode so cached library/feed/cast/history do not
+  // turn into an anonymous sign-in funnel.
+  const authPendingForKnownUser = !session && !!options.likelyAuthenticated
   const isAnonymous = !session && !authPendingForKnownUser
 
   const [localDeducted, setLocalDeducted] = useState(0)

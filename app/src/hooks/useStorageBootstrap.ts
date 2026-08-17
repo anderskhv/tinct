@@ -158,9 +158,10 @@ export function useStorageBootstrap(args: {
     }
     setStorageProvider(localStorageProvider)
     supabaseProviderRef.current = null
-    // Anonymous mode: only position/device-preference keys can be written to
-    // localStorage. Everything else is signed-in only.
-    setAnonymousMode(true)
+    // A recently signed-in reader can be offline while Supabase restores its
+    // session. Their local mirror remains their library, including cached
+    // Feed/Cast/chat content; do not demote it to anonymous storage.
+    setAnonymousMode(!likelyAuthenticated)
     setCloudRestoreSettled(true)
     // One-time wipe migration. Devices that accumulated data from before this
     // rule shipped need a clean slate. Flag prevents repeated wipes.

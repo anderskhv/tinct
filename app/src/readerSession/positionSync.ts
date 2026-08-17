@@ -1,6 +1,6 @@
 import { storage } from '../services/storage'
 import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
-import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression } from '../hooks/useReadingPosition.guards'
+import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression, shouldBlockSameChapterRegression } from '../hooks/useReadingPosition.guards'
 import { canPersistLocation, positionFromLocation } from './writer'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from './types'
 
@@ -132,6 +132,19 @@ export function commitReadingPosition(args: PositionCommitInput): PositionCommit
 
   const knownCloudChapter = cloudKnownChapter.get(position.bookId)
   const lastNav = lastUserNavAt.get(position.bookId) ?? 0
+  if (shouldBlockSameChapterRegression({
+    attemptedChapter: position.chapterNumber,
+    attemptedFraction: position.scrollFraction,
+    attemptedParagraphIndex: position.lastParagraphIndex,
+    knownChapter: baseline?.chapterNumber,
+    knownFraction: baseline?.scrollFraction,
+    knownParagraphIndex: baseline?.lastParagraphIndex,
+    lastUserNavAt: lastNav,
+    now,
+    graceMs: USER_NAV_GRACE_MS,
+  })) {
+    return { committed: false, reason: `same-chapter-regression-blocked:${args.cause}`, position, gate }
+  }
   if (shouldBlockRegression({
     attemptedChapter: position.chapterNumber,
     cloudKnownChapter: knownCloudChapter,

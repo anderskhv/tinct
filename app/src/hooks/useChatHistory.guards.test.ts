@@ -128,6 +128,17 @@ describe('useChatHistory book scoping guards', () => {
     expect(written[0].messages.map(m => m.id)).toEqual(['assistant-1'])
   })
 
+  it('keeps an existing history when an invalid cross-book record is attempted', () => {
+    store.set('chat-history:odyssey', [conversation('odyssey')])
+    const { result } = renderHook(() => useChatHistory('odyssey', true, 0))
+
+    act(() => {
+      result.current.recordMessage(message({ id: 'bad', bookId: 'bible' }), 1)
+    })
+
+    expect(store.get('chat-history:odyssey')).toEqual([conversation('odyssey')])
+  })
+
   it('does not expose the previous book conversations during the first render after a book switch', async () => {
     store.set('chat-history:odyssey', [conversation('odyssey')])
 

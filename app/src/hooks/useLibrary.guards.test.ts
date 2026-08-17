@@ -13,6 +13,10 @@ describe('resolveLibraryWrite', () => {
   it('allows deliberate removals to shrink the library', () => {
     expect(resolveLibraryWrite(['bible', 'the-awakening'], ['bible'], 'remove')).toEqual(['bible'])
   })
+
+  it('does not let a passive stale replace shrink the library', () => {
+    expect(resolveLibraryWrite(['bible', 'war-and-peace'], ['bible'], 'replace')).toEqual(['bible', 'war-and-peace'])
+  })
 })
 
 describe('shouldSkipInitialLibraryWrite', () => {

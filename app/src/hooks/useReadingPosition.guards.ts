@@ -42,6 +42,38 @@ export function shouldBlockRegression(args: {
 }
 
 /**
+ * Same-chapter counterpart to `shouldBlockRegression`.
+ *
+ * A reader remount starts at page/paragraph zero before pagination settles.
+ * That is never a useful replacement for a known deeper location unless the
+ * reader has just deliberately navigated there. Keeping this separate from
+ * chapter regression makes the rule testable without conflating chapter and
+ * in-chapter movement.
+ */
+export function shouldBlockSameChapterRegression(args: {
+  attemptedChapter: number
+  attemptedFraction: number
+  attemptedParagraphIndex?: number
+  knownChapter: number | undefined
+  knownFraction: number | undefined
+  knownParagraphIndex?: number
+  lastUserNavAt: number
+  now: number
+  graceMs: number
+}): boolean {
+  const {
+    attemptedChapter, attemptedFraction, attemptedParagraphIndex,
+    knownChapter, knownFraction, knownParagraphIndex, lastUserNavAt, now, graceMs,
+  } = args
+  if (knownChapter === undefined || knownFraction === undefined) return false
+  if (attemptedChapter !== knownChapter) return false
+  if (now - lastUserNavAt <= graceMs) return false
+  const attemptedAtStart = attemptedFraction <= 0.01 && (attemptedParagraphIndex ?? 0) <= 0
+  const knownIsDeeper = knownFraction > 0.03 || (knownParagraphIndex ?? 0) > 0
+  return attemptedAtStart && knownIsDeeper
+}
+
+/**
  * Chapter bounds validation.
  *
  * A chapter index that's <1 or >totalChapters is bogus — almost always a

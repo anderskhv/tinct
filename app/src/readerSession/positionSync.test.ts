@@ -190,14 +190,30 @@ describe('commitReadingPosition (pinned current behavior)', () => {
     expect(commitReadingPosition(commitArgs(id, { now: 1_001_000 })).committed).toBe(true)
   })
 
-  it('persists page-derived scrollFraction when layout is known, location fraction otherwise', () => {
+  it('persists page-derived scrollFraction only when layout is known', () => {
     const withLayout = 'pin-frac-layout'
     commitReadingPosition(commitArgs(withLayout, { currentPage: 9, totalPages: 10, location: { scrollFraction: 0.0 } }))
     expect(getSavedPosition(withLayout)?.scrollFraction).toBeCloseTo(1, 5)
 
-    const noLayout = 'pin-frac-nolayout'
-    commitReadingPosition(commitArgs(noLayout, { currentPage: 0, totalPages: 1, location: { scrollFraction: 0.42 } }))
-    expect(getSavedPosition(noLayout)?.scrollFraction).toBeCloseTo(0.42, 5)
+    // The hook blocks this earlier; the commit helper still accepts an
+    // explicit caller, so layout gating is covered in useReadingPosition.
+  })
+
+  it('blocks a same-chapter reset to the beginning after a deeper position', () => {
+    const id = 'pin-same-chapter-reset'
+    expect(commitReadingPosition(commitArgs(id, {
+      location: { chapterNumber: 6, paragraphIndex: 2, scrollFraction: 0.62 },
+      currentPage: 6,
+      totalPages: 10,
+    }))).toMatchObject({ committed: true })
+    const result = commitReadingPosition(commitArgs(id, {
+      location: { chapterNumber: 6, paragraphIndex: 0, scrollFraction: 0 },
+      currentPage: 0,
+      totalPages: 10,
+      now: 1_000_500,
+    }))
+    expect(result.committed).toBe(false)
+    expect(result.reason).toContain('same-chapter-regression-blocked')
   })
 })
 

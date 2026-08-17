@@ -61,6 +61,15 @@ export function useChatHistory(bookId: string, storageReady = true, heavyLoadedT
   const writeUnlockedRef = useRef(false)
   const persist = useCallback((convs: ChatConversation[]) => {
     if (!storageReady) return
+    // Never turn a failed/early load into a destructive empty write, and
+    // never permit a cross-book conversation to land in this book's blob.
+    if (convs.length === 0 || convs.some(c => c.bookId && c.bookId !== bookId || c.messages.some(m => m.bookId && m.bookId !== bookId))) {
+      appendReaderSessionShadow({
+        kind: 'chat',
+        detail: { rejected: true, reason: 'invalid-history-write', targetBookId: bookId, conversations: convs.length },
+      })
+      return
+    }
     if (!writeUnlockedRef.current) {
       writeUnlockedRef.current = true
       // Still persist — the conversation we're saving is a real user event,

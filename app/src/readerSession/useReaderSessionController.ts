@@ -2,6 +2,7 @@ import { useEffect, useMemo, useReducer, useRef } from 'react'
 import type { MutableRefObject } from 'react'
 import type { Book, EditionData, EditionKey, ReadingPosition } from '../types'
 import { canPersistLocation } from './writer'
+import { paragraphTargetFromPosition } from './controllerGuards'
 import { initialReaderSession, readerSessionReducer } from './reducer'
 import { appendReaderSessionShadow } from './shadow'
 import type { ReaderView } from './types'
@@ -78,7 +79,9 @@ export function useReaderSessionController(args: {
     const restored = canSeedFromSavedPosition
       ? {
           chapterNumber: savedPos.current.chapterNumber,
-          paragraphIndex: savedPos.current.lastParagraphIndex,
+          // Paragraph zero is the default mount state, not a meaningful
+          // restore anchor. Let the stored fraction restore the real place.
+          paragraphIndex: paragraphTargetFromPosition(savedPos.current),
           scrollFraction: savedPos.current.scrollFraction ?? 0,
           editionKey: primaryEditionKey,
           activeView: readerViewFromMobileIndex(activeView),

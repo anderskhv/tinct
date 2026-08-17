@@ -1165,6 +1165,7 @@ body {
 /* ===== Reader ===== */
 .reader {
   flex: 1;
+  min-width: 0;
   overflow-y: auto;
   position: relative;
   /* Suppress native callout/context menu on long press (Safari + Boox WebView) */

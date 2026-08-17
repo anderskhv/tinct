@@ -166,7 +166,7 @@ export default function App() {
 
   // Auth & billing
   const { user, profile, session, isLoading: authLoading, likelyAuthenticated, signUp, signIn, signInWithGoogle, signOut, refreshProfile, resetPassword, updatePassword, isPasswordRecovery, clearPasswordRecovery } = useAuth()
-  const authPendingForKnownUser = authLoading && likelyAuthenticated && !user
+  const authPendingForKnownUser = likelyAuthenticated && !user
   const { messagesRemaining, monthlyRemaining, messageBalance, hasBalance, deductUsage, isAnonymous, isSubscribed } = useBalance(session, profile, user, {
     authLoading,
     likelyAuthenticated,
@@ -1948,9 +1948,10 @@ export default function App() {
         perfMark('primary-data-set')
         perfMeasure('primary-data-set', 'book-switch-start', 'primary-data-set')
         setIsLoading(false)
-        // Safety: if the saved chapter doesn't exist or has no content, reset to chapter 1
+        // A windowed edition intentionally contains only nearby chapters. Do
+        // not mistake a not-yet-loaded target chapter for invalid data.
         const ch = data.chapters.find(c => c.number === currentChapter)
-        if (!ch || ch.paragraphs.length === 0) {
+        if (!isEditionWindowed(data) && (!ch || ch.paragraphs.length === 0)) {
           setCurrentChapter(1)
           setCurrentPage(0)
         }
@@ -1963,7 +1964,7 @@ export default function App() {
         setIsLoading(false)
       })
     return () => { cancelled = true }
-  }, [book.id, primaryEditionKey])
+  }, [book.id, primaryEditionKey, currentChapter])
 
   useEffect(() => {
     if (!showSearch || !primaryData || !isEditionWindowed(primaryData) || searchData) return
@@ -2362,7 +2363,7 @@ export default function App() {
 	  }, [messages, recordMessage, currentChapter, firstVisibleParagraph, book.id])
 
   // Chat message handler — also records to chat history
-  const handleSendMessage = useCallback((content: string, highlightedText?: string) => {
+  const handleSendMessage = useCallback((content: string, highlightedText?: string, displayContent = content) => {
     trackEvent('chat_message_sent', {
       book_id: book.id,
       chapter_number: currentChapter,
@@ -2373,7 +2374,7 @@ export default function App() {
     recordMessage({
       id: `msg_${Date.now()}`,
       role: 'user',
-      content,
+      content: displayContent,
 	      timestamp: Date.now(),
 	      highlightedText,
 	      bookId: book.id,
@@ -2528,7 +2529,7 @@ export default function App() {
     } else if (!preferences.panelOpen) {
       togglePanel()
     }
-    handleSendMessage(reflectPrompt)
+    handleSendMessage(reflectPrompt, undefined, 'Reflect on this chapter')
   }, [chapterTitle, currentChapter, book.id, book.title, user?.id, setPanelTab, isMobile, setActiveView, preferences.panelOpen, togglePanel, handleSendMessage])
 
   const handleAudioPlayStateChange = useCallback((playing: boolean) => {

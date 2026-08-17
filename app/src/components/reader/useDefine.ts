@@ -25,8 +25,11 @@ export function useDefine(): UseDefine {
   const [loading, setLoading] = useState(false)
   const [notFound, setNotFound] = useState(false)
 
+  const normalizeQuery = (q: string) => q.trim()
+    .replace(/^[\s“”"'([{]+|[\s.,;:!?…”"')\]}]+$/g, '')
+
   const run = useCallback((q: string) => {
-    const trimmed = q.trim()
+    const trimmed = normalizeQuery(q)
     if (!trimmed) {
       setResult(null)
       setNotFound(false)
@@ -42,7 +45,7 @@ export function useDefine(): UseDefine {
   }, [])
 
   const begin = useCallback((rawText: string) => {
-    const raw = rawText.trim()
+    const raw = normalizeQuery(rawText)
     const isSingleWord = !/\s/.test(raw)
     setQuery(isSingleWord ? raw : '')
     setResult(null)

@@ -91,11 +91,10 @@ export function useReadingPosition(
     if (!writeUnlockedRef.current) { recordSkip(`locked:${reason}`); return }
     if (s.writeSuspended) { recordSkip(`suspended:${reason}`); return }
     if (!s.readerSession) { recordSkip(`reader-session:missing:${reason}`); return }
-    // We used to skip when totalPages<=1 even on failsafes. That dropped the
-    // last-page save on mobile when the app backgrounded mid-relayout. Now we
-    // still skip page-only writes during layout (no useful page number yet)
-    // but always write chapter+paragraph so cross-device restore has something
-    // to land on.
+    // A one-page layout is transitional during reader mount/reflow. It carries
+    // the default page/paragraph tuple often enough to be destructive, so no
+    // event (including a backgrounding failsafe) may persist it.
+    if (s.totalPages <= 1) { recordSkip(`layout-pending:${reason}`); return }
     const result = commitReadingPosition({
       cause: reason,
       readerSession: s.readerSession,
@@ -167,8 +166,9 @@ export function useReadingPosition(
     }
     const isChapterChange = chapterNumber !== prevChapterRef.current
     prevChapterRef.current = chapterNumber
-    // Skip page-level saves during layout (totalPages <= 1), but always save chapter changes
-    if (totalPages <= 1 && !isChapterChange) return
+    // Never save a chapter transition until pagination has settled. The next
+    // layout emission is authoritative and keeps the tuple coherent.
+    if (totalPages <= 1) return
     saveNow(isChapterChange ? 'chapter-change' : 'page-change')
   }, [bookId, chapterNumber, currentPage, totalPages, storageReady, saveNow, lastParagraphIndex])
 
