@@ -110,22 +110,35 @@ export function isParagraphInBounds(paragraphIndex: number | undefined, paragrap
  * Default-state position detector.
  *
  * Returns true if the position looks like the in-memory React-state default
- * captured before any real navigation: chapter 1, currentPage 0, no paragraph
+ * captured before any real navigation: chapter 1/2, currentPage 0, no paragraph
  * pinned (or the very first paragraph). This is what an anonymous-mode tab
  * writes to localStorage when the user opens a book and doesn't navigate.
  *
  * Used by `shouldMigrateLocalToCloud` to refuse migration of these phantom
  * positions over real cloud values when the user signs back in.
  *
- * Conservative — `lastParagraphIndex <= 2` covers the rare case where the
+ * Conservative — chapter 2 covers Bible/long-book early remounts; `lastParagraphIndex <= 2` covers the rare case where the
  * `targetParagraphRef` saved a tiny number for cosmetic alignment without
  * the user actually reading anywhere.
  */
 export function isDefaultishPosition(p: { chapterNumber: number; currentPage: number; lastParagraphIndex?: number }): boolean {
-  if (p.chapterNumber !== 1) return false
+  if (p.chapterNumber < 1 || p.chapterNumber > 2) return false
   if (p.currentPage !== 0) return false
   if (p.lastParagraphIndex === undefined) return true
   return p.lastParagraphIndex <= 2
+}
+
+export function shouldRecoverEarlyResetFromHistory(args: {
+  position: { chapterNumber: number; currentPage: number; scrollFraction?: number; lastParagraphIndex?: number } | null | undefined
+  historyChapter: number
+  minGap?: number
+}): boolean {
+  const { position, historyChapter, minGap = 25 } = args
+  if (!position) return false
+  if (historyChapter < position.chapterNumber + minGap) return false
+  if (!isDefaultishPosition(position)) return false
+  if ((position.scrollFraction ?? 0) > 0.05) return false
+  return true
 }
 
 /**

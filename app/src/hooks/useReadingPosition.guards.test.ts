@@ -9,6 +9,7 @@ import {
   isParagraphInBounds,
   isDefaultishPosition,
   shouldMigrateLocalToCloud,
+  shouldRecoverEarlyResetFromHistory,
   shouldSkipOnBookChange,
   shouldBlockHistoryRegression,
   shouldCleanupProgress,
@@ -417,8 +418,14 @@ describe('isDefaultishPosition — anonymous-mode default-state detector', () =>
     expect(isDefaultishPosition({ chapterNumber: 1, currentPage: 0, lastParagraphIndex: 5 })).toBe(false)
   })
 
-  it('does not flag any non-chapter-1 position as default', () => {
-    expect(isDefaultishPosition({ chapterNumber: 2, currentPage: 0 })).toBe(false)
+  it('flags chapter 2 page 0 as default-shaped too', () => {
+    // Bible Genesis 2 is the same failure mode as Genesis 1: an early
+    // default/remount position must not overwrite a real deep position.
+    expect(isDefaultishPosition({ chapterNumber: 2, currentPage: 0 })).toBe(true)
+    expect(isDefaultishPosition({ chapterNumber: 2, currentPage: 0, lastParagraphIndex: 2 })).toBe(true)
+  })
+
+  it('does not flag later chapter positions as default', () => {
     expect(isDefaultishPosition({ chapterNumber: 5, currentPage: 0 })).toBe(false)
   })
 
@@ -449,6 +456,12 @@ describe('shouldMigrateLocalToCloud — anonymous-pollution guard', () => {
     expect(shouldMigrateLocalToCloud({ local, cloud: realCloud })).toBe(false)
   })
 
+  it('REFUSES to migrate a Genesis 2-shaped local reset over real Bible progress', () => {
+    const genesis2Reset = { chapterNumber: 2, currentPage: 0, lastParagraphIndex: 1, updatedAt: NOW + 1000 }
+    const ezekielCloud = { chapterNumber: 803, currentPage: 0, lastParagraphIndex: 12, updatedAt: NOW - 86_400_000 }
+    expect(shouldMigrateLocalToCloud({ local: genesis2Reset, cloud: ezekielCloud })).toBe(false)
+  })
+
   it('migrates local over cloud when local is real reading and newer', () => {
     const realLocal = { chapterNumber: 8, currentPage: 1, lastParagraphIndex: 12, updatedAt: NOW + 1000 }
     expect(shouldMigrateLocalToCloud({ local: realLocal, cloud: realCloud })).toBe(true)
@@ -463,6 +476,29 @@ describe('shouldMigrateLocalToCloud — anonymous-pollution guard', () => {
   it('migrates default local over default cloud (no real position to protect)', () => {
     const defaultCloud = { chapterNumber: 1, currentPage: 0, lastParagraphIndex: 2, updatedAt: NOW - 1000 }
     expect(shouldMigrateLocalToCloud({ local, cloud: defaultCloud })).toBe(true) // local is newer
+  })
+})
+
+describe('shouldRecoverEarlyResetFromHistory — Bible early-reset recovery', () => {
+  it('recovers when saved position is an early reset and history is far ahead', () => {
+    expect(shouldRecoverEarlyResetFromHistory({
+      position: { chapterNumber: 2, currentPage: 0, scrollFraction: 0, lastParagraphIndex: 1 },
+      historyChapter: 803,
+    })).toBe(true)
+  })
+
+  it('does not recover for small gaps that may be normal rereading', () => {
+    expect(shouldRecoverEarlyResetFromHistory({
+      position: { chapterNumber: 2, currentPage: 0, scrollFraction: 0, lastParagraphIndex: 1 },
+      historyChapter: 8,
+    })).toBe(false)
+  })
+
+  it('does not recover over a deliberate non-defaultish early position', () => {
+    expect(shouldRecoverEarlyResetFromHistory({
+      position: { chapterNumber: 2, currentPage: 1, scrollFraction: 0.4, lastParagraphIndex: 20 },
+      historyChapter: 803,
+    })).toBe(false)
   })
 })
 

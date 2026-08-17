@@ -1,6 +1,6 @@
 import { storage } from '../services/storage'
 import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
-import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression, shouldBlockSameChapterRegression } from '../hooks/useReadingPosition.guards'
+import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression, shouldBlockSameChapterRegression, shouldRecoverEarlyResetFromHistory } from '../hooks/useReadingPosition.guards'
 import { canPersistLocation, positionFromLocation } from './writer'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from './types'
 
@@ -34,6 +34,47 @@ function getHistoryHighWaterChapter(bookId: string, totalChapters: number): numb
     }
   }
   return highWater
+}
+
+function getHistoryRecoveryChapter(bookId: string, totalChapters = 0): { chapterNumber: number; paragraphIndex?: number; totalParagraphs?: number } | null {
+  let best: { chapterNumber: number; paragraphIndex?: number; totalParagraphs?: number; lastReadAt: number } | null = null
+  const log = storage.get<BookReadingLog>(readingLogKey(bookId))
+  if (log?.bookId === bookId) {
+    for (const record of Object.values(log.chapters)) {
+      if (!record || !Number.isInteger(record.chapterNumber) || record.chapterNumber < 1) continue
+      if (totalChapters > 0 && record.chapterNumber > totalChapters) continue
+      const lastReadAt = typeof record.lastReadAt === 'number' ? record.lastReadAt : 0
+      if (
+        !best ||
+        lastReadAt > best.lastReadAt ||
+        (lastReadAt === best.lastReadAt && record.chapterNumber > best.chapterNumber)
+      ) {
+        best = {
+          chapterNumber: record.chapterNumber,
+          paragraphIndex: record.lastParagraphIndex,
+          totalParagraphs: record.totalParagraphs,
+          lastReadAt,
+        }
+      }
+    }
+  }
+
+  const progress = storage.get<ReadingProgress>(progressKey(bookId))
+  if (progress?.bookId === bookId && progress.highestCompletedChapter > 0) {
+    const nextChapter = totalChapters > 0
+      ? Math.min(progress.highestCompletedChapter + 1, totalChapters)
+      : progress.highestCompletedChapter + 1
+    if (!best || nextChapter > best.chapterNumber) {
+      best = { chapterNumber: nextChapter, lastReadAt: 0 }
+    }
+  }
+
+  if (!best) return null
+  return {
+    chapterNumber: best.chapterNumber,
+    paragraphIndex: best.paragraphIndex,
+    totalParagraphs: best.totalParagraphs,
+  }
 }
 
 const cloudKnownChapter = new Map<string, number>()
@@ -224,6 +265,27 @@ export function commitReadingProgress(args: ProgressCommitInput): ProgressCommit
 
 export function getSavedPosition(bookId: string): ReadingPosition | null {
   return storage.get<ReadingPosition>(positionKey(bookId))
+}
+
+export function getRecoverableSavedPosition(bookId: string, totalChapters = 0): ReadingPosition | null {
+  const position = getSavedPosition(bookId)
+  const recovery = getHistoryRecoveryChapter(bookId, totalChapters)
+  if (!position || !recovery) return position
+  if (!shouldRecoverEarlyResetFromHistory({ position, historyChapter: recovery.chapterNumber })) return position
+
+  const totalParagraphs = recovery.totalParagraphs ?? 0
+  const paragraphIndex = recovery.paragraphIndex
+  const scrollFraction = totalParagraphs > 1 && typeof paragraphIndex === 'number'
+    ? Math.min(1, Math.max(0, paragraphIndex / (totalParagraphs - 1)))
+    : 0
+  return {
+    ...position,
+    chapterNumber: recovery.chapterNumber,
+    currentPage: 0,
+    totalPages: 1,
+    scrollFraction,
+    lastParagraphIndex: paragraphIndex,
+  }
 }
 
 export function getReadingProgress(bookId: string): ReadingProgress | null {

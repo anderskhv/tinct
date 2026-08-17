@@ -14,7 +14,7 @@ import {
 } from '../readerSession/controllerGuards'
 import { readerViewFromMobileIndex } from '../readerSession/useReaderSessionController'
 import type { ReaderBookContext, ReaderSessionEvent } from '../readerSession/types'
-import { getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav } from './useReadingPosition'
+import { getRecoverableSavedPosition, getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav } from './useReadingPosition'
 import { commitReadingProgress } from '../readerSession/positionSync'
 
 type ReaderControllerOptions = {
@@ -74,7 +74,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
   })
   const book = getBook(currentBookId) || ODYSSEY
 
-  const savedPos = useRef<ReadingPosition | null>(getSavedPosition(book.id))
+  const savedPos = useRef<ReadingPosition | null>(getRecoverableSavedPosition(book.id))
   const [currentChapter, setCurrentChapter] = useState(() => {
     const ch = savedPos.current?.chapterNumber || 1
     // Bounds check: chapter must be positive (full bounds check happens after data loads)
@@ -142,7 +142,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
       supabaseInitTick,
     })
     if (options.localFirstFromCacheRef?.current && shouldRestoreCloudPosition) {
-      const cloudPos = getSavedPosition(targetBookId)
+      const cloudPos = getRecoverableSavedPosition(targetBookId, options.totalChaptersRef?.current ?? 0)
       markCloudPosition(targetBookId, cloudPos)
       if (cloudPos) {
         hasRestoredFromCloud.current = true
@@ -162,7 +162,10 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
           cloudFraction: adoption.position.scrollFraction,
         })
         markCloudLoaded(targetBookId, adoption.position)
-        if (adoption.kind === 'confirmed') return
+        if (adoption.kind === 'confirmed') {
+          options.setCloudRestoreSettled?.(true)
+          return
+        }
         savedPos.current = adoption.position
         if (options.targetParagraphRef) options.targetParagraphRef.current = paragraphTargetFromPosition(adoption.position)
         markUserNav(targetBookId)
@@ -171,7 +174,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
         setReaderKey(k => k + 1)
       }
     } else if (shouldRestoreCloudPosition) {
-      const cloudPos = getSavedPosition(targetBookId)
+      const cloudPos = getRecoverableSavedPosition(targetBookId, options.totalChaptersRef?.current ?? 0)
       // Mark cloud-known chapter so the regression guard knows what the
       // authoritative position is. Without this, the first heartbeat
       // after a buggy default-state remount would be allowed to write
@@ -211,8 +214,24 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
     options.storageReady,
     options.supabaseInitTick,
     options.targetParagraphRef,
+    options.totalChaptersRef,
     options.user,
   ])
+
+  useEffect(() => {
+    if (!options.storageReady) return
+    const recovered = getRecoverableSavedPosition(book.id, options.totalChaptersRef?.current ?? 0)
+    if (!recovered || recovered.chapterNumber === savedPos.current?.chapterNumber) return
+    markUserNav(book.id)
+    markCloudPosition(book.id, recovered)
+    markCloudLoaded(book.id, recovered)
+    savedPos.current = recovered
+    if (options.targetParagraphRef) options.targetParagraphRef.current = paragraphTargetFromPosition(recovered)
+    setCurrentChapter(recovered.chapterNumber)
+    setCurrentPage(0)
+    setTotalPages(1)
+    setReaderKey(k => k + 1)
+  }, [book.id, options.storageReady, options.supabaseInitTick, options.targetParagraphRef, options.totalChaptersRef])
 
   // Cross-book bleed guard.
   //
@@ -233,7 +252,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
     options.resetPerfMarkersRef?.current?.()
     perfStartSwitch(currentBookId)
 
-    const pos = getSavedPosition(currentBookId)
+    const pos = getRecoverableSavedPosition(currentBookId)
     // Mark cloud-known chapter for the new book so the regression guard has
     // a baseline. Mark user-nav so the first heartbeat-after-book-change
     // (which may render at the old chapter for a render or two) doesn't get
@@ -284,7 +303,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
     // two devices stay on their own last-opened book even after sync.
     const cloudBookId = storage.get<string>('tinct-current-book')
     if (cloudBookId && cloudBookId !== book.id && !!getBook(cloudBookId)) {
-      const beforeRefreshPos = getSavedPosition(cloudBookId)
+      const beforeRefreshPos = getRecoverableSavedPosition(cloudBookId)
       try {
         await withTimeout(
           provider.refreshKeys([`position:${cloudBookId}`]),
@@ -295,7 +314,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
         console.warn('[App] Supabase switched-book position refresh failed:', e)
       }
       if (typeof window !== 'undefined') {
-        const afterRefreshPos = getSavedPosition(cloudBookId)
+        const afterRefreshPos = getRecoverableSavedPosition(cloudBookId)
         ;(window as Window & { __tinctSyncDebug?: unknown }).__tinctSyncDebug = {
           lastSwitchedBookRefreshAt: Date.now(),
           cloudBookId,
@@ -310,7 +329,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
       // book-change effect re-trigger restore for the new book.
       return
     }
-    const cloudPos = getSavedPosition(book.id)
+    const cloudPos = getRecoverableSavedPosition(book.id, options.totalChaptersRef?.current ?? 0)
     if (cloudPos) {
       // Don't sync if layout hasn't settled (totalPages=1 means stale state)
       if (totalPages <= 1) return
@@ -445,7 +464,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
     // for signed-in users. Uses replaceState to avoid history pollution.
     replaceReaderUrl(bookId)
 
-    const pos = getSavedPosition(bookId)
+    const pos = getRecoverableSavedPosition(bookId)
     setCurrentChapter(pos?.chapterNumber || 1)
     setCurrentPage(0) // will be corrected by Reader from scrollFraction after layout
     setTotalPages(1) // Reset so useReadingPosition guard (totalPages <= 1) prevents stale saves
@@ -630,6 +649,8 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
       totalPages: 1,
       scrollFraction: target.scrollFraction,
     }
+    setCurrentPage(0)
+    setTotalPages(1)
     if (target.chapter !== currentChapter) {
       setCurrentChapter(target.chapter)
     }

@@ -5,6 +5,7 @@ import {
   USER_NAV_GRACE_MS,
   commitReadingPosition,
   commitReadingProgress,
+  getRecoverableSavedPosition,
   getReadingProgress,
   getSavedPosition,
   markCloudLoaded,
@@ -222,6 +223,94 @@ describe('getReadingProgress', () => {
     const id = 'pin-progress-read'
     store.set(`progress:${id}`, { bookId: id, highestCompletedChapter: 2, totalChapters: 10, percent: 20 })
     expect(getReadingProgress(id)?.highestCompletedChapter).toBe(2)
+  })
+})
+
+describe('getRecoverableSavedPosition', () => {
+  it('recovers a poisoned Genesis 2 Bible position from reading history', () => {
+    const id = 'recover-bible-log'
+    store.set(`position:${id}`, {
+      bookId: id,
+      chapterNumber: 2,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: 1,
+      updatedAt: 1_000,
+    })
+    store.set(`reading-log:${id}`, {
+      bookId: id,
+      updatedAt: 2_000,
+      chapters: {
+        803: {
+          chapterNumber: 803,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 1_500,
+          lastReadAt: 2_000,
+          completed: false,
+          lastParagraphIndex: 4,
+          totalParagraphs: 10,
+        },
+      },
+    })
+
+    expect(getRecoverableSavedPosition(id, 1189)).toMatchObject({
+      bookId: id,
+      chapterNumber: 803,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 4 / 9,
+      lastParagraphIndex: 4,
+    })
+  })
+
+  it('recovers from completed progress when reading history is missing', () => {
+    const id = 'recover-bible-progress'
+    store.set(`position:${id}`, {
+      bookId: id,
+      chapterNumber: 2,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: 0,
+    })
+    store.set(`progress:${id}`, {
+      bookId: id,
+      highestCompletedChapter: 802,
+      totalChapters: 1189,
+      percent: 67,
+    })
+
+    expect(getRecoverableSavedPosition(id, 1189)).toMatchObject({
+      bookId: id,
+      chapterNumber: 803,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: undefined,
+    })
+  })
+
+  it('preserves an intentional early-book position instead of recovering from history', () => {
+    const id = 'recover-bible-deliberate'
+    const saved = {
+      bookId: id,
+      chapterNumber: 2,
+      currentPage: 4,
+      totalPages: 12,
+      scrollFraction: 0.4,
+      lastParagraphIndex: 20,
+    }
+    store.set(`position:${id}`, saved)
+    store.set(`progress:${id}`, {
+      bookId: id,
+      highestCompletedChapter: 802,
+      totalChapters: 1189,
+      percent: 67,
+    })
+
+    expect(getRecoverableSavedPosition(id, 1189)).toEqual(saved)
   })
 })
 

@@ -83,6 +83,99 @@ describe('useReaderController', () => {
     expect(result.current.readerKey).toBe(0)
   })
 
+  it('recovers a poisoned Bible Genesis 2 position from reading history on initialization', () => {
+    store.set('tinct-current-book', 'bible')
+    store.set('position:bible', position({
+      bookId: 'bible',
+      chapterNumber: 2,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: 1,
+    }))
+    store.set('reading-log:bible', {
+      bookId: 'bible',
+      updatedAt: 2_000,
+      chapters: {
+        803: {
+          chapterNumber: 803,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 1_500,
+          lastReadAt: 2_000,
+          completed: false,
+          lastParagraphIndex: 4,
+          totalParagraphs: 10,
+        },
+      },
+    })
+
+    const { result } = renderHook(() => useReaderController({
+      totalChaptersRef: { current: 1189 },
+    }))
+
+    expect(result.current.currentBookId).toBe('bible')
+    expect(result.current.book.id).toBe('bible')
+    expect(result.current.currentChapter).toBe(803)
+    expect(result.current.currentPage).toBe(0)
+    expect(result.current.totalPages).toBe(1)
+    expect(result.current.savedPos.current).toMatchObject({
+      bookId: 'bible',
+      chapterNumber: 803,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 4 / 9,
+      lastParagraphIndex: 4,
+    })
+  })
+
+  it('recovers a poisoned Bible Genesis 2 position after cloud progress arrives', () => {
+    store.set('tinct-current-book', 'bible')
+    store.set('position:bible', position({
+      bookId: 'bible',
+      chapterNumber: 2,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: 1,
+    }))
+    const targetParagraphRef = { current: undefined as number | undefined }
+
+    const { result, rerender } = renderHook(
+      (props: { storageReady: boolean; supabaseInitTick: number }) => useReaderController({
+        storageReady: props.storageReady,
+        supabaseInitTick: props.supabaseInitTick,
+        targetParagraphRef,
+        totalChaptersRef: { current: 1189 },
+      }),
+      { initialProps: { storageReady: false, supabaseInitTick: 0 } },
+    )
+
+    expect(result.current.currentChapter).toBe(2)
+
+    act(() => {
+      store.set('progress:bible', {
+        bookId: 'bible',
+        highestCompletedChapter: 802,
+        totalChapters: 1189,
+        percent: 67,
+      })
+      rerender({ storageReady: true, supabaseInitTick: 1 })
+    })
+
+    expect(result.current.currentChapter).toBe(803)
+    expect(result.current.currentPage).toBe(0)
+    expect(result.current.totalPages).toBe(1)
+    expect(result.current.readerKey).toBe(1)
+    expect(targetParagraphRef.current).toBeUndefined()
+    expect(result.current.savedPos.current).toMatchObject({
+      bookId: 'bible',
+      chapterNumber: 803,
+      currentPage: 0,
+      totalPages: 1,
+    })
+  })
+
   it('falls back to Odyssey and clamps invalid saved chapters to chapter 1', () => {
     store.set('position:odyssey', position({ bookId: 'odyssey', chapterNumber: 0 }))
 
@@ -356,8 +449,8 @@ describe('useReaderController', () => {
     })
 
     expect(result.current.currentChapter).toBe(2)
-    expect(result.current.currentPage).toBe(8)
-    expect(result.current.totalPages).toBe(22)
+    expect(result.current.currentPage).toBe(0)
+    expect(result.current.totalPages).toBe(1)
     expect(result.current.readerKey).toBe(1)
     expect(targetParagraphRef.current).toBeUndefined()
     expect(result.current.savedPos.current).toEqual({
@@ -640,6 +733,36 @@ describe('useReaderController', () => {
     expect(result.current.currentPage).toBe(0)
     expect(targetParagraphRef.current).toBe(9)
     expect(result.current.readerKey).toBe(1)
+    expect(result.current.hasRestoredFromCloud.current).toBe(true)
+    expect(setCloudRestoreSettled).toHaveBeenCalledWith(true)
+  })
+
+  it('settles local-first startup restore when cloud confirms the cached position', () => {
+    store.set('tinct-current-book', 'odyssey')
+    const cachedPosition = position({ bookId: 'odyssey', chapterNumber: 4, scrollFraction: 0.6, lastParagraphIndex: 9 })
+    store.set('position:odyssey', cachedPosition)
+    const setCloudRestoreSettled = vi.fn()
+    const localFirstFromCacheRef = { current: true }
+
+    const { result, rerender } = renderHook(
+      (props: { storageReady: boolean; supabaseInitTick: number; user: unknown | null }) => useReaderController({
+        localFirstFromCacheRef,
+        setCloudRestoreSettled,
+        storageReady: props.storageReady,
+        supabaseInitTick: props.supabaseInitTick,
+        user: props.user,
+      }),
+      { initialProps: { storageReady: false, supabaseInitTick: 0, user: null } },
+    )
+
+    act(() => {
+      rerender({ storageReady: true, supabaseInitTick: 1, user: { id: 'reader' } })
+    })
+
+    expect(result.current.currentBookId).toBe('odyssey')
+    expect(result.current.savedPos.current).toEqual(cachedPosition)
+    expect(result.current.currentChapter).toBe(4)
+    expect(result.current.readerKey).toBe(0)
     expect(result.current.hasRestoredFromCloud.current).toBe(true)
     expect(setCloudRestoreSettled).toHaveBeenCalledWith(true)
   })

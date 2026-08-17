@@ -3,6 +3,7 @@ import type { ReadingPosition } from '../types'
 import {
   commitReadingPosition,
   commitReadingProgress,
+  getRecoverableSavedPosition,
   getReadingProgress,
   getSavedPosition,
   markCloudLoaded,
@@ -28,7 +29,7 @@ declare global {
 
 const HEARTBEAT_MS = 30_000
 
-export { getReadingProgress, getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav }
+export { getRecoverableSavedPosition, getReadingProgress, getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav }
 
 /**
  * Saves and restores page position per book.
