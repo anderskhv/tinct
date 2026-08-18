@@ -60,6 +60,20 @@ export function shouldAttemptStartupCloudPositionRestore(args: {
   return !hasRestoredFromCloud && supabaseInitTick > 0
 }
 
+export function shouldRefreshOnVisibilityReturn(args: {
+  now: number
+  lastHiddenAt: number | null
+  lastSyncAt: number
+  minHiddenMs: number
+  minSyncIntervalMs: number
+}): boolean {
+  const { now, lastHiddenAt, lastSyncAt, minHiddenMs, minSyncIntervalMs } = args
+  if (typeof lastHiddenAt !== 'number') return false
+  if (now - lastHiddenAt < minHiddenMs) return false
+  if (now - lastSyncAt < minSyncIntervalMs) return false
+  return true
+}
+
 export function isCloudPositionConfirmedLocally(args: {
   localPos: ReadingPosition | null | undefined
   cloudPos: ReadingPosition

@@ -50,6 +50,10 @@ function position(patch: Partial<ReadingPosition> = {}): ReadingPosition {
   }
 }
 
+function setVisibilityState(value: DocumentVisibilityState): void {
+  Object.defineProperty(document, 'visibilityState', { value, configurable: true })
+}
+
 describe('useReaderController', () => {
   let store: Map<string, unknown>
 
@@ -59,7 +63,7 @@ describe('useReaderController', () => {
     setStorageProvider(memory.provider)
     vi.mocked(appendReaderSessionShadow).mockClear()
     vi.mocked(perfStartSwitch).mockClear()
-    Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true })
+    setVisibilityState('visible')
     window.history.replaceState(null, '', '/')
   })
 
@@ -796,7 +800,12 @@ describe('useReaderController', () => {
       result.current.setCurrentChapter(1)
       result.current.setCurrentPage(0)
     })
+    setVisibilityState('hidden')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
     vi.setSystemTime(1_777_303_600_001)
+    setVisibilityState('visible')
 
     await act(async () => {
       await result.current.handleVisibilitySync()
@@ -812,7 +821,7 @@ describe('useReaderController', () => {
     expect(result.current.readerKey).toBe(1)
   })
 
-  it('does not refresh remote position on routine tab focus before the stale window elapses', async () => {
+  it('does not refresh remote position on short app switch before the stale window elapses', async () => {
     vi.useFakeTimers()
     vi.setSystemTime(1_777_300_000_000)
     store.set('tinct-current-book', 'odyssey')
@@ -836,7 +845,54 @@ describe('useReaderController', () => {
       result.current.setTotalPages(10)
       result.current.setCurrentChapter(1)
     })
-    vi.setSystemTime(1_777_300_005_000)
+    vi.setSystemTime(1_777_307_200_000)
+    setVisibilityState('hidden')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
+    vi.setSystemTime(1_777_308_400_000)
+    setVisibilityState('visible')
+
+    await act(async () => {
+      await result.current.handleVisibilitySync()
+    })
+
+    expect(provider.refresh).not.toHaveBeenCalled()
+    expect(provider.refreshKeys).not.toHaveBeenCalled()
+    expect(result.current.currentChapter).toBe(1)
+  })
+
+  it('does not count long app uptime as stale focus time', async () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(1_777_300_000_000)
+    store.set('tinct-current-book', 'odyssey')
+    store.set('position:odyssey', position({ bookId: 'odyssey', chapterNumber: 1, scrollFraction: 0.1 }))
+    const provider = {
+      refresh: vi.fn(async () => {
+        store.set('position:odyssey', position({ bookId: 'odyssey', chapterNumber: 2, scrollFraction: 0.25 }))
+      }),
+      refreshKeys: vi.fn(async () => {}),
+    }
+
+    const { result } = renderHook(() => useReaderController({
+      cloudRestoreSettled: true,
+      storageReady: true,
+      supabaseProviderRef: { current: provider },
+      totalChaptersRef: { current: 10 },
+      user: { id: 'reader' },
+    }))
+
+    act(() => {
+      result.current.setTotalPages(10)
+      result.current.setCurrentChapter(1)
+    })
+    vi.setSystemTime(1_777_307_200_000)
+    setVisibilityState('hidden')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
+    vi.setSystemTime(1_777_308_400_000)
+    setVisibilityState('visible')
 
     await act(async () => {
       await result.current.handleVisibilitySync()
@@ -878,7 +934,12 @@ describe('useReaderController', () => {
     act(() => {
       result.current.setTotalPages(10)
     })
+    setVisibilityState('hidden')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
     vi.setSystemTime(1_777_303_600_001)
+    setVisibilityState('visible')
 
     await act(async () => {
       await result.current.handleVisibilitySync()

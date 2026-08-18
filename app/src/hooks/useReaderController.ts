@@ -11,6 +11,7 @@ import {
   paragraphTargetFromPosition,
   shouldAttemptStartupCloudPositionRestore,
   shouldApplyRemotePosition,
+  shouldRefreshOnVisibilityReturn,
 } from '../readerSession/controllerGuards'
 import { readerViewFromMobileIndex } from '../readerSession/useReaderSessionController'
 import type { ReaderBookContext, ReaderSessionEvent } from '../readerSession/types'
@@ -47,6 +48,7 @@ type ReaderControllerOptions = {
 
 const SUPABASE_FOCUS_REFRESH_TIMEOUT_MS = 4000
 const SUPABASE_FOCUS_REFRESH_MIN_INTERVAL_MS = 60 * 60 * 1000
+const SUPABASE_FOCUS_REFRESH_MIN_HIDDEN_MS = 60 * 60 * 1000
 
 function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promise<T> {
   let timeout: ReturnType<typeof setTimeout> | null = null
@@ -85,6 +87,7 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
   const [readerKey, setReaderKey] = useState(0)
   const hasRestoredFromCloud = useRef(false)
   const lastSyncRef = useRef(Date.now())
+  const lastHiddenAtRef = useRef<number | null>(null)
 
   const localFirstDebug = useCallback((stage: string, detail?: Record<string, unknown>) => {
     if (typeof window === 'undefined') return
@@ -281,12 +284,21 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
   // Re-sync from Supabase when tab regains focus (cross-device sync).
   const handleVisibilitySync = useCallback(async () => {
     const now = Date.now()
-    if (document.visibilityState !== 'visible') return
+    if (document.visibilityState !== 'visible') {
+      lastHiddenAtRef.current = now
+      return
+    }
     const provider = options.supabaseProviderRef?.current
     if (!provider || !options.user) return
     if (!options.storageReady || !options.cloudRestoreSettled) return
     if (options.showStore || options.libraryEmpty) return
-    if (now - lastSyncRef.current < SUPABASE_FOCUS_REFRESH_MIN_INTERVAL_MS) return
+    if (!shouldRefreshOnVisibilityReturn({
+      now,
+      lastHiddenAt: lastHiddenAtRef.current,
+      lastSyncAt: lastSyncRef.current,
+      minHiddenMs: SUPABASE_FOCUS_REFRESH_MIN_HIDDEN_MS,
+      minSyncIntervalMs: SUPABASE_FOCUS_REFRESH_MIN_INTERVAL_MS,
+    })) return
     lastSyncRef.current = now
     try {
       await withTimeout(
@@ -395,6 +407,14 @@ export function useReaderController(options: ReaderControllerOptions = {}) {
     document.addEventListener('visibilitychange', handleVisibilitySync)
     return () => document.removeEventListener('visibilitychange', handleVisibilitySync)
   }, [handleVisibilitySync])
+
+  useEffect(() => {
+    const handlePageHide = () => {
+      lastHiddenAtRef.current = Date.now()
+    }
+    window.addEventListener('pagehide', handlePageHide)
+    return () => window.removeEventListener('pagehide', handlePageHide)
+  }, [])
 
   const handleRemotePosition = useCallback((remotePos: ReadingPosition) => {
     const primaryEditionKey = options.primaryEditionKeyRef?.current

@@ -10,6 +10,7 @@ import {
   shouldApplyRemotePosition,
   shouldAttemptStartupCloudPositionRestore,
   shouldHoldReaderForCloudRestore,
+  shouldRefreshOnVisibilityReturn,
 } from './controllerGuards'
 
 function position(patch: Partial<ReadingPosition> = {}): ReadingPosition {
@@ -124,6 +125,50 @@ describe('shouldAttemptStartupCloudPositionRestore', () => {
     expect(shouldAttemptStartupCloudPositionRestore({
       hasRestoredFromCloud: true,
       supabaseInitTick: 2,
+    })).toBe(false)
+  })
+})
+
+describe('shouldRefreshOnVisibilityReturn', () => {
+  const hour = 60 * 60 * 1000
+
+  it('waits until the reader has been away for the stale window', () => {
+    expect(shouldRefreshOnVisibilityReturn({
+      now: 1_000 + 20 * 60 * 1000,
+      lastHiddenAt: 1_000,
+      lastSyncAt: 0,
+      minHiddenMs: hour,
+      minSyncIntervalMs: hour,
+    })).toBe(false)
+  })
+
+  it('allows refresh after a long background interval', () => {
+    expect(shouldRefreshOnVisibilityReturn({
+      now: 1_000 + hour + 1,
+      lastHiddenAt: 1_000,
+      lastSyncAt: 0,
+      minHiddenMs: hour,
+      minSyncIntervalMs: hour,
+    })).toBe(true)
+  })
+
+  it('does not treat app uptime as time away', () => {
+    expect(shouldRefreshOnVisibilityReturn({
+      now: 3 * hour,
+      lastHiddenAt: 3 * hour - 20 * 60 * 1000,
+      lastSyncAt: 0,
+      minHiddenMs: hour,
+      minSyncIntervalMs: hour,
+    })).toBe(false)
+  })
+
+  it('keeps the existing sync throttle for repeated visible returns', () => {
+    expect(shouldRefreshOnVisibilityReturn({
+      now: 3 * hour,
+      lastHiddenAt: hour,
+      lastSyncAt: 3 * hour - 1_000,
+      minHiddenMs: hour,
+      minSyncIntervalMs: hour,
     })).toBe(false)
   })
 })
