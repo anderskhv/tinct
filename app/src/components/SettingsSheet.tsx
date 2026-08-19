@@ -159,12 +159,15 @@ export function SettingsSheet(props: SettingsSheetProps) {
 
   const [active, setActive] = useState<SectionKey>(initialSection ?? 'reading')
   const [localObjective, setLocalObjective] = useState(readingObjective)
+  const [objectiveEditing, setObjectiveEditing] = useState(false)
+  const [objectiveDirty, setObjectiveDirty] = useState(false)
   const [resetSent, setResetSent] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
 
   useEffect(() => {
+    if (objectiveEditing || objectiveDirty) return
     setLocalObjective(readingObjective)
-  }, [readingObjective, isOpen])
+  }, [readingObjective, isOpen, objectiveEditing, objectiveDirty])
 
   useEffect(() => {
     if (!isOpen) return
@@ -277,11 +280,19 @@ export function SettingsSheet(props: SettingsSheetProps) {
           <textarea
             className="ss-angle-textarea"
             value={localObjective}
-            onChange={(e) => setLocalObjective(e.target.value)}
+            onFocus={() => setObjectiveEditing(true)}
+            onChange={(e) => {
+              setLocalObjective(e.target.value)
+              setObjectiveDirty(true)
+            }}
             onBlur={() => {
-              if (localObjective.trim() !== readingObjective) {
-                onSaveObjective(localObjective.trim())
+              const next = localObjective.trim()
+              if (next !== readingObjective) {
+                onSaveObjective(next)
               }
+              setLocalObjective(next)
+              setObjectiveEditing(false)
+              setObjectiveDirty(false)
             }}
             placeholder="e.g. Leadership lessons, mythology connections, close-reading the prosody…"
             rows={5}

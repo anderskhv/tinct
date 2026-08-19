@@ -1,4 +1,4 @@
-import { memo, useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import { memo, useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from 'react'
 import type { ChatMessage, ChatConversation } from '../types'
 import { BalanceIndicator } from './BalanceIndicator'
 import { formatRelative, formatAbsolute } from '../utils/formatRelative'
@@ -617,23 +617,21 @@ const ChatInput = memo(function ChatInput({ isLoading, pendingHighlight, onClear
 export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, chapterLabelByNumber, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const stickToBottomRef = useRef(true)
+  const messagesRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const container = messagesEndRef.current?.parentElement
+  useLayoutEffect(() => {
+    const container = messagesRef.current
     if (!container) return
-    const onScroll = () => {
-      stickToBottomRef.current = container.scrollHeight - container.scrollTop - container.clientHeight < 48
-    }
-    onScroll()
-    container.addEventListener('scroll', onScroll, { passive: true })
-    return () => container.removeEventListener('scroll', onScroll)
-  }, [])
 
-  useEffect(() => {
-    if (stickToBottomRef.current) messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
+    const scrollToLatest = () => {
+      container.scrollTop = container.scrollHeight
+    }
+
+    scrollToLatest()
+    const frame = requestAnimationFrame(scrollToLatest)
+
+    return () => cancelAnimationFrame(frame)
+  }, [])
 
   // Search filter
   const filteredMessages = useMemo(() => {
@@ -710,7 +708,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
         </div>
       )}
 
-      <div className="chat-messages">
+      <div className="chat-messages" ref={messagesRef}>
         {messages.length === 0 && !pendingHighlight && sortedHistory.length > 0 && (
           <div className="chat-history">
             <div className="chat-history-head">Past conversations</div>
@@ -812,8 +810,6 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
             </div>
           </div>
         )}
-
-        <div ref={messagesEndRef} />
       </div>
 
       <ChatInput
