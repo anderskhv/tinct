@@ -39,6 +39,7 @@ type RealtimeEvent = {
   transcript?: string
   name?: string
   call_id?: string
+  error?: { message?: string }
   item?: { transcript?: string; name?: string; call_id?: string }
 }
 
@@ -417,6 +418,9 @@ export class VoiceSessionController {
         this.handleToolCall(name, callId)
         return
       }
+      case 'error':
+        if (event.error?.message) this.emit(event.error.message)
+        return
       case 'response.done':
         if (this.assistantSpeaking) {
           this.assistantSpeaking = false
