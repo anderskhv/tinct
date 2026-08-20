@@ -8,6 +8,23 @@ export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const isCapacitor = process.env.CAPACITOR === 'true'
 
+  // Cloudflare Workers Builds has no app/.env. These are public client values
+  // already required by verify-bundle and present in the live browser bundle.
+  // Local builds still fail loudly if .env is missing.
+  if (command === 'build' && (process.env.CI || process.env.WORKERS_CI)) {
+    const publicClientEnv: Record<string, string> = {
+      VITE_SUPABASE_URL: 'https://yazjyiqsxjystvpkyouk.supabase.co',
+      VITE_SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhemp5aXFzeGp5c3R2cGt5b3VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTA2MTQsImV4cCI6MjA4OTU4NjYxNH0.VyNjCyb5Tc1T1wx5nwZsvWGmwK67FHaB2Ptrtu4EeJA',
+      VITE_AUDIO_BASE_URL: 'https://tinct.app',
+    }
+    for (const [key, value] of Object.entries(publicClientEnv)) {
+      if (!env[key]) {
+        env[key] = value
+        process.env[key] = value
+      }
+    }
+  }
+
   // Guard: production builds (web AND Capacitor/Android) must ship with
   // Supabase + audio env vars baked in. A silent build with empty
   // VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY shipped an "Auth not configured"
@@ -78,6 +95,53 @@ export default defineConfig(({ mode, command }) => {
             req.url = `/read/${m[1]}/${m[2]}.html${m[3] || ''}`
           }
           next()
+        })
+
+        server.middlewares.use('/api/voice-session', async (req: IncomingMessage, res: ServerResponse) => {
+          if (req.method !== 'POST') {
+            res.writeHead(405, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Method not allowed' }))
+            return
+          }
+
+          const openaiKey = env.OPENAI_API_KEY || process.env.OPENAI_API_KEY || ''
+          if (!openaiKey) {
+            res.writeHead(503, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Voice is not configured. Set the OPENAI_API_KEY Worker secret.' }))
+            return
+          }
+
+          try {
+            const response = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
+              method: 'POST',
+              headers: {
+                Authorization: `Bearer ${openaiKey}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                session: {
+                  type: 'realtime',
+                  model: 'gpt-realtime-2.1-mini',
+                  audio: { output: { voice: 'marin' } },
+                },
+              }),
+            })
+            const data = await response.json() as { value?: string; expires_at?: number; error?: { message?: string } }
+            if (!response.ok || !data.value) {
+              res.writeHead(response.status >= 400 ? response.status : 502, { 'Content-Type': 'application/json' })
+              res.end(JSON.stringify({ error: data.error?.message || 'Could not start a voice session.' }))
+              return
+            }
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({
+              value: data.value,
+              expires_at: data.expires_at ?? null,
+              model: 'gpt-realtime-2.1-mini',
+            }))
+          } catch (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Proxy error', details: String(err) }))
+          }
         })
 
         server.middlewares.use('/api/chat', async (req: IncomingMessage, res: ServerResponse) => {

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
 import { resolveAudioUrl } from '../utils/audioUrl'
 import { useAudioSpeed, nextAudioSpeed } from '../hooks/useAudioSpeed'
+import type { AudioPlaybackAnchor } from '../voice/types'
 
 /** Push the latest audio engine event into a global so DevTools can read it.
  *  Critical for diagnosing platform-specific audio issues like the Boox
@@ -63,6 +64,10 @@ export interface BottomBarHandle {
   skipSeconds: (delta: number) => void
   /** Whether the current book/chapter/edition has audio available. */
   hasAudio: () => boolean
+  /** Pause the current paragraph and return the exact resume anchor. */
+  pausePlayback: () => AudioPlaybackAnchor | null
+  /** Resume at a previously captured paragraph + timestamp. */
+  resumePlayback: (anchor: AudioPlaybackAnchor) => void
 }
 
 interface ProgressDisplay {
@@ -691,6 +696,64 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       },
       hasAudio() {
         return !!manifestRef.current
+      },
+      pausePlayback() {
+        const audio = audioRef.current
+        const m = manifestRef.current
+        const idx = currentParagraphRef.current
+        const para = m?.paragraphs[idx]
+        const offset = audio?.currentTime || 0
+        if (audio && !audio.paused) {
+          try { audio.pause() } catch { /* ignore */ }
+        }
+        setIsPlaying(false)
+        return {
+          bookId,
+          editionKey,
+          chapterNumber,
+          paragraphIndex: idx,
+          paragraphNumber: para?.paragraph ?? idx,
+          offsetSeconds: offset,
+        }
+      },
+      resumePlayback(anchor) {
+        if (anchor.bookId !== bookId || anchor.chapterNumber !== chapterNumber) return
+        const m = manifestRef.current
+        const audio = audioRef.current
+        if (!m || !audio) return
+        const idx = m.paragraphs.findIndex(p => p.paragraph === anchor.paragraphNumber)
+        const targetIdx = idx >= 0 ? idx : Math.max(0, Math.min(m.paragraphs.length - 1, anchor.paragraphIndex))
+        const para = m.paragraphs[targetIdx]
+        if (!para) return
+        const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`)
+        const offset = Math.max(0, anchor.offsetSeconds || 0)
+
+        const startAtOffset = () => {
+          try { audio.currentTime = offset } catch { /* ignore */ }
+          applyAudioRate(audio, speedRef.current)
+          audio.play().then(() => {
+            setCurrentParagraph(targetIdx)
+            currentParagraphRef.current = targetIdx
+            setIsPlaying(true)
+            onParagraphChangeRef.current?.(para.paragraph)
+          }).catch(() => setIsPlaying(false))
+        }
+
+        const alreadyOnParagraph = !!audio.src && audio.src.includes(para.file)
+        if (alreadyOnParagraph && audio.readyState >= 1) {
+          startAtOffset()
+          return
+        }
+
+        try { audio.pause() } catch { /* ignore */ }
+        audio.src = url
+        applyAudioRate(audio, speedRef.current)
+        const onLoaded = () => {
+          audio.removeEventListener('loadedmetadata', onLoaded)
+          startAtOffset()
+        }
+        audio.addEventListener('loadedmetadata', onLoaded)
+        try { audio.load() } catch { /* ignore */ }
       },
     }), [playParagraph, bookId, editionKey, chapterNumber])
 

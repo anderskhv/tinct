@@ -43,6 +43,7 @@ import { SearchOverlay } from './components/SearchOverlay'
 import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
+import { useVoiceSession } from './hooks/useVoiceSession'
 import { useLibrary } from './hooks/useLibrary'
 import { shouldStartFreshFromStoreOpen } from './hooks/useLibrary.guards'
 import { useReaderController } from './hooks/useReaderController'
@@ -900,7 +901,7 @@ export default function App() {
     }
   }, [chatConversations, session?.access_token, setChatSummary])
 
-	  const { messages, isLoading: chatLoading, sendMessage, clearMessages, loadMessages } = useClaude({
+	  const { messages, isLoading: chatLoading, sendMessage, clearMessages, loadMessages, appendLocalMessage } = useClaude({
 	    bookId: book.id,
 	    bookTitle: book.title,
     bookAuthor: book.author,
@@ -916,6 +917,31 @@ export default function App() {
     chapterLabels: chapterLabelByNumber,
   })
   clearMessagesRef.current = clearMessages
+
+  const voiceSession = useVoiceSession({
+    authToken: session?.access_token ?? null,
+    isAnonymous,
+    bookId: book.id,
+    bookTitle: book.title,
+    bookAuthor: book.author,
+    chapterNumber: currentChapter,
+    chapterTitle,
+    readingObjective: preferences.readingObjective,
+    chapterParagraphs: primaryChapter?.paragraphs || [],
+    paragraphIndex: audioPlayingParagraph ?? firstVisibleParagraph,
+    visibleText,
+    isAudioPlaying: audioIsPlaying,
+    pausePlayback: () => bottomBarRef.current?.pausePlayback() ?? null,
+    resumePlayback: (anchor) => bottomBarRef.current?.resumePlayback(anchor),
+    recordMessage,
+    appendLocalMessage,
+    onNeedAuth: () => {
+      setAuthModalMode('signup')
+      setShowAuthModal(true)
+    },
+    onInsufficientBalance: handleInsufficientBalance,
+    onUsage: deductUsage,
+  })
 
   // Load chat history when the book changes. Chat is now ONE continuous
   // conversation per book, not chapter-divided — each message carries its
@@ -3342,9 +3368,16 @@ export default function App() {
       {hasAudio && (
         <AudioStrip
           isOpen={audioStripOpen}
-          onClose={() => setAudioStripOpen(false)}
+          onClose={() => {
+            if (voiceSession.isActive) voiceSession.explicitResume()
+            setAudioStripOpen(false)
+          }}
           isPlaying={audioIsPlaying}
           audioRef={bottomBarRef}
+          voiceState={voiceSession.state}
+          voiceStatus={voiceSession.statusLabel}
+          onVoiceButton={voiceSession.handleVoiceButton}
+          onPlayWhileVoice={voiceSession.explicitResume}
         />
       )}
 

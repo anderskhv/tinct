@@ -8247,6 +8247,10 @@ body {
     border-top-color: rgba(255, 255, 255, 0.1);
   }
 
+  .audio-strip-voice-status {
+    display: none;
+  }
+
   /* Audio mode on mobile gets a bit more vertical breathing room */
   .bottom-bar-audio {
     padding: 8px 12px 9px;
@@ -9740,6 +9744,32 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dim);
+}
+
+.audio-strip-voice.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.audio-strip-voice.is-listening {
+  animation: voiceListenPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes voiceListenPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.audio-strip-voice-status {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .audio-strip-speed:hover,

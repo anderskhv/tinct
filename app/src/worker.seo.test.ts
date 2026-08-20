@@ -136,6 +136,9 @@ describe('worker SEO routing', () => {
     expect(resp.status).toBe(200)
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
     expect(await resp.text()).toContain('app shell')
+    const csp = resp.headers.get('Content-Security-Policy') || ''
+    expect(csp).toContain('https://api.openai.com')
+    expect(csp).toContain('mediastream:')
   })
 
   it('allows reputable AI crawlers while still blocking junk scrapers', async () => {

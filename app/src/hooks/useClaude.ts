@@ -419,5 +419,12 @@ export function useClaude(options?: UseClaudeOptions) {
     setMessages(msgs)
   }, [])
 
-  return { messages, isLoading, sendMessage, clearMessages, loadMessages }
+  const appendLocalMessage = useCallback((message: ChatMessage) => {
+    setMessages(prev => {
+      if (prev.some(m => m.id === message.id)) return prev
+      return [...prev, { ...message, isComplete: true }]
+    })
+  }, [])
+
+  return { messages, isLoading, sendMessage, clearMessages, loadMessages, appendLocalMessage }
 }

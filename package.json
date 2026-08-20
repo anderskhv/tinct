@@ -1,0 +1,12 @@
+{
+  "name": "tinct",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix app ci && npm --prefix app run build",
+    "verify-bundle": "npm --prefix app run verify-bundle",
+    "deploy": "npm --prefix app run deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.76.0"
+  }
+}

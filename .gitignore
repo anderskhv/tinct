@@ -43,7 +43,10 @@ books/logs/
 # Local design handoffs / nested scratch checkouts. Move anything meant to
 # become source into app/ or docs/ before committing it.
 design_handoff_tinct_library/
-tinct/
+
+# Cloudflare Workers Builds still uses root directory `tinct` from before
+# the 2026-03-28 rename to app/. The tracked tinct/ wrapper is the CI
+# compatibility shim, not a second app copy.
 
 # Archived heavy binaries — kept locally for reference but never tracked
 archive/build-artifacts/
