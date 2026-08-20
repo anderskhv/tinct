@@ -1,3 +1,4 @@
+import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
@@ -13,7 +14,6 @@ type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => P
 
 const CHAT_MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS_CAP = 2048
-const MONTHLY_MESSAGE_LIMIT = 100
 // 100KB was too tight: with 50 messages × full chat history replayed every
 // turn (incl. highlighted passages), long-running readers hit 413 mid-session.
 // 500KB matches MAX_MESSAGES × MAX_MESSAGE_LENGTH and leaves headroom for
@@ -38,14 +38,6 @@ type AnthropicSystemBlock = {
 }
 
 type AnthropicSystemParam = string | AnthropicSystemBlock[]
-
-type ChatProfile = {
-  messages_used_this_period: number
-  message_balance: number
-  subscription_status: string | null
-  subscription_period_end: string | null
-  created_at: string | null
-}
 
 type AnthropicUsage = {
   input_tokens?: number
@@ -200,30 +192,8 @@ export async function handleChat(request: Request, env: ChatEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
 
-  if (profile) {
-    // Mirror useTier.ts: 30-day Premium trial from account creation.
-    // CRITICAL bug fix — until this lands, brand-new signups (subscription_status=null,
-    // message_balance=0, messages_used_this_period=0) had `isSubscribed=false` here,
-    // so the worker returned 402 "No messages remaining" the first time they tried
-    // to chat — even though the frontend told them they were on a Premium trial.
-    // Anders's brother Lars hit this and ended up buying chat packs to unblock himself.
-    const accountCreatedAt = profile.created_at ? new Date(profile.created_at) : null
-    const trialDaysRemaining = accountCreatedAt
-      ? 30 - Math.floor((Date.now() - accountCreatedAt.getTime()) / (1000 * 60 * 60 * 24))
-      : 0
-    const isInTrial = trialDaysRemaining > 0
-    const isSubscribed = profile.subscription_status === 'active' ||
-      (profile.subscription_status === 'canceled' &&
-       !!profile.subscription_period_end &&
-       new Date(profile.subscription_period_end) > new Date()) ||
-      isInTrial
-    const monthlyRemaining = Math.max(0, MONTHLY_MESSAGE_LIMIT - (profile.messages_used_this_period || 0))
-    const hasMessages = (isSubscribed && monthlyRemaining > 0) || (profile.message_balance || 0) > 0
-
-    if (!hasMessages) {
-      return jsonResponse({ error: 'No messages remaining. Buy a chat pack to continue.' }, 402, request)
-    }
-  }
+  const access = evaluateChatAccess(profile)
+  if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
 
   try {
     const parsedBody = await bodyPromise

@@ -101,6 +101,8 @@ export interface ChatMessage {
   chapterDivider?: number
   /** Streaming assistant message is complete and safe to persist */
   isComplete?: boolean
+  /** Spoken turns from the audiobook voice session */
+  source?: 'text' | 'voice'
 }
 
 /** A group of chat messages from a single session/chapter */

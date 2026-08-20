@@ -18,6 +18,7 @@ import {
 import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
 import { handleChat } from './worker/routes/chat'
+import { handleVoiceSession } from './worker/routes/voice'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import {
@@ -41,6 +42,7 @@ export { serveSpaWithMetaForTest } from './worker/routes/seo'
 
 interface Env {
   ANTHROPIC_API_KEY: string
+  OPENAI_API_KEY?: string
   INDEXNOW_KEY?: string
   STRIPE_SECRET_KEY?: string
   STRIPE_WEBHOOK_SECRET?: string
@@ -150,6 +152,7 @@ export default {
 
     switch (url.pathname) {
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser)
       case '/api/webhook': return handleWebhook(request, env)

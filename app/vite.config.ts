@@ -80,6 +80,53 @@ export default defineConfig(({ mode, command }) => {
           next()
         })
 
+        server.middlewares.use('/api/voice-session', async (req: IncomingMessage, res: ServerResponse) => {
+          if (req.method !== 'POST') {
+            res.writeHead(405, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Method not allowed' }))
+            return
+          }
+
+          const openaiKey = env.OPENAI_API_KEY || process.env.OPENAI_API_KEY || ''
+          if (!openaiKey) {
+            res.writeHead(503, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Voice is not configured. Set the OPENAI_API_KEY Worker secret.' }))
+            return
+          }
+
+          try {
+            const response = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
+              method: 'POST',
+              headers: {
+                Authorization: `Bearer ${openaiKey}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                session: {
+                  type: 'realtime',
+                  model: 'gpt-realtime-2.1-mini',
+                  audio: { output: { voice: 'marin' } },
+                },
+              }),
+            })
+            const data = await response.json() as { value?: string; expires_at?: number; error?: { message?: string } }
+            if (!response.ok || !data.value) {
+              res.writeHead(response.status >= 400 ? response.status : 502, { 'Content-Type': 'application/json' })
+              res.end(JSON.stringify({ error: data.error?.message || 'Could not start a voice session.' }))
+              return
+            }
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({
+              value: data.value,
+              expires_at: data.expires_at ?? null,
+              model: 'gpt-realtime-2.1-mini',
+            }))
+          } catch (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Proxy error', details: String(err) }))
+          }
+        })
+
         server.middlewares.use('/api/chat', async (req: IncomingMessage, res: ServerResponse) => {
           if (req.method !== 'POST') {
             res.writeHead(405)

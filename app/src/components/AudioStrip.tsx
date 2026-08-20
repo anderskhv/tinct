@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { BottomBarHandle } from './BottomBar'
+import type { VoiceModeState } from '../voice/types'
 
 interface AudioStripProps {
   isOpen: boolean
@@ -7,6 +8,25 @@ interface AudioStripProps {
   isPlaying: boolean
   /** Imperative handle to the BottomBar's audio engine. */
   audioRef: React.RefObject<BottomBarHandle>
+  voiceState?: VoiceModeState
+  voiceStatus?: string | null
+  onVoiceButton?: () => void
+  onPlayWhileVoice?: () => void
+}
+
+function voiceButtonLabel(state: VoiceModeState | undefined, resumeInLabel?: string | null): string {
+  switch (state) {
+    case 'listening':
+      return 'Listening'
+    case 'answering':
+      return 'Answering'
+    case 'resume_pending':
+      return resumeInLabel || 'Continuing'
+    case 'conversation_idle':
+      return 'Talking'
+    default:
+      return 'Ask'
+  }
 }
 
 export function AudioStrip({
@@ -14,10 +34,15 @@ export function AudioStrip({
   onClose,
   isPlaying,
   audioRef,
+  voiceState = 'reading',
+  voiceStatus,
+  onVoiceButton,
+  onPlayWhileVoice,
 }: AudioStripProps) {
   // Local mirror so the speed pill updates immediately on click — the underlying
   // engine state is in BottomBar; we just read it.
   const [speed, setSpeed] = useState<number>(() => audioRef.current?.getSpeed() ?? 1)
+  const voiceActive = voiceState !== 'reading'
 
   useEffect(() => {
     if (!isOpen) return
@@ -58,10 +83,16 @@ export function AudioStrip({
       <button
         type="button"
         className="audio-strip-play"
-        onClick={() => audioRef.current?.togglePlay()}
-        aria-label={isPlaying ? 'Pause' : 'Play'}
+        onClick={() => {
+          if (voiceActive && onPlayWhileVoice) {
+            onPlayWhileVoice()
+            return
+          }
+          audioRef.current?.togglePlay()
+        }}
+        aria-label={voiceActive ? 'Back to the book' : isPlaying ? 'Pause' : 'Play'}
       >
-        {isPlaying ? <span className="icon-pause" /> : <span className="icon-play" />}
+        {isPlaying && !voiceActive ? <span className="icon-pause" /> : <span className="icon-play" />}
       </button>
 
       <button
@@ -92,6 +123,23 @@ export function AudioStrip({
       </button>
 
       <div className="audio-strip-spacer" />
+
+      {voiceStatus && (
+        <div className="audio-strip-voice-status" aria-live="polite">{voiceStatus}</div>
+      )}
+
+      {onVoiceButton && (
+        <button
+          type="button"
+          className={`audio-strip-voice${voiceActive ? ' is-active' : ''}${voiceState === 'listening' ? ' is-listening' : ''}`}
+          onClick={onVoiceButton}
+          title={voiceActive ? 'Voice session' : 'Ask a question by voice'}
+          aria-label={voiceActive ? 'Voice session' : 'Ask a question by voice'}
+          aria-pressed={voiceActive}
+        >
+          {voiceButtonLabel(voiceState, voiceStatus)}
+        </button>
+      )}
 
       <button
         type="button"
