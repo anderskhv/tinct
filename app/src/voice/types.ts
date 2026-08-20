@@ -48,6 +48,12 @@ export interface AudioPlaybackAnchor {
   offsetSeconds: number
 }
 
+/** Result of pausing the audiobook for Ask. `wasPlaying` is the engine truth. */
+export interface AudioPlaybackPause {
+  anchor: AudioPlaybackAnchor
+  wasPlaying: boolean
+}
+
 export interface VoiceReaderContext {
   bookTitle: string
   bookAuthor: string

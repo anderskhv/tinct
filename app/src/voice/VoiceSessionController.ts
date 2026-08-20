@@ -2,11 +2,19 @@ import { apiUrl } from '../utils/apiUrl'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
 import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
-import type { AudioPlaybackAnchor, VoiceEvent, VoiceIntent, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext } from './types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext } from './types'
 import { CONVERSATION_IDLE_TIMEOUT_MS, MAX_VOICE_SESSION_MS, RESUME_GRACE_MS, VOICE_CLOSE_LINE } from './types'
+import {
+  INITIAL_VOICE_TURN,
+  noteToolCallHandled,
+  reduceVoiceTurn,
+  type VoiceRealtimeEvent,
+  type VoiceTurnSignal,
+  type VoiceTurnState,
+} from './voiceTurn'
 
 export interface VoiceAudioEngine {
-  pausePlayback: () => AudioPlaybackAnchor | null
+  pausePlayback: () => AudioPlaybackPause | null
   resumePlayback: (anchor: AudioPlaybackAnchor) => void
 }
 
@@ -34,14 +42,7 @@ export interface StartVoiceSessionInput {
   wasPlaying: boolean
 }
 
-type RealtimeEvent = {
-  type?: string
-  transcript?: string
-  name?: string
-  call_id?: string
-  error?: { message?: string }
-  item?: { transcript?: string; name?: string; call_id?: string }
-}
+type RealtimeEvent = VoiceRealtimeEvent
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
@@ -92,7 +93,7 @@ export class VoiceSessionController {
   private sessionTimer: number | null = null
   private countdownTimer: number | null = null
   private resumeDeadline = 0
-  private assistantSpeaking = false
+  private turn: VoiceTurnState = INITIAL_VOICE_TURN
   private closed = false
 
   constructor(callbacks: VoiceSessionCallbacks) {
@@ -113,15 +114,16 @@ export class VoiceSessionController {
 
     this.closed = false
     this.lastUserIntent = 'none'
-    this.assistantSpeaking = false
+    this.turn = INITIAL_VOICE_TURN
     this.context = input.context
     this.audio = input.audio
-    this.shouldResumeBook = input.wasPlaying
-    this.anchor = input.audio.pausePlayback()
+    const paused = input.audio.pausePlayback()
+    this.anchor = paused?.anchor ?? null
+    this.shouldResumeBook = Boolean(paused?.wasPlaying || input.wasPlaying)
     this.emit()
 
     if (input.isAnonymous || !input.authToken) {
-      this.fail('Sign in to ask by voice.', { resumeBook: input.wasPlaying })
+      this.fail('Sign in to ask by voice.')
       this.callbacks.onNeedAuth?.()
       return
     }
@@ -144,30 +146,33 @@ export class VoiceSessionController {
       const tokenData = await tokenRes.json().catch(() => ({})) as { value?: string; error?: string }
 
       if (tokenRes.status === 402) {
-        this.fail('Your AI chat balance is empty. Top up to continue.', { resumeBook: input.wasPlaying })
+        this.fail('Your AI chat balance is empty. Top up to continue.')
         this.callbacks.onInsufficientBalance?.()
         return
       }
       if (tokenRes.status === 401) {
-        this.fail('Sign in to ask by voice.', { resumeBook: input.wasPlaying })
+        this.fail('Sign in to ask by voice.')
         this.callbacks.onNeedAuth?.()
         return
       }
       if (!tokenRes.ok || !tokenData.value) {
-        this.fail(tokenData.error || 'Voice is not available right now.', { resumeBook: input.wasPlaying })
+        this.fail(tokenData.error || 'Voice is not available right now.')
         return
       }
 
       this.callbacks.onUsage?.()
       await this.connectRealtime(tokenData.value)
-      if (this.closed) return
+      if (this.closed) {
+        this.restoreBook({ speakClose: false })
+        return
+      }
       this.dispatch({ type: 'START' })
       this.armSessionTimeout()
     } catch (error) {
       const message = error instanceof DOMException && error.name === 'NotAllowedError'
         ? 'Microphone access is needed for voice.'
         : "Couldn't start voice. Try again."
-      this.fail(message, { resumeBook: input.wasPlaying })
+      this.fail(message)
     }
   }
 
@@ -187,11 +192,7 @@ export class VoiceSessionController {
 
   dispose(): void {
     this.closed = true
-    if (this.machine.state !== 'reading' && this.shouldResumeBook && this.anchor && this.audio) {
-      this.audio.resumePlayback(this.anchor)
-    }
-    this.teardownConnection()
-    this.clearTimers()
+    this.restoreBook({ speakClose: false })
   }
 
   private dispatch(event: VoiceEvent): void {
@@ -224,32 +225,34 @@ export class VoiceSessionController {
     return Math.max(0, Math.ceil((this.resumeDeadline - Date.now()) / 1000))
   }
 
-  private fail(error: string, opts: { resumeBook: boolean }): void {
-    this.shouldResumeBook = opts.resumeBook
+  private fail(error: string): void {
     this.machine = INITIAL_VOICE_SNAPSHOT
-    this.teardownConnection()
-    this.clearTimers()
+    this.turn = INITIAL_VOICE_TURN
     this.emit(error)
-    if (opts.resumeBook && this.anchor && this.audio) {
-      this.audio.resumePlayback(this.anchor)
-    }
+    void this.restoreBook({ speakClose: false })
   }
 
   private async leaveVoice(opts: { speakClose: boolean }): Promise<void> {
+    await this.restoreBook(opts)
+  }
+
+  /** Undo the Ask pause: resume if the book was playing, keep the paused-at-Ask place either way. */
+  private async restoreBook(opts: { speakClose: boolean }): Promise<void> {
     const resumeBook = this.shouldResumeBook
     const anchor = this.anchor
     const audio = this.audio
+    this.anchor = null
+    this.audio = null
+    this.shouldResumeBook = false
     this.teardownConnection()
     this.clearTimers()
+    this.turn = INITIAL_VOICE_TURN
     if (opts.speakClose && resumeBook) {
       await speakCloseLine()
     }
     if (resumeBook && anchor && audio) {
       audio.resumePlayback(anchor)
     }
-    this.anchor = null
-    this.audio = null
-    this.shouldResumeBook = false
   }
 
   private syncTimers(snapshot: VoiceMachineSnapshot): void {
@@ -374,6 +377,12 @@ export class VoiceSessionController {
     this.dc.send(JSON.stringify(payload))
   }
 
+  private applyTurnResult(result: { state: VoiceTurnState; signal: VoiceTurnSignal }): void {
+    this.turn = result.state
+    if (result.signal === 'speech_start') this.dispatch({ type: 'ASSISTANT_SPEECH_START' })
+    if (result.signal === 'speech_end') this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
+  }
+
   private handleRealtimeEvent(event: RealtimeEvent): void {
     switch (event.type) {
       case 'input_audio_buffer.speech_started':
@@ -382,19 +391,13 @@ export class VoiceSessionController {
       case 'input_audio_buffer.speech_stopped':
         this.dispatch({ type: 'USER_SPEECH_END' })
         return
+      case 'response.created':
       case 'output_audio_buffer.started':
       case 'response.output_audio.delta':
       case 'response.audio.delta':
-        if (!this.assistantSpeaking) {
-          this.assistantSpeaking = true
-          this.dispatch({ type: 'ASSISTANT_SPEECH_START' })
-        }
-        return
       case 'output_audio_buffer.stopped':
-        if (this.assistantSpeaking) {
-          this.assistantSpeaking = false
-          this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
-        }
+      case 'response.done':
+        this.applyTurnResult(reduceVoiceTurn(this.turn, event))
         return
       case 'conversation.item.input_audio_transcription.completed': {
         const text = (event.transcript || event.item?.transcript || '').trim()
@@ -415,17 +418,12 @@ export class VoiceSessionController {
         const name = event.name || event.item?.name
         const callId = event.call_id || event.item?.call_id
         if (!name || !callId) return
+        this.applyTurnResult(reduceVoiceTurn(this.turn, event))
         this.handleToolCall(name, callId)
         return
       }
       case 'error':
         if (event.error?.message) this.emit(event.error.message)
-        return
-      case 'response.done':
-        if (this.assistantSpeaking) {
-          this.assistantSpeaking = false
-          this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
-        }
         return
       default:
         return
@@ -443,7 +441,12 @@ export class VoiceSessionController {
           output: JSON.stringify({ ok: honor, handled_by: 'app' }),
         },
       })
-      if (honor) this.dispatch({ type: 'INTENT', intent: 'resume_audiobook' })
+      if (honor) {
+        this.turn = INITIAL_VOICE_TURN
+        this.dispatch({ type: 'INTENT', intent: 'resume_audiobook' })
+        return
+      }
+      this.applyTurnResult(noteToolCallHandled(this.turn))
       return
     }
 
@@ -456,6 +459,7 @@ export class VoiceSessionController {
           output: JSON.stringify({ ok: true, handled_by: 'app' }),
         },
       })
+      this.applyTurnResult(noteToolCallHandled(this.turn))
       this.dispatch({ type: 'INTENT', intent: 'hold_session' })
     }
   }
