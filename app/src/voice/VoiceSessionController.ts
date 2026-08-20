@@ -4,6 +4,14 @@ import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
 import type { AudioPlaybackAnchor, VoiceEvent, VoiceIntent, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext } from './types'
 import { CONVERSATION_IDLE_TIMEOUT_MS, MAX_VOICE_SESSION_MS, RESUME_GRACE_MS, VOICE_CLOSE_LINE } from './types'
+import {
+  INITIAL_VOICE_TURN,
+  noteToolCallHandled,
+  reduceVoiceTurn,
+  type VoiceRealtimeEvent,
+  type VoiceTurnSignal,
+  type VoiceTurnState,
+} from './voiceTurn'
 
 export interface VoiceAudioEngine {
   pausePlayback: () => AudioPlaybackAnchor | null
@@ -34,14 +42,7 @@ export interface StartVoiceSessionInput {
   wasPlaying: boolean
 }
 
-type RealtimeEvent = {
-  type?: string
-  transcript?: string
-  name?: string
-  call_id?: string
-  error?: { message?: string }
-  item?: { transcript?: string; name?: string; call_id?: string }
-}
+type RealtimeEvent = VoiceRealtimeEvent
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
@@ -92,7 +93,7 @@ export class VoiceSessionController {
   private sessionTimer: number | null = null
   private countdownTimer: number | null = null
   private resumeDeadline = 0
-  private assistantSpeaking = false
+  private turn: VoiceTurnState = INITIAL_VOICE_TURN
   private closed = false
 
   constructor(callbacks: VoiceSessionCallbacks) {
@@ -113,7 +114,7 @@ export class VoiceSessionController {
 
     this.closed = false
     this.lastUserIntent = 'none'
-    this.assistantSpeaking = false
+    this.turn = INITIAL_VOICE_TURN
     this.context = input.context
     this.audio = input.audio
     this.shouldResumeBook = input.wasPlaying
@@ -227,6 +228,7 @@ export class VoiceSessionController {
   private fail(error: string, opts: { resumeBook: boolean }): void {
     this.shouldResumeBook = opts.resumeBook
     this.machine = INITIAL_VOICE_SNAPSHOT
+    this.turn = INITIAL_VOICE_TURN
     this.teardownConnection()
     this.clearTimers()
     this.emit(error)
@@ -241,6 +243,7 @@ export class VoiceSessionController {
     const audio = this.audio
     this.teardownConnection()
     this.clearTimers()
+    this.turn = INITIAL_VOICE_TURN
     if (opts.speakClose && resumeBook) {
       await speakCloseLine()
     }
@@ -374,6 +377,12 @@ export class VoiceSessionController {
     this.dc.send(JSON.stringify(payload))
   }
 
+  private applyTurnResult(result: { state: VoiceTurnState; signal: VoiceTurnSignal }): void {
+    this.turn = result.state
+    if (result.signal === 'speech_start') this.dispatch({ type: 'ASSISTANT_SPEECH_START' })
+    if (result.signal === 'speech_end') this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
+  }
+
   private handleRealtimeEvent(event: RealtimeEvent): void {
     switch (event.type) {
       case 'input_audio_buffer.speech_started':
@@ -382,19 +391,13 @@ export class VoiceSessionController {
       case 'input_audio_buffer.speech_stopped':
         this.dispatch({ type: 'USER_SPEECH_END' })
         return
+      case 'response.created':
       case 'output_audio_buffer.started':
       case 'response.output_audio.delta':
       case 'response.audio.delta':
-        if (!this.assistantSpeaking) {
-          this.assistantSpeaking = true
-          this.dispatch({ type: 'ASSISTANT_SPEECH_START' })
-        }
-        return
       case 'output_audio_buffer.stopped':
-        if (this.assistantSpeaking) {
-          this.assistantSpeaking = false
-          this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
-        }
+      case 'response.done':
+        this.applyTurnResult(reduceVoiceTurn(this.turn, event))
         return
       case 'conversation.item.input_audio_transcription.completed': {
         const text = (event.transcript || event.item?.transcript || '').trim()
@@ -415,17 +418,12 @@ export class VoiceSessionController {
         const name = event.name || event.item?.name
         const callId = event.call_id || event.item?.call_id
         if (!name || !callId) return
+        this.applyTurnResult(reduceVoiceTurn(this.turn, event))
         this.handleToolCall(name, callId)
         return
       }
       case 'error':
         if (event.error?.message) this.emit(event.error.message)
-        return
-      case 'response.done':
-        if (this.assistantSpeaking) {
-          this.assistantSpeaking = false
-          this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
-        }
         return
       default:
         return
@@ -443,7 +441,12 @@ export class VoiceSessionController {
           output: JSON.stringify({ ok: honor, handled_by: 'app' }),
         },
       })
-      if (honor) this.dispatch({ type: 'INTENT', intent: 'resume_audiobook' })
+      if (honor) {
+        this.turn = INITIAL_VOICE_TURN
+        this.dispatch({ type: 'INTENT', intent: 'resume_audiobook' })
+        return
+      }
+      this.applyTurnResult(noteToolCallHandled(this.turn))
       return
     }
 
@@ -456,6 +459,7 @@ export class VoiceSessionController {
           output: JSON.stringify({ ok: true, handled_by: 'app' }),
         },
       })
+      this.applyTurnResult(noteToolCallHandled(this.turn))
       this.dispatch({ type: 'INTENT', intent: 'hold_session' })
     }
   }
