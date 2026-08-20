@@ -45,10 +45,8 @@ books/logs/
 design_handoff_tinct_library/
 
 # Cloudflare Workers Builds still uses root directory `tinct` from before
-# the 2026-03-28 rename to app/. Keep the tracked tinct -> app symlink.
-# Ignore a nested working copy's contents if someone materializes one.
-tinct/**
-!tinct
+# the 2026-03-28 rename to app/. The tracked tinct/ wrapper is the CI
+# compatibility shim, not a second app copy.
 
 # Archived heavy binaries — kept locally for reference but never tracked
 archive/build-artifacts/
