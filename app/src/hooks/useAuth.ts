@@ -5,6 +5,7 @@ import { clearLocalUserData } from '../services/storage'
 import type { UserProfile } from '../types'
 import { getAttributionPayload } from '../utils/attribution'
 import { trackEvent } from '../utils/analytics'
+import { clearSignedInCookie, hasSignedInCookie, setSignedInCookie } from '../utils/authCookie'
 
 interface UseAuthReturn {
   user: User | null
@@ -34,7 +35,7 @@ export function hasLikelySupabaseSession(): boolean {
     }
   } catch { /* ignore */ }
   try {
-    return (document.cookie || '').split(';').some(cookie => cookie.trim() === 'tinct_auth=1')
+    return hasSignedInCookie()
   } catch {
     return false
   }
@@ -77,17 +78,6 @@ export function useAuth(): UseAuthReturn {
     // for cookie-disabled browsers; the cookie makes the redirect
     // deterministic across mobile Safari, refreshed caches, and stale
     // localStorage edge cases that bit us before.
-    const setSignedInCookie = () => {
-      try {
-        document.cookie = 'tinct_auth=1; Path=/; Max-Age=31536000; SameSite=Lax; Secure'
-      } catch { /* ignore */ }
-    }
-    const clearSignedInCookie = () => {
-      try {
-        document.cookie = 'tinct_auth=; Path=/; Max-Age=0; SameSite=Lax; Secure'
-      } catch { /* ignore */ }
-    }
-
     // Get initial session. Race against a 3s timeout so the app can open
     // offline — `getSession()` reads from localStorage but may still hang on
     // a network-bound token refresh, leaving `isLoading=true` forever and
@@ -189,8 +179,13 @@ export function useAuth(): UseAuthReturn {
 
   const signOut = useCallback(async () => {
     if (!supabase) return
+    // Clear before signOut() and again after it. The Worker and landing.html
+    // both 302 `/` to `/app` when `tinct_auth=1` is present, so a leftover
+    // cookie after logout locks the marketing page.
+    clearSignedInCookie()
     await supabase.auth.signOut()
     clearLocalUserData()
+    clearSignedInCookie()
     // Hard-redirect so React in-memory state (useLibrary, position, etc.)
     // can't re-persist wiped data on the next render. Lands on landing.html.
     window.location.href = '/'

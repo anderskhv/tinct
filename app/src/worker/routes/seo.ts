@@ -353,7 +353,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     const bookMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && bookMatch) {
       const bookId = bookMatch[1].toLowerCase()
-      if (!url.search) {
+      const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
+      const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
+      // Bare `/read/{bookId}` is the public SEO book page. In-app opens add
+      // a query (`?from=app`) and signed-in readers carry `tinct_auth=1`;
+      // both must skip the extra marketing gate and load the SPA.
+      if (!url.search && !hasAuthCookie) {
         const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
         if (staticBookResp) return staticBookResp
       }

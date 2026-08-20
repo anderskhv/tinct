@@ -157,10 +157,6 @@ export function BookOnboarding({
     return editions[0]?.key || ''
   })
   const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(undefined)
-  // Track whether the user manually picked a split edition. If false, the
-  // Compare default reactively follows the inverse of the primary edition
-  // (Anders, 2026-04-29 — better than empty default).
-  const [splitManuallyPicked, setSplitManuallyPicked] = useState(false)
   const [angle, setAngle] = useState('')
 
   const availableLanguages = useMemo(
@@ -255,32 +251,9 @@ export function BookOnboarding({
     [effectiveEditions, editionKey]
   )
 
-  // Compare default: pick the most useful "other" edition relative to primary,
-  // unless the user has manually chosen something else.
-  // Rule: prefer different style first (original vs modern), then same language.
-  // For modern-da primary, default to original-en (English original).
-  function inverseEdition(primaryKey: EditionKey, candidates: Edition[]): EditionKey | undefined {
-    const primary = effectiveEditions.find(e => e.key === primaryKey)
-    if (!primary || candidates.length === 0) return undefined
-    // 1. Different style, same language (original-en ↔ modern-en)
-    const sameLangDifferentStyle = candidates.find(
-      e => e.language === primary.language && e.style !== primary.style
-    )
-    if (sameLangDifferentStyle) return sameLangDifferentStyle.key
-    // 2. Original English (the canonical authoritative text)
-    const originalEn = candidates.find(e => e.style === 'original' && e.language === 'en')
-    if (originalEn) return originalEn.key
-    // 3. Anything else
-    return candidates[0]?.key
-  }
-
-  // Sync split default to inverse-of-primary whenever primary changes,
-  // unless the user has manually overridden.
-  useEffect(() => {
-    if (splitManuallyPicked) return
-    setSplitEditionKey(inverseEdition(editionKey, alignedEditions))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editionKey, alignedEditions, splitManuallyPicked])
+  // Compare stays off until the reader picks a companion. Auto-selecting
+  // the inverse edition made "No side-by-side" and Modern English both
+  // look selected.
 
   function toggleLanguage(lang: Language) {
     if (readingLanguages.includes(lang)) {
@@ -497,7 +470,7 @@ export function BookOnboarding({
                     <button
                       type="button"
                       className={`book-onboarding-edition-row ${splitEditionKey === undefined ? 'selected' : ''}`}
-                      onClick={() => { setSplitEditionKey(undefined); setSplitManuallyPicked(true) }}
+                      onClick={() => setSplitEditionKey(undefined)}
                     >
                       <span className="book-onboarding-er-lang dim">off</span>
                       <span className="book-onboarding-er-name dim">No side by side</span>
@@ -508,7 +481,7 @@ export function BookOnboarding({
                         key={ed.key}
                         type="button"
                         className={`book-onboarding-edition-row ${splitEditionKey === ed.key ? 'selected' : ''}`}
-                        onClick={() => { setSplitEditionKey(ed.key); setSplitManuallyPicked(true) }}
+                        onClick={() => setSplitEditionKey(ed.key)}
                       >
                         <span className="book-onboarding-er-lang">{LANG_LABELS[ed.language] || ed.language}</span>
                         <span className="book-onboarding-er-name">

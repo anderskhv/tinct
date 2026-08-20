@@ -12,6 +12,7 @@ import { AudioPitchPopover } from './components/AudioPitchPopover'
 import type { PitchKind } from './components/PitchPanel'
 import { SignInBanner } from './components/SignInBanner'
 import { detectEntrySource, type EntrySource } from './utils/entrySource'
+import { shouldPitchFirstSessionAccount } from './utils/firstSession'
 import { TopUpModal } from './components/TopUpModal'
 import type { BookStoreSelectOptions } from './components/BookStore'
 import { HomeRolePrompt } from './components/HomeRolePrompt'
@@ -1825,15 +1826,9 @@ export default function App() {
     setShowBookOnboarding(false)
     setOnboardingComplete(true)
     setPrefaceStartAtEnd(false)
-    // Landing-entry mid-flow account prompt (2026-05-06): anonymous users who
-    // arrived via the marketing landing page see an account-creation prompt
-    // BETWEEN the preface and the reader. SEO and deep-link users skip this —
-    // they get the existing top banner + first-completed-chapter prompt instead.
-    if (!user && entrySource === 'landing') {
-      setAuthModalMode('signup')
-      setShowAuthModal(true)
-    }
-  }, [book.id, book.editions, applyPrimaryEditionKey, applySplitEditionKey, preferences.splitView, toggleSplitView, persistBookEditionSelection, setReadingObjective, setOnboardingComplete, user, entrySource])
+    // Account can wait until they have actually started reading. The header
+    // still has Sign in; ProgressPrompt still fires after the first chapter.
+  }, [book.id, book.editions, applyPrimaryEditionKey, applySplitEditionKey, preferences.splitView, toggleSplitView, persistBookEditionSelection, setReadingObjective, setOnboardingComplete])
 
   const handleBookOnboardingClose = useCallback(() => {
     storage.set(`book-onboarded:${book.id}`, true)
@@ -2965,7 +2960,7 @@ export default function App() {
           editions={book.editions}
           mode={bookOnboardingMode}
           defaultEditionKey={primaryEditionKey}
-          showAccountStep={!user}
+          showAccountStep={false}
           onComplete={handleBookOnboardingComplete}
           onClose={handleBookOnboardingClose}
           onCreateAccount={() => {
@@ -3350,10 +3345,15 @@ export default function App() {
         hasSections={!!(primaryData?.sections?.length)}
       />
 
-      {/* Hide the create-account banner during the preface. We want a clean
-          read-the-front-matter experience first; the banner reappears once the
-          user is in the book proper. */}
-      {!isDemoMode && !(effectivePrefaceMode && showBookOnboarding) && (
+      {/* Hide the create-account banner on the library, during the preface,
+          and over the first lines of the book. Reading stays free; the
+          header still has Sign in. */}
+      {!isDemoMode && shouldPitchFirstSessionAccount({
+        showStore,
+        showOnboarding: !!(effectivePrefaceMode && showBookOnboarding),
+        chapterNumber: currentChapter,
+        currentPage,
+      }) && (
         <TrialBanner
           onSubscribe={() => handleCheckout('subscription')}
           onCreateAccount={() => {
@@ -3837,7 +3837,7 @@ export default function App() {
         )
       })()}
 
-      {backPosition && (
+      {backPosition && !(currentChapter === 1 && currentPage === 0) && (
         <button className="back-to-position" onClick={handleBackToPosition}>
           &larr; Back to reading position
         </button>
