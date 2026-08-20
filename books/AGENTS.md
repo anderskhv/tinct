@@ -53,7 +53,7 @@ If adding a book requires new app behavior, stop and ask Anders to handle it as 
 - No kids editions.
 - Every production book must be classified in the library taxonomy: House, Shelf membership, form, era, and relevant canon/list metadata.
 - Claude owns the content package for new books: source discovery, original parsing, human English translation sourcing for non-English works, `modern-en`, and `modern-da`.
-- Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy when Anders explicitly asks.
+- Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy after verify per `../AGENTS.md` (do not ask first unless Anders said local-only).
 - Modern Danish is translated from `modern-en`, not from the original.
 - Preserve user changes and never overlap deploy work with active edition writes.
 
@@ -337,7 +337,7 @@ npm run build
 npm run verify-bundle
 ```
 
-Do not deploy unless Anders explicitly asks.
+After those gates pass, deploy per `../AGENTS.md`. Until Tinct has more than 10 users, do not ask first unless Anders said local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle. Never deploy or stash during active edition writes.
 
 ## Reporting
 

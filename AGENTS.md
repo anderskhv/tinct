@@ -42,7 +42,7 @@ Interpretation rules:
 
 ## Hard Rules
 
-- Do not deploy unless Anders explicitly asks.
+- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, deploy with `npm run deploy` from `app/` using the Node 24 nvm path. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
 - Do not run `generate-editions.cjs` for development work.
 - Keep app, content, and audio work separated as described in `docs/workflow-boundaries.md`.
@@ -60,7 +60,7 @@ npm run build
 npm run verify-bundle
 ```
 
-Use the Node 24 nvm install for Wrangler deploys:
+After those gates pass, deploy with the Node 24 nvm install. Do not ask first unless Anders said local-only:
 
 ```bash
 cd app

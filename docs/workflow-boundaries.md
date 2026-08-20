@@ -10,7 +10,7 @@ Use for reader UX, auth, sync, billing, library UI, Cloudflare Worker code, and 
 - Commit prefix: `feat:`, `fix:`, `chore:`
 - Typical branch: `app/asger-feedback`, `app/reader-fix`
 - Verification: from `app/`, run `npm run build` and `npm run verify-bundle`
-- Deploy: only when Anders explicitly asks, from `app/` with `npm run deploy`
+- Deploy: after `npm run build` and `npm run verify-bundle` pass, from `app/` with `npm run deploy` using the Node 24 nvm path. Until Tinct has more than 10 users, do not ask first unless Anders said local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 
 `app/.env` is for local app and deploy configuration. Its `CLOUDFLARE_API_TOKEN` should be the Workers deploy token, not the RunPod/R2 upload token.
 
