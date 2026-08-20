@@ -1,10 +1,10 @@
 import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor, Edition, EditionKey } from '../types'
-import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
-import { lookup as dictLookup } from '../services/dictionary'
-import type { DictResult } from '../services/dictionary'
+import { useDefine } from './reader/useDefine'
+import { SelectionPopup, type PopupMode } from './reader/SelectionPopup'
+import { defaultPopupMode } from './reader/selectionPopupMode'
 import {
   decidePublishedPageCount,
   liveContentfulPageCount,
@@ -49,7 +49,7 @@ interface SplitReaderProps {
     text: string,
     color: HighlightColor,
     side: 'left' | 'right',
-  ) => void
+  ) => { id: string } | void
   onTextSelect: (text: string) => void
   onReflect?: () => void
   onGenerateSummary?: () => void
@@ -153,14 +153,27 @@ export function SplitReader({
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const [noteInput, setNoteInput] = useState('')
-  const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note' | 'define'>('main')
-  const [defineQuery, setDefineQuery] = useState('')
-  const [defineResult, setDefineResult] = useState<DictResult | null>(null)
-  const [defineLoading, setDefineLoading] = useState(false)
-  const [defineNotFound, setDefineNotFound] = useState(false)
+  const [popupMode, setPopupMode] = useState<PopupMode>('colors')
+  const {
+    query: defineQuery,
+    setQuery: setDefineQuery,
+    result: defineResult,
+    loading: defineLoading,
+    notFound: defineNotFound,
+    begin: beginDefine,
+    run: runDefine,
+  } = useDefine()
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const openSelectionPopup = useCallback((info: SelectionInfo) => {
+    const mode = defaultPopupMode(info.text, info.existingHighlightId)
+    setPopupMode(mode)
+    setIssueTag('')
+    setIssueComment('')
+    if (mode === 'define') beginDefine(info.text)
+    setSelectionPopup(info)
+  }, [beginDefine])
   const popupRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -599,10 +612,7 @@ export function SplitReader({
         const existingNote = (markSide === 'left' ? leftHighlights : rightHighlights).find(h => h.id === highlightId)?.note || ''
         const showBelow = markRect.top < 120
         setNoteInput(existingNote)
-        setPopupMode('main')
-        setIssueTag('')
-        setIssueComment('')
-        setSelectionPopup({
+        openSelectionPopup({
           x: Math.max(150, Math.min(window.innerWidth - 150, markRect.left + markRect.width / 2)),
           y: showBelow ? markRect.bottom + 10 : markRect.top - 10,
           text: markEl.textContent || '',
@@ -650,7 +660,7 @@ export function SplitReader({
         goToPage(currentPage + 1)
       }
     }
-  }, [currentPage, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, goToPage, readerRef, leftHighlights, rightHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick])
+  }, [currentPage, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, goToPage, readerRef, leftHighlights, rightHighlights, onNextChapter, onPrevChapter, isAudioPlaying, playingParagraphIndex, onParagraphClick, openSelectionPopup])
 
   // Drives from React state (B13 fix — see Reader.tsx for full rationale).
   // The state-backed value forces re-render whenever container resizes;
@@ -738,10 +748,7 @@ export function SplitReader({
     const spaceAbove = rect.top
     const spaceBelow = window.innerHeight - rect.bottom
     const showBelow = spaceBelow >= spaceAbove
-    setPopupMode('main')
-    setIssueTag('')
-    setIssueComment('')
-    setSelectionPopup({
+    openSelectionPopup({
       x: Math.max(150, Math.min(window.innerWidth - 150, rect.left + rect.width / 2)),
       y: showBelow ? rect.bottom + 10 : rect.top - 10,
       text: selectedText,
@@ -766,41 +773,13 @@ export function SplitReader({
     if (previewCreated && window.matchMedia('(max-width: 768px)').matches) {
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
-  }, [leftParagraphs, rightParagraphs, readerRef])
+  }, [leftParagraphs, rightParagraphs, readerRef, openSelectionPopup])
 
   const handleDefine = useCallback(() => {
     if (!selectionPopup) return
-    const raw = selectionPopup.text.trim()
-    const isSingleWord = !/\s/.test(raw)
-    setDefineQuery(isSingleWord ? raw : '')
-    setDefineResult(null)
-    setDefineNotFound(false)
+    beginDefine(selectionPopup.text)
     setPopupMode('define')
-    if (isSingleWord) {
-      setDefineLoading(true)
-      dictLookup(raw).then(res => {
-        setDefineLoading(false)
-        setDefineResult(res)
-        setDefineNotFound(!res)
-      })
-    }
-  }, [selectionPopup])
-
-  const runDefine = useCallback((q: string) => {
-    const trimmed = q.trim()
-    if (!trimmed) {
-      setDefineResult(null)
-      setDefineNotFound(false)
-      return
-    }
-    setDefineLoading(true)
-    setDefineNotFound(false)
-    dictLookup(trimmed).then(res => {
-      setDefineLoading(false)
-      setDefineResult(res)
-      setDefineNotFound(!res)
-    })
-  }, [])
+  }, [selectionPopup, beginDefine])
 
   const handleCopy = useCallback(() => {
     if (!selectionPopup) return
@@ -825,6 +804,26 @@ export function SplitReader({
       done()
     }
   }, [selectionPopup])
+
+  const handleRequestNote = () => {
+    if (!selectionPopup) return
+    if (selectionPopup.existingHighlightId) {
+      setPopupMode('note')
+      return
+    }
+    const created = onHighlight(
+      selectionPopup.paragraphIndex,
+      selectionPopup.startOffset,
+      selectionPopup.endOffset,
+      selectionPopup.text,
+      'gold',
+      selectionPopup.side,
+    )
+    if (created?.id) {
+      setSelectionPopup(sp => sp ? { ...sp, existingHighlightId: created.id } : null)
+    }
+    setPopupMode('note')
+  }
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
@@ -1131,212 +1130,35 @@ export function SplitReader({
       </div>
 
       {selectionPopup && (
-        <div
-          ref={popupRef}
-          className={`selection-popup ${selectionPopup.showBelow ? 'selection-popup-below' : ''}`}
-          style={{ left: selectionPopup.x, top: selectionPopup.y, position: 'fixed' }}
-          onClick={e => e.stopPropagation()}
-          onMouseUp={e => e.stopPropagation()}
-          onTouchEnd={e => e.stopPropagation()}
-        >
-          {popupMode === 'colors' && (
-            <>
-              <button className="popup-back-btn" onClick={() => setPopupMode('main')} title="Back">‹</button>
-              <div className="popup-colors">
-                {HIGHLIGHT_COLORS.map(c => (
-                  <button
-                    key={c.key}
-                    className={`popup-color-dot highlight-${c.key}`}
-                    title={`Highlight ${c.label}`}
-                    onClick={() => { handleColorClick(c.key); setPopupMode('main') }}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-
-          {popupMode === 'define' && (
-            <div className="popup-define">
-              <div className="popup-define-head">
-                <button className="popup-back-btn" onClick={() => setPopupMode('main')} title="Back">‹</button>
-                <input
-                  className="popup-define-input"
-                  type="text"
-                  value={defineQuery}
-                  onChange={e => setDefineQuery(e.target.value)}
-                  onKeyDown={e => { if (e.key === 'Enter') runDefine(defineQuery) }}
-                  onBlur={() => runDefine(defineQuery)}
-                  placeholder="Look up a word…"
-                  autoFocus
-                />
-              </div>
-              {defineLoading && <div className="popup-define-status">Looking up…</div>}
-              {!defineLoading && defineResult && (
-                <div className="popup-define-result">
-                  <div className="popup-define-word">{defineResult.word}</div>
-                  {defineResult.resolvedFrom && defineResult.resolvedFrom !== defineResult.word && (
-                    <div className="popup-define-note">from &ldquo;{defineResult.resolvedFrom}&rdquo;</div>
-                  )}
-                  <ol className="popup-define-list">
-                    {defineResult.definitions.map((d, i) => (
-                      <li key={i}>{d}</li>
-                    ))}
-                  </ol>
-                </div>
-              )}
-              {!defineLoading && defineNotFound && (
-                <div className="popup-define-status popup-define-empty">
-                  No definition found for &ldquo;{defineQuery}&rdquo;.
-                </div>
-              )}
-              {!defineLoading && !defineResult && !defineNotFound && !defineQuery && (
-                <div className="popup-define-status">
-                  Type a word and press Enter to look it up.
-                </div>
-              )}
-            </div>
-          )}
-
-          {popupMode === 'issue' && (
-            <div className="popup-issue-form">
-              <div className="popup-tag-chips">
-                {['Translation', 'Wrong text', 'Formatting', 'Other'].map(tag => (
-                  <button
-                    key={tag}
-                    className={`popup-tag-chip ${issueTag === tag ? 'selected' : ''}`}
-                    onClick={() => setIssueTag(tag)}
-                  >{tag}</button>
-                ))}
-              </div>
-              <textarea
-                className="popup-note-input"
-                value={issueComment}
-                onChange={e => setIssueComment(e.target.value)}
-                placeholder="Optional comment..."
-                rows={2}
-                onClick={e => e.stopPropagation()}
-              />
-              <div className="popup-note-actions">
-                <button className="popup-button" onClick={() => { setPopupMode('main'); setIssueTag(''); setIssueComment('') }}>Cancel</button>
-                <button
-                  className="popup-button popup-button-primary"
-                  onClick={handleIssueSubmit}
-                  disabled={!issueTag || issueSubmitting}
-                >{issueSubmitting ? '…' : 'Report'}</button>
-              </div>
-            </div>
-          )}
-
-          {/* Note editor */}
-          {popupMode === 'note' && selectionPopup.existingHighlightId && (
-            <div className="popup-issue-form">
-              <textarea
-                className="popup-textarea"
-                value={noteInput}
-                onChange={e => setNoteInput(e.target.value)}
-                placeholder="Add a note to this highlight..."
-                rows={3}
-                onClick={e => e.stopPropagation()}
-                autoFocus
-              />
-              <div className="popup-note-actions">
-                <button className="popup-button" onClick={() => setPopupMode('main')}>Cancel</button>
-                <button
-                  className="popup-button popup-button-primary"
-                  onClick={() => {
-	                    onUpdateHighlightNote?.(selectionPopup.existingHighlightId!, noteInput.trim())
-                    dismissPopup()
-                  }}
-                >Save</button>
-              </div>
-            </div>
-          )}
-
-          {popupMode === 'main' && (
-            <>
-              <button className="popup-icon-btn" onClick={() => setPopupMode('colors')} title="Highlight">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M10.5 2.5 L13.5 5.5 L6 13 L2 14 L3 10 Z" />
-                  <line x1="8.5" y1="4.5" x2="11.5" y2="7.5" />
-                </svg>
-                <span className="popup-icon-label">Highlight</span>
-              </button>
-              <div className="popup-divider" />
-              <button className="popup-icon-btn" onClick={handleDefine} title="Define">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 2 H12 A1 1 0 0 1 13 3 V13 A1 1 0 0 1 12 14 H4 A1 1 0 0 1 3 13 Z" />
-                  <line x1="5.5" y1="5" x2="10.5" y2="5" />
-                  <line x1="5.5" y1="8" x2="10.5" y2="8" />
-                  <line x1="5.5" y1="11" x2="8.5" y2="11" />
-                </svg>
-                <span className="popup-icon-label">Define</span>
-              </button>
-              <div className="popup-divider" />
-              <button className="popup-icon-btn" onClick={handleExplain} title="Chat about this">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 10a2 2 0 0 1-2 2H5l-3 3V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6z" />
-                </svg>
-                <span className="popup-icon-label">Chat</span>
-              </button>
-              <div className="popup-divider" />
-              <button className="popup-icon-btn" onClick={() => setPopupMode('issue')} title="Report an issue">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 2 L13 2 L10 9 L6 9 Z" />
-                  <circle cx="8" cy="13" r="1" fill="currentColor" stroke="none" />
-                </svg>
-                <span className="popup-icon-label">Issue</span>
-              </button>
-              <div className="popup-divider" />
-              <button className="popup-icon-btn" onClick={handleCopy} title="Copy text">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="5" y="5" width="9" height="9" rx="1" />
-                  <path d="M11 5 V3 a1 1 0 0 0 -1 -1 H3 a1 1 0 0 0 -1 1 v7 a1 1 0 0 0 1 1 h2" />
-                </svg>
-                <span className="popup-icon-label">Copy</span>
-              </button>
-              <div className="popup-divider" />
-              <button className="popup-icon-btn" onClick={() => { onShare?.(selectionPopup.text); dismissPopup(); window.getSelection()?.removeAllRanges() }} title="Share this quote">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M8 2 L8 11" />
-                  <path d="M5 5 L8 2 L11 5" />
-                  <path d="M3 9 L3 13 L13 13 L13 9" />
-                </svg>
-                <span className="popup-icon-label">Share</span>
-              </button>
-              {selectionPopup.existingHighlightId && (
-                <>
-                  <div className="popup-divider" />
-                  <button className="popup-icon-btn" onClick={() => setPopupMode('note')} title="Add/edit note">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 2h12v12H2z" />
-                      <line x1="5" y1="5" x2="11" y2="5" />
-                      <line x1="5" y1="8" x2="11" y2="8" />
-                      <line x1="5" y1="11" x2="8" y2="11" />
-                    </svg>
-                    <span className="popup-icon-label">Note</span>
-                  </button>
-                </>
-              )}
-              {selectionPopup.existingHighlightId && (
-                <>
-                  <div className="popup-divider" />
-                  <button
-                    className="popup-icon-btn popup-icon-btn-delete"
-                    onClick={() => { onDeleteHighlight?.(selectionPopup.existingHighlightId!); dismissPopup() }}
-                    title="Delete highlight"
-                  >
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="3,4 13,4" />
-                      <path d="M6 4 V2 h4 V4" />
-                      <path d="M4 4 L5 14 h6 L12 4" />
-                    </svg>
-                    <span className="popup-icon-label">Delete</span>
-                  </button>
-                </>
-              )}
-            </>
-          )}
-        </div>
+        <SelectionPopup
+          selection={selectionPopup}
+          popupRef={popupRef}
+          popupMode={popupMode}
+          setPopupMode={setPopupMode}
+          onColorClick={handleColorClick}
+          defineQuery={defineQuery}
+          setDefineQuery={setDefineQuery}
+          defineResult={defineResult}
+          defineLoading={defineLoading}
+          defineNotFound={defineNotFound}
+          runDefine={runDefine}
+          onDefine={handleDefine}
+          issueTag={issueTag}
+          setIssueTag={setIssueTag}
+          issueComment={issueComment}
+          setIssueComment={setIssueComment}
+          issueSubmitting={issueSubmitting}
+          onIssueSubmit={handleIssueSubmit}
+          noteInput={noteInput}
+          setNoteInput={setNoteInput}
+          onUpdateHighlightNote={onUpdateHighlightNote}
+          onRequestNote={handleRequestNote}
+          onExplain={handleExplain}
+          onCopy={handleCopy}
+          onShare={onShare}
+          onDeleteHighlight={onDeleteHighlight}
+          dismissPopup={dismissPopup}
+        />
       )}
     </div>
   )

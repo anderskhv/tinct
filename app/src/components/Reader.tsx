@@ -11,7 +11,8 @@ import {
 } from './reader/selectionGeometry'
 import type { SelectionSegment, TextPoint } from './reader/selectionGeometry'
 import { useDefine } from './reader/useDefine'
-import { SelectionPopup, type SelectionInfo } from './reader/SelectionPopup'
+import { SelectionPopup, type PopupMode, type SelectionInfo } from './reader/SelectionPopup'
+import { defaultPopupMode } from './reader/selectionPopupMode'
 import { decidePublishedPageCount, liveContentfulPageCount } from '../utils/readerPagination'
 
 interface CustomSelection {
@@ -40,7 +41,7 @@ interface ReaderProps {
     endOffset: number,
     text: string,
     color: HighlightColor,
-  ) => void
+  ) => { id: string } | void
   onTextSelect: (text: string) => void
   onReflect?: () => void
   onGenerateSummary?: () => void
@@ -153,7 +154,7 @@ export function Reader({
 }: ReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const [noteInput, setNoteInput] = useState('')
-  const [popupMode, setPopupMode] = useState<'main' | 'colors' | 'issue' | 'note' | 'define'>('main')
+  const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const {
     query: defineQuery,
     setQuery: setDefineQuery,
@@ -166,6 +167,14 @@ export function Reader({
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const openSelectionPopup = useCallback((info: SelectionInfo) => {
+    const mode = defaultPopupMode(info.text, info.existingHighlightId)
+    setPopupMode(mode)
+    setIssueTag('')
+    setIssueComment('')
+    if (mode === 'define') beginDefine(info.text)
+    setSelectionPopup(info)
+  }, [beginDefine])
   const [customSelection, setCustomSelection] = useState<CustomSelection | null>(null)
   const customSelectionRef = useRef<CustomSelection | null>(null)
   customSelectionRef.current = customSelection
@@ -800,16 +809,13 @@ export function Reader({
     const selectionTop = Math.min(startY, endY)
     const selectionBottom = Math.max(startY, endY)
     const mobile = isMobileSelection()
-    const mainMenuHeight = 124
-    const bottomSheetTop = window.innerHeight - mainMenuHeight - 48
+    const estimatedHeight = defaultPopupMode(selection.text) === 'define' ? 220 : 64
+    const bottomSheetTop = window.innerHeight - estimatedHeight - 48
     const safeTop = Math.max(readerRef.current?.getBoundingClientRect().top ?? 0, 88)
-    const floatingY = selectionTop - mainMenuHeight - 12
+    const floatingY = selectionTop - estimatedHeight - 12
     const hasRoomAboveSelection = floatingY >= safeTop
     const shouldFloatAbove = mobile && selectionBottom > bottomSheetTop && hasRoomAboveSelection
-    setPopupMode('main')
-    setIssueTag('')
-    setIssueComment('')
-    setSelectionPopup({
+    openSelectionPopup({
       x: selection.endHandle?.x ?? window.innerWidth / 2,
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
       text: selection.text,
@@ -820,7 +826,7 @@ export function Reader({
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
     })
-  }, [readerRef])
+  }, [openSelectionPopup, readerRef])
 
   const applyCustomSelection = useCallback((anchor: TextPoint, focus: TextPoint, showPopup = false) => {
     const segments = buildSelectionSegments(anchor, focus)
@@ -904,10 +910,7 @@ export function Reader({
     setCustomSelection(null)
     window.getSelection()?.removeAllRanges()
     setNoteInput(existingNote)
-    setPopupMode('main')
-    setIssueTag('')
-    setIssueComment('')
-    setSelectionPopup({
+    openSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, markRect.left + markRect.width / 2)),
       y: showBelow ? markRect.bottom + 10 : markRect.top - 10,
       text: highlight?.text || markEl.textContent || '',
@@ -920,7 +923,7 @@ export function Reader({
     })
     existingHighlightOpenedAtRef.current = Date.now()
     return true
-  }, [clearSelectionPreview, disableHighlight, highlights])
+  }, [clearSelectionPreview, disableHighlight, highlights, openSelectionPopup])
 
   // Click on left/right edge to turn pages, or click paragraph for audio
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -1061,10 +1064,7 @@ export function Reader({
     const spaceAbove = rect.top
     const spaceBelow = window.innerHeight - rect.bottom
     const showBelow = spaceBelow >= spaceAbove
-    setPopupMode('main')
-    setIssueTag('')
-    setIssueComment('')
-    setSelectionPopup({
+    openSelectionPopup({
       x: Math.max(150, Math.min(window.innerWidth - 150, rect.left + rect.width / 2)),
       y: showBelow ? rect.bottom + 10 : rect.top - 10,
       text: selectedText,
@@ -1088,7 +1088,7 @@ export function Reader({
       window.getSelection()?.removeAllRanges()
       setTimeout(() => window.getSelection()?.removeAllRanges(), 50)
     }
-  }, [buildRangeSelectionSegments, readerRef, disableHighlight, clearSelectionPreview, dismissPopup])
+  }, [buildRangeSelectionSegments, readerRef, disableHighlight, clearSelectionPreview, dismissPopup, openSelectionPopup])
 
   useEffect(() => {
     if (disableHighlight || isMobileSelection()) return
@@ -1173,15 +1173,9 @@ export function Reader({
     }
   }, [selectionPopup])
 
-  const handleColorClick = (color: HighlightColor) => {
+  const createHighlightsFromSelection = (color: HighlightColor): { id: string } | void => {
     if (!selectionPopup) return
-    if (selectionPopup.existingHighlightId) {
-      onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      dismissPopup()
-      return
-    }
-    // Guard: don't create zero-length highlights (indexOf failed)
-    if (selectionPopup.startOffset >= selectionPopup.endOffset) {
+    if (selectionPopup.startOffset >= selectionPopup.endOffset && !(selectionPopup.segments && selectionPopup.segments.length > 0)) {
       console.warn('[Highlight] Blocked zero-length highlight', selectionPopup)
       return
     }
@@ -1193,9 +1187,10 @@ export function Reader({
           endOffset: selectionPopup.endOffset,
           text: selectionPopup.text,
         }]
+    let created: { id: string } | void
     for (const segment of segments) {
       if (segment.startOffset >= segment.endOffset) continue
-      onHighlight(
+      created = onHighlight(
         segment.paragraphIndex,
         segment.startOffset,
         segment.endOffset,
@@ -1203,8 +1198,32 @@ export function Reader({
         color,
       )
     }
+    return created
+  }
+
+  const handleColorClick = (color: HighlightColor) => {
+    if (!selectionPopup) return
+    if (selectionPopup.existingHighlightId) {
+      onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
+      dismissPopup()
+      return
+    }
+    createHighlightsFromSelection(color)
     dismissPopup()
     window.getSelection()?.removeAllRanges()
+  }
+
+  const handleRequestNote = () => {
+    if (!selectionPopup) return
+    if (selectionPopup.existingHighlightId) {
+      setPopupMode('note')
+      return
+    }
+    const created = createHighlightsFromSelection('gold')
+    if (created?.id) {
+      setSelectionPopup(sp => sp ? { ...sp, existingHighlightId: created.id } : null)
+    }
+    setPopupMode('note')
   }
 
   const handleExplain = () => {
@@ -1632,6 +1651,7 @@ export function Reader({
           noteInput={noteInput}
           setNoteInput={setNoteInput}
           onUpdateHighlightNote={onUpdateHighlightNote}
+          onRequestNote={handleRequestNote}
           onExplain={handleExplain}
           onCopy={handleCopy}
           onShare={onShare}

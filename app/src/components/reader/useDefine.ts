@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { lookup as dictLookup } from '../../services/dictionary'
 import type { DictResult } from '../../services/dictionary'
+import { isSingleWordSelection, normalizeSelectionText } from './selectionPopupMode'
 
 // Dictionary "Define" popup state, extracted from Reader.tsx (slice 4).
 // Owns only the define panel's state + lookups; the popup mode/visibility and
@@ -25,11 +26,8 @@ export function useDefine(): UseDefine {
   const [loading, setLoading] = useState(false)
   const [notFound, setNotFound] = useState(false)
 
-  const normalizeQuery = (q: string) => q.trim()
-    .replace(/^[\s“”"'([{]+|[\s.,;:!?…”"')\]}]+$/g, '')
-
   const run = useCallback((q: string) => {
-    const trimmed = normalizeQuery(q)
+    const trimmed = normalizeSelectionText(q)
     if (!trimmed) {
       setResult(null)
       setNotFound(false)
@@ -45,12 +43,12 @@ export function useDefine(): UseDefine {
   }, [])
 
   const begin = useCallback((rawText: string) => {
-    const raw = normalizeQuery(rawText)
-    const isSingleWord = !/\s/.test(raw)
-    setQuery(isSingleWord ? raw : '')
+    const raw = normalizeSelectionText(rawText)
+    const single = isSingleWordSelection(raw)
+    setQuery(single ? raw : '')
     setResult(null)
     setNotFound(false)
-    if (isSingleWord) {
+    if (single) {
       setLoading(true)
       dictLookup(raw).then(res => {
         setLoading(false)

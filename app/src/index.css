@@ -1608,7 +1608,63 @@ body {
   margin: 0 2px;
 }
 
-/* Color submenu (slide in after Highlight tap) */
+/* Kindle-style colour + utility bar (default for phrases; under the dictionary) */
+.popup-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.popup-action-bar .popup-colors {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.popup-bar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-inverse);
+  cursor: pointer;
+  flex: 0 0 36px;
+}
+
+.popup-bar-btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.popup-bar-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.popup-overflow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.selection-popup:has(.popup-action-bar),
+.selection-popup:has(.popup-overflow) {
+  flex-direction: column;
+  align-items: stretch;
+  white-space: normal;
+  min-width: 260px;
+}
+
+/* Color dots on the Kindle action bar */
 .popup-colors {
   display: flex;
   gap: 4px;
@@ -8382,13 +8438,13 @@ body {
     display: none;
   }
 
-  .selection-popup:has(.popup-icon-btn) {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .selection-popup:has(.popup-overflow) {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    min-height: 114px;
-    max-height: 122px;
-    overflow: hidden;
+    min-height: 56px;
+    max-height: none;
+    overflow: visible;
   }
 
   .selection-popup:has(.popup-icon-btn-delete) {
@@ -8400,31 +8456,37 @@ body {
     bottom: auto;
   }
 
-  .selection-popup:has(.popup-color-dot) {
+  .popup-action-bar {
+    gap: 2px;
+    min-height: 48px;
+    overflow: visible;
+  }
+
+  .popup-action-bar .popup-colors {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .popup-action-bar .popup-color-dot {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+  }
+
+  .popup-bar-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    flex: 0 0 40px;
+  }
+
+  .selection-popup:has(.popup-action-bar):not(:has(.popup-define)):not(:has(.popup-issue-form)) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    min-height: 52px;
-    max-height: 64px;
-    gap: 12px;
-    overflow: hidden;
-  }
-
-  .selection-popup:has(.popup-color-dot) .popup-back-btn {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    flex: 0 0 36px;
-  }
-
-  .selection-popup:has(.popup-color-dot) .popup-colors {
-    gap: 10px;
-  }
-
-  .selection-popup:has(.popup-color-dot) .popup-color-dot {
-    width: 26px;
-    height: 26px;
+    min-height: 56px;
+    max-height: none;
+    overflow: visible;
   }
 
   .selection-popup:has(.popup-issue-form),
@@ -9270,12 +9332,14 @@ body {
 }
 
 [data-eink] .popup-icon-btn,
+[data-eink] .popup-bar-btn,
 [data-eink] .popup-back-btn,
 [data-eink] .popup-button {
   color: #000;
 }
 
 [data-eink] .popup-icon-btn:hover,
+[data-eink] .popup-bar-btn:hover,
 [data-eink] .popup-back-btn:hover,
 [data-eink] .popup-button:hover,
 [data-eink] .popup-button-primary:hover {
