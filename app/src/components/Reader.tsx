@@ -12,6 +12,7 @@ import {
 import type { SelectionSegment, TextPoint } from './reader/selectionGeometry'
 import { useDefine } from './reader/useDefine'
 import { SelectionPopup, type SelectionInfo } from './reader/SelectionPopup'
+import { decidePublishedPageCount, liveContentfulPageCount } from '../utils/readerPagination'
 
 interface CustomSelection {
   anchor: TextPoint
@@ -210,6 +211,10 @@ export function Reader({
   currentPageRef.current = currentPage
   const totalPagesRef = useRef(totalPages)
   totalPagesRef.current = totalPages
+  const pendingPageCountRef = useRef<number | null>(null)
+  useEffect(() => {
+    pendingPageCountRef.current = null
+  }, [chapterTitle, paragraphs])
   const initialPageRef = useRef(initialPage)
   const targetParagraphRef = useRef(targetParagraphIndex)
   const userNavigatedRef = useRef(false)
@@ -263,8 +268,18 @@ export function Reader({
     const colWidth = getColWidth()
     if (colWidth <= 0) return
     const gap = getGap()
-    // Total scrollWidth includes all columns and gaps between them
-    const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
+    const container = readerRef.current
+    const measured = liveContentfulPageCount(content, container, colWidth, gap)
+    const decision = decidePublishedPageCount({
+      measured,
+      published: totalPagesRef.current,
+      pending: pendingPageCountRef.current,
+    })
+    pendingPageCountRef.current = decision.pending
+    setColWidthState(colWidth)
+    setGapState(gap)
+    if (!decision.publish || decision.pages == null) return
+    const pages = decision.pages
     // Preserve reading position across layout changes (window resize, panel
     // toggle, font-size change). currentPage is absolute — page 14 of 18 is
     // different content than page 14 of 33. Convert via scroll fraction so
@@ -282,8 +297,6 @@ export function Reader({
       setCurrentPage(clamped)
     }
     setTotalPages(pages)
-    setColWidthState(colWidth)
-    setGapState(gap)
   }, [isActive, updateColumnWidth, getColWidth, getGap])
 
   // Initial measurement runs synchronously before paint via useLayoutEffect.
@@ -336,8 +349,8 @@ export function Reader({
     const cw = getColWidth()
     const gp = getGap()
     if (cw <= 0) { dbg('cw-zero', { cw, gp }); return }
-    const pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
-    if (pages <= 1) { dbg('pages-le-1', { pages, scrollWidth: content.scrollWidth, cw, gp }); return }
+    const pages = liveContentfulPageCount(content, readerRef.current, cw, gp)
+    if (pages == null || pages <= 1) { dbg('pages-le-1', { pages, scrollWidth: content.scrollWidth, cw, gp }); return }
     if (targetParagraphRef.current !== undefined) { dbg('target-para-set', { para: targetParagraphRef.current }); return }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1) {
@@ -477,11 +490,6 @@ export function Reader({
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetParagraphNonce])
-
-  // Report page changes to parent
-  useEffect(() => {
-    onPageChange?.(currentPage, totalPages)
-  }, [currentPage, totalPages, onPageChange])
 
   useEffect(() => {
     const content = contentRef.current
@@ -634,8 +642,8 @@ export function Reader({
       const cw = getColWidth()
       const gp = getGap()
       if (cw > 0) {
-        pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
-        if (pages !== totalPages) setTotalPages(pages)
+        const measured = liveContentfulPageCount(content, readerRef.current, cw, gp)
+        if (measured != null) pages = measured
       }
     }
     const clamped = Math.max(0, Math.min(page, pages - 1))
@@ -748,6 +756,11 @@ export function Reader({
   const effectiveCurrentPage = Math.min(currentPage, Math.max(0, effectiveTotalPages - 1))
   const atEffectiveFirstPage = effectiveCurrentPage <= 0
   const atEffectiveLastPage = effectiveCurrentPage >= effectiveTotalPages - 1
+
+  useEffect(() => {
+    onPageChange?.(effectiveCurrentPage, effectiveTotalPages)
+  }, [effectiveCurrentPage, effectiveTotalPages, onPageChange])
+
   const isMobileSelection = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
 
   const normalizedParagraph = useCallback((paragraphIndex: number) => {

@@ -1,7 +1,9 @@
-export type PrefaceDisplayColumns = 1 | 2
+import { countColumnPages, type PrefaceDisplayColumns } from './readerPagination'
+
+export type { PrefaceDisplayColumns }
+export { countColumnPages }
 
 const NARROW_PREFACE_WIDTH = 680
-const OVERFLOW_SLACK = 0.15
 
 export function prefaceDisplayColumns(
   wrapperWidth: number,
@@ -9,24 +11,6 @@ export function prefaceDisplayColumns(
 ): PrefaceDisplayColumns {
   if (wrapperWidth > 0 && wrapperWidth < NARROW_PREFACE_WIDTH) return 1
   return requested
-}
-
-export function countColumnPages(args: {
-  scrollWidth: number
-  columnWidth: number
-  columnGap: number
-  displayColumns: PrefaceDisplayColumns
-}): number {
-  const { scrollWidth, columnWidth, columnGap, displayColumns } = args
-  if (columnWidth <= 0) return 1
-  const stride = columnWidth + columnGap
-  if (stride <= 0) return 1
-  const rawCols = (scrollWidth + columnGap) / stride
-  // Bias against a blank overflow column. CSS multi-column often reports a
-  // sub-pixel leftover that used to grow the preface counter as the reader
-  // tapped (1 of 7 → 2 of 9 → 16 of 16).
-  const totalCols = Math.max(1, Math.round(rawCols - OVERFLOW_SLACK))
-  return Math.max(1, Math.ceil(totalCols / displayColumns))
 }
 
 export function prefaceSectionTotal(measuredPages: number, included: boolean): number {

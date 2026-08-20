@@ -5,6 +5,12 @@ import { HIGHLIGHT_COLORS } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 import { lookup as dictLookup } from '../services/dictionary'
 import type { DictResult } from '../services/dictionary'
+import {
+  decidePublishedPageCount,
+  liveContentfulPageCount,
+  splitRowShouldFragment,
+  splitRowShouldFragmentByText,
+} from '../utils/readerPagination'
 
 interface SelectionInfo {
   x: number
@@ -92,6 +98,9 @@ interface SplitReaderProps {
   splitEditionKey?: string
   currentChapter?: number
   authToken?: string
+  fontSize?: string
+  fontFamily?: string
+  layoutSignal?: unknown
 }
 
 export function SplitReader({
@@ -138,6 +147,9 @@ export function SplitReader({
   splitEditionKey,
   currentChapter,
   authToken,
+  fontSize,
+  fontFamily,
+  layoutSignal,
 }: SplitReaderProps) {
   const [selectionPopup, setSelectionPopup] = useState<SelectionInfo | null>(null)
   const [noteInput, setNoteInput] = useState('')
@@ -179,8 +191,19 @@ export function SplitReader({
   const [colWidthState, setColWidthState] = useState(0)
   const [gapState, setGapState] = useState(60)
   const [chapterEndPage, setChapterEndPage] = useState<number | null>(null)
+  const [overflowRowKeys, setOverflowRowKeys] = useState<Set<number>>(() => new Set())
+  const pendingPageCountRef = useRef<number | null>(null)
+  const currentPageRef = useRef(currentPage)
+  currentPageRef.current = currentPage
+  const totalPagesRef = useRef(totalPages)
+  totalPagesRef.current = totalPages
   const initialPageRef = useRef(initialPage)
   const userNavigatedRef = useRef(false) // true when user manually changed page
+
+  useEffect(() => {
+    pendingPageCountRef.current = null
+    setOverflowRowKeys(new Set())
+  }, [chapterTitle, leftParagraphs.length, rightParagraphs.length])
 
   // Read actual column-gap from CSS (60px desktop, 40px mobile)
   const getGap = useCallback(() => {
@@ -211,20 +234,61 @@ export function SplitReader({
 
   const recalcPages = useCallback(() => {
     const content = contentRef.current
+    const container = readerRef.current
     if (!content) return
     updateColumnWidth()
     const colWidth = getColWidth()
     if (colWidth <= 0) return
     const gap = getGap()
-    const pages = Math.max(1, Math.round((content.scrollWidth + gap) / (colWidth + gap)))
-    setTotalPages(pages)
+    const columnHeight = container?.clientHeight ?? 0
+    const overflowKeys: number[] = []
+    if (columnHeight >= 160) {
+      content.querySelectorAll('.split-row').forEach((row, index) => {
+        const el = row as HTMLElement
+        if (splitRowShouldFragment(el.offsetHeight, columnHeight)) {
+          el.classList.add('split-row-fragmentable')
+          overflowKeys.push(index)
+        }
+      })
+      if (overflowKeys.length > 0) void content.offsetHeight
+    }
+    if (overflowKeys.length > 0) {
+      setOverflowRowKeys(prev => {
+        let changed = false
+        const next = new Set(prev)
+        for (const key of overflowKeys) {
+          if (!next.has(key)) {
+            next.add(key)
+            changed = true
+          }
+        }
+        return changed ? next : prev
+      })
+    }
+    const measured = liveContentfulPageCount(content, container, colWidth, gap)
+    const decision = decidePublishedPageCount({
+      measured,
+      published: totalPagesRef.current,
+      pending: pendingPageCountRef.current,
+    })
+    pendingPageCountRef.current = decision.pending
     setColWidthState(colWidth)
     setGapState(gap)
-    // No currentPage clamp here — see Reader.tsx for the rationale. A
-    // transient page-count undershoot from scrollWidth rounding would
-    // otherwise pull the user back one page and goToPage's own clamp
-    // would prevent re-advancement (the "stuck at page 15-16" bug).
-  }, [updateColumnWidth, getColWidth, getGap])
+    if (!decision.publish || decision.pages == null) return
+    const pages = decision.pages
+    const oldPages = totalPagesRef.current
+    if (initialPageRef.current === undefined && oldPages > 1 && pages > 1 && pages !== oldPages) {
+      const frac = currentPageRef.current / (oldPages - 1)
+      const newPage = Math.round(frac * (pages - 1))
+      currentPageRef.current = newPage
+      setCurrentPage(newPage)
+    } else if (currentPageRef.current > pages - 1) {
+      const clamped = Math.max(0, pages - 1)
+      currentPageRef.current = clamped
+      setCurrentPage(clamped)
+    }
+    setTotalPages(pages)
+  }, [updateColumnWidth, getColWidth, getGap, readerRef])
 
   // Track chapter title to know when chapter actually changes (vs edition swap)
   const prevChapterTitle = useRef(chapterTitle)
@@ -247,8 +311,8 @@ export function SplitReader({
     const cw = getColWidth()
     const gp = getGap()
     if (cw <= 0) return
-    const pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
-    if (pages <= 1) return
+    const pages = liveContentfulPageCount(content, readerRef.current, cw, gp)
+    if (pages == null || pages <= 1) return
     if (targetParagraphRef.current !== undefined) return // paragraph branch handled below
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1) {
@@ -261,6 +325,7 @@ export function SplitReader({
   useEffect(() => {
     const timer1 = setTimeout(recalcPages, 100)
     const timer2 = setTimeout(recalcPages, 500)
+    const timer3 = setTimeout(recalcPages, 1500)
     const container = readerRef.current
     let postTransitionTimer: ReturnType<typeof setTimeout>
     const observer = container ? new ResizeObserver(() => {
@@ -269,8 +334,8 @@ export function SplitReader({
       postTransitionTimer = setTimeout(recalcPages, 320)
     }) : null
     if (container && observer) observer.observe(container)
-    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(postTransitionTimer); observer?.disconnect() }
-  }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages, panelOpen])
+    return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); clearTimeout(postTransitionTimer); observer?.disconnect() }
+  }, [leftParagraphs, rightParagraphs, chapterTitle, recalcPages, panelOpen, fontSize, fontFamily, layoutSignal])
 
   // Reset page only on actual chapter change, not on edition swap
   useEffect(() => {
@@ -308,11 +373,6 @@ export function SplitReader({
       initialPageRef.current = undefined
     }
   }, [totalPages, getColWidth, getGap])
-
-  // Report page changes to parent
-  useEffect(() => {
-    onPageChange?.(currentPage, totalPages)
-  }, [currentPage, totalPages, onPageChange])
 
   useEffect(() => {
     const content = contentRef.current
@@ -426,8 +486,8 @@ export function SplitReader({
       const cw = getColWidth()
       const gp = getGap()
       if (cw > 0) {
-        pages = Math.max(1, Math.round((content.scrollWidth + gp) / (cw + gp)))
-        if (pages !== totalPages) setTotalPages(pages)
+        const measured = liveContentfulPageCount(content, readerRef.current, cw, gp)
+        if (measured != null) pages = measured
       }
     }
     const clamped = Math.max(0, Math.min(page, pages - 1))
@@ -445,10 +505,6 @@ export function SplitReader({
   onNextChapterRef.current = onNextChapter
   const onPrevChapterRef = useRef(onPrevChapter)
   onPrevChapterRef.current = onPrevChapter
-  const currentPageRef = useRef(currentPage)
-  currentPageRef.current = currentPage
-  const totalPagesRef = useRef(totalPages)
-  totalPagesRef.current = totalPages
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement).tagName
@@ -506,6 +562,10 @@ export function SplitReader({
   const effectiveCurrentPage = Math.min(currentPage, Math.max(0, effectiveTotalPages - 1))
   const atEffectiveFirstPage = effectiveCurrentPage <= 0
   const atEffectiveLastPage = effectiveCurrentPage >= effectiveTotalPages - 1
+
+  useEffect(() => {
+    onPageChange?.(effectiveCurrentPage, effectiveTotalPages)
+  }, [effectiveCurrentPage, effectiveTotalPages, onPageChange])
 
   // Click on left/right edge to turn pages
   const handleReaderClick = useCallback((e: React.MouseEvent) => {
@@ -965,7 +1025,10 @@ export function SplitReader({
         ) : (
           <div className="split-reader-grid" ref={gridRef}>
             {Array.from({ length: maxParagraphs }, (_, i) => {
-              const rowCanFragment = (leftParagraphs[i]?.length ?? 0) > 1200 || (rightParagraphs[i]?.length ?? 0) > 1200
+              const rowCanFragment = overflowRowKeys.has(i) || splitRowShouldFragmentByText(
+                leftParagraphs[i]?.length ?? 0,
+                rightParagraphs[i]?.length ?? 0,
+              )
               return (
                 <div className={`split-row ${rowCanFragment ? 'split-row-fragmentable' : 'split-row-keep'}`} key={i}>
                   <div
