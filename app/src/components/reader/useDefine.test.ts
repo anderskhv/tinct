@@ -16,6 +16,15 @@ afterEach(() => {
 })
 
 describe('useDefine', () => {
+  it('begin() with a single word wrapped in punctuation looks it up immediately', async () => {
+    mockedLookup.mockResolvedValue({ word: 'selfishness', definitions: ['concern with oneself'] } as never)
+    const { result } = renderHook(() => useDefine())
+
+    act(() => { result.current.begin('selfishness,') })
+    expect(result.current.query).toBe('selfishness')
+    expect(mockedLookup).toHaveBeenCalledWith('selfishness')
+  })
+
   it('begin() with a single word looks it up immediately and stores the result', async () => {
     mockedLookup.mockResolvedValue({ word: 'sea', definitions: [{ partOfSpeech: 'noun', definition: 'the ocean' }] } as never)
     const { result } = renderHook(() => useDefine())
