@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
 import { resolveAudioUrl } from '../utils/audioUrl'
 import { useAudioSpeed, nextAudioSpeed } from '../hooks/useAudioSpeed'
-import type { AudioPlaybackAnchor } from '../voice/types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause } from '../voice/types'
 
 /** Push the latest audio engine event into a global so DevTools can read it.
  *  Critical for diagnosing platform-specific audio issues like the Boox
@@ -64,8 +64,8 @@ export interface BottomBarHandle {
   skipSeconds: (delta: number) => void
   /** Whether the current book/chapter/edition has audio available. */
   hasAudio: () => boolean
-  /** Pause the current paragraph and return the exact resume anchor. */
-  pausePlayback: () => AudioPlaybackAnchor | null
+  /** Pause the current paragraph and return the exact resume anchor plus whether it was playing. */
+  pausePlayback: () => AudioPlaybackPause | null
   /** Resume at a previously captured paragraph + timestamp. */
   resumePlayback: (anchor: AudioPlaybackAnchor) => void
 }
@@ -703,17 +703,21 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         const idx = currentParagraphRef.current
         const para = m?.paragraphs[idx]
         const offset = audio?.currentTime || 0
+        const wasPlaying = !!(audio && !audio.paused) || isPlayingRef.current
         if (audio && !audio.paused) {
           try { audio.pause() } catch { /* ignore */ }
         }
         setIsPlaying(false)
         return {
-          bookId,
-          editionKey,
-          chapterNumber,
-          paragraphIndex: idx,
-          paragraphNumber: para?.paragraph ?? idx,
-          offsetSeconds: offset,
+          anchor: {
+            bookId,
+            editionKey,
+            chapterNumber,
+            paragraphIndex: idx,
+            paragraphNumber: para?.paragraph ?? idx,
+            offsetSeconds: offset,
+          },
+          wasPlaying,
         }
       },
       resumePlayback(anchor) {

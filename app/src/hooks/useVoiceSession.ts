@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import { nearbyParagraphWindow } from '../voice/context'
-import type { AudioPlaybackAnchor, VoiceReaderContext } from '../voice/types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from '../voice/types'
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -22,7 +22,7 @@ export interface UseVoiceSessionOptions {
   paragraphIndex: number
   visibleText: string
   isAudioPlaying: boolean
-  pausePlayback: () => AudioPlaybackAnchor | null
+  pausePlayback: () => AudioPlaybackPause | null
   resumePlayback: (anchor: AudioPlaybackAnchor) => void
   recordMessage: (message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => void
   appendLocalMessage: (message: ChatMessage) => void
