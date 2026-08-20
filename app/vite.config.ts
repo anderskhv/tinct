@@ -8,6 +8,23 @@ export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const isCapacitor = process.env.CAPACITOR === 'true'
 
+  // Cloudflare Workers Builds has no app/.env. These are public client values
+  // already required by verify-bundle and present in the live browser bundle.
+  // Local builds still fail loudly if .env is missing.
+  if (command === 'build' && (process.env.CI || process.env.WORKERS_CI)) {
+    const publicClientEnv: Record<string, string> = {
+      VITE_SUPABASE_URL: 'https://yazjyiqsxjystvpkyouk.supabase.co',
+      VITE_SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhemp5aXFzeGp5c3R2cGt5b3VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTA2MTQsImV4cCI6MjA4OTU4NjYxNH0.VyNjCyb5Tc1T1wx5nwZsvWGmwK67FHaB2Ptrtu4EeJA',
+      VITE_AUDIO_BASE_URL: 'https://tinct.app',
+    }
+    for (const [key, value] of Object.entries(publicClientEnv)) {
+      if (!env[key]) {
+        env[key] = value
+        process.env[key] = value
+      }
+    }
+  }
+
   // Guard: production builds (web AND Capacitor/Android) must ship with
   // Supabase + audio env vars baked in. A silent build with empty
   // VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY shipped an "Auth not configured"
