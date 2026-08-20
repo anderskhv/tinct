@@ -15,7 +15,7 @@ If this file conflicts with any of those, follow the AGENTS files.
 
 Claude owns the content package for new books.
 
-Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy when Anders explicitly asks.
+Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy after verify per `../AGENTS.md` (do not ask first unless Anders said local-only).
 
 From this folder, default to content work only. Do not edit reader UX, React components, hooks, CSS, sync/pagination/auth/billing code, Cloudflare Worker code, build config, or deploy configuration unless Anders explicitly asks.
 

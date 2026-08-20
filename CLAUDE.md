@@ -8,8 +8,9 @@
 > Current shutdown checkpoint: 100 live books, latest deployed Worker
 > `1fece18c-5bf3-4f6a-9943-2ad629544477`, Desktop APK at
 > `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`.
-> Do not deploy unless Anders explicitly asks, and run `npm run deploy` from `app/`
-> rather than raw Wrangler.
+> Current deploy policy is in `AGENTS.md`: until Tinct has more than 10 users,
+> deploy-after-verify with `npm run deploy` from `app/`. Do not ask first
+> unless Anders said local-only. Never raw Wrangler.
 
 ## Organization
 

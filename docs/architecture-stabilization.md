@@ -183,7 +183,7 @@ npm run build
 npm run verify-bundle
 ```
 
-For deploys, only run after Anders asks:
+Until Tinct has more than 10 users, deploy-after-verify is the default. After the gates above pass, deploy with `npm run deploy` from `app/` using the Node 24 nvm path. Do not ask first unless Anders said local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 
 ```bash
 cd app

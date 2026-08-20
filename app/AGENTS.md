@@ -11,12 +11,14 @@ npm run build
 npm run verify-bundle
 ```
 
-Deploy only when Anders explicitly asks:
+After `npm run build` and `npm run verify-bundle` pass, deploy by default until Tinct has more than 10 users. Do not ask first unless Anders said local-only:
 
 ```bash
 export PATH=/Users/andershvelplund/.nvm/versions/node/v24.13.0/bin:$PATH
 npm run deploy
 ```
+
+Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 
 If Vite cannot empty `dist/`, delete only the generated `app/dist` folder and rebuild.
 
