@@ -131,6 +131,40 @@ describe('worker SEO routing', () => {
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
   })
 
+  it('keeps the public /read/:slug book page for SEO, but in-app opens skip it', async () => {
+    const env = {
+      ASSETS: {
+        fetch: async (request: Request) => {
+          const url = new URL(request.url)
+          if (url.pathname === '/read/odyssey/book') {
+            return new Response('<html>odyssey marketing</html>', {
+              status: 200,
+              headers: { 'Content-Type': 'text/html; charset=utf-8' },
+            })
+          }
+          if (url.pathname === '/app.html' || url.pathname === '/app') {
+            return new Response('<html>app shell</html>', {
+              status: 200,
+              headers: { 'Content-Type': 'text/html; charset=utf-8' },
+            })
+          }
+          return new Response('Not found', { status: 404 })
+        },
+      },
+    }
+
+    const marketing = await worker.fetch(new Request('https://tinct.app/read/odyssey'), env as never, ctx)
+    expect(await marketing.text()).toContain('odyssey marketing')
+
+    const fromApp = await worker.fetch(new Request('https://tinct.app/read/odyssey?from=app'), env as never, ctx)
+    expect(await fromApp.text()).toContain('app shell')
+
+    const signedIn = await worker.fetch(new Request('https://tinct.app/read/odyssey', {
+      headers: { Cookie: 'tinct_auth=1' },
+    }), env as never, ctx)
+    expect(await signedIn.text()).toContain('app shell')
+  })
+
   it('serves unknown app paths as noindex SPA fallback', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/some-deep-app-state'), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)

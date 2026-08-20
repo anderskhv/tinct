@@ -17,6 +17,7 @@ import { readerViewFromMobileIndex } from '../readerSession/useReaderSessionCont
 import type { ReaderBookContext, ReaderSessionEvent } from '../readerSession/types'
 import { getRecoverableSavedPosition, getSavedPosition, markCloudLoaded, markCloudPosition, markUserNav } from './useReadingPosition'
 import { commitReadingProgress } from '../readerSession/positionSync'
+import { readerAppPath } from '../utils/readerUrl'
 
 type ReaderControllerOptions = {
   activeViewRef?: MutableRefObject<number>
@@ -62,9 +63,11 @@ function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promi
 
 function replaceReaderUrl(bookId: string): void {
   try {
-    const newPath = `/read/${bookId}`
-    if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
-      window.history.replaceState(null, '', newPath + window.location.search + window.location.hash)
+    if (typeof window === 'undefined') return
+    const next = readerAppPath(bookId, window.location.search, window.location.hash)
+    const current = `${window.location.pathname}${window.location.search}${window.location.hash}`
+    if (current !== next) {
+      window.history.replaceState(null, '', next)
     }
   } catch { /* ignore */ }
 }

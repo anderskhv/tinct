@@ -5489,6 +5489,12 @@ body {
   opacity: 0.9;
 }
 
+@media (max-width: 1024px) {
+  .back-to-position {
+    bottom: calc(var(--mobile-nav-stack-height, 38px) + 56px);
+  }
+}
+
 /* ===== Shared Animation ===== */
 @keyframes fadeSlideUp {
   from {
@@ -5925,7 +5931,9 @@ body {
   gap: 6px;
   align-items: center;
   overflow-x: auto;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 22px), transparent);
 }
 
 .library-view-toggle button,
@@ -8052,7 +8060,32 @@ body {
   /* Page nav (running footer) — still tighter on mobile than desktop, but
      with a few extra pixels so Boox text doesn't crowd the footer. */
   .page-nav {
-    bottom: 8px;
+    bottom: 14px;
+    gap: 8px;
+    max-width: calc(100vw - 12px);
+  }
+
+  .page-nav-tick {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.7rem;
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-nav-begin {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--accent);
+    white-space: nowrap;
+    min-width: 0;
+    padding: 8px 10px;
+  }
+
+  .page-nav-preface {
+    bottom: 16px;
   }
 
   .app.audio-strip-open .page-nav {

@@ -573,6 +573,19 @@ describe('useReaderController', () => {
     expect(appendReaderSessionShadow).not.toHaveBeenCalled()
   })
 
+  it('adds from=app so in-app book opens skip the SEO marketing page', () => {
+    store.set('tinct-current-book', 'odyssey')
+    window.history.replaceState(null, '', '/app')
+    const { result } = renderHook(() => useReaderController())
+
+    act(() => {
+      result.current.handleBookChange('hamlet')
+    })
+
+    expect(window.location.pathname).toBe('/read/hamlet')
+    expect(window.location.search).toBe('?from=app')
+  })
+
   it('adopts saved position and resets volatile reader state for cross-book selection', () => {
     store.set('tinct-current-book', 'odyssey')
     const hamletPosition = position()

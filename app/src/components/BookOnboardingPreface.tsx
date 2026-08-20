@@ -1,6 +1,13 @@
 import { useState, useEffect, useMemo, useCallback, useRef, useLayoutEffect } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
 import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
+import {
+  countColumnPages,
+  formatPrefaceCounter,
+  isPrefaceMeasurementSettled,
+  prefaceDisplayColumns,
+  prefacePageTotal,
+} from '../utils/prefacePagination'
 
 interface AcclaimEntry {
   quote: string
@@ -125,7 +132,10 @@ export function BookOnboardingPreface({
     return undefined
   })
 
-  const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(defaultSplitEditionKey)
+  const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(() => {
+    if (defaultOpenSplit && defaultSplitEditionKey) return defaultSplitEditionKey
+    return undefined
+  })
   const [splitManuallyPicked, setSplitManuallyPicked] = useState(false)
   const [openSplitByDefault, setOpenSplitByDefault] = useState<boolean>(!!defaultOpenSplit)
 
@@ -208,8 +218,12 @@ export function BookOnboardingPreface({
 
   useEffect(() => {
     if (splitManuallyPicked) return
+    if (!openSplitByDefault) {
+      setSplitEditionKey(undefined)
+      return
+    }
     setSplitEditionKey(inverseEdition(editionKey, alignedEditions))
-  }, [editionKey, alignedEditions, splitManuallyPicked, inverseEdition])
+  }, [editionKey, alignedEditions, splitManuallyPicked, inverseEdition, openSplitByDefault])
 
   function toggleLanguage(lang: Language) {
     if (!onReadingLanguagesChange) return
@@ -253,6 +267,22 @@ export function BookOnboardingPreface({
   const [aboutPages, setAboutPages] = useState(1)
   const [whyPages, setWhyPages] = useState(1)
   const [castPages, setCastPages] = useState(1)
+  const [aboutKnown, setAboutKnown] = useState(false)
+  const [whyKnown, setWhyKnown] = useState(false)
+  const [castKnown, setCastKnown] = useState(false)
+  const recalcKey = `${fontSize ?? ''}-${fontFamily ?? ''}`
+  const reportAboutPages = useCallback((n: number) => {
+    setAboutPages(n)
+    setAboutKnown(true)
+  }, [])
+  const reportWhyPages = useCallback((n: number) => {
+    setWhyPages(n)
+    setWhyKnown(true)
+  }, [])
+  const reportCastPages = useCallback((n: number) => {
+    setCastPages(n)
+    setCastKnown(true)
+  }, [])
 
   // Global page index. Semantics depend on isMobile:
   //  - desktop: index over a flat sequence of "sub-pages" across all spreads.
@@ -283,23 +313,45 @@ export function BookOnboardingPreface({
     })
   }, [spreads, aboutPages, whyPages, castPages])
 
+  const measuredTotal = prefacePageTotal({
+    isMobile,
+    hasWhy,
+    hasCast,
+    hasCompare: mobileHasCompare,
+    aboutPages,
+    whyPages,
+    castPages,
+  })
   const desktopTotal = desktopSpreadPages.reduce((a, b) => a + b, 0) || 1
-  const mobileTotal = (
-    1 // cover
-    + (mobilePages.includes('about') ? aboutPages : 0)
-    + (mobilePages.includes('why') ? whyPages : 0)
-    + (mobilePages.includes('cast') ? castPages : 0)
-    + (mobilePages.includes('text') ? 1 : 0)
-    + (mobilePages.includes('compare') ? 1 : 0)
-    + (mobilePages.includes('audio') ? 1 : 0)
-  ) || 1
-
-  const totalPages = isMobile ? mobileTotal : desktopTotal
+  const totalPages = isMobile ? measuredTotal : desktopTotal
+  const measurementSettled = isPrefaceMeasurementSettled({
+    hasWhy,
+    hasCast,
+    aboutKnown,
+    whyKnown: hasWhy ? whyKnown : true,
+    castKnown: hasCast ? castKnown : true,
+  })
+  const [frozenTotal, setFrozenTotal] = useState<number | null>(null)
+  const measureResetKey = `${recalcKey}|${isMobile}|${book.id}|${onboardingLanguage}`
+  const prevMeasureResetKey = useRef(measureResetKey)
+  useEffect(() => {
+    if (prevMeasureResetKey.current === measureResetKey) return
+    prevMeasureResetKey.current = measureResetKey
+    setFrozenTotal(null)
+    setAboutKnown(false)
+    setWhyKnown(false)
+    setCastKnown(false)
+  }, [measureResetKey])
+  useEffect(() => {
+    if (measurementSettled && frozenTotal == null) setFrozenTotal(totalPages)
+  }, [measurementSettled, totalPages, frozenTotal])
+  const displayTotal = frozenTotal ?? totalPages
 
   // Clamp on totalPages shrink — see explanation by the setPage(0) effect above.
   useEffect(() => {
-    if (page > totalPages - 1) setPage(Math.max(0, totalPages - 1))
-  }, [totalPages, page])
+    const last = (frozenTotal ?? totalPages) - 1
+    if (page > last) setPage(Math.max(0, last))
+  }, [totalPages, frozenTotal, page])
 
   // startAtLastPage support: when re-entering the preface from the book's
   // first page, land on the last preface spread (edition). We keep forcing
@@ -355,8 +407,9 @@ export function BookOnboardingPreface({
     return { section: 'audio' as MobilePageKind, pageInSection: 0 }
   }, [page, mobilePages, aboutPages, whyPages, castPages])
 
+  const navTotal = frozenTotal ?? Math.max(totalPages, 1)
   const isFirstPage = page === 0
-  const isLastPage = page >= totalPages - 1
+  const isLastPage = page >= navTotal - 1
 
   const finish = useCallback(() => {
     if (!editionKey) return
@@ -433,171 +486,190 @@ export function BookOnboardingPreface({
     else prev()
   }
 
-  // Recalc trigger for PaginatedFlow when the user changes font size/family
-  // from the reader chrome — keeps repagination in sync with reflow.
-  const recalcKey = `${fontSize ?? ''}-${fontFamily ?? ''}`
+  const showLanguageToggle = availableLanguages.includes('da') || readingLanguages.includes('da')
 
   return (
     <div ref={frameRef} tabIndex={-1} style={frame}>
-      {(availableLanguages.includes('da') || readingLanguages.includes('da')) && (
-        <PrefaceLanguageToggle
-          value={onboardingLanguage}
-          danishAvailable={danishOnboardingAvailable}
-          onChange={pickOnboardingLanguage}
-          mobile={isMobile}
-        />
-      )}
-      <button onClick={finish} style={isMobile ? skipLinkMobile : skipLink} aria-label="Skip directly to Chapter 1">
-        {isMobile ? 'Skip →' : 'Skip directly to Chapter 1 →'}
-      </button>
-
-      <div style={isMobile ? surfaceMobile : surface} onClick={handleSurfaceClick}>
-        {!isMobile && currentSpread === 'cover-about' && (
-          <FullSpread divider>
-            <PaginatedFlow
-              pageIdx={subPage}
-              onPageCount={setAboutPages}
-              recalcKey={recalcKey}
-              displayColumns={2}
-            >
-              {/* Cover lives as column 0 of the flow — break-after: column
-                  forces about prose to start in the next column. */}
-              <CoverInColumn data={data} book={book} />
-              <AboutPane data={data} book={book} />
-            </PaginatedFlow>
-          </FullSpread>
-        )}
-
-        {!isMobile && currentSpread === 'why' && (
-          <FullSpread divider>
-            <PaginatedFlow
-              pageIdx={subPage}
-              onPageCount={setWhyPages}
-              recalcKey={recalcKey}
-              displayColumns={2}
-            >
-              <WhyPane items={data.whyItMatters || []} title={data.title} showHeader />
-            </PaginatedFlow>
-          </FullSpread>
-        )}
-
-        {!isMobile && currentSpread === 'cast' && (
-          <FullSpread divider>
-            <PaginatedFlow
-              pageIdx={subPage}
-              onPageCount={setCastPages}
-              recalcKey={recalcKey}
-              displayColumns={2}
-            >
-              <CastPane items={data.cast || []} title={data.title} showHeader />
-            </PaginatedFlow>
-          </FullSpread>
-        )}
-
-        {!isMobile && currentSpread === 'edition' && (
-          <Spread divider>
-            <TextEditionPane
-              book={book}
-              availableLanguages={availableLanguages}
-              readingLanguages={readingLanguages}
-              onToggleLanguage={toggleLanguage}
-              noMatchingLanguage={noMatchingLanguage}
-              sortedEditions={sortedEditions}
-              editionKey={editionKey}
-              onSelectEdition={setEditionKey}
-              alignedEditions={alignedEditions}
-              splitEditionKey={splitEditionKey}
-              onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
-              openSplitByDefault={openSplitByDefault}
-              onChangeOpenSplit={setOpenSplitByDefault}
-            />
-            <AudioEditionPane
-              audioEditions={audioEditions}
-              audioEditionKey={audioEditionKey}
-              onSelectAudio={setAudioEditionKey}
-              isPremium={isPremium}
-            />
-          </Spread>
-        )}
-
-        {isMobile && currentMobilePage === 'cover' && <CoverPane data={data} book={book} mobile />}
-        {isMobile && currentMobilePage === 'about' && (
-          <PaginatedFlow
-            pageIdx={subPage}
-            onPageCount={setAboutPages}
-            recalcKey={recalcKey}
-          >
-            <AboutPane data={data} book={book} mobile />
-          </PaginatedFlow>
-        )}
-        {isMobile && currentMobilePage === 'why' && (
-          <PaginatedFlow
-            pageIdx={subPage}
-            onPageCount={setWhyPages}
-            recalcKey={recalcKey}
-          >
-            <WhyPane items={data.whyItMatters || []} title={data.title} showHeader mobile />
-          </PaginatedFlow>
-        )}
-        {isMobile && currentMobilePage === 'cast' && (
-          <PaginatedFlow
-            pageIdx={subPage}
-            onPageCount={setCastPages}
-            recalcKey={recalcKey}
-          >
-            <CastPane items={data.cast || []} title={data.title} showHeader mobile />
-          </PaginatedFlow>
-        )}
-        {isMobile && currentMobilePage === 'text' && (
-          <TextEditionPane
-            book={book}
-            availableLanguages={availableLanguages}
-            readingLanguages={readingLanguages}
-            onToggleLanguage={toggleLanguage}
-            noMatchingLanguage={noMatchingLanguage}
-            sortedEditions={sortedEditions}
-            editionKey={editionKey}
-            onSelectEdition={setEditionKey}
-            alignedEditions={alignedEditions}
-            splitEditionKey={splitEditionKey}
-            onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
-            openSplitByDefault={openSplitByDefault}
-            onChangeOpenSplit={setOpenSplitByDefault}
-            mobile
-            mobileVariant="primary"
+      <div style={isMobile ? prefaceChromeMobile : prefaceChrome}>
+        {showLanguageToggle ? (
+          <PrefaceLanguageToggle
+            value={onboardingLanguage}
+            danishAvailable={danishOnboardingAvailable}
+            onChange={pickOnboardingLanguage}
+            mobile={isMobile}
           />
+        ) : (
+          <span />
         )}
-        {isMobile && currentMobilePage === 'compare' && (
-          <TextEditionPane
-            book={book}
-            availableLanguages={availableLanguages}
-            readingLanguages={readingLanguages}
-            onToggleLanguage={toggleLanguage}
-            noMatchingLanguage={noMatchingLanguage}
-            sortedEditions={sortedEditions}
-            editionKey={editionKey}
-            onSelectEdition={setEditionKey}
-            alignedEditions={alignedEditions}
-            splitEditionKey={splitEditionKey}
-            onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
-            openSplitByDefault={openSplitByDefault}
-            onChangeOpenSplit={setOpenSplitByDefault}
-            mobile
-            mobileVariant="compare"
-          />
-        )}
-        {isMobile && currentMobilePage === 'audio' && (
-          <AudioEditionPane
-            audioEditions={audioEditions}
-            audioEditionKey={audioEditionKey}
-            onSelectAudio={setAudioEditionKey}
-            isPremium={isPremium}
-            mobile
-          />
+        {!isLastPage && (
+          <button onClick={finish} style={isMobile ? skipLinkMobile : skipLink} aria-label="Skip directly to Chapter 1">
+            {isMobile ? 'Skip →' : 'Skip directly to Chapter 1 →'}
+          </button>
         )}
       </div>
 
-      <div className="page-nav" style={pageNav}>
+      <div style={isMobile ? surfaceMobile : surface} onClick={handleSurfaceClick}>
+        {!isMobile && (
+          <>
+            <PrefaceLayer visible={currentSpread === 'cover-about'}>
+              <FullSpread divider>
+                <PaginatedFlow
+                  pageIdx={currentSpread === 'cover-about' ? subPage : 0}
+                  onPageCount={reportAboutPages}
+                  recalcKey={recalcKey}
+                  displayColumns={2}
+                >
+                  <CoverInColumn data={data} book={book} />
+                  <AboutPane data={data} book={book} />
+                </PaginatedFlow>
+              </FullSpread>
+            </PrefaceLayer>
+            {hasWhy && (
+              <PrefaceLayer visible={currentSpread === 'why'}>
+                <FullSpread divider>
+                  <PaginatedFlow
+                    pageIdx={currentSpread === 'why' ? subPage : 0}
+                    onPageCount={reportWhyPages}
+                    recalcKey={recalcKey}
+                    displayColumns={2}
+                  >
+                    <WhyPane items={data.whyItMatters || []} title={data.title} showHeader />
+                  </PaginatedFlow>
+                </FullSpread>
+              </PrefaceLayer>
+            )}
+            {hasCast && (
+              <PrefaceLayer visible={currentSpread === 'cast'}>
+                <FullSpread divider>
+                  <PaginatedFlow
+                    pageIdx={currentSpread === 'cast' ? subPage : 0}
+                    onPageCount={reportCastPages}
+                    recalcKey={recalcKey}
+                    displayColumns={2}
+                  >
+                    <CastPane items={data.cast || []} title={data.title} showHeader />
+                  </PaginatedFlow>
+                </FullSpread>
+              </PrefaceLayer>
+            )}
+            <PrefaceLayer visible={currentSpread === 'edition'}>
+              <Spread divider>
+                <TextEditionPane
+                  book={book}
+                  availableLanguages={availableLanguages}
+                  readingLanguages={readingLanguages}
+                  onToggleLanguage={toggleLanguage}
+                  noMatchingLanguage={noMatchingLanguage}
+                  sortedEditions={sortedEditions}
+                  editionKey={editionKey}
+                  onSelectEdition={setEditionKey}
+                  alignedEditions={alignedEditions}
+                  splitEditionKey={splitEditionKey}
+                  onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
+                  openSplitByDefault={openSplitByDefault}
+                  onChangeOpenSplit={setOpenSplitByDefault}
+                />
+                <AudioEditionPane
+                  audioEditions={audioEditions}
+                  audioEditionKey={audioEditionKey}
+                  onSelectAudio={setAudioEditionKey}
+                  isPremium={isPremium}
+                />
+              </Spread>
+            </PrefaceLayer>
+          </>
+        )}
+
+        {isMobile && (
+          <>
+            <PrefaceLayer visible={currentMobilePage === 'cover'}>
+              <CoverPane data={data} book={book} mobile />
+            </PrefaceLayer>
+            <PrefaceLayer visible={currentMobilePage === 'about'}>
+              <PaginatedFlow
+                pageIdx={currentMobilePage === 'about' ? subPage : 0}
+                onPageCount={reportAboutPages}
+                recalcKey={recalcKey}
+              >
+                <AboutPane data={data} book={book} mobile />
+              </PaginatedFlow>
+            </PrefaceLayer>
+            {hasWhy && (
+              <PrefaceLayer visible={currentMobilePage === 'why'}>
+                <PaginatedFlow
+                  pageIdx={currentMobilePage === 'why' ? subPage : 0}
+                  onPageCount={reportWhyPages}
+                  recalcKey={recalcKey}
+                >
+                  <WhyPane items={data.whyItMatters || []} title={data.title} showHeader mobile />
+                </PaginatedFlow>
+              </PrefaceLayer>
+            )}
+            {hasCast && (
+              <PrefaceLayer visible={currentMobilePage === 'cast'}>
+                <PaginatedFlow
+                  pageIdx={currentMobilePage === 'cast' ? subPage : 0}
+                  onPageCount={reportCastPages}
+                  recalcKey={recalcKey}
+                >
+                  <CastPane items={data.cast || []} title={data.title} showHeader mobile />
+                </PaginatedFlow>
+              </PrefaceLayer>
+            )}
+            <PrefaceLayer visible={currentMobilePage === 'text'}>
+              <TextEditionPane
+                book={book}
+                availableLanguages={availableLanguages}
+                readingLanguages={readingLanguages}
+                onToggleLanguage={toggleLanguage}
+                noMatchingLanguage={noMatchingLanguage}
+                sortedEditions={sortedEditions}
+                editionKey={editionKey}
+                onSelectEdition={setEditionKey}
+                alignedEditions={alignedEditions}
+                splitEditionKey={splitEditionKey}
+                onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
+                openSplitByDefault={openSplitByDefault}
+                onChangeOpenSplit={setOpenSplitByDefault}
+                mobile
+                mobileVariant="primary"
+              />
+            </PrefaceLayer>
+            {mobileHasCompare && (
+              <PrefaceLayer visible={currentMobilePage === 'compare'}>
+                <TextEditionPane
+                  book={book}
+                  availableLanguages={availableLanguages}
+                  readingLanguages={readingLanguages}
+                  onToggleLanguage={toggleLanguage}
+                  noMatchingLanguage={noMatchingLanguage}
+                  sortedEditions={sortedEditions}
+                  editionKey={editionKey}
+                  onSelectEdition={setEditionKey}
+                  alignedEditions={alignedEditions}
+                  splitEditionKey={splitEditionKey}
+                  onSelectSplit={(k) => { setSplitEditionKey(k); setSplitManuallyPicked(true) }}
+                  openSplitByDefault={openSplitByDefault}
+                  onChangeOpenSplit={setOpenSplitByDefault}
+                  mobile
+                  mobileVariant="compare"
+                />
+              </PrefaceLayer>
+            )}
+            <PrefaceLayer visible={currentMobilePage === 'audio'}>
+              <AudioEditionPane
+                audioEditions={audioEditions}
+                audioEditionKey={audioEditionKey}
+                onSelectAudio={setAudioEditionKey}
+                isPremium={isPremium}
+                mobile
+              />
+            </PrefaceLayer>
+          </>
+        )}
+      </div>
+
+      <div className="page-nav page-nav-preface" style={pageNav}>
         <button
           onClick={prev}
           disabled={isFirstPage}
@@ -608,16 +680,15 @@ export function BookOnboardingPreface({
         </button>
         <span className="page-nav-label">
           <em className="page-nav-chapter">A Preface</em>
-          <span className="page-nav-sep"> — </span>
+          <span className="page-nav-sep"> · </span>
           <span style={{ fontStyle: 'italic' }}>
-            {page + 1} of {totalPages}
+            {formatPrefaceCounter(page, displayTotal, frozenTotal != null)}
           </span>
         </span>
         {isLastPage ? (
           <button
             onClick={finish}
-            className="page-nav-tick"
-            style={{ fontStyle: 'italic', color: 'var(--accent)' }}
+            className="page-nav-tick page-nav-begin"
           >
             Begin reading →
           </button>
@@ -674,6 +745,14 @@ function PrefaceLanguageToggle({
 // preferences change (font-size / font-family) so we re-measure after the
 // reflow.
 
+function PrefaceLayer({ visible, children }: { visible: boolean; children: React.ReactNode }) {
+  return (
+    <div style={visible ? prefaceLayerVisible : prefaceLayerHidden}>
+      {children}
+    </div>
+  )
+}
+
 function PaginatedFlow({
   pageIdx,
   onPageCount,
@@ -694,6 +773,7 @@ function PaginatedFlow({
   const innerRef = useRef<HTMLDivElement>(null)
   const [colW, setColW] = useState(0)
   const [pageCount, setPageCount] = useState(1)
+  const [effectiveColumns, setEffectiveColumns] = useState(displayColumns)
 
   const recalc = useCallback(() => {
     const wrapper = wrapperRef.current
@@ -701,23 +781,20 @@ function PaginatedFlow({
     if (!wrapper || !inner) return
     const w = wrapper.clientWidth
     if (w <= 0) return
-    // 2-col display: each visible column is half the wrapper minus one gap.
-    // 1-col display: column = full wrapper.
-    const colWLocal =
-      displayColumns === 2
-        ? (w - columnGap) / 2
-        : w
+    const cols = prefaceDisplayColumns(w, displayColumns)
+    const colWLocal = cols === 2 ? (w - columnGap) / 2 : w
     inner.style.columnWidth = `${colWLocal}px`
-    // Two rAFs — first to commit the columnWidth style, second to read
-    // the post-relayout scrollWidth. Avoids the off-by-one measurement
-    // bug where scrollWidth still reflects the previous columnWidth.
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const i = innerRef.current
         if (!i) return
-        const sw = i.scrollWidth
-        const totalCols = Math.max(1, Math.round((sw + columnGap) / (colWLocal + columnGap)))
-        const pages = Math.max(1, Math.ceil(totalCols / displayColumns))
+        const pages = countColumnPages({
+          scrollWidth: i.scrollWidth,
+          columnWidth: colWLocal,
+          columnGap,
+          displayColumns: cols,
+        })
+        setEffectiveColumns(cols)
         setColW(colWLocal)
         setPageCount(pages)
         onPageCount(pages)
@@ -731,14 +808,13 @@ function PaginatedFlow({
     if (!wrapper) return
     const ro = new ResizeObserver(() => recalc())
     ro.observe(wrapper)
-    if (innerRef.current) ro.observe(innerRef.current)
     const t1 = window.setTimeout(recalc, 100)
     const t2 = window.setTimeout(recalc, 500)
     return () => { ro.disconnect(); window.clearTimeout(t1); window.clearTimeout(t2) }
   }, [recalc, recalcKey, children])
 
   const safePage = Math.min(Math.max(0, pageIdx), pageCount - 1)
-  const stepW = displayColumns * (colW + columnGap)
+  const stepW = effectiveColumns * (colW + columnGap)
   const tx = -safePage * stepW
 
   return (
@@ -921,12 +997,21 @@ function WhyPane({
   showHeader?: boolean
   mobile?: boolean
 }) {
+  const [first, ...rest] = items
   return (
     <div style={mobile ? proseMobile : prose}>
-      {showHeader && (
-        <h2 style={sectionH2}>Why it matters</h2>
+      {first && (
+        <div style={keepWithNext}>
+          {showHeader && (
+            <h2 style={sectionH2}>Why it matters</h2>
+          )}
+          <p style={whyParagraph}>
+            <em style={whyLeadIn}>{stripTrailingPeriod(first.title)}.</em>{' '}
+            {first.body}
+          </p>
+        </div>
       )}
-      {items.map((item, i) => (
+      {rest.map((item, i) => (
         <p key={i} style={whyParagraph}>
           <em style={whyLeadIn}>{stripTrailingPeriod(item.title)}.</em>{' '}
           {item.body}
@@ -951,13 +1036,24 @@ function CastPane({
   showHeader?: boolean
   mobile?: boolean
 }) {
+  const [first, ...rest] = items
   return (
     <div style={mobile ? proseMobile : prose}>
-      {showHeader && (
-        <h2 style={sectionH2}>Characters &amp; concepts</h2>
-      )}
       <dl style={castList}>
-        {items.map((c, i) => (
+        {first && (
+          <div style={keepWithNext}>
+            {showHeader && (
+              <h2 style={sectionH2}>Characters &amp; concepts</h2>
+            )}
+            <div style={mobile ? castEntryStacked : castEntry}>
+              <dt style={castName}>{first.name}</dt>
+              <dd style={castBody}>
+                <em style={castRoleInline}>{stripTrailingPeriod(first.role)}.</em> {first.description}
+              </dd>
+            </div>
+          </div>
+        )}
+        {rest.map((c, i) => (
           <div key={i} style={mobile ? castEntryStacked : castEntry}>
             <dt style={castName}>{c.name}</dt>
             <dd style={castBody}>
@@ -1253,29 +1349,39 @@ const frame: React.CSSProperties = {
   outline: 'none',  // suppress focus ring on the programmatically-focused root
 }
 
-// Page-nav pill is 32px tall: 4px outer padding + .page-nav-tick child
-// (4px padding + 1rem font + 4px padding = 24px) + 4px outer padding.
-// Skip pill height must match for text baselines to align at bottom: X.
+const prefaceChrome: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: 12,
+  flexShrink: 0,
+  padding: '10px 28px 0',
+  minHeight: 44,
+  zIndex: 10,
+}
+const prefaceChromeMobile: React.CSSProperties = {
+  ...prefaceChrome,
+  padding: '8px 12px 0',
+  minHeight: 40,
+}
 const skipLink: React.CSSProperties = {
-  position: 'absolute', bottom: 10, right: 24,
-  background: 'var(--paper)', border: 'none',
-  color: 'var(--text-tertiary)', fontSize: '0.92rem',
-  cursor: 'pointer', fontFamily: 'var(--font-serif)', fontStyle: 'italic',
-  lineHeight: 1, padding: '0 10px', zIndex: 10,
+  background: 'none',
+  border: 'none',
+  color: 'var(--text-tertiary)',
+  fontSize: '0.92rem',
+  cursor: 'pointer',
+  fontFamily: 'var(--font-serif)',
+  fontStyle: 'italic',
+  lineHeight: 1,
+  padding: '8px 4px',
   letterSpacing: '0.02em',
-  borderRadius: 4,
-  display: 'flex', alignItems: 'center',
-  height: 32,
+  whiteSpace: 'nowrap',
 }
 const skipLinkMobile: React.CSSProperties = {
   ...skipLink,
-  bottom: 4, right: 14,
+  fontSize: '0.88rem',
 }
 const prefaceLanguageToggle: React.CSSProperties = {
-  position: 'absolute',
-  top: 12,
-  left: 28,
-  zIndex: 10,
   display: 'inline-flex',
   alignItems: 'center',
   gap: 6,
@@ -1283,13 +1389,26 @@ const prefaceLanguageToggle: React.CSSProperties = {
   background: 'var(--paper)',
   border: '1px solid var(--border-color)',
   borderRadius: 6,
-  boxShadow: '0 4px 14px rgba(0,0,0,0.05)',
 }
 const prefaceLanguageToggleMobile: React.CSSProperties = {
   ...prefaceLanguageToggle,
-  top: 6,
-  left: 12,
-  maxWidth: 'calc(100vw - 24px)',
+  maxWidth: 'calc(100vw - 120px)',
+  flexWrap: 'wrap',
+}
+const prefaceLayerVisible: React.CSSProperties = {
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+}
+const prefaceLayerHidden: React.CSSProperties = {
+  position: 'absolute',
+  inset: 0,
+  visibility: 'hidden',
+  pointerEvents: 'none',
+}
+const keepWithNext: React.CSSProperties = {
+  breakInside: 'avoid',
+  breakAfter: 'avoid',
 }
 const prefaceLanguageLabel: React.CSSProperties = {
   padding: '0 7px 0 4px',
@@ -1318,6 +1437,7 @@ const prefaceLanguageButton = (selected: boolean, disabled: boolean): React.CSSP
 
 const surfaceBase: React.CSSProperties = {
   flex: 1, overflow: 'hidden',
+  position: 'relative',
   display: 'flex', alignItems: 'stretch',
   color: 'var(--text-primary)',
   // Pick up the reader's font preferences (size + family) so the in-app
