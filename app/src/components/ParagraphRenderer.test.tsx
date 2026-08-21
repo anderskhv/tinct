@@ -22,14 +22,14 @@ describe('ParagraphRenderer word follow', () => {
   })
 
   it('does not wrap a word when playingWordIndex is omitted', () => {
-    render(
+    const { container } = render(
       <ParagraphRenderer
         text="Tell me, O Muse."
         paragraphIndex={0}
         highlights={[]}
       />,
     )
-    expect(document.querySelector('.audio-word-current')).toBeNull()
+    expect(container.querySelector('.audio-word-current')).toBeNull()
     expect(screen.getByText('Tell me, O Muse.')).toBeTruthy()
   })
 })

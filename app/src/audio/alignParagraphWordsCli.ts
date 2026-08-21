@@ -15,9 +15,9 @@ import {
   assertProductionAlignerBackend,
   sidecarFromManifest,
   mergeWordsIntoManifest,
-} from './alignWords'
-import type { AudioManifest, AudioWord } from './wordTimings'
-import { parseAudioWords } from './wordTimings'
+} from './alignWords.ts'
+import type { AudioManifest, AudioWord } from './wordTimings.ts'
+import { parseAudioWords } from './wordTimings.ts'
 
 type EditionFile = {
   chapters: Array<{ number: number; title?: string; paragraphs: string[] }>

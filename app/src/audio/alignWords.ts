@@ -5,7 +5,7 @@ import {
   type WordSidecar,
   parseAudioWords,
   tokenizeParagraphWords,
-} from './wordTimings'
+} from './wordTimings.ts'
 
 export const INTERPOLATION_BACKENDS = new Set(['interpolate', 'linear', 'word-count'])
 
