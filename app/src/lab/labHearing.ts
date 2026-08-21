@@ -21,14 +21,24 @@ export interface HearingSeekPoint {
   offsetSeconds: number
 }
 
-const WORDS_PER_LINE = 8
-
 function splitDisplaySentences(text: string): string[] {
   const parts = text
     .split(/(?<=[.!?])\s+/)
     .map(part => part.trim())
     .filter(Boolean)
   return parts.length > 0 ? parts : [text]
+}
+
+function sentenceWordRanges(words: Array<{ text: string }>): Array<[number, number]> {
+  const ranges: Array<[number, number]> = []
+  let start = 0
+  for (let i = 0; i < words.length; i++) {
+    if (/[.!?]$/.test(words[i].text.trim()) || i === words.length - 1) {
+      ranges.push([start, i + 1])
+      start = i + 1
+    }
+  }
+  return ranges
 }
 
 function wordRole(index: number, current: number): HearingWordRole {
@@ -49,15 +59,14 @@ export function hearingStageLines(
 
   if (follow.kind === 'word' && paragraph.words && paragraph.words.length > 0) {
     const current = Math.max(0, Math.min(follow.wordIndex, paragraph.words.length - 1))
-    const chunks: HearingWord[][] = []
-    for (let i = 0; i < paragraph.words.length; i += WORDS_PER_LINE) {
-      chunks.push(paragraph.words.slice(i, i + WORDS_PER_LINE).map((word, offset) => ({
+    const ranges = sentenceWordRanges(paragraph.words)
+    const sentenceIndex = Math.max(0, ranges.findIndex(([from, to]) => current >= from && current < to))
+    return ranges.slice(sentenceIndex, sentenceIndex + 2).map(([from, to]) => ({
+      words: paragraph.words!.slice(from, to).map((word, offset) => ({
         text: word.text,
-        role: wordRole(i + offset, current),
-      })))
-    }
-    const lineIndex = Math.floor(current / WORDS_PER_LINE)
-    return chunks.slice(lineIndex, lineIndex + 2).map(words => ({ words }))
+        role: wordRole(from + offset, current),
+      })),
+    }))
   }
 
   const sentences = splitDisplaySentences(paragraph.text)

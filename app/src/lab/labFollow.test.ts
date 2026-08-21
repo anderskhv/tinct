@@ -4,6 +4,7 @@ import {
   followFromPlayback,
   followParagraphFromManifest,
   mergeSidecarWords,
+  wordIndexAtTime,
   wordsFromManifestParagraph,
 } from './labFollow'
 
@@ -94,6 +95,26 @@ describe('lab word follow', () => {
       paragraphIndex: 1,
       wordIndex: 1,
     })
+  })
+
+  it('keeps the last started word across Whisper gaps', () => {
+    const words = [
+      { text: 'Tell', start: 0, end: 0.4 },
+      { text: 'me,', start: 0.4, end: 0.7 },
+      { text: 'O', start: 1.1, end: 1.4 },
+      { text: 'Muse', start: 1.4, end: 2 },
+    ]
+    expect(wordIndexAtTime(words, 0.9)).toBe(1)
+    const paragraph = followParagraphFromManifest(0, 'Tell me, O Muse', {
+      duration: 2,
+      words,
+    })
+    expect(followAtTime([paragraph], 0.9)).toEqual({
+      kind: 'word',
+      paragraphIndex: 0,
+      wordIndex: 1,
+    })
+    expect(paragraph.words?.[1].text).toBe('me,')
   })
 
   it('uses sidecar words only when the manifest paragraph has none', () => {

@@ -5,7 +5,9 @@ import { VOICE_AGENT_POLICY } from '../voice/context'
 import {
   buildLabAskInstructions,
   labConversationState,
+  mergeLabVoiceTurn,
   numberedLabChapter,
+  type LabAskTurn,
 } from './labAsk'
 
 describe('lab conversation state', () => {
@@ -66,6 +68,8 @@ describe('lab ask context', () => {
     expect(instructions).toContain('no Book 3')
     expect(instructions).toContain('no ending')
     expect(instructions).toContain('Reading angle: homecoming')
+    expect(instructions).toContain('here to talk about the book and wait')
+    expect(instructions).toContain('coding, UI, stocks, news')
     expect(instructions).not.toContain(VOICE_AGENT_POLICY)
     expect(instructions).not.toContain('Speak for about 20')
     expect(instructions).not.toContain('resume_audiobook')
@@ -81,6 +85,39 @@ describe('lab ask context', () => {
     expect(session).toContain('Production AudioStrip leaves this unset')
     expect(strip).not.toContain("from '../lab/")
     expect(strip).not.toContain('buildLabAskInstructions')
+  })
+})
+
+describe('lab voice turn merge', () => {
+  const cutOff: LabAskTurn = {
+    id: 'a1',
+    role: 'assistant',
+    content: 'A Muse is the daughter of Zeus who',
+    source: 'voice',
+  }
+  const restart: LabAskTurn = {
+    id: 'a2',
+    role: 'assistant',
+    content: 'Totally fair. A Muse is a goddess who inspires the poet.',
+    source: 'voice',
+  }
+
+  it('replaces the last same-role voice turn and skips exact dupes', () => {
+    const replaced = mergeLabVoiceTurn([cutOff], restart)
+    expect(replaced).toHaveLength(1)
+    expect(replaced[0].content).toBe(restart.content)
+    expect(replaced[0].role).toBe('assistant')
+    expect(mergeLabVoiceTurn(replaced, { ...restart, id: 'a3' })).toEqual(replaced)
+  })
+
+  it('appends when the role changes', () => {
+    const user: LabAskTurn = {
+      id: 'u1',
+      role: 'user',
+      content: 'Who is a Muse?',
+      source: 'voice',
+    }
+    expect(mergeLabVoiceTurn([user], restart)).toEqual([user, restart])
   })
 })
 

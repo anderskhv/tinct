@@ -87,13 +87,14 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 3.5rem 1.75rem 5rem;
+  justify-content: flex-end;
+  padding: 1.5rem 2rem 3.25rem;
 }
 
 .lab-hearing-stage {
-  max-width: 38rem;
-  margin: 0 auto 2.75rem;
+  max-width: 52rem;
+  width: 100%;
+  margin: 0 auto 1.35rem;
 }
 
 .lab-hearing-line {
@@ -234,10 +235,9 @@
   background: #ece7db;
 }
 
-.lab-ask.is-empty {
-  justify-content: center;
-  align-items: stretch;
-  gap: 1.35rem;
+.lab-ask.is-empty,
+.lab-ask.has-thread {
+  justify-content: flex-end;
 }
 
 .lab-ask.has-thread .lab-ask-thread {
@@ -255,23 +255,27 @@
   margin: 0 0 0.85rem;
 }
 
-.lab-ask-turn.is-user {
-  justify-content: flex-end;
-}
-
+.lab-ask-turn.is-user,
 .lab-ask-turn.is-assistant {
   justify-content: flex-start;
 }
 
-.lab-ask-bubble {
+.lab-ask-user {
   margin: 0;
-  max-width: 86%;
-  padding: 0.65rem 0.85rem;
-  border-radius: 1.15rem;
-  background: #d8d1c1;
+  max-width: 100%;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 1.12rem;
+  line-height: 1.58;
   color: #0b0b0b;
-  font-size: 1.02rem;
-  line-height: 1.45;
+}
+
+.lab-ask-user-label {
+  display: block;
+  margin: 0 0 0.2rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: #6a6555;
 }
 
 .lab-ask-reply,
@@ -292,16 +296,20 @@
   display: none;
 }
 
+.lab-ask-dock {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
 .lab-ask-composer {
   display: flex;
   align-items: center;
-  gap: 0.15rem;
-  height: 52px;
-  min-height: 52px;
+  gap: 0.35rem;
+  min-height: 2.6rem;
   flex-shrink: 0;
-  padding: 0 0.4rem 0 1.05rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.75rem;
   border: 1px solid #c8c0ae;
-  border-radius: 28px;
+  border-radius: 3px;
   background: #ece7db;
   box-shadow: none;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -342,17 +350,18 @@
   color: #6a6555;
 }
 
-.lab-ask-icon {
-  width: 36px;
-  height: 36px;
+.lab-ask-icon,
+.lab-ask-send {
+  min-width: 1.8rem;
+  min-height: 1.8rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0;
   background: transparent;
   color: #0b0b0b;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 0.15rem 0.25rem;
   cursor: pointer;
   flex: 0 0 auto;
 }
@@ -361,45 +370,33 @@
   color: #3f3f3f;
 }
 
-.lab-ask-voice,
 .lab-ask-send {
-  background: #0b0b0b;
-  color: #fff;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: #0b0b0b;
 }
 
 .lab-ask-voice.is-connecting,
 .lab-ask-voice.is-listening,
 .lab-ask-voice.is-speaking {
   position: relative;
-  width: 36px;
-  height: 36px;
-  background: #0b0b0b;
-  color: #ece7db;
-  animation: lab-voice-alive 1s ease-in-out infinite;
+  background: transparent;
+  color: #0b0b0b;
 }
 
-.lab-ask-voice-phase {
-  position: absolute;
-  right: calc(100% + 0.45rem);
-  top: 50%;
-  transform: translateY(-50%);
+.lab-ask-voice-status {
+  margin: 0 0 0.4rem;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
-  color: #6a6555;
-  white-space: nowrap;
-  animation: none;
+  color: #0b0b0b;
 }
 
 .lab-ask-voice-x {
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1;
-}
-
-@keyframes lab-voice-alive {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.06); opacity: 0.88; }
 }
 
 .lab-ask-notice,
@@ -538,12 +535,10 @@
 }
 
 .lab-phone-notice {
-  position: fixed;
-  left: 1rem;
-  right: 1rem;
-  bottom: calc(4.4rem + env(safe-area-inset-bottom));
-  text-align: center;
-  z-index: 20;
+  margin: 0 0 0.55rem;
+  padding: 0.35rem 0.1rem;
+  background: #ece7db;
+  text-align: left;
 }
 
 .lab-phone-bar {
@@ -552,11 +547,18 @@
   right: 0;
   bottom: 0;
   display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.85rem 1.1rem calc(0.85rem + env(safe-area-inset-bottom));
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.75rem 1.1rem calc(0.75rem + env(safe-area-inset-bottom));
   background: #ece7db;
   border-top: 1px solid #d4cdc0;
+  z-index: 26;
+}
+
+.lab-phone-bar-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .lab-conversation {
@@ -602,10 +604,10 @@
   border: 0;
 }
 
-/* Desktop Ask stays viewport-tall. Without this, .lab-body grows with
-   Book 1 and .lab-ask.is-empty { justify-content: center } drops the
-   greeting + composer into the middle of the chapter. Phone orb overlay
-   is unchanged. */
+/* Desktop Ask stays viewport-tall. Composer sits at the bottom of the
+   pane whether the thread is empty or not. Phone keeps one scroll owner
+   on the page column so the book and the bottom bar do not stack
+   scrollbars. */
 .lab.is-desktop {
   height: 100vh;
   overflow: hidden;
@@ -638,12 +640,84 @@
   overflow: hidden;
 }
 
+.lab.is-phone {
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab.is-phone .lab-kicker {
+  display: none;
+}
+
 .lab.is-phone .lab-header {
-  padding: 1rem 1.1rem 0.7rem;
+  flex: 0 0 auto;
+  padding: 0.85rem 1.1rem 0.55rem;
+}
+
+.lab.is-phone .lab-title {
+  font-size: 1.2rem;
+}
+
+.lab.is-phone .lab-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lab.is-phone .lab-page-wrap {
+  height: 100%;
+  overflow: auto;
 }
 
 .lab.is-phone .lab-book {
-  padding: 1.5rem 1.1rem 6.5rem;
+  padding: 1.5rem 1.1rem 8.5rem;
+}
+
+.lab.is-phone .lab-hearing {
+  padding-bottom: 8.5rem;
+}
+
+.lab.is-phone .lab-hearing-line {
+  font-size: 1.7rem;
+}
+
+.lab.is-phone.has-notice .lab-book,
+.lab.is-phone.has-phone-ask .lab-book {
+  padding-bottom: 16rem;
+}
+
+.lab.is-phone.has-notice .lab-hearing,
+.lab.is-phone.has-phone-ask .lab-hearing {
+  padding-bottom: 16rem;
+}
+
+.lab.is-phone .lab-ask {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border-left: 0;
+  border-top: 0;
+  background: #ece7db;
+  padding: 0.9rem 1.1rem 1rem;
+}
+
+.lab.is-phone .lab-ask.has-thread {
+  height: auto;
+  min-height: 0;
+}
+
+.lab.is-phone .lab-phone-bar {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  flex: 0 0 auto;
 }
 
 .lab.is-phone .lab-book.is-compare .lab-book-columns {
