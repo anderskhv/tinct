@@ -46,7 +46,7 @@ function SendIcon() {
 
 export function LabAskPane({
   conversationState,
-  voiceActive,
+  voiceActive: _voiceActive,
   typedLoading,
   turns,
   draft,
@@ -111,7 +111,7 @@ export function LabAskPane({
       <form
         className="lab-ask-composer"
         data-testid="lab-ask-composer"
-        data-voice-phase={voiceActive ? conversationState : 'idle'}
+        data-voice-phase={conversationState}
         onSubmit={(event) => {
           event.preventDefault()
           submit()
@@ -136,7 +136,7 @@ export function LabAskPane({
         />
         <button
           type="button"
-          className={`lab-ask-icon lab-ask-mic ${voiceActive ? `is-${conversationState}` : ''}`}
+          className={`lab-ask-icon lab-ask-mic ${conversationState !== 'idle' ? `is-${conversationState}` : ''}`}
           onClick={onMic}
           aria-label={LAB_COPY.micLabel}
           data-testid="lab-ask-mic"
@@ -155,7 +155,7 @@ export function LabAskPane({
         ) : (
           <button
             type="button"
-            className={`lab-ask-icon lab-ask-voice ${voiceActive ? `is-${conversationState}` : ''}`}
+            className={`lab-ask-icon lab-ask-voice ${conversationState !== 'idle' ? `is-${conversationState}` : ''}`}
             onClick={onVoiceMode}
             aria-label={LAB_COPY.voiceModeLabel}
             data-testid="lab-ask-voice"

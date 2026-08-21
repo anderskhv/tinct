@@ -41,6 +41,10 @@ export interface StartVoiceSessionInput {
   audio: VoiceAudioEngine
   wasPlaying: boolean
   mode?: VoiceSessionMode
+  /** When set, replaces production buildVoiceInstructions for this session. */
+  instructions?: string
+  /** When set, replaces VOICE_TOOLS. Lab conversation passes []. */
+  tools?: readonly unknown[]
 }
 
 type RealtimeEvent = VoiceRealtimeEvent
@@ -85,6 +89,8 @@ export class VoiceSessionController {
   private anchor: AudioPlaybackAnchor | null = null
   private shouldResumeBook = false
   private context: VoiceReaderContext | null = null
+  private instructions: string | null = null
+  private tools: readonly unknown[] | null = null
   private pc: RTCPeerConnection | null = null
   private dc: RTCDataChannel | null = null
   private localStream: MediaStream | null = null
@@ -117,6 +123,8 @@ export class VoiceSessionController {
     this.lastUserIntent = 'none'
     this.turn = INITIAL_VOICE_TURN
     this.context = input.context
+    this.instructions = input.instructions?.trim() || null
+    this.tools = input.tools ?? null
     this.audio = input.audio
     const paused = input.audio.pausePlayback()
     this.anchor = paused?.anchor ?? null
@@ -352,24 +360,28 @@ export class VoiceSessionController {
 
   private sendSessionUpdate(): void {
     if (!this.dc || this.dc.readyState !== 'open' || !this.context) return
-    this.dc.send(JSON.stringify({
-      type: 'session.update',
-      session: {
-        type: 'realtime',
-        instructions: buildVoiceInstructions(this.context),
-        tools: VOICE_TOOLS,
-        tool_choice: 'auto',
-        audio: {
-          input: {
-            transcription: { model: 'gpt-4o-mini-transcribe' },
-            turn_detection: {
-              type: 'server_vad',
-              silence_duration_ms: 700,
-              prefix_padding_ms: 300,
-            },
+    const tools = this.tools ?? VOICE_TOOLS
+    const session: Record<string, unknown> = {
+      type: 'realtime',
+      instructions: this.instructions || buildVoiceInstructions(this.context),
+      audio: {
+        input: {
+          transcription: { model: 'gpt-4o-mini-transcribe' },
+          turn_detection: {
+            type: 'server_vad',
+            silence_duration_ms: 700,
+            prefix_padding_ms: 300,
           },
         },
       },
+    }
+    if (tools.length > 0) {
+      session.tools = tools
+      session.tool_choice = 'auto'
+    }
+    this.dc.send(JSON.stringify({
+      type: 'session.update',
+      session,
     }))
   }
 

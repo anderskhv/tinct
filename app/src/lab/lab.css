@@ -158,9 +158,9 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
-  border-left: 1px solid #e4e0d6;
+  border-left: 1px solid #d4cdc0;
   padding: 1.25rem 1.1rem 1.15rem;
-  background: #faf9f6;
+  background: #ece7db;
 }
 
 .lab-ask.is-empty {
@@ -232,11 +232,12 @@
   gap: 0.15rem;
   height: 52px;
   min-height: 52px;
+  flex-shrink: 0;
   padding: 0 0.4rem 0 1.05rem;
-  border: 1px solid rgba(11, 11, 11, 0.1);
+  border: 1px solid #c8c0ae;
   border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 2px 12px rgba(11, 11, 11, 0.06);
+  background: #ece7db;
+  box-shadow: none;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
@@ -272,7 +273,7 @@
 }
 
 .lab-ask-composer .lab-ask-input::placeholder {
-  color: #8a8a8a;
+  color: #6a6555;
 }
 
 .lab-ask-icon {
@@ -300,9 +301,26 @@
   color: #fff;
 }
 
+.lab-ask-icon.is-connecting,
 .lab-ask-icon.is-listening,
 .lab-ask-icon.is-speaking {
-  box-shadow: 0 0 0 1px #0b0b0b;
+  box-shadow: 0 0 0 2px #0b0b0b;
+  animation: lab-voice-alive 1s ease-in-out infinite;
+}
+
+.lab-ask-voice.is-connecting,
+.lab-ask-voice.is-listening,
+.lab-ask-voice.is-speaking,
+.lab-ask-mic.is-connecting,
+.lab-ask-mic.is-listening,
+.lab-ask-mic.is-speaking {
+  background: #0b0b0b;
+  color: #ece7db;
+}
+
+@keyframes lab-voice-alive {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.88; }
 }
 
 .lab-ask-notice,
@@ -343,6 +361,7 @@
   box-shadow: 0 0 0 1px rgba(11, 11, 11, 0.08);
 }
 
+.lab-orb-connecting .lab-orb-core,
 .lab-orb-listening .lab-orb-core {
   animation: lab-orb-pulse 1.1s ease-in-out infinite;
 }
@@ -502,6 +521,42 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Desktop Ask stays viewport-tall. Without this, .lab-body grows with
+   Book 1 and .lab-ask.is-empty { justify-content: center } drops the
+   greeting + composer into the middle of the chapter. Phone orb overlay
+   is unchanged. */
+.lab.is-desktop {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab.is-desktop .lab-header {
+  flex: 0 0 auto;
+}
+
+.lab.is-desktop .lab-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.lab.is-desktop .lab-page-wrap {
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.lab.is-desktop .lab-ask {
+  position: sticky;
+  top: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+  height: calc(100vh - 5.5rem);
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .lab.is-phone .lab-header {

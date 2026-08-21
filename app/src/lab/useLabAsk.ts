@@ -1,11 +1,14 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useVoiceSession } from '../hooks/useVoiceSession'
 import { apiUrl } from '../utils/apiUrl'
-import { buildVoiceInstructions } from '../voice/context'
-import { nearbyParagraphWindow } from '../voice/context'
-import { labConversationState, labReadingAngle, labVoiceContext, type LabAskTurn } from './labAsk'
+import {
+  buildLabAskInstructions,
+  labConversationState,
+  labReadingAngle,
+  type LabAskTurn,
+} from './labAsk'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
 
@@ -16,7 +19,7 @@ function nextId() {
 
 const NOOP_AUDIO = {
   pausePlayback: () => null,
-  resumePlayback: () => { /* lab follow clock is owned by LabApp */ },
+  resumePlayback: () => { /* lab listen is owned by LabApp */ },
 }
 
 export interface UseLabAskOptions {
@@ -33,9 +36,25 @@ export function useLabAsk(options: UseLabAskOptions) {
   const [typedLoading, setTypedLoading] = useState(false)
   const [turns, setTurns] = useState<LabAskTurn[]>([])
   const [notice, setNotice] = useState<string | null>(null)
+  const [starting, setStarting] = useState(false)
 
   const sessionToken = session?.access_token ?? null
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
+
+  const instructions = useMemo(() => buildLabAskInstructions({
+    bookTitle: options.bookTitle,
+    bookAuthor: options.bookAuthor,
+    chapterLabel: options.chapterLabel,
+    paragraphs: options.paragraphs,
+    paragraphIndex: options.paragraphIndex,
+    readingAngle: labReadingAngle(),
+  }), [
+    options.bookAuthor,
+    options.bookTitle,
+    options.chapterLabel,
+    options.paragraphIndex,
+    options.paragraphs,
+  ])
 
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
@@ -48,8 +67,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     }])
   }, [])
 
-  // Same hook as App.tsx + AudioStrip. Playback is the controller's remote
-  // WebRTC audio element. Lab has no audiobook, so pause/resume are no-ops.
+  // Same hook as App.tsx + AudioStrip. Lab supplies its own instructions
+  // so production buildVoiceInstructions stays the in-car brief.
   const voice = useVoiceSession({
     authToken: liveToken,
     isAnonymous: !liveToken,
@@ -61,10 +80,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     readingObjective: labReadingAngle(),
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    visibleText: [
-      options.paragraphs[options.paragraphIndex] || '',
-      ...nearbyParagraphWindow(options.paragraphs, options.paragraphIndex),
-    ].filter(Boolean).join('\n\n'),
+    visibleText: instructions,
     isAudioPlaying: false,
     pausePlayback: NOOP_AUDIO.pausePlayback,
     resumePlayback: NOOP_AUDIO.resumePlayback,
@@ -73,21 +89,26 @@ export function useLabAsk(options: UseLabAskOptions) {
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
+    instructions,
+    tools: [],
   })
 
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive) return true
     setNotice(null)
+    setStarting(true)
     const authToken = await resolveLabVoiceToken({
       override: options.authToken,
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
     if (!authToken) {
+      setStarting(false)
       setNotice(LAB_COPY.signInVoice)
       return false
     }
     const snapshot = await voice.start({ authToken })
+    setStarting(false)
     if (snapshot.error) {
       setNotice(snapshot.error)
       return false
@@ -96,16 +117,17 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [options.authToken, sessionToken, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
+    setStarting(false)
     voice.stop()
   }, [voice.stop])
 
   const toggleInChatVoice = useCallback(async () => {
     if (voice.isActive) {
-      voice.stop()
+      stopVoice()
       return
     }
     await startVoice()
-  }, [startVoice, voice.isActive, voice.stop])
+  }, [startVoice, stopVoice, voice.isActive])
 
   const sendTyped = useCallback(async (content: string) => {
     const text = content.trim()
@@ -132,14 +154,6 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     setTypedLoading(true)
     try {
-      const context = labVoiceContext({
-        bookTitle: options.bookTitle,
-        bookAuthor: options.bookAuthor,
-        chapterLabel: options.chapterLabel,
-        paragraphs: options.paragraphs,
-        paragraphIndex: options.paragraphIndex,
-        readingAngle: labReadingAngle(),
-      })
       const history = [...turns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
@@ -152,7 +166,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
           max_tokens: 1024,
-          system: buildVoiceInstructions(context),
+          system: instructions,
           messages: history,
         }),
       })
@@ -189,7 +203,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     } finally {
       setTypedLoading(false)
     }
-  }, [options, sessionToken, turns])
+  }, [instructions, options.authToken, sessionToken, turns])
 
   return {
     turns,
@@ -198,8 +212,9 @@ export function useLabAsk(options: UseLabAskOptions) {
     conversationState: labConversationState({
       voiceState: voice.state,
       error: voice.error,
+      starting,
     }),
-    voiceActive: voice.isActive,
+    voiceActive: voice.isActive || starting,
     startVoice,
     stopVoice,
     toggleInChatVoice,

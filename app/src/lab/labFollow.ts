@@ -16,6 +16,7 @@ export interface FollowParagraph {
   text: string
   duration?: number
   words?: TimedWord[]
+  file?: string
 }
 
 export type FollowTarget =
@@ -55,6 +56,7 @@ export function followParagraphFromManifest(
     text,
     duration: typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined,
     words,
+    file: typeof manifestParagraph?.file === 'string' ? manifestParagraph.file : undefined,
   }
 }
 
@@ -116,4 +118,55 @@ export function followAtTime(paragraphs: FollowParagraph[], elapsedSeconds: numb
   return last.words
     ? { kind: 'word', paragraphIndex: last.index, wordIndex: last.words.length - 1 }
     : { kind: 'paragraph', paragraphIndex: last.index }
+}
+
+/**
+ * Follow the paragraph (or word) that is actually playing.
+ * Word-level only when that paragraph already has real timings.
+ */
+export function followFromPlayback(input: {
+  paragraphs: FollowParagraph[]
+  paragraphIndex: number
+  currentTime: number
+}): FollowTarget {
+  const paragraph = input.paragraphs.find(item => item.index === input.paragraphIndex)
+    ?? input.paragraphs[input.paragraphIndex]
+  if (!paragraph) return { kind: 'none' }
+  if (paragraph.words && paragraph.words.length > 0) {
+    return {
+      kind: 'word',
+      paragraphIndex: paragraph.index,
+      wordIndex: wordIndexAtTime(paragraph.words, Math.max(0, input.currentTime)),
+    }
+  }
+  return { kind: 'paragraph', paragraphIndex: paragraph.index }
+}
+
+export interface WordSidecar {
+  chapter?: number
+  paragraphs?: Array<{
+    paragraph?: number
+    file?: string
+    words?: unknown
+  }>
+}
+
+/** Manifest `words` win; sidecar fills paragraphs that have none. */
+export function mergeSidecarWords(
+  paragraphs: FollowParagraph[],
+  sidecar: WordSidecar | null | undefined,
+): FollowParagraph[] {
+  if (!sidecar?.paragraphs?.length) return paragraphs
+  const byIndex = new Map<number, TimedWord[]>()
+  for (const entry of sidecar.paragraphs) {
+    if (typeof entry.paragraph !== 'number') continue
+    const words = wordsFromManifestParagraph({ words: entry.words as TimedWord[] })
+    if (!words) continue
+    byIndex.set(entry.paragraph, words)
+  }
+  return paragraphs.map((paragraph) => {
+    if (paragraph.words && paragraph.words.length > 0) return paragraph
+    const words = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
+    return words ? { ...paragraph, words } : paragraph
+  })
 }

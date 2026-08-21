@@ -14,7 +14,9 @@ export function LabOrb({ state, onActivate, label }: LabOrbProps) {
     ? LAB_COPY.listening
     : state === 'speaking'
       ? LAB_COPY.speaking
-      : null
+      : state === 'connecting'
+        ? LAB_COPY.connecting
+        : null
 
   return (
     <div className={`lab-orb-wrap lab-orb-${state}`}>

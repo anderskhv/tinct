@@ -1,7 +1,7 @@
 import { loadEdition } from '../data/editionLoader'
 import type { ThreadCharacter } from '../types'
-import { resolveAudioUrl } from '../utils/audioUrl'
-import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
+import { loadLabAudioChapter } from './labListen'
+import { type FollowParagraph } from './labFollow'
 import { LAB_COPY } from './labCopy'
 
 export interface LabCastMember {
@@ -79,18 +79,7 @@ function spoilerSafeCast(characters: ThreadCharacter[], chapterNumber: number): 
 
 async function loadAudioFollow(paragraphs: string[]): Promise<FollowParagraph[]> {
   try {
-    const url = resolveAudioUrl('odyssey/original-en/ch1/manifest.json', 'manifest')
-    const response = await fetch(url)
-    if (!response.ok) return paragraphs.map((text, index) => ({ index, text }))
-    const manifest = await response.json() as { paragraphs?: ManifestParagraph[] }
-    const byIndex = new Map<number, ManifestParagraph>()
-    for (const entry of manifest.paragraphs || []) {
-      if (typeof entry.paragraph === 'number') byIndex.set(entry.paragraph, entry)
-      else byIndex.set(byIndex.size, entry)
-    }
-    return paragraphs.map((text, index) => (
-      followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
-    ))
+    return await loadLabAudioChapter(paragraphs)
   } catch {
     return paragraphs.map((text, index) => ({ index, text }))
   }

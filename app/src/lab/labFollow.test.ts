@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import {
   followAtTime,
+  followFromPlayback,
   followParagraphFromManifest,
+  mergeSidecarWords,
   wordsFromManifestParagraph,
 } from './labFollow'
 
@@ -67,5 +69,53 @@ describe('lab word follow', () => {
       paragraphIndex: 1,
       wordIndex: 1,
     })
+  })
+
+  it('follows the playing paragraph from audio currentTime, not a chapter clock', () => {
+    const paragraphs = [
+      followParagraphFromManifest(0, 'First', { duration: 4, file: 'p0.mp3' }),
+      followParagraphFromManifest(1, 'Second with words', {
+        duration: 3,
+        file: 'p1.mp3',
+        words: [
+          { text: 'Second', start: 0, end: 1 },
+          { text: 'with', start: 1, end: 2 },
+          { text: 'words', start: 2, end: 3 },
+        ],
+      }),
+    ]
+
+    expect(followFromPlayback({ paragraphs, paragraphIndex: 0, currentTime: 2 })).toEqual({
+      kind: 'paragraph',
+      paragraphIndex: 0,
+    })
+    expect(followFromPlayback({ paragraphs, paragraphIndex: 1, currentTime: 1.2 })).toEqual({
+      kind: 'word',
+      paragraphIndex: 1,
+      wordIndex: 1,
+    })
+  })
+
+  it('uses sidecar words only when the manifest paragraph has none', () => {
+    const paragraphs = [
+      followParagraphFromManifest(0, 'Tell me', {
+        duration: 2,
+        file: 'p0.mp3',
+        words: [{ text: 'Tell', start: 0, end: 1 }, { text: 'me', start: 1, end: 2 }],
+      }),
+      followParagraphFromManifest(1, 'So now', { duration: 2, file: 'p1.mp3' }),
+    ]
+    const merged = mergeSidecarWords(paragraphs, {
+      chapter: 1,
+      paragraphs: [
+        { paragraph: 0, words: [{ text: 'NO', start: 0, end: 2 }] },
+        { paragraph: 1, words: [{ text: 'So', start: 0, end: 1 }, { text: 'now', start: 1, end: 2 }] },
+      ],
+    })
+    expect(merged[0].words?.[0].text).toBe('Tell')
+    expect(merged[1].words).toEqual([
+      { text: 'So', start: 0, end: 1 },
+      { text: 'now', start: 1, end: 2 },
+    ])
   })
 })
