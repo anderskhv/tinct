@@ -34,6 +34,23 @@ export function labAudioSidecarUrl(): string {
   return resolveAudioUrl(`${labAudioChapterBase()}/words.json`, 'file')
 }
 
+/** Live Whisper timings for Odyssey Book 1. Used when the R2 sidecar 404s. */
+export const LAB_STATIC_WORD_SIDECAR_URL = '/odyssey-ch1-words.json'
+
+/** Prefer the R2 sidecar; fall back to the committed static JSON. Never invent timings. */
+export async function readLabWordSidecar(
+  r2Res: Response | null | undefined,
+): Promise<WordSidecar | null> {
+  if (r2Res && 'ok' in r2Res && r2Res.ok) {
+    return await r2Res.json() as WordSidecar
+  }
+  const fallback = await fetch(LAB_STATIC_WORD_SIDECAR_URL).catch(() => null)
+  if (fallback && 'ok' in fallback && fallback.ok) {
+    return await fallback.json() as WordSidecar
+  }
+  return null
+}
+
 export function labAudioFileUrl(file: string): string {
   return resolveAudioUrl(`${labAudioChapterBase()}/${file}`, 'file')
 }
@@ -91,11 +108,7 @@ export async function loadLabAudioChapter(paragraphs: string[]): Promise<FollowP
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  let sidecar: WordSidecar | null = null
-  if (sidecarRes && 'ok' in sidecarRes && sidecarRes.ok) {
-    sidecar = await sidecarRes.json() as WordSidecar
-  }
-  return mergeSidecarWords(followed, sidecar)
+  return mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
 }
 
 export function followPlayingClip(

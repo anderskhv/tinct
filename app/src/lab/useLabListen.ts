@@ -6,6 +6,7 @@ import {
   labAudioFileUrl,
   labAudioManifestUrl,
   labAudioSidecarUrl,
+  readLabWordSidecar,
   type LabAudioClip,
 } from './labListen'
 import { nextHearingSpeed, seekAcrossClips } from './labHearing'
@@ -42,16 +43,24 @@ export function useLabListen(options: UseLabListenOptions) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
+  const sidecarRef = useRef<WordSidecar | null>(null)
   const clipIndexRef = useRef(0)
   const playClipRef = useRef<(index: number, offsetSeconds: number) => boolean>(() => false)
   const optionsRef = useRef(options)
+
+  const adoptFollowParagraphs = useCallback((incoming: FollowParagraph[]) => {
+    const merged = mergeSidecarWords(incoming, sidecarRef.current)
+    paragraphsRef.current = merged
+    setFollowParagraphs(merged)
+    return merged
+  }, [])
+
   optionsRef.current = options
-  paragraphsRef.current = options.followParagraphs
+  paragraphsRef.current = mergeSidecarWords(options.followParagraphs, sidecarRef.current)
 
   useEffect(() => {
-    setFollowParagraphs(options.followParagraphs)
-    paragraphsRef.current = options.followParagraphs
-  }, [options.followParagraphs])
+    adoptFollowParagraphs(options.followParagraphs)
+  }, [adoptFollowParagraphs, options.followParagraphs])
 
   const applyRate = useCallback((audio: HTMLAudioElement, rate: number) => {
     try { audio.playbackRate = rate } catch { /* jsdom */ }
@@ -149,11 +158,18 @@ export function useLabListen(options: UseLabListenOptions) {
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
     if (fromSource.length > 0) {
-      clipsRef.current = fromSource
-      setClips(fromSource)
-      paragraphsRef.current = optionsRef.current.followParagraphs
-      setFollowParagraphs(optionsRef.current.followParagraphs)
-      return fromSource
+      if (fromSource.some(clip => !clip.words || clip.words.length === 0)) {
+        const sidecarRes = await fetch(labAudioSidecarUrl()).catch(() => null)
+        sidecarRef.current = await readLabWordSidecar(sidecarRes) || sidecarRef.current
+      }
+      const followed = adoptFollowParagraphs(optionsRef.current.followParagraphs)
+      const clips = fromSource.map((clip) => {
+        const words = followed.find(item => item.index === clip.index)?.words
+        return words ? { ...clip, words } : clip
+      })
+      clipsRef.current = clips
+      setClips(clips)
+      return clips
     }
 
     const [manifestRes, sidecarRes] = await Promise.all([
@@ -162,18 +178,13 @@ export function useLabListen(options: UseLabListenOptions) {
     ])
     if (!manifestRes.ok) return []
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
-    let followed = optionsRef.current.paragraphs.map((text, index) => {
+    sidecarRef.current = await readLabWordSidecar(sidecarRes) || sidecarRef.current
+    const followed = adoptFollowParagraphs(optionsRef.current.paragraphs.map((text, index) => {
       const entries = manifest.paragraphs || []
       const match = entries.find(entry => entry.paragraph === index)
         || entries.find(entry => entry.paragraph === index + 1)
       return followParagraphFromManifest(index, text, match)
-    })
-    if (sidecarRes && 'ok' in sidecarRes && sidecarRes.ok) {
-      const sidecar = await sidecarRes.json() as WordSidecar
-      followed = mergeSidecarWords(followed, sidecar)
-    }
-    paragraphsRef.current = followed
-    setFollowParagraphs(followed)
+    }))
     const clips = clipsFromManifest(optionsRef.current.paragraphs, manifest.paragraphs || [])
       .map((clip) => {
         const words = followed.find(item => item.index === clip.index)?.words
@@ -182,7 +193,7 @@ export function useLabListen(options: UseLabListenOptions) {
     clipsRef.current = clips
     setClips(clips)
     return clips
-  }, [])
+  }, [adoptFollowParagraphs])
 
   const start = useCallback(async () => {
     const clips = await resolveClips()
