@@ -232,6 +232,7 @@
   gap: 0.15rem;
   height: 52px;
   min-height: 52px;
+  flex-shrink: 0;
   padding: 0 0.4rem 0 1.05rem;
   border: 1px solid rgba(11, 11, 11, 0.1);
   border-radius: 28px;
@@ -502,6 +503,42 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Desktop Ask stays viewport-tall. Without this, .lab-body grows with
+   Book 1 and .lab-ask.is-empty { justify-content: center } drops the
+   greeting + composer into the middle of the chapter. Phone orb overlay
+   is unchanged. */
+.lab.is-desktop {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab.is-desktop .lab-header {
+  flex: 0 0 auto;
+}
+
+.lab.is-desktop .lab-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.lab.is-desktop .lab-page-wrap {
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.lab.is-desktop .lab-ask {
+  position: sticky;
+  top: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+  height: calc(100vh - 5.5rem);
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .lab.is-phone .lab-header {

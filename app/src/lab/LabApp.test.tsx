@@ -1,5 +1,7 @@
 // @vitest-environment jsdom
 
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LAB_DESKTOP_PANES, PRODUCTION_DESKTOP_PANES } from './labChrome'
@@ -56,6 +58,23 @@ describe('lab chrome', () => {
     fireEvent.change(screen.getByPlaceholderText('Ask about this page.'), { target: { value: 'Who is Calypso?' } })
     expect(screen.getByTestId('lab-ask-send')).toBeTruthy()
     expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
+  })
+
+  it('locks the desktop Ask pane to the viewport instead of the chapter height', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*height:\s*100vh/)
+    expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*overflow:\s*hidden/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-page-wrap\s*\{[^}]*overflow:\s*auto/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*position:\s*sticky/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*height:\s*calc\(100vh - 5\.5rem\)/)
+    expect(css).toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
+    expect(css).not.toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{/)
+
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    expect(screen.getByTestId('lab-root').className).toContain('is-desktop')
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('is-empty')
+    expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
+    expect(document.querySelector('.lab-ask-greeting')?.textContent).toBe('Ask about this page.')
   })
 
   it('keeps the phone orb away until a real voice session starts', async () => {
