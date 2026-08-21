@@ -78,6 +78,12 @@ interface ReaderProps {
    * paragraph's visual width.
    */
   playingParagraphProgress?: number
+  /**
+   * Current spoken-word index within the playing paragraph.
+   * `undefined` = no word timings (use paragraph highlight).
+   * `number | null` = word follow is on; only a number is marked.
+   */
+  playingWordIndex?: number | null
   /** Called when user clicks a paragraph to start audio from there */
   onParagraphClick?: (paragraphIndex: number) => void
   /** Whether audio is currently available/active */
@@ -139,6 +145,7 @@ export function Reader({
   targetParagraphNonce,
   playingParagraphIndex,
   playingParagraphProgress,
+  playingWordIndex,
   onParagraphClick,
   hasAudio,
   onNextChapter,
@@ -1562,7 +1569,8 @@ export function Reader({
             {paragraphs.map((para, i) => {
               const classes: string[] = []
               if (i === 0 && !isVerse) classes.push('drop-cap')
-              if (isAudioPlaying && playingParagraphIndex === i) classes.push('paragraph-playing')
+              const wordFollow = isAudioPlaying && playingParagraphIndex === i && playingWordIndex !== undefined
+              if (isAudioPlaying && playingParagraphIndex === i && !wordFollow) classes.push('paragraph-playing')
               if (overflowParaKeys.has(i) || paragraphShouldFragmentByText(para.length)) {
                 classes.push('text-paragraph-fragmentable')
               }
@@ -1574,6 +1582,7 @@ export function Reader({
                   highlights={renderedHighlights}
                   isVerse={isVerse}
                   className={classes.length > 0 ? classes.join(' ') : undefined}
+                  playingWordIndex={wordFollow ? playingWordIndex : undefined}
                 />
               )
             })}

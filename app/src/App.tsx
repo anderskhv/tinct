@@ -435,6 +435,7 @@ export default function App() {
   // from BottomBar at ~3 Hz so the Reader can keep the visible page in sync
   // even when a single paragraph spans a page break.
   const [audioProgress, setAudioProgress] = useState(0)
+  const [audioPlayingWordIndex, setAudioPlayingWordIndex] = useState<number | null | undefined>(undefined)
   const [hasAudio, setHasAudio] = useState(false)
   const [audioEditionKey, setAudioEditionKey] = useState<string | null>(null)
   const [firstVisibleParagraph, setFirstVisibleParagraph] = useState(0)
@@ -3476,6 +3477,7 @@ export default function App() {
                   targetParagraphNonce={validReadSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
                   playingParagraphProgress={audioProgress}
+                  playingWordIndex={primaryEditionKey === effectiveAudioEditionKey ? audioPlayingWordIndex : undefined}
                   isAudioPlaying={audioIsPlaying}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
@@ -3527,6 +3529,7 @@ export default function App() {
                   targetParagraphNonce={validCompareSyncSignal?.nonce}
                   playingParagraphIndex={audioPlayingParagraph}
                   playingParagraphProgress={audioProgress}
+                  playingWordIndex={splitEditionKey === effectiveAudioEditionKey ? audioPlayingWordIndex : undefined}
                   isAudioPlaying={audioIsPlaying}
                   onParagraphClick={handleParagraphClick}
                   hasAudio={hasAudio}
@@ -3664,6 +3667,7 @@ export default function App() {
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
                 playingParagraphProgress={audioProgress}
+                playingWordIndex={primaryEditionKey === effectiveAudioEditionKey ? audioPlayingWordIndex : undefined}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
@@ -3707,6 +3711,7 @@ export default function App() {
                 targetParagraphIndex={targetParagraphRef.current}
                 playingParagraphIndex={audioPlayingParagraph}
                 playingParagraphProgress={audioProgress}
+                playingWordIndex={primaryEditionKey === effectiveAudioEditionKey ? audioPlayingWordIndex : undefined}
                 onParagraphClick={handleParagraphClick}
                 hasAudio={hasAudio}
                 isAudioPlaying={audioIsPlaying}
@@ -3899,6 +3904,7 @@ export default function App() {
         onParagraphChange={handleAudioParagraphChange}
         onPlayStateChange={handleAudioPlayStateChange}
         onProgressChange={setAudioProgress}
+        onWordChange={setAudioPlayingWordIndex}
         onChapterEnd={currentChapter < totalChapters ? handleNextChapter : undefined}
         onBookEnd={() => handleBookComplete('audio')}
         firstVisibleParagraph={firstVisibleParagraph}

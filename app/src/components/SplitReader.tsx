@@ -75,6 +75,7 @@ interface SplitReaderProps {
   playingParagraphIndex?: number
   /** Fraction (0-1) through the currently-playing paragraph's audio. */
   playingParagraphProgress?: number
+  playingWordIndex?: number | null
   /** Called when a paragraph is clicked (tap-to-play) */
   onParagraphClick?: (index: number) => void
   /** Whether audio is available for the current edition */
@@ -133,6 +134,7 @@ export function SplitReader({
   onVisibleParagraphsChange,
   playingParagraphIndex,
   playingParagraphProgress,
+  playingWordIndex,
   onParagraphClick,
   hasAudio,
   panelOpen,
@@ -1071,10 +1073,11 @@ export function SplitReader({
                 leftParagraphs[i]?.length ?? 0,
                 rightParagraphs[i]?.length ?? 0,
               )
+              const wordFollow = isAudioPlaying && playingParagraphIndex === i && playingWordIndex !== undefined
               return (
                 <div className={`split-row ${rowCanFragment ? 'split-row-fragmentable' : 'split-row-keep'}`} key={i}>
                   <div
-                    className={`split-left${isAudioPlaying && playingParagraphIndex === i ? ' paragraph-playing' : ''}`}
+                    className={`split-left${isAudioPlaying && playingParagraphIndex === i && !wordFollow ? ' paragraph-playing' : ''}`}
                     data-paragraph-index={i}
                     onClick={isAudioPlaying && onParagraphClick ? () => onParagraphClick(i) : undefined}
                     style={isAudioPlaying && onParagraphClick ? { cursor: 'pointer' } : undefined}
@@ -1085,6 +1088,7 @@ export function SplitReader({
                         paragraphIndex={i}
                         highlights={leftHighlights}
                         isVerse={isLeftVerse}
+                        playingWordIndex={wordFollow ? playingWordIndex : undefined}
                       />
                     )}
                   </div>
