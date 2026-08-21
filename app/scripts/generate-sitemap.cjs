@@ -14,6 +14,11 @@
  *   - If app/public/read/{bookId}/summary.html exists, also emit:
  *       /summary, /themes, /chapters, /cast, and /chapter-N for every
  *       chapter present in the modern-en edition.
+ *   - For books in the crawlable-text set (default: Odyssey; override with
+ *     TINCT_SEO_TEXT_BOOKS=all or a comma-separated id list), also write
+ *     /read/{bookId}/{n}.html with the full authoritative English chapter
+ *     and emit those URLs in the sitemap. Curated /chapter-N summary pages
+ *     stay on their own path.
  *
  * Why static rather than worker-generated: keeping the sitemap in
  * public/sitemap.xml means it ships unchanged through the existing build →
@@ -120,6 +125,23 @@ function preferredEditionPath(bookId) {
   return candidates.find(file => fs.existsSync(file)) || candidates[1]
 }
 
+/**
+ * Books that get crawlable full-text chapter pages at /read/{id}/{n}.
+ * Default is Odyssey, the proof book. TINCT_SEO_TEXT_BOOKS=all generates
+ * every public book except the Bible; a comma list selects specific ids.
+ */
+function textChapterBookIds(books) {
+  const raw = String(process.env.TINCT_SEO_TEXT_BOOKS || '').trim()
+  const ids = Array.isArray(books) ? books.map(book => book.id) : []
+  if (raw === 'all') return new Set(ids.filter(id => id !== 'bible'))
+  if (raw) return new Set(raw.split(',').map(part => part.trim()).filter(Boolean))
+  return new Set(ids.includes('odyssey') ? ['odyssey'] : [])
+}
+
+function shouldGenerateTextChapters(bookId, books) {
+  return textChapterBookIds(books).has(bookId)
+}
+
 function loadPreferredEdition(bookId) {
   const file = preferredEditionPath(bookId)
   if (!fs.existsSync(file)) return null
@@ -146,6 +168,10 @@ function plainText(value) {
   return String(value || '')
     .replace(/\s+/g, ' ')
     .trim()
+}
+
+function editionParagraphText(raw) {
+  return plainText(raw)
 }
 
 function clipAtWord(text, maxChars, suffix = '...') {
@@ -271,7 +297,24 @@ function seoStyles() {
   </style>`
 }
 
-function pageShell({ title, description, canonical, body, jsonLd, image = DEFAULT_OG_IMAGE }) {
+function chapterPageStyles() {
+  return `
+    .lede { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 28px; max-width: 860px; }
+    article.chapter { max-width: 860px; }
+    article.chapter p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.65; margin: 0 0 18px 0; }
+    .chapter-nav { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 36px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .chapter-nav a { color: var(--accent); text-decoration: none; }
+    .chapter-nav a:hover { text-decoration: underline; }
+  `
+}
+
+function writeIfChanged(file, content) {
+  if (fs.existsSync(file) && fs.readFileSync(file, 'utf8') === content) return false
+  fs.writeFileSync(file, content)
+  return true
+}
+
+function pageShell({ title, description, canonical, body, jsonLd, image = DEFAULT_OG_IMAGE, extraStyles = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -293,7 +336,7 @@ function pageShell({ title, description, canonical, body, jsonLd, image = DEFAUL
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
-  ${seoStyles()}
+  ${seoStyles()}${extraStyles ? `\n  <style>${extraStyles}</style>` : ''}
 </head>
 <body>
 ${body}
@@ -302,7 +345,7 @@ ${body}
 `
 }
 
-function buildBookIndexPage(book, edition) {
+function buildBookIndexPage(book, edition, opts = {}) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
@@ -312,7 +355,12 @@ function buildBookIndexPage(book, edition) {
     : `Read ${book.title} by ${book.author} free online on Tinct.`
   const description = seoBookDescription(book)
   const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+    .map((chapter, index) => {
+      const href = opts.textChapters
+        ? `/read/${book.id}/${index + 1}`
+        : `/read/${book.id}/chapter-${index + 1}`
+      return `<li><a href="${href}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`
+    })
     .join('\n')
   const body = `<nav class="top">
   <a href="/" class="logo">Tinct<span>.</span></a>
@@ -364,26 +412,50 @@ ${chapterLinks}
   })
 }
 
-function buildGeneratedChapterPage(book, edition, chapter, index) {
+function buildGeneratedChapterPage(book, edition, chapter, index, opts = {}) {
   const number = index + 1
-  const paragraphs = paragraphExcerpt(chapter.paragraphs || [], SEO_EXCERPT_WORDS)
+  const total = opts.totalChapters || (edition.data.chapters || []).length
+  const paragraphs = (chapter.paragraphs || []).map(editionParagraphText).filter(Boolean)
   const chapterTitle = chapter.title || `Chapter ${number}`
   const description = metaDescription(book, chapter, paragraphs)
-  const body = `<main>
-  <nav><a href="/read/${book.id}">${escapeHtml(book.title)}</a> / <a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Chapter ${number}</p>
-  <h1>${escapeHtml(chapterTitle)}</h1>
-  <p class="dek">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
-  <a class="cta" href="/read/${book.id}?chapter=${number}">Open this chapter in Tinct</a>
-  <article>
-  ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
+  const readerHref = `/read/${book.id}/${number}?from=app`
+  const prevHref = number > 1 ? `/read/${book.id}/${number - 1}` : ''
+  const nextHref = number < total ? `/read/${book.id}/${number + 1}` : ''
+  const paragraphHtml = paragraphs
+    .map((text, paraIndex) => `<p id="p${paraIndex + 1}" data-paragraph-index="${paraIndex}">${escapeHtml(text)}</p>`)
+    .join('\n    ')
+  const body = `<nav class="top">
+  <a href="/" class="logo">Tinct<span>.</span></a>
+  <a href="${readerHref}" class="top-cta">Open in the Tinct reader</a>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/">Tinct</a> · <a href="/read/">Library</a> · <a href="/read/${book.id}">${escapeHtml(book.title)}</a> · <span>Chapter ${number}</span>
+  </div>
+
+  <div class="booknum">Chapter ${number} of ${total}</div>
+  <h1 class="title">${escapeHtml(chapterTitle)}</h1>
+  <p class="byline">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
+  <p class="lede">This is chapter ${number} of ${escapeHtml(book.title)} by ${escapeHtml(book.author)}. The text is the authoritative English edition on Tinct, and it is free to read.</p>
+  <a class="primary-cta" href="${readerHref}">Continue this chapter in the Tinct reader</a>
+
+  <article class="chapter">
+    ${paragraphHtml}
   </article>
-  <footer>This crawler-readable excerpt links into Tinct's full reader for synced editions, cast, notes, and chat.</footer>
-</main>`
+  <nav class="chapter-nav" aria-label="Chapter">
+    ${prevHref ? `<a href="${prevHref}">Previous chapter</a>` : '<span></span>'}
+    ${nextHref ? `<a href="${nextHref}">Next chapter</a>` : '<span></span>'}
+  </nav>
+</main>
+<footer class="site">
+  <span>Read ${escapeHtml(book.title)} free online on Tinct.</span>
+  <span class="footer-links"><a href="/read/${book.id}">Book home</a><a href="${readerHref}">Open reader</a></span>
+</footer>`
   return pageShell({
     title: seoChapterTitle(book, chapterTitle),
     description,
-    canonical: `${ORIGIN}/read/${book.id}/chapter-${number}`,
+    canonical: `${ORIGIN}/read/${book.id}/${number}`,
+    extraStyles: chapterPageStyles(),
     body,
     jsonLd: {
       '@context': 'https://schema.org',
@@ -391,23 +463,38 @@ function buildGeneratedChapterPage(book, edition, chapter, index) {
       name: chapterTitle,
       position: number,
       isPartOf: { '@type': 'Book', name: book.title, author: { '@type': 'Person', name: book.author } },
-      url: `${ORIGIN}/read/${book.id}/chapter-${number}`,
+      url: `${ORIGIN}/read/${book.id}/${number}`,
+      isAccessibleForFree: true,
     },
   })
 }
 
 function generateReaderSeoPages(books) {
   let indexes = 0
+  let chapters = 0
+  const textBooks = textChapterBookIds(books)
   for (const book of books) {
     const edition = loadPreferredEdition(book.id)
     if (!edition) continue
     const dir = path.join(READ_DIR, book.id)
     fs.mkdirSync(dir, { recursive: true })
+    const writeTextChapters = textBooks.has(book.id)
 
-    fs.writeFileSync(path.join(dir, 'book.html'), buildBookIndexPage(book, edition))
+    writeIfChanged(path.join(dir, 'book.html'), buildBookIndexPage(book, edition, { textChapters: writeTextChapters }))
     indexes += 1
+
+    if (!writeTextChapters) continue
+    const list = edition.data.chapters || []
+    list.forEach((chapter, index) => {
+      const number = index + 1
+      writeIfChanged(
+        path.join(dir, `${number}.html`),
+        buildGeneratedChapterPage(book, edition, chapter, index, { totalChapters: list.length }),
+      )
+      chapters += 1
+    })
   }
-  return { indexes, chapters: 0 }
+  return { indexes, chapters }
 }
 
 function hasSeoPages(bookId) {
@@ -436,28 +523,47 @@ function lastmodFor(...candidatePaths) {
   for (const p of candidatePaths) {
     if (!p) continue
     try {
-      return fs.statSync(p).mtime.toISOString().slice(0, 10)
+      const mtime = fs.statSync(p).mtime
+      if (mtime.getTime() <= 0) return null
+      return mtime.toISOString().slice(0, 10)
     } catch (err) { /* try next candidate */ }
   }
-  return BUILD_DATE
+  return null
 }
 
-function urlEntry(loc, opts = {}) {
-  const { changefreq = 'monthly', priority = 0.5, lastmod = BUILD_DATE } = opts
+function loadExistingLastmods() {
+  const map = new Map()
+  if (!fs.existsSync(OUT_SITEMAP)) return map
+  const xml = fs.readFileSync(OUT_SITEMAP, 'utf8')
+  const re = /<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g
+  let match
+  while ((match = re.exec(xml))) {
+    if (match[2] && !match[2].startsWith('1970-01-01')) map.set(match[1], match[2])
+  }
+  return map
+}
+
+function urlEntry(loc, opts = {}, existingLastmods = new Map()) {
+  const { changefreq = 'monthly', priority = 0.5 } = opts
+  const computed = opts.lastmod && !String(opts.lastmod).startsWith('1970-01-01') ? opts.lastmod : null
+  const existing = existingLastmods.get(loc)
+  const lastmod = existing || computed || BUILD_DATE
   return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
 }
 
 function buildSitemap(books) {
+  const existingLastmods = loadExistingLastmods()
+  const entry = (loc, opts) => urlEntry(loc, opts, existingLastmods)
   const lines = []
   lines.push('<?xml version="1.0" encoding="UTF-8"?>')
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
   lines.push('')
   lines.push('  <!-- Marketing -->')
-  lines.push(urlEntry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0, lastmod: lastmodFor(path.join(APP_DIR, 'public/landing.html')) }))
-  lines.push(urlEntry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(path.join(APP_DIR, 'public/about.html')) }))
+  lines.push(entry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0, lastmod: lastmodFor(path.join(APP_DIR, 'public/landing.html')) }))
+  lines.push(entry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(path.join(APP_DIR, 'public/about.html')) }))
   lines.push('')
   lines.push('  <!-- Library -->')
-  lines.push(urlEntry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8, lastmod: lastmodFor(path.join(READ_DIR, 'index.html')) }))
+  lines.push(entry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8, lastmod: lastmodFor(path.join(READ_DIR, 'index.html')) }))
   lines.push('')
 
   // Three buckets: Full-tier books (everything), Stub-tier books
@@ -478,13 +584,13 @@ function buildSitemap(books) {
   for (const b of fullBooks) {
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(pagePath(b.id, 'themes.html')) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'chapters.html')) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/cast`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'cast.html')) }))
+    lines.push(entry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
+    lines.push(entry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
+    lines.push(entry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(pagePath(b.id, 'themes.html')) }))
+    lines.push(entry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'chapters.html')) }))
+    lines.push(entry(`${ORIGIN}/read/${b.id}/cast`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'cast.html')) }))
     for (let n = 1; n <= chapters; n++) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapter-${n}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, `chapter-${n}.html`)) }))
+      lines.push(entry(`${ORIGIN}/read/${b.id}/chapter-${n}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, `chapter-${n}.html`)) }))
     }
     lines.push('')
   }
@@ -492,8 +598,8 @@ function buildSitemap(books) {
   if (stubBooks.length > 0) {
     lines.push('  <!-- Stub-tier books — summary.html only -->')
     for (const b of stubBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
+      lines.push(entry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
+      lines.push(entry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
     }
     lines.push('')
   }
@@ -501,8 +607,27 @@ function buildSitemap(books) {
   if (noSeoBooks.length > 0) {
     lines.push('  <!-- Book landing pages only; chapter pages are added when curated/generated pages exist. -->')
     for (const b of noSeoBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
+      lines.push(entry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
     }
+    lines.push('')
+  }
+
+  const textBooks = books.filter(b => textChapterBookIds(books).has(b.id))
+  if (textBooks.length > 0) {
+    lines.push('  <!-- Crawlable chapter text, authoritative English edition -->')
+    for (const b of textBooks) {
+      const edition = loadPreferredEdition(b.id)
+      const count = edition ? (edition.data.chapters || []).length : 0
+      const sourcePath = edition ? edition.file : preferredEditionPath(b.id)
+      for (let n = 1; n <= count; n++) {
+        lines.push(entry(`${ORIGIN}/read/${b.id}/${n}`, {
+          changefreq: 'monthly',
+          priority: 0.7,
+          lastmod: lastmodFor(pagePath(b.id, `${n}.html`), sourcePath),
+        }))
+      }
+    }
+    lines.push('')
   }
 
   lines.push('</urlset>')
@@ -557,14 +682,14 @@ function main() {
   console.log(`[sitemap] Wrote ${generated.indexes} book landing pages and ${generated.chapters} generated chapter pages under public/read/`)
 
   const xml = buildSitemap(books)
-  fs.writeFileSync(OUT_SITEMAP, xml)
+  writeIfChanged(OUT_SITEMAP, xml)
   const total = (xml.match(/<url>/g) || []).length
   const fullCount = books.filter(b => tierFor(b.id) === 'full').length
   const stubCount = books.filter(b => tierFor(b.id) === 'stub').length
   console.log(`[sitemap] Wrote ${total} URLs to ${path.relative(APP_DIR, OUT_SITEMAP)} (${books.length} books, ${fullCount} full + ${stubCount} stub)`)
 
   const meta = buildBookMeta(books)
-  fs.writeFileSync(OUT_META, meta)
+  writeIfChanged(OUT_META, meta)
   const metaCount = (meta.match(/^  '/gm) || []).length
   console.log(`[sitemap] Wrote per-book meta for ${metaCount} books to ${path.relative(APP_DIR, OUT_META)}`)
 }
@@ -585,6 +710,12 @@ module.exports = {
   chapterCount,
   hasSeoPages,
   generateReaderSeoPages,
+  buildGeneratedChapterPage,
+  buildBookIndexPage,
+  loadPreferredEdition,
+  textChapterBookIds,
+  shouldGenerateTextChapters,
+  editionParagraphText,
   seoBookTitle,
   seoBookDescription,
   metaDescription,

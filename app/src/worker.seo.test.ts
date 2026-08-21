@@ -131,6 +131,57 @@ describe('worker SEO routing', () => {
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
   })
 
+  it('serves crawlable Odyssey chapter text with stable paragraph ids', async () => {
+    const env = {
+      ASSETS: {
+        fetch: async (request: Request) => {
+          const url = new URL(request.url)
+          if (url.pathname === '/read/odyssey/1.html') {
+            return new Response(
+              '<html><p id="p1" data-paragraph-index="0">Tell me, O Muse, of that ingenious hero</p></html>',
+              { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } },
+            )
+          }
+          if (url.pathname === '/app.html' || url.pathname === '/app') {
+            return new Response('<html>app shell</html>', {
+              status: 200,
+              headers: { 'Content-Type': 'text/html; charset=utf-8' },
+            })
+          }
+          return new Response('Not found', { status: 404 })
+        },
+      },
+    }
+
+    const chapter = await worker.fetch(new Request('https://tinct.app/read/odyssey/1'), env as never, ctx)
+    const html = await chapter.text()
+    expect(chapter.status).toBe(200)
+    expect(html).toContain('Tell me, O Muse, of that ingenious hero')
+    expect(html).toContain('id="p1"')
+
+    const tracked = await worker.fetch(new Request('https://tinct.app/read/odyssey/1?utm_source=google'), env as never, ctx)
+    expect(await tracked.text()).toContain('Tell me, O Muse, of that ingenious hero')
+
+    const fromApp = await worker.fetch(new Request('https://tinct.app/read/odyssey/1?from=app'), env as never, ctx)
+    expect(await fromApp.text()).toContain('app shell')
+
+    const signedIn = await worker.fetch(new Request('https://tinct.app/read/odyssey/1', {
+      headers: { Cookie: 'tinct_auth=1' },
+    }), env as never, ctx)
+    expect(await signedIn.text()).toContain('app shell')
+  })
+
+  it('returns 404 noindex for a missing chapter number', async () => {
+    const env = {
+      ASSETS: {
+        fetch: async () => new Response('Not found', { status: 404 }),
+      },
+    }
+    const resp = await worker.fetch(new Request('https://tinct.app/read/odyssey/99'), env as never, ctx)
+    expect(resp.status).toBe(404)
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+  })
+
   it('keeps the public /read/:slug book page for SEO, but in-app opens skip it', async () => {
     const env = {
       ASSETS: {

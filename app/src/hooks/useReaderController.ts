@@ -64,7 +64,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promi
 function replaceReaderUrl(bookId: string): void {
   try {
     if (typeof window === 'undefined') return
-    const next = readerAppPath(bookId, window.location.search, window.location.hash)
+    const next = readerAppPath(bookId, window.location.search, window.location.hash, window.location.pathname)
     const current = `${window.location.pathname}${window.location.search}${window.location.hash}`
     if (current !== next) {
       window.history.replaceState(null, '', next)

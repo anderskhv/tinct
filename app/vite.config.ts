@@ -90,7 +90,7 @@ export default defineConfig(({ mode, command }) => {
         // match the worker's seoMatch in src/worker.ts.
         server.middlewares.use((req: IncomingMessage, _res: ServerResponse, next: () => void) => {
           const url = req.url || ''
-          const m = url.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?(\?.*)?$/i)
+          const m = url.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+|\d+)\/?(\?.*)?$/i)
           if (m) {
             req.url = `/read/${m[1]}/${m[2]}.html${m[3] || ''}`
           }
