@@ -41,6 +41,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-desktop-panes').textContent).toBe('Ask')
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
     expect(document.querySelector('.lab-ask-greeting')?.textContent).toBe('Ask about this page.')
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('is-empty')
     expect(screen.queryByRole('heading', { name: 'Ask' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Microphone' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Ask' })).toBeNull()
@@ -51,21 +52,23 @@ describe('lab chrome', () => {
     expect(document.querySelector('.card-rail')).toBeNull()
     expect(document.querySelector('.panel-tab')).toBeNull()
     expect(document.querySelector('.lab-orb')).toBeNull()
+    expect(screen.getByTestId('lab-ask-voice')).toBeTruthy()
+    fireEvent.change(screen.getByPlaceholderText('Ask about this page.'), { target: { value: 'Who is Calypso?' } })
+    expect(screen.getByTestId('lab-ask-send')).toBeTruthy()
+    expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
   })
 
-  it('opens a phone conversation without a transcript', () => {
-    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+  it('keeps the phone orb away until a real voice session starts', async () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
 
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.queryByTestId('lab-conversation')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-ask'))
 
-    expect(screen.getByTestId('lab-conversation')).toBeTruthy()
-    expect(screen.getByLabelText('Leave the conversation.')).toBeTruthy()
-    expect(screen.queryByRole('log')).toBeNull()
-    expect(screen.queryByText(/transcript/i)).toBeNull()
-
-    fireEvent.click(screen.getByLabelText('Leave the conversation.'))
+    expect((await screen.findByTestId('lab-voice-notice')).textContent).toContain('Sign in')
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
+    expect(screen.queryByTestId('lab-orb')).toBeNull()
+    expect(screen.queryByRole('log')).toBeNull()
     expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
   })
 
@@ -91,13 +94,17 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
   })
 
-  it('keeps the phone orb idle when the session cannot start', async () => {
-    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-phone-ask'))
-    fireEvent.click(screen.getByTestId('lab-orb'))
-    expect((await screen.findByTestId('lab-voice-notice')).textContent).toContain('Sign in')
-    expect(screen.queryByText('Speaking.')).toBeNull()
-    expect(screen.getByTestId('lab-orb').closest('.lab-orb-wrap')?.className).toContain('lab-orb-idle')
+  it('pins the composer under a thread and drops the empty greeting', async () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-in-the-book'))
+    fireEvent.click(screen.getByRole('tab', { name: 'People on this page' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Ask about this person' }))
+
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('has-thread')
+    expect(document.querySelector('.lab-ask-greeting')).toBeNull()
+    expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
+    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Who is Odysseus on this page?')
+    expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
   })
 
   it('marks the client document noindex', () => {

@@ -19,19 +19,19 @@ interface LabAskPaneProps {
 function MicIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="9" y="3.5" width="6" height="10" rx="3" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M6.5 11.5a5.5 5.5 0 0 0 11 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M12 17v3.2M9.2 20.2h5.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <rect x="9" y="3.5" width="6" height="10" rx="3" stroke="currentColor" strokeWidth="1.55" />
+      <path d="M6.5 11.5a5.5 5.5 0 0 0 11 0" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" />
+      <path d="M12 17v3.2M9.2 20.2h5.6" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" />
     </svg>
   )
 }
 
 function VoiceIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <rect x="4" y="9" width="3" height="6" rx="1.2" />
-      <rect x="10.5" y="5" width="3" height="14" rx="1.2" />
-      <rect x="17" y="8" width="3" height="8" rx="1.2" />
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <rect x="4.2" y="9" width="2.6" height="6" rx="1.1" />
+      <rect x="10.7" y="5" width="2.6" height="14" rx="1.1" />
+      <rect x="17.2" y="8" width="2.6" height="8" rx="1.1" />
     </svg>
   )
 }
@@ -39,7 +39,7 @@ function VoiceIcon() {
 function SendIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 19V6M6.5 11.5 12 6l5.5 5.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 18.5V6.2M7 11.2 12 6.2l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -59,6 +59,7 @@ export function LabAskPane({
   const [localError, setLocalError] = useState<string | null>(null)
   const threadRef = useRef<HTMLDivElement | null>(null)
   const canSend = draft.trim().length > 0
+  const empty = turns.length === 0 && !typedLoading
 
   useEffect(() => {
     const node = threadRef.current
@@ -77,28 +78,33 @@ export function LabAskPane({
   }
 
   return (
-    <aside className="lab-ask" data-testid="lab-ask-pane" aria-label={LAB_DESKTOP_PANES[0]}>
-      <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef}>
-        {turns.length === 0 && !typedLoading && (
-          <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
-        )}
-        {turns.map(turn => (
-          <div
-            key={turn.id}
-            className={`lab-ask-turn is-${turn.role}`}
-            data-testid={`lab-ask-turn-${turn.role}`}
-          >
-            {turn.role === 'user' ? (
-              <p className="lab-ask-bubble">{turn.content}</p>
-            ) : (
-              <p className="lab-ask-reply">{turn.content}</p>
-            )}
-          </div>
-        ))}
-        {typedLoading && (
-          <p className="lab-ask-pending">{LAB_COPY.typedPending}</p>
-        )}
-      </div>
+    <aside
+      className={`lab-ask ${empty ? 'is-empty' : 'has-thread'}`}
+      data-testid="lab-ask-pane"
+      aria-label={LAB_DESKTOP_PANES[0]}
+    >
+      {empty ? (
+        <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
+      ) : (
+        <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef}>
+          {turns.map(turn => (
+            <div
+              key={turn.id}
+              className={`lab-ask-turn is-${turn.role}`}
+              data-testid={`lab-ask-turn-${turn.role}`}
+            >
+              {turn.role === 'user' ? (
+                <p className="lab-ask-bubble">{turn.content}</p>
+              ) : (
+                <p className="lab-ask-reply">{turn.content}</p>
+              )}
+            </div>
+          ))}
+          {typedLoading && (
+            <p className="lab-ask-pending">{LAB_COPY.typedPending}</p>
+          )}
+        </div>
+      )}
       {(notice || localError) && (
         <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}</p>
       )}
@@ -114,19 +120,19 @@ export function LabAskPane({
         <label className="lab-visually-hidden" htmlFor="lab-ask-input">
           {LAB_COPY.askPlaceholder}
         </label>
-        <textarea
+        <input
           id="lab-ask-input"
           className="lab-ask-input"
-          rows={1}
           value={draft}
           onChange={(event) => onDraftChange(event.target.value)}
           onKeyDown={(event) => {
-            if (event.key === 'Enter' && !event.shiftKey) {
+            if (event.key === 'Enter') {
               event.preventDefault()
               submit()
             }
           }}
           placeholder={LAB_COPY.askPlaceholder}
+          autoComplete="off"
         />
         <button
           type="button"

@@ -139,13 +139,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const isOnline = readOnline(online)
   const voiceOverlayOpen = isPhone ? mode === 'conversation' : desktopVoiceOpen
 
-  const openConversation = useCallback((from: 'reading' | 'listening') => {
-    setReturnTo(from)
-    if (from === 'listening') stopClock()
-    setMode('conversation')
-    setInTheBookOpen(false)
-  }, [stopClock])
-
   const leaveConversation = useCallback(() => {
     ask.stopVoice()
     setDesktopVoiceOpen(false)
@@ -160,23 +153,24 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [startClock])
 
   const handleMic = useCallback(() => {
-    if (isPhone && mode !== 'conversation') {
-      openConversation(mode === 'listening' ? 'listening' : 'reading')
-    }
     void ask.toggleInChatVoice()
-  }, [ask, isPhone, mode, openConversation])
+  }, [ask])
 
   const handleVoiceMode = useCallback(async () => {
-    if (isPhone) {
-      openConversation(mode === 'listening' ? 'listening' : 'reading')
-      const started = await ask.startVoice()
-      if (!started) return
-      return
-    }
     const started = ask.voiceActive || await ask.startVoice()
     if (started) setDesktopVoiceOpen(true)
     else setDesktopVoiceOpen(false)
-  }, [ask, isPhone, mode, openConversation])
+  }, [ask])
+
+  const handlePhoneAsk = useCallback(async () => {
+    const from = mode === 'listening' ? 'listening' : 'reading'
+    setReturnTo(from)
+    if (from === 'listening') stopClock()
+    const started = ask.voiceActive || await ask.startVoice()
+    if (!started) return
+    setMode('conversation')
+    setInTheBookOpen(false)
+  }, [ask, mode, stopClock])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) return
@@ -192,12 +186,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const question = `Who is ${name} on this page?`
     setInTheBookOpen(false)
     if (isPhone) {
-      openConversation(mode === 'listening' ? 'listening' : 'reading')
+      void handlePhoneAsk()
       return
     }
     setDraft('')
     void ask.sendTyped(question)
-  }, [ask, isPhone, mode, openConversation])
+  }, [ask, handlePhoneAsk, isPhone])
 
   const handleMark = useCallback((index: number) => {
     setMarks((current) => {
@@ -300,12 +294,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           <button
             type="button"
             className="lab-text-btn lab-text-btn-strong"
-            onClick={() => openConversation(mode === 'listening' ? 'listening' : 'reading')}
+            onClick={() => { void handlePhoneAsk() }}
             data-testid="lab-phone-ask"
           >
             {LAB_COPY.ask}
           </button>
         </footer>
+      )}
+
+      {isPhone && ask.notice && mode !== 'conversation' && (
+        <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
       )}
 
       {voiceOverlayOpen && (
