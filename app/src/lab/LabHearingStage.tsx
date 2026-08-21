@@ -4,6 +4,7 @@ import type { FollowParagraph, FollowTarget } from './labFollow'
 
 interface LabHearingStageProps {
   paragraphs: FollowParagraph[]
+  clips?: Array<{ duration?: number }>
   follow: FollowTarget
   playing: boolean
   clipIndex: number
@@ -16,6 +17,7 @@ interface LabHearingStageProps {
 
 export function LabHearingStage({
   paragraphs,
+  clips,
   follow,
   playing,
   clipIndex,
@@ -31,7 +33,7 @@ export function LabHearingStage({
   const lines = hearingStageLines(paragraph, follow.kind === 'none' && paragraph
     ? { kind: paragraph.words ? 'word' : 'paragraph', paragraphIndex: paragraph.index, wordIndex: 0 }
     : follow)
-  const progress = hearingProgress(paragraphs, clipIndex, currentTime)
+  const progress = hearingProgress(clips && clips.length > 0 ? clips : paragraphs, clipIndex, currentTime)
   const progressPercent = progress ? Math.min(100, (progress.current / progress.total) * 100) : null
 
   return (

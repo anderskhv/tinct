@@ -285,6 +285,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           {showHearing && (
             <LabHearingStage
               paragraphs={listen.followParagraphs}
+              clips={listen.clips}
               follow={listen.follow}
               playing={listen.playing}
               clipIndex={listen.clipIndex}

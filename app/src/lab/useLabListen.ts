@@ -38,6 +38,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const [currentTime, setCurrentTime] = useState(0)
   const [speed, setSpeed] = useState(1)
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
+  const [clips, setClips] = useState<LabAudioClip[]>([])
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
@@ -149,6 +150,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
     if (fromSource.length > 0) {
       clipsRef.current = fromSource
+      setClips(fromSource)
       paragraphsRef.current = optionsRef.current.followParagraphs
       setFollowParagraphs(optionsRef.current.followParagraphs)
       return fromSource
@@ -178,6 +180,7 @@ export function useLabListen(options: UseLabListenOptions) {
         return words ? { ...clip, words } : clip
       })
     clipsRef.current = clips
+    setClips(clips)
     return clips
   }, [])
 
@@ -256,6 +259,7 @@ export function useLabListen(options: UseLabListenOptions) {
     playing,
     follow,
     followParagraphs,
+    clips,
     src,
     clipIndex,
     currentTime,

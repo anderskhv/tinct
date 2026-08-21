@@ -239,6 +239,61 @@ describe('lab chrome', () => {
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
   })
 
+  it('starts Hear from the live Odyssey Book 1 manifest onto a real audio element', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const liveManifest = {
+      chapter: 1,
+      title: 'Book 1',
+      paragraphs: [
+        { paragraph: -1, file: 'title.mp3', duration: 1.675, words: [] },
+        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [] },
+        { paragraph: 1, file: 'p1.mp3', duration: 37.226, words: [] },
+        { paragraph: 2, file: 'p2.mp3', duration: 26.975, words: [] },
+      ],
+    }
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('audio-manifest') && url.includes('odyssey') && url.includes('ch1')) {
+        return { ok: true, json: async () => liveManifest }
+      }
+      return { ok: false, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    expect(screen.getByTestId('lab-book')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
+    })
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/audio-manifest'))).toBe(true)
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('odyssey%2Foriginal-en%2Fch1%2Fp0.mp3')
+    expect(audio.src).toContain('/api/audio-file')
+    expect(audio.src).toContain('p0.mp3')
+    expect(audio.paused).toBe(false)
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.getByTestId('lab-hearing-stage')).toBeTruthy()
+    expect(screen.queryByTestId('lab-book')).toBeNull()
+    expect(document.querySelectorAll('.lab-p').length).toBe(0)
+    expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('Tell me, O Muse')
+    expect(screen.getByTestId('lab-hearing-progress')).toBeTruthy()
+
+    audio.currentTime = 10
+    act(() => { audio.emit('timeupdate') })
+    expect(screen.getByTestId('lab-hearing-progress').firstElementChild?.getAttribute('style') || '').toMatch(/width:\s*10\.06/)
+
+    fireEvent.click(screen.getByTestId('lab-hearing-forward'))
+    expect(audio.currentTime).toBe(25)
+    fireEvent.click(screen.getByTestId('lab-hearing-back'))
+    expect(audio.currentTime).toBe(10)
+    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    expect(audio.paused).toBe(true)
+  })
+
   it('plays real Odyssey paragraph MP3s and follows the playing word', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
