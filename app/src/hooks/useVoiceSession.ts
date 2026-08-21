@@ -35,7 +35,6 @@ export interface UseVoiceSessionOptions {
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   state: 'reading',
   mode: 'quick',
-  phase: 'idle',
   resumeInSeconds: null,
   error: null,
   isActive: false,

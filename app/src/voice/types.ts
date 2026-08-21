@@ -13,8 +13,6 @@ export type VoiceIntent =
   | 'open_conversation'
   | 'none'
 
-export type VoicePhase = 'idle' | 'listening' | 'thinking' | 'speaking'
-
 export type VoiceEvent =
   | { type: 'START'; mode?: VoiceSessionMode }
   | { type: 'USER_SPEECH_START' }

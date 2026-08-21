@@ -15,9 +15,14 @@ describe('lab conversation state', () => {
     expect(labConversationState({ voiceState: 'resume_pending' })).toBe('idle')
   })
 
-  it('maps listening and answering only', () => {
+  it('maps listening and answering only, with no thinking state', () => {
     expect(labConversationState({ voiceState: 'listening' })).toBe('listening')
     expect(labConversationState({ voiceState: 'answering' })).toBe('speaking')
+    expect(Object.values({
+      idle: labConversationState({ voiceState: 'reading' }),
+      listening: labConversationState({ voiceState: 'listening' }),
+      speaking: labConversationState({ voiceState: 'answering' }),
+    })).not.toContain('thinking')
   })
 })
 

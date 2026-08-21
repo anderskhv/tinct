@@ -48,6 +48,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     }])
   }, [])
 
+  // Same hook as App.tsx + AudioStrip. Playback is the controller's remote
+  // WebRTC audio element. Lab has no audiobook, so pause/resume are no-ops.
   const voice = useVoiceSession({
     authToken: liveToken,
     isAnonymous: !liveToken,
