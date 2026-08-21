@@ -58,6 +58,7 @@ import { getAttributionPayload } from './utils/attribution'
 import { resolveAudioUrl } from './utils/audioUrl'
 import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
+import { shouldOpenSplitView } from './utils/readerPagination'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
 import { paragraphTargetFromPosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
@@ -281,6 +282,7 @@ export default function App() {
   })
 
   const [bookEditionSelection, setBookEditionSelection] = useState<BookEditionSelection | null>(null)
+  const lastSplitRestoreBookIdRef = useRef<string | null>(null)
 
   const persistBookEditionSelection = useCallback((partial: BookEditionSelection) => {
     setBookEditionSelection(prev => {
@@ -313,10 +315,15 @@ export default function App() {
     const splitKey = editionExists(book, stored.splitEditionKey)
       ? stored.splitEditionKey
       : defaultSplitEditionKey(book, primaryKey)
+    const wantSplit = shouldOpenSplitView({
+      splitViewEnabled: !!stored.splitView,
+      companionEditionKey: splitKey,
+      primaryEditionKey: primaryKey,
+    })
     const next = {
       primaryEditionKey: primaryKey,
       splitEditionKey: splitKey,
-      splitView: !!stored.splitView,
+      splitView: wantSplit,
     }
     setBookEditionSelection(next)
     const primary = book.editions.find(ed => ed.key === primaryKey)
@@ -325,7 +332,9 @@ export default function App() {
       setStyle(primary.style)
     }
     setSplitEditionKey(splitKey)
-    if (!!stored.splitView !== preferences.splitView) toggleSplitView()
+    const bookChanged = lastSplitRestoreBookIdRef.current !== book.id
+    lastSplitRestoreBookIdRef.current = book.id
+    if (bookChanged && wantSplit !== preferences.splitView) toggleSplitView()
   }, [book.id, book.editions, storageReady])
 
   // Library books (filtered to what user has added)
@@ -1418,8 +1427,10 @@ export default function App() {
       // onFirstVisibleParagraph after layout, which will overwrite this with
       // the same value when no paragraph target was set.
       setFirstVisibleParagraph(paragraphIndex ?? 0)
+      // Feed / Cast / ToC jumps land on Read. Do not silently re-enter Compare.
+      if (isMobile) setActiveView(0)
     }
-  }, [book.editions, currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, applyPrimaryEditionKey, handleNavigateToChapterCore])
+  }, [book.editions, currentChapter, currentPage, totalPages, preferences.style, preferences.language, setStyle, setLanguage, applyPrimaryEditionKey, handleNavigateToChapterCore, isMobile, setActiveView])
 
   // Go back to saved position (restores edition + chapter + page)
   const handleBackToPosition = useCallback(() => {
@@ -3618,7 +3629,11 @@ export default function App() {
                 fontFamily={preferences.fontFamily}
                 startAtLastPage={prefaceStartAtEnd}
               />
-            ) : preferences.splitView && splitChapter ? (
+            ) : shouldOpenSplitView({
+              splitViewEnabled: preferences.splitView,
+              companionEditionKey: splitEditionKey,
+              primaryEditionKey,
+            }) && splitChapter ? (
               <SplitReader
                 key={`split-${currentChapter}-${readerKey}`}
                 leftParagraphs={primaryChapter?.paragraphs || []}

@@ -13,7 +13,14 @@ import type { SelectionSegment, TextPoint } from './reader/selectionGeometry'
 import { useDefine } from './reader/useDefine'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from './reader/SelectionPopup'
 import { defaultPopupMode } from './reader/selectionPopupMode'
-import { decidePublishedPageCount, liveContentfulPageCount } from '../utils/readerPagination'
+import {
+  decidePublishedPageCount,
+  liveContentfulPageCount,
+  MIN_READER_COLUMN_HEIGHT,
+  paragraphShouldFragment,
+  paragraphShouldFragmentByText,
+  resolveContentfulPageFromDom,
+} from '../utils/readerPagination'
 
 interface CustomSelection {
   anchor: TextPoint
@@ -221,8 +228,10 @@ export function Reader({
   const totalPagesRef = useRef(totalPages)
   totalPagesRef.current = totalPages
   const pendingPageCountRef = useRef<number | null>(null)
+  const [overflowParaKeys, setOverflowParaKeys] = useState<Set<number>>(() => new Set())
   useEffect(() => {
     pendingPageCountRef.current = null
+    setOverflowParaKeys(new Set())
   }, [chapterTitle, paragraphs])
   const initialPageRef = useRef(initialPage)
   const targetParagraphRef = useRef(targetParagraphIndex)
@@ -254,6 +263,17 @@ export function Reader({
     return container.clientWidth - padLeft - padRight
   }, [readerRef])
 
+  const snapToContentful = useCallback((requested: number, direction: 1 | -1 = 1, pages = totalPagesRef.current) => {
+    return resolveContentfulPageFromDom(contentRef.current, {
+      requested,
+      direction,
+      columnWidth: getColWidth(),
+      columnGap: getGap(),
+      pageCount: pages,
+      columnHeight: readerRef.current?.clientHeight,
+    })
+  }, [getColWidth, getGap, readerRef])
+
   // Set column-width CSS property to match container
   const updateColumnWidth = useCallback(() => {
     const content = contentRef.current
@@ -278,6 +298,32 @@ export function Reader({
     if (colWidth <= 0) return
     const gap = getGap()
     const container = readerRef.current
+    const columnHeight = container?.clientHeight ?? 0
+    const overflowKeys: number[] = []
+    if (columnHeight >= MIN_READER_COLUMN_HEIGHT) {
+      content.querySelectorAll('[data-paragraph-index]').forEach(node => {
+        const el = node as HTMLElement
+        if (paragraphShouldFragment(el.offsetHeight, columnHeight)) {
+          el.classList.add('text-paragraph-fragmentable')
+          const idx = parseInt(el.getAttribute('data-paragraph-index') || '', 10)
+          if (Number.isFinite(idx)) overflowKeys.push(idx)
+        }
+      })
+      if (overflowKeys.length > 0) void content.offsetHeight
+    }
+    if (overflowKeys.length > 0) {
+      setOverflowParaKeys(prev => {
+        let changed = false
+        const next = new Set(prev)
+        for (const key of overflowKeys) {
+          if (!next.has(key)) {
+            next.add(key)
+            changed = true
+          }
+        }
+        return changed ? next : prev
+      })
+    }
     const measured = liveContentfulPageCount(content, container, colWidth, gap)
     const decision = decidePublishedPageCount({
       measured,
@@ -304,6 +350,18 @@ export function Reader({
       const clamped = Math.max(0, pages - 1)
       currentPageRef.current = clamped
       setCurrentPage(clamped)
+    }
+    const snapped = resolveContentfulPageFromDom(content, {
+      requested: currentPageRef.current,
+      direction: 1,
+      columnWidth: colWidth,
+      columnGap: gap,
+      pageCount: pages,
+      columnHeight,
+    })
+    if (snapped !== currentPageRef.current) {
+      currentPageRef.current = snapped
+      setCurrentPage(snapped)
     }
     setTotalPages(pages)
   }, [isActive, updateColumnWidth, getColWidth, getGap])
@@ -334,14 +392,14 @@ export function Reader({
     if (userNavigatedRef.current) return
     initialPageRef.current = initialPage
     if (totalPagesRef.current > 1 && initialPage >= 0 && initialPage <= 1) {
-      const targetPage = Math.round(initialPage * (totalPagesRef.current - 1))
+      const targetPage = snapToContentful(Math.round(initialPage * (totalPagesRef.current - 1)), 1, totalPagesRef.current)
       if (targetPage !== currentPageRef.current) {
         tracePageSet('initial-page-prop', targetPage, { frac: initialPage, totalPages: totalPagesRef.current })
         currentPageRef.current = targetPage
         setCurrentPage(targetPage)
       }
     }
-  }, [initialPage, tracePageSet])
+  }, [initialPage, tracePageSet, snapToContentful])
 
   useLayoutEffect(() => {
     if (!isActive) return
@@ -363,14 +421,14 @@ export function Reader({
     if (targetParagraphRef.current !== undefined) { dbg('target-para-set', { para: targetParagraphRef.current }); return }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1) {
-      const targetPage = Math.round(frac * (pages - 1))
+      const targetPage = snapToContentful(Math.round(frac * (pages - 1)), 1, pages)
       dbg('restore', { frac, pages, targetPage })
       tracePageSet('layout-restore', targetPage, { frac, pages })
       setCurrentPage(targetPage)
     } else {
       dbg('frac-undef-or-oor', { frac })
     }
-  }, [isActive, recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage, tracePageSet, layoutSignal])
+  }, [isActive, recalcPages, paragraphs, chapterTitle, getColWidth, getGap, initialPage, tracePageSet, layoutSignal, snapToContentful])
 
   // Re-apply initial fraction whenever totalPages changes during layout
   // settle. The layout effect above converts frac→page on mount, but async
@@ -389,13 +447,13 @@ export function Reader({
     const frac = initialPageRef.current
     if (frac === undefined || totalPages <= 1) return
     if (userNavigatedRef.current) return
-    const targetPage = Math.round(frac * (totalPages - 1))
+    const targetPage = snapToContentful(Math.round(frac * (totalPages - 1)), 1, totalPages)
     if (targetPage !== currentPageRef.current) {
       tracePageSet('frac-reapply', targetPage, { frac, totalPages })
       currentPageRef.current = targetPage
       setCurrentPage(targetPage)
     }
-  }, [totalPages, tracePageSet])
+  }, [totalPages, tracePageSet, snapToContentful])
 
   useEffect(() => {
     if (!isActive) return
@@ -437,13 +495,13 @@ export function Reader({
     const page = Math.floor(el.offsetLeft / (colWidth + gap))
     // offsetLeft is 0 for all elements when layout hasn't settled — don't consume if page=0 and para>0
     if (page === 0 && paraIdx > 0 && el.offsetLeft === 0) return false
-    const pageClamped = Math.min(page, Math.max(0, totalPages - 1))
+    const pageClamped = snapToContentful(Math.min(page, Math.max(0, totalPages - 1)), 1, totalPages)
     tracePageSet('paragraph-target', pageClamped, { paraIdx, rawPage: page })
     setCurrentPage(pageClamped)
     targetParagraphRef.current = undefined
     initialPageRef.current = undefined
     return true
-  }, [getColWidth, getGap, totalPages, tracePageSet])
+  }, [getColWidth, getGap, totalPages, tracePageSet, snapToContentful])
 
   // Retry the paragraph restore on a short schedule. The effect below only
   // retries when `totalPages` changes; on mobile the first attempt often fails
@@ -472,12 +530,12 @@ export function Reader({
     }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
-      const targetPage = Math.round(frac * (totalPages - 1))
+      const targetPage = snapToContentful(Math.round(frac * (totalPages - 1)), 1, totalPages)
       tracePageSet('totalPages-restore', targetPage, { frac, totalPages })
       setCurrentPage(targetPage)
       initialPageRef.current = undefined // only restore once
     }
-  }, [totalPages, tryScrollToParagraph, tracePageSet])
+  }, [totalPages, tryScrollToParagraph, tracePageSet, snapToContentful])
 
   // Respond to targetParagraphIndex prop changes after mount (e.g. mobile tab sync)
   // targetParagraphNonce forces re-sync even when the paragraph index hasn't changed
@@ -492,7 +550,7 @@ export function Reader({
       const gap = getGap()
       if (colWidth > 0) {
         const page = Math.floor(el.offsetLeft / (colWidth + gap))
-        const pageClamped = Math.min(page, totalPages - 1)
+        const pageClamped = snapToContentful(Math.min(page, totalPages - 1), 1, totalPages)
         tracePageSet('paragraph-nonce', pageClamped, { targetParagraphIndex, targetParagraphNonce })
         setCurrentPage(pageClamped)
       }
@@ -656,7 +714,16 @@ export function Reader({
       }
     }
     const clamped = Math.max(0, Math.min(page, pages - 1))
-    tracePageSet('goToPage', clamped, { req: page, measuredPages: pages })
+    const direction: 1 | -1 = page >= currentPageRef.current ? 1 : -1
+    const resolved = resolveContentfulPageFromDom(content, {
+      requested: clamped,
+      direction,
+      columnWidth: content ? getColWidth() : 0,
+      columnGap: content ? getGap() : 60,
+      pageCount: pages,
+      columnHeight: readerRef.current?.clientHeight,
+    })
+    tracePageSet('goToPage', resolved, { req: page, measuredPages: pages, clamped })
     // CRITICAL: update the ref immediately, before the React state flushes.
     // The keyboard / page-nav handler computes the next target page via
     // `currentPageRef.current + 1`. Without immediate ref update, multiple
@@ -667,8 +734,8 @@ export function Reader({
     // press in a rapid burst sees the just-incremented value and advances
     // by one. The render-time `currentPageRef.current = currentPage`
     // assignment is harmless (overwrites with the same value).
-    currentPageRef.current = clamped
-    setCurrentPage(clamped)
+    currentPageRef.current = resolved
+    setCurrentPage(resolved)
   }, [totalPages, readerRef, getColWidth, getGap, tracePageSet])
 
   // Keyboard navigation — use refs to avoid re-attaching on every page change
@@ -1496,6 +1563,9 @@ export function Reader({
               const classes: string[] = []
               if (i === 0 && !isVerse) classes.push('drop-cap')
               if (isAudioPlaying && playingParagraphIndex === i) classes.push('paragraph-playing')
+              if (overflowParaKeys.has(i) || paragraphShouldFragmentByText(para.length)) {
+                classes.push('text-paragraph-fragmentable')
+              }
               return (
                 <ParagraphRenderer
                   key={i}

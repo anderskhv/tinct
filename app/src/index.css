@@ -2710,6 +2710,9 @@ body {
   .reader-columns:not(.split-reader-columns) .text-paragraph {
     break-inside: avoid-column;
   }
+  .reader-columns:not(.split-reader-columns) .text-paragraph-fragmentable {
+    break-inside: auto;
+  }
 }
 
 .split-edition-intro {

@@ -8,6 +8,7 @@ import {
   prefaceDisplayColumns,
   prefacePageTotal,
 } from '../utils/prefacePagination'
+import { measureContentfulColumnPages } from '../utils/readerPagination'
 
 interface AcclaimEntry {
   quote: string
@@ -788,12 +789,28 @@ function PaginatedFlow({
       requestAnimationFrame(() => {
         const i = innerRef.current
         if (!i) return
-        const pages = countColumnPages({
+        const prefaceBlocks = i.querySelectorAll('p, h2, h3, dt, dd, [data-preface-block]')
+        let lastLeft: number | undefined
+        for (let b = 0; b < prefaceBlocks.length; b++) {
+          const left = (prefaceBlocks[b] as HTMLElement).offsetLeft
+          if (lastLeft == null || left > lastLeft) lastLeft = left
+        }
+        const contentful = measureContentfulColumnPages({
           scrollWidth: i.scrollWidth,
           columnWidth: colWLocal,
           columnGap,
-          displayColumns: cols,
+          containerHeight: wrapper.clientHeight,
+          containerWidth: wrapper.clientWidth,
+          lastContentOffsetLeft: lastLeft,
         })
+        const pages = cols === 1 && contentful != null
+          ? contentful
+          : countColumnPages({
+              scrollWidth: i.scrollWidth,
+              columnWidth: colWLocal,
+              columnGap,
+              displayColumns: cols,
+            })
         setEffectiveColumns(cols)
         setColW(colWLocal)
         setPageCount(pages)
@@ -1407,7 +1424,7 @@ const prefaceLayerHidden: React.CSSProperties = {
   pointerEvents: 'none',
 }
 const keepWithNext: React.CSSProperties = {
-  breakInside: 'avoid',
+  breakInside: 'auto',
   breakAfter: 'avoid',
 }
 const prefaceLanguageLabel: React.CSSProperties = {
@@ -1754,7 +1771,9 @@ const whyParagraph: React.CSSProperties = {
   fontSize: '1em',
   lineHeight: 1.65,
   textAlign: 'left',
-  breakInside: 'avoid', // keep each Why item intact across column breaks
+  // Allow a Why item taller than the column to fragment. `avoid` skipped
+  // the block and left an empty leftover page.
+  breakInside: 'auto',
 }
 // Italic lead-in: serif italic at body size — book-prose tradition,
 // not a heading. Sits closer to the prose than display italic would.

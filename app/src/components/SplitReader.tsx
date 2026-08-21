@@ -8,6 +8,7 @@ import { defaultPopupMode } from './reader/selectionPopupMode'
 import {
   decidePublishedPageCount,
   liveContentfulPageCount,
+  resolveContentfulPageFromDom,
   splitRowShouldFragment,
   splitRowShouldFragmentByText,
 } from '../utils/readerPagination'
@@ -300,6 +301,18 @@ export function SplitReader({
       currentPageRef.current = clamped
       setCurrentPage(clamped)
     }
+    const snapped = resolveContentfulPageFromDom(content, {
+      requested: currentPageRef.current,
+      direction: 1,
+      columnWidth: colWidth,
+      columnGap: gap,
+      pageCount: pages,
+      columnHeight,
+    })
+    if (snapped !== currentPageRef.current) {
+      currentPageRef.current = snapped
+      setCurrentPage(snapped)
+    }
     setTotalPages(pages)
   }, [updateColumnWidth, getColWidth, getGap, readerRef])
 
@@ -329,7 +342,14 @@ export function SplitReader({
     if (targetParagraphRef.current !== undefined) return // paragraph branch handled below
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1) {
-      const targetPage = Math.round(frac * (pages - 1))
+      const targetPage = resolveContentfulPageFromDom(content, {
+        requested: Math.round(frac * (pages - 1)),
+        direction: 1,
+        columnWidth: cw,
+        columnGap: gp,
+        pageCount: pages,
+        columnHeight: readerRef.current?.clientHeight,
+      })
       setCurrentPage(targetPage)
       initialPageRef.current = undefined
     }
@@ -370,7 +390,14 @@ export function SplitReader({
         const gap = getGap()
         if (colWidth > 0) {
           const page = Math.floor(el.offsetLeft / (colWidth + gap))
-          setCurrentPage(Math.min(page, totalPages - 1))
+          setCurrentPage(resolveContentfulPageFromDom(content, {
+            requested: Math.min(page, totalPages - 1),
+            direction: 1,
+            columnWidth: colWidth,
+            columnGap: gap,
+            pageCount: totalPages,
+            columnHeight: readerRef.current?.clientHeight,
+          }))
         }
         targetParagraphRef.current = undefined
         initialPageRef.current = undefined
@@ -381,7 +408,14 @@ export function SplitReader({
     }
     const frac = initialPageRef.current
     if (frac !== undefined && frac >= 0 && frac <= 1 && totalPages > 1) {
-      const targetPage = Math.round(frac * (totalPages - 1))
+      const targetPage = resolveContentfulPageFromDom(contentRef.current, {
+        requested: Math.round(frac * (totalPages - 1)),
+        direction: 1,
+        columnWidth: getColWidth(),
+        columnGap: getGap(),
+        pageCount: totalPages,
+        columnHeight: readerRef.current?.clientHeight,
+      })
       setCurrentPage(targetPage)
       initialPageRef.current = undefined
     }
@@ -504,11 +538,20 @@ export function SplitReader({
       }
     }
     const clamped = Math.max(0, Math.min(page, pages - 1))
+    const direction: 1 | -1 = page >= currentPageRef.current ? 1 : -1
+    const resolved = resolveContentfulPageFromDom(content, {
+      requested: clamped,
+      direction,
+      columnWidth: content ? getColWidth() : 0,
+      columnGap: content ? getGap() : 60,
+      pageCount: pages,
+      columnHeight: readerRef.current?.clientHeight,
+    })
     // Immediate ref update — see Reader.tsx for the rationale (rapid
     // clicks within a render tick all read currentPageRef and otherwise
     // collapse to the same setCurrentPage value, freezing navigation).
-    currentPageRef.current = clamped
-    setCurrentPage(clamped)
+    currentPageRef.current = resolved
+    setCurrentPage(resolved)
   }, [totalPages, getColWidth, getGap])
 
   // Keyboard navigation — use refs to avoid re-attaching on every page change
