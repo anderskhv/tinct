@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import { LabApp } from './lab/LabApp'
+import { isLabPath } from './lab/labRoute'
 import './index.css'
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices
@@ -29,8 +31,11 @@ if (isEink) {
   document.documentElement.setAttribute('data-theme', 'light')
 }
 
+const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
+const Root = isLabPath(pathname) ? LabApp : App
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>,
 )

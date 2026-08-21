@@ -165,6 +165,31 @@ describe('worker SEO routing', () => {
     expect(await signedIn.text()).toContain('app shell')
   })
 
+  it('serves /lab as a noindex demo, including nested paths', async () => {
+    const lab = await worker.fetch(new Request('https://tinct.app/lab'), routerEnv() as never, ctx)
+    expect(lab.status).toBe(200)
+    expect(lab.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(lab.headers.get('Cache-Control')).toBe('no-store')
+    const html = await lab.text()
+    expect(html).toContain('name="robots"')
+    expect(html).toContain('noindex')
+    expect(html).toContain('app shell')
+
+    const nested = await worker.fetch(new Request('https://tinct.app/lab/phone'), routerEnv() as never, ctx)
+    expect(nested.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(await nested.text()).toContain('name="robots"')
+
+    const head = await worker.fetch(new Request('https://tinct.app/lab', { method: 'HEAD' }), routerEnv() as never, ctx)
+    expect(head.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(await head.text()).toBe('')
+  })
+
+  it('keeps /app on the production SPA shell', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(await resp.text()).toContain('app shell')
+  })
+
   it('serves unknown app paths as noindex SPA fallback', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/some-deep-app-state'), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)

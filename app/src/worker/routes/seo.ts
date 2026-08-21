@@ -1,4 +1,5 @@
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
+import { isLabPath } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
 
 export type SeoEnv = {
@@ -141,6 +142,37 @@ async function serveStaticHtml(
   return newResp
 }
 
+function isLabPathname(pathname: string): boolean {
+  return isLabPath(pathname)
+}
+
+async function serveLabDemo(
+  requestMethod: string,
+  url: URL,
+  env: SeoEnv,
+): Promise<Response | null> {
+  const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
+  if (!appResp.ok) return null
+
+  const html = await appResp.text()
+  const withRobots = html.includes('name="robots"')
+    ? html
+    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">')
+  const newResp = new Response(requestMethod === 'HEAD' ? null : withRobots, {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  })
+  newResp.headers.set('Cache-Control', 'no-store')
+  newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    newResp.headers.set(key, value)
+  }
+  return newResp
+}
+
+export const serveLabDemoForTest = serveLabDemo
+export const isLabPathnameForTest = isLabPathname
+
 function editionBookIdFromPath(pathname: string): string | null {
   const filename = pathname.split('/').pop() || ''
   if (!filename.endsWith('.json')) return null
@@ -282,6 +314,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         newResp.headers.set(key, value)
       }
       return newResp
+    }
+
+    // Private reading-chrome demo. Always noindex, including /lab/*.
+    if ((request.method === 'GET' || request.method === 'HEAD') && isLabPathname(url.pathname)) {
+      const labResp = await serveLabDemo(request.method, url, env)
+      if (labResp) return labResp
     }
 
     // Private admin SPA routes. The UI still enforces access through
