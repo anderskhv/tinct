@@ -18,7 +18,7 @@ afterEach(() => {
 function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
-    duration: 2,
+    duration: 20,
     file: 'p0.mp3',
     words: [
       { text: 'Tell', start: 0, end: 0.5 },
@@ -35,15 +35,30 @@ function sourceWithWords() {
         index: index + 1,
         text,
         file: `p${index + 1}.mp3`,
-        duration: 2,
+        duration: 20,
       })),
     ],
+  }
+}
+
+function sourceWithFilesNoWords() {
+  const base = fallbackLabSource()
+  return {
+    ...base,
+    followParagraphs: base.paragraphs.map((text, index) => ({
+      index,
+      text,
+      file: `p${index}.mp3`,
+      duration: 20,
+    })),
   }
 }
 
 class FakeAudio {
   src = ''
   currentTime = 0
+  duration = 20
+  playbackRate = 1
   paused = true
   preload = 'auto'
   listeners = new Map<string, Set<() => void>>()
@@ -343,5 +358,56 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
+  })
+
+  it('marks the current Hearing line when word timings are missing', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithFilesNoWords()} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
+    })
+    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(document.querySelectorAll('.lab-p').length).toBe(0)
+    expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
+    expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('Tell me, O Muse')
+    expect(document.querySelector('.lab-word-current')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-progress')).toBeTruthy()
+  })
+
+  it('seeks the real audio element and only marks the living circle', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    vi.stubGlobal('navigator', {
+      ...navigator,
+      mediaDevices: {
+        getUserMedia: () => new Promise(() => { /* hang */ }),
+      },
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} authToken="signed-in" />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
+    fireEvent.click(screen.getByTestId('lab-hearing-back'))
+    expect(audio.currentTime).toBe(0)
+    fireEvent.click(screen.getByTestId('lab-hearing-forward'))
+    expect(audio.currentTime).toBe(15)
+    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    expect(audio.paused).toBe(true)
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+    expect(screen.getByTestId('lab-ask-voice').className).toContain('is-connecting')
+    expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-connecting|is-listening|is-speaking/)
+    expect(screen.queryByTestId('lab-orb')).toBeNull()
   })
 })

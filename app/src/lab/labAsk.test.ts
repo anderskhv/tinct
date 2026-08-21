@@ -70,3 +70,12 @@ describe('lab ask context', () => {
     expect(instructions).not.toContain('return control to audiobook')
   })
 })
+
+describe('lab voice phase is not a timer', () => {
+  it('only maps the live voice machine, including cancellable connecting', () => {
+    expect(labConversationState({ voiceState: 'reading', starting: true })).toBe('connecting')
+    expect(labConversationState({ voiceState: 'reading', starting: false })).toBe('idle')
+    expect(labConversationState({ voiceState: 'listening', starting: false })).toBe('listening')
+    expect(labConversationState({ voiceState: 'reading', starting: true, error: 'stopped' })).toBe('idle')
+  })
+})
