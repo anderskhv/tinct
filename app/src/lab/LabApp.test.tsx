@@ -294,6 +294,55 @@ describe('lab chrome', () => {
     expect(audio.paused).toBe(true)
   })
 
+  it('follows Whisper words from the static sidecar when R2 words.json 404s', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const liveManifest = {
+      chapter: 1,
+      title: 'Book 1',
+      paragraphs: [
+        { paragraph: -1, file: 'title.mp3', duration: 1.675, words: [] },
+        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [] },
+        { paragraph: 1, file: 'p1.mp3', duration: 37.226, words: [] },
+      ],
+    }
+    const sidecar = JSON.parse(readFileSync(resolve(__dirname, '../../public/odyssey-ch1-words.json'), 'utf8'))
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('audio-manifest') && url.includes('odyssey') && url.includes('ch1')) {
+        return { ok: true, json: async () => liveManifest }
+      }
+      if (url.includes('/api/audio-file') && url.includes('words.json')) {
+        return { ok: false, status: 404, json: async () => ({}) }
+      }
+      if (url === '/odyssey-ch1-words.json') {
+        return { ok: true, json: async () => sidecar }
+      }
+      return { ok: false, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const { rerender } = render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
+    })
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('words.json'))).toBe(true)
+    expect(fetchMock.mock.calls.some(call => String(call[0]) === '/odyssey-ch1-words.json')).toBe(true)
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(document.querySelector('.lab-hearing-word.is-current')?.textContent).toContain('Tell')
+    expect(document.querySelector('.lab-hearing-word.is-line')).toBeNull()
+
+    rerender(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    audio.currentTime = 0.6
+    act(() => { audio.emit('timeupdate') })
+    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('me')
+    expect(document.querySelector('.lab-hearing-word.is-line')).toBeNull()
+  })
+
   it('plays real Odyssey paragraph MP3s and follows the playing word', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
