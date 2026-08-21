@@ -1,8 +1,8 @@
 import { nearbyParagraphWindow } from '../voice/context'
-import type { VoicePhase, VoiceReaderContext } from '../voice/types'
+import type { VoiceModeState, VoiceReaderContext } from '../voice/types'
 import { storage } from '../services/storage'
 
-export type LabConversationState = 'idle' | 'listening' | 'thinking' | 'speaking'
+export type LabConversationState = 'idle' | 'listening' | 'speaking'
 
 export interface LabAskTurn {
   id: string
@@ -40,13 +40,17 @@ export function labVoiceContext(input: {
   }
 }
 
-/** Map the live voice session onto the orb. Errors stay idle. */
+/**
+ * Orb / composer phase from the live voice machine.
+ * Listening stays listening through speech_stopped. Speaking only after
+ * the model is answering with audio. There is no timed thinking state.
+ */
 export function labConversationState(input: {
-  phase: VoicePhase
-  starting?: boolean
+  voiceState: VoiceModeState
   error?: string | null
 }): LabConversationState {
   if (input.error) return 'idle'
-  if (input.starting && input.phase === 'idle') return 'listening'
-  return input.phase
+  if (input.voiceState === 'listening') return 'listening'
+  if (input.voiceState === 'answering') return 'speaking'
+  return 'idle'
 }

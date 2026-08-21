@@ -1,31 +1,22 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { supabase } from '../services/supabase'
+import { useCallback, useState } from 'react'
+import type { ChatMessage } from '../types'
+import { useAuth } from '../hooks/useAuth'
+import { useVoiceSession } from '../hooks/useVoiceSession'
 import { apiUrl } from '../utils/apiUrl'
 import { buildVoiceInstructions } from '../voice/context'
-import {
-  VoiceSessionController,
-  type VoiceUiSnapshot,
-} from '../voice/VoiceSessionController'
-import { labConversationState, labReadingAngle, labVoiceContext, type LabAskTurn, type LabConversationState } from './labAsk'
+import { nearbyParagraphWindow } from '../voice/context'
+import { labConversationState, labReadingAngle, labVoiceContext, type LabAskTurn } from './labAsk'
+import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
 
-const IDLE_SNAPSHOT: VoiceUiSnapshot = {
-  state: 'reading',
-  mode: 'conversation',
-  phase: 'idle',
-  resumeInSeconds: null,
-  error: null,
-  isActive: false,
+let labAskId = 0
+function nextId() {
+  return `lab_ask_${Date.now()}_${++labAskId}`
 }
 
 const NOOP_AUDIO = {
   pausePlayback: () => null,
   resumePlayback: () => { /* lab follow clock is owned by LabApp */ },
-}
-
-let labAskId = 0
-function nextId() {
-  return `lab_ask_${Date.now()}_${++labAskId}`
 }
 
 export interface UseLabAskOptions {
@@ -38,111 +29,81 @@ export interface UseLabAskOptions {
 }
 
 export function useLabAsk(options: UseLabAskOptions) {
-  const [token, setToken] = useState<string | null>(options.authToken ?? null)
-  const [ui, setUi] = useState<VoiceUiSnapshot>(IDLE_SNAPSHOT)
-  const [starting, setStarting] = useState(false)
+  const { session } = useAuth()
   const [typedLoading, setTypedLoading] = useState(false)
   const [turns, setTurns] = useState<LabAskTurn[]>([])
   const [notice, setNotice] = useState<string | null>(null)
-  const optionsRef = useRef(options)
-  optionsRef.current = options
-  const turnsRef = useRef(turns)
-  turnsRef.current = turns
-  const controllerRef = useRef<VoiceSessionController | null>(null)
 
-  useEffect(() => {
-    if (options.authToken !== undefined) {
-      setToken(options.authToken)
-      return
-    }
-    if (!supabase) return
-    let cancelled = false
-    void supabase.auth.getSession().then(({ data }) => {
-      if (!cancelled) setToken(data.session?.access_token ?? null)
-    })
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
-      setToken(session?.access_token ?? null)
-    })
-    return () => {
-      cancelled = true
-      data.subscription.unsubscribe()
-    }
-  }, [options.authToken])
+  const sessionToken = session?.access_token ?? null
+  const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
 
-  useEffect(() => {
-    const controller = new VoiceSessionController({
-      onSnapshot: setUi,
-      onTurn: (role, text) => {
-        setTurns(current => [...current, {
-          id: nextId(),
-          role,
-          content: text,
-          source: 'voice',
-        }])
-      },
-      onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
-      onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
-    })
-    controllerRef.current = controller
-    return () => {
-      controller.dispose()
-      controllerRef.current = null
-    }
+  const appendLocalMessage = useCallback((message: ChatMessage) => {
+    const content = (message.content || '').trim()
+    if (!content) return
+    setTurns(current => [...current, {
+      id: message.id || nextId(),
+      role: message.role === 'assistant' ? 'assistant' : 'user',
+      content,
+      source: 'voice',
+    }])
   }, [])
 
-  const buildContext = useCallback(() => {
-    const opts = optionsRef.current
-    return labVoiceContext({
-      bookTitle: opts.bookTitle,
-      bookAuthor: opts.bookAuthor,
-      chapterLabel: opts.chapterLabel,
-      paragraphs: opts.paragraphs,
-      paragraphIndex: opts.paragraphIndex,
-      readingAngle: labReadingAngle(),
-    })
-  }, [])
+  const voice = useVoiceSession({
+    authToken: liveToken,
+    isAnonymous: !liveToken,
+    bookId: 'odyssey',
+    bookTitle: options.bookTitle,
+    bookAuthor: options.bookAuthor,
+    chapterNumber: 1,
+    chapterTitle: options.chapterLabel,
+    readingObjective: labReadingAngle(),
+    chapterParagraphs: options.paragraphs,
+    paragraphIndex: options.paragraphIndex,
+    visibleText: [
+      options.paragraphs[options.paragraphIndex] || '',
+      ...nearbyParagraphWindow(options.paragraphs, options.paragraphIndex),
+    ].filter(Boolean).join('\n\n'),
+    isAudioPlaying: false,
+    pausePlayback: NOOP_AUDIO.pausePlayback,
+    resumePlayback: NOOP_AUDIO.resumePlayback,
+    recordMessage: () => { /* lab does not persist Feed history */ },
+    appendLocalMessage,
+    onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
+    onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
+    mode: 'conversation',
+  })
 
   const startVoice = useCallback(async (): Promise<boolean> => {
-    const controller = controllerRef.current
-    if (!controller) return false
-    if (controller.getSnapshot().isActive) return true
-
+    if (voice.isActive) return true
     setNotice(null)
-    setStarting(true)
-    const authToken = optionsRef.current.authToken !== undefined
-      ? optionsRef.current.authToken
-      : token
-    await controller.start({
-      authToken,
-      isAnonymous: !authToken,
-      context: buildContext(),
-      audio: NOOP_AUDIO,
-      wasPlaying: false,
-      mode: 'conversation',
+    const authToken = await resolveLabVoiceToken({
+      override: options.authToken,
+      sessionToken,
+      readSession: readSupabaseAccessToken,
     })
-    setStarting(false)
-    const snapshot = controller.getSnapshot()
+    if (!authToken) {
+      setNotice(LAB_COPY.signInVoice)
+      return false
+    }
+    const snapshot = await voice.start({ authToken })
     if (snapshot.error) {
       setNotice(snapshot.error)
       return false
     }
     return snapshot.isActive
-  }, [buildContext, token])
+  }, [options.authToken, sessionToken, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
-    controllerRef.current?.stop()
-    setStarting(false)
-  }, [])
+    voice.stop()
+  }, [voice.stop])
 
   const toggleInChatVoice = useCallback(async () => {
-    const controller = controllerRef.current
-    if (!controller) return
-    if (controller.getSnapshot().isActive) {
-      controller.stop()
+    if (voice.isActive) {
+      voice.stop()
       return
     }
     await startVoice()
-  }, [startVoice])
+  }, [startVoice, voice.isActive, voice.stop])
 
   const sendTyped = useCallback(async (content: string) => {
     const text = content.trim()
@@ -157,9 +118,11 @@ export function useLabAsk(options: UseLabAskOptions) {
     setTurns(current => [...current, userTurn])
     setNotice(null)
 
-    const authToken = optionsRef.current.authToken !== undefined
-      ? optionsRef.current.authToken
-      : token
+    const authToken = await resolveLabVoiceToken({
+      override: options.authToken,
+      sessionToken,
+      readSession: readSupabaseAccessToken,
+    })
     if (!authToken) {
       setNotice(LAB_COPY.signInAsk)
       return
@@ -167,7 +130,15 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     setTypedLoading(true)
     try {
-      const history = [...turnsRef.current, userTurn]
+      const context = labVoiceContext({
+        bookTitle: options.bookTitle,
+        bookAuthor: options.bookAuthor,
+        chapterLabel: options.chapterLabel,
+        paragraphs: options.paragraphs,
+        paragraphIndex: options.paragraphIndex,
+        readingAngle: labReadingAngle(),
+      })
+      const history = [...turns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
       const response = await fetch(apiUrl('/api/chat'), {
@@ -179,7 +150,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
           max_tokens: 1024,
-          system: buildVoiceInstructions(buildContext()),
+          system: buildVoiceInstructions(context),
           messages: history,
         }),
       })
@@ -216,20 +187,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     } finally {
       setTypedLoading(false)
     }
-  }, [buildContext, token])
-
-  const conversationState: LabConversationState = labConversationState({
-    phase: ui.phase,
-    starting,
-    error: ui.error,
-  })
+  }, [options, sessionToken, turns])
 
   return {
     turns,
     notice,
     typedLoading,
-    conversationState,
-    voiceActive: ui.isActive || starting,
+    conversationState: labConversationState({
+      voiceState: voice.state,
+      error: voice.error,
+    }),
+    voiceActive: voice.isActive,
     startVoice,
     stopVoice,
     toggleInChatVoice,

@@ -12,11 +12,9 @@ interface LabOrbProps {
 export function LabOrb({ state, onActivate, label }: LabOrbProps) {
   const status = state === 'listening'
     ? LAB_COPY.listening
-    : state === 'thinking'
-      ? LAB_COPY.thinking
-      : state === 'speaking'
-        ? LAB_COPY.speaking
-        : null
+    : state === 'speaking'
+      ? LAB_COPY.speaking
+      : null
 
   return (
     <div className={`lab-orb-wrap lab-orb-${state}`}>

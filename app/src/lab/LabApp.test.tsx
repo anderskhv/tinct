@@ -10,6 +10,7 @@ import { followParagraphFromManifest } from './labFollow'
 afterEach(() => {
   cleanup()
   vi.useRealTimers()
+  vi.unstubAllGlobals()
 })
 
 function sourceWithWords() {
@@ -39,6 +40,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
     expect(screen.getByTestId('lab-desktop-panes').textContent).toBe('Ask')
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
+    expect(document.querySelector('.lab-ask-greeting')?.textContent).toBe('Ask about this page.')
     expect(screen.queryByRole('heading', { name: 'Ask' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Microphone' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Ask' })).toBeNull()
@@ -67,15 +69,22 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
   })
 
+  it('does not POST /api/voice-session without a signed-in token', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-ask-mic'))
+    expect(await screen.findByTestId('lab-ask-notice')).toBeTruthy()
+    expect(fetchMock).not.toHaveBeenCalled()
+    expect(screen.getByTestId('lab-ask-notice').textContent).toBe('Sign in to ask by voice.')
+    expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('idle')
+  })
+
   it('does not invent a conversation cycle when voice cannot start', async () => {
-    vi.useFakeTimers()
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
 
     fireEvent.click(screen.getByTestId('lab-ask-mic'))
-    await Promise.resolve()
-    await vi.advanceTimersByTimeAsync(5000)
-
-    expect(screen.getByTestId('lab-ask-notice').textContent).toContain('Sign in')
+    expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
     expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('idle')
     expect(screen.queryByText('Listening.')).toBeNull()
     expect(screen.queryByText('Speaking.')).toBeNull()
@@ -83,14 +92,10 @@ describe('lab chrome', () => {
   })
 
   it('keeps the phone orb idle when the session cannot start', async () => {
-    vi.useFakeTimers()
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-phone-ask'))
     fireEvent.click(screen.getByTestId('lab-orb'))
-    await Promise.resolve()
-    await vi.advanceTimersByTimeAsync(5000)
-
-    expect(screen.getByTestId('lab-voice-notice').textContent).toContain('Sign in')
+    expect((await screen.findByTestId('lab-voice-notice')).textContent).toContain('Sign in')
     expect(screen.queryByText('Speaking.')).toBeNull()
     expect(screen.getByTestId('lab-orb').closest('.lab-orb-wrap')?.className).toContain('lab-orb-idle')
   })
@@ -108,13 +113,13 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-book').className).toContain('is-compare')
   })
 
-  it('sends character questions to Ask when online', () => {
+  it('sends character questions to Ask when online', async () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-in-the-book'))
     fireEvent.click(screen.getByRole('tab', { name: 'People on this page' }))
     fireEvent.click(screen.getByRole('button', { name: 'Ask about this person' }))
     expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Who is Odysseus on this page?')
-    expect(screen.getByTestId('lab-ask-notice').textContent).toContain('Sign in')
+    expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
   })
 
   it('can follow a word when the source already has timings', () => {

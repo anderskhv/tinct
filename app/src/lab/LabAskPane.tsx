@@ -19,16 +19,16 @@ interface LabAskPaneProps {
 function MicIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M6 11a6 6 0 0 0 12 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-      <path d="M12 17v3M9 20h6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <rect x="9" y="3.5" width="6" height="10" rx="3" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M6.5 11.5a5.5 5.5 0 0 0 11 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M12 17v3.2M9.2 20.2h5.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   )
 }
 
 function VoiceIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <rect x="4" y="9" width="3" height="6" rx="1.2" />
       <rect x="10.5" y="5" width="3" height="14" rx="1.2" />
       <rect x="17" y="8" width="3" height="8" rx="1.2" />
@@ -79,6 +79,9 @@ export function LabAskPane({
   return (
     <aside className="lab-ask" data-testid="lab-ask-pane" aria-label={LAB_DESKTOP_PANES[0]}>
       <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef}>
+        {turns.length === 0 && !typedLoading && (
+          <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
+        )}
         {turns.map(turn => (
           <div
             key={turn.id}
@@ -93,7 +96,7 @@ export function LabAskPane({
           </div>
         ))}
         {typedLoading && (
-          <p className="lab-ask-pending">{LAB_COPY.thinking}</p>
+          <p className="lab-ask-pending">{LAB_COPY.typedPending}</p>
         )}
       </div>
       {(notice || localError) && (
@@ -125,37 +128,35 @@ export function LabAskPane({
           }}
           placeholder={LAB_COPY.askPlaceholder}
         />
-        <div className="lab-ask-composer-actions">
+        <button
+          type="button"
+          className={`lab-ask-icon lab-ask-mic ${voiceActive ? `is-${conversationState}` : ''}`}
+          onClick={onMic}
+          aria-label={LAB_COPY.micLabel}
+          data-testid="lab-ask-mic"
+        >
+          <MicIcon />
+        </button>
+        {canSend ? (
+          <button
+            type="submit"
+            className="lab-ask-icon lab-ask-send"
+            aria-label={LAB_COPY.sendLabel}
+            data-testid="lab-ask-send"
+          >
+            <SendIcon />
+          </button>
+        ) : (
           <button
             type="button"
-            className={`lab-ask-icon ${voiceActive ? `is-${conversationState}` : ''}`}
-            onClick={onMic}
-            aria-label={LAB_COPY.micLabel}
-            data-testid="lab-ask-mic"
+            className={`lab-ask-icon lab-ask-voice ${voiceActive ? `is-${conversationState}` : ''}`}
+            onClick={onVoiceMode}
+            aria-label={LAB_COPY.voiceModeLabel}
+            data-testid="lab-ask-voice"
           >
-            <MicIcon />
+            <VoiceIcon />
           </button>
-          {canSend ? (
-            <button
-              type="submit"
-              className="lab-ask-icon lab-ask-send"
-              aria-label={LAB_COPY.sendLabel}
-              data-testid="lab-ask-send"
-            >
-              <SendIcon />
-            </button>
-          ) : (
-            <button
-              type="button"
-              className={`lab-ask-icon lab-ask-voice ${voiceActive ? `is-${conversationState}` : ''}`}
-              onClick={onVoiceMode}
-              aria-label={LAB_COPY.voiceModeLabel}
-              data-testid="lab-ask-voice"
-            >
-              <VoiceIcon />
-            </button>
-          )}
-        </div>
+        )}
       </form>
     </aside>
   )

@@ -4,19 +4,20 @@ import { labConversationState, labVoiceContext } from './labAsk'
 describe('lab conversation state', () => {
   it('stays idle when the session failed', () => {
     expect(labConversationState({
-      phase: 'speaking',
-      starting: true,
-      error: 'Microphone access is needed for voice.',
+      voiceState: 'answering',
+      error: 'Sign in to ask by voice.',
     })).toBe('idle')
   })
 
-  it('shows listening while a real session is connecting', () => {
-    expect(labConversationState({ phase: 'idle', starting: true })).toBe('listening')
+  it('stays idle until the live session is listening', () => {
+    expect(labConversationState({ voiceState: 'reading' })).toBe('idle')
+    expect(labConversationState({ voiceState: 'conversation_idle' })).toBe('idle')
+    expect(labConversationState({ voiceState: 'resume_pending' })).toBe('idle')
   })
 
-  it('passes through live phases', () => {
-    expect(labConversationState({ phase: 'thinking' })).toBe('thinking')
-    expect(labConversationState({ phase: 'speaking' })).toBe('speaking')
+  it('maps listening and answering only', () => {
+    expect(labConversationState({ voiceState: 'listening' })).toBe('listening')
+    expect(labConversationState({ voiceState: 'answering' })).toBe('speaking')
   })
 })
 

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import { nearbyParagraphWindow } from '../voice/context'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from '../voice/types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext, VoiceSessionMode } from '../voice/types'
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -29,6 +29,7 @@ export interface UseVoiceSessionOptions {
   onNeedAuth: () => void
   onInsufficientBalance: () => void
   onUsage?: () => void
+  mode?: VoiceSessionMode
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
@@ -98,19 +99,26 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     }
   }, [])
 
-  const start = useCallback(() => {
+  const start = useCallback(async (overrides?: { authToken?: string | null }) => {
     const opts = optionsRef.current
-    void controllerRef.current?.start({
-      authToken: opts.authToken,
-      isAnonymous: opts.isAnonymous,
+    const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
+    await controllerRef.current?.start({
+      authToken,
+      isAnonymous: !authToken,
       context: buildContext(),
       wasPlaying: opts.isAudioPlaying,
       audio: {
         pausePlayback: opts.pausePlayback,
         resumePlayback: opts.resumePlayback,
       },
+      mode: opts.mode ?? 'quick',
     })
+    return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
   }, [buildContext])
+
+  const stop = useCallback(() => {
+    controllerRef.current?.stop()
+  }, [])
 
   const handleVoiceButton = useCallback(() => {
     const controller = controllerRef.current
@@ -149,6 +157,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     resumeInSeconds: ui.resumeInSeconds,
     statusLabel,
     start,
+    stop,
     handleVoiceButton,
     explicitResume,
   }
