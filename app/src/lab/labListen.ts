@@ -84,6 +84,14 @@ export function wordsByParagraphFromSidecar(data: unknown): Map<number, TimedWor
   return map
 }
 
+export function lookupByParagraphNumber<T>(
+  byNumber: Map<number, T>,
+  index: number,
+): T | undefined {
+  if (byNumber.has(0)) return byNumber.get(index)
+  return byNumber.get(index + 1)
+}
+
 export function mergeFollowAudio(
   paragraphs: FollowParagraph[],
   manifest: ManifestParagraph[],
@@ -96,8 +104,8 @@ export function mergeFollowAudio(
   }
 
   return paragraphs.map((paragraph, index) => {
-    const entry = byIndex.get(index) || byIndex.get(index + 1)
-    const sidecarWords = sidecar?.get(index) || sidecar?.get(index + 1)
+    const entry = lookupByParagraphNumber(byIndex, index)
+    const sidecarWords = sidecar ? lookupByParagraphNumber(sidecar, index) : undefined
     return {
       ...paragraph,
       file: paragraph.file || (typeof entry?.file === 'string' ? entry.file : undefined),

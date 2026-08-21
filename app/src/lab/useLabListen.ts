@@ -40,6 +40,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const playingIndexRef = useRef<number | null>(null)
   const isPlayingRef = useRef(false)
   const currentTimeRef = useRef(0)
+  const playIndexRef = useRef<(index: number, offsetSeconds?: number) => boolean>(() => false)
 
   paragraphsRef.current = paragraphs
   playingIndexRef.current = playingIndex
@@ -59,6 +60,21 @@ export function useLabListen(options: UseLabListenOptions) {
     if (audioRef.current) return audioRef.current
     const audio = new Audio()
     audio.preload = 'auto'
+    audio.addEventListener('timeupdate', () => {
+      const time = audio.currentTime
+      currentTimeRef.current = time
+      setCurrentTime(time)
+    })
+    audio.addEventListener('ended', () => {
+      const current = playingIndexRef.current
+      const next = current == null ? null : nextPlayableIndex(paragraphsRef.current, current + 1)
+      if (next == null) {
+        setIsPlaying(false)
+        isPlayingRef.current = false
+        return
+      }
+      playIndexRef.current(next)
+    })
     audioRef.current = audio
     return audio
   }, [])
@@ -105,35 +121,12 @@ export function useLabListen(options: UseLabListenOptions) {
     return true
   }, [getAudio])
 
-  useEffect(() => {
-    const audio = getAudio()
-    const onTime = () => {
-      const time = audio.currentTime
-      currentTimeRef.current = time
-      setCurrentTime(time)
-    }
-    const onEnded = () => {
-      const current = playingIndexRef.current
-      const next = current == null ? null : nextPlayableIndex(paragraphsRef.current, current + 1)
-      if (next == null) {
-        setIsPlaying(false)
-        isPlayingRef.current = false
-        return
-      }
-      playIndex(next)
-    }
-    audio.addEventListener('timeupdate', onTime)
-    audio.addEventListener('ended', onEnded)
-    return () => {
-      audio.removeEventListener('timeupdate', onTime)
-      audio.removeEventListener('ended', onEnded)
-    }
-  }, [getAudio, playIndex])
+  playIndexRef.current = playIndex
 
   useEffect(() => () => {
     const audio = audioRef.current
     if (!audio) return
-    audio.pause()
+    try { audio.pause() } catch { /* jsdom */ }
     audio.removeAttribute('src')
   }, [])
 
@@ -167,7 +160,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const stop = useCallback(() => {
     const audio = audioRef.current
     if (audio) {
-      audio.pause()
+      try { audio.pause() } catch { /* jsdom */ }
       audio.removeAttribute('src')
     }
     setIsPlaying(false)
@@ -182,7 +175,7 @@ export function useLabListen(options: UseLabListenOptions) {
     if (index == null || !audio) return null
     const wasPlaying = isPlayingRef.current && !audio.paused
     const offset = audio.currentTime || currentTimeRef.current
-    audio.pause()
+    try { audio.pause() } catch { /* jsdom */ }
     setIsPlaying(false)
     isPlayingRef.current = false
     return {

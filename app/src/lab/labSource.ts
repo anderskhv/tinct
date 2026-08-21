@@ -1,7 +1,7 @@
 import { loadEdition } from '../data/editionLoader'
 import type { ThreadCharacter } from '../types'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
-import { labAudioManifestUrl, labAudioSidecarUrl, mergeFollowAudio, wordsByParagraphFromSidecar } from './labListen'
+import { labAudioManifestUrl, labAudioSidecarUrl, lookupByParagraphNumber, mergeFollowAudio, wordsByParagraphFromSidecar } from './labListen'
 import { LAB_COPY } from './labCopy'
 
 export interface LabCastMember {
@@ -95,7 +95,7 @@ async function loadAudioFollow(paragraphs: string[]): Promise<FollowParagraph[]>
       else byIndex.set(byIndex.size, entry)
     }
     const followed = paragraphs.map((text, index) => (
-      followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
+      followParagraphFromManifest(index, text, lookupByParagraphNumber(byIndex, index))
     ))
     return mergeFollowAudio(followed, manifest.paragraphs || [], sidecar)
   } catch {

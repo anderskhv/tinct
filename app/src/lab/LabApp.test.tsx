@@ -11,6 +11,7 @@ import { followParagraphFromManifest } from './labFollow'
 
 afterEach(() => {
   cleanup()
+  fakeAudioInstances.length = 0
   vi.useRealTimers()
   vi.unstubAllGlobals()
 })
@@ -40,12 +41,18 @@ function sourceWithWords() {
   }
 }
 
+const fakeAudioInstances: FakeAudio[] = []
+
 class FakeAudio {
   src = ''
   currentTime = 0
   paused = true
   preload = ''
   private listeners = new Map<string, Set<() => void>>()
+
+  constructor() {
+    fakeAudioInstances.push(this)
+  }
 
   addEventListener(type: string, fn: () => void) {
     const set = this.listeners.get(type) ?? new Set()
@@ -197,19 +204,17 @@ describe('lab chrome', () => {
   })
 
   it('can follow a word when the source already has timings', async () => {
-    const audio = new FakeAudio()
-    vi.stubGlobal('Audio', vi.fn(() => audio))
+    vi.stubGlobal('Audio', FakeAudio)
     render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
-      expect(audio.src).toContain('/api/audio-file?path=odyssey%2Foriginal-en%2Fch1%2Fp001.mp3')
+      expect(fakeAudioInstances[0]?.src).toContain('/api/audio-file?path=odyssey%2Foriginal-en%2Fch1%2Fp001.mp3')
       expect(document.querySelector('.lab-word-current')?.textContent).toContain('Tell')
     })
   })
 
   it('plays the real Odyssey Book 1 file instead of a fake clock', async () => {
-    const audio = new FakeAudio()
-    vi.stubGlobal('Audio', vi.fn(() => audio))
+    vi.stubGlobal('Audio', FakeAudio)
     const source = fallbackLabSource()
     source.followParagraphs = source.paragraphs.map((text, index) => ({
       index,
@@ -219,7 +224,7 @@ describe('lab chrome', () => {
     render(<LabApp pathname="/lab/desktop" source={source} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
-      expect(audio.src).toBe('/api/audio-file?path=odyssey%2Foriginal-en%2Fch1%2Fp001.mp3')
+      expect(fakeAudioInstances[0]?.src).toBe('/api/audio-file?path=odyssey%2Foriginal-en%2Fch1%2Fp001.mp3')
       expect(document.querySelector('#lab-p-0')?.className).toContain('is-follow-paragraph')
     })
   })
