@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { LAB_COPY } from './labCopy'
 import { LAB_DESKTOP_PANES } from './labChrome'
-import { followAtTime, type FollowTarget } from './labFollow'
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabBookPage } from './LabBookPage'
@@ -9,6 +8,7 @@ import { LabConversationOverlay } from './LabConversation'
 import { LabInTheBook } from './LabInTheBook'
 import { fallbackLabSource, loadLabSource, type LabMark, type LabSource } from './labSource'
 import { useLabAsk } from './useLabAsk'
+import { useLabListen } from './useLabListen'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -41,12 +41,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [mode, setMode] = useState<'reading' | 'listening' | 'conversation'>('reading')
   const [returnTo, setReturnTo] = useState<'reading' | 'listening'>('reading')
-  const [desktopVoiceOpen, setDesktopVoiceOpen] = useState(false)
   const [draft, setDraft] = useState('')
-  const [elapsed, setElapsed] = useState(0)
-  const clockRef = useRef<number | null>(null)
-  const startedAtRef = useRef(0)
-  const elapsedRef = useRef(0)
 
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
@@ -55,6 +50,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     paragraphs: book.paragraphs,
     paragraphIndex: focusParagraph ?? 0,
     authToken,
+  })
+
+  const listen = useLabListen({
+    paragraphs: book.paragraphs,
+    followParagraphs: book.followParagraphs,
   })
 
   useEffect(() => {
@@ -95,82 +95,49 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     return () => mq.removeEventListener('change', onChange)
   }, [layoutOverride])
 
-  const stopClock = useCallback(() => {
-    if (clockRef.current != null) {
-      window.clearInterval(clockRef.current)
-      clockRef.current = null
-    }
-  }, [])
-
-  const startClock = useCallback((from = elapsedRef.current) => {
-    stopClock()
-    startedAtRef.current = Date.now() - from * 1000
-    clockRef.current = window.setInterval(() => {
-      const next = (Date.now() - startedAtRef.current) / 1000
-      elapsedRef.current = next
-      setElapsed(next)
-    }, 80)
-  }, [stopClock])
-
-  useEffect(() => () => {
-    stopClock()
-  }, [stopClock])
-
   useEffect(() => {
-    if (ask.voiceActive) {
-      stopClock()
-      return
-    }
-    if (mode === 'listening' && clockRef.current == null) {
-      startClock(elapsedRef.current)
-    }
-  }, [ask.voiceActive, mode, startClock, stopClock])
+    if (ask.voiceActive) listen.pause()
+  }, [ask.voiceActive, listen.pause])
 
-  const followEnabled = !isPhone
-    ? mode === 'listening' && !ask.voiceActive
-    : (mode === 'listening' && !ask.voiceActive) || (mode === 'reading' && returnTo === 'listening')
-
-  const follow: FollowTarget = useMemo(() => {
-    if (!followEnabled) return { kind: 'none' }
-    return followAtTime(book.followParagraphs, elapsed)
-  }, [book.followParagraphs, elapsed, followEnabled])
-
+  const followEnabled = listen.playing && !ask.voiceActive
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const isOnline = readOnline(online)
-  const voiceOverlayOpen = isPhone ? mode === 'conversation' : desktopVoiceOpen
+  const voiceOverlayOpen = isPhone && mode === 'conversation'
 
   const leaveConversation = useCallback(() => {
     ask.stopVoice()
-    setDesktopVoiceOpen(false)
     setMode(returnTo)
-    if (returnTo === 'listening') startClock(elapsedRef.current)
-  }, [ask, returnTo, startClock])
+    if (returnTo === 'listening') listen.resume()
+  }, [ask, listen, returnTo])
 
   const startListening = useCallback(() => {
     setReturnTo('listening')
+    if (mode === 'listening' && listen.playing) {
+      listen.pause()
+      return
+    }
     setMode('listening')
-    startClock(0)
-  }, [startClock])
+    if (listen.src) listen.resume()
+    else void listen.start()
+  }, [listen, mode])
 
   const handleMic = useCallback(() => {
     void ask.toggleInChatVoice()
   }, [ask])
 
-  const handleVoiceMode = useCallback(async () => {
-    const started = ask.voiceActive || await ask.startVoice()
-    if (started) setDesktopVoiceOpen(true)
-    else setDesktopVoiceOpen(false)
+  const handleVoiceMode = useCallback(() => {
+    void ask.startVoice()
   }, [ask])
 
   const handlePhoneAsk = useCallback(async () => {
     const from = mode === 'listening' ? 'listening' : 'reading'
     setReturnTo(from)
-    if (from === 'listening') stopClock()
+    if (from === 'listening') listen.pause()
     const started = ask.voiceActive || await ask.startVoice()
     if (!started) return
     setMode('conversation')
     setInTheBookOpen(false)
-  }, [ask, mode, stopClock])
+  }, [ask, listen, mode])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) return
@@ -261,9 +228,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             paragraphs={book.paragraphs}
             compareParagraphs={book.compareParagraphs}
             compare={compare}
-            follow={follow}
+            follow={followEnabled ? listen.follow : { kind: 'none' }}
             followEnabled={followEnabled}
-            followParagraphs={book.followParagraphs}
+            followParagraphs={listen.followParagraphs}
             markedIndexes={markedIndexes}
             onMark={handleMark}
             focusParagraph={focusParagraph}
@@ -280,7 +247,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             onDraftChange={setDraft}
             onSubmit={handleAsk}
             onMic={handleMic}
-            onVoiceMode={() => { void handleVoiceMode() }}
+            onVoiceMode={handleVoiceMode}
             notice={ask.notice}
           />
         )}
@@ -320,6 +287,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           {LAB_DESKTOP_PANES.join(', ')}
         </p>
       )}
+      <p
+        className="lab-visually-hidden"
+        data-testid="lab-listen-status"
+        data-playing={listen.playing ? 'true' : 'false'}
+        data-src={listen.src || ''}
+        data-clip={String(listen.clipIndex)}
+      >
+        {listen.playing ? `playing:${listen.clipIndex}` : 'stopped'}
+      </p>
     </div>
   )
 }

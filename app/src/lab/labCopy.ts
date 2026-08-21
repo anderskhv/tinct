@@ -24,6 +24,7 @@ export const LAB_COPY = {
   conversationHint: 'Speak. The page stays behind the conversation.',
   listening: 'Listening.',
   speaking: 'Speaking.',
+  connecting: 'Starting.',
   typedPending: 'A reply is on the way.',
   micLabel: 'Speak a question',
   voiceModeLabel: 'Open voice conversation',

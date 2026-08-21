@@ -2,7 +2,7 @@
 
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LAB_DESKTOP_PANES, PRODUCTION_DESKTOP_PANES } from './labChrome'
 import { LabApp } from './LabApp'
@@ -19,6 +19,7 @@ function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
     duration: 2,
+    file: 'p0.mp3',
     words: [
       { text: 'Tell', start: 0, end: 0.5 },
       { text: 'me,', start: 0.5, end: 1 },
@@ -28,7 +29,52 @@ function sourceWithWords() {
   })
   return {
     ...base,
-    followParagraphs: [first, ...base.paragraphs.slice(1).map((text, index) => ({ index: index + 1, text }))],
+    followParagraphs: [
+      first,
+      ...base.paragraphs.slice(1).map((text, index) => ({
+        index: index + 1,
+        text,
+        file: `p${index + 1}.mp3`,
+        duration: 2,
+      })),
+    ],
+  }
+}
+
+class FakeAudio {
+  src = ''
+  currentTime = 0
+  paused = true
+  preload = 'auto'
+  listeners = new Map<string, Set<() => void>>()
+
+  addEventListener(type: string, fn: () => void) {
+    const set = this.listeners.get(type) ?? new Set()
+    set.add(fn)
+    this.listeners.set(type, set)
+  }
+
+  removeEventListener(type: string, fn: () => void) {
+    this.listeners.get(type)?.delete(fn)
+  }
+
+  play() {
+    this.paused = false
+    return Promise.resolve()
+  }
+
+  pause() {
+    this.paused = true
+  }
+
+  load() { /* jsdom audio stub */ }
+
+  removeAttribute() {
+    this.src = ''
+  }
+
+  emit(type: string) {
+    for (const fn of this.listeners.get(type) ?? []) fn()
   }
 }
 
@@ -69,6 +115,11 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*height:\s*calc\(100vh - 5\.5rem\)/)
     expect(css).toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
     expect(css).not.toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{/)
+    expect(css).toMatch(/\.lab-ask\s*\{[^}]*background:\s*#ece7db/)
+    expect(css).toMatch(/\.lab-ask\s*\{[^}]*border-left:\s*1px solid #d4cdc0/)
+    expect(css).toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#ece7db/)
+    expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
+    expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
 
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-root').className).toContain('is-desktop')
@@ -148,9 +199,66 @@ describe('lab chrome', () => {
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
   })
 
-  it('can follow a word when the source already has timings', () => {
+  it('plays real Odyssey paragraph MP3s and follows the playing word', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
     render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
-    expect(screen.getByTestId('lab-book')).toBeTruthy()
+
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('odyssey')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('p0.mp3')
+    expect(document.querySelector('.lab-word-current')?.textContent).toContain('Tell')
+
+    audio.currentTime = 1.2
+    act(() => { audio.emit('timeupdate') })
+    expect(document.querySelector('.lab-word-current')?.textContent).toContain('O')
+  })
+
+  it('keeps desktop conversation in the composer with an immediate living icon', async () => {
+    vi.stubGlobal('navigator', {
+      ...navigator,
+      mediaDevices: {
+        getUserMedia: () => new Promise(() => { /* hang so connecting stays visible */ }),
+      },
+    })
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="signed-in" />)
+
+    expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('idle')
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+
+    expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('connecting')
+    expect(screen.getByTestId('lab-ask-voice').className).toContain('is-connecting')
+    expect(screen.queryByTestId('lab-conversation')).toBeNull()
+    expect(screen.queryByTestId('lab-orb')).toBeNull()
+    expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
+    expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+  })
+
+  it('sends the numbered Book 1 chapter and a spoiler rule on typed Ask', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ content: [{ text: 'The second paragraph is about Ulysses detained by Calypso.' }] }),
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const source = fallbackLabSource()
+    render(<LabApp pathname="/lab/desktop" source={source} authToken="signed-in" />)
+    fireEvent.change(screen.getByPlaceholderText('Ask about this page.'), {
+      target: { value: 'Read the second paragraph of Book 1.' },
+    })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+
+    expect(await screen.findByTestId('lab-ask-turn-assistant')).toBeTruthy()
+    const body = JSON.parse(String(fetchMock.mock.calls[0][1]?.body))
+    expect(body.system).toContain('[2] So now all who escaped death')
+    expect(body.system).toContain('only have this chapter so far')
+    expect(body.system).not.toContain('Speak for about 20')
+    expect(body.system).not.toContain('resume_audiobook')
   })
 })
