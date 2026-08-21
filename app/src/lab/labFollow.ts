@@ -72,11 +72,12 @@ export function paragraphDurationSeconds(paragraph: FollowParagraph): number | n
 
 export function wordIndexAtTime(words: TimedWord[], localSeconds: number): number {
   if (words.length === 0) return -1
+  let last = 0
   for (let i = 0; i < words.length; i++) {
-    if (localSeconds >= words[i].start && localSeconds < words[i].end) return i
+    if (words[i].start <= localSeconds) last = i
+    else break
   }
-  if (localSeconds >= words[words.length - 1].end) return words.length - 1
-  return 0
+  return last
 }
 
 /**

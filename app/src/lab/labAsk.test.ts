@@ -66,6 +66,8 @@ describe('lab ask context', () => {
     expect(instructions).toContain('no Book 3')
     expect(instructions).toContain('no ending')
     expect(instructions).toContain('Reading angle: homecoming')
+    expect(instructions).toContain('here to talk about the book and wait')
+    expect(instructions).toContain('coding, UI, stocks, news')
     expect(instructions).not.toContain(VOICE_AGENT_POLICY)
     expect(instructions).not.toContain('Speak for about 20')
     expect(instructions).not.toContain('resume_audiobook')

@@ -297,7 +297,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               onClick={startHearing}
               data-testid="lab-listen"
             >
-              {LAB_COPY.hear}
+              {chrome === 'hearing' ? LAB_COPY.read : LAB_COPY.listen}
             </button>
           )}
           <button
@@ -395,7 +395,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           )}
           <div className="lab-phone-bar-row">
             <button type="button" className="lab-text-btn" onClick={startHearing} data-testid="lab-listen">
-              {LAB_COPY.hear}
+              {chrome === 'hearing' ? LAB_COPY.read : LAB_COPY.listen}
             </button>
             <button
               type="button"

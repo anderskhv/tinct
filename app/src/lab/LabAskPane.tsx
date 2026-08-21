@@ -103,70 +103,74 @@ export function LabAskPane({
       {(notice || localError) && (
         <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}</p>
       )}
-      <form
-        className="lab-ask-composer"
-        data-testid="lab-ask-composer"
-        data-voice-phase={conversationState}
-        onSubmit={(event) => {
-          event.preventDefault()
-          submit()
-        }}
-      >
-        <label className="lab-visually-hidden" htmlFor="lab-ask-input">
-          {LAB_COPY.askPlaceholder}
-        </label>
-        <input
-          id="lab-ask-input"
-          className="lab-ask-input"
-          value={draft}
-          onChange={(event) => onDraftChange(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') {
-              event.preventDefault()
-              submit()
-            }
+      <div className="lab-ask-dock">
+        {conversationState !== 'idle' && (
+          <p className="lab-ask-voice-status" data-testid="lab-ask-voice-status">
+            {labVoicePhaseLabel(conversationState)}
+          </p>
+        )}
+        <form
+          className="lab-ask-composer"
+          data-testid="lab-ask-composer"
+          data-voice-phase={conversationState}
+          onSubmit={(event) => {
+            event.preventDefault()
+            submit()
           }}
-          placeholder={LAB_COPY.askPlaceholder}
-          autoComplete="off"
-        />
-        <button
-          type="button"
-          className="lab-ask-icon lab-ask-mic"
-          onClick={onMic}
-          aria-label={LAB_COPY.micLabel}
-          data-testid="lab-ask-mic"
         >
-          <MicIcon />
-        </button>
-        {canSend && conversationState === 'idle' ? (
-          <button
-            type="submit"
-            className="lab-ask-send"
-            aria-label={LAB_COPY.sendLabel}
-            data-testid="lab-ask-send"
-          >
-            {LAB_COPY.ask}
-          </button>
-        ) : (
+          <label className="lab-visually-hidden" htmlFor="lab-ask-input">
+            {LAB_COPY.askPlaceholder}
+          </label>
+          <input
+            id="lab-ask-input"
+            className="lab-ask-input"
+            value={draft}
+            onChange={(event) => onDraftChange(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                event.preventDefault()
+                submit()
+              }
+            }}
+            placeholder={LAB_COPY.askPlaceholder}
+            autoComplete="off"
+          />
           <button
             type="button"
-            className={`lab-ask-icon lab-ask-voice ${conversationState !== 'idle' ? `is-${conversationState} is-alive` : ''}`}
-            onClick={conversationState === 'idle' ? onVoiceMode : onMic}
-            aria-label={conversationState === 'idle' ? LAB_COPY.voiceModeLabel : LAB_COPY.stopTalk}
-            data-testid="lab-ask-voice"
-            data-voice-phase={conversationState}
+            className="lab-ask-icon lab-ask-mic"
+            onClick={onMic}
+            aria-label={LAB_COPY.micLabel}
+            data-testid="lab-ask-mic"
           >
-            {conversationState === 'idle' ? (
-              <VoiceIcon />
-            ) : (
-              <>
-                <span className="lab-ask-voice-phase">{labVoicePhaseLabel(conversationState)}</span>
-                <span className="lab-ask-voice-x" aria-hidden="true">×</span>
-              </>
-            )}
+            <MicIcon />
           </button>
-        )}
-      </form>
+          {canSend && conversationState === 'idle' ? (
+            <button
+              type="submit"
+              className="lab-ask-send"
+              aria-label={LAB_COPY.sendLabel}
+              data-testid="lab-ask-send"
+            >
+              {LAB_COPY.ask}
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={`lab-ask-icon lab-ask-voice ${conversationState !== 'idle' ? `is-${conversationState} is-alive` : ''}`}
+              onClick={conversationState === 'idle' ? onVoiceMode : onMic}
+              aria-label={conversationState === 'idle' ? LAB_COPY.voiceModeLabel : LAB_COPY.stopTalk}
+              data-testid="lab-ask-voice"
+              data-voice-phase={conversationState}
+            >
+              {conversationState === 'idle' ? (
+                <VoiceIcon />
+              ) : (
+                <span className="lab-ask-voice-x" aria-hidden="true">×</span>
+              )}
+            </button>
+          )}
+        </form>
+      </div>
     </aside>
   )
 }

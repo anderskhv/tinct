@@ -87,13 +87,14 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 3.5rem 1.75rem 5rem;
+  justify-content: flex-end;
+  padding: 1.5rem 2rem 3.25rem;
 }
 
 .lab-hearing-stage {
-  max-width: 38rem;
-  margin: 0 auto 2.75rem;
+  max-width: 52rem;
+  width: 100%;
+  margin: 0 auto 1.35rem;
 }
 
 .lab-hearing-line {
@@ -295,11 +296,15 @@
   display: none;
 }
 
+.lab-ask-dock {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
 .lab-ask-composer {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  margin-top: auto;
   min-height: 2.6rem;
   flex-shrink: 0;
   padding: 0.35rem 0.5rem 0.35rem 0.75rem;
@@ -380,17 +385,12 @@
   color: #0b0b0b;
 }
 
-.lab-ask-voice-phase {
-  position: absolute;
-  right: calc(100% + 0.45rem);
-  top: 50%;
-  transform: translateY(-50%);
+.lab-ask-voice-status {
+  margin: 0 0 0.4rem;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
-  color: #6a6555;
-  white-space: nowrap;
-  animation: none;
+  color: #0b0b0b;
 }
 
 .lab-ask-voice-x {
@@ -677,6 +677,10 @@
 
 .lab.is-phone .lab-hearing {
   padding-bottom: 8.5rem;
+}
+
+.lab.is-phone .lab-hearing-line {
+  font-size: 1.7rem;
 }
 
 .lab.is-phone.has-notice .lab-book,
