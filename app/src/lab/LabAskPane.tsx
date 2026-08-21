@@ -36,14 +36,6 @@ function VoiceIcon() {
   )
 }
 
-function SendIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 18.5V6.2M7 11.2 12 6.2l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 export function LabAskPane({
   conversationState,
   voiceActive: _voiceActive,
@@ -94,7 +86,10 @@ export function LabAskPane({
               data-testid={`lab-ask-turn-${turn.role}`}
             >
               {turn.role === 'user' ? (
-                <p className="lab-ask-bubble">{turn.content}</p>
+                <p className="lab-ask-user">
+                  <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
+                  {turn.content}
+                </p>
               ) : (
                 <p className="lab-ask-reply">{turn.content}</p>
               )}
@@ -146,11 +141,11 @@ export function LabAskPane({
         {canSend && conversationState === 'idle' ? (
           <button
             type="submit"
-            className="lab-ask-icon lab-ask-send"
+            className="lab-ask-send"
             aria-label={LAB_COPY.sendLabel}
             data-testid="lab-ask-send"
           >
-            <SendIcon />
+            {LAB_COPY.ask}
           </button>
         ) : (
           <button

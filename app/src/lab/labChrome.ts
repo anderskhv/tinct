@@ -19,8 +19,22 @@ export function isLabDesktopPane(label: string): label is LabDesktopPane {
   return (LAB_DESKTOP_PANES as readonly string[]).includes(label)
 }
 
-export function labStatusLine(state: LabChromeState, chapterLabel: string): string {
-  if (state === 'talking') return 'Talking · tap the circle to stop'
+export type LabSurface = 'desktop' | 'phone'
+
+export function labVisibleChrome(state: LabChromeState, peekBook: boolean): LabChromeState {
+  return peekBook ? 'reading' : state
+}
+
+export function labStatusLine(
+  state: LabChromeState,
+  chapterLabel: string,
+  surface: LabSurface = 'desktop',
+): string {
+  if (state === 'talking') {
+    return surface === 'phone'
+      ? 'Talking · tap the circle to stop'
+      : 'Talking · tap × to stop'
+  }
   if (state === 'hearing') return `Hearing · ${chapterLabel}`
   return `Reading · ${chapterLabel}`
 }
