@@ -58,6 +58,7 @@ import { getAttributionPayload } from './utils/attribution'
 import { resolveAudioUrl } from './utils/audioUrl'
 import { normalizeChapterTitle } from './utils/chapterTitles'
 import { formatProgressLabel } from './utils/formatProgress'
+import { readerLocationFromUrl } from './utils/readerUrl'
 import { shouldOpenSplitView } from './utils/readerPagination'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
@@ -1552,6 +1553,12 @@ export default function App() {
         if (segments[1]) {
           const target = BOOKS.find(b => b.id === segments[1])
           if (target) {
+            // Parse before handleBookChange. Same-book opens rewrite the URL
+            // to add ?from=app; the chapter path is preserved, but we still
+            // capture chapter/paragraph here so a later rewrite cannot lose them.
+            const params = new URLSearchParams(window.location.search)
+            const location = readerLocationFromUrl(window.location)
+
             // Add to library before switching, otherwise libraryEmpty=true for
             // fresh visitors and BookStore renders on top of the reader (same
             // trap demo-mode bootstrap dodges at line ~1281).
@@ -1560,15 +1567,13 @@ export default function App() {
             setBookOnboardingMode('full')
 
             // SEO deep-link: tour cards on /read/{bookId}/summary link to
-            // /read/{bookId}?chapter=N&edition=X. When those params are
-            // present, jump straight to that chapter+edition and suppress
-            // the preface — the user is arriving with intent, not browsing.
-            const params = new URLSearchParams(window.location.search)
-            const chapterParam = params.get('chapter')
+            // /read/{bookId}?chapter=N&edition=X. Crawlable chapter pages use
+            // /read/{bookId}/{n}#p12. When a chapter or edition is present,
+            // jump straight there and suppress the preface.
             const editionParam = params.get('edition')
             const compareParam = params.get('compare')
             const splitParam = params.get('split')
-            if (chapterParam || editionParam || compareParam || splitParam) {
+            if (location.chapter != null || editionParam || compareParam || splitParam) {
               storage.set(`book-onboarded:${target.id}`, true)
               if (editionParam) {
                 const ed = target.editions.find(e => e.key === editionParam)
@@ -1594,13 +1599,12 @@ export default function App() {
                   splitView: true,
                 })
               }
-              if (chapterParam) {
-                const n = parseInt(chapterParam, 10)
-                if (!isNaN(n) && n > 0) {
-                  // Defer to after handleBookChange settles state — the chapter
-                  // setter relies on book/edition data being loaded.
-                  setTimeout(() => handleNavigateToChapter(n), 0)
-                }
+              if (location.chapter != null) {
+                const n = location.chapter
+                const paragraphIndex = location.paragraphIndex
+                // Defer to after handleBookChange settles state — the chapter
+                // setter relies on book/edition data being loaded.
+                setTimeout(() => handleNavigateToChapter(n, paragraphIndex), 0)
               }
             }
           }
@@ -1687,20 +1691,24 @@ export default function App() {
     if (!storageReady || deepLinkConsumedRef.current) return
     let params: URLSearchParams
     try { params = new URLSearchParams(window.location.search) } catch { return }
-    const chapterParam = params.get('chapter')
+    const location = readerLocationFromUrl({
+      pathname: window.location.pathname,
+      search: window.location.search,
+      hash: window.location.hash,
+    })
     const editionParam = params.get('edition')
     const compareParam = params.get('compare')
     const splitParam = params.get('split')
-    if (!chapterParam && !editionParam && !compareParam && !splitParam) {
+    if (location.chapter == null && !editionParam && !compareParam && !splitParam) {
       deepLinkConsumedRef.current = true
       return
     }
     let appliedChapter: number | null = null
-    if (chapterParam) {
-      const ch = parseInt(chapterParam, 10)
-      if (Number.isFinite(ch) && ch >= 1) {
-        setCurrentChapter(ch)
-        appliedChapter = ch
+    if (location.chapter != null) {
+      setCurrentChapter(location.chapter)
+      appliedChapter = location.chapter
+      if (location.paragraphIndex != null) {
+        targetParagraphRef.current = location.paragraphIndex
       }
     }
     if (editionParam) {

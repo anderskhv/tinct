@@ -1,4 +1,6 @@
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
+import { hasSignedInCookie } from '../../utils/authCookie'
+import { hasReaderIntent, parseReadChapterPath } from '../../utils/readerUrl'
 import { htmlEscape } from '../lib/html'
 
 export type SeoEnv = {
@@ -327,6 +329,56 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const seoResp = await serveStaticHtml(request.method, request, url, `/read/${seoMatch[1]}/${seoMatch[2]}.html`, env)
       if (seoResp) return seoResp
       // SEO file not found — fall through to SPA fallback below
+    }
+
+    // Crawlable chapter text at /read/{bookId}/{n}. These pages carry the
+    // authoritative English edition so a quoted line can rank and deep-link.
+    // Signed-in readers and in-app opens skip to the SPA at the same chapter.
+    const textChapter = parseReadChapterPath(url.pathname)
+    if ((request.method === 'GET' || request.method === 'HEAD') && textChapter) {
+      const bookId = textChapter.bookId
+      const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
+      const skipStatic = hasSignedInCookie(cookie) || hasReaderIntent(url.searchParams)
+      if (!PUBLIC_BOOK_IDS.has(bookId)) {
+        return new Response(request.method === 'HEAD' ? null : 'Not found', {
+          status: 404,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store',
+            'X-Robots-Tag': 'noindex, noarchive',
+          },
+        })
+      }
+      if (!skipStatic) {
+        const chapterResp = await serveStaticHtml(
+          request.method,
+          request,
+          url,
+          `/read/${bookId}/${textChapter.chapter}.html`,
+          env,
+        )
+        if (chapterResp) return chapterResp
+        return new Response(request.method === 'HEAD' ? null : 'Not found', {
+          status: 404,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store',
+            'X-Robots-Tag': 'noindex, noarchive',
+          },
+        })
+      }
+      const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
+      if (meta) {
+        const chapterResp = await serveSpaWithMeta(
+          request.method,
+          url,
+          env,
+          meta,
+          `https://tinct.app/read/${bookId}/${textChapter.chapter}`,
+          'book',
+        )
+        if (chapterResp) return chapterResp
+      }
     }
 
     // Library route is in the sitemap, so serve the committed crawlable hub
