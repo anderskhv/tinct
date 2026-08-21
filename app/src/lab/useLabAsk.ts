@@ -96,17 +96,16 @@ export function useLabAsk(options: UseLabAskOptions) {
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive || starting) return true
     setNotice(null)
-    setStarting(true)
     const authToken = await resolveLabVoiceToken({
       override: options.authToken,
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
     if (!authToken) {
-      setStarting(false)
       setNotice(LAB_COPY.signInVoice)
       return false
     }
+    setStarting(true)
     const snapshot = await voice.start({ authToken })
     setStarting(false)
     if (snapshot.error) {

@@ -186,9 +186,10 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-ask'))
 
-    const notice = await screen.findByTestId('lab-voice-notice')
-    expect(notice.textContent).toContain('Sign in')
-    expect(screen.getByTestId('lab-phone-bar').contains(notice)).toBe(true)
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-phone-bar').querySelector('[data-testid="lab-voice-notice"]')?.textContent).toContain('Sign in')
+    })
+    expect(screen.getByTestId('lab-phone-bar').contains(screen.getByTestId('lab-voice-notice'))).toBe(true)
     expect(screen.getAllByTestId('lab-listen')).toHaveLength(1)
     expect(screen.getByTestId('lab-phone-bar').contains(screen.getByTestId('lab-listen'))).toBe(true)
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
@@ -603,8 +604,11 @@ describe('lab chrome', () => {
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
     expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('idle')
-    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    })
     expect(audio.paused).toBe(true)
+    expect(audio.currentTime).toBe(8)
   })
 
   it('marks the current Hearing line when word timings are missing', async () => {
