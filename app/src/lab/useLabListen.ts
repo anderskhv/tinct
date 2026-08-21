@@ -16,13 +16,16 @@ import {
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
-  type WordSidecar,
 } from './labFollow'
 
 export interface UseLabListenOptions {
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
   createAudio?: () => HTMLAudioElement
+}
+
+function hasTimedWords(paragraphs: FollowParagraph[]): boolean {
+  return paragraphs.some(paragraph => !!paragraph.words && paragraph.words.length > 0)
 }
 
 function defaultCreateAudio(): HTMLAudioElement {
@@ -43,24 +46,24 @@ export function useLabListen(options: UseLabListenOptions) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
-  const sidecarRef = useRef<WordSidecar | null>(null)
   const clipIndexRef = useRef(0)
   const playClipRef = useRef<(index: number, offsetSeconds: number) => boolean>(() => false)
   const optionsRef = useRef(options)
+  optionsRef.current = options
+  paragraphsRef.current = followParagraphs
 
-  const adoptFollowParagraphs = useCallback((incoming: FollowParagraph[]) => {
-    const merged = mergeSidecarWords(incoming, sidecarRef.current)
-    paragraphsRef.current = merged
-    setFollowParagraphs(merged)
-    return merged
+  const commitFollowParagraphs = useCallback((followed: FollowParagraph[]) => {
+    paragraphsRef.current = followed
+    setFollowParagraphs(followed)
+    return followed
   }, [])
 
-  optionsRef.current = options
-  paragraphsRef.current = mergeSidecarWords(options.followParagraphs, sidecarRef.current)
-
   useEffect(() => {
-    adoptFollowParagraphs(options.followParagraphs)
-  }, [adoptFollowParagraphs, options.followParagraphs])
+    setFollowParagraphs((current) => {
+      if (hasTimedWords(current)) return current
+      return options.followParagraphs
+    })
+  }, [options.followParagraphs])
 
   const applyRate = useCallback((audio: HTMLAudioElement, rate: number) => {
     try { audio.playbackRate = rate } catch { /* jsdom */ }
@@ -158,11 +161,14 @@ export function useLabListen(options: UseLabListenOptions) {
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
     if (fromSource.length > 0) {
-      if (fromSource.some(clip => !clip.words || clip.words.length === 0)) {
+      let followed = hasTimedWords(optionsRef.current.followParagraphs)
+        ? optionsRef.current.followParagraphs
+        : paragraphsRef.current
+      if (!hasTimedWords(followed)) {
         const sidecarRes = await fetch(labAudioSidecarUrl()).catch(() => null)
-        sidecarRef.current = await readLabWordSidecar(sidecarRes) || sidecarRef.current
+        followed = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
       }
-      const followed = adoptFollowParagraphs(optionsRef.current.followParagraphs)
+      followed = commitFollowParagraphs(followed)
       const clips = fromSource.map((clip) => {
         const words = followed.find(item => item.index === clip.index)?.words
         return words ? { ...clip, words } : clip
@@ -178,13 +184,15 @@ export function useLabListen(options: UseLabListenOptions) {
     ])
     if (!manifestRes.ok) return []
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
-    sidecarRef.current = await readLabWordSidecar(sidecarRes) || sidecarRef.current
-    const followed = adoptFollowParagraphs(optionsRef.current.paragraphs.map((text, index) => {
-      const entries = manifest.paragraphs || []
-      const match = entries.find(entry => entry.paragraph === index)
-        || entries.find(entry => entry.paragraph === index + 1)
-      return followParagraphFromManifest(index, text, match)
-    }))
+    const followed = commitFollowParagraphs(mergeSidecarWords(
+      optionsRef.current.paragraphs.map((text, index) => {
+        const entries = manifest.paragraphs || []
+        const match = entries.find(entry => entry.paragraph === index)
+          || entries.find(entry => entry.paragraph === index + 1)
+        return followParagraphFromManifest(index, text, match)
+      }),
+      await readLabWordSidecar(sidecarRes),
+    ))
     const clips = clipsFromManifest(optionsRef.current.paragraphs, manifest.paragraphs || [])
       .map((clip) => {
         const words = followed.find(item => item.index === clip.index)?.words
@@ -193,7 +201,7 @@ export function useLabListen(options: UseLabListenOptions) {
     clipsRef.current = clips
     setClips(clips)
     return clips
-  }, [adoptFollowParagraphs])
+  }, [commitFollowParagraphs])
 
   const start = useCallback(async () => {
     const clips = await resolveClips()

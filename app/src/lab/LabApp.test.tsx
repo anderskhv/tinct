@@ -324,8 +324,7 @@ describe('lab chrome', () => {
     })
     vi.stubGlobal('fetch', fetchMock)
 
-    const source = fallbackLabSource()
-    render(<LabApp pathname="/lab/desktop" source={source} />)
+    const { rerender } = render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
 
     await waitFor(() => {
@@ -337,9 +336,11 @@ describe('lab chrome', () => {
     expect(document.querySelector('.lab-hearing-word.is-current')?.textContent).toContain('Tell')
     expect(document.querySelector('.lab-hearing-word.is-line')).toBeNull()
 
+    rerender(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
     audio.currentTime = 0.6
     act(() => { audio.emit('timeupdate') })
     expect(screen.getByTestId('lab-hearing-current').textContent).toContain('me')
+    expect(document.querySelector('.lab-hearing-word.is-line')).toBeNull()
   })
 
   it('plays real Odyssey paragraph MP3s and follows the playing word', async () => {
