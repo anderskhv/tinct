@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { tokenizeParagraphWords } from '../audio/wordTimings'
 import type { Highlight } from '../types'
 
 interface ParagraphRendererProps {
@@ -10,6 +11,11 @@ interface ParagraphRendererProps {
   isVerse?: boolean
   /** Additional CSS class name */
   className?: string
+  /**
+   * When a number, wrap that source-token as the current spoken word.
+   * `undefined` means no word-level follow (paragraph highlight may apply).
+   */
+  playingWordIndex?: number | null
 }
 
 interface TextSegment {
@@ -119,13 +125,56 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
   return parts.length === 1 && typeof parts[0] === 'string' ? parts[0] : <>{parts}</>
 }
 
+function highlightAt(offset: number, highlights: Highlight[]): Highlight | undefined {
+  return highlights.find(h => offset >= h.startOffset && offset < h.endOffset)
+}
+
+function renderWithPlayingWord(
+  displayText: string,
+  playingWordIndex: number | null | undefined,
+  opts: { dropCap: boolean; isVerse: boolean; highlights?: Highlight[] },
+): React.ReactNode {
+  if (typeof playingWordIndex !== 'number') {
+    if (opts.highlights?.length) return null
+    return opts.dropCap ? renderDropCapText(displayText, opts.isVerse) : renderFormattedText(displayText, opts.isVerse)
+  }
+
+  const tokens = tokenizeParagraphWords(displayText)
+  return tokens.map((tok, i) => {
+    const inner = opts.dropCap && tok.startOffset === 0
+      ? renderDropCapText(tok.text, opts.isVerse)
+      : renderFormattedText(tok.text, opts.isVerse)
+    const marked = tok.isWord && tok.wordIndex === playingWordIndex
+      ? (
+          <span className="audio-word-current" data-audio-word={tok.wordIndex}>
+            {inner}
+          </span>
+        )
+      : inner
+    const hl = opts.highlights?.length ? highlightAt(tok.startOffset, opts.highlights) : undefined
+    if (hl) {
+      return (
+        <mark
+          key={i}
+          className={`highlight highlight-${hl.color}`}
+          data-highlight-id={hl.id}
+          title={hl.note || undefined}
+        >
+          {marked}
+        </mark>
+      )
+    }
+    return <Fragment key={i}>{marked}</Fragment>
+  })
+}
+
 /**
  * Renders a paragraph with highlight overlays.
  * Splits text into segments based on highlight offsets
  * and renders as alternating <span> and <mark> elements.
  * Preserves \n as <br /> for verse editions.
  */
-export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp, isVerse = false, className }: ParagraphRendererProps) {
+export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp, isVerse = false, className, playingWordIndex }: ParagraphRendererProps) {
   // Filter highlights for this paragraph and sort by start offset
   const paraHighlights = highlights
     .filter(h => h.paragraphIndex === paragraphIndex)
@@ -137,11 +186,27 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
 
   const pClass = className ? `text-paragraph ${className}` : 'text-paragraph'
   const hasDropCap = pClass.split(/\s+/).includes('drop-cap')
+  const wordFollow = typeof playingWordIndex === 'number'
 
   if (paraHighlights.length === 0) {
     return (
       <p className={pClass} data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
-        {hasDropCap ? renderDropCapText(text) : renderFormattedText(text)}
+        {renderWithPlayingWord(isVerse ? text : sliceText, playingWordIndex, {
+          dropCap: hasDropCap,
+          isVerse,
+        })}
+      </p>
+    )
+  }
+
+  if (wordFollow) {
+    return (
+      <p className={pClass} data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
+        {renderWithPlayingWord(sliceText, playingWordIndex, {
+          dropCap: hasDropCap,
+          isVerse,
+          highlights: paraHighlights,
+        })}
       </p>
     )
   }

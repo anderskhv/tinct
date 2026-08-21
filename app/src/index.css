@@ -5689,6 +5689,14 @@ body {
   background: rgba(90, 157, 181, 0.12);
 }
 
+/* Word-level audio follow — same ink, slightly heavier, no block. */
+.audio-word-current {
+  font-weight: 600;
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}
+
 /* ===== Book Store ===== */
 /* ===== BookStore — Cover Grid ===== */
 
@@ -10969,6 +10977,12 @@ body {
 [data-eink] .paragraph-playing {
   background: #d9d9d9;
   border-left: 3px solid #000;
+}
+
+[data-eink] .audio-word-current {
+  font-weight: 700;
+  color: inherit;
+  background: none;
 }
 
 /* Pane tabs (Read | Compare) — ink underline, no teal */

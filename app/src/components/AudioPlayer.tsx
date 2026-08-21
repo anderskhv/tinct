@@ -1,17 +1,12 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
+import {
+  findWordAtTime,
+  mergeWordSidecar,
+  paragraphHasWords,
+  parseWordSidecar,
+  type AudioManifest,
+} from '../audio/wordTimings'
 import { resolveAudioUrl } from '../utils/audioUrl'
-
-interface ParagraphAudio {
-  paragraph: number
-  duration: number
-  file: string
-}
-
-interface AudioManifest {
-  chapter: number
-  title: string
-  paragraphs: ParagraphAudio[]
-}
 
 export interface AudioPlayerHandle {
   seekToParagraph: (index: number) => void
@@ -23,12 +18,13 @@ interface AudioPlayerProps {
   chapterNumber: number
   /** Callback when the currently playing paragraph changes */
   onParagraphChange?: (paragraphIndex: number) => void
+  onWordChange?: (wordIndex: number | null | undefined) => void
 }
 
 const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2]
 
 export const AudioPlayer = forwardRef<AudioPlayerHandle, AudioPlayerProps>(
-  function AudioPlayer({ bookId, editionKey, chapterNumber, onParagraphChange }, ref) {
+  function AudioPlayer({ bookId, editionKey, chapterNumber, onParagraphChange, onWordChange }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
     const [isPlaying, setIsPlaying] = useState(false)
     const [currentParagraph, setCurrentParagraph] = useState(0)
@@ -39,26 +35,30 @@ export const AudioPlayer = forwardRef<AudioPlayerHandle, AudioPlayerProps>(
     const speedRef = useRef(speed)
     speedRef.current = speed
 
-    // Load manifest for this chapter
+    // Load manifest + optional words sidecar for this chapter
     useEffect(() => {
       const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`, 'manifest')
-      fetch(url)
-        .then(res => {
+      const wordsUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/words.json`, 'manifest')
+      Promise.all([
+        fetch(url).then(res => {
           if (!res.ok) throw new Error('No audio')
-          return res.json()
-        })
-        .then((data: AudioManifest) => {
-          setManifest(data)
+          return res.json() as Promise<AudioManifest>
+        }),
+        fetch(wordsUrl).then(res => (res.ok ? res.json() : null)).catch(() => null),
+      ])
+        .then(([data, sidecarRaw]) => {
+          setManifest(mergeWordSidecar(data, parseWordSidecar(sidecarRaw)))
           setHasAudio(true)
           setCurrentParagraph(0)
           setIsPlaying(false)
           setProgress(0)
+          onWordChange?.(undefined)
         })
         .catch(() => {
           setManifest(null)
           setHasAudio(false)
         })
-    }, [bookId, editionKey, chapterNumber])
+    }, [bookId, editionKey, chapterNumber, onWordChange])
 
     // Play the current paragraph
     const playParagraph = useCallback((index: number) => {
@@ -81,6 +81,11 @@ export const AudioPlayer = forwardRef<AudioPlayerHandle, AudioPlayerProps>(
         if (audio.duration > 0) {
           setProgress(audio.currentTime / audio.duration)
         }
+        if (paragraphHasWords(para)) {
+          onWordChange?.(findWordAtTime(para.words, audio.currentTime))
+        } else {
+          onWordChange?.(undefined)
+        }
       })
 
       audio.addEventListener('ended', () => {
@@ -100,7 +105,7 @@ export const AudioPlayer = forwardRef<AudioPlayerHandle, AudioPlayerProps>(
       setCurrentParagraph(index)
       setIsPlaying(true)
       onParagraphChange?.(para.paragraph)
-    }, [manifest, bookId, editionKey, chapterNumber, onParagraphChange])
+    }, [manifest, bookId, editionKey, chapterNumber, onParagraphChange, onWordChange])
 
     // Expose seekToParagraph to parent
     useImperativeHandle(ref, () => ({

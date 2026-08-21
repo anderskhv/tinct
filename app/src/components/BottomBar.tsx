@@ -1,4 +1,11 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
+import {
+  findWordAtTime,
+  mergeWordSidecar,
+  paragraphHasWords,
+  parseWordSidecar,
+  type AudioManifest,
+} from '../audio/wordTimings'
 import { resolveAudioUrl } from '../utils/audioUrl'
 import { useAudioSpeed, nextAudioSpeed } from '../hooks/useAudioSpeed'
 import type { AudioPlaybackAnchor, AudioPlaybackPause } from '../voice/types'
@@ -35,18 +42,6 @@ function warmAudioUrl(url: string) {
   fetch(url, { cache: 'force-cache' }).catch(() => {
     // Warmup is best-effort; playback should still use the media element path.
   })
-}
-
-interface ParagraphAudio {
-  paragraph: number
-  duration: number
-  file: string
-}
-
-interface AudioManifest {
-  chapter: number
-  title: string
-  paragraphs: ParagraphAudio[]
 }
 
 export interface BottomBarHandle {
@@ -128,6 +123,12 @@ interface BottomBarProps {
    * paragraphs that span a page break.
    */
   onProgressChange?: (progress: number) => void
+  /**
+   * Current spoken-word index in the playing paragraph, or `undefined`
+   * when this paragraph has no `words` windows. Fired from the audio
+   * clock (rAF while playing) so short words are not skipped.
+   */
+  onWordChange?: (wordIndex: number | null | undefined) => void
   /** Chapter start positions as fractions (0-1) across the book — rendered as ticks */
   chapterTicks?: number[]
   /** Current chapter index (1-based) — used to highlight the current tick */
@@ -145,6 +146,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     bookCurrentPage, bookTotalPages, locationCurrentChapter, locationTotalChapter,
     bookId, editionKey, chapterNumber, onParagraphChange, onChapterEnd, onBookEnd, firstVisibleParagraph, compact,
     onNextChapter, onPrevChapter, initialAudioParagraph, onPlayStateChange, onProgressChange,
+    onWordChange,
     chapterTicks, currentChapterIndex, chapterTitle,
   }, ref) {
     const [manifest, setManifest] = useState<AudioManifest | null>(null)
@@ -169,6 +171,24 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     const onProgressChangeRef = useRef(onProgressChange)
     onProgressChangeRef.current = onProgressChange
     const lastProgressFireRef = useRef(0)
+    const onWordChangeRef = useRef(onWordChange)
+    onWordChangeRef.current = onWordChange
+    const lastWordRef = useRef<number | null | undefined>(undefined)
+    const emitWord = useCallback((index: number | null | undefined) => {
+      if (lastWordRef.current === index) return
+      lastWordRef.current = index
+      onWordChangeRef.current?.(index)
+    }, [])
+    const emitWordFromAudio = useCallback((audio: HTMLAudioElement) => {
+      const para = manifestRef.current?.paragraphs[currentParagraphRef.current]
+      if (!paragraphHasWords(para)) {
+        emitWord(undefined)
+        return
+      }
+      emitWord(findWordAtTime(para.words, audio.currentTime))
+    }, [emitWord])
+    const emitWordFromAudioRef = useRef(emitWordFromAudio)
+    emitWordFromAudioRef.current = emitWordFromAudio
 
     // Single reusable Audio element — avoids listener accumulation and stale closures
     const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -221,6 +241,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         if (audio.duration <= 0) return
         const frac = audio.currentTime / audio.duration
         setProgress(frac)
+        emitWordFromAudioRef.current(audio)
         // Throttle bubble-up to ~3 Hz — plenty for page-flip sync,
         // avoids hammering the consumer's render cycle.
         const now = performance.now()
@@ -429,14 +450,21 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
       const controller = new AbortController()
       const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/manifest.json`, 'manifest')
-      fetch(url, { signal: controller.signal })
-        .then(res => {
+      const wordsUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/words.json`, 'manifest')
+      emitWord(undefined)
+      Promise.all([
+        fetch(url, { signal: controller.signal }).then(res => {
           if (!res.ok) throw new Error('No audio')
-          return res.json()
-        })
-        .then((data: AudioManifest) => {
-          setManifest(data)
-          manifestRef.current = data
+          return res.json() as Promise<AudioManifest>
+        }),
+        fetch(wordsUrl, { signal: controller.signal })
+          .then(res => (res.ok ? res.json() : null))
+          .catch(() => null),
+      ])
+        .then(([data, sidecarRaw]) => {
+          const merged = mergeWordSidecar(data, parseWordSidecar(sidecarRaw))
+          setManifest(merged)
+          manifestRef.current = merged
           setHasAudio(true)
           // Restore to saved audio position if available
           const initPara = initialAudioParagraphRef.current
@@ -481,7 +509,20 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         })
 
       return () => controller.abort()
-    }, [bookId, editionKey, chapterNumber])
+    }, [bookId, editionKey, chapterNumber, emitWord])
+
+    useEffect(() => {
+      if (!isPlaying) return
+      const audio = audioRef.current
+      if (!audio) return
+      let raf = 0
+      const tick = () => {
+        emitWordFromAudioRef.current(audio)
+        raf = requestAnimationFrame(tick)
+      }
+      raf = requestAnimationFrame(tick)
+      return () => cancelAnimationFrame(raf)
+    }, [isPlaying])
 
     const playParagraphDirect = useCallback((index: number) => {
       const m = manifestRef.current

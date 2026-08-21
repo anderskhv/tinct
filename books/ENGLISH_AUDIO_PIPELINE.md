@@ -136,3 +136,11 @@ Preferred future RunPod choices:
 - Avoid unless urgent: H100, H200, B200, B300, and other expensive datacenter GPUs.
 
 Rule of thumb: use the cheapest available NVIDIA GPU with enough VRAM for Kokoro, generally 16-24 GB or more. Spend engineering effort on reducing per-file overhead before paying for larger GPUs.
+
+## Word-level follow (no recut)
+
+Paragraph MP3s stay as-is. Optional `words: [{ text, start, end }]` windows
+(seconds relative to that file) live on the chapter manifest or a sidecar
+`words.json`. Production alignment is Whisper word timestamps — not linear
+interpolation. See `app/scripts/align-paragraph-words.md` for the Odyssey
+Book 1 / Butler `original-en` Mac command.
