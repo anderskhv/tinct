@@ -6,12 +6,21 @@
 }
 
 .lab-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 0.65rem 1.5rem;
   padding: 1.25rem 1.75rem 0.75rem;
   border-bottom: 1px solid #d4cdc0;
+}
+
+.lab-status {
+  grid-column: 1 / -1;
+  margin: 0.15rem 0 0;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: #0b0b0b;
 }
 
 .lab-kicker {
@@ -74,6 +83,66 @@
   min-width: 0;
 }
 
+.lab-hearing {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 1.75rem 5rem;
+}
+
+.lab-hearing-stage {
+  max-width: 38rem;
+  margin: 0 auto 2.75rem;
+}
+
+.lab-hearing-line {
+  margin: 0 0 0.55rem;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 2.05rem;
+  line-height: 1.28;
+  color: #0b0b0b;
+}
+
+.lab-hearing-word.is-spoken {
+  color: #0b0b0b;
+}
+
+.lab-hearing-word.is-upcoming {
+  color: #9a9486;
+}
+
+.lab-hearing-word.is-line {
+  color: #0b0b0b;
+  background: #d8cbb6;
+  box-decoration-break: clone;
+}
+
+.lab-hearing-transport {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lab-hearing-progress {
+  width: min(22rem, 70%);
+  height: 1px;
+  margin: 1.15rem auto 0;
+  background: #d4cdc0;
+}
+
+.lab-hearing-progress span {
+  display: block;
+  height: 100%;
+  background: #0b0b0b;
+}
+
+.lab-book.is-peek {
+  outline: 1px solid #d4cdc0;
+  outline-offset: -1px;
+}
+
 .lab-book {
   max-width: 42rem;
   margin: 0 auto;
@@ -131,10 +200,12 @@
   font-weight: 500;
 }
 
-.lab-word-current {
-  font-weight: 600;
-  color: inherit;
-  background: none;
+.lab-word-current,
+.lab-hearing-word.is-current {
+  font-weight: 500;
+  color: #0b0b0b;
+  background: #d8cbb6;
+  box-decoration-break: clone;
 }
 
 .lab-p.is-focus {
@@ -207,7 +278,8 @@
 .lab-ask-pending {
   margin: 0;
   max-width: 100%;
-  font-size: 1.08rem;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 1.12rem;
   line-height: 1.58;
   color: #0b0b0b;
 }
@@ -217,13 +289,7 @@
 }
 
 .lab-ask-greeting {
-  margin: 0;
-  text-align: center;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 1.55rem;
-  letter-spacing: -0.02em;
-  color: #0b0b0b;
+  display: none;
 }
 
 .lab-ask-composer {
@@ -238,7 +304,7 @@
   border-radius: 28px;
   background: #ece7db;
   box-shadow: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-weight: 400;
 }
 
@@ -266,9 +332,9 @@
   padding: 0 0.15rem;
   resize: none;
   box-shadow: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.08rem;
   line-height: 1.4;
 }
 
@@ -301,21 +367,34 @@
   color: #fff;
 }
 
-.lab-ask-icon.is-connecting,
-.lab-ask-icon.is-listening,
-.lab-ask-icon.is-speaking {
-  box-shadow: 0 0 0 2px #0b0b0b;
+.lab-ask-voice.is-connecting,
+.lab-ask-voice.is-listening,
+.lab-ask-voice.is-speaking {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background: #0b0b0b;
+  color: #ece7db;
   animation: lab-voice-alive 1s ease-in-out infinite;
 }
 
-.lab-ask-voice.is-connecting,
-.lab-ask-voice.is-listening,
-.lab-ask-voice.is-speaking,
-.lab-ask-mic.is-connecting,
-.lab-ask-mic.is-listening,
-.lab-ask-mic.is-speaking {
-  background: #0b0b0b;
-  color: #ece7db;
+.lab-ask-voice-phase {
+  position: absolute;
+  right: calc(100% + 0.45rem);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: #6a6555;
+  white-space: nowrap;
+  animation: none;
+}
+
+.lab-ask-voice-x {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 @keyframes lab-voice-alive {

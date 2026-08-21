@@ -16,6 +16,7 @@ interface LabInTheBookProps {
   online: boolean
   onAskAbout: (name: string) => void
   onJumpParagraph: (index: number) => void
+  panel?: boolean
 }
 
 export function LabInTheBook({
@@ -30,6 +31,7 @@ export function LabInTheBook({
   online,
   onAskAbout,
   onJumpParagraph,
+  panel = true,
 }: LabInTheBookProps) {
   const [tab, setTab] = useState<InTheBookTab>('search')
   const [query, setQuery] = useState('')
@@ -54,7 +56,7 @@ export function LabInTheBook({
       >
         {LAB_COPY.inTheBook}
       </button>
-      {open && (
+      {open && panel && (
         <div id="lab-inbook-panel" className="lab-inbook-panel" data-testid="lab-in-the-book-panel">
           <p className="lab-inbook-hint">{LAB_COPY.inTheBookHint}</p>
           <div className="lab-inbook-tabs" role="tablist">

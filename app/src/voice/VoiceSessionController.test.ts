@@ -38,6 +38,36 @@ describe('VoiceSessionController start failure', () => {
     vi.unstubAllGlobals()
   })
 
+  it('cancels connecting before getUserMedia resolves', async () => {
+    let resolveMedia: (stream: { getTracks: () => Array<{ stop: () => void }> }) => void = () => { /* pending */ }
+    const stopTrack = vi.fn()
+    const getUserMedia = vi.fn().mockImplementation(() => new Promise(resolve => {
+      resolveMedia = resolve
+    }))
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    vi.stubGlobal('navigator', {
+      mediaDevices: { getUserMedia },
+    })
+
+    const { controller } = makeController()
+    const starting = controller.start({
+      authToken: 'token',
+      isAnonymous: false,
+      context: CONTEXT,
+      audio: audioEngine(null),
+      wasPlaying: false,
+    })
+    controller.stop()
+    resolveMedia({ getTracks: () => [{ stop: stopTrack }] })
+    await starting
+
+    expect(stopTrack).toHaveBeenCalled()
+    expect(fetchMock).not.toHaveBeenCalled()
+    expect(controller.getSnapshot().isActive).toBe(false)
+    expect(controller.getSnapshot().state).toBe('reading')
+  })
+
   it('does not call /api/voice-session without a bearer token', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)

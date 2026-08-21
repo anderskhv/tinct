@@ -196,6 +196,14 @@ export class VoiceSessionController {
   }
 
   stop(): void {
+    this.closed = true
+    if (this.machine.state === 'reading') {
+      this.machine = INITIAL_VOICE_SNAPSHOT
+      this.turn = INITIAL_VOICE_TURN
+      void this.restoreBook({ speakClose: false })
+      this.emit()
+      return
+    }
     this.dispatch({ type: 'STOP' })
   }
 

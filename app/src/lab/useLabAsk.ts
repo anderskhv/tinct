@@ -94,7 +94,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   })
 
   const startVoice = useCallback(async (): Promise<boolean> => {
-    if (voice.isActive) return true
+    if (voice.isActive || starting) return true
     setNotice(null)
     setStarting(true)
     const authToken = await resolveLabVoiceToken({
@@ -114,7 +114,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       return false
     }
     return snapshot.isActive
-  }, [options.authToken, sessionToken, voice.isActive, voice.start])
+  }, [options.authToken, sessionToken, starting, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
     setStarting(false)
@@ -122,12 +122,12 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [voice.stop])
 
   const toggleInChatVoice = useCallback(async () => {
-    if (voice.isActive) {
+    if (voice.isActive || starting) {
       stopVoice()
       return
     }
     await startVoice()
-  }, [startVoice, stopVoice, voice.isActive])
+  }, [startVoice, starting, stopVoice, voice.isActive])
 
   const sendTyped = useCallback(async (content: string) => {
     const text = content.trim()
