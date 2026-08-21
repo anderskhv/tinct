@@ -51,6 +51,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [chrome, setChrome] = useState<LabChromeState>('reading')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
+  const [phoneAskOpen, setPhoneAskOpen] = useState(false)
 
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
@@ -187,15 +188,26 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     void ask.startVoice()
   }, [ask, interruptHearForAsk])
 
-  const handlePhoneAsk = useCallback(async () => {
+  const openPhoneAsk = useCallback(() => {
     interruptHearForAsk()
     if (chromeRef.current !== 'hearing') setReturnTo('reading')
-    const started = ask.voiceActive || await ask.startVoice()
-    if (!started) return
-    setChrome('talking')
+    setPhoneAskOpen(true)
     setInTheBookOpen(false)
     setPeekBook(false)
-  }, [ask, interruptHearForAsk])
+  }, [interruptHearForAsk])
+
+  const closePhoneAsk = useCallback(() => {
+    setPhoneAskOpen(false)
+    if (ask.voiceActive || chromeRef.current === 'talking') return
+    if (returnTo !== 'hearing') return
+    setChrome(labAfterTalk(returnTo))
+    listen.resume()
+  }, [ask.voiceActive, listen, returnTo])
+
+  const handlePhoneAsk = useCallback(() => {
+    if (phoneAskOpen) closePhoneAsk()
+    else openPhoneAsk()
+  }, [closePhoneAsk, openPhoneAsk, phoneAskOpen])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) {
@@ -215,13 +227,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const question = `Who is ${name} on this page?`
     setInTheBookOpen(false)
     if (isPhone) {
-      void handlePhoneAsk()
+      openPhoneAsk()
+      setDraft('')
+      void ask.sendTyped(question)
       return
     }
     interruptHearForAsk()
     setDraft('')
     void ask.sendTyped(question)
-  }, [ask, handlePhoneAsk, interruptHearForAsk, isPhone])
+  }, [ask, interruptHearForAsk, isPhone, openPhoneAsk])
 
   const handleMark = useCallback((index: number) => {
     setMarks((current) => {
@@ -246,10 +260,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   return (
     <div
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${isPhone && ask.notice && chrome !== 'talking' ? ' has-notice' : ''}${isPhone && phoneAskOpen && chrome !== 'talking' ? ' has-phone-ask' : ''}`}
       data-testid="lab-root"
       data-lab-layout={isPhone ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
+      data-phone-ask={phoneAskOpen ? 'open' : 'closed'}
     >
       <header className="lab-header">
         <div className="lab-header-brand">
@@ -358,9 +373,24 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         )}
       </div>
 
+      {isPhone && phoneAskOpen && chrome !== 'talking' && (
+        <LabAskPane
+          conversationState={ask.conversationState}
+          voiceActive={ask.voiceActive}
+          typedLoading={ask.typedLoading}
+          turns={ask.turns}
+          draft={draft}
+          onDraftChange={setDraft}
+          onSubmit={handleAsk}
+          onMic={handleMic}
+          onVoiceMode={handleVoiceMode}
+          notice={ask.notice}
+        />
+      )}
+
       {isPhone && chrome !== 'talking' && (
         <footer className="lab-phone-bar" data-testid="lab-phone-bar">
-          {ask.notice && (
+          {ask.notice && !phoneAskOpen && (
             <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
           )}
           <div className="lab-phone-bar-row">
@@ -369,11 +399,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             </button>
             <button
               type="button"
-              className="lab-text-btn lab-text-btn-strong"
-              onClick={() => { void handlePhoneAsk() }}
+              className={`lab-text-btn ${phoneAskOpen ? 'is-open' : 'lab-text-btn-strong'}`}
+              onClick={handlePhoneAsk}
               data-testid="lab-phone-ask"
             >
-              {LAB_COPY.ask}
+              {phoneAskOpen ? LAB_COPY.done : LAB_COPY.ask}
             </button>
           </div>
         </footer>

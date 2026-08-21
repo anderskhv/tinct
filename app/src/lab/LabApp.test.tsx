@@ -151,7 +151,11 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*height:\s*calc\(100vh - 5\.5rem\)/)
     expect(css).toMatch(/\.lab-ask\.is-empty\s*,\s*\.lab-ask\.has-thread\s*\{[^}]*justify-content:\s*flex-end/)
     expect(css).not.toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
-    expect(css).not.toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{/)
+    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*position:\s*fixed/)
+    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*z-index:\s*25/)
+    expect(css).toMatch(/\.lab-phone-bar\s*\{[^}]*z-index:\s*26/)
+    expect(css).toMatch(/\.lab-phone-notice\s*\{[^}]*background:\s*#ece7db/)
+    expect(css).toMatch(/\.lab\.is-phone\.has-notice\s+\.lab-book\s*,\s*\.lab\.is-phone\.has-phone-ask\s+\.lab-book\s*\{[^}]*padding-bottom:\s*16rem/)
     expect(css).toMatch(/\.lab-ask\s*\{[^}]*background:\s*#ece7db/)
     expect(css).toMatch(/\.lab-ask\s*\{[^}]*border-left:\s*1px solid #d4cdc0/)
     expect(css).toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#ece7db/)
@@ -186,16 +190,48 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-ask'))
 
-    await waitFor(() => {
-      expect(screen.getByTestId('lab-phone-bar').querySelector('[data-testid="lab-voice-notice"]')?.textContent).toContain('Sign in')
-    })
-    expect(screen.getByTestId('lab-phone-bar').contains(screen.getByTestId('lab-voice-notice'))).toBe(true)
+    expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    expect(screen.getByPlaceholderText('Ask')).toBeTruthy()
+    expect(screen.getByTestId('lab-root').className).toContain('has-phone-ask')
+    expect(screen.getByTestId('lab-phone-ask').textContent).toBe('Done')
+    expect(screen.queryByText('Sign in to ask by voice.')).toBeNull()
     expect(screen.getAllByTestId('lab-listen')).toHaveLength(1)
     expect(screen.getByTestId('lab-phone-bar').contains(screen.getByTestId('lab-listen'))).toBe(true)
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
     expect(screen.queryByRole('log')).toBeNull()
     expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
+  })
+
+  it('pauses Hear when the phone Ask sheet opens and resumes when Done closes it', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithWords()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
+    fireEvent.click(screen.getByTestId('lab-phone-ask'))
+
+    expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    expect(screen.getByPlaceholderText('Ask')).toBeTruthy()
+    expect(audio.paused).toBe(true)
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.queryByTestId('lab-orb')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-phone-ask'))
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    expect(audio.currentTime).toBe(8)
+    expect(audio.paused).toBe(false)
   })
 
   it('does not POST /api/voice-session without a signed-in token', async () => {

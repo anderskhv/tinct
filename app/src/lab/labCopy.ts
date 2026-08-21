@@ -23,6 +23,7 @@ export const LAB_COPY = {
   back15: 'Back 15s',
   forward15: 'Forward 15s',
   ask: 'Ask',
+  done: 'Done',
   askGreeting: '',
   askPlaceholder: 'Ask',
   leaveConversation: 'Leave the conversation.',
