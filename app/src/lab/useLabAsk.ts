@@ -1,11 +1,10 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useVoiceSession } from '../hooks/useVoiceSession'
 import { apiUrl } from '../utils/apiUrl'
-import { buildVoiceInstructions } from '../voice/context'
-import { nearbyParagraphWindow } from '../voice/context'
-import { labConversationState, labReadingAngle, labVoiceContext, type LabAskTurn } from './labAsk'
+import type { AudioPlaybackAnchor, AudioPlaybackPause } from '../voice/types'
+import { buildLabConversationInstructions, labConversationState, labReadingAngle, type LabAskTurn } from './labAsk'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
 
@@ -16,7 +15,7 @@ function nextId() {
 
 const NOOP_AUDIO = {
   pausePlayback: () => null,
-  resumePlayback: () => { /* lab follow clock is owned by LabApp */ },
+  resumePlayback: () => { /* optional listen engine */ },
 }
 
 export interface UseLabAskOptions {
@@ -26,6 +25,9 @@ export interface UseLabAskOptions {
   paragraphs: string[]
   paragraphIndex: number
   authToken?: string | null
+  isAudioPlaying?: boolean
+  pausePlayback?: () => AudioPlaybackPause | null
+  resumePlayback?: (anchor: AudioPlaybackAnchor) => void
 }
 
 export function useLabAsk(options: UseLabAskOptions) {
@@ -36,6 +38,21 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const sessionToken = session?.access_token ?? null
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
+
+  const instructions = useMemo(() => buildLabConversationInstructions({
+    bookTitle: options.bookTitle,
+    bookAuthor: options.bookAuthor,
+    chapterLabel: options.chapterLabel,
+    paragraphs: options.paragraphs,
+    paragraphIndex: options.paragraphIndex,
+    readingAngle: labReadingAngle(),
+  }), [
+    options.bookAuthor,
+    options.bookTitle,
+    options.chapterLabel,
+    options.paragraphIndex,
+    options.paragraphs,
+  ])
 
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
@@ -48,8 +65,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     }])
   }, [])
 
-  // Same hook as App.tsx + AudioStrip. Playback is the controller's remote
-  // WebRTC audio element. Lab has no audiobook, so pause/resume are no-ops.
+  // Same hook as App.tsx + AudioStrip, but session.update gets the lab
+  // conversation brief (full chapter, spoiler-hard) instead of VOICE_AGENT_POLICY.
   const voice = useVoiceSession({
     authToken: liveToken,
     isAnonymous: !liveToken,
@@ -61,18 +78,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     readingObjective: labReadingAngle(),
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    visibleText: [
-      options.paragraphs[options.paragraphIndex] || '',
-      ...nearbyParagraphWindow(options.paragraphs, options.paragraphIndex),
-    ].filter(Boolean).join('\n\n'),
-    isAudioPlaying: false,
-    pausePlayback: NOOP_AUDIO.pausePlayback,
-    resumePlayback: NOOP_AUDIO.resumePlayback,
+    visibleText: options.paragraphs.join('\n\n'),
+    isAudioPlaying: options.isAudioPlaying ?? false,
+    pausePlayback: options.pausePlayback ?? NOOP_AUDIO.pausePlayback,
+    resumePlayback: options.resumePlayback ?? NOOP_AUDIO.resumePlayback,
     recordMessage: () => { /* lab does not persist Feed history */ },
     appendLocalMessage,
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
+    instructions,
+    tools: [],
   })
 
   const startVoice = useCallback(async (): Promise<boolean> => {
@@ -132,14 +148,6 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     setTypedLoading(true)
     try {
-      const context = labVoiceContext({
-        bookTitle: options.bookTitle,
-        bookAuthor: options.bookAuthor,
-        chapterLabel: options.chapterLabel,
-        paragraphs: options.paragraphs,
-        paragraphIndex: options.paragraphIndex,
-        readingAngle: labReadingAngle(),
-      })
       const history = [...turns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
@@ -152,7 +160,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
           max_tokens: 1024,
-          system: buildVoiceInstructions(context),
+          system: instructions,
           messages: history,
         }),
       })
@@ -189,7 +197,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     } finally {
       setTypedLoading(false)
     }
-  }, [options, sessionToken, turns])
+  }, [instructions, options.authToken, sessionToken, turns])
 
   return {
     turns,
