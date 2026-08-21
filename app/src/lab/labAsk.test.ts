@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { VOICE_AGENT_POLICY } from '../voice/context'
 import {
   buildLabAskInstructions,
@@ -68,6 +70,17 @@ describe('lab ask context', () => {
     expect(instructions).not.toContain('Speak for about 20')
     expect(instructions).not.toContain('resume_audiobook')
     expect(instructions).not.toContain('return control to audiobook')
+  })
+
+  it('leaves production in-car instructions on the AudioStrip path', () => {
+    const strip = readFileSync(resolve(__dirname, '../components/AudioStrip.tsx'), 'utf8')
+    const session = readFileSync(resolve(__dirname, '../hooks/useVoiceSession.ts'), 'utf8')
+    const context = readFileSync(resolve(__dirname, '../voice/context.ts'), 'utf8')
+    expect(context).toContain('Speak for about 20–30 seconds')
+    expect(context).toContain('resume_audiobook')
+    expect(session).toContain('Production AudioStrip leaves this unset')
+    expect(strip).not.toContain("from '../lab/")
+    expect(strip).not.toContain('buildLabAskInstructions')
   })
 })
 

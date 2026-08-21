@@ -123,6 +123,25 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
   })
 
+  it('keeps the desktop Ask composer in the viewport at scrollTop 0', () => {
+    const long = {
+      ...fallbackLabSource(),
+      paragraphs: Array.from({ length: 80 }, (_, index) => (
+        `Paragraph ${index + 1}. ${'The Odyssey continues on this page. '.repeat(24)}`
+      )),
+    }
+    render(<LabApp pathname="/lab/desktop" source={long} />)
+    const composer = screen.getByTestId('lab-ask-composer')
+    const ask = screen.getByTestId('lab-ask-pane')
+    const page = document.querySelector('.lab-page-wrap')
+    expect(ask.contains(composer)).toBe(true)
+    expect(page?.contains(composer)).toBe(false)
+    expect(page?.contains(ask)).toBe(false)
+    expect(composer.offsetTop).toBeLessThan(200)
+    expect(composer.getBoundingClientRect().top).toBeLessThan(200)
+    expect(composer.getBoundingClientRect().top).toBeLessThan(1000)
+  })
+
   it('locks the desktop Ask pane to the viewport instead of the chapter height', () => {
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
     expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*height:\s*100vh/)
@@ -345,8 +364,12 @@ describe('lab chrome', () => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
 
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
     expect(screen.getByTestId('lab-status').textContent).toBe('Talking · tap the circle to stop')
+    expect(audio.paused).toBe(true)
+    expect(audio.currentTime).toBe(8)
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
@@ -358,6 +381,8 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
+    expect(audio.currentTime).toBe(8)
+    expect(audio.paused).toBe(false)
   })
 
   it('marks the current Hearing line when word timings are missing', async () => {
@@ -376,6 +401,17 @@ describe('lab chrome', () => {
     expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('Tell me, O Muse')
     expect(document.querySelector('.lab-word-current')).toBeNull()
     expect(screen.getByTestId('lab-hearing-progress')).toBeTruthy()
+
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
+    expect(screen.getByTestId('lab-hearing-progress').firstElementChild?.getAttribute('style')).toContain('13.333')
+
+    act(() => { audio.emit('ended') })
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:1')
+    })
+    expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('So now all who escaped death')
+    expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
   })
 
   it('seeks the real audio element and only marks the living circle', async () => {
