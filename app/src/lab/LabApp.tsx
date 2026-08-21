@@ -322,43 +322,45 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       </header>
 
       <div className="lab-body" data-testid="lab-body">
-        <div className="lab-page-wrap">
-          {showHearing && (
-            <LabHearingStage
-              paragraphs={listen.followParagraphs}
-              clips={listen.clips}
-              follow={listen.follow}
-              playing={listen.playing}
-              clipIndex={listen.clipIndex}
-              currentTime={listen.currentTime}
-              speed={listen.speed}
-              onTogglePlay={() => {
-                if (listen.playing) listen.pause()
-                else if (listen.src) listen.resume()
-                else void listen.start()
-              }}
-              onSeek={listen.seek}
-              onCycleSpeed={listen.cycleSpeed}
-            />
-          )}
-          {showBook && (
-            <LabBookPage
-              chapterTitle={book.chapterTitle}
-              editionLabel={book.editionLabel}
-              paragraphs={book.paragraphs}
-              compareParagraphs={book.compareParagraphs}
-              compare={compare}
-              follow={{ kind: 'none' }}
-              followEnabled={false}
-              followParagraphs={listen.followParagraphs}
-              markedIndexes={markedIndexes}
-              onMark={handleMark}
-              focusParagraph={focusParagraph}
-              dimmed={voiceOverlayOpen}
-              peek={chrome === 'hearing' && peekBook}
-            />
-          )}
-        </div>
+        {!phoneAsk && (
+          <div className="lab-page-wrap">
+            {showHearing && (
+              <LabHearingStage
+                paragraphs={listen.followParagraphs}
+                clips={listen.clips}
+                follow={listen.follow}
+                playing={listen.playing}
+                clipIndex={listen.clipIndex}
+                currentTime={listen.currentTime}
+                speed={listen.speed}
+                onTogglePlay={() => {
+                  if (listen.playing) listen.pause()
+                  else if (listen.src) listen.resume()
+                  else void listen.start()
+                }}
+                onSeek={listen.seek}
+                onCycleSpeed={listen.cycleSpeed}
+              />
+            )}
+            {showBook && (
+              <LabBookPage
+                chapterTitle={book.chapterTitle}
+                editionLabel={book.editionLabel}
+                paragraphs={book.paragraphs}
+                compareParagraphs={book.compareParagraphs}
+                compare={compare}
+                follow={{ kind: 'none' }}
+                followEnabled={false}
+                followParagraphs={listen.followParagraphs}
+                markedIndexes={markedIndexes}
+                onMark={handleMark}
+                focusParagraph={focusParagraph}
+                dimmed={voiceOverlayOpen}
+                peek={chrome === 'hearing' && peekBook}
+              />
+            )}
+          </div>
+        )}
         {!isPhone && (
           <LabAskPane
             conversationState={ask.conversationState}
