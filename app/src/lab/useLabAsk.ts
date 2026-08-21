@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useVoiceSession } from '../hooks/useVoiceSession'
@@ -7,6 +7,7 @@ import {
   buildLabAskInstructions,
   labConversationState,
   labReadingAngle,
+  mergeLabVoiceTurn,
   type LabAskTurn,
 } from './labAsk'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
@@ -37,6 +38,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const [turns, setTurns] = useState<LabAskTurn[]>([])
   const [notice, setNotice] = useState<string | null>(null)
   const [starting, setStarting] = useState(false)
+  const sendingRef = useRef(false)
 
   const sessionToken = session?.access_token ?? null
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
@@ -59,12 +61,12 @@ export function useLabAsk(options: UseLabAskOptions) {
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
     if (!content) return
-    setTurns(current => [...current, {
+    setTurns(current => mergeLabVoiceTurn(current, {
       id: message.id || nextId(),
       role: message.role === 'assistant' ? 'assistant' : 'user',
       content,
       source: 'voice',
-    }])
+    }))
   }, [])
 
   // Same hook as App.tsx + AudioStrip. Lab supplies its own instructions
@@ -133,7 +135,8 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const sendTyped = useCallback(async (content: string) => {
     const text = content.trim()
-    if (!text) return
+    if (!text || sendingRef.current) return
+    sendingRef.current = true
 
     const userTurn: LabAskTurn = {
       id: nextId(),
@@ -150,6 +153,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       readSession: readSupabaseAccessToken,
     })
     if (!authToken) {
+      sendingRef.current = false
       setNotice(LAB_COPY.signInAsk)
       return
     }
@@ -204,6 +208,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       setNotice(LAB_COPY.askUnavailable)
     } finally {
       setTypedLoading(false)
+      sendingRef.current = false
     }
   }, [instructions, options.authToken, sessionToken, turns])
 

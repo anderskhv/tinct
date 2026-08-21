@@ -10,6 +10,16 @@ export interface LabAskTurn {
   source: 'typed' | 'voice'
 }
 
+/** Voice restates replace the last same-role turn. Exact dupes are skipped. */
+export function mergeLabVoiceTurn(turns: LabAskTurn[], incoming: LabAskTurn): LabAskTurn[] {
+  const last = turns[turns.length - 1]
+  if (last && last.role === incoming.role) {
+    if (last.content === incoming.content) return turns
+    return [...turns.slice(0, -1), { ...last, content: incoming.content, source: incoming.source }]
+  }
+  return [...turns, incoming]
+}
+
 export interface LabAskContext {
   bookTitle: string
   bookAuthor: string

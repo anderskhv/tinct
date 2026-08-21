@@ -152,8 +152,11 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*height:\s*calc\(100vh - 5\.5rem\)/)
     expect(css).toMatch(/\.lab-ask\.is-empty\s*,\s*\.lab-ask\.has-thread\s*\{[^}]*justify-content:\s*flex-end/)
     expect(css).not.toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
-    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*position:\s*fixed/)
+    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*position:\s*absolute/)
+    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*inset:\s*0/)
+    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*background:\s*#ece7db/)
     expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{[^}]*z-index:\s*25/)
+    expect(css).toMatch(/\.lab\.is-phone\s+\.lab-body\s*\{[^}]*position:\s*relative/)
     expect(css).toMatch(/\.lab-phone-bar\s*\{[^}]*z-index:\s*26/)
     expect(css).toMatch(/\.lab-phone-notice\s*\{[^}]*background:\s*#ece7db/)
     expect(css).toMatch(/\.lab\.is-phone\.has-notice\s+\.lab-book\s*,\s*\.lab\.is-phone\.has-phone-ask\s+\.lab-book\s*\{[^}]*padding-bottom:\s*16rem/)
@@ -206,7 +209,19 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
     expect(screen.queryByRole('log')).toBeNull()
-    expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
+    expect(screen.queryByTestId('lab-book')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing')).toBeNull()
+    expect(screen.getByTestId('lab-body').contains(screen.getByTestId('lab-ask-pane'))).toBe(true)
+  })
+
+  it('closes the phone Ask sheet when In the book opens', () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-phone-ask'))
+    expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-in-the-book'))
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.getByTestId('lab-in-the-book-panel')).toBeTruthy()
+    expect(screen.getByTestId('lab-book')).toBeTruthy()
   })
 
   it('pauses Hear when the phone Ask sheet opens and resumes when Done closes it', async () => {
@@ -229,6 +244,8 @@ describe('lab chrome', () => {
     expect(audio.paused).toBe(true)
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.queryByTestId('lab-hearing')).toBeNull()
+    expect(screen.queryByTestId('lab-book')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
 
     fireEvent.click(screen.getByTestId('lab-phone-ask'))

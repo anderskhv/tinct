@@ -661,6 +661,7 @@
 }
 
 .lab.is-phone .lab-body {
+  position: relative;
   flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
@@ -694,22 +695,21 @@
 }
 
 .lab.is-phone .lab-ask {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: calc(4.6rem + env(safe-area-inset-bottom));
+  position: absolute;
+  inset: 0;
   width: auto;
   flex: none;
   height: auto;
-  max-height: min(70dvh, 28rem);
+  max-height: none;
   border-left: 0;
-  border-top: 1px solid #d4cdc0;
+  border-top: 0;
+  background: #ece7db;
   z-index: 25;
   padding: 0.9rem 1.1rem 1rem;
 }
 
 .lab.is-phone .lab-ask.has-thread {
-  height: min(70dvh, 28rem);
+  height: auto;
 }
 
 .lab.is-phone .lab-book.is-compare .lab-book-columns {

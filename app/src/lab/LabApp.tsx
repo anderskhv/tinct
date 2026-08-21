@@ -144,8 +144,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const isOnline = readOnline(online)
   const voiceOverlayOpen = isPhone && chrome === 'talking'
-  const showHearing = chrome === 'hearing' && !peekBook
-  const showBook = chrome !== 'hearing' || peekBook
+  const phoneAsk = isPhone && phoneAskOpen && chrome !== 'talking'
+  const showHearing = chrome === 'hearing' && !peekBook && !phoneAsk
+  const showBook = (chrome !== 'hearing' || peekBook) && !phoneAsk
 
   const leaveTalking = useCallback(() => {
     ask.stopVoice()
@@ -250,13 +251,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [book.paragraphs])
 
   const handleInTheBook = useCallback(() => {
+    if (phoneAskOpen) closePhoneAsk()
     if (chrome === 'hearing') {
       setPeekBook(open => !open)
       setInTheBookOpen(false)
       return
     }
     setInTheBookOpen(open => !open)
-  }, [chrome])
+  }, [chrome, closePhoneAsk, phoneAskOpen])
 
   return (
     <div
@@ -319,7 +321,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         </p>
       </header>
 
-      <div className="lab-body">
+      <div className="lab-body" data-testid="lab-body">
         <div className="lab-page-wrap">
           {showHearing && (
             <LabHearingStage
@@ -371,22 +373,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             notice={ask.notice}
           />
         )}
+        {phoneAsk && (
+          <LabAskPane
+            conversationState={ask.conversationState}
+            voiceActive={ask.voiceActive}
+            typedLoading={ask.typedLoading}
+            turns={ask.turns}
+            draft={draft}
+            onDraftChange={setDraft}
+            onSubmit={handleAsk}
+            onMic={handleMic}
+            onVoiceMode={handleVoiceMode}
+            notice={ask.notice}
+          />
+        )}
       </div>
-
-      {isPhone && phoneAskOpen && chrome !== 'talking' && (
-        <LabAskPane
-          conversationState={ask.conversationState}
-          voiceActive={ask.voiceActive}
-          typedLoading={ask.typedLoading}
-          turns={ask.turns}
-          draft={draft}
-          onDraftChange={setDraft}
-          onSubmit={handleAsk}
-          onMic={handleMic}
-          onVoiceMode={handleVoiceMode}
-          notice={ask.notice}
-        />
-      )}
 
       {isPhone && chrome !== 'talking' && (
         <footer className="lab-phone-bar" data-testid="lab-phone-bar">
