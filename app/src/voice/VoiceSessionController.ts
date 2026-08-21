@@ -1,8 +1,9 @@
 import { apiUrl } from '../utils/apiUrl'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
 import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
+import { voicePhaseFrom } from './phase'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext } from './types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceMachineSnapshot, VoiceModeState, VoicePhase, VoiceReaderContext, VoiceSessionMode } from './types'
 import { CONVERSATION_IDLE_TIMEOUT_MS, MAX_VOICE_SESSION_MS, RESUME_GRACE_MS, VOICE_CLOSE_LINE } from './types'
 import {
   INITIAL_VOICE_TURN,
@@ -29,6 +30,7 @@ export interface VoiceSessionCallbacks {
 export interface VoiceUiSnapshot {
   state: VoiceModeState
   mode: VoiceMachineSnapshot['mode']
+  phase: VoicePhase
   resumeInSeconds: number | null
   error: string | null
   isActive: boolean
@@ -40,17 +42,20 @@ export interface StartVoiceSessionInput {
   context: VoiceReaderContext
   audio: VoiceAudioEngine
   wasPlaying: boolean
+  mode?: VoiceSessionMode
 }
 
 type RealtimeEvent = VoiceRealtimeEvent
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
+  turn: VoiceTurnState,
   extra: { resumeInSeconds?: number | null; error?: string | null } = {},
 ): VoiceUiSnapshot {
   return {
     state: machine.state,
     mode: machine.mode,
+    phase: voicePhaseFrom(machine, turn),
     resumeInSeconds: extra.resumeInSeconds ?? null,
     error: extra.error ?? null,
     isActive: isVoiceSessionActive(machine.state),
@@ -101,7 +106,7 @@ export class VoiceSessionController {
   }
 
   getSnapshot(): VoiceUiSnapshot {
-    return snapshotFrom(this.machine, {
+    return snapshotFrom(this.machine, this.turn, {
       resumeInSeconds: this.currentResumeSeconds(),
     })
   }
@@ -166,7 +171,7 @@ export class VoiceSessionController {
         this.restoreBook({ speakClose: false })
         return
       }
-      this.dispatch({ type: 'START' })
+      this.dispatch({ type: 'START', mode: input.mode })
       this.armSessionTimeout()
     } catch (error) {
       const message = error instanceof DOMException && error.name === 'NotAllowedError'
@@ -214,7 +219,7 @@ export class VoiceSessionController {
   }
 
   private emit(error: string | null = null): void {
-    this.callbacks.onSnapshot(snapshotFrom(this.machine, {
+    this.callbacks.onSnapshot(snapshotFrom(this.machine, this.turn, {
       resumeInSeconds: this.currentResumeSeconds(),
       error,
     }))

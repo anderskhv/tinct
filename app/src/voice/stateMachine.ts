@@ -43,7 +43,7 @@ export function reduceVoiceSession(
   switch (event.type) {
     case 'START':
       if (snapshot.state !== 'reading') return snapshot
-      return { state: 'listening', mode: 'quick' }
+      return { state: 'listening', mode: event.mode === 'conversation' ? 'conversation' : 'quick' }
 
     case 'FAIL':
     case 'STOP':

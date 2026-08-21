@@ -8,6 +8,19 @@ function play(events: Parameters<typeof reduceVoiceSession>[1][]) {
 }
 
 describe('voice session state machine', () => {
+  it('can start already in conversation mode so a pause does not resume the book', () => {
+    const listening = play([{ type: 'START', mode: 'conversation' }])
+    expect(listening).toEqual({ state: 'listening', mode: 'conversation' })
+
+    const afterAnswer = play([
+      { type: 'START', mode: 'conversation' },
+      { type: 'ASSISTANT_SPEECH_START' },
+      { type: 'ASSISTANT_SPEECH_END' },
+    ])
+    expect(afterAnswer).toEqual({ state: 'conversation_idle', mode: 'conversation' })
+    expect(reduceVoiceSession(afterAnswer, { type: 'RESUME_WINDOW_ELAPSED' }).state).toBe('conversation_idle')
+  })
+
   it('follows the Quick Questions default path', () => {
     const snapshot = play([
       { type: 'START' },

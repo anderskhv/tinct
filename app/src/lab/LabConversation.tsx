@@ -1,6 +1,7 @@
 import { LAB_COPY } from './labCopy'
+import type { LabConversationState } from './labAsk'
 
-export type ConversationState = 'idle' | 'listening' | 'thinking' | 'speaking'
+export type ConversationState = LabConversationState
 
 interface LabOrbProps {
   state: ConversationState
@@ -15,7 +16,7 @@ export function LabOrb({ state, onActivate, label }: LabOrbProps) {
       ? LAB_COPY.thinking
       : state === 'speaking'
         ? LAB_COPY.speaking
-        : LAB_COPY.readyToAsk
+        : null
 
   return (
     <div className={`lab-orb-wrap lab-orb-${state}`}>
@@ -23,11 +24,12 @@ export function LabOrb({ state, onActivate, label }: LabOrbProps) {
         type="button"
         className="lab-orb"
         onClick={onActivate}
-        aria-label={label || status}
+        aria-label={label || status || LAB_COPY.conversationHint}
+        data-testid="lab-orb"
       >
         <span className="lab-orb-core" />
       </button>
-      <p className="lab-orb-status">{status}</p>
+      {status && <p className="lab-orb-status">{status}</p>}
     </div>
   )
 }
@@ -36,9 +38,15 @@ interface LabConversationOverlayProps {
   state: ConversationState
   onLeave: () => void
   onActivate: () => void
+  notice?: string | null
 }
 
-export function LabConversationOverlay({ state, onLeave, onActivate }: LabConversationOverlayProps) {
+export function LabConversationOverlay({
+  state,
+  onLeave,
+  onActivate,
+  notice,
+}: LabConversationOverlayProps) {
   return (
     <div className="lab-conversation" data-testid="lab-conversation">
       <button
@@ -51,6 +59,9 @@ export function LabConversationOverlay({ state, onLeave, onActivate }: LabConver
       </button>
       <p className="lab-conversation-hint">{LAB_COPY.conversationHint}</p>
       <LabOrb state={state} onActivate={onActivate} />
+      {notice && (
+        <p className="lab-ask-notice" data-testid="lab-voice-notice">{notice}</p>
+      )}
     </div>
   )
 }

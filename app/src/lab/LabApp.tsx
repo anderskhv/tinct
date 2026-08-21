@@ -5,9 +5,10 @@ import { followAtTime, type FollowTarget } from './labFollow'
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabBookPage } from './LabBookPage'
-import { LabConversationOverlay, type ConversationState } from './LabConversation'
+import { LabConversationOverlay } from './LabConversation'
 import { LabInTheBook } from './LabInTheBook'
 import { fallbackLabSource, loadLabSource, type LabMark, type LabSource } from './labSource'
+import { useLabAsk } from './useLabAsk'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -16,6 +17,7 @@ export interface LabAppProps {
   pathname?: string
   online?: boolean
   source?: LabSource
+  authToken?: string | null
 }
 
 function readOnline(override?: boolean): boolean {
@@ -24,7 +26,7 @@ function readOnline(override?: boolean): boolean {
   return navigator.onLine
 }
 
-export function LabApp({ pathname, online, source }: LabAppProps) {
+export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
   const [isPhone, setIsPhone] = useState(() => {
@@ -39,14 +41,21 @@ export function LabApp({ pathname, online, source }: LabAppProps) {
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [mode, setMode] = useState<'reading' | 'listening' | 'conversation'>('reading')
   const [returnTo, setReturnTo] = useState<'reading' | 'listening'>('reading')
-  const [conversationState, setConversationState] = useState<ConversationState>('idle')
+  const [desktopVoiceOpen, setDesktopVoiceOpen] = useState(false)
   const [draft, setDraft] = useState('')
-  const [notice, setNotice] = useState<string | null>(null)
   const [elapsed, setElapsed] = useState(0)
   const clockRef = useRef<number | null>(null)
   const startedAtRef = useRef(0)
   const elapsedRef = useRef(0)
-  const conversationTimerRef = useRef<number | null>(null)
+
+  const ask = useLabAsk({
+    bookTitle: book.bookTitle,
+    bookAuthor: book.bookAuthor,
+    chapterLabel: book.chapterLabel,
+    paragraphs: book.paragraphs,
+    paragraphIndex: focusParagraph ?? 0,
+    authToken,
+  })
 
   useEffect(() => {
     document.title = LAB_COPY.documentTitle
@@ -105,12 +114,21 @@ export function LabApp({ pathname, online, source }: LabAppProps) {
 
   useEffect(() => () => {
     stopClock()
-    if (conversationTimerRef.current != null) window.clearTimeout(conversationTimerRef.current)
   }, [stopClock])
 
+  useEffect(() => {
+    if (ask.voiceActive) {
+      stopClock()
+      return
+    }
+    if (mode === 'listening' && clockRef.current == null) {
+      startClock(elapsedRef.current)
+    }
+  }, [ask.voiceActive, mode, startClock, stopClock])
+
   const followEnabled = !isPhone
-    ? mode === 'listening'
-    : mode === 'listening' || (mode === 'reading' && returnTo === 'listening')
+    ? mode === 'listening' && !ask.voiceActive
+    : (mode === 'listening' && !ask.voiceActive) || (mode === 'reading' && returnTo === 'listening')
 
   const follow: FollowTarget = useMemo(() => {
     if (!followEnabled) return { kind: 'none' }
@@ -119,22 +137,21 @@ export function LabApp({ pathname, online, source }: LabAppProps) {
 
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const isOnline = readOnline(online)
+  const voiceOverlayOpen = isPhone ? mode === 'conversation' : desktopVoiceOpen
 
   const openConversation = useCallback((from: 'reading' | 'listening') => {
     setReturnTo(from)
     if (from === 'listening') stopClock()
     setMode('conversation')
-    setConversationState('idle')
     setInTheBookOpen(false)
-    setNotice(null)
   }, [stopClock])
 
   const leaveConversation = useCallback(() => {
+    ask.stopVoice()
+    setDesktopVoiceOpen(false)
     setMode(returnTo)
-    setConversationState('idle')
-    setNotice(null)
     if (returnTo === 'listening') startClock(elapsedRef.current)
-  }, [returnTo, startClock])
+  }, [ask, returnTo, startClock])
 
   const startListening = useCallback(() => {
     setReturnTo('listening')
@@ -142,46 +159,45 @@ export function LabApp({ pathname, online, source }: LabAppProps) {
     startClock(0)
   }, [startClock])
 
-  const runConversationDemo = useCallback(() => {
-    if (conversationTimerRef.current != null) window.clearTimeout(conversationTimerRef.current)
-    setConversationState('listening')
-    conversationTimerRef.current = window.setTimeout(() => {
-      setConversationState('thinking')
-      conversationTimerRef.current = window.setTimeout(() => {
-        setConversationState('speaking')
-        conversationTimerRef.current = window.setTimeout(() => {
-          setConversationState('idle')
-        }, 1600)
-      }, 900)
-    }, 1200)
-  }, [])
-
   const handleMic = useCallback(() => {
     if (isPhone && mode !== 'conversation') {
       openConversation(mode === 'listening' ? 'listening' : 'reading')
     }
-    runConversationDemo()
-    if (typeof navigator !== 'undefined' && navigator.mediaDevices?.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ audio: true }).catch(() => {
-        setNotice('The microphone is unavailable here. The orb still shows the conversation.')
-      })
+    void ask.toggleInChatVoice()
+  }, [ask, isPhone, mode, openConversation])
+
+  const handleVoiceMode = useCallback(async () => {
+    if (isPhone) {
+      openConversation(mode === 'listening' ? 'listening' : 'reading')
+      const started = await ask.startVoice()
+      if (!started) return
+      return
     }
-  }, [isPhone, mode, openConversation, runConversationDemo])
+    const started = ask.voiceActive || await ask.startVoice()
+    if (started) setDesktopVoiceOpen(true)
+    else setDesktopVoiceOpen(false)
+  }, [ask, isPhone, mode, openConversation])
+
+  const handleOrb = useCallback(() => {
+    if (ask.voiceActive) return
+    void ask.startVoice()
+  }, [ask])
 
   const handleAsk = useCallback((value: string) => {
     setDraft('')
-    setNotice(LAB_COPY.typedReply)
-    if (isPhone) openConversation(mode === 'listening' ? 'listening' : 'reading')
-    runConversationDemo()
-    void value
-  }, [isPhone, mode, openConversation, runConversationDemo])
+    void ask.sendTyped(value)
+  }, [ask])
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
-    setDraft(question)
     setInTheBookOpen(false)
-    handleAsk(question)
-  }, [handleAsk])
+    if (isPhone) {
+      openConversation(mode === 'listening' ? 'listening' : 'reading')
+      return
+    }
+    setDraft('')
+    void ask.sendTyped(question)
+  }, [ask, isPhone, mode, openConversation])
 
   const handleMark = useCallback((index: number) => {
     setMarks((current) => {
@@ -257,17 +273,21 @@ export function LabApp({ pathname, online, source }: LabAppProps) {
             markedIndexes={markedIndexes}
             onMark={handleMark}
             focusParagraph={focusParagraph}
-            dimmed={isPhone && mode === 'conversation'}
+            dimmed={voiceOverlayOpen}
           />
         </div>
         {!isPhone && (
           <LabAskPane
-            conversationState={conversationState}
+            conversationState={ask.conversationState}
+            voiceActive={ask.voiceActive}
+            typedLoading={ask.typedLoading}
+            turns={ask.turns}
             draft={draft}
             onDraftChange={setDraft}
             onSubmit={handleAsk}
             onMic={handleMic}
-            notice={notice}
+            onVoiceMode={() => { void handleVoiceMode() }}
+            notice={ask.notice}
           />
         )}
       </div>
@@ -288,11 +308,12 @@ export function LabApp({ pathname, online, source }: LabAppProps) {
         </footer>
       )}
 
-      {isPhone && mode === 'conversation' && (
+      {voiceOverlayOpen && (
         <LabConversationOverlay
-          state={conversationState}
+          state={ask.conversationState}
+          notice={ask.notice}
           onLeave={leaveConversation}
-          onActivate={handleMic}
+          onActivate={handleOrb}
         />
       )}
 
