@@ -1,10 +1,17 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { LAB_COPY } from './labCopy'
-import { LAB_DESKTOP_PANES } from './labChrome'
+import {
+  LAB_DESKTOP_PANES,
+  labAfterTalk,
+  labStatusLine,
+  type LabChromeState,
+  type LabReturnTo,
+} from './labChrome'
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabBookPage } from './LabBookPage'
 import { LabConversationOverlay } from './LabConversation'
+import { LabHearingStage } from './LabHearingStage'
 import { LabInTheBook } from './LabInTheBook'
 import { fallbackLabSource, loadLabSource, type LabMark, type LabSource } from './labSource'
 import { useLabAsk } from './useLabAsk'
@@ -37,10 +44,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [book, setBook] = useState<LabSource>(source ?? fallbackLabSource())
   const [compare, setCompare] = useState(false)
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
+  const [peekBook, setPeekBook] = useState(false)
   const [marks, setMarks] = useState<LabMark[]>([])
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
-  const [mode, setMode] = useState<'reading' | 'listening' | 'conversation'>('reading')
-  const [returnTo, setReturnTo] = useState<'reading' | 'listening'>('reading')
+  const [chrome, setChrome] = useState<LabChromeState>('reading')
+  const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
 
   const ask = useLabAsk({
@@ -99,50 +107,85 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (ask.voiceActive) listen.pause()
   }, [ask.voiceActive, listen.pause])
 
-  const followEnabled = listen.playing && !ask.voiceActive
-  const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
-  const isOnline = readOnline(online)
-  const voiceOverlayOpen = isPhone && mode === 'conversation'
-
-  const leaveConversation = useCallback(() => {
-    ask.stopVoice()
-    setMode(returnTo)
-    if (returnTo === 'listening') listen.resume()
-  }, [ask, listen, returnTo])
-
-  const startListening = useCallback(() => {
-    setReturnTo('listening')
-    if (mode === 'listening' && listen.playing) {
-      listen.pause()
+  const talkingRef = useRef(false)
+  useEffect(() => {
+    const wasTalking = talkingRef.current
+    talkingRef.current = ask.voiceActive
+    if (ask.voiceActive) {
+      setChrome('talking')
+      setPeekBook(false)
       return
     }
-    setMode('listening')
+    setChrome(current => (current === 'talking' ? labAfterTalk(returnTo) : current))
+    if (wasTalking && returnTo === 'hearing') listen.resume()
+  }, [ask.voiceActive, listen.resume, returnTo])
+
+  const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
+  const isOnline = readOnline(online)
+  const voiceOverlayOpen = isPhone && chrome === 'talking'
+  const showHearing = chrome === 'hearing' && !peekBook
+  const showBook = chrome !== 'hearing' || peekBook
+
+  const leaveTalking = useCallback(() => {
+    ask.stopVoice()
+    const next = labAfterTalk(returnTo)
+    setChrome(next)
+    setPeekBook(false)
+    if (next === 'hearing') listen.resume()
+  }, [ask, listen, returnTo])
+
+  const startHearing = useCallback(() => {
+    if (chrome === 'talking') return
+    if (chrome === 'hearing') {
+      listen.pause()
+      setChrome('reading')
+      setReturnTo('reading')
+      setPeekBook(false)
+      return
+    }
+    setReturnTo('hearing')
+    setChrome('hearing')
+    setPeekBook(false)
+    setInTheBookOpen(false)
     if (listen.src) listen.resume()
     else void listen.start()
-  }, [listen, mode])
+  }, [chrome, listen])
 
   const handleMic = useCallback(() => {
+    if (ask.voiceActive) {
+      void ask.toggleInChatVoice()
+      return
+    }
+    setReturnTo(chrome === 'hearing' ? 'hearing' : 'reading')
+    if (chrome === 'hearing') listen.pause()
     void ask.toggleInChatVoice()
-  }, [ask])
+  }, [ask, chrome, listen])
 
   const handleVoiceMode = useCallback(() => {
+    if (chrome === 'hearing') setReturnTo('hearing')
+    else setReturnTo('reading')
+    if (chrome === 'hearing') listen.pause()
     void ask.startVoice()
-  }, [ask])
+  }, [ask, chrome, listen])
 
   const handlePhoneAsk = useCallback(async () => {
-    const from = mode === 'listening' ? 'listening' : 'reading'
+    const from: LabReturnTo = chrome === 'hearing' ? 'hearing' : 'reading'
     setReturnTo(from)
-    if (from === 'listening') listen.pause()
+    if (from === 'hearing') listen.pause()
     const started = ask.voiceActive || await ask.startVoice()
     if (!started) return
-    setMode('conversation')
+    setChrome('talking')
     setInTheBookOpen(false)
-  }, [ask, listen, mode])
+    setPeekBook(false)
+  }, [ask, chrome, listen])
 
   const handleOrb = useCallback(() => {
-    if (ask.voiceActive) return
+    if (ask.voiceActive) {
+      leaveTalking()
+      return
+    }
     void ask.startVoice()
-  }, [ask])
+  }, [ask, leaveTalking])
 
   const handleAsk = useCallback((value: string) => {
     setDraft('')
@@ -172,11 +215,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     })
   }, [book.paragraphs])
 
+  const handleInTheBook = useCallback(() => {
+    if (chrome === 'hearing') {
+      setPeekBook(open => !open)
+      setInTheBookOpen(false)
+      return
+    }
+    setInTheBookOpen(open => !open)
+  }, [chrome])
+
   return (
     <div
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}`}
       data-testid="lab-root"
       data-lab-layout={isPhone ? 'phone' : 'desktop'}
+      data-chrome-state={chrome}
     >
       <header className="lab-header">
         <div className="lab-header-brand">
@@ -186,9 +239,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         </div>
         <div className="lab-header-controls">
           <LabInTheBook
-            open={inTheBookOpen}
-            onToggle={() => setInTheBookOpen(open => !open)}
-            onClose={() => setInTheBookOpen(false)}
+            open={chrome === 'hearing' ? peekBook : inTheBookOpen}
+            onToggle={handleInTheBook}
+            onClose={() => {
+              setInTheBookOpen(false)
+              setPeekBook(false)
+            }}
             paragraphs={book.paragraphs}
             chapters={book.chapters}
             currentChapter={1}
@@ -197,15 +253,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             online={isOnline}
             onAskAbout={handleAskAbout}
             onJumpParagraph={setFocusParagraph}
+            panel={chrome !== 'hearing'}
           />
           {!isPhone && (
             <button
               type="button"
-              className={`lab-header-btn ${mode === 'listening' ? 'is-open' : ''}`}
-              onClick={startListening}
+              className={`lab-header-btn ${chrome === 'hearing' ? 'is-open' : ''}`}
+              onClick={startHearing}
               data-testid="lab-listen"
             >
-              {LAB_COPY.listen}
+              {LAB_COPY.hear}
             </button>
           )}
           <button
@@ -218,24 +275,48 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             {LAB_COPY.compare}
           </button>
         </div>
+        <p className="lab-status" data-testid="lab-status">
+          {labStatusLine(chrome, book.chapterLabel)}
+        </p>
       </header>
 
       <div className="lab-body">
         <div className="lab-page-wrap">
-          <LabBookPage
-            chapterTitle={book.chapterTitle}
-            editionLabel={book.editionLabel}
-            paragraphs={book.paragraphs}
-            compareParagraphs={book.compareParagraphs}
-            compare={compare}
-            follow={followEnabled ? listen.follow : { kind: 'none' }}
-            followEnabled={followEnabled}
-            followParagraphs={listen.followParagraphs}
-            markedIndexes={markedIndexes}
-            onMark={handleMark}
-            focusParagraph={focusParagraph}
-            dimmed={voiceOverlayOpen}
-          />
+          {showHearing && (
+            <LabHearingStage
+              paragraphs={listen.followParagraphs}
+              clips={listen.clips}
+              follow={listen.follow}
+              playing={listen.playing}
+              clipIndex={listen.clipIndex}
+              currentTime={listen.currentTime}
+              speed={listen.speed}
+              onTogglePlay={() => {
+                if (listen.playing) listen.pause()
+                else if (listen.src) listen.resume()
+                else void listen.start()
+              }}
+              onSeek={listen.seek}
+              onCycleSpeed={listen.cycleSpeed}
+            />
+          )}
+          {showBook && (
+            <LabBookPage
+              chapterTitle={book.chapterTitle}
+              editionLabel={book.editionLabel}
+              paragraphs={book.paragraphs}
+              compareParagraphs={book.compareParagraphs}
+              compare={compare}
+              follow={{ kind: 'none' }}
+              followEnabled={false}
+              followParagraphs={listen.followParagraphs}
+              markedIndexes={markedIndexes}
+              onMark={handleMark}
+              focusParagraph={focusParagraph}
+              dimmed={voiceOverlayOpen}
+              peek={chrome === 'hearing' && peekBook}
+            />
+          )}
         </div>
         {!isPhone && (
           <LabAskPane
@@ -253,10 +334,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         )}
       </div>
 
-      {isPhone && mode !== 'conversation' && (
+      {isPhone && chrome !== 'talking' && (
         <footer className="lab-phone-bar">
-          <button type="button" className="lab-text-btn" onClick={startListening}>
-            {LAB_COPY.listen}
+          <button type="button" className="lab-text-btn" onClick={startHearing} data-testid="lab-listen">
+            {LAB_COPY.hear}
           </button>
           <button
             type="button"
@@ -269,7 +350,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         </footer>
       )}
 
-      {isPhone && ask.notice && mode !== 'conversation' && (
+      {isPhone && ask.notice && chrome !== 'talking' && (
         <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
       )}
 
@@ -277,7 +358,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         <LabConversationOverlay
           state={ask.conversationState}
           notice={ask.notice}
-          onLeave={leaveConversation}
+          onLeave={leaveTalking}
           onActivate={handleOrb}
         />
       )}

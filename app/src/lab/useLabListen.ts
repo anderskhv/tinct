@@ -8,6 +8,7 @@ import {
   labAudioSidecarUrl,
   type LabAudioClip,
 } from './labListen'
+import { nextHearingSpeed, seekAcrossClips } from './labHearing'
 import {
   followParagraphFromManifest,
   mergeSidecarWords,
@@ -34,7 +35,10 @@ export function useLabListen(options: UseLabListenOptions) {
   const [follow, setFollow] = useState<FollowTarget>({ kind: 'none' })
   const [src, setSrc] = useState<string | null>(null)
   const [clipIndex, setClipIndex] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [speed, setSpeed] = useState(1)
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
+  const [clips, setClips] = useState<LabAudioClip[]>([])
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
@@ -49,9 +53,14 @@ export function useLabListen(options: UseLabListenOptions) {
     paragraphsRef.current = options.followParagraphs
   }, [options.followParagraphs])
 
-  const syncFollow = useCallback((index: number, currentTime: number) => {
+  const applyRate = useCallback((audio: HTMLAudioElement, rate: number) => {
+    try { audio.playbackRate = rate } catch { /* jsdom */ }
+  }, [])
+
+  const syncFollow = useCallback((index: number, time: number) => {
     const clip = clipsRef.current[index]
-    setFollow(followPlayingClip(paragraphsRef.current, clip, currentTime))
+    setCurrentTime(time)
+    setFollow(followPlayingClip(paragraphsRef.current, clip, time))
   }, [])
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
@@ -124,21 +133,24 @@ export function useLabListen(options: UseLabListenOptions) {
       }
     }
     audio.addEventListener('loadedmetadata', start, { once: true })
+    applyRate(audio, speed)
     syncFollow(index, offsetSeconds)
     audio.play().then(() => {
+      applyRate(audio, speed)
       setPlaying(true)
       syncFollow(index, audio.currentTime || offsetSeconds)
     }).catch(() => {
       setPlaying(false)
     })
     return true
-  }, [ensureAudio, syncFollow])
+  }, [applyRate, ensureAudio, speed, syncFollow])
   playClipRef.current = playClip
 
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
     if (fromSource.length > 0) {
       clipsRef.current = fromSource
+      setClips(fromSource)
       paragraphsRef.current = optionsRef.current.followParagraphs
       setFollowParagraphs(optionsRef.current.followParagraphs)
       return fromSource
@@ -168,6 +180,7 @@ export function useLabListen(options: UseLabListenOptions) {
         return words ? { ...clip, words } : clip
       })
     clipsRef.current = clips
+    setClips(clips)
     return clips
   }, [])
 
@@ -188,13 +201,15 @@ export function useLabListen(options: UseLabListenOptions) {
       void start()
       return
     }
+    applyRate(audio, speed)
     audio.play().then(() => {
+      applyRate(audio, speed)
       setPlaying(true)
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }).catch(() => {
       setPlaying(false)
     })
-  }, [start, syncFollow])
+  }, [applyRate, speed, start, syncFollow])
 
   const stop = useCallback(() => {
     const audio = audioRef.current
@@ -204,20 +219,56 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     clipIndexRef.current = 0
     setClipIndex(0)
+    setCurrentTime(0)
     setPlaying(false)
     setFollow({ kind: 'none' })
     setSrc(null)
   }, [])
 
+  const seek = useCallback((deltaSeconds: number) => {
+    const audio = ensureAudio()
+    const point = seekAcrossClips({
+      clips: clipsRef.current,
+      clipIndex: clipIndexRef.current,
+      currentTime: audio.currentTime || currentTime,
+      deltaSeconds,
+      knownDuration: Number.isFinite(audio.duration) ? audio.duration : undefined,
+    })
+    const sameClip = point.clipIndex === clipIndexRef.current && audio.src
+    if (sameClip) {
+      try { audio.currentTime = point.offsetSeconds } catch { /* ignore */ }
+      syncFollow(point.clipIndex, point.offsetSeconds)
+      return
+    }
+    playClip(point.clipIndex, point.offsetSeconds)
+    if (!playing) {
+      audio.pause()
+      setPlaying(false)
+    }
+  }, [currentTime, ensureAudio, playClip, playing, syncFollow])
+
+  const cycleSpeed = useCallback(() => {
+    setSpeed((current) => {
+      const next = nextHearingSpeed(current)
+      if (audioRef.current) applyRate(audioRef.current, next)
+      return next
+    })
+  }, [applyRate])
+
   return {
     playing,
     follow,
     followParagraphs,
+    clips,
     src,
     clipIndex,
+    currentTime,
+    speed,
     start,
     pause,
     resume,
     stop,
+    seek,
+    cycleSpeed,
   }
 }

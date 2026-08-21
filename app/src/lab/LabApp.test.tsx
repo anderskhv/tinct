@@ -18,7 +18,7 @@ afterEach(() => {
 function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
-    duration: 2,
+    duration: 20,
     file: 'p0.mp3',
     words: [
       { text: 'Tell', start: 0, end: 0.5 },
@@ -35,15 +35,30 @@ function sourceWithWords() {
         index: index + 1,
         text,
         file: `p${index + 1}.mp3`,
-        duration: 2,
+        duration: 20,
       })),
     ],
+  }
+}
+
+function sourceWithFilesNoWords() {
+  const base = fallbackLabSource()
+  return {
+    ...base,
+    followParagraphs: base.paragraphs.map((text, index) => ({
+      index,
+      text,
+      file: `p${index}.mp3`,
+      duration: 20,
+    })),
   }
 }
 
 class FakeAudio {
   src = ''
   currentTime = 0
+  duration = 20
+  playbackRate = 1
   paused = true
   preload = 'auto'
   listeners = new Map<string, Set<() => void>>()
@@ -88,12 +103,13 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
     expect(screen.getByTestId('lab-desktop-panes').textContent).toBe('Ask')
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
-    expect(document.querySelector('.lab-ask-greeting')?.textContent).toBe('Ask about this page.')
+    expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-empty')
     expect(screen.queryByRole('heading', { name: 'Ask' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Microphone' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Ask' })).toBeNull()
     expect(screen.queryByText('Ready when you are.')).toBeNull()
+    expect(screen.queryByText('Ask anything')).toBeNull()
     expect(screen.queryByRole('button', { name: 'Chat' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Feed' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Cast' })).toBeNull()
@@ -101,9 +117,29 @@ describe('lab chrome', () => {
     expect(document.querySelector('.panel-tab')).toBeNull()
     expect(document.querySelector('.lab-orb')).toBeNull()
     expect(screen.getByTestId('lab-ask-voice')).toBeTruthy()
-    fireEvent.change(screen.getByPlaceholderText('Ask about this page.'), { target: { value: 'Who is Calypso?' } })
+    expect(screen.getByRole('button', { name: 'Hear' })).toBeTruthy()
+    fireEvent.change(screen.getByPlaceholderText('Ask'), { target: { value: 'Who is Calypso?' } })
     expect(screen.getByTestId('lab-ask-send')).toBeTruthy()
     expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
+  })
+
+  it('keeps the desktop Ask composer in the viewport at scrollTop 0', () => {
+    const long = {
+      ...fallbackLabSource(),
+      paragraphs: Array.from({ length: 80 }, (_, index) => (
+        `Paragraph ${index + 1}. ${'The Odyssey continues on this page. '.repeat(24)}`
+      )),
+    }
+    render(<LabApp pathname="/lab/desktop" source={long} />)
+    const composer = screen.getByTestId('lab-ask-composer')
+    const ask = screen.getByTestId('lab-ask-pane')
+    const page = document.querySelector('.lab-page-wrap')
+    expect(ask.contains(composer)).toBe(true)
+    expect(page?.contains(composer)).toBe(false)
+    expect(page?.contains(ask)).toBe(false)
+    expect(composer.offsetTop).toBeLessThan(200)
+    expect(composer.getBoundingClientRect().top).toBeLessThan(200)
+    expect(composer.getBoundingClientRect().top).toBeLessThan(1000)
   })
 
   it('locks the desktop Ask pane to the viewport instead of the chapter height', () => {
@@ -118,6 +154,10 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab-ask\s*\{[^}]*background:\s*#ece7db/)
     expect(css).toMatch(/\.lab-ask\s*\{[^}]*border-left:\s*1px solid #d4cdc0/)
     expect(css).toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#ece7db/)
+    expect(css).toMatch(/\.lab-status\s*\{[^}]*font-family:\s*'IBM Plex Mono'/)
+    expect(css).toMatch(/\.lab-hearing-word\.is-current\s*,?[^}]*background:\s*#d8cbb6/)
+    expect(css).not.toMatch(/Helvetica/)
+    expect(css).not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
     expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
     expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
 
@@ -125,7 +165,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-root').className).toContain('is-desktop')
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-empty')
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
-    expect(document.querySelector('.lab-ask-greeting')?.textContent).toBe('Ask about this page.')
+    expect(screen.getByPlaceholderText('Ask')).toBeTruthy()
   })
 
   it('keeps the phone orb away until a real voice session starts', async () => {
@@ -199,6 +239,61 @@ describe('lab chrome', () => {
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
   })
 
+  it('starts Hear from the live Odyssey Book 1 manifest onto a real audio element', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const liveManifest = {
+      chapter: 1,
+      title: 'Book 1',
+      paragraphs: [
+        { paragraph: -1, file: 'title.mp3', duration: 1.675, words: [] },
+        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [] },
+        { paragraph: 1, file: 'p1.mp3', duration: 37.226, words: [] },
+        { paragraph: 2, file: 'p2.mp3', duration: 26.975, words: [] },
+      ],
+    }
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('audio-manifest') && url.includes('odyssey') && url.includes('ch1')) {
+        return { ok: true, json: async () => liveManifest }
+      }
+      return { ok: false, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    expect(screen.getByTestId('lab-book')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
+    })
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/audio-manifest'))).toBe(true)
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('odyssey%2Foriginal-en%2Fch1%2Fp0.mp3')
+    expect(audio.src).toContain('/api/audio-file')
+    expect(audio.src).toContain('p0.mp3')
+    expect(audio.paused).toBe(false)
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.getByTestId('lab-hearing-stage')).toBeTruthy()
+    expect(screen.queryByTestId('lab-book')).toBeNull()
+    expect(document.querySelectorAll('.lab-p').length).toBe(0)
+    expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('Tell me, O Muse')
+    expect(screen.getByTestId('lab-hearing-progress')).toBeTruthy()
+
+    audio.currentTime = 10
+    act(() => { audio.emit('timeupdate') })
+    expect(screen.getByTestId('lab-hearing-progress').firstElementChild?.getAttribute('style') || '').toMatch(/width:\s*10\.06/)
+
+    fireEvent.click(screen.getByTestId('lab-hearing-forward'))
+    expect(audio.currentTime).toBe(25)
+    fireEvent.click(screen.getByTestId('lab-hearing-back'))
+    expect(audio.currentTime).toBe(10)
+    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    expect(audio.paused).toBe(true)
+  })
+
   it('plays real Odyssey paragraph MP3s and follows the playing word', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
@@ -213,11 +308,14 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('odyssey')
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('p0.mp3')
-    expect(document.querySelector('.lab-word-current')?.textContent).toContain('Tell')
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.queryByTestId('lab-book')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
 
     audio.currentTime = 1.2
     act(() => { audio.emit('timeupdate') })
-    expect(document.querySelector('.lab-word-current')?.textContent).toContain('O')
+    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('O')
   })
 
   it('keeps desktop conversation in the composer with an immediate living icon', async () => {
@@ -233,11 +331,20 @@ describe('lab chrome', () => {
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
 
     expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('connecting')
+    expect(screen.getByTestId('lab-status').textContent).toBe('Talking · tap the circle to stop')
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-connecting')
+    expect(screen.getByTestId('lab-ask-voice').textContent).toContain('Starting')
+    expect(screen.getByTestId('lab-ask-mic').className).not.toContain('is-connecting')
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
+    expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    expect(screen.queryByTestId('lab-hearing')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+    expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('idle')
+    expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
   })
 
   it('sends the numbered Book 1 chapter and a spoiler rule on typed Ask', async () => {
@@ -249,7 +356,7 @@ describe('lab chrome', () => {
     vi.stubGlobal('fetch', fetchMock)
     const source = fallbackLabSource()
     render(<LabApp pathname="/lab/desktop" source={source} authToken="signed-in" />)
-    fireEvent.change(screen.getByPlaceholderText('Ask about this page.'), {
+    fireEvent.change(screen.getByPlaceholderText('Ask'), {
       target: { value: 'Read the second paragraph of Book 1.' },
     })
     fireEvent.click(screen.getByTestId('lab-ask-send'))
@@ -260,5 +367,138 @@ describe('lab chrome', () => {
     expect(body.system).toContain('only have this chapter so far')
     expect(body.system).not.toContain('Speak for about 20')
     expect(body.system).not.toContain('resume_audiobook')
+  })
+
+  it('does not call getUserMedia until Talk starts', () => {
+    const getUserMedia = vi.fn()
+    vi.stubGlobal('navigator', {
+      ...navigator,
+      mediaDevices: { getUserMedia },
+    })
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="signed-in" />)
+    expect(getUserMedia).not.toHaveBeenCalled()
+    expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
+  })
+
+  it('keeps Hearing as a lyrics stage and peeks the page from In the book', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    })
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.queryByTestId('lab-book')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-transport')).toBeTruthy()
+    expect(screen.getByTestId('lab-hearing-progress')).toBeTruthy()
+
+    fireEvent.click(screen.getByTestId('lab-in-the-book'))
+    expect(screen.getByTestId('lab-book').className).toContain('is-peek')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    expect(screen.queryByTestId('lab-hearing')).toBeNull()
+  })
+
+  it('pauses Hear when Talk starts and returns to Hearing when Talk stops', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    vi.stubGlobal('navigator', {
+      ...navigator,
+      mediaDevices: {
+        getUserMedia: () => new Promise(() => { /* hang so connecting stays visible */ }),
+      },
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} authToken="signed-in" />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+    expect(screen.getByTestId('lab-status').textContent).toBe('Talking · tap the circle to stop')
+    expect(audio.paused).toBe(true)
+    expect(audio.currentTime).toBe(8)
+    expect(screen.getByTestId('lab-book')).toBeTruthy()
+    expect(screen.queryByTestId('lab-hearing')).toBeNull()
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    expect(screen.getByTestId('lab-book').className).not.toContain('is-dimmed')
+
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    expect(audio.currentTime).toBe(8)
+    expect(audio.paused).toBe(false)
+  })
+
+  it('marks the current Hearing line when word timings are missing', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithFilesNoWords()} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
+    })
+    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(document.querySelectorAll('.lab-p').length).toBe(0)
+    expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
+    expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('Tell me, O Muse')
+    expect(document.querySelector('.lab-word-current')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-progress')).toBeTruthy()
+
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
+    expect(screen.getByTestId('lab-hearing-progress').firstElementChild?.getAttribute('style')).toContain('13.333')
+
+    act(() => { audio.emit('ended') })
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:1')
+    })
+    expect(document.querySelector('.lab-hearing-word.is-line')?.textContent).toContain('So now all who escaped death')
+    expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
+  })
+
+  it('seeks the real audio element and only marks the living circle', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    vi.stubGlobal('navigator', {
+      ...navigator,
+      mediaDevices: {
+        getUserMedia: () => new Promise(() => { /* hang */ }),
+      },
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} authToken="signed-in" />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+
+    audio.currentTime = 8
+    act(() => { audio.emit('timeupdate') })
+    fireEvent.click(screen.getByTestId('lab-hearing-back'))
+    expect(audio.currentTime).toBe(0)
+    fireEvent.click(screen.getByTestId('lab-hearing-forward'))
+    expect(audio.currentTime).toBe(15)
+    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    expect(audio.paused).toBe(true)
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+    expect(screen.getByTestId('lab-ask-voice').className).toContain('is-connecting')
+    expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-connecting|is-listening|is-speaking/)
+    expect(screen.queryByTestId('lab-orb')).toBeNull()
   })
 })

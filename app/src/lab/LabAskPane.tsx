@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { LAB_DESKTOP_PANES } from './labChrome'
+import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
 
@@ -136,14 +136,14 @@ export function LabAskPane({
         />
         <button
           type="button"
-          className={`lab-ask-icon lab-ask-mic ${conversationState !== 'idle' ? `is-${conversationState}` : ''}`}
+          className="lab-ask-icon lab-ask-mic"
           onClick={onMic}
           aria-label={LAB_COPY.micLabel}
           data-testid="lab-ask-mic"
         >
           <MicIcon />
         </button>
-        {canSend ? (
+        {canSend && conversationState === 'idle' ? (
           <button
             type="submit"
             className="lab-ask-icon lab-ask-send"
@@ -155,12 +155,20 @@ export function LabAskPane({
         ) : (
           <button
             type="button"
-            className={`lab-ask-icon lab-ask-voice ${conversationState !== 'idle' ? `is-${conversationState}` : ''}`}
-            onClick={onVoiceMode}
-            aria-label={LAB_COPY.voiceModeLabel}
+            className={`lab-ask-icon lab-ask-voice ${conversationState !== 'idle' ? `is-${conversationState} is-alive` : ''}`}
+            onClick={conversationState === 'idle' ? onVoiceMode : onMic}
+            aria-label={conversationState === 'idle' ? LAB_COPY.voiceModeLabel : LAB_COPY.stopTalk}
             data-testid="lab-ask-voice"
+            data-voice-phase={conversationState}
           >
-            <VoiceIcon />
+            {conversationState === 'idle' ? (
+              <VoiceIcon />
+            ) : (
+              <>
+                <span className="lab-ask-voice-phase">{labVoicePhaseLabel(conversationState)}</span>
+                <span className="lab-ask-voice-x" aria-hidden="true">×</span>
+              </>
+            )}
           </button>
         )}
       </form>

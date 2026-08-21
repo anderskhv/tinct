@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import {
   clipsFromFollowParagraphs,
@@ -29,5 +31,13 @@ describe('lab odyssey audio paths', () => {
       { index: 0, text: 'Tell me', file: 'p0.mp3' },
       { index: 1, text: 'So now' },
     ]).map(clip => clip.file)).toEqual(['p0.mp3'])
+  })
+
+  it('follows playback from the audio element, not a Date.now clock', () => {
+    const listen = readFileSync(resolve(__dirname, 'useLabListen.ts'), 'utf8')
+    expect(listen).toContain("addEventListener('timeupdate'")
+    expect(listen).toContain('labAudioFileUrl')
+    expect(listen).not.toMatch(/Date\.now\(\)/)
+    expect(listen).not.toMatch(/setInterval/)
   })
 })
