@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { labConversationState, labVoiceContext } from './labAsk'
+import { VOICE_AGENT_POLICY } from '../voice/context'
+import {
+  buildLabConversationInstructions,
+  LAB_CONVERSATION_POLICY,
+  labConversationState,
+  numberedChapterParagraphs,
+} from './labAsk'
 
 describe('lab conversation state', () => {
   it('stays idle when the session failed', () => {
@@ -26,10 +32,16 @@ describe('lab conversation state', () => {
   })
 })
 
-describe('lab voice context', () => {
-  it('keeps nearby paragraphs tight', () => {
-    const paragraphs = Array.from({ length: 8 }, (_, index) => `Paragraph ${index + 1}`)
-    const context = labVoiceContext({
+describe('lab conversation brief', () => {
+  const paragraphs = [
+    'Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy.',
+    'So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him.',
+    'Now Neptune had gone off to the Ethiopians, who are at the world’s end, and lie in two halves, the one looking West and the other East.',
+    ...Array.from({ length: 5 }, (_, index) => `Later paragraph ${index + 4}`),
+  ]
+
+  it('sends the full numbered chapter so Book 1 paragraph 2 is in the payload', () => {
+    const instructions = buildLabConversationInstructions({
       bookTitle: 'The Odyssey',
       bookAuthor: 'Homer',
       chapterLabel: 'Book 1',
@@ -37,10 +49,31 @@ describe('lab voice context', () => {
       paragraphIndex: 0,
       readingAngle: 'homecoming',
     })
-    expect(context.bookTitle).toBe('The Odyssey')
-    expect(context.currentParagraph).toBe('Paragraph 1')
-    expect(context.nearbyParagraphs?.join(' ')).toContain('Paragraph 2')
-    expect(context.nearbyParagraphs?.join(' ')).not.toContain('Paragraph 8')
-    expect(context.readingAngle).toBe('homecoming')
+
+    expect(numberedChapterParagraphs(paragraphs)).toContain('2. So now all who escaped death')
+    expect(instructions).toContain('1. Tell me, O Muse')
+    expect(instructions).toContain('2. So now all who escaped death')
+    expect(instructions).toContain('8. Later paragraph 8')
+    expect(instructions).toContain('The reader is on paragraph 1 of 8')
+    expect(instructions).toContain('homecoming')
+  })
+
+  it('uses a desk conversation brief and a hard spoiler rule', () => {
+    const instructions = buildLabConversationInstructions({
+      bookTitle: 'The Odyssey',
+      bookAuthor: 'Homer',
+      chapterLabel: 'Book 1',
+      paragraphs,
+      paragraphIndex: 0,
+    })
+
+    expect(LAB_CONVERSATION_POLICY).toContain('conversation at the desk')
+    expect(instructions).toContain('only have this chapter so far')
+    expect(instructions).toContain('No ending')
+    expect(instructions).toContain('Do not ask them to paste it')
+    expect(instructions).toContain('Do not say you lack the book')
+    expect(instructions).not.toContain('return control to audiobook')
+    expect(instructions).not.toContain('20–30 seconds')
+    expect(instructions).not.toContain(VOICE_AGENT_POLICY)
   })
 })

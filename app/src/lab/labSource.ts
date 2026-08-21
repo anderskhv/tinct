@@ -1,7 +1,7 @@
 import { loadEdition } from '../data/editionLoader'
 import type { ThreadCharacter } from '../types'
-import { resolveAudioUrl } from '../utils/audioUrl'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
+import { labAudioManifestUrl, labAudioSidecarUrl, mergeFollowAudio, wordsByParagraphFromSidecar } from './labListen'
 import { LAB_COPY } from './labCopy'
 
 export interface LabCastMember {
@@ -78,21 +78,28 @@ function spoilerSafeCast(characters: ThreadCharacter[], chapterNumber: number): 
 }
 
 async function loadAudioFollow(paragraphs: string[]): Promise<FollowParagraph[]> {
+  const fallback = paragraphs.map((text, index) => ({ index, text }))
   try {
-    const url = resolveAudioUrl('odyssey/original-en/ch1/manifest.json', 'manifest')
-    const response = await fetch(url)
-    if (!response.ok) return paragraphs.map((text, index) => ({ index, text }))
+    const [response, sidecarRes] = await Promise.all([
+      fetch(labAudioManifestUrl()),
+      fetch(labAudioSidecarUrl()).catch(() => null),
+    ])
+    if (!response.ok) return fallback
     const manifest = await response.json() as { paragraphs?: ManifestParagraph[] }
+    const sidecar = sidecarRes && 'ok' in sidecarRes && sidecarRes.ok
+      ? wordsByParagraphFromSidecar(await sidecarRes.json())
+      : undefined
     const byIndex = new Map<number, ManifestParagraph>()
     for (const entry of manifest.paragraphs || []) {
       if (typeof entry.paragraph === 'number') byIndex.set(entry.paragraph, entry)
       else byIndex.set(byIndex.size, entry)
     }
-    return paragraphs.map((text, index) => (
+    const followed = paragraphs.map((text, index) => (
       followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
     ))
+    return mergeFollowAudio(followed, manifest.paragraphs || [], sidecar)
   } catch {
-    return paragraphs.map((text, index) => ({ index, text }))
+    return fallback
   }
 }
 

@@ -41,9 +41,20 @@ export interface StartVoiceSessionInput {
   audio: VoiceAudioEngine
   wasPlaying: boolean
   mode?: VoiceSessionMode
+  /** When set, session.update uses this instead of the in-car voice brief. */
+  instructions?: string
+  /** When set (including []), replaces VOICE_TOOLS. Omit to keep production tools. */
+  tools?: readonly object[]
 }
 
 type RealtimeEvent = VoiceRealtimeEvent
+
+export function resolveVoiceSessionInstructions(
+  context: VoiceReaderContext,
+  override?: string | null,
+): string {
+  return override || buildVoiceInstructions(context)
+}
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
@@ -96,6 +107,8 @@ export class VoiceSessionController {
   private resumeDeadline = 0
   private turn: VoiceTurnState = INITIAL_VOICE_TURN
   private closed = false
+  private sessionInstructions: string | null = null
+  private sessionTools: readonly object[] | null = null
 
   constructor(callbacks: VoiceSessionCallbacks) {
     this.callbacks = callbacks
@@ -117,6 +130,8 @@ export class VoiceSessionController {
     this.lastUserIntent = 'none'
     this.turn = INITIAL_VOICE_TURN
     this.context = input.context
+    this.sessionInstructions = input.instructions ?? null
+    this.sessionTools = input.tools ?? null
     this.audio = input.audio
     const paused = input.audio.pausePlayback()
     this.anchor = paused?.anchor ?? null
@@ -352,24 +367,28 @@ export class VoiceSessionController {
 
   private sendSessionUpdate(): void {
     if (!this.dc || this.dc.readyState !== 'open' || !this.context) return
-    this.dc.send(JSON.stringify({
-      type: 'session.update',
-      session: {
-        type: 'realtime',
-        instructions: buildVoiceInstructions(this.context),
-        tools: VOICE_TOOLS,
-        tool_choice: 'auto',
-        audio: {
-          input: {
-            transcription: { model: 'gpt-4o-mini-transcribe' },
-            turn_detection: {
-              type: 'server_vad',
-              silence_duration_ms: 700,
-              prefix_padding_ms: 300,
-            },
+    const tools = this.sessionTools ?? VOICE_TOOLS
+    const session: Record<string, unknown> = {
+      type: 'realtime',
+      instructions: resolveVoiceSessionInstructions(this.context, this.sessionInstructions),
+      audio: {
+        input: {
+          transcription: { model: 'gpt-4o-mini-transcribe' },
+          turn_detection: {
+            type: 'server_vad',
+            silence_duration_ms: 700,
+            prefix_padding_ms: 300,
           },
         },
       },
+    }
+    if (tools.length > 0) {
+      session.tools = tools
+      session.tool_choice = 'auto'
+    }
+    this.dc.send(JSON.stringify({
+      type: 'session.update',
+      session,
     }))
   }
 

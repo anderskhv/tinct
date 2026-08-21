@@ -30,6 +30,9 @@ export interface UseVoiceSessionOptions {
   onInsufficientBalance: () => void
   onUsage?: () => void
   mode?: VoiceSessionMode
+  /** Lab-only: override the in-car session.update brief. Production omits this. */
+  instructions?: string
+  tools?: readonly object[]
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
@@ -111,6 +114,8 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
         resumePlayback: opts.resumePlayback,
       },
       mode: opts.mode ?? 'quick',
+      instructions: opts.instructions,
+      tools: opts.tools,
     })
     return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
   }, [buildContext])

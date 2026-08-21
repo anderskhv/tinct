@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { LAB_COPY } from './labCopy'
 import { LAB_DESKTOP_PANES } from './labChrome'
-import { followAtTime, type FollowTarget } from './labFollow'
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabBookPage } from './LabBookPage'
@@ -9,6 +8,7 @@ import { LabConversationOverlay } from './LabConversation'
 import { LabInTheBook } from './LabInTheBook'
 import { fallbackLabSource, loadLabSource, type LabMark, type LabSource } from './labSource'
 import { useLabAsk } from './useLabAsk'
+import { useLabListen } from './useLabListen'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -43,10 +43,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [returnTo, setReturnTo] = useState<'reading' | 'listening'>('reading')
   const [desktopVoiceOpen, setDesktopVoiceOpen] = useState(false)
   const [draft, setDraft] = useState('')
-  const [elapsed, setElapsed] = useState(0)
-  const clockRef = useRef<number | null>(null)
-  const startedAtRef = useRef(0)
-  const elapsedRef = useRef(0)
+
+  const listen = useLabListen({
+    followParagraphs: book.followParagraphs,
+  })
 
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
@@ -55,6 +55,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     paragraphs: book.paragraphs,
     paragraphIndex: focusParagraph ?? 0,
     authToken,
+    isAudioPlaying: listen.isPlaying,
+    pausePlayback: listen.pausePlayback,
+    resumePlayback: listen.resumePlayback,
   })
 
   useEffect(() => {
@@ -95,45 +98,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     return () => mq.removeEventListener('change', onChange)
   }, [layoutOverride])
 
-  const stopClock = useCallback(() => {
-    if (clockRef.current != null) {
-      window.clearInterval(clockRef.current)
-      clockRef.current = null
-    }
-  }, [])
-
-  const startClock = useCallback((from = elapsedRef.current) => {
-    stopClock()
-    startedAtRef.current = Date.now() - from * 1000
-    clockRef.current = window.setInterval(() => {
-      const next = (Date.now() - startedAtRef.current) / 1000
-      elapsedRef.current = next
-      setElapsed(next)
-    }, 80)
-  }, [stopClock])
-
-  useEffect(() => () => {
-    stopClock()
-  }, [stopClock])
-
-  useEffect(() => {
-    if (ask.voiceActive) {
-      stopClock()
-      return
-    }
-    if (mode === 'listening' && clockRef.current == null) {
-      startClock(elapsedRef.current)
-    }
-  }, [ask.voiceActive, mode, startClock, stopClock])
-
-  const followEnabled = !isPhone
-    ? mode === 'listening' && !ask.voiceActive
-    : (mode === 'listening' && !ask.voiceActive) || (mode === 'reading' && returnTo === 'listening')
-
-  const follow: FollowTarget = useMemo(() => {
-    if (!followEnabled) return { kind: 'none' }
-    return followAtTime(book.followParagraphs, elapsed)
-  }, [book.followParagraphs, elapsed, followEnabled])
+  const followEnabled = listen.isPlaying
+  const follow = listen.follow
 
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const isOnline = readOnline(online)
@@ -143,14 +109,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     ask.stopVoice()
     setDesktopVoiceOpen(false)
     setMode(returnTo)
-    if (returnTo === 'listening') startClock(elapsedRef.current)
-  }, [ask, returnTo, startClock])
+    if (returnTo === 'listening') listen.resumeLast()
+  }, [ask, listen, returnTo])
 
   const startListening = useCallback(() => {
     setReturnTo('listening')
     setMode('listening')
-    startClock(0)
-  }, [startClock])
+    void listen.start()
+  }, [listen])
 
   const handleMic = useCallback(() => {
     void ask.toggleInChatVoice()
@@ -165,12 +131,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const handlePhoneAsk = useCallback(async () => {
     const from = mode === 'listening' ? 'listening' : 'reading'
     setReturnTo(from)
-    if (from === 'listening') stopClock()
     const started = ask.voiceActive || await ask.startVoice()
     if (!started) return
     setMode('conversation')
     setInTheBookOpen(false)
-  }, [ask, mode, stopClock])
+  }, [ask, mode])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) return

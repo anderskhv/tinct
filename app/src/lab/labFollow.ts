@@ -15,6 +15,7 @@ export interface FollowParagraph {
   index: number
   text: string
   duration?: number
+  file?: string
   words?: TimedWord[]
 }
 
@@ -54,6 +55,7 @@ export function followParagraphFromManifest(
     index,
     text,
     duration: typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined,
+    file: typeof manifestParagraph?.file === 'string' ? manifestParagraph.file : undefined,
     words,
   }
 }

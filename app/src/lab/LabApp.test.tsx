@@ -2,7 +2,7 @@
 
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LAB_DESKTOP_PANES, PRODUCTION_DESKTOP_PANES } from './labChrome'
 import { LabApp } from './LabApp'
@@ -18,6 +18,7 @@ afterEach(() => {
 function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
+    file: 'p001.mp3',
     duration: 2,
     words: [
       { text: 'Tell', start: 0, end: 0.5 },
@@ -28,7 +29,47 @@ function sourceWithWords() {
   })
   return {
     ...base,
-    followParagraphs: [first, ...base.paragraphs.slice(1).map((text, index) => ({ index: index + 1, text }))],
+    followParagraphs: [
+      first,
+      ...base.paragraphs.slice(1).map((text, index) => ({
+        index: index + 1,
+        text,
+        file: `p00${index + 2}.mp3`,
+      })),
+    ],
+  }
+}
+
+class FakeAudio {
+  src = ''
+  currentTime = 0
+  paused = true
+  preload = ''
+  private listeners = new Map<string, Set<() => void>>()
+
+  addEventListener(type: string, fn: () => void) {
+    const set = this.listeners.get(type) ?? new Set()
+    set.add(fn)
+    this.listeners.set(type, set)
+  }
+
+  removeEventListener(type: string, fn: () => void) {
+    this.listeners.get(type)?.delete(fn)
+  }
+
+  pause() {
+    this.paused = true
+  }
+
+  load() { /* no-op */ }
+
+  removeAttribute(name: string) {
+    if (name === 'src') this.src = ''
+  }
+
+  play() {
+    this.paused = false
+    return Promise.resolve()
   }
 }
 
@@ -68,6 +109,13 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*position:\s*sticky/)
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*height:\s*calc\(100vh - 5\.5rem\)/)
     expect(css).toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
+    expect(css).toMatch(/\.lab-ask\s*\{[^}]*background:\s*#ece7db/)
+    expect(css).toMatch(/\.lab-ask\s*\{[^}]*border-left:\s*1px solid #d4cdc0/)
+    expect(css).toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#ece7db/)
+    expect(css).toMatch(/\.lab-ask-greeting\s*\{[^}]*Playfair Display/)
+    expect(css).not.toMatch(/Helvetica Neue/)
+    expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
+    expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
     expect(css).not.toMatch(/\.lab\.is-phone\s+\.lab-ask\s*\{/)
 
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
@@ -148,9 +196,53 @@ describe('lab chrome', () => {
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain('Sign in')
   })
 
-  it('can follow a word when the source already has timings', () => {
+  it('can follow a word when the source already has timings', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', vi.fn(() => audio))
     render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
-    expect(screen.getByTestId('lab-book')).toBeTruthy()
+    await waitFor(() => {
+      expect(audio.src).toContain('/api/audio-file?path=odyssey%2Foriginal-en%2Fch1%2Fp001.mp3')
+      expect(document.querySelector('.lab-word-current')?.textContent).toContain('Tell')
+    })
+  })
+
+  it('plays the real Odyssey Book 1 file instead of a fake clock', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', vi.fn(() => audio))
+    const source = fallbackLabSource()
+    source.followParagraphs = source.paragraphs.map((text, index) => ({
+      index,
+      text,
+      file: `p00${index + 1}.mp3`,
+    }))
+    render(<LabApp pathname="/lab/desktop" source={source} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(audio.src).toBe('/api/audio-file?path=odyssey%2Foriginal-en%2Fch1%2Fp001.mp3')
+      expect(document.querySelector('#lab-p-0')?.className).toContain('is-follow-paragraph')
+    })
+  })
+
+  it('sends the full chapter and lab brief on typed Ask, not the in-car policy', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ content: [{ text: sourceWithWords().paragraphs[1] }] }),
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="tok" />)
+    fireEvent.change(screen.getByPlaceholderText('Ask about this page.'), {
+      target: { value: 'Read the second paragraph of Book 1.' },
+    })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    await waitFor(() => expect(fetchMock).toHaveBeenCalled())
+    const body = JSON.parse(String(fetchMock.mock.calls[0][1].body)) as { system?: string }
+    expect(body.system).toContain('2. So now all who escaped death')
+    expect(body.system).toContain('only have this chapter so far')
+    expect(body.system).toContain('Do not ask them to paste it')
+    expect(body.system).not.toContain('return control to audiobook')
+    expect(body.system).not.toContain('20–30 seconds')
+    expect((await screen.findByTestId('lab-ask-turn-assistant')).textContent).toContain('So now all who escaped death')
   })
 })

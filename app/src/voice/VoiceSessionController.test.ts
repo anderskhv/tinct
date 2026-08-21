@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { VoiceSessionController } from './VoiceSessionController'
+import { resolveVoiceSessionInstructions, VoiceSessionController } from './VoiceSessionController'
+import { VOICE_AGENT_POLICY } from './context'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from './types'
 
 const ANCHOR: AudioPlaybackAnchor = {
@@ -153,5 +154,17 @@ describe('VoiceSessionController start failure', () => {
 
     expect(audio.resumePlayback).toHaveBeenCalledWith(ANCHOR)
     expect(controller.getSnapshot().isActive).toBe(false)
+  })
+})
+
+describe('voice session instructions', () => {
+  it('keeps the in-car brief unless a lab override is supplied', () => {
+    const production = resolveVoiceSessionInstructions(CONTEXT)
+    expect(production).toContain(VOICE_AGENT_POLICY)
+    expect(production).toContain('20–30 seconds')
+
+    const lab = resolveVoiceSessionInstructions(CONTEXT, 'Lab desk brief with the full chapter.')
+    expect(lab).toBe('Lab desk brief with the full chapter.')
+    expect(lab).not.toContain(VOICE_AGENT_POLICY)
   })
 })
