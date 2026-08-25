@@ -374,6 +374,35 @@ describe('shouldBlockHistoryRegression — stale same-book overwrite', () => {
       }),
     ).toBe(false)
   })
+
+  it('allows writing Jeremiah 18 when that is the most recent history place and high-water is James 1', () => {
+    // 2026-08-25: Anders was in Jeremiah 18 (763) while progress high-water
+    // was Hebrews 13 / James 1 (1146/1147). Treating 763 as regression
+    // prevented the real place from persisting after a Genesis 1 blip.
+    expect(
+      shouldBlockHistoryRegression({
+        attemptedChapter: 763,
+        historyHighWaterChapter: 1147,
+        recentHistoryChapter: 763,
+        lastUserNavAt: 0,
+        now: NOW,
+        graceMs: GRACE_MS,
+      }),
+    ).toBe(false)
+  })
+
+  it('still blocks a stale earlier write when recent history is the high-water chapter', () => {
+    expect(
+      shouldBlockHistoryRegression({
+        attemptedChapter: 763,
+        historyHighWaterChapter: 1147,
+        recentHistoryChapter: 1147,
+        lastUserNavAt: 0,
+        now: NOW,
+        graceMs: GRACE_MS,
+      }),
+    ).toBe(true)
+  })
 })
 
 describe('isParagraphInBounds — page 19-of-21 phantom (B21)', () => {

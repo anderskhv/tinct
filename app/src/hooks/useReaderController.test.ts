@@ -133,6 +133,60 @@ describe('useReaderController', () => {
     })
   })
 
+  it('recovers Jeremiah 18 instead of James 1 from a poisoned Genesis 1 Bible position', () => {
+    store.set('tinct-current-book', 'bible')
+    store.set('position:bible', position({
+      bookId: 'bible',
+      chapterNumber: 1,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: 0,
+    }))
+    store.set('progress:bible', {
+      bookId: 'bible',
+      highestCompletedChapter: 1146,
+      totalChapters: 1189,
+      percent: 96,
+    })
+    store.set('reading-log:bible', {
+      bookId: 'bible',
+      updatedAt: 4_000,
+      chapters: {
+        763: {
+          chapterNumber: 763,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 3_500,
+          lastReadAt: 4_000,
+          completed: false,
+          lastParagraphIndex: 6,
+          totalParagraphs: 12,
+        },
+        1147: {
+          chapterNumber: 1147,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 1_000,
+          lastReadAt: 1_200,
+          completed: false,
+        },
+      },
+    })
+
+    const { result } = renderHook(() => useReaderController({
+      totalChaptersRef: { current: 1189 },
+    }))
+
+    expect(result.current.currentBookId).toBe('bible')
+    expect(result.current.currentChapter).toBe(763)
+    expect(result.current.savedPos.current).toMatchObject({
+      bookId: 'bible',
+      chapterNumber: 763,
+      lastParagraphIndex: 6,
+    })
+  })
+
   it('recovers a poisoned Bible Genesis 2 position after cloud progress arrives', () => {
     store.set('tinct-current-book', 'bible')
     store.set('position:bible', position({
