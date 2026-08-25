@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
-import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
+import { VoiceSessionController, type VoiceToolCallResult, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import { nearbyParagraphWindow } from '../voice/context'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext, VoiceSessionMode } from '../voice/types'
 
@@ -33,6 +33,13 @@ export interface UseVoiceSessionOptions {
   /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
   instructions?: string
   tools?: readonly unknown[]
+  onToolCall?: (input: {
+    name: string
+    callId: string
+    arguments: string
+    alreadySpeaking: boolean
+    speakCover: (line: string) => boolean
+  }) => Promise<VoiceToolCallResult | null | undefined>
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
@@ -116,6 +123,9 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       mode: opts.mode ?? 'quick',
       instructions: opts.instructions,
       tools: opts.tools,
+      onToolCall: optionsRef.current.onToolCall
+        ? async (input) => optionsRef.current.onToolCall?.(input)
+        : undefined,
     })
     return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
   }, [buildContext])

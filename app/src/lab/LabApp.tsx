@@ -53,18 +53,37 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [draft, setDraft] = useState('')
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
 
+  const listen = useLabListen({
+    paragraphs: book.paragraphs,
+    followParagraphs: book.followParagraphs,
+  })
+
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
     chapterLabel: book.chapterLabel,
     paragraphs: book.paragraphs,
-    paragraphIndex: focusParagraph ?? 0,
+    paragraphIndex: focusParagraph ?? listen.clipIndex,
     authToken,
-  })
-
-  const listen = useLabListen({
-    paragraphs: book.paragraphs,
-    followParagraphs: book.followParagraphs,
+    onPlaybackCommand: (command) => {
+      if (command.type === 'speed') {
+        const rate = listen.setPlaybackSpeed(command.rate ?? listen.speed + 0.25)
+        return { ok: true, note: `${rate}x` }
+      }
+      if (command.type === 'skip') {
+        const index = listen.skipParagraph(command.direction)
+        return { ok: true, note: `paragraph ${index + 1}` }
+      }
+      if (command.type === 'next_chapter') {
+        return { ok: true, note: 'This lab is Odyssey Book 1.' }
+      }
+      return { ok: true }
+    },
+    onResumeAfterSpeech: () => {
+      setReturnTo('hearing')
+      listen.resume()
+      setChrome('hearing')
+    },
   })
 
   useEffect(() => {

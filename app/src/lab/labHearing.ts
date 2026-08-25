@@ -141,3 +141,10 @@ export function nextHearingSpeed(current: number): number {
   const idx = LAB_HEARING_SPEEDS.indexOf(current as typeof LAB_HEARING_SPEEDS[number])
   return LAB_HEARING_SPEEDS[(idx + 1) % LAB_HEARING_SPEEDS.length]
 }
+
+export function nearestHearingSpeed(rate: number): number {
+  if (!Number.isFinite(rate) || rate <= 0) return 1
+  return LAB_HEARING_SPEEDS.reduce((best, candidate) => (
+    Math.abs(candidate - rate) < Math.abs(best - rate) ? candidate : best
+  ))
+}

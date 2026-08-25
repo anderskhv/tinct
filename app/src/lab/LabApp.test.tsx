@@ -15,6 +15,14 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
+function chatSystemText(body: { system?: unknown }): string {
+  if (typeof body.system === 'string') return body.system
+  if (Array.isArray(body.system)) {
+    return body.system.map((block: { text?: string }) => block.text || '').join('\n')
+  }
+  return ''
+}
+
 function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
@@ -496,10 +504,13 @@ describe('lab chrome', () => {
 
     expect(await screen.findByTestId('lab-ask-turn-assistant')).toBeTruthy()
     const body = JSON.parse(String(fetchMock.mock.calls[0][1]?.body))
-    expect(body.system).toContain('[2] So now all who escaped death')
-    expect(body.system).toContain('only have this chapter so far')
-    expect(body.system).not.toContain('Speak for about 20')
-    expect(body.system).not.toContain('resume_audiobook')
+    const system = chatSystemText(body)
+    expect(String(fetchMock.mock.calls[0][0])).toContain('/api/chat')
+    expect(system).toContain('built-in reading companion for Tinct')
+    expect(system).toContain('[2] So now all who escaped death')
+    expect(system).toContain('only have this chapter so far')
+    expect(system).not.toContain('Speak for about 20')
+    expect(system).not.toContain('resume_audiobook')
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
     expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('You')
