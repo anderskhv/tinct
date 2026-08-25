@@ -3,6 +3,7 @@ import { followParagraphFromManifest } from './labFollow'
 import {
   hearingProgress,
   hearingStageLines,
+  nearestHearingSpeed,
   nextHearingSpeed,
   seekAcrossClips,
 } from './labHearing'
@@ -115,5 +116,7 @@ describe('lab hearing transport math', () => {
   it('cycles hearing speed without touching production audio-speed storage', () => {
     expect(nextHearingSpeed(1)).toBe(1.25)
     expect(nextHearingSpeed(2)).toBe(0.75)
+    expect(nearestHearingSpeed(1.4)).toBe(1.5)
+    expect(nearestHearingSpeed(0)).toBe(1)
   })
 })

@@ -1,8 +1,8 @@
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { queryCompanion } from '../chat/queryCompanion'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useVoiceSession } from '../hooks/useVoiceSession'
-import { apiUrl } from '../utils/apiUrl'
 import {
   buildLabAskInstructions,
   labConversationState,
@@ -11,6 +11,16 @@ import {
   type LabAskTurn,
 } from './labAsk'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
+import {
+  ASK_READING_COMPANION_TOOL,
+  LAB_TALK_TOOLS,
+  buildLabCompanionSystem,
+  buildLabTalkInstructions,
+  decideHearResume,
+  handleLabTalkTool,
+  type LabPlaybackCommand,
+  type LabPlaybackResult,
+} from './labCompanion'
 import { LAB_COPY } from './labCopy'
 
 let labAskId = 0
@@ -30,6 +40,8 @@ export interface UseLabAskOptions {
   paragraphs: string[]
   paragraphIndex: number
   authToken?: string | null
+  onPlaybackCommand?: (command: LabPlaybackCommand) => LabPlaybackResult
+  onResumeAfterSpeech?: () => void
 }
 
 export function useLabAsk(options: UseLabAskOptions) {
@@ -39,11 +51,14 @@ export function useLabAsk(options: UseLabAskOptions) {
   const [notice, setNotice] = useState<string | null>(null)
   const [starting, setStarting] = useState(false)
   const sendingRef = useRef(false)
+  const pendingHearResumeRef = useRef(false)
+  const sawSpeakingForResumeRef = useRef(false)
+  const optionsRef = useRef(options)
+  optionsRef.current = options
 
   const sessionToken = session?.access_token ?? null
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
-
-  const instructions = useMemo(() => buildLabAskInstructions({
+  const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
     chapterLabel: options.chapterLabel,
@@ -58,6 +73,10 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.paragraphs,
   ])
 
+  const companionSystem = useMemo(() => buildLabCompanionSystem(askContext), [askContext])
+  const typedInstructions = useMemo(() => buildLabAskInstructions(askContext), [askContext])
+  const talkInstructions = useMemo(() => buildLabTalkInstructions(askContext), [askContext])
+
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
     if (!content) return
@@ -69,8 +88,67 @@ export function useLabAsk(options: UseLabAskOptions) {
     }))
   }, [])
 
-  // Same hook as App.tsx + AudioStrip. Lab supplies its own instructions
-  // so production buildVoiceInstructions stays the in-car brief.
+  const handleToolCall = useCallback(async (input: {
+    name: string
+    callId: string
+    arguments: string
+    alreadySpeaking: boolean
+    speakCover: (line: string) => boolean
+  }) => {
+    const authToken = await resolveLabVoiceToken({
+      override: optionsRef.current.authToken,
+      sessionToken,
+      readSession: readSupabaseAccessToken,
+    })
+
+    const result = await handleLabTalkTool({
+      name: input.name,
+      args: input.arguments,
+      alreadySpeaking: input.alreadySpeaking,
+      speakCover: input.speakCover,
+      onPlayback: command => optionsRef.current.onPlaybackCommand?.(command) ?? { ok: true },
+      queryCompanion: async (question) => {
+        if (!authToken) return ''
+        const reply = await queryCompanion({
+          authToken,
+          system: companionSystem,
+          messages: [{ role: 'user', content: question }],
+        })
+        return reply.text
+      },
+    })
+
+    if (result.scheduleHearResume) {
+      pendingHearResumeRef.current = true
+      sawSpeakingForResumeRef.current = input.alreadySpeaking
+    }
+
+    if (result.queriedClaude && result.output) {
+      try {
+        const parsed = JSON.parse(result.output) as { answer?: string }
+        if (parsed.answer) {
+          setTurns(current => mergeLabVoiceTurn(current, {
+            id: nextId(),
+            role: 'assistant',
+            content: parsed.answer,
+            source: 'voice',
+          }))
+        }
+      } catch {
+        /* tool output is for Realtime; transcript still arrives separately */
+      }
+    }
+
+    return {
+      handled: result.handled,
+      output: result.output,
+      continueResponse: result.continueResponse,
+      responseInstructions: result.responseInstructions,
+    }
+  }, [companionSystem, sessionToken])
+
+  // Same hook as App.tsx + AudioStrip. Lab supplies Talk instructions and
+  // tools so production buildVoiceInstructions stays the in-car brief.
   const voice = useVoiceSession({
     authToken: liveToken,
     isAnonymous: !liveToken,
@@ -82,7 +160,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     readingObjective: labReadingAngle(),
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    visibleText: instructions,
+    visibleText: talkInstructions,
     isAudioPlaying: false,
     pausePlayback: NOOP_AUDIO.pausePlayback,
     resumePlayback: NOOP_AUDIO.resumePlayback,
@@ -91,9 +169,35 @@ export function useLabAsk(options: UseLabAskOptions) {
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
-    instructions,
-    tools: [],
+    instructions: talkInstructions,
+    tools: LAB_TALK_TOOLS,
+    onToolCall: handleToolCall,
   })
+
+  const conversationState = labConversationState({
+    voiceState: voice.state,
+    error: voice.error,
+    starting,
+  })
+
+  useEffect(() => {
+    if (pendingHearResumeRef.current && conversationState === 'speaking') {
+      sawSpeakingForResumeRef.current = true
+    }
+    if (
+      pendingHearResumeRef.current
+      && decideHearResume({
+        pending: pendingHearResumeRef.current,
+        sawSpeaking: sawSpeakingForResumeRef.current,
+        state: conversationState,
+      }) === 'resume'
+    ) {
+      pendingHearResumeRef.current = false
+      sawSpeakingForResumeRef.current = false
+      voice.stop()
+      optionsRef.current.onResumeAfterSpeech?.()
+    }
+  }, [conversationState])
 
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive || starting) return true
@@ -122,6 +226,8 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const stopVoice = useCallback(() => {
     setStarting(false)
+    pendingHearResumeRef.current = false
+    sawSpeakingForResumeRef.current = false
     voice.stop()
   }, [voice.stop])
 
@@ -163,44 +269,28 @@ export function useLabAsk(options: UseLabAskOptions) {
       const history = [...turns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
-      const response = await fetch(apiUrl('/api/chat'), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 1024,
-          system: instructions,
-          messages: history,
-        }),
+      const result = await queryCompanion({
+        authToken,
+        system: companionSystem,
+        messages: history,
       })
-      const data = await response.json().catch(() => ({})) as {
-        error?: { message?: string } | string
-        content?: Array<{ text?: string }>
-      }
-      if (response.status === 401) {
+      if (result.status === 401) {
         setNotice(LAB_COPY.signInAsk)
         return
       }
-      if (response.status === 402) {
+      if (result.status === 402) {
         setNotice(LAB_COPY.balanceEmpty)
         return
       }
-      if (!response.ok) {
-        const message = typeof data.error === 'string'
-          ? data.error
-          : data.error?.message || LAB_COPY.askUnavailable
-        setNotice(message)
+      if (result.error) {
+        setNotice(result.error || LAB_COPY.askUnavailable)
         return
       }
-      const reply = data.content?.[0]?.text?.trim()
-      if (reply) {
+      if (result.text) {
         setTurns(current => [...current, {
           id: nextId(),
           role: 'assistant',
-          content: reply,
+          content: result.text,
           source: 'typed',
         }])
       }
@@ -210,21 +300,20 @@ export function useLabAsk(options: UseLabAskOptions) {
       setTypedLoading(false)
       sendingRef.current = false
     }
-  }, [instructions, options.authToken, sessionToken, turns])
+  }, [companionSystem, options.authToken, sessionToken, turns])
 
   return {
     turns,
     notice,
     typedLoading,
-    conversationState: labConversationState({
-      voiceState: voice.state,
-      error: voice.error,
-      starting,
-    }),
+    conversationState,
     voiceActive: voice.isActive || starting,
     startVoice,
     stopVoice,
     toggleInChatVoice,
     sendTyped,
+    typedInstructions,
+    talkInstructions,
+    escalateToolName: ASK_READING_COMPANION_TOOL,
   }
 }

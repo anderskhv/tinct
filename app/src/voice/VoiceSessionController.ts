@@ -18,6 +18,21 @@ export interface VoiceAudioEngine {
   resumePlayback: (anchor: AudioPlaybackAnchor) => void
 }
 
+export interface VoiceToolCallInput {
+  name: string
+  callId: string
+  arguments: string
+  alreadySpeaking: boolean
+  speakCover: (line: string) => boolean
+}
+
+export interface VoiceToolCallResult {
+  handled: boolean
+  output?: string
+  continueResponse?: boolean
+  responseInstructions?: string
+}
+
 export interface VoiceSessionCallbacks {
   onSnapshot: (snapshot: VoiceUiSnapshot) => void
   onTurn: (role: 'user' | 'assistant', text: string) => void
@@ -43,8 +58,10 @@ export interface StartVoiceSessionInput {
   mode?: VoiceSessionMode
   /** When set, replaces production buildVoiceInstructions for this session. */
   instructions?: string
-  /** When set, replaces VOICE_TOOLS. Lab conversation passes []. */
+  /** When set, replaces VOICE_TOOLS. Lab conversation passes playback + companion tools. */
   tools?: readonly unknown[]
+  /** Lab-only. Production AudioStrip leaves this unset so built-in tools run. */
+  onToolCall?: (input: VoiceToolCallInput) => Promise<VoiceToolCallResult | null | undefined>
 }
 
 type RealtimeEvent = VoiceRealtimeEvent
@@ -91,6 +108,7 @@ export class VoiceSessionController {
   private context: VoiceReaderContext | null = null
   private instructions: string | null = null
   private tools: readonly unknown[] | null = null
+  private onToolCall: StartVoiceSessionInput['onToolCall'] = undefined
   private pc: RTCPeerConnection | null = null
   private dc: RTCDataChannel | null = null
   private localStream: MediaStream | null = null
@@ -125,6 +143,7 @@ export class VoiceSessionController {
     this.context = input.context
     this.instructions = input.instructions?.trim() || null
     this.tools = input.tools ?? null
+    this.onToolCall = input.onToolCall
     this.audio = input.audio
     const paused = input.audio.pausePlayback()
     this.anchor = paused?.anchor ?? null
@@ -193,6 +212,22 @@ export class VoiceSessionController {
   explicitResume(): void {
     if (this.machine.state === 'reading') return
     this.dispatch({ type: 'EXPLICIT_RESUME' })
+  }
+
+  hasSpokenThisTurn(): boolean {
+    return this.turn.spokenThisTurn || this.turn.audioPlaying
+  }
+
+  speakCoverLine(text: string): boolean {
+    const line = text.replace(/\s+/g, ' ').trim()
+    if (!line || !this.dc || this.dc.readyState !== 'open') return false
+    this.sendEvent({
+      type: 'response.create',
+      response: {
+        instructions: `Say this one short line naturally, then stop and wait. Do not answer the question yet. Do not mention tools, models, or waiting.\n\n${line}`,
+      },
+    })
+    return true
   }
 
   stop(): void {
@@ -438,9 +473,10 @@ export class VoiceSessionController {
       case 'response.function_call_arguments.done': {
         const name = event.name || event.item?.name
         const callId = event.call_id || event.item?.call_id
+        const args = event.arguments || event.item?.arguments || '{}'
         if (!name || !callId) return
         this.applyTurnResult(reduceVoiceTurn(this.turn, event))
-        this.handleToolCall(name, callId)
+        void this.handleToolCall(name, callId, args)
         return
       }
       case 'error':
@@ -451,7 +487,50 @@ export class VoiceSessionController {
     }
   }
 
-  private handleToolCall(name: string, callId: string): void {
+  private async handleToolCall(name: string, callId: string, args = '{}'): Promise<void> {
+    if (this.onToolCall) {
+      try {
+        const result = await this.onToolCall({
+          name,
+          callId,
+          arguments: args,
+          alreadySpeaking: this.hasSpokenThisTurn(),
+          speakCover: line => this.speakCoverLine(line),
+        })
+        if (result?.handled) {
+          this.sendEvent({
+            type: 'conversation.item.create',
+            item: {
+              type: 'function_call_output',
+              call_id: callId,
+              output: result.output || JSON.stringify({ ok: true }),
+            },
+          })
+          this.applyTurnResult(noteToolCallHandled(this.turn))
+          if (result.continueResponse !== false) {
+            this.sendEvent({
+              type: 'response.create',
+              response: result.responseInstructions
+                ? { instructions: result.responseInstructions }
+                : {},
+            })
+          }
+          return
+        }
+      } catch {
+        this.sendEvent({
+          type: 'conversation.item.create',
+          item: {
+            type: 'function_call_output',
+            call_id: callId,
+            output: JSON.stringify({ ok: false, error: 'tool_failed' }),
+          },
+        })
+        this.applyTurnResult(noteToolCallHandled(this.turn))
+        return
+      }
+    }
+
     if (name === 'resume_audiobook') {
       const honor = shouldHonorModelResume(this.lastUserIntent)
       this.sendEvent({

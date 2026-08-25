@@ -9,7 +9,7 @@ import {
   readLabWordSidecar,
   type LabAudioClip,
 } from './labListen'
-import { nextHearingSpeed, seekAcrossClips } from './labHearing'
+import { nearestHearingSpeed, nextHearingSpeed, seekAcrossClips } from './labHearing'
 import {
   followParagraphFromManifest,
   mergeSidecarWords,
@@ -274,6 +274,25 @@ export function useLabListen(options: UseLabListenOptions) {
     })
   }, [applyRate])
 
+  const setPlaybackSpeed = useCallback((rate: number) => {
+    const next = nearestHearingSpeed(rate)
+    setSpeed(next)
+    if (audioRef.current) applyRate(audioRef.current, next)
+    return next
+  }, [applyRate])
+
+  const skipParagraph = useCallback((direction: 'forward' | 'back') => {
+    const delta = direction === 'back' ? -1 : 1
+    const next = Math.max(0, Math.min(clipsRef.current.length - 1, clipIndexRef.current + delta))
+    const audio = ensureAudio()
+    playClip(next, 0)
+    if (!playing) {
+      audio.pause()
+      setPlaying(false)
+    }
+    return next
+  }, [ensureAudio, playClip, playing])
+
   return {
     playing,
     follow,
@@ -289,5 +308,7 @@ export function useLabListen(options: UseLabListenOptions) {
     stop,
     seek,
     cycleSpeed,
+    setPlaybackSpeed,
+    skipParagraph,
   }
 }
