@@ -76,7 +76,8 @@ describe('talk instructions stay the ear and mouth', () => {
     expect(talk).toContain('Do not invent a thinner substitute')
     expect(talk).toContain('Never call ask_reading_companion for those')
     expect(talk).not.toContain(VOICE_AGENT_POLICY)
-    expect(talk).not.toContain('resume_audiobook')
+    expect(talk).toContain('Do not call resume_audiobook')
+    expect(LAB_TALK_TOOLS.map(tool => tool.name)).not.toContain('resume_audiobook')
     expect(LAB_TALK_TOOLS.map(tool => tool.name)).toEqual([
       SET_PLAYBACK_SPEED_TOOL,
       SKIP_PARAGRAPH_TOOL,
