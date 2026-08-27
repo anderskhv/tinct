@@ -1885,8 +1885,13 @@
   border-radius: 999px;
 }
 
-.lab-tree-row.is-chapter {
+.lab-tree-row.is-chapter,
+.lab-tree-chapter {
   padding-left: 1.55rem;
+}
+
+.lab-tree-chapter.is-current {
+  background: transparent;
 }
 
 .lab-tree-chevron {

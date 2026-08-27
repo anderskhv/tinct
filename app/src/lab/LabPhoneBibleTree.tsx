@@ -94,7 +94,6 @@ function TreeRow({
   const mark = labTreeMark(node, finished, currentChapter)
   const progress = labTreeProgressLabel(node, finished)
   const isCurrentBook = node.kind === 'book' && node.chapterNumbers.includes(currentChapter)
-  const isCurrentChapter = node.kind === 'chapter' && node.chapterNumber === currentChapter
   const headerClass = [
     'lab-tree-row',
     'toc-section-header',
@@ -107,7 +106,7 @@ function TreeRow({
     return (
       <button
         type="button"
-        className={`lab-tree-row toc-item lab-tree-chapter${isCurrentChapter ? ' is-current' : ''}`}
+        className="lab-tree-row toc-item lab-tree-chapter"
         data-testid={`lab-tree-chapter-${node.chapterNumber}`}
         data-kind="chapter"
         data-mark={mark}
@@ -157,7 +156,7 @@ function TreeRow({
             <button
               key={chapter.number}
               type="button"
-              className={`lab-tree-row toc-item lab-tree-chapter${chapter.number === currentChapter ? ' is-current' : ''}`}
+              className="lab-tree-row toc-item lab-tree-chapter"
               data-testid={`lab-tree-chapter-${chapter.number}`}
               data-kind="chapter"
               data-mark={labTreeMark({
