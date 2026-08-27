@@ -4,7 +4,13 @@ import {
   followFromPlayback,
   followParagraphFromManifest,
   mergeSidecarWords,
+  followLeadSeconds,
+  followTimeFromAudio,
+  wordIndexAtTime,
   wordsFromManifestParagraph,
+  wordsFromParagraphDuration,
+  ensureDerivedWordTimes,
+  DERIVED_SPEECH_SPAN,
 } from './labFollow'
 
 describe('lab word follow', () => {
@@ -27,27 +33,48 @@ describe('lab word follow', () => {
     })
   })
 
-  it('stays at quiet paragraph-level when words are missing', () => {
+  it('derives proportional word times from paragraph duration when words.json is missing', () => {
     const paragraph = followParagraphFromManifest(0, 'Tell me, O Muse', { duration: 4, paragraph: 0 })
-    expect(paragraph.words).toBeUndefined()
+    expect(paragraph.words).toHaveLength(4)
+    const unit = 4 * DERIVED_SPEECH_SPAN / 4
+    expect(paragraph.words?.[0].text).toBe('Tell')
+    expect(paragraph.words?.[0].start).toBeCloseTo(0)
+    expect(paragraph.words?.[0].end).toBeCloseTo(unit)
+    expect(paragraph.words?.[3]?.end).toBeCloseTo(4 * DERIVED_SPEECH_SPAN)
+    expect(paragraph.words?.[3]?.end).toBeLessThan(4)
     expect(followAtTime([paragraph], 1.2)).toEqual({
-      kind: 'paragraph',
+      kind: 'word',
       paragraphIndex: 0,
+      wordIndex: 1,
     })
   })
 
-  it('does not invent word timings from a word count', () => {
+  it('does not treat a missing duration as a downloaded corpus', () => {
     const text = 'Tell me O Muse of that ingenious hero'
     expect(wordsFromManifestParagraph({ duration: 8 })).toBeUndefined()
     expect(wordsFromManifestParagraph({ words: [] })).toBeUndefined()
     expect(wordsFromManifestParagraph({
       words: [{ text: 'Tell', start: Number.NaN, end: 1 }],
     })).toBeUndefined()
+    expect(wordsFromParagraphDuration(text, 0)).toBeUndefined()
 
-    const followed = followParagraphFromManifest(0, text, { duration: 8 })
-    const target = followAtTime([followed], 2)
-    expect(target.kind).toBe('paragraph')
-    expect(target).not.toMatchObject({ kind: 'word' })
+    const followed = followParagraphFromManifest(0, text, { file: 'p0.mp3' })
+    expect(followed.words).toBeUndefined()
+    expect(followAtTime([followed], 2).kind).toBe('paragraph')
+  })
+
+  it('keeps manifest words and only derives when they are absent', () => {
+    const text = '¹ In the beginning God created'
+    const derived = wordsFromParagraphDuration(text, 8)
+    expect(derived?.map(word => word.text)).toEqual(['¹', 'In', 'the', 'beginning', 'God', 'created'])
+    expect(derived?.[0].end).toBeCloseTo(8 * DERIVED_SPEECH_SPAN / 6)
+    const kept = ensureDerivedWordTimes({
+      index: 0,
+      text,
+      duration: 8,
+      words: [{ text: 'In', start: 0, end: 8 }],
+    })
+    expect(kept.words).toEqual([{ text: 'In', start: 0, end: 8 }])
   })
 
   it('walks later paragraphs using their own timings', () => {
@@ -63,7 +90,7 @@ describe('lab word follow', () => {
       }),
     ]
 
-    expect(followAtTime(paragraphs, 1)).toEqual({ kind: 'paragraph', paragraphIndex: 0 })
+    expect(followAtTime(paragraphs, 1)).toEqual({ kind: 'word', paragraphIndex: 0, wordIndex: 0 })
     expect(followAtTime(paragraphs, 3.2)).toEqual({
       kind: 'word',
       paragraphIndex: 1,
@@ -86,8 +113,9 @@ describe('lab word follow', () => {
     ]
 
     expect(followFromPlayback({ paragraphs, paragraphIndex: 0, currentTime: 2 })).toEqual({
-      kind: 'paragraph',
+      kind: 'word',
       paragraphIndex: 0,
+      wordIndex: 0,
     })
     expect(followFromPlayback({ paragraphs, paragraphIndex: 1, currentTime: 1.2 })).toEqual({
       kind: 'word',
@@ -103,7 +131,7 @@ describe('lab word follow', () => {
         file: 'p0.mp3',
         words: [{ text: 'Tell', start: 0, end: 1 }, { text: 'me', start: 1, end: 2 }],
       }),
-      followParagraphFromManifest(1, 'So now', { duration: 2, file: 'p1.mp3' }),
+      followParagraphFromManifest(1, 'So now', { file: 'p1.mp3' }),
     ]
     const merged = mergeSidecarWords(paragraphs, {
       chapter: 1,
@@ -117,5 +145,91 @@ describe('lab word follow', () => {
       { text: 'So', start: 0, end: 1 },
       { text: 'now', start: 1, end: 2 },
     ])
+  })
+
+  it('replaces even-split derived times with sidecar start times', () => {
+    const text = 'In the beginning God created'
+    const derived = followParagraphFromManifest(0, text, { duration: 25, file: 'p0.mp3' })
+    expect(derived.words?.[2].text).toBe('beginning')
+    const evenStart = 25 * DERIVED_SPEECH_SPAN / 5 * 2
+    expect(derived.words?.[2].start).toBeCloseTo(evenStart)
+
+    const merged = mergeSidecarWords([derived], {
+      chapter: 1,
+      paragraphs: [{
+        paragraph: 0,
+        file: 'p0.mp3',
+        words: [
+          { text: 'In', start: 0.05, end: 0.22 },
+          { text: 'the', start: 0.22, end: 0.34 },
+          { text: 'beginning', start: 0.34, end: 1.15 },
+          { text: 'God', start: 1.15, end: 1.45 },
+          { text: 'created', start: 1.45, end: 2.05 },
+        ],
+      }],
+    })
+    expect(merged[0].words?.[2]).toEqual({ text: 'beginning', start: 0.34, end: 1.15 })
+    expect(followFromPlayback({ paragraphs: merged, paragraphIndex: 0, currentTime: 0.5 })).toEqual({
+      kind: 'word',
+      paragraphIndex: 0,
+      wordIndex: 2,
+    })
+    expect(wordIndexAtTime(derived.words!, 0.5)).toBe(0)
+  })
+})
+
+describe('wordIndexAtTime', () => {
+  it('holds the last word across a timing gap instead of jumping to the start', () => {
+const words = [
+      { text: 'Tell', start: 0.05, end: 0.55 },
+      { text: 'me,', start: 0.55, end: 0.77 },
+      { text: 'O', start: 1.03, end: 1.03 },
+      { text: 'Muse,', start: 1.03, end: 1.35 },
+    ]
+    expect(wordIndexAtTime(words, 0.9)).toBe(1)
+    expect(wordIndexAtTime(words, 1.1)).toBe(3)
+    expect(wordIndexAtTime(words, 0.1)).toBe(0)
+  })
+})
+
+describe('follow lead from audio currentTime', () => {
+  it('leads 0.28s at 1x and 0.38s at 1.5x', () => {
+    expect(followLeadSeconds(1)).toBeCloseTo(0.28)
+    expect(followLeadSeconds(1.5)).toBeCloseTo(0.38)
+    expect(followLeadSeconds(2)).toBeCloseTo(0.48)
+    expect(followTimeFromAudio(0, 1)).toBe(0)
+    expect(followTimeFromAudio(1.0, 1)).toBeCloseTo(1.28)
+    expect(followTimeFromAudio(1.0, 1.5)).toBeCloseTo(1.38)
+  })
+
+  it('sits on the spoken word at 1x and 1.5x, slightly early not late', () => {
+    const words = [
+      { text: 'In', start: 0, end: 0.4 },
+      { text: 'the', start: 0.4, end: 0.7 },
+      { text: 'beginning', start: 0.7, end: 1.3 },
+      { text: 'God', start: 1.3, end: 1.7 },
+    ]
+    for (const rate of [1, 1.5]) {
+      // Speaking "the" — must not still be on the finished previous word.
+      expect(wordIndexAtTime(words, followTimeFromAudio(0.45, rate))).toBeGreaterThanOrEqual(1)
+      // Speaking "beginning" — must not trail on "the".
+      const led = wordIndexAtTime(words, followTimeFromAudio(0.75, rate))
+      expect(led).toBeGreaterThanOrEqual(2)
+      expect(led).toBeLessThanOrEqual(3)
+    }
+    expect(wordIndexAtTime(words, 0.75)).toBe(2)
+    expect(wordIndexAtTime(words, followTimeFromAudio(0.75, 1))).toBeGreaterThanOrEqual(2)
+    expect(wordIndexAtTime(words, followTimeFromAudio(0.75, 1.5))).toBeGreaterThanOrEqual(2)
+  })
+
+  it('uses the led time so a 1.5x clock is not stuck on the previous word', () => {
+    const words = [
+      { text: 'Tell', start: 0, end: 0.4 },
+      { text: 'me,', start: 0.4, end: 0.7 },
+      { text: 'O', start: 0.7, end: 0.9 },
+      { text: 'Muse', start: 0.9, end: 1.4 },
+    ]
+    expect(wordIndexAtTime(words, followTimeFromAudio(0.55, 1.5))).toBeGreaterThanOrEqual(2)
+    expect(wordIndexAtTime(words, 0.55)).toBe(1)
   })
 })

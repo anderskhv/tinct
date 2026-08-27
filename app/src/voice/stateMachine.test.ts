@@ -89,6 +89,15 @@ describe('voice session state machine', () => {
     expect(reduceVoiceSession(listening, { type: 'RESUME_WINDOW_ELAPSED' }).state).toBe('listening')
   })
 
+  it('moves conversation listening to thinking after the user stops', () => {
+    const listening = play([{ type: 'START', mode: 'conversation' }, { type: 'USER_SPEECH_START' }])
+    expect(listening.state).toBe('listening')
+    expect(reduceVoiceSession(listening, { type: 'USER_SPEECH_END' })).toEqual({
+      state: 'conversation_idle',
+      mode: 'conversation',
+    })
+  })
+
   it('leaves voice from listening when the mic is tapped again', () => {
     const listening = play([{ type: 'START' }])
     expect(reduceVoiceSession(listening, { type: 'MIC_TAP' }).state).toBe('reading')

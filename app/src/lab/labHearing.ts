@@ -1,4 +1,5 @@
 import type { FollowParagraph, FollowTarget } from './labFollow'
+import { LAB_OVERFLOW_CLEAR_PX } from './labChrome'
 
 export type HearingWordRole = 'spoken' | 'current' | 'upcoming' | 'line'
 
@@ -21,8 +22,6 @@ export interface HearingSeekPoint {
   offsetSeconds: number
 }
 
-const WORDS_PER_LINE = 8
-
 function splitDisplaySentences(text: string): string[] {
   const parts = text
     .split(/(?<=[.!?])\s+/)
@@ -37,33 +36,645 @@ function wordRole(index: number, current: number): HearingWordRole {
   return 'upcoming'
 }
 
+function isStrongStop(text: string): boolean {
+  return /[.!?]["']?$/.test(text)
+}
+
+function lastStrongStopBefore(words: Array<{ text: string }>, index: number): number {
+  for (let i = index - 1; i >= 0; i--) {
+    if (isStrongStop(words[i].text)) return i
+  }
+  return -1
+}
+
+function nextStrongStopAtOrAfter(words: Array<{ text: string }>, index: number): number {
+  for (let i = Math.max(0, index); i < words.length; i++) {
+    if (isStrongStop(words[i].text)) return i
+  }
+  return words.length - 1
+}
+
+export const HEARING_PAGE_MIN = 70
+export const HEARING_PAGE_MAX = 90
+/** A leftover page this short is an orphan line, not a real page. */
+export const LAB_ORPHAN_PAGE_WORDS = 16
+
+export interface HearingPageBounds {
+  from: number
+  to: number
+}
+
+export interface LabPageLineBox {
+  from: number
+  to: number
+}
+
+/** Measured readable-page budget. Never a rem guess — height comes from chrome.top. */
+export interface LabPageBudget {
+  height: number
+  width: number
+  lineHeight: number
+  headlineHeight?: number
+  measureText: (text: string) => number
+}
+
+export function canUseLabPageBudget(budget: LabPageBudget | null | undefined): budget is LabPageBudget {
+  if (!budget) return false
+  return budget.height >= budget.lineHeight
+    && budget.width > 40
+    && budget.lineHeight > 8
+}
+
+/** Measured chrome metrics → wrap budget. avgCharWidth stands in for canvas measure. */
+export function labPageBudgetFromMetrics(metrics: {
+  height: number
+  width: number
+  lineHeight: number
+  headlineHeight?: number
+  avgCharWidth: number
+}): LabPageBudget {
+  const avg = Math.max(0.01, metrics.avgCharWidth)
+  return {
+    height: metrics.height,
+    width: metrics.width,
+    lineHeight: metrics.lineHeight,
+    headlineHeight: metrics.headlineHeight,
+    measureText: (text) => Math.max(1, text.length * avg),
+  }
+}
+
+export function wrapWordsToLineBoxes(
+  words: Array<{ text: string }>,
+  width: number,
+  measureText: (text: string) => number,
+): LabPageLineBox[] {
+  if (words.length === 0 || width <= 0) return []
+  const lines: LabPageLineBox[] = []
+  let from = 0
+  let used = 0
+  const space = Math.max(0, measureText(' '))
+  for (let i = 0; i < words.length; i++) {
+    const w = Math.max(1, measureText(words[i].text))
+    const next = used === 0 ? w : used + space + w
+    if (used > 0 && next > width) {
+      lines.push({ from, to: i })
+      from = i
+      used = w
+    } else {
+      used = next
+    }
+  }
+  if (from < words.length) lines.push({ from, to: words.length })
+  return lines
+}
+
 /**
- * Spotify-lyrics stage: one or two large lines.
- * Word roles only when real `words` exist. Display wrapping is not timing.
+ * Pack wrapped lines into pages whose last line bottom is strictly above
+ * the chrome top (pageHeight). One line is allowed if a single line is taller.
+ */
+export function paginateLineBoxes(
+  lines: LabPageLineBox[],
+  lineHeight: number,
+  pageHeight: number,
+  firstPageExtra = 0,
+): HearingPageBounds[] {
+  if (lines.length === 0 || lineHeight <= 0) return []
+  const pages: HearingPageBounds[] = []
+  const limit = pageHeight - Math.max(0, LAB_OVERFLOW_CLEAR_PX)
+  let i = 0
+  let pageIndex = 0
+  while (i < lines.length) {
+    const extra = pageIndex === 0 ? Math.max(0, firstPageExtra) : 0
+    let take = 0
+    while (i + take < lines.length) {
+      const nextBottom = extra + (take + 1) * lineHeight
+      if (take > 0 && nextBottom >= limit) break
+      take += 1
+    }
+    if (take === 0) take = 1
+    const slice = lines.slice(i, i + take)
+    pages.push({ from: slice[0].from, to: slice[slice.length - 1].to })
+    i += take
+    pageIndex += 1
+  }
+  return pages
+}
+
+export function pageIndexForWord(pages: HearingPageBounds[], wordIndex: number): number {
+  const index = pages.findIndex(page => wordIndex >= page.from && wordIndex < page.to)
+  return index >= 0 ? index : Math.max(0, pages.length - 1)
+}
+
+function hearingPagesByWordCount(words: Array<{ text: string }>): HearingPageBounds[] {
+  const pages: HearingPageBounds[] = []
+  const n = words.length
+  let i = 0
+  while (i < n) {
+    const from = i
+    let to = i
+    while (to < n) {
+      const next = nextStrongStopAtOrAfter(words, to) + 1
+      if (to > from && next - from > HEARING_PAGE_MAX) break
+      to = next
+      if (to - from >= HEARING_PAGE_MIN) {
+        if (to >= n) break
+        const peek = nextStrongStopAtOrAfter(words, to) + 1
+        if (peek - from > HEARING_PAGE_MAX) break
+        break
+      }
+    }
+    if (to === from) to = Math.min(n, from + HEARING_PAGE_MAX)
+    pages.push({ from, to })
+    i = to
+  }
+  return absorbOrphanWordBounds(pages)
+}
+
+function hearingPagesForBudget(
+  words: Array<{ text: string }>,
+  budget: LabPageBudget,
+  firstPageExtra = 0,
+): HearingPageBounds[] {
+  const lines = wrapWordsToLineBoxes(words, budget.width, budget.measureText)
+  const pages = paginateLineBoxes(lines, budget.lineHeight, budget.height, firstPageExtra)
+  if (pages.length > 0) return pages
+  return words.length > 0 ? [{ from: 0, to: words.length }] : []
+}
+
+/** Height-fit when a measured budget exists; otherwise the 70–90 word fallback. */
+export function hearingPages(
+  words: Array<{ text: string }>,
+  budget?: LabPageBudget | null,
+  firstPageExtra = 0,
+): HearingPageBounds[] {
+  if (canUseLabPageBudget(budget)) {
+    return hearingPagesForBudget(words, budget, firstPageExtra)
+  }
+  return hearingPagesByWordCount(words)
+}
+
+export function hearingPageForWord(pages: HearingPageBounds[], wordIndex: number): HearingPageBounds {
+  for (const page of pages) {
+    if (wordIndex >= page.from && wordIndex < page.to) return page
+  }
+  return pages[pages.length - 1] ?? { from: 0, to: 0 }
+}
+
+export function tokenizeHearingWords(text: string): Array<{ text: string }> {
+  return text.split(/\s+/).map(part => part.trim()).filter(Boolean).map(word => ({ text: word }))
+}
+
+export interface LabChapterProgress {
+  percent: number
+  currentPage: number
+  totalPages: number
+  wordsRead: number
+  wordsTotal: number
+}
+
+function chapterWordCount(paragraphs: string[]): number {
+  return paragraphs.reduce((sum, text) => sum + tokenizeHearingWords(text).length, 0)
+}
+
+function wordsBeforePlace(paragraphs: string[], paragraphIndex: number, wordIndex: number): number {
+  let read = 0
+  for (let i = 0; i < paragraphs.length; i++) {
+    const words = tokenizeHearingWords(paragraphs[i])
+    if (i < paragraphIndex) read += words.length
+    else if (i === paragraphIndex) read += Math.max(0, Math.min(wordIndex, words.length))
+  }
+  return read
+}
+
+/**
+ * Percent of THIS CHAPTER (Book 1 pages / words).
+ * Layout knobs can switch the printed strip; PAGE of CHAPTER stays the live default.
+ */
+export function labChapterProgress(input: {
+  paragraphs: string[]
+  pages: ChapterHearingPage[]
+  pageIndex: number
+  paragraphIndex?: number
+  wordIndex?: number
+}): LabChapterProgress {
+  const wordsTotal = chapterWordCount(input.paragraphs)
+  const pages = input.pages
+  const { currentPage, totalPages } = chapterPageLabel(pages, input.pageIndex)
+  const pageIndex = Math.max(0, Math.min(input.pageIndex, totalPages - 1))
+  const page = pages[pageIndex]
+  const wordsRead = typeof input.paragraphIndex === 'number' && typeof input.wordIndex === 'number'
+    ? wordsBeforePlace(input.paragraphs, input.paragraphIndex, input.wordIndex)
+    : page
+      ? wordsBeforePlace(input.paragraphs, page.paragraphIndex, page.to)
+      : 0
+  const percent = wordsTotal > 0 ? Math.round((wordsRead / wordsTotal) * 100) : 0
+  return {
+    percent: Math.max(0, Math.min(100, percent)),
+    currentPage,
+    totalPages,
+    wordsRead,
+    wordsTotal,
+  }
+}
+
+/** N and M come from the same page list. i is 1-based and never > M. */
+export function chapterPageLabel(pages: ChapterHearingPage[], pageIndex: number): {
+  currentPage: number
+  totalPages: number
+} {
+  const totalPages = Math.max(1, pages.length)
+  const currentPage = pages.length === 0 ? 1 : Math.max(1, Math.min(pageIndex + 1, totalPages))
+  return { currentPage, totalPages }
+}
+
+export interface ChapterHearingPage {
+  paragraphIndex: number
+  from: number
+  to: number
+}
+
+export interface LabPageAnchor {
+  paragraphIndex: number
+  wordIndex: number
+}
+
+export function pageAnchorOf(page: ChapterHearingPage | undefined): LabPageAnchor | null {
+  if (!page) return null
+  return { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
+}
+
+/** Page turns are exactly ±1. Null at the chapter edge (do not hop). */
+export function adjacentPageIndex(pageCount: number, current: number, delta: -1 | 1): number | null {
+  const next = current + delta
+  if (next < 0 || next >= pageCount) return null
+  return next
+}
+
+export function restorePageIndexForAnchor(
+  pages: ChapterHearingPage[],
+  anchor: LabPageAnchor,
+): number {
+  const exact = pages.findIndex(page => (
+    page.paragraphIndex === anchor.paragraphIndex && page.from === anchor.wordIndex
+  ))
+  if (exact >= 0) return exact
+  return pageIndexForPlace(pages, anchor.paragraphIndex, anchor.wordIndex)
+}
+
+/**
+ * If shrink/absorb merged the anchored page into a neighbor, split it back.
+ * Prev/next then still land on the same page identity.
+ */
+export function ensurePageIdentity(
+  pages: ChapterHearingPage[],
+  anchor: LabPageAnchor,
+): ChapterHearingPage[] {
+  const exact = pages.findIndex(page => (
+    page.paragraphIndex === anchor.paragraphIndex && page.from === anchor.wordIndex
+  ))
+  if (exact >= 0) return pages
+  const idx = pageIndexForPlace(pages, anchor.paragraphIndex, anchor.wordIndex)
+  const page = pages[idx]
+  if (!page || page.paragraphIndex !== anchor.paragraphIndex) return pages
+  if (anchor.wordIndex <= page.from || anchor.wordIndex >= page.to) return pages
+  const next = pages.slice()
+  next[idx] = { ...page, to: anchor.wordIndex }
+  next.splice(idx + 1, 0, {
+    paragraphIndex: page.paragraphIndex,
+    from: anchor.wordIndex,
+    to: page.to,
+  })
+  return next
+}
+
+
+export interface PaintShrinkOpts {
+  /** Last painted line's word count — a leftover shorter than this is a widow. */
+  lastLineWords?: number
+  /** Overflowing paint: peel even a one-word last line and allow M to grow. */
+  overflowing?: boolean
+}
+
+/** Move leftover words of a too-tall painted page onto the next page. */
+export function applyPaintShrink(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  newTo: number,
+  opts?: PaintShrinkOpts,
+): ChapterHearingPage[] {
+  const page = pages[pageIndex]
+  if (!page || newTo >= page.to || newTo < page.from + 1) return pages
+  const leftover = page.to - newTo
+  const lastLineWords = opts?.lastLineWords ?? 0
+  const overflowing = !!opts?.overflowing
+  // One leftover word, or a widow shorter than a line: keep it — unless the page overflows.
+  if (!overflowing) {
+    if (leftover <= 1) return pages
+    if (lastLineWords > 1 && leftover < lastLineWords) return pages
+  }
+  const after = pages[pageIndex + 1]
+  const next = pages.slice()
+  next[pageIndex] = { ...page, to: newTo }
+  if (after && after.paragraphIndex === page.paragraphIndex) {
+    next[pageIndex + 1] = { ...after, from: newTo }
+    if (next[pageIndex + 1].to <= newTo) {
+      next.splice(pageIndex + 1, 1)
+    }
+  } else {
+    next.splice(pageIndex + 1, 0, {
+      paragraphIndex: page.paragraphIndex,
+      from: newTo,
+      to: page.to,
+    })
+  }
+  for (let i = 0; i < next.length - 1; i++) {
+    if (next[i].paragraphIndex !== next[i + 1].paragraphIndex) continue
+    if (next[i + 1].from !== next[i].to) {
+      next[i + 1] = { ...next[i + 1], from: next[i].to }
+    }
+    if (next[i + 1].to <= next[i + 1].from) {
+      next.splice(i + 1, 1)
+      i -= 1
+    }
+  }
+  // Overflow peel must keep a one-word leftover off this page.
+  return overflowing ? next : absorbOneWordLeftoverPages(next)
+}
+
+/**
+ * Cut an overflowing page, then paginate the REST of the chapter as a
+ * complete set. M is that set — never a frozen underestimate.
+ */
+export function reflowAfterCut(
+  paragraphs: string[],
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  newTo: number,
+  budget?: LabPageBudget | null,
+  opts?: PaintShrinkOpts,
+): ChapterHearingPage[] {
+  const page = pages[pageIndex]
+  if (!page || newTo >= page.to || newTo < page.from + 1) return pages
+  const leftoverCount = page.to - newTo
+  const lastLineWords = opts?.lastLineWords ?? 0
+  const overflowing = !!opts?.overflowing
+  if (!overflowing) {
+    if (leftoverCount <= 1) return pages
+    if (lastLineWords > 1 && leftoverCount < lastLineWords) return pages
+  }
+  const head: ChapterHearingPage[] = [
+    ...pages.slice(0, pageIndex),
+    { paragraphIndex: page.paragraphIndex, from: page.from, to: newTo },
+  ]
+  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
+  const leftoverText = words.slice(newTo).map(word => word.text).join(' ')
+  const rest: string[] = []
+  if (leftoverText) rest.push(leftoverText)
+  for (let i = page.paragraphIndex + 1; i < paragraphs.length; i++) rest.push(paragraphs[i])
+  const tailRaw = chapterHearingPages(rest, budget)
+  const firstIsLeftover = leftoverText.length > 0
+  const tail = tailRaw.map(part => {
+    if (firstIsLeftover && part.paragraphIndex === 0) {
+      return {
+        paragraphIndex: page.paragraphIndex,
+        from: part.from + newTo,
+        to: part.to + newTo,
+      }
+    }
+    const orig = firstIsLeftover
+      ? page.paragraphIndex + part.paragraphIndex
+      : page.paragraphIndex + 1 + part.paragraphIndex
+    return { paragraphIndex: orig, from: part.from, to: part.to }
+  })
+  const next = [...head, ...tail]
+  return overflowing ? next : absorbOneWordLeftoverPages(next)
+}
+
+/** True when two chapter page lists have the same bounds. */
+export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[]): boolean {
+  if (a === b) return true
+  if (a.length !== b.length) return false
+  return a.every((page, i) => (
+    page.paragraphIndex === b[i].paragraphIndex
+    && page.from === b[i].from
+    && page.to === b[i].to
+  ))
+}
+
+/** N and M come from the same page list. Never report N > M. */
+export function clampedChapterProgress(progress: LabChapterProgress): LabChapterProgress {
+  const totalPages = Math.max(1, progress.totalPages)
+  const currentPage = Math.max(1, Math.min(progress.currentPage, totalPages))
+  return { ...progress, currentPage, totalPages }
+}
+
+function absorbOrphanWordBounds(pages: HearingPageBounds[]): HearingPageBounds[] {
+  if (pages.length < 2) return pages
+  const last = pages[pages.length - 1]
+  if (last.to - last.from > LAB_ORPHAN_PAGE_WORDS || last.to - last.from <= 0) return pages
+  const prev = pages[pages.length - 2]
+  return [...pages.slice(0, -2), { from: prev.from, to: last.to }]
+}
+
+export function leftoverWordCount(page: ChapterHearingPage | undefined): number {
+  if (!page) return 0
+  return Math.max(0, page.to - page.from)
+}
+
+export function isOrphanLeftoverPage(page: ChapterHearingPage | undefined): boolean {
+  const words = leftoverWordCount(page)
+  return words > 0 && words <= LAB_ORPHAN_PAGE_WORDS
+}
+
+export function isOneWordLeftoverPage(page: ChapterHearingPage | undefined): boolean {
+  return leftoverWordCount(page) === 1
+}
+
+/** Absorb a lone leftover word into the previous page of the same paragraph. */
+export function absorbOneWordLeftoverPages(
+  pages: ChapterHearingPage[],
+  keep?: LabPageAnchor | null,
+): ChapterHearingPage[] {
+  let next = pages
+  for (let i = next.length - 1; i > 0; i--) {
+    const leftover = next[i]
+    if (keep && leftover.paragraphIndex === keep.paragraphIndex && leftover.from === keep.wordIndex) {
+      continue
+    }
+    if (!isOneWordLeftoverPage(leftover)) continue
+    const prev = next[i - 1]
+    if (!prev || prev.paragraphIndex !== leftover.paragraphIndex) continue
+    const merged = next.slice()
+    merged[i - 1] = { ...prev, to: leftover.to }
+    merged.splice(i, 1)
+    next = merged
+  }
+  return next
+}
+
+/** Merge an orphan leftover page into the previous page of the same paragraph. */
+export function applyPaintAbsorb(
+  pages: ChapterHearingPage[],
+  leftoverIndex: number,
+): ChapterHearingPage[] {
+  const leftover = pages[leftoverIndex]
+  const prev = pages[leftoverIndex - 1]
+  if (!leftover || !prev || leftoverIndex <= 0) return pages
+  if (prev.paragraphIndex !== leftover.paragraphIndex) return pages
+  if (!isOrphanLeftoverPage(leftover)) return pages
+  const next = pages.slice()
+  next[leftoverIndex - 1] = { ...prev, to: leftover.to }
+  next.splice(leftoverIndex, 1)
+  return next
+}
+
+/**
+ * Collapse nearly-empty leftover pages into the previous page.
+ * Never eats a full page, and never creates a page-1 verse-mark collapse
+ * (that leftover is the rest of the paragraph, not an orphan line).
+ */
+export function absorbOrphanLeftoverPages(
+  pages: ChapterHearingPage[],
+  keep?: LabPageAnchor | null,
+): ChapterHearingPage[] {
+  let next = pages
+  for (let i = next.length - 1; i > 0; i--) {
+    const leftover = next[i]
+    if (keep && leftover.paragraphIndex === keep.paragraphIndex && leftover.from === keep.wordIndex) {
+      continue
+    }
+    const absorbed = applyPaintAbsorb(next, i)
+    if (absorbed !== next) next = absorbed
+  }
+  return next
+}
+
+export function pageIndexForPlace(
+  pages: ChapterHearingPage[],
+  paragraphIndex: number,
+  wordIndex: number,
+): number {
+  if (pages.length === 0) return 0
+  const exact = pages.findIndex(page => (
+    page.paragraphIndex === paragraphIndex && wordIndex >= page.from && wordIndex < page.to
+  ))
+  if (exact >= 0) return exact
+  const nextOnParagraph = pages.findIndex(page => (
+    page.paragraphIndex === paragraphIndex && page.from > wordIndex
+  ))
+  if (nextOnParagraph > 0) return nextOnParagraph - 1
+  let lastSame = -1
+  for (let i = 0; i < pages.length; i++) {
+    if (pages[i].paragraphIndex === paragraphIndex) lastSame = i
+  }
+  if (lastSame >= 0) return lastSame
+  const nextParagraph = pages.findIndex(page => page.paragraphIndex > paragraphIndex)
+  if (nextParagraph >= 0) return nextParagraph
+  return pages.length - 1
+}
+
+/** Same pages Hearing uses, flattened across the chapter for Reading. */
+/** True when every paragraph is covered, in order, with no gaps or N/M holes. */
+export function chapterPagesCover(paragraphs: string[], pages: ChapterHearingPage[]): boolean {
+  for (let i = 0; i < paragraphs.length; i++) {
+    const n = tokenizeHearingWords(paragraphs[i]).length
+    if (n === 0) continue
+    const parts = pages.filter(page => page.paragraphIndex === i)
+    if (parts.length === 0 || parts[0].from !== 0 || parts[parts.length - 1].to !== n) return false
+    for (let j = 0; j < parts.length - 1; j++) {
+      if (parts[j].to !== parts[j + 1].from) return false
+    }
+  }
+  return pages.length === 0 ? paragraphs.every(text => tokenizeHearingWords(text).length === 0) : true
+}
+
+export function chapterHearingPages(
+  paragraphs: string[],
+  budget?: LabPageBudget | null,
+): ChapterHearingPage[] {
+  const pages: ChapterHearingPage[] = []
+  paragraphs.forEach((text, paragraphIndex) => {
+    const words = tokenizeHearingWords(text)
+    if (words.length === 0) return
+    const extra = paragraphIndex === 0 ? (budget?.headlineHeight ?? 0) : 0
+    for (const part of hearingPages(words, budget, extra)) {
+      if (part.to > part.from) pages.push({ paragraphIndex, from: part.from, to: part.to })
+    }
+  })
+  return absorbOneWordLeftoverPages(pages)
+}
+
+export function readingPageLines(paragraphs: string[], page: ChapterHearingPage | undefined): HearingLine[] {
+  if (!page) return []
+  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
+  return [{
+    words: words.slice(page.from, page.to).map(word => ({ text: word.text, role: 'line' as const })),
+  }]
+}
+
+/** Word highlight / dim / bold follow only while Hearing is actually playing. */
+export function hearingFollowPaintActive(
+  mode: 'reading' | 'hearing',
+  playing: boolean,
+  follow: FollowTarget,
+): boolean {
+  return mode === 'hearing' && playing && follow.kind !== 'none'
+}
+
+
+export function isChapterFirstReadingPage(page: ChapterHearingPage | undefined): boolean {
+  return !!page && page.paragraphIndex === 0 && page.from === 0
+}
+
+/** Headline only on the first hearing page of the chapter. */
+export function isChapterFirstHearingPage(
+  paragraph: FollowParagraph | undefined,
+  follow: FollowTarget,
+  chapterPages?: ChapterHearingPage[],
+): boolean {
+  if (!paragraph || paragraph.index !== 0) return false
+  if (follow.kind === 'word' && paragraph.words && paragraph.words.length > 0) {
+    const current = Math.max(0, Math.min(follow.wordIndex, paragraph.words.length - 1))
+    const local = chapterPages
+      ?.filter(page => page.paragraphIndex === 0)
+      .map(page => ({ from: page.from, to: page.to }))
+    const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(paragraph.words), current)
+    return page.from === 0
+  }
+  return true
+}
+
+/**
+ * Hearing stage: one stable page of the paragraph.
+ * The word list stays put until current is past the last word on the page.
  */
 export function hearingStageLines(
   paragraph: FollowParagraph | undefined,
   follow: FollowTarget,
+  chapterPages?: ChapterHearingPage[],
 ): HearingLine[] {
   if (!paragraph) return []
 
   if (follow.kind === 'word' && paragraph.words && paragraph.words.length > 0) {
-    const current = Math.max(0, Math.min(follow.wordIndex, paragraph.words.length - 1))
-    const chunks: HearingWord[][] = []
-    for (let i = 0; i < paragraph.words.length; i += WORDS_PER_LINE) {
-      chunks.push(paragraph.words.slice(i, i + WORDS_PER_LINE).map((word, offset) => ({
+    const words = paragraph.words
+    const current = Math.max(0, Math.min(follow.wordIndex, words.length - 1))
+    const local = chapterPages
+      ?.filter(page => page.paragraphIndex === paragraph.index)
+      .map(page => ({ from: page.from, to: page.to }))
+    const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(words), current)
+    return [{
+      words: words.slice(page.from, page.to).map((word, offset) => ({
         text: word.text,
-        role: wordRole(i + offset, current),
-      })))
-    }
-    const lineIndex = Math.floor(current / WORDS_PER_LINE)
-    return chunks.slice(lineIndex, lineIndex + 2).map(words => ({ words }))
+        role: wordRole(page.from + offset, current),
+      })),
+    }]
   }
 
   const sentences = splitDisplaySentences(paragraph.text)
-  return sentences.slice(0, 2).map(text => ({
+  const text = sentences.join(' ')
+  return [{
     words: [{ text, role: 'line' as const }],
-  }))
+  }]
 }
 
 export function hearingProgress(
@@ -82,8 +693,35 @@ export function hearingProgress(
   }
 }
 
+export type SeekClip = {
+  duration?: number
+  words?: Array<{ end: number }>
+}
+
+/** Clip length from manifest duration, else last word end, else a known live duration. */
+export function clipPlayDuration(clip: SeekClip | undefined, known?: number): number | undefined {
+  if (clip && typeof clip.duration === 'number' && clip.duration > 0) return clip.duration
+  const last = clip?.words?.[clip.words.length - 1]?.end
+  if (typeof last === 'number' && last > 0) return last
+  if (typeof known === 'number' && known > 0) return known
+  return undefined
+}
+
+/**
+ * Prefer the live element time when it is actually advancing.
+ * A 0-read on the element must not wipe a known mid-clip time — that is why
+ * −15 was snapping to clip 0 / word 0 mid-book.
+ */
+export function playbackTimeSeconds(audioTime: number, knownTime: number): number {
+  const audio = Number.isFinite(audioTime) ? audioTime : 0
+  const known = Number.isFinite(knownTime) ? knownTime : 0
+  if (audio > 0) return audio
+  if (known > 0) return known
+  return 0
+}
+
 export function seekAcrossClips(input: {
-  clips: Array<{ duration?: number }>
+  clips: Array<SeekClip>
   clipIndex: number
   currentTime: number
   deltaSeconds: number
@@ -97,10 +735,16 @@ export function seekAcrossClips(input: {
 
   if (input.deltaSeconds < 0) {
     while (time < 0 && index > 0) {
+      const fromIndex = index
       index -= 1
-      const duration = clips[index].duration
-      if (duration == null || duration <= 0) {
-        return { clipIndex: index, offsetSeconds: 0 }
+      const duration = clipPlayDuration(
+        clips[index],
+        fromIndex === input.clipIndex ? input.knownDuration : undefined,
+      )
+      if (duration == null) {
+        // Cannot measure the previous clip. Stay at the start of the clip we
+        // were in — never walk to clip 0 / offset 0 just because duration is missing.
+        return { clipIndex: fromIndex, offsetSeconds: 0 }
       }
       time += duration
     }
@@ -108,8 +752,10 @@ export function seekAcrossClips(input: {
   }
 
   while (index < clips.length) {
-    const duration = clips[index].duration
-      ?? (index === input.clipIndex ? input.knownDuration : undefined)
+    const duration = clipPlayDuration(
+      clips[index],
+      index === input.clipIndex ? input.knownDuration : undefined,
+    )
     if (duration == null || duration <= 0) {
       return { clipIndex: index, offsetSeconds: Math.max(0, time) }
     }
@@ -126,7 +772,22 @@ export function seekAcrossClips(input: {
   return { clipIndex: clips.length - 1, offsetSeconds: 0 }
 }
 
+export function labProgressLabel(
+  progress: LabChapterProgress,
+  chapterNumber = 1,
+  chapterLabel?: string,
+): string {
+  const chapter = (chapterLabel || '').trim() || `Chapter ${chapterNumber}`
+  return `${chapter} — ${progress.currentPage} / ${progress.totalPages}`
+}
+
 export const LAB_HEARING_SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const
+
+export function parseHearingSpeed(value: unknown): number | null {
+  const n = typeof value === 'number' ? value : Number(String(value ?? '').trim())
+  if (!Number.isFinite(n)) return null
+  return (LAB_HEARING_SPEEDS as readonly number[]).includes(n) ? n : null
+}
 
 export function nextHearingSpeed(current: number): number {
   const idx = LAB_HEARING_SPEEDS.indexOf(current as typeof LAB_HEARING_SPEEDS[number])

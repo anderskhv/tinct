@@ -20,43 +20,69 @@ async function hashSafetyIdentifier(userId: string): Promise<string> {
   return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')
 }
 
+function labGuestIp(request: Request): string {
+  return request.headers.get('cf-connecting-ip')
+    || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || 'lab-guest'
+}
+
+export async function handleLabVoiceSession(
+  request: Request,
+  env: VoiceEnv,
+  ctx: ExecutionContext,
+  checkRateLimit: CheckRateLimit,
+): Promise<Response> {
+  return handleVoiceSession(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true })
+}
+
 export async function handleVoiceSession(
   request: Request,
   env: VoiceEnv,
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   checkRateLimit: CheckRateLimit,
+  options?: { allowLabGuest?: boolean },
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const apiKey = env.OPENAI_API_KEY
   if (!apiKey) return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
 
-  const user = await verifyUser(env, request)
-  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
-  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
-
-  const userId = user.id
-  const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
-    ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
-        .then(async (profileRes) => {
-          if (!profileRes.ok) return null
-          const profiles = await profileRes.json() as ChatProfile[]
-          return profiles?.[0] ?? null
-        })
-        .catch(() => null)
-    : Promise.resolve(null)
-
-  const [rateAllowed, profile] = await Promise.all([
-    checkRateLimit(`voice:${userId}`, env.RATE_LIMIT, 6),
-    profilePromise,
-  ])
-  if (!rateAllowed) {
-    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+  const allowLabGuest = options?.allowLabGuest === true
+  const user = allowLabGuest ? null : await verifyUser(env, request)
+  if (!allowLabGuest) {
+    if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+    if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
   }
 
-  const access = evaluateChatAccess(profile)
-  if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
+  const userId = user?.id ?? `lab-guest:${labGuestIp(request)}`
+  if (allowLabGuest) {
+    const rateAllowed = await checkRateLimit(`lab-voice:${labGuestIp(request)}`, env.RATE_LIMIT, 6)
+    if (!rateAllowed) {
+      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    }
+  } else {
+    const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
+      ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
+          .then(async (profileRes) => {
+            if (!profileRes.ok) return null
+            const profiles = await profileRes.json() as ChatProfile[]
+            return profiles?.[0] ?? null
+          })
+          .catch(() => null)
+      : Promise.resolve(null)
+
+    const [rateAllowed, profile] = await Promise.all([
+      checkRateLimit(`voice:${userId}`, env.RATE_LIMIT, 6),
+      profilePromise,
+    ])
+    if (!rateAllowed) {
+      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    }
+
+    const access = evaluateChatAccess(profile)
+    if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
+  }
 
   try {
     const safetyId = await hashSafetyIdentifier(userId)
@@ -82,7 +108,7 @@ export async function handleVoiceSession(
       return jsonResponse({ error: message }, response.status >= 400 ? response.status : 502, request)
     }
 
-    if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    if (user && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
       ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
     }
 

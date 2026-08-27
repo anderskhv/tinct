@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { handleChat } from './worker/routes/chat'
+import { handleChat, handleLabChat } from './worker/routes/chat'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const env = {
@@ -158,6 +158,110 @@ describe('chat route', () => {
       'https://example.supabase.co/rest/v1/rpc/use_message',
       expect.objectContaining({ method: 'POST' }),
     )
+  })
+
+  it('allows a lab guest companion without a session and does not charge', async () => {
+    let anthropicBody: Record<string, unknown> | null = null
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url === 'https://api.anthropic.com/v1/messages') {
+        anthropicBody = JSON.parse(String(init?.body)) as Record<string, unknown>
+        return Response.json({ content: [{ text: 'Paul wrote Romans.' }], usage: { input_tokens: 1, output_tokens: 1 } })
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const rateLimit = vi.fn(async (key: string) => {
+      expect(key.startsWith('lab-chat:')).toBe(true)
+      return true
+    })
+    const { ctx, waitUntil } = makeExecutionContext()
+
+    const response = await handleLabChat(
+      chatRequest({ messages: [{ role: 'user', content: 'Who wrote Romans?' }] }),
+      { ANTHROPIC_API_KEY: 'anthropic-key' },
+      ctx,
+      rateLimit,
+    )
+
+    expect(response.status).toBe(200)
+    expect(await response.json()).toEqual({
+      content: [{ text: 'Paul wrote Romans.' }],
+      usage: { input_tokens: 1, output_tokens: 1 },
+    })
+    expect(anthropicBody).toMatchObject({
+      model: 'claude-sonnet-4-6',
+      messages: [{ role: 'user', content: 'Who wrote Romans?' }],
+    })
+    expect(waitUntil).not.toHaveBeenCalled()
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('streams lab-chat tokens as Anthropic emits them', async () => {
+    const encoder = new TextEncoder()
+    const sse = [
+      'event: message_start\ndata: {"type":"message_start","message":{"usage":{}}}\n\n',
+      'event: content_block_delta\ndata: {"type":"content_block_delta","delta":{"type":"text_delta","text":"Athena "}}\n\n',
+      'event: content_block_delta\ndata: {"type":"content_block_delta","delta":{"type":"text_delta","text":"is beside him."}}\n\n',
+      'event: message_stop\ndata: {"type":"message_stop"}\n\n',
+    ]
+    let pullCount = 0
+    let anthropicBody: Record<string, unknown> | null = null
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url === 'https://api.anthropic.com/v1/messages') {
+        anthropicBody = JSON.parse(String(init?.body)) as Record<string, unknown>
+        const stream = new ReadableStream<Uint8Array>({
+          pull(controller) {
+            if (pullCount >= sse.length) {
+              controller.close()
+              return
+            }
+            controller.enqueue(encoder.encode(sse[pullCount]))
+            pullCount += 1
+          },
+        })
+        return new Response(stream, {
+          status: 200,
+          headers: { 'content-type': 'text/event-stream; charset=utf-8' },
+        })
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, waitUntil } = makeExecutionContext()
+
+    const response = await handleLabChat(
+      chatRequest({
+        stream: true,
+        messages: [{ role: 'user', content: 'Who is Athena here?' }],
+      }),
+      { ANTHROPIC_API_KEY: 'anthropic-key' },
+      ctx,
+      async () => true,
+    )
+
+    expect(response.status).toBe(200)
+    expect(response.headers.get('content-type') || '').toContain('event-stream')
+    expect(anthropicBody).toMatchObject({
+      model: 'claude-sonnet-4-6',
+      stream: true,
+      messages: [{ role: 'user', content: 'Who is Athena here?' }],
+    })
+    const reader = response.body?.getReader()
+    expect(reader).toBeTruthy()
+    const first = await reader!.read()
+    expect(first.done).toBe(false)
+    expect(new TextDecoder().decode(first.value)).toContain('message_start')
+    expect(pullCount).toBeLessThan(sse.length)
+    const leftover: string[] = []
+    while (true) {
+      const next = await reader!.read()
+      if (next.done) break
+      leftover.push(new TextDecoder().decode(next.value))
+    }
+    expect(leftover.join('')).toContain('is beside him.')
+    expect(waitUntil).not.toHaveBeenCalled()
   })
 
   it('rejects invalid system blocks before calling Anthropic', async () => {

@@ -17,8 +17,10 @@ import {
 } from './worker/routes/billing'
 import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
-import { handleChat } from './worker/routes/chat'
-import { handleVoiceSession } from './worker/routes/voice'
+import { handleChat, handleLabChat } from './worker/routes/chat'
+import { handleLabVoiceSession, handleVoiceSession } from './worker/routes/voice'
+import { handleLabPosition } from './worker/routes/labPosition'
+import { handleLabChatHistory } from './worker/routes/labChatHistory'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import {
@@ -152,7 +154,11 @@ export default {
 
     switch (url.pathname) {
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
+      case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
+      case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser)
       case '/api/webhook': return handleWebhook(request, env)

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { LAB_COPY } from './labCopy'
 import type { LabCastMember, LabChapter, LabMark } from './labSource'
 
@@ -17,6 +18,8 @@ interface LabInTheBookProps {
   onAskAbout: (name: string) => void
   onJumpParagraph: (index: number) => void
   panel?: boolean
+  phone?: boolean
+  hideToggle?: boolean
 }
 
 export function LabInTheBook({
@@ -32,6 +35,8 @@ export function LabInTheBook({
   onAskAbout,
   onJumpParagraph,
   panel = true,
+  phone = false,
+  hideToggle = false,
 }: LabInTheBookProps) {
   const [tab, setTab] = useState<InTheBookTab>('search')
   const [query, setQuery] = useState('')
@@ -46,25 +51,37 @@ export function LabInTheBook({
 
   return (
     <div className="lab-inbook">
+      {!hideToggle && (
       <button
         type="button"
-        className={`lab-header-btn ${open ? 'is-open' : ''}`}
+        className={`lab-header-btn lab-inbook-toggle ${open ? 'is-open' : ''}`}
         onClick={onToggle}
         aria-expanded={open}
         aria-controls="lab-inbook-panel"
+        aria-haspopup="dialog"
         data-testid="lab-in-the-book"
       >
         {LAB_COPY.inTheBook}
       </button>
-      {open && panel && (
-        <div id="lab-inbook-panel" className="lab-inbook-panel" data-testid="lab-in-the-book-panel">
+      )}
+      {open && panel && createPortal((
+        <>
+        <button
+          type="button"
+          className="lab-inbook-backdrop"
+          data-testid="lab-inbook-backdrop"
+          aria-label={`Close ${LAB_COPY.inTheBook}`}
+          onClick={onClose}
+        />
+        <div id="lab-inbook-panel" className={`lab-inbook-panel${phone ? ' is-phone-panel' : ''}`} data-testid="lab-in-the-book-panel" role="dialog" aria-label={LAB_COPY.inTheBook}>
+          {phone && <h2 className="lab-inbook-sheet-title">{LAB_COPY.inTheBook}</h2>}
           <p className="lab-inbook-hint">{LAB_COPY.inTheBookHint}</p>
           <div className="lab-inbook-tabs" role="tablist">
             {([
               ['search', LAB_COPY.search],
               ['marks', LAB_COPY.marks],
               ['contents', LAB_COPY.contents],
-              ['cast', LAB_COPY.cast],
+              ['cast', phone ? LAB_COPY.castShort : LAB_COPY.cast],
             ] as const).map(([key, label]) => (
               <button
                 key={key}
@@ -160,7 +177,8 @@ export function LabInTheBook({
             </div>
           )}
         </div>
-      )}
+        </>
+      ), document.body)}
     </div>
   )
 }

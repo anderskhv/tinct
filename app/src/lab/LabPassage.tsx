@@ -1,0 +1,243 @@
+import { LAB_COPY } from './labCopy'
+import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, readingPageLines } from './labHearing'
+import type { ChapterHearingPage } from './labHearing'
+import type { FollowParagraph, FollowTarget } from './labFollow'
+
+export type LabPassageMode = 'reading' | 'hearing'
+
+interface LabPassageProps {
+  chapterTitle: string
+  paragraphs: string[]
+  compareParagraphs: string[]
+  compare: boolean
+  mode: LabPassageMode
+  follow: FollowTarget
+  followParagraphs: FollowParagraph[]
+  clips?: Array<{ duration?: number }>
+  playing?: boolean
+  clipIndex?: number
+  currentTime?: number
+  speed?: number
+  onTogglePlay?: () => void
+  onSeek?: (deltaSeconds: number) => void
+  onCycleSpeed?: () => void
+  hideTransport?: boolean
+  markedIndexes: Set<number>
+  onMark: (index: number) => void
+  focusParagraph?: number | null
+  dimmed?: boolean
+  peek?: boolean
+  readingPage?: ChapterHearingPage
+  chapterPages?: ChapterHearingPage[]
+}
+
+function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
+  return lines.map((line, lineIndex) => (
+    <p key={lineIndex} className="lab-hearing-line">
+      {line.words.map((word, wordIndex) => (
+        <span key={`${lineIndex}-${wordIndex}`}>
+          {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+          {word.text}
+        </span>
+      ))}
+    </p>
+  ))
+}
+
+function renderHearingWords(
+  paragraph: FollowParagraph | undefined,
+  follow: FollowTarget,
+  chapterPages?: ChapterHearingPage[],
+) {
+  const lines = hearingStageLines(paragraph, follow, chapterPages)
+  return lines.map((line, lineIndex) => (
+    <p key={lineIndex} className="lab-hearing-line">
+      {line.words.map((word, wordIndex) => (
+        <span
+          key={`${lineIndex}-${wordIndex}`}
+          className={`lab-hearing-word is-${word.role}`}
+          data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+        >
+          {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+          {word.text}
+        </span>
+      ))}
+    </p>
+  ))
+}
+
+export function LabPassage({
+  chapterTitle,
+  paragraphs,
+  compareParagraphs,
+  compare,
+  mode,
+  follow,
+  followParagraphs,
+  clips,
+  playing = false,
+  clipIndex = 0,
+  currentTime = 0,
+  speed = 1,
+  onTogglePlay,
+  onSeek,
+  onCycleSpeed,
+  hideTransport = false,
+  markedIndexes,
+  onMark,
+  focusParagraph,
+  dimmed,
+  peek,
+  readingPage,
+  chapterPages,
+}: LabPassageProps) {
+  const hearing = mode === 'hearing'
+  const followActive = hearingFollowPaintActive(mode, playing, follow)
+  const paintedFollow = readingPage
+    ? { kind: 'word' as const, paragraphIndex: readingPage.paragraphIndex, wordIndex: readingPage.from }
+    : null
+  const spuriousStart = followActive && follow.kind === 'word'
+    && follow.paragraphIndex === 0 && follow.wordIndex === 0
+    && !!paintedFollow
+    && (paintedFollow.paragraphIndex > 0 || paintedFollow.wordIndex > 0)
+  const linesFollow = spuriousStart && paintedFollow ? paintedFollow : follow
+  const paragraph = linesFollow.kind === 'none'
+    ? followParagraphs[clipIndex] || followParagraphs[0]
+    : followParagraphs.find(item => item.index === linesFollow.paragraphIndex) || followParagraphs[clipIndex]
+  const readingLines = readingPageLines(paragraphs, readingPage)
+  const showHeadline = followActive && linesFollow.kind === 'word'
+    ? isChapterFirstHearingPage(paragraph, linesFollow, chapterPages)
+    : isChapterFirstReadingPage(readingPage)
+
+  return (
+    <article
+      className={[
+        'lab-passage',
+        'lab-book',
+        hearing ? 'is-hearing' : 'is-reading',
+        dimmed ? 'is-dimmed' : '',
+        compare ? 'is-compare' : '',
+        peek ? 'is-peek' : '',
+      ].filter(Boolean).join(' ')}
+      data-testid="lab-book"
+      data-passage-mode={mode}
+    >
+      {showHeadline && (
+      <header className="lab-passage-header">
+        <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
+          {chapterTitle}
+        </h1>
+      </header>
+      )}
+      <div className="lab-book-columns">
+        <div className="lab-book-col">
+          {hearing && followActive ? (
+            <div className="lab-hearing" data-testid="lab-hearing">
+              <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
+                {renderHearingWords(paragraph, linesFollow, chapterPages)}
+              </div>
+            </div>
+          ) : hearing ? (
+            <div className="lab-hearing" data-testid="lab-hearing">
+              <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
+                {renderPlainWords(readingLines)}
+              </div>
+            </div>
+          ) : (
+            <div className="lab-hearing-stage" data-testid="lab-reading-stage">
+              {readingLines.map((line, lineIndex) => {
+                const index = readingPage?.paragraphIndex ?? 0
+                return (
+                <p
+                  key={lineIndex}
+                  id={`lab-p-${index}`}
+                  className={[
+                    'lab-hearing-line',
+                    markedIndexes.has(index) ? 'is-marked' : '',
+                    focusParagraph === index ? 'is-focus' : '',
+                  ].filter(Boolean).join(' ')}
+                >
+                  {line.words.map((word, wordIndex) => (
+                    <span key={`${lineIndex}-${wordIndex}`}>
+                      {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+                      {word.text}
+                    </span>
+                  ))}
+                  <button
+                    type="button"
+                    className="lab-mark-btn"
+                    onClick={() => onMark(index)}
+                  >
+                    {LAB_COPY.markAction}
+                  </button>
+                </p>
+                )
+              })}
+            </div>
+          )}
+        </div>
+        {compare && (
+          <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
+            {(() => {
+              const source = compareParagraphs.length > 0 ? compareParagraphs : paragraphs
+              const index = readingPage?.paragraphIndex ?? 0
+              const text = source[index]
+              return text ? <p className="lab-hearing-line">{text}</p> : null
+            })()}
+          </div>
+        )}
+      </div>
+      {hearing && !hideTransport && onTogglePlay && onSeek && onCycleSpeed && (
+        <div className="lab-hearing-transport" data-testid="lab-hearing-transport">
+          <button type="button" className="lab-text-btn" onClick={onTogglePlay} data-testid="lab-hearing-pause">
+            {playing ? LAB_COPY.pause : LAB_COPY.play}
+          </button>
+          <button type="button" className="lab-text-btn" onClick={() => onSeek(-15)} data-testid="lab-hearing-back">
+            {LAB_COPY.back15}
+          </button>
+          <button type="button" className="lab-text-btn" onClick={() => onSeek(15)} data-testid="lab-hearing-forward">
+            {LAB_COPY.forward15}
+          </button>
+          <button type="button" className="lab-text-btn" onClick={onCycleSpeed} data-testid="lab-hearing-speed">
+            {speed}×
+          </button>
+        </div>
+      )}
+    </article>
+  )
+}
+
+/** Offscreen paint of one page so settle can measure every page without flipping. */
+export function LabPageMeasurePaint(input: {
+  chapterTitle: string
+  paragraphs: string[]
+  page: ChapterHearingPage
+}) {
+  const lines = readingPageLines(input.paragraphs, input.page)
+  return (
+    <article className="lab-passage lab-book is-reading">
+      {isChapterFirstReadingPage(input.page) && (
+        <header className="lab-passage-header">
+          <h1 className="lab-passage-headline">{input.chapterTitle}</h1>
+        </header>
+      )}
+      <div className="lab-book-columns">
+        <div className="lab-book-col">
+          <div className="lab-hearing-stage">
+            {lines.map((line, lineIndex) => (
+              <p key={lineIndex} className="lab-hearing-line">
+                {line.words.map((word, wordIndex) => (
+                  <span key={`${lineIndex}-${wordIndex}`}>
+                    {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+                    {word.text}
+                  </span>
+                ))}
+                <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  )
+}

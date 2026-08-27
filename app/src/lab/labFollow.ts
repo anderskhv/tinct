@@ -41,20 +41,68 @@ export function wordsFromManifestParagraph(paragraph: ManifestParagraph | undefi
   return words.length > 0 ? words : undefined
 }
 
+/** Split on whitespace so derived times line up with reading / hearing tokens. */
+export function chapterWordsFromText(text: string): string[] {
+  return text.split(/\s+/).map(part => part.trim()).filter(Boolean)
+}
+
 /**
- * Attach real word timings when the audio manifest provides them.
- * Never invent timings by splitting the paragraph on whitespace.
+ * Proportional word times from this paragraph's MP3 duration + its chapter words.
+ * Not a downloaded corpus — used when words.json is missing.
+ */
+/**
+ * Trailing pad in the MP3 must not push later words after they were spoken.
+ * Pack equal slices into the spoken span, not the full clip duration.
+ */
+export const DERIVED_SPEECH_SPAN = 0.86
+
+export function wordsFromParagraphDuration(text: string, duration: number): TimedWord[] | undefined {
+  if (!(duration > 0)) return undefined
+  const tokens = chapterWordsFromText(text)
+  if (tokens.length === 0) return undefined
+  const usable = duration * DERIVED_SPEECH_SPAN
+  const unit = usable / tokens.length
+  return tokens.map((word, index) => ({
+    text: word,
+    start: index * unit,
+    end: (index + 1) * unit,
+  }))
+}
+
+export function ensureDerivedWordTimes(paragraph: FollowParagraph): FollowParagraph {
+  if (paragraph.words && paragraph.words.length > 0) return paragraph
+  const duration = typeof paragraph.duration === 'number' ? paragraph.duration : 0
+  const words = wordsFromParagraphDuration(paragraph.text, duration)
+  return words ? { ...paragraph, words } : paragraph
+}
+
+/** True when `words` are the even-split fallback, not spoken start/end times. */
+export function wordsLookDerived(paragraph: FollowParagraph): boolean {
+  const duration = typeof paragraph.duration === 'number' ? paragraph.duration : 0
+  const derived = wordsFromParagraphDuration(paragraph.text, duration)
+  const words = paragraph.words
+  if (!derived || !words || derived.length !== words.length) return false
+  return derived.every((word, index) => (
+    Math.abs(word.start - words[index].start) < 1e-6
+    && Math.abs(word.end - words[index].end) < 1e-6
+  ))
+}
+
+/**
+ * Manifest / sidecar `words` win. Otherwise derive times from MP3 duration + text.
  */
 export function followParagraphFromManifest(
   index: number,
   text: string,
   manifestParagraph: ManifestParagraph | undefined,
 ): FollowParagraph {
+  const duration = typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined
   const words = wordsFromManifestParagraph(manifestParagraph)
+    ?? (duration != null ? wordsFromParagraphDuration(text, duration) : undefined)
   return {
     index,
     text,
-    duration: typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined,
+    duration,
     words,
     file: typeof manifestParagraph?.file === 'string' ? manifestParagraph.file : undefined,
   }
@@ -72,11 +120,28 @@ export function paragraphDurationSeconds(paragraph: FollowParagraph): number | n
 
 export function wordIndexAtTime(words: TimedWord[], localSeconds: number): number {
   if (words.length === 0) return -1
+  let index = 0
   for (let i = 0; i < words.length; i++) {
-    if (localSeconds >= words[i].start && localSeconds < words[i].end) return i
+    if (localSeconds >= words[i].start) index = i
+    else break
   }
-  if (localSeconds >= words[words.length - 1].end) return words.length - 1
-  return 0
+  return index
+}
+
+/**
+ * Highlight lead so the current word is the one being spoken, not the last finished one.
+ * Scales with playbackRate because media-time runs faster at 1.5x / 2x while paint lag is wall-clock.
+ * Prefer slightly early over late.
+ */
+export function followLeadSeconds(playbackRate: number): number {
+  const rate = Number.isFinite(playbackRate) && playbackRate > 0 ? playbackRate : 1
+  return 0.20 * rate + 0.08
+}
+
+export function followTimeFromAudio(currentTime: number, playbackRate = 1): number {
+  const t = Number.isFinite(currentTime) ? Math.max(0, currentTime) : 0
+  if (t <= 0) return 0
+  return t + followLeadSeconds(playbackRate)
 }
 
 /**
@@ -151,7 +216,7 @@ export interface WordSidecar {
   }>
 }
 
-/** Manifest `words` win; sidecar fills paragraphs that have none. */
+/** Real manifest `words` win. Sidecar replaces missing or even-split derived times. */
 export function mergeSidecarWords(
   paragraphs: FollowParagraph[],
   sidecar: WordSidecar | null | undefined,
@@ -165,8 +230,11 @@ export function mergeSidecarWords(
     byIndex.set(entry.paragraph, words)
   }
   return paragraphs.map((paragraph) => {
-    if (paragraph.words && paragraph.words.length > 0) return paragraph
     const words = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
-    return words ? { ...paragraph, words } : paragraph
+    if (!words) return paragraph
+    if (paragraph.words && paragraph.words.length > 0 && !wordsLookDerived(paragraph)) {
+      return paragraph
+    }
+    return { ...paragraph, words }
   })
 }

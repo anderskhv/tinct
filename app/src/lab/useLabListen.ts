@@ -6,22 +6,30 @@ import {
   labAudioFileUrl,
   labAudioManifestUrl,
   labAudioSidecarUrl,
+  readLabWordSidecar,
   type LabAudioClip,
 } from './labListen'
-import { nextHearingSpeed, seekAcrossClips } from './labHearing'
+import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import {
+  ensureDerivedWordTimes,
   followParagraphFromManifest,
+  followTimeFromAudio,
   mergeSidecarWords,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
-  type WordSidecar,
 } from './labFollow'
 
 export interface UseLabListenOptions {
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
+  chapterNumber?: number
+  audioEdition?: string
   createAudio?: () => HTMLAudioElement
+}
+
+function hasTimedWords(paragraphs: FollowParagraph[]): boolean {
+  return paragraphs.some(paragraph => !!paragraph.words && paragraph.words.length > 0)
 }
 
 function defaultCreateAudio(): HTMLAudioElement {
@@ -36,41 +44,72 @@ export function useLabListen(options: UseLabListenOptions) {
   const [src, setSrc] = useState<string | null>(null)
   const [clipIndex, setClipIndex] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
-  const [speed, setSpeed] = useState(1)
+  const [speed, setSpeedState] = useState(1)
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
   const [clips, setClips] = useState<LabAudioClip[]>([])
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
   const clipIndexRef = useRef(0)
-  const playClipRef = useRef<(index: number, offsetSeconds: number) => boolean>(() => false)
+  const positionRef = useRef({ clipIndex: 0, time: 0 })
+  const playClipRef = useRef<(index: number, offsetSeconds: number, andPlay?: boolean) => boolean>(() => false)
+  const switchingRef = useRef(false)
   const optionsRef = useRef(options)
   optionsRef.current = options
-  paragraphsRef.current = options.followParagraphs
+  paragraphsRef.current = followParagraphs
+
+  const audioChapter = () => optionsRef.current.chapterNumber ?? 1
+  const audioEdition = () => optionsRef.current.audioEdition || 'kjv-en'
+
+  const commitFollowParagraphs = useCallback((followed: FollowParagraph[]) => {
+    paragraphsRef.current = followed
+    setFollowParagraphs(followed)
+    return followed
+  }, [])
 
   useEffect(() => {
     setFollowParagraphs(options.followParagraphs)
-    paragraphsRef.current = options.followParagraphs
+    clipsRef.current = []
+    setClips([])
+    setSrc(null)
+    setPlaying(false)
+    setFollow({ kind: 'none' })
+  }, [options.chapterNumber])
+
+  useEffect(() => {
+    setFollowParagraphs((current) => {
+      if (hasTimedWords(current)) return current
+      return options.followParagraphs
+    })
   }, [options.followParagraphs])
 
   const applyRate = useCallback((audio: HTMLAudioElement, rate: number) => {
     try { audio.playbackRate = rate } catch { /* jsdom */ }
   }, [])
 
-  const syncFollow = useCallback((index: number, time: number) => {
+  const syncFollow = useCallback((index: number, time: number, playbackRate?: number) => {
     const clip = clipsRef.current[index]
-    setCurrentTime(time)
-    setFollow(followPlayingClip(paragraphsRef.current, clip, time))
-  }, [])
+    const audio = audioRef.current
+    const rate = playbackRate ?? audio?.playbackRate ?? speed
+    const led = followTimeFromAudio(time, rate)
+    if (Number.isFinite(time) && (time > 0 || positionRef.current.time === 0 || positionRef.current.clipIndex !== index)) {
+      positionRef.current = { clipIndex: index, time: Math.max(0, time) }
+    }
+    setCurrentTime(positionRef.current.time)
+    setFollow(followPlayingClip(paragraphsRef.current, clip, led))
+  }, [speed])
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
     const handleTimeUpdate = () => {
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }
     const handleEnded = () => {
+      // Safari fires ended again when src changes on an already-ended element.
+      if (switchingRef.current) return
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
+        try { audio.pause() } catch { /* ignore */ }
         setPlaying(false)
         setFollow({ kind: 'none' })
         setSrc(null)
@@ -79,11 +118,14 @@ export function useLabListen(options: UseLabListenOptions) {
       playClipRef.current(next, 0)
     }
     const handleError = () => {
+      if (switchingRef.current) return
       const next = clipIndexRef.current + 1
       if (next < clipsRef.current.length) playClipRef.current(next, 0)
       else {
+        try { audio.pause() } catch { /* ignore */ }
         setPlaying(false)
         setFollow({ kind: 'none' })
+        setSrc(null)
       }
     }
     audio.addEventListener('timeupdate', handleTimeUpdate)
@@ -106,6 +148,23 @@ export function useLabListen(options: UseLabListenOptions) {
     return audio
   }, [attachAudio])
 
+  useEffect(() => {
+    if (!playing) return
+    let frame = 0
+    const tick = () => {
+      const audio = audioRef.current
+      if (audio) {
+        const time = playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time)
+        if (time > 0 || positionRef.current.time === 0) {
+          syncFollow(clipIndexRef.current, time, audio.playbackRate || speed)
+        }
+      }
+      frame = requestAnimationFrame(tick)
+    }
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [playing, speed, syncFollow])
+
   useEffect(() => () => {
     detachRef.current?.()
     const audio = audioRef.current
@@ -116,64 +175,112 @@ export function useLabListen(options: UseLabListenOptions) {
     audioRef.current = null
   }, [])
 
-  const playClip = useCallback((index: number, offsetSeconds: number) => {
+  const playClip = useCallback((index: number, offsetSeconds: number, andPlay = true) => {
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) return false
-    const url = labAudioFileUrl(clip.file)
+    const url = labAudioFileUrl(clip.file, audioChapter(), audioEdition())
+    switchingRef.current = true
     clipIndexRef.current = index
     setClipIndex(index)
     setSrc(url)
+    const sameSrc = audio.src === url || audio.src.endsWith(url)
     try { audio.pause() } catch { /* ignore */ }
-    audio.src = url
-    try { audio.load() } catch { /* ignore */ }
-    const start = () => {
-      if (offsetSeconds > 0) {
+    if (!sameSrc) {
+      audio.src = url
+      try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
+      try { audio.load() } catch { /* ignore */ }
+    }
+    const applyOffset = () => {
+      if (offsetSeconds > 0 || audio.currentTime !== offsetSeconds) {
         try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
       }
     }
-    audio.addEventListener('loadedmetadata', start, { once: true })
+    applyOffset()
+    if (!sameSrc) audio.addEventListener('loadedmetadata', applyOffset, { once: true })
     applyRate(audio, speed)
+    const armed = () => { switchingRef.current = false }
+    audio.addEventListener('playing', armed, { once: true })
+    audio.addEventListener('timeupdate', armed, { once: true })
+    if (!andPlay) {
+      try { audio.pause() } catch { /* ignore */ }
+      switchingRef.current = false
+      setPlaying(false)
+      setCurrentTime(offsetSeconds)
+      setFollow({ kind: 'none' })
+      return true
+    }
     syncFollow(index, offsetSeconds)
+    setPlaying(true)
     audio.play().then(() => {
       applyRate(audio, speed)
-      setPlaying(true)
+      switchingRef.current = false
       syncFollow(index, audio.currentTime || offsetSeconds)
     }).catch(() => {
+      switchingRef.current = false
+      if (index + 1 < clipsRef.current.length) {
+        playClipRef.current(index + 1, 0, true)
+        return
+      }
       setPlaying(false)
+      setFollow({ kind: 'none' })
     })
     return true
   }, [applyRate, ensureAudio, speed, syncFollow])
   playClipRef.current = playClip
 
+  const playPlace = useCallback((
+    clips: LabAudioClip[],
+    place: { paragraphIndex?: number; wordIndex?: number } | undefined,
+    andPlay: boolean,
+  ) => {
+    const paragraphIndex = place?.paragraphIndex ?? 0
+    let index = clips.findIndex(clip => clip.index === paragraphIndex)
+    if (index < 0) index = 0
+    const words = clips[index]?.words
+    const wordIndex = place?.wordIndex ?? 0
+    const clamped = words && words.length > 0
+      ? Math.max(0, Math.min(wordIndex, words.length - 1))
+      : 0
+    const offset = words?.[clamped]?.start ?? 0
+    return playClip(index, offset, andPlay)
+  }, [playClip])
+
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
     if (fromSource.length > 0) {
-      clipsRef.current = fromSource
-      setClips(fromSource)
-      paragraphsRef.current = optionsRef.current.followParagraphs
-      setFollowParagraphs(optionsRef.current.followParagraphs)
-      return fromSource
+      let followed = hasTimedWords(optionsRef.current.followParagraphs)
+        ? optionsRef.current.followParagraphs
+        : paragraphsRef.current
+      if (!hasTimedWords(followed)) {
+        const sidecarRes = await fetch(labAudioSidecarUrl(audioChapter(), audioEdition())).catch(() => null)
+        followed = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
+      }
+      followed = commitFollowParagraphs(followed.map(ensureDerivedWordTimes))
+      const clips = fromSource.map((clip) => {
+        const words = followed.find(item => item.index === clip.index)?.words
+        return words ? { ...clip, words } : clip
+      })
+      clipsRef.current = clips
+      setClips(clips)
+      return clips
     }
 
     const [manifestRes, sidecarRes] = await Promise.all([
-      fetch(labAudioManifestUrl()),
-      fetch(labAudioSidecarUrl()).catch(() => null),
+      fetch(labAudioManifestUrl(audioChapter(), audioEdition())),
+      fetch(labAudioSidecarUrl(audioChapter(), audioEdition())).catch(() => null),
     ])
     if (!manifestRes.ok) return []
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
-    let followed = optionsRef.current.paragraphs.map((text, index) => {
-      const entries = manifest.paragraphs || []
-      const match = entries.find(entry => entry.paragraph === index)
-        || entries.find(entry => entry.paragraph === index + 1)
-      return followParagraphFromManifest(index, text, match)
-    })
-    if (sidecarRes && 'ok' in sidecarRes && sidecarRes.ok) {
-      const sidecar = await sidecarRes.json() as WordSidecar
-      followed = mergeSidecarWords(followed, sidecar)
-    }
-    paragraphsRef.current = followed
-    setFollowParagraphs(followed)
+    const followed = commitFollowParagraphs(mergeSidecarWords(
+      optionsRef.current.paragraphs.map((text, index) => {
+        const entries = manifest.paragraphs || []
+        const match = entries.find(entry => entry.paragraph === index)
+          || entries.find(entry => entry.paragraph === index + 1)
+        return followParagraphFromManifest(index, text, match)
+      }),
+      await readLabWordSidecar(sidecarRes),
+    ).map(ensureDerivedWordTimes))
     const clips = clipsFromManifest(optionsRef.current.paragraphs, manifest.paragraphs || [])
       .map((clip) => {
         const words = followed.find(item => item.index === clip.index)?.words
@@ -182,17 +289,24 @@ export function useLabListen(options: UseLabListenOptions) {
     clipsRef.current = clips
     setClips(clips)
     return clips
-  }, [])
+  }, [commitFollowParagraphs])
 
-  const start = useCallback(async () => {
+  const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
     const clips = await resolveClips()
     if (clips.length === 0) return false
-    return playClip(0, 0)
-  }, [playClip, resolveClips])
+    return playPlace(clips, place, true)
+  }, [playPlace, resolveClips])
+
+  const seekToPlace = useCallback((paragraphIndex: number, wordIndex: number) => {
+    const clips = clipsRef.current
+    if (clips.length === 0) return
+    playPlace(clips, { paragraphIndex, wordIndex }, playing)
+  }, [playPlace, playing])
 
   const pause = useCallback(() => {
     audioRef.current?.pause()
     setPlaying(false)
+    setFollow({ kind: 'none' })
   }, [])
 
   const resume = useCallback(() => {
@@ -227,13 +341,15 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const seek = useCallback((deltaSeconds: number) => {
     const audio = ensureAudio()
+    const live = playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time || currentTime)
     const point = seekAcrossClips({
       clips: clipsRef.current,
       clipIndex: clipIndexRef.current,
-      currentTime: audio.currentTime || currentTime,
+      currentTime: live,
       deltaSeconds,
       knownDuration: Number.isFinite(audio.duration) ? audio.duration : undefined,
     })
+    positionRef.current = { clipIndex: point.clipIndex, time: point.offsetSeconds }
     const sameClip = point.clipIndex === clipIndexRef.current && audio.src
     if (sameClip) {
       try { audio.currentTime = point.offsetSeconds } catch { /* ignore */ }
@@ -248,11 +364,18 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [currentTime, ensureAudio, playClip, playing, syncFollow])
 
   const cycleSpeed = useCallback(() => {
-    setSpeed((current) => {
+    setSpeedState((current) => {
       const next = nextHearingSpeed(current)
       if (audioRef.current) applyRate(audioRef.current, next)
       return next
     })
+  }, [applyRate])
+
+  const setSpeed = useCallback((rate: number) => {
+    const next = parseHearingSpeed(rate)
+    if (next == null) return
+    setSpeedState(next)
+    if (audioRef.current) applyRate(audioRef.current, next)
   }, [applyRate])
 
   return {
@@ -265,10 +388,12 @@ export function useLabListen(options: UseLabListenOptions) {
     currentTime,
     speed,
     start,
+    seekToPlace,
     pause,
     resume,
     stop,
     seek,
     cycleSpeed,
+    setSpeed,
   }
 }

@@ -1,5 +1,6 @@
 import { resolveAudioUrl } from '../utils/audioUrl'
 import {
+  ensureDerivedWordTimes,
   followFromPlayback,
   followParagraphFromManifest,
   mergeSidecarWords,
@@ -10,8 +11,8 @@ import {
 } from './labFollow'
 
 export const LAB_AUDIO = {
-  bookId: 'odyssey',
-  editionKey: 'original-en',
+  bookId: 'bible',
+  editionKey: 'kjv-en',
   chapterNumber: 1,
 } as const
 
@@ -22,30 +23,44 @@ export interface LabAudioClip {
   words?: FollowParagraph['words']
 }
 
-export function labAudioChapterBase(): string {
-  return `${LAB_AUDIO.bookId}/${LAB_AUDIO.editionKey}/ch${LAB_AUDIO.chapterNumber}`
+export function labAudioChapterBase(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
+  return `${LAB_AUDIO.bookId}/${editionKey}/ch${chapterNumber}`
 }
 
-export function labAudioManifestUrl(): string {
-  return resolveAudioUrl(`${labAudioChapterBase()}/manifest.json`, 'manifest')
+export function labAudioManifestUrl(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/manifest.json`, 'manifest')
 }
 
-export function labAudioSidecarUrl(): string {
-  return resolveAudioUrl(`${labAudioChapterBase()}/words.json`, 'file')
+export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/words.json`, 'file')
 }
 
-export function labAudioFileUrl(file: string): string {
-  return resolveAudioUrl(`${labAudioChapterBase()}/${file}`, 'file')
+/** Bible has chapter audio on R2, but no committed word sidecar. Do not download a corpus. */
+export const LAB_STATIC_WORD_SIDECAR_URL = null
+
+/** Use the R2 sidecar when it exists. Otherwise derive times from MP3 duration + text. */
+export async function readLabWordSidecar(
+  r2Res: Response | null | undefined,
+): Promise<WordSidecar | null> {
+  if (r2Res && 'ok' in r2Res && r2Res.ok) {
+    return await r2Res.json() as WordSidecar
+  }
+  return null
+}
+
+export function labAudioFileUrl(file: string, chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/${file}`, 'file')
 }
 
 export function clipsFromFollowParagraphs(paragraphs: FollowParagraph[]): LabAudioClip[] {
   return paragraphs.flatMap((paragraph) => {
     if (!paragraph.file || paragraph.index < 0) return []
+    const followed = ensureDerivedWordTimes(paragraph)
     return [{
       index: paragraph.index,
       file: paragraph.file,
-      duration: paragraph.duration,
-      words: paragraph.words,
+      duration: followed.duration,
+      words: followed.words,
     }]
   })
 }
@@ -74,10 +89,14 @@ export function clipsFromManifest(
   }).filter((clip): clip is LabAudioClip => clip != null)
 }
 
-export async function loadLabAudioChapter(paragraphs: string[]): Promise<FollowParagraph[]> {
+export async function loadLabAudioChapter(
+  paragraphs: string[],
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+): Promise<FollowParagraph[]> {
   const [manifestRes, sidecarRes] = await Promise.all([
-    fetch(labAudioManifestUrl()),
-    fetch(labAudioSidecarUrl()).catch(() => null),
+    fetch(labAudioManifestUrl(chapterNumber, editionKey)),
+    fetch(labAudioSidecarUrl(chapterNumber, editionKey)).catch(() => null),
   ])
   if (!manifestRes.ok) {
     return paragraphs.map((text, index) => ({ index, text }))
@@ -91,11 +110,7 @@ export async function loadLabAudioChapter(paragraphs: string[]): Promise<FollowP
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  let sidecar: WordSidecar | null = null
-  if (sidecarRes && 'ok' in sidecarRes && sidecarRes.ok) {
-    sidecar = await sidecarRes.json() as WordSidecar
-  }
-  return mergeSidecarWords(followed, sidecar)
+  return mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes)).map(ensureDerivedWordTimes)
 }
 
 export function followPlayingClip(

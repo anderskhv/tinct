@@ -10,10 +10,12 @@
 export type VoiceRealtimeEvent = {
   type?: string
   transcript?: string
+  delta?: string
   name?: string
   call_id?: string
+  arguments?: string
   error?: { message?: string }
-  item?: { transcript?: string; name?: string; call_id?: string }
+  item?: { transcript?: string; name?: string; call_id?: string; arguments?: string }
   response?: {
     status?: string
     output?: Array<{ type?: string }>
@@ -88,10 +90,18 @@ export function reduceVoiceTurn(
         signal: null,
       }
 
+    case 'response.cancelled':
+      return maybeSpeechEnd({
+        ...state,
+        responseOpen: false,
+        audioPlaying: false,
+      })
+
     case 'response.done':
       return maybeSpeechEnd({
         ...state,
         responseOpen: false,
+        audioPlaying: event.response?.status === 'cancelled' ? false : state.audioPlaying,
       })
 
     default:

@@ -3,6 +3,20 @@ import type { LabConversationState } from './labAsk'
 
 export type ConversationState = LabConversationState
 
+export function LabVoiceGate({ phase }: { phase: 'connecting' | 'ready' }) {
+  const word = phase === 'ready' ? LAB_COPY.readyToSpeak : LAB_COPY.connecting
+  return (
+    <div
+      className={`lab-voice-gate${phase === 'ready' ? ' is-ready' : ''}`}
+      data-testid="lab-voice-gate"
+      data-phase={phase}
+    >
+      {phase === 'connecting' && <span className="lab-voice-gate-pulse" aria-hidden="true" />}
+      <p className="lab-voice-gate-word">{word}</p>
+    </div>
+  )
+}
+
 interface LabOrbProps {
   state: ConversationState
   onActivate?: () => void

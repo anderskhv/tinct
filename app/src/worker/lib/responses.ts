@@ -7,7 +7,7 @@ export function corsHeaders(request: Request): Record<string, string> {
   const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : isCapacitorOrigin ? '*' : ALLOWED_ORIGINS[0]
   return {
     'Access-Control-Allow-Origin': allowed,
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Max-Age': '86400',
   }

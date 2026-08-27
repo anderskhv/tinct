@@ -1,5 +1,5 @@
 import { LAB_COPY } from './labCopy'
-import { hearingProgress, hearingStageLines } from './labHearing'
+import { hearingStageLines } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
 
 interface LabHearingStageProps {
@@ -13,6 +13,7 @@ interface LabHearingStageProps {
   onTogglePlay: () => void
   onSeek: (deltaSeconds: number) => void
   onCycleSpeed: () => void
+  hideTransport?: boolean
 }
 
 export function LabHearingStage({
@@ -26,6 +27,7 @@ export function LabHearingStage({
   onTogglePlay,
   onSeek,
   onCycleSpeed,
+  hideTransport = false,
 }: LabHearingStageProps) {
   const paragraph = follow.kind === 'none'
     ? paragraphs[clipIndex] || paragraphs[0]
@@ -33,8 +35,6 @@ export function LabHearingStage({
   const lines = hearingStageLines(paragraph, follow.kind === 'none' && paragraph
     ? { kind: paragraph.words ? 'word' : 'paragraph', paragraphIndex: paragraph.index, wordIndex: 0 }
     : follow)
-  const progress = hearingProgress(clips && clips.length > 0 ? clips : paragraphs, clipIndex, currentTime)
-  const progressPercent = progress ? Math.min(100, (progress.current / progress.total) * 100) : null
 
   return (
     <section className="lab-hearing" data-testid="lab-hearing">
@@ -54,6 +54,7 @@ export function LabHearingStage({
           </p>
         ))}
       </div>
+      {!hideTransport && (
       <div className="lab-hearing-transport" data-testid="lab-hearing-transport">
         <button type="button" className="lab-text-btn" onClick={onTogglePlay} data-testid="lab-hearing-pause">
           {playing ? LAB_COPY.pause : LAB_COPY.play}
@@ -68,10 +69,6 @@ export function LabHearingStage({
           {speed}×
         </button>
       </div>
-      {progressPercent != null && (
-        <div className="lab-hearing-progress" data-testid="lab-hearing-progress">
-          <span style={{ width: `${progressPercent}%` }} />
-        </div>
       )}
     </section>
   )

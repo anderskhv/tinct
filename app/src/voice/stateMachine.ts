@@ -58,7 +58,10 @@ export function reduceVoiceSession(
       return { state: 'listening', mode: snapshot.mode }
 
     case 'USER_SPEECH_END':
-      if (snapshot.state === 'listening') return snapshot
+      if (snapshot.state !== 'listening') return snapshot
+      if (snapshot.mode === 'conversation') {
+        return { state: 'conversation_idle', mode: 'conversation' }
+      }
       return snapshot
 
     case 'ASSISTANT_SPEECH_START':

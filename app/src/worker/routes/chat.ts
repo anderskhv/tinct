@@ -94,7 +94,7 @@ function validateSystemParam(value: unknown): { system: AnthropicSystemParam; er
   return { system: blocks }
 }
 
-function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string): Response {
+function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null): Response {
   if (!response.body) return jsonResponse({ error: 'Empty stream' }, 502, request)
   const decoder = new TextDecoder()
   const encoder = new TextEncoder()
@@ -126,7 +126,7 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
           if (parsed.type === 'content_block_delta' && parsed.delta?.type === 'text_delta' && parsed.delta.text) {
             charged = true
             buffer = ''
-            if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+            if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
               ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
             }
             break
@@ -152,7 +152,29 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
 
 // ===== API: Chat =====
 
-export async function handleChat(request: Request, env: ChatEnv, ctx: ExecutionContext, verifyUser: VerifyUser, checkRateLimit: CheckRateLimit): Promise<Response> {
+function labGuestIp(request: Request): string {
+  return request.headers.get('cf-connecting-ip')
+    || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || 'lab-guest'
+}
+
+export async function handleLabChat(
+  request: Request,
+  env: ChatEnv,
+  ctx: ExecutionContext,
+  checkRateLimit: CheckRateLimit,
+): Promise<Response> {
+  return handleChat(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true })
+}
+
+export async function handleChat(
+  request: Request,
+  env: ChatEnv,
+  ctx: ExecutionContext,
+  verifyUser: VerifyUser,
+  checkRateLimit: CheckRateLimit,
+  options?: { allowLabGuest?: boolean },
+): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const apiKey = env.ANTHROPIC_API_KEY
@@ -168,32 +190,41 @@ export async function handleChat(request: Request, env: ChatEnv, ctx: ExecutionC
     .then((body) => ({ body: body as ParsedChatBody }))
     .catch(() => ({ error: 'Invalid JSON' as const }))
 
-  // Authentication required
-  const user = await verifyUser(env, request)
-  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
-  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
-
-  const userId = user.id
-  const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
-    ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
-        .then(async (profileRes) => {
-          if (!profileRes.ok) return null
-          const profiles = await profileRes.json() as ChatProfile[]
-          return profiles?.[0] ?? null
-        })
-        .catch(() => null)
-    : Promise.resolve(null)
-
-  const [rateAllowed, profile] = await Promise.all([
-    checkRateLimit(`chat:${userId}`, env.RATE_LIMIT),
-    profilePromise,
-  ])
-  if (!rateAllowed) {
-    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+  const allowLabGuest = options?.allowLabGuest === true
+  const user = allowLabGuest ? null : await verifyUser(env, request)
+  if (!allowLabGuest) {
+    if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+    if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
   }
 
-  const access = evaluateChatAccess(profile)
-  if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
+  const userId = user?.id ?? null
+  if (allowLabGuest) {
+    const rateAllowed = await checkRateLimit(`lab-chat:${labGuestIp(request)}`, env.RATE_LIMIT)
+    if (!rateAllowed) {
+      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    }
+  } else {
+    const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
+      ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
+          .then(async (profileRes) => {
+            if (!profileRes.ok) return null
+            const profiles = await profileRes.json() as ChatProfile[]
+            return profiles?.[0] ?? null
+          })
+          .catch(() => null)
+      : Promise.resolve(null)
+
+    const [rateAllowed, profile] = await Promise.all([
+      checkRateLimit(`chat:${userId}`, env.RATE_LIMIT),
+      profilePromise,
+    ])
+    if (!rateAllowed) {
+      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    }
+
+    const access = evaluateChatAccess(profile)
+    if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
+  }
 
   try {
     const parsedBody = await bodyPromise
@@ -249,8 +280,8 @@ export async function handleChat(request: Request, env: ChatEnv, ctx: ExecutionC
     const data = await response.json() as { usage?: AnthropicUsage }
     logAnthropicCacheUsage('chat', data.usage)
 
-    // Deduct message on success
-    if (response.ok && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    // Deduct message on success. Lab guest testers are not billed.
+    if (response.ok && userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
       ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
     }
 

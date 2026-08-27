@@ -2,6 +2,7 @@ import { jsonResponse } from '../lib/responses'
 
 export type AudioEnv = {
   AUDIO_BUCKET?: R2Bucket
+  ASSETS?: { fetch: (request: Request) => Promise<Response> }
 }
 
 /** Validates a path parameter for audio endpoints.
@@ -80,16 +81,36 @@ export async function handleAudioFile(request: Request, env: AudioEnv): Promise<
   }
 
   const object = await env.AUDIO_BUCKET.get(path!)
-  if (!object) return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
+  if (object) {
+    const isJson = path!.endsWith('.json')
+    return new Response(object.body, {
+      status: 200,
+      headers: {
+        'Content-Type': isJson ? 'application/json' : 'audio/mpeg',
+        'Content-Length': String(object.size),
+        'Accept-Ranges': 'bytes',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': isJson ? 'public, max-age=86400' : 'public, max-age=604800',
+      },
+    })
+  }
 
-  return new Response(object.body, {
+  const fromAssets = await readAudioAsset(request, env, path!)
+  if (fromAssets) return fromAssets
+  return new Response('Not found', { status: 404, headers: { 'Access-Control-Allow-Origin': '*' } })
+}
+
+/** Word sidecars may live in worker assets when R2 has none. Same /api/audio-file path. */
+export async function readAudioAsset(request: Request, env: AudioEnv, path: string): Promise<Response | null> {
+  if (!env.ASSETS || !path.endsWith('/words.json')) return null
+  const asset = await env.ASSETS.fetch(new Request(new URL(`/audio/${path}`, request.url)))
+  if (!asset.ok) return null
+  return new Response(asset.body, {
     status: 200,
     headers: {
-      'Content-Type': 'audio/mpeg',
-      'Content-Length': String(object.size),
-      'Accept-Ranges': 'bytes',
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Cache-Control': 'public, max-age=604800',
+      'Cache-Control': 'public, max-age=86400',
     },
   })
 }
