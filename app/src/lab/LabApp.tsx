@@ -27,7 +27,8 @@ import {
   type LabReturnTo,
   type LabVoiceGatePhase,
 } from './labChrome'
-import { TocOverlay } from '../components/TocOverlay'
+import { LabPhoneBibleTree } from './LabPhoneBibleTree'
+import { markChapterFinished, readFinishedChapters } from './labBibleTree'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import {
   bibleAudioEditions,
@@ -203,6 +204,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [book, setBook] = useState<LabSource>(boot.book)
   const [prefs, setPrefs] = useState<LabPrefs>(() => readLabPrefs())
   const [tocOpen, setTocOpen] = useState(false)
+  const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
@@ -963,6 +965,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       chapters: book.chapters,
     })
     if (resolved.chapterChanged) {
+      if (resolved.chapterNumber > book.chapterNumber) {
+        setFinishedChapters(markChapterFinished(book.chapterNumber))
+      }
       await goToChapter(resolved.chapterNumber, resolved.landing)
       return
     }
@@ -979,7 +984,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     const next = nextLabChapter(book.chapters, book.chapterNumber)
-    if (next != null) void goToChapter(next, 'start')
+    if (next != null) {
+      setFinishedChapters(markChapterFinished(book.chapterNumber))
+      void goToChapter(next, 'start')
+    }
   }, [book.chapterNumber, book.chapters, goToChapter, goToPage])
 
   const goPrev = useCallback(() => {
@@ -1528,11 +1536,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
       {tocOpen && (
         <div className="lab-toc" data-testid="lab-toc">
-          <TocOverlay
+          <LabPhoneBibleTree
+            title={book.bookTitle}
             chapters={book.chapters}
             currentChapter={book.chapterNumber}
             sections={book.sections}
-            onSelectChapter={(number) => { void goToChapter(number, 'start') }}
+            finishedChapters={finishedChapters}
+            onSelectChapter={(number) => {
+              setTocOpen(false)
+              void goToChapter(number, 'start')
+            }}
             onClose={() => setTocOpen(false)}
           />
         </div>

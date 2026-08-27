@@ -19,7 +19,8 @@ afterEach(() => {
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
   try { localStorage.removeItem('tinct-lab-prefs') } catch { /* jsdom */ }
-  try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
+    try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
+    try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
 })
@@ -1678,6 +1679,7 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
+    expect(JSON.parse(localStorage.getItem('tinct-lab-finished-chapters') || '[]')).toContain(1)
     expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
@@ -2115,7 +2117,7 @@ describe('lab page turn identity', () => {
   })
 
   it('Genesis 1 phone: after the page list exists, every page reports the same M', () => {
-    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../dist/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
+    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),
       chapterTitle: 'Genesis 1',
@@ -2460,7 +2462,9 @@ describe('lab chrome pass', () => {
     expect(toc.querySelector('.toc-panel')).toBeTruthy()
     expect(toc.querySelector('.toc-close')).toBeTruthy()
     expect(toc.textContent).toContain('Old Testament')
-    expect(toc.querySelector('.toc-item-number')).toBeTruthy()
+    expect(toc.querySelector('.lab-tree')).toBeTruthy()
+    expect(toc.querySelector('.toc-item-number')).toBeNull()
+    expect(toc.querySelector('.lab-tree-grid')).toBeNull()
     const expandIfCollapsed = (label: string) => {
       const header = [...toc.querySelectorAll('.toc-section-header')].find(node => node.textContent?.includes(label))
       if (header && !header.classList.contains('toc-section-expanded')) {
