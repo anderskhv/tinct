@@ -1,7 +1,13 @@
-import { describe, expect, it } from 'vitest'
+// @vitest-environment jsdom
+
+import { afterEach, describe, expect, it } from 'vitest'
 import { emptyLabPositionState, type LabPositionState } from './labPosition'
 import { emptyLabChatHistoryState, persistLabTalkTurn, readLabChatHistoryLocal } from './labTalkHistory'
 import { buildLabReadingFeed, labFeedHighlightCards, labFeedPassageLine } from './labReadingFeed'
+
+afterEach(() => {
+  try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
+})
 
 function romansState(): LabPositionState {
   return {

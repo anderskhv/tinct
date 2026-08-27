@@ -1786,3 +1786,183 @@
   color: #ece7db;
   border-color: #2c2822;
 }
+
+.lab-tree {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+}
+
+.lab-tree,
+.lab-tree .lab-tree-panel,
+.lab-tree .lab-tree-header,
+.lab-tree .lab-tree-title,
+.lab-tree .lab-tree-close,
+.lab-tree .lab-tree-list,
+.lab-tree .lab-tree-row,
+.lab-tree .lab-tree-label,
+.lab-tree .lab-tree-progress,
+.lab-tree .lab-tree-mark,
+.lab-tree .toc-section-header,
+.lab-tree .toc-item,
+.lab-tree .toc-item-title {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+}
+
+.lab-tree-panel {
+  padding: 0.4rem 0 1.4rem;
+}
+
+.lab-tree-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1.15rem 2.6rem 0.85rem;
+}
+
+.lab-tree-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #0b0b0b;
+}
+
+.lab-tree-close {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #8a8373;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lab-tree-list,
+.lab-tree-children {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.lab-tree-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.25rem 1rem 1.5rem;
+}
+
+.lab-tree-node {
+  width: 100%;
+}
+
+.lab-tree-children {
+  margin-left: 0.7rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid #cfc6b6;
+}
+
+.lab-tree-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  margin: 0.08rem 0;
+  padding: 0.42rem 0.55rem;
+  border: 0;
+  background: transparent;
+  color: #0b0b0b;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lab-tree-row.is-current {
+  background: #e2d8c4;
+  border-radius: 999px;
+}
+
+.lab-tree-row.is-chapter,
+.lab-tree-chapter {
+  padding-left: 1.55rem;
+}
+
+.lab-tree-chapter.is-current {
+  background: transparent;
+}
+
+.lab-tree-chevron {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  color: #8a8373;
+  transform: rotate(0deg);
+}
+
+.lab-tree-chevron.is-open {
+  transform: rotate(90deg);
+}
+
+.lab-tree-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.lab-tree-progress {
+  flex: 0 0 auto;
+  color: #8a8373;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+}
+
+.lab-tree-mark {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin-left: 0.15rem;
+  color: #c4a06a;
+}
+
+.lab-tree-mark.is-empty,
+.lab-tree-mark.is-progress {
+  border: 1.5px solid #c4a06a;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.lab-tree-mark.is-progress {
+  background: #c4a06a;
+}
+
+.lab-tree-mark.is-done {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-tree .toc-section-header,
+.lab-tree .toc-item {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+.lab-tree .toc-item-number {
+  display: none;
+}
+
+.lab.is-night .lab-tree,
+.lab.is-night .lab-tree-title,
+.lab.is-night .lab-tree-row {
+  color: #ece7db;
+}
+
+.lab.is-night .lab-tree-row.is-current {
+  background: #2a241c;
+}
+
+.lab.is-night .lab-tree-children {
+  border-left-color: #3a342c;
+}
