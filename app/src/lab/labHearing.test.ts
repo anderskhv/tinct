@@ -388,7 +388,7 @@ describe('lab height-fit pages vs chrome', () => {
   })
 
   it('paginates Genesis 1 as a stable fitting set on a phone-sized budget', () => {
-    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../dist/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
+    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     const budget = {
       height: 520,
       width: 360,
@@ -420,7 +420,7 @@ describe('lab height-fit pages vs chrome', () => {
   })
 
   it('keeps one M for every page after a later-page reflow', () => {
-    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../dist/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
+    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     const budget = {
       height: 520,
       width: 360,
