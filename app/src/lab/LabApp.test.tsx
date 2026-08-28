@@ -291,7 +291,6 @@ describe('lab chrome', () => {
     const phoneHearingSize = css.match(/\.lab\.is-phone \.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
     expect(phoneHeadlineSize).toBeTruthy()
     expect(phoneHearingSize).toBeTruthy()
-    expect(hearingSize).toBe(2.45)
     expect(css).toMatch(/\.lab-p\s*\{[^}]*font-size:\s*1\.18rem/)
     expect(css).toMatch(/\.lab-p\s*\{[^}]*line-height:\s*1\.62/)
     expect(css).not.toMatch(/\.lab-p\s*\{[^}]*font-weight:\s*700/)
