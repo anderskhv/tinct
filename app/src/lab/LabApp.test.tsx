@@ -1868,6 +1868,27 @@ describe('lab passage headline pages', () => {
     expect(document.querySelector('.lab-hearing-word.is-spoken')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
   })
+
+  it('renders multi-digit verse markers in reading with lab-verse-mark', () => {
+    const text = '⁹ before ¹⁰ verse ten ²⁰ twenty'
+    render(
+      <LabPassage
+        chapterTitle="Jeremiah 23"
+        paragraphs={[text]}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        playing={false}
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 8 }}
+      />,
+    )
+    const marks = Array.from(document.querySelectorAll('.lab-verse-mark'))
+    expect(marks.map((el) => el.textContent)).toEqual(['9', '10', '20'])
+  })
 })
 
 
