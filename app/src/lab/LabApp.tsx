@@ -408,11 +408,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [layoutOverride])
 
   const didBudgetPageRef = useRef(false)
-  const chapterKeyRef = useRef(book.chapterTitle)
+  const chapterKeyRef = useRef(`${book.chapterTitle}:${book.paragraphs.length}`)
 
   useLayoutEffect(() => {
-    const chapterChanged = chapterKeyRef.current !== book.chapterTitle
-    chapterKeyRef.current = book.chapterTitle
+    const chapterKey = `${book.chapterTitle}:${book.paragraphs.length}`
+    const chapterChanged = chapterKeyRef.current !== chapterKey
+    chapterKeyRef.current = chapterKey
     if (chapterChanged) {
       pagesStableRef.current = false
       setLockedPageTotal(null)
@@ -424,6 +425,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       settleIndexRef.current = 0
     }
     if (book.paragraphs.length === 0) return
+    if (showPhoneChrome && pagesStableRef.current && lockedPageTotalRef.current != null) return
     const budget = pageMetrics ? labPageBudgetFromMetrics(pageMetrics) : null
     const next = chapterHearingPages(book.paragraphs, canUseLabPageBudget(budget) ? budget : null)
     readingPagesRef.current = next
@@ -454,7 +456,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterTitle, book.paragraphs, pageMetrics])
+  }, [book.chapterTitle, book.paragraphs, pageMetrics, showPhoneChrome])
 
   useLayoutEffect(() => {
     if (!pageMetrics || didBudgetPageRef.current) return
@@ -462,9 +464,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const budget = labPageBudgetFromMetrics(pageMetrics)
     if (!canUseLabPageBudget(budget)) return
     didBudgetPageRef.current = true
-    if (pagesStableRef.current) {
-      setLockedPageTotal(null)
-    }
     const next = chapterHearingPages(book.paragraphs, budget)
     const keep = pageAnchorRef.current
     const landing = chapterLandingRef.current
@@ -567,7 +566,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setLockedPageTotal(null)
     settleIndexRef.current = 0
     setSettleIndex(0)
-  }, [book.chapterTitle])
+  }, [book.chapterTitle, book.paragraphs.length])
 
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
@@ -601,12 +600,39 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         return
       }
       if (pages.length === 0) return
+      const budget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
+      if (showPhoneChrome && canUseLabPageBudget(budget) && !didBudgetPageRef.current) {
+        didBudgetPageRef.current = true
+        const budgeted = chapterHearingPages(book.paragraphs, budget)
+        const keep = pageAnchorRef.current
+        workingPagesRef.current = budgeted
+        setDraftPages(budgeted)
+        readingPagesRef.current = budgeted
+        setReadingPages(budgeted)
+        if (keep) {
+          const idx = restorePageIndexForAnchor(budgeted, keep)
+          readingPageIndexRef.current = idx
+          setReadingPageIndex(idx)
+        }
+        pagesStableRef.current = false
+        settleIndexRef.current = 0
+        setSettleIndex(0)
+        afterLabPaint(shrinkIfNeeded)
+        return
+      }
       if (showPhoneChrome && !didBudgetPageRef.current) {
         metricsWaitRef.current += 1
-        if (metricsWaitRef.current <= 24) {
+        const maxWait = canUseLabPageBudget(budget) ? 96 : 24
+        if (metricsWaitRef.current <= maxWait) {
           afterLabPaint(shrinkIfNeeded)
           return
         }
+      }
+      if (lockedPageTotalRef.current != null) {
+        pagesStableRef.current = true
+        setSettleIndex(null)
+        settleIndexRef.current = null
+        return
       }
       metricsWaitRef.current = 0
       pagesStableRef.current = true
@@ -1213,6 +1239,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   const commitUnsettledNav = useCallback((pages: ChapterHearingPage[]) => {
     if (pages.length === 0) return
+    if (lockedPageTotalRef.current != null) return
     if (pagesStableRef.current && lockedPageTotalRef.current === pages.length) return
     pagesStableRef.current = true
     setLockedPageTotal(pages.length)
@@ -1781,7 +1808,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           <div
             className="lab-chapter-progress"
             data-testid="lab-chapter-progress"
-            title={footProgress}
+            title={showPhoneChrome && footProgressLabel ? footProgressLabel : footProgress}
           >
             {showSlimTransport && (
               <button
