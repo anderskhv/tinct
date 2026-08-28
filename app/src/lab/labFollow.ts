@@ -16,6 +16,9 @@ export interface FollowParagraph {
   text: string
   duration?: number
   words?: TimedWord[]
+  file?: string
+  /** Word times were measured from the MP3 waveform, not guessed from duration. */
+  wordsMeasured?: boolean
 }
 
 export type FollowTarget =
@@ -40,41 +43,58 @@ export function wordsFromManifestParagraph(paragraph: ManifestParagraph | undefi
   return words.length > 0 ? words : undefined
 }
 
+/** Split on whitespace so measured / manifest times line up with hearing tokens. */
+export function chapterWordsFromText(text: string): string[] {
+  return text.split(/\s+/).map(part => part.trim()).filter(Boolean)
+}
+
+export function paragraphHasWordTimings(paragraph: FollowParagraph | undefined): boolean {
+  return !!paragraph?.words && paragraph.words.length > 0
+}
+
 /**
- * Attach real word timings when the audio manifest provides them.
- * Never invent timings by splitting the paragraph on whitespace.
+ * Manifest / sidecar `words` win. No invented linear timings — measure MP3s or
+ * fall back to paragraph-level follow.
  */
 export function followParagraphFromManifest(
   index: number,
   text: string,
   manifestParagraph: ManifestParagraph | undefined,
 ): FollowParagraph {
+  const duration = typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined
   const words = wordsFromManifestParagraph(manifestParagraph)
   return {
     index,
     text,
-    duration: typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined,
+    duration,
     words,
+    file: typeof manifestParagraph?.file === 'string' ? manifestParagraph.file : undefined,
   }
 }
 
 export function paragraphDurationSeconds(paragraph: FollowParagraph): number | null {
-  if (paragraph.words && paragraph.words.length > 0) {
-    return paragraph.words[paragraph.words.length - 1].end
-  }
   if (typeof paragraph.duration === 'number' && paragraph.duration > 0) {
     return paragraph.duration
+  }
+  if (paragraph.words && paragraph.words.length > 0) {
+    return paragraph.words[paragraph.words.length - 1].end
   }
   return null
 }
 
 export function wordIndexAtTime(words: TimedWord[], localSeconds: number): number {
   if (words.length === 0) return -1
+  let index = 0
   for (let i = 0; i < words.length; i++) {
-    if (localSeconds >= words[i].start && localSeconds < words[i].end) return i
+    if (localSeconds >= words[i].start) index = i
+    else break
   }
-  if (localSeconds >= words[words.length - 1].end) return words.length - 1
-  return 0
+  return index
+}
+
+/** Highlight time equals audio element time — timings come from manifest/sidecar/measurement. */
+export function followTimeFromAudio(currentTime: number): number {
+  return Number.isFinite(currentTime) ? Math.max(0, currentTime) : 0
 }
 
 /**
@@ -116,4 +136,56 @@ export function followAtTime(paragraphs: FollowParagraph[], elapsedSeconds: numb
   return last.words
     ? { kind: 'word', paragraphIndex: last.index, wordIndex: last.words.length - 1 }
     : { kind: 'paragraph', paragraphIndex: last.index }
+}
+
+/**
+ * Follow the paragraph (or word) that is actually playing.
+ * Word-level only when that paragraph already has timings.
+ */
+export function followFromPlayback(input: {
+  paragraphs: FollowParagraph[]
+  paragraphIndex: number
+  currentTime: number
+}): FollowTarget {
+  const paragraph = input.paragraphs.find(item => item.index === input.paragraphIndex)
+    ?? input.paragraphs[input.paragraphIndex]
+  if (!paragraph) return { kind: 'none' }
+  if (paragraph.words && paragraph.words.length > 0) {
+    return {
+      kind: 'word',
+      paragraphIndex: paragraph.index,
+      wordIndex: wordIndexAtTime(paragraph.words, Math.max(0, input.currentTime)),
+    }
+  }
+  return { kind: 'paragraph', paragraphIndex: paragraph.index }
+}
+
+export interface WordSidecar {
+  chapter?: number
+  paragraphs?: Array<{
+    paragraph?: number
+    file?: string
+    words?: unknown
+  }>
+}
+
+/** Sidecar word timings replace paragraphs that still lack manifest `words`. */
+export function mergeSidecarWords(
+  paragraphs: FollowParagraph[],
+  sidecar: WordSidecar | null | undefined,
+): FollowParagraph[] {
+  if (!sidecar?.paragraphs?.length) return paragraphs
+  const byIndex = new Map<number, TimedWord[]>()
+  for (const entry of sidecar.paragraphs) {
+    if (typeof entry.paragraph !== 'number') continue
+    const words = wordsFromManifestParagraph({ words: entry.words as TimedWord[] })
+    if (!words) continue
+    byIndex.set(entry.paragraph, words)
+  }
+  return paragraphs.map((paragraph) => {
+    if (paragraph.words && paragraph.words.length > 0) return paragraph
+    const words = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
+    if (!words) return paragraph
+    return { ...paragraph, words }
+  })
 }

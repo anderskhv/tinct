@@ -6,7 +6,7 @@ BUCKET="tinct-audio"
 AUDIO_DIR="audio"
 PARALLEL=20
 COUNT=0
-TOTAL=$(find "$AUDIO_DIR" -type f \( -name "*.mp3" -o -name "*.wav" -o -name "manifest.json" \) | wc -l | tr -d ' ')
+TOTAL=$(find "$AUDIO_DIR" -type f \( -name "*.mp3" -o -name "*.wav" -o -name "manifest.json" -o -name "words.json" \) | wc -l | tr -d ' ')
 
 echo "Uploading $TOTAL files to R2 bucket '$BUCKET' with $PARALLEL parallel jobs..."
 
@@ -28,7 +28,7 @@ upload_file() {
 export -f upload_file
 export BUCKET
 
-find "$AUDIO_DIR" -type f \( -name "*.mp3" -o -name "*.wav" -o -name "manifest.json" \) | \
+find "$AUDIO_DIR" -type f \( -name "*.mp3" -o -name "*.wav" -o -name "manifest.json" -o -name "words.json" \) | \
   xargs -P "$PARALLEL" -I {} bash -c 'upload_file "$@"' _ {}
 
 echo "Done!"

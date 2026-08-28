@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
+import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
+import type { CompanionAskNotify } from '../lab/labCompanion'
 import { nearbyParagraphWindow } from '../voice/context'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from '../voice/types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext, VoiceSessionMode } from '../voice/types'
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -12,6 +14,8 @@ function nextVoiceMessageId() {
 export interface UseVoiceSessionOptions {
   authToken: string | null
   isAnonymous: boolean
+  /** Lab-only guest/test path. Production App.tsx leaves this unset. */
+  labGuest?: boolean
   bookId: string
   bookTitle: string
   bookAuthor: string
@@ -29,6 +33,20 @@ export interface UseVoiceSessionOptions {
   onNeedAuth: () => void
   onInsufficientBalance: () => void
   onUsage?: () => void
+  mode?: VoiceSessionMode
+  /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
+  instructions?: string
+  tools?: readonly unknown[]
+  honorModelResume?: boolean
+  /** Lab-only. Production AudioStrip leaves this unset. */
+  setPlaybackSpeed?: (rate: number) => void
+  /** Lab-only. Production AudioStrip leaves this unset. */
+  skipPlayback?: (kind: LabPlaybackSkip) => void | Promise<void>
+  /** Lab-only. Production AudioStrip leaves this unset. */
+  assistantPace?: AssistantPace
+  onSetAssistantPace?: (pace: AssistantPace) => void
+  /** Lab-only. Hard book questions hop to /api/lab-chat. Production leaves this unset. */
+  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string>
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
@@ -37,6 +55,7 @@ const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   resumeInSeconds: null,
   error: null,
   isActive: false,
+  userSpeechStarted: false,
 }
 
 export function useVoiceSession(options: UseVoiceSessionOptions) {
@@ -48,7 +67,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   useEffect(() => {
     const controller = new VoiceSessionController({
       onSnapshot: setUi,
-      onTurn: (role, text) => {
+      onTurn: (role, text, meta) => {
         const opts = optionsRef.current
         const message: ChatMessage = {
           id: nextVoiceMessageId(),
@@ -58,7 +77,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
           bookId: opts.bookId,
           chapterNumber: opts.chapterNumber,
           paragraphIndex: opts.paragraphIndex,
-          isComplete: true,
+          isComplete: meta?.cancelled ? false : true,
           source: 'voice',
         }
         opts.appendLocalMessage(message)
@@ -67,6 +86,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       onNeedAuth: () => optionsRef.current.onNeedAuth(),
       onInsufficientBalance: () => optionsRef.current.onInsufficientBalance(),
       onUsage: () => optionsRef.current.onUsage?.(),
+      onSetAssistantPace: (pace) => optionsRef.current.onSetAssistantPace?.(pace),
     })
     controllerRef.current = controller
     return () => {
@@ -80,6 +100,8 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   useEffect(() => {
     if (locationKeyRef.current === locationKey) return
     locationKeyRef.current = locationKey
+    // Lab honor path stays open through a chapter skip so she can confirm, then play.
+    if (optionsRef.current.honorModelResume) return
     controllerRef.current?.stop()
   }, [locationKey])
 
@@ -97,19 +119,39 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     }
   }, [])
 
-  const start = useCallback(() => {
+  const unlockAudio = useCallback(() => {
+    controllerRef.current?.unlockLabAudioContext()
+  }, [])
+
+  const start = useCallback(async (overrides?: { authToken?: string | null }) => {
     const opts = optionsRef.current
-    void controllerRef.current?.start({
-      authToken: opts.authToken,
-      isAnonymous: opts.isAnonymous,
+    const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
+    if (opts.honorModelResume) controllerRef.current?.unlockLabAudioContext()
+    await controllerRef.current?.start({
+      authToken,
+      isAnonymous: !authToken,
+      labGuest: opts.labGuest === true,
       context: buildContext(),
       wasPlaying: opts.isAudioPlaying,
       audio: {
         pausePlayback: opts.pausePlayback,
         resumePlayback: opts.resumePlayback,
+        setPlaybackSpeed: opts.setPlaybackSpeed,
+        skipPlayback: opts.skipPlayback,
       },
+      mode: opts.mode ?? 'quick',
+      instructions: opts.instructions,
+      tools: opts.tools,
+      honorModelResume: opts.honorModelResume,
+      assistantPace: opts.assistantPace,
+      onCompanionAsk: opts.onCompanionAsk,
     })
+    return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
   }, [buildContext])
+
+  const stop = useCallback(() => {
+    controllerRef.current?.stop()
+  }, [])
 
   const handleVoiceButton = useCallback(() => {
     const controller = controllerRef.current
@@ -146,9 +188,15 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     isActive: ui.isActive,
     error: ui.error,
     resumeInSeconds: ui.resumeInSeconds,
+    userSpeechStarted: ui.userSpeechStarted,
     statusLabel,
     start,
+    unlockAudio,
+    stop,
     handleVoiceButton,
     explicitResume,
+    setAssistantPace: (pace: AssistantPace) => {
+      controllerRef.current?.setAssistantPace(pace)
+    },
   }
 }

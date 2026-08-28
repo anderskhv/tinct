@@ -14,6 +14,7 @@ interface LabBookPageProps {
   onMark: (index: number) => void
   focusParagraph?: number | null
   dimmed?: boolean
+  peek?: boolean
 }
 
 function renderFollowedText(
@@ -54,10 +55,11 @@ export function LabBookPage({
   onMark,
   focusParagraph,
   dimmed,
+  peek,
 }: LabBookPageProps) {
   return (
     <article
-      className={`lab-book ${dimmed ? 'is-dimmed' : ''} ${compare ? 'is-compare' : ''}`}
+      className={`lab-book ${dimmed ? 'is-dimmed' : ''} ${compare ? 'is-compare' : ''} ${peek ? 'is-peek' : ''}`}
       data-testid="lab-book"
     >
       <header className="lab-book-header">

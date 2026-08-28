@@ -337,7 +337,9 @@ npm run build
 npm run verify-bundle
 ```
 
-After those gates pass, deploy per `../AGENTS.md`. Until Tinct has more than 10 users, do not ask first unless Anders said local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle. Never deploy or stash during active edition writes.
+After those gates pass, deploy per `../AGENTS.md` or `../docs/cloud-deploy.md`. Until Tinct has more than 10 users, do not ask first unless Anders said local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle. Never deploy or stash during active edition writes.
+
+Automated deploy from GitHub Actions or Cursor Cloud Agents requires `CLOUDFLARE_API_TOKEN` (Workers deploy token) — see `../docs/cloud-deploy.md`.
 
 ## Reporting
 

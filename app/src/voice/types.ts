@@ -14,7 +14,7 @@ export type VoiceIntent =
   | 'none'
 
 export type VoiceEvent =
-  | { type: 'START' }
+  | { type: 'START'; mode?: VoiceSessionMode }
   | { type: 'USER_SPEECH_START' }
   | { type: 'USER_SPEECH_END' }
   | { type: 'ASSISTANT_SPEECH_START' }
@@ -33,6 +33,31 @@ export interface VoiceMachineSnapshot {
 }
 
 export const RESUME_GRACE_MS = 4000
+/** Lab: after resume_audiobook, wait this long for speech_start. If she never starts, honor. */
+export const LAB_HONOR_RESUME_IDLE_MS = 4000
+/** Lab: after user speech_started, force-end the turn after this much silence. */
+export const LAB_STUCK_LISTENING_MS = 6000
+/** Lab Realtime server_vad. Production keeps 700ms silence and default interrupt. */
+export const LAB_VAD_THRESHOLD = 0.75
+export const LAB_VAD_SILENCE_MS = 1200
+export const LAB_VAD_INTERRUPT_RESPONSE = false
+/** Lab: server_vad must not auto-create a response; we do that after 500ms speech. */
+export const LAB_VAD_CREATE_RESPONSE = false
+/** Lab Realtime semantic_vad. low waits longer before she yields. */
+export const LAB_SEMANTIC_VAD_EAGERNESS = 'low' as const
+/** Lab: unmute the outgoing mic this long after her speech_end. */
+export const LAB_MIC_SETTLE_MS = 500
+/** Lab Talk greeting. This is the first assistant response. */
+export const LAB_VOICE_GREETING = "I'm listening."
+export const LAB_AUDIO_CONSTRAINTS = {
+  echoCancellation: true,
+  noiseSuppression: true,
+  autoGainControl: false,
+} as const
+/** Lab: a barge-in is real only if speech_started lasts longer than this. */
+export const LAB_BARGE_IN_MS = 500
+/** Lab: after confirmed speech_stopped, wait this long for the server to create a response. */
+export const LAB_FORCE_RESPONSE_MS = 250
 export const CONVERSATION_IDLE_TIMEOUT_MS = 45_000
 export const MAX_VOICE_SESSION_MS = 3 * 60_000
 

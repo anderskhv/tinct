@@ -34,7 +34,12 @@ app/src/data/editions/
 
 # Local dev tooling — TTS pipelines, raw book sources, audio voice tests.
 # All regeneratable; heavy; not used by the deployed app.
-app/tts/
+app/tts/**
+!app/tts/*.py
+!app/tts/*.sh
+!app/tts/*.md
+!app/tts/requirements-words.txt
+app/tts/audio/
 books/raw/
 books/tts-test/
 books/*.log

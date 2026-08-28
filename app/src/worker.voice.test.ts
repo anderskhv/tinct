@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { handleVoiceSession, VOICE_NOT_CONFIGURED_ERROR } from './worker/routes/voice'
+import { handleLabVoiceSession, handleVoiceSession, VOICE_NOT_CONFIGURED_ERROR } from './worker/routes/voice'
 import { VOICE_REALTIME_MODEL } from './voice/types'
 
 const userId = '11111111-1111-4111-8111-111111111111'
@@ -80,6 +80,34 @@ describe('voice session route', () => {
     )
     expect(response.status).toBe(401)
     expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('mints a lab guest realtime token without a session and does not charge', async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url === 'https://api.openai.com/v1/realtime/client_secrets') {
+        return Response.json({ value: 'ek_lab_guest', expires_at: 1_771_600_000 })
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const rateLimit = vi.fn(async (key: string) => {
+      expect(key.startsWith('lab-voice:')).toBe(true)
+      return true
+    })
+    const { ctx, waitUntil } = makeExecutionContext()
+
+    const response = await handleLabVoiceSession(
+      voiceRequest(),
+      env,
+      ctx,
+      rateLimit,
+    )
+
+    expect(response.status).toBe(200)
+    expect(await response.json()).toMatchObject({ value: 'ek_lab_guest' })
+    expect(waitUntil).not.toHaveBeenCalled()
+    expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
   it('mints an ephemeral realtime token and charges one message', async () => {
