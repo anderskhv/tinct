@@ -233,6 +233,9 @@ export function labChromeInsetPx(chromeHeightPx: number, gap = LAB_CHROME_GAP_PX
 /** Painted last ink must sit at least this many px above the visible bar. */
 export const LAB_OVERFLOW_CLEAR_PX = 8
 
+/** Extra slack when measuring phone hearing pages — descenders + highlight box. */
+export const LAB_HEARING_MEASURE_SLACK_PX = 16
+
 /** Play/Chat/Talk, page-turn rail, or in-flow audio — never 100vh. */
 export const LAB_BAR_SELECTORS = [
   '.lab-phone-bar',
@@ -592,12 +595,18 @@ export function measureLabPageMetrics(
   const padBottom = parseFloat(style?.paddingBottom || '0') || 0
   const padLeft = parseFloat(style?.paddingLeft || '0') || 0
   const padRight = parseFloat(style?.paddingRight || '0') || 0
-  const chromeTop = chromeRect && chromeRect.height > 0 ? chromeRect.top : wrapRect.bottom
-  const height = labReadablePageHeightPx({
+  const scope = scrollport.ownerDocument ?? (typeof document !== 'undefined' ? document : null)
+  const chromeTopFromRect = chromeRect && chromeRect.height > 0 ? chromeRect.top : wrapRect.bottom
+  const onScreenBarTop = measureLabOnScreenBarTop(scope, chrome)
+  const chromeTop = onScreenBarTop > 0
+    ? Math.min(chromeTopFromRect, onScreenBarTop)
+    : chromeTopFromRect
+  const rawHeight = labReadablePageHeightPx({
     scrollportTop: wrapRect.top + padTop,
     scrollportBottom: wrapRect.bottom - padBottom,
     chromeTop,
   })
+  const height = Math.max(0, rawHeight - LAB_HEARING_MEASURE_SLACK_PX)
   const lineRect = line?.getBoundingClientRect()
   const passageWidth = passage?.getBoundingClientRect().width ?? wrapRect.width
   const width = lineRect && lineRect.width > 0

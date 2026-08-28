@@ -821,6 +821,12 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-hearing-back').textContent).not.toContain('Back 15')
     expect(screen.getByTestId('lab-hearing-forward').textContent).not.toContain('Forward 15')
     expect(screen.queryByTestId('lab-hearing-transport')).toBeNull()
+    const progressEl = screen.getByTestId('lab-chapter-progress')
+    const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent || progressEl.textContent || ''
+    expect(playingLabel).toMatch(/^\s*\d+\s*\/\s*\d+\s*$/)
+    expect(playingLabel).not.toContain('—')
+    expect(playingLabel).not.toContain('Book')
+    expect(document.querySelector('.lab.has-slim-transport')).toBeTruthy()
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
     expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).type).toBe('text')

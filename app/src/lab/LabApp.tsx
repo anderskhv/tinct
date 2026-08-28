@@ -486,6 +486,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
+  const slimTransportWasRef = useRef(false)
   const highlightsApi = useLabHighlights(book.chapterNumber)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
@@ -963,9 +964,48 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     scope: prefs.progressDisplay.scope,
   })
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
-  const footProgressLabel = showSlimTransport
+  const footProgressCompact = showPhoneChrome && !fullscreen && listen.playing && !phoneAsk
+  const footProgressLabel = footProgressCompact
     ? labFootProgressPages(chapterProgress.currentPage, chapterProgress.totalPages)
     : footProgress
+
+  useLayoutEffect(() => {
+    const wrap = pageWrapRef.current
+    const chromeEl = bottomChromeRef.current
+    const now = showSlimTransport
+    const was = slimTransportWasRef.current
+    slimTransportWasRef.current = now
+    if (!now || was || !wrap || !chromeEl || phoneAskOpen) return
+    return afterLabPaint(() => {
+      const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
+      if (!passage) return
+      const painted = measurePaintedOverflow(passage, chromeEl)
+      if (!painted || labPageFitsPaint(painted)) return
+      const pages = readingPagesRef.current
+      const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
+      const live = pages[pageIdx]
+      if (!live || live.to <= live.from + 1) return
+      const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
+      const nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+      if (nextTo >= live.to) return
+      const metrics = pageMetricsRef.current
+      const budget = metrics ? labPageBudgetFromMetrics(metrics) : null
+      const shrunk = reflowAfterCut(
+        book.paragraphs,
+        pages,
+        pageIdx,
+        nextTo,
+        canUseLabPageBudget(budget) ? budget : null,
+        { lastLineWords: painted.lastLineWords, overflowing: true },
+      )
+      if (sameChapterPages(shrunk, pages)) return
+      readingPagesRef.current = shrunk
+      setReadingPages(shrunk)
+      workingPagesRef.current = shrunk
+      setDraftPages(shrunk)
+      lastAdjustRef.current = 'peel'
+    })
+  }, [showSlimTransport, phoneAskOpen, book.paragraphs])
 
   useEffect(() => {
     if (!showHearing) return
