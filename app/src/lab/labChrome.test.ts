@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, preferVisiblePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -257,6 +257,62 @@ describe('lab chrome inset invariant', () => {
     try {
       expect(measureLabBarTop(document)).toBe(720)
       expect(measureLabOnScreenBarTop(document)).toBe(628)
+    } finally {
+      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
+    }
+  })
+
+  it('measurePaintedOverflow uses on-screen bar top, not a below-fold layout box', () => {
+    document.body.innerHTML = `
+      <div class="lab-page-wrap">
+        <p class="lab-hearing-line"><span>word</span></p>
+      </div>
+      <footer class="lab-phone-bar"></footer>
+    `
+    const wrap = document.querySelector('.lab-page-wrap') as HTMLElement
+    const phone = document.querySelector('.lab-phone-bar') as HTMLElement
+    const word = document.querySelector('span') as HTMLElement
+    phone.getBoundingClientRect = () => ({ top: 720, bottom: 800, height: 80, width: 390, left: 0, right: 390, x: 0, y: 720, toJSON() {} })
+    word.getBoundingClientRect = () => ({ top: 600, bottom: 640, height: 40, width: 40, left: 15, right: 55, x: 15, y: 600, toJSON() {} })
+    const original = window.visualViewport
+    Object.defineProperty(window, 'visualViewport', {
+      configurable: true,
+      value: { height: 628, offsetTop: 0, addEventListener() {}, removeEventListener() {} },
+    })
+    try {
+      const painted = measurePaintedOverflow(wrap)
+      expect(painted).not.toBeNull()
+      expect(painted!.chromeTop).toBe(628)
+      expect(labPageFitsPaint(painted!)).toBe(false)
+    } finally {
+      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
+    }
+  })
+
+  it('prefers visible paint when the measure host falsely fits', () => {
+    document.body.innerHTML = `
+      <div class="lab-page-measure"><p class="lab-hearing-line"><span>host</span></p></div>
+      <article class="lab-passage"><p class="lab-hearing-line"><span>visible</span></p></article>
+      <footer class="lab-phone-bar"></footer>
+    `
+    const host = document.querySelector('.lab-page-measure') as HTMLElement
+    const visible = document.querySelector('.lab-passage') as HTMLElement
+    const phone = document.querySelector('.lab-phone-bar') as HTMLElement
+    const hostWord = host.querySelector('span') as HTMLElement
+    const visibleWord = visible.querySelector('span') as HTMLElement
+    phone.getBoundingClientRect = () => ({ top: 720, bottom: 800, height: 80, width: 390, left: 0, right: 390, x: 0, y: 720, toJSON() {} })
+    hostWord.getBoundingClientRect = () => ({ top: 500, bottom: 540, height: 40, width: 40, left: 0, right: 40, x: 0, y: 500, toJSON() {} })
+    visibleWord.getBoundingClientRect = () => ({ top: 610, bottom: 650, height: 40, width: 40, left: 0, right: 40, x: 0, y: 610, toJSON() {} })
+    const original = window.visualViewport
+    Object.defineProperty(window, 'visualViewport', {
+      configurable: true,
+      value: { height: 628, offsetTop: 0, addEventListener() {}, removeEventListener() {} },
+    })
+    try {
+      const hostPainted = { lastBottom: 540, chromeTop: 628, lineHeight: 40, lastLineWords: 1, scrollOverflow: false }
+      const merged = preferVisiblePaintedOverflow(hostPainted, visible, null, true)
+      expect(merged).not.toBeNull()
+      expect(labPageFitsPaint(merged!)).toBe(false)
     } finally {
       Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
     }

@@ -412,9 +412,9 @@ export function measurePaintedOverflow(
   chrome?: HTMLElement | null,
 ): LabPaintedOverflow | null {
   const scope = root.ownerDocument ?? (typeof document !== 'undefined' ? document : null)
-  // Authority: getBoundingClientRect of Play/Chat/Talk / page-turn / transport.
-  // Never 100vh, never dvh, never visualViewport as a stand-in for the bar.
-  const chromeTop = measureLabBarTop(scope, chrome ?? null)
+  // Authority: on-screen bar top (Play/Chat/Talk / page-turn / transport), clamped
+  // to visualViewport so layout boxes below the Safari toolbar are ignored.
+  const chromeTop = measureLabOnScreenBarTop(scope, chrome ?? null)
   const lastBottom = lastPaintedTextBottom(root)
   if (!canMeasurePaintedOverflow(lastBottom, chromeTop)) return null
   const line = root.querySelector('.lab-hearing-line')
@@ -426,6 +426,20 @@ export function measurePaintedOverflow(
     lastLineWords: lastPaintedLineWordCount(root),
     scrollOverflow: labScrollportOverflows(root),
   }
+}
+
+/** When the visible page is on screen, its paint beats the hidden measure host. */
+export function preferVisiblePaintedOverflow(
+  hostPainted: LabPaintedOverflow | null,
+  visibleRoot: HTMLElement | null | undefined,
+  chrome?: HTMLElement | null,
+  sameAsVisible = true,
+): LabPaintedOverflow | null {
+  if (!visibleRoot || !sameAsVisible) return hostPainted
+  const visible = measurePaintedOverflow(visibleRoot, chrome)
+  if (!visible) return hostPainted
+  if (hostPainted && labPageFitsPaint(hostPainted) && !labPageFitsPaint(visible)) return visible
+  return visible
 }
 
 /** After document.fonts.ready + first paint (rAF). Never a pre-paint guess. */

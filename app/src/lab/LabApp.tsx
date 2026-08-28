@@ -3,6 +3,7 @@ import { flushSync } from 'react-dom'
 import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
+  LAB_OVERFLOW_CLEAR_PX,
   bindLabVisualViewportHeight,
   isLabPhoneSurface,
   shouldShowLabPhoneFooter,
@@ -23,10 +24,12 @@ import {
   measureLabOnScreenBarTop,
   measureLabPageMetrics,
   measurePaintedOverflow,
+  preferVisiblePaintedOverflow,
   nextLabVoiceGate,
   nextPaintShrinkTo,
   type LabPageAdjust,
   type LabPageMetrics,
+  type LabPaintedOverflow,
   type LabChromeState,
   type LabReturnTo,
   type LabVoiceGatePhase,
@@ -54,7 +57,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageEndsMidSentence, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapPageEndToPriorSentence, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageEndsMidSentence, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, shrinkPaintedPageOverflow, snapPageEndToPriorSentence, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -624,43 +627,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       let painted = host ? measurePaintedOverflow(host, chromeEl) : null
       const shown = readingPagesRef.current[Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))]
       const sameAsVisible = !!shown && shown.paragraphIndex === live.paragraphIndex && shown.from === live.from && shown.to === live.to
-      if (passage && sameAsVisible) {
-        const hasWordInk = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
-          .some(node => {
-            const rect = node.getBoundingClientRect()
-            return rect.height > 8 && rect.bottom > 40
-          })
-        if (!hasWordInk) {
-          const line = passage!.querySelector('.lab-hearing-line') as HTMLElement | null
-          const barTop = painted?.chromeTop || measureLabBarTop(wrap.ownerDocument, chromeEl)
-          if (line && barTop > 0) {
-            const box = line.getBoundingClientRect()
-            if (box.height > 8 && box.bottom >= barTop - 8) {
-              painted = {
-                lastBottom: box.bottom,
-                chromeTop: barTop,
-                lineHeight: painted?.lineHeight || 40,
-                lastLineWords: painted?.lastLineWords || 0,
-                scrollOverflow: true,
-              }
-            }
-          }
-        } else {
-          const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
-          if (onScreenTop > 0) {
-            const inkBottom = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
-              .reduce((max, node) => {
-                const rect = node.getBoundingClientRect()
-                return rect.height > 8 ? Math.max(max, rect.bottom) : max
-              }, 0)
-            if (inkBottom >= onScreenTop - 8) {
-              painted = {
-                lastBottom: inkBottom,
-                chromeTop: onScreenTop,
-                lineHeight: painted?.lineHeight || 40,
-                lastLineWords: painted?.lastLineWords || 0,
-                scrollOverflow: true,
-              }
+      painted = preferVisiblePaintedOverflow(painted, passage, chromeEl, sameAsVisible)
+      if (passage && sameAsVisible && painted && labPageFitsPaint(painted)) {
+        const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
+        if (onScreenTop > 0) {
+          const inkBottom = [...passage.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+            .reduce((max, node) => {
+              const rect = node.getBoundingClientRect()
+              return rect.height > 8 ? Math.max(max, rect.bottom) : max
+            }, 0)
+          if (inkBottom >= onScreenTop - LAB_OVERFLOW_CLEAR_PX) {
+            painted = {
+              ...painted,
+              lastBottom: inkBottom,
+              chromeTop: onScreenTop,
+              scrollOverflow: true,
             }
           }
         }
@@ -1083,6 +1064,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     // Never reshape page slices while audio is up — slim transport measures a different budget.
     if (listen.playing || browseWhileListening) return
     let growPasses = 0
+    let shrinkPasses = 0
     const trySnapMidSentenceEnd = (pages: ChapterHearingPage[], pageIdx: number, painted: LabPaintedOverflow): ChapterHearingPage[] | null => {
       if (!labPageFitsPaint(painted)) return null
       const live = pages[pageIdx]
@@ -1099,6 +1081,33 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         overflowing: false,
       })
       return sameChapterPages(shrunk, pages) ? null : shrunk
+    }
+    const tryFitVisiblePage = () => {
+      if (!pagesStableRef.current) return
+      if (listen.playing || browseWhileListeningRef.current) return
+      const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
+      if (!passage) return
+      const pages = readingPagesRef.current
+      const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
+      const painted = measurePaintedOverflow(passage, chromeEl)
+      if (!painted) return
+      if (!labPageFitsPaint(painted) && shrinkPasses < 12) {
+        const metrics = pageMetricsRef.current
+        const budget = metrics ? labPageBudgetFromMetrics(metrics) : null
+        const shrunk = shrinkPaintedPageOverflow(pages, pageIdx, painted, book.paragraphs, budget, { snapSentence: true })
+        if (shrunk) {
+          shrinkPasses += 1
+          readingPagesRef.current = shrunk
+          setReadingPages(shrunk)
+          workingPagesRef.current = shrunk
+          setDraftPages(shrunk)
+          lastAdjustRef.current = 'peel'
+          afterLabPaint(tryFitVisiblePage)
+          return
+        }
+      }
+      if (shrinkPasses >= 12) return
+      tryGrowVisiblePage()
     }
     const tryGrowVisiblePage = () => {
       if (!pagesStableRef.current) return
@@ -1144,7 +1153,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       lastAdjustRef.current = 'peel'
       afterLabPaint(tryGrowVisiblePage)
     }
-    return afterLabPaint(tryGrowVisiblePage)
+    return afterLabPaint(tryFitVisiblePage)
   }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
 
   useLayoutEffect(() => {

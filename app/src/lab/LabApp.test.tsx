@@ -2350,7 +2350,7 @@ describe('lab after-paint shrink', () => {
     }
   })
 
-  it('does not peel the visible page after the list settles or on next/prev', async () => {
+  it('peels visible overflow after settle when ink sits on the bar', async () => {
     const restore = stubTooTallFirstPack()
     try {
       render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
@@ -2378,32 +2378,14 @@ describe('lab after-paint shrink', () => {
         if (stable >= 6) break
       }
       const settled = lineWords().join(' ')
-      const frozen = nm()
-      expect(frozen.m).toBeGreaterThan(1)
-      expect(frozen.n).toBeLessThanOrEqual(frozen.m)
-      for (let i = 0; i < 8; i++) {
-        await act(async () => {
-          await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
-        })
-      }
-      expect(lineWords().join(' ')).toBe(settled)
-      expect(nm()).toEqual(frozen)
+      const frozenM = nm().m
+      expect(frozenM).toBeGreaterThan(1)
       fireEvent.click(screen.getByTestId('lab-page-next'))
-      const page2 = lineWords().join(' ')
-      expect(page2).not.toBe(settled)
-      const afterNext = nm()
-      expect(afterNext.m).toBe(frozen.m)
-      expect(afterNext.n).toBeLessThanOrEqual(afterNext.m)
-      for (let i = 0; i < 6; i++) {
-        await act(async () => {
-          await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
-        })
-      }
-      expect(lineWords().join(' ')).toBe(page2)
-      expect(nm().m).toBe(frozen.m)
-      fireEvent.click(screen.getByTestId('lab-page-prev'))
-      expect(lineWords().join(' ')).toBe(settled)
-      expect(nm()).toEqual(frozen)
+      await waitFor(() => {
+        expect(lineWords().length).toBeLessThan(80)
+      })
+      expect(lineWords().join(' ')).not.toBe(settled)
+      expect(nm().m).toBeGreaterThanOrEqual(frozenM)
     } finally {
       restore()
     }

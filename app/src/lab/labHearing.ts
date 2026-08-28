@@ -3,6 +3,7 @@ import {
   LAB_OVERFLOW_CLEAR_PX,
   labPageFitsPaint,
   labPageSlackPx,
+  nextPaintShrinkTo,
   shouldGrowPaintedPage,
   growWordsFromSlack,
   type LabPageAdjust,
@@ -138,6 +139,36 @@ export function growPaintedPageIfSlack(
   const len = tokenizeHearingWords(paragraphs![page!.paragraphIndex] || '').length
   const grown = growPageTailInParagraph(pages, pageIndex, words, len)
   return sameChapterPages(grown, pages) ? pages : grown
+}
+
+/** Peel words when painted ink sits on or below the on-screen bar. */
+export function shrinkPaintedPageOverflow(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  painted: LabPaintedOverflow,
+  paragraphs: string[],
+  budget: LabPageBudget | null,
+  opts?: { snapSentence?: boolean },
+): ChapterHearingPage[] | null {
+  if (labPageFitsPaint(painted)) return null
+  const live = pages[pageIndex]
+  if (!live || live.to <= live.from + 1) return null
+  const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
+  let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+  if (opts?.snapSentence) {
+    const paraWords = tokenizeHearingWords(paragraphs[live.paragraphIndex] || '')
+    nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
+  }
+  if (nextTo >= live.to) return null
+  const shrunk = reflowAfterCut(
+    paragraphs,
+    pages,
+    pageIndex,
+    nextTo,
+    canUseLabPageBudget(budget) ? budget : null,
+    { lastLineWords: painted.lastLineWords, overflowing: true },
+  )
+  return sameChapterPages(shrunk, pages) ? null : shrunk
 }
 
 export const HEARING_PAGE_MIN = 70
