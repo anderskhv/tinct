@@ -631,7 +631,29 @@ export function measureLabPageMetrics(
   const width = lineRect && lineRect.width > 0
     ? lineRect.width
     : Math.max(0, passageWidth - padLeft - padRight)
-  const lineHeight = line ? labLineHeightPx(line) : 0
+  let lineHeight = line ? labLineHeightPx(line) : 0
+  if (line && lineHeight > height && height > 0) {
+    try {
+      const range = document.createRange()
+      range.selectNodeContents(line)
+      const rects = range.getClientRects()
+      const heights: number[] = []
+      for (let i = 0; i < rects.length; i++) {
+        const h = rects[i].height
+        if (h > 8 && h < 160) heights.push(h)
+      }
+      if (heights.length > 0) {
+        heights.sort((a, b) => a - b)
+        lineHeight = heights[Math.floor(heights.length / 2)]
+      } else {
+        const lineStyle = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
+        const fontSize = parseFloat(lineStyle?.fontSize || '0')
+        if (fontSize > 8) lineHeight = fontSize * 1.45
+      }
+    } catch {
+      /* jsdom */
+    }
+  }
   const headlineHeight = headline ? headline.getBoundingClientRect().height : 0
   const text = (line?.textContent || '').replace(/\s+/g, ' ').trim()
   const lineWidth = lineRect?.width ?? 0
