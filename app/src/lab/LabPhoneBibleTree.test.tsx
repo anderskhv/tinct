@@ -125,7 +125,7 @@ describe('lab phone bible tree', () => {
     expand('The Pentateuch')
     expect(row('Genesis').getAttribute('data-mark')).toBe('progress')
     expand('Genesis')
-    expect(screen.getByTestId('lab-tree-chapter-1').getAttribute('data-mark')).toBe('progress')
+    expect(screen.getByTestId('lab-tree-chapter-1').getAttribute('data-mark')).toBe('done')
     expect(screen.getByTestId('lab-tree-chapter-2').getAttribute('data-mark')).toBe('empty')
     expand('New Testament')
     expand('Paul')

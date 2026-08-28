@@ -1,5 +1,5 @@
 import { apiUrl } from '../utils/apiUrl'
-import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace, type LabPlaybackSkip } from '../lab/labAsk'
+import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace, type LabPlaybackSkip, cleanLabVoiceTranscript } from '../lab/labAsk'
 import {
   ASK_COMPANION_TOOL,
   companionSpeakInstructions,
@@ -7,7 +7,6 @@ import {
   parseAskCompanionArguments,
   playbackArgsForUtterance,
   playbackToolForUtterance,
-  remainingCompanionSpeech,
   runEscalatedCompanionTurn,
   shouldEscalateToCompanion,
   spokenCompanionAnswer,
@@ -800,7 +799,8 @@ export class VoiceSessionController {
         return
       }
       case 'conversation.item.input_audio_transcription.completed': {
-        const text = (event.transcript || event.item?.transcript || '').trim()
+        const raw = (event.transcript || event.item?.transcript || '').trim()
+        const text = this.honorModelResume ? cleanLabVoiceTranscript(raw) : raw
         if (!text) return
         if (this.shouldDiscardUserTranscript()) return
         this.lastUtteranceConfirmed = false
@@ -876,41 +876,20 @@ export class VoiceSessionController {
     }
 
     let latest = ''
-    let first = ''
-    let resolveFirst: ((text: string) => void) | null = null
-    const firstReady = new Promise<string>(resolve => { resolveFirst = resolve })
     const hopPromise = runEscalatedCompanionTurn({
       question,
       alreadySpeaking: this.alreadySpeakingThisTurn(),
       speakCover: line => this.speakCoverLine(line),
       query: (asked) => query(asked, {
         onDelta: (text) => { latest = text },
-        onFirstSpeakable: (text) => {
-          first = text
-          resolveFirst?.(text)
-        },
+        onFirstSpeakable: () => { /* cover line only; full answer spoken once below */ },
       }),
     })
-    const spoken = (await Promise.race([
-      firstReady,
-      hopPromise.then(hop => hop.answer),
-    ])).trim() || latest.trim()
-    if (this.closed) return
-    await this.waitUntilQuietForHop()
-    if (this.closed) return
-    const opening = (first || spoken || latest).trim()
-    if (opening) {
-      this.sendEvent({
-        type: 'response.create',
-        response: {
-          instructions: companionSpeakInstructions(opening),
-        },
-      })
-    }
     const hop = await hopPromise
     if (this.closed) return
-    const full = spokenCompanionAnswer(hop.answer.trim() || latest.trim() || opening)
-      || opening
+    const full = spokenCompanionAnswer(hop.answer.trim() || latest.trim())
+      || hop.answer.trim()
+      || latest.trim()
       || 'I could not get a reading of this passage just now.'
     this.sendEvent({
       type: 'conversation.item.create',
@@ -921,28 +900,16 @@ export class VoiceSessionController {
       },
     })
     this.applyTurnResult(noteToolCallHandled(this.turn))
-    const rest = remainingCompanionSpeech(opening, full)
-    if (!rest) {
-      if (!opening) {
-        await this.waitUntilQuietForHop()
-        if (this.closed) return
-        this.sendEvent({
-          type: 'response.create',
-          response: {
-            instructions: companionSpeakInstructions(full),
-          },
-        })
-      }
-      return
-    }
     await this.waitUntilQuietForHop()
     if (this.closed) return
-    this.sendEvent({
-      type: 'response.create',
-      response: {
-        instructions: companionSpeakInstructions(rest),
-      },
-    })
+    if (!this.alreadySpeakingThisTurn() && full) {
+      this.sendEvent({
+        type: 'response.create',
+        response: {
+          instructions: companionSpeakInstructions(full),
+        },
+      })
+    }
   }
 
   private waitUntilQuietForHop(): Promise<void> {

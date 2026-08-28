@@ -41,6 +41,8 @@ import {
   labFootProgress,
   readLabPrefs,
   writeLabPrefs,
+  syncLabAudioEdition,
+  effectiveLabAudioEdition,
   type LabPrefs,
 } from './labPrefs'
 import { labLayoutOverride } from './labRoute'
@@ -48,7 +50,7 @@ import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
-import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, type LabMark, type LabSource } from './labSource'
+import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, growPageByWords, labChapterProgress, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
@@ -212,7 +214,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   })
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(boot.book)
-  const [prefs, setPrefs] = useState<LabPrefs>(() => readLabPrefs())
+  const [prefs, setPrefs] = useState<LabPrefs>(() => syncLabAudioEdition(readLabPrefs()))
+  const audioEditionKey = effectiveLabAudioEdition(prefs)
+  const updatePrefs = useCallback((next: LabPrefs) => {
+    const synced = syncLabAudioEdition(next)
+    setPrefs(synced)
+    writeLabPrefs(synced)
+  }, [])
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
@@ -281,7 +289,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     paragraphs: book.paragraphs,
     followParagraphs: book.followParagraphs,
     chapterNumber: book.chapterNumber,
-    audioEdition: prefs.audioEdition,
+    audioEdition: audioEditionKey,
   })
 
   const { notePlace, biblicalBook } = useLabPositionSync({
@@ -295,7 +303,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       void loadLabSource(place.sequentialChapter, {
         primary: prefs.primaryEdition,
         compare: prefs.compareEdition,
-        audio: prefs.audioEdition,
+        audio: audioEditionKey,
       }).then(setBook)
     },
   })
@@ -313,11 +321,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
   }, [])
 
-  const updatePrefs = useCallback((next: LabPrefs) => {
-    setPrefs(next)
-    writeLabPrefs(next)
-  }, [])
-
   useEffect(() => {
     if (source) {
       setBook(source)
@@ -328,7 +331,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     loadLabSource(wanted, {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
-      audio: prefs.audioEdition,
+      audio: audioEditionKey,
     }).then((loaded) => {
       if (cancelled) return
       // A failed fetch returns Genesis 1. Never flash that over a restored book.
@@ -336,7 +339,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       setBook(loaded)
     })
     return () => { cancelled = true }
-  }, [source, prefs.primaryEdition, prefs.compareEdition, prefs.audioEdition])
+  }, [source, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
 
   const openAtEndRef = useRef(false)
 
@@ -673,7 +676,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       viewport?.removeEventListener('resize', apply)
       viewport?.removeEventListener('scroll', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readingPageIndex])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readingPageIndex, prefs.fontFamily, prefs.fontSize])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {
@@ -836,7 +839,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [ask.typedLoading, ask.voiceActive, resumeListenAfterAsk])
 
   const readingPage = readingPages[Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))]
-  const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const isOnline = readOnline(online)
   const voiceOverlayOpen = showPhoneChrome && chrome === 'talking' && !phoneAskOpen
   const phoneAsk = showPhoneChrome && phoneAskOpen
@@ -857,11 +859,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const showReaderRail = labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
-    pageCount: readingPages.length,
+    pageCount: Math.max(readingPages.length, draftPages.length, workingPagesRef.current.length),
     playing: listen.playing,
     canPrevChapter,
     canNextChapter,
   }) || (!phoneAsk && showPhoneChrome && fullscreen)
+  const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const rawChapterProgress = labChapterProgress({
     paragraphs: book.paragraphs,
     pages: readingPages,
@@ -918,6 +921,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       })
     }
   }, [listen.follow, readingPages, readingPageIndex, showHearing])
+
+  useEffect(() => {
+    const editions = {
+      primary: prefs.primaryEdition,
+      compare: prefs.compareEdition,
+      audio: audioEditionKey,
+    }
+    const next = nextLabChapter(book.chapters, book.chapterNumber)
+    const prev = prevLabChapter(book.chapters, book.chapterNumber)
+    if (next != null) prefetchLabChapterTexts(next, editions)
+    if (prev != null) prefetchLabChapterTexts(prev, editions)
+  }, [book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
 
   useEffect(() => {
     if (!pagesStableRef.current) return
@@ -1016,11 +1031,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const showBelow = window.innerHeight - anchorY > anchorY
     const mobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
     const estimatedHeight = mode === 'define' ? 220 : 64
-    const bottomSheetTop = window.innerHeight - estimatedHeight - 48
+    const chromeEl = bottomChromeRef.current
+    const chromeTop = chromeEl?.getBoundingClientRect().top ?? window.innerHeight
+    const bottomInset = Math.max(48, window.innerHeight - chromeTop + 8)
+    const bottomSheetTop = chromeTop - estimatedHeight - 12
     const safeTop = 88
     const floatingY = anchorY - estimatedHeight - 12
     const hasRoomAboveSelection = floatingY >= safeTop
-    const shouldFloatAbove = mobile && anchorY > bottomSheetTop - 48 && hasRoomAboveSelection
+    const shouldFloatAbove = mobile && anchorY > bottomSheetTop - bottomInset && hasRoomAboveSelection
     setSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
@@ -1077,11 +1095,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const loaded = await loadLabSource(number, {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
-      audio: prefs.audioEdition,
+      audio: audioEditionKey,
     })
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
-  }, [listen, notePlace, prefs.audioEdition, prefs.compareEdition, prefs.primaryEdition])
+  }, [listen, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
 
   useEffect(() => {
     const target = keepPlayingChapterRef.current
@@ -1133,7 +1151,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   skipRef.current = applyPlaybackSkip
 
   const goNext = useCallback(() => {
-    const pages = readingPagesRef.current
+    const pages = workingPagesRef.current.length > 0 ? workingPagesRef.current : readingPagesRef.current
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const nextPage = adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
@@ -1148,7 +1166,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [book.chapterNumber, book.chapters, goToChapter, goToPage])
 
   const goPrev = useCallback(() => {
-    const pages = readingPagesRef.current
+    const pages = workingPagesRef.current.length > 0 ? workingPagesRef.current : readingPagesRef.current
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const prevPage = adjacentPageIndex(pages.length, index, -1)
     if (prevPage != null) {
@@ -1420,7 +1438,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           onTouchEnd={(event) => {
             const start = pullStartY.current
             pullStartY.current = null
-            if (start == null) return
+            if (start == null || selectionPopup) return
             const endY = event.changedTouches[0]?.clientY ?? start
             if (labPullOpensToc(endY - start)) setTocOpen(true)
           }}
@@ -1524,9 +1542,42 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             data-testid="lab-chapter-progress"
             title={footProgress}
           >
+            {showSlimTransport && (
+              <button
+                type="button"
+                className="lab-phone-icon"
+                onClick={() => listen.seek(-15)}
+                aria-label={LAB_COPY.back15}
+                data-testid="lab-hearing-back"
+              >
+                <SeekIcon />
+              </button>
+            )}
             <span className="lab-chapter-progress-info">{footProgress}</span>
+            {showSlimTransport && (
+              <>
+                <button
+                  type="button"
+                  className="lab-phone-icon"
+                  onClick={() => listen.seek(15)}
+                  aria-label={LAB_COPY.forward15}
+                  data-testid="lab-hearing-forward"
+                >
+                  <SeekIcon forward />
+                </button>
+                <button
+                  type="button"
+                  className="lab-phone-icon lab-phone-speed"
+                  onClick={listen.cycleSpeed}
+                  aria-label={`${listen.speed}×`}
+                  data-testid="lab-hearing-speed"
+                >
+                  {listen.speed}×
+                </button>
+              </>
+            )}
           </div>
-          {readingPageIndex < readingPages.length - 1 || canNextChapter ? (
+          {readingPageIndex < Math.max(readingPages.length, draftPages.length) - 1 || canNextChapter ? (
             <button
               type="button"
               className="lab-page-turn-btn"
@@ -1584,37 +1635,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         <footer className="lab-phone-bar" data-testid="lab-phone-bar">
           {ask.notice && !phoneAsk && (
             <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
-          )}
-          {showSlimTransport && (
-            <div className="lab-phone-transport" data-testid="lab-phone-transport">
-              <button
-                type="button"
-                className="lab-phone-icon"
-                onClick={() => listen.seek(-15)}
-                aria-label={LAB_COPY.back15}
-                data-testid="lab-hearing-back"
-              >
-                <SeekIcon />
-              </button>
-              <button
-                type="button"
-                className="lab-phone-icon"
-                onClick={() => listen.seek(15)}
-                aria-label={LAB_COPY.forward15}
-                data-testid="lab-hearing-forward"
-              >
-                <SeekIcon forward />
-              </button>
-              <button
-                type="button"
-                className="lab-phone-icon lab-phone-speed"
-                onClick={listen.cycleSpeed}
-                aria-label={`${listen.speed}×`}
-                data-testid="lab-hearing-speed"
-              >
-                {listen.speed}×
-              </button>
-            </div>
           )}
           <div className="lab-phone-bar-row">
             <button
@@ -1735,6 +1755,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           onColorClick={(color: HighlightColor) => {
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
+              dismissSelectionPopup()
             }
           }}
           defineQuery={define.query}

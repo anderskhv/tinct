@@ -220,6 +220,13 @@ export function hearingPageForWord(pages: HearingPageBounds[], wordIndex: number
   return pages[pages.length - 1] ?? { from: 0, to: 0 }
 }
 
+/** Unicode superscript digits used as inline verse markers in Bible editions. */
+export const LAB_VERSE_MARKER_RE = /^[\u00B9\u00B2\u00B3\u2070-\u2079\u2080-\u2089⁰¹²³⁴⁵⁶⁷⁸⁹]+$/
+
+export function isLabVerseMarker(text: string): boolean {
+  return LAB_VERSE_MARKER_RE.test(text)
+}
+
 export function tokenizeHearingWords(text: string): Array<{ text: string }> {
   return text.split(/\s+/).map(part => part.trim()).filter(Boolean).map(word => ({ text: word }))
 }

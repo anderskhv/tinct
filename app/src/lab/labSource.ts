@@ -192,9 +192,18 @@ interface BibleManifest {
 }
 
 const bibleManifestCache = new Map<string, BibleManifest>()
+const chapterTextCache = new Map<string, string[]>()
+
+function chapterTextCacheKey(editionKey: string, chapterNumber: number): string {
+  return `${editionKey}:${chapterNumber}`
+}
 
 export function resetLabBibleManifestCache(): void {
   bibleManifestCache.clear()
+}
+
+export function resetLabChapterTextCache(): void {
+  chapterTextCache.clear()
 }
 
 function labBuildVersion(): string {
@@ -221,11 +230,38 @@ function chapterPath(entry: { number: number; path?: string }): string {
 }
 
 async function loadBibleChapterText(editionKey: string, entry: { number: number; path?: string }): Promise<string[]> {
+  const cacheKey = chapterTextCacheKey(editionKey, entry.number)
+  const cached = chapterTextCache.get(cacheKey)
+  if (cached) return cached
   const url = `/data/editions-chapters/${LAB_BOOK_ID}-${editionKey}/${chapterPath(entry)}?v=${encodeURIComponent(labBuildVersion())}`
   const res = await fetch(url)
   if (!res.ok) return []
   const data = await res.json() as { paragraphs?: string[] }
-  return Array.isArray(data.paragraphs) ? data.paragraphs : []
+  const paragraphs = Array.isArray(data.paragraphs) ? data.paragraphs : []
+  if (paragraphs.length > 0) chapterTextCache.set(cacheKey, paragraphs)
+  return paragraphs
+}
+
+/** Warm chapter JSON for adjacent navigation (fire-and-forget). */
+export function prefetchLabChapterTexts(
+  chapterNumber: number,
+  editions?: { primary?: string; compare?: string },
+): void {
+  void (async () => {
+    try {
+      const primary = editions?.primary || LAB_EDITION_KEY
+      const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
+      const manifest = await loadBibleManifest(primary)
+      const entry = manifest.chapters.find(item => item.number === chapterNumber)
+      if (!entry) return
+      await Promise.all([
+        loadBibleChapterText(primary, entry),
+        loadBibleChapterText(compare, entry).catch(() => []),
+      ])
+    } catch {
+      /* ignore prefetch errors */
+    }
+  })()
 }
 
 export async function loadLabSource(

@@ -117,8 +117,8 @@ export function LabSettingsSheet({
           {section === 'reading' ? (
             <div className="lab-ss-reading">
               <Row
-                label="Primary edition"
-                hint="The text you read."
+                label="Text & audio edition"
+                hint="The edition you read and hear. Narration follows this edition."
                 control={(
                   <select
                     className="lab-ss-select"
@@ -163,10 +163,10 @@ export function LabSettingsSheet({
                   </button>
                 )}
               />
-              {audioEditions.length > 0 && (
+              {audioEditions.length > 0 && prefs.audioEdition !== prefs.primaryEdition && (
                 <Row
-                  label="Audiobook"
-                  hint="Edition used for narration."
+                  label="Audiobook fallback"
+                  hint="Used only when the text edition has no narration."
                   control={(
                     <select
                       className="lab-ss-select"

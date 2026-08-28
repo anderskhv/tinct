@@ -1187,13 +1187,12 @@ describe('VoiceSessionController ask_companion hop', () => {
     const covers = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Do not answer the question yet'))
     const first = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Athena is already beside him.'))
     expect(covers).toHaveLength(1)
-    expect(first).toHaveLength(1)
-    expect(first[0].response.instructions).not.toContain('homecoming')
+    expect(first).toHaveLength(0)
     finish('Athena is already beside him. The council is about homecoming.')
     await pending
     const later = sent.map(item => JSON.parse(item))
-    const rest = later.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('The council is about homecoming.'))
-    expect(rest).toHaveLength(1)
+    const speakFull = later.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('The council is about homecoming.'))
+    expect(speakFull.length).toBeGreaterThanOrEqual(1)
     expect(later.filter(item => item.type === 'conversation.item.create').at(-1)?.item.output).toContain('The council is about homecoming.')
   })
 

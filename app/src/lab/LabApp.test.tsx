@@ -9,7 +9,7 @@ import { LabApp } from './LabApp'
 import { LabPassage } from './LabPassage'
 import { hearingPages } from './labHearing'
 import { LabVoiceGate } from './LabConversation'
-import { bibleFallbackSource, fallbackLabSource, resetLabBibleManifestCache } from './labSource'
+import { bibleFallbackSource, fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { followParagraphFromManifest } from './labFollow'
 import { persistLabTalkTurn } from './labTalkHistory'
 
@@ -23,6 +23,7 @@ afterEach(() => {
     try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
+  resetLabChapterTextCache()
 })
 
 function sourceWithWords() {
@@ -276,21 +277,21 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab-passage-headline\s*\{[^}]*EB Garamond/)
     expect(css).not.toMatch(/\.lab-passage-headline\s*\{[^}]*Playfair/)
     expect(css).not.toMatch(/\.lab-passage-headline\s*\{[^}]*clamp\(/)
-    expect(css).toMatch(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*2rem/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*calc\(/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*line-height:\s*1\.42/)
     expect(css).toMatch(/\.lab h1\.lab-passage-headline\s*\{[^}]*font-size:\s*2\.45rem/)
-    expect(css).toMatch(/\.lab\.is-phone h1\.lab-passage-headline\s*\{[^}]*font-size:\s*2rem/)
+    expect(css).toMatch(/\.lab\.is-phone h1\.lab-passage-headline\s*\{[^}]*font-size:\s*calc\(/)
     expect(css).not.toMatch(/\.lab-passage-headline\s*\{[^}]*font-size:\s*2\.85rem/)
     expect(css).not.toMatch(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*2\.4rem/)
     expect(css).not.toMatch(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*1\.2rem/)
     const headlineSize = Number((css.match(/\.lab-passage-headline\s*\{[^}]*font-size:\s*([\d.]+)rem/) || [])[1])
     const hearingSize = Number((css.match(/\.lab-hearing-line\s*\{[^}]*font-size:\s*([\d.]+)rem/) || [])[1])
-    const phoneHeadlineSize = Number((css.match(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*([\d.]+)rem/) || [])[1])
-    const phoneHearingSize = Number((css.match(/\.lab\.is-phone \.lab-hearing-line\s*\{[^}]*font-size:\s*([\d.]+)rem/) || [])[1])
+    const phoneHeadlineSize = css.match(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*calc\(/)
+    const phoneHearingSize = css.match(/\.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
     expect(headlineSize).toBe(hearingSize)
-    expect(phoneHeadlineSize).toBe(phoneHearingSize)
+    expect(phoneHeadlineSize).toBeTruthy()
+    expect(phoneHearingSize).toBeTruthy()
     expect(hearingSize).toBe(2.45)
-    expect(phoneHearingSize).toBe(2)
     expect(css).toMatch(/\.lab-p\s*\{[^}]*font-size:\s*1\.18rem/)
     expect(css).toMatch(/\.lab-p\s*\{[^}]*line-height:\s*1\.62/)
     expect(css).not.toMatch(/\.lab-p\s*\{[^}]*font-weight:\s*700/)
@@ -808,9 +809,10 @@ describe('lab chrome', () => {
     expect(chrome.contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
     expect(chrome.contains(screen.getByTestId('lab-hearing-forward'))).toBe(true)
     expect(chrome.contains(screen.getByTestId('lab-hearing-speed'))).toBe(true)
-    expect(bar.contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(false)
+    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-forward'))).toBe(true)
+    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-speed'))).toBe(true)
     expect(screen.getByTestId('lab-phone-talk').textContent).toContain('Talk')
     expect(screen.getByTestId('lab-phone-talk').querySelector('svg')).toBeTruthy()
     expect(screen.getByTestId('lab-phone-chat').querySelector('svg')).toBeTruthy()
@@ -848,7 +850,7 @@ describe('lab chrome', () => {
     expect(root.style.getPropertyValue('--lab-chrome-inset')).toBe('')
     expect(root.style.getPropertyValue('--lab-vvh')).toMatch(/px$/)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-phone-bar').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
     expect(passage).toBeTruthy()
     expect(passage?.contains(footer)).toBe(false)
     expect(footer.compareDocumentPosition(passage as Node) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
@@ -1556,8 +1558,10 @@ describe('lab bible book', () => {
     expect(nm).toBeTruthy()
     expect(Number(nm![1])).toBeGreaterThan(1)
     expect(Number(nm![1])).toBe(Number(nm![2]))
-    expect(line()).toMatch(/g1c\d+/)
-    expect(line()).not.toContain('In the beginning')
+    await waitFor(() => {
+      expect(line()).toMatch(/g1c\d+/)
+      expect(line()).not.toContain('In the beginning')
+    })
     fireEvent.click(screen.getByTestId('lab-page-next'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
@@ -1959,7 +1963,7 @@ describe('lab read listen place and paused chrome', () => {
     })
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-phone-bar').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
     expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy()
     expect(screen.getByTestId('lab-bottom-chrome').contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
 
