@@ -6,6 +6,8 @@ export type HearingWordRole = 'spoken' | 'current' | 'upcoming' | 'line'
 export interface HearingWord {
   text: string
   role: HearingWordRole
+  /** Paragraph-local word index when known (hearing follow paint). */
+  wordIndex?: number
 }
 
 export interface HearingLine {
@@ -45,6 +47,12 @@ function lastStrongStopBefore(words: Array<{ text: string }>, index: number): nu
     if (isStrongStop(words[i].text)) return i
   }
   return -1
+}
+
+/** First word of the sentence containing `wordIndex` (for tap-to-hear). */
+export function sentenceStartWordIndex(words: Array<{ text: string }>, wordIndex: number): number {
+  const stop = lastStrongStopBefore(words, wordIndex)
+  return stop < 0 ? 0 : stop + 1
 }
 
 function nextStrongStopAtOrAfter(words: Array<{ text: string }>, index: number): number {
@@ -738,6 +746,7 @@ export function hearingStageLines(
       words: words.slice(page.from, page.to).map((word, offset) => ({
         text: word.text,
         role: wordRole(page.from + offset, current),
+        wordIndex: page.from + offset,
       })),
     }]
   }

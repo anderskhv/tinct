@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
@@ -53,7 +54,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, growPageByWords, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, growPageByWords, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -270,6 +271,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | Promise<void>>(() => {})
 
+  const [listenSource, setListenSource] = useState(() => ({
+    chapterNumber: book.chapterNumber,
+    paragraphs: book.paragraphs,
+    followParagraphs: book.followParagraphs,
+  }))
+  const [browseWhileListening, setBrowseWhileListening] = useState(false)
+  const browseWhileListeningRef = useRef(false)
+
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
@@ -286,11 +295,20 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   })
 
   const listen = useLabListen({
-    paragraphs: book.paragraphs,
-    followParagraphs: book.followParagraphs,
-    chapterNumber: book.chapterNumber,
+    paragraphs: listenSource.paragraphs,
+    followParagraphs: listenSource.followParagraphs,
+    chapterNumber: listenSource.chapterNumber,
     audioEdition: audioEditionKey,
   })
+
+  useEffect(() => {
+    if (listen.playing || browseWhileListening) return
+    setListenSource({
+      chapterNumber: book.chapterNumber,
+      paragraphs: book.paragraphs,
+      followParagraphs: book.followParagraphs,
+    })
+  }, [book.chapterNumber, book.paragraphs, book.followParagraphs, listen.playing, browseWhileListening])
 
   const { notePlace, biblicalBook } = useLabPositionSync({
     book,
@@ -469,6 +487,38 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
+
+  const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    const timed = book.followParagraphs.find(item => item.index === paragraphIndex)
+    const snapped = timed?.words
+      ? sentenceStartWordIndex(timed.words, wordIndex)
+      : wordIndex
+    const place = { paragraphIndex, wordIndex: snapped }
+    placeRef.current = place
+    const nextSource = {
+      chapterNumber: book.chapterNumber,
+      paragraphs: book.paragraphs,
+      followParagraphs: book.followParagraphs,
+    }
+    const chapterChanged = nextSource.chapterNumber !== listenSource.chapterNumber
+    if (chapterChanged) {
+      listen.stop()
+      flushSync(() => setListenSource(nextSource))
+    }
+    setReturnTo('hearing')
+    returnToRef.current = 'hearing'
+    setChrome('hearing')
+    setReadingPageIndex(pageIndexForPlace(readingPagesRef.current, paragraphIndex, snapped))
+    notePlace('play', place)
+    if (!chapterChanged && listen.src) {
+      listen.seekToPlace(paragraphIndex, snapped)
+      if (!listen.playing) listen.resume()
+      return
+    }
+    await listen.start(place)
+  }, [book, listen, listenSource.chapterNumber, notePlace])
 
   useLayoutEffect(() => {
     lastVvRef.current = 0
@@ -907,6 +957,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   useEffect(() => {
     if (!showHearing) return
+    if (browseWhileListeningRef.current) return
     const follow = listen.follow
     if (follow.kind === 'word') {
       const page = readingPages[readingPageIndex]
@@ -949,7 +1000,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }
-    prefetchLabChapterTexts(book.chapterNumber, editions, 2)
+    prefetchLabChapterTexts(book.chapterNumber, editions, 3)
   }, [book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
 
   const warmChapterTexts = useCallback((number: number) => {
@@ -1114,12 +1165,50 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
     readingPageIndexRef.current = clamped
     setReadingPageIndex(clamped)
-    placeRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
-    notePlace('page-turn', { paragraphIndex: page.paragraphIndex, wordIndex: page.from })
-    if (listen.src) listen.seekToPlace(page.paragraphIndex, page.from)
+    if (listen.playing) {
+      browseWhileListeningRef.current = true
+      setBrowseWhileListening(true)
+    } else {
+      placeRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
+      notePlace('page-turn', { paragraphIndex: page.paragraphIndex, wordIndex: page.from })
+      if (listen.src) listen.seekToPlace(page.paragraphIndex, page.from)
+    }
   }, [commitUnsettledNav, listen, notePlace])
 
+  const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    if (listen.playing) {
+      browseWhileListeningRef.current = true
+      setBrowseWhileListening(true)
+    }
+    prefetchLabChapterTexts(number, {
+      primary: prefs.primaryEdition,
+      compare: prefs.compareEdition,
+    }, 3)
+    pageAnchorRef.current = null
+    restorePlaceRef.current = null
+    chapterLandingRef.current = landing
+    landingChapterRef.current = number
+    openAtEndRef.current = landing === 'end'
+    if (landing === 'start') {
+      placeRef.current = { paragraphIndex: 0, wordIndex: 0 }
+    }
+    notePlace('chapter-jump', {
+      sequentialChapter: number,
+      paragraphIndex: 0,
+      wordIndex: 0,
+    })
+    const loaded = await loadLabSource(number, {
+      primary: prefs.primaryEdition,
+      compare: prefs.compareEdition,
+      audio: audioEditionKey,
+    })
+    setBook(loaded)
+    setOpenAtEnd(landing === 'end')
+  }, [listen.playing, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
+
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
     prefetchLabChapterTexts(number, {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
@@ -1212,9 +1301,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     if (next != null) {
       setFinishedChapters(markChapterFinished(book.chapterNumber))
-      void goToChapter(next, 'start')
+      if (listen.playing) void browseToChapter(next, 'start')
+      else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, goToChapter, goToPage])
+  }, [book.chapterNumber, book.chapters, browseToChapter, goToChapter, goToPage, listen.playing])
 
   const goPrev = useCallback(() => {
     const reading = readingPagesRef.current
@@ -1227,13 +1317,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     const prev = prevLabChapter(book.chapters, book.chapterNumber)
-    if (prev != null) void goToChapter(prev, 'end')
-  }, [book.chapterNumber, book.chapters, goToChapter, goToPage])
+    if (prev != null) {
+      if (listen.playing) void browseToChapter(prev, 'end')
+      else void goToChapter(prev, 'end')
+    }
+  }, [book.chapterNumber, book.chapters, browseToChapter, goToChapter, goToPage, listen.playing])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
     if (chrome === 'talking' && !opts?.force) return
     if (chrome === 'hearing' && !opts?.force) {
       listen.pause()
+      browseWhileListeningRef.current = false
+      setBrowseWhileListening(false)
       const follow = listen.follow
       const page = readingPages[readingPageIndex]
       if (follow.kind === 'word') {
@@ -1269,6 +1364,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     placeRef.current = onThisPage
       ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
       : place
+    flushSync(() => setListenSource({
+      chapterNumber: book.chapterNumber,
+      paragraphs: book.paragraphs,
+      followParagraphs: book.followParagraphs,
+    }))
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
     setReturnTo('hearing')
     setChrome('hearing')
     setPeekBook(false)
@@ -1502,13 +1604,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             compareParagraphs={book.compareParagraphs}
             compare={prefs.compareOpen}
             mode={showHearing ? 'hearing' : 'reading'}
-            follow={showHearing && listen.playing ? listen.follow : { kind: 'none' }}
+            follow={showHearing && listen.playing && !browseWhileListening ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
             playing={listen.playing}
             clipIndex={listen.clipIndex}
             currentTime={listen.currentTime}
             speed={listen.speed}
+            browseWhileListening={browseWhileListening}
+            onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.playing) listen.pause()
               else if (listen.src) listen.resume()
@@ -1534,13 +1638,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               className="lab-page-measure"
               ref={measureHostRef}
               aria-hidden="true"
-              key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}-${showHearing && listen.playing ? 'hear' : 'read'}`}
+              key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}-${showHearing && listen.playing && !browseWhileListening ? 'hear' : 'read'}`}
             >
               <LabPageMeasurePaint
                 chapterTitle={book.chapterTitle}
                 paragraphs={book.paragraphs}
                 page={draftPages[settleIndex]}
-                hearingPaint={showHearing && listen.playing}
+                hearingPaint={showHearing && listen.playing && !browseWhileListening}
               />
             </div>
           )}
@@ -1779,7 +1883,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             finishedChapters={finishedChapters}
             onSelectChapter={(number) => {
               setTocOpen(false)
-              void goToChapter(number, 'start')
+              if (listen.playing) void browseToChapter(number, 'start')
+              else void goToChapter(number, 'start')
             }}
             onWarmChapter={warmChapterTexts}
             onClose={() => setTocOpen(false)}

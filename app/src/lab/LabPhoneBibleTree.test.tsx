@@ -165,6 +165,14 @@ describe('lab phone bible tree', () => {
     expect(document.querySelector('.toc-item-number')).toBeNull()
   })
 
+  it('shows Collapse when a large section is expanded', () => {
+    renderTree({ currentChapter: 30 })
+    expand('Old Testament')
+    expect(screen.getByTestId('lab-tree-collapse')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-tree-collapse'))
+    expect(screen.queryByTestId('lab-tree-chapter-1')).toBeNull()
+  })
+
   it('uses SVG chevrons and one Garamond stack in the tree', () => {
     renderTree()
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
