@@ -1,6 +1,6 @@
 import type { Section, ThreadCharacter } from '../types'
-import { loadLabAudioChapter } from './labListen'
-import { type FollowParagraph } from './labFollow'
+import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
+import { labAudioManifestUrl } from './labListen'
 import { LAB_COPY } from './labCopy'
 
 export const LAB_BOOK_ID = 'bible'
@@ -178,9 +178,34 @@ function spoilerSafeCast(characters: ThreadCharacter[], chapterNumber: number): 
   })
 }
 
-async function loadAudioFollow(paragraphs: string[], chapterNumber: number, editionKey = LAB_EDITION_KEY): Promise<FollowParagraph[]> {
+async function loadThreadsJson(): Promise<{ characters?: ThreadCharacter[] }> {
+  if (threadsJsonCache) return threadsJsonCache
+  const threadsResp = await fetch(`/data/editions/${LAB_BOOK_ID}-threads.json?v=${encodeURIComponent(labBuildVersion())}`).catch(() => null)
+  const threadsJson = threadsResp && 'ok' in threadsResp && threadsResp.ok
+    ? await threadsResp.json() as { characters?: ThreadCharacter[] }
+    : { characters: [] }
+  threadsJsonCache = threadsJson
+  return threadsJson
+}
+
+async function loadAudioFollowMetadata(
+  paragraphs: string[],
+  chapterNumber: number,
+  editionKey = LAB_EDITION_KEY,
+): Promise<FollowParagraph[]> {
   try {
-    return await loadLabAudioChapter(paragraphs, chapterNumber, editionKey)
+    const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey))
+    if (!manifestRes.ok) {
+      return paragraphs.map((text, index) => ({ index, text }))
+    }
+    const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
+    const byIndex = new Map<number, ManifestParagraph>()
+    for (const entry of manifest.paragraphs || []) {
+      if (typeof entry.paragraph === 'number') byIndex.set(entry.paragraph, entry)
+    }
+    return paragraphs.map((text, index) => (
+      followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
+    ))
   } catch {
     return paragraphs.map((text, index) => ({ index, text }))
   }
@@ -193,6 +218,7 @@ interface BibleManifest {
 
 const bibleManifestCache = new Map<string, BibleManifest>()
 const chapterTextCache = new Map<string, string[]>()
+let threadsJsonCache: { characters?: ThreadCharacter[] } | null = null
 
 function chapterTextCacheKey(editionKey: string, chapterNumber: number): string {
   return `${editionKey}:${chapterNumber}`
@@ -204,6 +230,10 @@ export function resetLabBibleManifestCache(): void {
 
 export function resetLabChapterTextCache(): void {
   chapterTextCache.clear()
+}
+
+export function resetLabThreadsCache(): void {
+  threadsJsonCache = null
 }
 
 function labBuildVersion(): string {
@@ -246,18 +276,26 @@ async function loadBibleChapterText(editionKey: string, entry: { number: number;
 export function prefetchLabChapterTexts(
   chapterNumber: number,
   editions?: { primary?: string; compare?: string },
+  radius = 2,
 ): void {
   void (async () => {
     try {
       const primary = editions?.primary || LAB_EDITION_KEY
       const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
       const manifest = await loadBibleManifest(primary)
-      const entry = manifest.chapters.find(item => item.number === chapterNumber)
-      if (!entry) return
-      await Promise.all([
-        loadBibleChapterText(primary, entry),
-        loadBibleChapterText(compare, entry).catch(() => []),
-      ])
+      const targets = new Set<number>()
+      for (let offset = 1; offset <= radius; offset++) {
+        targets.add(chapterNumber + offset)
+        targets.add(chapterNumber - offset)
+      }
+      await Promise.all([...targets].map(async (num) => {
+        const entry = manifest.chapters.find(item => item.number === num)
+        if (!entry) return
+        await Promise.all([
+          loadBibleChapterText(primary, entry),
+          loadBibleChapterText(compare, entry).catch(() => []),
+        ])
+      }))
     } catch {
       /* ignore prefetch errors */
     }
@@ -272,9 +310,9 @@ export async function loadLabSource(
   const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
   const audio = editions?.audio || LAB_EDITION_KEY
   try {
-    const [manifest, threadsResp] = await Promise.all([
+    const [manifest, threadsJson] = await Promise.all([
       loadBibleManifest(primary),
-      fetch(`/data/editions/${LAB_BOOK_ID}-threads.json?v=${encodeURIComponent(labBuildVersion())}`).catch(() => null),
+      loadThreadsJson(),
     ])
     const entry = manifest.chapters.find(item => item.number === chapterNumber) || manifest.chapters[0]
     if (!entry) return bibleFallbackSource()
@@ -285,10 +323,6 @@ export async function loadLabSource(
       loadBibleChapterText(compare, compareEntry).catch(() => []),
     ])
     if (paragraphs.length === 0) return bibleFallbackSource()
-
-    const threadsJson = threadsResp && 'ok' in threadsResp && threadsResp.ok
-      ? await threadsResp.json() as { characters?: ThreadCharacter[] }
-      : { characters: [] }
 
     const chapters = manifest.chapters.map(item => ({
       number: item.number,
@@ -301,7 +335,7 @@ export async function loadLabSource(
       chapterTitle: entry.title,
       paragraphs,
       compareParagraphs,
-      followParagraphs: await loadAudioFollow(paragraphs, entry.number, audio),
+      followParagraphs: await loadAudioFollowMetadata(paragraphs, entry.number, audio),
       chapters,
       sections: manifest.sections,
       cast: spoilerSafeCast(threadsJson.characters || [], entry.number),

@@ -940,11 +940,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }
-    const next = nextLabChapter(book.chapters, book.chapterNumber)
-    const prev = prevLabChapter(book.chapters, book.chapterNumber)
-    if (next != null) prefetchLabChapterTexts(next, editions)
-    if (prev != null) prefetchLabChapterTexts(prev, editions)
+    prefetchLabChapterTexts(book.chapterNumber, editions, 2)
   }, [book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
+
+  const warmChapterTexts = useCallback((number: number) => {
+    prefetchLabChapterTexts(number, {
+      primary: prefs.primaryEdition,
+      compare: prefs.compareEdition,
+    }, 1)
+  }, [prefs.primaryEdition, prefs.compareEdition])
 
   useEffect(() => {
     if (!pagesStableRef.current) return
@@ -954,7 +958,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
     setSettleIndex(settleIndexRef.current)
-  }, [listen.playing, showHearing])
+  }, [listen.playing])
 
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
@@ -984,7 +988,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       if (inkBottom <= 0 || chromeTop <= 0) return
       const slack = labPageSlackPx(inkBottom, chromeTop)
-      if (slack <= 32) return
+      if (slack <= 20) return
       const painted = measurePaintedOverflow(passage, chromeEl)
       const words = growWordsFromSlack(painted?.lastLineWords ?? 0, slack, lineHeight)
       const grown = growPageByWords(pages, pageIdx, words)
@@ -1107,6 +1111,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [commitUnsettledNav, listen, notePlace])
 
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    prefetchLabChapterTexts(number, {
+      primary: prefs.primaryEdition,
+      compare: prefs.compareEdition,
+    }, 1)
     keepPlayingChapterRef.current = listen.playing ? number : null
     listen.stop()
     pageAnchorRef.current = null
@@ -1764,6 +1772,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               setTocOpen(false)
               void goToChapter(number, 'start')
             }}
+            onWarmChapter={warmChapterTexts}
             onClose={() => setTocOpen(false)}
           />
         </div>

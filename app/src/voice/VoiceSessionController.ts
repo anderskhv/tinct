@@ -1214,6 +1214,18 @@ export class VoiceSessionController {
     return this.assistantTranscriptFamily === kind
   }
 
+  private isGreetingOnly(text: string): boolean {
+    const normalized = text.replace(/\s+/g, ' ').trim()
+    return normalized === LAB_VOICE_GREETING || /^I'm listening\.(?:\s*listening\.)*$/i.test(normalized)
+  }
+
+  private shouldEmitAssistantTurn(text: string): boolean {
+    const trimmed = text.trim()
+    if (!trimmed) return false
+    if (this.firstUserTurnCommitted && this.isGreetingOnly(trimmed)) return false
+    return true
+  }
+
   private noteAssistantDelta(piece: string): void {
     if (!piece) return
     const current = this.assistantDraft
@@ -1223,7 +1235,7 @@ export class VoiceSessionController {
     const normalized = current.replace(/\s+/g, ' ').trim()
     if (normalized === greeting || /^I'm listening\.(?:\s*listening\.)*$/i.test(normalized)) {
       this.assistantDraft = greeting
-      this.callbacks.onTurn('assistant', greeting)
+      if (this.shouldEmitAssistantTurn(greeting)) this.callbacks.onTurn('assistant', greeting)
       return
     }
     if (current && piece.startsWith(current)) this.assistantDraft = piece
@@ -1234,7 +1246,7 @@ export class VoiceSessionController {
       this.assistantDraft = greeting
     }
     const text = this.assistantDraft.trim()
-    if (text) this.callbacks.onTurn('assistant', text)
+    if (text && this.shouldEmitAssistantTurn(text)) this.callbacks.onTurn('assistant', text)
   }
 
   private keepAssistantDraft(text: string): void {
@@ -1251,7 +1263,9 @@ export class VoiceSessionController {
 
   private flushAssistantDraft(cancelled: boolean): void {
     const text = this.assistantDraft.trim()
-    if (text) this.callbacks.onTurn('assistant', text, cancelled ? { cancelled: true } : undefined)
+    if (text && this.shouldEmitAssistantTurn(text)) {
+      this.callbacks.onTurn('assistant', text, cancelled ? { cancelled: true } : undefined)
+    }
   }
 
   private recoverAfterCancel(): void {

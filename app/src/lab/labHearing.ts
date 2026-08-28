@@ -227,6 +227,17 @@ export function isLabVerseMarker(text: string): boolean {
   return LAB_VERSE_MARKER_RE.test(text)
 }
 
+const LAB_SUPERSCRIPT_DIGIT: Record<string, string> = {
+  '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',
+  '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9',
+}
+
+/** Unicode superscript verse tokens → plain digits for stable superscript styling. */
+export function labVerseMarkerDisplay(text: string): string {
+  if (!isLabVerseMarker(text)) return text
+  return [...text].map(ch => LAB_SUPERSCRIPT_DIGIT[ch] ?? ch).join('')
+}
+
 export function tokenizeHearingWords(text: string): Array<{ text: string }> {
   return text.split(/\s+/).map(part => part.trim()).filter(Boolean).map(word => ({ text: word }))
 }

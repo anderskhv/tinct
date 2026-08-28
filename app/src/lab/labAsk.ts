@@ -44,6 +44,18 @@ export function isStuckRepeatedLine(previous: string, incoming: string): boolean
 }
 
 export function applyLabVoiceTurn(current: LabAskTurn[], incoming: LabAskTurn): LabAskTurn[] {
+  if (incoming.role === 'assistant' && isLabGreetingTranscript(incoming.content)) {
+    const greetingIdx = current.findIndex(turn => turn.role === 'assistant' && isLabGreetingTranscript(turn.content))
+    if (greetingIdx >= 0) {
+      const existing = current[greetingIdx]
+      if (incoming.cancelled && !existing.cancelled) {
+        return current.map((turn, index) => (
+          index === greetingIdx ? { ...existing, cancelled: true } : turn
+        ))
+      }
+      return current
+    }
+  }
   const last = current[current.length - 1]
   if (!last || last.role !== incoming.role || last.source !== incoming.source) {
     return [...current, incoming]

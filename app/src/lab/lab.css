@@ -1230,12 +1230,13 @@
 }
 
 .lab-verse-mark {
-  font-size: 0.68em;
+  font-size: 0.58em;
   vertical-align: super;
   line-height: 0;
   font-weight: 600;
-  margin-left: 0.14em;
-  letter-spacing: -0.03em;
+  margin-left: 0.2em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
 }
 
 /* Reading uses the same .lab-hearing-line type as Hearing. Do not shrink. */
@@ -1694,6 +1695,32 @@
 .lab.is-night .lab-fullscreen,
 .lab.is-night .lab-page-turn-btn {
   color: #ece7db;
+}
+
+.lab.is-night .lab-passage-header {
+  background: #161310;
+}
+
+.lab.is-night .lab-passage-headline,
+.lab.is-night h1.lab-passage-headline,
+.lab.is-night .lab-hearing-line,
+.lab.is-night .lab-passage.is-reading .lab-hearing-line,
+.lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-line,
+.lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-spoken {
+  color: #ece7db;
+}
+
+.lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-upcoming {
+  color: #8a8478;
+}
+
+.lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-current {
+  color: #ece7db;
+  background: #3a342c;
+}
+
+.lab.is-night .lab-verse-mark {
+  color: #c9c2b2;
 }
 
 .lab-ss-overlay,

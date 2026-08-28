@@ -19,6 +19,7 @@ import {
   LAB_ORPHAN_PAGE_WORDS,
   labChapterProgress,
   labNavPageList,
+  labVerseMarkerDisplay,
   hearingFollowPaintActive,
   hearingPages,
   hearingProgress,
@@ -521,6 +522,12 @@ describe('lab height-fit pages vs chrome', () => {
     const penult = nav.length - 2
     expect(adjacentPageIndex(nav.length, penult, 1)).toBe(penult + 1)
     expect(labNavPageList(true, working, reading)).toBe(reading)
+  })
+
+  it('maps unicode superscript verse markers to plain digits', () => {
+    expect(labVerseMarkerDisplay('¹⁰')).toBe('10')
+    expect(labVerseMarkerDisplay('³⁰')).toBe('30')
+    expect(labVerseMarkerDisplay('¹')).toBe('1')
   })
 
   it('absorbs peeled tail fragments for a short psalm chapter', () => {

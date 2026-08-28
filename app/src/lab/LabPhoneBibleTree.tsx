@@ -21,6 +21,7 @@ interface LabPhoneBibleTreeProps {
   sections?: Section[]
   finishedChapters: Set<number>
   onSelectChapter: (number: number) => void
+  onWarmChapter?: (number: number) => void
   onClose: () => void
 }
 
@@ -80,6 +81,7 @@ function TreeRow({
   expanded,
   onToggle,
   onSelectChapter,
+  onWarmChapter,
   scrollRef,
 }: {
   node: LabTreeNode
@@ -90,6 +92,7 @@ function TreeRow({
   expanded: Set<string>
   onToggle: (node: LabTreeNode) => void
   onSelectChapter: (number: number) => void
+  onWarmChapter?: (number: number) => void
   scrollRef: React.RefObject<HTMLButtonElement | null>
 }) {
   const isOpen = expanded.has(node.key)
@@ -117,6 +120,8 @@ function TreeRow({
         data-kind="chapter"
         data-mark={mark}
         onClick={() => { if (node.chapterNumber != null) onSelectChapter(node.chapterNumber) }}
+        onPointerEnter={() => { if (node.chapterNumber != null) onWarmChapter?.(node.chapterNumber) }}
+        onFocus={() => { if (node.chapterNumber != null) onWarmChapter?.(node.chapterNumber) }}
       >
         <span className="lab-tree-label">{node.title}</span>
         <TreeMark mark={mark} />
@@ -155,6 +160,7 @@ function TreeRow({
               expanded={expanded}
               onToggle={onToggle}
               onSelectChapter={onSelectChapter}
+              onWarmChapter={onWarmChapter}
               scrollRef={scrollRef}
             />
           ))}
@@ -174,6 +180,8 @@ function TreeRow({
                 chapterNumber: chapter.number,
               }, finished, currentChapter)}
               onClick={() => onSelectChapter(chapter.number)}
+              onPointerEnter={() => onWarmChapter?.(chapter.number)}
+              onFocus={() => onWarmChapter?.(chapter.number)}
             >
               <span className="lab-tree-label">{chapter.title}</span>
               <TreeMark mark={labTreeMark({
@@ -198,6 +206,7 @@ export function LabPhoneBibleTree({
   sections,
   finishedChapters,
   onSelectChapter,
+  onWarmChapter,
   onClose,
 }: LabPhoneBibleTreeProps) {
   const tree = useMemo(() => buildLabBibleTree(sections, chapters), [sections, chapters])
@@ -246,6 +255,7 @@ export function LabPhoneBibleTree({
               expanded={expanded}
               onToggle={onToggle}
               onSelectChapter={onSelectChapter}
+              onWarmChapter={onWarmChapter}
               scrollRef={scrollRef}
             />
           ))}

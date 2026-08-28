@@ -9,7 +9,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, readingPageLines } from './labHearing'
+import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
 
@@ -51,7 +51,7 @@ function wordSpacing(word: { text: string }, wordIndex: number): string {
 
 function renderWordText(text: string) {
   if (!isLabVerseMarker(text)) return text
-  return <span className="lab-verse-mark">{text}</span>
+  return <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
 }
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {

@@ -264,6 +264,14 @@ describe('lab voice transcript bubbles', () => {
     expect(applyLabVoiceTurn(afterFirst, leftover).map(turn => turn.content)).toEqual(["I'm listening."])
   })
 
+  it('does not append a second greeting after the user has spoken', () => {
+    const greeting = { id: 'g', role: 'assistant' as const, content: "I'm listening.", source: 'voice' as const }
+    const user = { id: 'u', role: 'user' as const, content: 'Can we go back to the audiobook?', source: 'voice' as const }
+    const again = { id: 'g2', role: 'assistant' as const, content: "I'm listening.", source: 'voice' as const }
+    const afterUser = applyLabVoiceTurn(applyLabVoiceTurn([], greeting), user)
+    expect(applyLabVoiceTurn(afterUser, again)).toEqual(afterUser)
+  })
+
   it('appends a later user turn after interrupt instead of pinning the first line', () => {
     const first = { id: 'u1', role: 'user' as const, content: 'Hey, how are you?', source: 'voice' as const }
     const reply = { id: 'a1', role: 'assistant' as const, content: "I'm well — still on Book 1.", source: 'voice' as const }
