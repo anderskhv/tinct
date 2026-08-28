@@ -53,7 +53,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -557,10 +557,20 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
     const finishSettle = () => {
       const keep = pageAnchorRef.current
+      const beforeLen = workingPagesRef.current.length
       let pages = absorbOrphanLeftoverPages(workingPagesRef.current, keep)
+      pages = absorbChapterTailPages(pages, keep)
       if (keep) pages = ensurePageIdentity(pages, keep)
+      const mergedTail = pages.length < beforeLen
       workingPagesRef.current = pages
       setDraftPages(pages)
+      if (mergedTail && pages.length > 0) {
+        pagesStableRef.current = false
+        const peelIdx = Math.max(0, pages.length - 1)
+        settleIndexRef.current = peelIdx
+        setSettleIndex(peelIdx)
+        return
+      }
       pagesStableRef.current = true
       setSettleIndex(null)
       settleIndexRef.current = null
@@ -662,7 +672,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (!painted) return lastBarTopRef.current > 0 ? 'unmeasured' : 'fits'
       if (labPageFitsPaint(painted)) {
         if (sameAsVisible && !listenPlayingRef.current && !browseWhileListeningRef.current) {
-          const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current)
+          const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, book.paragraphs)
           if (!sameChapterPages(grown, pages)) {
             lastAdjustRef.current = 'grow'
             return applyPageList(grown, true)
@@ -1080,7 +1090,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
       const painted = measurePaintedOverflow(passage, chromeEl)
       if (!painted) return
-      const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current)
+      const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, book.paragraphs)
       if (sameChapterPages(grown, pages)) return
       growPasses += 1
       readingPagesRef.current = grown

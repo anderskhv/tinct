@@ -199,6 +199,31 @@ export default defineConfig(({ mode, command }) => {
           res.end(JSON.stringify({ url: null, message: 'Stripe checkout not available in dev mode. Configure Supabase and Stripe for production.' }))
         })
 
+        // Proxy production audio endpoints in dev (R2 is worker-only in prod).
+        server.middlewares.use('/api/audio-manifest', async (req: IncomingMessage, res: ServerResponse) => {
+          const q = req.url || ''
+          try {
+            const upstream = await fetch(`https://tinct.app/api/audio-manifest${q}`)
+            res.writeHead(upstream.status, { 'Content-Type': upstream.headers.get('content-type') || 'application/json' })
+            res.end(Buffer.from(await upstream.arrayBuffer()))
+          } catch (err) {
+            res.writeHead(502, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Audio proxy error', details: String(err) }))
+          }
+        })
+        server.middlewares.use('/api/audio-file', async (req: IncomingMessage, res: ServerResponse) => {
+          const q = req.url || ''
+          try {
+            const upstream = await fetch(`https://tinct.app/api/audio-file${q}`)
+            const ctype = upstream.headers.get('content-type') || 'application/octet-stream'
+            res.writeHead(upstream.status, { 'Content-Type': ctype })
+            res.end(Buffer.from(await upstream.arrayBuffer()))
+          } catch (err) {
+            res.writeHead(502, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Audio proxy error', details: String(err) }))
+          }
+        })
+
         // Serve audio files from project-root audio/ directory (not in public/ to avoid bloating dist/)
         server.middlewares.use('/audio', (req: IncomingMessage, res: ServerResponse, next: () => void) => {
           const filePath = path.join(process.cwd(), 'audio', decodeURIComponent(req.url || ''))

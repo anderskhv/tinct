@@ -13,6 +13,7 @@ import {
   chapterPageLabel,
   clampedChapterProgress,
   followOnReadingPage,
+  absorbChapterTailPages,
   growPaintedPageIfSlack,
   reflowAfterCut,
   isOneWordLeftoverPage,
@@ -654,6 +655,30 @@ describe('page fill after peel', () => {
     const grown = growPaintedPageIfSlack(pages, 0, painted, 'peel')
     expect(grown[0].to).toBeGreaterThan(pages[0].to)
     expect(grown[1].from).toBe(grown[0].to)
+  })
+
+  it('grows the last page into the paragraph tail when there is no next page', () => {
+    const paragraphs = ['one two three four five six seven eight nine ten']
+    const pages = [{ paragraphIndex: 0, from: 0, to: 4 }]
+    const painted = {
+      lastBottom: 500,
+      chromeTop: 600,
+      lineHeight: 40,
+      lastLineWords: 4,
+      scrollOverflow: false,
+    }
+    const grown = growPaintedPageIfSlack(pages, 0, painted, null, paragraphs)
+    expect(grown[0].to).toBeGreaterThan(4)
+    expect(grown.length).toBe(1)
+  })
+
+  it('merges a short chapter tail into the previous page', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 80 },
+      { paragraphIndex: 0, from: 80, to: 95 },
+    ]
+    const merged = absorbChapterTailPages(pages)
+    expect(merged).toEqual([{ paragraphIndex: 0, from: 0, to: 95 }])
   })
 })
 
