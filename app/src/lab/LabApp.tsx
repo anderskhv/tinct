@@ -277,6 +277,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }))
   const [browseWhileListening, setBrowseWhileListening] = useState(false)
   const browseWhileListeningRef = useRef(false)
+  const listenPlayingRef = useRef(false)
 
   const lockPaginationRef = useRef(false)
 
@@ -301,6 +302,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     chapterNumber: listenSource.chapterNumber,
     audioEdition: audioEditionKey,
   })
+  listenPlayingRef.current = listen.playing
 
   useEffect(() => {
     if (listen.playing || browseWhileListening) return
@@ -659,7 +661,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       if (!painted) return lastBarTopRef.current > 0 ? 'unmeasured' : 'fits'
       if (labPageFitsPaint(painted)) {
-        if (sameAsVisible) {
+        if (sameAsVisible && !listenPlayingRef.current && !browseWhileListeningRef.current) {
           const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current)
           if (!sameChapterPages(grown, pages)) {
             lastAdjustRef.current = 'grow'
@@ -715,6 +717,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const cancelPaint = pagesStableRef.current ? (() => {}) : afterLabPaint(shrinkIfNeeded)
     const onJump = () => {
       if (lockPaginationRef.current) return
+      // Hearing chrome (slim transport, browse) changes bar metrics — do not re-settle mid-session.
+      if (listenPlayingRef.current || browseWhileListeningRef.current) return
       const barTop = measureLabBarTop(wrap.ownerDocument, chromeEl)
       if (!labBarMoved(lastBarTopRef.current, barTop)) return
       lastBarTopRef.current = barTop
@@ -1063,11 +1067,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const wrap = pageWrapRef.current
     const chromeEl = bottomChromeRef.current
     if (!wrap || !chromeEl || phoneAskOpen || !pagesStableRef.current) return
-    if (lockPaginationRef.current) return
+    // Never reshape page slices while audio is up — slim transport measures a different budget.
+    if (listen.playing || browseWhileListening) return
     let growPasses = 0
     const tryGrowVisiblePage = () => {
       if (!pagesStableRef.current) return
-      if (lockPaginationRef.current) return
+      if (listen.playing || browseWhileListeningRef.current) return
       if (growPasses >= 8) return
       const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
       if (!passage) return
@@ -1086,7 +1091,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       afterLabPaint(tryGrowVisiblePage)
     }
     return afterLabPaint(tryGrowVisiblePage)
-  }, [listen.playing, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
+  }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
 
   useLayoutEffect(() => {
     if (!selectionPopup) return

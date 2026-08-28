@@ -1947,6 +1947,20 @@ describe('lab read listen place and paused chrome', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe(clipBefore)
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toBe(srcBefore)
     expect(audio.currentTime).toBe(18)
+    const progress = () => {
+      const text = screen.getByTestId('lab-chapter-progress').textContent || ''
+      const match = text.match(/(\d+)\s*\/\s*(\d+)/)
+      return match ? { n: Number(match[1]), m: Number(match[2]) } : { n: 0, m: 0 }
+    }
+    const line = () => (document.querySelector('.lab-hearing-line')?.textContent || '').replace(/Keep this passage/g, '').trim()
+    const frozenM = progress().m
+    const pageTwoWords = line()
+    fireEvent.click(screen.getByTestId('lab-page-prev'))
+    expect(line()).toBe(firstPage)
+    expect(progress().m).toBe(frozenM)
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(line()).toBe(pageTwoWords)
+    expect(progress().m).toBe(frozenM)
     fireEvent.click(screen.getByTestId('lab-page-next'))
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe(clipBefore)
     expect(audio.currentTime).toBe(18)
