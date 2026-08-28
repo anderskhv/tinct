@@ -72,6 +72,20 @@ npm run deploy
 
 **Deploy without your Mac:** add `CLOUDFLARE_API_TOKEN` (Workers deploy token) to GitHub Actions secrets and/or Cursor Cloud environment secrets. See `docs/cloud-deploy.md` and `.github/workflows/deploy.yml`.
 
+### Completion checklist (mandatory unless Anders says local-only)
+
+Do not ask Anders to deploy or to verify production. When app/lab work is done:
+
+1. **Tests** — `npm test` (or focused `src/lab/` when lab-only).
+2. **Build gates** — `npm run build` + `npm run verify-bundle` from `app/`.
+3. **Deploy** — merge to `main` (GitHub Actions deploy) or `npm run deploy` from `app/` when the Cloudflare token is in the environment. Do not stop at “PR ready”; ship it.
+4. **Confirm deploy** — wait for the `deploy` workflow to succeed (smoke test green). Ignore non-blocking **Workers Builds: tinct** Cloudflare dashboard failures when GitHub `deploy` passed.
+5. **Production verify on tinct.app** — open `https://tinct.app/lab/phone` (mobile viewport ~390×844), not localhost only. Confirm:
+   - JS bundle filename in HTML/Network matches the new `assets/index-*.js` from the deploy.
+   - The specific change you shipped (e.g. Genesis 1 page 1: no mid-sentence cut, ink clears pagination bar).
+   - Save a screenshot to walkthrough artifacts when visual.
+6. **Report to Anders** — bundle hash, deploy run status, what you checked on production, and artifact path. Tell him private/incognito only if he wants to double-check on his phone.
+
 Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports existing unrelated errors in legacy/worker files. Prefer the project build and focused tests until the TypeScript baseline is cleaned up.
 
 ## Reader And Position Invariants
