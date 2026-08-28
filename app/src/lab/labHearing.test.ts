@@ -692,6 +692,16 @@ describe('page fill after peel', () => {
     const merged = absorbChapterTailPages(pages)
     expect(merged).toEqual([{ paragraphIndex: 0, from: 0, to: 95 }])
   })
+
+  it('merges a tiny final page when char count is under the tail threshold', () => {
+    const paragraphs = ['one two three four five six seven eight nine ten eleven twelve']
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 10 },
+      { paragraphIndex: 0, from: 10, to: 12 },
+    ]
+    const merged = absorbChapterTailPages(pages, null, paragraphs)
+    expect(merged).toEqual([{ paragraphIndex: 0, from: 0, to: 12 }])
+  })
 })
 
 describe('followOnReadingPage', () => {

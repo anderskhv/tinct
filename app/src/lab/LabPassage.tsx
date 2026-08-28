@@ -280,7 +280,7 @@ export function LabPassage({
                             : undefined}
                         >
                           {wordSpacing(word, wordIndex)}
-                          {word.text}
+                          {renderWordText(word.text)}
                         </span>
                       )
                     })}
@@ -356,7 +356,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {wordSpacing(word, wordIndex)}
-                    {word.text}
+                    {renderWordText(word.text)}
                   </span>
                 ))}
                 <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>
