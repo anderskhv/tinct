@@ -1,5 +1,13 @@
 import type { FollowParagraph, FollowTarget } from './labFollow'
-import { LAB_OVERFLOW_CLEAR_PX } from './labChrome'
+import {
+  LAB_OVERFLOW_CLEAR_PX,
+  labPageFitsPaint,
+  labPageSlackPx,
+  shouldGrowPaintedPage,
+  growWordsFromSlack,
+  type LabPageAdjust,
+  type LabPaintedOverflow,
+} from './labChrome'
 
 export type HearingWordRole = 'spoken' | 'current' | 'upcoming' | 'line'
 
@@ -62,10 +70,62 @@ function nextStrongStopAtOrAfter(words: Array<{ text: string }>, index: number):
   return words.length - 1
 }
 
+/** When peeling overflow, prefer ending the page after a sentence boundary. */
+export function snapShrinkEndToSentence(
+  words: Array<{ text: string }>,
+  from: number,
+  to: number,
+  proposedTo: number,
+): number {
+  if (proposedTo >= to || proposedTo <= from + 1) return proposedTo
+  const minEnd = from + 1
+  const maxOrphan = 5
+  for (let i = proposedTo - 1; i >= from; i--) {
+    if (isStrongStop(words[i].text)) {
+      const end = i + 1
+      if (to - end < maxOrphan) return proposedTo
+      return Math.max(minEnd, end)
+    }
+  }
+  return proposedTo
+}
+
+/** Pull words from the next page when remeasure shows visible slack below the ink. */
+export function growPaintedPageIfSlack(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  painted: LabPaintedOverflow,
+  lastAdjust: LabPageAdjust | null,
+  paragraphs?: string[],
+): ChapterHearingPage[] {
+  if (!labPageFitsPaint(painted)) return pages
+  const slack = labPageSlackPx(painted.lastBottom, painted.chromeTop)
+  const lineH = painted.lineHeight > 8 ? painted.lineHeight : 24
+  if (!shouldGrowPaintedPage(lastAdjust, slack, lineH)) return pages
+  const fromNext = wordsAvailableOnNextPage(pages, pageIndex)
+  const page = pages[pageIndex]
+  let paraTail = 0
+  if (fromNext <= 0 && paragraphs && page) {
+    const len = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '').length
+    paraTail = Math.max(0, len - page.to)
+  }
+  if (fromNext <= 0 && paraTail <= 0) return pages
+  const words = growWordsFromSlack(painted.lastLineWords, slack, lineH)
+  if (fromNext > 0) {
+    const grown = growPageByWords(pages, pageIndex, words)
+    return sameChapterPages(grown, pages) ? pages : grown
+  }
+  const len = tokenizeHearingWords(paragraphs![page!.paragraphIndex] || '').length
+  const grown = growPageTailInParagraph(pages, pageIndex, words, len)
+  return sameChapterPages(grown, pages) ? pages : grown
+}
+
 export const HEARING_PAGE_MIN = 70
 export const HEARING_PAGE_MAX = 90
 /** A leftover page this short is an orphan line, not a real page. */
 export const LAB_ORPHAN_PAGE_WORDS = 16
+/** Short same-paragraph chapter tail after peel — merge into the previous page. */
+export const LAB_CHAPTER_TAIL_MERGE_WORDS = 120
 
 export interface HearingPageBounds {
   from: number
@@ -525,6 +585,22 @@ export function growPageByWords(
   return pages
 }
 
+/** Extend a page into unused words at the end of its paragraph (last page of chapter). */
+export function growPageTailInParagraph(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  wordCount: number,
+  paragraphLength: number,
+): ChapterHearingPage[] {
+  const page = pages[pageIndex]
+  if (!page || wordCount <= 0 || paragraphLength <= page.to) return pages
+  const take = Math.min(wordCount, paragraphLength - page.to)
+  if (take <= 0) return pages
+  const next = pages.slice()
+  next[pageIndex] = { ...page, to: page.to + take }
+  return next
+}
+
 export function wordsAvailableOnNextPage(pages: ChapterHearingPage[], pageIndex: number): number {
   const next = pages[pageIndex + 1]
   if (!next) return 0
@@ -626,6 +702,28 @@ export function absorbOrphanLeftoverPages(
     const absorbed = applyPaintAbsorb(next, i)
     if (absorbed !== next) next = absorbed
   }
+  return next
+}
+
+/**
+ * Merge a short final page into the previous page of the same paragraph.
+ * Peel often leaves a tiny chapter tail that cannot grow (no next page).
+ */
+export function absorbChapterTailPages(
+  pages: ChapterHearingPage[],
+  keep?: LabPageAnchor | null,
+): ChapterHearingPage[] {
+  if (pages.length < 2) return pages
+  const lastIdx = pages.length - 1
+  const last = pages[lastIdx]
+  const prev = pages[lastIdx - 1]
+  if (!last || !prev || prev.paragraphIndex !== last.paragraphIndex) return pages
+  if (keep && last.paragraphIndex === keep.paragraphIndex && last.from === keep.wordIndex) return pages
+  const words = leftoverWordCount(last)
+  if (words <= 0 || words > LAB_CHAPTER_TAIL_MERGE_WORDS) return pages
+  const next = pages.slice()
+  next[lastIdx - 1] = { ...prev, to: last.to }
+  next.splice(lastIdx, 1)
   return next
 }
 

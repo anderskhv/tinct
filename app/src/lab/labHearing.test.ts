@@ -13,6 +13,8 @@ import {
   chapterPageLabel,
   clampedChapterProgress,
   followOnReadingPage,
+  absorbChapterTailPages,
+  growPaintedPageIfSlack,
   reflowAfterCut,
   isOneWordLeftoverPage,
   ensurePageIdentity,
@@ -33,6 +35,7 @@ import {
   paginateLineBoxes,
   readingPageLines,
   restorePageIndexForAnchor,
+  snapShrinkEndToSentence,
   wrapWordsToLineBoxes,
   nextHearingSpeed,
   parseHearingSpeed,
@@ -620,6 +623,62 @@ describe('lab bible page leftovers', () => {
       expect(adjacentPageIndex(proverbsPages.length, 1, -1)).toBe(0)
     }
     expect(adjacentPageIndex(genesisPages.length, 0, -1)).toBeNull()
+  })
+})
+
+describe('page fill after peel', () => {
+  it('snaps overflow peel to the previous sentence end', () => {
+    const words = [
+      { text: 'First.' },
+      { text: 'Second' },
+      { text: 'sentence' },
+      { text: 'ends.' },
+      { text: 'Tail' },
+      { text: 'words.' },
+    ]
+    expect(snapShrinkEndToSentence(words, 0, 6, 4)).toBe(4)
+    expect(snapShrinkEndToSentence(words, 0, 6, 3)).toBe(1)
+  })
+
+  it('grows a fitted page when remeasure shows slack below the ink', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 40 },
+      { paragraphIndex: 0, from: 40, to: 80 },
+    ]
+    const painted = {
+      lastBottom: 500,
+      chromeTop: 600,
+      lineHeight: 40,
+      lastLineWords: 8,
+      scrollOverflow: false,
+    }
+    const grown = growPaintedPageIfSlack(pages, 0, painted, 'peel')
+    expect(grown[0].to).toBeGreaterThan(pages[0].to)
+    expect(grown[1].from).toBe(grown[0].to)
+  })
+
+  it('grows the last page into the paragraph tail when there is no next page', () => {
+    const paragraphs = ['one two three four five six seven eight nine ten']
+    const pages = [{ paragraphIndex: 0, from: 0, to: 4 }]
+    const painted = {
+      lastBottom: 500,
+      chromeTop: 600,
+      lineHeight: 40,
+      lastLineWords: 4,
+      scrollOverflow: false,
+    }
+    const grown = growPaintedPageIfSlack(pages, 0, painted, null, paragraphs)
+    expect(grown[0].to).toBeGreaterThan(4)
+    expect(grown.length).toBe(1)
+  })
+
+  it('merges a short chapter tail into the previous page', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 80 },
+      { paragraphIndex: 0, from: 80, to: 95 },
+    ]
+    const merged = absorbChapterTailPages(pages)
+    expect(merged).toEqual([{ paragraphIndex: 0, from: 0, to: 95 }])
   })
 })
 

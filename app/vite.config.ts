@@ -199,6 +199,29 @@ export default defineConfig(({ mode, command }) => {
           res.end(JSON.stringify({ url: null, message: 'Stripe checkout not available in dev mode. Configure Supabase and Stripe for production.' }))
         })
 
+        // Proxy production audio endpoints in dev (R2 is worker-only in prod).
+        server.middlewares.use(async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          const url = req.url || ''
+          const manifestPrefix = '/api/audio-manifest'
+          const filePrefix = '/api/audio-file'
+          let upstreamPath: string | null = null
+          if (url.startsWith(manifestPrefix)) upstreamPath = `${manifestPrefix}${url.slice(manifestPrefix.length)}`
+          else if (url.startsWith(filePrefix)) upstreamPath = `${filePrefix}${url.slice(filePrefix.length)}`
+          if (!upstreamPath) {
+            next()
+            return
+          }
+          try {
+            const upstream = await fetch(`https://tinct.app${upstreamPath}`)
+            const ctype = upstream.headers.get('content-type') || 'application/octet-stream'
+            res.writeHead(upstream.status, { 'Content-Type': ctype })
+            res.end(Buffer.from(await upstream.arrayBuffer()))
+          } catch (err) {
+            res.writeHead(502, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Audio proxy error', details: String(err) }))
+          }
+        })
+
         // Serve audio files from project-root audio/ directory (not in public/ to avoid bloating dist/)
         server.middlewares.use('/audio', (req: IncomingMessage, res: ServerResponse, next: () => void) => {
           const filePath = path.join(process.cwd(), 'audio', decodeURIComponent(req.url || ''))

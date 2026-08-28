@@ -234,7 +234,7 @@ export function labChromeInsetPx(chromeHeightPx: number, gap = LAB_CHROME_GAP_PX
 export const LAB_OVERFLOW_CLEAR_PX = 8
 
 /** Extra slack when measuring phone hearing pages — descenders + highlight box. */
-export const LAB_HEARING_MEASURE_SLACK_PX = 16
+export const LAB_HEARING_MEASURE_SLACK_PX = 8
 
 /** Play/Chat/Talk, page-turn rail, or in-flow audio — never 100vh. */
 export const LAB_BAR_SELECTORS = [
@@ -485,7 +485,7 @@ export function shouldGrowPaintedPage(
   const line = lineHeight > 8 ? lineHeight : 24
   if (slackPx <= line) return false
   if (lastAdjust !== 'peel') return true
-  return slackPx > line * 1.5
+  return slackPx > line * 1.1
 }
 
 /** Words to pull from the next page when slack allows growth. */
@@ -498,7 +498,7 @@ export function growWordsFromSlack(
   let words = trusted ? lastLineWords : 8
   if (slackPx > 40 && lineHeight > 8) {
     const lines = Math.max(1, Math.floor(slackPx / lineHeight))
-    words = Math.max(words, Math.min(lines * (trusted ? lastLineWords : 8), 24))
+    words = Math.max(words, Math.min(lines * (trusted ? lastLineWords : 8), 48))
   }
   return Math.max(1, words)
 }
