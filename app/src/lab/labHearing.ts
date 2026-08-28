@@ -629,6 +629,27 @@ export function absorbOrphanLeftoverPages(
   return next
 }
 
+/** Whether the follow target sits on the page at pageIndex. */
+export function followOnReadingPage(
+  follow: { kind: string; paragraphIndex?: number; wordIndex?: number },
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+): boolean {
+  if (follow.kind === 'none') return true
+  const page = pages[pageIndex]
+  if (!page) return false
+  if (follow.kind === 'paragraph') {
+    return page.paragraphIndex === follow.paragraphIndex
+  }
+  if (follow.kind === 'word') {
+    return page.paragraphIndex === follow.paragraphIndex
+      && typeof follow.wordIndex === 'number'
+      && follow.wordIndex >= page.from
+      && follow.wordIndex < page.to
+  }
+  return false
+}
+
 export function pageIndexForPlace(
   pages: ChapterHearingPage[],
   paragraphIndex: number,

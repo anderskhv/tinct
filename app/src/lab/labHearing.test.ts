@@ -12,6 +12,7 @@ import {
   chapterPagesCover,
   chapterPageLabel,
   clampedChapterProgress,
+  followOnReadingPage,
   reflowAfterCut,
   isOneWordLeftoverPage,
   ensurePageIdentity,
@@ -619,6 +620,21 @@ describe('lab bible page leftovers', () => {
       expect(adjacentPageIndex(proverbsPages.length, 1, -1)).toBe(0)
     }
     expect(adjacentPageIndex(genesisPages.length, 0, -1)).toBeNull()
+  })
+})
+
+describe('followOnReadingPage', () => {
+  const pages = [
+    { paragraphIndex: 0, from: 0, to: 40 },
+    { paragraphIndex: 0, from: 40, to: 80 },
+  ]
+
+  it('matches word and paragraph follow against a page slice', () => {
+    expect(followOnReadingPage({ kind: 'word', paragraphIndex: 0, wordIndex: 10 }, pages, 0)).toBe(true)
+    expect(followOnReadingPage({ kind: 'word', paragraphIndex: 0, wordIndex: 50 }, pages, 0)).toBe(false)
+    expect(followOnReadingPage({ kind: 'word', paragraphIndex: 0, wordIndex: 50 }, pages, 1)).toBe(true)
+    expect(followOnReadingPage({ kind: 'paragraph', paragraphIndex: 0 }, pages, 0)).toBe(true)
+    expect(followOnReadingPage({ kind: 'none' }, pages, 0)).toBe(true)
   })
 })
 

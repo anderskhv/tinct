@@ -55,7 +55,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, growPageByWords, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPageByWords, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -486,7 +486,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
-  const slimTransportWasRef = useRef(false)
   const highlightsApi = useLabHighlights(book.chapterNumber)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
@@ -680,6 +679,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
     const shrinkIfNeeded = () => {
       if (pagesStableRef.current) return
+      if (lockPaginationRef.current) {
+        finishSettle()
+        return
+      }
       const pages = workingPagesRef.current
       if (pages.length === 0) {
         finishSettle()
@@ -969,48 +972,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     ? labFootProgressPages(chapterProgress.currentPage, chapterProgress.totalPages)
     : footProgress
 
-  useLayoutEffect(() => {
-    const wrap = pageWrapRef.current
-    const chromeEl = bottomChromeRef.current
-    const now = showSlimTransport
-    const was = slimTransportWasRef.current
-    slimTransportWasRef.current = now
-    if (!now || was || !wrap || !chromeEl || phoneAskOpen) return
-    return afterLabPaint(() => {
-      const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
-      if (!passage) return
-      const painted = measurePaintedOverflow(passage, chromeEl)
-      if (!painted || labPageFitsPaint(painted)) return
-      const pages = readingPagesRef.current
-      const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
-      const live = pages[pageIdx]
-      if (!live || live.to <= live.from + 1) return
-      const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-      const nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
-      if (nextTo >= live.to) return
-      const metrics = pageMetricsRef.current
-      const budget = metrics ? labPageBudgetFromMetrics(metrics) : null
-      const shrunk = reflowAfterCut(
-        book.paragraphs,
-        pages,
-        pageIdx,
-        nextTo,
-        canUseLabPageBudget(budget) ? budget : null,
-        { lastLineWords: painted.lastLineWords, overflowing: true },
-      )
-      if (sameChapterPages(shrunk, pages)) return
-      readingPagesRef.current = shrunk
-      setReadingPages(shrunk)
-      workingPagesRef.current = shrunk
-      setDraftPages(shrunk)
-      lastAdjustRef.current = 'peel'
-    })
-  }, [showSlimTransport, phoneAskOpen, book.paragraphs])
-
   useEffect(() => {
     if (!showHearing) return
-    if (browseWhileListeningRef.current) return
     const follow = listen.follow
+    const pageIdx = Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))
+    if (browseWhileListeningRef.current) {
+      if (followOnReadingPage(follow, readingPages, pageIdx)) return
+      // Keep browse mode until the user pauses or taps a word — do not snap text mid-browse.
+      return
+    }
     if (follow.kind === 'word') {
       const page = readingPages[readingPageIndex]
       const midBook = !!page && (page.paragraphIndex > 0 || page.from > 0)
@@ -1044,7 +1014,22 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         return next === current ? current : next
       })
     }
-  }, [listen.follow, readingPages, readingPageIndex, showHearing])
+  }, [listen.follow, readingPages, readingPageIndex, showHearing, listen.clipIndex, listen.currentTime])
+
+  useEffect(() => {
+    if (!showHearing || !listen.playing || browseWhileListeningRef.current) return
+    const follow = listen.follow
+    if (follow.kind !== 'word' && follow.kind !== 'paragraph') return
+    const next = follow.kind === 'word'
+      ? pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
+      : pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
+    if (next === readingPageIndexRef.current) return
+    const page = readingPages[next]
+    const anchor = pageAnchorOf(page)
+    if (anchor) pageAnchorRef.current = anchor
+    readingPageIndexRef.current = next
+    setReadingPageIndex(next)
+  }, [readingPages, showHearing, listen.playing, listen.follow])
 
   useEffect(() => {
     const editions = {
@@ -1208,7 +1193,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
     readingPageIndexRef.current = clamped
     setReadingPageIndex(clamped)
-    if (listen.playing) {
+    if (listen.playing || browseWhileListeningRef.current) {
       browseWhileListeningRef.current = true
       setBrowseWhileListening(true)
     } else {
@@ -1299,14 +1284,19 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
   }, [book.chapterNumber])
 
-  const goToParagraph = useCallback((index: number) => {
+  const goToParagraph = useCallback((index: number, opts?: { seekAudio?: boolean }) => {
     const last = Math.max(0, book.paragraphs.length - 1)
     const next = Math.max(0, Math.min(last, index))
-    placeRef.current = { paragraphIndex: next, wordIndex: 0 }
-    notePlace('page-turn', { paragraphIndex: next, wordIndex: 0 })
     setFocusParagraph(next)
     setReadingPageIndex(pageIndexForPlace(readingPages, next, 0))
-    if (listen.src) listen.seekToPlace(next, 0)
+    if (listen.playing || browseWhileListeningRef.current) {
+      browseWhileListeningRef.current = true
+      setBrowseWhileListening(true)
+      return
+    }
+    placeRef.current = { paragraphIndex: next, wordIndex: 0 }
+    notePlace('page-turn', { paragraphIndex: next, wordIndex: 0 })
+    if (opts?.seekAudio && listen.src) listen.seekToPlace(next, 0)
   }, [book.paragraphs.length, listen, notePlace, readingPages])
 
   const applyPlaybackSkip = useCallback(async (kind: LabPlaybackSkip) => {
@@ -1327,7 +1317,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       await goToChapter(resolved.chapterNumber, resolved.landing)
       return
     }
-    goToParagraph(resolved.paragraphIndex)
+    goToParagraph(resolved.paragraphIndex, { seekAudio: true })
   }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph])
   skipRef.current = applyPlaybackSkip
 
@@ -1499,7 +1489,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     startHearing()
-  }, [ask, chrome, listen, phoneAskOpen, resumeListenAfterAsk, startHearing])
+  }, [chrome, listen, phoneAskOpen, resumeListenAfterAsk, startHearing])
 
   const closePhoneAsk = useCallback(() => {
     resumeListenAfterAsk()
