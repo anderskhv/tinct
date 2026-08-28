@@ -1925,6 +1925,62 @@ describe('lab read listen place and paused chrome', () => {
     expect(current?.textContent || '').not.toMatch(/^\s*w0\s*$/)
   })
 
+  it('page turns while playing do not seek audio or change clip', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    const firstPage = (document.querySelector('.lab-hearing-line')?.textContent || '').trim()
+    audio.currentTime = 18
+    act(() => { audio.emit('timeupdate') })
+    const clipBefore = screen.getByTestId('lab-listen-status').getAttribute('data-clip')
+    const srcBefore = screen.getByTestId('lab-listen-status').getAttribute('data-src') || ''
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    const pageTwo = (document.querySelector('.lab-hearing-line')?.textContent || '').trim()
+    expect(pageTwo).not.toBe(firstPage)
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe(clipBefore)
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toBe(srcBefore)
+    expect(audio.currentTime).toBe(18)
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe(clipBefore)
+    expect(audio.currentTime).toBe(18)
+  })
+
+  it('page turns after browse-while-listening pause do not seek audio', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    audio.currentTime = 12
+    act(() => { audio.emit('timeupdate') })
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    })
+    const clipBefore = screen.getByTestId('lab-listen-status').getAttribute('data-clip')
+    const timeBefore = audio.currentTime
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe(clipBefore)
+    expect(audio.currentTime).toBe(timeBefore)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    expect(audio.currentTime).toBe(timeBefore)
+  })
+
   it('keeps the same page when toggling Read and Listen', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
