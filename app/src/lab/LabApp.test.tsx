@@ -2649,10 +2649,15 @@ describe('lab chrome pass', () => {
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     fireEvent.click(screen.getByText('Night'))
     expect(screen.getByTestId('lab-root').className).toContain('is-night')
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
     const line = document.querySelector('.lab-hearing-line')
+    const word = document.querySelector('.lab-hearing-word')
     expect(line).toBeTruthy()
-    if (line) {
-      expect(getComputedStyle(line).color).not.toBe('rgb(11, 11, 11)')
+    expect(word).toBeTruthy()
+    if (line && word) {
+      const ink = getComputedStyle(line).color
+      expect(ink).not.toBe('rgb(11, 11, 11)')
+      expect(getComputedStyle(word).color).toBe(ink)
     }
     fireEvent.click(screen.getByText('%'))
     expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/%/)
