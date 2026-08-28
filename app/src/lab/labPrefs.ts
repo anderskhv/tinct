@@ -147,6 +147,11 @@ export function labFootProgress(input: {
   return `${chapter} — ${input.currentPage} / ${input.totalPages}`
 }
 
+/** Page index only — for the slim transport strip while audio is playing. */
+export function labFootProgressPages(currentPage: number, totalPages: number): string {
+  return `${currentPage} / ${totalPages}`
+}
+
 export function editionLabelFor(key: string, editions: Edition[]): string {
   return editions.find(edition => edition.key === key)?.label || key
 }
