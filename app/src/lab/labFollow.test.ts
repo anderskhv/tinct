@@ -4,13 +4,10 @@ import {
   followFromPlayback,
   followParagraphFromManifest,
   mergeSidecarWords,
-  followDerivedLagSeconds,
   followTimeFromAudio,
   wordIndexAtTime,
   wordsFromManifestParagraph,
-  wordsFromParagraphDuration,
-  ensureDerivedWordTimes,
-  DERIVED_SPEECH_SPAN,
+  paragraphHasWordTimings,
 } from './labFollow'
 
 describe('lab word follow', () => {
@@ -33,18 +30,12 @@ describe('lab word follow', () => {
     })
   })
 
-  it('derives proportional word times from paragraph duration when words.json is missing', () => {
+  it('does not invent word times when the manifest has duration only', () => {
     const paragraph = followParagraphFromManifest(0, 'Tell me, O Muse', { duration: 4, paragraph: 0 })
-    expect(paragraph.words).toHaveLength(4)
-    const unit = 4 * DERIVED_SPEECH_SPAN / 4
-    expect(paragraph.words?.[0].text).toBe('Tell')
-    expect(paragraph.words?.[0].start).toBeCloseTo(0)
-    expect(paragraph.words?.[0].end).toBeCloseTo(unit)
-    expect(paragraph.words?.[3]?.end).toBeCloseTo(4 * DERIVED_SPEECH_SPAN)
+    expect(paragraph.words).toBeUndefined()
     expect(followAtTime([paragraph], 1.2)).toEqual({
-      kind: 'word',
+      kind: 'paragraph',
       paragraphIndex: 0,
-      wordIndex: 1,
     })
   })
 
@@ -55,25 +46,10 @@ describe('lab word follow', () => {
     expect(wordsFromManifestParagraph({
       words: [{ text: 'Tell', start: Number.NaN, end: 1 }],
     })).toBeUndefined()
-    expect(wordsFromParagraphDuration(text, 0)).toBeUndefined()
 
     const followed = followParagraphFromManifest(0, text, { file: 'p0.mp3' })
     expect(followed.words).toBeUndefined()
     expect(followAtTime([followed], 2).kind).toBe('paragraph')
-  })
-
-  it('keeps manifest words and only derives when they are absent', () => {
-    const text = '¹ In the beginning God created'
-    const derived = wordsFromParagraphDuration(text, 8)
-    expect(derived?.map(word => word.text)).toEqual(['¹', 'In', 'the', 'beginning', 'God', 'created'])
-    expect(derived?.[0].end).toBeCloseTo(8 * DERIVED_SPEECH_SPAN / 6)
-    const kept = ensureDerivedWordTimes({
-      index: 0,
-      text,
-      duration: 8,
-      words: [{ text: 'In', start: 0, end: 8 }],
-    })
-    expect(kept.words).toEqual([{ text: 'In', start: 0, end: 8 }])
   })
 
   it('walks later paragraphs using their own timings', () => {
@@ -89,7 +65,7 @@ describe('lab word follow', () => {
       }),
     ]
 
-    expect(followAtTime(paragraphs, 1)).toEqual({ kind: 'word', paragraphIndex: 0, wordIndex: 0 })
+    expect(followAtTime(paragraphs, 1)).toEqual({ kind: 'paragraph', paragraphIndex: 0 })
     expect(followAtTime(paragraphs, 3.2)).toEqual({
       kind: 'word',
       paragraphIndex: 1,
@@ -112,9 +88,8 @@ describe('lab word follow', () => {
     ]
 
     expect(followFromPlayback({ paragraphs, paragraphIndex: 0, currentTime: 2 })).toEqual({
-      kind: 'word',
+      kind: 'paragraph',
       paragraphIndex: 0,
-      wordIndex: 0,
     })
     expect(followFromPlayback({ paragraphs, paragraphIndex: 1, currentTime: 1.2 })).toEqual({
       kind: 'word',
@@ -146,12 +121,10 @@ describe('lab word follow', () => {
     ])
   })
 
-  it('replaces even-split derived times with sidecar start times', () => {
+  it('replaces missing manifest words with sidecar start times', () => {
     const text = 'In the beginning God created'
     const derived = followParagraphFromManifest(0, text, { duration: 25, file: 'p0.mp3' })
-    expect(derived.words?.[2].text).toBe('beginning')
-    const evenStart = 25 * DERIVED_SPEECH_SPAN / 5 * 2
-    expect(derived.words?.[2].start).toBeCloseTo(evenStart)
+    expect(derived.words).toBeUndefined()
 
     const merged = mergeSidecarWords([derived], {
       chapter: 1,
@@ -173,7 +146,6 @@ describe('lab word follow', () => {
       paragraphIndex: 0,
       wordIndex: 2,
     })
-    expect(wordIndexAtTime(derived.words!, 0.5)).toBe(0)
   })
 })
 
@@ -191,34 +163,32 @@ describe('wordIndexAtTime', () => {
   })
 })
 
-describe('derived highlight lag from audio currentTime', () => {
-  it('lags 0.20s at 1x and 0.275s at 1.5x for derived timings only', () => {
-    expect(followDerivedLagSeconds(1)).toBeCloseTo(0.2)
-    expect(followDerivedLagSeconds(1.5)).toBeCloseTo(0.275)
-    expect(followDerivedLagSeconds(2)).toBeCloseTo(0.35)
-    expect(followTimeFromAudio(0, 1)).toBe(0)
-    expect(followTimeFromAudio(1.0, 1)).toBe(1)
-    expect(followTimeFromAudio(1.0, 1, true)).toBeCloseTo(0.8)
-    expect(followTimeFromAudio(1.0, 1.5, true)).toBeCloseTo(0.725)
+describe('followTimeFromAudio', () => {
+  it('tracks the element clock without lead or lag fudge', () => {
+    expect(followTimeFromAudio(0)).toBe(0)
+    expect(followTimeFromAudio(1.25)).toBe(1.25)
+    expect(followTimeFromAudio(-1)).toBe(0)
   })
 
-  it('does not lag real manifest word timings', () => {
+  it('sits on the spoken word at manifest timings', () => {
     const words = [
       { text: 'In', start: 0, end: 0.4 },
       { text: 'the', start: 0.4, end: 0.7 },
       { text: 'beginning', start: 0.7, end: 1.3 },
       { text: 'God', start: 1.3, end: 1.7 },
     ]
-    for (const rate of [1, 1.5]) {
-      expect(wordIndexAtTime(words, followTimeFromAudio(0.45, rate))).toBe(1)
-      expect(wordIndexAtTime(words, followTimeFromAudio(0.75, rate))).toBe(2)
-    }
+    expect(wordIndexAtTime(words, followTimeFromAudio(0.45))).toBe(1)
+    expect(wordIndexAtTime(words, followTimeFromAudio(0.75))).toBe(2)
   })
+})
 
-  it('delays derived even-split highlights so they do not run ahead of speech', () => {
-    const paragraph = followParagraphFromManifest(0, 'In the beginning God', { duration: 4, file: 'p0.mp3' })
-    const words = paragraph.words!
-    expect(wordIndexAtTime(words, followTimeFromAudio(2.0, 1, false))).toBe(2)
-    expect(wordIndexAtTime(words, followTimeFromAudio(2.0, 1, true))).toBe(1)
+describe('paragraphHasWordTimings', () => {
+  it('is false until manifest, sidecar, or measured words exist', () => {
+    expect(paragraphHasWordTimings({ index: 0, text: 'Hi', duration: 2 })).toBe(false)
+    expect(paragraphHasWordTimings({
+      index: 0,
+      text: 'Hi',
+      words: [{ text: 'Hi', start: 0, end: 0.2 }],
+    })).toBe(true)
   })
 })

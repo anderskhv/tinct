@@ -482,7 +482,12 @@ describe('lab chrome', () => {
       title: 'Book 1',
       paragraphs: [
         { paragraph: -1, file: 'title.mp3', duration: 1.675, words: [] },
-        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [] },
+        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [
+          { text: 'Tell', start: 0, end: 0.5 },
+          { text: 'me,', start: 0.5, end: 1 },
+          { text: 'O', start: 1, end: 1.4 },
+          { text: 'Muse,', start: 1.4, end: 2 },
+        ] },
         { paragraph: 1, file: 'p1.mp3', duration: 37.226, words: [] },
         { paragraph: 2, file: 'p2.mp3', duration: 26.975, words: [] },
       ],
@@ -529,7 +534,7 @@ describe('lab chrome', () => {
     expect(audio.paused).toBe(true)
   })
 
-  it('follows Bible words from paragraph MP3 duration when words.json is missing', async () => {
+  it('follows manifest word timings when words.json is missing', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -539,7 +544,7 @@ describe('lab chrome', () => {
       title: 'Genesis 1',
       paragraphs: [
         { paragraph: -1, file: 'title.mp3', duration: 1.675, words: [] },
-        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [] },
+        { paragraph: 0, file: 'p0.mp3', duration: 4 },
         { paragraph: 1, file: 'p1.mp3', duration: 37.226, words: [] },
       ],
     }
@@ -555,14 +560,33 @@ describe('lab chrome', () => {
     })
     vi.stubGlobal('fetch', fetchMock)
 
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    const base = fallbackLabSource()
+    const short = 'Tell me O Muse'
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...base,
+      paragraphs: [short, base.paragraphs[1]],
+      followParagraphs: [
+        {
+          index: 0,
+          text: short,
+          file: 'p0.mp3',
+          duration: 4,
+          words: [
+            { text: 'Tell', start: 0, end: 1 },
+            { text: 'me', start: 1, end: 2 },
+            { text: 'O', start: 2, end: 3 },
+            { text: 'Muse', start: 3, end: 4 },
+          ],
+        },
+        { index: 1, text: base.paragraphs[1] },
+      ],
+    }} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
 
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('bible%2Fkjv-en%2Fch1%2Fp0.mp3')
     })
     expect(fetchMock.mock.calls.some(call => String(call[0]) === '/odyssey-ch1-words.json')).toBe(false)
-    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('words.json'))).toBe(true)
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
     expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
     expect(document.querySelector('.lab-hearing-word.is-current')).toBeTruthy()
@@ -585,6 +609,15 @@ describe('lab chrome', () => {
       'And God said, Let there be a firmament in the midst of the waters.',
       'And God said, Let the earth bring forth grass.',
     ]
+    const wordsFor = (text: string, duration: number) => {
+      const parts = text.split(/\s+/).filter(Boolean)
+      const unit = duration / parts.length
+      return parts.map((word, index) => ({
+        text: word,
+        start: index * unit,
+        end: (index + 1) * unit,
+      }))
+    }
     const source = {
       ...bibleFallbackSource(),
       paragraphs,
@@ -593,6 +626,7 @@ describe('lab chrome', () => {
         text,
         file: `p${index}.mp3`,
         duration: 10,
+        words: wordsFor(text, 10),
       })),
     }
     render(<LabApp pathname="/lab/phone" source={source} />)
@@ -975,11 +1009,12 @@ describe('lab chrome', () => {
     expect(audio.currentTime).toBe(8)
   })
 
-  it('marks the current Hearing line when word timings are missing', async () => {
+  it('marks the current Hearing paragraph when word timings are missing', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
     })
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })))
     render(<LabApp pathname="/lab/desktop" source={sourceWithFilesNoWords()} />)
     fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
@@ -988,10 +1023,13 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-hearing')).toBeTruthy()
     expect(document.querySelectorAll('.lab-p').length).toBe(0)
     expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
-    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
-    expect(document.querySelector('.lab-word-current')).toBeNull()
+    const hearingStage = screen.getByTestId('lab-hearing-stage')
+    expect(hearingStage.querySelector('.lab-hearing-word.is-current')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
+    expect(screen.getByTestId('lab-book').querySelector('.lab-word-current')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-progress')).toBeNull()
     expect(screen.getByTestId('lab-passage-headline')).toBeTruthy()
+    expect(hearingStage.textContent).toContain('Tell')
 
     audio.currentTime = 8
     act(() => { audio.emit('timeupdate') })
@@ -1001,7 +1039,7 @@ describe('lab chrome', () => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:1')
     })
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('p1.mp3')
-    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('So')
+    expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
   })

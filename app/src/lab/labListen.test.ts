@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { DERIVED_SPEECH_SPAN, followFromPlayback, followParagraphFromManifest, mergeSidecarWords, wordsFromParagraphDuration } from './labFollow'
+import { followFromPlayback, followParagraphFromManifest, mergeSidecarWords } from './labFollow'
 import {
   clipsFromFollowParagraphs,
   clipsFromManifest,
@@ -38,7 +38,13 @@ describe('lab bible audio paths', () => {
     )
     expect(clips.map(clip => clip.file)).toEqual(['p0.mp3', 'p1.mp3'])
     const fromFollow = clipsFromFollowParagraphs([
-      { index: 0, text: 'Tell me', file: 'p0.mp3', duration: 4 },
+      {
+        index: 0,
+        text: 'Tell me',
+        file: 'p0.mp3',
+        duration: 4,
+        words: [{ text: 'Tell', start: 0, end: 0.5 }, { text: 'me', start: 0.5, end: 1 }],
+      },
       { index: 1, text: 'So now' },
     ])
     expect(fromFollow.map(clip => clip.file)).toEqual(['p0.mp3'])
@@ -51,7 +57,8 @@ describe('lab bible audio paths', () => {
     expect(listen).toContain('labAudioFileUrl')
     expect(listen).toContain('readLabWordSidecar')
     expect(listen).toContain('labAudioSidecarUrl')
-    expect(listen).toContain('hasTimedWords(current)')
+    expect(listen).toContain('measureFollowParagraphWords')
+    expect(listen).toContain('chapterHasWordTimings')
     expect(listen).toContain('paragraphsRef.current = followParagraphs')
     expect(listen).not.toMatch(/paragraphsRef\.current = options\.followParagraphs/)
     expect(listen).not.toMatch(/Date\.now\(\)/)
@@ -82,14 +89,11 @@ describe('lab bible audio paths', () => {
       [followParagraphFromManifest(0, 'In the beginning', { duration: 25, file: 'p0.mp3' })],
       null,
     )
-    expect(followed[0].words?.map(word => word.text)).toEqual(['In', 'the', 'beginning'])
-    expect(followed[0].words?.[0].end).toBeCloseTo(25 / 3)
+    expect(followed[0].words).toBeUndefined()
     expect(followFromPlayback({ paragraphs: followed, paragraphIndex: 0, currentTime: 0.2 })).toEqual({
-      kind: 'word',
+      kind: 'paragraph',
       paragraphIndex: 0,
-      wordIndex: 0,
     })
-    expect(wordsFromParagraphDuration('In the beginning', 25)?.length).toBe(3)
   })
 
   it('follows sidecar start times, not duration/n, when words.json exists', async () => {
@@ -112,7 +116,6 @@ describe('lab bible audio paths', () => {
     const followed = await loadLabAudioChapter(['In the beginning'])
     expect(followed[0].words?.map(word => word.text)).toEqual(['In', 'the', 'beginning'])
     expect(followed[0].words?.[2].start).toBe(0.34)
-    expect(followed[0].words?.[2].start).not.toBeCloseTo(25 * DERIVED_SPEECH_SPAN / 3 * 2, 1)
     expect(followFromPlayback({ paragraphs: followed, paragraphIndex: 0, currentTime: 0.5 })).toEqual({
       kind: 'word',
       paragraphIndex: 0,
@@ -120,7 +123,7 @@ describe('lab bible audio paths', () => {
     })
   })
 
-  it('keeps duration/n when words.json is missing', async () => {
+  it('stays paragraph-level when words.json and MP3 measurement are unavailable', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
       if (url.includes('manifest.json')) {
@@ -130,15 +133,10 @@ describe('lab bible audio paths', () => {
     }))
 
     const followed = await loadLabAudioChapter(['In the beginning'])
-    const unit = 25 * DERIVED_SPEECH_SPAN / 3
-    expect(followed[0].words).toHaveLength(3)
-    expect(followed[0].words?.[0].start).toBeCloseTo(0)
-    expect(followed[0].words?.[0].end).toBeCloseTo(unit)
-    expect(followed[0].words?.[2].start).toBeCloseTo(unit * 2)
+    expect(followed[0].words).toBeUndefined()
     expect(followFromPlayback({ paragraphs: followed, paragraphIndex: 0, currentTime: 0.2 })).toEqual({
-      kind: 'word',
+      kind: 'paragraph',
       paragraphIndex: 0,
-      wordIndex: 0,
     })
   })
 })

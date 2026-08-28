@@ -1,11 +1,11 @@
 import { resolveAudioUrl } from '../utils/audioUrl'
+import { measureWordTimesFromAudioUrl } from './labAudioMeasure'
 import {
-  ensureDerivedWordTimes,
   followFromPlayback,
   followParagraphFromManifest,
   followTimeFromAudio,
   mergeSidecarWords,
-  wordsLookDerived,
+  paragraphHasWordTimings,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
@@ -37,10 +37,9 @@ export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, edit
   return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/words.json`, 'file')
 }
 
-/** Bible has chapter audio on R2, but no committed word sidecar. Do not download a corpus. */
+/** Bible has chapter audio on R2; word sidecars are optional. */
 export const LAB_STATIC_WORD_SIDECAR_URL = null
 
-/** Use the R2 sidecar when it exists. Otherwise derive times from MP3 duration + text. */
 export async function readLabWordSidecar(
   r2Res: Response | null | undefined,
 ): Promise<WordSidecar | null> {
@@ -57,12 +56,11 @@ export function labAudioFileUrl(file: string, chapterNumber = LAB_AUDIO.chapterN
 export function clipsFromFollowParagraphs(paragraphs: FollowParagraph[]): LabAudioClip[] {
   return paragraphs.flatMap((paragraph) => {
     if (!paragraph.file || paragraph.index < 0) return []
-    const followed = ensureDerivedWordTimes(paragraph)
     return [{
       index: paragraph.index,
       file: paragraph.file,
-      duration: followed.duration,
-      words: followed.words,
+      duration: paragraph.duration,
+      words: paragraph.words,
     }]
   })
 }
@@ -91,6 +89,24 @@ export function clipsFromManifest(
   }).filter((clip): clip is LabAudioClip => clip != null)
 }
 
+/** Decode each paragraph MP3 and measure speech bounds → word timings. */
+export async function measureFollowParagraphWords(
+  paragraphs: FollowParagraph[],
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+): Promise<FollowParagraph[]> {
+  return Promise.all(paragraphs.map(async (paragraph) => {
+    if (!paragraph.file || paragraphHasWordTimings(paragraph)) return paragraph
+    const url = labAudioFileUrl(paragraph.file, chapterNumber, editionKey)
+    const words = await measureWordTimesFromAudioUrl(
+      paragraph.text,
+      url,
+      typeof paragraph.duration === 'number' ? paragraph.duration : undefined,
+    )
+    return words ? { ...paragraph, words, wordsMeasured: true } : paragraph
+  }))
+}
+
 export async function loadLabAudioChapter(
   paragraphs: string[],
   chapterNumber = LAB_AUDIO.chapterNumber,
@@ -112,23 +128,19 @@ export async function loadLabAudioChapter(
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  return mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes)).map(ensureDerivedWordTimes)
+  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
+  return measureFollowParagraphWords(merged, chapterNumber, editionKey)
 }
 
 export function followPlayingClip(
   paragraphs: FollowParagraph[],
   clip: LabAudioClip | undefined,
   currentTime: number,
-  playbackRate = 1,
 ): FollowTarget {
   if (!clip) return { kind: 'none' }
-  const paragraph = paragraphs.find(item => item.index === clip.index) ?? paragraphs[clip.index]
-  const highlightTime = paragraph && wordsLookDerived(paragraph)
-    ? followTimeFromAudio(currentTime, playbackRate, true)
-    : currentTime
   return followFromPlayback({
     paragraphs,
     paragraphIndex: clip.index,
-    currentTime: highlightTime,
+    currentTime: followTimeFromAudio(currentTime),
   })
 }
