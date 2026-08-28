@@ -729,6 +729,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (lockPaginationRef.current) return
       // Hearing chrome (slim transport, browse) changes bar metrics — do not re-settle mid-session.
       if (listenPlayingRef.current || browseWhileListeningRef.current) return
+      // After settle, bar jitter should not re-paginate the whole chapter on every page turn.
+      if (pagesStableRef.current) return
       const barTop = measureLabBarTop(wrap.ownerDocument, chromeEl)
       if (!labBarMoved(lastBarTopRef.current, barTop)) return
       lastBarTopRef.current = barTop

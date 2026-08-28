@@ -200,21 +200,19 @@ export default defineConfig(({ mode, command }) => {
         })
 
         // Proxy production audio endpoints in dev (R2 is worker-only in prod).
-        server.middlewares.use('/api/audio-manifest', async (req: IncomingMessage, res: ServerResponse) => {
-          const q = req.url || ''
-          try {
-            const upstream = await fetch(`https://tinct.app/api/audio-manifest${q}`)
-            res.writeHead(upstream.status, { 'Content-Type': upstream.headers.get('content-type') || 'application/json' })
-            res.end(Buffer.from(await upstream.arrayBuffer()))
-          } catch (err) {
-            res.writeHead(502, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ error: 'Audio proxy error', details: String(err) }))
+        server.middlewares.use(async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          const url = req.url || ''
+          const manifestPrefix = '/api/audio-manifest'
+          const filePrefix = '/api/audio-file'
+          let upstreamPath: string | null = null
+          if (url.startsWith(manifestPrefix)) upstreamPath = `${manifestPrefix}${url.slice(manifestPrefix.length)}`
+          else if (url.startsWith(filePrefix)) upstreamPath = `${filePrefix}${url.slice(filePrefix.length)}`
+          if (!upstreamPath) {
+            next()
+            return
           }
-        })
-        server.middlewares.use('/api/audio-file', async (req: IncomingMessage, res: ServerResponse) => {
-          const q = req.url || ''
           try {
-            const upstream = await fetch(`https://tinct.app/api/audio-file${q}`)
+            const upstream = await fetch(`https://tinct.app${upstreamPath}`)
             const ctype = upstream.headers.get('content-type') || 'application/octet-stream'
             res.writeHead(upstream.status, { 'Content-Type': ctype })
             res.end(Buffer.from(await upstream.arrayBuffer()))
