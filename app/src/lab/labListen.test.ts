@@ -10,6 +10,7 @@ import {
   labAudioManifestUrl,
   labAudioSidecarUrl,
   labStaticWordSidecarUrl,
+  labStaticWordSidecarUrls,
   loadLabAudioChapter,
   readLabWordSidecar,
 } from './labListen'
@@ -79,9 +80,14 @@ describe('lab bible audio paths', () => {
     expect(listen).toMatch(/const pause = useCallback\(\(\) => \{[\s\S]*setFollow\(\{ kind: 'none' \}\)/)
   })
 
-  it('maps Jeremiah 23 to a committed static sidecar path', () => {
+  it('builds a convention static sidecar path for any bible chapter', () => {
     expect(labStaticWordSidecarUrl(768)).toBe('/bible-kjv-en-ch768-words.json')
-    expect(labStaticWordSidecarUrl(1)).toBeNull()
+    expect(labStaticWordSidecarUrl(1)).toBe('/bible-kjv-en-ch1-words.json')
+    expect(labStaticWordSidecarUrl(42)).toBe('/bible-kjv-en-ch42-words.json')
+    expect(labStaticWordSidecarUrls('odyssey', 'original-en', 1)).toEqual([
+      '/odyssey-original-en-ch1-words.json',
+      '/odyssey-ch1-words.json',
+    ])
     expect(LAB_STATIC_WORD_SIDECAR_URL).toBe('/odyssey-ch1-words.json')
   })
 

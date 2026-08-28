@@ -40,19 +40,28 @@ export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, edit
 /** Odyssey Book 1 — committed Whisper sidecar when R2 words.json 404s. */
 export const LAB_STATIC_WORD_SIDECAR_URL = '/odyssey-ch1-words.json'
 
-/** Committed Whisper sidecars keyed by edition + chapter (same schema as odyssey-ch1-words.json). */
-const LAB_STATIC_BIBLE_WORD_SIDECARS: Record<string, string> = {
-  'kjv-en:768': '/bible-kjv-en-ch768-words.json',
+/**
+ * Committed static sidecar URLs for any book/chapter (same schema as odyssey-ch1-words.json).
+ * Fetch each until one returns JSON; 404 on uncommitted chapters is expected.
+ */
+export function labStaticWordSidecarUrls(
+  bookId = LAB_AUDIO.bookId,
+  editionKey = LAB_AUDIO.editionKey,
+  chapterNumber = LAB_AUDIO.chapterNumber,
+): string[] {
+  const urls = [`/${bookId}-${editionKey}-ch${chapterNumber}-words.json`]
+  if (bookId === 'odyssey') {
+    urls.push(`/${bookId}-ch${chapterNumber}-words.json`)
+  }
+  return urls
 }
 
 export function labStaticWordSidecarUrl(
   chapterNumber = LAB_AUDIO.chapterNumber,
   editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
 ): string | null {
-  if (editionKey === LAB_AUDIO.editionKey) {
-    return LAB_STATIC_BIBLE_WORD_SIDECARS[`${editionKey}:${chapterNumber}`] ?? null
-  }
-  return null
+  return labStaticWordSidecarUrls(bookId, editionKey, chapterNumber)[0] ?? null
 }
 
 async function parseWordSidecarResponse(res: Response): Promise<WordSidecar | null> {
@@ -70,18 +79,18 @@ export async function readLabWordSidecar(
   r2Res: Response | null | undefined,
   chapterNumber = LAB_AUDIO.chapterNumber,
   editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
 ): Promise<WordSidecar | null> {
   if (r2Res && 'ok' in r2Res && r2Res.ok) {
     const fromApi = await parseWordSidecarResponse(r2Res)
     if (fromApi) return fromApi
   }
-  const staticUrl = labStaticWordSidecarUrl(chapterNumber, editionKey) ?? (
-    editionKey === 'original-en' && chapterNumber === 1 ? LAB_STATIC_WORD_SIDECAR_URL : null
-  )
-  if (!staticUrl) return null
-  const fallback = await fetch(staticUrl).catch(() => null)
-  if (fallback && 'ok' in fallback && fallback.ok) {
-    return await fallback.json() as WordSidecar
+  for (const staticUrl of labStaticWordSidecarUrls(bookId, editionKey, chapterNumber)) {
+    const fallback = await fetch(staticUrl).catch(() => null)
+    if (fallback && 'ok' in fallback && fallback.ok) {
+      const sidecar = await parseWordSidecarResponse(fallback)
+      if (sidecar) return sidecar
+    }
   }
   return null
 }
