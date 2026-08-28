@@ -40,6 +40,7 @@ import {
   bibleEditions,
   labFontFamilyCss,
   labFootProgress,
+  labFootProgressPages,
   readLabPrefs,
   writeLabPrefs,
   syncLabAudioEdition,
@@ -279,6 +280,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [browseWhileListening, setBrowseWhileListening] = useState(false)
   const browseWhileListeningRef = useRef(false)
 
+  const lockPaginationRef = useRef(false)
+
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
@@ -471,6 +474,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setSettleIndex(0)
     settleIndexRef.current = 0
   }, [pageMetrics, book.paragraphs])
+
+  useLayoutEffect(() => {
+    didBudgetPageRef.current = false
+    pagesStableRef.current = false
+    unmeasuredTriesRef.current = 0
+    setSettleIndex(0)
+    settleIndexRef.current = 0
+  }, [prefs.fontFamily, prefs.fontSize])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -687,6 +698,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
     const cancelPaint = pagesStableRef.current ? (() => {}) : afterLabPaint(shrinkIfNeeded)
     const onJump = () => {
+      if (lockPaginationRef.current) return
       const barTop = measureLabBarTop(wrap.ownerDocument, chromeEl)
       if (!labBarMoved(lastBarTopRef.current, barTop)) return
       lastBarTopRef.current = barTop
@@ -698,7 +710,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
     const viewport = typeof window !== 'undefined' ? window.visualViewport : null
     viewport?.addEventListener('resize', onJump)
-    viewport?.addEventListener('scroll', onJump)
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', onJump)
       window.addEventListener('orientationchange', onJump)
@@ -706,7 +717,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     return () => {
       cancelPaint()
       viewport?.removeEventListener('resize', onJump)
-      viewport?.removeEventListener('scroll', onJump)
       if (typeof window !== 'undefined') {
         window.removeEventListener('resize', onJump)
         window.removeEventListener('orientationchange', onJump)
@@ -741,11 +751,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (bottomChromeRef.current) ro?.observe(bottomChromeRef.current)
     const viewport = typeof window !== 'undefined' ? window.visualViewport : null
     viewport?.addEventListener('resize', apply)
-    viewport?.addEventListener('scroll', apply)
     return () => {
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
-      viewport?.removeEventListener('scroll', apply)
     }
   }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readingPageIndex, prefs.fontFamily, prefs.fontSize])
 
@@ -954,6 +962,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     metric: prefs.progressDisplay.metric,
     scope: prefs.progressDisplay.scope,
   })
+  lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
+  const footProgressLabel = showSlimTransport
+    ? labFootProgressPages(chapterProgress.currentPage, chapterProgress.totalPages)
+    : footProgress
 
   useEffect(() => {
     if (!showHearing) return
@@ -1010,20 +1022,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }, 1)
   }, [prefs.primaryEdition, prefs.compareEdition])
 
-  useEffect(() => {
-    if (!pagesStableRef.current) return
-    pagesStableRef.current = false
-    lastAdjustRef.current = null
-    workingPagesRef.current = readingPagesRef.current
-    setDraftPages(readingPagesRef.current)
-    settleIndexRef.current = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
-    setSettleIndex(settleIndexRef.current)
-  }, [listen.playing])
-
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
     const chromeEl = bottomChromeRef.current
     if (!wrap || !chromeEl || phoneAskOpen || !pagesStableRef.current) return
+    if (lockPaginationRef.current) return
     return afterLabPaint(() => {
       if (!pagesStableRef.current) return
       const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
@@ -1519,7 +1522,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   return (
     <div
       ref={labRootRef}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showSlimTransport ? ' has-slim-transport' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
@@ -1710,7 +1713,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
                 <SeekIcon />
               </button>
             )}
-            <span className="lab-chapter-progress-info">{footProgress}</span>
+            <span className="lab-chapter-progress-info">{footProgressLabel}</span>
             {showSlimTransport && (
               <>
                 <button

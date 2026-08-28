@@ -6,6 +6,7 @@ import {
   LAB_LIBRARY_URL,
   LAB_PREFS_KEY,
   labFootProgress,
+  labFootProgressPages,
   labProgressKnobLive,
   parseLabPrefs,
   readLabPrefs,
@@ -58,6 +59,7 @@ describe('lab prefs', () => {
       totalPages: 7,
       percent: 55,
     })).toBe('Book 1 — 4 / 7')
+    expect(labFootProgressPages(4, 7)).toBe('4 / 7')
     expect(labFootProgress({
       chapterNumber: 643,
       chapterLabel: 'Proverbs 16',
