@@ -3,6 +3,7 @@ import {
   LAB_OVERFLOW_CLEAR_PX,
   labPageFitsPaint,
   labPageSlackPx,
+  nextPaintShrinkTo,
   shouldGrowPaintedPage,
   growWordsFromSlack,
   type LabPageAdjust,
@@ -140,12 +141,44 @@ export function growPaintedPageIfSlack(
   return sameChapterPages(grown, pages) ? pages : grown
 }
 
+/** Peel words when last ink sits on or below the on-screen pager/bar. */
+export function shrinkPaintedPageOverflow(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  painted: LabPaintedOverflow,
+  paragraphs: string[],
+  budget: LabPageBudget | null,
+  opts?: { snapSentence?: boolean },
+): ChapterHearingPage[] | null {
+  if (labPageFitsPaint(painted)) return null
+  const live = pages[pageIndex]
+  if (!live || live.to <= live.from + 1) return null
+  const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
+  let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+  if (opts?.snapSentence) {
+    const paraWords = tokenizeHearingWords(paragraphs[live.paragraphIndex] || '')
+    nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
+  }
+  if (nextTo >= live.to) return null
+  const shrunk = reflowAfterCut(
+    paragraphs,
+    pages,
+    pageIndex,
+    nextTo,
+    canUseLabPageBudget(budget) ? budget : null,
+    { lastLineWords: painted.lastLineWords, overflowing: true },
+  )
+  return sameChapterPages(shrunk, pages) ? null : shrunk
+}
+
 export const HEARING_PAGE_MIN = 70
 export const HEARING_PAGE_MAX = 90
 /** A leftover page this short is an orphan line, not a real page. */
 export const LAB_ORPHAN_PAGE_WORDS = 16
 /** Short same-paragraph chapter tail after peel — merge into the previous page. */
 export const LAB_CHAPTER_TAIL_MERGE_WORDS = 120
+/** Tiny final page (chars) — merge into previous page when same paragraph. */
+export const LAB_CHAPTER_TAIL_MERGE_CHARS = 220
 
 export interface HearingPageBounds {
   from: number
@@ -657,6 +690,11 @@ export function leftoverWordCount(page: ChapterHearingPage | undefined): number 
   return Math.max(0, page.to - page.from)
 }
 
+export function chapterPageTextChars(paragraphs: string[], page: ChapterHearingPage): number {
+  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
+  return words.slice(page.from, page.to).join(' ').length
+}
+
 export function isOrphanLeftoverPage(page: ChapterHearingPage | undefined): boolean {
   const words = leftoverWordCount(page)
   return words > 0 && words <= LAB_ORPHAN_PAGE_WORDS
@@ -732,6 +770,7 @@ export function absorbOrphanLeftoverPages(
 export function absorbChapterTailPages(
   pages: ChapterHearingPage[],
   keep?: LabPageAnchor | null,
+  paragraphs?: string[],
 ): ChapterHearingPage[] {
   if (pages.length < 2) return pages
   const lastIdx = pages.length - 1
@@ -740,7 +779,10 @@ export function absorbChapterTailPages(
   if (!last || !prev || prev.paragraphIndex !== last.paragraphIndex) return pages
   if (keep && last.paragraphIndex === keep.paragraphIndex && last.from === keep.wordIndex) return pages
   const words = leftoverWordCount(last)
-  if (words <= 0 || words > LAB_CHAPTER_TAIL_MERGE_WORDS) return pages
+  const chars = paragraphs ? chapterPageTextChars(paragraphs, last) : 0
+  const tiny = words > 0 && (words <= LAB_CHAPTER_TAIL_MERGE_WORDS
+    || (paragraphs && chars > 0 && chars <= LAB_CHAPTER_TAIL_MERGE_CHARS))
+  if (!tiny) return pages
   const next = pages.slice()
   next[lastIdx - 1] = { ...prev, to: last.to }
   next.splice(lastIdx, 1)
