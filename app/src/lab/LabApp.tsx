@@ -15,13 +15,17 @@ import {
   labStatusLine,
   labVisibleChrome,
   afterLabPaint,
+  growWordsFromSlack,
   labPageFitsPaint,
+  labPageSlackPx,
   labBarMoved,
   measureLabBarTop,
+  measureLabOnScreenBarTop,
   measureLabPageMetrics,
   measurePaintedOverflow,
   nextLabVoiceGate,
   nextPaintShrinkTo,
+  type LabPageAdjust,
   type LabPageMetrics,
   type LabChromeState,
   type LabReturnTo,
@@ -47,7 +51,13 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, labChapterProgress, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, type ChapterHearingPage } from './labHearing'
+import { adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, growPageByWords, labChapterProgress, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
+import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
+import { useDefine } from '../components/reader/useDefine'
+import { defaultPopupMode } from '../components/reader/selectionPopupMode'
+import type { HighlightColor } from '../types'
+import { type LabHighlightRange } from './labHighlights'
+import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { useLabListen } from './useLabListen'
 import './lab.css'
@@ -434,6 +444,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
+  const lastAdjustRef = useRef<LabPageAdjust>(null)
+  const highlightsApi = useLabHighlights(book.chapterNumber)
+  const define = useDefine()
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
+  const [popupMode, setPopupMode] = useState<PopupMode>('colors')
+  const [noteInput, setNoteInput] = useState('')
+  const popupRef = useRef<HTMLDivElement | null>(null)
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
   pageMetricsRef.current = pageMetrics
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
@@ -444,6 +461,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   useLayoutEffect(() => {
     lastVvRef.current = 0
     lastBarTopRef.current = 0
+    lastAdjustRef.current = null
     pagesStableRef.current = false
     settleIndexRef.current = 0
     setSettleIndex(0)
@@ -490,24 +508,34 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       settleIndexRef.current = nextIdx
       setSettleIndex(nextIdx)
     }
-    const visiblePassage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
+    const applyPageList = (pages: ChapterHearingPage[], updateVisible: boolean) => {
+      workingPagesRef.current = pages
+      setDraftPages(pages)
+      if (updateVisible) {
+        readingPagesRef.current = pages
+        setReadingPages(pages)
+      }
+      return 'peeled' as const
+    }
+    const visiblePassage = () => [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
     const peelHost = (pageIdx: number): 'peeled' | 'fits' | 'unmeasured' => {
       const host = measureHostRef.current ?? wrap.querySelector('.lab-page-measure') as HTMLElement | null
-      if (!host && !visiblePassage) return 'unmeasured'
+      const passage = visiblePassage()
+      if (!host && !passage) return 'unmeasured'
       const pages = workingPagesRef.current
       const live = pages[pageIdx]
       if (!live) return 'fits'
       let painted = host ? measurePaintedOverflow(host, chromeEl) : null
       const shown = readingPagesRef.current[Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))]
       const sameAsVisible = !!shown && shown.paragraphIndex === live.paragraphIndex && shown.from === live.from && shown.to === live.to
-      if (visiblePassage && sameAsVisible) {
-        const hasWordInk = [...visiblePassage.querySelectorAll('.lab-hearing-line > span')]
+      if (passage && sameAsVisible) {
+        const hasWordInk = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
           .some(node => {
             const rect = node.getBoundingClientRect()
             return rect.height > 8 && rect.bottom > 40
           })
         if (!hasWordInk) {
-          const line = visiblePassage.querySelector('.lab-hearing-line') as HTMLElement | null
+          const line = passage!.querySelector('.lab-hearing-line') as HTMLElement | null
           const barTop = painted?.chromeTop || measureLabBarTop(wrap.ownerDocument, chromeEl)
           if (line && barTop > 0) {
             const box = line.getBoundingClientRect()
@@ -515,6 +543,24 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               painted = {
                 lastBottom: box.bottom,
                 chromeTop: barTop,
+                lineHeight: painted?.lineHeight || 40,
+                lastLineWords: painted?.lastLineWords || 0,
+                scrollOverflow: true,
+              }
+            }
+          }
+        } else {
+          const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
+          if (onScreenTop > 0) {
+            const inkBottom = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+              .reduce((max, node) => {
+                const rect = node.getBoundingClientRect()
+                return rect.height > 8 ? Math.max(max, rect.bottom) : max
+              }, 0)
+            if (inkBottom >= onScreenTop - 8) {
+              painted = {
+                lastBottom: inkBottom,
+                chromeTop: onScreenTop,
                 lineHeight: painted?.lineHeight || 40,
                 lastLineWords: painted?.lastLineWords || 0,
                 scrollOverflow: true,
@@ -544,13 +590,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         canUseLabPageBudget(budget) ? budget : null,
         { lastLineWords: painted.lastLineWords, overflowing: true },
       )
-      workingPagesRef.current = shrunk
-      setDraftPages(shrunk)
-      if (sameAsVisible) {
-        readingPagesRef.current = shrunk
-        setReadingPages(shrunk)
-      }
-      return 'peeled'
+      return applyPageList(shrunk, sameAsVisible)
     }
     const shrinkIfNeeded = () => {
       if (pagesStableRef.current) return
@@ -878,6 +918,123 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       })
     }
   }, [listen.follow, readingPages, readingPageIndex, showHearing])
+
+  useEffect(() => {
+    if (!pagesStableRef.current) return
+    pagesStableRef.current = false
+    lastAdjustRef.current = null
+    workingPagesRef.current = readingPagesRef.current
+    setDraftPages(readingPagesRef.current)
+    settleIndexRef.current = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
+    setSettleIndex(settleIndexRef.current)
+  }, [listen.playing, showHearing])
+
+  useLayoutEffect(() => {
+    const wrap = pageWrapRef.current
+    const chromeEl = bottomChromeRef.current
+    if (!wrap || !chromeEl || phoneAskOpen || !pagesStableRef.current) return
+    return afterLabPaint(() => {
+      if (!pagesStableRef.current) return
+      const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
+      if (!passage) return
+      const pages = readingPagesRef.current
+      const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
+      if (wordsAvailableOnNextPage(pages, pageIdx) <= 0) return
+      const inkBottom = [...passage.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+        .reduce((max, node) => {
+          const rect = node.getBoundingClientRect()
+          return rect.height > 8 ? Math.max(max, rect.bottom) : max
+        }, 0)
+      const chromeTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
+      const line = passage.querySelector('.lab-hearing-line')
+      let lineHeight = 24
+      if (line && typeof getComputedStyle === 'function') {
+        const lh = getComputedStyle(line).lineHeight
+        if (lh.endsWith('px')) {
+          const px = parseFloat(lh)
+          if (Number.isFinite(px) && px > 8 && px < 80) lineHeight = px
+        }
+      }
+      if (inkBottom <= 0 || chromeTop <= 0) return
+      const slack = labPageSlackPx(inkBottom, chromeTop)
+      if (slack <= 32) return
+      const painted = measurePaintedOverflow(passage, chromeEl)
+      const words = growWordsFromSlack(painted?.lastLineWords ?? 0, slack, lineHeight)
+      const grown = growPageByWords(pages, pageIdx, words)
+      if (sameChapterPages(grown, pages)) return
+      readingPagesRef.current = grown
+      setReadingPages(grown)
+      workingPagesRef.current = grown
+      setDraftPages(grown)
+      lastAdjustRef.current = 'grow'
+    })
+  }, [listen.playing, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
+
+  useLayoutEffect(() => {
+    if (!selectionPopup) return
+    const el = popupRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const vw = window.innerWidth
+    const vh = window.innerHeight
+    const margin = 8
+    let dx = 0
+    let dy = 0
+    if (rect.left < margin) dx = margin - rect.left
+    else if (rect.right > vw - margin) dx = (vw - margin) - rect.right
+    if (rect.top < margin) dy = margin - rect.top
+    else if (rect.bottom > vh - margin) dy = (vh - margin) - rect.bottom
+    if (dx === 0 && dy === 0) return
+    setSelectionPopup(sp => sp ? { ...sp, x: sp.x + dx, y: sp.y + dy } : null)
+  }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, noteInput])
+
+  const dismissSelectionPopup = useCallback(() => {
+    setSelectionPopup(null)
+    setPopupMode('colors')
+    setNoteInput('')
+    define.setQuery('')
+  }, [define])
+
+  useEffect(() => {
+    if (!selectionPopup) return
+    const onPointer = (event: PointerEvent) => {
+      const target = event.target as HTMLElement
+      if (target.closest('.selection-popup') || target.closest('[data-testid="lab-word"]')) return
+      dismissSelectionPopup()
+    }
+    document.addEventListener('pointerdown', onPointer)
+    return () => document.removeEventListener('pointerdown', onPointer)
+  }, [dismissSelectionPopup, selectionPopup])
+
+  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number) => {
+    const created = highlightsApi.addOrReuse(range, 'gold')
+    const mode = defaultPopupMode(range.text, created.id)
+    setPopupMode(mode)
+    setNoteInput(created.note || '')
+    if (mode === 'define') define.begin(range.text)
+    const anchorY = clientY
+    const showBelow = window.innerHeight - anchorY > anchorY
+    const mobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+    const estimatedHeight = mode === 'define' ? 220 : 64
+    const bottomSheetTop = window.innerHeight - estimatedHeight - 48
+    const safeTop = 88
+    const floatingY = anchorY - estimatedHeight - 12
+    const hasRoomAboveSelection = floatingY >= safeTop
+    const shouldFloatAbove = mobile && anchorY > bottomSheetTop - 48 && hasRoomAboveSelection
+    setSelectionPopup({
+      x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
+      y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
+      text: range.text,
+      paragraphIndex: range.paragraphIndex,
+      startOffset: range.fromWord,
+      endOffset: range.toWord,
+      showBelow,
+      mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
+      existingHighlightId: created.id,
+      existingNote: created.note,
+      range,
+    })
+  }, [define, highlightsApi])
 
   const leaveTalking = useCallback(() => {
     resumeListenAfterAsk()
@@ -1296,18 +1453,23 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             peek={chrome === 'hearing' && peekBook}
             readingPage={readingPage}
             chapterPages={readingPages}
+            highlights={highlightsApi.chapterHighlights}
+            chapterNumber={book.chapterNumber}
+            selectingRange={selectionPopup?.range ?? null}
+            onSelectRange={phoneAsk ? undefined : handleSelectRange}
           />
           {settleIndex != null && draftPages[settleIndex] && (
             <div
               className="lab-page-measure"
               ref={measureHostRef}
               aria-hidden="true"
-              key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}`}
+              key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}-${showHearing && listen.playing ? 'hear' : 'read'}`}
             >
               <LabPageMeasurePaint
                 chapterTitle={book.chapterTitle}
                 paragraphs={book.paragraphs}
                 page={draftPages[settleIndex]}
+                hearingPaint={showHearing && listen.playing}
               />
             </div>
           )}
@@ -1561,6 +1723,66 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           notice={ask.notice}
           onLeave={leaveTalking}
           onActivate={handleOrb}
+        />
+      )}
+
+      {selectionPopup && (
+        <SelectionPopup
+          selection={selectionPopup}
+          popupRef={popupRef}
+          popupMode={popupMode}
+          setPopupMode={setPopupMode}
+          onColorClick={(color: HighlightColor) => {
+            if (selectionPopup.existingHighlightId) {
+              highlightsApi.setColor(selectionPopup.existingHighlightId, color)
+            }
+          }}
+          defineQuery={define.query}
+          setDefineQuery={define.setQuery}
+          defineResult={define.result}
+          defineLoading={define.loading}
+          defineNotFound={define.notFound}
+          runDefine={define.run}
+          onDefine={() => {
+            if (selectionPopup.text) define.begin(selectionPopup.text)
+            setPopupMode('define')
+          }}
+          issueTag=""
+          setIssueTag={() => {}}
+          issueComment=""
+          setIssueComment={() => {}}
+          issueSubmitting={false}
+          onIssueSubmit={() => {}}
+          noteInput={noteInput}
+          setNoteInput={setNoteInput}
+          onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
+          onRequestNote={() => setPopupMode('note')}
+          onExplain={() => {
+            if (selectionPopup.text) define.begin(selectionPopup.text)
+            setPopupMode('define')
+          }}
+          onCopy={() => {
+            const text = selectionPopup.text
+            const done = () => dismissSelectionPopup()
+            if (navigator.clipboard?.writeText) {
+              navigator.clipboard.writeText(text).finally(done)
+            } else {
+              done()
+            }
+          }}
+          onShare={(text) => {
+            if (typeof navigator !== 'undefined' && 'share' in navigator) {
+              void navigator.share({ text }).finally(() => dismissSelectionPopup())
+            } else {
+              dismissSelectionPopup()
+            }
+          }}
+          onDeleteHighlight={(id) => {
+            highlightsApi.remove(id)
+            dismissSelectionPopup()
+          }}
+          dismissPopup={dismissSelectionPopup}
+          lab
         />
       )}
 

@@ -103,9 +103,11 @@ function TreeRow({
   ].filter(Boolean).join(' ')
 
   if (node.kind === 'chapter') {
+    const isCurrentChapter = node.chapterNumber === currentChapter
     return (
       <button
         type="button"
+        ref={isCurrentChapter ? scrollRef : null}
         className="lab-tree-row toc-item lab-tree-chapter"
         data-testid={`lab-tree-chapter-${node.chapterNumber}`}
         data-kind="chapter"
@@ -124,7 +126,6 @@ function TreeRow({
     <div className={`lab-tree-node is-${node.kind}`} data-testid={`lab-tree-node-${node.key}`}>
       <button
         type="button"
-        ref={isCurrentBook || (node.kind === 'book' && isOpen) ? scrollRef : null}
         className={headerClass}
         data-testid={`lab-tree-${node.kind}-${node.key}`}
         data-kind={node.kind}
@@ -156,6 +157,7 @@ function TreeRow({
             <button
               key={chapter.number}
               type="button"
+              ref={chapter.number === currentChapter ? scrollRef : null}
               className="lab-tree-row toc-item lab-tree-chapter"
               data-testid={`lab-tree-chapter-${chapter.number}`}
               data-kind="chapter"
@@ -209,7 +211,7 @@ export function LabPhoneBibleTree({
   }, [onClose])
 
   useLayoutEffect(() => {
-    scrollRef.current?.scrollIntoView?.({ block: 'start' })
+    scrollRef.current?.scrollIntoView?.({ block: 'center' })
   }, [expanded, currentChapter])
 
   const onToggle = (node: LabTreeNode) => {

@@ -357,7 +357,7 @@ function paintedNodeBottom(el: Element): number {
 export function lastPaintedTextBottom(root: HTMLElement): number {
   let last = 0
   // Word tokens are ink. A stretched .lab-hearing-line box is not.
-  paintQueryAll(root, '.lab-hearing-line > span').forEach((node) => {
+  paintQueryAll(root, '.lab-hearing-line > span, .lab-hearing-word').forEach((node) => {
     const rect = node.getBoundingClientRect()
     if (rect.height > 1) last = Math.max(last, rect.bottom)
   })
@@ -453,6 +453,51 @@ export function labChromeJumped(
 /** Remesure only when the painted bar actually moved. */
 export function labBarMoved(prevTop: number, nextTop: number): boolean {
   return prevTop > 0 && nextTop > 0 && prevTop !== nextTop
+}
+
+/** Clear space between last ink and the chrome top. */
+export function labPageSlackPx(lastBottom: number, chromeTop: number): number {
+  return Math.max(0, chromeTop - LAB_OVERFLOW_CLEAR_PX - lastBottom)
+}
+
+export type LabPageAdjust = 'peel' | 'grow' | null
+
+/** Room for at least one more line below the last painted ink. */
+export function labPaintHasGrowableSlack(
+  lastBottom: number,
+  chromeTop: number,
+  lineHeight: number,
+): boolean {
+  const slack = labPageSlackPx(lastBottom, chromeTop)
+  const line = lineHeight > 8 ? lineHeight : 24
+  return slack > line
+}
+
+/** After a peel, only grow when slack is clearly more than one line. */
+export function shouldGrowPaintedPage(
+  lastAdjust: LabPageAdjust,
+  slackPx: number,
+  lineHeight: number,
+): boolean {
+  const line = lineHeight > 8 ? lineHeight : 24
+  if (slackPx <= line) return false
+  if (lastAdjust !== 'peel') return true
+  return slackPx > line * 1.5
+}
+
+/** Words to pull from the next page when slack allows growth. */
+export function growWordsFromSlack(
+  lastLineWords = 0,
+  slackPx = 0,
+  lineHeight = 0,
+): number {
+  const trusted = lastLineWords > 0 && lastLineWords <= 16
+  let words = trusted ? lastLineWords : 8
+  if (slackPx > 40 && lineHeight > 8) {
+    const lines = Math.max(1, Math.floor(slackPx / lineHeight))
+    words = Math.max(words, Math.min(lines * (trusted ? lastLineWords : 8), 24))
+  }
+  return Math.max(1, words)
 }
 
 /**

@@ -451,6 +451,49 @@ export function reflowAfterCut(
 }
 
 /** True when two chapter page lists have the same bounds. */
+/** Pull words from the next page into the current one when remeasure finds slack. */
+export function growPageByWords(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  wordCount: number,
+): ChapterHearingPage[] {
+  if (wordCount <= 0 || pageIndex < 0 || pageIndex >= pages.length - 1) return pages
+  const page = pages[pageIndex]
+  const next = pages[pageIndex + 1]
+  if (!page || !next) return pages
+
+  if (page.paragraphIndex === next.paragraphIndex) {
+    const available = next.to - next.from
+    const take = Math.min(wordCount, available)
+    if (take <= 0) return pages
+    const grown: ChapterHearingPage[] = [...pages]
+    grown[pageIndex] = { ...page, to: page.to + take }
+    if (next.from + take >= next.to) {
+      grown.splice(pageIndex + 1, 1)
+    } else {
+      grown[pageIndex + 1] = { ...next, from: next.from + take }
+    }
+    return grown
+  }
+
+  if (page.paragraphIndex < next.paragraphIndex && page.to > page.from) {
+    const take = Math.min(wordCount, next.to - next.from)
+    if (take <= 0) return pages
+    const grown: ChapterHearingPage[] = [...pages]
+    grown[pageIndex + 1] = { ...next, from: next.from + take }
+    if (next.from + take >= next.to) grown.splice(pageIndex + 1, 1)
+    return grown
+  }
+
+  return pages
+}
+
+export function wordsAvailableOnNextPage(pages: ChapterHearingPage[], pageIndex: number): number {
+  const next = pages[pageIndex + 1]
+  if (!next) return 0
+  return Math.max(0, next.to - next.from)
+}
+
 export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[]): boolean {
   if (a === b) return true
   if (a.length !== b.length) return false

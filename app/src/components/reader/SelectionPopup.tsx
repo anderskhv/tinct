@@ -55,6 +55,7 @@ export interface SelectionPopupProps {
   onShare?: (text: string) => void
   onDeleteHighlight?: (id: string) => void
   dismissPopup: () => void
+  lab?: boolean
 }
 
 function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
@@ -167,6 +168,7 @@ export function SelectionPopup({
   onShare,
   onDeleteHighlight,
   dismissPopup,
+  lab = false,
 }: SelectionPopupProps) {
   const homeMode = homeModeFor(selection)
   const showActionBar = popupMode === 'define' || popupMode === 'colors'
@@ -176,7 +178,7 @@ export function SelectionPopup({
   return (
     <div
       ref={popupRef}
-      className={`selection-popup ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      className={`selection-popup${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-popup-mode={popupMode}
       style={{
         left: selection.x,

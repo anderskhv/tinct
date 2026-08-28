@@ -1,4 +1,14 @@
+import { useRef, useState } from 'react'
 import { LAB_COPY } from './labCopy'
+import {
+  buildHighlightRange,
+  highlightColorAt,
+  labHighlightCssClass,
+  wordInHighlightRange,
+  type LabHighlight,
+  type LabHighlightRange,
+  type LabWordPlace,
+} from './labHighlights'
 import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, readingPageLines } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
@@ -29,6 +39,14 @@ interface LabPassageProps {
   peek?: boolean
   readingPage?: ChapterHearingPage
   chapterPages?: ChapterHearingPage[]
+  highlights?: LabHighlight[]
+  chapterNumber?: number
+  selectingRange?: LabHighlightRange | null
+  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
+}
+
+function wordSpacing(word: { text: string }, wordIndex: number): string {
+  return wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''
 }
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
@@ -36,7 +54,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
     <p key={lineIndex} className="lab-hearing-line">
       {line.words.map((word, wordIndex) => (
         <span key={`${lineIndex}-${wordIndex}`}>
-          {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+          {wordSpacing(word, wordIndex)}
           {word.text}
         </span>
       ))}
@@ -58,12 +76,21 @@ function renderHearingWords(
           className={`lab-hearing-word is-${word.role}`}
           data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
         >
-          {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+          {wordSpacing(word, wordIndex)}
           {word.text}
         </span>
       ))}
     </p>
   ))
+}
+
+function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
+  const el = target instanceof Element ? target.closest('[data-testid="lab-word"]') : null
+  if (!el) return null
+  const paragraphIndex = Number(el.getAttribute('data-paragraph-index'))
+  const wordIndex = Number(el.getAttribute('data-word-index'))
+  if (!Number.isInteger(paragraphIndex) || !Number.isInteger(wordIndex)) return null
+  return { paragraphIndex, wordIndex }
 }
 
 export function LabPassage({
@@ -90,6 +117,10 @@ export function LabPassage({
   peek,
   readingPage,
   chapterPages,
+  highlights = [],
+  chapterNumber = 0,
+  selectingRange = null,
+  onSelectRange,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow)
@@ -109,6 +140,50 @@ export function LabPassage({
     ? isChapterFirstHearingPage(paragraph, linesFollow, chapterPages)
     : isChapterFirstReadingPage(readingPage)
 
+  const dragRef = useRef<{ start: LabWordPlace; end: LabWordPlace } | null>(null)
+  const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
+  const activeSelecting = localSelecting || selectingRange
+
+  const finishPointerSelection = (event: React.PointerEvent) => {
+    const drag = dragRef.current
+    dragRef.current = null
+    setLocalSelecting(null)
+    if (!drag || !onSelectRange) return
+    const range = buildHighlightRange(paragraphs, drag.start, drag.end)
+    if (!range.text.trim()) return
+    onSelectRange(range, event.clientX, event.clientY)
+  }
+
+  const onPointerDown = (event: React.PointerEvent) => {
+    if (!onSelectRange || hearing || (event.target as HTMLElement).closest('.lab-mark-btn')) return
+    const place = wordPlaceFromTarget(event.target)
+    if (!place) return
+    event.preventDefault()
+    try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
+    dragRef.current = { start: place, end: place }
+    setLocalSelecting(buildHighlightRange(paragraphs, place, place))
+  }
+
+  const onPointerMove = (event: React.PointerEvent) => {
+    const drag = dragRef.current
+    if (!drag) return
+    const place = wordPlaceFromTarget(event.target)
+      || wordPlaceFromTarget(document.elementFromPoint(event.clientX, event.clientY))
+    if (!place) return
+    drag.end = place
+    setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+  }
+
+  const onPointerEnd = (event: React.PointerEvent) => {
+    if (!dragRef.current) return
+    finishPointerSelection(event)
+  }
+
+  const onPointerCancel = () => {
+    dragRef.current = null
+    setLocalSelecting(null)
+  }
+
   return (
     <article
       className={[
@@ -121,13 +196,16 @@ export function LabPassage({
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
       data-passage-mode={mode}
+      onContextMenu={(event) => {
+        if (!hearing && onSelectRange) event.preventDefault()
+      }}
     >
       {showHeadline && (
-      <header className="lab-passage-header">
-        <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
-          {chapterTitle}
-        </h1>
-      </header>
+        <header className="lab-passage-header">
+          <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
+            {chapterTitle}
+          </h1>
+        </header>
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
@@ -144,33 +222,53 @@ export function LabPassage({
               </div>
             </div>
           ) : (
-            <div className="lab-hearing-stage" data-testid="lab-reading-stage">
+            <div
+              className="lab-hearing-stage"
+              data-testid="lab-reading-stage"
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerEnd}
+              onPointerCancel={onPointerCancel}
+            >
               {readingLines.map((line, lineIndex) => {
-                const index = readingPage?.paragraphIndex ?? 0
+                const paragraphIndex = readingPage?.paragraphIndex ?? 0
+                const wordBase = readingPage?.from ?? 0
                 return (
-                <p
-                  key={lineIndex}
-                  id={`lab-p-${index}`}
-                  className={[
-                    'lab-hearing-line',
-                    markedIndexes.has(index) ? 'is-marked' : '',
-                    focusParagraph === index ? 'is-focus' : '',
-                  ].filter(Boolean).join(' ')}
-                >
-                  {line.words.map((word, wordIndex) => (
-                    <span key={`${lineIndex}-${wordIndex}`}>
-                      {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
-                      {word.text}
-                    </span>
-                  ))}
-                  <button
-                    type="button"
-                    className="lab-mark-btn"
-                    onClick={() => onMark(index)}
+                  <p
+                    key={lineIndex}
+                    id={`lab-p-${paragraphIndex}`}
+                    className={[
+                      'lab-hearing-line',
+                      markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
+                      focusParagraph === paragraphIndex ? 'is-focus' : '',
+                    ].filter(Boolean).join(' ')}
                   >
-                    {LAB_COPY.markAction}
-                  </button>
-                </p>
+                    {line.words.map((word, wordIndex) => {
+                      const absoluteWord = wordBase + wordIndex
+                      const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
+                      const selecting = activeSelecting
+                        && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
+                      return (
+                        <span
+                          key={`${lineIndex}-${wordIndex}`}
+                          className={labHighlightCssClass(color, selecting)}
+                          data-testid="lab-word"
+                          data-paragraph-index={paragraphIndex}
+                          data-word-index={absoluteWord}
+                        >
+                          {wordSpacing(word, wordIndex)}
+                          {word.text}
+                        </span>
+                      )
+                    })}
+                    <button
+                      type="button"
+                      className="lab-mark-btn"
+                      onClick={() => onMark(paragraphIndex)}
+                    >
+                      {LAB_COPY.markAction}
+                    </button>
+                  </p>
                 )
               })}
             </div>
@@ -212,10 +310,11 @@ export function LabPageMeasurePaint(input: {
   chapterTitle: string
   paragraphs: string[]
   page: ChapterHearingPage
+  hearingPaint?: boolean
 }) {
   const lines = readingPageLines(input.paragraphs, input.page)
   return (
-    <article className="lab-passage lab-book is-reading">
+    <article className={`lab-passage lab-book ${input.hearingPaint ? 'is-hearing' : 'is-reading'}`}>
       {isChapterFirstReadingPage(input.page) && (
         <header className="lab-passage-header">
           <h1 className="lab-passage-headline">{input.chapterTitle}</h1>
@@ -227,8 +326,13 @@ export function LabPageMeasurePaint(input: {
             {lines.map((line, lineIndex) => (
               <p key={lineIndex} className="lab-hearing-line">
                 {line.words.map((word, wordIndex) => (
-                  <span key={`${lineIndex}-${wordIndex}`}>
-                    {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
+                  <span
+                    key={`${lineIndex}-${wordIndex}`}
+                    className={input.hearingPaint
+                      ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
+                      : 'lab-hearing-word'}
+                  >
+                    {wordSpacing(word, wordIndex)}
                     {word.text}
                   </span>
                 ))}
