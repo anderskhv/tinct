@@ -43,6 +43,8 @@ interface LabPassageProps {
   chapterNumber?: number
   selectingRange?: LabHighlightRange | null
   onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
+  browseWhileListening?: boolean
+  onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
 }
 
 function wordSpacing(word: { text: string }, wordIndex: number): string {
@@ -71,7 +73,9 @@ function renderHearingWords(
   paragraph: FollowParagraph | undefined,
   follow: FollowTarget,
   chapterPages?: ChapterHearingPage[],
+  onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
 ) {
+  const paragraphIndex = paragraph?.index ?? 0
   const lines = hearingStageLines(paragraph, follow, chapterPages)
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
@@ -80,6 +84,11 @@ function renderHearingWords(
           key={`${lineIndex}-${wordIndex}`}
           className={`lab-hearing-word is-${word.role}`}
           data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+          data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
+          data-word-index={word.wordIndex}
+          onClick={word.wordIndex != null && onSeekToWord
+            ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
+            : undefined}
         >
           {wordSpacing(word, wordIndex)}
           {renderWordText(word.text)}
@@ -126,9 +135,11 @@ export function LabPassage({
   chapterNumber = 0,
   selectingRange = null,
   onSelectRange,
+  browseWhileListening = false,
+  onSeekToWord,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
-  const followActive = hearingFollowPaintActive(mode, playing, follow)
+  const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
   const paintedFollow = readingPage
     ? { kind: 'word' as const, paragraphIndex: readingPage.paragraphIndex, wordIndex: readingPage.from }
     : null
@@ -160,7 +171,7 @@ export function LabPassage({
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
-    if (!onSelectRange || hearing || (event.target as HTMLElement).closest('.lab-mark-btn')) return
+    if (!onSelectRange || hearing || onSeekToWord || (event.target as HTMLElement).closest('.lab-mark-btn')) return
     const place = wordPlaceFromTarget(event.target)
     if (!place) return
     event.preventDefault()
@@ -194,7 +205,8 @@ export function LabPassage({
       className={[
         'lab-passage',
         'lab-book',
-        hearing ? 'is-hearing' : 'is-reading',
+        hearing && !browseWhileListening ? 'is-hearing' : 'is-reading',
+        browseWhileListening ? 'is-browse-listen' : '',
         dimmed ? 'is-dimmed' : '',
         compare ? 'is-compare' : '',
         peek ? 'is-peek' : '',
@@ -217,10 +229,10 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, chapterPages)}
+                {renderHearingWords(paragraph, linesFollow, chapterPages, onSeekToWord)}
               </div>
             </div>
-          ) : hearing ? (
+          ) : hearing && !browseWhileListening ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
                 {renderPlainWords(readingLines)}
@@ -260,6 +272,12 @@ export function LabPassage({
                           data-testid="lab-word"
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
+                          onClick={onSeekToWord
+                            ? (event) => {
+                                event.stopPropagation()
+                                onSeekToWord(paragraphIndex, absoluteWord)
+                              }
+                            : undefined}
                         >
                           {wordSpacing(word, wordIndex)}
                           {word.text}

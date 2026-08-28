@@ -152,6 +152,11 @@
   color: #0b0b0b;
 }
 
+.lab-passage.is-hearing .lab-hearing-word[data-word-index],
+.lab-passage.is-browse-listen .lab-hearing-word {
+  cursor: pointer;
+}
+
 .lab-hearing-word {
   display: inline;
 }
@@ -2025,13 +2030,34 @@
 .lab-tree-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 1.15rem 2.6rem 0.85rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.15rem 1rem 0.85rem;
+}
+
+.lab-tree-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.lab-tree-collapse {
+  border: 1px solid #c8c0ae;
+  background: transparent;
+  color: #6a6555;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
 }
 
 .lab-tree-title {
   margin: 0;
+  flex: 1;
+  text-align: center;
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -2039,16 +2065,13 @@
 }
 
 .lab-tree-close {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   border: 0;
   background: transparent;
   color: #8a8373;
   font-size: 1.5rem;
   line-height: 1;
   cursor: pointer;
+  padding: 0.15rem 0.35rem;
 }
 
 .lab-tree-list,
@@ -2163,6 +2186,11 @@
 
 .lab-tree .toc-item-number {
   display: none;
+}
+
+.lab.is-night .lab-tree-collapse {
+  border-color: var(--lab-border);
+  color: var(--lab-ink-muted);
 }
 
 .lab.is-night .lab-tree,

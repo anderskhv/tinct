@@ -241,7 +241,17 @@ export function LabPhoneBibleTree({
       <div className="toc-panel lab-tree-panel" onClick={event => event.stopPropagation()}>
         <div className="lab-tree-header">
           <h2 className="lab-tree-title">{title}</h2>
-          <button type="button" className="toc-close lab-tree-close" onClick={onClose} aria-label="Close">×</button>
+          <div className="lab-tree-header-actions">
+            <button
+              type="button"
+              className="lab-tree-collapse"
+              data-testid="lab-tree-collapse"
+              onClick={() => setExpanded(new Set(ancestorKeysForChapter(tree, currentChapter)))}
+            >
+              Collapse
+            </button>
+            <button type="button" className="toc-close lab-tree-close" onClick={onClose} aria-label="Close">×</button>
+          </div>
         </div>
         <div className="lab-tree-list">
           {tree.map(node => (
