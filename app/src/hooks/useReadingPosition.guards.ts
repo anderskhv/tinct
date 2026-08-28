@@ -176,10 +176,24 @@ export function shouldBlockHistoryRegression(args: {
   lastUserNavAt: number
   now: number
   graceMs: number
+  /**
+   * Most recently read chapter from reading-log lastReadAt or chat location.
+   * A write at/near that chapter is rereading, not a stale-tab regression,
+   * even when monotonic highestCompletedChapter is far ahead (Bible Jeremiah
+   * while the high-water is James).
+   */
+  recentHistoryChapter?: number
 }): boolean {
-  const { attemptedChapter, historyHighWaterChapter, lastUserNavAt, now, graceMs } = args
+  const { attemptedChapter, historyHighWaterChapter, lastUserNavAt, now, graceMs, recentHistoryChapter } = args
   if (historyHighWaterChapter <= attemptedChapter + 1) return false
   if (now - lastUserNavAt <= graceMs) return false
+  if (
+    recentHistoryChapter !== undefined &&
+    recentHistoryChapter > 0 &&
+    attemptedChapter >= recentHistoryChapter - 1
+  ) {
+    return false
+  }
   return true
 }
 

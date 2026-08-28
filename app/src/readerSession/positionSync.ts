@@ -1,5 +1,5 @@
 import { storage } from '../services/storage'
-import type { BookReadingLog, ReadingPosition, ReadingProgress } from '../types'
+import type { BookReadingLog, ChatConversation, ReadingPosition, ReadingProgress } from '../types'
 import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression, shouldBlockSameChapterRegression, shouldRecoverEarlyResetFromHistory } from '../hooks/useReadingPosition.guards'
 import { canPersistLocation, positionFromLocation } from './writer'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionState } from './types'
@@ -18,6 +18,93 @@ function readingLogKey(bookId: string): string {
   return `reading-log:${bookId}`
 }
 
+function chatHistoryKey(bookId: string): string {
+  return `chat-history:${bookId}`
+}
+
+type HistoryPlace = {
+  chapterNumber: number
+  paragraphIndex?: number
+  totalParagraphs?: number
+  lastReadAt: number
+}
+
+function isInChapterRange(chapterNumber: number, totalChapters: number): boolean {
+  if (!Number.isInteger(chapterNumber) || chapterNumber < 1) return false
+  if (totalChapters > 0 && chapterNumber > totalChapters) return false
+  return true
+}
+
+function isBetterHistoryPlace(candidate: HistoryPlace, current: HistoryPlace | null): boolean {
+  if (!current) return true
+  if (candidate.lastReadAt !== current.lastReadAt) return candidate.lastReadAt > current.lastReadAt
+  return candidate.chapterNumber > current.chapterNumber
+}
+
+function considerHistoryPlace(best: HistoryPlace | null, candidate: HistoryPlace): HistoryPlace {
+  return isBetterHistoryPlace(candidate, best) ? candidate : best!
+}
+
+function getReadingLogHistoryPlace(bookId: string, totalChapters = 0): HistoryPlace | null {
+  const log = storage.get<BookReadingLog>(readingLogKey(bookId))
+  if (log?.bookId !== bookId) return null
+  let best: HistoryPlace | null = null
+  for (const record of Object.values(log.chapters)) {
+    if (!record || !isInChapterRange(record.chapterNumber, totalChapters)) continue
+    const lastReadAt = typeof record.lastReadAt === 'number' ? record.lastReadAt : 0
+    best = considerHistoryPlace(best, {
+      chapterNumber: record.chapterNumber,
+      paragraphIndex: record.lastParagraphIndex,
+      totalParagraphs: record.totalParagraphs,
+      lastReadAt,
+    })
+  }
+  return best
+}
+
+function getChatHistoryPlace(bookId: string, totalChapters = 0): HistoryPlace | null {
+  const conversations = storage.get<ChatConversation[]>(chatHistoryKey(bookId))
+  if (!Array.isArray(conversations) || conversations.length === 0) return null
+  let best: HistoryPlace | null = null
+  for (const conversation of conversations) {
+    if (conversation.bookId && conversation.bookId !== bookId) continue
+    if (isInChapterRange(conversation.chapterNumber, totalChapters)) {
+      const lastReadAt = typeof conversation.endTimestamp === 'number' ? conversation.endTimestamp : 0
+      best = considerHistoryPlace(best, {
+        chapterNumber: conversation.chapterNumber,
+        paragraphIndex: conversation.paragraphIndex,
+        lastReadAt,
+      })
+    }
+    for (const message of conversation.messages ?? []) {
+      if (message.bookId && message.bookId !== bookId) continue
+      if (message.chapterDivider) continue
+      const chapterNumber = message.chapterNumber ?? conversation.chapterNumber
+      if (!isInChapterRange(chapterNumber, totalChapters)) continue
+      const lastReadAt = typeof message.timestamp === 'number' ? message.timestamp : 0
+      best = considerHistoryPlace(best, {
+        chapterNumber,
+        paragraphIndex: message.paragraphIndex,
+        lastReadAt,
+      })
+    }
+  }
+  return best
+}
+
+/**
+ * Most recently visited place from reading-log lastReadAt or chat location.
+ * Does not consult progress.highestCompletedChapter — that high-water is
+ * monotonic and can be far ahead of a deliberate earlier-book reread.
+ */
+function getRecentHistoryPlace(bookId: string, totalChapters = 0): HistoryPlace | null {
+  const logPlace = getReadingLogHistoryPlace(bookId, totalChapters)
+  const chatPlace = getChatHistoryPlace(bookId, totalChapters)
+  if (!logPlace) return chatPlace
+  if (!chatPlace) return logPlace
+  return isBetterHistoryPlace(chatPlace, logPlace) ? chatPlace : logPlace
+}
+
 function getHistoryHighWaterChapter(bookId: string, totalChapters: number): number {
   let highWater = 0
   const progress = storage.get<ReadingProgress>(progressKey(bookId))
@@ -28,53 +115,43 @@ function getHistoryHighWaterChapter(bookId: string, totalChapters: number): numb
   if (log?.bookId === bookId) {
     for (const rawChapter of Object.keys(log.chapters)) {
       const chapter = Number(rawChapter)
-      if (!Number.isInteger(chapter) || chapter < 1) continue
-      if (totalChapters > 0 && chapter > totalChapters) continue
+      if (!isInChapterRange(chapter, totalChapters)) continue
       highWater = Math.max(highWater, chapter)
     }
   }
   return highWater
 }
 
-function getHistoryRecoveryChapter(bookId: string, totalChapters = 0): { chapterNumber: number; paragraphIndex?: number; totalParagraphs?: number } | null {
-  let best: { chapterNumber: number; paragraphIndex?: number; totalParagraphs?: number; lastReadAt: number } | null = null
-  const log = storage.get<BookReadingLog>(readingLogKey(bookId))
-  if (log?.bookId === bookId) {
-    for (const record of Object.values(log.chapters)) {
-      if (!record || !Number.isInteger(record.chapterNumber) || record.chapterNumber < 1) continue
-      if (totalChapters > 0 && record.chapterNumber > totalChapters) continue
-      const lastReadAt = typeof record.lastReadAt === 'number' ? record.lastReadAt : 0
-      if (
-        !best ||
-        lastReadAt > best.lastReadAt ||
-        (lastReadAt === best.lastReadAt && record.chapterNumber > best.chapterNumber)
-      ) {
-        best = {
-          chapterNumber: record.chapterNumber,
-          paragraphIndex: record.lastParagraphIndex,
-          totalParagraphs: record.totalParagraphs,
-          lastReadAt,
-        }
-      }
-    }
-  }
-
+function getProgressRecoveryChapter(bookId: string, totalChapters = 0): number | null {
   const progress = storage.get<ReadingProgress>(progressKey(bookId))
-  if (progress?.bookId === bookId && progress.highestCompletedChapter > 0) {
-    const nextChapter = totalChapters > 0
-      ? Math.min(progress.highestCompletedChapter + 1, totalChapters)
-      : progress.highestCompletedChapter + 1
-    if (!best || nextChapter > best.chapterNumber) {
-      best = { chapterNumber: nextChapter, lastReadAt: 0 }
+  if (progress?.bookId !== bookId || progress.highestCompletedChapter <= 0) return null
+  const nextChapter = progress.highestCompletedChapter + 1
+  if (totalChapters > 0) return Math.min(nextChapter, totalChapters)
+  return nextChapter
+}
+
+/**
+ * Recovery target after a defaultish Genesis 1/2 reset.
+ *
+ * Recency wins: the newest reading-log lastReadAt or chat location is the
+ * place the reader was actually in. Monotonic highestCompletedChapter+1 is
+ * only a fallback when there is no recency signal. Preferring the high-water
+ * (James 1 / 1147) over a newer Jeremiah 18 log entry is what teleported
+ * Anders off Jeremiah.
+ */
+export function getHistoryRecoveryChapter(bookId: string, totalChapters = 0): { chapterNumber: number; paragraphIndex?: number; totalParagraphs?: number } | null {
+  const recent = getRecentHistoryPlace(bookId, totalChapters)
+  if (recent) {
+    return {
+      chapterNumber: recent.chapterNumber,
+      paragraphIndex: recent.paragraphIndex,
+      totalParagraphs: recent.totalParagraphs,
     }
   }
 
-  if (!best) return null
-  return {
-    chapterNumber: best.chapterNumber,
-    paragraphIndex: best.paragraphIndex,
-    totalParagraphs: best.totalParagraphs,
-  }
+  const progressChapter = getProgressRecoveryChapter(bookId, totalChapters)
+  if (progressChapter == null) return null
+  return { chapterNumber: progressChapter }
 }
 
 const cloudKnownChapter = new Map<string, number>()
@@ -204,12 +281,14 @@ export function commitReadingPosition(args: PositionCommitInput): PositionCommit
   }
 
   const historyHighWater = getHistoryHighWaterChapter(position.bookId, args.totalChapters)
+  const recentHistoryChapter = getRecentHistoryPlace(position.bookId, args.totalChapters)?.chapterNumber ?? 0
   if (shouldBlockHistoryRegression({
     attemptedChapter: position.chapterNumber,
     historyHighWaterChapter: historyHighWater,
     lastUserNavAt: lastNav,
     now,
     graceMs: USER_NAV_GRACE_MS,
+    recentHistoryChapter,
   })) {
     return { committed: false, reason: `history-regression-blocked:${args.cause}:history=${historyHighWater}>attempt=${position.chapterNumber}`, position, gate }
   }

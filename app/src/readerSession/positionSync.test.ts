@@ -5,6 +5,7 @@ import {
   USER_NAV_GRACE_MS,
   commitReadingPosition,
   commitReadingProgress,
+  getHistoryRecoveryChapter,
   getRecoverableSavedPosition,
   getReadingProgress,
   getSavedPosition,
@@ -182,6 +183,76 @@ describe('commitReadingPosition (pinned current behavior)', () => {
     expect(result.reason).toContain('history-regression-blocked')
   })
 
+  it('allows persisting Jeremiah 18 when that is the newest log entry and high-water is James 1', () => {
+    const id = 'commit-jeremiah-reread'
+    markCloudLoaded(id, null)
+    store.set(`progress:${id}`, {
+      bookId: id,
+      highestCompletedChapter: 1146,
+      totalChapters: 1189,
+      percent: 96,
+    })
+    store.set(`reading-log:${id}`, {
+      bookId: id,
+      updatedAt: 4_000,
+      chapters: {
+        763: {
+          chapterNumber: 763,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 3_500,
+          lastReadAt: 4_000,
+          completed: false,
+          lastParagraphIndex: 6,
+          totalParagraphs: 12,
+        },
+        1147: {
+          chapterNumber: 1147,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 1_000,
+          lastReadAt: 1_200,
+          completed: false,
+        },
+      },
+    })
+
+    const result = commitReadingPosition({
+      cause: 'jeremiah-reread',
+      readerSession: {
+        location: location(id, {
+          chapterNumber: 763,
+          paragraphIndex: 6,
+          scrollFraction: 0.5,
+          editionKey: 'kjv-en',
+        }),
+        context: {
+          book: {
+            id,
+            title: 'Bible',
+            author: 'Various',
+            editions: [{ key: 'kjv-en', language: 'en', style: 'kjv', label: 'KJV', aligned: true }],
+          },
+          editionData: {
+            chapters: [762, 763, 764].map(number => ({
+              number,
+              title: `Chapter ${number}`,
+              paragraphs: ['p0', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'],
+            })),
+          },
+        },
+        status: 'ready',
+      },
+      currentPage: 2,
+      totalPages: 6,
+      totalChapters: 1189,
+      now: 5_000,
+    })
+
+    expect(result.committed).toBe(true)
+    expect(getSavedPosition(id)?.chapterNumber).toBe(763)
+  })
+
   it('treats markCloudLoaded(null) as clearing the dedup baseline', () => {
     const id = 'pin-clear'
     expect(commitReadingPosition(commitArgs(id)).committed).toBe(true)
@@ -311,6 +382,108 @@ describe('getRecoverableSavedPosition', () => {
     })
 
     expect(getRecoverableSavedPosition(id, 1189)).toEqual(saved)
+  })
+
+  it('recovers Jeremiah 18 from a poisoned Genesis 1 blip instead of James 1 high-water', () => {
+    // Production shape 2026-08-25: position:bible is Genesis 1, progress
+    // highestCompletedChapter is Hebrews 13 (1146) so high-water next is
+    // James 1 (1147), but the newest lastReadAt is Jeremiah 18 (763).
+    const id = 'recover-jeremiah-vs-james'
+    store.set(`position:${id}`, {
+      bookId: id,
+      chapterNumber: 1,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+      lastParagraphIndex: 0,
+      updatedAt: 3_000,
+    })
+    store.set(`progress:${id}`, {
+      bookId: id,
+      highestCompletedChapter: 1146,
+      totalChapters: 1189,
+      percent: 96,
+    })
+    store.set(`reading-log:${id}`, {
+      bookId: id,
+      updatedAt: 4_000,
+      chapters: {
+        763: {
+          chapterNumber: 763,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 3_500,
+          lastReadAt: 4_000,
+          completed: false,
+          lastParagraphIndex: 6,
+          totalParagraphs: 12,
+        },
+        1147: {
+          chapterNumber: 1147,
+          editions: ['kjv-en'],
+          readCount: 1,
+          firstReadAt: 1_000,
+          lastReadAt: 1_200,
+          completed: false,
+        },
+      },
+    })
+
+    expect(getHistoryRecoveryChapter(id, 1189)).toEqual({
+      chapterNumber: 763,
+      paragraphIndex: 6,
+      totalParagraphs: 12,
+    })
+    expect(getRecoverableSavedPosition(id, 1189)).toMatchObject({
+      bookId: id,
+      chapterNumber: 763,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 6 / 11,
+      lastParagraphIndex: 6,
+    })
+  })
+
+  it('recovers Jeremiah 18 from chat location when that is newer than the James 1 high-water', () => {
+    const id = 'recover-jeremiah-chat'
+    store.set(`position:${id}`, {
+      bookId: id,
+      chapterNumber: 1,
+      currentPage: 0,
+      totalPages: 1,
+      scrollFraction: 0,
+    })
+    store.set(`progress:${id}`, {
+      bookId: id,
+      highestCompletedChapter: 1146,
+      totalChapters: 1189,
+      percent: 96,
+    })
+    store.set(`chat-history:${id}`, [{
+      id: 'conv-jeremiah',
+      bookId: id,
+      chapterNumber: 763,
+      paragraphIndex: 3,
+      startTimestamp: 3_000,
+      endTimestamp: 5_000,
+      preview: 'Jeremiah 18',
+      messages: [{
+        id: 'm1',
+        role: 'user',
+        content: 'What is happening in Jeremiah 18?',
+        timestamp: 5_000,
+        bookId: id,
+        chapterNumber: 763,
+        paragraphIndex: 3,
+      }],
+    }])
+
+    expect(getHistoryRecoveryChapter(id, 1189)).toEqual({
+      chapterNumber: 763,
+      paragraphIndex: 3,
+      totalParagraphs: undefined,
+    })
+    expect(getRecoverableSavedPosition(id, 1189)?.chapterNumber).toBe(763)
   })
 })
 
