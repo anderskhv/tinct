@@ -322,6 +322,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [])
 
   useEffect(() => {
+    const root = document.documentElement
+    const prev = root.getAttribute('data-theme')
+    root.setAttribute('data-theme', prefs.darkMode ? 'dark' : 'light')
+    return () => {
+      root.setAttribute('data-theme', prev ?? 'light')
+    }
+  }, [prefs.darkMode])
+
+  useEffect(() => {
     if (source) {
       setBook(source)
       return

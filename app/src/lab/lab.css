@@ -302,7 +302,7 @@
 .lab-passage.is-reading .lab-paragraph-current,
 .lab-passage.is-reading .lab-p.is-follow-paragraph {
   font-weight: 400;
-  color: #0b0b0b;
+  color: inherit;
   background: none;
 }
 
@@ -2178,4 +2178,11 @@
 
 .lab.is-night .lab-tree-children {
   border-left-color: var(--lab-border);
+}
+
+/* Terminal night ink — reading words must not stay on paper black (#0b0b0b). */
+.lab.is-night .lab-passage .lab-hearing-line,
+.lab.is-night .lab-passage .lab-hearing-line > span:not(.lab-mark-btn),
+.lab.is-night .lab-passage .lab-hearing-word:not(.is-upcoming) {
+  color: var(--lab-ink);
 }
