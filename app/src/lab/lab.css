@@ -1665,62 +1665,80 @@
 }
 
 .lab.is-night {
-  background: #161310;
-  color: #ece7db;
+  --lab-paper: #2e2a24;
+  --lab-ink: #faf6ee;
+  --lab-ink-muted: #b8b0a4;
+  --lab-surface: #3a342c;
+  --lab-border: #4a4338;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-header,
 .lab.is-night .lab-page-turn,
 .lab.is-night .lab-phone-bar,
 .lab.is-night .lab-ask,
-.lab.is-night .lab-ask-composer {
-  background: #161310;
-  color: #ece7db;
-  border-color: #2c2822;
+.lab.is-night .lab-ask-composer,
+.lab.is-night .lab-body,
+.lab.is-night .lab-page-wrap,
+.lab.is-night .lab-book,
+.lab.is-night .lab-passage,
+.lab.is-night .lab-hearing,
+.lab.is-night .lab-hearing-stage {
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
 }
 
 .lab.is-night .lab-header-work,
 .lab.is-night .lab-header-chapter,
 .lab.is-night .lab-chapter-progress-info,
-.lab.is-night .lab-phone-fat {
-  color: #c9c2b2;
+.lab.is-night .lab-phone-fat,
+.lab.is-night .lab-title-sep {
+  color: var(--lab-ink-muted);
 }
 
 .lab.is-night .lab-header-chapter {
-  background: #2a241c;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-logo,
 .lab.is-night .lab-gear,
 .lab.is-night .lab-fullscreen,
 .lab.is-night .lab-page-turn-btn {
-  color: #ece7db;
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-passage-header {
-  background: #161310;
+  background: var(--lab-paper);
 }
 
 .lab.is-night .lab-passage-headline,
 .lab.is-night h1.lab-passage-headline,
 .lab.is-night .lab-hearing-line,
 .lab.is-night .lab-passage.is-reading .lab-hearing-line,
+.lab.is-night .lab-passage.is-reading .lab-hearing-line > span,
+.lab.is-night .lab-passage.is-reading .lab-hearing-word,
+.lab.is-night .lab-passage.is-reading .lab-word-current,
+.lab.is-night .lab-passage.is-reading .lab-paragraph-current,
+.lab.is-night .lab-passage.is-reading .lab-p.is-follow-paragraph,
 .lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-line,
 .lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-spoken {
-  color: #ece7db;
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-upcoming {
-  color: #8a8478;
+  color: var(--lab-ink-muted);
 }
 
 .lab.is-night .lab-passage.is-hearing .lab-hearing-word.is-current {
-  color: #ece7db;
-  background: #3a342c;
+  color: var(--lab-ink);
+  background: var(--lab-surface);
 }
 
 .lab.is-night .lab-verse-mark {
-  color: #c9c2b2;
+  color: var(--lab-ink-muted);
 }
 
 .lab-ss-overlay,
@@ -1937,37 +1955,37 @@
 .lab.is-night .lab-toc .toc-overlay,
 .lab.is-night .lab-toc .toc-panel,
 .lab.is-night .lab-toc .toc-header {
-  background: #1b1713;
-  color: #ece7db;
-  border-color: #2c2822;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
 }
 
 .lab.is-night .lab-ss-seg-item,
 .lab.is-night .lab-ss-size {
-  color: #ece7db;
-  border-color: #4a4338;
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
 }
 
 .lab.is-night .lab-ss-seg-item.is-active,
 .lab.is-night .lab-ss-size.is-active {
-  background: #ece7db;
-  color: #161310;
-  border-color: #ece7db;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  border-color: var(--lab-ink);
 }
 
 .lab.is-night .lab-ss-row-label,
 .lab.is-night .lab-ss-sub {
-  color: #ece7db;
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-ss-row-hint {
-  color: #9a9486;
+  color: var(--lab-ink-muted);
 }
 
 .lab.is-night .lab-ss-select {
-  background: #1b1713;
-  color: #ece7db;
-  border-color: #4a4338;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
 }
 
 .lab.is-night .lab-ss-row {
@@ -2150,13 +2168,14 @@
 .lab.is-night .lab-tree,
 .lab.is-night .lab-tree-title,
 .lab.is-night .lab-tree-row {
-  color: #ece7db;
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-tree-row.is-current {
-  background: #2a241c;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
 }
 
 .lab.is-night .lab-tree-children {
-  border-left-color: #3a342c;
+  border-left-color: var(--lab-border);
 }
