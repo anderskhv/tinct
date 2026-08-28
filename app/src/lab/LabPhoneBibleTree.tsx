@@ -73,6 +73,7 @@ function TreeMark({ mark }: { mark: LabTreeMark }) {
 
 function TreeRow({
   node,
+  depth = 0,
   chapters,
   currentChapter,
   finished,
@@ -82,6 +83,7 @@ function TreeRow({
   scrollRef,
 }: {
   node: LabTreeNode
+  depth?: number
   chapters: LabChapter[]
   currentChapter: number
   finished: Set<number>
@@ -94,9 +96,11 @@ function TreeRow({
   const mark = labTreeMark(node, finished, currentChapter)
   const progress = labTreeProgressLabel(node, finished)
   const isCurrentBook = node.kind === 'book' && node.chapterNumbers.includes(currentChapter)
+  const depthClass = `is-depth-${Math.min(depth, 3)}`
   const headerClass = [
     'lab-tree-row',
     'toc-section-header',
+    depthClass,
     isOpen ? 'toc-section-expanded is-expanded' : '',
     isCurrentBook ? 'is-current' : '',
     `is-${node.kind}`,
@@ -108,7 +112,7 @@ function TreeRow({
       <button
         type="button"
         ref={isCurrentChapter ? scrollRef : null}
-        className="lab-tree-row toc-item lab-tree-chapter"
+        className={`lab-tree-row toc-item lab-tree-chapter ${depthClass}`}
         data-testid={`lab-tree-chapter-${node.chapterNumber}`}
         data-kind="chapter"
         data-mark={mark}
@@ -144,6 +148,7 @@ function TreeRow({
             <TreeRow
               key={child.key}
               node={child}
+              depth={depth + 1}
               chapters={chapters}
               currentChapter={currentChapter}
               finished={finished}
@@ -158,7 +163,7 @@ function TreeRow({
               key={chapter.number}
               type="button"
               ref={chapter.number === currentChapter ? scrollRef : null}
-              className="lab-tree-row toc-item lab-tree-chapter"
+              className={`lab-tree-row toc-item lab-tree-chapter is-depth-${Math.min(depth + 1, 3)}`}
               data-testid={`lab-tree-chapter-${chapter.number}`}
               data-kind="chapter"
               data-mark={labTreeMark({
@@ -234,6 +239,7 @@ export function LabPhoneBibleTree({
             <TreeRow
               key={node.key}
               node={node}
+              depth={0}
               chapters={chapters}
               currentChapter={currentChapter}
               finished={finishedChapters}

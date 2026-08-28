@@ -9,7 +9,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, readingPageLines } from './labHearing'
+import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, readingPageLines } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
 
@@ -49,13 +49,20 @@ function wordSpacing(word: { text: string }, wordIndex: number): string {
   return wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''
 }
 
+function renderWordText(text: string) {
+  if (!isLabVerseMarker(text)) return text
+  return text.split('').map((ch, index) => (
+    <span key={index} className="lab-verse-mark">{ch}</span>
+  ))
+}
+
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
       {line.words.map((word, wordIndex) => (
         <span key={`${lineIndex}-${wordIndex}`}>
           {wordSpacing(word, wordIndex)}
-          {word.text}
+          {renderWordText(word.text)}
         </span>
       ))}
     </p>
@@ -77,7 +84,7 @@ function renderHearingWords(
           data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
         >
           {wordSpacing(word, wordIndex)}
-          {word.text}
+          {renderWordText(word.text)}
         </span>
       ))}
     </p>

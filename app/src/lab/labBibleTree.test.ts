@@ -161,7 +161,7 @@ describe('lab finished chapter marks', () => {
       title: 'Genesis 1',
       chapterNumbers: [1],
       chapterNumber: 1,
-    }, finished, 30)).toBe('progress')
+    }, finished, 30)).toBe('done')
     expect(labTreeMark({
       key: 'chapter/31',
       kind: 'chapter',

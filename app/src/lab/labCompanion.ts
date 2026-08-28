@@ -30,7 +30,9 @@ export const LAB_ASK_COMPANION_TOOL = {
 
 const PLAYBACK_COMMAND = /\b(go\s+faster|go\s+slower|speed\s+up|slow\s+down|faster|slower|\d+(\.\d+)?\s*x|next\s+chapter|previous\s+chapter|skip(\s+(ahead|forward|back|this))?\b|next\s+paragraph|previous\s+paragraph|resume|continue|keep\s+going|back\s+to\s+the\s+book|play|pause|talk\s+slower|talk\s+faster|slower\s+please)\b/i
 
-const HARD_QUESTION = /\b(what does (this|that|it) mean|mean(ing)?|theology|theological|compar(e|ison)|character|argument|who (is|are|was|were)|why (does|is|did|would|are)|theme|symbol|foreshadow|explain|interpret|notice)\b/i
+const HARD_QUESTION = /\b(what does (this|that|it) mean|mean(ing)?|theology|theological|compar(e|ison)|character|argument|who (is|are|was|were)|why (does|is|did|would|are)|theme|symbol|foreshadow|explain|interpret|notice|echo|remind|connect|parallel|resonat(e|es)|like\s+\w+|between\s+\w+\s+and)\b/i
+
+const LITERARY_CONNECTION = /\b(echo|remind|connect|parallel|resonat(e|es)|like\s+\w+|between\s+\w+\s+and|how\s+does\s+this|what\s+does\s+this\s+have\s+to\s+do)\b/i
 
 const TINY_CONFIRM = /^(ok|okay|yes|yeah|yep|no|nope|thanks|thank you|mm+|mhm|uh huh|got it|sure)\.?$/i
 
@@ -54,8 +56,8 @@ export function shouldEscalateToCompanion(text: string): boolean {
   const trimmed = text.trim()
   if (!trimmed) return false
   if (TINY_CONFIRM.test(trimmed)) return false
-  if (isLabPlaybackUtterance(trimmed) && !HARD_QUESTION.test(trimmed)) return false
-  return HARD_QUESTION.test(trimmed) || trimmed.length > 48
+  if (isLabPlaybackUtterance(trimmed) && !HARD_QUESTION.test(trimmed) && !LITERARY_CONNECTION.test(trimmed)) return false
+  return HARD_QUESTION.test(trimmed) || LITERARY_CONNECTION.test(trimmed) || trimmed.length > 48
 }
 
 export function pickLabCoverLine(index = 0): string {
@@ -103,7 +105,7 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
     `You are Tinct's ear and mouth beside the page on /lab. You listen, handle barge-in, and run playback tools. You do not do the deep thinking.`,
     `Do not greet. Do not say hello. The app speaks the opening line.`,
     `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms you answer yourself in one short line.`,
-    `Easy questions you can answer from the passage already below, you answer yourself in a short, warm, literary line.`,
+    `Easy questions you can answer from the passage already below, you answer yourself in a short, warm, literary line. Reasonable literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter — no spoilers from later in the book.`,
     `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — first speak one short natural line as if you are looking at the passage, then call ${ASK_COMPANION_TOOL}. Do not sit in silence. Do not sound like a call-center hold.`,
     `After ${ASK_COMPANION_TOOL} returns, speak that answer as your own. Do not invent a thinner substitute. Never mention a tool, a hop, a cutoff, or "the answer I received". Never say an answer got cut off. If the hop is incomplete, wait rather than narrating the failure.`,
     `Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.`,
@@ -138,7 +140,7 @@ export function buildCompanionHopUserContent(input: LabTalkContext & { question:
 
 export const LAB_HOP_SPOKEN_LENGTH = 'Answer for the ear in a few spoken sentences unless the reader asked for more. Finish the thought. Do not write a long essay.'
 
-export const LAB_HOP_MAX_TOKENS = 512
+export const LAB_HOP_MAX_TOKENS = 1024
 
 export const LAB_HOP_FALLBACK = 'I could not get a reading of this passage just now.'
 

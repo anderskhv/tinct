@@ -240,7 +240,7 @@ export function labTreeMark(
 ): LabTreeMark {
   if (node.kind === 'chapter') {
     if (node.chapterNumber === currentChapter) return 'progress'
-    return finished.has(node.chapterNumber ?? -1) ? 'progress' : 'empty'
+    return finished.has(node.chapterNumber ?? -1) ? 'done' : 'empty'
   }
   const { finished: done, total } = bookChapterProgress(node.chapterNumbers, finished)
   if (node.kind === 'book') {

@@ -40,6 +40,17 @@ export function bibleAudioEditions(): Edition[] {
   return BIBLE.editions.filter(edition => edition.hasAudio)
 }
 
+/** Lab Hear locks narration to the primary edition when it has audio. */
+export function syncLabAudioEdition(prefs: LabPrefs): LabPrefs {
+  const primaryHasAudio = bibleAudioEditions().some(edition => edition.key === prefs.primaryEdition)
+  if (primaryHasAudio) return { ...prefs, audioEdition: prefs.primaryEdition }
+  return prefs
+}
+
+export function effectiveLabAudioEdition(prefs: LabPrefs): string {
+  return syncLabAudioEdition(prefs).audioEdition
+}
+
 export function labFontFamilyCss(family: FontFamily): string {
   if (family === 'baskerville') return "'Libre Baskerville', 'EB Garamond', Georgia, serif"
   if (family === 'sourceserif') return "'Source Serif 4', 'EB Garamond', Georgia, serif"

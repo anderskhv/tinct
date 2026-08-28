@@ -158,7 +158,7 @@ describe('spoken-length hop', () => {
     expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/unless the reader asked for more/)
     expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/Finish the thought/)
     expect(LAB_HOP_MAX_TOKENS).toBeGreaterThan(256)
-    expect(LAB_HOP_MAX_TOKENS).toBeLessThanOrEqual(768)
+    expect(LAB_HOP_MAX_TOKENS).toBeLessThanOrEqual(1024)
     expect(firstSpeakableChunk('Athena is already beside him.')).toBe('Athena is already beside him.')
     expect(firstSpeakableChunk('Hi.')).toBeNull()
     expect(remainderAfterSpeakable(

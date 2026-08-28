@@ -345,6 +345,13 @@ function appendTurnToConversations(
       return current
     }
     if (lastMsg && lastMsg.role === enriched.role && lastMsg.source === enriched.source) {
+      if (enriched.role === 'user' && enriched.id !== lastMsg.id && enriched.content !== lastMsg.content) {
+        return [...current.slice(0, -1), {
+          ...last,
+          endTimestamp: now,
+          messages: [...last.messages, enriched],
+        }]
+      }
       if (enriched.role === 'user' && enriched.content !== lastMsg.content) {
         return [...current.slice(0, -1), {
           ...last,

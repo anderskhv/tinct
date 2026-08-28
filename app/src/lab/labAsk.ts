@@ -24,6 +24,15 @@ export function isLabGreetingTranscript(text: string): boolean {
   return /^I'm listening\.(?:\s*listening\.)+$/i.test(next)
 }
 
+/** Strip transcription noise before persisting or showing Talk bubbles. */
+export function cleanLabVoiceTranscript(text: string): string {
+  return text
+    .replace(/\b(Ms|Us)\b/gi, '')
+    .replace(/\b(?:uh+|um+|hmm+|ah+|er+|mhm+)\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 /** Same line finalized twice, or the same line stuck to itself with no separator. */
 export function isStuckRepeatedLine(previous: string, incoming: string): boolean {
   const last = previous.trim()
