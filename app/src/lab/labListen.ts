@@ -3,7 +3,9 @@ import {
   ensureDerivedWordTimes,
   followFromPlayback,
   followParagraphFromManifest,
+  followTimeFromAudio,
   mergeSidecarWords,
+  wordsLookDerived,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
@@ -117,11 +119,16 @@ export function followPlayingClip(
   paragraphs: FollowParagraph[],
   clip: LabAudioClip | undefined,
   currentTime: number,
+  playbackRate = 1,
 ): FollowTarget {
   if (!clip) return { kind: 'none' }
+  const paragraph = paragraphs.find(item => item.index === clip.index) ?? paragraphs[clip.index]
+  const highlightTime = paragraph && wordsLookDerived(paragraph)
+    ? followTimeFromAudio(currentTime, playbackRate, true)
+    : currentTime
   return followFromPlayback({
     paragraphs,
     paragraphIndex: clip.index,
-    currentTime,
+    currentTime: highlightTime,
   })
 }

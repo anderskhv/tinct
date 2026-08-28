@@ -58,7 +58,7 @@ describe('lab bible audio paths', () => {
     expect(listen).not.toMatch(/setInterval/)
     expect(listen).toContain('setSpeed')
     expect(listen).toContain('parseHearingSpeed')
-    expect(listen).toContain('followTimeFromAudio')
+    expect(listen).toContain('followPlayingClip')
     expect(listen).toContain('playbackRate')
     expect(listen).toMatch(/const pause = useCallback\(\(\) => \{[\s\S]*setFollow\(\{ kind: 'none' \}\)/)
   })
@@ -83,7 +83,7 @@ describe('lab bible audio paths', () => {
       null,
     )
     expect(followed[0].words?.map(word => word.text)).toEqual(['In', 'the', 'beginning'])
-    expect(followed[0].words?.[0].end).toBeCloseTo(25 * 0.86 / 3)
+    expect(followed[0].words?.[0].end).toBeCloseTo(25 / 3)
     expect(followFromPlayback({ paragraphs: followed, paragraphIndex: 0, currentTime: 0.2 })).toEqual({
       kind: 'word',
       paragraphIndex: 0,

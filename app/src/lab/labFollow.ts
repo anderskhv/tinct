@@ -51,10 +51,10 @@ export function chapterWordsFromText(text: string): string[] {
  * Not a downloaded corpus — used when words.json is missing.
  */
 /**
- * Trailing pad in the MP3 must not push later words after they were spoken.
- * Pack equal slices into the spoken span, not the full clip duration.
+ * Even-split derived times span the full clip. Highlight lag handles trailing pad;
+ * compressing into 0.86× made highlights race ahead of the voice.
  */
-export const DERIVED_SPEECH_SPAN = 0.86
+export const DERIVED_SPEECH_SPAN = 1
 
 export function wordsFromParagraphDuration(text: string, duration: number): TimedWord[] | undefined {
   if (!(duration > 0)) return undefined
@@ -129,19 +129,19 @@ export function wordIndexAtTime(words: TimedWord[], localSeconds: number): numbe
 }
 
 /**
- * Highlight lead so the current word is the one being spoken, not the last finished one.
- * Scales with playbackRate because media-time runs faster at 1.5x / 2x while paint lag is wall-clock.
- * Prefer slightly early over late.
+ * Delay even-split derived highlights so they do not run ahead of narration.
+ * Real manifest / sidecar word starts are used as-is (no lag).
  */
-export function followLeadSeconds(playbackRate: number): number {
+export function followDerivedLagSeconds(playbackRate: number): number {
   const rate = Number.isFinite(playbackRate) && playbackRate > 0 ? playbackRate : 1
-  return 0.20 * rate + 0.08
+  return 0.15 * rate + 0.05
 }
 
-export function followTimeFromAudio(currentTime: number, playbackRate = 1): number {
+/** Map audio element time to highlight time (derived paragraphs only). */
+export function followTimeFromAudio(currentTime: number, playbackRate = 1, derived = false): number {
   const t = Number.isFinite(currentTime) ? Math.max(0, currentTime) : 0
-  if (t <= 0) return 0
-  return t + followLeadSeconds(playbackRate)
+  if (!derived) return t
+  return Math.max(0, t - followDerivedLagSeconds(playbackRate))
 }
 
 /**

@@ -84,7 +84,7 @@ describe('loadLabSource', () => {
     expect(source.sections?.[0]?.title).toBe('Old Testament')
     expect(source.followParagraphs[0]?.file).toBe('p0.mp3')
     expect(source.followParagraphs[0]?.words?.map(word => word.text)).toEqual(['In', 'the', 'beginning', 'God', 'created', 'the', 'heaven', 'and', 'the', 'earth.'])
-    expect(source.followParagraphs[0]?.words?.[0].end).toBeCloseTo(0.4 * 0.86)
+    expect(source.followParagraphs[0]?.words?.[0].end).toBeCloseTo(0.4)
   })
 
   it('falls back to Genesis without inventing a new Bible product', async () => {

@@ -4,7 +4,7 @@ import {
   followFromPlayback,
   followParagraphFromManifest,
   mergeSidecarWords,
-  followLeadSeconds,
+  followDerivedLagSeconds,
   followTimeFromAudio,
   wordIndexAtTime,
   wordsFromManifestParagraph,
@@ -41,7 +41,6 @@ describe('lab word follow', () => {
     expect(paragraph.words?.[0].start).toBeCloseTo(0)
     expect(paragraph.words?.[0].end).toBeCloseTo(unit)
     expect(paragraph.words?.[3]?.end).toBeCloseTo(4 * DERIVED_SPEECH_SPAN)
-    expect(paragraph.words?.[3]?.end).toBeLessThan(4)
     expect(followAtTime([paragraph], 1.2)).toEqual({
       kind: 'word',
       paragraphIndex: 0,
@@ -129,7 +128,7 @@ describe('lab word follow', () => {
       followParagraphFromManifest(0, 'Tell me', {
         duration: 2,
         file: 'p0.mp3',
-        words: [{ text: 'Tell', start: 0, end: 1 }, { text: 'me', start: 1, end: 2 }],
+        words: [{ text: 'Tell', start: 0, end: 0.8 }, { text: 'me', start: 0.8, end: 2 }],
       }),
       followParagraphFromManifest(1, 'So now', { file: 'p1.mp3' }),
     ]
@@ -180,7 +179,7 @@ describe('lab word follow', () => {
 
 describe('wordIndexAtTime', () => {
   it('holds the last word across a timing gap instead of jumping to the start', () => {
-const words = [
+    const words = [
       { text: 'Tell', start: 0.05, end: 0.55 },
       { text: 'me,', start: 0.55, end: 0.77 },
       { text: 'O', start: 1.03, end: 1.03 },
@@ -192,17 +191,18 @@ const words = [
   })
 })
 
-describe('follow lead from audio currentTime', () => {
-  it('leads 0.28s at 1x and 0.38s at 1.5x', () => {
-    expect(followLeadSeconds(1)).toBeCloseTo(0.28)
-    expect(followLeadSeconds(1.5)).toBeCloseTo(0.38)
-    expect(followLeadSeconds(2)).toBeCloseTo(0.48)
+describe('derived highlight lag from audio currentTime', () => {
+  it('lags 0.20s at 1x and 0.275s at 1.5x for derived timings only', () => {
+    expect(followDerivedLagSeconds(1)).toBeCloseTo(0.2)
+    expect(followDerivedLagSeconds(1.5)).toBeCloseTo(0.275)
+    expect(followDerivedLagSeconds(2)).toBeCloseTo(0.35)
     expect(followTimeFromAudio(0, 1)).toBe(0)
-    expect(followTimeFromAudio(1.0, 1)).toBeCloseTo(1.28)
-    expect(followTimeFromAudio(1.0, 1.5)).toBeCloseTo(1.38)
+    expect(followTimeFromAudio(1.0, 1)).toBe(1)
+    expect(followTimeFromAudio(1.0, 1, true)).toBeCloseTo(0.8)
+    expect(followTimeFromAudio(1.0, 1.5, true)).toBeCloseTo(0.725)
   })
 
-  it('sits on the spoken word at 1x and 1.5x, slightly early not late', () => {
+  it('does not lag real manifest word timings', () => {
     const words = [
       { text: 'In', start: 0, end: 0.4 },
       { text: 'the', start: 0.4, end: 0.7 },
@@ -210,26 +210,15 @@ describe('follow lead from audio currentTime', () => {
       { text: 'God', start: 1.3, end: 1.7 },
     ]
     for (const rate of [1, 1.5]) {
-      // Speaking "the" — must not still be on the finished previous word.
-      expect(wordIndexAtTime(words, followTimeFromAudio(0.45, rate))).toBeGreaterThanOrEqual(1)
-      // Speaking "beginning" — must not trail on "the".
-      const led = wordIndexAtTime(words, followTimeFromAudio(0.75, rate))
-      expect(led).toBeGreaterThanOrEqual(2)
-      expect(led).toBeLessThanOrEqual(3)
+      expect(wordIndexAtTime(words, followTimeFromAudio(0.45, rate))).toBe(1)
+      expect(wordIndexAtTime(words, followTimeFromAudio(0.75, rate))).toBe(2)
     }
-    expect(wordIndexAtTime(words, 0.75)).toBe(2)
-    expect(wordIndexAtTime(words, followTimeFromAudio(0.75, 1))).toBeGreaterThanOrEqual(2)
-    expect(wordIndexAtTime(words, followTimeFromAudio(0.75, 1.5))).toBeGreaterThanOrEqual(2)
   })
 
-  it('uses the led time so a 1.5x clock is not stuck on the previous word', () => {
-    const words = [
-      { text: 'Tell', start: 0, end: 0.4 },
-      { text: 'me,', start: 0.4, end: 0.7 },
-      { text: 'O', start: 0.7, end: 0.9 },
-      { text: 'Muse', start: 0.9, end: 1.4 },
-    ]
-    expect(wordIndexAtTime(words, followTimeFromAudio(0.55, 1.5))).toBeGreaterThanOrEqual(2)
-    expect(wordIndexAtTime(words, 0.55)).toBe(1)
+  it('delays derived even-split highlights so they do not run ahead of speech', () => {
+    const paragraph = followParagraphFromManifest(0, 'In the beginning God', { duration: 4, file: 'p0.mp3' })
+    const words = paragraph.words!
+    expect(wordIndexAtTime(words, followTimeFromAudio(2.0, 1, false))).toBe(2)
+    expect(wordIndexAtTime(words, followTimeFromAudio(2.0, 1, true))).toBe(1)
   })
 })

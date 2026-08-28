@@ -13,7 +13,6 @@ import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossCli
 import {
   ensureDerivedWordTimes,
   followParagraphFromManifest,
-  followTimeFromAudio,
   mergeSidecarWords,
   type FollowParagraph,
   type FollowTarget,
@@ -91,12 +90,11 @@ export function useLabListen(options: UseLabListenOptions) {
     const clip = clipsRef.current[index]
     const audio = audioRef.current
     const rate = playbackRate ?? audio?.playbackRate ?? speed
-    const led = followTimeFromAudio(time, rate)
     if (Number.isFinite(time) && (time > 0 || positionRef.current.time === 0 || positionRef.current.clipIndex !== index)) {
       positionRef.current = { clipIndex: index, time: Math.max(0, time) }
     }
     setCurrentTime(positionRef.current.time)
-    setFollow(followPlayingClip(paragraphsRef.current, clip, led))
+    setFollow(followPlayingClip(paragraphsRef.current, clip, positionRef.current.time, rate))
   }, [speed])
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
