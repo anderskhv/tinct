@@ -1,5 +1,13 @@
 import type { FollowParagraph, FollowTarget } from './labFollow'
-import { LAB_OVERFLOW_CLEAR_PX } from './labChrome'
+import {
+  LAB_OVERFLOW_CLEAR_PX,
+  labPageFitsPaint,
+  labPageSlackPx,
+  shouldGrowPaintedPage,
+  growWordsFromSlack,
+  type LabPageAdjust,
+  type LabPaintedOverflow,
+} from './labChrome'
 
 export type HearingWordRole = 'spoken' | 'current' | 'upcoming' | 'line'
 
@@ -60,6 +68,43 @@ function nextStrongStopAtOrAfter(words: Array<{ text: string }>, index: number):
     if (isStrongStop(words[i].text)) return i
   }
   return words.length - 1
+}
+
+/** When peeling overflow, prefer ending the page after a sentence boundary. */
+export function snapShrinkEndToSentence(
+  words: Array<{ text: string }>,
+  from: number,
+  to: number,
+  proposedTo: number,
+): number {
+  if (proposedTo >= to || proposedTo <= from + 1) return proposedTo
+  const minEnd = from + 1
+  const maxOrphan = 5
+  for (let i = proposedTo - 1; i >= from; i--) {
+    if (isStrongStop(words[i].text)) {
+      const end = i + 1
+      if (to - end < maxOrphan) return proposedTo
+      return Math.max(minEnd, end)
+    }
+  }
+  return proposedTo
+}
+
+/** Pull words from the next page when remeasure shows visible slack below the ink. */
+export function growPaintedPageIfSlack(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  painted: LabPaintedOverflow,
+  lastAdjust: LabPageAdjust | null,
+): ChapterHearingPage[] {
+  if (!labPageFitsPaint(painted)) return pages
+  const slack = labPageSlackPx(painted.lastBottom, painted.chromeTop)
+  const lineH = painted.lineHeight > 8 ? painted.lineHeight : 24
+  if (!shouldGrowPaintedPage(lastAdjust, slack, lineH)) return pages
+  if (wordsAvailableOnNextPage(pages, pageIndex) <= 0) return pages
+  const words = growWordsFromSlack(painted.lastLineWords, slack, lineH)
+  const grown = growPageByWords(pages, pageIndex, words)
+  return sameChapterPages(grown, pages) ? pages : grown
 }
 
 export const HEARING_PAGE_MIN = 70

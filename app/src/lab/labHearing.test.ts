@@ -13,6 +13,7 @@ import {
   chapterPageLabel,
   clampedChapterProgress,
   followOnReadingPage,
+  growPaintedPageIfSlack,
   reflowAfterCut,
   isOneWordLeftoverPage,
   ensurePageIdentity,
@@ -33,6 +34,7 @@ import {
   paginateLineBoxes,
   readingPageLines,
   restorePageIndexForAnchor,
+  snapShrinkEndToSentence,
   wrapWordsToLineBoxes,
   nextHearingSpeed,
   parseHearingSpeed,
@@ -620,6 +622,38 @@ describe('lab bible page leftovers', () => {
       expect(adjacentPageIndex(proverbsPages.length, 1, -1)).toBe(0)
     }
     expect(adjacentPageIndex(genesisPages.length, 0, -1)).toBeNull()
+  })
+})
+
+describe('page fill after peel', () => {
+  it('snaps overflow peel to the previous sentence end', () => {
+    const words = [
+      { text: 'First.' },
+      { text: 'Second' },
+      { text: 'sentence' },
+      { text: 'ends.' },
+      { text: 'Tail' },
+      { text: 'words.' },
+    ]
+    expect(snapShrinkEndToSentence(words, 0, 6, 4)).toBe(4)
+    expect(snapShrinkEndToSentence(words, 0, 6, 3)).toBe(1)
+  })
+
+  it('grows a fitted page when remeasure shows slack below the ink', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 40 },
+      { paragraphIndex: 0, from: 40, to: 80 },
+    ]
+    const painted = {
+      lastBottom: 500,
+      chromeTop: 600,
+      lineHeight: 40,
+      lastLineWords: 8,
+      scrollOverflow: false,
+    }
+    const grown = growPaintedPageIfSlack(pages, 0, painted, 'peel')
+    expect(grown[0].to).toBeGreaterThan(pages[0].to)
+    expect(grown[1].from).toBe(grown[0].to)
   })
 })
 

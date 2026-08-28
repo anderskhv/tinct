@@ -16,9 +16,7 @@ import {
   labStatusLine,
   labVisibleChrome,
   afterLabPaint,
-  growWordsFromSlack,
   labPageFitsPaint,
-  labPageSlackPx,
   labBarMoved,
   measureLabBarTop,
   measureLabOnScreenBarTop,
@@ -55,7 +53,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPageByWords, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -660,10 +658,23 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         lastBarTopRef.current = painted.chromeTop
       }
       if (!painted) return lastBarTopRef.current > 0 ? 'unmeasured' : 'fits'
-      if (labPageFitsPaint(painted)) return 'fits'
+      if (labPageFitsPaint(painted)) {
+        if (sameAsVisible) {
+          const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current)
+          if (!sameChapterPages(grown, pages)) {
+            lastAdjustRef.current = 'grow'
+            return applyPageList(grown, true)
+          }
+        }
+        return 'fits'
+      }
       if (live.to <= live.from + 1) return 'fits'
       const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-      const nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+      let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+      if (sameAsVisible) {
+        const paraWords = tokenizeHearingWords(book.paragraphs[live.paragraphIndex] || '')
+        nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
+      }
       if (nextTo >= live.to) return 'fits'
       const metrics = pageMetricsRef.current
       const budget = metrics ? labPageBudgetFromMetrics(metrics) : null
@@ -675,6 +686,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         canUseLabPageBudget(budget) ? budget : null,
         { lastLineWords: painted.lastLineWords, overflowing: true },
       )
+      lastAdjustRef.current = 'peel'
       return applyPageList(shrunk, sameAsVisible)
     }
     const shrinkIfNeeded = () => {
@@ -1052,41 +1064,28 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const chromeEl = bottomChromeRef.current
     if (!wrap || !chromeEl || phoneAskOpen || !pagesStableRef.current) return
     if (lockPaginationRef.current) return
-    return afterLabPaint(() => {
+    let growPasses = 0
+    const tryGrowVisiblePage = () => {
       if (!pagesStableRef.current) return
+      if (lockPaginationRef.current) return
+      if (growPasses >= 8) return
       const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
       if (!passage) return
       const pages = readingPagesRef.current
       const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
-      if (wordsAvailableOnNextPage(pages, pageIdx) <= 0) return
-      const inkBottom = [...passage.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
-        .reduce((max, node) => {
-          const rect = node.getBoundingClientRect()
-          return rect.height > 8 ? Math.max(max, rect.bottom) : max
-        }, 0)
-      const chromeTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
-      const line = passage.querySelector('.lab-hearing-line')
-      let lineHeight = 24
-      if (line && typeof getComputedStyle === 'function') {
-        const lh = getComputedStyle(line).lineHeight
-        if (lh.endsWith('px')) {
-          const px = parseFloat(lh)
-          if (Number.isFinite(px) && px > 8 && px < 80) lineHeight = px
-        }
-      }
-      if (inkBottom <= 0 || chromeTop <= 0) return
-      const slack = labPageSlackPx(inkBottom, chromeTop)
-      if (slack <= 20) return
       const painted = measurePaintedOverflow(passage, chromeEl)
-      const words = growWordsFromSlack(painted?.lastLineWords ?? 0, slack, lineHeight)
-      const grown = growPageByWords(pages, pageIdx, words)
+      if (!painted) return
+      const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current)
       if (sameChapterPages(grown, pages)) return
+      growPasses += 1
       readingPagesRef.current = grown
       setReadingPages(grown)
       workingPagesRef.current = grown
       setDraftPages(grown)
       lastAdjustRef.current = 'grow'
-    })
+      afterLabPaint(tryGrowVisiblePage)
+    }
+    return afterLabPaint(tryGrowVisiblePage)
   }, [listen.playing, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
 
   useLayoutEffect(() => {
