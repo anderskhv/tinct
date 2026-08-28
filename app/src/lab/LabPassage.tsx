@@ -51,9 +51,7 @@ function wordSpacing(word: { text: string }, wordIndex: number): string {
 
 function renderWordText(text: string) {
   if (!isLabVerseMarker(text)) return text
-  return text.split('').map((ch, index) => (
-    <span key={index} className="lab-verse-mark">{ch}</span>
-  ))
+  return <span className="lab-verse-mark">{text}</span>
 }
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {

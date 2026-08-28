@@ -1230,10 +1230,12 @@
 }
 
 .lab-verse-mark {
-  font-size: 0.62em;
-  vertical-align: 0.35em;
+  font-size: 0.68em;
+  vertical-align: super;
   line-height: 0;
   font-weight: 600;
+  margin-left: 0.14em;
+  letter-spacing: -0.03em;
 }
 
 /* Reading uses the same .lab-hearing-line type as Hearing. Do not shrink. */

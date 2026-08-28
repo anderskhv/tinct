@@ -310,6 +310,17 @@ export function pageAnchorOf(page: ChapterHearingPage | undefined): LabPageAncho
   return { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
 }
 
+/** During settle, draft can run ahead of reading — nav must use the same list. */
+export function labNavPageList(
+  stable: boolean,
+  working: ChapterHearingPage[],
+  reading: ChapterHearingPage[],
+): ChapterHearingPage[] {
+  if (stable) return reading
+  if (working.length > reading.length) return working
+  return reading.length > 0 ? reading : working
+}
+
 /** Page turns are exactly ±1. Null at the chapter edge (do not hop). */
 export function adjacentPageIndex(pageCount: number, current: number, delta: -1 | 1): number | null {
   const next = current + delta

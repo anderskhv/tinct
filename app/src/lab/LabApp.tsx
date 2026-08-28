@@ -53,7 +53,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, growPageByWords, labChapterProgress, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, growPageByWords, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, wordsAvailableOnNextPage, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -486,7 +486,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
     }
     const finishSettle = () => {
-      const pages = workingPagesRef.current
+      const keep = pageAnchorRef.current
+      let pages = absorbOrphanLeftoverPages(workingPagesRef.current, keep)
+      if (keep) pages = ensurePageIdentity(pages, keep)
+      workingPagesRef.current = pages
+      setDraftPages(pages)
       pagesStableRef.current = true
       setSettleIndex(null)
       settleIndexRef.current = null
@@ -494,6 +498,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (!sameChapterPages(readingPagesRef.current, pages)) {
         readingPagesRef.current = pages
         setReadingPages(pages)
+      }
+      if (keep) {
+        const idx = restorePageIndexForAnchor(pages, keep)
+        const clamped = Math.max(0, Math.min(idx, Math.max(0, pages.length - 1)))
+        if (clamped !== readingPageIndexRef.current) {
+          readingPageIndexRef.current = clamped
+          setReadingPageIndex(clamped)
+        }
       }
       if (chapterLandingRef.current === 'end') {
         pinLandingEnd(pages)
@@ -1058,21 +1070,41 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     resumeListenAfterAsk()
   }, [resumeListenAfterAsk])
 
+  const commitUnsettledNav = useCallback((pages: ChapterHearingPage[]) => {
+    if (pagesStableRef.current) return
+    pagesStableRef.current = true
+    setSettleIndex(null)
+    settleIndexRef.current = null
+    unmeasuredTriesRef.current = 0
+    workingPagesRef.current = pages
+    setDraftPages(pages)
+    if (!sameChapterPages(readingPagesRef.current, pages)) {
+      readingPagesRef.current = pages
+      setReadingPages(pages)
+    }
+  }, [])
+
   const goToPage = useCallback((index: number) => {
-    const pages = readingPagesRef.current
-    const page = pages[index]
+    const reading = readingPagesRef.current
+    const working = workingPagesRef.current
+    const navPages = labNavPageList(pagesStableRef.current, working, reading)
+    let page = navPages[index]
+    if (!page) page = reading[index]
     if (!page) return
+    const committed = navPages[index] ? navPages : reading
+    commitUnsettledNav(committed)
     chapterLandingRef.current = null
     landingChapterRef.current = null
     openAtEndRef.current = false
     setOpenAtEnd(false)
     pageAnchorRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
-    readingPageIndexRef.current = index
-    setReadingPageIndex(index)
+    const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
+    readingPageIndexRef.current = clamped
+    setReadingPageIndex(clamped)
     placeRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
     notePlace('page-turn', { paragraphIndex: page.paragraphIndex, wordIndex: page.from })
     if (listen.src) listen.seekToPlace(page.paragraphIndex, page.from)
-  }, [listen, notePlace])
+  }, [commitUnsettledNav, listen, notePlace])
 
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
     keepPlayingChapterRef.current = listen.playing ? number : null
@@ -1151,7 +1183,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   skipRef.current = applyPlaybackSkip
 
   const goNext = useCallback(() => {
-    const pages = workingPagesRef.current.length > 0 ? workingPagesRef.current : readingPagesRef.current
+    const reading = readingPagesRef.current
+    const working = workingPagesRef.current
+    const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const nextPage = adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
@@ -1166,7 +1200,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [book.chapterNumber, book.chapters, goToChapter, goToPage])
 
   const goPrev = useCallback(() => {
-    const pages = workingPagesRef.current.length > 0 ? workingPagesRef.current : readingPagesRef.current
+    const reading = readingPagesRef.current
+    const working = workingPagesRef.current
+    const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const prevPage = adjacentPageIndex(pages.length, index, -1)
     if (prevPage != null) {
@@ -1577,7 +1613,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               </>
             )}
           </div>
-          {readingPageIndex < Math.max(readingPages.length, draftPages.length) - 1 || canNextChapter ? (
+          {readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
               className="lab-page-turn-btn"

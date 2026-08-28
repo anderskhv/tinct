@@ -16,7 +16,9 @@ import {
   isOneWordLeftoverPage,
   ensurePageIdentity,
   isOrphanLeftoverPage,
+  LAB_ORPHAN_PAGE_WORDS,
   labChapterProgress,
+  labNavPageList,
   hearingFollowPaintActive,
   hearingPages,
   hearingProgress,
@@ -499,6 +501,56 @@ describe('lab height-fit pages vs chrome', () => {
     expect(restorePageIndexForAnchor(restored, anchor!)).toBe(3)
     expect(restored[3]).toEqual({ paragraphIndex: 0, from: 60, to: 72 })
     expect(onFive.from).toBe(72)
+  })
+
+  it('labNavPageList prefers the longer unsettled list so next can reach peeled tail pages', () => {
+    const reading = [
+      { paragraphIndex: 0, from: 0, to: 20 },
+      { paragraphIndex: 0, from: 20, to: 40 },
+      { paragraphIndex: 0, from: 40, to: 60 },
+      { paragraphIndex: 0, from: 60, to: 72 },
+      { paragraphIndex: 0, from: 72, to: 90 },
+      { paragraphIndex: 0, from: 90, to: 100 },
+    ]
+    const working = [
+      ...reading,
+      { paragraphIndex: 0, from: 100, to: 110 },
+    ]
+    const nav = labNavPageList(false, working, reading)
+    expect(nav.length).toBe(7)
+    const penult = nav.length - 2
+    expect(adjacentPageIndex(nav.length, penult, 1)).toBe(penult + 1)
+    expect(labNavPageList(true, working, reading)).toBe(reading)
+  })
+
+  it('absorbs peeled tail fragments for a short psalm chapter', () => {
+    const paragraphs = [
+      '⁶ Arise, O LORD, in thine anger, lift up thyself because of the rage of mine enemies: and awake for me to the judgment that thou hast commanded. ⁷ So shall the congregation of the people compass thee about: for their sakes therefore return thou on high. ⁸ The LORD shall judge the people: judge me, O LORD, according to my righteousness, and according to mine integrity that is in me. ⁹ Oh let the wickedness of the wicked come to an end; but establish the just: for the righteous God trieth the hearts and reins. ¹⁰ My defence is of God, which saveth the upright in heart.',
+      '¹¹ God judgeth the righteous, and God is angry with the wicked every day. ¹² If he turn not, he will whet his sword; he hath bent his bow, and made it ready. ¹³ He hath also prepared for him the instruments of death; he ordaineth his arrows against the persecutors. ¹⁴ Behold, he travaileth with iniquity, and hath conceived mischief, and brought forth falsehood. ¹⁵ He made a pit, and digged it, and is fallen into the ditch which he made.',
+    ]
+    const budget = {
+      height: 520,
+      width: 340,
+      lineHeight: 38,
+      headlineHeight: 54,
+      measureText: (text: string) => text.length * 9,
+    }
+    const pages = chapterHearingPages(paragraphs, budget)
+    const last = pages[pages.length - 1]
+    const splitAt = last.to - 4
+    const orphanTail = [
+      ...pages.slice(0, -1),
+      { paragraphIndex: last.paragraphIndex, from: last.from, to: splitAt },
+      { paragraphIndex: last.paragraphIndex, from: splitAt, to: last.to },
+    ]
+    expect(chapterPagesCover(paragraphs, orphanTail)).toBe(true)
+    expect(isOrphanLeftoverPage(orphanTail[orphanTail.length - 1])).toBe(true)
+    const settled = absorbOrphanLeftoverPages(orphanTail)
+    expect(settled.length).toBeLessThan(orphanTail.length)
+    expect(chapterPagesCover(paragraphs, settled)).toBe(true)
+    settled.forEach(page => {
+      expect(page.to - page.from).toBeGreaterThan(LAB_ORPHAN_PAGE_WORDS)
+    })
   })
 })
 
