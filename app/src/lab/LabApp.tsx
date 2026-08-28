@@ -17,6 +17,7 @@ import {
   labVisibleChrome,
   afterLabPaint,
   labPageFitsPaint,
+  labPageSlackPx,
   labBarMoved,
   measureLabBarTop,
   measureLabOnScreenBarTop,
@@ -53,7 +54,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageEndsMidSentence, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapPageEndToPriorSentence, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -1082,6 +1083,23 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     // Never reshape page slices while audio is up — slim transport measures a different budget.
     if (listen.playing || browseWhileListening) return
     let growPasses = 0
+    const trySnapMidSentenceEnd = (pages: ChapterHearingPage[], pageIdx: number, painted: LabPaintedOverflow): ChapterHearingPage[] | null => {
+      if (!labPageFitsPaint(painted)) return null
+      const live = pages[pageIdx]
+      if (!live) return null
+      const slack = labPageSlackPx(painted.lastBottom, painted.chromeTop)
+      const lineH = painted.lineHeight > 8 ? painted.lineHeight : 24
+      if (slack <= lineH * 1.5) return null
+      const paraWords = tokenizeHearingWords(book.paragraphs[live.paragraphIndex] || '')
+      if (!pageEndsMidSentence(paraWords, live.from, live.to)) return null
+      const snappedEnd = snapPageEndToPriorSentence(paraWords, live.from, live.to)
+      if (snappedEnd >= live.to) return null
+      const shrunk = applyPaintShrink(pages, pageIdx, snappedEnd, {
+        lastLineWords: painted.lastLineWords,
+        overflowing: false,
+      })
+      return sameChapterPages(shrunk, pages) ? null : shrunk
+    }
     const tryGrowVisiblePage = () => {
       if (!pagesStableRef.current) return
       if (listen.playing || browseWhileListeningRef.current) return
@@ -1092,14 +1110,38 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
       const painted = measurePaintedOverflow(passage, chromeEl)
       if (!painted) return
+      const snapped = trySnapMidSentenceEnd(pages, pageIdx, painted)
+      if (snapped) {
+        growPasses += 1
+        readingPagesRef.current = snapped
+        setReadingPages(snapped)
+        workingPagesRef.current = snapped
+        setDraftPages(snapped)
+        lastAdjustRef.current = 'peel'
+        afterLabPaint(tryGrowVisiblePage)
+        return
+      }
       const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, book.paragraphs)
-      if (sameChapterPages(grown, pages)) return
+      if (!sameChapterPages(grown, pages)) {
+        growPasses += 1
+        readingPagesRef.current = grown
+        setReadingPages(grown)
+        workingPagesRef.current = grown
+        setDraftPages(grown)
+        lastAdjustRef.current = 'grow'
+        afterLabPaint(tryGrowVisiblePage)
+        return
+      }
+      const afterGrow = measurePaintedOverflow(passage, chromeEl)
+      if (!afterGrow) return
+      const snappedAfterGrow = trySnapMidSentenceEnd(readingPagesRef.current, pageIdx, afterGrow)
+      if (!snappedAfterGrow) return
       growPasses += 1
-      readingPagesRef.current = grown
-      setReadingPages(grown)
-      workingPagesRef.current = grown
-      setDraftPages(grown)
-      lastAdjustRef.current = 'grow'
+      readingPagesRef.current = snappedAfterGrow
+      setReadingPages(snappedAfterGrow)
+      workingPagesRef.current = snappedAfterGrow
+      setDraftPages(snappedAfterGrow)
+      lastAdjustRef.current = 'peel'
       afterLabPaint(tryGrowVisiblePage)
     }
     return afterLabPaint(tryGrowVisiblePage)

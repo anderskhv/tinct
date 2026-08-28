@@ -110,8 +110,8 @@ describe('lab chrome inset invariant', () => {
 
   it('keeps last content bottom strictly above chrome top', () => {
     // Invariant: last content bottom y < chrome top y - 8px.
-    expect(lastContentClearsChrome(591, 600)).toBe(true)
-    expect(lastContentClearsChrome(592, 600)).toBe(false)
+    expect(lastContentClearsChrome(587, 600)).toBe(true)
+    expect(lastContentClearsChrome(588, 600)).toBe(false)
     expect(lastContentClearsChrome(599, 600)).toBe(false)
     expect(lastContentClearsChrome(600, 600)).toBe(false)
     expect(lastContentClearsChrome(640, 600)).toBe(false)
@@ -211,7 +211,7 @@ describe('lab chrome inset invariant', () => {
 
   it('keeps last ink above the bar after a shrink step', () => {
     expect(nextPaintShrinkTo(0, 80, 8, 121, 36)).toBeLessThan(72)
-    expect(lastContentClearsChrome(551, 560)).toBe(true)
+    expect(lastContentClearsChrome(547, 560)).toBe(true)
     expect(settlePageTotal(15, 14)).toBe(15)
     expect(settlePageTotal(14, 15)).toBe(14)
     expect(settlePageTotal(12, 12)).toBe(12)
@@ -219,9 +219,9 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('treats inner passage/wrap scroll or last ink on the bar as an invalid page', () => {
-    expect(labPageFitsPaint({ lastBottom: 551, chromeTop: 560 })).toBe(true)
-    expect(labPageFitsPaint({ lastBottom: 552, chromeTop: 560 })).toBe(false)
-    expect(labPageFitsPaint({ lastBottom: 551, chromeTop: 560, scrollOverflow: true })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560 })).toBe(true)
+    expect(labPageFitsPaint({ lastBottom: 548, chromeTop: 560 })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560, scrollOverflow: true })).toBe(false)
     document.body.innerHTML = `
       <div class="lab-page-wrap">
         <article class="lab-passage">

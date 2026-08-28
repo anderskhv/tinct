@@ -35,6 +35,7 @@ import {
   paginateLineBoxes,
   readingPageLines,
   restorePageIndexForAnchor,
+  snapPageEndToPriorSentence,
   snapShrinkEndToSentence,
   wrapWordsToLineBoxes,
   nextHearingSpeed,
@@ -638,6 +639,17 @@ describe('page fill after peel', () => {
     ]
     expect(snapShrinkEndToSentence(words, 0, 6, 4)).toBe(4)
     expect(snapShrinkEndToSentence(words, 0, 6, 3)).toBe(1)
+    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
+    const genesisWords = genesis[0].split(/\s+/).filter(Boolean).map(text => ({ text }))
+    expect(snapShrinkEndToSentence(genesisWords, 0, 58, 57)).toBe(53)
+  })
+
+  it('pulls a mid-sentence page end back to the prior stop', () => {
+    const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
+    const words = genesis[0].split(/\s+/).filter(Boolean).map(text => ({ text }))
+    const end = snapPageEndToPriorSentence(words, 0, 58)
+    expect(words[end - 1].text).toBe('light.')
+    expect(end).toBe(53)
   })
 
   it('grows a fitted page when remeasure shows slack below the ink', () => {
