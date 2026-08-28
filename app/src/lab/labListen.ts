@@ -37,14 +37,51 @@ export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, edit
   return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/words.json`, 'file')
 }
 
-/** Bible has chapter audio on R2; word sidecars are optional. */
-export const LAB_STATIC_WORD_SIDECAR_URL = null
+/** Odyssey Book 1 — committed Whisper sidecar when R2 words.json 404s. */
+export const LAB_STATIC_WORD_SIDECAR_URL = '/odyssey-ch1-words.json'
 
+/** Committed Whisper sidecars keyed by edition + chapter (same schema as odyssey-ch1-words.json). */
+const LAB_STATIC_BIBLE_WORD_SIDECARS: Record<string, string> = {
+  'kjv-en:768': '/bible-kjv-en-ch768-words.json',
+}
+
+export function labStaticWordSidecarUrl(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+): string | null {
+  if (editionKey === LAB_AUDIO.editionKey) {
+    return LAB_STATIC_BIBLE_WORD_SIDECARS[`${editionKey}:${chapterNumber}`] ?? null
+  }
+  return null
+}
+
+async function parseWordSidecarResponse(res: Response): Promise<WordSidecar | null> {
+  const contentType = res.headers?.get?.('content-type') || ''
+  if (!contentType.includes('json')) return null
+  try {
+    return await res.json() as WordSidecar
+  } catch {
+    return null
+  }
+}
+
+/** Prefer R2/asset sidecar; fall back to committed static JSON. Never invent timings. */
 export async function readLabWordSidecar(
   r2Res: Response | null | undefined,
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
 ): Promise<WordSidecar | null> {
   if (r2Res && 'ok' in r2Res && r2Res.ok) {
-    return await r2Res.json() as WordSidecar
+    const fromApi = await parseWordSidecarResponse(r2Res)
+    if (fromApi) return fromApi
+  }
+  const staticUrl = labStaticWordSidecarUrl(chapterNumber, editionKey) ?? (
+    editionKey === 'original-en' && chapterNumber === 1 ? LAB_STATIC_WORD_SIDECAR_URL : null
+  )
+  if (!staticUrl) return null
+  const fallback = await fetch(staticUrl).catch(() => null)
+  if (fallback && 'ok' in fallback && fallback.ok) {
+    return await fallback.json() as WordSidecar
   }
   return null
 }
@@ -128,7 +165,7 @@ export async function loadLabAudioChapter(
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
+  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes, chapterNumber, editionKey))
   return measureFollowParagraphWords(merged, chapterNumber, editionKey)
 }
 
