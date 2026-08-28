@@ -136,3 +136,68 @@ Preferred future RunPod choices:
 - Avoid unless urgent: H100, H200, B200, B300, and other expensive datacenter GPUs.
 
 Rule of thumb: use the cheapest available NVIDIA GPU with enough VRAM for Kokoro, generally 16-24 GB or more. Spend engineering effort on reducing per-file overhead before paying for larger GPUs.
+
+## Word timings (`words.json` sidecars)
+
+Play/Hearing word highlights need **authoritative** per-word `start`/`end` times. The app resolves them in order:
+
+1. Manifest paragraph `words` (inline)
+2. R2 sidecar `bible/{edition}/ch{N}/words.json` (or `{book}/…`)
+3. Client MP3 measurement (last resort — avoid for production)
+
+Do **not** invent linear `duration ÷ word_count` timings in the app. Generate sidecars once and upload to R2.
+
+### Schema
+
+Matches `app/src/lab/labFollow.ts` `WordSidecar`:
+
+```json
+{
+  "chapter": 768,
+  "bookId": "bible",
+  "editionKey": "kjv-en",
+  "method": "faster-whisper-word-timestamps",
+  "paragraphs": [
+    {
+      "paragraph": 0,
+      "file": "p0.mp3",
+      "words": [{ "text": "Woe", "start": 0.12, "end": 0.48 }]
+    }
+  ]
+}
+```
+
+R2 key: `{book}/{edition}/ch{chapter}/words.json`. Fetched via `/api/audio-file?path=…`.
+
+Prototype: `app/public/odyssey-ch1-words.json` (Odyssey ch1, same method).
+
+### Generation (RunPod or GPU box)
+
+```bash
+pip install -r app/tts/requirements-words.txt
+cd app/tts
+python3 generate-words-sidecar.py bible kjv-en --chapter 768 --upload
+python3 generate-words-sidecar.py bible kjv-en --start-ch 1 --end-ch 100 --upload
+```
+
+- Downloads existing paragraph MP3s from `tinct.app` (or reads `--local-dir`).
+- Runs **faster-whisper** with `word_timestamps=True`.
+- Aligns tokens to edition text (`clean_text` + whitespace split — same as Kokoro TTS).
+- Validates word count per paragraph before write.
+- Skips chapters that already have `words.json` on R2 (use `--force` to regenerate).
+- `--upload` uses `wrangler r2 object put` (RunPod `CLOUDFLARE_API_TOKEN` = R2 upload token).
+
+Validate locally:
+
+```bash
+node app/scripts/validate-words-sidecar.cjs app/tts/audio/bible/kjv-en/ch768/words.json \
+  --edition bible-kjv-en --chapter 768
+python3 app/tts/words_sidecar_lib_test.py
+```
+
+### Batch scale (Bible)
+
+Three English audio editions × ~1189 chapters ≈ 3.5k sidecar files. Run parallel RunPod jobs with `--start-ch` / `--end-ch` splits (same pattern as `run-kokoro-cloud.py`). **Do not re-TTS** — only align existing MP3s.
+
+`run-kokoro-cloud.py` and `app/scripts/upload-audio-r2.sh` now include `words.json` when present beside chapter manifests.
+

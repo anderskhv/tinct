@@ -70,6 +70,8 @@ npm run deploy
 
 `npm run deploy` is the only approved deploy path because it chains build, bundle verification, and Wrangler. Do not run raw `wrangler deploy`.
 
+**Deploy without your Mac:** add `CLOUDFLARE_API_TOKEN` (Workers deploy token) to GitHub Actions secrets and/or Cursor Cloud environment secrets. See `docs/cloud-deploy.md` and `.github/workflows/deploy.yml`.
+
 Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports existing unrelated errors in legacy/worker files. Prefer the project build and focused tests until the TypeScript baseline is cleaned up.
 
 ## Reader And Position Invariants

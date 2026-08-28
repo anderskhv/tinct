@@ -1,0 +1,93 @@
+#!/usr/bin/env node
+/**
+ * Validate a words.json sidecar against TimedWord rules and optional token counts.
+ *
+ * Usage:
+ *   node scripts/validate-words-sidecar.cjs path/to/words.json
+ *   node scripts/validate-words-sidecar.cjs path/to/words.json --edition bible-kjv-en --chapter 768
+ */
+const fs = require('node:fs')
+const path = require('node:path')
+
+const repoRoot = path.resolve(__dirname, '..', '..')
+
+function chapterWordsFromText(text) {
+  return text.split(/\s+/).map((part) => part.trim()).filter(Boolean)
+}
+
+function isTimedWord(word) {
+  return word
+    && typeof word.text === 'string'
+    && typeof word.start === 'number'
+    && Number.isFinite(word.start)
+    && typeof word.end === 'number'
+    && Number.isFinite(word.end)
+    && word.end >= word.start
+}
+
+function loadExpectedParagraphs(bookEdition, chapterNumber) {
+  const shard = path.join(
+    repoRoot,
+    'app/public/data/editions-chapters',
+    bookEdition,
+    `ch${String(chapterNumber).padStart(4, '0')}.json`,
+  )
+  if (!fs.existsSync(shard)) return null
+  const data = JSON.parse(fs.readFileSync(shard, 'utf8'))
+  return (data.paragraphs || []).map((p) => chapterWordsFromText(p))
+}
+
+function validate(sidecar, expectedParagraphs) {
+  const errors = []
+  const paragraphs = sidecar.paragraphs
+  if (!Array.isArray(paragraphs)) {
+    return ['paragraphs must be an array']
+  }
+  for (const entry of paragraphs) {
+    const pidx = entry.paragraph
+    const words = entry.words
+    if (!Number.isInteger(pidx)) errors.push('paragraph index missing')
+    if (!Array.isArray(words) || words.length === 0) {
+      errors.push(`paragraph ${pidx}: empty words`)
+      continue
+    }
+    for (let i = 0; i < words.length; i++) {
+      if (!isTimedWord(words[i])) errors.push(`paragraph ${pidx} word ${i}: invalid`)
+    }
+    if (expectedParagraphs && pidx >= 0 && pidx < expectedParagraphs.length) {
+      const exp = expectedParagraphs[pidx]
+      if (words.length !== exp.length) {
+        errors.push(`paragraph ${pidx}: ${words.length} words != expected ${exp.length}`)
+      }
+    }
+  }
+  return errors
+}
+
+function main() {
+  const args = process.argv.slice(2)
+  const file = args.find((a) => !a.startsWith('--'))
+  if (!file) {
+    console.error('Usage: node validate-words-sidecar.cjs <words.json> [--edition bible-kjv-en --chapter N]')
+    process.exit(1)
+  }
+  const editionArg = args.find((a) => a.startsWith('--edition='))?.slice(10)
+    || (args.includes('--edition') ? args[args.indexOf('--edition') + 1] : null)
+  const chapterArg = args.find((a) => a.startsWith('--chapter='))?.slice(10)
+    || (args.includes('--chapter') ? args[args.indexOf('--chapter') + 1] : null)
+
+  const sidecar = JSON.parse(fs.readFileSync(file, 'utf8'))
+  let expected = null
+  if (editionArg && chapterArg) {
+    expected = loadExpectedParagraphs(editionArg, Number(chapterArg))
+  }
+  const errors = validate(sidecar, expected)
+  if (errors.length) {
+    console.error('INVALID words.json:')
+    errors.forEach((e) => console.error(`  - ${e}`))
+    process.exit(1)
+  }
+  console.log(`OK: ${file} (${sidecar.paragraphs?.length ?? 0} paragraphs)`)
+}
+
+main()

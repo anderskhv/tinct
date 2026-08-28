@@ -235,7 +235,7 @@ def process_chapter(pipeline, edition_key, chapter, ed_audio_dir, np, sf):
 
 def upload_chapter(book_id, edition_key, ch_dir):
     ch_name = ch_dir.name
-    files = sorted(ch_dir.glob("*.mp3")) + [ch_dir / "manifest.json"]
+    files = sorted(ch_dir.glob("*.mp3")) + [ch_dir / "manifest.json", ch_dir / "words.json"]
     ok, fail = 0, 0
     for f in files:
         if not f.exists():
