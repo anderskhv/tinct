@@ -231,7 +231,7 @@ export function labChromeInsetPx(chromeHeightPx: number, gap = LAB_CHROME_GAP_PX
 }
 
 /** Painted last ink must sit at least this many px above the visible bar. */
-export const LAB_OVERFLOW_CLEAR_PX = 8
+export const LAB_OVERFLOW_CLEAR_PX = 12
 
 /** Extra slack when measuring phone hearing pages — descenders + highlight box. */
 export const LAB_HEARING_MEASURE_SLACK_PX = 8

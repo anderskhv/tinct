@@ -79,15 +79,35 @@ export function snapShrinkEndToSentence(
 ): number {
   if (proposedTo >= to || proposedTo <= from + 1) return proposedTo
   const minEnd = from + 1
-  const maxOrphan = 5
   for (let i = proposedTo - 1; i >= from; i--) {
     if (isStrongStop(words[i].text)) {
       const end = i + 1
-      if (to - end < maxOrphan) return proposedTo
       return Math.max(minEnd, end)
     }
   }
   return proposedTo
+}
+
+/** When a page already fits but ends mid-sentence, pull the end back to the prior stop. */
+export function snapPageEndToPriorSentence(
+  words: Array<{ text: string }>,
+  from: number,
+  to: number,
+): number {
+  if (to <= from + 1) return to
+  if (isStrongStop(words[to - 1].text)) return to
+  for (let i = to - 2; i >= from; i--) {
+    if (isStrongStop(words[i].text)) {
+      const end = i + 1
+      return end > from ? end : to
+    }
+  }
+  return to
+}
+
+export function pageEndsMidSentence(words: Array<{ text: string }>, from: number, to: number): boolean {
+  if (to <= from) return false
+  return !isStrongStop(words[to - 1].text)
 }
 
 /** Pull words from the next page when remeasure shows visible slack below the ink. */
