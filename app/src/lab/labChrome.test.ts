@@ -351,7 +351,7 @@ describe('lab readable page vs chrome rect', () => {
     headline.getBoundingClientRect = () => ({ top: 80, bottom: 160, height: 80, width: 360, left: 15, right: 375, x: 15, y: 80, toJSON() {} })
     const metrics = measureLabPageMetrics(wrap, chrome)
     expect(metrics).not.toBeNull()
-    expect(metrics!.height).toBe(480)
+    expect(metrics!.height).toBe(464)
     expect(metrics!.lineHeight).toBe(40)
     expect(metrics!.headlineHeight).toBe(80)
     expect(metrics!.avgCharWidth).toBeGreaterThan(0)

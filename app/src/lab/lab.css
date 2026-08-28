@@ -159,6 +159,7 @@
 
 .lab-hearing-word {
   display: inline;
+  font-synthesis: none;
 }
 
 .lab-passage.is-hearing .lab-hearing-word.is-spoken {
@@ -1484,11 +1485,15 @@
 }
 
 .lab.is-phone.has-slim-transport .lab-hearing-stage {
-  padding-bottom: 0.85rem;
+  padding-bottom: 1.25rem;
 }
 
 .lab.is-phone.has-slim-transport .lab-page-wrap {
   padding-bottom: 0.15rem;
+}
+
+.lab.is-phone.has-slim-transport .lab-passage {
+  padding-bottom: 2rem;
 }
 
 .lab.is-phone.has-notice .lab-hearing,
