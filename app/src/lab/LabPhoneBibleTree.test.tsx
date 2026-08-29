@@ -165,12 +165,15 @@ describe('lab phone bible tree', () => {
     expect(document.querySelector('.toc-item-number')).toBeNull()
   })
 
-  it('shows Collapse when a large section is expanded', () => {
+  it('lets the current book collapse in place without a global Collapse button', () => {
     renderTree({ currentChapter: 30 })
-    expand('Old Testament')
-    expect(screen.getByTestId('lab-tree-collapse')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-tree-collapse'))
-    expect(screen.queryByTestId('lab-tree-chapter-1')).toBeNull()
+    expect(screen.queryByTestId('lab-tree-collapse')).toBeNull()
+    const romans = screen.getByTestId('lab-tree-book-new-testament/paul/romans')
+    expect(romans.textContent).toContain('Chapter 1 of 2')
+    expect(screen.getByTestId('lab-tree-chapter-30')).toBeTruthy()
+    fireEvent.click(romans)
+    expect(screen.queryByTestId('lab-tree-chapter-30')).toBeNull()
+    expect(romans.getAttribute('aria-expanded')).toBe('false')
   })
 
   it('uses SVG chevrons and one Garamond stack in the tree', () => {

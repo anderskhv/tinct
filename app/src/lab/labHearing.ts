@@ -127,8 +127,9 @@ export function growPaintedPageIfSlack(
   const page = pages[pageIndex]
   let paraTail = 0
   if (fromNext <= 0 && paragraphs && page) {
-    const len = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '').length
-    paraTail = Math.max(0, len - page.to)
+    const last = pageLastSpan(page)
+    const len = tokenizeHearingWords(paragraphs[last.paragraphIndex] || '').length
+    paraTail = Math.max(0, len - last.to)
   }
   if (fromNext <= 0 && paraTail <= 0) return pages
   const words = growWordsFromSlack(painted.lastLineWords, slack, lineH)
@@ -136,7 +137,8 @@ export function growPaintedPageIfSlack(
     const grown = growPageByWords(pages, pageIndex, words)
     return sameChapterPages(grown, pages) ? pages : grown
   }
-  const len = tokenizeHearingWords(paragraphs![page!.paragraphIndex] || '').length
+  const last = pageLastSpan(page!)
+  const len = tokenizeHearingWords(paragraphs![last.paragraphIndex] || '').length
   const grown = growPageTailInParagraph(pages, pageIndex, words, len)
   return sameChapterPages(grown, pages) ? pages : grown
 }
@@ -152,14 +154,16 @@ export function shrinkPaintedPageOverflow(
 ): ChapterHearingPage[] | null {
   if (labPageFitsPaint(painted)) return null
   const live = pages[pageIndex]
-  if (!live || live.to <= live.from + 1) return null
+  if (!live) return null
+  const last = pageLastSpan(live)
+  if (last.to <= last.from + 1) return null
   const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-  let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+  let nextTo = nextPaintShrinkTo(last.from, last.to, painted.lastLineWords, overflowPx, painted.lineHeight)
   if (opts?.snapSentence) {
-    const paraWords = tokenizeHearingWords(paragraphs[live.paragraphIndex] || '')
-    nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
+    const paraWords = tokenizeHearingWords(paragraphs[last.paragraphIndex] || '')
+    nextTo = snapShrinkEndToSentence(paraWords, last.from, last.to, nextTo)
   }
-  if (nextTo >= live.to) return null
+  if (nextTo >= last.to) return null
   const shrunk = reflowAfterCut(
     paragraphs,
     pages,
@@ -404,7 +408,10 @@ export function labChapterProgress(input: {
   const wordsRead = typeof input.paragraphIndex === 'number' && typeof input.wordIndex === 'number'
     ? wordsBeforePlace(input.paragraphs, input.paragraphIndex, input.wordIndex)
     : page
-      ? wordsBeforePlace(input.paragraphs, page.paragraphIndex, page.to)
+      ? (() => {
+          const last = pageLastSpan(page)
+          return wordsBeforePlace(input.paragraphs, last.paragraphIndex, last.to)
+        })()
       : 0
   const percent = wordsTotal > 0 ? Math.round((wordsRead / wordsTotal) * 100) : 0
   return {
@@ -430,6 +437,53 @@ export interface ChapterHearingPage {
   paragraphIndex: number
   from: number
   to: number
+  /** Ordered paragraph slices painted on this page. */
+  spans?: ChapterHearingSpan[]
+}
+
+export interface ChapterHearingSpan {
+  paragraphIndex: number
+  from: number
+  to: number
+}
+
+export function pageSpans(page: ChapterHearingPage): ChapterHearingSpan[] {
+  return page.spans?.length
+    ? page.spans
+    : [{ paragraphIndex: page.paragraphIndex, from: page.from, to: page.to }]
+}
+
+export function pageFromSpans(input: ChapterHearingSpan[]): ChapterHearingPage {
+  const spans: ChapterHearingSpan[] = []
+  for (const source of input) {
+    if (source.to <= source.from) continue
+    const span = { ...source }
+    const last = spans[spans.length - 1]
+    if (last && last.paragraphIndex === span.paragraphIndex && last.to === span.from) {
+      last.to = span.to
+    } else {
+      spans.push(span)
+    }
+  }
+  const first = spans[0] ?? { paragraphIndex: 0, from: 0, to: 0 }
+  return spans.length <= 1
+    ? { paragraphIndex: first.paragraphIndex, from: first.from, to: first.to }
+    : { paragraphIndex: first.paragraphIndex, from: first.from, to: first.to, spans }
+}
+
+export function pageLastSpan(page: ChapterHearingPage): ChapterHearingSpan {
+  const spans = pageSpans(page)
+  return spans[spans.length - 1]
+}
+
+export function pageContainsPlace(
+  page: ChapterHearingPage | undefined,
+  paragraphIndex: number,
+  wordIndex: number,
+): boolean {
+  return !!page && pageSpans(page).some(span => (
+    span.paragraphIndex === paragraphIndex && wordIndex >= span.from && wordIndex < span.to
+  ))
 }
 
 export interface LabPageAnchor {
@@ -485,15 +539,27 @@ export function ensurePageIdentity(
   if (exact >= 0) return pages
   const idx = pageIndexForPlace(pages, anchor.paragraphIndex, anchor.wordIndex)
   const page = pages[idx]
-  if (!page || page.paragraphIndex !== anchor.paragraphIndex) return pages
-  if (anchor.wordIndex <= page.from || anchor.wordIndex >= page.to) return pages
+  if (!page || !pageContainsPlace(page, anchor.paragraphIndex, anchor.wordIndex)) return pages
+  const spans = pageSpans(page)
+  const spanIndex = spans.findIndex(span => (
+    span.paragraphIndex === anchor.paragraphIndex
+    && anchor.wordIndex >= span.from
+    && anchor.wordIndex < span.to
+  ))
+  if (spanIndex < 0) return pages
+  const span = spans[spanIndex]
+  const before = [
+    ...spans.slice(0, spanIndex),
+    ...(anchor.wordIndex > span.from ? [{ ...span, to: anchor.wordIndex }] : []),
+  ]
+  const after = [
+    { ...span, from: anchor.wordIndex },
+    ...spans.slice(spanIndex + 1),
+  ]
+  if (before.length === 0 || after.length === 0) return pages
   const next = pages.slice()
-  next[idx] = { ...page, to: anchor.wordIndex }
-  next.splice(idx + 1, 0, {
-    paragraphIndex: page.paragraphIndex,
-    from: anchor.wordIndex,
-    to: page.to,
-  })
+  next[idx] = pageFromSpans(before)
+  next.splice(idx + 1, 0, pageFromSpans(after))
   return next
 }
 
@@ -513,8 +579,11 @@ export function applyPaintShrink(
   opts?: PaintShrinkOpts,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page || newTo >= page.to || newTo < page.from + 1) return pages
-  const leftover = page.to - newTo
+  if (!page) return pages
+  const spans = pageSpans(page)
+  const last = spans[spans.length - 1]
+  if (!last || newTo >= last.to || newTo < last.from + 1) return pages
+  const leftover = last.to - newTo
   const lastLineWords = opts?.lastLineWords ?? 0
   const overflowing = !!opts?.overflowing
   // One leftover word, or a widow shorter than a line: keep it — unless the page overflows.
@@ -522,30 +591,16 @@ export function applyPaintShrink(
     if (leftover <= 1) return pages
     if (lastLineWords > 1 && leftover < lastLineWords) return pages
   }
+  const head = pageFromSpans([...spans.slice(0, -1), { ...last, to: newTo }])
+  const tail = { paragraphIndex: last.paragraphIndex, from: newTo, to: last.to }
   const after = pages[pageIndex + 1]
   const next = pages.slice()
-  next[pageIndex] = { ...page, to: newTo }
-  if (after && after.paragraphIndex === page.paragraphIndex) {
-    next[pageIndex + 1] = { ...after, from: newTo }
-    if (next[pageIndex + 1].to <= newTo) {
-      next.splice(pageIndex + 1, 1)
-    }
+  next[pageIndex] = head
+  const afterSpans = after ? pageSpans(after) : []
+  if (afterSpans[0]?.paragraphIndex === tail.paragraphIndex && afterSpans[0].from === tail.to) {
+    next[pageIndex + 1] = pageFromSpans([tail, ...afterSpans])
   } else {
-    next.splice(pageIndex + 1, 0, {
-      paragraphIndex: page.paragraphIndex,
-      from: newTo,
-      to: page.to,
-    })
-  }
-  for (let i = 0; i < next.length - 1; i++) {
-    if (next[i].paragraphIndex !== next[i + 1].paragraphIndex) continue
-    if (next[i + 1].from !== next[i].to) {
-      next[i + 1] = { ...next[i + 1], from: next[i].to }
-    }
-    if (next[i + 1].to <= next[i + 1].from) {
-      next.splice(i + 1, 1)
-      i -= 1
-    }
+    next.splice(pageIndex + 1, 0, pageFromSpans([tail]))
   }
   // Overflow peel must keep a one-word leftover off this page.
   return overflowing ? next : absorbOneWordLeftoverPages(next)
@@ -564,8 +619,11 @@ export function reflowAfterCut(
   opts?: PaintShrinkOpts,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page || newTo >= page.to || newTo < page.from + 1) return pages
-  const leftoverCount = page.to - newTo
+  if (!page) return pages
+  const spans = pageSpans(page)
+  const last = spans[spans.length - 1]
+  if (!last || newTo >= last.to || newTo < last.from + 1) return pages
+  const leftoverCount = last.to - newTo
   const lastLineWords = opts?.lastLineWords ?? 0
   const overflowing = !!opts?.overflowing
   if (!overflowing) {
@@ -574,28 +632,28 @@ export function reflowAfterCut(
   }
   const head: ChapterHearingPage[] = [
     ...pages.slice(0, pageIndex),
-    { paragraphIndex: page.paragraphIndex, from: page.from, to: newTo },
+    pageFromSpans([...spans.slice(0, -1), { ...last, to: newTo }]),
   ]
-  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
+  const words = tokenizeHearingWords(paragraphs[last.paragraphIndex] || '')
   const leftoverText = words.slice(newTo).map(word => word.text).join(' ')
   const rest: string[] = []
   if (leftoverText) rest.push(leftoverText)
-  for (let i = page.paragraphIndex + 1; i < paragraphs.length; i++) rest.push(paragraphs[i])
+  for (let i = last.paragraphIndex + 1; i < paragraphs.length; i++) rest.push(paragraphs[i])
   const tailRaw = chapterHearingPages(rest, budget)
   const firstIsLeftover = leftoverText.length > 0
-  const tail = tailRaw.map(part => {
-    if (firstIsLeftover && part.paragraphIndex === 0) {
+  const tail = tailRaw.map(part => pageFromSpans(pageSpans(part).map(span => {
+    if (firstIsLeftover && span.paragraphIndex === 0) {
       return {
-        paragraphIndex: page.paragraphIndex,
-        from: part.from + newTo,
-        to: part.to + newTo,
+        paragraphIndex: last.paragraphIndex,
+        from: span.from + newTo,
+        to: span.to + newTo,
       }
     }
     const orig = firstIsLeftover
-      ? page.paragraphIndex + part.paragraphIndex
-      : page.paragraphIndex + 1 + part.paragraphIndex
-    return { paragraphIndex: orig, from: part.from, to: part.to }
-  })
+      ? last.paragraphIndex + span.paragraphIndex
+      : last.paragraphIndex + 1 + span.paragraphIndex
+    return { paragraphIndex: orig, from: span.from, to: span.to }
+  })))
   const next = [...head, ...tail]
   return overflowing ? next : absorbOneWordLeftoverPages(next)
 }
@@ -611,31 +669,27 @@ export function growPageByWords(
   const page = pages[pageIndex]
   const next = pages[pageIndex + 1]
   if (!page || !next) return pages
-
-  if (page.paragraphIndex === next.paragraphIndex) {
-    const available = next.to - next.from
-    const take = Math.min(wordCount, available)
-    if (take <= 0) return pages
-    const grown: ChapterHearingPage[] = [...pages]
-    grown[pageIndex] = { ...page, to: page.to + take }
-    if (next.from + take >= next.to) {
-      grown.splice(pageIndex + 1, 1)
-    } else {
-      grown[pageIndex + 1] = { ...next, from: next.from + take }
-    }
-    return grown
-  }
-
-  if (page.paragraphIndex < next.paragraphIndex && page.to > page.from) {
-    const take = Math.min(wordCount, next.to - next.from)
-    if (take <= 0) return pages
-    const grown: ChapterHearingPage[] = [...pages]
-    grown[pageIndex + 1] = { ...next, from: next.from + take }
-    if (next.from + take >= next.to) grown.splice(pageIndex + 1, 1)
-    return grown
-  }
-
-  return pages
+  const currentSpans = pageSpans(page).map(span => ({ ...span }))
+  const nextSpans = pageSpans(next).map(span => ({ ...span }))
+  const first = nextSpans[0]
+  if (!first) return pages
+  // Visible-page refinement must not delete the next page: doing so makes M
+  // jump while the reader advances. Leave one word when this is its only span.
+  const available = first.to - first.from
+  const maxTake = nextSpans.length === 1 ? Math.max(0, available - 1) : available
+  const take = Math.min(wordCount, maxTake)
+  if (take <= 0) return pages
+  const moved = { paragraphIndex: first.paragraphIndex, from: first.from, to: first.from + take }
+  const last = currentSpans[currentSpans.length - 1]
+  if (last && last.paragraphIndex === moved.paragraphIndex && last.to === moved.from) last.to = moved.to
+  else currentSpans.push(moved)
+  first.from += take
+  const remaining = first.from < first.to ? nextSpans : nextSpans.slice(1)
+  const grown = pages.slice()
+  grown[pageIndex] = pageFromSpans(currentSpans)
+  if (remaining.length === 0) grown.splice(pageIndex + 1, 1)
+  else grown[pageIndex + 1] = pageFromSpans(remaining)
+  return grown
 }
 
 /** Extend a page into unused words at the end of its paragraph (last page of chapter). */
@@ -646,28 +700,36 @@ export function growPageTailInParagraph(
   paragraphLength: number,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page || wordCount <= 0 || paragraphLength <= page.to) return pages
-  const take = Math.min(wordCount, paragraphLength - page.to)
+  if (!page || wordCount <= 0) return pages
+  const spans = pageSpans(page).map(span => ({ ...span }))
+  const last = spans[spans.length - 1]
+  if (!last || paragraphLength <= last.to) return pages
+  const take = Math.min(wordCount, paragraphLength - last.to)
   if (take <= 0) return pages
   const next = pages.slice()
-  next[pageIndex] = { ...page, to: page.to + take }
+  last.to += take
+  next[pageIndex] = pageFromSpans(spans)
   return next
 }
 
 export function wordsAvailableOnNextPage(pages: ChapterHearingPage[], pageIndex: number): number {
   const next = pages[pageIndex + 1]
   if (!next) return 0
-  return Math.max(0, next.to - next.from)
+  return leftoverWordCount(next)
 }
 
 export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[]): boolean {
   if (a === b) return true
   if (a.length !== b.length) return false
-  return a.every((page, i) => (
-    page.paragraphIndex === b[i].paragraphIndex
-    && page.from === b[i].from
-    && page.to === b[i].to
-  ))
+  return a.every((page, i) => {
+    const left = pageSpans(page)
+    const right = pageSpans(b[i])
+    return left.length === right.length && left.every((span, j) => (
+      span.paragraphIndex === right[j].paragraphIndex
+      && span.from === right[j].from
+      && span.to === right[j].to
+    ))
+  })
 }
 
 /** N and M come from the same page list. Never report N > M. */
@@ -687,12 +749,14 @@ function absorbOrphanWordBounds(pages: HearingPageBounds[]): HearingPageBounds[]
 
 export function leftoverWordCount(page: ChapterHearingPage | undefined): number {
   if (!page) return 0
-  return Math.max(0, page.to - page.from)
+  return pageSpans(page).reduce((sum, span) => sum + Math.max(0, span.to - span.from), 0)
 }
 
 export function chapterPageTextChars(paragraphs: string[], page: ChapterHearingPage): number {
-  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
-  return words.slice(page.from, page.to).join(' ').length
+  return pageSpans(page).reduce((sum, span) => {
+    const words = tokenizeHearingWords(paragraphs[span.paragraphIndex] || '')
+    return sum + words.slice(span.from, span.to).join(' ').length
+  }, 0)
 }
 
 export function isOrphanLeftoverPage(page: ChapterHearingPage | undefined): boolean {
@@ -799,13 +863,12 @@ export function followOnReadingPage(
   const page = pages[pageIndex]
   if (!page) return false
   if (follow.kind === 'paragraph') {
-    return page.paragraphIndex === follow.paragraphIndex
+    return pageSpans(page).some(span => span.paragraphIndex === follow.paragraphIndex)
   }
   if (follow.kind === 'word') {
-    return page.paragraphIndex === follow.paragraphIndex
+    return typeof follow.paragraphIndex === 'number'
       && typeof follow.wordIndex === 'number'
-      && follow.wordIndex >= page.from
-      && follow.wordIndex < page.to
+      && pageContainsPlace(page, follow.paragraphIndex, follow.wordIndex)
   }
   return false
 }
@@ -816,20 +879,18 @@ export function pageIndexForPlace(
   wordIndex: number,
 ): number {
   if (pages.length === 0) return 0
-  const exact = pages.findIndex(page => (
-    page.paragraphIndex === paragraphIndex && wordIndex >= page.from && wordIndex < page.to
-  ))
+  const exact = pages.findIndex(page => pageContainsPlace(page, paragraphIndex, wordIndex))
   if (exact >= 0) return exact
-  const nextOnParagraph = pages.findIndex(page => (
-    page.paragraphIndex === paragraphIndex && page.from > wordIndex
-  ))
+  const nextOnParagraph = pages.findIndex(page => pageSpans(page).some(span => (
+    span.paragraphIndex === paragraphIndex && span.from > wordIndex
+  )))
   if (nextOnParagraph > 0) return nextOnParagraph - 1
   let lastSame = -1
   for (let i = 0; i < pages.length; i++) {
-    if (pages[i].paragraphIndex === paragraphIndex) lastSame = i
+    if (pageSpans(pages[i]).some(span => span.paragraphIndex === paragraphIndex)) lastSame = i
   }
   if (lastSame >= 0) return lastSame
-  const nextParagraph = pages.findIndex(page => page.paragraphIndex > paragraphIndex)
+  const nextParagraph = pages.findIndex(page => pageSpans(page)[0].paragraphIndex > paragraphIndex)
   if (nextParagraph >= 0) return nextParagraph
   return pages.length - 1
 }
@@ -840,7 +901,7 @@ export function chapterPagesCover(paragraphs: string[], pages: ChapterHearingPag
   for (let i = 0; i < paragraphs.length; i++) {
     const n = tokenizeHearingWords(paragraphs[i]).length
     if (n === 0) continue
-    const parts = pages.filter(page => page.paragraphIndex === i)
+    const parts = pages.flatMap(page => pageSpans(page).filter(span => span.paragraphIndex === i))
     if (parts.length === 0 || parts[0].from !== 0 || parts[parts.length - 1].to !== n) return false
     for (let j = 0; j < parts.length - 1; j++) {
       if (parts[j].to !== parts[j + 1].from) return false
@@ -853,6 +914,40 @@ export function chapterHearingPages(
   paragraphs: string[],
   budget?: LabPageBudget | null,
 ): ChapterHearingPage[] {
+  if (canUseLabPageBudget(budget)) {
+    const lines: ChapterHearingSpan[] = []
+    paragraphs.forEach((text, paragraphIndex) => {
+      const words = tokenizeHearingWords(text)
+      if (words.length === 0) return
+      for (const box of wrapWordsToLineBoxes(words, budget.width, budget.measureText)) {
+        if (box.to > box.from) lines.push({ paragraphIndex, from: box.from, to: box.to })
+      }
+    })
+    const pages: ChapterHearingPage[] = []
+    const limit = budget.height - Math.max(0, LAB_OVERFLOW_CLEAR_PX)
+    let cursor = 0
+    while (cursor < lines.length) {
+      const extra = pages.length === 0 ? Math.max(0, budget.headlineHeight ?? 0) : 0
+      const spans: ChapterHearingSpan[] = []
+      let take = 0
+      while (cursor + take < lines.length) {
+        const nextBottom = extra + (take + 1) * budget.lineHeight
+        if (take > 0 && nextBottom >= limit) break
+        const line = lines[cursor + take]
+        const last = spans[spans.length - 1]
+        if (last && last.paragraphIndex === line.paragraphIndex && last.to === line.from) last.to = line.to
+        else spans.push({ ...line })
+        take += 1
+      }
+      if (take === 0) {
+        spans.push({ ...lines[cursor] })
+        take = 1
+      }
+      pages.push(pageFromSpans(spans))
+      cursor += take
+    }
+    return pages
+  }
   const pages: ChapterHearingPage[] = []
   paragraphs.forEach((text, paragraphIndex) => {
     const words = tokenizeHearingWords(text)
@@ -867,10 +962,10 @@ export function chapterHearingPages(
 
 export function readingPageLines(paragraphs: string[], page: ChapterHearingPage | undefined): HearingLine[] {
   if (!page) return []
-  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
-  return [{
-    words: words.slice(page.from, page.to).map(word => ({ text: word.text, role: 'line' as const })),
-  }]
+  return pageSpans(page).map(span => {
+    const words = tokenizeHearingWords(paragraphs[span.paragraphIndex] || '')
+    return { words: words.slice(span.from, span.to).map(word => ({ text: word.text, role: 'line' as const })) }
+  }).filter(line => line.words.length > 0)
 }
 
 /** Word highlight / dim / bold follow only while Hearing is actually playing. */
@@ -897,8 +992,8 @@ export function isChapterFirstHearingPage(
   if (follow.kind === 'word' && paragraph.words && paragraph.words.length > 0) {
     const current = Math.max(0, Math.min(follow.wordIndex, paragraph.words.length - 1))
     const local = chapterPages
-      ?.filter(page => page.paragraphIndex === 0)
-      .map(page => ({ from: page.from, to: page.to }))
+      ?.flatMap(page => pageSpans(page).filter(span => span.paragraphIndex === 0))
+      .map(span => ({ from: span.from, to: span.to }))
     const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(paragraph.words), current)
     return page.from === 0
   }
@@ -920,8 +1015,8 @@ export function hearingStageLines(
     const words = paragraph.words
     const current = Math.max(0, Math.min(follow.wordIndex, words.length - 1))
     const local = chapterPages
-      ?.filter(page => page.paragraphIndex === paragraph.index)
-      .map(page => ({ from: page.from, to: page.to }))
+      ?.flatMap(page => pageSpans(page).filter(span => span.paragraphIndex === paragraph.index))
+      .map(span => ({ from: span.from, to: span.to }))
     const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(words), current)
     return [{
       words: words.slice(page.from, page.to).map((word, offset) => ({

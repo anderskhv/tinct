@@ -97,8 +97,11 @@ function TreeRow({
 }) {
   const isOpen = expanded.has(node.key)
   const mark = labTreeMark(node, finished, currentChapter)
-  const progress = labTreeProgressLabel(node, finished)
   const isCurrentBook = node.kind === 'book' && node.chapterNumbers.includes(currentChapter)
+  const currentBookProgress = isCurrentBook
+    ? `Chapter ${node.chapterNumbers.indexOf(currentChapter) + 1} of ${node.chapterNumbers.length}`
+    : null
+  const progress = currentBookProgress || labTreeProgressLabel(node, finished)
   const depthClass = `is-depth-${Math.min(depth, 3)}`
   const headerClass = [
     'lab-tree-row',
@@ -241,17 +244,7 @@ export function LabPhoneBibleTree({
       <div className="toc-panel lab-tree-panel" onClick={event => event.stopPropagation()}>
         <div className="lab-tree-header">
           <h2 className="lab-tree-title">{title}</h2>
-          <div className="lab-tree-header-actions">
-            <button
-              type="button"
-              className="lab-tree-collapse"
-              data-testid="lab-tree-collapse"
-              onClick={() => setExpanded(new Set(ancestorKeysForChapter(tree, currentChapter)))}
-            >
-              Collapse
-            </button>
-            <button type="button" className="toc-close lab-tree-close" onClick={onClose} aria-label="Close">×</button>
-          </div>
+          <button type="button" className="toc-close lab-tree-close" onClick={onClose} aria-label="Close">×</button>
         </div>
         <div className="lab-tree-list">
           {tree.map(node => (

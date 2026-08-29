@@ -9,7 +9,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines } from './labHearing'
+import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, pageSpans, readingPageLines } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
 
@@ -248,8 +248,9 @@ export function LabPassage({
               onPointerCancel={onPointerCancel}
             >
               {readingLines.map((line, lineIndex) => {
-                const paragraphIndex = readingPage?.paragraphIndex ?? 0
-                const wordBase = readingPage?.from ?? 0
+                const span = readingPage ? pageSpans(readingPage)[lineIndex] : undefined
+                const paragraphIndex = span?.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+                const wordBase = span?.from ?? readingPage?.from ?? 0
                 return (
                   <p
                     key={lineIndex}
@@ -299,12 +300,12 @@ export function LabPassage({
         </div>
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
-            {(() => {
+            {readingPage ? pageSpans(readingPage).map((span) => {
               const source = compareParagraphs.length > 0 ? compareParagraphs : paragraphs
-              const index = readingPage?.paragraphIndex ?? 0
-              const text = source[index]
-              return text ? <p className="lab-hearing-line">{text}</p> : null
-            })()}
+              const words = source[span.paragraphIndex]?.split(/\s+/).filter(Boolean) ?? []
+              const text = words.slice(span.from, span.to).join(' ')
+              return text ? <p key={span.paragraphIndex} className="lab-hearing-line">{text}</p> : null
+            }) : null}
           </div>
         )}
       </div>

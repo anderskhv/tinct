@@ -21,6 +21,7 @@ import {
   isOrphanLeftoverPage,
   LAB_ORPHAN_PAGE_WORDS,
   labChapterProgress,
+  leftoverWordCount,
   labNavPageList,
   labVerseMarkerDisplay,
   hearingFollowPaintActive,
@@ -31,6 +32,7 @@ import {
   isChapterFirstReadingPage,
   pageAnchorOf,
   pageIndexForPlace,
+  pageSpans,
   pageIndexForWord,
   paginateLineBoxes,
   readingPageLines,
@@ -616,14 +618,30 @@ describe('lab bible page leftovers', () => {
     expect(proverbsPages.length).toBeGreaterThan(0)
     expect(genesisPages.length).toBeGreaterThan(0)
     for (const page of [...proverbsPages, ...genesisPages]) {
-      expect(page.to - page.from).toBeGreaterThan(1)
+      expect(leftoverWordCount(page)).toBeGreaterThan(1)
     }
-    expect(proverbsPages.some(page => page.to - page.from === 1)).toBe(false)
+    expect(proverbsPages.some(page => leftoverWordCount(page) === 1)).toBe(false)
     expect(adjacentPageIndex(proverbsPages.length, 0, 1)).toBe(proverbsPages.length > 1 ? 1 : null)
     if (proverbsPages.length > 1) {
       expect(adjacentPageIndex(proverbsPages.length, 1, -1)).toBe(0)
     }
     expect(adjacentPageIndex(genesisPages.length, 0, -1)).toBeNull()
+  })
+
+  it('packs consecutive paragraphs onto one measured page without losing coverage', () => {
+    const paragraphs = [
+      'Alpha beta gamma delta epsilon.',
+      'Zeta eta theta iota kappa.',
+      'Lambda mu nu xi omicron.',
+    ]
+    const pages = chapterHearingPages(paragraphs, {
+      height: 180,
+      width: 500,
+      lineHeight: 40,
+      measureText: (text: string) => text.length * 8,
+    })
+    expect(chapterPagesCover(paragraphs, pages)).toBe(true)
+    expect(pages.some(page => pageSpans(page).length > 1)).toBe(true)
   })
 })
 
@@ -667,6 +685,23 @@ describe('page fill after peel', () => {
     const grown = growPaintedPageIfSlack(pages, 0, painted, 'peel')
     expect(grown[0].to).toBeGreaterThan(pages[0].to)
     expect(grown[1].from).toBe(grown[0].to)
+  })
+
+  it('keeps the page denominator stable while filling visible slack', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 40 },
+      { paragraphIndex: 0, from: 40, to: 42 },
+    ]
+    const painted = {
+      lastBottom: 400,
+      chromeTop: 600,
+      lineHeight: 40,
+      lastLineWords: 8,
+      scrollOverflow: false,
+    }
+    const grown = growPaintedPageIfSlack(pages, 0, painted, null)
+    expect(grown).toHaveLength(2)
+    expect(grown[1].to - grown[1].from).toBe(1)
   })
 
   it('grows the last page into the paragraph tail when there is no next page', () => {

@@ -58,7 +58,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageEndsMidSentence, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, shrinkPaintedPageOverflow, snapPageEndToPriorSentence, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageContainsPlace, pageIndexForPlace, pageLastSpan, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, shrinkPaintedPageOverflow, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -219,6 +219,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   })
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(boot.book)
+  const [sourceReady, setSourceReady] = useState(Boolean(source))
   const [prefs, setPrefs] = useState<LabPrefs>(() => syncLabAudioEdition(readLabPrefs()))
   const audioEditionKey = effectiveLabAudioEdition(prefs)
   const updatePrefs = useCallback((next: LabPrefs) => {
@@ -261,6 +262,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   settleIndexRef.current = settleIndex
   const pagesStableRef = useRef(false)
   const [lockedPageTotal, setLockedPageTotal] = useState<number | null>(null)
+  const [pageCountReady, setPageCountReady] = useState(Boolean(source))
+  const [typographyPending, setTypographyPending] = useState(false)
+  const [fontReady, setFontReady] = useState(Boolean(source))
+  const [visiblePageReady, setVisiblePageReady] = useState(Boolean(source))
   const lockedPageTotalRef = useRef<number | null>(null)
   lockedPageTotalRef.current = lockedPageTotal
   const unmeasuredTriesRef = useRef(0)
@@ -271,6 +276,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const placeRef = useRef(boot.place)
   const restorePlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(boot.place.paragraphIndex || boot.place.wordIndex ? boot.place : null)
   const headlineHeightRef = useRef(0)
+  const bookRef = useRef(book)
+  bookRef.current = book
   const chapterTitleRef = useRef(book.chapterTitle)
   const chapterNumberRef = useRef(book.chapterNumber)
   chapterNumberRef.current = book.chapterNumber
@@ -335,7 +342,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         primary: prefs.primaryEdition,
         compare: prefs.compareEdition,
         audio: audioEditionKey,
-      }).then(setBook)
+      }).then((loaded) => {
+        setBook(loaded)
+        setSourceReady(true)
+      })
     },
   })
 
@@ -364,6 +374,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   useEffect(() => {
     if (source) {
       setBook(source)
+      setSourceReady(true)
       return
     }
     let cancelled = false
@@ -377,6 +388,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       // A failed fetch returns Genesis 1. Never flash that over a restored book.
       if (loaded.chapterNumber !== wanted && wanted !== 1) return
       setBook(loaded)
+      setSourceReady(true)
     })
     return () => { cancelled = true }
   }, [source, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
@@ -418,6 +430,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (chapterChanged) {
       pagesStableRef.current = false
       setLockedPageTotal(null)
+      setPageCountReady(false)
+      if (typeof document !== 'undefined' && document.fonts?.load) setVisiblePageReady(false)
       didBudgetPageRef.current = false
       pageMetricsReadyRef.current = false
       metricsWaitRef.current = 0
@@ -429,10 +443,19 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (showPhoneChrome && pagesStableRef.current && lockedPageTotalRef.current != null) return
     const budget = pageMetrics ? labPageBudgetFromMetrics(pageMetrics) : null
     const next = chapterHearingPages(book.paragraphs, canUseLabPageBudget(budget) ? budget : null)
+    if (canUseLabPageBudget(budget)) {
+      setLockedPageTotal(next.length)
+      if (sourceReady) setPageCountReady(true)
+    }
     readingPagesRef.current = next
     workingPagesRef.current = next
     setReadingPages(next)
     setDraftPages(next)
+    if (showPhoneChrome && canUseLabPageBudget(budget)) {
+      pagesStableRef.current = true
+      settleIndexRef.current = null
+      setSettleIndex(null)
+    }
     const landing = chapterLandingRef.current
     if (landing === 'end' && next.length > 0) {
       const last = next.length - 1
@@ -457,7 +480,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterTitle, book.paragraphs, pageMetrics, showPhoneChrome])
+  }, [book.chapterTitle, book.paragraphs, pageMetrics, showPhoneChrome, sourceReady])
 
   useLayoutEffect(() => {
     if (!pageMetrics || didBudgetPageRef.current) return
@@ -466,6 +489,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (!canUseLabPageBudget(budget)) return
     didBudgetPageRef.current = true
     const next = chapterHearingPages(book.paragraphs, budget)
+    setLockedPageTotal(next.length)
+    if (sourceReady) setPageCountReady(true)
     const keep = pageAnchorRef.current
     const landing = chapterLandingRef.current
     readingPagesRef.current = next
@@ -484,30 +509,90 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       readingPageIndexRef.current = idx
       setReadingPageIndex(idx)
     }
-    pagesStableRef.current = false
-    setSettleIndex(0)
-    settleIndexRef.current = 0
-  }, [pageMetrics, book.paragraphs])
-
-  const fontEpochRef = useRef<string | null>(null)
+    if (showPhoneChrome) {
+      pagesStableRef.current = true
+      setSettleIndex(null)
+      settleIndexRef.current = null
+    } else {
+      pagesStableRef.current = false
+      setSettleIndex(0)
+      settleIndexRef.current = 0
+    }
+  }, [pageMetrics, book.paragraphs, showPhoneChrome, sourceReady])
 
   useLayoutEffect(() => {
-    const epoch = `${prefs.fontFamily}:${prefs.fontSize}`
-    if (fontEpochRef.current === null) {
-      fontEpochRef.current = epoch
-      return
-    }
-    if (fontEpochRef.current === epoch) return
-    fontEpochRef.current = epoch
+    const keep = pageAnchorRef.current ?? pageAnchorOf(readingPagesRef.current[readingPageIndexRef.current])
+    const hadMeasuredTypography = pageMetricsReadyRef.current
+    let cancelled = false
+    let cancelPaint = () => {}
+    setTypographyPending(true)
     didBudgetPageRef.current = false
     pageMetricsReadyRef.current = false
     metricsWaitRef.current = 0
     pagesStableRef.current = false
     setLockedPageTotal(null)
+    if (hadMeasuredTypography || !sourceReady) setPageCountReady(false)
     unmeasuredTriesRef.current = 0
     setSettleIndex(0)
     settleIndexRef.current = 0
-  }, [prefs.fontFamily, prefs.fontSize])
+
+    const face = prefs.fontFamily === 'baskerville'
+      ? 'Libre Baskerville'
+      : prefs.fontFamily === 'sourceserif'
+        ? 'Source Serif 4'
+        : 'EB Garamond'
+    const px = Math.max(16, Math.round(32 * (prefs.fontSize / 1.3)))
+    const fonts = typeof document !== 'undefined' ? document.fonts : undefined
+    if (fonts?.load) {
+      setFontReady(false)
+      setVisiblePageReady(false)
+    }
+    const loaded = fonts?.load ? fonts.load(`400 ${px}px "${face}"`) : Promise.resolve([])
+    void Promise.resolve(loaded).then(() => {
+      if (cancelled) return
+      cancelPaint = afterLabPaint(() => {
+        if (cancelled) return
+        const wrap = pageWrapRef.current
+        const metrics = wrap ? measureLabPageMetrics(wrap, bottomChromeRef.current) : null
+        if (metrics) {
+          pageMetricsRef.current = metrics
+          setPageMetrics(metrics)
+          const budget = labPageBudgetFromMetrics(metrics)
+          const next = chapterHearingPages(bookRef.current.paragraphs, canUseLabPageBudget(budget) ? budget : null)
+          if (canUseLabPageBudget(budget)) {
+            setLockedPageTotal(next.length)
+            if (sourceReady) setPageCountReady(true)
+          }
+          readingPagesRef.current = next
+          workingPagesRef.current = next
+          setReadingPages(next)
+          setDraftPages(next)
+          if (showPhoneChrome && canUseLabPageBudget(budget)) {
+            pagesStableRef.current = true
+            settleIndexRef.current = null
+            setSettleIndex(null)
+          }
+          if (keep) {
+            const index = restorePageIndexForAnchor(next, keep)
+            readingPageIndexRef.current = index
+            setReadingPageIndex(index)
+            pageAnchorRef.current = pageAnchorOf(next[index])
+          }
+        }
+        setFontReady(true)
+        setTypographyPending(false)
+      })
+    }).catch(() => {
+      if (!cancelled) {
+        setFontReady(true)
+        setTypographyPending(false)
+      }
+    })
+    return () => {
+      cancelled = true
+      cancelPaint()
+    }
+  }, [prefs.fontFamily, prefs.fontSize, showPhoneChrome, sourceReady])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -563,11 +648,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     lastAdjustRef.current = null
     pageMetricsReadyRef.current = false
     metricsWaitRef.current = 0
-    pagesStableRef.current = false
-    setLockedPageTotal(null)
-    settleIndexRef.current = 0
-    setSettleIndex(0)
-  }, [book.chapterTitle, book.paragraphs.length])
+    if (!showPhoneChrome) {
+      pagesStableRef.current = false
+      settleIndexRef.current = 0
+      setSettleIndex(0)
+    }
+  }, [book.chapterTitle, book.paragraphs.length, showPhoneChrome])
 
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
@@ -623,13 +709,26 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       if (showPhoneChrome && !didBudgetPageRef.current) {
         metricsWaitRef.current += 1
-        const maxWait = canUseLabPageBudget(budget) ? 96 : 24
+        const maxWait = canUseLabPageBudget(budget) ? 96 : (sourceReady ? 8 : 48)
         if (metricsWaitRef.current <= maxWait) {
           afterLabPaint(shrinkIfNeeded)
           return
         }
+        // Never certify the one-page-per-paragraph bootstrap as a real phone
+        // page count. The measured budget effect will restart settling as soon
+        // as font and viewport metrics are available.
+        pagesStableRef.current = sourceReady
+        if (sourceReady) {
+          setLockedPageTotal(pages.length)
+          setPageCountReady(true)
+        }
+        settleIndexRef.current = null
+        setSettleIndex(null)
+        return
       }
       if (lockedPageTotalRef.current != null) {
+        if (lockedPageTotalRef.current !== pages.length) setLockedPageTotal(pages.length)
+        setPageCountReady(true)
         pagesStableRef.current = true
         setSettleIndex(null)
         settleIndexRef.current = null
@@ -637,7 +736,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       metricsWaitRef.current = 0
       pagesStableRef.current = true
-      setLockedPageTotal(pages.length)
+      if (sourceReady) {
+        setLockedPageTotal(pages.length)
+        setPageCountReady(true)
+      }
       setSettleIndex(null)
       settleIndexRef.current = null
       unmeasuredTriesRef.current = 0
@@ -688,7 +790,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (!live) return 'fits'
       let painted = host ? measurePaintedOverflow(host, chromeEl) : null
       const shown = readingPagesRef.current[Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))]
-      const sameAsVisible = !!shown && shown.paragraphIndex === live.paragraphIndex && shown.from === live.from && shown.to === live.to
+      const sameAsVisible = !!shown && sameChapterPages([shown], [live])
       painted = preferVisiblePaintedOverflow(painted, passage, chromeEl, sameAsVisible)
       if (passage && sameAsVisible && painted && labPageFitsPaint(painted)) {
         const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
@@ -717,23 +819,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       if (!painted) return lastBarTopRef.current > 0 ? 'unmeasured' : 'fits'
       if (labPageFitsPaint(painted)) {
-        if (sameAsVisible && !listenPlayingRef.current && !browseWhileListeningRef.current) {
-          const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, book.paragraphs)
-          if (!sameChapterPages(grown, pages)) {
-            lastAdjustRef.current = 'grow'
-            return applyPageList(grown, true)
-          }
-        }
         return 'fits'
       }
-      if (live.to <= live.from + 1) return 'fits'
+      const last = pageLastSpan(live)
+      if (last.to <= last.from + 1) return 'fits'
       const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-      let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
-      if (sameAsVisible) {
-        const paraWords = tokenizeHearingWords(book.paragraphs[live.paragraphIndex] || '')
-        nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
-      }
-      if (nextTo >= live.to) return 'fits'
+      const nextTo = nextPaintShrinkTo(last.from, last.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+      if (nextTo >= last.to) return 'fits'
       const metrics = pageMetricsRef.current
       const budget = metrics ? labPageBudgetFromMetrics(metrics) : null
       const shrunk = reflowAfterCut(
@@ -800,7 +892,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         window.removeEventListener('orientationchange', onJump)
       }
     }
-  }, [settleIndex, draftPages, phoneAskOpen, book.paragraphs, book.chapterTitle])
+  }, [settleIndex, draftPages, phoneAskOpen, book.paragraphs, book.chapterTitle, sourceReady])
 
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
@@ -1030,19 +1122,27 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     canNextChapter,
   }) || (!phoneAsk && showPhoneChrome && fullscreen)
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
+  const readingPageLast = readingPage ? pageLastSpan(readingPage) : null
   const rawChapterProgress = labChapterProgress({
     paragraphs: book.paragraphs,
     pages: readingPages,
     pageIndex: readingPageIndex,
-    paragraphIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.paragraphIndex : readingPage?.paragraphIndex,
-    wordIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.wordIndex : readingPage?.to,
+    paragraphIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.paragraphIndex : readingPageLast?.paragraphIndex,
+    wordIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.wordIndex : readingPageLast?.to,
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
+  const measuredPageTotal = useMemo(() => {
+    if (!pageMetrics) return null
+    const budget = labPageBudgetFromMetrics(pageMetrics)
+    if (!canUseLabPageBudget(budget)) return null
+    return Math.max(1, chapterHearingPages(book.paragraphs, budget).length)
+  }, [book.paragraphs, pageMetrics])
+  const displayPageTotal = (pageCountReady ? lockedPageTotal : null) ?? measuredPageTotal ?? chapterProgress.totalPages
   const footProgress = labFootProgress({
     chapterNumber: book.chapterNumber,
     chapterLabel: book.chapterLabel,
     currentPage: chapterProgress.currentPage,
-    totalPages: lockedPageTotal ?? chapterProgress.totalPages,
+    totalPages: displayPageTotal,
     percent: chapterProgress.percent,
     chapterCount: book.chapters.length,
     metric: prefs.progressDisplay.metric,
@@ -1051,10 +1151,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
   const pagesOnlyLabel = labFootProgressPages(
     chapterProgress.currentPage,
-    lockedPageTotal ?? chapterProgress.totalPages,
+    displayPageTotal,
   )
+  const approximatePagesLabel = `${Math.min(chapterProgress.currentPage, displayPageTotal)} / ≈${displayPageTotal}`
   const footProgressLabel = showPhoneChrome
-    ? (lockedPageTotal != null && lockedPageTotal > 0 ? pagesOnlyLabel : '')
+    ? (!sourceReady || !fontReady || !visiblePageReady
+        ? `${chapterProgress.currentPage} / …`
+        : pageCountReady && lockedPageTotal != null && lockedPageTotal > 0
+          ? pagesOnlyLabel
+          : approximatePagesLabel)
     : footProgress
 
   useEffect(() => {
@@ -1073,7 +1178,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const inFirst15 = listen.clipIndex === 0 && listen.currentTime < 15
       if (resetToStart && midBook && !inFirst15) return
       placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
-      if (page && page.paragraphIndex === follow.paragraphIndex && follow.wordIndex < page.to && follow.wordIndex >= page.from) return
+      if (pageContainsPlace(page, follow.paragraphIndex, follow.wordIndex)) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
         if (next !== current) {
@@ -1088,7 +1193,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const midBook = !!page && page.paragraphIndex > 0
       if (follow.paragraphIndex === 0 && midBook && !(listen.clipIndex === 0 && listen.currentTime < 15)) return
       placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
-      if (page && page.paragraphIndex === follow.paragraphIndex) return
+      if (page && pageContainsPlace(page, follow.paragraphIndex, 0)) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
         if (next !== current) {
@@ -1122,7 +1227,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }
-    prefetchLabChapterTexts(book.chapterNumber, editions, 3)
+    prefetchLabChapterTexts(book.chapterNumber, editions, { before: 2, after: 5 })
   }, [book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
 
   const warmChapterTexts = useCallback((number: number) => {
@@ -1135,12 +1240,27 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
     const chromeEl = bottomChromeRef.current
-    if (!wrap || !chromeEl || phoneAskOpen || !pagesStableRef.current) return
+    if (!wrap || !chromeEl || phoneAskOpen || !sourceReady) return
     // Never reshape page slices while audio is up — slim transport measures a different budget.
     if (listen.playing || browseWhileListening) return
     let shrinkPasses = 0
+    let growthBaseline: ChapterHearingPage[] | null = null
+    lastAdjustRef.current = null
+    const applyVisiblePages = (current: ChapterHearingPage[], next: ChapterHearingPage[]) => {
+      // Refinement may add a safety page for real overflow, but never remove a
+      // page and make the denominator count down while the reader advances.
+      if (next.length < current.length) return false
+      readingPagesRef.current = next
+      setReadingPages(next)
+      workingPagesRef.current = next
+      setDraftPages(next)
+      if (next.length !== lockedPageTotalRef.current) {
+        setLockedPageTotal(next.length)
+        setPageCountReady(true)
+      }
+      return true
+    }
     const tryFitVisiblePage = () => {
-      if (!pagesStableRef.current) return
       if (listen.playing || browseWhileListeningRef.current) return
       if (shrinkPasses >= 12) return
       const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
@@ -1149,21 +1269,39 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
       const painted = measurePaintedOverflow(passage, chromeEl)
       if (!painted) return
-      const shrunk = shrinkPaintedPageOverflow(pages, pageIdx, painted, book.paragraphs, pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null, { snapSentence: true })
+      const shrunk = shrinkPaintedPageOverflow(pages, pageIdx, painted, book.paragraphs, pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null)
       if (shrunk) {
         shrinkPasses += 1
-        if (shrunk.length === (lockedPageTotalRef.current ?? readingPagesRef.current.length)) {
-          readingPagesRef.current = shrunk
-          setReadingPages(shrunk)
-          workingPagesRef.current = shrunk
-          setDraftPages(shrunk)
+        if (lastAdjustRef.current === 'grow' && growthBaseline) {
+          applyVisiblePages(pages, growthBaseline)
+          lastAdjustRef.current = 'peel'
+          setVisiblePageReady(true)
+          return
         }
+        if (!applyVisiblePages(pages, shrunk)) return
         lastAdjustRef.current = 'peel'
         afterLabPaint(tryFitVisiblePage)
+        return
       }
+      const grown = growPaintedPageIfSlack(
+        pages,
+        pageIdx,
+        painted,
+        lastAdjustRef.current,
+        book.paragraphs,
+      )
+      if (!sameChapterPages(grown, pages)) {
+        shrinkPasses += 1
+        growthBaseline = pages
+        if (!applyVisiblePages(pages, grown)) return
+        lastAdjustRef.current = 'grow'
+        afterLabPaint(tryFitVisiblePage)
+        return
+      }
+      setVisiblePageReady(true)
     }
     return afterLabPaint(tryFitVisiblePage)
-  }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
+  }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, book.chapterTitle, book.paragraphs, readingPageIndex, pageCountReady, sourceReady, fontReady])
 
   useLayoutEffect(() => {
     if (!selectionPopup) return
@@ -1469,10 +1607,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current
     const follow = listen.follow
-    const onThisPage = follow.kind === 'word' && page
-      && follow.paragraphIndex === page.paragraphIndex
-      && follow.wordIndex >= page.from
-      && follow.wordIndex < page.to
+    const onThisPage = follow.kind === 'word' && pageContainsPlace(page, follow.paragraphIndex, follow.wordIndex)
     placeRef.current = onThisPage
       ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
       : place
@@ -1642,6 +1777,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
       data-fullscreen={fullscreen ? 'true' : 'false'}
+      data-layout-pending={typographyPending ? 'true' : 'false'}
+      aria-busy={typographyPending || !fontReady || !visiblePageReady}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),
         ['--lab-font-size' as string]: String(prefs.fontSize),

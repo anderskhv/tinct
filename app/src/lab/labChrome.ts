@@ -505,6 +505,7 @@ export function shouldGrowPaintedPage(
 ): boolean {
   const line = lineHeight > 8 ? lineHeight : 24
   if (slackPx <= line) return false
+  if (lastAdjust === 'grow') return false
   if (lastAdjust !== 'peel') return true
   return slackPx > line * 1.1
 }
@@ -517,10 +518,8 @@ export function growWordsFromSlack(
 ): number {
   const trusted = lastLineWords > 0 && lastLineWords <= 16
   let words = trusted ? lastLineWords : 8
-  if (slackPx > 40 && lineHeight > 8) {
-    const lines = Math.max(1, Math.floor(slackPx / lineHeight))
-    words = Math.max(words, Math.min(lines * (trusted ? lastLineWords : 8), 48))
-  }
+  // Pull one painted line at a time. Paragraph margins and verse markers make
+  // multi-line guesses too aggressive; the next visited page can refine again.
   return Math.max(1, words)
 }
 
@@ -657,11 +656,99 @@ export function measureLabPageMetrics(
     }
   }
   const headlineHeight = headline ? headline.getBoundingClientRect().height : 0
-  const text = (line?.textContent || '').replace(/\s+/g, ' ').trim()
-  const lineWidth = lineRect?.width ?? 0
-  const avgCharWidth = text.length > 0 && lineWidth > 0 ? lineWidth / text.length : 0
+  const avgCharWidth = labAvgCharWidth(line)
   const metrics = { height, width, lineHeight, headlineHeight, avgCharWidth }
   return canUseLabPageMetrics(metrics) ? metrics : null
+}
+
+function firstLineInk(line: Element): { width: number; top: number } | null {
+  try {
+    const range = document.createRange()
+    range.selectNodeContents(line)
+    const rects = [...range.getClientRects()].filter(rect => rect.height > 1 && rect.width > 1)
+    if (rects.length === 0) return null
+    const top = rects[0].top
+    const row = rects.filter(rect => Math.abs(rect.top - top) < 8)
+    const left = Math.min(...row.map(rect => rect.left))
+    const right = Math.max(...row.map(rect => rect.right))
+    return { width: Math.max(0, right - left), top }
+  } catch {
+    return null
+  }
+}
+
+function firstLineCharCount(line: Element, firstTop: number): number {
+  const words = line.querySelectorAll(':scope > span')
+  if (words.length > 0) {
+    let chars = 0
+    let count = 0
+    words.forEach((word) => {
+      const rect = word.getBoundingClientRect()
+      if (rect.height > 0 && Math.abs(rect.top - firstTop) < 8) {
+        chars += (word.textContent || '').replace(/\s+/g, ' ').length
+        count += 1
+      }
+    })
+    chars += Math.max(0, count - 1)
+    if (chars > 0) return chars
+  }
+  try {
+    const walker = document.createTreeWalker(line, NodeFilter.SHOW_TEXT)
+    const range = document.createRange()
+    let chars = 0
+    let node = walker.nextNode()
+    while (node) {
+      const value = node.textContent || ''
+      for (let i = 0; i < value.length; i++) {
+        range.setStart(node, i)
+        range.setEnd(node, i + 1)
+        const rect = range.getBoundingClientRect()
+        if (rect.height > 0 && Math.abs(rect.top - firstTop) < 8) chars += 1
+      }
+      node = walker.nextNode()
+    }
+    return chars
+  } catch {
+    return 0
+  }
+}
+
+function canvasSampleCharWidth(line: Element): number {
+  try {
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return 0
+    const style = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
+    if (style?.font) ctx.font = style.font
+    const sample = 'abcdefghijklmnopqrstuvwxyz'
+    const width = ctx.measureText(sample).width
+    return width > 0 ? width / sample.length : 0
+  } catch {
+    return 0
+  }
+}
+
+/** Real character width from a painted line; never divide one line by a wrapped paragraph. */
+export function labAvgCharWidth(line: Element | null | undefined): number {
+  if (!line) return 0
+  const lineRect = line.getBoundingClientRect()
+  if (lineRect.width <= 0) return 0
+  const first = firstLineInk(line)
+  if (first && first.width > 0) {
+    const chars = firstLineCharCount(line, first.top)
+    if (chars > 0) {
+      const avg = first.width / chars
+      // A small guard covers verse superscripts and wide biblical names that
+      // are underrepresented by the first painted line.
+      if (avg >= 3) return avg * 1.1
+    }
+  }
+  const sampled = canvasSampleCharWidth(line)
+  if (sampled >= 3) return sampled
+  const text = (line.textContent || '').replace(/\s+/g, ' ').trim()
+  const lineHeight = labLineHeightPx(line)
+  const wrapped = lineHeight > 8 && lineRect.height > lineHeight * 1.5
+  return !wrapped && text.length > 0 ? lineRect.width / text.length : 0
 }
 
 export function bindLabChromeInsetVar(
