@@ -42,7 +42,9 @@ Interpretation rules:
 
 ## Hard Rules
 
-- Do not deploy unless Anders explicitly asks.
+- Deploy app changes by default after the fix/build/verify loop succeeds, unless Anders
+  explicitly asks for local-only work, a plan-only pass, or no deploy. Use the approved
+  deploy path in the Verification section; never deploy with raw `wrangler deploy`.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
 - Do not run `generate-editions.cjs` for development work.
 - Keep app, content, and audio work separated as described in `docs/workflow-boundaries.md`.
@@ -70,6 +72,16 @@ npm run deploy
 
 `npm run deploy` is the only approved deploy path because it chains build, bundle verification, and Wrangler. Do not run raw `wrangler deploy`.
 
+For app changes, the normal completion sequence is:
+
+```bash
+cd app
+npm run deploy
+```
+
+Use the standalone build and bundle verification commands when intentionally stopping
+short of deployment or when diagnosing failures before retrying the deploy.
+
 Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports existing unrelated errors in legacy/worker files. Prefer the project build and focused tests until the TypeScript baseline is cleaned up.
 
 ## Reader And Position Invariants
@@ -93,6 +105,28 @@ These are production-critical:
 - Chat history is book-scoped. Every persisted chat message must carry the `bookId` it was created under, and chat persistence must reject messages whose `bookId` does not match the target `chat-history:{bookId}` store.
 
 If a rule seems redundant, write or run a focused regression before removing it. These rules exist because similar bugs have repeatedly returned.
+
+## Reader Change Checklist
+
+Any change touching reader loading, pagination, ReaderSession, position writes,
+chapter navigation, mobile tabs, side panels, chat navigation, edition windows,
+or `isLoading` must treat navigation, rendering, and persistence as one system.
+
+Before deploying such a change:
+
+1. Trace every writer/path that can change chapter, page, paragraph, saved
+   position, ReaderSession location, or reading progress.
+2. Verify the boundary cases: next chapter opens page 1; previous chapter opens
+   the last page; TOC/chat/highlight navigation opens the requested chapter or
+   paragraph; returning from Chat/Feed/Cast does not rewrite Read/Compare state.
+3. Verify loading-window behavior: temporary empty/windowed chapters, loading
+   shells, and hidden readers must not emit page changes or writes that overwrite
+   an explicit navigation intent.
+4. Add or update a focused regression when practical. Prefer tests that cover
+   the invariant itself, not only the immediate symptom.
+5. If a fix changes what `isLoading` means, audit every consumer of that flag.
+   In Tinct, loading state can affect rendering, pagination, position writes,
+   ReaderSession readiness, chat grounding, and progress tracking.
 
 ## Bug Fix Protocol
 

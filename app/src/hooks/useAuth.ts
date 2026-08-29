@@ -6,6 +6,8 @@ import type { UserProfile } from '../types'
 import { getAttributionPayload } from '../utils/attribution'
 import { trackEvent } from '../utils/analytics'
 
+export const SUPABASE_SESSION_RECOVERY_TIMEOUT_MS = 3000
+
 interface UseAuthReturn {
   user: User | null
   profile: UserProfile | null
@@ -88,10 +90,11 @@ export function useAuth(): UseAuthReturn {
       } catch { /* ignore */ }
     }
 
-    // Get initial session. Race against a 3s timeout so the app can open
-    // offline — `getSession()` reads from localStorage but may still hang on
-    // a network-bound token refresh, leaving `isLoading=true` forever and
-    // blocking the entire downstream init chain (storage, position, render).
+    // Get initial session. Race against a short timeout so the app can open
+    // from the local reader mirror when Supabase session recovery hangs on a
+    // network-bound token refresh. The auth listener still applies the real
+    // session when it arrives, and storage bootstrap then performs its normal
+    // cloud restore/correction pass.
     let resolved = false
     const finishLoading = () => {
       if (resolved) return
@@ -100,13 +103,13 @@ export function useAuth(): UseAuthReturn {
     }
     const likelyAtStart = hasLikelySupabaseSession()
     setLikelyAuthenticated(likelyAtStart)
-    const offlineTimeout = setTimeout(() => {
+    const sessionRecoveryTimeout = setTimeout(() => {
       console.warn('[useAuth] getSession() timed out — proceeding offline')
       finishLoading()
-    }, likelyAtStart ? 12000 : 3000)
+    }, SUPABASE_SESSION_RECOVERY_TIMEOUT_MS)
     supabase.auth.getSession()
       .then(({ data: { session: s } }) => {
-        clearTimeout(offlineTimeout)
+        clearTimeout(sessionRecoveryTimeout)
         setSession(s)
         setUser(s?.user ?? null)
         if (s?.user) {
@@ -120,7 +123,7 @@ export function useAuth(): UseAuthReturn {
         finishLoading()
       })
       .catch((e) => {
-        clearTimeout(offlineTimeout)
+        clearTimeout(sessionRecoveryTimeout)
         console.warn('[useAuth] getSession() failed (likely offline):', e)
         finishLoading()
       })

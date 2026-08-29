@@ -197,6 +197,7 @@ interface ChatProps {
   isAnonymous?: boolean
   onTopUp?: () => void
   onSignIn?: () => void
+  onNavigateToChapter?: (chapter: number, paragraphIndex?: number, editionKey?: string) => void
   /**
    * Past conversations for this book. Rendered chronologically (most
    * recent first) when there are no live messages, so the Chat tab opens
@@ -614,24 +615,41 @@ const ChatInput = memo(function ChatInput({ isLoading, pendingHighlight, onClear
   )
 })
 
-export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, chapterLabelByNumber, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, chatConversations }: ChatProps) {
+export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighlight, onClearHighlight, onCopyToNotes, bookTitle, chapterTitle, chapterLabels, chapterLabelByNumber, readingObjective, onEditObjective, bookId, messagesRemaining, hasBalance, isAnonymous, onTopUp, onSignIn, onNavigateToChapter, chatConversations }: ChatProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
   const messagesRef = useRef<HTMLDivElement>(null)
+  const stickToLatestRef = useRef(true)
+  const previousChatScrollRef = useRef<{
+    messageCount: number
+    lastMessageId?: string
+    isLoading: boolean
+  }>({ messageCount: 0, isLoading: false })
 
-  useLayoutEffect(() => {
+  const scrollChatToLatest = useCallback(() => {
+    const container = messagesRef.current
+    if (!container) return
+    container.scrollTop = container.scrollHeight
+  }, [])
+
+  const isChatNearLatest = useCallback(() => {
+    const container = messagesRef.current
+    if (!container) return true
+    return container.scrollHeight - container.scrollTop - container.clientHeight < 96
+  }, [])
+
+  useEffect(() => {
     const container = messagesRef.current
     if (!container) return
 
-    const scrollToLatest = () => {
-      container.scrollTop = container.scrollHeight
+    const handleScroll = () => {
+      stickToLatestRef.current = isChatNearLatest()
     }
 
-    scrollToLatest()
-    const frame = requestAnimationFrame(scrollToLatest)
-
-    return () => cancelAnimationFrame(frame)
-  }, [])
+    handleScroll()
+    container.addEventListener('scroll', handleScroll, { passive: true })
+    return () => container.removeEventListener('scroll', handleScroll)
+  }, [isChatNearLatest])
 
   // Search filter
   const filteredMessages = useMemo(() => {
@@ -666,6 +684,32 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
     }
     return out
   }, [filteredMessages, searchQuery])
+
+  const lastMessage = messages[messages.length - 1]
+  useLayoutEffect(() => {
+    const previous = previousChatScrollRef.current
+    const becamePopulated = previous.messageCount === 0 && messages.length > 0
+    const lastMessageChanged = previous.lastMessageId !== lastMessage?.id
+    const userSentMessage = lastMessageChanged && lastMessage?.role === 'user'
+    const assistantStarted = lastMessageChanged && lastMessage?.role === 'assistant' && lastMessage.isComplete === false
+
+    const forceLatest = becamePopulated || userSentMessage
+    const revealAssistantStart = assistantStarted && stickToLatestRef.current
+
+    previousChatScrollRef.current = {
+      messageCount: messages.length,
+      lastMessageId: lastMessage?.id,
+      isLoading,
+    }
+
+    if (!messages.length && !isLoading) return
+    if (!forceLatest && !revealAssistantStart) return
+
+    if (forceLatest) stickToLatestRef.current = true
+    scrollChatToLatest()
+    const frame = requestAnimationFrame(scrollChatToLatest)
+    return () => cancelAnimationFrame(frame)
+  }, [messages.length, lastMessage?.id, lastMessage?.role, lastMessage?.isComplete, isLoading, scrollChatToLatest])
 
   // Past conversations — chronological, most recent first. Only rendered
   // when there are no live messages, so the Chat tab opens on your
@@ -716,11 +760,18 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
               const isOpen = expandedHistoryId === c.id
               const time = formatRelative(c.endTimestamp)
               const chapLabel = c.chapterNumber ? getChapterLabel(c.chapterNumber) : null
+              const openConversation = () => {
+                const willOpen = expandedHistoryId !== c.id
+                setExpandedHistoryId(willOpen ? c.id : null)
+                if (willOpen && c.chapterNumber && onNavigateToChapter) {
+                  onNavigateToChapter(c.chapterNumber, c.paragraphIndex)
+                }
+              }
               return (
                 <div key={c.id} className={`chat-history-item ${isOpen ? 'chat-history-item-open' : ''}`}>
                   <button
                     className="chat-history-row"
-                    onClick={() => setExpandedHistoryId(prev => prev === c.id ? null : c.id)}
+                    onClick={openConversation}
                   >
                     <div className="chat-history-meta">
                       <span className="chat-history-time">{time}</span>
@@ -740,7 +791,7 @@ export function Chat({ messages, isLoading, onSendMessage, onClear, pendingHighl
             })}
           </div>
         )}
-        {messages.length === 0 && !pendingHighlight && (
+        {messages.length === 0 && !pendingHighlight && sortedHistory.length === 0 && (
           <div className="chat-welcome">
             <p className="chat-welcome-title" style={{ animationDelay: '0s' }}>
               {chapterTitle

@@ -67,4 +67,45 @@ describe('editionLoader chapter shards', () => {
     expect(editionDataUrl('odyssey', 'modern-en'))
       .toBe('/data/editions/odyssey-modern-en.json?v=dev')
   })
+
+  it('starts patch lookup with the shard load and reuses it across chapter windows', async () => {
+    const requested: string[] = []
+    let patchCalls = 0
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requested.push(url)
+      if (url.includes('/api/edition-patches')) {
+        patchCalls += 1
+        return jsonResponse([
+          { chapter_number: 11, paragraph_index: 0, patched_text: 'patched chapter 11' },
+        ])
+      }
+      if (url.includes('/manifest.json')) {
+        return jsonResponse({
+          format: 'tinct-edition-chapters-v1',
+          bookId: 'war-and-peace',
+          editionKey: 'modern-en',
+          chapters: [
+            { number: 10, title: 'Ten', path: 'ch0010.json', paragraphCount: 1 },
+            { number: 11, title: 'Eleven', path: 'ch0011.json', paragraphCount: 1 },
+            { number: 12, title: 'Twelve', path: 'ch0012.json', paragraphCount: 1 },
+            { number: 13, title: 'Thirteen', path: 'ch0013.json', paragraphCount: 1 },
+          ],
+        })
+      }
+      const chapterMatch = url.match(/ch00(\d+)\.json/)
+      if (chapterMatch) {
+        return jsonResponse({ paragraphs: [`original chapter ${Number(chapterMatch[1])}`] })
+      }
+      return new Response('not found', { status: 404 })
+    }))
+
+    const first = await loadEditionWindow('war-and-peace', 'modern-en', 11)
+    const second = await loadEditionWindow('war-and-peace', 'modern-en', 12)
+
+    expect(requested[0]).toContain('/api/edition-patches')
+    expect(first.chapters.find(ch => ch.number === 11)?.paragraphs[0]).toBe('patched chapter 11')
+    expect(second.chapters.find(ch => ch.number === 11)?.paragraphs[0]).toBe('patched chapter 11')
+    expect(patchCalls).toBe(1)
+  })
 })

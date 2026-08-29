@@ -7,6 +7,8 @@ const cache = new Map<string, EditionData>()
 const inFlight = new Map<string, Promise<EditionData>>()
 const manifestCache = new Map<string, ChapterShardManifest>()
 const chapterShardCache = new Map<string, string[]>()
+const patchCache = new Map<string, EditionPatch[]>()
+const patchInFlight = new Map<string, Promise<EditionPatch[]>>()
 const PATCH_WAIT_MS = 350
 
 interface EditionPatch {
@@ -75,6 +77,30 @@ async function fetchEditionPatches(bookId: string, editionKey: EditionKey): Prom
   } catch {
     return [] // never break reading if patches fail
   }
+}
+
+function getEditionPatches(
+  bookId: string,
+  editionKey: EditionKey,
+  opts: { bypassCache?: boolean } = {},
+): Promise<EditionPatch[]> {
+  const cacheKey = `${bookId}-${editionKey}`
+  if (!opts.bypassCache) {
+    const cached = patchCache.get(cacheKey)
+    if (cached) return Promise.resolve(cached)
+    const pending = patchInFlight.get(cacheKey)
+    if (pending) return pending
+  }
+
+  const pending = fetchEditionPatches(bookId, editionKey).then(patches => {
+    if (!opts.bypassCache) patchCache.set(cacheKey, patches)
+    return patches
+  })
+  if (!opts.bypassCache) {
+    patchInFlight.set(cacheKey, pending)
+    pending.finally(() => patchInFlight.delete(cacheKey))
+  }
+  return pending
 }
 
 /**
@@ -203,6 +229,7 @@ export async function loadEditionWindow(
     return loadEdition(bookId, editionKey, opts)
   }
 
+  const patchesPromise = getEditionPatches(bookId, editionKey, opts)
   try {
     const manifestData = await loadChapterShardManifest(bookId, editionKey, opts)
     const requested = new Set([centerChapter - 1, centerChapter, centerChapter + 1])
@@ -241,7 +268,6 @@ export async function loadEditionWindow(
       throw new Error(`Edition ${cacheKey} chapter window is malformed`)
     }
 
-    const patchesPromise = fetchEditionPatches(bookId, editionKey)
     return applyEditionPatches(cacheKey, data, patchesPromise, false)
   } catch (err) {
     if (opts.bypassCache) throw err
@@ -309,7 +335,7 @@ async function loadEditionUncached(
   let response: Response
   let patches: EditionPatch[] = []
   perfMark('fetch-start')
-  const patchesPromise = fetchEditionPatches(bookId, editionKey)
+  const patchesPromise = getEditionPatches(bookId, editionKey, opts)
   if (useChapterShards) {
     try {
       const sharded = await loadChapterShardedEdition(bookId, editionKey, opts)
@@ -386,7 +412,7 @@ async function applyEditionPatches(
 
   // Apply any server-confirmed patches (with safety check)
   for (const patch of patches) {
-    const ch = data.chapters[patch.chapter_number - 1]
+    const ch = data.chapters.find(chapter => chapter.number === patch.chapter_number)
     if (ch && patch.paragraph_index < ch.paragraphs.length) {
       const original = ch.paragraphs[patch.paragraph_index]
       // Safety: skip patches that are less than 50% of original length
@@ -410,6 +436,8 @@ export async function reloadEdition(bookId: string, editionKey: EditionKey): Pro
   const cacheKey = `${bookId}-${editionKey}`
   cache.delete(cacheKey)
   manifestCache.delete(cacheKey)
+  patchCache.delete(cacheKey)
+  patchInFlight.delete(cacheKey)
   for (const key of chapterShardCache.keys()) {
     if (key.startsWith(`${cacheKey}-ch`)) chapterShardCache.delete(key)
   }

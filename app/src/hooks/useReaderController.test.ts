@@ -903,6 +903,48 @@ describe('useReaderController', () => {
     expect(result.current.currentChapter).toBe(1)
   })
 
+  it('does not refresh through the visibility listener on a short tab return', async () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(1_777_300_000_000)
+    store.set('tinct-current-book', 'odyssey')
+    store.set('position:odyssey', position({ bookId: 'odyssey', chapterNumber: 1, scrollFraction: 0.1 }))
+    const provider = {
+      refresh: vi.fn(async () => {
+        store.set('position:odyssey', position({ bookId: 'odyssey', chapterNumber: 2, scrollFraction: 0.25 }))
+      }),
+      refreshKeys: vi.fn(async () => {}),
+    }
+
+    const { result } = renderHook(() => useReaderController({
+      cloudRestoreSettled: true,
+      storageReady: true,
+      supabaseProviderRef: { current: provider },
+      totalChaptersRef: { current: 10 },
+      user: { id: 'reader' },
+    }))
+
+    act(() => {
+      result.current.setTotalPages(10)
+      result.current.setCurrentChapter(1)
+    })
+    setVisibilityState('hidden')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+      window.dispatchEvent(new Event('pagehide'))
+    })
+    vi.setSystemTime(1_777_300_120_000)
+    setVisibilityState('visible')
+
+    await act(async () => {
+      document.dispatchEvent(new Event('visibilitychange'))
+      await Promise.resolve()
+    })
+
+    expect(provider.refresh).not.toHaveBeenCalled()
+    expect(provider.refreshKeys).not.toHaveBeenCalled()
+    expect(result.current.currentChapter).toBe(1)
+  })
+
   it('switches to cloud current book on focus refresh', async () => {
     vi.useFakeTimers()
     vi.setSystemTime(1_777_300_000_000)

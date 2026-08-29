@@ -695,6 +695,12 @@ export default function App() {
   }
   const primaryChapter = primaryData?.chapters.find(c => c.number === currentChapter)
   const primaryChapterIndex = primaryData?.chapters.findIndex(c => c.number === currentChapter) ?? -1
+  const currentChapterTextPending = Boolean(
+    primaryData &&
+    isEditionWindowed(primaryData) &&
+    (!primaryChapter || primaryChapter.paragraphs.length === 0),
+  )
+  const readerTextLoading = isLoading || currentChapterTextPending
   const chapterTitle = normalizeChapterTitle(primaryChapter?.title || `Chapter ${currentChapter}`)
 
   useEffect(() => {
@@ -1154,7 +1160,7 @@ export default function App() {
     // chapter-change effect's own skip handles deterministic triggers; this
     // covers timer-based and user-action-based writes that could fire in
     // the gap.
-    isLoading
+    readerTextLoading
 
   // Predictive prefetch on boot (Phase 5).
   //
@@ -1253,7 +1259,7 @@ export default function App() {
     activeView,
     storageReady,
     writeSuspended,
-    isLoading,
+    isLoading: readerTextLoading,
     savedPos,
   })
   readerSessionContextRef.current = readerSessionContext
@@ -1412,6 +1418,10 @@ export default function App() {
 
   // Handle page changes from Reader — track reading speed
   const handlePageChange = useCallback((page: number, total: number) => {
+    // While a windowed chapter is filling, Reader may briefly paginate the
+    // loading shell. Do not let that transient page-1 report erase an explicit
+    // restore intent such as "previous chapter, last page".
+    if (readerTextLoading) return
     // Track reading speed before updating page
     if (primaryChapter && total > 0) {
       const wordsOnPage = Math.ceil(
@@ -1465,7 +1475,7 @@ export default function App() {
       setBackPosition(null)
       if (backTimeoutRef.current) clearTimeout(backTimeoutRef.current)
     }
-  }, [activeView, book.id, currentChapter, primaryChapter, primaryData, readerSessionContext, trackPageView, backPosition])
+  }, [activeView, book.id, currentChapter, primaryChapter, primaryData, readerSessionContext, trackPageView, backPosition, readerTextLoading])
 
   const handleReadPageChange = useCallback((page: number, total: number) => {
     if (isMobile && activeView !== 0) return
@@ -1992,6 +2002,7 @@ export default function App() {
     if (chapter && chapter.paragraphs.length > 0) return
 
     let cancelled = false
+    setPrimaryLoadError(null)
     void loadEditionWindow(book.id, primaryEditionKey, currentChapter)
       .then(data => {
         if (cancelled) return
@@ -2000,6 +2011,7 @@ export default function App() {
       .catch(err => {
         if (cancelled) return
         console.warn(`[App] Failed to fill chapter window ${book.id}/${primaryEditionKey}/ch${currentChapter}:`, err)
+        setPrimaryLoadError((err as Error).message || 'Could not load this chapter.')
       })
     return () => { cancelled = true }
   }, [primaryData, book.id, primaryEditionKey, currentChapter])
@@ -3410,7 +3422,7 @@ export default function App() {
                   chapterTitle={chapterTitle}
                   progressLabel={progressLabel}
                   editionLabel={editionLabel}
-                  isLoading={isLoading}
+                  isLoading={readerTextLoading}
                   highlights={getEditionHighlights(primaryEditionKey)}
                   onHighlight={handleHighlight}
                   onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
@@ -3460,7 +3472,7 @@ export default function App() {
                   isActive={activeView === 1}
                   paragraphs={splitChapter.paragraphs}
                   chapterTitle={normalizeChapterTitle(splitChapter.title || `Book ${currentChapter}`)}
-                  isLoading={isLoading}
+                  isLoading={readerTextLoading}
                   highlights={getEditionHighlights(splitEditionKey)}
                   onHighlight={(pIdx, start, end, text, color) => addHighlight(splitEditionKey, pIdx, start, end, text, color, splitChapter?.paragraphs?.[pIdx])}
                   onTextSelect={(text) => { handleTextSelect(text); setActiveView(2) }}
@@ -3594,7 +3606,7 @@ export default function App() {
                 progressLabel={progressLabel}
                 leftLabel={editionLabel}
                 rightLabel={book.editions.find(ed => ed.key === splitEditionKey)?.label || splitEditionKey}
-                isLoading={isLoading}
+                isLoading={readerTextLoading}
                 leftHighlights={getEditionHighlights(primaryEditionKey)}
                 rightHighlights={getEditionHighlights(splitEditionKey)}
                 alignedEditions={alignedEditions}
@@ -3642,7 +3654,7 @@ export default function App() {
                 chapterTitle={chapterTitle}
                 progressLabel={progressLabel}
                 editionLabel={editionLabel}
-                isLoading={isLoading}
+                isLoading={readerTextLoading}
                 highlights={getEditionHighlights(primaryEditionKey)}
                 onHighlight={handleHighlight}
                 onTextSelect={handleTextSelect}

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { hasLikelySupabaseSession } from './useAuth'
+import { SUPABASE_SESSION_RECOVERY_TIMEOUT_MS, hasLikelySupabaseSession } from './useAuth'
 
 function installWindowWithStorage(storage: Record<string, string>, cookie = '') {
   const keys = Object.keys(storage)
@@ -42,5 +42,11 @@ describe('hasLikelySupabaseSession', () => {
   it('falls back to the signed-in cookie', () => {
     installWindowWithStorage({}, 'other=1; tinct_auth=1')
     expect(hasLikelySupabaseSession()).toBe(true)
+  })
+})
+
+describe('SUPABASE_SESSION_RECOVERY_TIMEOUT_MS', () => {
+  it('keeps signed-in cold start fallback short enough for local-mirror restore', () => {
+    expect(SUPABASE_SESSION_RECOVERY_TIMEOUT_MS).toBe(3000)
   })
 })

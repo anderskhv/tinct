@@ -14,6 +14,7 @@ export function useStorageBootstrap(args: {
   likelyAuthenticated: boolean
 }) {
   const { user, authLoading, likelyAuthenticated } = args
+  const userId = user?.id ?? null
   // Start false to prevent hooks from writing defaults before cloud data loads.
   const [storageReady, setStorageReady] = useState(false)
   // Signed-in startup has a second gate after storage is available: the app
@@ -42,23 +43,23 @@ export function useStorageBootstrap(args: {
   useEffect(() => {
     // Wait for auth to resolve before deciding on storage provider.
     if (authLoading) return
-    if (user) {
+    if (userId) {
       setStorageReady(false)
       setCloudRestoreSettled(false)
       // Signed-in: turn off anonymous restrictions so the
       // SupabaseStorageProvider's localStorage cache mirroring works for all keys.
       setAnonymousMode(false)
-      const provider = new SupabaseStorageProvider(user.id)
+      const provider = new SupabaseStorageProvider(userId)
       const localData = localStorageProvider.getAllData()
       const hasLocalMirror = Object.keys(localData).some(key => key === 'tinct-current-book' || key.startsWith('position:'))
       const LAST_USER_KEY = 'tinct:last-user-id'
       const lastUserId = localStorage.getItem(LAST_USER_KEY)
-      const isUserSwitch = lastUserId !== null && lastUserId !== user.id
+      const isUserSwitch = lastUserId !== null && lastUserId !== userId
       localFirstFromCacheRef.current = hasLocalMirror && !isUserSwitch
       if (isUserSwitch) {
         clearLocalUserData()
       }
-      try { localStorage.setItem(LAST_USER_KEY, user.id) } catch { /* ignore */ }
+      try { localStorage.setItem(LAST_USER_KEY, userId) } catch { /* ignore */ }
       let cancelled = false
       let providerInstalled = false
       const installProvider = () => {
@@ -175,7 +176,7 @@ export function useStorageBootstrap(args: {
     return () => {
       supabaseProviderRef.current?.unsubscribe()
     }
-  }, [user, authLoading, likelyAuthenticated])
+  }, [userId, authLoading, likelyAuthenticated])
 
   return {
     storageReady,
