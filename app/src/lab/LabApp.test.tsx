@@ -302,6 +302,7 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-phone \.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
     expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*text-align:\s*left/)
     expect(css).toMatch(/data-layout-pending|layout-pending/)
+    expect(css).not.toMatch(/\.lab-book,\s*\.lab-passage\s*\{[^}]*transition:\s*opacity/)
     const phoneHeadlineSize = css.match(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*calc\(/)
     const phoneHearingSize = css.match(/\.lab\.is-phone \.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
     expect(phoneHeadlineSize).toBeTruthy()
@@ -2454,6 +2455,27 @@ describe('lab after-paint shrink', () => {
         expect(lineWords().length).toBeLessThan(beforeNotice)
         expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
       })
+    } finally {
+      restore()
+    }
+  })
+
+  it('cancels obsolete fitting passes during rapid back-and-forth navigation', async () => {
+    const restore = stubTooTallFirstPack()
+    try {
+      render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
+      await waitForPhoneProgress()
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      fireEvent.click(screen.getByTestId('lab-page-prev'))
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      for (let i = 0; i < 28; i++) {
+        await act(async () => {
+          await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
+        })
+      }
+      expect(phoneProgressInfo()).toMatch(/^2\s*\/\s*\d+$/)
+      expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
+      expect(lineWords().length).toBeGreaterThan(0)
     } finally {
       restore()
     }

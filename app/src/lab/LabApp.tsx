@@ -1247,14 +1247,31 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (!wrap || !chromeEl || phoneAskOpen || !sourceReady) return
     // Never reshape page slices while audio is up — slim transport measures a different budget.
     if (listen.playing || browseWhileListening) return
-    // Validate the target slice before revealing it. The safety peel runs after
-    // layout, so exposing the draft here makes its last line visibly disappear.
-    setVisiblePageReady(false)
+    let cancelled = false
+    const pendingPaints = new Set<() => void>()
+    let hiddenForAdjustment = false
     let shrinkPasses = 0
     let growthBaseline: ChapterHearingPage[] | null = null
     lastAdjustRef.current = null
-    const finishVisiblePage = () => setVisiblePageReady(true)
+    const hideVisiblePage = () => {
+      if (cancelled || hiddenForAdjustment) return
+      hiddenForAdjustment = true
+      setVisiblePageReady(false)
+    }
+    const finishVisiblePage = () => {
+      if (!cancelled) setVisiblePageReady(true)
+    }
+    const scheduleFit = () => {
+      if (cancelled) return
+      let cancelPaint = () => {}
+      cancelPaint = afterLabPaint(() => {
+        pendingPaints.delete(cancelPaint)
+        if (!cancelled) tryFitVisiblePage()
+      })
+      pendingPaints.add(cancelPaint)
+    }
     const applyVisiblePages = (current: ChapterHearingPage[], next: ChapterHearingPage[]) => {
+      if (cancelled) return false
       // Refinement may add a safety page for real overflow, but never remove a
       // page and make the denominator count down while the reader advances.
       if (next.length < current.length) return false
@@ -1292,6 +1309,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const shrunk = shrinkPaintedPageOverflow(pages, pageIdx, painted, book.paragraphs, pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null)
       if (shrunk) {
         shrinkPasses += 1
+        hideVisiblePage()
         if (lastAdjustRef.current === 'grow' && growthBaseline) {
           applyVisiblePages(pages, growthBaseline)
           lastAdjustRef.current = 'peel'
@@ -1303,7 +1321,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           return
         }
         lastAdjustRef.current = 'peel'
-        afterLabPaint(tryFitVisiblePage)
+        scheduleFit()
         return
       }
       const grown = growPaintedPageIfSlack(
@@ -1315,18 +1333,27 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       )
       if (!sameChapterPages(grown, pages)) {
         shrinkPasses += 1
+        hideVisiblePage()
         growthBaseline = pages
         if (!applyVisiblePages(pages, grown)) {
           finishVisiblePage()
           return
         }
         lastAdjustRef.current = 'grow'
-        afterLabPaint(tryFitVisiblePage)
+        scheduleFit()
         return
       }
       finishVisiblePage()
     }
-    return afterLabPaint(tryFitVisiblePage)
+    // The current page has already been laid out when a layout effect runs.
+    // Validate it synchronously so fitting pages never blink, and only hide a
+    // page when an actual peel/grow adjustment needs another paint.
+    tryFitVisiblePage()
+    return () => {
+      cancelled = true
+      pendingPaints.forEach(cancelPaint => cancelPaint())
+      pendingPaints.clear()
+    }
   }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, ask.notice, book.chapterTitle, book.paragraphs, readingPageIndex, pageCountReady, pageMetrics, sourceReady, fontReady])
 
   useLayoutEffect(() => {
