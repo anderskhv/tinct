@@ -1155,11 +1155,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   )
   const approximatePagesLabel = `${Math.min(chapterProgress.currentPage, displayPageTotal)} / ≈${displayPageTotal}`
   const footProgressLabel = showPhoneChrome
-    ? (!sourceReady || !fontReady || !visiblePageReady
-        ? `${chapterProgress.currentPage} / …`
-        : pageCountReady && lockedPageTotal != null && lockedPageTotal > 0
-          ? pagesOnlyLabel
-          : approximatePagesLabel)
+    ? prefs.progressDisplay.metric === 'percent'
+      ? `${chapterProgress.percent}%`
+      : prefs.progressDisplay.metric === 'page'
+        ? (!sourceReady || !fontReady
+            ? `${chapterProgress.currentPage} / …`
+            : pageCountReady && lockedPageTotal != null && lockedPageTotal > 0
+              ? pagesOnlyLabel
+              : approximatePagesLabel)
+        : footProgress
     : footProgress
 
   useEffect(() => {
@@ -1243,9 +1247,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (!wrap || !chromeEl || phoneAskOpen || !sourceReady) return
     // Never reshape page slices while audio is up — slim transport measures a different budget.
     if (listen.playing || browseWhileListening) return
+    // Validate the target slice before revealing it. The safety peel runs after
+    // layout, so exposing the draft here makes its last line visibly disappear.
+    setVisiblePageReady(false)
     let shrinkPasses = 0
     let growthBaseline: ChapterHearingPage[] | null = null
     lastAdjustRef.current = null
+    const finishVisiblePage = () => setVisiblePageReady(true)
     const applyVisiblePages = (current: ChapterHearingPage[], next: ChapterHearingPage[]) => {
       // Refinement may add a safety page for real overflow, but never remove a
       // page and make the denominator count down while the reader advances.
@@ -1261,24 +1269,39 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return true
     }
     const tryFitVisiblePage = () => {
-      if (listen.playing || browseWhileListeningRef.current) return
-      if (shrinkPasses >= 12) return
+      if (listen.playing || browseWhileListeningRef.current) {
+        finishVisiblePage()
+        return
+      }
+      if (shrinkPasses >= 12) {
+        finishVisiblePage()
+        return
+      }
       const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
-      if (!passage) return
+      if (!passage) {
+        finishVisiblePage()
+        return
+      }
       const pages = readingPagesRef.current
       const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
       const painted = measurePaintedOverflow(passage, chromeEl)
-      if (!painted) return
+      if (!painted) {
+        finishVisiblePage()
+        return
+      }
       const shrunk = shrinkPaintedPageOverflow(pages, pageIdx, painted, book.paragraphs, pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null)
       if (shrunk) {
         shrinkPasses += 1
         if (lastAdjustRef.current === 'grow' && growthBaseline) {
           applyVisiblePages(pages, growthBaseline)
           lastAdjustRef.current = 'peel'
-          setVisiblePageReady(true)
+          finishVisiblePage()
           return
         }
-        if (!applyVisiblePages(pages, shrunk)) return
+        if (!applyVisiblePages(pages, shrunk)) {
+          finishVisiblePage()
+          return
+        }
         lastAdjustRef.current = 'peel'
         afterLabPaint(tryFitVisiblePage)
         return
@@ -1293,15 +1316,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (!sameChapterPages(grown, pages)) {
         shrinkPasses += 1
         growthBaseline = pages
-        if (!applyVisiblePages(pages, grown)) return
+        if (!applyVisiblePages(pages, grown)) {
+          finishVisiblePage()
+          return
+        }
         lastAdjustRef.current = 'grow'
         afterLabPaint(tryFitVisiblePage)
         return
       }
-      setVisiblePageReady(true)
+      finishVisiblePage()
     }
     return afterLabPaint(tryFitVisiblePage)
-  }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, book.chapterTitle, book.paragraphs, readingPageIndex, pageCountReady, sourceReady, fontReady])
+  }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, ask.notice, book.chapterTitle, book.paragraphs, readingPageIndex, pageCountReady, pageMetrics, sourceReady, fontReady])
 
   useLayoutEffect(() => {
     if (!selectionPopup) return
@@ -1778,6 +1804,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-playing={listen.playing ? 'true' : 'false'}
       data-fullscreen={fullscreen ? 'true' : 'false'}
       data-layout-pending={typographyPending ? 'true' : 'false'}
+      data-page-pending={!visiblePageReady ? 'true' : 'false'}
       aria-busy={typographyPending || !fontReady || !visiblePageReady}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),

@@ -2326,7 +2326,7 @@ describe('lab page turn identity', () => {
 })
 
 describe('lab after-paint shrink', () => {
-  function stubTooTallFirstPack() {
+  function stubTooTallFirstPack(chromeTop: number | (() => number) = 400) {
     const proto = HTMLElement.prototype
     const original = proto.getBoundingClientRect
     proto.getBoundingClientRect = function getBoundingClientRect() {
@@ -2338,7 +2338,8 @@ describe('lab after-paint shrink', () => {
         || this.classList?.contains('lab-phone-transport')
         || this.classList?.contains('lab-hearing-transport')
       ) {
-        return { top: 400, bottom: 480, height: 80, width: 390, left: 0, right: 390, x: 0, y: 400, toJSON() {} }
+        const top = typeof chromeTop === 'function' ? chromeTop() : chromeTop
+        return { top, bottom: top + 80, height: 80, width: 390, left: 0, right: 390, x: 0, y: top, toJSON() {} }
       }
       if (this.classList?.contains('lab-hearing-line')) {
         const words = (this.textContent || '').replace(/Keep this passage/g, '').trim().split(/\s+/).filter(Boolean).length
@@ -2430,6 +2431,29 @@ describe('lab after-paint shrink', () => {
       })
       expect(lineWords().join(' ')).not.toBe(settled)
       expect(nm().m).toBeGreaterThanOrEqual(frozenM)
+    } finally {
+      restore()
+    }
+  })
+
+  it('refits the reading page when returning from Talk adds a notice to the footer', async () => {
+    const restore = stubTooTallFirstPack(() => (
+      screen.queryByTestId('lab-root')?.classList.contains('has-notice') ? 280 : 400
+    ))
+    try {
+      render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} authToken={null} />)
+      await waitFor(() => {
+        expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
+      })
+      const beforeNotice = lineWords().length
+      fireEvent.click(screen.getByTestId('lab-phone-talk'))
+      expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
+      fireEvent.click(screen.getByTestId('lab-listen'))
+      expect(screen.getByTestId('lab-root').className).toContain('has-notice')
+      await waitFor(() => {
+        expect(lineWords().length).toBeLessThan(beforeNotice)
+        expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
+      })
     } finally {
       restore()
     }
@@ -2744,7 +2768,7 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
   })
 
-  it('persists Layout knobs and uses cheap progress formats', async () => {
+  it('persists Layout knobs, uses a labelled size stepper, and renders percent progress', async () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     await waitForPhoneProgress()
     fireEvent.click(screen.getByTestId('lab-gear'))
@@ -2761,9 +2785,12 @@ describe('lab chrome pass', () => {
       expect(ink).not.toBe('rgb(11, 11, 11)')
       expect(getComputedStyle(word).color).toBe(ink)
     }
+    expect(screen.getByTestId('lab-font-size').textContent).toContain('Default')
+    fireEvent.click(screen.getByTestId('lab-font-size-increase'))
+    expect(screen.getByTestId('lab-font-size').textContent).toContain('Large')
     fireEvent.click(screen.getByText('%'))
-    expect(phoneProgressInfo()).toMatch(/^\d+\s*\/\s*\d+$/)
-    expect(phoneProgressInfo()).not.toContain('%')
+    expect(phoneProgressInfo()).toMatch(/^\d+%$/)
+    expect(phoneProgressInfo()).not.toContain('/')
   })
 })
 

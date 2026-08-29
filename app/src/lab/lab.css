@@ -159,6 +159,12 @@
   pointer-events: none;
 }
 
+/* A page peel is a pre-paint validation step, not a visible text edit. */
+.lab[data-page-pending='true'] .lab-passage:not(.lab-page-measure) {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .lab-passage.is-hearing .lab-hearing-word[data-word-index],
 .lab-passage.is-browse-listen .lab-hearing-word {
   cursor: pointer;
@@ -1913,8 +1919,7 @@
   gap: 0.2rem;
 }
 
-.lab-ss-seg-item,
-.lab-ss-size {
+.lab-ss-seg-item {
   border: 1px solid #c8c0ae;
   background: transparent;
   color: #0b0b0b;
@@ -1924,8 +1929,7 @@
   cursor: pointer;
 }
 
-.lab-ss-seg-item.is-active,
-.lab-ss-size.is-active {
+.lab-ss-seg-item.is-active {
   background: #0b0b0b;
   color: #ece7db;
   border-color: #0b0b0b;
@@ -1933,7 +1937,44 @@
 
 .lab-ss-sizes {
   display: flex;
-  gap: 0.2rem;
+  align-items: center;
+  min-width: 10.5rem;
+  border: 1px solid #c8c0ae;
+}
+
+.lab-ss-size-step {
+  flex: 0 0 2.5rem;
+  min-height: 2rem;
+  border: 0;
+  background: transparent;
+  color: #0b0b0b;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.lab-ss-size-step:first-child {
+  border-right: 1px solid #c8c0ae;
+}
+
+.lab-ss-size-step:last-child {
+  border-left: 1px solid #c8c0ae;
+}
+
+.lab-ss-size-step:disabled {
+  color: #aaa18f;
+  cursor: default;
+}
+
+.lab-ss-size-value {
+  flex: 1 1 auto;
+  min-width: 5.25rem;
+  padding: 0 0.35rem;
+  color: #3f3a32;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.66rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .lab-ss-toggle {

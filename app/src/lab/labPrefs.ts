@@ -7,7 +7,7 @@ export const LAB_LIBRARY_URL = '/read/'
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 
-export const LAB_FONT_SIZES = [1.0, 1.2, 1.5, 1.8, 2.2] as const
+export const LAB_FONT_SIZES = [1.0, 1.3, 1.5, 1.8, 2.2] as const
 export const LAB_FONT_FAMILIES: FontFamily[] = ['garamond', 'baskerville', 'sourceserif']
 
 export interface LabPrefs {
