@@ -16,6 +16,53 @@ interface LabAskPaneProps {
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
+  chapterLabel?: (chapterNumber: number) => string
+}
+
+function inlineMarkup(text: string) {
+  return text.split(/(`[^`]+`|\*\*[^*]+\*\*|__[^_]+__|\*[^*]+\*)/g).filter(Boolean).map((part, index) => {
+    if (part.startsWith('`') && part.endsWith('`')) return <code key={index}>{part.slice(1, -1)}</code>
+    if ((part.startsWith('**') && part.endsWith('**')) || (part.startsWith('__') && part.endsWith('__'))) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>
+    }
+    if (part.startsWith('*') && part.endsWith('*')) return <em key={index}>{part.slice(1, -1)}</em>
+    return part
+  })
+}
+
+function LabMessage({ text }: { text: string }) {
+  const lines = text.replace(/\r/g, '').split('\n')
+  const blocks: React.ReactNode[] = []
+  let list: { ordered: boolean; items: string[] } | null = null
+  const flushList = () => {
+    if (!list) return
+    const Tag = list.ordered ? 'ol' : 'ul'
+    blocks.push(<Tag key={`list-${blocks.length}`}>{list.items.map((item, index) => <li key={index}>{inlineMarkup(item)}</li>)}</Tag>)
+    list = null
+  }
+  lines.forEach((raw) => {
+    const line = raw.trim()
+    const item = line.match(/^(?:([-*])|(\d+)\.)\s+(.+)$/)
+    if (item) {
+      const ordered = Boolean(item[2])
+      if (list && list.ordered !== ordered) flushList()
+      if (!list) list = { ordered, items: [] }
+      list.items.push(item[3])
+      return
+    }
+    flushList()
+    if (!line) return
+    const heading = line.match(/^(#{1,3})\s+(.+)$/)
+    if (heading) {
+      blocks.push(<h3 key={`heading-${blocks.length}`}>{inlineMarkup(heading[2])}</h3>)
+    } else if (line.startsWith('> ')) {
+      blocks.push(<blockquote key={`quote-${blocks.length}`}>{inlineMarkup(line.slice(2))}</blockquote>)
+    } else {
+      blocks.push(<p key={`p-${blocks.length}`}>{inlineMarkup(line)}</p>)
+    }
+  })
+  flushList()
+  return <div className="lab-ask-message">{blocks}</div>
 }
 
 function MicIcon() {
@@ -51,21 +98,27 @@ export function LabAskPane({
   notice,
   onDone,
   phoneSheet = false,
+  chapterLabel,
 }: LabAskPaneProps) {
   const [localError, setLocalError] = useState<string | null>(null)
   const threadRef = useRef<HTMLDivElement | null>(null)
+  const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const canSend = draft.trim().length > 0
   const empty = turns.length === 0 && !typedLoading
 
   useEffect(() => {
     const node = threadRef.current
     if (!node) return
-    const last = node.lastElementChild
-    if (last && typeof (last as HTMLElement).scrollIntoView === 'function') {
-      (last as HTMLElement).scrollIntoView({ block: 'nearest' })
-    }
-    node.scrollTop = node.scrollHeight
+    const frame = requestAnimationFrame(() => { node.scrollTop = node.scrollHeight })
+    return () => cancelAnimationFrame(frame)
   }, [turns, typedLoading])
+
+  useEffect(() => {
+    const input = inputRef.current
+    if (!input) return
+    input.style.height = 'auto'
+    input.style.height = `${Math.min(input.scrollHeight, Math.max(112, window.innerHeight * 0.32))}px`
+  }, [draft])
 
   const submit = () => {
     if (typedLoading) return
@@ -101,14 +154,15 @@ export function LabAskPane({
       <label className="lab-visually-hidden" htmlFor="lab-ask-input">
         {LAB_COPY.askPlaceholder}
       </label>
-      <input
+      <textarea
+        ref={inputRef}
         id="lab-ask-input"
-        type="text"
+        rows={1}
         className="lab-ask-input"
         value={draft}
         onChange={(event) => onDraftChange(event.target.value)}
         onKeyDown={(event) => {
-          if (event.key === 'Enter') {
+          if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault()
             submit()
           }
@@ -182,23 +236,29 @@ export function LabAskPane({
         <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
       ) : (
         <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef}>
-          {turns.map(turn => (
+          {turns.map((turn, index) => (
+            <div key={turn.id}>
+            {index > 0 && turn.chapterNumber != null && turn.chapterNumber !== turns[index - 1]?.chapterNumber && (
+              <p className="lab-ask-moved" data-testid="lab-ask-moved">
+                Moved to {chapterLabel?.(turn.chapterNumber) || `chapter ${turn.chapterNumber}`}
+              </p>
+            )}
             <div
-              key={turn.id}
               className={`lab-ask-turn is-${turn.role}`}
               data-testid={`lab-ask-turn-${turn.role}`}
             >
               {turn.role === 'user' ? (
-                <p className="lab-ask-user">
+                <div className="lab-ask-user">
                   <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
-                  {turn.content}
-                </p>
+                  <LabMessage text={turn.content} />
+                </div>
               ) : (
-                <p className="lab-ask-reply">
+                <div className="lab-ask-reply">
                   <span className="lab-ask-reply-label">{LAB_COPY.tinctLabel}</span>
-                  {turn.content}
-                </p>
+                  <LabMessage text={turn.content} />
+                </div>
               )}
+            </div>
             </div>
           ))}
           {typedLoading && (

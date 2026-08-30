@@ -12,6 +12,8 @@ export interface LabAskTurn {
   role: 'user' | 'assistant'
   content: string
   source: 'typed' | 'voice'
+  chapterNumber?: number
+  timestamp?: number
   cancelled?: boolean
 }
 

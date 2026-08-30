@@ -172,6 +172,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       role: message.role === 'assistant' ? 'assistant' : 'user',
       content,
       source: 'voice',
+      chapterNumber: message.chapterNumber ?? optionsRef.current.chapterNumber,
+      timestamp: message.timestamp,
       cancelled: message.isComplete === false,
     }
     setTurns(current => {
@@ -277,6 +279,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       role: 'user',
       content: text,
       source: 'typed',
+      chapterNumber: options.chapterNumber,
+      timestamp: Date.now(),
     }
     setTurns(current => {
       const next = [...current, userTurn]
@@ -356,6 +360,8 @@ export function useLabAsk(options: UseLabAskOptions) {
                 role: 'assistant' as const,
                 content,
                 source: 'typed' as const,
+                chapterNumber: optionsRef.current.chapterNumber,
+                timestamp: Date.now(),
               }]
           dumpLabTalkTurns(next)
           return next
@@ -371,6 +377,8 @@ export function useLabAsk(options: UseLabAskOptions) {
           role: 'assistant',
           content: skipped.text,
           source: 'typed',
+          chapterNumber: options.chapterNumber,
+          timestamp: Date.now(),
         }
         setTurns(current => {
           const last = current[current.length - 1]

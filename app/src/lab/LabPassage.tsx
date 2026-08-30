@@ -45,6 +45,7 @@ interface LabPassageProps {
   onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
   browseWhileListening?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
+  pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
 }
 
 function wordSpacing(word: { text: string }, wordIndex: number): string {
@@ -137,6 +138,7 @@ export function LabPassage({
   onSelectRange,
   browseWhileListening = false,
   onSeekToWord,
+  pageTurn,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -156,7 +158,12 @@ export function LabPassage({
     ? isChapterFirstHearingPage(paragraph, linesFollow, chapterPages)
     : isChapterFirstReadingPage(readingPage)
 
-  const dragRef = useRef<{ start: LabWordPlace; end: LabWordPlace } | null>(null)
+  const dragRef = useRef<{
+    start: LabWordPlace
+    end: LabWordPlace
+    startedAt: number
+    pointerType: string
+  } | null>(null)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
 
@@ -167,6 +174,9 @@ export function LabPassage({
     if (!drag || !onSelectRange) return
     const range = buildHighlightRange(paragraphs, drag.start, drag.end)
     if (!range.text.trim()) return
+    const singleWord = drag.start.paragraphIndex === drag.end.paragraphIndex
+      && drag.start.wordIndex === drag.end.wordIndex
+    if (singleWord && drag.pointerType === 'touch' && Date.now() - drag.startedAt < 280) return
     onSelectRange(range, event.clientX, event.clientY)
   }
 
@@ -176,7 +186,7 @@ export function LabPassage({
     if (!place) return
     event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
-    dragRef.current = { start: place, end: place }
+    dragRef.current = { start: place, end: place, startedAt: Date.now(), pointerType: event.pointerType }
     setLocalSelecting(buildHighlightRange(paragraphs, place, place))
   }
 
@@ -242,6 +252,8 @@ export function LabPassage({
             <div
               className="lab-hearing-stage"
               data-testid="lab-reading-stage"
+              data-page-turn={pageTurn?.direction}
+              key={pageTurn?.nonce ?? 0}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerEnd}

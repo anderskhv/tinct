@@ -1122,7 +1122,7 @@ describe('VoiceSessionController ask_companion hop', () => {
     const output = events.find(item => item.type === 'conversation.item.create')
     expect(query).toHaveBeenCalledWith('what does this mean', expect.any(Object))
     expect(covers).toHaveLength(1)
-    expect(covers[0].response.instructions).toContain('Let me look at the passage.')
+    expect(covers[0].response.instructions).toContain('Give me a second to pull together a good response.')
     expect(output.item.output).toContain('Telemachus is being given a path.')
     expect(spoken).toHaveLength(1)
     expect(spoken[0].response.instructions).toContain('Do not invent a thinner substitute')

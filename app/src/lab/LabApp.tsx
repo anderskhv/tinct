@@ -119,6 +119,15 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   )
 }
 
+function ReadIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 5.5c2.8-.7 5.5-.2 8 1.5v12c-2.5-1.7-5.2-2.2-8-1.5v-12Z" />
+      <path d="M20 5.5c-2.8-.7-5.5-.2-8 1.5v12c2.5-1.7 5.2-2.2 8-1.5v-12Z" />
+    </svg>
+  )
+}
+
 function GearIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -230,6 +239,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
+  const [pageTurn, setPageTurn] = useState<{ direction: 'next' | 'previous'; nonce: number } | null>(null)
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
@@ -286,6 +296,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const resumeListenRef = useRef<() => void>(() => {})
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | Promise<void>>(() => {})
+  const chapterEndRef = useRef<() => boolean>(() => false)
 
   const [listenSource, setListenSource] = useState(() => ({
     chapterNumber: book.chapterNumber,
@@ -318,6 +329,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
     audioEdition: audioEditionKey,
+    onChapterEnd: () => chapterEndRef.current(),
   })
   listenPlayingRef.current = listen.playing
 
@@ -1461,6 +1473,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setOpenAtEnd(false)
     pageAnchorRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
+    if (clamped !== readingPageIndexRef.current) {
+      setPageTurn(current => ({
+        direction: clamped > readingPageIndexRef.current ? 'next' : 'previous',
+        nonce: (current?.nonce ?? 0) + 1,
+      }))
+    }
     readingPageIndexRef.current = clamped
     setReadingPageIndex(clamped)
     if (listen.playing || browseWhileListeningRef.current) {
@@ -1536,6 +1554,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
   }, [listen, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
+
+  chapterEndRef.current = () => {
+    const next = nextLabChapter(bookRef.current.chapters, chapterNumberRef.current)
+    if (next == null) return false
+    setFinishedChapters(markChapterFinished(chapterNumberRef.current))
+    void goToChapter(next, 'start')
+    return true
+  }
 
   useEffect(() => {
     const target = keepPlayingChapterRef.current
@@ -1758,6 +1784,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     startHearing()
   }, [chrome, listen, phoneAskOpen, resumeListenAfterAsk, startHearing])
 
+  const barShowsRead = !listen.playing && (chrome === 'reading' || returnToRef.current === 'reading')
+
   const closePhoneAsk = useCallback(() => {
     resumeListenAfterAsk()
   }, [resumeListenAfterAsk])
@@ -1935,6 +1963,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
+            pageTurn={pageTurn}
           />
           {settleIndex != null && draftPages[settleIndex] && (
             <div
@@ -1977,6 +2006,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             notice={ask.notice}
             onDone={phoneAsk ? undefined : closePhoneAsk}
             phoneSheet={!!phoneAsk}
+            chapterLabel={(number) => book.chapters.find(chapter => chapter.number === number)?.title || `${book.headerBook} ${number}`}
           />
         )}
       </div>
@@ -2101,10 +2131,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               type="button"
               className={`lab-phone-fat ${listen.playing ? 'is-active' : ''}`}
               onClick={handleBarListen}
-              aria-label={listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+              aria-label={listen.starting ? 'Loading audio' : barShowsRead ? LAB_COPY.read : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+              disabled={listen.starting}
               data-testid="lab-listen"
             >
-              {listen.playing ? (
+              {listen.starting ? null : barShowsRead ? (
+                <span data-testid="lab-read-icon"><ReadIcon size={18} /></span>
+              ) : listen.playing ? (
                 <>
                   <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{LAB_COPY.pause}</span>
                   <PauseIcon size={18} />
@@ -2114,7 +2147,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
                   <PlayIcon size={18} />
                 </span>
               )}
-              {listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+              {listen.starting ? 'Loading…' : barShowsRead ? LAB_COPY.read : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
             </button>
             <button
               type="button"

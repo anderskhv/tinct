@@ -161,6 +161,7 @@ export class VoiceSessionController {
   private assistantTranscriptFamily: 'output' | 'audio' | null = null
   private assistantLineFinished = false
   private micUnmuteTimer: number | null = null
+  private connectionLossTimer: number | null = null
 
   constructor(callbacks: VoiceSessionCallbacks) {
     this.callbacks = callbacks
@@ -510,6 +511,8 @@ export class VoiceSessionController {
     this.clearForceResponseTimer()
     this.clearBargeInTimer()
     this.clearMicUnmuteTimer()
+    if (this.connectionLossTimer != null) window.clearTimeout(this.connectionLossTimer)
+    this.connectionLossTimer = null
     this.lastUtteranceConfirmed = false
     this.deferredHonorResume = false
     this.awaitingModelResponse = false
@@ -526,6 +529,23 @@ export class VoiceSessionController {
     pc.ontrack = event => {
       remoteAudio.srcObject = event.streams[0]
       void remoteAudio.play().catch(() => { /* autoplay may be unlocked by the tap */ })
+    }
+    pc.onconnectionstatechange = () => {
+      if (pc.connectionState === 'connected') {
+        if (this.connectionLossTimer != null) window.clearTimeout(this.connectionLossTimer)
+        this.connectionLossTimer = null
+        return
+      }
+      if (pc.connectionState === 'failed') {
+        this.fail('Connection lost.')
+        return
+      }
+      if (pc.connectionState === 'disconnected' && this.connectionLossTimer == null) {
+        this.connectionLossTimer = window.setTimeout(() => {
+          this.connectionLossTimer = null
+          if (this.pc === pc && pc.connectionState === 'disconnected') this.fail('Connection lost.')
+        }, 2500)
+      }
     }
     remoteAudio.addEventListener('ended', () => {
       if (this.deferredHonorResume === 'waiting_for_end') this.commitHonoredResume()
@@ -1304,6 +1324,7 @@ export class VoiceSessionController {
     try { this.dc?.close() } catch { /* ignore */ }
     this.dc = null
     try { this.pc?.getSenders().forEach(sender => sender.track?.stop()) } catch { /* ignore */ }
+    if (this.pc) this.pc.onconnectionstatechange = null
     try { this.pc?.close() } catch { /* ignore */ }
     this.pc = null
     this.localStream?.getTracks().forEach(track => track.stop())

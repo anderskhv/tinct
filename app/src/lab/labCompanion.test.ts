@@ -80,7 +80,7 @@ describe('talk instructions stay the ear and mouth', () => {
   it('keeps Realtime on tools and cover, not the in-car brief', () => {
     const talk = buildLabTalkInstructions(CONTEXT)
     expect(talk).toContain(ASK_COMPANION_TOOL)
-    expect(talk).toContain('looking at the passage')
+    expect(talk).toContain('Give me a second to pull together a good response.')
     expect(talk).toContain('Do not invent a thinner substitute')
     expect(talk).toContain('Never mention a tool, a hop, a cutoff')
     expect(talk).toContain('the answer I received')
