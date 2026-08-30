@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { Section } from '../types'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
 import { LAB_FINISHED_STORAGE_KEY } from './labBibleTree'
@@ -84,6 +84,27 @@ function expand(label: string) {
 }
 
 describe('lab phone bible tree', () => {
+  it('centers Jeremiah only on open and does not pull back while expanding Genesis', () => {
+    const original = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollIntoView')
+    const scrollIntoView = vi.fn()
+    Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+      configurable: true,
+      value: scrollIntoView,
+    })
+    try {
+      renderTree({ currentChapter: 30 })
+      expect(scrollIntoView).toHaveBeenCalledTimes(1)
+      fireEvent.click(row('Old Testament'))
+      fireEvent.click(row('The Pentateuch'))
+      fireEvent.click(row('Genesis'))
+      expect(scrollIntoView).toHaveBeenCalledTimes(1)
+      expect(screen.getByTestId('lab-tree-chapter-3').textContent).toContain('Genesis 3')
+    } finally {
+      if (original) Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', original)
+      else delete (HTMLElement.prototype as { scrollIntoView?: unknown }).scrollIntoView
+    }
+  })
+
   it('shows books first and named chapter rows, never a number keypad', () => {
     renderTree({ currentChapter: 1, finished: [1] })
     const toc = screen.getByTestId('lab-bible-tree')

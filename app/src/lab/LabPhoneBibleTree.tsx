@@ -229,7 +229,7 @@ export function LabPhoneBibleTree({
 
   useLayoutEffect(() => {
     scrollRef.current?.scrollIntoView?.({ block: 'center' })
-  }, [expanded, currentChapter])
+  }, [currentChapter])
 
   const onToggle = (node: LabTreeNode) => {
     if (node.kind === 'book') {
