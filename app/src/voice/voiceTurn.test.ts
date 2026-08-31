@@ -39,17 +39,17 @@ describe('voice turn completion', () => {
     ])
 
     expect(session.signals).toEqual(['speech_start'])
-    expect(session.machine).toEqual({ state: 'answering', mode: 'quick' })
+    expect(session.machine).toEqual({ state: 'answering', mode: 'conversation' })
 
     session.apply({ type: 'output_audio_buffer.started' })
     session.apply({ type: 'response.done', response: { status: 'completed', output: [{ type: 'message' }] } })
     expect(session.machine.state).toBe('answering')
 
     session.apply({ type: 'output_audio_buffer.stopped' })
-    expect(session.machine).toEqual({ state: 'resume_pending', mode: 'quick' })
+    expect(session.machine).toEqual({ state: 'conversation_idle', mode: 'conversation' })
   })
 
-  it('only complete answers enter resume_pending', () => {
+  it('only complete answers enter conversation_idle', () => {
     const generationDoneWhilePlaying = drive([
       { type: 'response.created' },
       { type: 'output_audio_buffer.started' },
@@ -60,7 +60,7 @@ describe('voice turn completion', () => {
     expect(generationDoneWhilePlaying.signals).toEqual(['speech_start'])
 
     generationDoneWhilePlaying.apply({ type: 'output_audio_buffer.stopped' })
-    expect(generationDoneWhilePlaying.machine).toEqual({ state: 'resume_pending', mode: 'quick' })
+    expect(generationDoneWhilePlaying.machine).toEqual({ state: 'conversation_idle', mode: 'conversation' })
     expect(generationDoneWhilePlaying.signals).toEqual(['speech_start', 'speech_end'])
   })
 
@@ -88,20 +88,20 @@ describe('voice turn completion', () => {
     expect(session.machine.state).toBe('answering')
 
     session.apply({ type: 'output_audio_buffer.stopped' })
-    expect(session.machine).toEqual({ state: 'resume_pending', mode: 'quick' })
+    expect(session.machine).toEqual({ state: 'conversation_idle', mode: 'conversation' })
   })
 
-  it('still returns to resume_pending after a finished spoken answer', () => {
+  it('still returns to conversation_idle after a finished spoken answer', () => {
     const session = drive([
       { type: 'response.created' },
       { type: 'output_audio_buffer.started' },
       { type: 'response.done' },
       { type: 'output_audio_buffer.stopped' },
     ])
-    expect(session.machine).toEqual({ state: 'resume_pending', mode: 'quick' })
+    expect(session.machine).toEqual({ state: 'conversation_idle', mode: 'conversation' })
   })
 
-  it('enters resume_pending after a completed answer even if the model also called a tool', () => {
+  it('enters conversation_idle after a completed answer even if the model also called a tool', () => {
     const session = drive([
       { type: 'response.created' },
       { type: 'output_audio_buffer.started' },
@@ -114,8 +114,8 @@ describe('voice turn completion', () => {
     const afterTool = noteToolCallHandled(session.turn)
     expect(afterTool.signal).toBe('speech_end')
     expect(reduceVoiceSession(session.machine, { type: 'ASSISTANT_SPEECH_END' })).toEqual({
-      state: 'resume_pending',
-      mode: 'quick',
+      state: 'conversation_idle',
+      mode: 'conversation',
     })
   })
 })

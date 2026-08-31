@@ -2,14 +2,14 @@ import type { VoiceEvent, VoiceMachineSnapshot, VoiceIntent } from './types'
 
 export const INITIAL_VOICE_SNAPSHOT: VoiceMachineSnapshot = {
   state: 'reading',
-  mode: 'quick',
+  mode: 'conversation',
 }
 
 function applyIntent(snapshot: VoiceMachineSnapshot, intent: VoiceIntent): VoiceMachineSnapshot {
   if (snapshot.state === 'reading' || intent === 'none') return snapshot
 
   if (intent === 'resume_audiobook') {
-    return { state: 'reading', mode: 'quick' }
+    return INITIAL_VOICE_SNAPSHOT
   }
 
   if (intent === 'open_conversation') {
@@ -43,7 +43,7 @@ export function reduceVoiceSession(
   switch (event.type) {
     case 'START':
       if (snapshot.state !== 'reading') return snapshot
-      return { state: 'listening', mode: event.mode === 'conversation' ? 'conversation' : 'quick' }
+      return { state: 'listening', mode: event.mode === 'quick' ? 'quick' : 'conversation' }
 
     case 'FAIL':
     case 'STOP':
@@ -70,21 +70,16 @@ export function reduceVoiceSession(
 
     case 'ASSISTANT_SPEECH_END':
       if (snapshot.state !== 'answering') return snapshot
-      if (snapshot.mode === 'conversation') {
-        return { state: 'conversation_idle', mode: 'conversation' }
-      }
-      return { state: 'resume_pending', mode: 'quick' }
+      return { state: 'conversation_idle', mode: snapshot.mode }
 
     case 'RESUME_WINDOW_ELAPSED':
-      if (snapshot.state !== 'resume_pending') return snapshot
-      return INITIAL_VOICE_SNAPSHOT
+      return snapshot
 
     case 'CONVERSATION_TIMEOUT':
-      if (snapshot.state !== 'conversation_idle') return snapshot
-      return INITIAL_VOICE_SNAPSHOT
+      return snapshot
 
     case 'MIC_TAP':
-      if (snapshot.state === 'reading') return { state: 'listening', mode: 'quick' }
+      if (snapshot.state === 'reading') return { state: 'listening', mode: 'conversation' }
       if (snapshot.state === 'resume_pending' || snapshot.state === 'conversation_idle') {
         return { state: 'listening', mode: snapshot.mode }
       }

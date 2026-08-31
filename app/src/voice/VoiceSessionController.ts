@@ -15,8 +15,8 @@ import {
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
 import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
-import { CONVERSATION_IDLE_TIMEOUT_MS, LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, MAX_VOICE_SESSION_MS, RESUME_GRACE_MS, VOICE_CLOSE_LINE } from './types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
+import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, VOICE_CLOSE_LINE, VOICE_REALTIME_MODEL } from './types'
 import {
   INITIAL_VOICE_TURN,
   noteToolCallHandled,
@@ -41,6 +41,7 @@ export interface VoiceSessionCallbacks {
   onNeedAuth?: () => void
   onInsufficientBalance?: () => void
   onUsage?: () => void
+  onLatency?: (sample: VoiceLatencySample) => void
   /** Lab-only. Production leaves this unset. */
   onSetAssistantPace?: (pace: AssistantPace) => void
 }
@@ -119,6 +120,11 @@ function speakCloseLine(): Promise<void> {
   })
 }
 
+function monotonicNow(): number {
+  if (typeof performance !== 'undefined' && typeof performance.now === 'function') return performance.now()
+  return Date.now()
+}
+
 export class VoiceSessionController {
   private machine: VoiceMachineSnapshot = INITIAL_VOICE_SNAPSHOT
   private lastUserIntent: VoiceIntent = 'none'
@@ -136,11 +142,6 @@ export class VoiceSessionController {
   private dc: RTCDataChannel | null = null
   private localStream: MediaStream | null = null
   private remoteAudio: HTMLAudioElement | null = null
-  private resumeTimer: number | null = null
-  private conversationTimer: number | null = null
-  private sessionTimer: number | null = null
-  private countdownTimer: number | null = null
-  private resumeDeadline = 0
   private turn: VoiceTurnState = INITIAL_VOICE_TURN
   private closed = false
   private deferredHonorResume: false | 'waiting_for_start' | 'waiting_for_end' = false
@@ -162,6 +163,10 @@ export class VoiceSessionController {
   private assistantLineFinished = false
   private micUnmuteTimer: number | null = null
   private connectionLossTimer: number | null = null
+  private sessionStartedAt: number | null = null
+  private speechStoppedAt: number | null = null
+  private latencyTurnNumber = 0
+  private firstAudioRecordedForTurn = false
 
   constructor(callbacks: VoiceSessionCallbacks) {
     this.callbacks = callbacks
@@ -181,6 +186,10 @@ export class VoiceSessionController {
     }
 
     this.closed = false
+    this.sessionStartedAt = monotonicNow()
+    this.speechStoppedAt = null
+    this.latencyTurnNumber = 0
+    this.firstAudioRecordedForTurn = false
     this.lastUserIntent = 'none'
     this.userSpeechStarted = false
     this.lastUtteranceConfirmed = false
@@ -270,7 +279,14 @@ export class VoiceSessionController {
         return
       }
       this.dispatch({ type: 'START', mode: input.mode })
-      this.armSessionTimeout()
+      if (this.sessionStartedAt != null) {
+        this.callbacks.onLatency?.({
+          kind: 'session_setup',
+          at: Date.now(),
+          sessionSetupMs: Math.round(monotonicNow() - this.sessionStartedAt),
+          model: VOICE_REALTIME_MODEL,
+        })
+      }
     } catch (error) {
       const message = error instanceof DOMException && error.name === 'NotAllowedError'
         ? 'Microphone access is needed for voice.'
@@ -321,6 +337,29 @@ export class VoiceSessionController {
   setAssistantPace(pace: AssistantPace): void {
     this.assistantPace = pace
     this.sendSessionUpdate()
+  }
+
+  updateContext(context: VoiceReaderContext): void {
+    const movedToDifferentPassage = Boolean(
+      this.context?.bookId
+      && context.bookId
+      && (this.context.bookId !== context.bookId || this.context.chapterNumber !== context.chapterNumber),
+    )
+    this.context = context
+    if (movedToDifferentPassage) {
+      // Refresh the pause anchor if the audio engine has already moved with
+      // the reader. Otherwise refuse the stale anchor rather than jumping
+      // back into the previous book/chapter when voice ends.
+      const refreshed = this.audio?.pausePlayback()
+      const refreshedMatches = Boolean(
+        refreshed?.anchor
+        && (!context.bookId || refreshed.anchor.bookId === context.bookId)
+        && (typeof context.chapterNumber !== 'number' || refreshed.anchor.chapterNumber === context.chapterNumber),
+      )
+      this.anchor = refreshedMatches ? refreshed!.anchor : null
+      if (!refreshedMatches) this.shouldResumeBook = false
+    }
+    if (this.machine.state !== 'reading') this.sendSessionUpdate()
   }
 
   testAssistantPace(): AssistantPace {
@@ -390,16 +429,14 @@ export class VoiceSessionController {
     const previous = this.machine
     const next = reduceVoiceSession(previous, event)
     if (previous === next) {
-      this.syncTimers(next)
       return
     }
     this.machine = next
-    this.syncTimers(next)
     this.emit()
 
     if (shouldResumeAudiobookOnEnterReading(previous, next)) {
       void this.leaveVoice({
-        speakClose: event.type === 'RESUME_WINDOW_ELAPSED' || event.type === 'CONVERSATION_TIMEOUT',
+        speakClose: false,
       })
     }
   }
@@ -412,9 +449,26 @@ export class VoiceSessionController {
     }))
   }
 
+  private noteSpeechStoppedForLatency(): void {
+    this.latencyTurnNumber += 1
+    this.speechStoppedAt = monotonicNow()
+    this.firstAudioRecordedForTurn = false
+  }
+
+  private noteFirstAudioForLatency(): void {
+    if (this.speechStoppedAt == null || this.firstAudioRecordedForTurn) return
+    this.firstAudioRecordedForTurn = true
+    this.callbacks.onLatency?.({
+      kind: 'turn',
+      at: Date.now(),
+      turnNumber: this.latencyTurnNumber,
+      speechStoppedToFirstAudioMs: Math.round(monotonicNow() - this.speechStoppedAt),
+      model: VOICE_REALTIME_MODEL,
+    })
+  }
+
   private currentResumeSeconds(): number | null {
-    if (this.machine.state !== 'resume_pending' || !this.resumeDeadline) return null
-    return Math.max(0, Math.ceil((this.resumeDeadline - Date.now()) / 1000))
+    return null
   }
 
   private fail(error: string): void {
@@ -458,54 +512,7 @@ export class VoiceSessionController {
     }
   }
 
-  private syncTimers(snapshot: VoiceMachineSnapshot): void {
-    this.clearResumeTimer()
-    this.clearConversationTimer()
-
-    if (snapshot.state === 'resume_pending') {
-      this.resumeDeadline = Date.now() + RESUME_GRACE_MS
-      this.resumeTimer = window.setTimeout(() => {
-        this.dispatch({ type: 'RESUME_WINDOW_ELAPSED' })
-      }, RESUME_GRACE_MS)
-      this.countdownTimer = window.setInterval(() => this.emit(), 250)
-    }
-
-    if (snapshot.state === 'conversation_idle') {
-      this.conversationTimer = window.setTimeout(() => {
-        this.dispatch({ type: 'CONVERSATION_TIMEOUT' })
-      }, CONVERSATION_IDLE_TIMEOUT_MS)
-    }
-  }
-
-  private armSessionTimeout(): void {
-    this.clearSessionTimer()
-    this.sessionTimer = window.setTimeout(() => {
-      this.dispatch({ type: 'EXPLICIT_RESUME' })
-    }, MAX_VOICE_SESSION_MS)
-  }
-
-  private clearResumeTimer(): void {
-    if (this.resumeTimer != null) window.clearTimeout(this.resumeTimer)
-    if (this.countdownTimer != null) window.clearInterval(this.countdownTimer)
-    this.resumeTimer = null
-    this.countdownTimer = null
-    this.resumeDeadline = 0
-  }
-
-  private clearConversationTimer(): void {
-    if (this.conversationTimer != null) window.clearTimeout(this.conversationTimer)
-    this.conversationTimer = null
-  }
-
-  private clearSessionTimer(): void {
-    if (this.sessionTimer != null) window.clearTimeout(this.sessionTimer)
-    this.sessionTimer = null
-  }
-
   private clearTimers(): void {
-    this.clearResumeTimer()
-    this.clearConversationTimer()
-    this.clearSessionTimer()
     this.clearDeferredHonorResumeTimer()
     this.clearLabUserTurnWatch()
     this.clearForceResponseTimer()
@@ -516,6 +523,8 @@ export class VoiceSessionController {
     this.lastUtteranceConfirmed = false
     this.deferredHonorResume = false
     this.awaitingModelResponse = false
+    this.speechStoppedAt = null
+    this.firstAudioRecordedForTurn = false
   }
 
   private async connectRealtime(ephemeralKey: string): Promise<void> {
@@ -544,7 +553,7 @@ export class VoiceSessionController {
         this.connectionLossTimer = window.setTimeout(() => {
           this.connectionLossTimer = null
           if (this.pc === pc && pc.connectionState === 'disconnected') this.fail('Connection lost.')
-        }, 2500)
+        }, 10_000)
       }
     }
     remoteAudio.addEventListener('ended', () => {
@@ -555,9 +564,12 @@ export class VoiceSessionController {
 
     const dc = pc.createDataChannel('oai-events')
     this.dc = dc
-    dc.addEventListener('open', () => {
-      this.sendSessionUpdate()
-      this.sendLabGreeting()
+    const dataChannelReady = new Promise<void>(resolve => {
+      dc.addEventListener('open', () => {
+        this.sendSessionUpdate()
+        this.sendLabGreeting()
+        resolve()
+      }, { once: true })
     })
     dc.addEventListener('message', event => {
       try {
@@ -583,6 +595,17 @@ export class VoiceSessionController {
       type: 'answer',
       sdp: await sdpResponse.text(),
     })
+    let dataChannelTimeout: number | null = null
+    try {
+      await Promise.race([
+        dataChannelReady,
+        new Promise<void>((_, reject) => {
+          dataChannelTimeout = window.setTimeout(() => reject(new Error("Couldn't open the voice session.")), 15_000)
+        }),
+      ])
+    } finally {
+      if (dataChannelTimeout != null) window.clearTimeout(dataChannelTimeout)
+    }
   }
 
   private sendSessionUpdate(): void {
@@ -602,9 +625,10 @@ export class VoiceSessionController {
                 create_response: LAB_VAD_CREATE_RESPONSE,
               }
             : {
-                type: 'server_vad',
-                silence_duration_ms: 700,
-                prefix_padding_ms: 300,
+                type: 'semantic_vad',
+                eagerness: 'auto',
+                interrupt_response: true,
+                create_response: true,
               },
           ...(this.honorModelResume ? { noise_reduction: { type: 'far_field' } } : {}),
         },
@@ -736,6 +760,7 @@ export class VoiceSessionController {
 
   private handleSpeechStopped(): void {
     if (!this.honorModelResume) {
+      this.noteSpeechStoppedForLatency()
       this.clearLabUserTurnWatch()
       this.dispatch({ type: 'USER_SPEECH_END' })
       this.ensureResponseAfterUserSpeech()
@@ -798,6 +823,9 @@ export class VoiceSessionController {
       case 'output_audio_buffer.stopped':
       case 'response.done':
       case 'response.cancelled': {
+        if (event.type === 'output_audio_buffer.started' || event.type === 'response.output_audio.delta' || event.type === 'response.audio.delta') {
+          this.noteFirstAudioForLatency()
+        }
         this.applyTurnResult(reduceVoiceTurn(this.turn, event))
         const cancelled = event.type === 'response.cancelled' || event.response?.status === 'cancelled'
         if (cancelled) this.flushAssistantDraft(true)
