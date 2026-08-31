@@ -54,6 +54,7 @@ const chapters = [
 function renderTree(opts?: {
   currentChapter?: number
   finished?: number[]
+  chapterSignals?: Record<number, { highlights: number; chats: number }>
   onSelectChapter?: (n: number) => void
 }) {
   return render(
@@ -64,6 +65,7 @@ function renderTree(opts?: {
         currentChapter={opts?.currentChapter ?? 30}
         sections={sections}
         finishedChapters={new Set(opts?.finished ?? [1])}
+        chapterSignals={opts?.chapterSignals}
         onSelectChapter={opts?.onSelectChapter ?? (() => {})}
         onClose={() => {}}
       />
@@ -155,6 +157,24 @@ describe('lab phone bible tree', () => {
     fireEvent.click(row('Romans'))
     expect(screen.getByTestId('lab-tree-chapter-30').getAttribute('data-mark')).toBe('progress')
     expect(screen.getByTestId('lab-tree-chapter-31').getAttribute('data-mark')).toBe('empty')
+  })
+
+  it('shows quiet chat and highlight signals on chapters and collapsed ancestors', () => {
+    renderTree({
+      currentChapter: 30,
+      chapterSignals: {
+        2: { highlights: 2, chats: 0 },
+        3: { highlights: 0, chats: 1 },
+      },
+    })
+    const oldTestament = row('Old Testament')
+    expect(oldTestament.querySelector('.lab-tree-signal.is-highlight')).toBeTruthy()
+    expect(oldTestament.querySelector('.lab-tree-signal.is-chat')).toBeTruthy()
+    fireEvent.click(oldTestament)
+    expand('The Pentateuch')
+    expand('Genesis')
+    expect(screen.getByTestId('lab-tree-chapter-2').querySelector('.is-highlight')).toBeTruthy()
+    expect(screen.getByTestId('lab-tree-chapter-3').querySelector('.is-chat')).toBeTruthy()
   })
 
   it('uses a checkmark when every chapter in a book is finished', () => {

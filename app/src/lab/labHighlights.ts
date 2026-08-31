@@ -147,9 +147,9 @@ export function highlightColorAt(
 const COLOR_CLASS: Record<LabHighlightColor, string> = {
   gold: 'is-hl-warm',
   rose: 'is-hl-rose',
-  green: 'is-hl-sage',
-  blue: 'is-hl-sky',
-  purple: 'is-hl-lavender',
+  sage: 'is-hl-sage',
+  sky: 'is-hl-sky',
+  lavender: 'is-hl-lavender',
 }
 
 export function labHighlightCssClass(

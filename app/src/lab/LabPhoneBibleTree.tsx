@@ -20,9 +20,39 @@ interface LabPhoneBibleTreeProps {
   currentChapter: number
   sections?: Section[]
   finishedChapters: Set<number>
+  chapterSignals?: Record<number, { highlights: number; chats: number }>
   onSelectChapter: (number: number) => void
   onWarmChapter?: (number: number) => void
   onClose: () => void
+}
+
+type ChapterSignal = { highlights: number; chats: number }
+
+function signalForChapters(
+  chapterNumbers: number[],
+  signals: Record<number, ChapterSignal> | undefined,
+): ChapterSignal {
+  return chapterNumbers.reduce((total, chapterNumber) => {
+    const chapter = signals?.[chapterNumber]
+    return {
+      highlights: total.highlights + (chapter?.highlights ?? 0),
+      chats: total.chats + (chapter?.chats ?? 0),
+    }
+  }, { highlights: 0, chats: 0 })
+}
+
+function QuietSignals({ signal }: { signal: ChapterSignal }) {
+  if (signal.highlights <= 0 && signal.chats <= 0) return null
+  const description = [
+    signal.highlights > 0 ? `${signal.highlights} highlight${signal.highlights === 1 ? '' : 's'}` : '',
+    signal.chats > 0 ? `${signal.chats} chat turn${signal.chats === 1 ? '' : 's'}` : '',
+  ].filter(Boolean).join(', ')
+  return (
+    <span className="lab-tree-signals" aria-label={description} title={description}>
+      {signal.highlights > 0 && <span className="lab-tree-signal is-highlight" aria-hidden="true" />}
+      {signal.chats > 0 && <span className="lab-tree-signal is-chat" aria-hidden="true" />}
+    </span>
+  )
 }
 
 function Chevron({ open }: { open: boolean }) {
@@ -78,6 +108,7 @@ function TreeRow({
   chapters,
   currentChapter,
   finished,
+  chapterSignals,
   expanded,
   onToggle,
   onSelectChapter,
@@ -89,6 +120,7 @@ function TreeRow({
   chapters: LabChapter[]
   currentChapter: number
   finished: Set<number>
+  chapterSignals?: Record<number, ChapterSignal>
   expanded: Set<string>
   onToggle: (node: LabTreeNode) => void
   onSelectChapter: (number: number) => void
@@ -102,6 +134,7 @@ function TreeRow({
     ? `Chapter ${node.chapterNumbers.indexOf(currentChapter) + 1} of ${node.chapterNumbers.length}`
     : null
   const progress = currentBookProgress || labTreeProgressLabel(node, finished)
+  const quietSignal = signalForChapters(node.chapterNumbers, chapterSignals)
   const depthClass = `is-depth-${Math.min(depth, 3)}`
   const headerClass = [
     'lab-tree-row',
@@ -127,6 +160,7 @@ function TreeRow({
         onFocus={() => { if (node.chapterNumber != null) onWarmChapter?.(node.chapterNumber) }}
       >
         <span className="lab-tree-label">{node.title}</span>
+        <QuietSignals signal={quietSignal} />
         <TreeMark mark={mark} />
       </button>
     )
@@ -148,6 +182,7 @@ function TreeRow({
         <Chevron open={isOpen} />
         <span className="lab-tree-label">{node.title}</span>
         {progress && <span className="lab-tree-progress">{progress}</span>}
+        <QuietSignals signal={quietSignal} />
         <TreeMark mark={mark} />
       </button>
       {isOpen && (
@@ -160,6 +195,7 @@ function TreeRow({
               chapters={chapters}
               currentChapter={currentChapter}
               finished={finished}
+              chapterSignals={chapterSignals}
               expanded={expanded}
               onToggle={onToggle}
               onSelectChapter={onSelectChapter}
@@ -187,6 +223,7 @@ function TreeRow({
               onFocus={() => onWarmChapter?.(chapter.number)}
             >
               <span className="lab-tree-label">{chapter.title}</span>
+              <QuietSignals signal={signalForChapters([chapter.number], chapterSignals)} />
               <TreeMark mark={labTreeMark({
                 key: `chapter/${chapter.number}`,
                 kind: 'chapter',
@@ -208,6 +245,7 @@ export function LabPhoneBibleTree({
   currentChapter,
   sections,
   finishedChapters,
+  chapterSignals,
   onSelectChapter,
   onWarmChapter,
   onClose,
@@ -255,6 +293,7 @@ export function LabPhoneBibleTree({
               chapters={chapters}
               currentChapter={currentChapter}
               finished={finishedChapters}
+              chapterSignals={chapterSignals}
               expanded={expanded}
               onToggle={onToggle}
               onSelectChapter={onSelectChapter}

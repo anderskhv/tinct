@@ -1405,10 +1405,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [dismissSelectionPopup, selectionPopup])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number) => {
-    const created = highlightsApi.addOrReuse(range, 'gold')
-    const mode = defaultPopupMode(range.text, created.id)
+    // A single-word long press is a dictionary lookup, not an implicit
+    // highlight. Phrases begin as a gold highlight and open the colour bar.
+    // Previously we created the highlight first and then passed its id to
+    // defaultPopupMode, which made every single word look like an existing
+    // highlight and skipped the dictionary entirely.
+    const mode = defaultPopupMode(range.text)
+    const created = mode === 'colors' ? highlightsApi.addOrReuse(range, 'gold') : null
     setPopupMode(mode)
-    setNoteInput(created.note || '')
+    setNoteInput(created?.note || '')
     if (mode === 'define') define.begin(range.text)
     const anchorY = clientY
     const showBelow = window.innerHeight - anchorY > anchorY
@@ -1431,11 +1436,25 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       endOffset: range.toWord,
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
-      existingHighlightId: created.id,
-      existingNote: created.note,
+      existingHighlightId: created?.id,
+      existingNote: created?.note,
       range,
     })
   }, [define, highlightsApi])
+
+  const tocSignals = useMemo(() => {
+    const byChapter: Record<number, { highlights: number; chats: number }> = {}
+    const signalFor = (chapterNumber: number) => (
+      byChapter[chapterNumber] ||= { highlights: 0, chats: 0 }
+    )
+    for (const highlight of highlightsApi.highlights) {
+      signalFor(highlight.chapterNumber).highlights += 1
+    }
+    for (const turn of ask.turns) {
+      if (turn.chapterNumber != null) signalFor(turn.chapterNumber).chats += 1
+    }
+    return byChapter
+  }, [ask.turns, highlightsApi.highlights])
 
   const leaveTalking = useCallback(() => {
     resumeListenAfterAsk()
@@ -2217,6 +2236,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             currentChapter={book.chapterNumber}
             sections={book.sections}
             finishedChapters={finishedChapters}
+            chapterSignals={tocSignals}
             onSelectChapter={(number) => {
               setTocOpen(false)
               if (listen.playing) void browseToChapter(number, 'start')
@@ -2250,8 +2270,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           onColorClick={(color: HighlightColor) => {
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
-              dismissSelectionPopup()
+            } else if (selectionPopup.range) {
+              // Dictionary-first single-word selections are not highlighted
+              // until the reader deliberately chooses a colour.
+              highlightsApi.addOrReuse(selectionPopup.range, color)
             }
+            dismissSelectionPopup()
           }}
           defineQuery={define.query}
           setDefineQuery={define.setQuery}

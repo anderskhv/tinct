@@ -1542,6 +1542,20 @@
   font-size: 16px;
 }
 
+/* Chat follows the reader's chosen size exactly on phone. The composer stays
+   at 16px to avoid Safari focus zoom; this applies to the conversation text. */
+.lab.is-phone .lab-ask-user,
+.lab.is-phone .lab-ask-reply,
+.lab.is-phone .lab-ask-pending,
+.lab.is-phone .lab-ask-greeting,
+.lab-ask.is-phone-sheet .lab-ask-user,
+.lab-ask.is-phone-sheet .lab-ask-reply,
+.lab-ask.is-phone-sheet .lab-ask-pending,
+.lab-ask.is-phone-sheet .lab-ask-greeting {
+  font-size: calc(2rem * (var(--lab-font-size, 1.3) / 1.3));
+  line-height: 1.52;
+}
+
 .lab.is-phone .lab-ask-greeting {
   display: block;
   flex: 1 1 auto;
@@ -2329,6 +2343,32 @@
   font-size: 1rem;
 }
 
+/* Quiet reading-memory signals: amber means a highlight, blue-grey means a
+   chat turn. They aggregate upward when a book/section is collapsed. */
+.lab-tree-signals {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 0 0.12rem;
+}
+
+.lab-tree-progress + .lab-tree-signals {
+  margin-left: 0.15rem;
+}
+
+.lab-tree-signal {
+  display: block;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
+  opacity: 0.78;
+}
+
+.lab-tree-signal.is-highlight { background: #c89e58; }
+.lab-tree-signal.is-chat { background: #607783; }
+
 .lab-tree-mark {
   flex: 0 0 16px;
   width: 16px;
@@ -2379,6 +2419,9 @@
   background: var(--lab-surface);
   color: var(--lab-ink);
 }
+
+.lab.is-night .lab-tree-signal.is-highlight { background: #d2aa67; }
+.lab.is-night .lab-tree-signal.is-chat { background: #8fa6b0; }
 
 .lab.is-night .lab-tree-children {
   border-left-color: var(--lab-border);
