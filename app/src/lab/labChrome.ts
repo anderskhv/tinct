@@ -593,6 +593,34 @@ export interface LabPageMetrics {
   avgCharWidth: number
 }
 
+/**
+ * Page text changes on every turn, but typography metrics must not. Preserve
+ * the sampled character width and chapter-headline allowance while text width
+ * and line height are unchanged (full screen may legitimately add height);
+ * otherwise N / M drifts based on the words beginning the visible page.
+ */
+export function stabilizeLabPageMetrics(
+  current: LabPageMetrics | null,
+  measured: LabPageMetrics,
+  knownHeadlineHeight = 0,
+): LabPageMetrics {
+  const headlineHeight = measured.headlineHeight > 0
+    ? measured.headlineHeight
+    : Math.max(0, knownHeadlineHeight)
+  if (
+    current
+    && current.width === measured.width
+    && current.lineHeight === measured.lineHeight
+  ) {
+    return {
+      ...measured,
+      headlineHeight: Math.max(current.headlineHeight, headlineHeight),
+      avgCharWidth: current.avgCharWidth,
+    }
+  }
+  return { ...measured, headlineHeight }
+}
+
 export function canUseLabPageMetrics(metrics: LabPageMetrics): boolean {
   return metrics.height >= metrics.lineHeight
     && metrics.width > 40
@@ -738,9 +766,10 @@ export function labAvgCharWidth(line: Element | null | undefined): number {
     const chars = firstLineCharCount(line, first.top)
     if (chars > 0) {
       const avg = first.width / chars
-      // A small guard covers verse superscripts and wide biblical names that
-      // are underrepresented by the first painted line.
-      if (avg >= 3) return avg * 1.1
+      // The first painted line systematically under-represents later wide
+      // names, punctuation, and verse superscripts. Keep enough safety that a
+      // later page never has to change the chapter denominator after settling.
+      if (avg >= 3) return avg * 1.2
     }
   }
   const sampled = canvasSampleCharWidth(line)

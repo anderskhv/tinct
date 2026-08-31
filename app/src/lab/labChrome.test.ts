@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, preferVisiblePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, preferVisiblePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -102,6 +102,18 @@ describe('lab visual viewport height', () => {
 })
 
 describe('lab chrome inset invariant', () => {
+  it('keeps typography samples stable while only page text changes', () => {
+    const current = { height: 674, width: 354, lineHeight: 52, headlineHeight: 66, avgCharWidth: 17 }
+    const nextPageSample = { height: 674, width: 354, lineHeight: 52, headlineHeight: 0, avgCharWidth: 12 }
+    expect(stabilizeLabPageMetrics(current, nextPageSample, 66)).toEqual(current)
+    expect(stabilizeLabPageMetrics(current, { ...nextPageSample, height: 773 }, 66)).toEqual({
+      ...nextPageSample,
+      height: 773,
+      headlineHeight: 66,
+      avgCharWidth: 17,
+    })
+  })
+
   it('insets by the measured chrome height plus 8px, never a guessed rem', () => {
     expect(labChromeInsetPx(112)).toBe(120)
     expect(labChromeInsetPx(0)).toBe(8)

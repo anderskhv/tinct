@@ -179,6 +179,8 @@ export const HEARING_PAGE_MIN = 70
 export const HEARING_PAGE_MAX = 90
 /** A leftover page this short is an orphan line, not a real page. */
 export const LAB_ORPHAN_PAGE_WORDS = 16
+/** Final page below this size should share its predecessor's text, not sit alone. */
+export const LAB_CHAPTER_TAIL_REBALANCE_WORDS = 18
 /** Short same-paragraph chapter tail after peel — merge into the previous page. */
 export const LAB_CHAPTER_TAIL_MERGE_WORDS = 120
 /** Tiny final page (chars) — merge into previous page when same paragraph. */
@@ -824,6 +826,57 @@ export function absorbOrphanLeftoverPages(
     const absorbed = applyPaintAbsorb(next, i)
     if (absorbed !== next) next = absorbed
   }
+  return next
+}
+
+/**
+ * Split the final two pages more evenly when pagination leaves a tiny chapter
+ * tail. Unlike merging the tail into its predecessor, balancing cannot create
+ * an overfull page that the paint pass immediately peels apart again.
+ */
+export function rebalanceChapterTailPages(
+  pages: ChapterHearingPage[],
+): ChapterHearingPage[] {
+  if (pages.length < 2) return pages
+  const lastIndex = pages.length - 1
+  const previous = pages[lastIndex - 1]
+  const last = pages[lastIndex]
+  const previousWords = leftoverWordCount(previous)
+  const lastWords = leftoverWordCount(last)
+  if (
+    previousWords <= 1
+    || lastWords <= 0
+    || lastWords > LAB_CHAPTER_TAIL_REBALANCE_WORDS
+    || previousWords <= lastWords + 1
+  ) return pages
+
+  const combined = [...pageSpans(previous), ...pageSpans(last)]
+  const totalWords = previousWords + lastWords
+  const leftTarget = Math.floor(totalWords / 2)
+  if (leftTarget <= 0 || leftTarget >= totalWords) return pages
+
+  const left: ChapterHearingSpan[] = []
+  const right: ChapterHearingSpan[] = []
+  let remaining = leftTarget
+  for (const span of combined) {
+    const count = span.to - span.from
+    if (count <= 0) continue
+    if (remaining <= 0) {
+      right.push({ ...span })
+    } else if (remaining >= count) {
+      left.push({ ...span })
+      remaining -= count
+    } else {
+      left.push({ ...span, to: span.from + remaining })
+      right.push({ ...span, from: span.from + remaining })
+      remaining = 0
+    }
+  }
+  if (left.length === 0 || right.length === 0) return pages
+
+  const next = pages.slice()
+  next[lastIndex - 1] = pageFromSpans(left)
+  next[lastIndex] = pageFromSpans(right)
   return next
 }
 

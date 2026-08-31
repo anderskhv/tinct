@@ -14,6 +14,7 @@ import {
   clampedChapterProgress,
   followOnReadingPage,
   absorbChapterTailPages,
+  rebalanceChapterTailPages,
   growPaintedPageIfSlack,
   reflowAfterCut,
   isOneWordLeftoverPage,
@@ -736,6 +737,30 @@ describe('page fill after peel', () => {
     ]
     const merged = absorbChapterTailPages(pages, null, paragraphs)
     expect(merged).toEqual([{ paragraphIndex: 0, from: 0, to: 12 }])
+  })
+
+  it('balances a tiny final page with its predecessor instead of leaving an empty-looking screen', () => {
+    const pages = [
+      { paragraphIndex: 4, from: 0, to: 45 },
+      { paragraphIndex: 5, from: 98, to: 104 },
+    ]
+    const balanced = rebalanceChapterTailPages(pages)
+    expect(balanced).toHaveLength(2)
+    expect(leftoverWordCount(balanced[0])).toBe(25)
+    expect(leftoverWordCount(balanced[1])).toBe(26)
+    expect(pageSpans(balanced[0])).toEqual([{ paragraphIndex: 4, from: 0, to: 25 }])
+    expect(pageSpans(balanced[1])).toEqual([
+      { paragraphIndex: 4, from: 25, to: 45 },
+      { paragraphIndex: 5, from: 98, to: 104 },
+    ])
+  })
+
+  it('does not disturb a substantial final page', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 45 },
+      { paragraphIndex: 0, from: 45, to: 70 },
+    ]
+    expect(rebalanceChapterTailPages(pages)).toBe(pages)
   })
 })
 
