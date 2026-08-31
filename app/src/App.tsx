@@ -45,6 +45,7 @@ import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
 import { useVoiceSession } from './hooks/useVoiceSession'
+import { buildVoiceReaderProfile } from './voice/readerProfile'
 import { useLibrary } from './hooks/useLibrary'
 import { shouldStartFreshFromStoreOpen } from './hooks/useLibrary.guards'
 import { useReaderController } from './hooks/useReaderController'
@@ -369,6 +370,7 @@ export default function App() {
           __tinctSyncDebug?: unknown
           __tinctSupabaseDebug?: unknown
           __tinctAudioDebug?: unknown
+          __tinctVoiceDebug?: unknown
         }
         return {
           nav: wd.__tinctNavDebug || [],
@@ -376,6 +378,7 @@ export default function App() {
           sync: wd.__tinctSyncDebug || null,
           supabase: wd.__tinctSupabaseDebug || null,
           audio: wd.__tinctAudioDebug || null,
+          voice: wd.__tinctVoiceDebug || null,
         }
       }
     }
@@ -872,6 +875,20 @@ export default function App() {
   const { conversations: chatConversations, recordMessage, getChapterChatSummary, getChapterConversations, setSummary: setChatSummary } = useChatHistory(book.id, storageReady, heavyLoadedTick)
   const [summarizingChatId, setSummarizingChatId] = useState<string | null>(null)
 
+  const voiceReaderProfile = useMemo(() => {
+    const storedConversationGroups = storageReady
+      ? storage.getAll<ChatConversation[]>('chat-history:')
+      : []
+    const storedConversations = storedConversationGroups.flatMap(group => Array.isArray(group) ? group : [])
+    return buildVoiceReaderProfile({
+      books: BOOKS,
+      libraryIds,
+      conversations: [...storedConversations, ...chatConversations],
+      positions: storageReady ? storage.getAll<ReadingPosition>('position:') : [],
+      readingLanguages: preferences.readingLanguages,
+    })
+  }, [storageReady, heavyLoadedTick, libraryIds, chatConversations, preferences.readingLanguages])
+
   const handleSummarizeChat = useCallback(async (convId: string) => {
     const conv = chatConversations.find(c => c.id === convId)
     if (!conv || conv.messages.length < 4) return
@@ -934,12 +951,17 @@ export default function App() {
     bookId: book.id,
     bookTitle: book.title,
     bookAuthor: book.author,
+    editionKey: primaryEditionKey,
+    editionLabel: book.editions.find(edition => edition.key === primaryEditionKey)?.label,
     chapterNumber: currentChapter,
     chapterTitle,
     readingObjective: preferences.readingObjective,
     chapterParagraphs: primaryChapter?.paragraphs || [],
     paragraphIndex: audioPlayingParagraph ?? firstVisibleParagraph,
+    pageNumber: currentPage + 1,
+    totalPages,
     visibleText,
+    readerProfile: voiceReaderProfile,
     isAudioPlaying: audioIsPlaying,
     pausePlayback: () => bottomBarRef.current?.pausePlayback() ?? null,
     resumePlayback: (anchor) => bottomBarRef.current?.resumePlayback(anchor),

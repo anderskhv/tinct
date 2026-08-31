@@ -30,8 +30,6 @@ const RESUME_PHRASES = [
   'thats enough',
   'resume',
   'continue',
-  'thanks',
-  'thank you',
 ]
 
 export function normalizeVoiceUtterance(text: string): string {

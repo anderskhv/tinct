@@ -215,6 +215,96 @@ describe('VoiceSessionController start failure', () => {
   })
 })
 
+describe('VoiceSessionController production continuity', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('does not end an idle session even after ten minutes', () => {
+    vi.useFakeTimers()
+    vi.stubGlobal('window', {
+      setTimeout,
+      clearTimeout,
+      setInterval,
+      clearInterval,
+    })
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+
+    expect(controller.getSnapshot().state).toBe('conversation_idle')
+    vi.advanceTimersByTime(10 * 60_000)
+    expect(controller.getSnapshot().state).toBe('conversation_idle')
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+  })
+
+  it('uses balanced semantic VAD for faster natural turn detection', () => {
+    const sent: string[] = []
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      context: CONTEXT,
+      send: data => sent.push(data),
+    })
+
+    const update = sent.map(item => JSON.parse(item)).find(item => item.type === 'session.update')
+    expect(update?.session?.audio?.input?.turn_detection).toEqual({
+      type: 'semantic_vad',
+      eagerness: 'auto',
+      interrupt_response: true,
+      create_response: true,
+    })
+  })
+
+  it('reports first-audio latency separately for the first and second turns', () => {
+    let clock = 100
+    vi.stubGlobal('performance', { now: () => clock })
+    const samples: Array<{ kind: string; turnNumber?: number; speechStoppedToFirstAudioMs?: number }> = []
+    const controller = new VoiceSessionController({
+      onSnapshot: () => { /* unused */ },
+      onTurn: () => { /* unused */ },
+      onLatency: sample => samples.push(sample),
+    })
+    controller.testPrimeSession({ audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }) })
+
+    controller.testRealtime({ type: 'input_audio_buffer.speech_started' })
+    controller.testRealtime({ type: 'input_audio_buffer.speech_stopped' })
+    clock = 375
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.output_audio.delta', delta: 'ignored' })
+
+    clock = 500
+    controller.testRealtime({ type: 'input_audio_buffer.speech_started' })
+    controller.testRealtime({ type: 'input_audio_buffer.speech_stopped' })
+    clock = 690
+    controller.testRealtime({ type: 'response.output_audio.delta', delta: 'ignored' })
+
+    expect(samples).toMatchObject([
+      { kind: 'turn', turnNumber: 1, speechStoppedToFirstAudioMs: 275 },
+      { kind: 'turn', turnNumber: 2, speechStoppedToFirstAudioMs: 190 },
+    ])
+  })
+
+  it('updates passage context without ending voice or jumping back to an old chapter', () => {
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio,
+      context: { ...CONTEXT, bookId: 'odyssey', chapterNumber: 5 },
+    })
+
+    controller.updateContext({ ...CONTEXT, bookId: 'odyssey', chapterNumber: 6, chapterLabel: 'Book 6' })
+    expect(controller.getSnapshot().isActive).toBe(true)
+    controller.explicitResume()
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+  })
+})
+
 describe('VoiceSessionController lab honor resume', () => {
   afterEach(() => {
     vi.useRealTimers()

@@ -14,16 +14,9 @@ interface AudioStripProps {
   onPlayWhileVoice?: () => void
 }
 
-function voiceButtonLabel(state: VoiceModeState | undefined, resumeInLabel?: string | null): string {
+function voiceButtonLabel(state: VoiceModeState | undefined): string {
+  if (state && state !== 'reading') return 'End voice'
   switch (state) {
-    case 'listening':
-      return 'Listening'
-    case 'answering':
-      return 'Answering'
-    case 'resume_pending':
-      return resumeInLabel || 'Continuing'
-    case 'conversation_idle':
-      return 'Talking'
     default:
       return 'Ask'
   }
@@ -133,11 +126,11 @@ export function AudioStrip({
           type="button"
           className={`audio-strip-voice${voiceActive ? ' is-active' : ''}${voiceState === 'listening' ? ' is-listening' : ''}`}
           onClick={onVoiceButton}
-          title={voiceActive ? 'Voice session' : 'Ask a question by voice'}
-          aria-label={voiceActive ? 'Voice session' : 'Ask a question by voice'}
+          title={voiceActive ? 'End voice and return to the book' : 'Ask a question by voice'}
+          aria-label={voiceActive ? 'End voice and return to the book' : 'Ask a question by voice'}
           aria-pressed={voiceActive}
         >
-          {voiceButtonLabel(voiceState, voiceStatus)}
+          {voiceButtonLabel(voiceState)}
         </button>
       )}
 

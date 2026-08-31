@@ -21,32 +21,32 @@ describe('voice session state machine', () => {
     expect(reduceVoiceSession(afterAnswer, { type: 'RESUME_WINDOW_ELAPSED' }).state).toBe('conversation_idle')
   })
 
-  it('follows the Quick Questions default path', () => {
+  it('keeps even quick-mode answers open until the reader ends voice', () => {
     const snapshot = play([
-      { type: 'START' },
+      { type: 'START', mode: 'quick' },
       { type: 'USER_SPEECH_START' },
       { type: 'USER_SPEECH_END' },
       { type: 'ASSISTANT_SPEECH_START' },
       { type: 'ASSISTANT_SPEECH_END' },
     ])
-    expect(snapshot).toEqual({ state: 'resume_pending', mode: 'quick' })
+    expect(snapshot).toEqual({ state: 'conversation_idle', mode: 'quick' })
 
     const resumed = reduceVoiceSession(snapshot, { type: 'RESUME_WINDOW_ELAPSED' })
-    expect(resumed).toEqual(INITIAL_VOICE_SNAPSHOT)
-    expect(shouldResumeAudiobookOnEnterReading(snapshot, resumed)).toBe(true)
+    expect(resumed).toEqual(snapshot)
+    expect(shouldResumeAudiobookOnEnterReading(snapshot, resumed)).toBe(false)
   })
 
-  it('cancels resume_pending on speech, mic tap, or hold intent', () => {
-    const pending = play([
-      { type: 'START' },
+  it('keeps listening after an answer and accepts another turn', () => {
+    const idle = play([
+      { type: 'START', mode: 'quick' },
       { type: 'ASSISTANT_SPEECH_START' },
       { type: 'ASSISTANT_SPEECH_END' },
     ])
-    expect(pending.state).toBe('resume_pending')
+    expect(idle.state).toBe('conversation_idle')
 
-    expect(reduceVoiceSession(pending, { type: 'USER_SPEECH_START' }).state).toBe('listening')
-    expect(reduceVoiceSession(pending, { type: 'MIC_TAP' }).state).toBe('listening')
-    expect(reduceVoiceSession(pending, { type: 'INTENT', intent: 'hold_session' }).state).toBe('listening')
+    expect(reduceVoiceSession(idle, { type: 'USER_SPEECH_START' }).state).toBe('listening')
+    expect(reduceVoiceSession(idle, { type: 'MIC_TAP' }).state).toBe('listening')
+    expect(reduceVoiceSession(idle, { type: 'INTENT', intent: 'hold_session' }).state).toBe('listening')
   })
 
   it('honors explicit resume from any active state', () => {
@@ -59,7 +59,7 @@ describe('voice session state machine', () => {
     expect(shouldResumeAudiobookOnEnterReading(answering, next)).toBe(true)
   })
 
-  it('opens conversation_idle for open-ended prompts and exits on timeout', () => {
+  it('opens conversation_idle for open-ended prompts and ignores idle timeouts', () => {
     const idle = play([
       { type: 'START' },
       { type: 'INTENT', intent: 'open_conversation' },
@@ -75,7 +75,7 @@ describe('voice session state machine', () => {
     expect(afterAnswer).toEqual({ state: 'conversation_idle', mode: 'conversation' })
 
     const timedOut = reduceVoiceSession(afterAnswer, { type: 'CONVERSATION_TIMEOUT' })
-    expect(timedOut.state).toBe('reading')
+    expect(timedOut).toEqual(afterAnswer)
   })
 
   it('does not let a late resume tick fire after the user kept talking', () => {
@@ -107,7 +107,8 @@ describe('voice session state machine', () => {
 describe('voice intents', () => {
   it('classifies resume, hold, and open-conversation phrases', () => {
     expect(classifyVoiceUtterance('Back to the book.')).toBe('resume_audiobook')
-    expect(classifyVoiceUtterance('thanks')).toBe('resume_audiobook')
+    expect(classifyVoiceUtterance('thanks')).toBe('none')
+    expect(classifyVoiceUtterance('thank you')).toBe('none')
     expect(classifyVoiceUtterance("that's enough")).toBe('resume_audiobook')
     expect(classifyVoiceUtterance('wait')).toBe('hold_session')
     expect(classifyVoiceUtterance("don't resume yet")).toBe('hold_session')
@@ -136,7 +137,13 @@ describe('voice reader context', () => {
     const context = buildVoiceReaderContext({
       bookTitle: 'The Odyssey',
       bookAuthor: 'Homer',
+      bookId: 'odyssey',
+      editionLabel: 'Original English',
+      chapterNumber: 5,
       chapterLabel: 'Book 5',
+      paragraphIndex: 10,
+      pageNumber: 3,
+      totalPages: 8,
       readingAngle: 'hospitality',
       currentParagraph: paragraphs[10],
       nearbyParagraphs: nearby,
@@ -145,6 +152,9 @@ describe('voice reader context', () => {
 
     expect(context).toContain('The Odyssey')
     expect(context).toContain('Book 5')
+    expect(context).toContain('paragraph 11')
+    expect(context).toContain('page 3 of 8')
+    expect(context).toContain('Original English')
     expect(context).toContain('hospitality')
     expect(context.length).toBeLessThan(3500)
     expect(context).not.toContain(paragraphs[0].slice(0, 40))

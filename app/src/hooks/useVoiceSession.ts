@@ -4,7 +4,8 @@ import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSess
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { CompanionAskNotify } from '../lab/labCompanion'
 import { nearbyParagraphWindow } from '../voice/context'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext, VoiceSessionMode } from '../voice/types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
+import { VOICE_REALTIME_MODEL } from '../voice/types'
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -19,12 +20,17 @@ export interface UseVoiceSessionOptions {
   bookId: string
   bookTitle: string
   bookAuthor: string
+  editionKey?: string
+  editionLabel?: string
   chapterNumber: number
   chapterTitle: string
   readingObjective?: string
   chapterParagraphs: string[]
   paragraphIndex: number
+  pageNumber?: number
+  totalPages?: number
   visibleText: string
+  readerProfile?: VoiceReaderProfile
   isAudioPlaying: boolean
   pausePlayback: () => AudioPlaybackPause | null
   resumePlayback: (anchor: AudioPlaybackAnchor) => void
@@ -51,7 +57,7 @@ export interface UseVoiceSessionOptions {
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   state: 'reading',
-  mode: 'quick',
+  mode: 'conversation',
   resumeInSeconds: null,
   error: null,
   isActive: false,
@@ -60,6 +66,7 @@ const IDLE_SNAPSHOT: VoiceUiSnapshot = {
 
 export function useVoiceSession(options: UseVoiceSessionOptions) {
   const [ui, setUi] = useState<VoiceUiSnapshot>(IDLE_SNAPSHOT)
+  const [latencySamples, setLatencySamples] = useState<VoiceLatencySample[]>([])
   const optionsRef = useRef(options)
   optionsRef.current = options
   const controllerRef = useRef<VoiceSessionController | null>(null)
@@ -86,6 +93,18 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       onNeedAuth: () => optionsRef.current.onNeedAuth(),
       onInsufficientBalance: () => optionsRef.current.onInsufficientBalance(),
       onUsage: () => optionsRef.current.onUsage?.(),
+      onLatency: (sample) => {
+        setLatencySamples(previous => {
+          const next = [...previous, sample].slice(-20)
+          if (typeof window !== 'undefined') {
+            ;(window as Window & { __tinctVoiceDebug?: unknown }).__tinctVoiceDebug = {
+              model: VOICE_REALTIME_MODEL,
+              samples: next,
+            }
+          }
+          return next
+        })
+      },
       onSetAssistantPace: (pace) => optionsRef.current.onSetAssistantPace?.(pace),
     })
     controllerRef.current = controller
@@ -95,29 +114,45 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     }
   }, [])
 
-  const locationKey = `${options.bookId}:${options.chapterNumber}`
-  const locationKeyRef = useRef(locationKey)
-  useEffect(() => {
-    if (locationKeyRef.current === locationKey) return
-    locationKeyRef.current = locationKey
-    // Lab honor path stays open through a chapter skip so she can confirm, then play.
-    if (optionsRef.current.honorModelResume) return
-    controllerRef.current?.stop()
-  }, [locationKey])
-
   const buildContext = useCallback((): VoiceReaderContext => {
     const opts = optionsRef.current
     const current = opts.chapterParagraphs[opts.paragraphIndex] || ''
     return {
+      bookId: opts.bookId,
       bookTitle: opts.bookTitle,
       bookAuthor: opts.bookAuthor,
+      editionKey: opts.editionKey,
+      editionLabel: opts.editionLabel,
+      chapterNumber: opts.chapterNumber,
       chapterLabel: opts.chapterTitle,
+      paragraphIndex: opts.paragraphIndex,
+      pageNumber: opts.pageNumber,
+      totalPages: opts.totalPages,
       readingAngle: opts.readingObjective,
       currentParagraph: current,
       nearbyParagraphs: nearbyParagraphWindow(opts.chapterParagraphs, opts.paragraphIndex),
       visibleText: opts.visibleText,
+      readerProfile: opts.readerProfile,
     }
   }, [])
+
+  useEffect(() => {
+    controllerRef.current?.updateContext(buildContext())
+  }, [
+    buildContext,
+    options.bookId,
+    options.editionKey,
+    options.editionLabel,
+    options.chapterNumber,
+    options.chapterTitle,
+    options.paragraphIndex,
+    options.pageNumber,
+    options.totalPages,
+    options.readingObjective,
+    options.chapterParagraphs,
+    options.visibleText,
+    options.readerProfile,
+  ])
 
   const unlockAudio = useCallback(() => {
     controllerRef.current?.unlockLabAudioContext()
@@ -139,7 +174,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
         setPlaybackSpeed: opts.setPlaybackSpeed,
         skipPlayback: opts.skipPlayback,
       },
-      mode: opts.mode ?? 'quick',
+      mode: opts.mode ?? 'conversation',
       instructions: opts.instructions,
       tools: opts.tools,
       honorModelResume: opts.honorModelResume,
@@ -160,7 +195,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       start()
       return
     }
-    controller.handleMicTap()
+    controller.explicitResume()
   }, [start])
 
   const explicitResume = useCallback(() => {
@@ -189,6 +224,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     error: ui.error,
     resumeInSeconds: ui.resumeInSeconds,
     userSpeechStarted: ui.userSpeechStarted,
+    latencySamples,
     statusLabel,
     start,
     unlockAudio,

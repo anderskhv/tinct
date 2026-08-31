@@ -32,7 +32,6 @@ export interface VoiceMachineSnapshot {
   mode: VoiceSessionMode
 }
 
-export const RESUME_GRACE_MS = 4000
 /** Lab: after resume_audiobook, wait this long for speech_start. If she never starts, honor. */
 export const LAB_HONOR_RESUME_IDLE_MS = 4000
 /** Lab: after user speech_started, force-end the turn after this much silence. */
@@ -58,9 +57,6 @@ export const LAB_AUDIO_CONSTRAINTS = {
 export const LAB_BARGE_IN_MS = 500
 /** Lab: after confirmed speech_stopped, wait this long for the server to create a response. */
 export const LAB_FORCE_RESPONSE_MS = 250
-export const CONVERSATION_IDLE_TIMEOUT_MS = 45_000
-export const MAX_VOICE_SESSION_MS = 3 * 60_000
-
 export const VOICE_REALTIME_MODEL = 'gpt-realtime-2.1-mini'
 export const VOICE_CLOSE_LINE = 'Picking up where we left off.'
 
@@ -80,11 +76,56 @@ export interface AudioPlaybackPause {
 }
 
 export interface VoiceReaderContext {
+  bookId?: string
   bookTitle: string
   bookAuthor: string
+  editionKey?: string
+  editionLabel?: string
+  chapterNumber?: number
   chapterLabel: string
+  paragraphIndex?: number
+  pageNumber?: number
+  totalPages?: number
   readingAngle?: string
   currentParagraph?: string
   nearbyParagraphs?: string[]
   visibleText?: string
+  readerProfile?: VoiceReaderProfile
 }
+
+export interface VoiceReaderProfile {
+  libraryBooks: Array<{
+    bookId: string
+    title: string
+    author: string
+  }>
+  recentBooks: Array<{
+    bookId: string
+    title: string
+    chapterNumber: number
+    paragraphIndex?: number
+  }>
+  recentExchanges: Array<{
+    bookId: string
+    bookTitle: string
+    question: string
+    answer?: string
+    timestamp: number
+  }>
+  readingLanguages: string[]
+}
+
+export type VoiceLatencySample =
+  | {
+      kind: 'session_setup'
+      at: number
+      sessionSetupMs: number
+      model: string
+    }
+  | {
+      kind: 'turn'
+      at: number
+      turnNumber: number
+      speechStoppedToFirstAudioMs: number
+      model: string
+    }
