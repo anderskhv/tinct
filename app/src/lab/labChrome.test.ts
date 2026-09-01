@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -101,7 +101,28 @@ describe('lab visual viewport height', () => {
   })
 })
 
+describe('lab page gestures', () => {
+  it('maps horizontal swipes and ignores vertical selection-like movement', () => {
+    expect(labSwipePageDirection(-70, 8)).toBe(1)
+    expect(labSwipePageDirection(70, -8)).toBe(-1)
+    expect(labSwipePageDirection(30, 2)).toBeNull()
+    expect(labSwipePageDirection(70, 65)).toBeNull()
+  })
+
+  it('turns only from the outer thirds', () => {
+    expect(labTapPageDirection(20, 0, 390)).toBe(-1)
+    expect(labTapPageDirection(370, 0, 390)).toBe(1)
+    expect(labTapPageDirection(195, 0, 390)).toBeNull()
+  })
+})
+
 describe('lab chrome inset invariant', () => {
+  it('keeps the glyph sample stable when only page text changes', () => {
+    const current = { height: 520, width: 360, lineHeight: 40, headlineHeight: 64, avgCharWidth: 11 }
+    const nextPage = { height: 520, width: 360, lineHeight: 40, headlineHeight: 0, avgCharWidth: 4 }
+    expect(stabilizeLabPageMetrics(current, nextPage, 64)).toEqual(current)
+  })
+
   it('insets by the measured chrome height plus 8px, never a guessed rem', () => {
     expect(labChromeInsetPx(112)).toBe(120)
     expect(labChromeInsetPx(0)).toBe(8)
@@ -122,6 +143,13 @@ describe('lab chrome inset invariant', () => {
     expect(nextPaintShrinkTo(0, 80, 0)).toBe(70)
     expect(nextPaintShrinkTo(0, 2, 8)).toBe(1)
     expect(nextPaintShrinkTo(10, 11, 4)).toBe(11)
+  })
+
+  it('does not regrow a page after finalizing the result of a trial grow', () => {
+    expect(shouldGrowPaintedPage(null, 80, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('peel', 80, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('grow', 80, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('polish', 80, 40)).toBe(false)
   })
 
   it('does not eat Genesis page 1 down to the verse number when last-line count is the whole pack', () => {

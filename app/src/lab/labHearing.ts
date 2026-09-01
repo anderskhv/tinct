@@ -20,6 +20,8 @@ export interface HearingWord {
 
 export interface HearingLine {
   words: HearingWord[]
+  paragraphIndex?: number
+  from?: number
 }
 
 export interface HearingProgress {
@@ -50,6 +52,70 @@ function isStrongStop(text: string): boolean {
   return /[.!?]["']?$/.test(text)
 }
 
+function isClauseStop(text: string): boolean {
+  return /[.!?:;]["']?$/.test(text)
+}
+
+const LAB_WEAK_PAGE_END_RE = /^(?:a|after|am|an|and|are|as|at|be|been|before|being|but|by|can|could|each|every|for|from|had|has|have|her|his|if|in|into|is|its|may|might|must|nor|of|on|or|our|shall|should|so|than|that|the|their|then|to|unto|was|were|when|where|which|who|whose|will|with|would|yet|your)$/i
+const LAB_SENTENCE_CONNECTOR_RE = /^(?:and|but|for|nor|or|so|then|yet)$/i
+
+function barePageWord(text: string): string {
+  return text.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '')
+}
+
+/**
+ * Improve a fitted line break without forcing every page to end at a full
+ * stop. Mature readers fill the page first, then avoid only a short dangling
+ * connector/phrase that fits on the next line.
+ */
+export function polishPageEnd(
+  words: Array<{ text: string }>,
+  from: number,
+  to: number,
+  maxRollbackWords = 8,
+): number {
+  if (to <= from + 1) return to
+  const rollbackLimit = Math.max(1, Math.min(12, maxRollbackWords))
+  let end = to
+
+  // A verse number or short function word must not sit alone at page bottom.
+  while (end > from + 1 && to - end < rollbackLimit) {
+    const text = words[end - 1]?.text || ''
+    const bare = barePageWord(text)
+    if (isClauseStop(text)) break
+    if (!isLabVerseMarker(text) && !LAB_WEAK_PAGE_END_RE.test(bare)) break
+    end -= 1
+  }
+
+  // Move a tiny sentence fragment such as “And God” as one unit. Never roll
+  // back more than roughly one painted line: that was the source of the large
+  // blank areas in the reported Genesis pages.
+  let priorStop = -1
+  for (let i = end - 2; i >= from; i--) {
+    if (isClauseStop(words[i].text)) {
+      priorStop = i
+      break
+    }
+  }
+  const fragmentStart = priorStop + 1
+  const fragmentWords = end - fragmentStart
+  const leadIndex = isLabVerseMarker(words[fragmentStart]?.text || '')
+    ? fragmentStart + 1
+    : fragmentStart
+  const fragmentLead = barePageWord(words[leadIndex]?.text || '')
+  const lexicalFragmentWords = end - leadIndex
+  if (
+    priorStop >= from
+    && fragmentWords > 0
+    && fragmentWords <= rollbackLimit
+    && lexicalFragmentWords <= 2
+    && LAB_SENTENCE_CONNECTOR_RE.test(fragmentLead)
+  ) {
+    end = fragmentStart
+  }
+  return end > from ? end : to
+}
+
 function lastStrongStopBefore(words: Array<{ text: string }>, index: number): number {
   for (let i = index - 1; i >= 0; i--) {
     if (isStrongStop(words[i].text)) return i
@@ -76,16 +142,10 @@ export function snapShrinkEndToSentence(
   from: number,
   to: number,
   proposedTo: number,
+  maxRollbackWords = 8,
 ): number {
   if (proposedTo >= to || proposedTo <= from + 1) return proposedTo
-  const minEnd = from + 1
-  for (let i = proposedTo - 1; i >= from; i--) {
-    if (isStrongStop(words[i].text)) {
-      const end = i + 1
-      return Math.max(minEnd, end)
-    }
-  }
-  return proposedTo
+  return polishPageEnd(words, from, proposedTo, maxRollbackWords)
 }
 
 /** When a page already fits but ends mid-sentence, pull the end back to the prior stop. */
@@ -93,16 +153,9 @@ export function snapPageEndToPriorSentence(
   words: Array<{ text: string }>,
   from: number,
   to: number,
+  maxRollbackWords = 8,
 ): number {
-  if (to <= from + 1) return to
-  if (isStrongStop(words[to - 1].text)) return to
-  for (let i = to - 2; i >= from; i--) {
-    if (isStrongStop(words[i].text)) {
-      const end = i + 1
-      return end > from ? end : to
-    }
-  }
-  return to
+  return polishPageEnd(words, from, to, maxRollbackWords)
 }
 
 export function pageEndsMidSentence(words: Array<{ text: string }>, from: number, to: number): boolean {
@@ -124,10 +177,11 @@ export function growPaintedPageIfSlack(
   if (!shouldGrowPaintedPage(lastAdjust, slack, lineH)) return pages
   const fromNext = wordsAvailableOnNextPage(pages, pageIndex)
   const page = pages[pageIndex]
+  const tail = chapterPageTail(page)
   let paraTail = 0
-  if (fromNext <= 0 && paragraphs && page) {
-    const len = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '').length
-    paraTail = Math.max(0, len - page.to)
+  if (fromNext <= 0 && paragraphs && tail) {
+    const len = tokenizeHearingWords(paragraphs[tail.paragraphIndex] || '').length
+    paraTail = Math.max(0, len - tail.to)
   }
   if (fromNext <= 0 && paraTail <= 0) return pages
   const words = growWordsFromSlack(painted.lastLineWords, slack, lineH)
@@ -135,7 +189,7 @@ export function growPaintedPageIfSlack(
     const grown = growPageByWords(pages, pageIndex, words)
     return sameChapterPages(grown, pages) ? pages : grown
   }
-  const len = tokenizeHearingWords(paragraphs![page!.paragraphIndex] || '').length
+  const len = tokenizeHearingWords(paragraphs![tail!.paragraphIndex] || '').length
   const grown = growPageTailInParagraph(pages, pageIndex, words, len)
   return sameChapterPages(grown, pages) ? pages : grown
 }
@@ -371,7 +425,10 @@ export function labChapterProgress(input: {
   const wordsRead = typeof input.paragraphIndex === 'number' && typeof input.wordIndex === 'number'
     ? wordsBeforePlace(input.paragraphs, input.paragraphIndex, input.wordIndex)
     : page
-      ? wordsBeforePlace(input.paragraphs, page.paragraphIndex, page.to)
+      ? (() => {
+          const tail = chapterPageTail(page)
+          return tail ? wordsBeforePlace(input.paragraphs, tail.paragraphIndex, tail.to) : 0
+        })()
       : 0
   const percent = wordsTotal > 0 ? Math.round((wordsRead / wordsTotal) * 100) : 0
   return {
@@ -397,6 +454,35 @@ export interface ChapterHearingPage {
   paragraphIndex: number
   from: number
   to: number
+  /** Additional contiguous paragraph slices painted on the same visual page. */
+  segments?: ChapterPageSegment[]
+}
+
+export interface ChapterPageSegment {
+  paragraphIndex: number
+  from: number
+  to: number
+}
+
+export function chapterPageSegments(page: ChapterHearingPage | undefined): ChapterPageSegment[] {
+  if (!page) return []
+  if (page.segments && page.segments.length > 0) return page.segments
+  return [{ paragraphIndex: page.paragraphIndex, from: page.from, to: page.to }]
+}
+
+function pageFromSegments(segments: ChapterPageSegment[]): ChapterHearingPage | null {
+  const clean = segments.filter(segment => segment.to > segment.from)
+  const first = clean[0]
+  if (!first) return null
+  return {
+    ...first,
+    segments: clean.length > 1 ? clean : undefined,
+  }
+}
+
+export function chapterPageTail(page: ChapterHearingPage | undefined): ChapterPageSegment | null {
+  const segments = chapterPageSegments(page)
+  return segments[segments.length - 1] ?? null
 }
 
 export interface LabPageAnchor {
@@ -579,30 +665,69 @@ export function growPageByWords(
   const next = pages[pageIndex + 1]
   if (!page || !next) return pages
 
-  if (page.paragraphIndex === next.paragraphIndex) {
-    const available = next.to - next.from
-    const take = Math.min(wordCount, available)
-    if (take <= 0) return pages
-    const grown: ChapterHearingPage[] = [...pages]
-    grown[pageIndex] = { ...page, to: page.to + take }
-    if (next.from + take >= next.to) {
-      grown.splice(pageIndex + 1, 1)
-    } else {
-      grown[pageIndex + 1] = { ...next, from: next.from + take }
-    }
-    return grown
-  }
+  const currentSegments = chapterPageSegments(page)
+  const nextSegments = chapterPageSegments(next)
+  const head = nextSegments[0]
+  const tail = currentSegments[currentSegments.length - 1]
+  if (!head || !tail) return pages
+  const available = head.to - head.from
+  const take = Math.min(wordCount, available)
+  if (take <= 0) return pages
 
-  if (page.paragraphIndex < next.paragraphIndex && page.to > page.from) {
-    const take = Math.min(wordCount, next.to - next.from)
-    if (take <= 0) return pages
-    const grown: ChapterHearingPage[] = [...pages]
-    grown[pageIndex + 1] = { ...next, from: next.from + take }
-    if (next.from + take >= next.to) grown.splice(pageIndex + 1, 1)
-    return grown
+  const pulled = { ...head, to: head.from + take }
+  const grownSegments = currentSegments.slice()
+  if (tail.paragraphIndex === pulled.paragraphIndex && tail.to === pulled.from) {
+    grownSegments[grownSegments.length - 1] = { ...tail, to: pulled.to }
+  } else {
+    grownSegments.push(pulled)
   }
+  const grownPage = pageFromSegments(grownSegments)
+  if (!grownPage) return pages
 
-  return pages
+  const remainderSegments = nextSegments.slice()
+  if (pulled.to >= head.to) remainderSegments.shift()
+  else remainderSegments[0] = { ...head, from: pulled.to }
+  const remainder = pageFromSegments(remainderSegments)
+  const grown = pages.slice()
+  grown[pageIndex] = grownPage
+  if (remainder) grown[pageIndex + 1] = remainder
+  else grown.splice(pageIndex + 1, 1)
+  return grown
+}
+
+/** Move the end of a multi-paragraph visual page back onto the following page. */
+export function cutPageTailTo(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  newTo: number,
+): ChapterHearingPage[] {
+  const page = pages[pageIndex]
+  const segments = chapterPageSegments(page)
+  const tail = segments[segments.length - 1]
+  if (!page || !tail || newTo <= tail.from || newTo >= tail.to) return pages
+
+  const keptSegments = segments.slice()
+  keptSegments[keptSegments.length - 1] = { ...tail, to: newTo }
+  const kept = pageFromSegments(keptSegments)
+  if (!kept) return pages
+
+  const moved: ChapterPageSegment = { ...tail, from: newTo }
+  const following = chapterPageSegments(pages[pageIndex + 1])
+  if (
+    following[0]
+    && following[0].paragraphIndex === moved.paragraphIndex
+    && following[0].from === moved.to
+  ) {
+    following[0] = { ...following[0], from: moved.from }
+  } else {
+    following.unshift(moved)
+  }
+  const nextPage = pageFromSegments(following)
+  const next = pages.slice()
+  next[pageIndex] = kept
+  if (nextPage) next[pageIndex + 1] = nextPage
+  else next.splice(pageIndex + 1, 0, moved)
+  return next
 }
 
 /** Extend a page into unused words at the end of its paragraph (last page of chapter). */
@@ -613,28 +738,35 @@ export function growPageTailInParagraph(
   paragraphLength: number,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page || wordCount <= 0 || paragraphLength <= page.to) return pages
-  const take = Math.min(wordCount, paragraphLength - page.to)
+  const segments = chapterPageSegments(page)
+  const tail = segments[segments.length - 1]
+  if (!page || !tail || wordCount <= 0 || paragraphLength <= tail.to) return pages
+  const take = Math.min(wordCount, paragraphLength - tail.to)
   if (take <= 0) return pages
   const next = pages.slice()
-  next[pageIndex] = { ...page, to: page.to + take }
+  segments[segments.length - 1] = { ...tail, to: tail.to + take }
+  next[pageIndex] = pageFromSegments(segments) ?? page
   return next
 }
 
 export function wordsAvailableOnNextPage(pages: ChapterHearingPage[], pageIndex: number): number {
   const next = pages[pageIndex + 1]
-  if (!next) return 0
-  return Math.max(0, next.to - next.from)
+  const head = chapterPageSegments(next)[0]
+  return head ? Math.max(0, head.to - head.from) : 0
 }
 
 export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[]): boolean {
   if (a === b) return true
   if (a.length !== b.length) return false
-  return a.every((page, i) => (
-    page.paragraphIndex === b[i].paragraphIndex
-    && page.from === b[i].from
-    && page.to === b[i].to
-  ))
+  return a.every((page, pageIndex) => {
+    const left = chapterPageSegments(page)
+    const right = chapterPageSegments(b[pageIndex])
+    return left.length === right.length && left.every((segment, segmentIndex) => (
+      segment.paragraphIndex === right[segmentIndex]?.paragraphIndex
+      && segment.from === right[segmentIndex]?.from
+      && segment.to === right[segmentIndex]?.to
+    ))
+  })
 }
 
 /** N and M come from the same page list. Never report N > M. */
@@ -653,8 +785,8 @@ function absorbOrphanWordBounds(pages: HearingPageBounds[]): HearingPageBounds[]
 }
 
 export function leftoverWordCount(page: ChapterHearingPage | undefined): number {
-  if (!page) return 0
-  return Math.max(0, page.to - page.from)
+  return chapterPageSegments(page)
+    .reduce((sum, segment) => sum + Math.max(0, segment.to - segment.from), 0)
 }
 
 export function isOrphanLeftoverPage(page: ChapterHearingPage | undefined): boolean {
@@ -756,14 +888,16 @@ export function followOnReadingPage(
   if (follow.kind === 'none') return true
   const page = pages[pageIndex]
   if (!page) return false
+  const segments = chapterPageSegments(page)
   if (follow.kind === 'paragraph') {
-    return page.paragraphIndex === follow.paragraphIndex
+    return segments.some(segment => segment.paragraphIndex === follow.paragraphIndex)
   }
   if (follow.kind === 'word') {
-    return page.paragraphIndex === follow.paragraphIndex
-      && typeof follow.wordIndex === 'number'
-      && follow.wordIndex >= page.from
-      && follow.wordIndex < page.to
+    return typeof follow.wordIndex === 'number' && segments.some(segment => (
+      segment.paragraphIndex === follow.paragraphIndex
+      && follow.wordIndex! >= segment.from
+      && follow.wordIndex! < segment.to
+    ))
   }
   return false
 }
@@ -774,9 +908,9 @@ export function pageIndexForPlace(
   wordIndex: number,
 ): number {
   if (pages.length === 0) return 0
-  const exact = pages.findIndex(page => (
-    page.paragraphIndex === paragraphIndex && wordIndex >= page.from && wordIndex < page.to
-  ))
+  const exact = pages.findIndex(page => chapterPageSegments(page).some(segment => (
+    segment.paragraphIndex === paragraphIndex && wordIndex >= segment.from && wordIndex < segment.to
+  )))
   if (exact >= 0) return exact
   const nextOnParagraph = pages.findIndex(page => (
     page.paragraphIndex === paragraphIndex && page.from > wordIndex
@@ -798,7 +932,7 @@ export function chapterPagesCover(paragraphs: string[], pages: ChapterHearingPag
   for (let i = 0; i < paragraphs.length; i++) {
     const n = tokenizeHearingWords(paragraphs[i]).length
     if (n === 0) continue
-    const parts = pages.filter(page => page.paragraphIndex === i)
+    const parts = pages.flatMap(page => chapterPageSegments(page)).filter(part => part.paragraphIndex === i)
     if (parts.length === 0 || parts[0].from !== 0 || parts[parts.length - 1].to !== n) return false
     for (let j = 0; j < parts.length - 1; j++) {
       if (parts[j].to !== parts[j + 1].from) return false
@@ -825,10 +959,14 @@ export function chapterHearingPages(
 
 export function readingPageLines(paragraphs: string[], page: ChapterHearingPage | undefined): HearingLine[] {
   if (!page) return []
-  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
-  return [{
-    words: words.slice(page.from, page.to).map(word => ({ text: word.text, role: 'line' as const })),
-  }]
+  return chapterPageSegments(page).map(segment => {
+    const words = tokenizeHearingWords(paragraphs[segment.paragraphIndex] || '')
+    return {
+      paragraphIndex: segment.paragraphIndex,
+      from: segment.from,
+      words: words.slice(segment.from, segment.to).map(word => ({ text: word.text, role: 'line' as const })),
+    }
+  })
 }
 
 /** Word highlight / dim / bold follow only while Hearing is actually playing. */
@@ -878,8 +1016,9 @@ export function hearingStageLines(
     const words = paragraph.words
     const current = Math.max(0, Math.min(follow.wordIndex, words.length - 1))
     const local = chapterPages
-      ?.filter(page => page.paragraphIndex === paragraph.index)
-      .map(page => ({ from: page.from, to: page.to }))
+      ?.flatMap(page => chapterPageSegments(page))
+      .filter(segment => segment.paragraphIndex === paragraph.index)
+      .map(segment => ({ from: segment.from, to: segment.to }))
     const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(words), current)
     return [{
       words: words.slice(page.from, page.to).map((word, offset) => ({

@@ -9,9 +9,10 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines } from './labHearing'
+import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
+import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
 
@@ -45,6 +46,7 @@ interface LabPassageProps {
   onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
   browseWhileListening?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
+  onPageTurn?: (direction: LabPageTurnDirection) => void
 }
 
 function wordSpacing(word: { text: string }, wordIndex: number): string {
@@ -137,6 +139,7 @@ export function LabPassage({
   onSelectRange,
   browseWhileListening = false,
   onSeekToWord,
+  onPageTurn,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -156,7 +159,13 @@ export function LabPassage({
     ? isChapterFirstHearingPage(paragraph, linesFollow, chapterPages)
     : isChapterFirstReadingPage(readingPage)
 
-  const dragRef = useRef<{ start: LabWordPlace; end: LabWordPlace } | null>(null)
+  const dragRef = useRef<{
+    start: LabWordPlace | null
+    end: LabWordPlace | null
+    startX: number
+    startY: number
+    startedAt: number
+  } | null>(null)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
 
@@ -164,20 +173,27 @@ export function LabPassage({
     const drag = dragRef.current
     dragRef.current = null
     setLocalSelecting(null)
-    if (!drag || !onSelectRange) return
+    if (!drag?.start || !drag.end || !onSelectRange) return
     const range = buildHighlightRange(paragraphs, drag.start, drag.end)
     if (!range.text.trim()) return
     onSelectRange(range, event.clientX, event.clientY)
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
-    if (!onSelectRange || hearing || onSeekToWord || (event.target as HTMLElement).closest('.lab-mark-btn')) return
+    if (hearing || (event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
     const place = wordPlaceFromTarget(event.target)
-    if (!place) return
-    event.preventDefault()
+    if (place && onSeekToWord) return
+    if (!place && !onPageTurn) return
+    if (place && onSelectRange) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
-    dragRef.current = { start: place, end: place }
-    setLocalSelecting(buildHighlightRange(paragraphs, place, place))
+    dragRef.current = {
+      start: place,
+      end: place,
+      startX: event.clientX,
+      startY: event.clientY,
+      startedAt: event.timeStamp,
+    }
+    if (place && onSelectRange) setLocalSelecting(buildHighlightRange(paragraphs, place, place))
   }
 
   const onPointerMove = (event: React.PointerEvent) => {
@@ -187,11 +203,35 @@ export function LabPassage({
       || wordPlaceFromTarget(document.elementFromPoint(event.clientX, event.clientY))
     if (!place) return
     drag.end = place
-    setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+    if (drag.start && onSelectRange) {
+      setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+    }
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
-    if (!dragRef.current) return
+    const drag = dragRef.current
+    if (!drag) return
+    const deltaX = event.clientX - drag.startX
+    const deltaY = event.clientY - drag.startY
+    const duration = Math.max(0, event.timeStamp - drag.startedAt)
+    const swipe = onPageTurn && !selectingRange
+      ? labSwipePageDirection(deltaX, deltaY)
+      : null
+    const rect = event.currentTarget.getBoundingClientRect()
+    const tap = onPageTurn
+      && !selectingRange
+      && Math.abs(deltaX) <= 10
+      && Math.abs(deltaY) <= 10
+      && duration <= 500
+      ? labTapPageDirection(event.clientX, rect.left, rect.width)
+      : null
+    const direction = swipe ?? tap
+    if (direction != null) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      onPageTurn?.(direction)
+      return
+    }
     finishPointerSelection(event)
   }
 
@@ -248,8 +288,8 @@ export function LabPassage({
               onPointerCancel={onPointerCancel}
             >
               {readingLines.map((line, lineIndex) => {
-                const paragraphIndex = readingPage?.paragraphIndex ?? 0
-                const wordBase = readingPage?.from ?? 0
+                const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+                const wordBase = line.from ?? readingPage?.from ?? 0
                 return (
                   <p
                     key={lineIndex}
@@ -299,12 +339,14 @@ export function LabPassage({
         </div>
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
-            {(() => {
+            {readingLines.map((line, lineIndex) => {
               const source = compareParagraphs.length > 0 ? compareParagraphs : paragraphs
-              const index = readingPage?.paragraphIndex ?? 0
-              const text = source[index]
-              return text ? <p className="lab-hearing-line">{text}</p> : null
-            })()}
+              const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+              const words = tokenizeHearingWords(source[paragraphIndex] || '')
+              const from = line.from ?? readingPage?.from ?? 0
+              const text = words.slice(from, from + line.words.length).map(word => word.text).join(' ')
+              return text ? <p key={lineIndex} className="lab-hearing-line">{text}</p> : null
+            })}
           </div>
         )}
       </div>

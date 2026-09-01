@@ -12,6 +12,7 @@ import {
   chapterPagesCover,
   chapterPageLabel,
   clampedChapterProgress,
+  cutPageTailTo,
   followOnReadingPage,
   absorbChapterTailPages,
   growPaintedPageIfSlack,
@@ -33,6 +34,7 @@ import {
   pageIndexForPlace,
   pageIndexForWord,
   paginateLineBoxes,
+  polishPageEnd,
   readingPageLines,
   restorePageIndexForAnchor,
   snapPageEndToPriorSentence,
@@ -628,7 +630,7 @@ describe('lab bible page leftovers', () => {
 })
 
 describe('page fill after peel', () => {
-  it('snaps overflow peel to the previous sentence end', () => {
+  it('keeps a full line instead of rolling far back to a sentence end', () => {
     const words = [
       { text: 'First.' },
       { text: 'Second' },
@@ -638,18 +640,32 @@ describe('page fill after peel', () => {
       { text: 'words.' },
     ]
     expect(snapShrinkEndToSentence(words, 0, 6, 4)).toBe(4)
-    expect(snapShrinkEndToSentence(words, 0, 6, 3)).toBe(1)
+    expect(snapShrinkEndToSentence(words, 0, 6, 3)).toBe(3)
     const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     const genesisWords = genesis[0].split(/\s+/).filter(Boolean).map(text => ({ text }))
-    expect(snapShrinkEndToSentence(genesisWords, 0, 58, 57)).toBe(53)
+    expect(snapShrinkEndToSentence(genesisWords, 0, 58, 57)).toBe(57)
   })
 
-  it('pulls a mid-sentence page end back to the prior stop', () => {
+  it('only moves short dangling connectors or fragments to the next page', () => {
     const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     const words = genesis[0].split(/\s+/).filter(Boolean).map(text => ({ text }))
     const end = snapPageEndToPriorSentence(words, 0, 58)
-    expect(words[end - 1].text).toBe('light.')
-    expect(end).toBe(53)
+    expect(end).toBe(57)
+    expect(polishPageEnd([
+      { text: 'The' }, { text: 'earth.' }, { text: 'And' }, { text: 'God' },
+    ], 0, 4, 4)).toBe(2)
+    expect(polishPageEnd([
+      { text: 'the' }, { text: 'water' }, { text: 'and' },
+    ], 0, 3, 4)).toBe(2)
+    expect(polishPageEnd([
+      { text: 'It' }, { text: 'was.' }, { text: 'that' }, { text: 'may' },
+    ], 0, 4, 6)).toBe(2)
+    expect(polishPageEnd([
+      { text: 'It' }, { text: 'was.' }, { text: 'which' }, { text: 'is' },
+    ], 0, 4, 6)).toBe(2)
+    expect(polishPageEnd([
+      { text: 'his' }, { text: 'kind:' }, { text: 'and' }, { text: 'God' },
+    ], 0, 4, 6)).toBe(2)
   })
 
   it('grows a fitted page when remeasure shows slack below the ink', () => {
@@ -667,6 +683,37 @@ describe('page fill after peel', () => {
     const grown = growPaintedPageIfSlack(pages, 0, painted, 'peel')
     expect(grown[0].to).toBeGreaterThan(pages[0].to)
     expect(grown[1].from).toBe(grown[0].to)
+  })
+
+  it('fills visual slack across a paragraph boundary without consuming words', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 12 },
+      { paragraphIndex: 1, from: 0, to: 12 },
+    ]
+    const painted = {
+      lastBottom: 480,
+      chromeTop: 600,
+      lineHeight: 40,
+      lastLineWords: 4,
+      scrollOverflow: false,
+    }
+    const paragraphs = ['a '.repeat(12), 'b '.repeat(12)]
+    const grown = growPaintedPageIfSlack(pages, 0, painted, null, paragraphs)
+    expect(grown[0].segments).toEqual([
+      { paragraphIndex: 0, from: 0, to: 12 },
+      { paragraphIndex: 1, from: 0, to: 4 },
+    ])
+    expect(grown[1]).toMatchObject({ paragraphIndex: 1, from: 4, to: 12 })
+    expect(chapterPagesCover(paragraphs, grown)).toBe(true)
+    expect(pageIndexForPlace(grown, 1, 2)).toBe(0)
+    expect(followOnReadingPage({ kind: 'word', paragraphIndex: 1, wordIndex: 2 }, grown, 0)).toBe(true)
+    expect(readingPageLines(paragraphs, grown[0]).map(line => [line.paragraphIndex, line.from, line.words.length]))
+      .toEqual([[0, 0, 12], [1, 0, 4]])
+
+    const cut = cutPageTailTo(grown, 0, 2)
+    expect(cut[0].segments?.[1]).toEqual({ paragraphIndex: 1, from: 0, to: 2 })
+    expect(cut[1]).toMatchObject({ paragraphIndex: 1, from: 2, to: 12 })
+    expect(chapterPagesCover(paragraphs, cut)).toBe(true)
   })
 
   it('grows the last page into the paragraph tail when there is no next page', () => {
@@ -692,6 +739,7 @@ describe('page fill after peel', () => {
     const merged = absorbChapterTailPages(pages)
     expect(merged).toEqual([{ paragraphIndex: 0, from: 0, to: 95 }])
   })
+
 })
 
 describe('followOnReadingPage', () => {

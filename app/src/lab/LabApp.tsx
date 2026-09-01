@@ -18,12 +18,12 @@ import {
   afterLabPaint,
   LAB_OVERFLOW_CLEAR_PX,
   labPageFitsPaint,
-  labPageSlackPx,
   labBarMoved,
   measureLabBarTop,
   measureLabOnScreenBarTop,
   measureLabPageMetrics,
   measurePaintedOverflow,
+  stabilizeLabPageMetrics,
   nextLabVoiceGate,
   nextPaintShrinkTo,
   type LabPageAdjust,
@@ -55,7 +55,7 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { absorbOrphanLeftoverPages, adjacentPageIndex, absorbChapterTailPages, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, clampedChapterProgress, ensurePageIdentity, followOnReadingPage, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, pageAnchorOf, pageEndsMidSentence, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapPageEndToPriorSentence, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, polishPageEnd, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -402,11 +402,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   const didBudgetPageRef = useRef(false)
   const chapterKeyRef = useRef(book.chapterTitle)
+  const chapterContentRef = useRef(book.paragraphs)
 
   useLayoutEffect(() => {
     const chapterChanged = chapterKeyRef.current !== book.chapterTitle
+    const contentChanged = chapterContentRef.current !== book.paragraphs
     chapterKeyRef.current = book.chapterTitle
-    if (chapterChanged) {
+    chapterContentRef.current = book.paragraphs
+    if (chapterChanged || contentChanged) {
       pagesStableRef.current = false
       didBudgetPageRef.current = false
       unmeasuredTriesRef.current = 0
@@ -488,6 +491,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
+  const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
@@ -496,6 +500,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const popupRef = useRef<HTMLDivElement | null>(null)
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
   pageMetricsRef.current = pageMetrics
+  const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
@@ -537,6 +542,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     lastVvRef.current = 0
     lastBarTopRef.current = 0
     lastAdjustRef.current = null
+    beforeGrowPagesRef.current = null
     pagesStableRef.current = false
     settleIndexRef.current = 0
     setSettleIndex(0)
@@ -583,56 +589,49 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         }
       }
       if (!painted) return pages
-      const paraWords = tokenizeHearingWords(book.paragraphs[live.paragraphIndex] || '')
+      const tail = chapterPageTail(live)
+      if (!tail) return pages
+      const paraWords = tokenizeHearingWords(book.paragraphs[tail.paragraphIndex] || '')
       if (!labPageFitsPaint(painted)) {
-        if (live.to <= live.from + 1) return pages
+        if (tail.to <= tail.from + 1) return pages
         const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-        let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
-        nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
-        if (nextTo >= live.to) return pages
-        const shrunk = applyPaintShrink(pages, pageIdx, nextTo, {
-          lastLineWords: painted.lastLineWords,
-          overflowing: true,
-        })
+        let nextTo = nextPaintShrinkTo(tail.from, tail.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+        nextTo = snapShrinkEndToSentence(
+          paraWords,
+          tail.from,
+          tail.to,
+          nextTo,
+          Math.max(6, painted.lastLineWords || 0),
+        )
+        if (nextTo >= tail.to) return pages
+        const shrunk = chapterPageSegments(live).length > 1
+          ? cutPageTailTo(pages, pageIdx, nextTo)
+          : applyPaintShrink(pages, pageIdx, nextTo, {
+              lastLineWords: painted.lastLineWords,
+              overflowing: true,
+            })
         return sameChapterPages(shrunk, pages) ? pages : shrunk
-      }
-      const slack = labPageSlackPx(painted.lastBottom, painted.chromeTop)
-      const lineH = painted.lineHeight > 8 ? painted.lineHeight : 24
-      if (slack > lineH * 1.5 && pageEndsMidSentence(paraWords, live.from, live.to)) {
-        const snappedEnd = snapPageEndToPriorSentence(paraWords, live.from, live.to)
-        if (snappedEnd < live.to) {
-          const shrunk = applyPaintShrink(pages, pageIdx, snappedEnd, {
-            lastLineWords: painted.lastLineWords,
-            overflowing: false,
-          })
-          return sameChapterPages(shrunk, pages) ? pages : shrunk
-        }
       }
       return pages
     }
     const finishSettle = () => {
       const keep = pageAnchorRef.current
-      const beforeLen = workingPagesRef.current.length
-      let pages = absorbOrphanLeftoverPages(workingPagesRef.current, keep)
-      pages = absorbChapterTailPages(pages, keep)
+      let pages = workingPagesRef.current
       if (keep) pages = ensurePageIdentity(pages, keep)
-      const mergedTail = pages.length < beforeLen
       workingPagesRef.current = pages
       setDraftPages(pages)
-      if (mergedTail && pages.length > 0) {
+      const fixed = fixVisiblePagePaint(pages)
+      if (!sameChapterPages(fixed, pages)) {
         pagesStableRef.current = false
-        const peelIdx = Math.max(0, pages.length - 1)
-        settleIndexRef.current = peelIdx
-        setSettleIndex(peelIdx)
+        workingPagesRef.current = fixed
+        readingPagesRef.current = fixed
+        setDraftPages(fixed)
+        setReadingPages(fixed)
+        const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, fixed.length - 1))
+        settleIndexRef.current = pageIdx
+        setSettleIndex(pageIdx)
         return
       }
-      for (let fixPass = 0; fixPass < 4; fixPass += 1) {
-        const fixed = fixVisiblePagePaint(pages)
-        if (sameChapterPages(fixed, pages)) break
-        pages = fixed
-        workingPagesRef.current = pages
-      }
-      setDraftPages(pages)
       pagesStableRef.current = true
       setSettleIndex(null)
       settleIndexRef.current = null
@@ -657,6 +656,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
     const advanceSettle = (from: number, pages: ChapterHearingPage[]) => {
       unmeasuredTriesRef.current = 0
+      lastAdjustRef.current = null
+      beforeGrowPagesRef.current = null
       const nextIdx = from + 1
       if (nextIdx >= pages.length) {
         finishSettle()
@@ -684,8 +685,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (!live) return 'fits'
       let painted = host ? measurePaintedOverflow(host, chromeEl) : null
       const shown = readingPagesRef.current[Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))]
-      const sameAsVisible = !!shown && shown.paragraphIndex === live.paragraphIndex && shown.from === live.from && shown.to === live.to
+      const sameAsVisible = !!shown && sameChapterPages([shown], [live])
       if (passage && sameAsVisible) {
+        painted = measurePaintedOverflow(passage, chromeEl) ?? painted
         const hasWordInk = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
           .some(node => {
             const rect = node.getBoundingClientRect()
@@ -733,34 +735,80 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       if (!painted) return lastBarTopRef.current > 0 ? 'unmeasured' : 'fits'
       if (labPageFitsPaint(painted)) {
-        if (sameAsVisible && !listenPlayingRef.current && !browseWhileListeningRef.current) {
+        if (!listenPlayingRef.current && !browseWhileListeningRef.current) {
           const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, book.paragraphs)
           if (!sameChapterPages(grown, pages)) {
+            beforeGrowPagesRef.current = pages
             lastAdjustRef.current = 'grow'
-            return applyPageList(grown, true)
+            return applyPageList(grown, sameAsVisible)
+          }
+        }
+        const tail = chapterPageTail(live)
+        if (!tail) return 'fits'
+        const paraWords = tokenizeHearingWords(book.paragraphs[tail.paragraphIndex] || '')
+        const polishedTo = polishPageEnd(
+          paraWords,
+          tail.from,
+          tail.to,
+          Math.max(6, painted.lastLineWords || 0),
+        )
+        if (polishedTo < tail.to) {
+          const polished = cutPageTailTo(pages, pageIdx, polishedTo)
+          if (!sameChapterPages(polished, pages)) {
+            // The cleaner end is final for this page. Pulling the weak fragment
+            // straight back would undo the typographic cleanup forever.
+            lastAdjustRef.current = 'polish'
+            return applyPageList(polished, sameAsVisible)
           }
         }
         return 'fits'
       }
-      if (live.to <= live.from + 1) return 'fits'
-      const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-      let nextTo = nextPaintShrinkTo(live.from, live.to, painted.lastLineWords, overflowPx, painted.lineHeight)
-      if (sameAsVisible) {
-        const paraWords = tokenizeHearingWords(book.paragraphs[live.paragraphIndex] || '')
-        nextTo = snapShrinkEndToSentence(paraWords, live.from, live.to, nextTo)
+      if (lastAdjustRef.current === 'grow' && beforeGrowPagesRef.current) {
+        const reverted = beforeGrowPagesRef.current
+        const trialWords = Math.max(
+          1,
+          leftoverWordCount(live) - leftoverWordCount(reverted[pageIdx]),
+        )
+        if (trialWords > 1) {
+          const refined = growPageByWords(reverted, pageIdx, Math.max(1, Math.floor(trialWords / 2)))
+          if (!sameChapterPages(refined, reverted)) {
+            beforeGrowPagesRef.current = reverted
+            lastAdjustRef.current = 'grow'
+            return applyPageList(refined, sameAsVisible)
+          }
+        }
+        beforeGrowPagesRef.current = null
+        lastAdjustRef.current = 'polish'
+        return applyPageList(reverted, sameAsVisible)
       }
-      if (nextTo >= live.to) return 'fits'
+      const tail = chapterPageTail(live)
+      if (!tail || tail.to <= tail.from + 1) return 'fits'
+      const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
+      let nextTo = nextPaintShrinkTo(tail.from, tail.to, painted.lastLineWords, overflowPx, painted.lineHeight)
+      const paraWords = tokenizeHearingWords(book.paragraphs[tail.paragraphIndex] || '')
+      nextTo = snapShrinkEndToSentence(
+        paraWords,
+        tail.from,
+        tail.to,
+        nextTo,
+        Math.max(6, painted.lastLineWords || 0),
+      )
+      if (nextTo >= tail.to) return 'fits'
       const metrics = pageMetricsRef.current
       const budget = metrics ? labPageBudgetFromMetrics(metrics) : null
-      const shrunk = reflowAfterCut(
-        book.paragraphs,
-        pages,
-        pageIdx,
-        nextTo,
-        canUseLabPageBudget(budget) ? budget : null,
-        { lastLineWords: painted.lastLineWords, overflowing: true },
-      )
-      lastAdjustRef.current = 'peel'
+      const shrunk = chapterPageSegments(live).length > 1
+        ? cutPageTailTo(pages, pageIdx, nextTo)
+        : reflowAfterCut(
+            book.paragraphs,
+            pages,
+            pageIdx,
+            nextTo,
+            canUseLabPageBudget(budget) ? budget : null,
+            { lastLineWords: painted.lastLineWords, overflowing: true },
+          )
+      // If the last paint was a trial grow, this peel establishes its upper
+      // bound. Keep the fitted result instead of growing straight back.
+      lastAdjustRef.current = lastAdjustRef.current === 'grow' ? 'polish' : 'peel'
       return applyPageList(shrunk, sameAsVisible)
     }
     const shrinkIfNeeded = () => {
@@ -821,10 +869,23 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
     if (!wrap) return
+    pageMetricGeometryRef.current = null
     const apply = () => {
-      const metrics = measureLabPageMetrics(wrap, bottomChromeRef.current)
-      if (!metrics) return
+      const wrapRect = wrap.getBoundingClientRect()
+      const geometry = { width: wrapRect.width, height: wrapRect.height }
+      const previous = pageMetricGeometryRef.current
+      if (
+        previous
+        && previous.width === geometry.width
+        && previous.height === geometry.height
+        && pageMetricsRef.current
+      ) return
+      const measured = measureLabPageMetrics(wrap, bottomChromeRef.current)
+      if (!measured) return
+      const metrics = stabilizeLabPageMetrics(pageMetricsRef.current, measured, headlineHeightRef.current)
+      pageMetricGeometryRef.current = geometry
       if (metrics.headlineHeight > 0) headlineHeightRef.current = metrics.headlineHeight
+      pageMetricsRef.current = metrics
       setPageMetrics((current) => {
         if (
           current
@@ -845,11 +906,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (bottomChromeRef.current) ro?.observe(bottomChromeRef.current)
     const viewport = typeof window !== 'undefined' ? window.visualViewport : null
     viewport?.addEventListener('resize', apply)
+    const cancelPaint = afterLabPaint(() => {
+      pageMetricGeometryRef.current = null
+      apply()
+    })
     return () => {
+      cancelPaint()
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readingPageIndex, prefs.fontFamily, prefs.fontSize])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, prefs.fontFamily, prefs.fontSize, fullscreen])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {
@@ -1012,6 +1078,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [ask.typedLoading, ask.voiceActive, resumeListenAfterAsk])
 
   const readingPage = readingPages[Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))]
+  useLayoutEffect(() => {
+    const wrap = pageWrapRef.current
+    if (!wrap) return
+    const passage = [...wrap.querySelectorAll('.lab-passage')]
+      .find(node => !node.closest('.lab-page-measure')) as HTMLElement | undefined
+    if (passage) passage.scrollTop = 0
+  }, [book.chapterTitle, readingPageIndex, readingPage?.paragraphIndex, readingPage?.from, readingPage?.to, readingPage?.segments])
+  const readingTail = chapterPageTail(readingPage)
   const isOnline = readOnline(online)
   const voiceOverlayOpen = showPhoneChrome && chrome === 'talking' && !phoneAskOpen
   const phoneAsk = showPhoneChrome && phoneAskOpen
@@ -1042,8 +1116,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     paragraphs: book.paragraphs,
     pages: readingPages,
     pageIndex: readingPageIndex,
-    paragraphIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.paragraphIndex : readingPage?.paragraphIndex,
-    wordIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.wordIndex : readingPage?.to,
+    paragraphIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.paragraphIndex : readingTail?.paragraphIndex,
+    wordIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.wordIndex : readingTail?.to,
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
   const footProgress = labFootProgress({
@@ -1136,77 +1210,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
     }, 1)
   }, [prefs.primaryEdition, prefs.compareEdition])
-
-  useLayoutEffect(() => {
-    const wrap = pageWrapRef.current
-    const chromeEl = bottomChromeRef.current
-    if (!wrap || !chromeEl || phoneAskOpen || !pagesStableRef.current) return
-    // Never reshape page slices while audio is up — slim transport measures a different budget.
-    if (listen.playing || browseWhileListening) return
-    let growPasses = 0
-    const trySnapMidSentenceEnd = (pages: ChapterHearingPage[], pageIdx: number, painted: LabPaintedOverflow): ChapterHearingPage[] | null => {
-      if (!labPageFitsPaint(painted)) return null
-      const live = pages[pageIdx]
-      if (!live) return null
-      const slack = labPageSlackPx(painted.lastBottom, painted.chromeTop)
-      const lineH = painted.lineHeight > 8 ? painted.lineHeight : 24
-      if (slack <= lineH * 1.5) return null
-      const paraWords = tokenizeHearingWords(book.paragraphs[live.paragraphIndex] || '')
-      if (!pageEndsMidSentence(paraWords, live.from, live.to)) return null
-      const snappedEnd = snapPageEndToPriorSentence(paraWords, live.from, live.to)
-      if (snappedEnd >= live.to) return null
-      const shrunk = applyPaintShrink(pages, pageIdx, snappedEnd, {
-        lastLineWords: painted.lastLineWords,
-        overflowing: false,
-      })
-      return sameChapterPages(shrunk, pages) ? null : shrunk
-    }
-    const tryGrowVisiblePage = () => {
-      if (!pagesStableRef.current) return
-      if (listen.playing || browseWhileListeningRef.current) return
-      if (growPasses >= 8) return
-      const passage = [...wrap.querySelectorAll('.lab-passage')].find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
-      if (!passage) return
-      const pages = readingPagesRef.current
-      const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
-      const painted = measurePaintedOverflow(passage, chromeEl)
-      if (!painted) return
-      const snapped = trySnapMidSentenceEnd(pages, pageIdx, painted)
-      if (snapped) {
-        growPasses += 1
-        readingPagesRef.current = snapped
-        setReadingPages(snapped)
-        workingPagesRef.current = snapped
-        setDraftPages(snapped)
-        lastAdjustRef.current = 'peel'
-        afterLabPaint(tryGrowVisiblePage)
-        return
-      }
-      const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, book.paragraphs)
-      if (!sameChapterPages(grown, pages)) {
-        growPasses += 1
-        readingPagesRef.current = grown
-        setReadingPages(grown)
-        workingPagesRef.current = grown
-        setDraftPages(grown)
-        lastAdjustRef.current = 'grow'
-        afterLabPaint(tryGrowVisiblePage)
-        return
-      }
-      const afterGrow = measurePaintedOverflow(passage, chromeEl)
-      if (!afterGrow) return
-      const snappedAfterGrow = trySnapMidSentenceEnd(readingPagesRef.current, pageIdx, afterGrow)
-      if (!snappedAfterGrow) return
-      growPasses += 1
-      readingPagesRef.current = snappedAfterGrow
-      setReadingPages(snappedAfterGrow)
-      workingPagesRef.current = snappedAfterGrow
-      setDraftPages(snappedAfterGrow)
-      lastAdjustRef.current = 'peel'
-      afterLabPaint(tryGrowVisiblePage)
-    }
-    return afterLabPaint(tryGrowVisiblePage)
-  }, [listen.playing, browseWhileListening, showHearing, phoneAskOpen, book.chapterTitle, readingPageIndex])
 
   useLayoutEffect(() => {
     if (!selectionPopup) return
@@ -1784,6 +1787,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
+            onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
+              ? (direction) => { if (direction > 0) goNext(); else goPrev() }
+              : undefined}
           />
           {settleIndex != null && draftPages[settleIndex] && (
             <div

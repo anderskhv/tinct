@@ -463,7 +463,7 @@ export function labPageSlackPx(lastBottom: number, chromeTop: number): number {
   return Math.max(0, chromeTop - LAB_OVERFLOW_CLEAR_PX - lastBottom)
 }
 
-export type LabPageAdjust = 'peel' | 'grow' | null
+export type LabPageAdjust = 'peel' | 'grow' | 'polish' | null
 
 /** Room for at least one more line below the last painted ink. */
 export function labPaintHasGrowableSlack(
@@ -484,6 +484,9 @@ export function shouldGrowPaintedPage(
 ): boolean {
   const line = lineHeight > 8 ? lineHeight : 24
   if (slackPx <= line) return false
+  // A trial grow that overflowed (or a typographic cleanup) has already found
+  // this page's upper bound. Retrying would alternate forever between ends.
+  if (lastAdjust === 'polish') return false
   if (lastAdjust !== 'peel') return true
   return slackPx > line * 1.1
 }
@@ -495,10 +498,12 @@ export function growWordsFromSlack(
   lineHeight = 0,
 ): number {
   const trusted = lastLineWords > 0 && lastLineWords <= 16
-  let words = trusted ? lastLineWords : 8
+  // Pull at most half a painted line per trial. Word widths vary enough that a
+  // whole-row estimate can unexpectedly wrap onto two rows on narrow phones.
+  let words = trusted ? Math.max(1, Math.floor(lastLineWords / 2)) : 4
   if (slackPx > 40 && lineHeight > 8) {
     const lines = Math.max(1, Math.floor(slackPx / lineHeight))
-    words = Math.max(words, Math.min(lines * (trusted ? lastLineWords : 8), 48))
+    words = Math.max(words, Math.min(lines * (trusted ? Math.max(1, Math.floor(lastLineWords / 2)) : 4), 24))
   }
   return Math.max(1, words)
 }
@@ -573,6 +578,33 @@ export interface LabPageMetrics {
   avgCharWidth: number
 }
 
+/**
+ * Text changes on every page turn, but the typography does not. Keep the
+ * measured glyph width and chapter-title allowance stable until the actual
+ * page geometry or line height changes.
+ */
+export function stabilizeLabPageMetrics(
+  current: LabPageMetrics | null,
+  measured: LabPageMetrics,
+  knownHeadlineHeight = 0,
+): LabPageMetrics {
+  const headlineHeight = measured.headlineHeight > 0
+    ? measured.headlineHeight
+    : Math.max(0, knownHeadlineHeight)
+  if (
+    current
+    && current.width === measured.width
+    && current.lineHeight === measured.lineHeight
+  ) {
+    return {
+      ...measured,
+      headlineHeight: Math.max(current.headlineHeight, headlineHeight),
+      avgCharWidth: current.avgCharWidth,
+    }
+  }
+  return { ...measured, headlineHeight }
+}
+
 export function canUseLabPageMetrics(metrics: LabPageMetrics): boolean {
   return metrics.height >= metrics.lineHeight
     && metrics.width > 40
@@ -612,13 +644,104 @@ export function measureLabPageMetrics(
   const width = lineRect && lineRect.width > 0
     ? lineRect.width
     : Math.max(0, passageWidth - padLeft - padRight)
-  const lineHeight = line ? labLineHeightPx(line) : 0
+  let lineHeight = line ? labLineHeightPx(line) : 0
+  // A flex-stretched paragraph can report the whole reading window as its
+  // line height. Prefer the median painted text row in that case.
+  if (line && lineHeight > height && height > 0) {
+    try {
+      const range = document.createRange()
+      range.selectNodeContents(line)
+      const heights = [...range.getClientRects()]
+        .map(rect => rect.height)
+        .filter(value => value > 8 && value < 160)
+        .sort((a, b) => a - b)
+      if (heights.length > 0) {
+        lineHeight = heights[Math.floor(heights.length / 2)]
+      } else {
+        const lineStyle = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
+        const fontSize = parseFloat(lineStyle?.fontSize || '0')
+        if (fontSize > 8) lineHeight = fontSize * 1.45
+      }
+    } catch {
+      /* jsdom */
+    }
+  }
   const headlineHeight = headline ? headline.getBoundingClientRect().height : 0
-  const text = (line?.textContent || '').replace(/\s+/g, ' ').trim()
-  const lineWidth = lineRect?.width ?? 0
-  const avgCharWidth = text.length > 0 && lineWidth > 0 ? lineWidth / text.length : 0
+  const avgCharWidth = labAvgCharWidth(line)
   const metrics = { height, width, lineHeight, headlineHeight, avgCharWidth }
   return canUseLabPageMetrics(metrics) ? metrics : null
+}
+
+function firstLineInk(line: Element): { width: number; top: number } | null {
+  try {
+    const range = document.createRange()
+    range.selectNodeContents(line)
+    const rects = [...range.getClientRects()].filter(rect => rect.height > 1 && rect.width > 1)
+    if (rects.length === 0) return null
+    const top = rects[0].top
+    const row = rects.filter(rect => Math.abs(rect.top - top) < 8)
+    const left = Math.min(...row.map(rect => rect.left))
+    const right = Math.max(...row.map(rect => rect.right))
+    return { width: Math.max(0, right - left), top }
+  } catch {
+    return null
+  }
+}
+
+function firstLineCharCount(line: Element, firstTop: number): number {
+  const words = line.querySelectorAll(':scope > span')
+  if (words.length > 0) {
+    let chars = 0
+    let count = 0
+    words.forEach((word) => {
+      const rect = word.getBoundingClientRect()
+      if (rect.height > 0 && Math.abs(rect.top - firstTop) < 8) {
+        chars += (word.textContent || '').replace(/\s+/g, ' ').length
+        count += 1
+      }
+    })
+    chars += Math.max(0, count - 1)
+    if (chars > 0) return chars
+  }
+  return 0
+}
+
+function canvasSampleCharWidth(line: Element): number {
+  try {
+    if (typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent)) return 0
+    const canvas = document.createElement('canvas')
+    const context = canvas.getContext('2d')
+    if (!context) return 0
+    const style = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
+    if (style?.font) context.font = style.font
+    const sample = 'abcdefghijklmnopqrstuvwxyz'
+    const width = context.measureText(sample).width
+    return width > 0 ? width / sample.length : 0
+  } catch {
+    return 0
+  }
+}
+
+/** Real glyph width from one painted row; never divide by a wrapped paragraph. */
+export function labAvgCharWidth(line: Element | null | undefined): number {
+  if (!line) return 0
+  const lineRect = line.getBoundingClientRect()
+  if (lineRect.width <= 0) return 0
+  const first = firstLineInk(line)
+  if (first && first.width > 0) {
+    const chars = firstLineCharCount(line, first.top)
+    if (chars > 0) {
+      const avg = first.width / chars
+      // Verse superscripts and proper names are wider than a typical first row.
+      if (avg >= 3) return avg * 1.12
+    }
+  }
+  const sampled = canvasSampleCharWidth(line)
+  if (sampled >= 3) return sampled
+  const text = (line.textContent || '').replace(/\s+/g, ' ').trim()
+  const lineHeight = labLineHeightPx(line)
+  const wrapped = lineHeight > 8 && lineRect.height > lineHeight * 1.5
+  return !wrapped && text.length > 0 ? lineRect.width / text.length : 0
 }
 
 export function bindLabChromeInsetVar(
@@ -659,4 +782,32 @@ export function labShowPhoneBar(input: {
 
 export function labPullOpensToc(deltaY: number, threshold = LAB_TOC_PULL_PX): boolean {
   return deltaY >= threshold
+}
+
+export type LabPageTurnDirection = -1 | 1
+
+/** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
+export function labSwipePageDirection(
+  deltaX: number,
+  deltaY: number,
+  threshold = 44,
+): LabPageTurnDirection | null {
+  if (Math.abs(deltaX) < threshold) return null
+  if (Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) return null
+  return deltaX < 0 ? 1 : -1
+}
+
+/** Short taps in the outer thirds turn pages; the centre remains selection-safe. */
+export function labTapPageDirection(
+  clientX: number,
+  left: number,
+  width: number,
+  edgeFraction = 0.34,
+): LabPageTurnDirection | null {
+  if (width <= 0) return null
+  const x = clientX - left
+  if (x < 0 || x > width) return null
+  if (x <= width * edgeFraction) return -1
+  if (x >= width * (1 - edgeFraction)) return 1
+  return null
 }

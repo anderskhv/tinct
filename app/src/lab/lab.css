@@ -107,10 +107,18 @@
 .lab-page-measure {
   position: absolute;
   inset: 0;
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
   z-index: -1;
+}
+
+.lab-page-measure > .lab-passage {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .lab-hearing {
@@ -144,8 +152,10 @@
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   font-family: var(--lab-font-reader, 'EB Garamond', Georgia, 'Times New Roman', serif);
   font-size: calc(2.45rem * (var(--lab-font-size, 1.3) / 1.3));
   line-height: 1.45;
@@ -1255,6 +1265,11 @@
   font-weight: 400;
 }
 
+.lab.is-phone .lab-passage.is-reading,
+.lab.has-phone-chrome .lab-passage.is-reading {
+  overflow-y: hidden;
+}
+
 .lab.is-phone .lab-title,
 .lab.is-phone .lab-sub {
   margin: 0;
@@ -1480,8 +1495,10 @@
   line-height: 1.42;
   margin: 0 auto;
   max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .lab.is-phone.has-slim-transport .lab-hearing-stage {

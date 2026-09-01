@@ -256,6 +256,7 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/--lab-chrome-inset/)
     expect(css).not.toMatch(/--lab-ask-chrome-inset/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-passage[^{]*\{[^}]*overflow-y:\s*auto/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading[^{]*\{[^}]*overflow-y:\s*hidden/)
     expect(css).toMatch(/\.lab\.has-phone-chrome\[data-phone-bar="hearing"\]\s+\.lab-passage[^{]*\{[^}]*overflow-y:\s*auto/)
     expect(css).toMatch(/\.lab\.has-phone-chrome\[data-phone-bar="hearing"\]\s+\.lab-page-wrap[^{]*\{[^}]*overflow:\s*hidden/)
     expect(css).toMatch(/\.lab-ask\.is-phone-sheet \.lab-ask-thread[^{]*\{[^}]*overflow-y:\s*auto/)
@@ -298,7 +299,9 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/\.lab\.is-phone \.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*font-size:\s*1\.18rem/)
     expect(css).not.toMatch(/\.lab\.is-phone\s+\.lab-hearing-stage\s*\{[^}]*56px/)
     expect(css).not.toMatch(/8\.25rem/)
-    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*overflow-wrap:\s*anywhere/)
+    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*overflow-wrap:\s*break-word/)
+    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*word-break:\s*normal/)
+    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*hyphens:\s*auto/)
     expect(css).toMatch(/\.lab-kicker\s*\{[^}]*display:\s*none/)
     expect(css).toMatch(/\.lab-ask-tab\s*\{/)
     expect(css).not.toMatch(/Helvetica/)
@@ -1853,6 +1856,41 @@ describe('lab passage headline pages', () => {
     expect(document.querySelector('.lab-hearing-word.is-upcoming')).toBeNull()
     expect(document.querySelector('.lab-hearing-word.is-spoken')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
+  })
+
+  it('turns pages from edge taps and horizontal swipes without taking the center tap', () => {
+    const turn = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me, O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+        onPageTurn={turn}
+      />,
+    )
+    const stage = screen.getByTestId('lab-reading-stage')
+    vi.spyOn(stage, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+
+    fireEvent.pointerDown(stage, { pointerId: 1, clientX: 370, clientY: 300 })
+    fireEvent.pointerUp(stage, { pointerId: 1, clientX: 370, clientY: 300 })
+    fireEvent.pointerDown(stage, { pointerId: 2, clientX: 20, clientY: 300 })
+    fireEvent.pointerUp(stage, { pointerId: 2, clientX: 20, clientY: 300 })
+    fireEvent.pointerDown(stage, { pointerId: 3, clientX: 330, clientY: 300 })
+    fireEvent.pointerUp(stage, { pointerId: 3, clientX: 60, clientY: 305 })
+    fireEvent.pointerDown(stage, { pointerId: 4, clientX: 195, clientY: 500 })
+    fireEvent.pointerUp(stage, { pointerId: 4, clientX: 195, clientY: 500 })
+
+    expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, -1, 1])
   })
 })
 
