@@ -1377,8 +1377,24 @@ body {
      drop-cap float on the first paragraph caused chapters with a long
      opening paragraph to punt the whole paragraph to column 2, leaving
      column 1 with only the chapter header. */
-  orphans: 1;
-  widows: 1;
+  orphans: 2;
+  widows: 2;
+}
+
+/* Dictionary-backed hyphenation improves line fit without arbitrary word
+   splitting. The edition language is inherited from the app document. */
+.reader-columns .text-paragraph {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: pretty;
+}
+
+.reader-columns .verse-paragraph {
+  hyphens: none;
+  -webkit-hyphens: none;
+  text-wrap: wrap;
 }
 
 .text-paragraph:first-child {
@@ -8051,16 +8067,15 @@ body {
   }
 
   .reader-columns {
-    /* Footer has a few pixels of breathing room above the text on Boox while
-       still staying tighter than the old bottom chrome.
-       only need enough column padding to keep text from sliding under
-       the footer. */
-    padding: 12px 16px 32px;
+    /* The running footer has 44px touch targets and sits 14px above the
+       reader edge. Reserve that real geometry inside every CSS column so
+       compact-height phones cannot paint the last baseline behind it. */
+    padding: 12px 16px 64px;
     column-gap: 40px;
   }
 
   .app.audio-strip-open .reader-columns {
-    padding-bottom: calc(32px + var(--mobile-audio-strip-height));
+    padding-bottom: calc(64px + var(--mobile-audio-strip-height));
   }
 
   .mobile-compare-header {

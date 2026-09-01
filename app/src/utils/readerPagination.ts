@@ -4,6 +4,18 @@ const OVERFLOW_SLACK = 0.15
 export const MIN_READER_COLUMN_HEIGHT = 160
 export const MIN_READER_COLUMN_WIDTH = 200
 
+export const READER_SWIPE_MIN_DISTANCE = 44
+export const READER_SWIPE_AXIS_RATIO = 1.2
+
+/** Return +1 for a deliberate left/forward swipe, -1 for right/back. */
+export function readerSwipeDirection(deltaX: number, deltaY: number): 1 | -1 | 0 {
+  const horizontal = Math.abs(deltaX)
+  const vertical = Math.abs(deltaY)
+  if (horizontal < READER_SWIPE_MIN_DISTANCE) return 0
+  if (horizontal < vertical * READER_SWIPE_AXIS_RATIO) return 0
+  return deltaX < 0 ? 1 : -1
+}
+
 export const CONTENT_BOX_SELECTOR = '[data-paragraph-index], .chapter-header, .chapter-end, .split-row'
 
 export function countColumnPages(args: {
