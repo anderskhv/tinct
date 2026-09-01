@@ -59,18 +59,18 @@
     });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tinct — Read Classic Books with AI, Audio, and Guided Notes</title>
-  <meta name="description" content="Read classic books free online with human translations, modern comparison text, a context-aware AI companion, synced audio, and spoiler-aware character guides.">
+  <title>Tinct — Learn to Love the Books That Fight Back</title>
+  <meta name="description" content="Read or listen to the world’s greatest books, choose the translation that suits you, and talk with the book whenever an idea or question comes up.">
   <link rel="canonical" href="https://tinct.app/">
-  <meta property="og:title" content="Tinct — Read Classic Books with AI, Audio, and Guided Notes">
-  <meta property="og:description" content="A guided reader for classic books: human translations, modern comparison text, AI help, synced audio, and spoiler-aware character guides.">
+  <meta property="og:title" content="Tinct — Learn to Love the Books That Fight Back">
+  <meta property="og:description" content="Read or listen to the world’s greatest books, choose your translation, and talk with the book as you read.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tinct.app">
   <meta property="og:site_name" content="Tinct">
   <meta property="og:image" content="https://tinct.app/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tinct — Read Classic Books with AI, Audio, and Guided Notes">
-  <meta name="twitter:description" content="A guided reader for classic books with AI help, synced audio, modern comparison text, and character guides.">
+  <meta name="twitter:title" content="Tinct — Learn to Love the Books That Fight Back">
+  <meta name="twitter:description" content="Read or listen to the world’s greatest books, choose your translation, and talk with the book as you read.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preload" href="/fonts/f6667783-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/9947e6f6-SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2" as="font" type="font/woff2" crossorigin>
@@ -101,130 +101,193 @@
 
   <style>
     :root {
-      --paper: #ece7db;
-      --paper-alt: #dfd8c4;
-      --ink: #0b0b0b;
-      --dim: #6a6555;
-      --accent: #1f4a5c;
+      --night: #071724;
+      --night-deep: #04101a;
+      --paper: #fffaf0;
+      --paper-alt: #eee4d5;
+      --ink: #29251f;
+      --muted: #746b5e;
+      --book: #174f6d;
+      --button: #f5ead5;
+      --gold: #e8c477;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
-
-    body::before {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
-      background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
-      background-size: 3px 3px; mix-blend-mode: multiply;
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 65%);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 65%);
+    html { background: var(--night-deep); }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      color: #fffdf7;
+      background-color: var(--night);
+      background-image: linear-gradient(180deg, rgba(4,16,26,.58), rgba(4,12,19,.83)), url('/hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .wrap { position: relative; z-index: 2; }
-
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; transition: background 0.15s, color 0.15s; }
-    .btn-primary { background: var(--ink); color: var(--paper); }
-    .btn-primary:hover { background: var(--accent); }
-
-    /* ── Hero — hard one-page rule ── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 18%, rgba(255,216,151,.12), transparent 34%), linear-gradient(90deg, rgba(2,8,13,.23), transparent 28%, transparent 72%, rgba(2,8,13,.23));
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { position: relative; z-index: 1; }
     .hero {
-      height: 100vh;
-      height: 100dvh;
-      padding: 28px 48px 24px;
+      width: min(100%, 720px);
+      min-height: 100svh;
+      margin: 0 auto;
+      padding: 22px 26px 20px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
     }
-    .hero-nav { display: flex; justify-content: space-between; align-items: center; }
-    .hero-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; text-decoration: none; color: var(--ink); }
-    .hero-logo .dot { color: var(--accent); }
-    .hero-nav-links { display: flex; gap: 24px; }
-    .hero-nav-links a { color: var(--ink); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.15s; }
-    .hero-nav-links a:hover { color: var(--accent); }
-    .hero-h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 9vw, 7.25rem); line-height: 0.92; font-weight: 900; letter-spacing: -0.035em; margin: 0; }
-    .hero-h1 em { font-style: italic; font-weight: 400; }
-    .hero-h1 .accent { color: var(--accent); font-style: normal; }
-    .hero-pitch { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; padding-top: 20px; border-top: 1px solid var(--ink); }
-    .feature-tier-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
-    .feature-tier-label:not(:first-child) { margin-top: 14px; }
-    .feature-list { font-size: 15px; line-height: 1.55; padding-left: 20px; }
-    .cta-block .start-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
-    .cta-block .price-big { font-family: 'Playfair Display', Georgia, serif; font-size: 42px; line-height: 1; font-weight: 900; }
-    .cta-block .price-note { font-size: 13px; color: var(--dim); margin-top: 6px; line-height: 1.5; }
-    .cta-block .price-note strong { color: var(--ink); }
-
-    /* ── Footer ── */
-    .site-footer { padding: 18px 48px 24px; display: flex; flex-direction: column; gap: 8px; justify-content: center; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); text-align: center; }
-    .site-footer a { color: inherit; text-decoration: none; transition: color 0.15s; }
-    .site-footer a:hover { color: var(--accent); }
-    .book-footer-links { display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: center; max-width: 1100px; letter-spacing: 0.1em; }
-
-    /* ── Tablet ── */
-    @media (max-width: 900px) {
-      .hero { padding: 20px 20px 16px; }
-      .hero-h1 { font-size: clamp(2.25rem, 11vw, 3.5rem); }
-      .hero-pitch { grid-template-columns: 1fr; gap: 16px; padding-top: 14px; }
-      .hero-nav-links { gap: 14px; font-size: 10px; }
-      .feature-list { font-size: 14px; }
-      .cta-block .price-big { font-size: 36px; }
-      .site-footer { padding: 10px 20px 12px; gap: 6px; }
-      .book-footer-links { gap: 5px 10px; max-height: 40px; overflow: hidden; }
-    }
-
-    /* ── Phone ── */
+    .hero-nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: 13px; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .hero-logo { color: #fffdf7; font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-weight: 400; line-height: 1; text-decoration: none; }
+    .hero-nav-links { display: flex; gap: 18px; }
+    .hero-nav-links a { min-height: 36px; display: inline-flex; align-items: center; color: rgba(255,253,247,.88); font-size: 12px; text-decoration: none; }
+    .hero-main { width: 100%; margin: 0 auto; padding-top: 22px; }
+    .hero-copy { width: 100%; padding: 16px 18px; border-radius: 18px; background: linear-gradient(110deg, rgba(3,10,16,.62), rgba(3,10,16,.36)); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+    .hero-h1 { max-width: 620px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.65rem, 8vw, 4.8rem); font-weight: 400; line-height: .98; letter-spacing: -.035em; text-wrap: balance; }
+    .hero-description { margin-top: 15px; color: rgba(255,253,247,.92); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(.95rem, 2.2vw, 1.08rem); line-height: 1.5; }
+    .product-demo { width: 100%; margin-top: 15px; filter: drop-shadow(0 18px 30px rgba(0,0,0,.28)); }
+    .product-titlebar { height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; color: rgba(255,253,247,.92); background: var(--book); border-bottom: 1px solid rgba(255,255,255,.18); font-family: 'Playfair Display', Georgia, serif; font-size: 11px; letter-spacing: .02em; }
+    .product-titlebar strong { font: inherit; }
+    .product-page { position: relative; min-height: 300px; overflow: hidden; border: 1px solid rgba(255,255,255,.72); border-top: 0; color: var(--ink); background: var(--paper); box-shadow: inset 10px 0 18px rgba(93,69,38,.09); }
+    .product-page::before { content: ""; position: absolute; z-index: 3; top: 0; right: 0; bottom: 8px; width: 8px; background: repeating-linear-gradient(90deg, rgba(168,144,107,.25) 0 1px, var(--paper) 1px 2px); pointer-events: none; }
+    .product-page::after { content: ""; position: absolute; z-index: 3; left: 0; right: 8px; bottom: 0; height: 8px; background: repeating-linear-gradient(180deg, rgba(168,144,107,.22) 0 1px, var(--paper) 1px 2px); pointer-events: none; }
+    .demo-panel { display: none; min-height: 291px; padding: 18px 22px 27px; }
+    .demo-panel.is-current { display: block; animation: page-in .35s ease both; }
+    @keyframes page-in { from { opacity: .35; transform: translateX(4px); } to { opacity: 1; transform: none; } }
+    .page-kicker { min-height: 27px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(82,66,43,.2); color: var(--book); font-size: 10px; letter-spacing: .09em; text-transform: uppercase; }
+    .page-kicker span:last-child { font-family: 'Playfair Display', Georgia, serif; letter-spacing: 0; text-transform: none; }
+    .edition-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 14px 0; overflow: hidden; border: 1px solid rgba(92,74,49,.16); background: rgba(92,74,49,.18); }
+    .edition-example { min-height: 118px; padding: 15px 14px; background: var(--paper-alt); }
+    .edition-example + .edition-example { background: rgba(255,255,255,.5); }
+    .edition-example small { color: var(--muted); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+    .edition-example p { margin-top: 10px; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.28; }
+    .compare-action { width: 100%; min-height: 42px; border: 0; border-radius: 2px; color: #fffdf7; background: var(--book); font-family: 'Playfair Display', Georgia, serif; font-size: 15px; cursor: pointer; }
+    .read-listen { display: flex; justify-content: center; gap: 38px; margin-top: 13px; color: #655e53; font-size: 12px; }
+    .read-listen span { display: flex; align-items: center; gap: 6px; }
+    .read-listen svg { width: 18px; height: 18px; fill: none; stroke: var(--book); stroke-width: 1.7; }
+    .chat-label { color: var(--book); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .chat-stream { max-width: 520px; margin: 15px auto 0; }
+    .chat-question { margin-left: 18%; padding: 12px 14px; color: #fffdf7; background: var(--book); border-radius: 8px 8px 2px 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; }
+    .chat-answer { margin: 11px 12% 0 0; display: grid; grid-template-columns: 28px 1fr; gap: 9px; color: #3e3932; font-family: 'Playfair Display', Georgia, serif; font-size: 13px; line-height: 1.38; }
+    .chat-answer i { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; color: #fffdf7; background: var(--book); font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-style: normal; }
+    .chat-question.second, .chat-answer.second { margin-top: 12px; }
+    .chat-memory { display: block; margin-top: 11px; color: var(--muted); font-size: 10px; }
+    .demo-dots { display: flex; justify-content: center; gap: 9px; margin-top: 10px; }
+    .demo-dot { width: 38px; min-height: 38px; padding: 0; display: grid; place-items: center; border: 0; background: transparent; cursor: pointer; }
+    .demo-dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); opacity: .38; }
+    .demo-dot[aria-pressed="true"]::before { opacity: 1; }
+    .begin-reading { width: 100%; min-height: 54px; margin-top: 5px; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #24211c; background: var(--button); box-shadow: 0 8px 20px rgba(0,0,0,.18); font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; }
+    .proof { margin: 10px 0 0; display: flex; justify-content: center; flex-wrap: wrap; color: rgba(255,253,247,.75); font-size: 10px; }
+    .proof span + span::before { content: "·"; margin: 0 9px; }
+    .site-footer { margin-top: auto; padding-top: 22px; text-align: center; font-size: 10px; }
+    .site-footer a { color: rgba(255,253,247,.66); text-decoration: none; }
+    .book-footer-links { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
     @media (max-width: 600px) {
-      .hero { padding: 16px 18px 12px; }
-      .hero-h1 { font-size: clamp(2rem, 10vw, 3rem); }
-      .hero-pitch { gap: 12px; padding-top: 12px; }
-      .feature-tier-label { font-size: 10px; margin-bottom: 4px; }
-      .feature-tier-label:not(:first-child) { margin-top: 10px; }
-      .feature-list { font-size: 13px; line-height: 1.45; padding-left: 16px; }
-      .cta-block .price-big { font-size: 32px; }
-      .cta-block .price-note { font-size: 12px; }
-      .btn { padding: 12px 24px; font-size: 12px; }
-      .hero-nav-links a:not(:last-child) { display: none; }
-      .site-footer { padding: 8px 18px; font-size: 9px; }
-      .book-footer-links { display: none; }
+      .hero { padding: 15px 18px 16px; }
+      .hero-nav { padding-bottom: 10px; }
+      .hero-logo { font-size: 22px; }
+      .hero-nav-links a:first-child { display: none; }
+      .hero-main { padding-top: 15px; }
+      .hero-copy { padding: 12px 0; border-radius: 0; background: linear-gradient(90deg, rgba(3,10,16,.52), rgba(3,10,16,.18)); }
+      .hero-h1 { font-size: clamp(2.15rem, 10.5vw, 3rem); }
+      .hero-description { margin-top: 10px; font-size: 13px; line-height: 1.42; }
+      .product-demo { margin-top: 12px; }
+      .product-titlebar { height: 29px; padding: 0 10px; font-size: 9px; }
+      .product-page { min-height: 263px; }
+      .demo-panel { min-height: 254px; padding: 13px 12px 22px; }
+      .page-kicker { min-height: 23px; font-size: 8px; }
+      .edition-examples { margin: 10px 0; }
+      .edition-example { min-height: 91px; padding: 10px 8px; }
+      .edition-example small { font-size: 7px; }
+      .edition-example p { margin-top: 7px; font-size: 11px; }
+      .compare-action { min-height: 37px; font-size: 12px; }
+      .read-listen { margin-top: 9px; gap: 26px; font-size: 10px; }
+      .read-listen svg { width: 15px; height: 15px; }
+      .chat-stream { margin-top: 10px; }
+      .chat-question { padding: 9px 10px; font-size: 11px; }
+      .chat-answer { margin-top: 8px; grid-template-columns: 24px 1fr; gap: 7px; font-size: 10px; }
+      .chat-answer i { width: 24px; height: 24px; }
+      .chat-question.second, .chat-answer.second { margin-top: 8px; }
+      .chat-memory { margin-top: 7px; font-size: 8px; }
+      .demo-dots { margin-top: 4px; }
+      .begin-reading { min-height: 49px; margin-top: 0; font-size: 14px; }
+      .proof { margin-top: 8px; font-size: 8px; }
+      .site-footer { padding-top: 14px; }
     }
+    @media (prefers-reduced-motion: reduce) { .demo-panel.is-current { animation: none; } }
   </style>
 </head>
 <body>
 <div class="wrap">
-
-  <!-- Hero -->
   <section class="hero">
     <nav class="hero-nav">
-      <a href="/" class="hero-logo">Tinct<span class="dot">.</span></a>
+      <a href="/" class="hero-logo">Tinct.</a>
       <div class="hero-nav-links">
         <a href="/app?view=library">Library</a>
         <a href="/app?signin=1">Sign in</a>
       </div>
     </nav>
-    <h1 class="hero-h1">
-      Read, understand<br>
-      <em>and fall in love</em><br>
-      <span class="accent">with the Classics.</span>
-    </h1>
-    <div class="hero-pitch">
-      <div>
-        <div class="feature-tier-label">Free, forever</div>
-        <ul class="feature-list">
-          <li>100 books, always expanding.</li>
-          <li>A human translation + a modern AI translation, side-by-side.</li>
-          <li>Read on your phone, tablet, desktop, or e-reader.</li>
-        </ul>
-        <div class="feature-tier-label">Premium · $3/mo</div>
-        <ul class="feature-list">
-          <li>AI companion that knows exactly where you are.</li>
-          <li>Audiobook that picks up where you stopped.</li>
-          <li>Character tracker that never spoils.</li>
-        </ul>
+
+    <main class="hero-main">
+      <div class="hero-copy">
+        <h1 class="hero-h1">Fall in love with the books that fight back.</h1>
+        <p class="hero-description">Read or listen to the world’s greatest books—so the ideas actually sink in. Pick the translation that suits you. When an idea, thought, or question comes up, simply talk with the book.</p>
       </div>
-      <div class="cta-block">
-        <div class="start-label">Start free</div>
-        <div class="price-big">$0</div>
-        <div class="price-note">No account to start. Try Premium <strong>free for 1 month</strong>.</div>
-        <a href="/app" class="btn btn-primary" style="margin-top:14px">Start reading →</a>
-      </div>
-    </div>
+
+      <section class="product-demo" aria-label="See how Tinct works">
+        <div class="product-titlebar"><span>Homer</span><strong>The Odyssey</strong></div>
+        <div class="product-page">
+          <article class="demo-panel is-current" data-demo-panel="versions">
+            <div class="page-kicker"><span>Pick your version</span><span>The Odyssey</span></div>
+            <div class="edition-examples">
+              <section class="edition-example">
+                <small>Butler · 1900</small>
+                <p>“Tell me, O Muse, of that ingenious hero…”</p>
+              </section>
+              <section class="edition-example">
+                <small>Tinct · Clear</small>
+                <p>“Tell me about the clever man who wandered…”</p>
+              </section>
+            </div>
+            <button type="button" class="compare-action">Read both side-by-side</button>
+            <div class="read-listen" aria-label="Read or listen">
+              <span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v16H5.5A2.5 2.5 0 0 0 3 21.5zM21 5.5A2.5 2.5 0 0 0 18.5 3H13v16h5.5a2.5 2.5 0 0 1 2.5 2.5z"/></svg>
+                Read
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2M6 14H4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2zM18 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2z"/></svg>
+                Listen
+              </span>
+            </div>
+          </article>
+
+          <article class="demo-panel" data-demo-panel="chat">
+            <div class="chat-label">The book knows where you are</div>
+            <div class="chat-stream">
+              <div class="chat-question">Who is Telemachus—and what has happened with him so far?</div>
+              <div class="chat-answer"><i>✦</i><span>He is Odysseus’s son. Athena has pushed him to seek news of his father, and he is beginning to stand up to the suitors.</span></div>
+              <div class="chat-question second">Get me up to speed on what I read last.</div>
+              <div class="chat-answer second"><i>↗</i><span>You left Ithaca with Telemachus preparing to sail. Athena is helping him secretly; the suitors still think he is powerless.</span></div>
+            </div>
+            <small class="chat-memory">Remembers your place · never spoils ahead</small>
+          </article>
+        </div>
+        <div class="demo-dots" role="group" aria-label="Product demonstration">
+          <button type="button" class="demo-dot" data-demo-dot="versions" aria-label="Edition comparison" aria-pressed="true"></button>
+          <button type="button" class="demo-dot" data-demo-dot="chat" aria-label="Talk with the book" aria-pressed="false"></button>
+        </div>
+      </section>
+
+      <a href="/app?from=landing" class="begin-reading">Begin reading</a>
+      <p class="proof"><span>90+ classics</span><span>Free to read</span><span>No account required</span></p>
+    </main>
+
     <footer class="site-footer">
       <div class="book-footer-links" aria-label="Popular books">
         <a href="/read/odyssey/summary">Odyssey</a>
@@ -251,7 +314,23 @@
       <span><a href="/about">Tinct</a> · <a href="/read">Library</a> · 2026</span>
     </footer>
   </section>
-
 </div>
+<script>
+  (function () {
+    var panels = document.querySelectorAll('[data-demo-panel]');
+    var dots = document.querySelectorAll('[data-demo-dot]');
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var target = dot.getAttribute('data-demo-dot');
+        panels.forEach(function (panel) {
+          panel.classList.toggle('is-current', panel.getAttribute('data-demo-panel') === target);
+        });
+        dots.forEach(function (item) {
+          item.setAttribute('aria-pressed', String(item === dot));
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
