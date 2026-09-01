@@ -66,6 +66,13 @@ function renderWithSuperscripts(text: string, keyOffset: number): React.ReactNod
  * - *italic* → <em>
  * - Unicode superscript digits → <sup> with regular digits (Bible verse numbers)
  */
+export function applyProseKeepWithNext(text: string): string {
+  // A non-breaking space has the same character length as a regular space,
+  // so highlight offsets remain stable while short connective words cannot
+  // become the visually stranded final word of a line or page.
+  return text.replace(/\b(and|or|but|nor|for|so|yet) (?=\S)/gi, '$1\u00a0')
+}
+
 function renderFormattedText(text: string, preserveNewlines?: boolean): React.ReactNode {
   const hasSup = SUP_RE.test(text)
   SUP_RE.lastIndex = 0
@@ -77,6 +84,7 @@ function renderFormattedText(text: string, preserveNewlines?: boolean): React.Re
   if (!preserveNewlines && text.includes('\n')) {
     processedText = text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
   }
+  if (!preserveNewlines) processedText = applyProseKeepWithNext(processedText)
 
   if (!processedText.includes('\n') && !processedText.includes('*') && !hasSup) {
     return processedText
@@ -141,7 +149,7 @@ export function ParagraphRenderer({ text, paragraphIndex, highlights, onMouseUp,
   if (paraHighlights.length === 0) {
     return (
       <p className={pClass} data-paragraph-index={paragraphIndex} onMouseUp={onMouseUp}>
-        {hasDropCap ? renderDropCapText(text) : renderFormattedText(text)}
+        {hasDropCap ? renderDropCapText(text, isVerse) : renderFormattedText(text, isVerse)}
       </p>
     )
   }

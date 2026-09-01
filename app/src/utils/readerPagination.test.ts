@@ -9,11 +9,25 @@ import {
   paragraphShouldFragment,
   paragraphShouldFragmentByText,
   publishedPageWouldBeEmpty,
+  readerSwipeDirection,
   resolveContentfulPage,
   shouldOpenSplitView,
   splitRowShouldFragment,
   splitRowShouldFragmentByText,
 } from './readerPagination'
+
+describe('readerSwipeDirection', () => {
+  it('maps left forward and right backward', () => {
+    expect(readerSwipeDirection(-90, 8)).toBe(1)
+    expect(readerSwipeDirection(90, -8)).toBe(-1)
+  })
+
+  it('ignores taps and predominantly vertical movement', () => {
+    expect(readerSwipeDirection(8, 2)).toBe(0)
+    expect(readerSwipeDirection(-50, 48)).toBe(0)
+    expect(readerSwipeDirection(70, 90)).toBe(0)
+  })
+})
 
 describe('countColumnPages', () => {
   it('does not invent a leftover page from sub-pixel overflow', () => {

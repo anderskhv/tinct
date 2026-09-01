@@ -19,6 +19,7 @@ import {
   MIN_READER_COLUMN_HEIGHT,
   paragraphShouldFragment,
   paragraphShouldFragmentByText,
+  readerSwipeDirection,
   resolveContentfulPageFromDom,
 } from '../utils/readerPagination'
 
@@ -833,6 +834,13 @@ export function Reader({
   const atEffectiveFirstPage = effectiveCurrentPage <= 0
   const atEffectiveLastPage = effectiveCurrentPage >= effectiveTotalPages - 1
 
+  const turnPage = useCallback((direction: 1 | -1) => {
+    const atBoundary = direction === 1 ? atEffectiveLastPage : atEffectiveFirstPage
+    const changeChapter = direction === 1 ? onNextChapter : onPrevChapter
+    if (effectiveTotalPages > 1 && atBoundary && changeChapter) changeChapter()
+    else goToPage(currentPageRef.current + direction)
+  }, [atEffectiveFirstPage, atEffectiveLastPage, effectiveTotalPages, goToPage, onNextChapter, onPrevChapter])
+
   useEffect(() => {
     onPageChange?.(effectiveCurrentPage, effectiveTotalPages)
   }, [effectiveCurrentPage, effectiveTotalPages, onPageChange])
@@ -1046,43 +1054,14 @@ export function Reader({
 
     const rect = container.getBoundingClientRect()
     const clickX = e.clientX - rect.left
-    const zone = rect.width * 0.25
+    const midpoint = rect.width / 2
 
-    // Phantom-click guard for chapter-advance branches. goToPage has its
-    // own gate, but onPrevChapter/onNextChapter bypass it.
+    // The visible reader halves are the page-turn affordance. Selection,
+    // buttons, highlights, drags, and active audio were handled above.
     const sinceMount = Date.now() - mountedAtRef.current
-    if (clickX < zone) {
-      if (sinceMount < 500) return
-      if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) {
-        onPrevChapter()
-      } else {
-        goToPage(currentPage - 1)
-      }
-    } else if (clickX > rect.width - zone) {
-      if (sinceMount < 500) return
-      if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) {
-        onNextChapter()
-      } else {
-        goToPage(currentPage + 1)
-      }
-    } else if (isAudioPlaying && onParagraphClick) {
-      // Middle zone, audio mode active (strip open OR actively playing):
-      // clicking a paragraph seeks/starts playback from there.
-      //
-      // Previously gated on `hasAudio` (= "this book has audio") which
-      // was too broad — middle-zone clicks on any audio-enabled book
-      // would START playback unprompted. Anders saw this after a burst
-      // of arrow-key navigation: a stray click on the text triggered
-      // audio. Now requires audio mode to be explicitly active first
-      // (audioStripOpen via the headphones toggle, OR already playing).
-      const target = e.target as HTMLElement
-      const paraEl = target.closest?.('[data-paragraph-index]')
-      if (paraEl) {
-        const idx = parseInt(paraEl.getAttribute('data-paragraph-index') || '0', 10)
-        onParagraphClick(idx)
-      }
-    }
-  }, [currentPage, goToPage, readerRef, onParagraphClick, isAudioPlaying, onNextChapter, onPrevChapter, effectiveTotalPages, atEffectiveFirstPage, atEffectiveLastPage, selectionPopup, dismissPopup, showExistingHighlightPopup])
+    if (sinceMount < 500) return
+    turnPage(clickX < midpoint ? -1 : 1)
+  }, [readerRef, onParagraphClick, isAudioPlaying, playingParagraphIndex, selectionPopup, dismissPopup, showExistingHighlightPopup, turnPage])
 
   const handleMouseUp = useCallback(() => {
     // Just opened an existing-highlight popup (tap on a highlight). Ignore the
@@ -1472,15 +1451,19 @@ export function Reader({
         pointerStartRef.current = null
         if (!touch) return
 
-        // Drag guard: if the finger traveled more than DRAG_THRESHOLD_PX
-        // between touchstart and touchend, this was a selection or swipe
-        // attempt — never a page-turn tap. Was causing right-to-left drag
-        // selections to turn the page backward when the selection didn't
-        // fully register.
+        // Deliberate horizontal gestures turn pages. Selection, controls and
+        // native text ranges have already returned above.
         if (start) {
-          const dx = Math.abs(touch.clientX - start.x)
-          const dy = Math.abs(touch.clientY - start.y)
-          if (dx > DRAG_THRESHOLD_PX || dy > DRAG_THRESHOLD_PX) return
+          const dx = touch.clientX - start.x
+          const dy = touch.clientY - start.y
+          const swipe = readerSwipeDirection(dx, dy)
+          if (swipe !== 0) {
+            touchHandledRef.current = true
+            e.preventDefault()
+            turnPage(swipe)
+            return
+          }
+          if (Math.abs(dx) > DRAG_THRESHOLD_PX || Math.abs(dy) > DRAG_THRESHOLD_PX) return
         }
 
         // Audio mode: tap on a paragraph to play from there (no page turning)
@@ -1506,24 +1489,9 @@ export function Reader({
         if (Date.now() - mountedAtRef.current < 500) return
         const rect = container.getBoundingClientRect()
         const touchX = touch.clientX - rect.left
-        const zone = rect.width * 0.3
-        if (touchX < zone) {
-          touchHandledRef.current = true
-          e.preventDefault()
-          if (effectiveTotalPages > 1 && atEffectiveFirstPage && onPrevChapter) {
-            onPrevChapter()
-          } else {
-            goToPage(currentPage - 1)
-          }
-        } else if (touchX > rect.width - zone) {
-          touchHandledRef.current = true
-          e.preventDefault()
-          if (effectiveTotalPages > 1 && atEffectiveLastPage && onNextChapter) {
-            onNextChapter()
-          } else {
-            goToPage(currentPage + 1)
-          }
-        }
+        touchHandledRef.current = true
+        e.preventDefault()
+        turnPage(touchX < rect.width / 2 ? -1 : 1)
       }}
       onContextMenu={(e) => {
         if (isMobileSelection() && !disableHighlight) e.preventDefault()
@@ -1532,6 +1500,7 @@ export function Reader({
       <div
         className={`reader-columns ${colWidthState > 0 ? '' : 'reader-columns--measuring'}`}
         ref={contentRef}
+        lang={editionKey?.split('-').pop()}
         style={{ transform: `translateX(${getTranslateX()}px)` }}
       >
         <div className="chapter-header">
@@ -1561,6 +1530,7 @@ export function Reader({
           <div className="text-body">
             {paragraphs.map((para, i) => {
               const classes: string[] = []
+              if (isVerse) classes.push('verse-paragraph')
               if (i === 0 && !isVerse) classes.push('drop-cap')
               if (isAudioPlaying && playingParagraphIndex === i) classes.push('paragraph-playing')
               if (overflowParaKeys.has(i) || paragraphShouldFragmentByText(para.length)) {
