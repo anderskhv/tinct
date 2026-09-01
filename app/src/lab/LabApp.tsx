@@ -51,6 +51,7 @@ import {
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
+import { LabNativePaginator } from './LabNativePaginator'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
@@ -97,6 +98,13 @@ function readPhoneFooter(layoutOverride: ReturnType<typeof labLayoutOverride>, i
     isPhone,
     ...phoneSurfaceInput(layoutOverride),
   })
+}
+
+function browserHasNativePaging(): boolean {
+  return typeof CSS !== 'undefined'
+    && typeof CSS.supports === 'function'
+    && CSS.supports('column-width', '1px')
+    && CSS.supports('column-fill', 'auto')
 }
 
 function measureVisiblePageOverflow(
@@ -261,6 +269,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [marks, setMarks] = useState<LabMark[]>([])
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [chrome, setChrome] = useState<LabChromeState>('reading')
+  const nativePhonePaging = showPhoneChrome && !prefs.compareOpen && browserHasNativePaging()
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
@@ -439,8 +448,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       pagesStableRef.current = false
       didBudgetPageRef.current = false
       unmeasuredTriesRef.current = 0
-      setSettleIndex(0)
-      settleIndexRef.current = 0
+      setSettleIndex(nativePhonePaging ? null : 0)
+      settleIndexRef.current = nativePhonePaging ? null : 0
     }
     if (book.paragraphs.length === 0) return
     const budget = pageMetrics ? labPageBudgetFromMetrics(pageMetrics) : null
@@ -474,9 +483,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterTitle, book.paragraphs])
+  }, [book.chapterTitle, book.paragraphs, nativePhonePaging])
 
   useLayoutEffect(() => {
+    if (nativePhonePaging) return
     if (!pageMetrics || didBudgetPageRef.current || pagesStableRef.current) return
     if (book.paragraphs.length === 0) return
     const budget = labPageBudgetFromMetrics(pageMetrics)
@@ -504,15 +514,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     pagesStableRef.current = false
     setSettleIndex(0)
     settleIndexRef.current = 0
-  }, [pageMetrics, book.paragraphs])
+  }, [pageMetrics, book.paragraphs, nativePhonePaging])
 
   useLayoutEffect(() => {
     didBudgetPageRef.current = false
     pagesStableRef.current = false
     unmeasuredTriesRef.current = 0
-    setSettleIndex(0)
-    settleIndexRef.current = 0
-  }, [prefs.fontFamily, prefs.fontSize])
+    setSettleIndex(nativePhonePaging ? null : 0)
+    settleIndexRef.current = nativePhonePaging ? null : 0
+  }, [prefs.fontFamily, prefs.fontSize, nativePhonePaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -532,6 +542,46 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
+
+  const applyNativePages = useCallback((next: ChapterHearingPage[]) => {
+    if (!nativePhonePaging || next.length === 0) return
+    const current = readingPagesRef.current
+    const working = workingPagesRef.current
+    const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
+    const keep = pageAnchorRef.current ?? pageAnchorOf(current[currentIndex])
+    const landing = chapterLandingRef.current
+
+    pagesStableRef.current = true
+    didBudgetPageRef.current = true
+    unmeasuredTriesRef.current = 0
+    lastAdjustRef.current = null
+    beforeGrowPagesRef.current = null
+    settleIndexRef.current = null
+    setSettleIndex(null)
+    const wrapRect = pageWrapRef.current?.getBoundingClientRect()
+    if (wrapRect) settledPageGeometryRef.current = { width: wrapRect.width, height: wrapRect.height }
+
+    workingPagesRef.current = next
+    if (!sameChapterPages(working, next)) setDraftPages(next)
+    if (!sameChapterPages(current, next)) {
+      readingPagesRef.current = next
+      setReadingPages(next)
+    }
+
+    let nextIndex = keep ? restorePageIndexForAnchor(next, keep) : 0
+    if (landing === 'end') {
+      nextIndex = next.length - 1
+      const page = next[nextIndex]
+      const anchor = pageAnchorOf(page)
+      if (anchor) {
+        pageAnchorRef.current = anchor
+        placeRef.current = anchor
+      }
+    }
+    nextIndex = Math.max(0, Math.min(nextIndex, next.length - 1))
+    readingPageIndexRef.current = nextIndex
+    setReadingPageIndex(currentValue => currentValue === nextIndex ? currentValue : nextIndex)
+  }, [nativePhonePaging])
 
   const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
     browseWhileListeningRef.current = false
@@ -571,11 +621,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     lastAdjustRef.current = null
     beforeGrowPagesRef.current = null
     pagesStableRef.current = false
-    settleIndexRef.current = 0
-    setSettleIndex(0)
-  }, [book.chapterTitle])
+    settleIndexRef.current = nativePhonePaging ? null : 0
+    setSettleIndex(nativePhonePaging ? null : 0)
+  }, [book.chapterTitle, nativePhonePaging])
 
   useLayoutEffect(() => {
+    if (nativePhonePaging) return
     const wrap = pageWrapRef.current
     const chromeEl = bottomChromeRef.current
     if (!wrap || !chromeEl || phoneAskOpen) return
@@ -876,7 +927,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         window.removeEventListener('orientationchange', onJump)
       }
     }
-  }, [settleIndex, draftPages, phoneAskOpen, book.paragraphs, book.chapterTitle])
+  }, [settleIndex, draftPages, phoneAskOpen, book.paragraphs, book.chapterTitle, nativePhonePaging])
 
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
@@ -893,7 +944,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         && pageMetricsRef.current
       ) return
       if (
-        pagesStableRef.current
+        !nativePhonePaging
+        && pagesStableRef.current
         && labPageGeometryChanged(settledPageGeometryRef.current, geometry)
         && !lockPaginationRef.current
         && !listenPlayingRef.current
@@ -945,11 +997,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, prefs.fontFamily, prefs.fontSize, fullscreen])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, prefs.fontFamily, prefs.fontSize, fullscreen, nativePhonePaging])
 
   useLayoutEffect(() => {
     if (
-      !pagesStableRef.current
+      nativePhonePaging
+      || !pagesStableRef.current
       || phoneAskOpen
       || listenPlayingRef.current
       || browseWhileListeningRef.current
@@ -972,7 +1025,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = pageIdx
     setSettleIndex(pageIdx)
-  }, [readingPageIndex, readingPages, phoneAskOpen, listen.playing, browseWhileListening])
+  }, [readingPageIndex, readingPages, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {
@@ -1848,7 +1901,22 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               ? (direction) => { if (direction > 0) goNext(); else goPrev() }
               : undefined}
           />
-          {settleIndex != null && draftPages[settleIndex] && (
+          {nativePhonePaging && (
+            <LabNativePaginator
+              chapterTitle={book.chapterTitle}
+              paragraphs={book.paragraphs}
+              layoutKey={[
+                book.chapterNumber,
+                prefs.fontFamily,
+                prefs.fontSize,
+                fullscreen ? 'fullscreen' : 'windowed',
+                chrome,
+                showSlimTransport ? 'slim' : 'standard',
+              ].join(':')}
+              onPages={applyNativePages}
+            />
+          )}
+          {!nativePhonePaging && settleIndex != null && draftPages[settleIndex] && (
             <div
               className="lab-page-measure"
               ref={measureHostRef}

@@ -121,6 +121,51 @@
   box-sizing: border-box;
 }
 
+/* Phone pages are derived from one browser-laid-out chapter. The native
+   column flow is hidden, but it uses the exact readable box and typography
+   of the visible passage, so page boundaries have a single layout authority. */
+.lab-native-page-measure {
+  display: block;
+}
+
+.lab-native-page-surface {
+  display: block;
+}
+
+.lab-native-page-flow {
+  width: 100%;
+  height: 100%;
+  column-fill: auto;
+  column-gap: 0;
+}
+
+.lab-native-page-flow .lab-passage-header {
+  position: static;
+  break-inside: avoid;
+}
+
+.lab-native-page-flow .lab-book-columns,
+.lab-native-page-flow .lab-book-col,
+.lab.is-phone .lab-native-page-flow .lab-hearing-stage,
+.lab.has-phone-chrome .lab-native-page-flow .lab-hearing-stage {
+  display: contents;
+}
+
+.lab-native-page-flow .lab-hearing-line {
+  break-inside: auto;
+  orphans: 1;
+  widows: 1;
+}
+
+/* Page locations are word-addressed, so a word must stay atomic at a page
+   edge. This keeps the hidden native flow and every visible reader mode exact. */
+.lab.is-phone .lab-passage .lab-hearing-word,
+.lab.has-phone-chrome .lab-passage .lab-hearing-word {
+  white-space: nowrap;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+
 .lab-hearing {
   min-height: 100%;
   max-width: 100%;

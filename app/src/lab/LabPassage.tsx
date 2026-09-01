@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react'
+import { Fragment, useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
@@ -94,10 +94,12 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
       {renderWordGroups(line.words, (word, wordIndex) => (
-        <span key={`${lineIndex}-${wordIndex}`}>
+        <Fragment key={`${lineIndex}-${wordIndex}`}>
           {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-          {renderWordText(word.text, wordIndex < line.words.length - 1)}
-        </span>
+          <span className="lab-hearing-word">
+            {renderWordText(word.text, wordIndex < line.words.length - 1)}
+          </span>
+        </Fragment>
       ))}
     </p>
   ))
@@ -114,19 +116,20 @@ function renderHearingWords(
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
       {renderWordGroups(line.words, (word, wordIndex) => (
-        <span
-          key={`${lineIndex}-${wordIndex}`}
-          className={`lab-hearing-word is-${word.role}`}
-          data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
-          data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
-          data-word-index={word.wordIndex}
-          onClick={word.wordIndex != null && onSeekToWord
-            ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
-            : undefined}
-        >
+        <Fragment key={`${lineIndex}-${wordIndex}`}>
           {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-          {renderWordText(word.text, wordIndex < line.words.length - 1)}
-        </span>
+          <span
+            className={`lab-hearing-word is-${word.role}`}
+            data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+            data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
+            data-word-index={word.wordIndex}
+            onClick={word.wordIndex != null && onSeekToWord
+              ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
+              : undefined}
+          >
+            {renderWordText(word.text, wordIndex < line.words.length - 1)}
+          </span>
+        </Fragment>
       ))}
     </p>
   ))
@@ -338,22 +341,23 @@ export function LabPassage({
                       const selecting = activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
                       return (
-                        <span
-                          key={`${lineIndex}-${wordIndex}`}
-                          className={labHighlightCssClass(color, selecting)}
-                          data-testid="lab-word"
-                          data-paragraph-index={paragraphIndex}
-                          data-word-index={absoluteWord}
-                          onClick={onSeekToWord
-                            ? (event) => {
-                                event.stopPropagation()
-                                onSeekToWord(paragraphIndex, absoluteWord)
-                              }
-                            : undefined}
-                        >
+                        <Fragment key={`${lineIndex}-${wordIndex}`}>
                           {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-                          {renderWordText(word.text, wordIndex < line.words.length - 1)}
-                        </span>
+                          <span
+                            className={labHighlightCssClass(color, selecting)}
+                            data-testid="lab-word"
+                            data-paragraph-index={paragraphIndex}
+                            data-word-index={absoluteWord}
+                            onClick={onSeekToWord
+                              ? (event) => {
+                                  event.stopPropagation()
+                                  onSeekToWord(paragraphIndex, absoluteWord)
+                                }
+                              : undefined}
+                          >
+                            {renderWordText(word.text, wordIndex < line.words.length - 1)}
+                          </span>
+                        </Fragment>
                       )
                     })}
                     <button
@@ -423,15 +427,16 @@ export function LabPageMeasurePaint(input: {
             {lines.map((line, lineIndex) => (
               <p key={lineIndex} className="lab-hearing-line">
                 {renderWordGroups(line.words, (word, wordIndex) => (
-                  <span
-                    key={`${lineIndex}-${wordIndex}`}
-                    className={input.hearingPaint
-                      ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
-                      : 'lab-hearing-word'}
-                  >
+                  <Fragment key={`${lineIndex}-${wordIndex}`}>
                     {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-                    {renderWordText(word.text, wordIndex < line.words.length - 1)}
-                  </span>
+                    <span
+                      className={input.hearingPaint
+                        ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
+                        : 'lab-hearing-word'}
+                    >
+                      {renderWordText(word.text, wordIndex < line.words.length - 1)}
+                    </span>
+                  </Fragment>
                 ))}
                 <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>
               </p>
