@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, preferVisiblePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, stabilizeLabPageMetrics } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, preferVisiblePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -420,17 +420,11 @@ describe('lab readable page vs chrome rect', () => {
 })
 
 
-describe('lab fullscreen and pull', () => {
+describe('lab fullscreen', () => {
   it('hides Play/Chat/Talk in read fullscreen and keeps them for Talk', () => {
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: false, phoneAsk: false })).toBe(true)
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: true, phoneAsk: false })).toBe(false)
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: true, phoneAsk: true })).toBe(true)
     expect(labShowPhoneBar({ phoneChrome: false, fullscreen: false, phoneAsk: false })).toBe(false)
-  })
-
-  it('opens the TOC after a downward pull', () => {
-    expect(labPullOpensToc(20)).toBe(false)
-    expect(labPullOpensToc(56)).toBe(true)
-    expect(labPullOpensToc(80)).toBe(true)
   })
 })

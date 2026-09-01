@@ -896,13 +896,15 @@
   background: transparent;
   border: 0;
   color: #0b0b0b;
-  padding: 0.15rem 0.2rem;
-  min-width: 1.4rem;
+  padding: 0;
+  min-width: 2.75rem;
+  min-height: 2.25rem;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .lab-page-turn-spacer {
-  width: 1.4rem;
+  width: 2.75rem;
   flex: 0 0 auto;
 }
 
@@ -997,6 +999,11 @@
   border-radius: 999px;
   background: color-mix(in srgb, var(--lab-paper, #ece7db) 82%, transparent);
   box-shadow: 0 0 0 1px color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.lab.is-fullscreen.is-phone .lab-body,
+.lab.is-fullscreen.is-desktop .lab-body {
+  padding-top: calc(2.8rem + env(safe-area-inset-top, 0px));
 }
 
 .lab-phone-read {
@@ -1433,7 +1440,7 @@
   min-height: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 1.15rem 1.1rem 1.15rem;
+  padding: 1.15rem 1.3rem 1.15rem 1.1rem;
 }
 
 /* Paginated Reading: one screen per page — no scroll under the pager. */
@@ -1787,6 +1794,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.lab-fullscreen:focus { outline: none; }
+
+.lab-fullscreen:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 .lab-phone-transport {

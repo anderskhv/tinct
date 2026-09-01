@@ -162,9 +162,6 @@ export type LabPhoneBarMode = 'reading' | 'hearing' | 'talking'
 
 export const LAB_PHONE_BAR_ITEMS = ['Play', 'Chat', 'Talk'] as const
 export const LAB_GEAR_ITEMS = ['Library', 'Reading', 'Layout'] as const
-export const LAB_TOC_PULL_PX = 56
-
-
 /** Phone footer / sheet mode. The Play | Chat | Talk bar stays on. */
 export function labPhoneBarMode(
   state: LabChromeState,
@@ -814,8 +811,4 @@ export function labShowPhoneBar(input: {
   if (!input.phoneChrome) return false
   if (input.phoneAsk) return true
   return !input.fullscreen
-}
-
-export function labPullOpensToc(deltaY: number, threshold = LAB_TOC_PULL_PX): boolean {
-  return deltaY >= threshold
 }

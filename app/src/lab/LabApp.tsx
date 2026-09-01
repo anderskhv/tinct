@@ -11,7 +11,6 @@ import {
   LAB_CONNECTING_FAIL_MS,
   labAfterTalk,
   labPhoneBarMode,
-  labPullOpensToc,
   labShowPhoneBar,
   labShowReaderRail,
   labShowSlimTransport,
@@ -140,10 +139,10 @@ function GearIcon() {
 
 function FullscreenIcon({ on }: { on?: boolean }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg data-icon={on ? 'close' : 'fullscreen'} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {on ? (
         <>
-          <path d="M9 4H4v5M15 4h5v5M4 15v5h5M20 15v5h-5" />
+          <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5" />
         </>
       ) : (
         <>
@@ -292,8 +291,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const chapterTitleRef = useRef(book.chapterTitle)
   const chapterNumberRef = useRef(book.chapterNumber)
   chapterNumberRef.current = book.chapterNumber
-  const pullStartY = useRef<number | null>(null)
-
   const resumeListenRef = useRef<() => void>(() => {})
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | Promise<void>>(() => {})
@@ -1973,14 +1970,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         <div
           className="lab-page-wrap"
           ref={pageWrapRef}
-          onTouchStart={(event) => { pullStartY.current = event.touches[0]?.clientY ?? null }}
-          onTouchEnd={(event) => {
-            const start = pullStartY.current
-            pullStartY.current = null
-            if (start == null || selectionPopup) return
-            const endY = event.changedTouches[0]?.clientY ?? start
-            if (labPullOpensToc(endY - start)) setTocOpen(true)
-          }}
+          data-testid="lab-page-wrap"
         >
           <LabPassage
             chapterTitle={book.chapterTitle}
