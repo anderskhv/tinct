@@ -304,12 +304,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const pageWrapRef = useRef<HTMLDivElement | null>(null)
   const measureHostRef = useRef<HTMLDivElement | null>(null)
   const bottomChromeRef = useRef<HTMLDivElement | null>(null)
+  const nativeFullscreenRef = useRef(false)
   const readingPagesRef = useRef(readingPages)
   readingPagesRef.current = readingPages
   const workingPagesRef = useRef(draftPages)
   workingPagesRef.current = draftPages
 
   const toggleFullscreen = useCallback(async () => {
+    setGearOpen(false)
+    setTocOpen(false)
+    setPhoneAskOpen(false)
     if (typeof document === 'undefined') {
       setFullscreen(on => !on)
       return
@@ -327,6 +331,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         return
       }
     }
+    if (fullscreen) {
+      setFullscreen(false)
+      return
+    }
     const root = labRootRef.current as LabFullscreenElement | null
     try {
       if (root?.requestFullscreen) await root.requestFullscreen()
@@ -341,12 +349,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       // app-level layout still provides a useful distraction-free fallback.
       setFullscreen(on => !on)
     }
-  }, [])
+  }, [fullscreen])
 
   useEffect(() => {
     if (typeof document === 'undefined') return
     const doc = document as LabFullscreenDocument
-    const sync = () => setFullscreen(!!(document.fullscreenElement || doc.webkitFullscreenElement))
+    const sync = () => {
+      const active = !!(document.fullscreenElement || doc.webkitFullscreenElement)
+      if (active) {
+        nativeFullscreenRef.current = true
+        setFullscreen(true)
+      } else if (nativeFullscreenRef.current) {
+        nativeFullscreenRef.current = false
+        setFullscreen(false)
+      }
+    }
     document.addEventListener('fullscreenchange', sync)
     document.addEventListener('webkitfullscreenchange', sync)
     return () => {
@@ -1368,21 +1385,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   useEffect(() => {
     if (!showSlimTransport) setSpeedOpen(false)
   }, [showSlimTransport])
-  const showPhoneBar = labShowPhoneBar({
+  const showPhoneBar = !fullscreen && labShowPhoneBar({
     phoneChrome: showPhoneChrome,
     fullscreen,
     phoneAsk,
   })
   const canPrevChapter = prevLabChapter(book.chapters, book.chapterNumber) != null
   const canNextChapter = nextLabChapter(book.chapters, book.chapterNumber) != null
-  const showReaderRail = labShowReaderRail({
+  const showReaderRail = !fullscreen && labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
     pageCount: Math.max(readingPages.length, draftPages.length, workingPagesRef.current.length),
     playing: listen.playing,
     canPrevChapter,
     canNextChapter,
-  }) || (!phoneAsk && showPhoneChrome && fullscreen)
+  })
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const rawChapterProgress = labChapterProgress({
     paragraphs: book.paragraphs,
@@ -1966,11 +1983,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         ['--lab-font-size' as string]: String(prefs.fontSize),
       }}
     >
+      {fullscreen && (
+        <button
+          type="button"
+          className="lab-fullscreen-exit-hotspot"
+          onClick={() => { void toggleFullscreen() }}
+          aria-label={LAB_COPY.exitFullScreen}
+          data-testid="lab-fullscreen-exit"
+        />
+      )}
       <header className="lab-header">
         <div className="lab-header-brand">
-          <h1 className="lab-logo" data-testid="lab-wordmark">{LAB_COPY.wordmark}</h1>
-          <span className="lab-title-sep" aria-hidden="true"> · </span>
-          <span className="lab-header-work" data-testid="lab-header-work">{book.bookTitle}</span>
+          <h1 className="lab-header-work" data-testid="lab-header-work">{book.bookTitle}</h1>
           <span className="lab-title-sep" aria-hidden="true"> · </span>
           <button
             type="button"

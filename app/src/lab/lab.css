@@ -1956,11 +1956,15 @@
 
 .lab-header-work {
   flex: 0 1 auto;
-  max-width: 34%;
-  color: #6a6555;
-  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: 0.92rem;
-  font-style: italic;
+  max-width: 45%;
+  margin: 0;
+  color: #0b0b0b;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
 }
 
 .lab-header-chapter {
@@ -2031,6 +2035,24 @@
   background: #ece7db;
 }
 
+.lab.is-fullscreen .lab-header,
+.lab.is-fullscreen .lab-bottom-chrome {
+  display: none;
+}
+
+.lab-fullscreen-exit-hotspot {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 900;
+  width: max(3rem, env(safe-area-inset-right, 0px));
+  height: max(3rem, env(safe-area-inset-top, 0px));
+  border: 0;
+  background: transparent;
+  opacity: 0.01;
+  cursor: pointer;
+}
+
 .lab-phone-transport {
   display: flex;
   justify-content: center;
@@ -2074,7 +2096,6 @@
   border-color: var(--lab-border);
 }
 
-.lab.is-night .lab-header-work,
 .lab.is-night .lab-header-chapter,
 .lab.is-night .lab-chapter-progress-info,
 .lab.is-night .lab-phone-fat,
@@ -2087,6 +2108,7 @@
   color: var(--lab-ink);
 }
 
+.lab.is-night .lab-header-work,
 .lab.is-night .lab-logo,
 .lab.is-night .lab-gear,
 .lab.is-night .lab-fullscreen,
