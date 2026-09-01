@@ -27,6 +27,7 @@ export interface LabChapter {
 }
 
 export interface LabSource {
+  bookId: string
   bookTitle: string
   bookAuthor: string
   editionLabel: string
@@ -93,6 +94,7 @@ function sourceFromChapter(input: {
 }): LabSource {
   const parsed = parseBibleChapterTitle(input.chapterTitle)
   return {
+    bookId: LAB_BOOK_ID,
     bookTitle: LAB_COPY.bookTitle,
     bookAuthor: LAB_COPY.bookAuthor,
     editionLabel: LAB_COPY.editionLabel,
@@ -113,6 +115,7 @@ function sourceFromChapter(input: {
 /** Chrome-test fixture. Live /lab loads the production Bible. */
 export function fallbackLabSource(): LabSource {
   return {
+    bookId: 'odyssey',
     bookTitle: 'The Odyssey',
     bookAuthor: 'Homer',
     editionLabel: 'Butler prose, 1900',

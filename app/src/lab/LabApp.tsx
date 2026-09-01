@@ -68,6 +68,7 @@ import { type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { useLabListen } from './useLabListen'
+import { useLabObservability } from './useLabObservability'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -1179,6 +1180,19 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     return Math.max(1, chapterHearingPages(book.paragraphs, budget).length)
   }, [book.paragraphs, pageMetrics])
   const displayPageTotal = (pageCountReady ? lockedPageTotal : null) ?? measuredPageTotal ?? chapterProgress.totalPages
+  useLabObservability({
+    pathname: path.replace(/\/+$/, '') || '/lab',
+    layout: isPhone ? 'phone' : 'desktop',
+    bookId: book.bookId,
+    chapterNumber: book.chapterNumber,
+    pageIndex: readingPageIndex,
+    settledPageIndex: settleIndex,
+    totalPages: readingPages.length,
+    listening: listen.playing,
+    voiceActive: ask.voiceActive,
+    voicePhase: ask.conversationState,
+    turnCount: ask.turns.length,
+  })
   const footProgress = labFootProgress({
     chapterNumber: book.chapterNumber,
     chapterLabel: book.chapterLabel,
