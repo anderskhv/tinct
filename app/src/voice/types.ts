@@ -9,6 +9,7 @@ export type VoiceSessionMode = 'quick' | 'conversation'
 
 export type VoiceIntent =
   | 'resume_audiobook'
+  | 'end_voice_session'
   | 'hold_session'
   | 'open_conversation'
   | 'none'
