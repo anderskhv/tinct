@@ -298,11 +298,15 @@ describe('lab hearing transport math', () => {
     expect(nextHearingSpeed(2)).toBe(0.75)
   })
 
-  it('accepts only the lab playback rates', () => {
+  it('accepts exact playback rates from 0.50× through 3.00×', () => {
     expect(parseHearingSpeed(2)).toBe(2)
     expect(parseHearingSpeed('1.25')).toBe(1.25)
     expect(parseHearingSpeed(0.75)).toBe(0.75)
-    expect(parseHearingSpeed(3)).toBeNull()
+    expect(parseHearingSpeed(0.5)).toBe(0.5)
+    expect(parseHearingSpeed(0.85)).toBe(0.85)
+    expect(parseHearingSpeed(3)).toBe(3)
+    expect(parseHearingSpeed(0.49)).toBeNull()
+    expect(parseHearingSpeed(3.01)).toBeNull()
     expect(parseHearingSpeed('fast')).toBeNull()
   })
 })

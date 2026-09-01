@@ -925,6 +925,143 @@
   flex: 0 0 auto;
 }
 
+.lab-page-turn.is-phone-rail {
+  justify-content: center;
+  padding: 0.3rem 0.85rem 0.26rem;
+}
+
+.lab-page-turn.is-phone-rail .lab-chapter-progress {
+  flex: 1 1 auto;
+}
+
+.lab-page-turn.is-phone-rail.has-audio-controls {
+  min-height: 3.35rem;
+  box-sizing: border-box;
+  padding-top: 0.18rem;
+  padding-bottom: 0.18rem;
+}
+
+.lab-page-turn.is-phone-rail.has-audio-controls .lab-chapter-progress {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(2.6rem, auto) 2.8rem 2.2rem minmax(4.2rem, auto);
+  justify-content: center;
+  gap: 0.42rem;
+}
+
+.lab-transport-toggle {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 0;
+  border-radius: 50%;
+  background: #262421;
+  color: #faf6ee;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lab-speed-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-phone-speed {
+  min-width: 4.2rem;
+  height: 2.15rem;
+  border: 1px solid #d4cdc0;
+  border-radius: 999px;
+  background: #f0ece3;
+  color: #0b0b0b;
+  padding: 0 0.68rem;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.lab-speed-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.72rem);
+  z-index: 450;
+  width: min(15.5rem, calc(100vw - 2rem));
+  box-sizing: border-box;
+  padding: 0.78rem 0.8rem 0.68rem;
+  border: 1px solid #bfb7a8;
+  border-radius: 0.55rem;
+  background: #f4f0e7;
+  color: #0b0b0b;
+  box-shadow: 0 0.28rem 0.8rem rgb(40 35 28 / 18%);
+  text-align: center;
+}
+
+.lab-speed-popover::after {
+  content: '';
+  position: absolute;
+  right: 1.55rem;
+  bottom: -0.38rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 1px solid #bfb7a8;
+  border-bottom: 1px solid #bfb7a8;
+  background: #f4f0e7;
+  transform: rotate(45deg);
+}
+
+.lab-speed-title,
+.lab-speed-value {
+  display: block;
+}
+
+.lab-speed-title {
+  font-size: 0.82rem;
+}
+
+.lab-speed-value {
+  margin-top: 0.08rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 1.28rem;
+}
+
+.lab-speed-adjust {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr 1.8rem;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.58rem;
+}
+
+.lab-speed-adjust button {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid #bfb7a8;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.lab-speed-adjust input {
+  width: 100%;
+  accent-color: #262421;
+}
+
+.lab-speed-scale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.14rem 2.25rem 0;
+  color: #6a6555;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.58rem;
+}
+
 .lab-phone-bar {
   flex: none;
   z-index: 200;
@@ -959,12 +1096,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.lab-phone-speed {
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
 }
 
 .lab-phone-seek {
@@ -1889,6 +2020,17 @@
   justify-content: center;
 }
 
+.lab:fullscreen,
+.lab:-webkit-full-screen,
+.lab.is-fullscreen {
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background: #ece7db;
+}
+
 .lab-phone-transport {
   display: flex;
   justify-content: center;
@@ -1948,8 +2090,21 @@
 .lab.is-night .lab-logo,
 .lab.is-night .lab-gear,
 .lab.is-night .lab-fullscreen,
-.lab.is-night .lab-page-turn-btn {
+.lab.is-night .lab-page-turn-btn,
+.lab.is-night .lab-phone-speed {
   color: var(--lab-ink);
+}
+
+.lab.is-night .lab-phone-speed,
+.lab.is-night .lab-speed-popover,
+.lab.is-night .lab-speed-popover::after {
+  background: var(--lab-surface);
+  border-color: var(--lab-border);
+  color: var(--lab-ink);
+}
+
+.lab.is-night .lab-speed-scale {
+  color: var(--lab-ink-muted);
 }
 
 .lab.is-night .lab-passage-header {

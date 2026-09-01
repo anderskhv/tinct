@@ -78,6 +78,15 @@ import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
 
+type LabFullscreenDocument = Document & {
+  webkitFullscreenElement?: Element | null
+  webkitExitFullscreen?: () => Promise<void> | void
+}
+
+type LabFullscreenElement = HTMLElement & {
+  webkitRequestFullscreen?: () => Promise<void> | void
+}
+
 function phoneSurfaceInput(layoutOverride: ReturnType<typeof labLayoutOverride>) {
   if (typeof window === 'undefined') {
     return { override: layoutOverride }
@@ -268,6 +277,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
+  const [speedOpen, setSpeedOpen] = useState(false)
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
   const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(true)
@@ -298,6 +308,52 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   readingPagesRef.current = readingPages
   const workingPagesRef = useRef(draftPages)
   workingPagesRef.current = draftPages
+
+  const toggleFullscreen = useCallback(async () => {
+    if (typeof document === 'undefined') {
+      setFullscreen(on => !on)
+      return
+    }
+    const doc = document as LabFullscreenDocument
+    const active = document.fullscreenElement || doc.webkitFullscreenElement
+    if (active) {
+      try {
+        if (document.exitFullscreen) await document.exitFullscreen()
+        else await doc.webkitExitFullscreen?.()
+        setFullscreen(false)
+        return
+      } catch {
+        setFullscreen(false)
+        return
+      }
+    }
+    const root = labRootRef.current as LabFullscreenElement | null
+    try {
+      if (root?.requestFullscreen) await root.requestFullscreen()
+      else if (root?.webkitRequestFullscreen) await root.webkitRequestFullscreen()
+      else {
+        setFullscreen(on => !on)
+        return
+      }
+      setFullscreen(true)
+    } catch {
+      // Embedded previews and iPhone Safari can reject the native API. The
+      // app-level layout still provides a useful distraction-free fallback.
+      setFullscreen(on => !on)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    const doc = document as LabFullscreenDocument
+    const sync = () => setFullscreen(!!(document.fullscreenElement || doc.webkitFullscreenElement))
+    document.addEventListener('fullscreenchange', sync)
+    document.addEventListener('webkitfullscreenchange', sync)
+    return () => {
+      document.removeEventListener('fullscreenchange', sync)
+      document.removeEventListener('webkitfullscreenchange', sync)
+    }
+  }, [])
   const readingPageIndexRef = useRef(readingPageIndex)
   readingPageIndexRef.current = readingPageIndex
   const settleIndexRef = useRef<number | null>(settleIndex)
@@ -1304,6 +1360,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     playing: listen.playing,
     phoneAsk,
   })
+  const speedLabel = `${listen.speed.toFixed(2)}×`
+  const adjustPlaybackSpeed = (delta: number) => {
+    const next = Math.max(0.5, Math.min(3, Math.round((listen.speed + delta) * 100) / 100))
+    listen.setSpeed(next)
+  }
+  useEffect(() => {
+    if (!showSlimTransport) setSpeedOpen(false)
+  }, [showSlimTransport])
   const showPhoneBar = labShowPhoneBar({
     phoneChrome: showPhoneChrome,
     fullscreen,
@@ -1922,6 +1986,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         <div className="lab-header-controls">
           <button
             type="button"
+            className={`lab-fullscreen ${fullscreen ? 'is-on' : ''}`}
+            onClick={() => { void toggleFullscreen() }}
+            aria-label={fullscreen ? LAB_COPY.exitFullScreen : LAB_COPY.fullScreen}
+            data-testid="lab-fullscreen"
+          >
+            <FullscreenIcon on={fullscreen} />
+          </button>
+          <button
+            type="button"
             className={`lab-gear ${gearOpen ? 'is-open' : ''}`}
             onClick={() => { setTocOpen(false); setGearOpen(open => !open); setSettingsSection('reading') }}
             aria-label={LAB_COPY.settings}
@@ -1930,15 +2003,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             data-testid="lab-gear"
           >
             <GearIcon />
-          </button>
-          <button
-            type="button"
-            className={`lab-fullscreen ${fullscreen ? 'is-on' : ''}`}
-            onClick={() => setFullscreen(on => !on)}
-            aria-label={fullscreen ? LAB_COPY.exitFullScreen : LAB_COPY.fullScreen}
-            data-testid="lab-fullscreen"
-          >
-            <FullscreenIcon on={fullscreen} />
           </button>
         </div>
         <p className="lab-status" data-testid="lab-status">
@@ -2065,11 +2129,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
       <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
       {showReaderRail && (
-        <nav className="lab-page-turn" data-testid="lab-page-turn" aria-label="Page">
+        <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}${showSlimTransport ? ' has-audio-controls' : ''}`} data-testid="lab-page-turn" aria-label="Page">
           {readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
-              className="lab-page-turn-btn"
+              className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
               data-testid="lab-page-prev"
               aria-label={LAB_COPY.previous}
               onClick={goPrev}
@@ -2077,7 +2141,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               {showPhoneChrome ? '←' : LAB_COPY.previous}
             </button>
           ) : (
-            <span className="lab-page-turn-spacer" />
+            !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
           )}
           <div
             className="lab-chapter-progress"
@@ -2100,6 +2164,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               <>
                 <button
                   type="button"
+                  className="lab-transport-toggle"
+                  onClick={listen.pause}
+                  aria-label={LAB_COPY.pause}
+                  data-testid="lab-transport-toggle"
+                >
+                  <PauseIcon size={22} />
+                </button>
+                <button
+                  type="button"
                   className="lab-phone-icon"
                   onClick={() => listen.seek(15)}
                   aria-label={LAB_COPY.forward15}
@@ -2107,22 +2180,48 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
                 >
                   <SeekIcon forward />
                 </button>
-                <button
-                  type="button"
-                  className="lab-phone-icon lab-phone-speed"
-                  onClick={listen.cycleSpeed}
-                  aria-label={`${listen.speed}×`}
-                  data-testid="lab-hearing-speed"
-                >
-                  {listen.speed}×
-                </button>
+                <div className="lab-speed-control">
+                  <button
+                    type="button"
+                    className="lab-phone-speed"
+                    onClick={() => setSpeedOpen(open => !open)}
+                    aria-label={`Playback speed ${speedLabel}`}
+                    aria-expanded={speedOpen}
+                    data-testid="lab-hearing-speed"
+                  >
+                    {speedLabel}
+                  </button>
+                  {speedOpen && (
+                    <div className="lab-speed-popover" role="dialog" aria-label="Playback speed" data-testid="lab-speed-popover">
+                      <span className="lab-speed-title">Playback speed</span>
+                      <output className="lab-speed-value">{speedLabel}</output>
+                      <div className="lab-speed-adjust">
+                        <button type="button" onClick={() => adjustPlaybackSpeed(-0.05)} aria-label="Decrease playback speed">−</button>
+                        <input
+                          type="range"
+                          min="0.5"
+                          max="3"
+                          step="0.05"
+                          value={listen.speed}
+                          onChange={event => listen.setSpeed(Number(event.currentTarget.value))}
+                          aria-label="Playback speed"
+                          data-testid="lab-speed-slider"
+                        />
+                        <button type="button" onClick={() => adjustPlaybackSpeed(0.05)} aria-label="Increase playback speed">+</button>
+                      </div>
+                      <div className="lab-speed-scale" aria-hidden="true">
+                        <span>0.50×</span><span>1.00×</span><span>3.00×</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </>
             )}
           </div>
           {readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
-              className="lab-page-turn-btn"
+              className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
               data-testid="lab-page-next"
               aria-label={LAB_COPY.next}
               onClick={goNext}
@@ -2130,7 +2229,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               {showPhoneChrome ? '→' : LAB_COPY.next}
             </button>
           ) : (
-            <span className="lab-page-turn-spacer" />
+            !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
           )}
           {!showPhoneChrome && (
             <button

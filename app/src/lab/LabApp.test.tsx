@@ -847,6 +847,70 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
   })
 
+  it('uses the reference phone transport, exact speed popover, and hidden arrow controls', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithWords()} />)
+
+    const headerControls = document.querySelector('.lab-header-controls')
+    expect([...headerControls!.querySelectorAll('button')].map(button => button.dataset.testid)).toEqual([
+      'lab-fullscreen',
+      'lab-gear',
+    ])
+    expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-transport-toggle')).toBeTruthy())
+    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1.00×')
+    expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
+
+    fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+    expect(screen.getByTestId('lab-speed-popover')).toBeTruthy()
+    fireEvent.change(screen.getByTestId('lab-speed-slider'), { target: { value: '0.85' } })
+    expect(screen.getByTestId('lab-root').getAttribute('data-audio-speed')).toBe('0.85')
+    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('0.85×')
+    fireEvent.click(screen.getByRole('button', { name: 'Increase playback speed' }))
+    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('0.90×')
+  })
+
+  it('uses the browser fullscreen API and follows fullscreenchange state', async () => {
+    let active: Element | null = null
+    const requestFullscreen = vi.fn(function (this: HTMLElement) {
+      active = this
+      return Promise.resolve()
+    })
+    const exitFullscreen = vi.fn(() => {
+      active = null
+      return Promise.resolve()
+    })
+    const fullscreenDescriptor = Object.getOwnPropertyDescriptor(document, 'fullscreenElement')
+    const requestDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'requestFullscreen')
+    const exitDescriptor = Object.getOwnPropertyDescriptor(document, 'exitFullscreen')
+    Object.defineProperty(document, 'fullscreenElement', { configurable: true, get: () => active })
+    Object.defineProperty(HTMLElement.prototype, 'requestFullscreen', { configurable: true, value: requestFullscreen })
+    Object.defineProperty(document, 'exitFullscreen', { configurable: true, value: exitFullscreen })
+
+    try {
+      render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+      fireEvent.click(screen.getByTestId('lab-fullscreen'))
+      await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true'))
+      expect(requestFullscreen).toHaveBeenCalledOnce()
+
+      fireEvent.click(screen.getByTestId('lab-fullscreen'))
+      await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('false'))
+      expect(exitFullscreen).toHaveBeenCalledOnce()
+    } finally {
+      if (fullscreenDescriptor) Object.defineProperty(document, 'fullscreenElement', fullscreenDescriptor)
+      else delete (document as Partial<Document>).fullscreenElement
+      if (requestDescriptor) Object.defineProperty(HTMLElement.prototype, 'requestFullscreen', requestDescriptor)
+      else delete (HTMLElement.prototype as Partial<HTMLElement>).requestFullscreen
+      if (exitDescriptor) Object.defineProperty(document, 'exitFullscreen', exitDescriptor)
+      else delete (document as Partial<Document>).exitFullscreen
+    }
+  })
+
   it('keeps the phone Hearing footer in flow so the passage scrollport ends at the bar', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {

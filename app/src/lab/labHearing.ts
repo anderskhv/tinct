@@ -1191,8 +1191,8 @@ export const LAB_HEARING_SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const
 
 export function parseHearingSpeed(value: unknown): number | null {
   const n = typeof value === 'number' ? value : Number(String(value ?? '').trim())
-  if (!Number.isFinite(n)) return null
-  return (LAB_HEARING_SPEEDS as readonly number[]).includes(n) ? n : null
+  if (!Number.isFinite(n) || n < 0.5 || n > 3) return null
+  return Math.round(n * 100) / 100
 }
 
 export function nextHearingSpeed(current: number): number {
