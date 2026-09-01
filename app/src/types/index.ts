@@ -353,6 +353,18 @@ export interface EditionUsage {
   percent?: number
 }
 
+/** A bounded trail of actual reading/listening activity within a chapter.
+ * This keeps enough calendar-time detail for questions such as “what did I
+ * read yesterday?” without introducing a second history store. */
+export interface ReadingSessionRecord {
+  startedAt: number
+  lastActiveAt: number
+  editionKey: string
+  mode: 'read' | 'listened'
+  startParagraphIndex?: number
+  lastParagraphIndex?: number
+}
+
 /** Per-chapter reading record for the Feed */
 export interface ChapterReadingRecord {
   chapterNumber: number
@@ -374,6 +386,8 @@ export interface ChapterReadingRecord {
   totalParagraphs?: number
   /** Cumulative seconds spent reading/listening to this chapter */
   timeSpentSeconds?: number
+  /** Recent reading sessions, oldest first. Legacy records may omit this. */
+  sessions?: ReadingSessionRecord[]
 }
 
 /** Full reading log for a book — powers the Reading Feed */

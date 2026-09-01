@@ -261,6 +261,69 @@ describe('VoiceSessionController production continuity', () => {
     })
   })
 
+  it('adds application-owned controls to the production tool set', () => {
+    const sent: string[] = []
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      context: CONTEXT,
+      send: data => sent.push(data),
+      applicationTools: [{
+        type: 'function',
+        name: 'open_tinct_view',
+        parameters: { type: 'object', properties: {} },
+      }],
+    })
+
+    const update = sent.map(item => JSON.parse(item)).find(item => item.type === 'session.update')
+    expect(update.session.tools.map((tool: { name: string }) => tool.name)).toEqual([
+      'resume_audiobook',
+      'hold_voice_session',
+      'open_tinct_view',
+    ])
+  })
+
+  it('executes an application tool, attaches its output, and asks for a short spoken result', async () => {
+    const sent: string[] = []
+    const onApplicationTool = vi.fn(async () => ({
+      output: { ok: true, view: 'library' },
+      responseInstructions: 'Say the Library is open.',
+    }))
+    const controller = new VoiceSessionController({
+      onSnapshot: () => { /* unused */ },
+      onTurn: () => { /* unused */ },
+      onApplicationTool,
+    })
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      context: CONTEXT,
+      send: data => sent.push(data),
+      applicationTools: [{ type: 'function', name: 'open_tinct_view' }],
+    })
+
+    await controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'open_tinct_view',
+      call_id: 'call-library',
+      arguments: JSON.stringify({ view: 'library' }),
+    })
+
+    expect(onApplicationTool).toHaveBeenCalledWith('open_tinct_view', { view: 'library' }, 'call-library')
+    const events = sent.map(item => JSON.parse(item))
+    expect(events).toContainEqual(expect.objectContaining({
+      type: 'conversation.item.create',
+      item: expect.objectContaining({
+        type: 'function_call_output',
+        call_id: 'call-library',
+        output: JSON.stringify({ handled_by: 'tinct', ok: true, view: 'library' }),
+      }),
+    }))
+    expect(events).toContainEqual({
+      type: 'response.create',
+      response: { instructions: 'Say the Library is open.' },
+    })
+  })
+
   it('reports first-audio latency separately for the first and second turns', () => {
     let clock = 100
     vi.stubGlobal('performance', { now: () => clock })

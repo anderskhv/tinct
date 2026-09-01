@@ -15,7 +15,7 @@ import {
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
 import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, VOICE_CLOSE_LINE, VOICE_REALTIME_MODEL } from './types'
 import {
   INITIAL_VOICE_TURN,
@@ -44,6 +44,8 @@ export interface VoiceSessionCallbacks {
   onLatency?: (sample: VoiceLatencySample) => void
   /** Lab-only. Production leaves this unset. */
   onSetAssistantPace?: (pace: AssistantPace) => void
+  /** Production-owned Tinct tools such as history, navigation, and settings. */
+  onApplicationTool?: VoiceApplicationToolHandler
 }
 
 export interface VoiceUiSnapshot {
@@ -68,6 +70,8 @@ export interface StartVoiceSessionInput {
   instructions?: string
   /** When set, replaces VOICE_TOOLS. */
   tools?: readonly unknown[]
+  /** Added to VOICE_TOOLS in production. Ignored when `tools` replaces them. */
+  applicationTools?: readonly unknown[]
   /** Lab-only. Production leaves this unset so shouldHonorModelResume still gates the tool. */
   honorModelResume?: boolean
   /** Lab-only. Realtime audio.output.speed. */
@@ -135,6 +139,7 @@ export class VoiceSessionController {
   private context: VoiceReaderContext | null = null
   private instructions: string | null = null
   private tools: readonly unknown[] | null = null
+  private applicationTools: readonly unknown[] = []
   private honorModelResume = false
   private assistantPace: AssistantPace = 'normal'
   private onCompanionAsk: StartVoiceSessionInput['onCompanionAsk'] = undefined
@@ -207,6 +212,7 @@ export class VoiceSessionController {
     this.context = input.context
     this.instructions = input.instructions?.trim() || null
     this.tools = input.tools ?? null
+    this.applicationTools = input.applicationTools ?? []
     this.honorModelResume = input.honorModelResume === true
     if (input.assistantPace) this.assistantPace = input.assistantPace
     this.onCompanionAsk = input.onCompanionAsk
@@ -377,8 +383,10 @@ export class VoiceSessionController {
     audioTracks?: Array<{ enabled: boolean; kind?: string }>
     greet?: boolean
     shouldResumeBook?: boolean
+    applicationTools?: readonly unknown[]
   }): void {
     this.honorModelResume = input.honorModelResume === true
+    this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
     this.lastUserIntent = input.lastUserIntent ?? 'none'
     this.userSpeechStarted = false
@@ -608,7 +616,7 @@ export class VoiceSessionController {
 
   private sendSessionUpdate(): void {
     if (!this.dc || this.dc.readyState !== 'open' || !this.context) return
-    const tools = this.tools ?? VOICE_TOOLS
+    const tools = this.tools ?? [...VOICE_TOOLS, ...this.applicationTools]
     const session: Record<string, unknown> = {
       type: 'realtime',
       instructions: this.instructions || buildVoiceInstructions(this.context),
@@ -1094,6 +1102,57 @@ export class VoiceSessionController {
       this.applyTurnResult(noteToolCallHandled(this.turn))
       this.dispatch({ type: 'INTENT', intent: 'hold_session' })
       this.continueAfterNonResumeTool()
+      return
+    }
+
+    if (this.callbacks.onApplicationTool) {
+      let arguments_: Record<string, unknown> = {}
+      if (rawArguments) {
+        try {
+          const parsed = JSON.parse(rawArguments) as unknown
+          if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+            arguments_ = parsed as Record<string, unknown>
+          }
+        } catch { /* malformed tool arguments are handled by the application tool */ }
+      }
+
+      try {
+        const result = await this.callbacks.onApplicationTool(name, arguments_, callId)
+        if (this.closed) return
+        this.sendEvent({
+          type: 'conversation.item.create',
+          item: {
+            type: 'function_call_output',
+            call_id: callId,
+            output: JSON.stringify({ handled_by: 'tinct', ...result.output }),
+          },
+        })
+        this.applyTurnResult(noteToolCallHandled(this.turn))
+        this.sendEvent({
+          type: 'response.create',
+          response: {
+            instructions: result.responseInstructions
+              || 'Briefly tell the reader the result. Do not mention tools. Do not call another tool and do not resume the book.',
+          },
+        })
+      } catch {
+        if (this.closed) return
+        this.sendEvent({
+          type: 'conversation.item.create',
+          item: {
+            type: 'function_call_output',
+            call_id: callId,
+            output: JSON.stringify({ ok: false, handled_by: 'tinct', error: 'tool_failed' }),
+          },
+        })
+        this.applyTurnResult(noteToolCallHandled(this.turn))
+        this.sendEvent({
+          type: 'response.create',
+          response: {
+            instructions: 'Briefly say you could not do that just now. Do not claim it worked, do not call another tool, and do not resume the book.',
+          },
+        })
+      }
     }
   }
 

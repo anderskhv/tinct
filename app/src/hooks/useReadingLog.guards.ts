@@ -1,6 +1,9 @@
-import type { BookReadingLog, ChapterReadingRecord, EditionUsage } from '../types'
+import type { BookReadingLog, ChapterReadingRecord, EditionUsage, ReadingSessionRecord } from '../types'
 
 type ReadingMode = 'read' | 'listened'
+
+export const READING_SESSION_GAP_MS = 30 * 60 * 1000
+export const MAX_READING_SESSIONS_PER_CHAPTER = 50
 
 function validChapter(chapter: number, totalChapters: number | undefined): boolean {
   if (!Number.isInteger(chapter) || chapter < 1) return false
@@ -109,6 +112,99 @@ export function upsertUsage(existing: EditionUsage[] | undefined, key: string, m
   }
   arr.push({ key, mode, percent })
   return arr
+}
+
+function upsertSession(args: {
+  sessions: ReadingSessionRecord[] | undefined
+  editionKey: string
+  mode: ReadingMode
+  paragraphIndex: number
+  now: number
+  sessionGapMs?: number
+}): ReadingSessionRecord[] {
+  const { editionKey, mode, paragraphIndex, now, sessionGapMs = READING_SESSION_GAP_MS } = args
+  const sessions = Array.isArray(args.sessions) ? [...args.sessions] : []
+  const last = sessions[sessions.length - 1]
+  const canContinue = Boolean(
+    last
+    && last.editionKey === editionKey
+    && last.mode === mode
+    && now >= last.lastActiveAt
+    && now - last.lastActiveAt <= sessionGapMs,
+  )
+
+  if (canContinue) {
+    sessions[sessions.length - 1] = {
+      ...last,
+      lastActiveAt: now,
+      lastParagraphIndex: paragraphIndex,
+    }
+  } else {
+    sessions.push({
+      startedAt: now,
+      lastActiveAt: now,
+      editionKey,
+      mode,
+      startParagraphIndex: paragraphIndex,
+      lastParagraphIndex: paragraphIndex,
+    })
+  }
+  return sessions.slice(-MAX_READING_SESSIONS_PER_CHAPTER)
+}
+
+/** Record an exact, same-book ReaderSession location in the existing reading
+ * log. Repeated movement within 30 minutes extends one session; returning
+ * later appends another, preserving enough date detail for voice recall. */
+export function recordReadingLogActivity(args: {
+  log: BookReadingLog
+  bookId: string
+  chapterNumber: number
+  editionKey: string
+  mode: ReadingMode
+  paragraphIndex: number
+  totalParagraphs?: number
+  now: number
+  sessionGapMs?: number
+}): BookReadingLog {
+  const {
+    log, bookId, chapterNumber, editionKey, mode, paragraphIndex,
+    totalParagraphs, now, sessionGapMs,
+  } = args
+  if (log.bookId !== bookId || !validChapter(chapterNumber, undefined)) return log
+
+  const existing = log.chapters[chapterNumber]
+    ?? createChapterRecord(chapterNumber, editionKey, mode, now)
+  const pct = totalParagraphs && totalParagraphs > 0
+    ? Math.round(((paragraphIndex + 1) / totalParagraphs) * 100)
+    : undefined
+  const isNewHighWater = existing.lastParagraphIndex === undefined
+    || paragraphIndex > existing.lastParagraphIndex
+
+  return {
+    ...log,
+    updatedAt: now,
+    chapters: {
+      ...log.chapters,
+      [chapterNumber]: {
+        ...existing,
+        lastReadAt: now,
+        editions: existing.editions.includes(editionKey)
+          ? existing.editions
+          : [...existing.editions, editionKey],
+        lastParagraphIndex: isNewHighWater ? paragraphIndex : existing.lastParagraphIndex,
+        totalParagraphs: totalParagraphs ?? existing.totalParagraphs,
+        editionUsage: upsertUsage(existing.editionUsage, editionKey, mode, pct),
+        sessions: upsertSession({
+          sessions: existing.sessions,
+          editionKey,
+          mode,
+          paragraphIndex,
+          now,
+          sessionGapMs,
+        }),
+      },
+    },
+  }
 }
 
 export function sanitizeReadingLog(args: {

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { storage } from '../services/storage'
 import { getReadingProgress, getSavedPosition } from './useReadingPosition'
 import type { BookReadingLog, ChapterReadingRecord } from '../types'
-import { ensureReadingLogChapter, getReadingLogTransition, sanitizeReadingLog, upsertUsage } from './useReadingLog.guards'
+import { ensureReadingLogChapter, getReadingLogTransition, recordReadingLogActivity, sanitizeReadingLog } from './useReadingLog.guards'
 import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
 import type { ReaderLocation, ReaderSessionState } from '../readerSession/types'
 
@@ -269,7 +269,7 @@ export function useReadingLog(
   }, [currentPage, totalPages, storageReady, persistableLocation])
 
   // Track paragraph position within chapter (updates on every paragraph change)
-  const prevParagraphRef = useRef(lastParagraphIndex)
+  const prevActivityRef = useRef<string | null>(null)
   useEffect(() => {
     if (!storageReady) return
     if (!persistableLocation) return
@@ -277,34 +277,24 @@ export function useReadingLog(
     const activeEditionKey = persistableLocation.editionKey
     const activeParagraphIndex = persistableLocation.paragraphIndex
     if (activeParagraphIndex === undefined) return
-    if (activeParagraphIndex === prevParagraphRef.current) return
-    prevParagraphRef.current = activeParagraphIndex
+    const activityKey = `${bookId}:${activeChapter}:${activeEditionKey}:${activeParagraphIndex}:${isAudioPlaying ? 'listened' : 'read'}`
+    if (activityKey === prevActivityRef.current) return
+    prevActivityRef.current = activityKey
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
-    const pct = totalParagraphs && totalParagraphs > 0
-      ? Math.round(((activeParagraphIndex + 1) / totalParagraphs) * 100)
-      : undefined
     setLog(prev => {
-      const existing = prev.chapters[activeChapter]
-      if (!existing) return prev
-      const isNewHighWater = existing.lastParagraphIndex === undefined || activeParagraphIndex > existing.lastParagraphIndex
-      // Always update editionUsage (tracks read vs listened mode), but only
-      // advance lastParagraphIndex if it's a new high water mark
-      return {
-        ...prev,
-        updatedAt: Date.now(),
-        chapters: {
-          ...prev.chapters,
-          [activeChapter]: {
-            ...existing,
-            lastParagraphIndex: isNewHighWater ? activeParagraphIndex : existing.lastParagraphIndex,
-            totalParagraphs: totalParagraphs ?? existing.totalParagraphs,
-            editionUsage: upsertUsage(existing.editionUsage, activeEditionKey, mode, pct),
-          },
-        },
-      }
+      return recordReadingLogActivity({
+        log: prev,
+        bookId,
+        chapterNumber: activeChapter,
+        editionKey: activeEditionKey,
+        mode,
+        paragraphIndex: activeParagraphIndex,
+        totalParagraphs,
+        now: Date.now(),
+      })
     })
-  }, [totalParagraphs, storageReady, isAudioPlaying, persistableLocation])
+  }, [bookId, totalParagraphs, storageReady, isAudioPlaying, persistableLocation])
 
   // Persist on change
   useEffect(() => {

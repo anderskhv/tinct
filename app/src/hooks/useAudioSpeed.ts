@@ -24,6 +24,12 @@ import { storage } from '../services/storage'
 const STORAGE_KEY = 'audio-speed'
 const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2] as const
 const DEFAULT_SPEED = 1
+export const AUDIO_SPEED_CHANGE_EVENT = 'tinct:audio-speed-change'
+
+function notifySpeedChange(speed: number): void {
+  if (typeof window === 'undefined') return
+  window.dispatchEvent(new CustomEvent<number>(AUDIO_SPEED_CHANGE_EVENT, { detail: speed }))
+}
 
 function clampToOption(value: number): number {
   if (!Number.isFinite(value)) return DEFAULT_SPEED
@@ -89,12 +95,14 @@ export function useAudioSpeed(): UseAudioSpeedReturn {
     const clamped = clampToOption(next)
     setSpeedState(clamped)
     storage.set(STORAGE_KEY, clamped)
+    notifySpeedChange(clamped)
   }, [])
 
   const cycleSpeed = useCallback(() => {
     const next = nextAudioSpeed(speedRef.current)
     setSpeedState(next)
     storage.set(STORAGE_KEY, next)
+    notifySpeedChange(next)
   }, [])
 
   const applyTo = useCallback((audio: HTMLAudioElement | null) => {
