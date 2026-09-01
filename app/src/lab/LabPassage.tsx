@@ -9,7 +9,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
+import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
 import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
@@ -113,27 +113,34 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
 function renderHearingWords(
   paragraph: FollowParagraph | undefined,
   follow: FollowTarget,
+  paragraphs: string[],
+  readingPage?: ChapterHearingPage,
   chapterPages?: ChapterHearingPage[],
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
 ) {
-  const paragraphIndex = paragraph?.index ?? 0
-  const lines = hearingStageLines(paragraph, follow, chapterPages)
+  const fallbackParagraphIndex = paragraph?.index ?? 0
+  const lines = readingPage
+    ? hearingReadingPageLines(paragraphs, readingPage, follow)
+    : hearingStageLines(paragraph, follow, chapterPages)
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {renderWordGroups(line.words, (word, wordIndex) => (
-        <span
-          key={`${lineIndex}-${wordIndex}`}
-          className={`lab-hearing-word is-${word.role}`}
-          data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
-          data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
-          data-word-index={word.wordIndex}
-          onClick={word.wordIndex != null && onSeekToWord
-            ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
-            : undefined}
-        >
-          {renderWordText(word.text, wordIndex < line.words.length - 1)}
-        </span>
-      ))}
+      {renderWordGroups(line.words, (word, wordIndex) => {
+        const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
+        return (
+          <span
+            key={`${lineIndex}-${wordIndex}`}
+            className={`lab-hearing-word is-${word.role}`}
+            data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+            data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
+            data-word-index={word.wordIndex}
+            onClick={word.wordIndex != null && onSeekToWord
+              ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
+              : undefined}
+          >
+            {renderWordText(word.text, wordIndex < line.words.length - 1)}
+          </span>
+        )
+      })}
     </p>
   ))
 }
@@ -194,7 +201,9 @@ export function LabPassage({
     : followParagraphs.find(item => item.index === linesFollow.paragraphIndex) || followParagraphs[clipIndex]
   const readingLines = readingPageLines(paragraphs, readingPage)
   const showHeadline = followActive && linesFollow.kind === 'word'
-    ? isChapterFirstHearingPage(paragraph, linesFollow, chapterPages)
+    ? (readingPage
+        ? isChapterFirstReadingPage(readingPage)
+        : isChapterFirstHearingPage(paragraph, linesFollow, chapterPages))
     : isChapterFirstReadingPage(readingPage)
 
   const dragRef = useRef<{
@@ -307,7 +316,7 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, chapterPages, onSeekToWord)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, readingPage, chapterPages, onSeekToWord)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (

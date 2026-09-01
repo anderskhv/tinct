@@ -26,6 +26,7 @@ import {
   labNavPageList,
   labVerseMarkerDisplay,
   hearingFollowPaintActive,
+  hearingReadingPageLines,
   hearingPages,
   hearingProgress,
   hearingStageLines,
@@ -51,6 +52,35 @@ import {
 import { lastContentClearsChrome } from './labChrome'
 
 describe('lab hearing stage', () => {
+  it('paints progress over every paragraph slice on the reading page', () => {
+    const paragraphs = [
+      'Alpha beta gamma delta epsilon',
+      'Zeta eta theta iota kappa',
+    ]
+    const page = {
+      paragraphIndex: 0,
+      from: 2,
+      to: 5,
+      segments: [
+        { paragraphIndex: 0, from: 2, to: 5 },
+        { paragraphIndex: 1, from: 0, to: 3 },
+      ],
+    }
+
+    const lines = hearingReadingPageLines(
+      paragraphs,
+      page,
+      { kind: 'word', paragraphIndex: 1, wordIndex: 1 },
+    )
+
+    expect(lines.map(line => line.words.map(word => word.text).join(' '))).toEqual([
+      'gamma delta epsilon',
+      'Zeta eta theta',
+    ])
+    expect(lines[0].words.map(word => word.role)).toEqual(['spoken', 'spoken', 'spoken'])
+    expect(lines[1].words.map(word => word.role)).toEqual(['spoken', 'current', 'upcoming'])
+  })
+
   it('marks spoken, current, and upcoming words from real timings', () => {
     const paragraph = followParagraphFromManifest(0, 'Tell me, O Muse of that ingenious hero who travelled', {
       duration: 4,

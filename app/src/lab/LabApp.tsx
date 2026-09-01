@@ -635,7 +635,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   listenStartRef.current = listen.start
 
   const applyNativePages = useCallback((next: ChapterHearingPage[]) => {
-    if (!nativePhonePaging || next.length === 0) return
+    // Audio chrome temporarily changes the available box. Keep the reading
+    // page map as the single authority instead of repaginating mid-playback.
+    if (
+      !nativePhonePaging
+      || listenPlayingRef.current
+      || browseWhileListeningRef.current
+      || next.length === 0
+    ) return
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))

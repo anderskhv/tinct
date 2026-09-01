@@ -990,6 +990,32 @@ export function readingPageLines(paragraphs: string[], page: ChapterHearingPage 
   })
 }
 
+/** Paint narration progress over the exact slices used by the reading page. */
+export function hearingReadingPageLines(
+  paragraphs: string[],
+  page: ChapterHearingPage | undefined,
+  follow: FollowTarget,
+): HearingLine[] {
+  if (!page) return []
+  return chapterPageSegments(page).map(segment => {
+    const words = tokenizeHearingWords(paragraphs[segment.paragraphIndex] || '')
+    return {
+      paragraphIndex: segment.paragraphIndex,
+      from: segment.from,
+      words: words.slice(segment.from, segment.to).map((word, offset) => {
+        const wordIndex = segment.from + offset
+        let role: HearingWordRole = 'line'
+        if (follow.kind === 'word') {
+          if (segment.paragraphIndex < follow.paragraphIndex) role = 'spoken'
+          else if (segment.paragraphIndex > follow.paragraphIndex) role = 'upcoming'
+          else role = wordRole(wordIndex, follow.wordIndex)
+        }
+        return { text: word.text, role, wordIndex }
+      }),
+    }
+  })
+}
+
 /** Word highlight / dim / bold follow only while Hearing is actually playing. */
 export function hearingFollowPaintActive(
   mode: 'reading' | 'hearing',
