@@ -134,7 +134,7 @@ export function LabSettingsSheet({
               />
               <Row
                 label="Compare edition"
-                hint="What Compare shows beside the page."
+                hint="The edition Compare opens on mobile and shows beside the page on desktop."
                 control={(
                   <select
                     className="lab-ss-select"
@@ -150,7 +150,7 @@ export function LabSettingsSheet({
               />
               <Row
                 label="Compare"
-                hint="Split the page with the compare edition."
+                hint="Add Compare to the mobile reader and split the desktop page."
                 control={(
                   <button
                     type="button"

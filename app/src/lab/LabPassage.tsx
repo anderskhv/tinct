@@ -34,7 +34,7 @@ interface LabPassageProps {
   onCycleSpeed?: () => void
   hideTransport?: boolean
   markedIndexes: Set<number>
-  onMark: (index: number) => void
+  onMark?: (index: number) => void
   focusParagraph?: number | null
   dimmed?: boolean
   peek?: boolean
@@ -370,13 +370,15 @@ export function LabPassage({
                         </span>
                       )
                     })}
-                    <button
-                      type="button"
-                      className="lab-mark-btn"
-                      onClick={() => onMark(paragraphIndex)}
-                    >
-                      {LAB_COPY.markAction}
-                    </button>
+                    {onMark && (
+                      <button
+                        type="button"
+                        className="lab-mark-btn"
+                        onClick={() => onMark(paragraphIndex)}
+                      >
+                        {LAB_COPY.markAction}
+                      </button>
+                    )}
                   </p>
                 )
               })}

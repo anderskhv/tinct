@@ -195,7 +195,9 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/\.lab-settings-menu/)
     expect(css).not.toMatch(/\.lab-fullscreen-bar/)
     expect(css).toMatch(/\.lab\.is-fullscreen \.lab-header,\s*\.lab\.is-fullscreen \.lab-bottom-chrome\s*\{[^}]*display:\s*none/)
-    expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*opacity:\s*0\.01/)
+    expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*border-radius:\s*999px/)
+    expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*opacity:\s*0\.62/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*text-align:\s*justify/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-header-brand\s*\{[^}]*flex-direction:\s*row/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-header-brand\s*\{[^}]*white-space:\s*nowrap/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-title,\s*\.lab\.is-phone \.lab-sub\s*\{[^}]*white-space:\s*nowrap/)
@@ -1464,10 +1466,36 @@ describe('lab chrome', () => {
     expect(sheet.textContent).not.toContain('Profile')
     expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/read/')
     fireEvent.click(screen.getByTestId('lab-compare'))
-    expect(screen.getByTestId('lab-compare-col')).toBeTruthy()
+    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     expect(screen.getByTestId('lab-theme')).toBeTruthy()
     expect(screen.getByTestId('lab-progress-metric')).toBeTruthy()
+  })
+
+  it('shows Compare only when configured and flips aligned mobile editions full-width', () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
+    const base = fallbackLabSource()
+    render(<LabApp pathname="/lab/phone" source={{
+      ...base,
+      paragraphs: ['Old wording begins here and continues through the original passage.'],
+      compareParagraphs: ['Modern wording starts here and continues through the comparison passage.'],
+    }} />)
+
+    expect(screen.getByTestId('lab-phone-bar').querySelectorAll('.lab-phone-fat')).toHaveLength(4)
+    expect(screen.getByTestId('lab-phone-compare').textContent).toContain('Compare')
+    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
+
+    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
+    expect(screen.getByTestId('lab-root').getAttribute('data-reader-edition')).toBe('modern-en')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Modern wording')
+    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
   })
 
   it('applies a typed set_assistant_pace tag without changing book speed', async () => {
@@ -2854,7 +2882,7 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
   })
 
-  it('shows only the reading text in fullscreen and retains an invisible exit target', () => {
+  it('shows only the reading text in fullscreen and retains a subtle visible exit control', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
     fireEvent.click(screen.getByTestId('lab-fullscreen'))
@@ -2864,6 +2892,7 @@ describe('lab chrome pass', () => {
     expect(screen.queryByTestId('lab-page-turn')).toBeNull()
     expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(screen.getByTestId('lab-fullscreen-exit')).toBeTruthy()
+    expect(screen.getByTestId('lab-fullscreen-exit').querySelector('svg')).toBeTruthy()
     expect(document.querySelector('.lab-header')).toBeTruthy()
     fireEvent.click(screen.getByTestId('lab-fullscreen-exit'))
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()

@@ -1599,6 +1599,13 @@
 
 .lab.is-phone .lab-passage.is-reading .lab-hearing-line {
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.lab.has-phone-chrome .lab-passage.is-reading .lab-hearing-line {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .lab.is-phone .lab-passage.is-reading,
@@ -2042,15 +2049,29 @@
 
 .lab-fullscreen-exit-hotspot {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: max(0.55rem, env(safe-area-inset-top, 0px));
+  right: max(0.55rem, env(safe-area-inset-right, 0px));
   z-index: 900;
-  width: max(3rem, env(safe-area-inset-right, 0px));
-  height: max(3rem, env(safe-area-inset-top, 0px));
-  border: 0;
-  background: transparent;
-  opacity: 0.01;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(63, 58, 50, 0.22);
+  border-radius: 999px;
+  color: #3f3a32;
+  background: rgba(236, 231, 219, 0.82);
+  box-shadow: 0 1px 5px rgba(11, 11, 11, 0.08);
+  opacity: 0.62;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   cursor: pointer;
+}
+
+.lab-fullscreen-exit-hotspot:hover,
+.lab-fullscreen-exit-hotspot:focus-visible {
+  opacity: 1;
 }
 
 .lab-phone-transport {
@@ -2115,6 +2136,12 @@
 .lab.is-night .lab-page-turn-btn,
 .lab.is-night .lab-phone-speed {
   color: var(--lab-ink);
+}
+
+.lab.is-night .lab-fullscreen-exit-hotspot {
+  color: var(--lab-ink);
+  background: rgba(58, 52, 44, 0.82);
+  border-color: var(--lab-border);
 }
 
 .lab.is-night .lab-phone-speed,
