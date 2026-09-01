@@ -26,19 +26,6 @@ afterEach(() => {
   resetLabChapterTextCache()
 })
 
-function phoneProgressInfo(): string {
-  return screen.getByTestId('lab-chapter-progress').querySelector('.lab-chapter-progress-info')?.textContent?.trim() || ''
-}
-
-async function waitForPhoneProgress() {
-  await waitFor(async () => {
-    await act(async () => {
-      await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
-    })
-    expect(phoneProgressInfo()).toMatch(/^\d+\s*\/\s*\d+$/)
-  }, { timeout: 5000 })
-}
-
 function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
@@ -207,11 +194,15 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/\.lab-phone-actions/)
     expect(css).not.toMatch(/\.lab-settings-menu/)
     expect(css).not.toMatch(/\.lab-fullscreen-bar/)
+    expect(css).toMatch(/\.lab\.is-fullscreen \.lab-header,\s*\.lab\.is-fullscreen \.lab-bottom-chrome\s*\{[^}]*display:\s*none/)
+    expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*border-radius:\s*999px/)
+    expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*opacity:\s*0\.62/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*text-align:\s*justify/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-header-brand\s*\{[^}]*flex-direction:\s*row/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-header-brand\s*\{[^}]*white-space:\s*nowrap/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-title,\s*\.lab\.is-phone \.lab-sub\s*\{[^}]*white-space:\s*nowrap/)
-    expect(css).toMatch(/\.lab\.is-phone \.lab-logo\s*\{[^}]*Playfair Display/)
-    expect(css).toMatch(/\.lab\.is-phone \.lab-logo\s*\{[^}]*font-size:\s*1\.1rem/)
+    expect(css).toMatch(/\.lab-header-work\s*\{[^}]*Playfair Display/)
+    expect(css).toMatch(/\.lab-header-work\s*\{[^}]*font-size:\s*1\.1rem/)
     expect(css).not.toMatch(/\.lab-chapter-progress-bar\s*\{/)
     expect(css).toMatch(/\.lab-header-chapter\s*\{/)
     expect(css).toMatch(/\.lab-header-chapter\s*\{[^}]*background:\s*#e2d8c4/)
@@ -269,6 +260,9 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/--lab-chrome-inset/)
     expect(css).not.toMatch(/--lab-ask-chrome-inset/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-passage[^{]*\{[^}]*overflow-y:\s*auto/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading[^{]*\{[^}]*overflow-y:\s*hidden/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading[^{]*\{[^}]*padding-bottom:\s*0\.5rem/)
+    expect(css).toMatch(/\.lab-passage\.is-reading \.lab-hearing-stage > \.lab-hearing-line:last-child\s*\{[^}]*margin-bottom:\s*0/)
     expect(css).toMatch(/\.lab\.has-phone-chrome\[data-phone-bar="hearing"\]\s+\.lab-passage[^{]*\{[^}]*overflow-y:\s*auto/)
     expect(css).toMatch(/\.lab\.has-phone-chrome\[data-phone-bar="hearing"\]\s+\.lab-page-wrap[^{]*\{[^}]*overflow:\s*hidden/)
     expect(css).toMatch(/\.lab-ask\.is-phone-sheet \.lab-ask-thread[^{]*\{[^}]*overflow-y:\s*auto/)
@@ -300,9 +294,6 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
     expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*var\(--lab-font-reader/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
-    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*text-align:\s*left/)
-    expect(css).toMatch(/data-layout-pending|layout-pending/)
-    expect(css).not.toMatch(/\.lab-book,\s*\.lab-passage\s*\{[^}]*transition:\s*opacity/)
     const phoneHeadlineSize = css.match(/\.lab\.is-phone \.lab-passage-headline\s*\{[^}]*font-size:\s*calc\(/)
     const phoneHearingSize = css.match(/\.lab\.is-phone \.lab-hearing-line\s*\{[^}]*font-size:\s*calc\(/)
     expect(phoneHeadlineSize).toBeTruthy()
@@ -312,12 +303,14 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/\.lab-p\s*\{[^}]*font-weight:\s*700/)
     expect(css).not.toMatch(/\.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*font-size:\s*1\.18rem/)
     expect(css).not.toMatch(/\.lab\.is-phone \.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*font-size:\s*1\.18rem/)
-    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading[^{]*\{[^}]*overflow-y:\s*hidden/)
-    expect(css).toMatch(/\.lab\.is-phone \.lab-verse-mark/)
-    expect(css).toMatch(/IBM Plex Mono/)
     expect(css).not.toMatch(/\.lab\.is-phone\s+\.lab-hearing-stage\s*\{[^}]*56px/)
     expect(css).not.toMatch(/8\.25rem/)
-    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*overflow-wrap:\s*anywhere/)
+    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*overflow-wrap:\s*break-word/)
+    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*word-break:\s*normal/)
+    expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*hyphens:\s*auto/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-native-page-flow \.lab-hearing-word[^{]*\{[^}]*white-space:\s*nowrap[^}]*hyphens:\s*none/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading:not\(\.lab-native-page-surface\) \.lab-hearing-word[^{]*\{[^}]*overflow-wrap:\s*normal[^}]*hyphens:\s*auto[^}]*hyphenate-limit-chars:\s*7 3 3/)
+    expect(css).not.toMatch(/\.lab\.is-phone \.lab-passage \.lab-hearing-word[^{]*\{[^}]*hyphens:\s*none/)
     expect(css).toMatch(/\.lab-kicker\s*\{[^}]*display:\s*none/)
     expect(css).toMatch(/\.lab-ask-tab\s*\{/)
     expect(css).not.toMatch(/Helvetica/)
@@ -327,6 +320,7 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/\.lab-phone-notice\s*\{[^}]*position:\s*fixed/)
 
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    expect(screen.getByTestId('lab-root').getAttribute('lang')).toBe('en')
     expect(screen.getByTestId('lab-root').className).toContain('is-desktop')
     openDesktopAsk()
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-empty')
@@ -347,7 +341,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-phone-chat')).toBeTruthy()
     expect(screen.queryByTestId('lab-ask-done')).toBeNull()
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
     expect(screen.getByText('Ask about this page.')).toBeTruthy()
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
@@ -808,12 +802,13 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
   })
 
-  it('puts phone Hearing transport in the in-flow footer, not the clipped stage', async () => {
+  it('keeps phone Hearing on the same in-flow rail with one Play/Pause control', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
     })
     render(<LabApp pathname="/lab/phone" source={sourceWithWords()} />)
+    const readingProgress = screen.getByTestId('lab-chapter-progress').textContent
     fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-hearing')).toBeTruthy()
@@ -824,38 +819,93 @@ describe('lab chrome', () => {
     expect(bar.contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
     expect(bar.contains(screen.getByTestId('lab-phone-chat'))).toBe(true)
     expect(bar.contains(screen.getByTestId('lab-phone-talk'))).toBe(true)
-    expect(chrome.contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
-    expect(chrome.contains(screen.getByTestId('lab-hearing-forward'))).toBe(true)
-    expect(chrome.contains(screen.getByTestId('lab-hearing-speed'))).toBe(true)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-forward'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-speed'))).toBe(true)
+    expect(chrome.contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-forward')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
     expect(screen.getByTestId('lab-phone-talk').textContent).toContain('Talk')
     expect(screen.getByTestId('lab-phone-talk').querySelector('svg')).toBeTruthy()
     expect(screen.getByTestId('lab-phone-chat').querySelector('svg')).toBeTruthy()
     expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
     expect(document.querySelector('.lab-header')?.contains(screen.getByTestId('lab-listen'))).toBe(false)
     expect(screen.queryByRole('button', { name: 'Ask' })).toBeNull()
-    expect(screen.getByTestId('lab-hearing-back').textContent).not.toContain('Back 15')
-    expect(screen.getByTestId('lab-hearing-forward').textContent).not.toContain('Forward 15')
     expect(screen.queryByTestId('lab-hearing-transport')).toBeNull()
-    await waitForPhoneProgress()
     const progressEl = screen.getByTestId('lab-chapter-progress')
-    const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent?.trim() || ''
-    expect(playingLabel).toMatch(/^\d+\s*\/\s*\d+$/)
-    expect(playingLabel).not.toContain('—')
-    expect(playingLabel).not.toContain('Book')
-    expect(document.querySelector('.lab.has-slim-transport')).toBeTruthy()
+    const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent || progressEl.textContent || ''
+    expect(progressEl.textContent).toBe(readingProgress)
+    expect(playingLabel).toContain('Book 1 —')
+    expect(playingLabel).toMatch(/\d+\s*\/\s*\d+/)
+    expect(document.querySelector('.lab.has-slim-transport')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
-    expect(screen.getByPlaceholderText('Ask').tagName).toBe('TEXTAREA')
+    expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).type).toBe('text')
     expect(screen.queryByTestId('lab-ask-done')).toBeNull()
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
     expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
+  })
+
+  it('uses one phone Play/Pause control and keeps arrow controls hidden', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithWords()} />)
+
+    const headerControls = document.querySelector('.lab-header-controls')
+    expect([...headerControls!.querySelectorAll('button')].map(button => button.dataset.testid)).toEqual([
+      'lab-fullscreen',
+      'lab-gear',
+    ])
+    expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy())
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
+    expect(screen.queryByTestId('lab-transport-toggle')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-forward')).toBeNull()
+    expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
+  })
+
+  it('uses the browser fullscreen API and follows fullscreenchange state', async () => {
+    let active: Element | null = null
+    const requestFullscreen = vi.fn(function (this: HTMLElement) {
+      active = this
+      return Promise.resolve()
+    })
+    const exitFullscreen = vi.fn(() => {
+      active = null
+      return Promise.resolve()
+    })
+    const fullscreenDescriptor = Object.getOwnPropertyDescriptor(document, 'fullscreenElement')
+    const requestDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'requestFullscreen')
+    const exitDescriptor = Object.getOwnPropertyDescriptor(document, 'exitFullscreen')
+    Object.defineProperty(document, 'fullscreenElement', { configurable: true, get: () => active })
+    Object.defineProperty(HTMLElement.prototype, 'requestFullscreen', { configurable: true, value: requestFullscreen })
+    Object.defineProperty(document, 'exitFullscreen', { configurable: true, value: exitFullscreen })
+
+    try {
+      render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+      fireEvent.click(screen.getByTestId('lab-fullscreen'))
+      await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true'))
+      expect(requestFullscreen).toHaveBeenCalledOnce()
+
+      fireEvent.click(screen.getByTestId('lab-fullscreen'))
+      await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('false'))
+      expect(exitFullscreen).toHaveBeenCalledOnce()
+    } finally {
+      if (fullscreenDescriptor) Object.defineProperty(document, 'fullscreenElement', fullscreenDescriptor)
+      else delete (document as Partial<Document>).fullscreenElement
+      if (requestDescriptor) Object.defineProperty(HTMLElement.prototype, 'requestFullscreen', requestDescriptor)
+      else delete (HTMLElement.prototype as Partial<HTMLElement>).requestFullscreen
+      if (exitDescriptor) Object.defineProperty(document, 'exitFullscreen', exitDescriptor)
+      else delete (document as Partial<Document>).exitFullscreen
+    }
   })
 
   it('keeps the phone Hearing footer in flow so the passage scrollport ends at the bar', async () => {
@@ -875,7 +925,7 @@ describe('lab chrome', () => {
     expect(root.style.getPropertyValue('--lab-chrome-inset')).toBe('')
     expect(root.style.getPropertyValue('--lab-vvh')).toMatch(/px$/)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
     expect(passage).toBeTruthy()
     expect(passage?.contains(footer)).toBe(false)
     expect(footer.compareDocumentPosition(passage as Node) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
@@ -1230,7 +1280,7 @@ describe('lab chrome', () => {
     expect(gate.getAttribute('data-phase')).toBe('connecting')
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
   })
 
@@ -1271,13 +1321,13 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
   })
 
-  it('keeps phone Reading on footer Play plus Talk, not the car stage', async () => {
+  it('keeps phone Reading on footer Play plus Talk, not the car stage', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
     const bar = screen.getByTestId('lab-phone-bar')
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
-    expect(screen.getByTestId('lab-read-icon')).toBeTruthy()
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
+    expect(screen.getByTestId('lab-listen-play')).toBeTruthy()
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Book 1 — The gods in council')
     expect(bar.contains(screen.getByTestId('lab-listen'))).toBe(true)
     expect(bar.contains(screen.getByTestId('lab-phone-chat'))).toBe(true)
@@ -1301,8 +1351,8 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-page-next')).toBeTruthy()
     expect(screen.getByTestId('lab-page-next').textContent).toContain('→')
     expect(screen.getByLabelText('Next')).toBeTruthy()
-    expect(screen.getByTestId('lab-wordmark').textContent).toBe('Tinct')
-    expect(document.querySelector('.lab-header-brand')?.textContent).toContain('Tinct')
+    expect(screen.queryByTestId('lab-wordmark')).toBeNull()
+    expect(document.querySelector('.lab-header-brand')?.textContent).not.toContain('Tinct')
     expect(document.querySelector('.lab-header-brand')?.textContent).toContain('The Odyssey')
     expect(document.querySelector('.lab-header-brand')?.textContent).toContain('Book 1')
     expect(document.querySelector('.lab-header-brand')?.textContent).not.toContain('Homer')
@@ -1310,16 +1360,13 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Book 1/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toContain('∨')
     expect(screen.getByTestId('lab-fullscreen')).toBeTruthy()
-    await waitForPhoneProgress()
-    const progress = phoneProgressInfo()
-    expect(progress).toMatch(/^\d+\s*\/\s*\d+$/)
-    expect(progress).not.toContain('—')
-    expect(progress).not.toContain('Book 1')
-    expect(progress).not.toMatch(/ ch$/)
-    const progressEl = screen.getByTestId('lab-chapter-progress')
-    expect(progressEl.querySelector('.lab-chapter-progress-bar')).toBeNull()
-    expect(screen.getByTestId('lab-page-turn').contains(progressEl)).toBe(true)
-    expect(document.querySelector('.lab-header')?.contains(progressEl)).toBe(false)
+    const progress = screen.getByTestId('lab-chapter-progress')
+    expect(progress.textContent).toMatch(/Book 1 — \d+ \/ \d+/)
+    expect(progress.textContent).not.toMatch(/Chapter 1/)
+    expect(progress.textContent).not.toMatch(/ ch$/)
+    expect(progress.querySelector('.lab-chapter-progress-bar')).toBeNull()
+    expect(screen.getByTestId('lab-page-turn').contains(progress)).toBe(true)
+    expect(document.querySelector('.lab-header')?.contains(progress)).toBe(false)
     const first = document.querySelector('.lab-hearing-line')?.textContent || ''
     expect(first).toContain('Tell me, O Muse')
     fireEvent.click(screen.getByTestId('lab-page-next'))
@@ -1412,10 +1459,36 @@ describe('lab chrome', () => {
     expect(sheet.textContent).not.toContain('Profile')
     expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/read/')
     fireEvent.click(screen.getByTestId('lab-compare'))
-    expect(screen.getByTestId('lab-compare-col')).toBeTruthy()
+    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     expect(screen.getByTestId('lab-theme')).toBeTruthy()
     expect(screen.getByTestId('lab-progress-metric')).toBeTruthy()
+  })
+
+  it('shows Compare only when configured and flips aligned mobile editions full-width', () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
+    const base = fallbackLabSource()
+    render(<LabApp pathname="/lab/phone" source={{
+      ...base,
+      paragraphs: ['Old wording begins here and continues through the original passage.'],
+      compareParagraphs: ['Modern wording starts here and continues through the comparison passage.'],
+    }} />)
+
+    expect(screen.getByTestId('lab-phone-bar').querySelectorAll('.lab-phone-fat')).toHaveLength(4)
+    expect(screen.getByTestId('lab-phone-compare').textContent).toContain('Compare')
+    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
+
+    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
+    expect(screen.getByTestId('lab-root').getAttribute('data-reader-edition')).toBe('modern-en')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Modern wording')
+    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
   })
 
   it('applies a typed set_assistant_pace tag without changing book speed', async () => {
@@ -1494,11 +1567,12 @@ describe('lab bible book', () => {
       ],
     }} />)
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
-    expect(screen.getByTestId('lab-wordmark').textContent).toBe('Tinct')
+    expect(screen.queryByTestId('lab-wordmark')).toBeNull()
+    expect(screen.getByTestId('lab-header-work').textContent).toBe('The Bible')
     expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
     expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
 
     fireEvent.click(screen.getByTestId('lab-page-next'))
@@ -1514,10 +1588,9 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
-    await waitForPhoneProgress()
-    const genesis1Progress = phoneProgressInfo()
-    expect(genesis1Progress).toMatch(/^\s*\d+\s*\/\s*\d+\s*$/)
-    expect(genesis1Progress).not.toContain('Genesis 1')
+    const genesis1Progress = screen.getByTestId('lab-chapter-progress').textContent || ''
+    expect(genesis1Progress).toMatch(/Genesis 1/)
+    expect(genesis1Progress).toContain(' / ')
   })
 
   it('Previous on Genesis 2 page 1 goes to Genesis 1 last', async () => {
@@ -1562,9 +1635,8 @@ describe('lab bible book', () => {
         { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
       ],
     }} />)
-    const progress = () => phoneProgressInfo()
+    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
     const line = () => (document.querySelector('.lab-hearing-line')?.textContent || '')
-    await waitForPhoneProgress()
     expect(progress()).toMatch(/1 \/ \d+/)
     expect(line()).toContain('In the beginning')
     for (let i = 0; i < 8; i++) {
@@ -1575,7 +1647,6 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
-    await waitForPhoneProgress()
     expect(progress()).toContain('1 /')
     expect(line()).toContain('heavens and the earth were finished')
     fireEvent.click(screen.getByTestId('lab-page-prev'))
@@ -1583,9 +1654,12 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
-    await waitForPhoneProgress()
     const back = progress()
-    expect(back).toMatch(/^\s*(\d+)\s*\/\s*(\1)\s*$/)
+    expect(back).toMatch(/Genesis 1 — (\d+) \/ \1/)
+    const nm = back.match(/(\d+) \/ (\d+)/)
+    expect(nm).toBeTruthy()
+    expect(Number(nm![1])).toBeGreaterThan(1)
+    expect(Number(nm![1])).toBe(Number(nm![2]))
     await waitFor(() => {
       expect(line()).toMatch(/g1c\d+/)
       expect(line()).not.toContain('In the beginning')
@@ -1597,7 +1671,7 @@ describe('lab bible book', () => {
     expect(line()).toContain('heavens and the earth were finished')
   })
 
-  it('labels Proverbs 16 with the biblical name, never the linear index', async () => {
+  it('labels Proverbs 16 with the biblical name, never the linear index', () => {
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),
       chapterNumber: 644,
@@ -1616,10 +1690,10 @@ describe('lab bible book', () => {
         { number: 645, title: 'Proverbs 17', path: 'ch0645.json' },
       ],
     }} />)
-    await waitForPhoneProgress()
-    const label = phoneProgressInfo()
-    expect(label).toMatch(/^\s*1\s*\/\s*\d+\s*$/)
-    expect(label).not.toContain('Proverbs')
+    const label = screen.getByTestId('lab-chapter-progress').textContent || ''
+    expect(label).toContain('Proverbs')
+    expect(label).toContain('16')
+    expect(label).not.toContain('644')
     expect(label).not.toMatch(/Chapter 644/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
   })
@@ -1686,24 +1760,27 @@ describe('lab bible book', () => {
         { number: 645, title: 'Proverbs 17', path: 'ch0645.json' },
       ],
     }} />)
-    await waitForPhoneProgress()
-    expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
+    const startLabel = screen.getByTestId('lab-chapter-progress').textContent || ''
+    expect(startLabel).toContain('Proverbs')
+    expect(startLabel).toContain('16')
+    expect(startLabel).not.toContain('644')
     // One short paragraph = last page. Next must hop to Proverbs 17 p1.
     fireEvent.click(screen.getByTestId('lab-page-next'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('645')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 17/)
-    await waitForPhoneProgress()
-    expect(phoneProgressInfo()).toMatch(/^1\s*\/\s*\d+$/)
+    const p1 = screen.getByTestId('lab-chapter-progress').textContent || ''
+    expect(p1).toMatch(/Proverbs 17/)
+    expect(p1).toContain('1 /')
+    expect(p1).not.toContain('645')
     fireEvent.click(screen.getByTestId('lab-page-prev'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('644')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
-    await waitForPhoneProgress()
-    const back = phoneProgressInfo()
-    expect(back).toMatch(/^\d+\s*\/\s*\d+$/)
+    const back = screen.getByTestId('lab-chapter-progress').textContent || ''
+    expect(back).toMatch(/Proverbs 16/)
     expect(back).not.toContain('644')
     expect(document.querySelector('.lab-hearing-line')?.textContent).toMatch(/unpunished|Commit thy works/i)
   })
@@ -1787,7 +1864,7 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
   })
 
   it('keeps Talk and Chat on this Bible chapter', async () => {
@@ -1809,6 +1886,44 @@ describe('lab bible book', () => {
 })
 
 describe('lab passage headline pages', () => {
+  it('keeps a verse number with the first word that follows it', () => {
+    render(
+      <LabPassage
+        chapterTitle="Genesis 1"
+        paragraphs={['⁹ And God said, Let']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 5 }}
+      />,
+    )
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u00a0And`)
+  })
+
+  it('lets the line break before a protected verse start', () => {
+    render(
+      <LabPassage
+        chapterTitle="Genesis 1"
+        paragraphs={['it was so. ⁹ And God said']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 7 }}
+      />,
+    )
+    const unit = screen.getByTestId('lab-reading-stage').querySelector('.lab-verse-unit')
+    expect(unit?.previousSibling?.textContent).toBe(' ')
+    expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
+  })
+
   it('shows the chapter headline only on the first hearing page', () => {
     const words = Array.from({ length: 200 }, (_, index) => ({
       text: (index + 1) % 20 === 0 ? `w${index}.` : `w${index}`,
@@ -1875,25 +1990,43 @@ describe('lab passage headline pages', () => {
     expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
   })
 
-  it('renders multi-digit verse markers in reading with lab-verse-mark', () => {
-    const text = '⁹ before ¹⁰ verse ten ²⁰ twenty'
+  it('turns pages from edge taps and horizontal swipes without taking the center tap', () => {
+    const turn = vi.fn()
     render(
       <LabPassage
-        chapterTitle="Jeremiah 23"
-        paragraphs={[text]}
+        chapterTitle="Book 1"
+        paragraphs={['Tell me, O Muse']}
         compareParagraphs={[]}
         compare={false}
         mode="reading"
-        playing={false}
         follow={{ kind: 'none' }}
         followParagraphs={[]}
         markedIndexes={new Set()}
         onMark={() => { /* unused */ }}
-        readingPage={{ paragraphIndex: 0, from: 0, to: 8 }}
+        onSelectRange={() => { /* edge taps must win over selection */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+        onPageTurn={turn}
       />,
     )
-    const marks = Array.from(document.querySelectorAll('.lab-verse-mark'))
-    expect(marks.map((el) => el.textContent)).toEqual(['9', '10', '20'])
+    const stage = screen.getByTestId('lab-reading-stage')
+    vi.spyOn(stage, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+
+    fireEvent.pointerDown(stage, { pointerId: 1, clientX: 370, clientY: 300 })
+    fireEvent.pointerUp(stage, { pointerId: 1, clientX: 370, clientY: 300 })
+    const rightEdgeWord = screen.getAllByTestId('lab-word').at(-1) as HTMLElement
+    fireEvent.pointerDown(rightEdgeWord, { pointerId: 5, clientX: 370, clientY: 300 })
+    fireEvent.pointerUp(rightEdgeWord, { pointerId: 5, clientX: 370, clientY: 300 })
+    fireEvent.pointerDown(stage, { pointerId: 2, clientX: 20, clientY: 300 })
+    fireEvent.pointerUp(stage, { pointerId: 2, clientX: 20, clientY: 300 })
+    fireEvent.pointerDown(stage, { pointerId: 3, clientX: 330, clientY: 300 })
+    fireEvent.pointerUp(stage, { pointerId: 3, clientX: 60, clientY: 305 })
+    fireEvent.pointerDown(stage, { pointerId: 4, clientX: 195, clientY: 500 })
+    fireEvent.pointerUp(stage, { pointerId: 4, clientX: 195, clientY: 500 })
+
+    expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, 1, -1, 1])
   })
 })
 
@@ -1940,7 +2073,7 @@ function sourceWithManyWords() {
 }
 
 describe('lab read listen place and paused chrome', () => {
-  it('mid-book −15 seeks 15s of audio and does not reset to clip 0 / word 0', async () => {
+  it('mid-book Play/Pause does not reset to clip 0 / word 0', async () => {
     const audio = new FakeAudio()
     audio.duration = 40
     vi.stubGlobal('Audio', class {
@@ -1957,10 +2090,11 @@ describe('lab read listen place and paused chrome', () => {
     audio.currentTime = 40
     act(() => { audio.emit('timeupdate') })
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('0')
-    fireEvent.click(screen.getByTestId('lab-hearing-back'))
-    expect(audio.currentTime).toBe(25)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.currentTime).toBe(40)
+    expect(audio.paused).toBe(true)
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('0')
-    expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     const current = screen.queryByTestId('lab-hearing-current')
     expect(current?.textContent || '').not.toMatch(/^\s*w0\s*$/)
@@ -2064,7 +2198,7 @@ describe('lab read listen place and paused chrome', () => {
     expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
   })
 
-  it('shows page-turn only while paused and transport while playing', async () => {
+  it('keeps the same page rail while Play changes to Pause', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -2079,11 +2213,11 @@ describe('lab read listen place and paused chrome', () => {
     })
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
     expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy()
     expect(screen.getByTestId('lab-bottom-chrome').contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
 
-    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    fireEvent.click(screen.getByTestId('lab-listen'))
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
     expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
@@ -2201,10 +2335,9 @@ describe('lab read listen place and paused chrome', () => {
 
 
 describe('lab page turn identity', () => {
-  it('Previous from page 5 lands on page 4 and Next returns to page 5', async () => {
+  it('Previous from page 5 lands on page 4 and Next returns to page 5', () => {
     render(<LabApp pathname="/lab/phone" source={sourceWithFivePages()} />)
-    const progress = () => phoneProgressInfo()
-    await waitForPhoneProgress()
+    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
     expect(progress()).toContain('1 / 5')
     for (let i = 0; i < 4; i++) fireEvent.click(screen.getByTestId('lab-page-next'))
     expect(progress()).toContain('5 / 5')
@@ -2216,14 +2349,13 @@ describe('lab page turn identity', () => {
     expect(document.querySelector('.lab-hearing-line')?.textContent).toContain('p4w0')
   })
 
-  it('keeps the same N/M denominator while flipping pages', async () => {
+  it('keeps the same N/M denominator while flipping pages', () => {
     render(<LabApp pathname="/lab/phone" source={sourceWithFivePages()} />)
     const denom = () => {
-      const text = phoneProgressInfo()
+      const text = screen.getByTestId('lab-chapter-progress').textContent || ''
       const match = text.match(/(\d+)\s*\/\s*(\d+)/)
       return match ? match[2] : ''
     }
-    await waitForPhoneProgress()
     const frozen = denom()
     expect(frozen).toBe('5')
     for (let i = 0; i < 4; i++) {
@@ -2276,7 +2408,7 @@ describe('lab page turn identity', () => {
     expect(nm().text).toMatch(/1 \/ 5/)
   })
 
-  it('Genesis 1 phone: after the page list exists, every page reports the same M', async () => {
+  it('Genesis 1 phone: after the page list exists, every page reports the same M', () => {
     const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),
@@ -2290,11 +2422,10 @@ describe('lab page turn identity', () => {
       ],
     }} />)
     const nm = () => {
-      const text = phoneProgressInfo()
+      const text = screen.getByTestId('lab-chapter-progress').textContent || ''
       const match = text.match(/(\d+)\s*\/\s*(\d+)/)
       return match ? { n: Number(match[1]), m: Number(match[2]), text } : { n: 0, m: 0, text }
     }
-    await waitForPhoneProgress()
     const first = nm()
     expect(first.m).toBeGreaterThan(1)
     expect(first.n).toBe(1)
@@ -2327,7 +2458,7 @@ describe('lab page turn identity', () => {
 })
 
 describe('lab after-paint shrink', () => {
-  function stubTooTallFirstPack(chromeTop: number | (() => number) = 400) {
+  function stubTooTallFirstPack() {
     const proto = HTMLElement.prototype
     const original = proto.getBoundingClientRect
     proto.getBoundingClientRect = function getBoundingClientRect() {
@@ -2339,8 +2470,7 @@ describe('lab after-paint shrink', () => {
         || this.classList?.contains('lab-phone-transport')
         || this.classList?.contains('lab-hearing-transport')
       ) {
-        const top = typeof chromeTop === 'function' ? chromeTop() : chromeTop
-        return { top, bottom: top + 80, height: 80, width: 390, left: 0, right: 390, x: 0, y: top, toJSON() {} }
+        return { top: 400, bottom: 480, height: 80, width: 390, left: 0, right: 390, x: 0, y: 400, toJSON() {} }
       }
       if (this.classList?.contains('lab-hearing-line')) {
         const words = (this.textContent || '').replace(/Keep this passage/g, '').trim().split(/\s+/).filter(Boolean).length
@@ -2395,7 +2525,7 @@ describe('lab after-paint shrink', () => {
     }
   })
 
-  it('peels visible overflow after settle when the stub paints ink on the bar', async () => {
+  it('rechecks a visible page after settle and peels it if browser paint overflows', async () => {
     const restore = stubTooTallFirstPack()
     try {
       render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
@@ -2403,6 +2533,11 @@ describe('lab after-paint shrink', () => {
       await waitFor(() => {
         expect(lineWords().length).toBeLessThan(firstWords.length)
       })
+      const nm = () => {
+        const text = screen.getByTestId('lab-chapter-progress').textContent || ''
+        const match = text.match(/(\d+)\s*\/\s*(\d+)/)
+        return match ? { n: Number(match[1]), m: Number(match[2]) } : { n: 0, m: 0 }
+      }
       let prev = lineWords().length
       let stable = 0
       for (let i = 0; i < 24; i++) {
@@ -2417,65 +2552,35 @@ describe('lab after-paint shrink', () => {
         }
         if (stable >= 6) break
       }
-      await waitForPhoneProgress()
       const settled = lineWords().join(' ')
-      const nm = () => {
-        const text = phoneProgressInfo()
-        const match = text.match(/(\d+)\s*\/\s*(\d+)/)
-        return match ? { n: Number(match[1]), m: Number(match[2]) } : { n: 0, m: 0 }
-      }
-      const frozenM = nm().m
-      expect(frozenM).toBeGreaterThan(1)
-      fireEvent.click(screen.getByTestId('lab-page-next'))
-      await waitFor(() => {
-        expect(lineWords().length).toBeLessThan(80)
-      })
-      expect(lineWords().join(' ')).not.toBe(settled)
-      expect(nm().m).toBeGreaterThanOrEqual(frozenM)
-    } finally {
-      restore()
-    }
-  })
-
-  it('refits the reading page when returning from Talk adds a notice to the footer', async () => {
-    const restore = stubTooTallFirstPack(() => (
-      screen.queryByTestId('lab-root')?.classList.contains('has-notice') ? 280 : 400
-    ))
-    try {
-      render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} authToken={null} />)
-      await waitFor(() => {
-        expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
-      })
-      const beforeNotice = lineWords().length
-      fireEvent.click(screen.getByTestId('lab-phone-talk'))
-      expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
-      fireEvent.click(screen.getByTestId('lab-listen'))
-      expect(screen.getByTestId('lab-root').className).toContain('has-notice')
-      await waitFor(() => {
-        expect(lineWords().length).toBeLessThan(beforeNotice)
-        expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
-      })
-    } finally {
-      restore()
-    }
-  })
-
-  it('cancels obsolete fitting passes during rapid back-and-forth navigation', async () => {
-    const restore = stubTooTallFirstPack()
-    try {
-      render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
-      await waitForPhoneProgress()
-      fireEvent.click(screen.getByTestId('lab-page-next'))
-      fireEvent.click(screen.getByTestId('lab-page-prev'))
-      fireEvent.click(screen.getByTestId('lab-page-next'))
-      for (let i = 0; i < 28; i++) {
+      const frozen = nm()
+      expect(frozen.m).toBeGreaterThan(1)
+      expect(frozen.n).toBeLessThanOrEqual(frozen.m)
+      for (let i = 0; i < 8; i++) {
         await act(async () => {
           await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
         })
       }
-      expect(phoneProgressInfo()).toMatch(/^2\s*\/\s*\d+$/)
-      expect(screen.getByTestId('lab-root').getAttribute('data-page-pending')).toBe('false')
-      expect(lineWords().length).toBeGreaterThan(0)
+      expect(lineWords().join(' ')).toBe(settled)
+      expect(nm()).toEqual(frozen)
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      const page2 = lineWords().join(' ')
+      expect(page2).not.toBe(settled)
+      const afterNext = nm()
+      expect(afterNext.m).toBe(frozen.m)
+      expect(afterNext.n).toBeLessThanOrEqual(afterNext.m)
+      for (let i = 0; i < 6; i++) {
+        await act(async () => {
+          await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
+        })
+      }
+      const correctedPage2 = lineWords().join(' ')
+      expect(correctedPage2).not.toBe(page2)
+      expect(correctedPage2.split(/\s+/).length).toBeLessThan(page2.split(/\s+/).length)
+      expect(nm().m).toBeGreaterThanOrEqual(frozen.m)
+      fireEvent.click(screen.getByTestId('lab-page-prev'))
+      expect(lineWords().join(' ')).toBe(settled)
+      expect(nm().n).toBe(1)
     } finally {
       restore()
     }
@@ -2636,12 +2741,9 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-header-work').textContent).toBe('The Bible')
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toContain('∨')
-    expect(screen.getByTestId('lab-header-chapter').contains(screen.getByTestId('lab-wordmark'))).toBe(false)
+    expect(screen.queryByTestId('lab-wordmark')).toBeNull()
     expect(screen.getByTestId('lab-header-chapter').contains(screen.getByTestId('lab-header-work'))).toBe(false)
-    expect(screen.getByTestId('lab-wordmark').tagName).not.toBe('BUTTON')
-    expect(screen.getByTestId('lab-header-work').tagName).not.toBe('BUTTON')
-    fireEvent.click(screen.getByTestId('lab-wordmark'))
-    expect(screen.queryByTestId('lab-toc')).toBeNull()
+    expect(screen.getByTestId('lab-header-work').tagName).toBe('H1')
     fireEvent.click(screen.getByTestId('lab-header-work'))
     expect(screen.queryByTestId('lab-toc')).toBeNull()
     fireEvent.touchStart(screen.getByTestId('lab-page-wrap'), { touches: [{ clientY: 100 }] })
@@ -2673,8 +2775,8 @@ describe('lab chrome pass', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
-    await waitForPhoneProgress()
-    expect(phoneProgressInfo()).toMatch(/^\s*1\s*\/\s*\d+\s*$/)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/Genesis 2/)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/Chapter 2/)
     expect(screen.queryByTestId('lab-toc')).toBeNull()
   })
 
@@ -2781,22 +2883,24 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
   })
 
-  it('hides Play Chat Talk in read fullscreen and keeps the text progress', () => {
+  it('shows only the reading text in fullscreen and retains a subtle visible exit control', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
     fireEvent.click(screen.getByTestId('lab-fullscreen'))
     expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true')
-    expect(screen.getByTestId('lab-fullscreen').querySelector('[data-icon="close"]')).toBeTruthy()
     expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
-    expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
-    expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-fullscreen'))
+    expect(screen.queryByTestId('lab-chapter-progress')).toBeNull()
+    expect(screen.queryByTestId('lab-page-turn')).toBeNull()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
+    expect(screen.getByTestId('lab-fullscreen-exit')).toBeTruthy()
+    expect(screen.getByTestId('lab-fullscreen-exit').querySelector('[data-icon="close"]')).toBeTruthy()
+    expect(document.querySelector('.lab-header')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-fullscreen-exit'))
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
   })
 
-  it('persists Layout knobs, uses a labelled size stepper, and renders percent progress', async () => {
+  it('persists Layout knobs and uses cheap progress formats', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
-    await waitForPhoneProgress()
     fireEvent.click(screen.getByTestId('lab-gear'))
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     fireEvent.click(screen.getByText('Night'))
@@ -2811,12 +2915,9 @@ describe('lab chrome pass', () => {
       expect(ink).not.toBe('rgb(11, 11, 11)')
       expect(getComputedStyle(word).color).toBe(ink)
     }
-    expect(screen.getByTestId('lab-font-size').textContent).toContain('Default')
-    fireEvent.click(screen.getByTestId('lab-font-size-increase'))
-    expect(screen.getByTestId('lab-font-size').textContent).toContain('Large')
     fireEvent.click(screen.getByText('%'))
-    expect(phoneProgressInfo()).toMatch(/^\d+%$/)
-    expect(phoneProgressInfo()).not.toContain('/')
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/%/)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/% ch/)
   })
 })
 

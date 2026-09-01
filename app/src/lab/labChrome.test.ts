@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, preferVisiblePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, stabilizeLabPageMetrics } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -101,17 +101,36 @@ describe('lab visual viewport height', () => {
   })
 })
 
+describe('lab settled page geometry', () => {
+  it('invalidates page breaks when the readable box changes size', () => {
+    const settled = { width: 390, height: 844 }
+    expect(labPageGeometryChanged(settled, { width: 375, height: 667 })).toBe(true)
+    expect(labPageGeometryChanged(settled, { width: 390, height: 720 })).toBe(true)
+    expect(labPageGeometryChanged(settled, { width: 390.5, height: 843.5 })).toBe(false)
+    expect(labPageGeometryChanged(null, settled)).toBe(false)
+  })
+})
+
+describe('lab page gestures', () => {
+  it('maps horizontal swipes and ignores vertical selection-like movement', () => {
+    expect(labSwipePageDirection(-70, 8)).toBe(1)
+    expect(labSwipePageDirection(70, -8)).toBe(-1)
+    expect(labSwipePageDirection(30, 2)).toBeNull()
+    expect(labSwipePageDirection(70, 65)).toBeNull()
+  })
+
+  it('turns only from the outer thirds', () => {
+    expect(labTapPageDirection(20, 0, 390)).toBe(-1)
+    expect(labTapPageDirection(370, 0, 390)).toBe(1)
+    expect(labTapPageDirection(195, 0, 390)).toBeNull()
+  })
+})
+
 describe('lab chrome inset invariant', () => {
-  it('keeps typography samples stable while only page text changes', () => {
-    const current = { height: 674, width: 354, lineHeight: 52, headlineHeight: 66, avgCharWidth: 17 }
-    const nextPageSample = { height: 674, width: 354, lineHeight: 52, headlineHeight: 0, avgCharWidth: 12 }
-    expect(stabilizeLabPageMetrics(current, nextPageSample, 66)).toEqual(current)
-    expect(stabilizeLabPageMetrics(current, { ...nextPageSample, height: 773 }, 66)).toEqual({
-      ...nextPageSample,
-      height: 773,
-      headlineHeight: 66,
-      avgCharWidth: 17,
-    })
+  it('keeps the glyph sample stable when only page text changes', () => {
+    const current = { height: 520, width: 360, lineHeight: 40, headlineHeight: 64, avgCharWidth: 11 }
+    const nextPage = { height: 520, width: 360, lineHeight: 40, headlineHeight: 0, avgCharWidth: 4 }
+    expect(stabilizeLabPageMetrics(current, nextPage, 64)).toEqual(current)
   })
 
   it('insets by the measured chrome height plus 8px, never a guessed rem', () => {
@@ -121,9 +140,9 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('keeps last content bottom strictly above chrome top', () => {
-    // Invariant: last content bottom y < chrome top y - LAB_OVERFLOW_CLEAR_PX.
-    expect(lastContentClearsChrome(583, 600)).toBe(true)
-    expect(lastContentClearsChrome(584, 600)).toBe(false)
+    // Invariant: last content bottom y < chrome top y - 12px.
+    expect(lastContentClearsChrome(587, 600)).toBe(true)
+    expect(lastContentClearsChrome(588, 600)).toBe(false)
     expect(lastContentClearsChrome(599, 600)).toBe(false)
     expect(lastContentClearsChrome(600, 600)).toBe(false)
     expect(lastContentClearsChrome(640, 600)).toBe(false)
@@ -134,6 +153,14 @@ describe('lab chrome inset invariant', () => {
     expect(nextPaintShrinkTo(0, 80, 0)).toBe(70)
     expect(nextPaintShrinkTo(0, 2, 8)).toBe(1)
     expect(nextPaintShrinkTo(10, 11, 4)).toBe(11)
+  })
+
+  it('does not regrow a page after finalizing the result of a trial grow', () => {
+    expect(shouldGrowPaintedPage(null, 80, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('peel', 80, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('grow', 80, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('polish', 80, 40)).toBe(false)
+    expect(shouldGrowPaintedPage('polish', 101, 40)).toBe(true)
   })
 
   it('does not eat Genesis page 1 down to the verse number when last-line count is the whole pack', () => {
@@ -223,7 +250,7 @@ describe('lab chrome inset invariant', () => {
 
   it('keeps last ink above the bar after a shrink step', () => {
     expect(nextPaintShrinkTo(0, 80, 8, 121, 36)).toBeLessThan(72)
-    expect(lastContentClearsChrome(543, 560)).toBe(true)
+    expect(lastContentClearsChrome(547, 560)).toBe(true)
     expect(settlePageTotal(15, 14)).toBe(15)
     expect(settlePageTotal(14, 15)).toBe(14)
     expect(settlePageTotal(12, 12)).toBe(12)
@@ -231,8 +258,8 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('treats inner passage/wrap scroll or last ink on the bar as an invalid page', () => {
-    expect(labPageFitsPaint({ lastBottom: 543, chromeTop: 560 })).toBe(true)
-    expect(labPageFitsPaint({ lastBottom: 544, chromeTop: 560 })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560 })).toBe(true)
+    expect(labPageFitsPaint({ lastBottom: 548, chromeTop: 560 })).toBe(false)
     expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560, scrollOverflow: true })).toBe(false)
     document.body.innerHTML = `
       <div class="lab-page-wrap">
@@ -272,55 +299,6 @@ describe('lab chrome inset invariant', () => {
     } finally {
       Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
     }
-  })
-
-  it('measurePaintedOverflow uses pager wrapper top clamped to visualViewport', () => {
-    document.body.innerHTML = `
-      <div class="lab-page-wrap">
-        <p class="lab-hearing-line"><span>word</span></p>
-      </div>
-      <div class="lab-bottom-chrome">
-        <nav class="lab-page-turn"></nav>
-        <footer class="lab-phone-bar"></footer>
-      </div>
-    `
-    const wrap = document.querySelector('.lab-page-wrap') as HTMLElement
-    const chrome = document.querySelector('.lab-bottom-chrome') as HTMLElement
-    const word = document.querySelector('span') as HTMLElement
-    chrome.getBoundingClientRect = () => ({ top: 560, bottom: 720, height: 160, width: 390, left: 0, right: 390, x: 0, y: 560, toJSON() {} })
-    word.getBoundingClientRect = () => ({ top: 600, bottom: 640, height: 40, width: 40, left: 15, right: 55, x: 15, y: 600, toJSON() {} })
-    const original = window.visualViewport
-    Object.defineProperty(window, 'visualViewport', {
-      configurable: true,
-      value: { height: 628, offsetTop: 0, addEventListener() {}, removeEventListener() {} },
-    })
-    try {
-      const painted = measurePaintedOverflow(wrap, chrome)
-      expect(painted).not.toBeNull()
-      expect(painted!.chromeTop).toBe(560)
-      expect(labPageFitsPaint(painted!)).toBe(false)
-    } finally {
-      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
-    }
-  })
-
-  it('prefers visible paint when the measure host falsely fits', () => {
-    document.body.innerHTML = `
-      <div class="lab-page-measure"><p class="lab-hearing-line"><span>host</span></p></div>
-      <article class="lab-passage"><p class="lab-hearing-line"><span>visible</span></p></article>
-      <div class="lab-bottom-chrome"></div>
-    `
-    const visible = document.querySelector('.lab-passage') as HTMLElement
-    const chrome = document.querySelector('.lab-bottom-chrome') as HTMLElement
-    const hostWord = document.querySelector('.lab-page-measure span') as HTMLElement
-    const visibleWord = visible.querySelector('span') as HTMLElement
-    chrome.getBoundingClientRect = () => ({ top: 560, bottom: 720, height: 160, width: 390, left: 0, right: 390, x: 0, y: 560, toJSON() {} })
-    hostWord.getBoundingClientRect = () => ({ top: 500, bottom: 540, height: 40, width: 40, left: 0, right: 40, x: 0, y: 500, toJSON() {} })
-    visibleWord.getBoundingClientRect = () => ({ top: 610, bottom: 650, height: 40, width: 40, left: 0, right: 40, x: 0, y: 610, toJSON() {} })
-    const hostPainted = { lastBottom: 540, chromeTop: 560, lineHeight: 40, lastLineWords: 1, scrollOverflow: false }
-    const merged = preferVisiblePaintedOverflow(hostPainted, visible, chrome, true)
-    expect(merged).not.toBeNull()
-    expect(labPageFitsPaint(merged!)).toBe(false)
   })
 
   it('uses ink rects so a stretched hearing line does not look like overflow', () => {
@@ -365,9 +343,6 @@ describe('lab paused vs playing chrome slot', () => {
     expect(labShowPageTurn({ playing: false, phoneAsk: false, pageCount: 1 })).toBe(false)
     expect(labShowPageTurn({ playing: false, phoneAsk: false, pageCount: 1, canNextChapter: true })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: false, pageCount: 1, playing: false, canNextChapter: true })).toBe(true)
-    expect(labShowSlimTransport({ playing: true, phoneAsk: false })).toBe(true)
-    expect(labShowSlimTransport({ playing: false, phoneAsk: false })).toBe(false)
-    expect(labShowSlimTransport({ playing: true, phoneAsk: true })).toBe(false)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: true, pageCount: 3, playing: false })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: true, pageCount: 3, playing: true })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: true, phoneChrome: true, pageCount: 3, playing: false })).toBe(false)

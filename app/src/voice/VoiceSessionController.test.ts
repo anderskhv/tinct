@@ -261,6 +261,70 @@ describe('VoiceSessionController production continuity', () => {
     })
   })
 
+  it('adds application-owned controls to the production tool set', () => {
+    const sent: string[] = []
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      context: CONTEXT,
+      send: data => sent.push(data),
+      applicationTools: [{
+        type: 'function',
+        name: 'open_tinct_view',
+        parameters: { type: 'object', properties: {} },
+      }],
+    })
+
+    const update = sent.map(item => JSON.parse(item)).find(item => item.type === 'session.update')
+    expect(update.session.tools.map((tool: { name: string }) => tool.name)).toEqual([
+      'resume_audiobook',
+      'end_voice_session',
+      'hold_voice_session',
+      'open_tinct_view',
+    ])
+  })
+
+  it('executes an application tool, attaches its output, and asks for a short spoken result', async () => {
+    const sent: string[] = []
+    const onApplicationTool = vi.fn(async () => ({
+      output: { ok: true, view: 'library' },
+      responseInstructions: 'Say the Library is open.',
+    }))
+    const controller = new VoiceSessionController({
+      onSnapshot: () => { /* unused */ },
+      onTurn: () => { /* unused */ },
+      onApplicationTool,
+    })
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      context: CONTEXT,
+      send: data => sent.push(data),
+      applicationTools: [{ type: 'function', name: 'open_tinct_view' }],
+    })
+
+    await controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'open_tinct_view',
+      call_id: 'call-library',
+      arguments: JSON.stringify({ view: 'library' }),
+    })
+
+    expect(onApplicationTool).toHaveBeenCalledWith('open_tinct_view', { view: 'library' }, 'call-library')
+    const events = sent.map(item => JSON.parse(item))
+    expect(events).toContainEqual(expect.objectContaining({
+      type: 'conversation.item.create',
+      item: expect.objectContaining({
+        type: 'function_call_output',
+        call_id: 'call-library',
+        output: JSON.stringify({ handled_by: 'tinct', ok: true, view: 'library' }),
+      }),
+    }))
+    expect(events).toContainEqual({
+      type: 'response.create',
+      response: { instructions: 'Say the Library is open.' },
+    })
+  })
+
   it('reports first-audio latency separately for the first and second turns', () => {
     let clock = 100
     vi.stubGlobal('performance', { now: () => clock })
@@ -451,6 +515,41 @@ describe('VoiceSessionController lab honor resume', () => {
     })
     expect(audio.resumePlayback).not.toHaveBeenCalled()
     expect(controller.getSnapshot().state).not.toBe('reading')
+  })
+
+  it('ends Talk after a spoken goodbye and restores an audiobook that was playing', () => {
+    withWindowTimers()
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true })
+    controller.testRealtime({
+      type: 'conversation.item.input_audio_transcription.completed',
+      transcript: "Okay thanks, that's it for now.",
+    })
+    expect(controller.getSnapshot().state).not.toBe('reading')
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(controller.getSnapshot().state).toBe('reading')
+    expect(audio.resumePlayback).toHaveBeenCalledTimes(1)
+  })
+
+  it('ends Talk after bye without starting an audiobook that was already paused', () => {
+    withWindowTimers()
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: false })
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false })
+    controller.testRealtime({
+      type: 'conversation.item.input_audio_transcription.completed',
+      transcript: 'Bye.',
+    })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(controller.getSnapshot().state).toBe('reading')
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
   })
 
   it('applies set_playback_speed on the lab honor path', () => {
@@ -1212,7 +1311,7 @@ describe('VoiceSessionController ask_companion hop', () => {
     const output = events.find(item => item.type === 'conversation.item.create')
     expect(query).toHaveBeenCalledWith('what does this mean', expect.any(Object))
     expect(covers).toHaveLength(1)
-    expect(covers[0].response.instructions).toContain('Give me a second to pull together a good response.')
+    expect(covers[0].response.instructions).toContain('Let me look at the passage.')
     expect(output.item.output).toContain('Telemachus is being given a path.')
     expect(spoken).toHaveLength(1)
     expect(spoken[0].response.instructions).toContain('Do not invent a thinner substitute')

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { Fragment, useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
@@ -9,9 +9,10 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, pageSpans, readingPageLines } from './labHearing'
+import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
+import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
 
@@ -33,7 +34,7 @@ interface LabPassageProps {
   onCycleSpeed?: () => void
   hideTransport?: boolean
   markedIndexes: Set<number>
-  onMark: (index: number) => void
+  onMark?: (index: number) => void
   focusParagraph?: number | null
   dimmed?: boolean
   peek?: boolean
@@ -45,25 +46,64 @@ interface LabPassageProps {
   onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
   browseWhileListening?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
-  pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
+  onPageTurn?: (direction: LabPageTurnDirection) => void
 }
 
-function wordSpacing(word: { text: string }, wordIndex: number): string {
-  return wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''
+function wordSpacing(
+  word: { text: string },
+  wordIndex: number,
+  previous?: { text: string },
+): string {
+  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
+  return previous && isLabVerseMarker(previous.text) ? '' : ' '
 }
 
-function renderWordText(text: string) {
+function renderWordText(text: string, hasFollowingWord = false) {
   if (!isLabVerseMarker(text)) return text
-  return <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
+  return (
+    <span className="lab-verse-mark">
+      {labVerseMarkerDisplay(text)}
+      {hasFollowingWord ? '\u00a0' : ''}
+    </span>
+  )
+}
+
+function renderWordGroups<T extends { text: string }>(
+  words: T[],
+  renderWord: (word: T, wordIndex: number) => ReactNode,
+): ReactNode[] {
+  const rendered: ReactNode[] = []
+  for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
+    const word = words[wordIndex]
+    if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
+      rendered.push(
+        <Fragment key={`verse-${wordIndex}`}>
+          {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+          <span className="lab-verse-unit">
+            {renderWord(word, wordIndex)}
+            {renderWord(words[wordIndex + 1], wordIndex + 1)}
+          </span>
+        </Fragment>,
+      )
+      wordIndex += 1
+    } else {
+      rendered.push(
+        <Fragment key={`word-${wordIndex}`}>
+          {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {renderWord(word, wordIndex)}
+        </Fragment>,
+      )
+    }
+  }
+  return rendered
 }
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {line.words.map((word, wordIndex) => (
-        <span key={`${lineIndex}-${wordIndex}`}>
-          {wordSpacing(word, wordIndex)}
-          {renderWordText(word.text)}
+      {renderWordGroups(line.words, (word, wordIndex) => (
+        <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
+          {renderWordText(word.text, wordIndex < line.words.length - 1)}
         </span>
       ))}
     </p>
@@ -73,28 +113,34 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
 function renderHearingWords(
   paragraph: FollowParagraph | undefined,
   follow: FollowTarget,
+  paragraphs: string[],
+  readingPage?: ChapterHearingPage,
   chapterPages?: ChapterHearingPage[],
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
 ) {
-  const paragraphIndex = paragraph?.index ?? 0
-  const lines = hearingStageLines(paragraph, follow, chapterPages)
+  const fallbackParagraphIndex = paragraph?.index ?? 0
+  const lines = readingPage
+    ? hearingReadingPageLines(paragraphs, readingPage, follow)
+    : hearingStageLines(paragraph, follow, chapterPages)
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {line.words.map((word, wordIndex) => (
-        <span
-          key={`${lineIndex}-${wordIndex}`}
-          className={`lab-hearing-word is-${word.role}`}
-          data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
-          data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
-          data-word-index={word.wordIndex}
-          onClick={word.wordIndex != null && onSeekToWord
-            ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
-            : undefined}
-        >
-          {wordSpacing(word, wordIndex)}
-          {renderWordText(word.text)}
-        </span>
-      ))}
+      {renderWordGroups(line.words, (word, wordIndex) => {
+        const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
+        return (
+          <span
+            key={`${lineIndex}-${wordIndex}`}
+            className={`lab-hearing-word is-${word.role}`}
+            data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+            data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
+            data-word-index={word.wordIndex}
+            onClick={word.wordIndex != null && onSeekToWord
+              ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
+              : undefined}
+          >
+            {renderWordText(word.text, wordIndex < line.words.length - 1)}
+          </span>
+        )
+      })}
     </p>
   ))
 }
@@ -138,7 +184,7 @@ export function LabPassage({
   onSelectRange,
   browseWhileListening = false,
   onSeekToWord,
-  pageTurn,
+  onPageTurn,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -155,14 +201,17 @@ export function LabPassage({
     : followParagraphs.find(item => item.index === linesFollow.paragraphIndex) || followParagraphs[clipIndex]
   const readingLines = readingPageLines(paragraphs, readingPage)
   const showHeadline = followActive && linesFollow.kind === 'word'
-    ? isChapterFirstHearingPage(paragraph, linesFollow, chapterPages)
+    ? (readingPage
+        ? isChapterFirstReadingPage(readingPage)
+        : isChapterFirstHearingPage(paragraph, linesFollow, chapterPages))
     : isChapterFirstReadingPage(readingPage)
 
   const dragRef = useRef<{
-    start: LabWordPlace
-    end: LabWordPlace
+    start: LabWordPlace | null
+    end: LabWordPlace | null
+    startX: number
+    startY: number
     startedAt: number
-    pointerType: string
   } | null>(null)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
@@ -171,23 +220,32 @@ export function LabPassage({
     const drag = dragRef.current
     dragRef.current = null
     setLocalSelecting(null)
-    if (!drag || !onSelectRange) return
+    if (!drag?.start || !drag.end || !onSelectRange) return
     const range = buildHighlightRange(paragraphs, drag.start, drag.end)
     if (!range.text.trim()) return
-    const singleWord = drag.start.paragraphIndex === drag.end.paragraphIndex
-      && drag.start.wordIndex === drag.end.wordIndex
-    if (singleWord && drag.pointerType === 'touch' && Date.now() - drag.startedAt < 280) return
     onSelectRange(range, event.clientX, event.clientY)
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
-    if (!onSelectRange || hearing || onSeekToWord || (event.target as HTMLElement).closest('.lab-mark-btn')) return
+    if (hearing || (event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
     const place = wordPlaceFromTarget(event.target)
-    if (!place) return
-    event.preventDefault()
+    if (place && onSeekToWord) return
+    if (!place && !onPageTurn) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const edgeTurn = onPageTurn
+      ? labTapPageDirection(event.clientX, rect.left, rect.width)
+      : null
+    const selectionPlace = edgeTurn == null ? place : null
+    if (selectionPlace && onSelectRange) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
-    dragRef.current = { start: place, end: place, startedAt: Date.now(), pointerType: event.pointerType }
-    setLocalSelecting(buildHighlightRange(paragraphs, place, place))
+    dragRef.current = {
+      start: selectionPlace,
+      end: selectionPlace,
+      startX: event.clientX,
+      startY: event.clientY,
+      startedAt: event.timeStamp,
+    }
+    if (selectionPlace && onSelectRange) setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
   }
 
   const onPointerMove = (event: React.PointerEvent) => {
@@ -197,11 +255,35 @@ export function LabPassage({
       || wordPlaceFromTarget(document.elementFromPoint(event.clientX, event.clientY))
     if (!place) return
     drag.end = place
-    setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+    if (drag.start && onSelectRange) {
+      setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+    }
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
-    if (!dragRef.current) return
+    const drag = dragRef.current
+    if (!drag) return
+    const deltaX = event.clientX - drag.startX
+    const deltaY = event.clientY - drag.startY
+    const duration = Math.max(0, event.timeStamp - drag.startedAt)
+    const swipe = onPageTurn && !selectingRange
+      ? labSwipePageDirection(deltaX, deltaY)
+      : null
+    const rect = event.currentTarget.getBoundingClientRect()
+    const tap = onPageTurn
+      && !selectingRange
+      && Math.abs(deltaX) <= 10
+      && Math.abs(deltaY) <= 10
+      && duration <= 500
+      ? labTapPageDirection(event.clientX, rect.left, rect.width)
+      : null
+    const direction = swipe ?? tap
+    if (direction != null) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      onPageTurn?.(direction)
+      return
+    }
     finishPointerSelection(event)
   }
 
@@ -239,7 +321,7 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, chapterPages, onSeekToWord)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, readingPage, chapterPages, onSeekToWord)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (
@@ -252,17 +334,14 @@ export function LabPassage({
             <div
               className="lab-hearing-stage"
               data-testid="lab-reading-stage"
-              data-page-turn={pageTurn?.direction}
-              key={pageTurn?.nonce ?? 0}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerEnd}
               onPointerCancel={onPointerCancel}
             >
               {readingLines.map((line, lineIndex) => {
-                const span = readingPage ? pageSpans(readingPage)[lineIndex] : undefined
-                const paragraphIndex = span?.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
-                const wordBase = span?.from ?? readingPage?.from ?? 0
+                const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+                const wordBase = line.from ?? readingPage?.from ?? 0
                 return (
                   <p
                     key={lineIndex}
@@ -273,7 +352,7 @@ export function LabPassage({
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
                     ].filter(Boolean).join(' ')}
                   >
-                    {line.words.map((word, wordIndex) => {
+                    {renderWordGroups(line.words, (word, wordIndex) => {
                       const absoluteWord = wordBase + wordIndex
                       const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
                       const selecting = activeSelecting
@@ -292,18 +371,19 @@ export function LabPassage({
                               }
                             : undefined}
                         >
-                          {wordSpacing(word, wordIndex)}
-                          {renderWordText(word.text)}
+                          {renderWordText(word.text, wordIndex < line.words.length - 1)}
                         </span>
                       )
                     })}
-                    <button
-                      type="button"
-                      className="lab-mark-btn"
-                      onClick={() => onMark(paragraphIndex)}
-                    >
-                      {LAB_COPY.markAction}
-                    </button>
+                    {onMark && (
+                      <button
+                        type="button"
+                        className="lab-mark-btn"
+                        onClick={() => onMark(paragraphIndex)}
+                      >
+                        {LAB_COPY.markAction}
+                      </button>
+                    )}
                   </p>
                 )
               })}
@@ -312,12 +392,14 @@ export function LabPassage({
         </div>
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
-            {readingPage ? pageSpans(readingPage).map((span) => {
+            {readingLines.map((line, lineIndex) => {
               const source = compareParagraphs.length > 0 ? compareParagraphs : paragraphs
-              const words = source[span.paragraphIndex]?.split(/\s+/).filter(Boolean) ?? []
-              const text = words.slice(span.from, span.to).join(' ')
-              return text ? <p key={span.paragraphIndex} className="lab-hearing-line">{text}</p> : null
-            }) : null}
+              const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+              const words = tokenizeHearingWords(source[paragraphIndex] || '')
+              const from = line.from ?? readingPage?.from ?? 0
+              const text = words.slice(from, from + line.words.length).map(word => word.text).join(' ')
+              return text ? <p key={lineIndex} className="lab-hearing-line">{text}</p> : null
+            })}
           </div>
         )}
       </div>
@@ -361,15 +443,14 @@ export function LabPageMeasurePaint(input: {
           <div className="lab-hearing-stage">
             {lines.map((line, lineIndex) => (
               <p key={lineIndex} className="lab-hearing-line">
-                {line.words.map((word, wordIndex) => (
+                {renderWordGroups(line.words, (word, wordIndex) => (
                   <span
                     key={`${lineIndex}-${wordIndex}`}
                     className={input.hearingPaint
                       ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
                       : 'lab-hearing-word'}
                   >
-                    {wordSpacing(word, wordIndex)}
-                    {renderWordText(word.text)}
+                    {renderWordText(word.text, wordIndex < line.words.length - 1)}
                   </span>
                 ))}
                 <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>

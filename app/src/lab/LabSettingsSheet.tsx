@@ -10,8 +10,6 @@ import {
 
 type SheetSection = 'reading' | 'layout'
 
-const LAB_FONT_SIZE_LABELS = ['Compact', 'Default', 'Large', 'Larger', 'Largest'] as const
-
 function Seg({
   options,
   active,
@@ -83,13 +81,6 @@ export function LabSettingsSheet({
   onOpenThisBook,
 }: LabSettingsSheetProps) {
   if (!open) return null
-  const fontSizeIndex = LAB_FONT_SIZES.reduce((nearest, size, index) => (
-    Math.abs(size - prefs.fontSize) < Math.abs(LAB_FONT_SIZES[nearest] - prefs.fontSize) ? index : nearest
-  ), 0)
-  const setFontSizeIndex = (index: number) => {
-    const size = LAB_FONT_SIZES[Math.max(0, Math.min(index, LAB_FONT_SIZES.length - 1))]
-    onPrefs({ ...prefs, fontSize: size })
-  }
   return (
     <div className="lab-ss-overlay" data-testid="lab-settings-sheet" onClick={onClose}>
       <div className="lab-ss-sheet" onClick={event => event.stopPropagation()}>
@@ -143,7 +134,7 @@ export function LabSettingsSheet({
               />
               <Row
                 label="Compare edition"
-                hint="What Compare shows beside the page."
+                hint="The edition Compare opens on mobile and shows beside the page on desktop."
                 control={(
                   <select
                     className="lab-ss-select"
@@ -159,7 +150,7 @@ export function LabSettingsSheet({
               />
               <Row
                 label="Compare"
-                hint="Split the page with the compare edition."
+                hint="Add Compare to the mobile reader and split the desktop page."
                 control={(
                   <button
                     type="button"
@@ -235,29 +226,17 @@ export function LabSettingsSheet({
                 hint="From compact to extra large."
                 control={(
                   <div className="lab-ss-sizes" data-testid="lab-font-size">
-                    <button
-                      type="button"
-                      className="lab-ss-size-step"
-                      aria-label="Decrease font size"
-                      data-testid="lab-font-size-decrease"
-                      disabled={fontSizeIndex === 0}
-                      onClick={() => setFontSizeIndex(fontSizeIndex - 1)}
-                    >
-                      A−
-                    </button>
-                    <span className="lab-ss-size-value" aria-live="polite">
-                      {LAB_FONT_SIZE_LABELS[fontSizeIndex]}
-                    </span>
-                    <button
-                      type="button"
-                      className="lab-ss-size-step"
-                      aria-label="Increase font size"
-                      data-testid="lab-font-size-increase"
-                      disabled={fontSizeIndex === LAB_FONT_SIZES.length - 1}
-                      onClick={() => setFontSizeIndex(fontSizeIndex + 1)}
-                    >
-                      A+
-                    </button>
+                    {LAB_FONT_SIZES.map(size => (
+                      <button
+                        key={size}
+                        type="button"
+                        className={`lab-ss-size${Math.abs(prefs.fontSize - size) < 0.01 ? ' is-active' : ''}`}
+                        aria-label={`Font size ${size}`}
+                        onClick={() => onPrefs({ ...prefs, fontSize: size })}
+                      >
+                        A
+                      </button>
+                    ))}
                   </div>
                 )}
               />

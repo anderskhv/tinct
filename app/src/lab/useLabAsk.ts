@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
+import { useTinctVoiceTools } from '../hooks/useTinctVoiceTools'
 import { useVoiceSession } from '../hooks/useVoiceSession'
 import { apiUrl } from '../utils/apiUrl'
+import type { TinctVoiceToolAdapter } from '../voice/tinctTools'
 import {
   applyLabVoiceTurn,
   buildLabAskInstructions,
@@ -30,9 +32,17 @@ import {
   persistLabTalkTurn,
   readLabAskTurns,
   readLabChatHistoryLocal,
+  readLabTalkHistory,
   resolveLabChatBook,
   writeLabChatHistoryLocal,
 } from './labTalkHistory'
+import {
+  buildLabVoiceControlInstructions,
+  labVoiceActionEntry,
+  mergeLabVoiceTools,
+  type LabVoiceActionEntry,
+  type LabVoiceViewSnapshot,
+} from './labVoiceControls'
 
 let labAskId = 0
 function nextId() {
@@ -52,6 +62,9 @@ export interface UseLabAskOptions {
   onResumeListen?: () => void
   onSetPlaybackSpeed?: (rate: number) => void
   onPlaybackSkip?: (kind: LabPlaybackSkip) => void | Promise<void>
+  voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
+  onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
+  onVoiceToolSessionStart?: () => void
 }
 
 export function useLabAsk(options: UseLabAskOptions) {
@@ -124,7 +137,32 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.paragraphs,
   ])
   const instructions = useMemo(() => buildLabAskInstructions(askContext), [askContext])
-  const talkInstructions = useMemo(() => buildLabTalkInstructions(askContext), [askContext])
+  const rememberedLabTurns = useMemo(() => {
+    const acrossLibrary = readLabTalkHistory()
+      .sort((a, b) => a.endTimestamp - b.endTimestamp)
+      .flatMap(conversation => conversation.messages.map(message => ({
+        role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
+        content: `${conversation.bookId}: ${message.content}`,
+        cancelled: message.isComplete === false,
+      })))
+    return acrossLibrary.length > 0 ? acrossLibrary : turns
+  }, [turns])
+  const talkInstructions = useMemo(
+    () => buildLabVoiceControlInstructions(buildLabTalkInstructions(askContext), rememberedLabTurns),
+    [askContext, rememberedLabTurns],
+  )
+  const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
+  const mergedVoiceTools = useMemo(() => mergeLabVoiceTools(LAB_VOICE_TOOLS), [])
+
+  const onTinctVoiceTool = useCallback(async (
+    name: string,
+    arguments_: Record<string, unknown>,
+    callId: string,
+  ) => {
+    const result = await tinctVoiceTools.onTool(name, arguments_, callId)
+    optionsRef.current.onVoiceToolAction?.(labVoiceActionEntry(name, arguments_, callId, result))
+    return result
+  }, [tinctVoiceTools.onTool])
 
   const onCompanionAsk = useCallback(async (question: string, notify?: CompanionAskNotify) => {
     const authToken = await resolveLabVoiceToken({
@@ -172,8 +210,6 @@ export function useLabAsk(options: UseLabAskOptions) {
       role: message.role === 'assistant' ? 'assistant' : 'user',
       content,
       source: 'voice',
-      chapterNumber: message.chapterNumber ?? optionsRef.current.chapterNumber,
-      timestamp: message.timestamp,
       cancelled: message.isComplete === false,
     }
     setTurns(current => {
@@ -212,7 +248,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
     instructions: talkInstructions,
-    tools: LAB_VOICE_TOOLS,
+    tools: mergedVoiceTools,
+    onApplicationTool: onTinctVoiceTool,
+    onSessionStart: () => {
+      tinctVoiceTools.resetUndo()
+      optionsRef.current.onVoiceToolSessionStart?.()
+    },
     onCompanionAsk,
     honorModelResume: true,
     setPlaybackSpeed: (rate) => optionsRef.current.onSetPlaybackSpeed?.(rate),
@@ -279,8 +320,6 @@ export function useLabAsk(options: UseLabAskOptions) {
       role: 'user',
       content: text,
       source: 'typed',
-      chapterNumber: options.chapterNumber,
-      timestamp: Date.now(),
     }
     setTurns(current => {
       const next = [...current, userTurn]
@@ -360,8 +399,6 @@ export function useLabAsk(options: UseLabAskOptions) {
                 role: 'assistant' as const,
                 content,
                 source: 'typed' as const,
-                chapterNumber: optionsRef.current.chapterNumber,
-                timestamp: Date.now(),
               }]
           dumpLabTalkTurns(next)
           return next
@@ -377,8 +414,6 @@ export function useLabAsk(options: UseLabAskOptions) {
           role: 'assistant',
           content: skipped.text,
           source: 'typed',
-          chapterNumber: options.chapterNumber,
-          timestamp: Date.now(),
         }
         setTurns(current => {
           const last = current[current.length - 1]

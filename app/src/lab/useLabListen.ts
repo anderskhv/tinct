@@ -26,7 +26,6 @@ export interface UseLabListenOptions {
   chapterNumber?: number
   audioEdition?: string
   createAudio?: () => HTMLAudioElement
-  onChapterEnd?: () => boolean | void
 }
 
 function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
@@ -41,7 +40,6 @@ function defaultCreateAudio(): HTMLAudioElement {
 
 export function useLabListen(options: UseLabListenOptions) {
   const [playing, setPlaying] = useState(false)
-  const [starting, setStarting] = useState(false)
   const [follow, setFollow] = useState<FollowTarget>({ kind: 'none' })
   const [src, setSrc] = useState<string | null>(null)
   const [clipIndex, setClipIndex] = useState(0)
@@ -110,7 +108,6 @@ export function useLabListen(options: UseLabListenOptions) {
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
-        if (optionsRef.current.onChapterEnd?.()) return
         try { audio.pause() } catch { /* ignore */ }
         setPlaying(false)
         setFollow({ kind: 'none' })
@@ -264,30 +261,25 @@ export function useLabListen(options: UseLabListenOptions) {
 
     const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
     if (fromSource.length > 0) {
-      const followed = chapterHasWordTimings(optionsRef.current.followParagraphs)
+      let followed = chapterHasWordTimings(optionsRef.current.followParagraphs)
         ? optionsRef.current.followParagraphs
         : paragraphsRef.current
-      const immediate = attachWords(followed, fromSource)
       if (!chapterHasWordTimings(followed)) {
-        void (async () => {
-          const sidecarRes = await fetch(labAudioSidecarUrl(chapter, edition)).catch(() => null)
-          let enriched = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
-          if (!chapterHasWordTimings(enriched)) {
-            enriched = await measureFollowParagraphWords(enriched, chapter, edition)
-          }
-          if (audioChapter() !== chapter || audioEdition() !== edition) return
-          attachWords(commitFollowParagraphs(enriched), fromSource)
-        })().catch(() => { /* paragraph-level follow remains available */ })
+        const sidecarRes = await fetch(labAudioSidecarUrl(chapter, edition)).catch(() => null)
+        followed = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
       }
-      return immediate
+      if (!chapterHasWordTimings(followed)) {
+        followed = await measureFollowParagraphWords(followed, chapter, edition)
+      }
+      followed = commitFollowParagraphs(followed)
+      return attachWords(followed, fromSource)
     }
 
     const [manifestRes, sidecarRes] = await Promise.all([
-      fetch(labAudioManifestUrl(chapter, edition)).catch(() => null),
+      fetch(labAudioManifestUrl(chapter, edition)),
       fetch(labAudioSidecarUrl(chapter, edition)).catch(() => null),
     ])
-    if (!manifestRes?.ok) return []
-    if (audioChapter() !== chapter || audioEdition() !== edition) return []
+    if (!manifestRes.ok) return []
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
     let followed = mergeSidecarWords(
       optionsRef.current.paragraphs.map((text, index) => {
@@ -307,14 +299,9 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [commitFollowParagraphs])
 
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
-    setStarting(true)
-    try {
-      const clips = await resolveClips()
-      if (clips.length === 0) return false
-      return playPlace(clips, place, true)
-    } finally {
-      setStarting(false)
-    }
+    const clips = await resolveClips()
+    if (clips.length === 0) return false
+    return playPlace(clips, place, true)
   }, [playPlace, resolveClips])
 
   const seekToPlace = useCallback((paragraphIndex: number, wordIndex: number) => {
@@ -400,7 +387,6 @@ export function useLabListen(options: UseLabListenOptions) {
 
   return {
     playing,
-    starting,
     follow,
     followParagraphs,
     clips,

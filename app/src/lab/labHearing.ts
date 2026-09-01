@@ -3,7 +3,6 @@ import {
   LAB_OVERFLOW_CLEAR_PX,
   labPageFitsPaint,
   labPageSlackPx,
-  nextPaintShrinkTo,
   shouldGrowPaintedPage,
   growWordsFromSlack,
   type LabPageAdjust,
@@ -21,6 +20,8 @@ export interface HearingWord {
 
 export interface HearingLine {
   words: HearingWord[]
+  paragraphIndex?: number
+  from?: number
 }
 
 export interface HearingProgress {
@@ -51,6 +52,90 @@ function isStrongStop(text: string): boolean {
   return /[.!?]["']?$/.test(text)
 }
 
+function isClauseStop(text: string): boolean {
+  return /[.!?:;]["']?$/.test(text)
+}
+
+const LAB_WEAK_PAGE_END_RE = /^(?:a|after|am|an|and|are|as|at|be|been|before|being|but|by|can|could|each|every|for|from|had|has|have|her|his|if|in|into|is|its|let|may|might|must|nor|of|on|or|our|shall|should|so|than|that|the|their|then|to|unto|was|were|when|where|which|who|whose|will|with|would|yet|your)$/i
+const LAB_SENTENCE_CONNECTOR_RE = /^(?:and|but|for|nor|or|so|then|yet)$/i
+
+function isCommaStop(text: string): boolean {
+  return /,["']?$/.test(text)
+}
+
+function barePageWord(text: string): string {
+  return text.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '')
+}
+
+/**
+ * Improve a fitted line break without forcing every page to end at a full
+ * stop. Mature readers fill the page first, then avoid only a short dangling
+ * connector/phrase that fits on the next line.
+ */
+export function polishPageEnd(
+  words: Array<{ text: string }>,
+  from: number,
+  to: number,
+  maxRollbackWords = 8,
+): number {
+  if (to <= from) return to
+  if (to === from + 1) return isLabVerseMarker(words[from]?.text || '') ? from : to
+  const rollbackLimit = Math.max(1, Math.min(12, maxRollbackWords))
+  let end = to
+
+  // A verse number or short function word must not sit alone at page bottom.
+  while (end > from + 1 && to - end < rollbackLimit) {
+    const text = words[end - 1]?.text || ''
+    const bare = barePageWord(text)
+    if (isClauseStop(text)) break
+    if (!isLabVerseMarker(text) && !LAB_WEAK_PAGE_END_RE.test(bare)) break
+    end -= 1
+  }
+
+  // “grass, and herb | yielding seed” is a worse boundary than
+  // “grass, | and herb yielding seed”. Keep a two-word coordinated phrase
+  // together when moving it does not discard another painted line.
+  const phraseConnector = end - 2
+  if (
+    phraseConnector > from
+    && LAB_SENTENCE_CONNECTOR_RE.test(barePageWord(words[phraseConnector]?.text || ''))
+    && isCommaStop(words[phraseConnector - 1]?.text || '')
+  ) {
+    end = phraseConnector
+  }
+
+  // Move a tiny sentence fragment such as “And God” as one unit. Never roll
+  // back more than roughly one painted line: that was the source of the large
+  // blank areas in the reported Genesis pages.
+  let priorStop = -1
+  for (let i = end - 2; i >= from; i--) {
+    if (isClauseStop(words[i].text)) {
+      priorStop = i
+      break
+    }
+  }
+  const fragmentStart = priorStop + 1
+  const fragmentWords = end - fragmentStart
+  const leadIndex = isLabVerseMarker(words[fragmentStart]?.text || '')
+    ? fragmentStart + 1
+    : fragmentStart
+  const fragmentLead = barePageWord(words[leadIndex]?.text || '')
+  const lexicalFragmentWords = end - leadIndex
+  const trimmedTailHasSpeechCue = words
+    .slice(end, to)
+    .some(word => barePageWord(word.text).toLowerCase() === 'let')
+  if (
+    priorStop >= from
+    && fragmentWords > 0
+    && fragmentWords <= rollbackLimit
+    && (lexicalFragmentWords <= 2 || (trimmedTailHasSpeechCue && lexicalFragmentWords <= 4))
+    && LAB_SENTENCE_CONNECTOR_RE.test(fragmentLead)
+  ) {
+    end = fragmentStart
+  }
+  return end > from ? end : to
+}
+
 function lastStrongStopBefore(words: Array<{ text: string }>, index: number): number {
   for (let i = index - 1; i >= 0; i--) {
     if (isStrongStop(words[i].text)) return i
@@ -77,16 +162,10 @@ export function snapShrinkEndToSentence(
   from: number,
   to: number,
   proposedTo: number,
+  maxRollbackWords = 8,
 ): number {
   if (proposedTo >= to || proposedTo <= from + 1) return proposedTo
-  const minEnd = from + 1
-  for (let i = proposedTo - 1; i >= from; i--) {
-    if (isStrongStop(words[i].text)) {
-      const end = i + 1
-      return Math.max(minEnd, end)
-    }
-  }
-  return proposedTo
+  return polishPageEnd(words, from, proposedTo, maxRollbackWords)
 }
 
 /** When a page already fits but ends mid-sentence, pull the end back to the prior stop. */
@@ -94,16 +173,9 @@ export function snapPageEndToPriorSentence(
   words: Array<{ text: string }>,
   from: number,
   to: number,
+  maxRollbackWords = 8,
 ): number {
-  if (to <= from + 1) return to
-  if (isStrongStop(words[to - 1].text)) return to
-  for (let i = to - 2; i >= from; i--) {
-    if (isStrongStop(words[i].text)) {
-      const end = i + 1
-      return end > from ? end : to
-    }
-  }
-  return to
+  return polishPageEnd(words, from, to, maxRollbackWords)
 }
 
 export function pageEndsMidSentence(words: Array<{ text: string }>, from: number, to: number): boolean {
@@ -125,11 +197,11 @@ export function growPaintedPageIfSlack(
   if (!shouldGrowPaintedPage(lastAdjust, slack, lineH)) return pages
   const fromNext = wordsAvailableOnNextPage(pages, pageIndex)
   const page = pages[pageIndex]
+  const tail = chapterPageTail(page)
   let paraTail = 0
-  if (fromNext <= 0 && paragraphs && page) {
-    const last = pageLastSpan(page)
-    const len = tokenizeHearingWords(paragraphs[last.paragraphIndex] || '').length
-    paraTail = Math.max(0, len - last.to)
+  if (fromNext <= 0 && paragraphs && tail) {
+    const len = tokenizeHearingWords(paragraphs[tail.paragraphIndex] || '').length
+    paraTail = Math.max(0, len - tail.to)
   }
   if (fromNext <= 0 && paraTail <= 0) return pages
   const words = growWordsFromSlack(painted.lastLineWords, slack, lineH)
@@ -137,54 +209,17 @@ export function growPaintedPageIfSlack(
     const grown = growPageByWords(pages, pageIndex, words)
     return sameChapterPages(grown, pages) ? pages : grown
   }
-  const last = pageLastSpan(page!)
-  const len = tokenizeHearingWords(paragraphs![last.paragraphIndex] || '').length
+  const len = tokenizeHearingWords(paragraphs![tail!.paragraphIndex] || '').length
   const grown = growPageTailInParagraph(pages, pageIndex, words, len)
   return sameChapterPages(grown, pages) ? pages : grown
-}
-
-/** Peel words when last ink sits on or below the on-screen pager/bar. */
-export function shrinkPaintedPageOverflow(
-  pages: ChapterHearingPage[],
-  pageIndex: number,
-  painted: LabPaintedOverflow,
-  paragraphs: string[],
-  budget: LabPageBudget | null,
-  opts?: { snapSentence?: boolean },
-): ChapterHearingPage[] | null {
-  if (labPageFitsPaint(painted)) return null
-  const live = pages[pageIndex]
-  if (!live) return null
-  const last = pageLastSpan(live)
-  if (last.to <= last.from + 1) return null
-  const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
-  let nextTo = nextPaintShrinkTo(last.from, last.to, painted.lastLineWords, overflowPx, painted.lineHeight)
-  if (opts?.snapSentence) {
-    const paraWords = tokenizeHearingWords(paragraphs[last.paragraphIndex] || '')
-    nextTo = snapShrinkEndToSentence(paraWords, last.from, last.to, nextTo)
-  }
-  if (nextTo >= last.to) return null
-  const shrunk = reflowAfterCut(
-    paragraphs,
-    pages,
-    pageIndex,
-    nextTo,
-    canUseLabPageBudget(budget) ? budget : null,
-    { lastLineWords: painted.lastLineWords, overflowing: true },
-  )
-  return sameChapterPages(shrunk, pages) ? null : shrunk
 }
 
 export const HEARING_PAGE_MIN = 70
 export const HEARING_PAGE_MAX = 90
 /** A leftover page this short is an orphan line, not a real page. */
 export const LAB_ORPHAN_PAGE_WORDS = 16
-/** Final page below this size should share its predecessor's text, not sit alone. */
-export const LAB_CHAPTER_TAIL_REBALANCE_WORDS = 18
 /** Short same-paragraph chapter tail after peel — merge into the previous page. */
 export const LAB_CHAPTER_TAIL_MERGE_WORDS = 120
-/** Tiny final page (chars) — merge into previous page when same paragraph. */
-export const LAB_CHAPTER_TAIL_MERGE_CHARS = 220
 
 export interface HearingPageBounds {
   from: number
@@ -411,8 +446,8 @@ export function labChapterProgress(input: {
     ? wordsBeforePlace(input.paragraphs, input.paragraphIndex, input.wordIndex)
     : page
       ? (() => {
-          const last = pageLastSpan(page)
-          return wordsBeforePlace(input.paragraphs, last.paragraphIndex, last.to)
+          const tail = chapterPageTail(page)
+          return tail ? wordsBeforePlace(input.paragraphs, tail.paragraphIndex, tail.to) : 0
         })()
       : 0
   const percent = wordsTotal > 0 ? Math.round((wordsRead / wordsTotal) * 100) : 0
@@ -439,53 +474,35 @@ export interface ChapterHearingPage {
   paragraphIndex: number
   from: number
   to: number
-  /** Ordered paragraph slices painted on this page. */
-  spans?: ChapterHearingSpan[]
+  /** Additional contiguous paragraph slices painted on the same visual page. */
+  segments?: ChapterPageSegment[]
 }
 
-export interface ChapterHearingSpan {
+export interface ChapterPageSegment {
   paragraphIndex: number
   from: number
   to: number
 }
 
-export function pageSpans(page: ChapterHearingPage): ChapterHearingSpan[] {
-  return page.spans?.length
-    ? page.spans
-    : [{ paragraphIndex: page.paragraphIndex, from: page.from, to: page.to }]
+export function chapterPageSegments(page: ChapterHearingPage | undefined): ChapterPageSegment[] {
+  if (!page) return []
+  if (page.segments && page.segments.length > 0) return page.segments
+  return [{ paragraphIndex: page.paragraphIndex, from: page.from, to: page.to }]
 }
 
-export function pageFromSpans(input: ChapterHearingSpan[]): ChapterHearingPage {
-  const spans: ChapterHearingSpan[] = []
-  for (const source of input) {
-    if (source.to <= source.from) continue
-    const span = { ...source }
-    const last = spans[spans.length - 1]
-    if (last && last.paragraphIndex === span.paragraphIndex && last.to === span.from) {
-      last.to = span.to
-    } else {
-      spans.push(span)
-    }
+function pageFromSegments(segments: ChapterPageSegment[]): ChapterHearingPage | null {
+  const clean = segments.filter(segment => segment.to > segment.from)
+  const first = clean[0]
+  if (!first) return null
+  return {
+    ...first,
+    segments: clean.length > 1 ? clean : undefined,
   }
-  const first = spans[0] ?? { paragraphIndex: 0, from: 0, to: 0 }
-  return spans.length <= 1
-    ? { paragraphIndex: first.paragraphIndex, from: first.from, to: first.to }
-    : { paragraphIndex: first.paragraphIndex, from: first.from, to: first.to, spans }
 }
 
-export function pageLastSpan(page: ChapterHearingPage): ChapterHearingSpan {
-  const spans = pageSpans(page)
-  return spans[spans.length - 1]
-}
-
-export function pageContainsPlace(
-  page: ChapterHearingPage | undefined,
-  paragraphIndex: number,
-  wordIndex: number,
-): boolean {
-  return !!page && pageSpans(page).some(span => (
-    span.paragraphIndex === paragraphIndex && wordIndex >= span.from && wordIndex < span.to
-  ))
+export function chapterPageTail(page: ChapterHearingPage | undefined): ChapterPageSegment | null {
+  const segments = chapterPageSegments(page)
+  return segments[segments.length - 1] ?? null
 }
 
 export interface LabPageAnchor {
@@ -541,27 +558,15 @@ export function ensurePageIdentity(
   if (exact >= 0) return pages
   const idx = pageIndexForPlace(pages, anchor.paragraphIndex, anchor.wordIndex)
   const page = pages[idx]
-  if (!page || !pageContainsPlace(page, anchor.paragraphIndex, anchor.wordIndex)) return pages
-  const spans = pageSpans(page)
-  const spanIndex = spans.findIndex(span => (
-    span.paragraphIndex === anchor.paragraphIndex
-    && anchor.wordIndex >= span.from
-    && anchor.wordIndex < span.to
-  ))
-  if (spanIndex < 0) return pages
-  const span = spans[spanIndex]
-  const before = [
-    ...spans.slice(0, spanIndex),
-    ...(anchor.wordIndex > span.from ? [{ ...span, to: anchor.wordIndex }] : []),
-  ]
-  const after = [
-    { ...span, from: anchor.wordIndex },
-    ...spans.slice(spanIndex + 1),
-  ]
-  if (before.length === 0 || after.length === 0) return pages
+  if (!page || page.paragraphIndex !== anchor.paragraphIndex) return pages
+  if (anchor.wordIndex <= page.from || anchor.wordIndex >= page.to) return pages
   const next = pages.slice()
-  next[idx] = pageFromSpans(before)
-  next.splice(idx + 1, 0, pageFromSpans(after))
+  next[idx] = { ...page, to: anchor.wordIndex }
+  next.splice(idx + 1, 0, {
+    paragraphIndex: page.paragraphIndex,
+    from: anchor.wordIndex,
+    to: page.to,
+  })
   return next
 }
 
@@ -581,11 +586,8 @@ export function applyPaintShrink(
   opts?: PaintShrinkOpts,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page) return pages
-  const spans = pageSpans(page)
-  const last = spans[spans.length - 1]
-  if (!last || newTo >= last.to || newTo < last.from + 1) return pages
-  const leftover = last.to - newTo
+  if (!page || newTo >= page.to || newTo < page.from + 1) return pages
+  const leftover = page.to - newTo
   const lastLineWords = opts?.lastLineWords ?? 0
   const overflowing = !!opts?.overflowing
   // One leftover word, or a widow shorter than a line: keep it — unless the page overflows.
@@ -593,16 +595,30 @@ export function applyPaintShrink(
     if (leftover <= 1) return pages
     if (lastLineWords > 1 && leftover < lastLineWords) return pages
   }
-  const head = pageFromSpans([...spans.slice(0, -1), { ...last, to: newTo }])
-  const tail = { paragraphIndex: last.paragraphIndex, from: newTo, to: last.to }
   const after = pages[pageIndex + 1]
   const next = pages.slice()
-  next[pageIndex] = head
-  const afterSpans = after ? pageSpans(after) : []
-  if (afterSpans[0]?.paragraphIndex === tail.paragraphIndex && afterSpans[0].from === tail.to) {
-    next[pageIndex + 1] = pageFromSpans([tail, ...afterSpans])
+  next[pageIndex] = { ...page, to: newTo }
+  if (after && after.paragraphIndex === page.paragraphIndex) {
+    next[pageIndex + 1] = { ...after, from: newTo }
+    if (next[pageIndex + 1].to <= newTo) {
+      next.splice(pageIndex + 1, 1)
+    }
   } else {
-    next.splice(pageIndex + 1, 0, pageFromSpans([tail]))
+    next.splice(pageIndex + 1, 0, {
+      paragraphIndex: page.paragraphIndex,
+      from: newTo,
+      to: page.to,
+    })
+  }
+  for (let i = 0; i < next.length - 1; i++) {
+    if (next[i].paragraphIndex !== next[i + 1].paragraphIndex) continue
+    if (next[i + 1].from !== next[i].to) {
+      next[i + 1] = { ...next[i + 1], from: next[i].to }
+    }
+    if (next[i + 1].to <= next[i + 1].from) {
+      next.splice(i + 1, 1)
+      i -= 1
+    }
   }
   // Overflow peel must keep a one-word leftover off this page.
   return overflowing ? next : absorbOneWordLeftoverPages(next)
@@ -621,11 +637,8 @@ export function reflowAfterCut(
   opts?: PaintShrinkOpts,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page) return pages
-  const spans = pageSpans(page)
-  const last = spans[spans.length - 1]
-  if (!last || newTo >= last.to || newTo < last.from + 1) return pages
-  const leftoverCount = last.to - newTo
+  if (!page || newTo >= page.to || newTo < page.from + 1) return pages
+  const leftoverCount = page.to - newTo
   const lastLineWords = opts?.lastLineWords ?? 0
   const overflowing = !!opts?.overflowing
   if (!overflowing) {
@@ -634,28 +647,28 @@ export function reflowAfterCut(
   }
   const head: ChapterHearingPage[] = [
     ...pages.slice(0, pageIndex),
-    pageFromSpans([...spans.slice(0, -1), { ...last, to: newTo }]),
+    { paragraphIndex: page.paragraphIndex, from: page.from, to: newTo },
   ]
-  const words = tokenizeHearingWords(paragraphs[last.paragraphIndex] || '')
+  const words = tokenizeHearingWords(paragraphs[page.paragraphIndex] || '')
   const leftoverText = words.slice(newTo).map(word => word.text).join(' ')
   const rest: string[] = []
   if (leftoverText) rest.push(leftoverText)
-  for (let i = last.paragraphIndex + 1; i < paragraphs.length; i++) rest.push(paragraphs[i])
+  for (let i = page.paragraphIndex + 1; i < paragraphs.length; i++) rest.push(paragraphs[i])
   const tailRaw = chapterHearingPages(rest, budget)
   const firstIsLeftover = leftoverText.length > 0
-  const tail = tailRaw.map(part => pageFromSpans(pageSpans(part).map(span => {
-    if (firstIsLeftover && span.paragraphIndex === 0) {
+  const tail = tailRaw.map(part => {
+    if (firstIsLeftover && part.paragraphIndex === 0) {
       return {
-        paragraphIndex: last.paragraphIndex,
-        from: span.from + newTo,
-        to: span.to + newTo,
+        paragraphIndex: page.paragraphIndex,
+        from: part.from + newTo,
+        to: part.to + newTo,
       }
     }
     const orig = firstIsLeftover
-      ? last.paragraphIndex + span.paragraphIndex
-      : last.paragraphIndex + 1 + span.paragraphIndex
-    return { paragraphIndex: orig, from: span.from, to: span.to }
-  })))
+      ? page.paragraphIndex + part.paragraphIndex
+      : page.paragraphIndex + 1 + part.paragraphIndex
+    return { paragraphIndex: orig, from: part.from, to: part.to }
+  })
   const next = [...head, ...tail]
   return overflowing ? next : absorbOneWordLeftoverPages(next)
 }
@@ -671,27 +684,71 @@ export function growPageByWords(
   const page = pages[pageIndex]
   const next = pages[pageIndex + 1]
   if (!page || !next) return pages
-  const currentSpans = pageSpans(page).map(span => ({ ...span }))
-  const nextSpans = pageSpans(next).map(span => ({ ...span }))
-  const first = nextSpans[0]
-  if (!first) return pages
-  // Visible-page refinement must not delete the next page: doing so makes M
-  // jump while the reader advances. Leave one word when this is its only span.
-  const available = first.to - first.from
-  const maxTake = nextSpans.length === 1 ? Math.max(0, available - 1) : available
-  const take = Math.min(wordCount, maxTake)
+
+  const currentSegments = chapterPageSegments(page)
+  const nextSegments = chapterPageSegments(next)
+  const head = nextSegments[0]
+  const tail = currentSegments[currentSegments.length - 1]
+  if (!head || !tail) return pages
+  const available = head.to - head.from
+  const take = Math.min(wordCount, available)
   if (take <= 0) return pages
-  const moved = { paragraphIndex: first.paragraphIndex, from: first.from, to: first.from + take }
-  const last = currentSpans[currentSpans.length - 1]
-  if (last && last.paragraphIndex === moved.paragraphIndex && last.to === moved.from) last.to = moved.to
-  else currentSpans.push(moved)
-  first.from += take
-  const remaining = first.from < first.to ? nextSpans : nextSpans.slice(1)
+
+  const pulled = { ...head, to: head.from + take }
+  const grownSegments = currentSegments.slice()
+  if (tail.paragraphIndex === pulled.paragraphIndex && tail.to === pulled.from) {
+    grownSegments[grownSegments.length - 1] = { ...tail, to: pulled.to }
+  } else {
+    grownSegments.push(pulled)
+  }
+  const grownPage = pageFromSegments(grownSegments)
+  if (!grownPage) return pages
+
+  const remainderSegments = nextSegments.slice()
+  if (pulled.to >= head.to) remainderSegments.shift()
+  else remainderSegments[0] = { ...head, from: pulled.to }
+  const remainder = pageFromSegments(remainderSegments)
   const grown = pages.slice()
-  grown[pageIndex] = pageFromSpans(currentSpans)
-  if (remaining.length === 0) grown.splice(pageIndex + 1, 1)
-  else grown[pageIndex + 1] = pageFromSpans(remaining)
+  grown[pageIndex] = grownPage
+  if (remainder) grown[pageIndex + 1] = remainder
+  else grown.splice(pageIndex + 1, 1)
   return grown
+}
+
+/** Move the end of a multi-paragraph visual page back onto the following page. */
+export function cutPageTailTo(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  newTo: number,
+): ChapterHearingPage[] {
+  const page = pages[pageIndex]
+  const segments = chapterPageSegments(page)
+  const tail = segments[segments.length - 1]
+  if (!page || !tail || newTo < tail.from || newTo >= tail.to) return pages
+
+  const keptSegments = segments.slice()
+  if (newTo === tail.from) keptSegments.pop()
+  else keptSegments[keptSegments.length - 1] = { ...tail, to: newTo }
+  const kept = pageFromSegments(keptSegments)
+  if (!kept) return pages
+
+  const moved: ChapterPageSegment = { ...tail, from: newTo }
+  const following = chapterPageSegments(pages[pageIndex + 1])
+  if (
+    following[0]
+    && following[0].paragraphIndex === moved.paragraphIndex
+    && following[0].from === moved.to
+  ) {
+    following[0] = { ...following[0], from: moved.from }
+  } else {
+    following.unshift(moved)
+  }
+  const nextPage = pageFromSegments(following)
+  const next = pages.slice()
+  next[pageIndex] = kept
+  if (nextPage) next[pageIndex + 1] = nextPage
+  else next.splice(pageIndex + 1, 0, moved)
+  return next
 }
 
 /** Extend a page into unused words at the end of its paragraph (last page of chapter). */
@@ -702,34 +759,33 @@ export function growPageTailInParagraph(
   paragraphLength: number,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  if (!page || wordCount <= 0) return pages
-  const spans = pageSpans(page).map(span => ({ ...span }))
-  const last = spans[spans.length - 1]
-  if (!last || paragraphLength <= last.to) return pages
-  const take = Math.min(wordCount, paragraphLength - last.to)
+  const segments = chapterPageSegments(page)
+  const tail = segments[segments.length - 1]
+  if (!page || !tail || wordCount <= 0 || paragraphLength <= tail.to) return pages
+  const take = Math.min(wordCount, paragraphLength - tail.to)
   if (take <= 0) return pages
   const next = pages.slice()
-  last.to += take
-  next[pageIndex] = pageFromSpans(spans)
+  segments[segments.length - 1] = { ...tail, to: tail.to + take }
+  next[pageIndex] = pageFromSegments(segments) ?? page
   return next
 }
 
 export function wordsAvailableOnNextPage(pages: ChapterHearingPage[], pageIndex: number): number {
   const next = pages[pageIndex + 1]
-  if (!next) return 0
-  return leftoverWordCount(next)
+  const head = chapterPageSegments(next)[0]
+  return head ? Math.max(0, head.to - head.from) : 0
 }
 
 export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[]): boolean {
   if (a === b) return true
   if (a.length !== b.length) return false
-  return a.every((page, i) => {
-    const left = pageSpans(page)
-    const right = pageSpans(b[i])
-    return left.length === right.length && left.every((span, j) => (
-      span.paragraphIndex === right[j].paragraphIndex
-      && span.from === right[j].from
-      && span.to === right[j].to
+  return a.every((page, pageIndex) => {
+    const left = chapterPageSegments(page)
+    const right = chapterPageSegments(b[pageIndex])
+    return left.length === right.length && left.every((segment, segmentIndex) => (
+      segment.paragraphIndex === right[segmentIndex]?.paragraphIndex
+      && segment.from === right[segmentIndex]?.from
+      && segment.to === right[segmentIndex]?.to
     ))
   })
 }
@@ -750,15 +806,8 @@ function absorbOrphanWordBounds(pages: HearingPageBounds[]): HearingPageBounds[]
 }
 
 export function leftoverWordCount(page: ChapterHearingPage | undefined): number {
-  if (!page) return 0
-  return pageSpans(page).reduce((sum, span) => sum + Math.max(0, span.to - span.from), 0)
-}
-
-export function chapterPageTextChars(paragraphs: string[], page: ChapterHearingPage): number {
-  return pageSpans(page).reduce((sum, span) => {
-    const words = tokenizeHearingWords(paragraphs[span.paragraphIndex] || '')
-    return sum + words.slice(span.from, span.to).join(' ').length
-  }, 0)
+  return chapterPageSegments(page)
+    .reduce((sum, segment) => sum + Math.max(0, segment.to - segment.from), 0)
 }
 
 export function isOrphanLeftoverPage(page: ChapterHearingPage | undefined): boolean {
@@ -830,64 +879,12 @@ export function absorbOrphanLeftoverPages(
 }
 
 /**
- * Split the final two pages more evenly when pagination leaves a tiny chapter
- * tail. Unlike merging the tail into its predecessor, balancing cannot create
- * an overfull page that the paint pass immediately peels apart again.
- */
-export function rebalanceChapterTailPages(
-  pages: ChapterHearingPage[],
-): ChapterHearingPage[] {
-  if (pages.length < 2) return pages
-  const lastIndex = pages.length - 1
-  const previous = pages[lastIndex - 1]
-  const last = pages[lastIndex]
-  const previousWords = leftoverWordCount(previous)
-  const lastWords = leftoverWordCount(last)
-  if (
-    previousWords <= 1
-    || lastWords <= 0
-    || lastWords > LAB_CHAPTER_TAIL_REBALANCE_WORDS
-    || previousWords <= lastWords + 1
-  ) return pages
-
-  const combined = [...pageSpans(previous), ...pageSpans(last)]
-  const totalWords = previousWords + lastWords
-  const leftTarget = Math.floor(totalWords / 2)
-  if (leftTarget <= 0 || leftTarget >= totalWords) return pages
-
-  const left: ChapterHearingSpan[] = []
-  const right: ChapterHearingSpan[] = []
-  let remaining = leftTarget
-  for (const span of combined) {
-    const count = span.to - span.from
-    if (count <= 0) continue
-    if (remaining <= 0) {
-      right.push({ ...span })
-    } else if (remaining >= count) {
-      left.push({ ...span })
-      remaining -= count
-    } else {
-      left.push({ ...span, to: span.from + remaining })
-      right.push({ ...span, from: span.from + remaining })
-      remaining = 0
-    }
-  }
-  if (left.length === 0 || right.length === 0) return pages
-
-  const next = pages.slice()
-  next[lastIndex - 1] = pageFromSpans(left)
-  next[lastIndex] = pageFromSpans(right)
-  return next
-}
-
-/**
  * Merge a short final page into the previous page of the same paragraph.
  * Peel often leaves a tiny chapter tail that cannot grow (no next page).
  */
 export function absorbChapterTailPages(
   pages: ChapterHearingPage[],
   keep?: LabPageAnchor | null,
-  paragraphs?: string[],
 ): ChapterHearingPage[] {
   if (pages.length < 2) return pages
   const lastIdx = pages.length - 1
@@ -896,10 +893,7 @@ export function absorbChapterTailPages(
   if (!last || !prev || prev.paragraphIndex !== last.paragraphIndex) return pages
   if (keep && last.paragraphIndex === keep.paragraphIndex && last.from === keep.wordIndex) return pages
   const words = leftoverWordCount(last)
-  const chars = paragraphs ? chapterPageTextChars(paragraphs, last) : 0
-  const tiny = words > 0 && (words <= LAB_CHAPTER_TAIL_MERGE_WORDS
-    || (paragraphs && chars > 0 && chars <= LAB_CHAPTER_TAIL_MERGE_CHARS))
-  if (!tiny) return pages
+  if (words <= 0 || words > LAB_CHAPTER_TAIL_MERGE_WORDS) return pages
   const next = pages.slice()
   next[lastIdx - 1] = { ...prev, to: last.to }
   next.splice(lastIdx, 1)
@@ -915,13 +909,16 @@ export function followOnReadingPage(
   if (follow.kind === 'none') return true
   const page = pages[pageIndex]
   if (!page) return false
+  const segments = chapterPageSegments(page)
   if (follow.kind === 'paragraph') {
-    return pageSpans(page).some(span => span.paragraphIndex === follow.paragraphIndex)
+    return segments.some(segment => segment.paragraphIndex === follow.paragraphIndex)
   }
   if (follow.kind === 'word') {
-    return typeof follow.paragraphIndex === 'number'
-      && typeof follow.wordIndex === 'number'
-      && pageContainsPlace(page, follow.paragraphIndex, follow.wordIndex)
+    return typeof follow.wordIndex === 'number' && segments.some(segment => (
+      segment.paragraphIndex === follow.paragraphIndex
+      && follow.wordIndex! >= segment.from
+      && follow.wordIndex! < segment.to
+    ))
   }
   return false
 }
@@ -932,18 +929,20 @@ export function pageIndexForPlace(
   wordIndex: number,
 ): number {
   if (pages.length === 0) return 0
-  const exact = pages.findIndex(page => pageContainsPlace(page, paragraphIndex, wordIndex))
-  if (exact >= 0) return exact
-  const nextOnParagraph = pages.findIndex(page => pageSpans(page).some(span => (
-    span.paragraphIndex === paragraphIndex && span.from > wordIndex
+  const exact = pages.findIndex(page => chapterPageSegments(page).some(segment => (
+    segment.paragraphIndex === paragraphIndex && wordIndex >= segment.from && wordIndex < segment.to
   )))
+  if (exact >= 0) return exact
+  const nextOnParagraph = pages.findIndex(page => (
+    page.paragraphIndex === paragraphIndex && page.from > wordIndex
+  ))
   if (nextOnParagraph > 0) return nextOnParagraph - 1
   let lastSame = -1
   for (let i = 0; i < pages.length; i++) {
-    if (pageSpans(pages[i]).some(span => span.paragraphIndex === paragraphIndex)) lastSame = i
+    if (pages[i].paragraphIndex === paragraphIndex) lastSame = i
   }
   if (lastSame >= 0) return lastSame
-  const nextParagraph = pages.findIndex(page => pageSpans(page)[0].paragraphIndex > paragraphIndex)
+  const nextParagraph = pages.findIndex(page => page.paragraphIndex > paragraphIndex)
   if (nextParagraph >= 0) return nextParagraph
   return pages.length - 1
 }
@@ -954,7 +953,7 @@ export function chapterPagesCover(paragraphs: string[], pages: ChapterHearingPag
   for (let i = 0; i < paragraphs.length; i++) {
     const n = tokenizeHearingWords(paragraphs[i]).length
     if (n === 0) continue
-    const parts = pages.flatMap(page => pageSpans(page).filter(span => span.paragraphIndex === i))
+    const parts = pages.flatMap(page => chapterPageSegments(page)).filter(part => part.paragraphIndex === i)
     if (parts.length === 0 || parts[0].from !== 0 || parts[parts.length - 1].to !== n) return false
     for (let j = 0; j < parts.length - 1; j++) {
       if (parts[j].to !== parts[j + 1].from) return false
@@ -967,40 +966,6 @@ export function chapterHearingPages(
   paragraphs: string[],
   budget?: LabPageBudget | null,
 ): ChapterHearingPage[] {
-  if (canUseLabPageBudget(budget)) {
-    const lines: ChapterHearingSpan[] = []
-    paragraphs.forEach((text, paragraphIndex) => {
-      const words = tokenizeHearingWords(text)
-      if (words.length === 0) return
-      for (const box of wrapWordsToLineBoxes(words, budget.width, budget.measureText)) {
-        if (box.to > box.from) lines.push({ paragraphIndex, from: box.from, to: box.to })
-      }
-    })
-    const pages: ChapterHearingPage[] = []
-    const limit = budget.height - Math.max(0, LAB_OVERFLOW_CLEAR_PX)
-    let cursor = 0
-    while (cursor < lines.length) {
-      const extra = pages.length === 0 ? Math.max(0, budget.headlineHeight ?? 0) : 0
-      const spans: ChapterHearingSpan[] = []
-      let take = 0
-      while (cursor + take < lines.length) {
-        const nextBottom = extra + (take + 1) * budget.lineHeight
-        if (take > 0 && nextBottom >= limit) break
-        const line = lines[cursor + take]
-        const last = spans[spans.length - 1]
-        if (last && last.paragraphIndex === line.paragraphIndex && last.to === line.from) last.to = line.to
-        else spans.push({ ...line })
-        take += 1
-      }
-      if (take === 0) {
-        spans.push({ ...lines[cursor] })
-        take = 1
-      }
-      pages.push(pageFromSpans(spans))
-      cursor += take
-    }
-    return pages
-  }
   const pages: ChapterHearingPage[] = []
   paragraphs.forEach((text, paragraphIndex) => {
     const words = tokenizeHearingWords(text)
@@ -1015,10 +980,40 @@ export function chapterHearingPages(
 
 export function readingPageLines(paragraphs: string[], page: ChapterHearingPage | undefined): HearingLine[] {
   if (!page) return []
-  return pageSpans(page).map(span => {
-    const words = tokenizeHearingWords(paragraphs[span.paragraphIndex] || '')
-    return { words: words.slice(span.from, span.to).map(word => ({ text: word.text, role: 'line' as const })) }
-  }).filter(line => line.words.length > 0)
+  return chapterPageSegments(page).map(segment => {
+    const words = tokenizeHearingWords(paragraphs[segment.paragraphIndex] || '')
+    return {
+      paragraphIndex: segment.paragraphIndex,
+      from: segment.from,
+      words: words.slice(segment.from, segment.to).map(word => ({ text: word.text, role: 'line' as const })),
+    }
+  })
+}
+
+/** Paint narration progress over the exact slices used by the reading page. */
+export function hearingReadingPageLines(
+  paragraphs: string[],
+  page: ChapterHearingPage | undefined,
+  follow: FollowTarget,
+): HearingLine[] {
+  if (!page) return []
+  return chapterPageSegments(page).map(segment => {
+    const words = tokenizeHearingWords(paragraphs[segment.paragraphIndex] || '')
+    return {
+      paragraphIndex: segment.paragraphIndex,
+      from: segment.from,
+      words: words.slice(segment.from, segment.to).map((word, offset) => {
+        const wordIndex = segment.from + offset
+        let role: HearingWordRole = 'line'
+        if (follow.kind === 'word') {
+          if (segment.paragraphIndex < follow.paragraphIndex) role = 'spoken'
+          else if (segment.paragraphIndex > follow.paragraphIndex) role = 'upcoming'
+          else role = wordRole(wordIndex, follow.wordIndex)
+        }
+        return { text: word.text, role, wordIndex }
+      }),
+    }
+  })
 }
 
 /** Word highlight / dim / bold follow only while Hearing is actually playing. */
@@ -1045,8 +1040,8 @@ export function isChapterFirstHearingPage(
   if (follow.kind === 'word' && paragraph.words && paragraph.words.length > 0) {
     const current = Math.max(0, Math.min(follow.wordIndex, paragraph.words.length - 1))
     const local = chapterPages
-      ?.flatMap(page => pageSpans(page).filter(span => span.paragraphIndex === 0))
-      .map(span => ({ from: span.from, to: span.to }))
+      ?.filter(page => page.paragraphIndex === 0)
+      .map(page => ({ from: page.from, to: page.to }))
     const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(paragraph.words), current)
     return page.from === 0
   }
@@ -1068,8 +1063,9 @@ export function hearingStageLines(
     const words = paragraph.words
     const current = Math.max(0, Math.min(follow.wordIndex, words.length - 1))
     const local = chapterPages
-      ?.flatMap(page => pageSpans(page).filter(span => span.paragraphIndex === paragraph.index))
-      .map(span => ({ from: span.from, to: span.to }))
+      ?.flatMap(page => chapterPageSegments(page))
+      .filter(segment => segment.paragraphIndex === paragraph.index)
+      .map(segment => ({ from: segment.from, to: segment.to }))
     const page = hearingPageForWord(local && local.length > 0 ? local : hearingPages(words), current)
     return [{
       words: words.slice(page.from, page.to).map((word, offset) => ({
@@ -1195,8 +1191,8 @@ export const LAB_HEARING_SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const
 
 export function parseHearingSpeed(value: unknown): number | null {
   const n = typeof value === 'number' ? value : Number(String(value ?? '').trim())
-  if (!Number.isFinite(n)) return null
-  return (LAB_HEARING_SPEEDS as readonly number[]).includes(n) ? n : null
+  if (!Number.isFinite(n) || n < 0.5 || n > 3) return null
+  return Math.round(n * 100) / 100
 }
 
 export function nextHearingSpeed(current: number): number {

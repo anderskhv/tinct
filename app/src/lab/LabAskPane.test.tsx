@@ -105,8 +105,6 @@ describe('lab ask typed send', () => {
     expect(onSubmit).toHaveBeenCalledWith('Who is Calypso?')
     fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter' })
     expect(onSubmit).toHaveBeenCalledTimes(2)
-    fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter', shiftKey: true })
-    expect(onSubmit).toHaveBeenCalledTimes(2)
   })
 
   it('shows Send even when the box is empty', () => {
@@ -190,30 +188,5 @@ describe('lab ask thread above composer', () => {
     expect(users[1].textContent).toContain('thinking about reading the Bible')
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('still on Odyssey Book 1')
     expect(document.querySelector('.lab-passage-headline')).toBeNull()
-  })
-
-  it('formats replies and inserts one moved divider only when the chapter changes', () => {
-    render(
-      <LabAskPane
-        conversationState="idle"
-        voiceActive={false}
-        typedLoading={false}
-        turns={[
-          { id: 'u1', role: 'user', content: 'First question', source: 'typed', chapterNumber: 1 },
-          { id: 'a1', role: 'assistant', content: '**First answer**', source: 'typed', chapterNumber: 1 },
-          { id: 'a2', role: 'assistant', content: '## Next\n- One\n- Two', source: 'typed', chapterNumber: 2 },
-        ]}
-        draft=""
-        onDraftChange={() => { /* unused */ }}
-        onSubmit={() => { /* unused */ }}
-        onMic={() => { /* unused */ }}
-        onVoiceMode={() => { /* unused */ }}
-        chapterLabel={(number) => `Genesis ${number}`}
-      />,
-    )
-    expect(screen.getAllByTestId('lab-ask-moved')).toHaveLength(1)
-    expect(screen.getByTestId('lab-ask-moved').textContent).toContain('Moved to Genesis 2')
-    expect(document.querySelector('.lab-ask-message strong')?.textContent).toBe('First answer')
-    expect(document.querySelectorAll('.lab-ask-message li')).toHaveLength(2)
   })
 })

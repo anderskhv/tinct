@@ -21,6 +21,19 @@ export function isLabDesktopPane(label: string): label is LabDesktopPane {
 
 export type LabSurface = 'desktop' | 'phone'
 
+export type LabPageGeometry = { width: number; height: number }
+
+/** A settled page list is valid only for the box it was painted into. */
+export function labPageGeometryChanged(
+  previous: LabPageGeometry | null,
+  next: LabPageGeometry,
+  tolerance = 1,
+): boolean {
+  if (!previous) return false
+  return Math.abs(previous.width - next.width) > tolerance
+    || Math.abs(previous.height - next.height) > tolerance
+}
+
 export function labVisibleChrome(state: LabChromeState, peekBook: boolean): LabChromeState {
   return peekBook ? 'reading' : state
 }
@@ -136,15 +149,7 @@ export function labShowPageTurn(input: {
   return input.pageCount > 1 || !!input.canPrevChapter || !!input.canNextChapter
 }
 
-/** Playing: slim −15 / +15 / 1x in the page-turn slot. Pause lives on Play. */
-export function labShowSlimTransport(input: {
-  playing: boolean
-  phoneAsk: boolean
-}): boolean {
-  return input.playing && !input.phoneAsk
-}
-
-/** One reader rail: progress sits between page-turn or −15 / +15 / 1x. */
+/** The reader rail keeps the same progress geometry in Read and Listen. */
 export function labShowReaderRail(input: {
   phoneAsk: boolean
   phoneChrome: boolean
@@ -228,9 +233,7 @@ export function labChromeInsetPx(chromeHeightPx: number, gap = LAB_CHROME_GAP_PX
 }
 
 /** Painted last ink must sit at least this many px above the visible bar. */
-export const LAB_OVERFLOW_CLEAR_PX = 16
-/** Phone needs extra clearance — descenders + mark buttons + iOS toolbar jitter. */
-export const LAB_PHONE_OVERFLOW_CLEAR_PX = 20
+export const LAB_OVERFLOW_CLEAR_PX = 12
 
 /** Extra slack when measuring phone hearing pages — descenders + highlight box. */
 export const LAB_HEARING_MEASURE_SLACK_PX = 8
@@ -411,14 +414,9 @@ export function measurePaintedOverflow(
   chrome?: HTMLElement | null,
 ): LabPaintedOverflow | null {
   const scope = root.ownerDocument ?? (typeof document !== 'undefined' ? document : null)
-  // Top of pager + Play/Chat/Talk stack, clamped to the visible viewport.
-  const wrapperTop = chrome && chrome.getBoundingClientRect().height > 0
-    ? chrome.getBoundingClientRect().top
-    : 0
-  const barTop = measureLabOnScreenBarTop(scope, chrome ?? null)
-  const chromeTop = wrapperTop > 0 && barTop > 0
-    ? Math.min(wrapperTop, barTop)
-    : wrapperTop || barTop
+  // Authority: getBoundingClientRect of Play/Chat/Talk / page-turn / transport.
+  // Never 100vh, never dvh, never visualViewport as a stand-in for the bar.
+  const chromeTop = measureLabBarTop(scope, chrome ?? null)
   const lastBottom = lastPaintedTextBottom(root)
   if (!canMeasurePaintedOverflow(lastBottom, chromeTop)) return null
   const line = root.querySelector('.lab-hearing-line')
@@ -430,20 +428,6 @@ export function measurePaintedOverflow(
     lastLineWords: lastPaintedLineWordCount(root),
     scrollOverflow: labScrollportOverflows(root),
   }
-}
-
-/** Visible passage paint wins when the hidden measure host falsely fits. */
-export function preferVisiblePaintedOverflow(
-  hostPainted: LabPaintedOverflow | null,
-  visibleRoot: HTMLElement | null | undefined,
-  chrome?: HTMLElement | null,
-  sameAsVisible = true,
-): LabPaintedOverflow | null {
-  if (!visibleRoot || !sameAsVisible) return hostPainted
-  const visible = measurePaintedOverflow(visibleRoot, chrome)
-  if (!visible) return hostPainted
-  if (hostPainted && labPageFitsPaint(hostPainted) && !labPageFitsPaint(visible)) return visible
-  return visible
 }
 
 /** After document.fonts.ready + first paint (rAF). Never a pre-paint guess. */
@@ -481,7 +465,7 @@ export function labPageSlackPx(lastBottom: number, chromeTop: number): number {
   return Math.max(0, chromeTop - LAB_OVERFLOW_CLEAR_PX - lastBottom)
 }
 
-export type LabPageAdjust = 'peel' | 'grow' | null
+export type LabPageAdjust = 'peel' | 'grow' | 'polish' | null
 
 /** Room for at least one more line below the last painted ink. */
 export function labPaintHasGrowableSlack(
@@ -502,7 +486,10 @@ export function shouldGrowPaintedPage(
 ): boolean {
   const line = lineHeight > 8 ? lineHeight : 24
   if (slackPx <= line) return false
-  if (lastAdjust === 'grow') return false
+  // A typographic cleanup may intentionally leave a line or two. If a resize
+  // leaves substantially more space than that, refill instead of freezing a
+  // nearly empty page; the next overflow trial can still revert to the clean end.
+  if (lastAdjust === 'polish') return slackPx > line * 2.5
   if (lastAdjust !== 'peel') return true
   return slackPx > line * 1.1
 }
@@ -514,9 +501,13 @@ export function growWordsFromSlack(
   lineHeight = 0,
 ): number {
   const trusted = lastLineWords > 0 && lastLineWords <= 16
-  let words = trusted ? lastLineWords : 8
-  // Pull one painted line at a time. Paragraph margins and verse markers make
-  // multi-line guesses too aggressive; the next visited page can refine again.
+  // Pull at most half a painted line per trial. Word widths vary enough that a
+  // whole-row estimate can unexpectedly wrap onto two rows on narrow phones.
+  let words = trusted ? Math.max(1, Math.floor(lastLineWords / 2)) : 4
+  if (slackPx > 40 && lineHeight > 8) {
+    const lines = Math.max(1, Math.floor(slackPx / lineHeight))
+    words = Math.max(words, Math.min(lines * (trusted ? Math.max(1, Math.floor(lastLineWords / 2)) : 4), 24))
+  }
   return Math.max(1, words)
 }
 
@@ -591,10 +582,9 @@ export interface LabPageMetrics {
 }
 
 /**
- * Page text changes on every turn, but typography metrics must not. Preserve
- * the sampled character width and chapter-headline allowance while text width
- * and line height are unchanged (full screen may legitimately add height);
- * otherwise N / M drifts based on the words beginning the visible page.
+ * Text changes on every page turn, but the typography does not. Keep the
+ * measured glyph width and chapter-title allowance stable until the actual
+ * page geometry or line height changes.
  */
 export function stabilizeLabPageMetrics(
   current: LabPageMetrics | null,
@@ -658,18 +648,17 @@ export function measureLabPageMetrics(
     ? lineRect.width
     : Math.max(0, passageWidth - padLeft - padRight)
   let lineHeight = line ? labLineHeightPx(line) : 0
+  // A flex-stretched paragraph can report the whole reading window as its
+  // line height. Prefer the median painted text row in that case.
   if (line && lineHeight > height && height > 0) {
     try {
       const range = document.createRange()
       range.selectNodeContents(line)
-      const rects = range.getClientRects()
-      const heights: number[] = []
-      for (let i = 0; i < rects.length; i++) {
-        const h = rects[i].height
-        if (h > 8 && h < 160) heights.push(h)
-      }
+      const heights = [...range.getClientRects()]
+        .map(rect => rect.height)
+        .filter(value => value > 8 && value < 160)
+        .sort((a, b) => a - b)
       if (heights.length > 0) {
-        heights.sort((a, b) => a - b)
         lineHeight = heights[Math.floor(heights.length / 2)]
       } else {
         const lineStyle = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
@@ -717,43 +706,26 @@ function firstLineCharCount(line: Element, firstTop: number): number {
     chars += Math.max(0, count - 1)
     if (chars > 0) return chars
   }
-  try {
-    const walker = document.createTreeWalker(line, NodeFilter.SHOW_TEXT)
-    const range = document.createRange()
-    let chars = 0
-    let node = walker.nextNode()
-    while (node) {
-      const value = node.textContent || ''
-      for (let i = 0; i < value.length; i++) {
-        range.setStart(node, i)
-        range.setEnd(node, i + 1)
-        const rect = range.getBoundingClientRect()
-        if (rect.height > 0 && Math.abs(rect.top - firstTop) < 8) chars += 1
-      }
-      node = walker.nextNode()
-    }
-    return chars
-  } catch {
-    return 0
-  }
+  return 0
 }
 
 function canvasSampleCharWidth(line: Element): number {
   try {
+    if (typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent)) return 0
     const canvas = document.createElement('canvas')
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return 0
+    const context = canvas.getContext('2d')
+    if (!context) return 0
     const style = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
-    if (style?.font) ctx.font = style.font
+    if (style?.font) context.font = style.font
     const sample = 'abcdefghijklmnopqrstuvwxyz'
-    const width = ctx.measureText(sample).width
+    const width = context.measureText(sample).width
     return width > 0 ? width / sample.length : 0
   } catch {
     return 0
   }
 }
 
-/** Real character width from a painted line; never divide one line by a wrapped paragraph. */
+/** Real glyph width from one painted row; never divide by a wrapped paragraph. */
 export function labAvgCharWidth(line: Element | null | undefined): number {
   if (!line) return 0
   const lineRect = line.getBoundingClientRect()
@@ -763,10 +735,8 @@ export function labAvgCharWidth(line: Element | null | undefined): number {
     const chars = firstLineCharCount(line, first.top)
     if (chars > 0) {
       const avg = first.width / chars
-      // The first painted line systematically under-represents later wide
-      // names, punctuation, and verse superscripts. Keep enough safety that a
-      // later page never has to change the chapter denominator after settling.
-      if (avg >= 3) return avg * 1.2
+      // Verse superscripts and proper names are wider than a typical first row.
+      if (avg >= 3) return avg * 1.12
     }
   }
   const sampled = canvasSampleCharWidth(line)
@@ -811,4 +781,32 @@ export function labShowPhoneBar(input: {
   if (!input.phoneChrome) return false
   if (input.phoneAsk) return true
   return !input.fullscreen
+}
+
+export type LabPageTurnDirection = -1 | 1
+
+/** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
+export function labSwipePageDirection(
+  deltaX: number,
+  deltaY: number,
+  threshold = 44,
+): LabPageTurnDirection | null {
+  if (Math.abs(deltaX) < threshold) return null
+  if (Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) return null
+  return deltaX < 0 ? 1 : -1
+}
+
+/** Short taps in the outer thirds turn pages; the centre remains selection-safe. */
+export function labTapPageDirection(
+  clientX: number,
+  left: number,
+  width: number,
+  edgeFraction = 0.34,
+): LabPageTurnDirection | null {
+  if (width <= 0) return null
+  const x = clientX - left
+  if (x < 0 || x > width) return null
+  if (x <= width * edgeFraction) return -1
+  if (x >= width * (1 - edgeFraction)) return 1
+  return null
 }

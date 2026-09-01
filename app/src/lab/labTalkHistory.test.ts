@@ -10,7 +10,6 @@ import {
   readLabAskTurns,
   readLabChatHistoryLocal,
   readLabTalkHistory,
-  turnsFromConversations,
 } from './labTalkHistory'
 
 afterEach(() => {
@@ -32,21 +31,6 @@ function turn(patch: Partial<ChatMessage> = {}): ChatMessage {
 }
 
 describe('lab talk history', () => {
-  it('hydrates messages in timestamp order even when stored conversations are reversed', () => {
-    const turns = turnsFromConversations([
-      {
-        id: 'late', bookId: 'romans', chapterNumber: 2, startTimestamp: 20, endTimestamp: 20, preview: 'late',
-        messages: [{ id: 'm2', role: 'assistant', content: 'Second', timestamp: 20, chapterNumber: 2 }],
-      },
-      {
-        id: 'early', bookId: 'romans', chapterNumber: 1, startTimestamp: 10, endTimestamp: 10, preview: 'early',
-        messages: [{ id: 'm1', role: 'user', content: 'First', timestamp: 10, chapterNumber: 1 }],
-      },
-    ])
-    expect(turns.map(item => item.content)).toEqual(['First', 'Second'])
-    expect(turns.map(item => item.chapterNumber)).toEqual([1, 2])
-  })
-
   it('hydrates a book thread after a write, as on open', () => {
     persistLabTalkTurn(turn({ id: 'keller' }), 8, 0, { bookId: 'romans', headerBook: 'Romans' })
     persistLabTalkTurn(turn({

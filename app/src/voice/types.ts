@@ -9,6 +9,7 @@ export type VoiceSessionMode = 'quick' | 'conversation'
 
 export type VoiceIntent =
   | 'resume_audiobook'
+  | 'end_voice_session'
   | 'hold_session'
   | 'open_conversation'
   | 'none'
@@ -129,3 +130,15 @@ export type VoiceLatencySample =
       speechStoppedToFirstAudioMs: number
       model: string
     }
+
+export interface VoiceApplicationToolResult {
+  output: Record<string, unknown>
+  /** Instructions for the short spoken turn after function output is attached. */
+  responseInstructions?: string
+}
+
+export type VoiceApplicationToolHandler = (
+  name: string,
+  arguments_: Record<string, unknown>,
+  callId: string,
+) => VoiceApplicationToolResult | Promise<VoiceApplicationToolResult>

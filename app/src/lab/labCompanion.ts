@@ -37,7 +37,9 @@ const LITERARY_CONNECTION = /\b(echo|remind|connect|parallel|resonat(e|es)|like\
 const TINY_CONFIRM = /^(ok|okay|yes|yeah|yep|no|nope|thanks|thank you|mm+|mhm|uh huh|got it|sure)\.?$/i
 
 export const LAB_COVER_LINES = [
-  'Give me a second to pull together a good response.',
+  'Let me look at the passage.',
+  'I am looking at this with you.',
+  'Give me a moment with the page.',
 ] as const
 
 export const SPEAK_CLAUDE_VERBATIM = 'The reading companion answered. Speak that answer as your own. Do not invent a thinner substitute. Do not summarize it into a weaker reply. Do not mention a tool, a hop, a second model, a cutoff, or "the answer I received". Never say the answer got cut off. If you only have part of an answer, do not narrate that — speak the complete sentences you were given, or wait.'
@@ -104,7 +106,7 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
     `Do not greet. Do not say hello. The app speaks the opening line.`,
     `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms you answer yourself in one short line.`,
     `Easy questions you can answer from the passage already below, you answer yourself in a short, warm, literary line. Reasonable literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter — no spoilers from later in the book.`,
-    `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — say exactly "Give me a second to pull together a good response.", then call ${ASK_COMPANION_TOOL}. Do not sit in silence. Do not sound like a call-center hold.`,
+    `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — first speak one short natural line as if you are looking at the passage, then call ${ASK_COMPANION_TOOL}. Do not sit in silence. Do not sound like a call-center hold.`,
     `After ${ASK_COMPANION_TOOL} returns, speak that answer as your own. Do not invent a thinner substitute. Never mention a tool, a hop, a cutoff, or "the answer I received". Never say an answer got cut off. If the hop is incomplete, wait rather than narrating the failure.`,
     `Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.`,
     `If they want the book back, call resume_audiobook. One short goodbye is fine.`,

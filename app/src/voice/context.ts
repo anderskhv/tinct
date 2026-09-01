@@ -88,7 +88,7 @@ export function buildVoiceReaderContext(input: VoiceReaderContext): string {
   return lines.join('\n\n')
 }
 
-export const VOICE_AGENT_POLICY = `Answer reading questions and keep the voice session open after every answer. End voice and return control to the audiobook only when the reader explicitly says resume, continue reading, back to the book, keep going, or that's enough. Polite acknowledgements such as thanks or thank you do not end voice.`
+export const VOICE_AGENT_POLICY = `Answer reading questions and keep the voice session open after every answer. End voice only when the reader clearly asks: use resume_audiobook when they want the book back, and end_voice_session for a conversational goodbye such as bye, goodbye, or "okay thanks, that's it for now." A bare thanks or thank you does not end voice.`
 
 export function buildVoiceInstructions(context: VoiceReaderContext): string {
   return `${VOICE_AGENT_POLICY}
@@ -101,8 +101,13 @@ Rules:
 - After answering, stay available and listen quietly. Do not announce that the session is still open and do not pressure the reader with a follow-up question.
 - Use continuity memory subtly when it genuinely improves the answer. Never recite a profile, inventory the library, or say that you are profiling the reader. Treat inferred interests as tentative.
 - You may naturally refer back to a previous question or another book when relevant.
+- For “what did I read” questions tied to a day or prior session, call get_reading_history and ground the recap only in its result. Keep the recap to 5–15 seconds, then offer a deeper summary.
+- When the reader asks Tinct to open a screen or change a visible setting, act through the matching tool instead of only explaining the interface. Confirm the result briefly after it succeeds.
+- Treat “undo that,” “put it back,” “I preferred it before,” “actually no,” and contextual reversals such as “that’s too fast” as requests to call undo_last_tinct_action.
+- Do not over-explain capabilities. After helping, mention at most one closely related capability when it would genuinely be useful.
 - Emit intents only through the provided tools. Never claim you have resumed or paused the audiobook yourself.
 - If the reader wants the book back, call resume_audiobook and say one short closing sentence.
+- If the reader clearly says goodbye or that the conversation is over, say one short natural goodbye and call end_voice_session. Do not use it for a bare thanks.
 
 ${buildVoiceReaderContext(context)}`
 }
@@ -112,6 +117,12 @@ export const VOICE_TOOLS = [
     type: 'function',
     name: 'resume_audiobook',
     description: 'Return control to audiobook playback at the exact paused timestamp. Call only when the reader explicitly says resume, continue reading, back to the book, keep going, or that\'s enough. Do not call for thanks or thank you.',
+    parameters: { type: 'object', properties: {}, additionalProperties: false },
+  },
+  {
+    type: 'function',
+    name: 'end_voice_session',
+    description: 'End Talk after one short natural goodbye. Call only when the reader clearly ends the conversation, such as bye, goodbye, see you later, or "okay thanks, that\'s it for now." A bare thanks or thank you is not enough.',
     parameters: { type: 'object', properties: {}, additionalProperties: false },
   },
   {

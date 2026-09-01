@@ -13,9 +13,9 @@ import {
   type CompanionAskNotify,
 } from '../lab/labCompanion'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
-import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
+import { classifyVoiceUtterance, shouldHonorModelEnd, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, VOICE_CLOSE_LINE, VOICE_REALTIME_MODEL } from './types'
 import {
   INITIAL_VOICE_TURN,
@@ -44,6 +44,8 @@ export interface VoiceSessionCallbacks {
   onLatency?: (sample: VoiceLatencySample) => void
   /** Lab-only. Production leaves this unset. */
   onSetAssistantPace?: (pace: AssistantPace) => void
+  /** Production-owned Tinct tools such as history, navigation, and settings. */
+  onApplicationTool?: VoiceApplicationToolHandler
 }
 
 export interface VoiceUiSnapshot {
@@ -68,6 +70,8 @@ export interface StartVoiceSessionInput {
   instructions?: string
   /** When set, replaces VOICE_TOOLS. */
   tools?: readonly unknown[]
+  /** Added to VOICE_TOOLS in production. Ignored when `tools` replaces them. */
+  applicationTools?: readonly unknown[]
   /** Lab-only. Production leaves this unset so shouldHonorModelResume still gates the tool. */
   honorModelResume?: boolean
   /** Lab-only. Realtime audio.output.speed. */
@@ -135,6 +139,7 @@ export class VoiceSessionController {
   private context: VoiceReaderContext | null = null
   private instructions: string | null = null
   private tools: readonly unknown[] | null = null
+  private applicationTools: readonly unknown[] = []
   private honorModelResume = false
   private assistantPace: AssistantPace = 'normal'
   private onCompanionAsk: StartVoiceSessionInput['onCompanionAsk'] = undefined
@@ -146,6 +151,8 @@ export class VoiceSessionController {
   private closed = false
   private deferredHonorResume: false | 'waiting_for_start' | 'waiting_for_end' = false
   private deferredHonorResumeTimer: number | null = null
+  private deferredHonorEnd: false | 'waiting_for_start' | 'waiting_for_end' = false
+  private deferredHonorEndTimer: number | null = null
   private awaitingModelResponse = false
   private forceResponseTimer: number | null = null
   private stuckListeningTimer: number | null = null
@@ -207,6 +214,7 @@ export class VoiceSessionController {
     this.context = input.context
     this.instructions = input.instructions?.trim() || null
     this.tools = input.tools ?? null
+    this.applicationTools = input.applicationTools ?? []
     this.honorModelResume = input.honorModelResume === true
     if (input.assistantPace) this.assistantPace = input.assistantPace
     this.onCompanionAsk = input.onCompanionAsk
@@ -377,8 +385,10 @@ export class VoiceSessionController {
     audioTracks?: Array<{ enabled: boolean; kind?: string }>
     greet?: boolean
     shouldResumeBook?: boolean
+    applicationTools?: readonly unknown[]
   }): void {
     this.honorModelResume = input.honorModelResume === true
+    this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
     this.lastUserIntent = input.lastUserIntent ?? 'none'
     this.userSpeechStarted = false
@@ -514,14 +524,14 @@ export class VoiceSessionController {
 
   private clearTimers(): void {
     this.clearDeferredHonorResumeTimer()
+    this.clearDeferredHonorEndTimer()
     this.clearLabUserTurnWatch()
     this.clearForceResponseTimer()
     this.clearBargeInTimer()
     this.clearMicUnmuteTimer()
-    if (this.connectionLossTimer != null) window.clearTimeout(this.connectionLossTimer)
-    this.connectionLossTimer = null
     this.lastUtteranceConfirmed = false
     this.deferredHonorResume = false
+    this.deferredHonorEnd = false
     this.awaitingModelResponse = false
     this.speechStoppedAt = null
     this.firstAudioRecordedForTurn = false
@@ -558,6 +568,7 @@ export class VoiceSessionController {
     }
     remoteAudio.addEventListener('ended', () => {
       if (this.deferredHonorResume === 'waiting_for_end') this.commitHonoredResume()
+      if (this.deferredHonorEnd === 'waiting_for_end') this.commitHonoredEnd()
     })
 
     this.localStream?.getTracks().forEach(track => pc.addTrack(track, this.localStream!))
@@ -610,7 +621,7 @@ export class VoiceSessionController {
 
   private sendSessionUpdate(): void {
     if (!this.dc || this.dc.readyState !== 'open' || !this.context) return
-    const tools = this.tools ?? VOICE_TOOLS
+    const tools = this.tools ?? [...VOICE_TOOLS, ...this.applicationTools]
     const session: Record<string, unknown> = {
       type: 'realtime',
       instructions: this.instructions || buildVoiceInstructions(this.context),
@@ -670,6 +681,10 @@ export class VoiceSessionController {
         this.clearDeferredHonorResumeTimer()
         this.deferredHonorResume = 'waiting_for_end'
       }
+      if (this.deferredHonorEnd === 'waiting_for_start') {
+        this.clearDeferredHonorEndTimer()
+        this.deferredHonorEnd = 'waiting_for_end'
+      }
     }
     if (result.signal === 'speech_end') {
       this.assistantLineFinished = true
@@ -679,6 +694,7 @@ export class VoiceSessionController {
         this.armMicUnmute()
       }
       if (this.deferredHonorResume === 'waiting_for_end') this.commitHonoredResume()
+      if (this.deferredHonorEnd === 'waiting_for_end') this.commitHonoredEnd()
     }
   }
 
@@ -706,6 +722,27 @@ export class VoiceSessionController {
   private clearDeferredHonorResumeTimer(): void {
     if (this.deferredHonorResumeTimer != null) window.clearTimeout(this.deferredHonorResumeTimer)
     this.deferredHonorResumeTimer = null
+  }
+
+  /** Lab: a recognized goodbye gets one short spoken sign-off, then closes. */
+  private armDeferredHonorEnd(): void {
+    this.clearDeferredHonorEndTimer()
+    this.deferredHonorEndTimer = window.setTimeout(() => {
+      if (this.deferredHonorEnd === 'waiting_for_start') this.commitHonoredEnd()
+    }, LAB_HONOR_RESUME_IDLE_MS)
+  }
+
+  private commitHonoredEnd(): void {
+    if (!this.deferredHonorEnd) return
+    this.clearDeferredHonorEndTimer()
+    this.deferredHonorEnd = false
+    this.turn = INITIAL_VOICE_TURN
+    this.dispatch({ type: 'INTENT', intent: 'end_voice_session' })
+  }
+
+  private clearDeferredHonorEndTimer(): void {
+    if (this.deferredHonorEndTimer != null) window.clearTimeout(this.deferredHonorEndTimer)
+    this.deferredHonorEndTimer = null
   }
 
 
@@ -857,6 +894,11 @@ export class VoiceSessionController {
         this.lastUserIntent = intent
         if (intent === 'none') return
         if (this.honorModelResume && intent === 'resume_audiobook') return
+        if (this.honorModelResume && intent === 'end_voice_session') {
+          this.deferredHonorEnd = 'waiting_for_start'
+          this.armDeferredHonorEnd()
+          return
+        }
         this.dispatch({ type: 'INTENT', intent })
         return
       }
@@ -1084,6 +1126,39 @@ export class VoiceSessionController {
       return
     }
 
+    if (name === 'end_voice_session') {
+      const honor = shouldHonorModelEnd(this.lastUserIntent)
+      this.sendEvent({
+        type: 'conversation.item.create',
+        item: {
+          type: 'function_call_output',
+          call_id: callId,
+          output: JSON.stringify({ ok: honor, handled_by: 'app' }),
+        },
+      })
+      this.applyTurnResult(noteToolCallHandled(this.turn))
+      if (!honor) return
+      if (!this.honorModelResume) {
+        this.turn = INITIAL_VOICE_TURN
+        this.dispatch({ type: 'INTENT', intent: 'end_voice_session' })
+        return
+      }
+      if (this.deferredHonorEnd === 'waiting_for_end') return
+      const alreadySpeaking = this.turn.audioPlaying || this.turn.spokenThisTurn
+      if (alreadySpeaking) {
+        this.deferredHonorEnd = 'waiting_for_end'
+        return
+      }
+      if (this.assistantLineFinished) {
+        this.deferredHonorEnd = 'waiting_for_end'
+        this.commitHonoredEnd()
+        return
+      }
+      this.deferredHonorEnd = 'waiting_for_start'
+      this.armDeferredHonorEnd()
+      return
+    }
+
     if (name === 'hold_voice_session') {
       this.sendEvent({
         type: 'conversation.item.create',
@@ -1096,6 +1171,57 @@ export class VoiceSessionController {
       this.applyTurnResult(noteToolCallHandled(this.turn))
       this.dispatch({ type: 'INTENT', intent: 'hold_session' })
       this.continueAfterNonResumeTool()
+      return
+    }
+
+    if (this.callbacks.onApplicationTool) {
+      let arguments_: Record<string, unknown> = {}
+      if (rawArguments) {
+        try {
+          const parsed = JSON.parse(rawArguments) as unknown
+          if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+            arguments_ = parsed as Record<string, unknown>
+          }
+        } catch { /* malformed tool arguments are handled by the application tool */ }
+      }
+
+      try {
+        const result = await this.callbacks.onApplicationTool(name, arguments_, callId)
+        if (this.closed) return
+        this.sendEvent({
+          type: 'conversation.item.create',
+          item: {
+            type: 'function_call_output',
+            call_id: callId,
+            output: JSON.stringify({ handled_by: 'tinct', ...result.output }),
+          },
+        })
+        this.applyTurnResult(noteToolCallHandled(this.turn))
+        this.sendEvent({
+          type: 'response.create',
+          response: {
+            instructions: result.responseInstructions
+              || 'Briefly tell the reader the result. Do not mention tools. Do not call another tool and do not resume the book.',
+          },
+        })
+      } catch {
+        if (this.closed) return
+        this.sendEvent({
+          type: 'conversation.item.create',
+          item: {
+            type: 'function_call_output',
+            call_id: callId,
+            output: JSON.stringify({ ok: false, handled_by: 'tinct', error: 'tool_failed' }),
+          },
+        })
+        this.applyTurnResult(noteToolCallHandled(this.turn))
+        this.sendEvent({
+          type: 'response.create',
+          response: {
+            instructions: 'Briefly say you could not do that just now. Do not claim it worked, do not call another tool, and do not resume the book.',
+          },
+        })
+      }
     }
   }
 
@@ -1352,7 +1478,6 @@ export class VoiceSessionController {
     try { this.dc?.close() } catch { /* ignore */ }
     this.dc = null
     try { this.pc?.getSenders().forEach(sender => sender.track?.stop()) } catch { /* ignore */ }
-    if (this.pc) this.pc.onconnectionstatechange = null
     try { this.pc?.close() } catch { /* ignore */ }
     this.pc = null
     this.localStream?.getTracks().forEach(track => track.stop())

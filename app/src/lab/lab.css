@@ -107,10 +107,81 @@
 .lab-page-measure {
   position: absolute;
   inset: 0;
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
   z-index: -1;
+}
+
+.lab-page-measure > .lab-passage {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Phone pages are derived from one browser-laid-out chapter. The native
+   column flow is hidden, but it uses the exact readable box and typography
+   of the visible passage, so page boundaries have a single layout authority. */
+.lab-native-page-measure {
+  display: block;
+}
+
+.lab-native-page-surface {
+  display: block;
+}
+
+.lab-native-page-flow {
+  width: 100%;
+  height: 100%;
+  column-fill: auto;
+  column-gap: 0;
+}
+
+.lab-native-page-flow .lab-passage-header {
+  position: static;
+  break-inside: avoid;
+}
+
+.lab-native-page-flow .lab-book-columns,
+.lab-native-page-flow .lab-book-col,
+.lab.is-phone .lab-native-page-flow .lab-hearing-stage,
+.lab.has-phone-chrome .lab-native-page-flow .lab-hearing-stage {
+  display: contents;
+}
+
+.lab-native-page-flow .lab-hearing-line {
+  break-inside: auto;
+  orphans: 1;
+  widows: 1;
+}
+
+/* Page locations are word-addressed, so words stay atomic in the hidden
+   native flow. Visible reading pages may still use dictionary hyphenation:
+   the conservative hidden boundary keeps a split word from crossing pages. */
+.lab.is-phone .lab-native-page-flow .lab-hearing-word,
+.lab.has-phone-chrome .lab-native-page-flow .lab-hearing-word {
+  white-space: nowrap;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+
+/* On a narrow phone measure, long indivisible words create a coarse,
+   stair-step rag. Let the browser use the edition language's dictionary on
+   the painted page, while avoiding arbitrary mid-letter emergency breaks. */
+.lab.is-phone .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word,
+.lab.has-phone-chrome .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word {
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-lines: 2;
+  hyphenate-limit-chars: 7 3 3;
+  hyphenate-limit-lines: 2;
 }
 
 .lab-hearing {
@@ -144,25 +215,14 @@
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   font-family: var(--lab-font-reader, 'EB Garamond', Georgia, 'Times New Roman', serif);
   font-size: calc(2.45rem * (var(--lab-font-size, 1.3) / 1.3));
   line-height: 1.45;
   color: #0b0b0b;
-  text-align: left;
-}
-
-/* Never show old page boundaries with newly applied typography. */
-.lab[data-layout-pending='true'] .lab-passage:not(.lab-page-measure) {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* A page peel is a pre-paint validation step, not a visible text edit. */
-.lab[data-page-pending='true'] .lab-passage:not(.lab-page-measure) {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .lab-passage.is-hearing .lab-hearing-word[data-word-index],
@@ -219,6 +279,7 @@
   max-width: 42rem;
   margin: 0 auto;
   padding: 2.25rem 1.75rem 6rem;
+  transition: opacity 0.25s ease;
 }
 
 .lab-passage-header {
@@ -328,28 +389,6 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
-
-.lab-passage.is-reading .lab-hearing-stage[data-page-turn='next'] {
-  animation: lab-page-enter-next 190ms cubic-bezier(0.22, 0.75, 0.24, 1) both;
-}
-
-.lab-passage.is-reading .lab-hearing-stage[data-page-turn='previous'] {
-  animation: lab-page-enter-previous 190ms cubic-bezier(0.22, 0.75, 0.24, 1) both;
-}
-
-@keyframes lab-page-enter-next {
-  from { opacity: 0.45; transform: translateX(1.35rem); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes lab-page-enter-previous {
-  from { opacity: 0.45; transform: translateX(-1.35rem); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lab-passage.is-reading .lab-hearing-stage[data-page-turn] { animation: none; }
 }
 
 .lab-passage.is-reading .lab-hearing-word.is-hl-warm,
@@ -521,7 +560,7 @@
   margin: 0;
   max-width: 100%;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: calc(1.12rem * (var(--lab-font-size, 1.3) / 1.3));
+  font-size: 1.12rem;
   line-height: 1.58;
   font-weight: 600;
   color: #0b0b0b;
@@ -541,7 +580,7 @@
   margin: 0;
   max-width: 100%;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: calc(1.12rem * (var(--lab-font-size, 1.3) / 1.3));
+  font-size: 1.12rem;
   line-height: 1.58;
   font-weight: 400;
   color: #2c2922;
@@ -566,7 +605,7 @@
   margin: 0 0 auto;
   padding: 0.35rem 0.15rem 1.1rem;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: calc(1.12rem * (var(--lab-font-size, 1.3) / 1.3));
+  font-size: 1.12rem;
   line-height: 1.58;
   color: #2c2922;
 }
@@ -622,9 +661,7 @@
 .lab-ask-composer .lab-ask-input {
   flex: 1;
   min-width: 0;
-  min-height: 1.55rem;
-  max-height: min(32vh, 15rem);
-  overflow-y: auto;
+  height: 100%;
   border: 0;
   outline: none;
   background: transparent;
@@ -636,28 +673,6 @@
   font-size: 1.08rem;
   line-height: 1.4;
 }
-
-.lab-ask-message > :first-child { margin-top: 0; }
-.lab-ask-message > :last-child { margin-bottom: 0; }
-.lab-ask-message p { margin: 0 0 0.6em; }
-.lab-ask-message ul,
-.lab-ask-message ol { margin: 0.25em 0 0.7em; padding-left: 1.25em; }
-.lab-ask-message li { margin: 0.16em 0; }
-.lab-ask-message h3 { margin: 0.45em 0 0.25em; font: inherit; font-weight: 700; }
-.lab-ask-message blockquote { margin: 0.5em 0; padding-left: 0.75em; border-left: 2px solid #b9af9c; }
-.lab-ask-message code { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.78em; }
-.lab-ask-moved {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin: 1.05rem 0 0.85rem;
-  color: #777061;
-  font: 0.67rem/1.2 'IBM Plex Mono', ui-monospace, monospace;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-}
-.lab-ask-moved::before,
-.lab-ask-moved::after { content: ''; flex: 1; height: 1px; background: #cec5b4; }
 
 .lab-ask-composer .lab-ask-input::placeholder {
   color: #6a6555;
@@ -896,20 +911,155 @@
   background: transparent;
   border: 0;
   color: #0b0b0b;
-  padding: 0;
-  min-width: 2.75rem;
-  min-height: 2.25rem;
+  padding: 0.15rem 0.2rem;
+  min-width: 1.4rem;
   cursor: pointer;
-  touch-action: manipulation;
 }
 
 .lab-page-turn-spacer {
-  width: 2.75rem;
+  width: 1.4rem;
   flex: 0 0 auto;
 }
 
 .lab-page-turn .lab-phone-icon {
   flex: 0 0 auto;
+}
+
+.lab-page-turn.is-phone-rail {
+  justify-content: center;
+  padding: 0.3rem 0.85rem 0.26rem;
+}
+
+.lab-page-turn.is-phone-rail .lab-chapter-progress {
+  flex: 1 1 auto;
+}
+
+.lab-page-turn.is-phone-rail.has-audio-controls {
+  min-height: 3.35rem;
+  box-sizing: border-box;
+  padding-top: 0.18rem;
+  padding-bottom: 0.18rem;
+}
+
+.lab-page-turn.is-phone-rail.has-audio-controls .lab-chapter-progress {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(2.6rem, auto) 2.8rem 2.2rem minmax(4.2rem, auto);
+  justify-content: center;
+  gap: 0.42rem;
+}
+
+.lab-transport-toggle {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 0;
+  border-radius: 50%;
+  background: #262421;
+  color: #faf6ee;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lab-speed-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-phone-speed {
+  min-width: 4.2rem;
+  height: 2.15rem;
+  border: 1px solid #d4cdc0;
+  border-radius: 999px;
+  background: #f0ece3;
+  color: #0b0b0b;
+  padding: 0 0.68rem;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.lab-speed-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.72rem);
+  z-index: 450;
+  width: min(15.5rem, calc(100vw - 2rem));
+  box-sizing: border-box;
+  padding: 0.78rem 0.8rem 0.68rem;
+  border: 1px solid #bfb7a8;
+  border-radius: 0.55rem;
+  background: #f4f0e7;
+  color: #0b0b0b;
+  box-shadow: 0 0.28rem 0.8rem rgb(40 35 28 / 18%);
+  text-align: center;
+}
+
+.lab-speed-popover::after {
+  content: '';
+  position: absolute;
+  right: 1.55rem;
+  bottom: -0.38rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 1px solid #bfb7a8;
+  border-bottom: 1px solid #bfb7a8;
+  background: #f4f0e7;
+  transform: rotate(45deg);
+}
+
+.lab-speed-title,
+.lab-speed-value {
+  display: block;
+}
+
+.lab-speed-title {
+  font-size: 0.82rem;
+}
+
+.lab-speed-value {
+  margin-top: 0.08rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 1.28rem;
+}
+
+.lab-speed-adjust {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr 1.8rem;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.58rem;
+}
+
+.lab-speed-adjust button {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid #bfb7a8;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.lab-speed-adjust input {
+  width: 100%;
+  accent-color: #262421;
+}
+
+.lab-speed-scale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.14rem 2.25rem 0;
+  color: #6a6555;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.58rem;
 }
 
 .lab-phone-bar {
@@ -948,62 +1098,19 @@
   justify-content: center;
 }
 
-.lab-phone-speed {
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-}
-
 .lab-phone-seek {
-  position: relative;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   line-height: 1;
+  gap: 0.05rem;
 }
 
 .lab-phone-seek span {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.48rem;
-  font-weight: 600;
+  font-size: 0.62rem;
   letter-spacing: 0.02em;
-}
-
-.lab.is-fullscreen.is-phone .lab-header,
-.lab.is-fullscreen.is-desktop .lab-header {
-  position: fixed;
-  top: calc(0.45rem + env(safe-area-inset-top, 0px));
-  right: 0.55rem;
-  z-index: 450;
-  display: block;
-  width: auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
-
-.lab.is-fullscreen.is-phone .lab-header-brand,
-.lab.is-fullscreen.is-desktop .lab-header-brand,
-.lab.is-fullscreen.is-phone .lab-gear,
-.lab.is-fullscreen.is-desktop .lab-gear,
-.lab.is-fullscreen.is-phone .lab-status,
-.lab.is-fullscreen.is-desktop .lab-status { display: none; }
-.lab.is-fullscreen.is-phone .lab-header-controls,
-.lab.is-fullscreen.is-desktop .lab-header-controls { display: block; }
-.lab.is-fullscreen.is-phone .lab-fullscreen,
-.lab.is-fullscreen.is-desktop .lab-fullscreen {
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--lab-paper, #ece7db) 82%, transparent);
-  box-shadow: 0 0 0 1px color-mix(in srgb, currentColor 16%, transparent);
-}
-
-.lab.is-fullscreen.is-phone .lab-body,
-.lab.is-fullscreen.is-desktop .lab-body {
-  padding-top: calc(2.8rem + env(safe-area-inset-top, 0px));
 }
 
 .lab-phone-read {
@@ -1157,6 +1264,137 @@
 .lab-conversation-hint {
   max-width: 16rem;
   text-align: center;
+}
+
+.lab-voice-actions {
+  position: fixed;
+  left: 50%;
+  bottom: calc(4.9rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 210;
+  width: min(34rem, calc(100vw - 1.5rem));
+  max-height: min(15rem, 34vh);
+  overflow: auto;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #b9af9c;
+  background: rgba(236, 231, 219, 0.96);
+  color: #0b0b0b;
+  box-shadow: 0 8px 24px rgba(11, 11, 11, 0.14);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.66rem;
+}
+
+.lab-voice-actions-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.lab-voice-actions-head > strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lab-voice-fixture {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.25rem 0.48rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lab-voice-fixture[aria-pressed="true"] {
+  background: #0b0b0b;
+  color: #ece7db;
+}
+
+.lab-voice-actions-state,
+.lab-voice-actions-empty,
+.lab-voice-surface {
+  margin: 0.45rem 0 0;
+  line-height: 1.35;
+}
+
+.lab-voice-surface {
+  padding: 0.4rem 0.5rem;
+  background: #e2d8c4;
+}
+
+.lab-voice-action-list {
+  display: grid;
+  gap: 0.38rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-voice-action-list li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) minmax(5rem, 0.8fr) minmax(6rem, 0.8fr);
+  gap: 0.35rem;
+  align-items: baseline;
+  padding-top: 0.34rem;
+  border-top: 1px solid #c8c0ae;
+}
+
+.lab-voice-action-list code,
+.lab-voice-action-list span,
+.lab-voice-action-list strong,
+.lab-voice-action-list small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lab-voice-action-list code {
+  color: inherit;
+  font-family: inherit;
+}
+
+.lab-voice-action-list small {
+  grid-column: 1 / -1;
+  color: #6a6555;
+}
+
+.lab.is-night .lab-voice-actions {
+  background: rgba(24, 22, 19, 0.97);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-night .lab-voice-fixture[aria-pressed="true"] {
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+}
+
+.lab.is-night .lab-voice-surface {
+  background: var(--lab-surface);
+}
+
+.lab.is-night .lab-voice-action-list li {
+  border-color: var(--lab-border);
+}
+
+.lab.is-night .lab-voice-action-list small {
+  color: var(--lab-ink-muted);
+}
+
+@media (max-width: 520px) {
+  .lab-voice-actions {
+    max-height: 12rem;
+  }
+
+  .lab-voice-action-list li {
+    grid-template-columns: minmax(7rem, 1fr) minmax(5rem, 0.8fr);
+  }
+
+  .lab-voice-action-list strong {
+    grid-column: 1 / -1;
+  }
 }
 
 
@@ -1332,26 +1570,20 @@
   line-height: 1.42;
 }
 
+.lab-verse-unit {
+  display: inline-block;
+  white-space: nowrap;
+  padding-top: 0.08em;
+}
+
 .lab-verse-mark {
   font-size: 0.58em;
   vertical-align: super;
-  line-height: 1;
+  line-height: 0;
   font-weight: 600;
   margin-left: 0.2em;
   font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum' 1;
   letter-spacing: 0;
-}
-
-/* Plain digits in Garamond can render uneven on iOS; mono tabular keeps 10 like 20. */
-.lab.is-phone .lab-verse-mark,
-.lab.has-phone-chrome .lab-verse-mark {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.62em;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
 }
 
 /* Reading uses the same .lab-hearing-line type as Hearing. Do not shrink. */
@@ -1360,8 +1592,26 @@
   margin-bottom: 1.15rem;
 }
 
+/* Paragraph rhythm belongs between passages, never after the final passage. */
+.lab-passage.is-reading .lab-hearing-stage > .lab-hearing-line:last-child {
+  margin-bottom: 0;
+}
+
 .lab.is-phone .lab-passage.is-reading .lab-hearing-line {
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.lab.has-phone-chrome .lab-passage.is-reading .lab-hearing-line {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.lab.is-phone .lab-passage.is-reading,
+.lab.has-phone-chrome .lab-passage.is-reading {
+  overflow-y: hidden;
+  padding-bottom: 0.5rem;
 }
 
 .lab.is-phone .lab-title,
@@ -1441,13 +1691,6 @@
   overflow-x: hidden;
   overflow-y: auto;
   padding: 1.15rem 1.3rem 1.15rem 1.1rem;
-}
-
-/* Paginated Reading: one screen per page — no scroll under the pager. */
-.lab.is-phone .lab-passage.is-reading,
-.lab.has-phone-chrome .lab-passage.is-reading {
-  overflow: hidden;
-  overflow-y: hidden;
 }
 
 .lab.is-phone[data-phone-bar="hearing"] .lab-page-wrap,
@@ -1549,20 +1792,6 @@
   font-size: 16px;
 }
 
-/* Chat follows the reader's chosen size exactly on phone. The composer stays
-   at 16px to avoid Safari focus zoom; this applies to the conversation text. */
-.lab.is-phone .lab-ask-user,
-.lab.is-phone .lab-ask-reply,
-.lab.is-phone .lab-ask-pending,
-.lab.is-phone .lab-ask-greeting,
-.lab-ask.is-phone-sheet .lab-ask-user,
-.lab-ask.is-phone-sheet .lab-ask-reply,
-.lab-ask.is-phone-sheet .lab-ask-pending,
-.lab-ask.is-phone-sheet .lab-ask-greeting {
-  font-size: calc(2rem * (var(--lab-font-size, 1.3) / 1.3));
-  line-height: 1.52;
-}
-
 .lab.is-phone .lab-ask-greeting {
   display: block;
   flex: 1 1 auto;
@@ -1610,8 +1839,10 @@
   line-height: 1.42;
   margin: 0 auto;
   max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .lab.is-phone.has-slim-transport .lab-hearing-stage {
@@ -1732,11 +1963,15 @@
 
 .lab-header-work {
   flex: 0 1 auto;
-  max-width: 34%;
-  color: #6a6555;
-  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: 0.92rem;
-  font-style: italic;
+  max-width: 45%;
+  margin: 0;
+  color: #0b0b0b;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
 }
 
 .lab-header-chapter {
@@ -1796,11 +2031,51 @@
   justify-content: center;
 }
 
-.lab-fullscreen:focus { outline: none; }
+.lab:fullscreen,
+.lab:-webkit-full-screen,
+.lab.is-fullscreen {
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background: #ece7db;
+}
 
-.lab-fullscreen:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 2px;
+.lab.is-fullscreen .lab-header,
+.lab.is-fullscreen .lab-bottom-chrome {
+  display: none;
+}
+
+.lab.is-fullscreen .lab-body {
+  padding-top: calc(2.8rem + env(safe-area-inset-top, 0px));
+}
+
+.lab-fullscreen-exit-hotspot {
+  position: fixed;
+  top: max(0.55rem, env(safe-area-inset-top, 0px));
+  right: max(0.55rem, env(safe-area-inset-right, 0px));
+  z-index: 900;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(63, 58, 50, 0.22);
+  border-radius: 999px;
+  color: #3f3a32;
+  background: rgba(236, 231, 219, 0.82);
+  box-shadow: 0 1px 5px rgba(11, 11, 11, 0.08);
+  opacity: 0.62;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.lab-fullscreen-exit-hotspot:hover,
+.lab-fullscreen-exit-hotspot:focus-visible {
+  opacity: 1;
 }
 
 .lab-phone-transport {
@@ -1846,7 +2121,6 @@
   border-color: var(--lab-border);
 }
 
-.lab.is-night .lab-header-work,
 .lab.is-night .lab-header-chapter,
 .lab.is-night .lab-chapter-progress-info,
 .lab.is-night .lab-phone-fat,
@@ -1859,29 +2133,31 @@
   color: var(--lab-ink);
 }
 
-.lab.is-night .lab-ask-user,
-.lab.is-night .lab-ask-reply,
-.lab.is-night .lab-ask-greeting,
-.lab.is-night .lab-ask-voice-status,
-.lab.is-night .lab-ask-input,
-.lab.is-night .lab-ask-send,
-.lab.is-night .lab-ask-icon,
-.lab.is-night .lab-ask-user-label,
-.lab.is-night .lab-ask-reply-label {
-  color: var(--lab-ink);
-}
-
-.lab.is-night .lab-ask-moved { color: var(--lab-ink-muted); }
-.lab.is-night .lab-ask-moved::before,
-.lab.is-night .lab-ask-moved::after,
-.lab.is-night .lab-ask-message blockquote { border-color: var(--lab-border); background-color: var(--lab-border); }
-.lab.is-night .lab-ask-message blockquote { background: transparent; }
-
+.lab.is-night .lab-header-work,
 .lab.is-night .lab-logo,
 .lab.is-night .lab-gear,
 .lab.is-night .lab-fullscreen,
-.lab.is-night .lab-page-turn-btn {
+.lab.is-night .lab-page-turn-btn,
+.lab.is-night .lab-phone-speed {
   color: var(--lab-ink);
+}
+
+.lab.is-night .lab-fullscreen-exit-hotspot {
+  color: var(--lab-ink);
+  background: rgba(58, 52, 44, 0.82);
+  border-color: var(--lab-border);
+}
+
+.lab.is-night .lab-phone-speed,
+.lab.is-night .lab-speed-popover,
+.lab.is-night .lab-speed-popover::after {
+  background: var(--lab-surface);
+  border-color: var(--lab-border);
+  color: var(--lab-ink);
+}
+
+.lab.is-night .lab-speed-scale {
+  color: var(--lab-ink-muted);
 }
 
 .lab.is-night .lab-passage-header {
@@ -2042,7 +2318,8 @@
   gap: 0.2rem;
 }
 
-.lab-ss-seg-item {
+.lab-ss-seg-item,
+.lab-ss-size {
   border: 1px solid #c8c0ae;
   background: transparent;
   color: #0b0b0b;
@@ -2052,7 +2329,8 @@
   cursor: pointer;
 }
 
-.lab-ss-seg-item.is-active {
+.lab-ss-seg-item.is-active,
+.lab-ss-size.is-active {
   background: #0b0b0b;
   color: #ece7db;
   border-color: #0b0b0b;
@@ -2060,44 +2338,7 @@
 
 .lab-ss-sizes {
   display: flex;
-  align-items: center;
-  min-width: 10.5rem;
-  border: 1px solid #c8c0ae;
-}
-
-.lab-ss-size-step {
-  flex: 0 0 2.5rem;
-  min-height: 2rem;
-  border: 0;
-  background: transparent;
-  color: #0b0b0b;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  cursor: pointer;
-}
-
-.lab-ss-size-step:first-child {
-  border-right: 1px solid #c8c0ae;
-}
-
-.lab-ss-size-step:last-child {
-  border-left: 1px solid #c8c0ae;
-}
-
-.lab-ss-size-step:disabled {
-  color: #aaa18f;
-  cursor: default;
-}
-
-.lab-ss-size-value {
-  flex: 1 1 auto;
-  min-width: 5.25rem;
-  padding: 0 0.35rem;
-  color: #3f3a32;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.66rem;
-  text-align: center;
-  white-space: nowrap;
+  gap: 0.2rem;
 }
 
 .lab-ss-toggle {
@@ -2357,32 +2598,6 @@
   font-size: 1rem;
 }
 
-/* Quiet reading-memory signals: amber means a highlight, blue-grey means a
-   chat turn. They aggregate upward when a book/section is collapsed. */
-.lab-tree-signals {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.28rem;
-  flex: 0 0 auto;
-  margin-left: auto;
-  padding: 0 0.12rem;
-}
-
-.lab-tree-progress + .lab-tree-signals {
-  margin-left: 0.15rem;
-}
-
-.lab-tree-signal {
-  display: block;
-  width: 0.34rem;
-  height: 0.34rem;
-  border-radius: 50%;
-  opacity: 0.78;
-}
-
-.lab-tree-signal.is-highlight { background: #c89e58; }
-.lab-tree-signal.is-chat { background: #607783; }
-
 .lab-tree-mark {
   flex: 0 0 16px;
   width: 16px;
@@ -2433,9 +2648,6 @@
   background: var(--lab-surface);
   color: var(--lab-ink);
 }
-
-.lab.is-night .lab-tree-signal.is-highlight { background: #d2aa67; }
-.lab.is-night .lab-tree-signal.is-chat { background: #8fa6b0; }
 
 .lab.is-night .lab-tree-children {
   border-left-color: var(--lab-border);

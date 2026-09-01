@@ -276,7 +276,7 @@ async function loadBibleChapterText(editionKey: string, entry: { number: number;
 export function prefetchLabChapterTexts(
   chapterNumber: number,
   editions?: { primary?: string; compare?: string },
-  range: number | { before?: number; after?: number } = 2,
+  radius = 2,
 ): void {
   void (async () => {
     try {
@@ -284,12 +284,8 @@ export function prefetchLabChapterTexts(
       const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
       const manifest = await loadBibleManifest(primary)
       const targets = new Set<number>()
-      const before = typeof range === 'number' ? range : Math.max(0, range.before ?? 2)
-      const after = typeof range === 'number' ? range : Math.max(0, range.after ?? 2)
-      for (let offset = 1; offset <= after; offset++) {
+      for (let offset = 1; offset <= radius; offset++) {
         targets.add(chapterNumber + offset)
-      }
-      for (let offset = 1; offset <= before; offset++) {
         targets.add(chapterNumber - offset)
       }
       await Promise.all([...targets].map(async (num) => {

@@ -154,19 +154,13 @@ function trimConversations(conversations: ChatConversation[]): ChatConversation[
 }
 
 export function turnsFromConversations(conversations: ChatConversation[]): LabAskTurn[] {
-  return conversations
-    .flatMap((conversation, conversationIndex) => conversation.messages.map((message, messageIndex) => ({
-      id: message.id,
-      role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
-      content: message.content,
-      source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
-      chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
-      timestamp: message.timestamp,
-      cancelled: message.isComplete === false,
-      order: conversationIndex * MAX_TURNS_PER_BOOK + messageIndex,
-    })))
-    .sort((a, b) => a.timestamp - b.timestamp || a.order - b.order)
-    .map(({ order: _order, ...turn }) => turn)
+  return conversations.flatMap(conversation => conversation.messages.map(message => ({
+    id: message.id,
+    role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
+    content: message.content,
+    source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
+    cancelled: message.isComplete === false,
+  })))
 }
 
 export function readLabAskTurns(bookId: string, state?: LabChatHistoryState): LabAskTurn[] {

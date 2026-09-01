@@ -151,7 +151,8 @@ describe('resume listen command', () => {
       speed: null,
     })
     expect(parseSetPlaybackSpeedArguments('{"rate":1.5}')).toBe(1.5)
-    expect(parseSetPlaybackSpeedArguments('{"rate":3}')).toBeNull()
+    expect(parseSetPlaybackSpeedArguments('{"rate":3}')).toBe(3)
+    expect(parseSetPlaybackSpeedArguments('{"rate":3.01}')).toBeNull()
   })
 
   it('honors typed chapter and paragraph skip tags', () => {

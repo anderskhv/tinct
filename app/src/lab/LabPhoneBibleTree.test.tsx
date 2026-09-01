@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import type { Section } from '../types'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
 import { LAB_FINISHED_STORAGE_KEY } from './labBibleTree'
@@ -54,7 +54,6 @@ const chapters = [
 function renderTree(opts?: {
   currentChapter?: number
   finished?: number[]
-  chapterSignals?: Record<number, { highlights: number; chats: number }>
   onSelectChapter?: (n: number) => void
 }) {
   return render(
@@ -65,7 +64,6 @@ function renderTree(opts?: {
         currentChapter={opts?.currentChapter ?? 30}
         sections={sections}
         finishedChapters={new Set(opts?.finished ?? [1])}
-        chapterSignals={opts?.chapterSignals}
         onSelectChapter={opts?.onSelectChapter ?? (() => {})}
         onClose={() => {}}
       />
@@ -86,27 +84,6 @@ function expand(label: string) {
 }
 
 describe('lab phone bible tree', () => {
-  it('centers Jeremiah only on open and does not pull back while expanding Genesis', () => {
-    const original = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollIntoView')
-    const scrollIntoView = vi.fn()
-    Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
-      configurable: true,
-      value: scrollIntoView,
-    })
-    try {
-      renderTree({ currentChapter: 30 })
-      expect(scrollIntoView).toHaveBeenCalledTimes(1)
-      fireEvent.click(row('Old Testament'))
-      fireEvent.click(row('The Pentateuch'))
-      fireEvent.click(row('Genesis'))
-      expect(scrollIntoView).toHaveBeenCalledTimes(1)
-      expect(screen.getByTestId('lab-tree-chapter-3').textContent).toContain('Genesis 3')
-    } finally {
-      if (original) Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', original)
-      else delete (HTMLElement.prototype as { scrollIntoView?: unknown }).scrollIntoView
-    }
-  })
-
   it('shows books first and named chapter rows, never a number keypad', () => {
     renderTree({ currentChapter: 1, finished: [1] })
     const toc = screen.getByTestId('lab-bible-tree')
@@ -159,24 +136,6 @@ describe('lab phone bible tree', () => {
     expect(screen.getByTestId('lab-tree-chapter-31').getAttribute('data-mark')).toBe('empty')
   })
 
-  it('shows quiet chat and highlight signals on chapters and collapsed ancestors', () => {
-    renderTree({
-      currentChapter: 30,
-      chapterSignals: {
-        2: { highlights: 2, chats: 0 },
-        3: { highlights: 0, chats: 1 },
-      },
-    })
-    const oldTestament = row('Old Testament')
-    expect(oldTestament.querySelector('.lab-tree-signal.is-highlight')).toBeTruthy()
-    expect(oldTestament.querySelector('.lab-tree-signal.is-chat')).toBeTruthy()
-    fireEvent.click(oldTestament)
-    expand('The Pentateuch')
-    expand('Genesis')
-    expect(screen.getByTestId('lab-tree-chapter-2').querySelector('.is-highlight')).toBeTruthy()
-    expect(screen.getByTestId('lab-tree-chapter-3').querySelector('.is-chat')).toBeTruthy()
-  })
-
   it('uses a checkmark when every chapter in a book is finished', () => {
     renderTree({ currentChapter: 30, finished: [1, 2, 3] })
     expand('Old Testament')
@@ -206,15 +165,12 @@ describe('lab phone bible tree', () => {
     expect(document.querySelector('.toc-item-number')).toBeNull()
   })
 
-  it('lets the current book collapse in place without a global Collapse button', () => {
+  it('shows Collapse when a large section is expanded', () => {
     renderTree({ currentChapter: 30 })
-    expect(screen.queryByTestId('lab-tree-collapse')).toBeNull()
-    const romans = screen.getByTestId('lab-tree-book-new-testament/paul/romans')
-    expect(romans.textContent).toContain('Chapter 1 of 2')
-    expect(screen.getByTestId('lab-tree-chapter-30')).toBeTruthy()
-    fireEvent.click(romans)
-    expect(screen.queryByTestId('lab-tree-chapter-30')).toBeNull()
-    expect(romans.getAttribute('aria-expanded')).toBe('false')
+    expand('Old Testament')
+    expect(screen.getByTestId('lab-tree-collapse')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-tree-collapse'))
+    expect(screen.queryByTestId('lab-tree-chapter-1')).toBeNull()
   })
 
   it('uses SVG chevrons and one Garamond stack in the tree', () => {
