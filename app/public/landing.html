@@ -63,11 +63,7 @@
       min-width: 320px;
       min-height: 100vh;
       color: #fffdf7;
-      background-color: var(--night);
-      background-image: linear-gradient(180deg, rgba(4,16,26,.58), rgba(4,12,19,.83)), url('/hero-bg.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background: var(--night-deep);
       font-family: 'IBM Plex Sans', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
@@ -76,7 +72,11 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 50% 18%, rgba(255,216,151,.12), transparent 34%), linear-gradient(90deg, rgba(2,8,13,.23), transparent 28%, transparent 72%, rgba(2,8,13,.23));
+      background-image: linear-gradient(180deg, rgba(5,16,24,.42), rgba(3,10,16,.72)), url('/hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.42) contrast(.72);
+      opacity: .48;
     }
     button, a { -webkit-tap-highlight-color: transparent; }
     .wrap { position: relative; z-index: 1; }
@@ -96,10 +96,11 @@
     .hero-copy { width: 100%; padding: 16px 18px; border-radius: 18px; background: linear-gradient(110deg, rgba(3,10,16,.62), rgba(3,10,16,.36)); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
     .hero-h1 { max-width: 620px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.65rem, 8vw, 4.8rem); font-weight: 400; line-height: .98; letter-spacing: -.035em; text-wrap: balance; }
     .hero-description { margin-top: 15px; color: rgba(255,253,247,.92); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(.95rem, 2.2vw, 1.08rem); line-height: 1.5; }
-    .product-demo { width: 100%; margin-top: 15px; filter: drop-shadow(0 18px 30px rgba(0,0,0,.28)); }
-    .product-titlebar { height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; color: rgba(255,253,247,.92); background: var(--book); border-bottom: 1px solid rgba(255,255,255,.18); font-family: 'Playfair Display', Georgia, serif; font-size: 11px; letter-spacing: .02em; }
+    .product-demo { width: 100%; margin-top: 15px; filter: drop-shadow(0 18px 30px rgba(0,0,0,.24)); }
+    .product-shell { padding: 10px; border: 1px solid rgba(232,196,119,.2); border-radius: 42px; background: rgba(11,14,14,.48); box-shadow: inset 0 0 0 1px rgba(255,255,255,.035); }
+    .product-titlebar { height: 42px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; color: rgba(255,253,247,.92); background: var(--book); border-radius: 31px 31px 0 0; border-bottom: 1px solid rgba(255,255,255,.18); font-family: 'Playfair Display', Georgia, serif; font-size: 11px; letter-spacing: .02em; }
     .product-titlebar strong { font: inherit; }
-    .product-page { position: relative; min-height: 300px; overflow: hidden; border: 1px solid rgba(255,255,255,.72); border-top: 0; color: var(--ink); background: var(--paper); box-shadow: inset 10px 0 18px rgba(93,69,38,.09); }
+    .product-page { position: relative; min-height: 300px; overflow: hidden; border: 1px solid rgba(255,255,255,.62); border-top: 0; border-radius: 0 0 30px 30px; color: var(--ink); background: var(--paper); box-shadow: inset 10px 0 18px rgba(93,69,38,.09); }
     .product-page::before { content: ""; position: absolute; z-index: 3; top: 0; right: 0; bottom: 8px; width: 8px; background: repeating-linear-gradient(90deg, rgba(168,144,107,.25) 0 1px, var(--paper) 1px 2px); pointer-events: none; }
     .product-page::after { content: ""; position: absolute; z-index: 3; left: 0; right: 8px; bottom: 0; height: 8px; background: repeating-linear-gradient(180deg, rgba(168,144,107,.22) 0 1px, var(--paper) 1px 2px); pointer-events: none; }
     .demo-panel { display: none; min-height: 291px; padding: 18px 22px 27px; }
@@ -143,7 +144,8 @@
       .hero-h1 { font-size: clamp(2.15rem, 10.5vw, 3rem); }
       .hero-description { margin-top: 10px; font-size: 13px; line-height: 1.42; }
       .product-demo { margin-top: 12px; }
-      .product-titlebar { height: 29px; padding: 0 10px; font-size: 9px; }
+      .product-shell { padding: 8px; border-radius: 34px; }
+      .product-titlebar { height: 36px; padding: 0 14px; border-radius: 25px 25px 0 0; font-size: 9px; }
       .product-page { min-height: 263px; }
       .demo-panel { min-height: 254px; padding: 13px 12px 22px; }
       .page-kicker { min-height: 23px; font-size: 8px; }
@@ -186,8 +188,9 @@
       </div>
 
       <section class="product-demo" aria-label="See how Tinct works">
-        <div class="product-titlebar"><span>Homer</span><strong>The Odyssey</strong></div>
-        <div class="product-page">
+        <div class="product-shell">
+          <div class="product-titlebar"><span>Homer</span><strong>The Odyssey</strong></div>
+          <div class="product-page">
           <article class="demo-panel is-current" data-demo-panel="versions">
             <div class="page-kicker"><span>Pick your version</span><span>The Odyssey</span></div>
             <div class="edition-examples">
@@ -223,6 +226,7 @@
             </div>
             <small class="chat-memory">Remembers your place · never spoils ahead</small>
           </article>
+          </div>
         </div>
         <div class="demo-dots" role="group" aria-label="Product demonstration">
           <button type="button" class="demo-dot" data-demo-dot="versions" aria-label="Edition comparison" aria-pressed="true"></button>
