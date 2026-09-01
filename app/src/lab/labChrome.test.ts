@@ -160,6 +160,7 @@ describe('lab chrome inset invariant', () => {
     expect(shouldGrowPaintedPage('peel', 80, 40)).toBe(true)
     expect(shouldGrowPaintedPage('grow', 80, 40)).toBe(true)
     expect(shouldGrowPaintedPage('polish', 80, 40)).toBe(false)
+    expect(shouldGrowPaintedPage('polish', 101, 40)).toBe(true)
   })
 
   it('does not eat Genesis page 1 down to the verse number when last-line count is the whole pack', () => {

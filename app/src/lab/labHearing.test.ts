@@ -9,6 +9,7 @@ import {
   absorbOneWordLeftoverPages,
   adjacentPageIndex,
   chapterHearingPages,
+  chapterPageSegments,
   chapterPagesCover,
   chapterPageLabel,
   clampedChapterProgress,
@@ -666,6 +667,7 @@ describe('page fill after peel', () => {
     expect(polishPageEnd([
       { text: 'his' }, { text: 'kind:' }, { text: 'and' }, { text: 'God' },
     ], 0, 4, 6)).toBe(2)
+    expect(polishPageEnd([{ text: '⁶' }], 0, 1, 6)).toBe(0)
     expect(polishPageEnd([
       { text: 'the' }, { text: 'second' }, { text: 'day.' },
       { text: '⁹' }, { text: 'And' }, { text: 'God' }, { text: 'said,' }, { text: 'Let' },
@@ -723,6 +725,13 @@ describe('page fill after peel', () => {
     expect(cut[0].segments?.[1]).toEqual({ paragraphIndex: 1, from: 0, to: 2 })
     expect(cut[1]).toMatchObject({ paragraphIndex: 1, from: 2, to: 12 })
     expect(chapterPagesCover(paragraphs, cut)).toBe(true)
+
+    const movedWholeTail = cutPageTailTo(grown, 0, 0)
+    expect(chapterPageSegments(movedWholeTail[0])).toEqual([
+      { paragraphIndex: 0, from: 0, to: 12 },
+    ])
+    expect(chapterPageSegments(movedWholeTail[1])[0]).toEqual({ paragraphIndex: 1, from: 0, to: 12 })
+    expect(chapterPagesCover(paragraphs, movedWholeTail)).toBe(true)
   })
 
   it('grows the last page into the paragraph tail when there is no next page', () => {

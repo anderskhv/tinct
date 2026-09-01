@@ -78,7 +78,8 @@ export function polishPageEnd(
   to: number,
   maxRollbackWords = 8,
 ): number {
-  if (to <= from + 1) return to
+  if (to <= from) return to
+  if (to === from + 1) return isLabVerseMarker(words[from]?.text || '') ? from : to
   const rollbackLimit = Math.max(1, Math.min(12, maxRollbackWords))
   let end = to
 
@@ -723,10 +724,11 @@ export function cutPageTailTo(
   const page = pages[pageIndex]
   const segments = chapterPageSegments(page)
   const tail = segments[segments.length - 1]
-  if (!page || !tail || newTo <= tail.from || newTo >= tail.to) return pages
+  if (!page || !tail || newTo < tail.from || newTo >= tail.to) return pages
 
   const keptSegments = segments.slice()
-  keptSegments[keptSegments.length - 1] = { ...tail, to: newTo }
+  if (newTo === tail.from) keptSegments.pop()
+  else keptSegments[keptSegments.length - 1] = { ...tail, to: newTo }
   const kept = pageFromSegments(keptSegments)
   if (!kept) return pages
 

@@ -497,9 +497,10 @@ export function shouldGrowPaintedPage(
 ): boolean {
   const line = lineHeight > 8 ? lineHeight : 24
   if (slackPx <= line) return false
-  // A trial grow that overflowed (or a typographic cleanup) has already found
-  // this page's upper bound. Retrying would alternate forever between ends.
-  if (lastAdjust === 'polish') return false
+  // A typographic cleanup may intentionally leave a line or two. If a resize
+  // leaves substantially more space than that, refill instead of freezing a
+  // nearly empty page; the next overflow trial can still revert to the clean end.
+  if (lastAdjust === 'polish') return slackPx > line * 2.5
   if (lastAdjust !== 'peel') return true
   return slackPx > line * 1.1
 }

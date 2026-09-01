@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
@@ -55,21 +55,48 @@ function wordSpacing(
   previous?: { text: string },
 ): string {
   if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
+  return previous && isLabVerseMarker(previous.text) ? '' : ' '
 }
 
-function renderWordText(text: string) {
+function renderWordText(text: string, hasFollowingWord = false) {
   if (!isLabVerseMarker(text)) return text
-  return <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
+  return (
+    <span className="lab-verse-mark">
+      {labVerseMarkerDisplay(text)}
+      {hasFollowingWord ? '\u00a0' : ''}
+    </span>
+  )
+}
+
+function renderWordGroups<T extends { text: string }>(
+  words: T[],
+  renderWord: (word: T, wordIndex: number) => ReactNode,
+): ReactNode[] {
+  const rendered: ReactNode[] = []
+  for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
+    const word = words[wordIndex]
+    if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
+      rendered.push(
+        <span key={`verse-${wordIndex}`} className="lab-verse-unit">
+          {renderWord(word, wordIndex)}
+          {renderWord(words[wordIndex + 1], wordIndex + 1)}
+        </span>,
+      )
+      wordIndex += 1
+    } else {
+      rendered.push(renderWord(word, wordIndex))
+    }
+  }
+  return rendered
 }
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {line.words.map((word, wordIndex) => (
+      {renderWordGroups(line.words, (word, wordIndex) => (
         <span key={`${lineIndex}-${wordIndex}`}>
           {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-          {renderWordText(word.text)}
+          {renderWordText(word.text, wordIndex < line.words.length - 1)}
         </span>
       ))}
     </p>
@@ -86,7 +113,7 @@ function renderHearingWords(
   const lines = hearingStageLines(paragraph, follow, chapterPages)
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {line.words.map((word, wordIndex) => (
+      {renderWordGroups(line.words, (word, wordIndex) => (
         <span
           key={`${lineIndex}-${wordIndex}`}
           className={`lab-hearing-word is-${word.role}`}
@@ -98,7 +125,7 @@ function renderHearingWords(
             : undefined}
         >
           {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-          {renderWordText(word.text)}
+          {renderWordText(word.text, wordIndex < line.words.length - 1)}
         </span>
       ))}
     </p>
@@ -305,7 +332,7 @@ export function LabPassage({
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
                     ].filter(Boolean).join(' ')}
                   >
-                    {line.words.map((word, wordIndex) => {
+                    {renderWordGroups(line.words, (word, wordIndex) => {
                       const absoluteWord = wordBase + wordIndex
                       const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
                       const selecting = activeSelecting
@@ -325,7 +352,7 @@ export function LabPassage({
                             : undefined}
                         >
                           {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-                          {renderWordText(word.text)}
+                          {renderWordText(word.text, wordIndex < line.words.length - 1)}
                         </span>
                       )
                     })}
@@ -395,7 +422,7 @@ export function LabPageMeasurePaint(input: {
           <div className="lab-hearing-stage">
             {lines.map((line, lineIndex) => (
               <p key={lineIndex} className="lab-hearing-line">
-                {line.words.map((word, wordIndex) => (
+                {renderWordGroups(line.words, (word, wordIndex) => (
                   <span
                     key={`${lineIndex}-${wordIndex}`}
                     className={input.hearingPaint
@@ -403,7 +430,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-                    {renderWordText(word.text)}
+                    {renderWordText(word.text, wordIndex < line.words.length - 1)}
                   </span>
                 ))}
                 <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>
