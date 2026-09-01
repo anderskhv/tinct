@@ -278,6 +278,7 @@ describe('VoiceSessionController production continuity', () => {
     const update = sent.map(item => JSON.parse(item)).find(item => item.type === 'session.update')
     expect(update.session.tools.map((tool: { name: string }) => tool.name)).toEqual([
       'resume_audiobook',
+      'end_voice_session',
       'hold_voice_session',
       'open_tinct_view',
     ])
@@ -514,6 +515,41 @@ describe('VoiceSessionController lab honor resume', () => {
     })
     expect(audio.resumePlayback).not.toHaveBeenCalled()
     expect(controller.getSnapshot().state).not.toBe('reading')
+  })
+
+  it('ends Talk after a spoken goodbye and restores an audiobook that was playing', () => {
+    withWindowTimers()
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true })
+    controller.testRealtime({
+      type: 'conversation.item.input_audio_transcription.completed',
+      transcript: "Okay thanks, that's it for now.",
+    })
+    expect(controller.getSnapshot().state).not.toBe('reading')
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(controller.getSnapshot().state).toBe('reading')
+    expect(audio.resumePlayback).toHaveBeenCalledTimes(1)
+  })
+
+  it('ends Talk after bye without starting an audiobook that was already paused', () => {
+    withWindowTimers()
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: false })
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false })
+    controller.testRealtime({
+      type: 'conversation.item.input_audio_transcription.completed',
+      transcript: 'Bye.',
+    })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(controller.getSnapshot().state).toBe('reading')
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
   })
 
   it('applies set_playback_speed on the lab honor path', () => {

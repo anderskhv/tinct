@@ -18,6 +18,7 @@ describe('Lab production voice-tool bridge', () => {
       .filter(Boolean)
 
     expect(names).toContain('resume_audiobook')
+    expect(names).toContain('end_voice_session')
     expect(names).toContain('set_assistant_pace')
     expect(names).toContain('next_chapter')
     expect(names).toContain('next_paragraph')
@@ -37,6 +38,8 @@ describe('Lab production voice-tool bridge', () => {
       { role: 'assistant', content: 'It marks order emerging from the formless deep.' },
     ])
     expect(instructions).toContain('Only end Talk or resume the book when the reader explicitly asks')
+    expect(instructions).toContain('call end_voice_session')
+    expect(instructions).toContain('A bare thanks does not end Talk')
     expect(instructions).toContain('After every non-resume tool result, remain in the conversation')
     expect(instructions).toContain('call set_audiobook_speed so the change can be undone')
     expect(instructions).toContain('Never claim to change device brightness')

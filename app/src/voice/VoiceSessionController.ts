@@ -13,7 +13,7 @@ import {
   type CompanionAskNotify,
 } from '../lab/labCompanion'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
-import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
+import { classifyVoiceUtterance, shouldHonorModelEnd, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, VOICE_CLOSE_LINE, VOICE_REALTIME_MODEL } from './types'
@@ -151,6 +151,8 @@ export class VoiceSessionController {
   private closed = false
   private deferredHonorResume: false | 'waiting_for_start' | 'waiting_for_end' = false
   private deferredHonorResumeTimer: number | null = null
+  private deferredHonorEnd: false | 'waiting_for_start' | 'waiting_for_end' = false
+  private deferredHonorEndTimer: number | null = null
   private awaitingModelResponse = false
   private forceResponseTimer: number | null = null
   private stuckListeningTimer: number | null = null
@@ -522,6 +524,7 @@ export class VoiceSessionController {
 
   private clearTimers(): void {
     this.clearDeferredHonorResumeTimer()
+    this.clearDeferredHonorEndTimer()
     this.clearLabUserTurnWatch()
     this.clearForceResponseTimer()
     this.clearBargeInTimer()
@@ -530,6 +533,7 @@ export class VoiceSessionController {
     this.connectionLossTimer = null
     this.lastUtteranceConfirmed = false
     this.deferredHonorResume = false
+    this.deferredHonorEnd = false
     this.awaitingModelResponse = false
     this.speechStoppedAt = null
     this.firstAudioRecordedForTurn = false
@@ -566,6 +570,7 @@ export class VoiceSessionController {
     }
     remoteAudio.addEventListener('ended', () => {
       if (this.deferredHonorResume === 'waiting_for_end') this.commitHonoredResume()
+      if (this.deferredHonorEnd === 'waiting_for_end') this.commitHonoredEnd()
     })
 
     this.localStream?.getTracks().forEach(track => pc.addTrack(track, this.localStream!))
@@ -678,6 +683,10 @@ export class VoiceSessionController {
         this.clearDeferredHonorResumeTimer()
         this.deferredHonorResume = 'waiting_for_end'
       }
+      if (this.deferredHonorEnd === 'waiting_for_start') {
+        this.clearDeferredHonorEndTimer()
+        this.deferredHonorEnd = 'waiting_for_end'
+      }
     }
     if (result.signal === 'speech_end') {
       this.assistantLineFinished = true
@@ -687,6 +696,7 @@ export class VoiceSessionController {
         this.armMicUnmute()
       }
       if (this.deferredHonorResume === 'waiting_for_end') this.commitHonoredResume()
+      if (this.deferredHonorEnd === 'waiting_for_end') this.commitHonoredEnd()
     }
   }
 
@@ -714,6 +724,27 @@ export class VoiceSessionController {
   private clearDeferredHonorResumeTimer(): void {
     if (this.deferredHonorResumeTimer != null) window.clearTimeout(this.deferredHonorResumeTimer)
     this.deferredHonorResumeTimer = null
+  }
+
+  /** Lab: a recognized goodbye gets one short spoken sign-off, then closes. */
+  private armDeferredHonorEnd(): void {
+    this.clearDeferredHonorEndTimer()
+    this.deferredHonorEndTimer = window.setTimeout(() => {
+      if (this.deferredHonorEnd === 'waiting_for_start') this.commitHonoredEnd()
+    }, LAB_HONOR_RESUME_IDLE_MS)
+  }
+
+  private commitHonoredEnd(): void {
+    if (!this.deferredHonorEnd) return
+    this.clearDeferredHonorEndTimer()
+    this.deferredHonorEnd = false
+    this.turn = INITIAL_VOICE_TURN
+    this.dispatch({ type: 'INTENT', intent: 'end_voice_session' })
+  }
+
+  private clearDeferredHonorEndTimer(): void {
+    if (this.deferredHonorEndTimer != null) window.clearTimeout(this.deferredHonorEndTimer)
+    this.deferredHonorEndTimer = null
   }
 
 
@@ -865,6 +896,11 @@ export class VoiceSessionController {
         this.lastUserIntent = intent
         if (intent === 'none') return
         if (this.honorModelResume && intent === 'resume_audiobook') return
+        if (this.honorModelResume && intent === 'end_voice_session') {
+          this.deferredHonorEnd = 'waiting_for_start'
+          this.armDeferredHonorEnd()
+          return
+        }
         this.dispatch({ type: 'INTENT', intent })
         return
       }
@@ -1089,6 +1125,39 @@ export class VoiceSessionController {
         return
       }
       this.applyTurnResult(noteToolCallHandled(this.turn))
+      return
+    }
+
+    if (name === 'end_voice_session') {
+      const honor = shouldHonorModelEnd(this.lastUserIntent)
+      this.sendEvent({
+        type: 'conversation.item.create',
+        item: {
+          type: 'function_call_output',
+          call_id: callId,
+          output: JSON.stringify({ ok: honor, handled_by: 'app' }),
+        },
+      })
+      this.applyTurnResult(noteToolCallHandled(this.turn))
+      if (!honor) return
+      if (!this.honorModelResume) {
+        this.turn = INITIAL_VOICE_TURN
+        this.dispatch({ type: 'INTENT', intent: 'end_voice_session' })
+        return
+      }
+      if (this.deferredHonorEnd === 'waiting_for_end') return
+      const alreadySpeaking = this.turn.audioPlaying || this.turn.spokenThisTurn
+      if (alreadySpeaking) {
+        this.deferredHonorEnd = 'waiting_for_end'
+        return
+      }
+      if (this.assistantLineFinished) {
+        this.deferredHonorEnd = 'waiting_for_end'
+        this.commitHonoredEnd()
+        return
+      }
+      this.deferredHonorEnd = 'waiting_for_start'
+      this.armDeferredHonorEnd()
       return
     }
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { classifyVoiceUtterance, shouldHonorModelResume } from './intents'
+import { classifyVoiceUtterance, shouldHonorModelEnd, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
 import { buildVoiceReaderContext, nearbyParagraphWindow } from './context'
 
@@ -105,10 +105,14 @@ describe('voice session state machine', () => {
 })
 
 describe('voice intents', () => {
-  it('classifies resume, hold, and open-conversation phrases', () => {
+  it('classifies resume, explicit endings, hold, and open-conversation phrases', () => {
     expect(classifyVoiceUtterance('Back to the book.')).toBe('resume_audiobook')
     expect(classifyVoiceUtterance('thanks')).toBe('none')
     expect(classifyVoiceUtterance('thank you')).toBe('none')
+    expect(classifyVoiceUtterance('Bye.')).toBe('end_voice_session')
+    expect(classifyVoiceUtterance("OK thanks, that's it for now.")).toBe('end_voice_session')
+    expect(classifyVoiceUtterance('See you later')).toBe('end_voice_session')
+    expect(classifyVoiceUtterance('What does goodbye mean here?')).toBe('none')
     expect(classifyVoiceUtterance("that's enough")).toBe('resume_audiobook')
     expect(classifyVoiceUtterance('wait')).toBe('hold_session')
     expect(classifyVoiceUtterance("don't resume yet")).toBe('hold_session')
@@ -122,7 +126,11 @@ describe('voice intents', () => {
     expect(shouldHonorModelResume('none')).toBe(false)
     expect(shouldHonorModelResume('open_conversation')).toBe(false)
     expect(shouldHonorModelResume('hold_session')).toBe(false)
+    expect(shouldHonorModelResume('end_voice_session')).toBe(false)
     expect(shouldHonorModelResume('resume_audiobook')).toBe(true)
+    expect(shouldHonorModelEnd('none')).toBe(false)
+    expect(shouldHonorModelEnd('resume_audiobook')).toBe(false)
+    expect(shouldHonorModelEnd('end_voice_session')).toBe(true)
   })
 })
 

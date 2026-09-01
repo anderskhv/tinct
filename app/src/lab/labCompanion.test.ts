@@ -70,6 +70,7 @@ describe('lab talk tools', () => {
     expect(names).toContain('set_playback_speed')
     expect(names).toContain('next_chapter')
     expect(names).toContain('resume_audiobook')
+    expect(names).toContain('end_voice_session')
     expect(playbackToolForUtterance('go faster')).toBe('set_playback_speed')
     expect(playbackToolForUtterance('next chapter')).toBe('next_chapter')
     expect(playbackToolForUtterance('resume')).toBe('resume_audiobook')

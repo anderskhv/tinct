@@ -8,7 +8,7 @@ export const INITIAL_VOICE_SNAPSHOT: VoiceMachineSnapshot = {
 function applyIntent(snapshot: VoiceMachineSnapshot, intent: VoiceIntent): VoiceMachineSnapshot {
   if (snapshot.state === 'reading' || intent === 'none') return snapshot
 
-  if (intent === 'resume_audiobook') {
+  if (intent === 'resume_audiobook' || intent === 'end_voice_session') {
     return INITIAL_VOICE_SNAPSHOT
   }
 
