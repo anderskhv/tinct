@@ -1261,6 +1261,11 @@
   margin-bottom: 1.15rem;
 }
 
+/* Paragraph rhythm belongs between passages, never after the final passage. */
+.lab-passage.is-reading .lab-hearing-stage > .lab-hearing-line:last-child {
+  margin-bottom: 0;
+}
+
 .lab.is-phone .lab-passage.is-reading .lab-hearing-line {
   font-weight: 400;
 }
@@ -1268,6 +1273,7 @@
 .lab.is-phone .lab-passage.is-reading,
 .lab.has-phone-chrome .lab-passage.is-reading {
   overflow-y: hidden;
+  padding-bottom: 0.5rem;
 }
 
 .lab.is-phone .lab-title,

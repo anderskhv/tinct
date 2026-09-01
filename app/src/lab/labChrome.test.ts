@@ -140,7 +140,7 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('keeps last content bottom strictly above chrome top', () => {
-    // Invariant: last content bottom y < chrome top y - 8px.
+    // Invariant: last content bottom y < chrome top y - 12px.
     expect(lastContentClearsChrome(587, 600)).toBe(true)
     expect(lastContentClearsChrome(588, 600)).toBe(false)
     expect(lastContentClearsChrome(599, 600)).toBe(false)

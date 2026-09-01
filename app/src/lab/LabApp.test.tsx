@@ -257,6 +257,8 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/--lab-ask-chrome-inset/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-passage[^{]*\{[^}]*overflow-y:\s*auto/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading[^{]*\{[^}]*overflow-y:\s*hidden/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading[^{]*\{[^}]*padding-bottom:\s*0\.5rem/)
+    expect(css).toMatch(/\.lab-passage\.is-reading \.lab-hearing-stage > \.lab-hearing-line:last-child\s*\{[^}]*margin-bottom:\s*0/)
     expect(css).toMatch(/\.lab\.has-phone-chrome\[data-phone-bar="hearing"\]\s+\.lab-passage[^{]*\{[^}]*overflow-y:\s*auto/)
     expect(css).toMatch(/\.lab\.has-phone-chrome\[data-phone-bar="hearing"\]\s+\.lab-page-wrap[^{]*\{[^}]*overflow:\s*hidden/)
     expect(css).toMatch(/\.lab-ask\.is-phone-sheet \.lab-ask-thread[^{]*\{[^}]*overflow-y:\s*auto/)
