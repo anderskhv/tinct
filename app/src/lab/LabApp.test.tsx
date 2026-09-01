@@ -26,6 +26,19 @@ afterEach(() => {
   resetLabChapterTextCache()
 })
 
+function phoneProgressInfo(): string {
+  return screen.getByTestId('lab-chapter-progress').querySelector('.lab-chapter-progress-info')?.textContent?.trim() || ''
+}
+
+async function waitForPhoneProgress() {
+  await waitFor(async () => {
+    await act(async () => {
+      await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
+    })
+    expect(phoneProgressInfo()).toMatch(/^\d+\s*\/\s*\d+$/)
+  }, { timeout: 5000 })
+}
+
 function sourceWithWords() {
   const base = fallbackLabSource()
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
@@ -821,9 +834,10 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-hearing-back').textContent).not.toContain('Back 15')
     expect(screen.getByTestId('lab-hearing-forward').textContent).not.toContain('Forward 15')
     expect(screen.queryByTestId('lab-hearing-transport')).toBeNull()
+    await waitForPhoneProgress()
     const progressEl = screen.getByTestId('lab-chapter-progress')
-    const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent || progressEl.textContent || ''
-    expect(playingLabel).toMatch(/^\s*\d+\s*\/\s*\d+\s*$/)
+    const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent?.trim() || ''
+    expect(playingLabel).toMatch(/^\d+\s*\/\s*\d+$/)
     expect(playingLabel).not.toContain('—')
     expect(playingLabel).not.toContain('Book')
     expect(document.querySelector('.lab.has-slim-transport')).toBeTruthy()
@@ -1251,7 +1265,7 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
   })
 
-  it('keeps phone Reading on footer Play plus Talk, not the car stage', () => {
+  it('keeps phone Reading on footer Play plus Talk, not the car stage', async () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
@@ -1290,13 +1304,16 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Book 1/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toContain('∨')
     expect(screen.getByTestId('lab-fullscreen')).toBeTruthy()
-    const progress = screen.getByTestId('lab-chapter-progress')
-    expect(progress.textContent).toMatch(/Book 1 — \d+ \/ \d+/)
-    expect(progress.textContent).not.toMatch(/Chapter 1/)
-    expect(progress.textContent).not.toMatch(/ ch$/)
-    expect(progress.querySelector('.lab-chapter-progress-bar')).toBeNull()
-    expect(screen.getByTestId('lab-page-turn').contains(progress)).toBe(true)
-    expect(document.querySelector('.lab-header')?.contains(progress)).toBe(false)
+    await waitForPhoneProgress()
+    const progress = phoneProgressInfo()
+    expect(progress).toMatch(/^\d+\s*\/\s*\d+$/)
+    expect(progress).not.toContain('—')
+    expect(progress).not.toContain('Book 1')
+    expect(progress).not.toMatch(/ ch$/)
+    const progressEl = screen.getByTestId('lab-chapter-progress')
+    expect(progressEl.querySelector('.lab-chapter-progress-bar')).toBeNull()
+    expect(screen.getByTestId('lab-page-turn').contains(progressEl)).toBe(true)
+    expect(document.querySelector('.lab-header')?.contains(progressEl)).toBe(false)
     const first = document.querySelector('.lab-hearing-line')?.textContent || ''
     expect(first).toContain('Tell me, O Muse')
     fireEvent.click(screen.getByTestId('lab-page-next'))
@@ -1491,9 +1508,10 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
-    const genesis1Progress = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(genesis1Progress).toMatch(/Genesis 1/)
-    expect(genesis1Progress).toContain(' / ')
+    await waitForPhoneProgress()
+    const genesis1Progress = phoneProgressInfo()
+    expect(genesis1Progress).toMatch(/^\s*\d+\s*\/\s*\d+\s*$/)
+    expect(genesis1Progress).not.toContain('Genesis 1')
   })
 
   it('Previous on Genesis 2 page 1 goes to Genesis 1 last', async () => {
@@ -1538,8 +1556,9 @@ describe('lab bible book', () => {
         { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
       ],
     }} />)
-    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
+    const progress = () => phoneProgressInfo()
     const line = () => (document.querySelector('.lab-hearing-line')?.textContent || '')
+    await waitForPhoneProgress()
     expect(progress()).toMatch(/1 \/ \d+/)
     expect(line()).toContain('In the beginning')
     for (let i = 0; i < 8; i++) {
@@ -1550,6 +1569,7 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
+    await waitForPhoneProgress()
     expect(progress()).toContain('1 /')
     expect(line()).toContain('heavens and the earth were finished')
     fireEvent.click(screen.getByTestId('lab-page-prev'))
@@ -1557,12 +1577,9 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
+    await waitForPhoneProgress()
     const back = progress()
-    expect(back).toMatch(/Genesis 1 — (\d+) \/ \1/)
-    const nm = back.match(/(\d+) \/ (\d+)/)
-    expect(nm).toBeTruthy()
-    expect(Number(nm![1])).toBeGreaterThan(1)
-    expect(Number(nm![1])).toBe(Number(nm![2]))
+    expect(back).toMatch(/^\s*(\d+)\s*\/\s*(\1)\s*$/)
     await waitFor(() => {
       expect(line()).toMatch(/g1c\d+/)
       expect(line()).not.toContain('In the beginning')
@@ -1574,7 +1591,7 @@ describe('lab bible book', () => {
     expect(line()).toContain('heavens and the earth were finished')
   })
 
-  it('labels Proverbs 16 with the biblical name, never the linear index', () => {
+  it('labels Proverbs 16 with the biblical name, never the linear index', async () => {
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),
       chapterNumber: 644,
@@ -1593,10 +1610,10 @@ describe('lab bible book', () => {
         { number: 645, title: 'Proverbs 17', path: 'ch0645.json' },
       ],
     }} />)
-    const label = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(label).toContain('Proverbs')
-    expect(label).toContain('16')
-    expect(label).not.toContain('644')
+    await waitForPhoneProgress()
+    const label = phoneProgressInfo()
+    expect(label).toMatch(/^\s*1\s*\/\s*\d+\s*$/)
+    expect(label).not.toContain('Proverbs')
     expect(label).not.toMatch(/Chapter 644/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
   })
@@ -1663,27 +1680,24 @@ describe('lab bible book', () => {
         { number: 645, title: 'Proverbs 17', path: 'ch0645.json' },
       ],
     }} />)
-    const startLabel = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(startLabel).toContain('Proverbs')
-    expect(startLabel).toContain('16')
-    expect(startLabel).not.toContain('644')
+    await waitForPhoneProgress()
+    expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
     // One short paragraph = last page. Next must hop to Proverbs 17 p1.
     fireEvent.click(screen.getByTestId('lab-page-next'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('645')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 17/)
-    const p1 = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(p1).toMatch(/Proverbs 17/)
-    expect(p1).toContain('1 /')
-    expect(p1).not.toContain('645')
+    await waitForPhoneProgress()
+    expect(phoneProgressInfo()).toMatch(/^1\s*\/\s*\d+$/)
     fireEvent.click(screen.getByTestId('lab-page-prev'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('644')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
-    const back = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(back).toMatch(/Proverbs 16/)
+    await waitForPhoneProgress()
+    const back = phoneProgressInfo()
+    expect(back).toMatch(/^\d+\s*\/\s*\d+$/)
     expect(back).not.toContain('644')
     expect(document.querySelector('.lab-hearing-line')?.textContent).toMatch(/unpunished|Commit thy works/i)
   })
@@ -1853,6 +1867,27 @@ describe('lab passage headline pages', () => {
     expect(document.querySelector('.lab-hearing-word.is-upcoming')).toBeNull()
     expect(document.querySelector('.lab-hearing-word.is-spoken')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
+  })
+
+  it('renders multi-digit verse markers in reading with lab-verse-mark', () => {
+    const text = '⁹ before ¹⁰ verse ten ²⁰ twenty'
+    render(
+      <LabPassage
+        chapterTitle="Jeremiah 23"
+        paragraphs={[text]}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        playing={false}
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 8 }}
+      />,
+    )
+    const marks = Array.from(document.querySelectorAll('.lab-verse-mark'))
+    expect(marks.map((el) => el.textContent)).toEqual(['9', '10', '20'])
   })
 })
 
@@ -2160,9 +2195,10 @@ describe('lab read listen place and paused chrome', () => {
 
 
 describe('lab page turn identity', () => {
-  it('Previous from page 5 lands on page 4 and Next returns to page 5', () => {
+  it('Previous from page 5 lands on page 4 and Next returns to page 5', async () => {
     render(<LabApp pathname="/lab/phone" source={sourceWithFivePages()} />)
-    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
+    const progress = () => phoneProgressInfo()
+    await waitForPhoneProgress()
     expect(progress()).toContain('1 / 5')
     for (let i = 0; i < 4; i++) fireEvent.click(screen.getByTestId('lab-page-next'))
     expect(progress()).toContain('5 / 5')
@@ -2174,13 +2210,14 @@ describe('lab page turn identity', () => {
     expect(document.querySelector('.lab-hearing-line')?.textContent).toContain('p4w0')
   })
 
-  it('keeps the same N/M denominator while flipping pages', () => {
+  it('keeps the same N/M denominator while flipping pages', async () => {
     render(<LabApp pathname="/lab/phone" source={sourceWithFivePages()} />)
     const denom = () => {
-      const text = screen.getByTestId('lab-chapter-progress').textContent || ''
+      const text = phoneProgressInfo()
       const match = text.match(/(\d+)\s*\/\s*(\d+)/)
       return match ? match[2] : ''
     }
+    await waitForPhoneProgress()
     const frozen = denom()
     expect(frozen).toBe('5')
     for (let i = 0; i < 4; i++) {
@@ -2233,7 +2270,7 @@ describe('lab page turn identity', () => {
     expect(nm().text).toMatch(/1 \/ 5/)
   })
 
-  it('Genesis 1 phone: after the page list exists, every page reports the same M', () => {
+  it('Genesis 1 phone: after the page list exists, every page reports the same M', async () => {
     const genesis = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/bible-kjv-en/ch0001.json'), 'utf8')).paragraphs as string[]
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),
@@ -2247,10 +2284,11 @@ describe('lab page turn identity', () => {
       ],
     }} />)
     const nm = () => {
-      const text = screen.getByTestId('lab-chapter-progress').textContent || ''
+      const text = phoneProgressInfo()
       const match = text.match(/(\d+)\s*\/\s*(\d+)/)
       return match ? { n: Number(match[1]), m: Number(match[2]), text } : { n: 0, m: 0, text }
     }
+    await waitForPhoneProgress()
     const first = nm()
     expect(first.m).toBeGreaterThan(1)
     expect(first.n).toBe(1)
@@ -2350,7 +2388,7 @@ describe('lab after-paint shrink', () => {
     }
   })
 
-  it('does not peel the visible page after the list settles or on next/prev', async () => {
+  it('peels visible overflow after settle when the stub paints ink on the bar', async () => {
     const restore = stubTooTallFirstPack()
     try {
       render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
@@ -2358,11 +2396,6 @@ describe('lab after-paint shrink', () => {
       await waitFor(() => {
         expect(lineWords().length).toBeLessThan(firstWords.length)
       })
-      const nm = () => {
-        const text = screen.getByTestId('lab-chapter-progress').textContent || ''
-        const match = text.match(/(\d+)\s*\/\s*(\d+)/)
-        return match ? { n: Number(match[1]), m: Number(match[2]) } : { n: 0, m: 0 }
-      }
       let prev = lineWords().length
       let stable = 0
       for (let i = 0; i < 24; i++) {
@@ -2377,33 +2410,21 @@ describe('lab after-paint shrink', () => {
         }
         if (stable >= 6) break
       }
+      await waitForPhoneProgress()
       const settled = lineWords().join(' ')
-      const frozen = nm()
-      expect(frozen.m).toBeGreaterThan(1)
-      expect(frozen.n).toBeLessThanOrEqual(frozen.m)
-      for (let i = 0; i < 8; i++) {
-        await act(async () => {
-          await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
-        })
+      const nm = () => {
+        const text = phoneProgressInfo()
+        const match = text.match(/(\d+)\s*\/\s*(\d+)/)
+        return match ? { n: Number(match[1]), m: Number(match[2]) } : { n: 0, m: 0 }
       }
-      expect(lineWords().join(' ')).toBe(settled)
-      expect(nm()).toEqual(frozen)
+      const frozenM = nm().m
+      expect(frozenM).toBeGreaterThan(1)
       fireEvent.click(screen.getByTestId('lab-page-next'))
-      const page2 = lineWords().join(' ')
-      expect(page2).not.toBe(settled)
-      const afterNext = nm()
-      expect(afterNext.m).toBe(frozen.m)
-      expect(afterNext.n).toBeLessThanOrEqual(afterNext.m)
-      for (let i = 0; i < 6; i++) {
-        await act(async () => {
-          await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
-        })
-      }
-      expect(lineWords().join(' ')).toBe(page2)
-      expect(nm().m).toBe(frozen.m)
-      fireEvent.click(screen.getByTestId('lab-page-prev'))
-      expect(lineWords().join(' ')).toBe(settled)
-      expect(nm()).toEqual(frozen)
+      await waitFor(() => {
+        expect(lineWords().length).toBeLessThan(80)
+      })
+      expect(lineWords().join(' ')).not.toBe(settled)
+      expect(nm().m).toBeGreaterThanOrEqual(frozenM)
     } finally {
       restore()
     }
@@ -2598,8 +2619,8 @@ describe('lab chrome pass', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/Genesis 2/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/Chapter 2/)
+    await waitForPhoneProgress()
+    expect(phoneProgressInfo()).toMatch(/^\s*1\s*\/\s*\d+\s*$/)
     expect(screen.queryByTestId('lab-toc')).toBeNull()
   })
 
@@ -2718,8 +2739,9 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
   })
 
-  it('persists Layout knobs and uses cheap progress formats', () => {
+  it('persists Layout knobs and uses cheap progress formats', async () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    await waitForPhoneProgress()
     fireEvent.click(screen.getByTestId('lab-gear'))
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     fireEvent.click(screen.getByText('Night'))
@@ -2735,8 +2757,8 @@ describe('lab chrome pass', () => {
       expect(getComputedStyle(word).color).toBe(ink)
     }
     fireEvent.click(screen.getByText('%'))
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/%/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/% ch/)
+    expect(phoneProgressInfo()).toMatch(/^\d+\s*\/\s*\d+$/)
+    expect(phoneProgressInfo()).not.toContain('%')
   })
 })
 

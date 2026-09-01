@@ -412,9 +412,14 @@ export function measurePaintedOverflow(
   chrome?: HTMLElement | null,
 ): LabPaintedOverflow | null {
   const scope = root.ownerDocument ?? (typeof document !== 'undefined' ? document : null)
-  // Authority: getBoundingClientRect of Play/Chat/Talk / page-turn / transport.
-  // Never 100vh, never dvh, never visualViewport as a stand-in for the bar.
-  const chromeTop = measureLabBarTop(scope, chrome ?? null)
+  // Top of pager + Play/Chat/Talk stack, clamped to the visible viewport.
+  const wrapperTop = chrome && chrome.getBoundingClientRect().height > 0
+    ? chrome.getBoundingClientRect().top
+    : 0
+  const barTop = measureLabOnScreenBarTop(scope, chrome ?? null)
+  const chromeTop = wrapperTop > 0 && barTop > 0
+    ? Math.min(wrapperTop, barTop)
+    : wrapperTop || barTop
   const lastBottom = lastPaintedTextBottom(root)
   if (!canMeasurePaintedOverflow(lastBottom, chromeTop)) return null
   const line = root.querySelector('.lab-hearing-line')
@@ -426,6 +431,20 @@ export function measurePaintedOverflow(
     lastLineWords: lastPaintedLineWordCount(root),
     scrollOverflow: labScrollportOverflows(root),
   }
+}
+
+/** Visible passage paint wins when the hidden measure host falsely fits. */
+export function preferVisiblePaintedOverflow(
+  hostPainted: LabPaintedOverflow | null,
+  visibleRoot: HTMLElement | null | undefined,
+  chrome?: HTMLElement | null,
+  sameAsVisible = true,
+): LabPaintedOverflow | null {
+  if (!visibleRoot || !sameAsVisible) return hostPainted
+  const visible = measurePaintedOverflow(visibleRoot, chrome)
+  if (!visible) return hostPainted
+  if (hostPainted && labPageFitsPaint(hostPainted) && !labPageFitsPaint(visible)) return visible
+  return visible
 }
 
 /** After document.fonts.ready + first paint (rAF). Never a pre-paint guess. */
@@ -612,7 +631,29 @@ export function measureLabPageMetrics(
   const width = lineRect && lineRect.width > 0
     ? lineRect.width
     : Math.max(0, passageWidth - padLeft - padRight)
-  const lineHeight = line ? labLineHeightPx(line) : 0
+  let lineHeight = line ? labLineHeightPx(line) : 0
+  if (line && lineHeight > height && height > 0) {
+    try {
+      const range = document.createRange()
+      range.selectNodeContents(line)
+      const rects = range.getClientRects()
+      const heights: number[] = []
+      for (let i = 0; i < rects.length; i++) {
+        const h = rects[i].height
+        if (h > 8 && h < 160) heights.push(h)
+      }
+      if (heights.length > 0) {
+        heights.sort((a, b) => a - b)
+        lineHeight = heights[Math.floor(heights.length / 2)]
+      } else {
+        const lineStyle = typeof getComputedStyle === 'function' ? getComputedStyle(line) : null
+        const fontSize = parseFloat(lineStyle?.fontSize || '0')
+        if (fontSize > 8) lineHeight = fontSize * 1.45
+      }
+    } catch {
+      /* jsdom */
+    }
+  }
   const headlineHeight = headline ? headline.getBoundingClientRect().height : 0
   const text = (line?.textContent || '').replace(/\s+/g, ' ').trim()
   const lineWidth = lineRect?.width ?? 0
