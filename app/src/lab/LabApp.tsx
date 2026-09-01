@@ -1875,6 +1875,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   return (
     <div
       ref={labRootRef}
+      lang={bibleEditions().find(edition => edition.key === prefs.primaryEdition)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showSlimTransport ? ' has-slim-transport' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}

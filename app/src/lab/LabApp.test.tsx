@@ -304,6 +304,9 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*overflow-wrap:\s*break-word/)
     expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*word-break:\s*normal/)
     expect(css).toMatch(/\.lab-hearing-line\s*\{[^}]*hyphens:\s*auto/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-native-page-flow \.lab-hearing-word[^{]*\{[^}]*white-space:\s*nowrap[^}]*hyphens:\s*none/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading:not\(\.lab-native-page-surface\) \.lab-hearing-word[^{]*\{[^}]*overflow-wrap:\s*normal[^}]*hyphens:\s*auto[^}]*hyphenate-limit-chars:\s*7 3 3/)
+    expect(css).not.toMatch(/\.lab\.is-phone \.lab-passage \.lab-hearing-word[^{]*\{[^}]*hyphens:\s*none/)
     expect(css).toMatch(/\.lab-kicker\s*\{[^}]*display:\s*none/)
     expect(css).toMatch(/\.lab-ask-tab\s*\{/)
     expect(css).not.toMatch(/Helvetica/)
@@ -313,6 +316,7 @@ describe('lab chrome', () => {
     expect(css).not.toMatch(/\.lab-phone-notice\s*\{[^}]*position:\s*fixed/)
 
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    expect(screen.getByTestId('lab-root').getAttribute('lang')).toBe('en')
     expect(screen.getByTestId('lab-root').className).toContain('is-desktop')
     openDesktopAsk()
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-empty')

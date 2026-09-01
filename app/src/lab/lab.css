@@ -157,13 +157,31 @@
   widows: 1;
 }
 
-/* Page locations are word-addressed, so a word must stay atomic at a page
-   edge. This keeps the hidden native flow and every visible reader mode exact. */
-.lab.is-phone .lab-passage .lab-hearing-word,
-.lab.has-phone-chrome .lab-passage .lab-hearing-word {
+/* Page locations are word-addressed, so words stay atomic in the hidden
+   native flow. Visible reading pages may still use dictionary hyphenation:
+   the conservative hidden boundary keeps a split word from crossing pages. */
+.lab.is-phone .lab-native-page-flow .lab-hearing-word,
+.lab.has-phone-chrome .lab-native-page-flow .lab-hearing-word {
   white-space: nowrap;
   -webkit-hyphens: none;
   hyphens: none;
+}
+
+/* On a narrow phone measure, long indivisible words create a coarse,
+   stair-step rag. Let the browser use the edition language's dictionary on
+   the painted page, while avoiding arbitrary mid-letter emergency breaks. */
+.lab.is-phone .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word,
+.lab.has-phone-chrome .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word {
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-lines: 2;
+  hyphenate-limit-chars: 7 3 3;
+  hyphenate-limit-lines: 2;
 }
 
 .lab-hearing {
