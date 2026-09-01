@@ -54,6 +54,7 @@ import {
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
+import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
@@ -68,6 +69,13 @@ import { type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { useLabListen } from './useLabListen'
+import {
+  createLabVoiceToolAdapter,
+  getLabVoiceReadingHistory,
+  type LabVoiceActionEntry,
+  type LabVoiceViewSnapshot,
+} from './labVoiceControls'
+import type { VoiceTinctView } from '../voice/tinctTools'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -242,6 +250,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [fullscreen, setFullscreen] = useState(false)
   const [pageTurn, setPageTurn] = useState<{ direction: 'next' | 'previous'; nonce: number } | null>(null)
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
+  const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
+  const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(true)
+  const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
@@ -296,8 +307,71 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   const resumeListenRef = useRef<() => void>(() => {})
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
+  const listenSpeedRef = useRef(1)
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | Promise<void>>(() => {})
   const chapterEndRef = useRef<() => boolean>(() => false)
+
+  const openLabVoiceView = useCallback((view: VoiceTinctView) => {
+    setVoiceLabView(view)
+    setTocOpen(false)
+    if (view !== 'settings') setGearOpen(false)
+    if (view !== 'cast') setInTheBookOpen(false)
+    if (view !== 'chat') setPhoneAskOpen(false)
+    if (view !== 'chat') setDesktopAskOpen(false)
+    setPeekBook(false)
+
+    if (view === 'settings') {
+      setSettingsSection('layout')
+      setGearOpen(true)
+    } else if (view === 'chat') {
+      setPhoneAskOpen(showPhoneChrome)
+      setDesktopAskOpen(!showPhoneChrome)
+    } else if (view === 'cast') {
+      setInTheBookOpen(true)
+    }
+  }, [showPhoneChrome])
+
+  const restoreLabVoiceView = useCallback((snapshot: LabVoiceViewSnapshot) => {
+    setVoiceLabView(snapshot.view)
+    setPhoneAskOpen(snapshot.phoneAskOpen)
+    setDesktopAskOpen(snapshot.desktopAskOpen)
+    setGearOpen(snapshot.gearOpen)
+    setTocOpen(snapshot.tocOpen)
+    setInTheBookOpen(snapshot.inTheBookOpen)
+    setPeekBook(snapshot.peekBook)
+    setSettingsSection(snapshot.settingsSection)
+  }, [])
+
+  const voiceToolAdapter = createLabVoiceToolAdapter<LabVoiceViewSnapshot>({
+    getViewSnapshot: () => ({
+      view: voiceLabView,
+      phoneAskOpen,
+      desktopAskOpen,
+      gearOpen,
+      tocOpen,
+      inTheBookOpen,
+      peekBook,
+      settingsSection,
+    }),
+    openView: openLabVoiceView,
+    restoreView: restoreLabVoiceView,
+    getTheme: () => prefs.darkMode ? 'dark' : 'light',
+    setTheme: theme => updatePrefs({ ...prefs, darkMode: theme === 'dark' }),
+    getFontSize: () => prefs.fontSize,
+    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize }),
+    getAudioSpeed: () => listenSpeedRef.current,
+    setAudioSpeed: speed => {
+      listenSpeedRef.current = speed
+      setSpeedRef.current(speed)
+    },
+    getReadingHistory: (period, bookQuery) => getLabVoiceReadingHistory({
+      period,
+      bookQuery,
+      source: book,
+      paragraphIndex: focusParagraph ?? placeRef.current.paragraphIndex,
+      fixtureEnabled: voiceHistoryFixture,
+    }),
+  })
 
   const [listenSource, setListenSource] = useState(() => ({
     chapterNumber: book.chapterNumber,
@@ -323,6 +397,22 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     onResumeListen: () => resumeListenRef.current(),
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
+    voiceToolAdapter,
+    onVoiceToolAction: (entry) => {
+      setVoiceActions(current => {
+        const next = [...current, entry].slice(-20)
+        if (typeof window !== 'undefined') {
+          ;(window as Window & { __tinctLabVoiceActions?: LabVoiceActionEntry[] }).__tinctLabVoiceActions = next
+        }
+        return next
+      })
+    },
+    onVoiceToolSessionStart: () => {
+      setVoiceActions([])
+      if (typeof window !== 'undefined') {
+        ;(window as Window & { __tinctLabVoiceActions?: LabVoiceActionEntry[] }).__tinctLabVoiceActions = []
+      }
+    },
   })
 
   const listen = useLabListen({
@@ -332,6 +422,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     audioEdition: audioEditionKey,
     onChapterEnd: () => chapterEndRef.current(),
   })
+  listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
 
   useEffect(() => {
@@ -1913,6 +2004,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-fullscreen={fullscreen ? 'true' : 'false'}
       data-layout-pending={typographyPending ? 'true' : 'false'}
       data-page-pending={!visiblePageReady ? 'true' : 'false'}
+      data-voice-surface={voiceLabView}
+      data-voice-history-fixture={voiceHistoryFixture ? 'true' : 'false'}
+      data-audio-speed={String(listen.speed)}
       aria-busy={typographyPending || !fontReady || !visiblePageReady}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),
@@ -2224,6 +2318,17 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         </footer>
       )}
       </div>
+
+      <LabVoiceActionPanel
+        active={ask.voiceActive}
+        view={voiceLabView}
+        darkMode={prefs.darkMode}
+        fontSize={prefs.fontSize}
+        audioSpeed={listen.speed}
+        fixtureEnabled={voiceHistoryFixture}
+        onFixtureEnabled={setVoiceHistoryFixture}
+        actions={voiceActions}
+      />
 
       <LabInTheBook
         open={inTheBookOpen}
