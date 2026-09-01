@@ -12,7 +12,6 @@ import {
   labPullOpensToc,
   labShowPhoneBar,
   labShowReaderRail,
-  labShowSlimTransport,
   labStatusLine,
   labVisibleChrome,
   afterLabPaint,
@@ -41,7 +40,6 @@ import {
   bibleEditions,
   labFontFamilyCss,
   labFootProgress,
-  labFootProgressPages,
   editionLabelFor,
   readLabPrefs,
   writeLabPrefs,
@@ -233,29 +231,6 @@ function CompareIcon() {
   )
 }
 
-function SeekIcon({ forward }: { forward?: boolean }) {
-  return (
-    <span className={`lab-phone-seek${forward ? ' is-forward' : ''}`}>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d={forward ? 'M15.4 7.1 18 9.5l-2.6 2.4' : 'M8.6 7.1 6 9.5l2.6 2.4'}
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d={forward ? 'M17.2 9.5H9.6a4.4 4.4 0 1 0 0 8.8h1.7' : 'M6.8 9.5h7.6a4.4 4.4 0 1 1 0 8.8H12.7'}
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-      </svg>
-      <span>15</span>
-    </span>
-  )
-}
-
 export interface LabAppProps {
   pathname?: string
   online?: boolean
@@ -290,7 +265,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
-  const [speedOpen, setSpeedOpen] = useState(false)
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
   const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(true)
@@ -1399,18 +1373,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const showHearing = !mobileCompareActive && !peekBook && !phoneAsk && (
     chrome === 'hearing' || (chrome === 'talking' && returnTo === 'hearing')
   )
-  const showSlimTransport = showPhoneChrome && !fullscreen && labShowSlimTransport({
-    playing: listen.playing,
-    phoneAsk,
-  })
-  const speedLabel = `${listen.speed.toFixed(2)}×`
-  const adjustPlaybackSpeed = (delta: number) => {
-    const next = Math.max(0.5, Math.min(3, Math.round((listen.speed + delta) * 100) / 100))
-    listen.setSpeed(next)
-  }
-  useEffect(() => {
-    if (!showSlimTransport) setSpeedOpen(false)
-  }, [showSlimTransport])
   const showPhoneBar = !fullscreen && labShowPhoneBar({
     phoneChrome: showPhoneChrome,
     fullscreen,
@@ -1446,10 +1408,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     scope: prefs.progressDisplay.scope,
   })
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
-  const footProgressCompact = showPhoneChrome && !fullscreen && listen.playing && !phoneAsk
-  const footProgressLabel = footProgressCompact
-    ? labFootProgressPages(chapterProgress.currentPage, chapterProgress.totalPages)
-    : footProgress
+  const footProgressLabel = footProgress
 
   useEffect(() => {
     if (!showHearing) return
@@ -2052,7 +2011,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     <div
       ref={labRootRef}
       lang={bibleEditions().find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showSlimTransport ? ' has-slim-transport' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
@@ -2193,8 +2152,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
                 prefs.fontFamily,
                 prefs.fontSize,
                 fullscreen ? 'fullscreen' : 'windowed',
-                chrome,
-                showSlimTransport ? 'slim' : 'standard',
               ].join(':')}
               onPages={applyNativePages}
             />
@@ -2246,7 +2203,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
       <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
       {showReaderRail && (
-        <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}${showSlimTransport ? ' has-audio-controls' : ''}`} data-testid="lab-page-turn" aria-label="Page">
+        <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
           {readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
@@ -2265,75 +2222,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             data-testid="lab-chapter-progress"
             title={footProgress}
           >
-            {showSlimTransport && (
-              <button
-                type="button"
-                className="lab-phone-icon"
-                onClick={() => listen.seek(-15)}
-                aria-label={LAB_COPY.back15}
-                data-testid="lab-hearing-back"
-              >
-                <SeekIcon />
-              </button>
-            )}
             <span className="lab-chapter-progress-info">{footProgressLabel}</span>
-            {showSlimTransport && (
-              <>
-                <button
-                  type="button"
-                  className="lab-transport-toggle"
-                  onClick={listen.pause}
-                  aria-label={LAB_COPY.pause}
-                  data-testid="lab-transport-toggle"
-                >
-                  <PauseIcon size={22} />
-                </button>
-                <button
-                  type="button"
-                  className="lab-phone-icon"
-                  onClick={() => listen.seek(15)}
-                  aria-label={LAB_COPY.forward15}
-                  data-testid="lab-hearing-forward"
-                >
-                  <SeekIcon forward />
-                </button>
-                <div className="lab-speed-control">
-                  <button
-                    type="button"
-                    className="lab-phone-speed"
-                    onClick={() => setSpeedOpen(open => !open)}
-                    aria-label={`Playback speed ${speedLabel}`}
-                    aria-expanded={speedOpen}
-                    data-testid="lab-hearing-speed"
-                  >
-                    {speedLabel}
-                  </button>
-                  {speedOpen && (
-                    <div className="lab-speed-popover" role="dialog" aria-label="Playback speed" data-testid="lab-speed-popover">
-                      <span className="lab-speed-title">Playback speed</span>
-                      <output className="lab-speed-value">{speedLabel}</output>
-                      <div className="lab-speed-adjust">
-                        <button type="button" onClick={() => adjustPlaybackSpeed(-0.05)} aria-label="Decrease playback speed">−</button>
-                        <input
-                          type="range"
-                          min="0.5"
-                          max="3"
-                          step="0.05"
-                          value={listen.speed}
-                          onChange={event => listen.setSpeed(Number(event.currentTarget.value))}
-                          aria-label="Playback speed"
-                          data-testid="lab-speed-slider"
-                        />
-                        <button type="button" onClick={() => adjustPlaybackSpeed(0.05)} aria-label="Increase playback speed">+</button>
-                      </div>
-                      <div className="lab-speed-scale" aria-hidden="true">
-                        <span>0.50×</span><span>1.00×</span><span>3.00×</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </>
-            )}
           </div>
           {readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button

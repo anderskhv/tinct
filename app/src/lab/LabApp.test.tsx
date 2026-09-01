@@ -802,12 +802,13 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
   })
 
-  it('puts phone Hearing transport in the in-flow footer, not the clipped stage', async () => {
+  it('keeps phone Hearing on the same in-flow rail with one Play/Pause control', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
     })
     render(<LabApp pathname="/lab/phone" source={sourceWithWords()} />)
+    const readingProgress = screen.getByTestId('lab-chapter-progress').textContent
     fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-hearing')).toBeTruthy()
@@ -818,28 +819,24 @@ describe('lab chrome', () => {
     expect(bar.contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
     expect(bar.contains(screen.getByTestId('lab-phone-chat'))).toBe(true)
     expect(bar.contains(screen.getByTestId('lab-phone-talk'))).toBe(true)
-    expect(chrome.contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
-    expect(chrome.contains(screen.getByTestId('lab-hearing-forward'))).toBe(true)
-    expect(chrome.contains(screen.getByTestId('lab-hearing-speed'))).toBe(true)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-forward'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-speed'))).toBe(true)
+    expect(chrome.contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-forward')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
     expect(screen.getByTestId('lab-phone-talk').textContent).toContain('Talk')
     expect(screen.getByTestId('lab-phone-talk').querySelector('svg')).toBeTruthy()
     expect(screen.getByTestId('lab-phone-chat').querySelector('svg')).toBeTruthy()
     expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
     expect(document.querySelector('.lab-header')?.contains(screen.getByTestId('lab-listen'))).toBe(false)
     expect(screen.queryByRole('button', { name: 'Ask' })).toBeNull()
-    expect(screen.getByTestId('lab-hearing-back').textContent).not.toContain('Back 15')
-    expect(screen.getByTestId('lab-hearing-forward').textContent).not.toContain('Forward 15')
     expect(screen.queryByTestId('lab-hearing-transport')).toBeNull()
     const progressEl = screen.getByTestId('lab-chapter-progress')
     const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent || progressEl.textContent || ''
-    expect(playingLabel).toMatch(/^\s*\d+\s*\/\s*\d+\s*$/)
-    expect(playingLabel).not.toContain('—')
-    expect(playingLabel).not.toContain('Book')
-    expect(document.querySelector('.lab.has-slim-transport')).toBeTruthy()
+    expect(progressEl.textContent).toBe(readingProgress)
+    expect(playingLabel).toContain('Book 1 —')
+    expect(playingLabel).toMatch(/\d+\s*\/\s*\d+/)
+    expect(document.querySelector('.lab.has-slim-transport')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
     expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).type).toBe('text')
@@ -851,7 +848,7 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
   })
 
-  it('uses the reference phone transport, exact speed popover, and hidden arrow controls', async () => {
+  it('uses one phone Play/Pause control and keeps arrow controls hidden', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -866,17 +863,13 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
 
     fireEvent.click(screen.getByTestId('lab-listen'))
-    await waitFor(() => expect(screen.getByTestId('lab-transport-toggle')).toBeTruthy())
-    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1.00×')
+    await waitFor(() => expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy())
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
+    expect(screen.queryByTestId('lab-transport-toggle')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+    expect(screen.queryByTestId('lab-hearing-forward')).toBeNull()
     expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
-
-    fireEvent.click(screen.getByTestId('lab-hearing-speed'))
-    expect(screen.getByTestId('lab-speed-popover')).toBeTruthy()
-    fireEvent.change(screen.getByTestId('lab-speed-slider'), { target: { value: '0.85' } })
-    expect(screen.getByTestId('lab-root').getAttribute('data-audio-speed')).toBe('0.85')
-    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('0.85×')
-    fireEvent.click(screen.getByRole('button', { name: 'Increase playback speed' }))
-    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('0.90×')
   })
 
   it('uses the browser fullscreen API and follows fullscreenchange state', async () => {
@@ -932,7 +925,7 @@ describe('lab chrome', () => {
     expect(root.style.getPropertyValue('--lab-chrome-inset')).toBe('')
     expect(root.style.getPropertyValue('--lab-vvh')).toMatch(/px$/)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
     expect(passage).toBeTruthy()
     expect(passage?.contains(footer)).toBe(false)
     expect(footer.compareDocumentPosition(passage as Node) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
@@ -2076,7 +2069,7 @@ function sourceWithManyWords() {
 }
 
 describe('lab read listen place and paused chrome', () => {
-  it('mid-book −15 seeks 15s of audio and does not reset to clip 0 / word 0', async () => {
+  it('mid-book Play/Pause does not reset to clip 0 / word 0', async () => {
     const audio = new FakeAudio()
     audio.duration = 40
     vi.stubGlobal('Audio', class {
@@ -2093,10 +2086,11 @@ describe('lab read listen place and paused chrome', () => {
     audio.currentTime = 40
     act(() => { audio.emit('timeupdate') })
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('0')
-    fireEvent.click(screen.getByTestId('lab-hearing-back'))
-    expect(audio.currentTime).toBe(25)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.currentTime).toBe(40)
+    expect(audio.paused).toBe(true)
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('0')
-    expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     const current = screen.queryByTestId('lab-hearing-current')
     expect(current?.textContent || '').not.toMatch(/^\s*w0\s*$/)
@@ -2200,7 +2194,7 @@ describe('lab read listen place and paused chrome', () => {
     expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
   })
 
-  it('shows page-turn only while paused and transport while playing', async () => {
+  it('keeps the same page rail while Play changes to Pause', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -2215,11 +2209,11 @@ describe('lab read listen place and paused chrome', () => {
     })
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-hearing-back'))).toBe(true)
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
     expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy()
     expect(screen.getByTestId('lab-bottom-chrome').contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
 
-    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    fireEvent.click(screen.getByTestId('lab-listen'))
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
     expect(screen.getByTestId('lab-listen').textContent).toContain('Play')

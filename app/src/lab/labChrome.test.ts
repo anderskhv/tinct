@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -343,9 +343,6 @@ describe('lab paused vs playing chrome slot', () => {
     expect(labShowPageTurn({ playing: false, phoneAsk: false, pageCount: 1 })).toBe(false)
     expect(labShowPageTurn({ playing: false, phoneAsk: false, pageCount: 1, canNextChapter: true })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: false, pageCount: 1, playing: false, canNextChapter: true })).toBe(true)
-    expect(labShowSlimTransport({ playing: true, phoneAsk: false })).toBe(true)
-    expect(labShowSlimTransport({ playing: false, phoneAsk: false })).toBe(false)
-    expect(labShowSlimTransport({ playing: true, phoneAsk: true })).toBe(false)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: true, pageCount: 3, playing: false })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: true, pageCount: 3, playing: true })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: true, phoneChrome: true, pageCount: 3, playing: false })).toBe(false)

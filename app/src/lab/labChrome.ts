@@ -149,15 +149,7 @@ export function labShowPageTurn(input: {
   return input.pageCount > 1 || !!input.canPrevChapter || !!input.canNextChapter
 }
 
-/** Playing: slim −15 / +15 / 1x in the page-turn slot. Pause lives on Play. */
-export function labShowSlimTransport(input: {
-  playing: boolean
-  phoneAsk: boolean
-}): boolean {
-  return input.playing && !input.phoneAsk
-}
-
-/** One reader rail: progress sits between page-turn or −15 / +15 / 1x. */
+/** The reader rail keeps the same progress geometry in Read and Listen. */
 export function labShowReaderRail(input: {
   phoneAsk: boolean
   phoneChrome: boolean
