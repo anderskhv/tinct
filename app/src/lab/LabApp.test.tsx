@@ -1794,6 +1794,24 @@ describe('lab bible book', () => {
 })
 
 describe('lab passage headline pages', () => {
+  it('keeps a verse number with the first word that follows it', () => {
+    render(
+      <LabPassage
+        chapterTitle="Genesis 1"
+        paragraphs={['⁹ And God said, Let']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 5 }}
+      />,
+    )
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u00a0And`)
+  })
+
   it('shows the chapter headline only on the first hearing page', () => {
     const words = Array.from({ length: 200 }, (_, index) => ({
       text: (index + 1) % 20 === 0 ? `w${index}.` : `w${index}`,

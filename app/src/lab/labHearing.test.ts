@@ -666,6 +666,15 @@ describe('page fill after peel', () => {
     expect(polishPageEnd([
       { text: 'his' }, { text: 'kind:' }, { text: 'and' }, { text: 'God' },
     ], 0, 4, 6)).toBe(2)
+    expect(polishPageEnd([
+      { text: 'the' }, { text: 'second' }, { text: 'day.' },
+      { text: '⁹' }, { text: 'And' }, { text: 'God' }, { text: 'said,' }, { text: 'Let' },
+    ], 0, 8, 6)).toBe(3)
+    expect(polishPageEnd([
+      { text: 'was' }, { text: 'good.' }, { text: '¹²' }, { text: 'And' },
+      { text: 'the' }, { text: 'earth' }, { text: 'brought' }, { text: 'forth' },
+      { text: 'grass,' }, { text: 'and' }, { text: 'herb' },
+    ], 0, 11, 6)).toBe(9)
   })
 
   it('grows a fitted page when remeasure shows slack below the ink', () => {

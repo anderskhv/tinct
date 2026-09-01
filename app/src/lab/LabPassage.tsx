@@ -49,8 +49,13 @@ interface LabPassageProps {
   onPageTurn?: (direction: LabPageTurnDirection) => void
 }
 
-function wordSpacing(word: { text: string }, wordIndex: number): string {
-  return wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''
+function wordSpacing(
+  word: { text: string },
+  wordIndex: number,
+  previous?: { text: string },
+): string {
+  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
+  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
 function renderWordText(text: string) {
@@ -63,7 +68,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
     <p key={lineIndex} className="lab-hearing-line">
       {line.words.map((word, wordIndex) => (
         <span key={`${lineIndex}-${wordIndex}`}>
-          {wordSpacing(word, wordIndex)}
+          {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
           {renderWordText(word.text)}
         </span>
       ))}
@@ -92,7 +97,7 @@ function renderHearingWords(
             ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
             : undefined}
         >
-          {wordSpacing(word, wordIndex)}
+          {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
           {renderWordText(word.text)}
         </span>
       ))}
@@ -319,8 +324,8 @@ export function LabPassage({
                               }
                             : undefined}
                         >
-                          {wordSpacing(word, wordIndex)}
-                          {word.text}
+                          {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
+                          {renderWordText(word.text)}
                         </span>
                       )
                     })}
@@ -397,8 +402,8 @@ export function LabPageMeasurePaint(input: {
                       ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
                       : 'lab-hearing-word'}
                   >
-                    {wordSpacing(word, wordIndex)}
-                    {word.text}
+                    {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
+                    {renderWordText(word.text)}
                   </span>
                 ))}
                 <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>

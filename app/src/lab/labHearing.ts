@@ -56,8 +56,12 @@ function isClauseStop(text: string): boolean {
   return /[.!?:;]["']?$/.test(text)
 }
 
-const LAB_WEAK_PAGE_END_RE = /^(?:a|after|am|an|and|are|as|at|be|been|before|being|but|by|can|could|each|every|for|from|had|has|have|her|his|if|in|into|is|its|may|might|must|nor|of|on|or|our|shall|should|so|than|that|the|their|then|to|unto|was|were|when|where|which|who|whose|will|with|would|yet|your)$/i
+const LAB_WEAK_PAGE_END_RE = /^(?:a|after|am|an|and|are|as|at|be|been|before|being|but|by|can|could|each|every|for|from|had|has|have|her|his|if|in|into|is|its|let|may|might|must|nor|of|on|or|our|shall|should|so|than|that|the|their|then|to|unto|was|were|when|where|which|who|whose|will|with|would|yet|your)$/i
 const LAB_SENTENCE_CONNECTOR_RE = /^(?:and|but|for|nor|or|so|then|yet)$/i
+
+function isCommaStop(text: string): boolean {
+  return /,["']?$/.test(text)
+}
 
 function barePageWord(text: string): string {
   return text.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '')
@@ -87,6 +91,18 @@ export function polishPageEnd(
     end -= 1
   }
 
+  // “grass, and herb | yielding seed” is a worse boundary than
+  // “grass, | and herb yielding seed”. Keep a two-word coordinated phrase
+  // together when moving it does not discard another painted line.
+  const phraseConnector = end - 2
+  if (
+    phraseConnector > from
+    && LAB_SENTENCE_CONNECTOR_RE.test(barePageWord(words[phraseConnector]?.text || ''))
+    && isCommaStop(words[phraseConnector - 1]?.text || '')
+  ) {
+    end = phraseConnector
+  }
+
   // Move a tiny sentence fragment such as “And God” as one unit. Never roll
   // back more than roughly one painted line: that was the source of the large
   // blank areas in the reported Genesis pages.
@@ -104,11 +120,14 @@ export function polishPageEnd(
     : fragmentStart
   const fragmentLead = barePageWord(words[leadIndex]?.text || '')
   const lexicalFragmentWords = end - leadIndex
+  const trimmedTailHasSpeechCue = words
+    .slice(end, to)
+    .some(word => barePageWord(word.text).toLowerCase() === 'let')
   if (
     priorStop >= from
     && fragmentWords > 0
     && fragmentWords <= rollbackLimit
-    && lexicalFragmentWords <= 2
+    && (lexicalFragmentWords <= 2 || (trimmedTailHasSpeechCue && lexicalFragmentWords <= 4))
     && LAB_SENTENCE_CONNECTOR_RE.test(fragmentLead)
   ) {
     end = fragmentStart
