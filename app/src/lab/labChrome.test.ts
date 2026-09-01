@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labShowSlimTransport, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -98,6 +98,16 @@ describe('lab visual viewport height', () => {
     expect(labVisualViewportHeightPx(undefined, 844)).toBe(844)
     expect(labVisualViewportHeightPx(0, 390)).toBe(390)
     expect(labVisualViewportHeightPx()).toBe(0)
+  })
+})
+
+describe('lab settled page geometry', () => {
+  it('invalidates page breaks when the readable box changes size', () => {
+    const settled = { width: 390, height: 844 }
+    expect(labPageGeometryChanged(settled, { width: 375, height: 667 })).toBe(true)
+    expect(labPageGeometryChanged(settled, { width: 390, height: 720 })).toBe(true)
+    expect(labPageGeometryChanged(settled, { width: 390.5, height: 843.5 })).toBe(false)
+    expect(labPageGeometryChanged(null, settled)).toBe(false)
   })
 })
 

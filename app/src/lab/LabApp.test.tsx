@@ -2388,7 +2388,7 @@ describe('lab after-paint shrink', () => {
     }
   })
 
-  it('does not peel the visible page after the list settles or on next/prev', async () => {
+  it('rechecks a visible page after settle and peels it if browser paint overflows', async () => {
     const restore = stubTooTallFirstPack()
     try {
       render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
@@ -2437,11 +2437,13 @@ describe('lab after-paint shrink', () => {
           await new Promise(resolve => requestAnimationFrame(() => resolve(null)))
         })
       }
-      expect(lineWords().join(' ')).toBe(page2)
-      expect(nm().m).toBe(frozen.m)
+      const correctedPage2 = lineWords().join(' ')
+      expect(correctedPage2).not.toBe(page2)
+      expect(correctedPage2.split(/\s+/).length).toBeLessThan(page2.split(/\s+/).length)
+      expect(nm().m).toBeGreaterThanOrEqual(frozen.m)
       fireEvent.click(screen.getByTestId('lab-page-prev'))
       expect(lineWords().join(' ')).toBe(settled)
-      expect(nm()).toEqual(frozen)
+      expect(nm().n).toBe(1)
     } finally {
       restore()
     }

@@ -18,6 +18,7 @@ import {
   afterLabPaint,
   LAB_OVERFLOW_CLEAR_PX,
   labPageFitsPaint,
+  labPageGeometryChanged,
   labBarMoved,
   measureLabBarTop,
   measureLabOnScreenBarTop,
@@ -96,6 +97,31 @@ function readPhoneFooter(layoutOverride: ReturnType<typeof labLayoutOverride>, i
     isPhone,
     ...phoneSurfaceInput(layoutOverride),
   })
+}
+
+function measureVisiblePageOverflow(
+  wrap: HTMLElement,
+  passage: HTMLElement,
+  chromeEl: HTMLElement,
+) {
+  let painted = measurePaintedOverflow(passage, chromeEl)
+  const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
+  if (onScreenTop <= 0) return painted
+  const inkBottom = [...passage.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+    .reduce((max, node) => {
+      const rect = node.getBoundingClientRect()
+      return rect.height > 8 ? Math.max(max, rect.bottom) : max
+    }, 0)
+  if (inkBottom >= onScreenTop - LAB_OVERFLOW_CLEAR_PX) {
+    painted = {
+      lastBottom: inkBottom,
+      chromeTop: onScreenTop,
+      lineHeight: painted?.lineHeight || 40,
+      lastLineWords: painted?.lastLineWords || 0,
+      scrollOverflow: true,
+    }
+  }
+  return painted
 }
 
 
@@ -501,6 +527,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
   pageMetricsRef.current = pageMetrics
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
+  const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
@@ -570,24 +597,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
       const live = pages[pageIdx]
       if (!live) return pages
-      let painted = measurePaintedOverflow(passage, chromeEl)
-      const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
-      if (onScreenTop > 0) {
-        const inkBottom = [...passage.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
-          .reduce((max, node) => {
-            const rect = node.getBoundingClientRect()
-            return rect.height > 8 ? Math.max(max, rect.bottom) : max
-          }, 0)
-        if (inkBottom >= onScreenTop - LAB_OVERFLOW_CLEAR_PX) {
-          painted = {
-            lastBottom: inkBottom,
-            chromeTop: onScreenTop,
-            lineHeight: painted?.lineHeight || 40,
-            lastLineWords: painted?.lastLineWords || 0,
-            scrollOverflow: true,
-          }
-        }
-      }
+      const painted = measureVisiblePageOverflow(wrap, passage, chromeEl)
       if (!painted) return pages
       const tail = chapterPageTail(live)
       if (!tail) return pages
@@ -633,6 +643,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         return
       }
       pagesStableRef.current = true
+      const settledRect = wrap.getBoundingClientRect()
+      settledPageGeometryRef.current = { width: settledRect.width, height: settledRect.height }
       setSettleIndex(null)
       settleIndexRef.current = null
       unmeasuredTriesRef.current = 0
@@ -880,6 +892,24 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         && previous.height === geometry.height
         && pageMetricsRef.current
       ) return
+      if (
+        pagesStableRef.current
+        && labPageGeometryChanged(settledPageGeometryRef.current, geometry)
+        && !lockPaginationRef.current
+        && !listenPlayingRef.current
+        && !browseWhileListeningRef.current
+      ) {
+        // Page breaks belong to the readable box that produced them. A phone
+        // resize (including device emulation/orientation) must invalidate them.
+        pagesStableRef.current = false
+        settledPageGeometryRef.current = null
+        didBudgetPageRef.current = false
+        unmeasuredTriesRef.current = 0
+        workingPagesRef.current = readingPagesRef.current
+        setDraftPages(readingPagesRef.current)
+        settleIndexRef.current = 0
+        setSettleIndex(0)
+      }
       const measured = measureLabPageMetrics(wrap, bottomChromeRef.current)
       if (!measured) return
       const metrics = stabilizeLabPageMetrics(pageMetricsRef.current, measured, headlineHeightRef.current)
@@ -916,6 +946,33 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       viewport?.removeEventListener('resize', apply)
     }
   }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, prefs.fontFamily, prefs.fontSize, fullscreen])
+
+  useLayoutEffect(() => {
+    if (
+      !pagesStableRef.current
+      || phoneAskOpen
+      || listenPlayingRef.current
+      || browseWhileListeningRef.current
+    ) return
+    const wrap = pageWrapRef.current
+    const chromeEl = bottomChromeRef.current
+    if (!wrap || !chromeEl) return
+    const passage = [...wrap.querySelectorAll('.lab-passage')]
+      .find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
+    if (!passage) return
+    const painted = measureVisiblePageOverflow(wrap, passage, chromeEl)
+    if (!painted || labPageFitsPaint(painted)) return
+
+    // Hidden preflight catches most pages. This visible-page check is the final
+    // invariant for font/browser rounding differences on a page turn.
+    const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
+    pagesStableRef.current = false
+    unmeasuredTriesRef.current = 0
+    workingPagesRef.current = readingPagesRef.current
+    setDraftPages(readingPagesRef.current)
+    settleIndexRef.current = pageIdx
+    setSettleIndex(pageIdx)
+  }, [readingPageIndex, readingPages, phoneAskOpen, listen.playing, browseWhileListening])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {

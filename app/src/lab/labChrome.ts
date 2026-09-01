@@ -21,6 +21,19 @@ export function isLabDesktopPane(label: string): label is LabDesktopPane {
 
 export type LabSurface = 'desktop' | 'phone'
 
+export type LabPageGeometry = { width: number; height: number }
+
+/** A settled page list is valid only for the box it was painted into. */
+export function labPageGeometryChanged(
+  previous: LabPageGeometry | null,
+  next: LabPageGeometry,
+  tolerance = 1,
+): boolean {
+  if (!previous) return false
+  return Math.abs(previous.width - next.width) > tolerance
+    || Math.abs(previous.height - next.height) > tolerance
+}
+
 export function labVisibleChrome(state: LabChromeState, peekBook: boolean): LabChromeState {
   return peekBook ? 'reading' : state
 }
