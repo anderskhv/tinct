@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type ReactNode } from 'react'
+import { Fragment, useLayoutEffect, useRef, type ReactNode } from 'react'
 import {
   chapterPagesCover,
   isLabVerseMarker,
@@ -105,16 +105,25 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
       const nextIndex = wordIndex + 1
       rendered.push(
-        <span key={`verse-${wordIndex}`} className="lab-verse-unit">
-          {node}
-          <NativeWord
-            text={words[nextIndex].text}
-            paragraphIndex={paragraphIndex}
-            wordIndex={nextIndex}
-            spacing=""
-            hasFollowingWord={nextIndex < words.length - 1}
-          />
-        </span>,
+        <Fragment key={`verse-${wordIndex}`}>
+          {nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+          <span className="lab-verse-unit">
+            <NativeWord
+              text={word.text}
+              paragraphIndex={paragraphIndex}
+              wordIndex={wordIndex}
+              spacing=""
+              hasFollowingWord
+            />
+            <NativeWord
+              text={words[nextIndex].text}
+              paragraphIndex={paragraphIndex}
+              wordIndex={nextIndex}
+              spacing=""
+              hasFollowingWord={nextIndex < words.length - 1}
+            />
+          </span>
+        </Fragment>,
       )
       wordIndex = nextIndex
     } else {

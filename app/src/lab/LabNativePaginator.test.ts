@@ -54,4 +54,18 @@ describe('native phone pagination', () => {
     expect(unit?.textContent).toBe('10\u00a0And')
     expect(unit?.querySelectorAll('[data-native-word="true"]')).toHaveLength(2)
   })
+
+  it('keeps the break before a verse start outside the no-wrap unit', () => {
+    const view = render(createElement(LabNativePaginator, {
+      chapterTitle: 'Genesis 1',
+      paragraphs: ['it was so. ⁸ And God said'],
+      layoutKey: 'test',
+      onPages: vi.fn(),
+    }))
+
+    const unit = view.container.querySelector('.lab-verse-unit')
+    expect(unit?.previousSibling?.textContent).toBe(' ')
+    expect(unit?.textContent).toBe('8\u00a0And')
+    expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
+  })
 })

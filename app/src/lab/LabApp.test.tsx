@@ -1812,6 +1812,26 @@ describe('lab passage headline pages', () => {
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u00a0And`)
   })
 
+  it('lets the line break before a protected verse start', () => {
+    render(
+      <LabPassage
+        chapterTitle="Genesis 1"
+        paragraphs={['it was so. ⁹ And God said']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 7 }}
+      />,
+    )
+    const unit = screen.getByTestId('lab-reading-stage').querySelector('.lab-verse-unit')
+    expect(unit?.previousSibling?.textContent).toBe(' ')
+    expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
+  })
+
   it('shows the chapter headline only on the first hearing page', () => {
     const words = Array.from({ length: 200 }, (_, index) => ({
       text: (index + 1) % 20 === 0 ? `w${index}.` : `w${index}`,

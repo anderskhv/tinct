@@ -77,14 +77,22 @@ function renderWordGroups<T extends { text: string }>(
     const word = words[wordIndex]
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
       rendered.push(
-        <span key={`verse-${wordIndex}`} className="lab-verse-unit">
-          {renderWord(word, wordIndex)}
-          {renderWord(words[wordIndex + 1], wordIndex + 1)}
-        </span>,
+        <Fragment key={`verse-${wordIndex}`}>
+          {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+          <span className="lab-verse-unit">
+            {renderWord(word, wordIndex)}
+            {renderWord(words[wordIndex + 1], wordIndex + 1)}
+          </span>
+        </Fragment>,
       )
       wordIndex += 1
     } else {
-      rendered.push(renderWord(word, wordIndex))
+      rendered.push(
+        <Fragment key={`word-${wordIndex}`}>
+          {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {renderWord(word, wordIndex)}
+        </Fragment>,
+      )
     }
   }
   return rendered
@@ -94,12 +102,9 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
       {renderWordGroups(line.words, (word, wordIndex) => (
-        <Fragment key={`${lineIndex}-${wordIndex}`}>
-          {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-          <span className="lab-hearing-word">
-            {renderWordText(word.text, wordIndex < line.words.length - 1)}
-          </span>
-        </Fragment>
+        <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
+          {renderWordText(word.text, wordIndex < line.words.length - 1)}
+        </span>
       ))}
     </p>
   ))
@@ -116,20 +121,18 @@ function renderHearingWords(
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
       {renderWordGroups(line.words, (word, wordIndex) => (
-        <Fragment key={`${lineIndex}-${wordIndex}`}>
-          {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-          <span
-            className={`lab-hearing-word is-${word.role}`}
-            data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
-            data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
-            data-word-index={word.wordIndex}
-            onClick={word.wordIndex != null && onSeekToWord
-              ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
-              : undefined}
-          >
-            {renderWordText(word.text, wordIndex < line.words.length - 1)}
-          </span>
-        </Fragment>
+        <span
+          key={`${lineIndex}-${wordIndex}`}
+          className={`lab-hearing-word is-${word.role}`}
+          data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+          data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
+          data-word-index={word.wordIndex}
+          onClick={word.wordIndex != null && onSeekToWord
+            ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
+            : undefined}
+        >
+          {renderWordText(word.text, wordIndex < line.words.length - 1)}
+        </span>
       ))}
     </p>
   ))
@@ -341,23 +344,21 @@ export function LabPassage({
                       const selecting = activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
                       return (
-                        <Fragment key={`${lineIndex}-${wordIndex}`}>
-                          {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-                          <span
-                            className={labHighlightCssClass(color, selecting)}
-                            data-testid="lab-word"
-                            data-paragraph-index={paragraphIndex}
-                            data-word-index={absoluteWord}
-                            onClick={onSeekToWord
-                              ? (event) => {
-                                  event.stopPropagation()
-                                  onSeekToWord(paragraphIndex, absoluteWord)
-                                }
-                              : undefined}
-                          >
-                            {renderWordText(word.text, wordIndex < line.words.length - 1)}
-                          </span>
-                        </Fragment>
+                        <span
+                          key={`${lineIndex}-${wordIndex}`}
+                          className={labHighlightCssClass(color, selecting)}
+                          data-testid="lab-word"
+                          data-paragraph-index={paragraphIndex}
+                          data-word-index={absoluteWord}
+                          onClick={onSeekToWord
+                            ? (event) => {
+                                event.stopPropagation()
+                                onSeekToWord(paragraphIndex, absoluteWord)
+                              }
+                            : undefined}
+                        >
+                          {renderWordText(word.text, wordIndex < line.words.length - 1)}
+                        </span>
                       )
                     })}
                     <button
@@ -427,16 +428,14 @@ export function LabPageMeasurePaint(input: {
             {lines.map((line, lineIndex) => (
               <p key={lineIndex} className="lab-hearing-line">
                 {renderWordGroups(line.words, (word, wordIndex) => (
-                  <Fragment key={`${lineIndex}-${wordIndex}`}>
-                    {wordSpacing(word, wordIndex, line.words[wordIndex - 1])}
-                    <span
-                      className={input.hearingPaint
-                        ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
-                        : 'lab-hearing-word'}
-                    >
-                      {renderWordText(word.text, wordIndex < line.words.length - 1)}
-                    </span>
-                  </Fragment>
+                  <span
+                    key={`${lineIndex}-${wordIndex}`}
+                    className={input.hearingPaint
+                      ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
+                      : 'lab-hearing-word'}
+                  >
+                    {renderWordText(word.text, wordIndex < line.words.length - 1)}
+                  </span>
                 ))}
                 <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>
               </p>
