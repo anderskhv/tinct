@@ -99,6 +99,38 @@ describe('findReadingActivity', () => {
     expect(findReadingActivity({ logs: [legacy], books, period: 'yesterday', now }))
       .toMatchObject([{ bookId: 'hamlet', chapterNumber: 2, legacy: true, lastParagraphIndex: 7 }])
   })
+
+  it('prefers a durable row and merges the matching legacy mirror without duplication', () => {
+    const yesterday = localTime(30, 18)
+    const hits = findReadingActivity({
+      logs,
+      durableSessions: [{
+        sessionId: 'session-1',
+        userId: 'user-1',
+        bookId: 'odyssey',
+        chapterNumber: 5,
+        editionKey: 'original-en',
+        mode: 'read',
+        startedAt: yesterday,
+        lastActiveAt: yesterday + 5_000,
+        startParagraphIndex: 4,
+        lastParagraphIndex: 6,
+        clientRevision: 2,
+      }],
+      books,
+      period: 'yesterday',
+      now,
+    })
+
+    expect(hits).toHaveLength(1)
+    expect(hits[0]).toMatchObject({
+      sessionId: 'session-1',
+      source: 'durable',
+      startParagraphIndex: 4,
+      lastParagraphIndex: 8,
+      lastActiveAt: yesterday + 10_000,
+    })
+  })
 })
 
 describe('readingPassageExcerpt', () => {

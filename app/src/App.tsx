@@ -47,13 +47,14 @@ import { useChatHistory } from './hooks/useChatHistory'
 import { useVoiceSession } from './hooks/useVoiceSession'
 import { useTinctVoiceTools } from './hooks/useTinctVoiceTools'
 import { buildVoiceReaderProfile } from './voice/readerProfile'
-import { findReadingActivity, readingPassageExcerpt, readingPeriodLabel, type ReadingHistoryPeriod } from './voice/readingMemory'
+import { findReadingActivity, matchingReadingMemoryBookIds, readingPassageExcerpt, readingPeriodBounds, readingPeriodLabel, type ReadingHistoryPeriod } from './voice/readingMemory'
 import type { VoiceTinctView } from './voice/tinctTools'
 import { useLibrary } from './hooks/useLibrary'
 import { shouldStartFreshFromStoreOpen } from './hooks/useLibrary.guards'
 import { useReaderController } from './hooks/useReaderController'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage } from './services/storage'
+import { queryReadingActivitySessions } from './services/readingActivity'
 import type { BookReadingLog, EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation, Note, PanelTab } from './types'
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
@@ -903,11 +904,30 @@ export default function App() {
   }, [storageReady, heavyLoadedTick, libraryIds, chatConversations, preferences.readingLanguages])
 
   const getVoiceReadingHistory = useCallback(async (period: ReadingHistoryPeriod, bookQuery?: string) => {
+    if (!user?.id) {
+      return {
+        ok: false,
+        period,
+        period_label: readingPeriodLabel(period),
+        activities: [],
+        unavailable_reason: 'sign_in_required_for_history',
+      }
+    }
+    const now = Date.now()
+    const bounds = readingPeriodBounds(period, now)
+    const durable = await queryReadingActivitySessions({
+      userId: user.id,
+      start: bounds?.start,
+      end: bounds?.end,
+      bookIds: bookQuery ? matchingReadingMemoryBookIds(BOOKS, bookQuery) : undefined,
+      limit: 64,
+    })
     const hits = findReadingActivity({
       logs: storageReady ? storage.getAll<BookReadingLog>('reading-log:') : [],
+      durableSessions: durable.sessions,
       books: BOOKS,
       period,
-      now: Date.now(),
+      now,
       bookQuery,
       limit: 4,
     })
@@ -953,12 +973,16 @@ export default function App() {
       }
     }))
     return {
-      ok: true,
+      ok: durable.status === 'ok' || hits.length > 0,
       period,
       period_label: readingPeriodLabel(period),
       activities,
+      history_source: durable.sessions.length > 0 ? 'durable' : 'legacy_fallback',
+      ...(durable.status === 'unavailable' && hits.length === 0
+        ? { unavailable_reason: 'history_temporarily_unavailable' }
+        : {}),
     }
-  }, [storageReady])
+  }, [storageReady, user?.id])
 
   const openVoiceView = useCallback((view: VoiceTinctView) => {
     setShowStore(view === 'library')
@@ -1462,6 +1486,7 @@ export default function App() {
   const { log: readingLog } = useReadingLog(book.id, currentChapter, primaryEditionKey, currentPage, totalPages, storageReady, effectiveParagraph, chapterParagraphCount, isAudioActive, totalChapters, bookEditionKeys, {
     location: readerSessionState.location,
     status: readerSessionStatus,
+    userId: user?.id,
   })
 
   const { threadsData, getMentions } = useThreads(book.id, primaryData)

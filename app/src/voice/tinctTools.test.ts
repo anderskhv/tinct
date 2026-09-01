@@ -72,6 +72,21 @@ describe('TinctVoiceToolController', () => {
     expect(result.responseInstructions).toContain('5–15 second recap')
   })
 
+  it('explains the signed-out privacy boundary without implying history exists', async () => {
+    const { controller, adapter } = setup()
+    vi.mocked(adapter.getReadingHistory).mockResolvedValueOnce({
+      ok: false,
+      period: 'yesterday',
+      period_label: 'yesterday',
+      activities: [],
+      unavailable_reason: 'sign_in_required_for_history',
+    })
+    const result = await controller.execute('get_reading_history', { period: 'yesterday' }, 'turn-history')
+
+    expect(result.responseInstructions).toContain('guest reading stays private')
+    expect(result.responseInstructions).toContain('not saved as history')
+  })
+
   it('does not invent an undo entry when a setting was already active', async () => {
     const { controller } = setup()
     const unchanged = await controller.execute('set_tinct_theme', { theme: 'light' }, 'turn-theme')

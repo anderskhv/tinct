@@ -5,6 +5,12 @@ import type { BookReadingLog, ChapterReadingRecord } from '../types'
 import { ensureReadingLogChapter, getReadingLogTransition, recordReadingLogActivity, sanitizeReadingLog } from './useReadingLog.guards'
 import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
 import type { ReaderLocation, ReaderSessionState } from '../readerSession/types'
+import {
+  advanceDurableReadingSession,
+  drainPendingReadingActivity,
+  persistReadingActivity,
+  type DurableReadingActivitySession,
+} from '../services/readingActivity'
 
 function logKey(bookId: string): string {
   return `reading-log:${bookId}`
@@ -39,6 +45,9 @@ export function useReadingLog(
   readerSession?: {
     location: ReaderLocation
     status: ReaderSessionState['status']
+    /** Durable history is deliberately signed-in-only. Anonymous readers keep
+     * only the existing local resume position allowed by storage policy. */
+    userId?: string
   },
 ) {
   const persistableLocation = getPersistableReaderHistoryLocation({
@@ -270,6 +279,23 @@ export function useReadingLog(
 
   // Track paragraph position within chapter (updates on every paragraph change)
   const prevActivityRef = useRef<string | null>(null)
+  const durableSessionRef = useRef<DurableReadingActivitySession | null>(null)
+  const durableUserId = readerSession?.userId
+
+  // Replay a signed-in reader's durable activity after reload or reconnect.
+  // The queue contains only authenticated activity and is wiped with the rest
+  // of the previous user's local cache on sign-out/account switch.
+  useEffect(() => {
+    if (!durableUserId) {
+      durableSessionRef.current = null
+      return
+    }
+    void drainPendingReadingActivity(durableUserId)
+    const handleOnline = () => { void drainPendingReadingActivity(durableUserId) }
+    window.addEventListener('online', handleOnline)
+    return () => window.removeEventListener('online', handleOnline)
+  }, [durableUserId])
+
   useEffect(() => {
     if (!storageReady) return
     if (!persistableLocation) return
@@ -277,11 +303,12 @@ export function useReadingLog(
     const activeEditionKey = persistableLocation.editionKey
     const activeParagraphIndex = persistableLocation.paragraphIndex
     if (activeParagraphIndex === undefined) return
-    const activityKey = `${bookId}:${activeChapter}:${activeEditionKey}:${activeParagraphIndex}:${isAudioPlaying ? 'listened' : 'read'}`
+    const activityKey = `${durableUserId || 'guest'}:${bookId}:${activeChapter}:${activeEditionKey}:${activeParagraphIndex}:${isAudioPlaying ? 'listened' : 'read'}`
     if (activityKey === prevActivityRef.current) return
     prevActivityRef.current = activityKey
 
     const mode = isAudioPlaying ? 'listened' as const : 'read' as const
+    const now = Date.now()
     setLog(prev => {
       return recordReadingLogActivity({
         log: prev,
@@ -291,10 +318,28 @@ export function useReadingLog(
         mode,
         paragraphIndex: activeParagraphIndex,
         totalParagraphs,
-        now: Date.now(),
+        now,
       })
     })
-  }, [bookId, totalParagraphs, storageReady, isAudioPlaying, persistableLocation])
+    if (durableUserId) {
+      const session = advanceDurableReadingSession({
+        previous: durableSessionRef.current,
+        point: {
+          userId: durableUserId,
+          bookId,
+          chapterNumber: activeChapter,
+          editionKey: activeEditionKey,
+          mode,
+          paragraphIndex: activeParagraphIndex,
+          now,
+        },
+      })
+      durableSessionRef.current = session
+      persistReadingActivity(session)
+    } else {
+      durableSessionRef.current = null
+    }
+  }, [bookId, totalParagraphs, storageReady, isAudioPlaying, persistableLocation, durableUserId])
 
   // Persist on change
   useEffect(() => {

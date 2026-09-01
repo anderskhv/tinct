@@ -10,6 +10,7 @@ export interface VoiceReadingRecallPayload extends Record<string, unknown> {
   period: ReadingHistoryPeriod
   period_label: string
   activities: Array<Record<string, unknown>>
+  unavailable_reason?: 'sign_in_required_for_history' | 'history_temporarily_unavailable'
 }
 
 export interface TinctVoiceToolAdapter<ViewSnapshot = unknown> {
@@ -196,11 +197,16 @@ export class TinctVoiceToolController<ViewSnapshot = unknown> {
         return failure('invalid_period')
       }
       const recall = await this.adapter.getReadingHistory(period, stringArg(args, 'book_query'))
+      const unavailableInstructions = recall.unavailable_reason === 'sign_in_required_for_history'
+        ? 'Briefly explain that signed-in reading can be remembered across sessions; guest reading stays private and is not saved as history. Do not imply earlier guest activity will appear after sign-in, do not claim any activity was recorded, and do not call another tool.'
+        : recall.unavailable_reason === 'history_temporarily_unavailable'
+          ? 'Briefly say that reading history is temporarily unavailable and suggest trying again. Do not guess from general memory and do not call another tool.'
+          : `Briefly say you could not find any reading activity for ${recall.period_label}. Offer to check another day. Do not invent a passage and do not call another tool.`
       return {
         output: recall,
         responseInstructions: recall.ok && recall.activities.length > 0
           ? 'Using only the reading-history result, give a warm 5–15 second recap in one or two sentences. Then ask exactly one light follow-up: “Does that ring a bell, or would you like a deeper summary?” Do not mention tools, stored data, or profiling. Do not resume the book.'
-          : `Briefly say you could not find any reading activity for ${recall.period_label}. Offer to check another day. Do not invent a passage and do not call another tool.`,
+          : unavailableInstructions,
       }
     }
 
