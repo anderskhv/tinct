@@ -1117,6 +1117,137 @@
   text-align: center;
 }
 
+.lab-voice-actions {
+  position: fixed;
+  left: 50%;
+  bottom: calc(4.9rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 210;
+  width: min(34rem, calc(100vw - 1.5rem));
+  max-height: min(15rem, 34vh);
+  overflow: auto;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #b9af9c;
+  background: rgba(236, 231, 219, 0.96);
+  color: #0b0b0b;
+  box-shadow: 0 8px 24px rgba(11, 11, 11, 0.14);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.66rem;
+}
+
+.lab-voice-actions-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.lab-voice-actions-head > strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lab-voice-fixture {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.25rem 0.48rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lab-voice-fixture[aria-pressed="true"] {
+  background: #0b0b0b;
+  color: #ece7db;
+}
+
+.lab-voice-actions-state,
+.lab-voice-actions-empty,
+.lab-voice-surface {
+  margin: 0.45rem 0 0;
+  line-height: 1.35;
+}
+
+.lab-voice-surface {
+  padding: 0.4rem 0.5rem;
+  background: #e2d8c4;
+}
+
+.lab-voice-action-list {
+  display: grid;
+  gap: 0.38rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-voice-action-list li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) minmax(5rem, 0.8fr) minmax(6rem, 0.8fr);
+  gap: 0.35rem;
+  align-items: baseline;
+  padding-top: 0.34rem;
+  border-top: 1px solid #c8c0ae;
+}
+
+.lab-voice-action-list code,
+.lab-voice-action-list span,
+.lab-voice-action-list strong,
+.lab-voice-action-list small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lab-voice-action-list code {
+  color: inherit;
+  font-family: inherit;
+}
+
+.lab-voice-action-list small {
+  grid-column: 1 / -1;
+  color: #6a6555;
+}
+
+.lab.is-night .lab-voice-actions {
+  background: rgba(24, 22, 19, 0.97);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-night .lab-voice-fixture[aria-pressed="true"] {
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+}
+
+.lab.is-night .lab-voice-surface {
+  background: var(--lab-surface);
+}
+
+.lab.is-night .lab-voice-action-list li {
+  border-color: var(--lab-border);
+}
+
+.lab.is-night .lab-voice-action-list small {
+  color: var(--lab-ink-muted);
+}
+
+@media (max-width: 520px) {
+  .lab-voice-actions {
+    max-height: 12rem;
+  }
+
+  .lab-voice-action-list li {
+    grid-template-columns: minmax(7rem, 1fr) minmax(5rem, 0.8fr);
+  }
+
+  .lab-voice-action-list strong {
+    grid-column: 1 / -1;
+  }
+}
+
 
 .lab-ask-tab {
   position: fixed;
