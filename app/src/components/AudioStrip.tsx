@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { BottomBarHandle } from './BottomBar'
 import type { VoiceModeState } from '../voice/types'
+import { AUDIO_SPEED_CHANGE_EVENT } from '../hooks/useAudioSpeed'
 
 interface AudioStripProps {
   isOpen: boolean
@@ -41,6 +42,15 @@ export function AudioStrip({
     if (!isOpen) return
     setSpeed(audioRef.current?.getSpeed() ?? 1)
   }, [isOpen, audioRef])
+
+  useEffect(() => {
+    const handleSpeedChange = (event: Event) => {
+      const rate = (event as CustomEvent<number>).detail
+      if (typeof rate === 'number') setSpeed(rate)
+    }
+    window.addEventListener(AUDIO_SPEED_CHANGE_EVENT, handleSpeedChange)
+    return () => window.removeEventListener(AUDIO_SPEED_CHANGE_EVENT, handleSpeedChange)
+  }, [])
 
   if (!isOpen) return null
 

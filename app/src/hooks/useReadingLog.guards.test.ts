@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ensureReadingLogChapter, getReadingLogTransition, sanitizeReadingLog } from './useReadingLog.guards'
+import { ensureReadingLogChapter, getReadingLogTransition, recordReadingLogActivity, sanitizeReadingLog } from './useReadingLog.guards'
 import { getPersistableReaderHistoryLocation } from './useReadingPosition.guards'
 import type { BookReadingLog } from '../types'
 
@@ -185,6 +185,78 @@ describe('getReadingLogTransition', () => {
       isBookChange: false,
       chapterToFlush: 5,
     })
+  })
+})
+
+describe('recordReadingLogActivity', () => {
+  it('extends a recent session while preserving its starting paragraph', () => {
+    const initial: BookReadingLog = { bookId: 'odyssey', chapters: {}, updatedAt: 0 }
+    const first = recordReadingLogActivity({
+      log: initial,
+      bookId: 'odyssey',
+      chapterNumber: 5,
+      editionKey: 'original-en',
+      mode: 'read',
+      paragraphIndex: 3,
+      totalParagraphs: 20,
+      now: 1_000,
+    })
+    const second = recordReadingLogActivity({
+      log: first,
+      bookId: 'odyssey',
+      chapterNumber: 5,
+      editionKey: 'original-en',
+      mode: 'read',
+      paragraphIndex: 8,
+      totalParagraphs: 20,
+      now: 2_000,
+    })
+
+    expect(second.chapters[5].sessions).toEqual([{
+      startedAt: 1_000,
+      lastActiveAt: 2_000,
+      editionKey: 'original-en',
+      mode: 'read',
+      startParagraphIndex: 3,
+      lastParagraphIndex: 8,
+    }])
+    expect(second.chapters[5].lastReadAt).toBe(2_000)
+  })
+
+  it('starts a new session after the inactivity gap', () => {
+    const first = recordReadingLogActivity({
+      log: { bookId: 'odyssey', chapters: {}, updatedAt: 0 },
+      bookId: 'odyssey',
+      chapterNumber: 5,
+      editionKey: 'original-en',
+      mode: 'read',
+      paragraphIndex: 3,
+      now: 1_000,
+    })
+    const second = recordReadingLogActivity({
+      log: first,
+      bookId: 'odyssey',
+      chapterNumber: 5,
+      editionKey: 'original-en',
+      mode: 'read',
+      paragraphIndex: 4,
+      now: 31 * 60 * 1_000,
+    })
+
+    expect(second.chapters[5].sessions).toHaveLength(2)
+  })
+
+  it('rejects a stale cross-book activity write', () => {
+    const log: BookReadingLog = { bookId: 'odyssey', chapters: {}, updatedAt: 0 }
+    expect(recordReadingLogActivity({
+      log,
+      bookId: 'bible',
+      chapterNumber: 1,
+      editionKey: 'kjv-en',
+      mode: 'read',
+      paragraphIndex: 0,
+      now: 1_000,
+    })).toBe(log)
   })
 })
 

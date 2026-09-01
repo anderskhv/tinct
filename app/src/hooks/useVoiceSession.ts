@@ -4,7 +4,7 @@ import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSess
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { CompanionAskNotify } from '../lab/labCompanion'
 import { nearbyParagraphWindow } from '../voice/context'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
 import { VOICE_REALTIME_MODEL } from '../voice/types'
 
 let voiceMessageId = 0
@@ -43,6 +43,11 @@ export interface UseVoiceSessionOptions {
   /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
   instructions?: string
   tools?: readonly unknown[]
+  /** Production-owned functions appended to the base voice controls. */
+  applicationTools?: readonly unknown[]
+  onApplicationTool?: VoiceApplicationToolHandler
+  /** Clears session-scoped application state such as the voice undo stack. */
+  onSessionStart?: () => void
   honorModelResume?: boolean
   /** Lab-only. Production AudioStrip leaves this unset. */
   setPlaybackSpeed?: (rate: number) => void
@@ -106,6 +111,16 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
         })
       },
       onSetAssistantPace: (pace) => optionsRef.current.onSetAssistantPace?.(pace),
+      onApplicationTool: (name, args, callId) => {
+        const handler = optionsRef.current.onApplicationTool
+        if (!handler) {
+          return {
+            output: { ok: false, error: 'application_tool_unavailable' },
+            responseInstructions: 'Briefly say that control is not available here. Do not claim it worked.',
+          }
+        }
+        return handler(name, args, callId)
+      },
     })
     controllerRef.current = controller
     return () => {
@@ -160,6 +175,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   const start = useCallback(async (overrides?: { authToken?: string | null }) => {
     const opts = optionsRef.current
+    opts.onSessionStart?.()
     const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
     if (opts.honorModelResume) controllerRef.current?.unlockLabAudioContext()
     await controllerRef.current?.start({
@@ -177,6 +193,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       mode: opts.mode ?? 'conversation',
       instructions: opts.instructions,
       tools: opts.tools,
+      applicationTools: opts.applicationTools,
       honorModelResume: opts.honorModelResume,
       assistantPace: opts.assistantPace,
       onCompanionAsk: opts.onCompanionAsk,

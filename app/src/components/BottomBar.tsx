@@ -53,6 +53,7 @@ export interface BottomBarHandle {
   seekToParagraph: (index: number) => void
   togglePlay: () => void
   cycleSpeed: () => void
+  setSpeed: (rate: number) => void
   getSpeed: () => number
   /** Skip relative to the current paragraph: positive forward, negative backward. */
   skipParagraphs: (delta: number) => void
@@ -155,7 +156,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
     // Single source of truth for speed — persisted, cross-device synced.
     // The hook's `applyTo` is called wherever an audio element is created or
     // a `play` event fires so the DOM rate can never drift from the chosen value.
-    const { speed, cycleSpeed: cycleSpeedFromHook, applyTo: applySpeedToAudio } = useAudioSpeed()
+    const { speed, setSpeed: setSpeedFromHook, cycleSpeed: cycleSpeedFromHook, applyTo: applySpeedToAudio } = useAudioSpeed()
 
     const onPlayStateChangeRef = useRef(onPlayStateChange)
     onPlayStateChangeRef.current = onPlayStateChange
@@ -634,6 +635,9 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       cycleSpeed() {
         cycleSpeedRef.current()
       },
+      setSpeed(rate: number) {
+        setSpeedRef.current(rate)
+      },
       getSpeed() {
         return speedRef.current
       },
@@ -816,6 +820,17 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       }
     }, [cycleSpeedFromHook])
     cycleSpeedRef.current = cycleSpeed
+
+    const setSpeedRef = useRef<(rate: number) => void>(() => {})
+    const setExactSpeed = useCallback((rate: number) => {
+      speedRef.current = rate
+      setSpeedFromHook(rate)
+      if (audioRef.current) {
+        applyAudioRate(audioRef.current, rate)
+        recordAudioDebug({ event: 'speed-change', next: rate, source: 'voice' })
+      }
+    }, [setSpeedFromHook])
+    setSpeedRef.current = setExactSpeed
 
     // Mobile nav — allow chapter advance when on first/last page
     const canGoPrev = currentPage > 0 || !!onPrevChapter

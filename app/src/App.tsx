@@ -45,13 +45,16 @@ import { useReadingSpeed } from './hooks/useReadingSpeed'
 import { useMobile } from './hooks/useMobile'
 import { useChatHistory } from './hooks/useChatHistory'
 import { useVoiceSession } from './hooks/useVoiceSession'
+import { useTinctVoiceTools } from './hooks/useTinctVoiceTools'
 import { buildVoiceReaderProfile } from './voice/readerProfile'
+import { findReadingActivity, readingPassageExcerpt, readingPeriodLabel, type ReadingHistoryPeriod } from './voice/readingMemory'
+import type { VoiceTinctView } from './voice/tinctTools'
 import { useLibrary } from './hooks/useLibrary'
 import { shouldStartFreshFromStoreOpen } from './hooks/useLibrary.guards'
 import { useReaderController } from './hooks/useReaderController'
 import { useReadingLog } from './hooks/useReadingLog'
 import { storage } from './services/storage'
-import type { EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation, Note } from './types'
+import type { BookReadingLog, EditionData, HighlightColor, Style, Language, EditionKey, ReadingPosition, FontSize, FontFamily, ChatMessage, ChatConversation, Note, PanelTab } from './types'
 import { makeEditionKey } from './types'
 import { apiUrl } from './utils/apiUrl'
 import { trackEvent, trackPageview } from './utils/analytics'
@@ -74,6 +77,15 @@ const UsageDashboard = lazy(() => import('./components/UsageDashboard').then(m =
 
 function LazySurfaceFallback() {
   return null
+}
+
+interface VoiceViewSnapshot {
+  showStore: boolean
+  showPricing: boolean
+  showSettings: boolean
+  activeView: 0 | 1 | 2 | 3 | 4
+  panelTab: PanelTab
+  panelOpen: boolean
 }
 
 function mergeFullEditionPreservingLoadedChapters(current: EditionData | null, full: EditionData): EditionData {
@@ -233,6 +245,7 @@ export default function App() {
     setCastHidden,
     setReadingLanguages,
     refreshFromStorage,
+    update: updatePreferences,
   } = usePreferences(storageReady)
   setReadingObjectiveRef.current = setReadingObjective
 
@@ -889,6 +902,104 @@ export default function App() {
     })
   }, [storageReady, heavyLoadedTick, libraryIds, chatConversations, preferences.readingLanguages])
 
+  const getVoiceReadingHistory = useCallback(async (period: ReadingHistoryPeriod, bookQuery?: string) => {
+    const hits = findReadingActivity({
+      logs: storageReady ? storage.getAll<BookReadingLog>('reading-log:') : [],
+      books: BOOKS,
+      period,
+      now: Date.now(),
+      bookQuery,
+      limit: 4,
+    })
+    const activities = await Promise.all(hits.map(async hit => {
+      const recalledBook = getBook(hit.bookId)
+      const edition = recalledBook?.editions.find(candidate => candidate.key === hit.editionKey)
+        || recalledBook?.editions[0]
+      let chapterTitle = `Chapter ${hit.chapterNumber}`
+      let excerpt = ''
+      if (recalledBook && edition) {
+        try {
+          const data = await loadEditionWindow(recalledBook.id, edition.key, hit.chapterNumber)
+          const chapter = data.chapters.find(candidate => candidate.number === hit.chapterNumber)
+          if (chapter) {
+            chapterTitle = normalizeChapterTitle(chapter.title)
+            excerpt = readingPassageExcerpt({
+              paragraphs: chapter.paragraphs,
+              startParagraphIndex: hit.startParagraphIndex,
+              lastParagraphIndex: hit.lastParagraphIndex,
+            })
+          }
+        } catch { /* metadata-only recall is still useful when an edition is offline */ }
+      }
+      const startParagraph = typeof hit.startParagraphIndex === 'number' ? hit.startParagraphIndex + 1 : undefined
+      const lastParagraph = typeof hit.lastParagraphIndex === 'number' ? hit.lastParagraphIndex + 1 : undefined
+      return {
+        book_id: hit.bookId,
+        book_title: hit.bookTitle,
+        book_author: hit.bookAuthor,
+        chapter_number: hit.chapterNumber,
+        chapter_title: chapterTitle,
+        edition: edition?.label || hit.editionKey,
+        mode: hit.mode,
+        started_at: new Date(hit.startedAt).toISOString(),
+        last_active_at: new Date(hit.lastActiveAt).toISOString(),
+        paragraph_range: startParagraph === undefined
+          ? undefined
+          : startParagraph === lastParagraph || lastParagraph === undefined
+            ? `${startParagraph}`
+            : `${startParagraph}–${lastParagraph}`,
+        passage_excerpt: excerpt || undefined,
+        legacy_timestamp_only: hit.legacy || undefined,
+      }
+    }))
+    return {
+      ok: true,
+      period,
+      period_label: readingPeriodLabel(period),
+      activities,
+    }
+  }, [storageReady])
+
+  const openVoiceView = useCallback((view: VoiceTinctView) => {
+    setShowStore(view === 'library')
+    setShowPricingModal(view === 'pricing')
+    setShowSettings(view === 'settings')
+    const viewIndex = view === 'chat' ? 2 : view === 'reading_history' ? 3 : view === 'cast' ? 4 : 0
+    setActiveView(viewIndex)
+    if (view === 'chat') updatePreferences({ panelTab: 'chat', panelOpen: true })
+    else if (view === 'reading_history') updatePreferences({ panelTab: 'notes', panelOpen: true })
+    else if (view === 'cast') updatePreferences({ panelTab: 'threads', panelOpen: true })
+    else if (view === 'read' && !isMobile) updatePreferences({ panelOpen: false })
+  }, [isMobile, setActiveView, updatePreferences])
+
+  const restoreVoiceView = useCallback((snapshot: VoiceViewSnapshot) => {
+    setShowStore(snapshot.showStore)
+    setShowPricingModal(snapshot.showPricing)
+    setShowSettings(snapshot.showSettings)
+    setActiveView(snapshot.activeView)
+    updatePreferences({ panelTab: snapshot.panelTab, panelOpen: snapshot.panelOpen })
+  }, [setActiveView, updatePreferences])
+
+  const tinctVoiceTools = useTinctVoiceTools<VoiceViewSnapshot>({
+    getViewSnapshot: () => ({
+      showStore,
+      showPricing: showPricingModal,
+      showSettings,
+      activeView,
+      panelTab: preferences.panelTab,
+      panelOpen: preferences.panelOpen,
+    }),
+    openView: openVoiceView,
+    restoreView: restoreVoiceView,
+    getTheme: () => preferences.darkMode ? 'dark' : 'light',
+    setTheme: theme => updatePreferences({ darkMode: theme === 'dark' }),
+    getFontSize: () => preferences.fontSize,
+    setFontSize,
+    getAudioSpeed: () => bottomBarRef.current?.getSpeed() ?? 1,
+    setAudioSpeed: speed => bottomBarRef.current?.setSpeed(speed),
+    getReadingHistory: getVoiceReadingHistory,
+  })
+
   const handleSummarizeChat = useCallback(async (convId: string) => {
     const conv = chatConversations.find(c => c.id === convId)
     if (!conv || conv.messages.length < 4) return
@@ -973,6 +1084,9 @@ export default function App() {
     },
     onInsufficientBalance: handleInsufficientBalance,
     onUsage: deductUsage,
+    applicationTools: tinctVoiceTools.tools,
+    onApplicationTool: tinctVoiceTools.onTool,
+    onSessionStart: tinctVoiceTools.resetUndo,
   })
 
   // Load chat history when the book changes. Chat is now ONE continuous
