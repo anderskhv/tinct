@@ -2007,6 +2007,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             selectingRange={selectionPopup?.range ?? null}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
             pageTurn={pageTurn}
+            onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
+              ? (direction) => {
+                  if (direction > 0) goNext()
+                  else goPrev()
+                }
+              : undefined}
           />
           {settleIndex != null && draftPages[settleIndex] && (
             <div

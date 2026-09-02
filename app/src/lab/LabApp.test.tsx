@@ -1895,6 +1895,47 @@ describe('lab passage headline pages', () => {
     const marks = Array.from(document.querySelectorAll('.lab-verse-mark'))
     expect(marks.map((el) => el.textContent)).toEqual(['9', '10', '20'])
   })
+
+  it('turns pages from full-page edge taps and horizontal swipes without taking the center tap', () => {
+    const turn = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me, O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onMark={() => { /* unused */ }}
+        onSelectRange={() => { /* edge taps must win over selection */ }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+        onPageTurn={turn}
+      />,
+    )
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+
+    // Short pages leave blank space below the text. The entire page surface,
+    // not only the painted text block, must remain a page-turn target.
+    fireEvent.pointerDown(page, { pointerId: 1, clientX: 370, clientY: 580 })
+    fireEvent.pointerUp(page, { pointerId: 1, clientX: 370, clientY: 580 })
+    const rightEdgeWord = screen.getAllByTestId('lab-word').at(-1) as HTMLElement
+    fireEvent.pointerDown(rightEdgeWord, { pointerId: 5, clientX: 370, clientY: 300 })
+    fireEvent.pointerUp(rightEdgeWord, { pointerId: 5, clientX: 370, clientY: 300 })
+    fireEvent.pointerDown(page, { pointerId: 2, clientX: 20, clientY: 580 })
+    fireEvent.pointerUp(page, { pointerId: 2, clientX: 20, clientY: 580 })
+    fireEvent.pointerDown(page, { pointerId: 3, clientX: 330, clientY: 300 })
+    fireEvent.pointerUp(page, { pointerId: 3, clientX: 60, clientY: 305 })
+    fireEvent.pointerDown(page, { pointerId: 4, clientX: 195, clientY: 500 })
+    fireEvent.pointerUp(page, { pointerId: 4, clientX: 195, clientY: 500 })
+
+    expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, 1, -1, 1])
+  })
 })
 
 

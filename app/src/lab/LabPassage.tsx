@@ -12,6 +12,7 @@ import {
 import { hearingFollowPaintActive, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, pageSpans, readingPageLines } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import type { FollowParagraph, FollowTarget } from './labFollow'
+import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
 
@@ -46,6 +47,7 @@ interface LabPassageProps {
   browseWhileListening?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
+  onPageTurn?: (direction: LabPageTurnDirection) => void
 }
 
 function wordSpacing(word: { text: string }, wordIndex: number): string {
@@ -139,6 +141,7 @@ export function LabPassage({
   browseWhileListening = false,
   onSeekToWord,
   pageTurn,
+  onPageTurn,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -159,8 +162,10 @@ export function LabPassage({
     : isChapterFirstReadingPage(readingPage)
 
   const dragRef = useRef<{
-    start: LabWordPlace
-    end: LabWordPlace
+    start: LabWordPlace | null
+    end: LabWordPlace | null
+    startX: number
+    startY: number
     startedAt: number
     pointerType: string
   } | null>(null)
@@ -171,7 +176,7 @@ export function LabPassage({
     const drag = dragRef.current
     dragRef.current = null
     setLocalSelecting(null)
-    if (!drag || !onSelectRange) return
+    if (!drag?.start || !drag.end || !onSelectRange) return
     const range = buildHighlightRange(paragraphs, drag.start, drag.end)
     if (!range.text.trim()) return
     const singleWord = drag.start.paragraphIndex === drag.end.paragraphIndex
@@ -181,13 +186,28 @@ export function LabPassage({
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
-    if (!onSelectRange || hearing || onSeekToWord || (event.target as HTMLElement).closest('.lab-mark-btn')) return
+    if (hearing || (event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
     const place = wordPlaceFromTarget(event.target)
-    if (!place) return
-    event.preventDefault()
+    if (place && onSeekToWord) return
+    if (!place && !onPageTurn) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const edgeTurn = onPageTurn
+      ? labTapPageDirection(event.clientX, rect.left, rect.width)
+      : null
+    const selectionPlace = edgeTurn == null ? place : null
+    if (selectionPlace && onSelectRange) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
-    dragRef.current = { start: place, end: place, startedAt: Date.now(), pointerType: event.pointerType }
-    setLocalSelecting(buildHighlightRange(paragraphs, place, place))
+    dragRef.current = {
+      start: selectionPlace,
+      end: selectionPlace,
+      startX: event.clientX,
+      startY: event.clientY,
+      startedAt: Date.now(),
+      pointerType: event.pointerType,
+    }
+    if (selectionPlace && onSelectRange) {
+      setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
+    }
   }
 
   const onPointerMove = (event: React.PointerEvent) => {
@@ -197,11 +217,36 @@ export function LabPassage({
       || wordPlaceFromTarget(document.elementFromPoint(event.clientX, event.clientY))
     if (!place) return
     drag.end = place
-    setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+    if (drag.start && onSelectRange) {
+      setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+    }
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
-    if (!dragRef.current) return
+    const drag = dragRef.current
+    if (!drag) return
+    const deltaX = event.clientX - drag.startX
+    const deltaY = event.clientY - drag.startY
+    const duration = Math.max(0, Date.now() - drag.startedAt)
+    const swipe = onPageTurn && !drag.start && !selectingRange
+      ? labSwipePageDirection(deltaX, deltaY)
+      : null
+    const rect = event.currentTarget.getBoundingClientRect()
+    const tap = onPageTurn
+      && !drag.start
+      && !selectingRange
+      && Math.abs(deltaX) <= 10
+      && Math.abs(deltaY) <= 10
+      && duration <= 500
+      ? labTapPageDirection(event.clientX, rect.left, rect.width)
+      : null
+    const direction = swipe ?? tap
+    if (direction != null) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      onPageTurn(direction)
+      return
+    }
     finishPointerSelection(event)
   }
 
@@ -223,6 +268,10 @@ export function LabPassage({
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
       data-passage-mode={mode}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerEnd}
+      onPointerCancel={onPointerCancel}
       onContextMenu={(event) => {
         if (!hearing && onSelectRange) event.preventDefault()
       }}
@@ -254,10 +303,6 @@ export function LabPassage({
               data-testid="lab-reading-stage"
               data-page-turn={pageTurn?.direction}
               key={pageTurn?.nonce ?? 0}
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerEnd}
-              onPointerCancel={onPointerCancel}
             >
               {readingLines.map((line, lineIndex) => {
                 const span = readingPage ? pageSpans(readingPage)[lineIndex] : undefined

@@ -812,3 +812,31 @@ export function labShowPhoneBar(input: {
   if (input.phoneAsk) return true
   return !input.fullscreen
 }
+
+export type LabPageTurnDirection = -1 | 1
+
+/** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
+export function labSwipePageDirection(
+  deltaX: number,
+  deltaY: number,
+  threshold = 44,
+): LabPageTurnDirection | null {
+  if (Math.abs(deltaX) < threshold) return null
+  if (Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) return null
+  return deltaX < 0 ? 1 : -1
+}
+
+/** Short taps in the outer thirds turn pages; the centre remains selection-safe. */
+export function labTapPageDirection(
+  clientX: number,
+  left: number,
+  width: number,
+  edgeFraction = 0.34,
+): LabPageTurnDirection | null {
+  if (width <= 0) return null
+  const x = clientX - left
+  if (x < 0 || x > width) return null
+  if (x <= width * edgeFraction) return -1
+  if (x >= width * (1 - edgeFraction)) return 1
+  return null
+}
