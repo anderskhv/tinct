@@ -1,48 +1,50 @@
 // @vitest-environment jsdom
 
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { afterEach, describe, expect, it } from 'vitest'
 import { LabLanding } from './LabLanding'
-import { LabLibrary, labLibraryBooks, selectLabLibraryBook } from './LabLibrary'
-import { emptyLabPositionState, placeFromChapterRef } from './labPosition'
-import { bibleFallbackSource } from './labSource'
+import { LabLibrary } from './LabLibrary'
+import { labSurface } from './labRoute'
 
 describe('Lab entry routes', () => {
-  beforeEach(() => localStorage.clear())
   afterEach(() => cleanup())
 
-  it('offers direct paths from the landing to the library and locked reader', () => {
+  it('mounts the locked landing wireframe at the landing route', () => {
     render(<LabLanding />)
+    const frame = screen.getByTitle('Tinct landing')
     expect(screen.getByTestId('lab-landing')).toBeTruthy()
-    expect(screen.getByRole('link', { name: 'Browse the library' }).getAttribute('href')).toBe('/lab/library')
-    expect(screen.getByRole('link', { name: 'Begin reading' }).getAttribute('href')).toBe('/lab/phone')
+    expect(frame.getAttribute('src')).toBe('/lab-wireframe.html?embed=1&view=landing')
   })
 
-  it('shows the approved librarian prompt and direct Talk and Chat actions', () => {
-    render(<LabLibrary source={bibleFallbackSource()} />)
-    expect(screen.getByText('Not sure where to begin?')).toBeTruthy()
-    expect(screen.getByText('Ask the librarian.')).toBeTruthy()
-    expect(screen.getByRole('button', { name: /Talk/ })).toBeTruthy()
-    expect(screen.getByRole('button', { name: /Chat/ })).toBeTruthy()
+  it('mounts the locked library wireframe at the library route', () => {
+    render(<LabLibrary />)
+    const frame = screen.getByTitle('Tinct library')
+    expect(screen.getByTestId('lab-library')).toBeTruthy()
+    expect(frame.getAttribute('src')).toBe('/lab-wireframe.html?embed=1&view=library')
   })
 
-  it('filters books and opens the locked reader from a selection', () => {
-    render(<LabLibrary source={bibleFallbackSource()} />)
-    const genesis = screen.getByTestId('lab-library-book-genesis')
-    expect(genesis.getAttribute('href')).toBe('/lab/phone')
-    fireEvent.change(screen.getByRole('searchbox', { name: 'Search the library' }), { target: { value: 'Genesis' } })
-    expect(screen.getByTestId('lab-library-book-genesis')).toBeTruthy()
-    expect(screen.queryByTestId('lab-library-book-exodus')).toBeNull()
+  it('routes only the new entry surfaces away from the locked reader', () => {
+    expect(labSurface('/lab/landing')).toBe('landing')
+    expect(labSurface('/lab/library')).toBe('library')
+    expect(labSurface('/lab/phone')).toBe('reader')
   })
 
-  it('preserves an exact saved place when its book is selected again', () => {
-    const source = bibleFallbackSource()
-    const book = labLibraryBooks(source)[0]
-    const base = emptyLabPositionState('device-a')
-    const saved = placeFromChapterRef({ chapters: source.chapters, sequentialChapter: book.firstChapter, paragraphIndex: 1, wordIndex: 7, deviceId: base.deviceId, now: 10, rev: 4 })
-    const state = { ...base, books: { [book.id]: saved }, lastSettledBookId: book.id, lastSettledAt: 10, updatedAt: 10 }
-    const next = selectLabLibraryBook(book, source.chapters, state, 20)
-    expect(next.books[book.id]).toEqual(saved)
-    expect(next.lastSettledBookId).toBe(book.id)
+  it('keeps the approved content, interactions, and reader destinations in the embedded artifact', () => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
+    const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
+    expect(wireframe).toContain('Fall in love with the books that fight back.')
+    expect(wireframe).toContain("Immerse yourself in the world's greatest books.")
+    expect(wireframe).toContain('data-frame-panel="library-demo"')
+    expect(wireframe).toContain('data-frame-panel="versions"')
+    expect(wireframe).toContain('data-frame-panel="chat"')
+    expect(wireframe).toContain('Not sure where to begin?')
+    expect(wireframe).toContain('Ask the librarian.')
+    expect(wireframe).toContain('Search 90+ classics')
+    expect(wireframe).toContain('Ideas for living')
+    expect(wireframe).toContain('Stories that shaped the world')
+    expect(runtime).toContain("stopAndNavigate('/lab/library')")
+    expect(runtime).toContain("stopAndNavigate('/lab/phone')")
   })
 })
