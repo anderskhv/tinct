@@ -836,8 +836,8 @@ describe('lab chrome', () => {
     const progressEl = screen.getByTestId('lab-chapter-progress')
     const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent || progressEl.textContent || ''
     expect(progressEl.textContent).toBe(readingProgress)
-    expect(playingLabel).toContain('Book 1 —')
-    expect(playingLabel).toMatch(/\d+\s*\/\s*\d+/)
+    expect(playingLabel).toMatch(/^\d+\s*\/\s*\d+$/)
+    expect(progressEl.title).toContain('Book 1 —')
     expect(document.querySelector('.lab.has-slim-transport')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
@@ -1363,7 +1363,8 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
     expect(screen.getByTestId('lab-root').getAttribute('data-reader-controls')).toBe('visible')
     const progress = screen.getByTestId('lab-chapter-progress')
-    expect(progress.textContent).toMatch(/Book 1 — \d+ \/ \d+/)
+    expect(progress.textContent).toMatch(/^\d+ \/ \d+$/)
+    expect(progress.title).toMatch(/Book 1 — \d+ \/ \d+/)
     expect(progress.textContent).not.toMatch(/Chapter 1/)
     expect(progress.textContent).not.toMatch(/ ch$/)
     expect(progress.querySelector('.lab-chapter-progress-bar')).toBeNull()
@@ -1592,8 +1593,8 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
     const genesis1Progress = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(genesis1Progress).toMatch(/Genesis 1/)
-    expect(genesis1Progress).toContain(' / ')
+    expect(genesis1Progress).toMatch(/^\d+ \/ \d+$/)
+    expect(screen.getByTestId('lab-chapter-progress').title).toMatch(/Genesis 1/)
   })
 
   it('Previous on Genesis 2 page 1 goes to Genesis 1 last', async () => {
@@ -1658,7 +1659,7 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
     const back = progress()
-    expect(back).toMatch(/Genesis 1 — (\d+) \/ \1/)
+    expect(back).toMatch(/^(\d+) \/ \1$/)
     const nm = back.match(/(\d+) \/ (\d+)/)
     expect(nm).toBeTruthy()
     expect(Number(nm![1])).toBeGreaterThan(1)
@@ -1694,10 +1695,9 @@ describe('lab bible book', () => {
       ],
     }} />)
     const label = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(label).toContain('Proverbs')
-    expect(label).toContain('16')
-    expect(label).not.toContain('644')
-    expect(label).not.toMatch(/Chapter 644/)
+    expect(label).toMatch(/^\d+ \/ \d+$/)
+    expect(screen.getByTestId('lab-chapter-progress').title).toContain('Proverbs 16')
+    expect(screen.getByTestId('lab-chapter-progress').title).not.toContain('644')
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
   })
 
@@ -1764,9 +1764,8 @@ describe('lab bible book', () => {
       ],
     }} />)
     const startLabel = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(startLabel).toContain('Proverbs')
-    expect(startLabel).toContain('16')
-    expect(startLabel).not.toContain('644')
+    expect(startLabel).toMatch(/^\d+ \/ \d+$/)
+    expect(screen.getByTestId('lab-chapter-progress').title).toContain('Proverbs 16')
     // One short paragraph = last page. Next must hop to Proverbs 17 p1.
     fireEvent.click(screen.getByTestId('lab-page-next'))
     await waitFor(() => {
@@ -1774,17 +1773,18 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 17/)
     const p1 = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(p1).toMatch(/Proverbs 17/)
-    expect(p1).toContain('1 /')
-    expect(p1).not.toContain('645')
+    expect(p1).toMatch(/^1 \/ \d+$/)
+    expect(screen.getByTestId('lab-chapter-progress').title).toMatch(/Proverbs 17/)
+    expect(screen.getByTestId('lab-chapter-progress').title).not.toContain('645')
     fireEvent.click(screen.getByTestId('lab-page-prev'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('644')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
     const back = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(back).toMatch(/Proverbs 16/)
-    expect(back).not.toContain('644')
+    expect(back).toMatch(/^\d+ \/ \d+$/)
+    expect(screen.getByTestId('lab-chapter-progress').title).toMatch(/Proverbs 16/)
+    expect(screen.getByTestId('lab-chapter-progress').title).not.toContain('644')
     expect(document.querySelector('.lab-hearing-line')?.textContent).toMatch(/unpunished|Commit thy works/i)
   })
 
@@ -2893,8 +2893,9 @@ describe('lab chrome pass', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/Genesis 2/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/Chapter 2/)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/^\d+ \/ \d+$/)
+    expect(screen.getByTestId('lab-chapter-progress').title).toMatch(/Genesis 2/)
+    expect(screen.getByTestId('lab-chapter-progress').title).not.toMatch(/Chapter 2/)
     expect(screen.queryByTestId('lab-toc')).toBeNull()
   })
 

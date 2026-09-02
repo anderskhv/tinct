@@ -2,6 +2,7 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
+  labCompactFootProgress,
   DEFAULT_LAB_PREFS,
   LAB_LIBRARY_URL,
   LAB_PREFS_KEY,
@@ -18,6 +19,12 @@ afterEach(() => {
 })
 
 describe('lab prefs', () => {
+  it('keeps mobile progress compact because the chapter is already in the header', () => {
+    expect(labCompactFootProgress('Genesis 1 — 5 / 9')).toBe('5 / 9')
+    expect(labCompactFootProgress('Genesis 1 — 56%')).toBe('56%')
+    expect(labCompactFootProgress('82%')).toBe('82%')
+  })
+
   it('points Library at the lab library, never /app', () => {
     expect(LAB_LIBRARY_URL).toBe('/lab/library')
     expect(LAB_LIBRARY_URL).not.toContain('/app')

@@ -37,6 +37,7 @@ import { LabSettingsSheet } from './LabSettingsSheet'
 import {
   bibleAudioEditions,
   bibleEditions,
+  labCompactFootProgress,
   labFontFamilyCss,
   labFootProgress,
   editionLabelFor,
@@ -1422,7 +1423,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     scope: prefs.progressDisplay.scope,
   })
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
-  const footProgressLabel = footProgress
+  const footProgressLabel = showPhoneChrome ? labCompactFootProgress(footProgress) : footProgress
 
   useEffect(() => {
     if (!showHearing) return

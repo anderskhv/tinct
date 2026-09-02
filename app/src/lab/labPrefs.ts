@@ -152,6 +152,12 @@ export function labFootProgressPages(currentPage: number, totalPages: number): s
   return `${currentPage} / ${totalPages}`
 }
 
+/** Mobile reader chrome already names the chapter in the header. */
+export function labCompactFootProgress(progress: string): string {
+  const separator = progress.lastIndexOf(' — ')
+  return separator >= 0 ? progress.slice(separator + 3) : progress
+}
+
 export function editionLabelFor(key: string, editions: Edition[]): string {
   return editions.find(edition => edition.key === key)?.label || key
 }
