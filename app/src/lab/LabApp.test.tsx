@@ -859,7 +859,6 @@ describe('lab chrome', () => {
 
     const headerControls = document.querySelector('.lab-header-controls')
     expect([...headerControls!.querySelectorAll('button')].map(button => button.dataset.testid)).toEqual([
-      'lab-fullscreen',
       'lab-gear',
     ])
     expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
@@ -874,7 +873,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
   })
 
-  it('uses the browser fullscreen API and follows fullscreenchange state', async () => {
+  it('retains the browser fullscreen API on desktop while mobile uses immersive controls', async () => {
     let active: Element | null = null
     const requestFullscreen = vi.fn(function (this: HTMLElement) {
       active = this
@@ -892,7 +891,7 @@ describe('lab chrome', () => {
     Object.defineProperty(document, 'exitFullscreen', { configurable: true, value: exitFullscreen })
 
     try {
-      render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       fireEvent.click(screen.getByTestId('lab-fullscreen'))
       await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true'))
       expect(requestFullscreen).toHaveBeenCalledOnce()
@@ -910,7 +909,7 @@ describe('lab chrome', () => {
     }
   })
 
-  it('keeps the phone Hearing footer in flow so the passage scrollport ends at the bar', async () => {
+  it('keeps the phone Hearing footer inside the reader and away from passage content', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -1361,7 +1360,8 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-header-work').textContent).toBe('The Odyssey')
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Book 1/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toContain('∨')
-    expect(screen.getByTestId('lab-fullscreen')).toBeTruthy()
+    expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-reader-controls')).toBe('visible')
     const progress = screen.getByTestId('lab-chapter-progress')
     expect(progress.textContent).toMatch(/Book 1 — \d+ \/ \d+/)
     expect(progress.textContent).not.toMatch(/Chapter 1/)
@@ -1445,7 +1445,7 @@ describe('lab chrome', () => {
   it('opens Library / Reading / Layout from the phone gear, not a tab bar', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-gear')).toBeTruthy()
-    expect(screen.getByTestId('lab-fullscreen')).toBeTruthy()
+    expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
     expect(screen.queryByTestId('lab-in-the-book')).toBeNull()
     expect(screen.queryByTestId('lab-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-gear'))
@@ -1479,6 +1479,7 @@ describe('lab chrome', () => {
 
     expect(screen.getByTestId('lab-phone-bar').querySelectorAll('.lab-phone-fat')).toHaveLength(4)
     expect(screen.getByTestId('lab-phone-compare').textContent).toContain('Compare')
+    expect(screen.getByTestId('lab-phone-compare').querySelectorAll('svg rect')).toHaveLength(2)
     expect(screen.queryByTestId('lab-compare-col')).toBeNull()
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
 
@@ -1992,8 +1993,9 @@ describe('lab passage headline pages', () => {
     expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
   })
 
-  it('turns pages from full-page edge taps and horizontal swipes without taking the center tap', () => {
+  it('turns pages from full-page edge taps and horizontal swipes while reserving center tap for controls', () => {
     const turn = vi.fn()
+    const toggleControls = vi.fn()
     render(
       <LabPassage
         chapterTitle="Book 1"
@@ -2008,6 +2010,7 @@ describe('lab passage headline pages', () => {
         onSelectRange={() => { /* edge taps must win over selection */ }}
         readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
         onPageTurn={turn}
+        onToggleControls={toggleControls}
       />,
     )
     const page = screen.getByTestId('lab-book')
@@ -2031,6 +2034,7 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerUp(page, { pointerId: 4, clientX: 195, clientY: 500 })
 
     expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, 1, -1, 1])
+    expect(toggleControls).toHaveBeenCalledOnce()
   })
 
   it('requires a touch long-press before selecting, so ordinary taps cannot create ghost highlights', () => {
@@ -2997,20 +3001,42 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
   })
 
-  it('shows only the reading text in fullscreen and retains a subtle visible exit control', () => {
+  it('starts with controls, hides them on a page turn, and restores them with a center tap without reflowing chrome', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const root = screen.getByTestId('lab-root')
+    const page = screen.getByTestId('lab-book')
+    const headerText = document.querySelector('.lab-header-brand')?.textContent
+    const progress = screen.getByTestId('lab-chapter-progress')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 700,
+      width: 390, height: 700, toJSON() {},
+    })
+
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-fullscreen'))
-    expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true')
-    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
-    expect(screen.queryByTestId('lab-chapter-progress')).toBeNull()
-    expect(screen.queryByTestId('lab-page-turn')).toBeNull()
-    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
-    expect(screen.getByTestId('lab-fullscreen-exit')).toBeTruthy()
-    expect(screen.getByTestId('lab-fullscreen-exit').querySelector('[data-icon="close"]')).toBeTruthy()
-    expect(document.querySelector('.lab-header')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-fullscreen-exit'))
-    expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
+    expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
+
+    fireEvent.pointerDown(page, { pointerId: 31, pointerType: 'touch', clientX: 370, clientY: 500 })
+    fireEvent.pointerUp(page, { pointerId: 31, pointerType: 'touch', clientX: 370, clientY: 500 })
+    expect(root.getAttribute('data-reader-controls')).toBe('hidden')
+    expect(screen.getByTestId('lab-gear').getAttribute('aria-hidden')).toBe('true')
+    expect(screen.getByTestId('lab-chapter-progress')).toBe(progress)
+    expect(document.querySelector('.lab-header-brand')?.textContent).toBe(headerText)
+
+    fireEvent.pointerDown(page, { pointerId: 32, pointerType: 'touch', clientX: 195, clientY: 500 })
+    fireEvent.pointerUp(page, { pointerId: 32, pointerType: 'touch', clientX: 195, clientY: 500 })
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
+    expect(screen.getByTestId('lab-gear').getAttribute('aria-hidden')).toBe('false')
+    expect(screen.getByTestId('lab-chapter-progress')).toBe(progress)
+  })
+
+  it('locks the V1 footer as an overlaid light Depth dock with a dark Tint variant', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toContain('V1 quiet immersive reader')
+    expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-bottom-chrome,[^{]*\{[^}]*position:\s*absolute[^}]*height:\s*calc\(4\.1rem/)
+    expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-phone-bar,[^{]*\{[^}]*border-radius:\s*1\.05rem[^}]*linear-gradient[^}]*box-shadow:/)
+    expect(css).toMatch(/data-reader-controls="hidden"[^}]*\.lab-phone-bar[^{]*\{[^}]*visibility:\s*hidden[^}]*opacity:\s*0/)
+    expect(css).toMatch(/Dark uses the warmer Tint treatment locked in the V1 design/)
   })
 
   it('persists Layout knobs and uses cheap progress formats', () => {

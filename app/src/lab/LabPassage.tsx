@@ -47,6 +47,7 @@ interface LabPassageProps {
   browseWhileListening?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
   onPageTurn?: (direction: LabPageTurnDirection) => void
+  onToggleControls?: () => void
 }
 
 function wordSpacing(
@@ -185,6 +186,7 @@ export function LabPassage({
   browseWhileListening = false,
   onSeekToWord,
   onPageTurn,
+  onToggleControls,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -338,6 +340,13 @@ export function LabPassage({
     if (!drag.selecting) {
       dragRef.current = null
       setLocalSelecting(null)
+      const centeredTap = !selectingRange
+        && !!onToggleControls
+        && Math.abs(deltaX) <= 10
+        && Math.abs(deltaY) <= 10
+        && duration <= 500
+        && tap == null
+      if (centeredTap) onToggleControls()
       return
     }
     finishPointerSelection(event)

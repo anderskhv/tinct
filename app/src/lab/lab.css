@@ -2668,3 +2668,220 @@
 .lab.is-night .lab-passage .lab-hearing-word:not(.is-upcoming) {
   color: var(--lab-ink);
 }
+
+/* V1 quiet immersive reader.
+   The readable box never changes when controls appear: the printed progress
+   and transient dock share one fixed footer layer. */
+.lab.is-phone,
+.lab.has-phone-chrome {
+  position: relative;
+}
+
+.lab.is-phone .lab-header,
+.lab.has-phone-chrome .lab-header {
+  min-height: 2.75rem;
+  box-sizing: border-box;
+  padding: calc(0.45rem + env(safe-area-inset-top, 0px)) 1.1rem 0.35rem;
+  border-bottom: 0;
+  background: transparent;
+}
+
+.lab.is-phone .lab-header-chapter,
+.lab.has-phone-chrome .lab-header-chapter,
+.lab.is-night.is-phone .lab-header-chapter,
+.lab.is-night.has-phone-chrome .lab-header-chapter {
+  padding: 0.08rem 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.lab.is-phone .lab-header-chevron,
+.lab.has-phone-chrome .lab-header-chevron {
+  display: none;
+}
+
+.lab.is-phone .lab-header-controls,
+.lab.has-phone-chrome .lab-header-controls {
+  width: 2.75rem;
+  min-width: 2.75rem;
+  justify-content: center;
+}
+
+.lab.is-phone .lab-gear,
+.lab.has-phone-chrome .lab-gear {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  transition: opacity 160ms ease, transform 180ms ease, background-color 160ms ease;
+}
+
+.lab.is-phone .lab-gear:hover,
+.lab.has-phone-chrome .lab-gear:hover,
+.lab.is-phone .lab-gear:focus-visible,
+.lab.has-phone-chrome .lab-gear:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lab.is-night.is-phone .lab-gear:hover,
+.lab.is-night.has-phone-chrome .lab-gear:hover,
+.lab.is-night.is-phone .lab-gear:focus-visible,
+.lab.is-night.has-phone-chrome .lab-gear:focus-visible {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.lab.is-phone[data-reader-controls="hidden"] .lab-gear,
+.lab.has-phone-chrome[data-reader-controls="hidden"] .lab-gear {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+.lab.is-phone:not(.has-phone-ask) .lab-bottom-chrome,
+.lab.has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(4.1rem + env(safe-area-inset-bottom, 0px));
+  display: block;
+  flex: none;
+  background: transparent;
+  pointer-events: none;
+  isolation: isolate;
+  z-index: 180;
+}
+
+.lab.is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail,
+.lab.has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail {
+  position: absolute;
+  right: 0;
+  bottom: max(0.68rem, env(safe-area-inset-bottom, 0px));
+  left: 0;
+  min-height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lab.is-phone:not(.has-phone-ask) .lab-chapter-progress-info,
+.lab.has-phone-chrome:not(.has-phone-ask) .lab-chapter-progress-info {
+  color: rgba(63, 58, 50, 0.78);
+  font-size: 0.67rem;
+  letter-spacing: 0.035em;
+}
+
+.lab.is-phone:not(.has-phone-ask) .lab-phone-bar,
+.lab.has-phone-chrome:not(.has-phone-ask) .lab-phone-bar {
+  position: absolute;
+  right: 0.75rem;
+  bottom: max(0.42rem, env(safe-area-inset-bottom, 0px));
+  left: 0.75rem;
+  min-height: 3.25rem;
+  box-sizing: border-box;
+  padding: 0.2rem 0.28rem;
+  border: 1px solid rgba(139, 127, 108, 0.28);
+  border-radius: 1.05rem;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.78), rgba(246, 240, 227, 0.94) 48%, rgba(255, 252, 244, 0.86));
+  box-shadow:
+    0 10px 30px rgba(43, 36, 26, 0.14),
+    0 2px 7px rgba(43, 36, 26, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px) saturate(1.08);
+  -webkit-backdrop-filter: blur(18px) saturate(1.08);
+  transform-origin: 50% 100%;
+  transition: opacity 160ms ease, transform 180ms ease, visibility 0s linear 0s;
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.lab.is-phone[data-reader-controls="hidden"]:not(.has-phone-ask) .lab-phone-bar,
+.lab.has-phone-chrome[data-reader-controls="hidden"]:not(.has-phone-ask) .lab-phone-bar {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(0.55rem) scale(0.985);
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 170ms ease, visibility 0s linear 170ms;
+}
+
+.lab.is-phone .lab-phone-bar-row,
+.lab.has-phone-chrome .lab-phone-bar-row {
+  height: 100%;
+  gap: 0.18rem;
+}
+
+.lab.is-phone .lab-phone-bar-row .lab-phone-fat,
+.lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat {
+  min-height: 2.75rem;
+  gap: 0.02rem;
+  padding: 0.18rem 0.1rem 0.12rem;
+  border-radius: 0.78rem;
+  color: #403a31;
+  font-size: 0.66rem;
+  letter-spacing: 0.035em;
+  transition: background-color 140ms ease, box-shadow 140ms ease, transform 100ms ease;
+}
+
+.lab.is-phone .lab-phone-bar-row .lab-phone-fat + .lab-phone-fat,
+.lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat + .lab-phone-fat {
+  box-shadow: none;
+}
+
+.lab.is-phone .lab-phone-bar-row .lab-phone-fat:first-child,
+.lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat:first-child {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(116, 102, 80, 0.13), 0 1px 3px rgba(54, 44, 31, 0.08);
+}
+
+.lab.is-phone .lab-phone-bar-row .lab-phone-fat:active,
+.lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat:active {
+  transform: scale(0.97);
+}
+
+.lab.is-phone .lab-phone-bar-row .lab-phone-fat.is-active,
+.lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat.is-active {
+  background: rgba(220, 209, 187, 0.72);
+  color: #17130f;
+}
+
+/* Dark uses the warmer Tint treatment locked in the V1 design. */
+.lab.is-night.is-phone:not(.has-phone-ask) .lab-page-turn,
+.lab.is-night.has-phone-chrome:not(.has-phone-ask) .lab-page-turn {
+  background: transparent;
+}
+
+.lab.is-night.is-phone:not(.has-phone-ask) .lab-chapter-progress-info,
+.lab.is-night.has-phone-chrome:not(.has-phone-ask) .lab-chapter-progress-info {
+  color: rgba(232, 224, 211, 0.68);
+}
+
+.lab.is-night.is-phone:not(.has-phone-ask) .lab-phone-bar,
+.lab.is-night.has-phone-chrome:not(.has-phone-ask) .lab-phone-bar {
+  border-color: rgba(202, 177, 139, 0.24);
+  background:
+    linear-gradient(115deg, rgba(76, 64, 49, 0.96), rgba(56, 48, 39, 0.97) 52%, rgba(69, 56, 43, 0.96));
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.34),
+    0 2px 8px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 241, 218, 0.12);
+}
+
+.lab.is-night.is-phone .lab-phone-bar-row .lab-phone-fat,
+.lab.is-night.has-phone-chrome .lab-phone-bar-row .lab-phone-fat {
+  color: rgba(250, 246, 238, 0.82);
+}
+
+.lab.is-night.is-phone .lab-phone-bar-row .lab-phone-fat:first-child,
+.lab.is-night.has-phone-chrome .lab-phone-bar-row .lab-phone-fat:first-child {
+  background: rgba(196, 157, 105, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(224, 189, 139, 0.2), 0 1px 3px rgba(0, 0, 0, 0.22);
+}
+
+.lab.is-night.is-phone .lab-phone-bar-row .lab-phone-fat.is-active,
+.lab.is-night.has-phone-chrome .lab-phone-bar-row .lab-phone-fat.is-active {
+  background: rgba(196, 157, 105, 0.25);
+  color: #fffaf1;
+}

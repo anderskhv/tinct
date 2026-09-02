@@ -151,8 +151,8 @@ function measureVisiblePageOverflow(
 
 function PlayIcon({ size = 22 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M8 5.2v13.6L19.2 12 8 5.2z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8.6 6.4v11.2L17.8 12 8.6 6.4Z" fill="currentColor" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -171,6 +171,16 @@ function GearIcon() {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="3" />
       <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  )
+}
+
+function TuneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
+      <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
+      <circle cx="13" cy="7" r="2" />
+      <circle cx="11" cy="17" r="2" />
     </svg>
   )
 }
@@ -222,10 +232,10 @@ function TalkIcon() {
 
 function CompareIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3.5" y="5" width="10.5" height="13" rx="1.5" />
-      <rect x="10" y="3" width="10.5" height="13" rx="1.5" />
-      <path d="m7 9-2 2 2 2M17 11l2-2-2-2" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2.75" y="4.25" width="8" height="15.5" rx="1.65" />
+      <rect x="13.25" y="4.25" width="8" height="15.5" rx="1.65" />
+      <path d="M5.25 8h3M5.25 11h3M15.75 8h3M15.75 11h3" />
     </svg>
   )
 }
@@ -264,6 +274,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
+  const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
   const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(true)
@@ -1376,6 +1387,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     fullscreen,
     phoneAsk,
   })
+  const phoneReaderControlsVisible = readerControlsVisible
+    || listen.playing
+    || phoneAsk
+    || chrome === 'talking'
+    || gearOpen
   const canPrevChapter = prevLabChapter(book.chapters, book.chapterNumber) != null
   const canNextChapter = nextLabChapter(book.chapters, book.chapterNumber) != null
   const showReaderRail = !fullscreen && labShowReaderRail({
@@ -2016,7 +2032,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     <div
       ref={labRootRef}
       lang={bibleEditions().find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
@@ -2027,6 +2043,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
       data-fullscreen={fullscreen ? 'true' : 'false'}
+      data-reader-controls={showPhoneChrome ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
       data-compare-active={mobileCompareActive ? 'true' : 'false'}
       data-voice-surface={voiceLabView}
@@ -2037,7 +2054,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         ['--lab-font-size' as string]: String(prefs.fontSize),
       }}
     >
-      {fullscreen && (
+      {fullscreen && !showPhoneChrome && (
         <button
           type="button"
           className="lab-fullscreen-exit-hotspot"
@@ -2064,7 +2081,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           </button>
         </div>
         <div className="lab-header-controls">
-          <button
+          {!showPhoneChrome && <button
             type="button"
             className={`lab-fullscreen ${fullscreen ? 'is-on' : ''}`}
             onClick={() => { void toggleFullscreen() }}
@@ -2072,7 +2089,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             data-testid="lab-fullscreen"
           >
             <FullscreenIcon on={fullscreen} />
-          </button>
+          </button>}
           <button
             type="button"
             className={`lab-gear ${gearOpen ? 'is-open' : ''}`}
@@ -2080,9 +2097,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             aria-label={LAB_COPY.settings}
             aria-expanded={gearOpen}
             aria-haspopup="dialog"
+            aria-hidden={showPhoneChrome && !phoneReaderControlsVisible}
+            tabIndex={showPhoneChrome && !phoneReaderControlsVisible ? -1 : undefined}
             data-testid="lab-gear"
           >
-            <GearIcon />
+            {showPhoneChrome ? <TuneIcon /> : <GearIcon />}
           </button>
         </div>
         <p className="lab-status" data-testid="lab-status">
@@ -2137,7 +2156,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             selectingRange={selectionPopup?.range ?? null}
             onSelectRange={phoneAsk || mobileCompareActive ? undefined : handleSelectRange}
             onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
-              ? (direction) => { if (direction > 0) goNext(); else goPrev() }
+              ? (direction) => {
+                  setReaderControlsVisible(false)
+                  if (direction > 0) goNext()
+                  else goPrev()
+                }
+              : undefined}
+            onToggleControls={showPhoneChrome && !phoneAsk && !selectionPopup
+              ? () => setReaderControlsVisible(visible => !visible)
               : undefined}
           />
           {nativePhonePaging && (
