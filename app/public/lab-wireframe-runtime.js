@@ -57,11 +57,11 @@
       const token=++chatToken;
       const book=books[currentBook];
       const items=[...root.querySelectorAll('[data-chat-item]')];
-      const copy=[book.q2,book.a2,book.q1,book.a1];
-      const targets=[root.querySelector('[data-chat-q1]'),root.querySelector('[data-chat-a1]'),root.querySelector('[data-chat-q2]'),root.querySelector('[data-chat-a2]')];
+      const copy=['Remind me what I read last time.',book.a2];
+      const targets=[root.querySelector('[data-chat-q1]'),root.querySelector('[data-chat-a1]')];
       items.forEach((item,index)=>{item.classList.remove('is-shown');targets[index].textContent=copy[index]});
       if(reduceMotion){items.forEach(item=>item.classList.add('is-shown'));return}
-      [150,580,1010,1440].forEach((delay,index)=>window.setTimeout(()=>{if(token===chatToken)items[index].classList.add('is-shown')},delay));
+      [150,650].forEach((delay,index)=>window.setTimeout(()=>{if(token===chatToken)items[index].classList.add('is-shown')},delay));
     };
     const showFrame=frame=>{
       if(libraryScrollTimer)window.clearTimeout(libraryScrollTimer);
@@ -72,17 +72,13 @@
       root.querySelectorAll('[data-frame-panel]').forEach(panel=>panel.classList.toggle('is-current',panel.dataset.framePanel===frame));
       root.querySelectorAll('[data-frame-dot]').forEach(dot=>dot.setAttribute('aria-pressed',String(dot.dataset.frameDot===frame)));
       const book=books[currentBook];
-      const stepCopy=frame==='library-demo'?['Preview · 1 of 3','Pick a book']:frame==='versions'?['Preview · 2 of 3','Pick your translation']:['Preview · 3 of 3','Talk with the book'];
+      const stepCopy=frame==='library-demo'?['Preview 01 / 03','Pick a book from our extensive library of classics.']:frame==='versions'?['Preview 02 / 03','Choose a translation in a language and style that suits you.']:['Preview 03 / 03','Talk directly to the book.'];
       root.querySelector('[data-demo-step]').textContent=stepCopy[0];
-      root.querySelector('[data-demo-step-title]').innerHTML=frame==='chat'?'<span class="tov5-talk-highlight">Talk</span> with the book':stepCopy[1];
-      note.textContent=frame==='library-demo'?'Library · 90 classics and growing':book.title+' · '+(frame==='versions'?'translation, reading and listening':'conversation in four unhurried beats');
+      root.querySelector('[data-demo-step-title]').textContent=stepCopy[1];
+      note.textContent=frame==='library-demo'?'Library · 90 classics and growing':book.title+' · '+(frame==='versions'?'translation, reading and listening':'one direct conversation example');
       if(frame==='library-demo'){
         const libraryScroll=root.querySelector('.tov5-demo-library-scroll');
-        libraryScroll.scrollTop=0;
-        if(!reduceMotion){
-          libraryScrollTimer=window.setTimeout(()=>libraryScroll.scrollTo({top:105,behavior:'smooth'}),650);
-          libraryReturnTimer=window.setTimeout(()=>libraryScroll.scrollTo({top:0,behavior:'smooth'}),2250);
-        }
+        libraryScroll.scrollLeft=0;
       }
       if(frame==='chat')animateChat();else chatToken++;
     };
@@ -315,11 +311,7 @@
     if (params.get('embed') !== '1') return;
 
     const landing = document.querySelector('[data-view-panel="landing"]');
-    landing?.querySelector('.tov5-brand button')?.addEventListener('click', () => window.parent.location.assign('/lab/library'));
-    landing?.querySelector('.tov5-footer button')?.addEventListener('click', () => {
-      window.parent.history.pushState({}, '', '/lab/library');
-      document.querySelectorAll('[data-view-panel]').forEach(panel => panel.classList.toggle('is-current', panel.dataset.viewPanel === 'library'));
-    });
+    landing?.querySelector('[data-open-library]')?.addEventListener('click', () => window.parent.location.assign('/lab/library'));
 
     const chat=document.querySelector('.tov5-librarian-focus');
     const chatInput=chat?.querySelector('input[aria-label="Message the librarian"]');

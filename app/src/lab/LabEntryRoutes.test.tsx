@@ -39,7 +39,15 @@ describe('Lab entry routes', () => {
     expect(wireframe).toContain('data-frame-panel="library-demo"')
     expect(wireframe).toContain('data-frame-panel="versions"')
     expect(wireframe).toContain('data-frame-panel="chat"')
-    expect(wireframe).toContain('Preview · 1 of 3')
+    expect(wireframe).toContain('Preview 01 / 03')
+    expect(wireframe).toContain('Pick a book from our extensive library of classics.')
+    expect(runtime).toContain('Choose a translation in a language and style that suits you.')
+    expect(runtime).toContain("['Preview 03 / 03','Talk directly to the book.']")
+    expect(wireframe).toContain('data-open-library>Pick your book')
+    expect(wireframe).toContain('No account required · Read for free')
+    expect(wireframe).toContain('href="/about"')
+    expect(wireframe).toContain('href="/app?signin=1"')
+    expect(wireframe).not.toContain('href="/pricing"')
     expect(wireframe).toContain('Not sure where to begin?')
     expect(wireframe).toContain('Ask the librarian.')
     expect(wireframe).toContain('Search 90+ classics')
@@ -49,11 +57,38 @@ describe('Lab entry routes', () => {
     expect(wireframe).toContain('border-radius: 0 !important')
     expect(wireframe).toContain('min-height: 100dvh !important')
     expect(wireframe).toContain('font-size:clamp(33px,min(10vw,5.3dvh),58px)')
-    expect(wireframe).toContain('height:clamp(334px,44dvh,455px)')
+    expect(wireframe).toContain('height:clamp(354px,46dvh,475px)')
     expect(wireframe).toContain('top:clamp(168px,45vw,202px)')
     expect(wireframe).toContain('background:color-mix(in srgb,var(--tov5-world-ink) 25%,rgba(255,255,255,.10))')
-    expect(runtime).toContain("window.parent.history.pushState({}, '', '/lab/library')")
-    expect(runtime).toContain("['Preview · 1 of 3','Pick a book']")
+    expect(runtime).toContain("window.parent.location.assign('/lab/library')")
+    expect(runtime).toContain("['Preview 01 / 03','Pick a book from our extensive library of classics.']")
+  })
+
+  it('uses the production library cover language and real published titles in the landing preview', () => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
+    const publishedTitles = [
+      'The Odyssey',
+      'Meditations',
+      'Pride and Prejudice',
+      'The Bible',
+      'Frankenstein',
+      'Hamlet',
+      'The Republic',
+      'The Iliad',
+      'Jane Eyre',
+    ]
+    expect(wireframe).toContain('class="tov5-real-cover"')
+    expect(wireframe).toContain('animation:tov5-demo-library-drift 26s linear infinite alternate')
+    publishedTitles.forEach(title => expect(wireframe).toContain(title))
+  })
+
+  it('keeps the landing conversation to one reading-memory example', () => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
+    const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
+    expect(runtime).toContain("['Remind me what I read last time.',book.a2]")
+    expect(wireframe.match(/<div class="tov5-[qa]" data-chat-item>/g)).toHaveLength(2)
+    expect(wireframe).not.toContain('data-chat-q2')
+    expect(wireframe).not.toContain('data-chat-a2')
   })
 
   it('enforces library → detail → edition → preface → reader with no earlier reader jump', () => {
