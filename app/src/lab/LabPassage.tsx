@@ -305,6 +305,10 @@ export function LabPassage({
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
       data-passage-mode={mode}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerEnd}
+      onPointerCancel={onPointerCancel}
       onContextMenu={(event) => {
         if (!hearing && onSelectRange) event.preventDefault()
       }}
@@ -334,10 +338,6 @@ export function LabPassage({
             <div
               className="lab-hearing-stage"
               data-testid="lab-reading-stage"
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerEnd}
-              onPointerCancel={onPointerCancel}
             >
               {readingLines.map((line, lineIndex) => {
                 const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
