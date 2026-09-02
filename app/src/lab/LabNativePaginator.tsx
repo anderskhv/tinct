@@ -1,6 +1,8 @@
 import { Fragment, useLayoutEffect, useRef, type ReactNode } from 'react'
 import {
+  LAB_ORPHAN_PAGE_WORDS,
   chapterPagesCover,
+  chapterPageSegments,
   isLabVerseMarker,
   labVerseMarkerDisplay,
   tokenizeHearingWords,
@@ -12,6 +14,50 @@ export interface LabNativeWordPlacement {
   pageIndex: number
   paragraphIndex: number
   wordIndex: number
+}
+
+/**
+ * Safari can leave only a word or two in the final column after a fullscreen
+ * resize. Pulling words from the preceding page is always height-safe: the
+ * sparse final page gains text while the full preceding page only shrinks.
+ */
+export function balanceNativeChapterTail(pages: ChapterHearingPage[]): ChapterHearingPage[] {
+  if (pages.length < 2) return pages
+  const lastIndex = pages.length - 1
+  const previous = pages[lastIndex - 1]
+  const last = pages[lastIndex]
+  const previousSegments = chapterPageSegments(previous)
+  const lastSegments = chapterPageSegments(last)
+  const previousTail = previousSegments[previousSegments.length - 1]
+  const lastHead = lastSegments[0]
+  if (
+    !previousTail
+    || !lastHead
+    || previousTail.paragraphIndex !== lastHead.paragraphIndex
+    || previousTail.to !== lastHead.from
+  ) return pages
+  const lastWords = lastSegments.reduce((sum, segment) => sum + Math.max(0, segment.to - segment.from), 0)
+  const previousTailWords = previousTail.to - previousTail.from
+  if (lastWords <= 0 || lastWords >= LAB_ORPHAN_PAGE_WORDS) return pages
+  const move = Math.min(LAB_ORPHAN_PAGE_WORDS - lastWords, Math.max(0, previousTailWords - LAB_ORPHAN_PAGE_WORDS))
+  if (move <= 0) return pages
+
+  const next = pages.slice()
+  const nextPreviousSegments = previousSegments.map((segment, index) => (
+    index === previousSegments.length - 1 ? { ...segment, to: segment.to - move } : segment
+  ))
+  const nextLastSegments = lastSegments.map((segment, index) => (
+    index === 0 ? { ...segment, from: segment.from - move } : segment
+  ))
+  next[lastIndex - 1] = {
+    ...nextPreviousSegments[0],
+    segments: nextPreviousSegments.length > 1 ? nextPreviousSegments : undefined,
+  }
+  next[lastIndex] = {
+    ...nextLastSegments[0],
+    segments: nextLastSegments.length > 1 ? nextLastSegments : undefined,
+  }
+  return next
 }
 
 /** Convert browser-laid-out word columns into the existing reader page contract. */
@@ -36,13 +82,14 @@ export function nativePagesFromPlacements(
     })
   })
 
-  return pageSegments.filter(segments => segments.length > 0).map((segments) => {
+  const pages = pageSegments.filter(segments => segments.length > 0).map((segments) => {
     const first = segments[0]
     return {
       ...first,
       segments: segments.length > 1 ? segments : undefined,
     }
   })
+  return balanceNativeChapterTail(pages)
 }
 
 function nativeWordSpacing(

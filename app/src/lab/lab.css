@@ -399,12 +399,12 @@
   box-decoration-break: clone;
 }
 
-.lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: #f5e6c8; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: #f5d0d0; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #d0e8d0; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #d0e0f5; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #e0d0f5; }
-.lab-passage.is-reading .lab-hearing-word.is-selecting { background: #e8dcc4; }
+.lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: #f5e6c8; box-shadow: 0.3em 0 #f5e6c8; }
+.lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: #f5d0d0; box-shadow: 0.3em 0 #f5d0d0; }
+.lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #d0e8d0; box-shadow: 0.3em 0 #d0e8d0; }
+.lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #d0e0f5; box-shadow: 0.3em 0 #d0e0f5; }
+.lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #e0d0f5; box-shadow: 0.3em 0 #e0d0f5; }
+.lab-passage.is-reading .lab-hearing-word.is-selecting { background: #e8dcc4; box-shadow: 0.3em 0 #e8dcc4; }
 
 .lab .selection-popup,
 .lab .selection-popup.is-lab {
@@ -498,11 +498,12 @@
   border-color: #2c2822;
 }
 
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: #5c4a2e; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: #5c2e2e; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #2e5c2e; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #2e3e5c; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #3e2e5c; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: #5c4a2e; box-shadow: 0.3em 0 #5c4a2e; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: #5c2e2e; box-shadow: 0.3em 0 #5c2e2e; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #2e5c2e; box-shadow: 0.3em 0 #2e5c2e; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #2e3e5c; box-shadow: 0.3em 0 #2e3e5c; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #3e2e5c; box-shadow: 0.3em 0 #3e2e5c; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-selecting { background: #4f4638; box-shadow: 0.3em 0 #4f4638; }
 
 .lab-p.is-focus {
   outline: 1px solid #c8c0ae;
@@ -1804,6 +1805,14 @@
   flex: none;
   z-index: 200;
   padding-bottom: max(0.28rem, env(safe-area-inset-bottom, 0px));
+}
+
+/* The software keyboard already supplies the lower interaction surface.
+   Removing the reader bar keeps the chat composer directly above it instead
+   of letting Safari squeeze the entire app toward the address bar. */
+.lab.is-phone.has-phone-keyboard .lab-bottom-chrome,
+.lab.has-phone-chrome.has-phone-keyboard .lab-bottom-chrome {
+  display: none;
 }
 
 .lab.has-phone-chrome .lab-hearing-transport {

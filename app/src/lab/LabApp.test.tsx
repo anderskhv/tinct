@@ -20,7 +20,9 @@ afterEach(() => {
   vi.restoreAllMocks()
   try { localStorage.removeItem('tinct-lab-prefs') } catch { /* jsdom */ }
     try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
-    try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-highlights') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-highlights-tap-cleanup-v1') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
@@ -2029,6 +2031,116 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerUp(page, { pointerId: 4, clientX: 195, clientY: 500 })
 
     expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, 1, -1, 1])
+  })
+
+  it('requires a touch long-press before selecting, so ordinary taps cannot create ghost highlights', () => {
+    vi.useFakeTimers()
+    const select = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onSelectRange={select}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerId: 7, pointerType: 'touch', clientX: 195, clientY: 200 })
+    fireEvent.pointerUp(word, { pointerId: 7, pointerType: 'touch', clientX: 195, clientY: 200 })
+    vi.advanceTimersByTime(500)
+    expect(select).not.toHaveBeenCalled()
+
+    fireEvent.pointerDown(word, { pointerId: 8, pointerType: 'touch', clientX: 195, clientY: 200 })
+    act(() => { vi.advanceTimersByTime(400) })
+    fireEvent.pointerUp(word, { pointerId: 8, pointerType: 'touch', clientX: 195, clientY: 200 })
+    expect(select).toHaveBeenCalledOnce()
+    expect(select.mock.calls[0][0].text).toBe('me')
+  })
+
+  it('turns one page when an active long-press selection reaches the page edge', () => {
+    vi.useFakeTimers()
+    vi.spyOn(Date, 'now').mockReturnValue(2_000)
+    const turn = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onSelectRange={() => { /* selection remains active */ }}
+        onPageTurn={turn}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerId: 10, pointerType: 'touch', clientX: 195, clientY: 200 })
+    act(() => { vi.advanceTimersByTime(400) })
+    fireEvent.pointerMove(page, { pointerId: 10, pointerType: 'touch', clientX: 385, clientY: 200 })
+    expect(turn).toHaveBeenCalledWith(1)
+  })
+
+  it('keeps selection visually continuous by bridging the spaces between selected words', () => {
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        selectingRange={{ paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 4, text: 'me O Muse' }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const words = screen.getAllByTestId('lab-word')
+    expect(words[1].className).toContain('is-selecting')
+    expect(words[2].className).toContain('is-selecting')
+    expect(words[3].className).toContain('is-selecting')
+    const css = readFileSync(resolve(process.cwd(), 'src/lab/lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*box-shadow:\s*0\.3em 0/)
+  })
+
+  it('does not save a highlight until the reader explicitly chooses a color', async () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+    const words = screen.getAllByTestId('lab-word')
+    fireEvent.pointerDown(words[1], { pointerId: 9, pointerType: 'mouse', clientX: 190, clientY: 200 })
+    fireEvent.pointerMove(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
+    fireEvent.pointerUp(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
+    expect(document.querySelector('.selection-popup')).toBeTruthy()
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toEqual([])
+    fireEvent.click(screen.getByTitle('Highlight Gold'))
+    await waitFor(() => expect(localStorage.getItem('tinct-lab-highlights')).toContain('gold'))
+  })
+
+  it('hides the reader navigation while the iPhone keyboard owns the lower viewport', () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    fireEvent.click(screen.getByTestId('lab-phone-chat'))
+    fireEvent.focus(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-root').className).toContain('has-phone-keyboard')
+    fireEvent.blur(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
   })
 })
 

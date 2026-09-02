@@ -4,7 +4,7 @@ import { createElement } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { chapterPagesCover, chapterPageSegments } from './labHearing'
-import { LabNativePaginator, nativePagesFromPlacements, type LabNativeWordPlacement } from './LabNativePaginator'
+import { LabNativePaginator, balanceNativeChapterTail, nativePagesFromPlacements, type LabNativeWordPlacement } from './LabNativePaginator'
 
 afterEach(cleanup)
 
@@ -40,6 +40,16 @@ describe('native phone pagination', () => {
     }))
 
     expect(nativePagesFromPlacements(placements)).toEqual(nativePagesFromPlacements(placements))
+  })
+
+  it('rebalances a sparse same-paragraph final page after a Safari fullscreen resize', () => {
+    expect(balanceNativeChapterTail([
+      { paragraphIndex: 0, from: 0, to: 50 },
+      { paragraphIndex: 0, from: 50, to: 52 },
+    ])).toEqual([
+      { paragraphIndex: 0, from: 0, to: 36, segments: undefined },
+      { paragraphIndex: 0, from: 36, to: 52, segments: undefined },
+    ])
   })
 
   it('keeps a multi-digit verse marker attached to its first word', () => {

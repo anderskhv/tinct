@@ -271,6 +271,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
+  const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const [gearOpen, setGearOpen] = useState(false)
   const [desktopAskOpen, setDesktopAskOpen] = useState(false)
   const [marks, setMarks] = useState<LabMark[]>([])
@@ -1487,6 +1488,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const el = popupRef.current
     if (!el) return
     const rect = el.getBoundingClientRect()
+    if (rect.width <= 0 || rect.height <= 0) return
     const vw = window.innerWidth
     const vh = window.innerHeight
     const margin = 8
@@ -1519,14 +1521,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [dismissSelectionPopup, selectionPopup])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number) => {
-    const created = highlightsApi.addOrReuse(range, 'gold')
-    const mode = defaultPopupMode(range.text, created.id)
+    const existing = highlightsApi.findRange(range)
+    const mode = defaultPopupMode(range.text, existing?.id)
     setPopupMode(mode)
-    setNoteInput(created.note || '')
+    setNoteInput(existing?.note || '')
     if (mode === 'define') define.begin(range.text)
     const anchorY = clientY
     const showBelow = window.innerHeight - anchorY > anchorY
-    const mobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+    const mobile = typeof window !== 'undefined'
+      && typeof window.matchMedia === 'function'
+      && window.matchMedia('(max-width: 768px)').matches
     const estimatedHeight = mode === 'define' ? 220 : 64
     const chromeEl = bottomChromeRef.current
     const chromeTop = chromeEl?.getBoundingClientRect().top ?? window.innerHeight
@@ -1545,11 +1549,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       endOffset: range.toWord,
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
-      existingHighlightId: created.id,
-      existingNote: created.note,
+      existingHighlightId: existing?.id,
+      existingNote: existing?.note,
       range,
     })
   }, [define, highlightsApi])
+
+  useEffect(() => {
+    if (!phoneAskOpen) setPhoneKeyboardOpen(false)
+  }, [phoneAskOpen])
 
   const leaveTalking = useCallback(() => {
     resumeListenAfterAsk()
@@ -2008,7 +2016,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     <div
       ref={labRootRef}
       lang={bibleEditions().find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
@@ -2187,6 +2195,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             notice={ask.notice}
             onDone={phoneAsk ? undefined : closePhoneAsk}
             phoneSheet={!!phoneAsk}
+            onKeyboardOpenChange={setPhoneKeyboardOpen}
           />
         )}
       </div>
@@ -2418,8 +2427,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           onColorClick={(color: HighlightColor) => {
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
-              dismissSelectionPopup()
+            } else if (selectionPopup.range) {
+              highlightsApi.addOrReuse(selectionPopup.range, color)
             }
+            dismissSelectionPopup()
           }}
           defineQuery={define.query}
           setDefineQuery={define.setQuery}
@@ -2440,7 +2451,17 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           noteInput={noteInput}
           setNoteInput={setNoteInput}
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
-          onRequestNote={() => setPopupMode('note')}
+          onRequestNote={() => {
+            if (!selectionPopup.existingHighlightId && selectionPopup.range) {
+              const created = highlightsApi.addOrReuse(selectionPopup.range, 'gold')
+              setSelectionPopup(current => current ? {
+                ...current,
+                existingHighlightId: created.id,
+                existingNote: created.note,
+              } : current)
+            }
+            setPopupMode('note')
+          }}
           onExplain={() => {
             if (selectionPopup.text) define.begin(selectionPopup.text)
             setPopupMode('define')

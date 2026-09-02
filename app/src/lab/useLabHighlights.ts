@@ -46,6 +46,10 @@ export function useLabHighlights(chapterNumber: number) {
     return created
   }, [chapterNumber])
 
+  const findRange = useCallback((range: LabHighlightRange) => (
+    highlightsRef.current.find(h => sameHighlightRange(h, range, chapterNumber))
+  ), [chapterNumber])
+
   const setColor = useCallback((id: string, color: LabHighlightColor) => {
     setHighlights(current => current.map(h => h.id === id ? { ...h, color } : h))
   }, [])
@@ -65,6 +69,7 @@ export function useLabHighlights(chapterNumber: number) {
   return {
     highlights,
     chapterHighlights,
+    findRange,
     addOrReuse,
     setColor,
     setNote,

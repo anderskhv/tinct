@@ -16,6 +16,7 @@ interface LabAskPaneProps {
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
+  onKeyboardOpenChange?: (open: boolean) => void
 }
 
 function MicIcon() {
@@ -51,6 +52,7 @@ export function LabAskPane({
   notice,
   onDone,
   phoneSheet = false,
+  onKeyboardOpenChange,
 }: LabAskPaneProps) {
   const [localError, setLocalError] = useState<string | null>(null)
   const threadRef = useRef<HTMLDivElement | null>(null)
@@ -103,9 +105,12 @@ export function LabAskPane({
       </label>
       <input
         id="lab-ask-input"
+        data-testid="lab-ask-input"
         type="text"
         className="lab-ask-input"
         value={draft}
+        onFocus={() => onKeyboardOpenChange?.(true)}
+        onBlur={() => onKeyboardOpenChange?.(false)}
         onChange={(event) => onDraftChange(event.target.value)}
         onKeyDown={(event) => {
           if (event.key === 'Enter') {

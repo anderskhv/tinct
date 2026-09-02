@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
@@ -212,9 +212,16 @@ export function LabPassage({
     startX: number
     startY: number
     startedAt: number
+    selecting: boolean
   } | null>(null)
+  const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const lastSelectionPageTurnAtRef = useRef(0)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+
+  useEffect(() => () => {
+    if (longPressRef.current) clearTimeout(longPressRef.current)
+  }, [])
 
   const finishPointerSelection = (event: React.PointerEvent) => {
     const drag = dragRef.current
@@ -238,40 +245,84 @@ export function LabPassage({
     const selectionPlace = edgeTurn == null ? place : null
     if (selectionPlace && onSelectRange) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
-    dragRef.current = {
+    const touchSelection = event.pointerType === 'touch' && !!selectionPlace && !!onSelectRange
+    const drag = {
       start: selectionPlace,
       end: selectionPlace,
       startX: event.clientX,
       startY: event.clientY,
       startedAt: event.timeStamp,
+      selecting: !!selectionPlace && !touchSelection,
     }
-    if (selectionPlace && onSelectRange) setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
+    dragRef.current = drag
+    if (drag.selecting && selectionPlace && onSelectRange) {
+      setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
+    } else if (touchSelection && selectionPlace) {
+      longPressRef.current = setTimeout(() => {
+        if (dragRef.current !== drag) return
+        drag.selecting = true
+        setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
+      }, 360)
+    }
   }
 
   const onPointerMove = (event: React.PointerEvent) => {
     const drag = dragRef.current
     if (!drag) return
-    const place = wordPlaceFromTarget(event.target)
-      || wordPlaceFromTarget(document.elementFromPoint(event.clientX, event.clientY))
-    if (!place) return
-    drag.end = place
-    if (drag.start && onSelectRange) {
+    if (!drag.selecting) {
+      const moved = Math.abs(event.clientX - drag.startX) > 10 || Math.abs(event.clientY - drag.startY) > 10
+      if (moved && longPressRef.current) {
+        clearTimeout(longPressRef.current)
+        longPressRef.current = null
+        drag.start = null
+        drag.end = null
+      }
+      return
+    }
+    const pointTarget = typeof document.elementFromPoint === 'function'
+      ? document.elementFromPoint(event.clientX, event.clientY)
+      : null
+    const place = wordPlaceFromTarget(event.target) || wordPlaceFromTarget(pointTarget)
+    if (place) drag.end = place
+    if (drag.start && drag.end && onSelectRange) {
       setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
     }
+    if (!drag.start || !onPageTurn || Date.now() - lastSelectionPageTurnAtRef.current < 900) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const direction = event.clientX >= rect.right - 20 ? 1 : event.clientX <= rect.left + 20 ? -1 : null
+    if (direction == null) return
+    lastSelectionPageTurnAtRef.current = Date.now()
+    const surface = event.currentTarget
+    onPageTurn(direction)
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const current = dragRef.current
+      if (!current?.start || !current.selecting) return
+      const words = surface.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')
+      const boundary = direction > 0 ? words[0] : words[words.length - 1]
+      const boundaryPlace = wordPlaceFromTarget(boundary)
+      if (!boundaryPlace) return
+      current.end = boundaryPlace
+      setLocalSelecting(buildHighlightRange(paragraphs, current.start, current.end))
+    }))
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
     const drag = dragRef.current
     if (!drag) return
+    if (longPressRef.current) {
+      clearTimeout(longPressRef.current)
+      longPressRef.current = null
+    }
     const deltaX = event.clientX - drag.startX
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
-    const swipe = onPageTurn && !selectingRange
+    const swipe = onPageTurn && !selectingRange && !drag.selecting
       ? labSwipePageDirection(deltaX, deltaY)
       : null
     const rect = event.currentTarget.getBoundingClientRect()
     const tap = onPageTurn
       && !selectingRange
+      && !drag.selecting
       && Math.abs(deltaX) <= 10
       && Math.abs(deltaY) <= 10
       && duration <= 500
@@ -284,10 +335,17 @@ export function LabPassage({
       onPageTurn?.(direction)
       return
     }
+    if (!drag.selecting) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      return
+    }
     finishPointerSelection(event)
   }
 
   const onPointerCancel = () => {
+    if (longPressRef.current) clearTimeout(longPressRef.current)
+    longPressRef.current = null
     dragRef.current = null
     setLocalSelecting(null)
   }
