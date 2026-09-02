@@ -39,6 +39,7 @@ describe('Lab entry routes', () => {
     expect(wireframe).toContain('data-frame-panel="library-demo"')
     expect(wireframe).toContain('data-frame-panel="versions"')
     expect(wireframe).toContain('data-frame-panel="chat"')
+    expect(wireframe).toContain('Preview · 1 of 3')
     expect(wireframe).toContain('Not sure where to begin?')
     expect(wireframe).toContain('Ask the librarian.')
     expect(wireframe).toContain('Search 90+ classics')
@@ -47,7 +48,12 @@ describe('Lab entry routes', () => {
     expect(wireframe).toContain('width: 100vw !important')
     expect(wireframe).toContain('border-radius: 0 !important')
     expect(wireframe).toContain('min-height: 100dvh !important')
+    expect(wireframe).toContain('font-size:clamp(33px,min(10vw,5.3dvh),58px)')
+    expect(wireframe).toContain('height:clamp(334px,44dvh,455px)')
+    expect(wireframe).toContain('top:clamp(168px,45vw,202px)')
+    expect(wireframe).toContain('background:color-mix(in srgb,var(--tov5-world-ink) 25%,rgba(255,255,255,.10))')
     expect(runtime).toContain("window.parent.history.pushState({}, '', '/lab/library')")
+    expect(runtime).toContain("['Preview · 1 of 3','Pick a book']")
   })
 
   it('enforces library → detail → edition → preface → reader with no earlier reader jump', () => {
@@ -75,11 +81,26 @@ describe('Lab entry routes', () => {
   })
 
   it('filters title and author text and keeps full-page librarian close/chat/voice adapters', () => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
     const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
     expect(runtime).toContain(".tov5-library-search input').addEventListener('input'")
     expect(runtime).toContain("(button.textContent||'').toLowerCase().includes(query)")
     expect(runtime).toContain(".tov5-librarian-close').forEach(button=>button.addEventListener('click',()=>showView('library'))")
     expect(runtime).toContain("fetch('/api/lab-chat'")
     expect(runtime).toContain("data-voice-adapter','useLabAsk/useVoiceSession")
+    expect(wireframe).toContain('html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-librarian-focus')
+    expect(wireframe).toContain('inset:0;')
+  })
+
+  it('uses the approved onboarding language and useful starter questions', () => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
+    const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
+    expect(wireframe).toContain('Onboard to <span data-preface-title>The Odyssey</span> <em>Optional</em>')
+    expect(wireframe).toContain('Ask me anything to get a good start on the book.')
+    expect(wireframe).toContain('Give me a spoiler-free overview')
+    expect(wireframe).toContain('Who are the main characters?')
+    expect(wireframe).toContain('What should I pay attention to?')
+    expect(wireframe).not.toContain('Tap to explore')
+    expect(runtime).toContain("querySelectorAll('[data-preface-prompt]')")
   })
 })

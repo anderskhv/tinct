@@ -72,7 +72,7 @@
       root.querySelectorAll('[data-frame-panel]').forEach(panel=>panel.classList.toggle('is-current',panel.dataset.framePanel===frame));
       root.querySelectorAll('[data-frame-dot]').forEach(dot=>dot.setAttribute('aria-pressed',String(dot.dataset.frameDot===frame)));
       const book=books[currentBook];
-      const stepCopy=frame==='library-demo'?['Step 1:','Pick a book']:frame==='versions'?['Step 2:','Pick your translation']:['Step 3:','Talk with the book'];
+      const stepCopy=frame==='library-demo'?['Preview · 1 of 3','Pick a book']:frame==='versions'?['Preview · 2 of 3','Pick your translation']:['Preview · 3 of 3','Talk with the book'];
       root.querySelector('[data-demo-step]').textContent=stepCopy[0];
       root.querySelector('[data-demo-step-title]').innerHTML=frame==='chat'?'<span class="tov5-talk-highlight">Talk</span> with the book':stepCopy[1];
       note.textContent=frame==='library-demo'?'Library · 90 classics and growing':book.title+' · '+(frame==='versions'?'translation, reading and listening':'conversation in four unhurried beats');
@@ -232,13 +232,17 @@
     root.querySelector('[data-standard-preface]').addEventListener('click',event=>{
       event.currentTarget.hidden=true;
       root.querySelector('[data-preface-thread]').hidden=false;
-      note.textContent='The book answered with a standard spoiler-free preface';
+      note.textContent='The book answered with a spoiler-free overview';
     });
+    root.querySelectorAll('[data-preface-prompt]').forEach(button=>button.addEventListener('click',()=>{
+      root.querySelector('[data-preface-answer]').value=button.dataset.prefacePrompt;
+      root.querySelector('[data-preface-answer]').focus();
+    }));
     root.querySelector('.tov5-preface-talk').addEventListener('click',()=>{
       note.textContent='Opening the book’s voice conversation';
     });
     root.querySelector('.tov5-preface-dictate').addEventListener('click',()=>{
-      root.querySelector('[data-preface-answer]').value='Give me a standard preface';
+      root.querySelector('[data-preface-answer]').value='Give me a spoiler-free overview';
       note.textContent='Dictation added to the message field';
     });
     root.querySelector('.tov5-preface-send').addEventListener('click',()=>{

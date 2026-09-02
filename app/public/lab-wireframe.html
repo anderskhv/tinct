@@ -72,10 +72,6 @@
       min-height: 100dvh;
       align-items: stretch;
     }
-    html.tinct-lab-embed .tov5-library-track.is-nudging {
-      animation: none !important;
-      transform: none !important;
-    }
     html.tinct-lab-embed .tov5-library-zoom button[hidden] {
       display: none !important;
     }
@@ -110,7 +106,7 @@
 
           <div class="tov5-product-stage" aria-live="polite">
             <div class="tov5-demo-book">
-              <div class="tov5-demo-book-strip"><span data-demo-step>Step 1</span><strong data-demo-step-title>Choose a classic</strong></div>
+              <div class="tov5-demo-book-strip"><span data-demo-step>Preview · 1 of 3</span><strong data-demo-step-title>Pick a book</strong></div>
               <div class="tov5-page-block">
                 <article class="tov5-frame tov5-frame-library-demo is-current" data-frame-panel="library-demo">
                   <div class="tov5-step-heading"><strong>Library</strong></div>
@@ -374,20 +370,25 @@
         <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
         <header class="tov5-preface-top"><button type="button" data-view="edition"><i data-lucide="arrow-left" aria-hidden="true"></i> Editions</button><b>Tinct.</b><button type="button" data-begin-reading>Skip</button></header>
         <main class="tov5-preface-body">
-          <header class="tov5-preface-intro"><small>Your preface</small><h2><span data-preface-title>The Odyssey</span></h2></header>
+          <header class="tov5-preface-intro"><h2>Onboard to <span data-preface-title>The Odyssey</span> <em>Optional</em></h2></header>
 
           <section class="tov5-preface-companion">
-            <div class="tov5-preface-message is-assistant"><span class="tov5-preface-orb"><span><i></i><i></i><i></i><i></i><i></i></span></span><p>Ask me anything before you begin.</p></div>
-            <button type="button" class="tov5-preface-suggestion" data-standard-preface><i data-lucide="sparkles" aria-hidden="true"></i> Give me a standard preface</button>
+            <div class="tov5-preface-message is-assistant"><span class="tov5-preface-orb"><span><i></i><i></i><i></i><i></i><i></i></span></span><p>Ask me anything to get a good start on the book.</p></div>
+            <div class="tov5-preface-prompts" aria-label="Suggested questions">
+              <button type="button" data-standard-preface>Give me a spoiler-free overview</button>
+              <button type="button" data-preface-prompt="Who are the main characters?">Who are the main characters?</button>
+              <button type="button" data-preface-prompt="What should I pay attention to?">What should I pay attention to?</button>
+              <button type="button" data-preface-prompt="What should I know before I begin?">What should I know before I begin?</button>
+            </div>
             <div class="tov5-preface-thread" data-preface-thread hidden aria-live="polite">
-              <div class="tov5-q">Give me a standard preface.</div>
+              <div class="tov5-q">Give me a spoiler-free overview.</div>
               <div class="tov5-a"><span data-preface-relevance>The Odyssey is an adventure about getting home—but also about identity, temptation and what long absence does to a person. Its central question still feels modern: after everything changes you, can you return to the life you once knew?</span></div>
             </div>
             <div class="tov5-preface-composer"><input type="text" data-preface-answer placeholder="Ask anything…" aria-label="Message the book"><button type="button" class="tov5-preface-talk" aria-label="Start a voice conversation"><i data-lucide="audio-lines" aria-hidden="true"></i><span>Talk</span></button><button type="button" class="tov5-preface-dictate" aria-label="Dictate a message"><i data-lucide="mic" aria-hidden="true"></i></button><button type="button" class="tov5-preface-send" aria-label="Send message"><i data-lucide="arrow-up" aria-hidden="true"></i></button></div>
           </section>
 
           <section class="tov5-character-section">
-            <div class="tov5-preface-label"><div><small>Main characters</small><h3>Meet the people you’ll follow</h3></div><span>Tap to explore</span></div>
+            <div class="tov5-preface-label"><div><small>Main characters</small><h3>Meet the people you’ll follow</h3></div></div>
             <div class="tov5-character-gallery" role="group" aria-label="Character gallery">
               <button type="button" data-character="0" aria-pressed="true"><span><img data-character-image alt=""><i data-lucide="user-round" aria-hidden="true"></i></span><strong></strong><small></small></button>
               <button type="button" data-character="1" aria-pressed="false"><span><img data-character-image alt=""><i data-lucide="user-round" aria-hidden="true"></i></span><strong></strong><small></small></button>
@@ -1085,6 +1086,156 @@
     #tinct-onboarding-worlds-v5 .tov5-menu { left:18px; right:18px; top:128px; }
   }
   @media(prefers-reduced-motion:reduce){ #tinct-onboarding-worlds-v5 .tov5-library-track.is-nudging,#tinct-onboarding-worlds-v5 .tov5-orb i,#tinct-onboarding-worlds-v5 .tov5-frame.is-current { animation:none; } #tinct-onboarding-worlds-v5 [data-chat-item] { transition:none; } }
+
+  /* Responsive production treatment: preserve the composition while using the available screen. */
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-brand {
+    min-height:clamp(64px,9dvh,88px);
+    padding-right:clamp(20px,5.8vw,44px);
+    padding-left:clamp(20px,5.8vw,44px);
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-brand b { font-size:clamp(24px,min(6.5vw,3.8dvh),38px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-brand button { font-size:clamp(14px,min(3.8vw,2.2dvh),19px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-landing {
+    padding:clamp(18px,2.7dvh,32px) clamp(20px,5.8vw,44px) calc(88px + env(safe-area-inset-bottom));
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-copy-shield { max-width:760px; margin-left:0; margin-right:0; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-landing h1 {
+    max-width:720px;
+    font-size:clamp(33px,min(10vw,5.3dvh),58px);
+    line-height:.98;
+    letter-spacing:-.035em;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-copy-shield p {
+    max-width:720px;
+    margin-top:clamp(12px,1.7dvh,20px);
+    font-size:clamp(14px,min(4.1vw,2.15dvh),21px);
+    line-height:1.42;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-product-stage {
+    width:min(100%,760px);
+    height:clamp(334px,44dvh,455px);
+    margin:clamp(4px,1.2dvh,16px) auto 0;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-demo-book {
+    height:calc(100% - 32px);
+    grid-template-rows:clamp(54px,7dvh,68px) 1fr;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-demo-book-strip { gap:clamp(7px,1.8vw,13px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-demo-book-strip span {
+    padding:6px 9px;
+    border:1px solid color-mix(in srgb,var(--tov5-step-accent) 52%,transparent);
+    border-radius:999px;
+    background:color-mix(in srgb,var(--tov5-book-ink) 44%,transparent);
+    font-family:Inter,ui-sans-serif,sans-serif;
+    font-size:clamp(9px,min(2.7vw,1.45dvh),13px);
+    font-weight:650;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-demo-book-strip strong {
+    font-size:clamp(15px,min(4.2vw,2.2dvh),22px);
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-frame { padding:clamp(14px,2dvh,20px) clamp(10px,3vw,18px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-demo-library-scroll { height:calc(100% - 25px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-side-by-side { height:100%; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-side-by-side section { min-height:0; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-side-by-side p { font-size:clamp(11px,min(3.1vw,1.65dvh),16px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-footer { bottom:calc(10px + env(safe-area-inset-bottom)); padding:0 clamp(20px,5.8vw,44px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-footer>button { min-height:clamp(54px,7dvh,68px); font-size:clamp(16px,min(4.4vw,2.3dvh),22px); }
+
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-library-track>button { width:clamp(112px,30vw,154px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-library-track img,
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-zoom-cover { width:clamp(112px,30vw,154px); height:clamp(166px,44.3vw,228px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-shelf-arrow {
+    top:clamp(168px,45vw,202px);
+    width:36px;
+    height:36px;
+    border-color:rgba(255,255,255,.30);
+    background:rgba(15,27,35,.24);
+    -webkit-backdrop-filter:blur(13px) saturate(1.15);
+    backdrop-filter:blur(13px) saturate(1.15);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 7px 20px rgba(0,0,0,.14);
+    opacity:.76;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-library-search {
+    height:clamp(52px,7dvh,64px);
+    border-color:rgba(255,255,255,.25);
+    color:rgba(255,253,247,.66);
+    background:color-mix(in srgb,var(--tov5-world-ink) 25%,rgba(255,255,255,.10));
+    -webkit-backdrop-filter:blur(12px) saturate(.92);
+    backdrop-filter:blur(12px) saturate(.92);
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-library-search input { color:#fffdf7; font-family:Inter,ui-sans-serif,sans-serif; font-size:clamp(15px,4vw,18px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-library-search input::placeholder { color:rgba(255,253,247,.58); }
+
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-librarian-focus {
+    inset:0;
+    min-height:100dvh;
+    padding:calc(72px + env(safe-area-inset-top)) clamp(18px,5vw,34px) calc(82px + env(safe-area-inset-bottom));
+    border:0;
+    border-radius:0;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-librarian-focus>.tov5-librarian-close { top:calc(18px + env(safe-area-inset-top)); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-librarian-focus>label { left:clamp(18px,5vw,34px); right:clamp(18px,5vw,34px); bottom:calc(18px + env(safe-area-inset-bottom)); }
+
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-detail-body {
+    grid-template-columns:clamp(128px,35vw,240px) 1fr;
+    gap:clamp(16px,4vw,34px);
+    padding:clamp(26px,4dvh,48px) clamp(18px,5vw,46px) 40px;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:100%; height:auto; aspect-ratio:2/3; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-detail-copy>small { font-size:clamp(11px,2.8vw,14px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:clamp(34px,8.8vw,52px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-detail-copy>p { font-size:clamp(15px,3.8vw,20px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-length b { font-size:clamp(12px,3.2vw,16px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-length small { font-size:clamp(9px,2.4vw,12px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-choose-edition { min-height:clamp(56px,7dvh,68px); font-size:clamp(17px,4.4vw,22px); }
+
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-zoom { padding:clamp(20px,3dvh,34px) clamp(16px,4.5vw,38px) 32px; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-head { grid-template-columns:clamp(72px,20vw,110px) 1fr; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-head img { width:100%; height:auto; aspect-ratio:2/3; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-head small { font-size:clamp(10px,2.7vw,13px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-head h2 { font-size:clamp(32px,8.3vw,48px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-head p { font-size:clamp(14px,3.6vw,18px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-grid { height:clamp(320px,43dvh,430px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { font-size:clamp(14px,3.8vw,19px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { font-size:clamp(9px,2.5vw,12px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>p { font-size:clamp(13px,3.5vw,18px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-continue { min-height:clamp(54px,7dvh,66px); font-size:clamp(16px,4.2vw,21px); }
+
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-preface-intro h2 { font-size:clamp(32px,8.5vw,48px); }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-preface-intro h2 em {
+    display:inline-block;
+    margin-left:6px;
+    padding:5px 8px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:999px;
+    color:rgba(255,253,247,.72);
+    font:600 clamp(9px,2.5vw,12px)/1 Inter,ui-sans-serif,sans-serif;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    vertical-align:middle;
+  }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-preface-prompts { gap:8px; margin:16px 0 0 43px; }
+  html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-preface-prompts button { min-height:38px; padding:7px 11px; font-size:clamp(10px,2.8vw,13px); }
+
+  @media (min-width:700px) {
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-landing { padding-right:7vw; padding-left:7vw; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-product-stage { margin-left:0; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-library-track { gap:22px; padding-right:7vw; padding-left:7vw; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-book-detail-body { max-width:900px; margin:0 auto; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-surface { max-width:820px; margin:0 auto; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-head { max-width:820px; margin-right:auto; margin-left:auto; }
+  }
+
+  @media (max-height:700px) {
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-brand { min-height:60px; padding-top:calc(12px + env(safe-area-inset-top)); }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-landing { padding-top:12px; padding-bottom:calc(76px + env(safe-area-inset-bottom)); }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-copy-shield p { margin-top:8px; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-product-stage { height:322px; margin-top:0; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-footer>button { min-height:50px; }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5 .tov5-edition-grid { height:300px; }
+  }
 </style>
 
 <script src="/lab-wireframe-runtime.js" defer></script>
