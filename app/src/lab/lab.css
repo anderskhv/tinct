@@ -2752,6 +2752,15 @@
   z-index: 180;
 }
 
+/* This reservation is present in both resting and controls states. It gives
+   native pagination one stable boundary above the printed footer layer, so a
+   dense last line can never collide with either progress or the dock. */
+.lab.is-phone:not(.has-phone-ask) .lab-body,
+.lab.has-phone-chrome:not(.has-phone-ask) .lab-body {
+  box-sizing: border-box;
+  padding-bottom: calc(4.1rem + env(safe-area-inset-bottom, 0px));
+}
+
 .lab.is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail,
 .lab.has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail {
   position: absolute;

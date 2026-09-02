@@ -3034,6 +3034,7 @@ describe('lab chrome pass', () => {
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
     expect(css).toContain('V1 quiet immersive reader')
     expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-bottom-chrome,[^{]*\{[^}]*position:\s*absolute[^}]*height:\s*calc\(4\.1rem/)
+    expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-body,[^{]*\{[^}]*padding-bottom:\s*calc\(4\.1rem/)
     expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-phone-bar,[^{]*\{[^}]*border-radius:\s*1\.05rem[^}]*linear-gradient[^}]*box-shadow:/)
     expect(css).toMatch(/data-reader-controls="hidden"[^}]*\.lab-phone-bar[^{]*\{[^}]*visibility:\s*hidden[^}]*opacity:\s*0/)
     expect(css).toMatch(/Dark uses the warmer Tint treatment locked in the V1 design/)

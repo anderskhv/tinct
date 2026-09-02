@@ -77,16 +77,22 @@ function renderWordGroups<T extends { text: string }>(
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
+      const secondLeadIndex = wordIndex + 2
+      const keepSecondLead = !!words[secondLeadIndex]
+        && `${words[wordIndex + 1].text} ${words[secondLeadIndex].text}`.length <= 16
       rendered.push(
         <Fragment key={`verse-${wordIndex}`}>
           {wordSpacing(word, wordIndex, words[wordIndex - 1])}
           <span className="lab-verse-unit">
             {renderWord(word, wordIndex)}
             {renderWord(words[wordIndex + 1], wordIndex + 1)}
+            {keepSecondLead && (
+              <>{wordSpacing(words[secondLeadIndex], secondLeadIndex, words[wordIndex + 1])}{renderWord(words[secondLeadIndex], secondLeadIndex)}</>
+            )}
           </span>
         </Fragment>,
       )
-      wordIndex += 1
+      wordIndex += keepSecondLead ? 2 : 1
     } else {
       rendered.push(
         <Fragment key={`word-${wordIndex}`}>

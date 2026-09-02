@@ -151,6 +151,9 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
     )
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
       const nextIndex = wordIndex + 1
+      const secondLeadIndex = wordIndex + 2
+      const keepSecondLead = !!words[secondLeadIndex]
+        && `${words[nextIndex].text} ${words[secondLeadIndex].text}`.length <= 16
       rendered.push(
         <Fragment key={`verse-${wordIndex}`}>
           {nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
@@ -169,10 +172,19 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
               spacing=""
               hasFollowingWord={nextIndex < words.length - 1}
             />
+            {keepSecondLead && (
+              <NativeWord
+                text={words[secondLeadIndex].text}
+                paragraphIndex={paragraphIndex}
+                wordIndex={secondLeadIndex}
+                spacing={nativeWordSpacing(words[secondLeadIndex], secondLeadIndex, words[nextIndex])}
+                hasFollowingWord={secondLeadIndex < words.length - 1}
+              />
+            )}
           </span>
         </Fragment>,
       )
-      wordIndex = nextIndex
+      wordIndex = keepSecondLead ? secondLeadIndex : nextIndex
     } else {
       rendered.push(node)
     }

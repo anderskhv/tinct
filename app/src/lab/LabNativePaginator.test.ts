@@ -61,8 +61,8 @@ describe('native phone pagination', () => {
     }))
 
     const unit = view.container.querySelector('.lab-verse-unit')
-    expect(unit?.textContent).toBe('10\u00a0And')
-    expect(unit?.querySelectorAll('[data-native-word="true"]')).toHaveLength(2)
+    expect(unit?.textContent).toBe('10\u00a0And God')
+    expect(unit?.querySelectorAll('[data-native-word="true"]')).toHaveLength(3)
   })
 
   it('keeps the break before a verse start outside the no-wrap unit', () => {
@@ -75,7 +75,7 @@ describe('native phone pagination', () => {
 
     const unit = view.container.querySelector('.lab-verse-unit')
     expect(unit?.previousSibling?.textContent).toBe(' ')
-    expect(unit?.textContent).toBe('8\u00a0And')
+    expect(unit?.textContent).toBe('8\u00a0And God')
     expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
   })
 })
