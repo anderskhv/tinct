@@ -1457,7 +1457,7 @@ describe('lab chrome', () => {
     expect(sheet.textContent).not.toContain('Home')
     expect(sheet.textContent).not.toContain('Saved')
     expect(sheet.textContent).not.toContain('Profile')
-    expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/read/')
+    expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/lab/library')
     fireEvent.click(screen.getByTestId('lab-compare'))
     expect(screen.queryByTestId('lab-compare-col')).toBeNull()
     expect(screen.queryByTestId('lab-phone-compare')).toBeNull()

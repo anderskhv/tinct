@@ -2,8 +2,8 @@ import type { Edition, FontFamily, ProgressDisplay, ProgressMetric, ProgressScop
 import { BIBLE } from '../data/bookRegistry'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 
-/** Public Tinct library hub. Full navigation, never /app or a book id. */
-export const LAB_LIBRARY_URL = '/read/'
+/** Lab library route. Full navigation, never /app or a book id. */
+export const LAB_LIBRARY_URL = '/lab/library'
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 

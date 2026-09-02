@@ -18,10 +18,9 @@ afterEach(() => {
 })
 
 describe('lab prefs', () => {
-  it('points Library at the public Tinct library hub, never /app', () => {
-    expect(LAB_LIBRARY_URL).toBe('/read/')
+  it('points Library at the lab library, never /app', () => {
+    expect(LAB_LIBRARY_URL).toBe('/lab/library')
     expect(LAB_LIBRARY_URL).not.toContain('/app')
-    expect(LAB_LIBRARY_URL).not.toContain('library')
     expect(LAB_LIBRARY_URL).not.toContain('?')
     expect(LAB_LIBRARY_URL).not.toBe('/read/library')
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { LabApp } from './lab/LabApp'
+import { LabRouter } from './lab/LabRouter'
 import { isLabPath } from './lab/labRoute'
 import './index.css'
 
@@ -32,7 +32,7 @@ if (isEink) {
 }
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
-const Root = isLabPath(pathname) ? LabApp : App
+const Root = isLabPath(pathname) ? LabRouter : App
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
