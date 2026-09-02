@@ -42,6 +42,49 @@
     html.tinct-lab-embed .tov5-note {
       display: none !important;
     }
+    html.tinct-lab-embed #tinct-onboarding-worlds-v5,
+    html.tinct-lab-embed .tov5-shell {
+      min-height: 100dvh;
+    }
+    html.tinct-lab-embed .tov5-phone,
+    html.tinct-lab-embed .tov5-zoom {
+      width: 100vw !important;
+      max-width: none !important;
+      min-height: 100dvh !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    html.tinct-lab-embed .tov5-phone {
+      height: 100dvh !important;
+    }
+    html.tinct-lab-embed .tov5-brand {
+      padding-top: calc(20px + env(safe-area-inset-top));
+    }
+    html.tinct-lab-embed .tov5-book-detail-top,
+    html.tinct-lab-embed .tov5-preface-top {
+      padding-top: env(safe-area-inset-top);
+    }
+    html.tinct-lab-embed .tov5-footer {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    html.tinct-lab-embed .tov5-view.is-current {
+      min-height: 100dvh;
+      align-items: stretch;
+    }
+    html.tinct-lab-embed .tov5-library-track.is-nudging {
+      animation: none !important;
+      transform: none !important;
+    }
+    html.tinct-lab-embed .tov5-library-zoom button[hidden] {
+      display: none !important;
+    }
+    html.tinct-lab-embed .tov5-library-track > button:nth-child(2) .tov5-zoom-cover b {
+      inset: 12px 5px auto !important;
+      font-size: 13px !important;
+      line-height: 1.05 !important;
+      overflow-wrap: anywhere;
+    }
   </style>
   <script src="/lab-wireframe-icons.js" defer></script>
 </head>

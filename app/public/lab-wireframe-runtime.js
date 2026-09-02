@@ -6,12 +6,14 @@
     const books={
       odyssey:{title:'The Odyssey',titleHtml:'The<br>Odyssey',author:'Homer',art:'odyssey',pages:'541 pages',readTime:'12 hours',listenTime:'14 hours',summary:'After ten years of war, Odysseus begins the long journey home to Ithaca—while his son searches for news and his household is overrun by rivals.',classicLabel:'Butler · 1900',classic:'“Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy…”',modern:'“Tell me about the clever man who wandered far after the fall of Troy. He saw many cities and learned how their people thought…”',q1:'Who is Telemachus—and what has happened with him so far?',a1:'He is Odysseus’s son. Athena has pushed him to seek news of his father, and he is beginning to stand up to the suitors.',q2:'Get me up to speed on what I read last.',a2:'You left Ithaca with Telemachus preparing to sail. Athena is helping him secretly; the suitors still think he is powerless.'},
       meditations:{title:'Meditations',titleHtml:'Medi-<br>tations',author:'Marcus Aurelius',art:'meditations',pages:'304 pages',readTime:'7 hours',listenTime:'8 hours',summary:'Private reflections on attention, character, mortality and how to live steadily in a world you cannot control.',classicLabel:'George Long · 1862',classic:'“Begin the morning by saying to thyself, I shall meet with the busy-body, the ungrateful, arrogant, deceitful and envious…”',modern:'“When you wake up, remind yourself: today I will meet difficult people—ungrateful, arrogant, dishonest, jealous and unkind…”',q1:'What is the idea behind this passage?',a1:'Marcus is preparing himself not to be surprised by other people’s faults—and not to let them control his own character.',q2:'What have I read so far?',a2:'You have been tracing his argument that your judgments are yours to govern, even when events are not.'},
+      bible:{title:'The Bible',titleHtml:'The<br>Bible',author:'Various',art:'bible-old',pages:'1,200 pages',readTime:'70 hours',listenTime:'75 hours',summary:'A library of history, poetry, wisdom, prophecy and letters that has shaped faith, language and culture for centuries.',classicLabel:'King James · 1611',classic:'“In the beginning God created the heaven and the earth.”',modern:'“In the beginning, God created the heavens and the earth.”',q1:'Where should I begin?',a1:'You can begin with Genesis for the opening story, Psalms for poetry, or one of the Gospels for the life of Jesus.',q2:'How should I approach this book?',a2:'Read it as a library rather than a single continuous volume, and let each book establish its own voice and purpose.'},
       frankenstein:{title:'Frankenstein',titleHtml:'Franken-<br>stein',author:'Mary Shelley',art:'frankenstein',pages:'280 pages',readTime:'6 hours',listenTime:'8 hours',summary:'A brilliant young scientist creates life—and discovers too late what ambition without responsibility can unleash.',classicLabel:'Mary Shelley · 1818',classic:'“It was on a dreary night of November that I beheld the accomplishment of my toils. With an anxiety almost amounting to agony…”',modern:'“It was a bleak November night when I finally saw my work succeed. I watched in agonized suspense as the creature began to stir…”',q1:'Why is Victor so obsessed with succeeding?',a1:'He wants to conquer the limits of life and death, but he has isolated himself so completely that ambition has replaced judgment.',q2:'Catch me up without spoilers.',a2:'Victor has pursued his experiment in secret. The closer he gets to success, the more his health and relationships collapse.'},
       pride:{title:'Pride & Prejudice',titleHtml:'Pride &<br>Prejudice',author:'Jane Austen',art:'pride',pages:'432 pages',readTime:'9 hours',listenTime:'11 hours',summary:'Elizabeth Bennet meets the proud Mr Darcy in a sharp, funny story about first impressions, family and love.',classicLabel:'Jane Austen · 1813',classic:'“It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.”',modern:'“Everyone assumes that a wealthy single man must be looking for a wife—even before anyone knows what he actually wants.”',q1:'Why does Elizabeth dislike Darcy?',a1:'His pride wounded her immediately, and everything she has heard since has confirmed the first story she formed about him.',q2:'Catch me up on the relationships.',a2:'Jane and Bingley are drawn together. Elizabeth and Darcy are locked in mutual misreading, sharpened by Wickham’s story.'}
     };
     const prefaces={
       odyssey:{answer:'I want the adventure, but help me notice what the journey changes in Odysseus.',relevance:'The Odyssey is an adventure about getting home—but also about identity, temptation and what long absence does to a person. Its central question still feels modern: after everything changes you, can you return to the life you once knew?',characters:[{name:'Odysseus',role:'A king far from home',blurb:'Clever, proud and tested at every turn. The story asks whether he can become the man his home now needs.'},{name:'Penelope',role:'Queen of Ithaca',blurb:'Patient but never passive. She uses intelligence and restraint to protect a household under siege.'},{name:'Telemachus',role:'A son coming of age',blurb:'He begins unsure of himself and of his father. His search for news becomes a search for his own authority.'},{name:'Athena',role:'Goddess and guide',blurb:'A strategist who favors Odysseus and quietly shapes Telemachus. Her help always leaves room for human choice.'}]},
       meditations:{answer:'Help me turn the ideas into something practical without flattening the philosophy.',relevance:'Meditations remains powerful because it was never written as polished advice. It is a person under pressure reminding himself how to stay decent, attentive and free inside circumstances he cannot control.',characters:[{name:'Marcus',role:'Emperor and student',blurb:'The author writes to himself, not to an audience—testing how to live by his principles under pressure.'},{name:'Rusticus',role:'Teacher and influence',blurb:'The mentor Marcus credits with teaching him seriousness, discipline and the value of honest correction.'},{name:'Epictetus',role:'Stoic teacher',blurb:'His distinction between what is and is not under our control runs beneath many of Marcus’s reflections.'},{name:'Antoninus',role:'Adoptive father',blurb:'Marcus presents him as a model of steadiness, restraint and duty without performance.'}]},
+      bible:{answer:'Help me understand the form and context of what I am reading without flattening its religious meaning.',relevance:'The Bible is a library of books written across centuries. Genre matters: story, law, poetry, wisdom, prophecy, Gospel and letter each ask to be read in a different way.',characters:[{name:'Adam',role:'First human',blurb:'The opening chapters use Adam to explore creation, responsibility and human limits.'},{name:'Eve',role:'First woman',blurb:'Eve stands at the beginning of the Bible’s account of human relationship, choice and consequence.'},{name:'Abraham',role:'Ancestor and wanderer',blurb:'His story centers on promise, trust, family and the long consequences of a call.'},{name:'Moses',role:'Prophet and leader',blurb:'He leads Israel from slavery and becomes the central mediator of law and covenant.'}]},
       frankenstein:{answer:'I want the gothic story, but help me track responsibility and loneliness as I read.',relevance:'Frankenstein still speaks directly to an age of powerful invention. Its deepest concern is not whether we can create something new, but whether ambition can outrun responsibility for what we bring into the world.',characters:[{name:'Victor',role:'Ambitious young scientist',blurb:'Brilliant and obsessive. His desire to conquer nature outruns his willingness to care for what he creates.'},{name:'The Creature',role:'Abandoned creation',blurb:'Sensitive, observant and rejected. The novel asks what turns suffering into rage—and who is responsible.'},{name:'Elizabeth',role:'Victor’s closest companion',blurb:'A source of affection and home whose perspective reveals the human cost of Victor’s secrecy.'},{name:'Walton',role:'Explorer and narrator',blurb:'His polar expedition frames the novel and mirrors Victor’s dangerous hunger for greatness.'}]},
       pride:{answer:'Help me enjoy the romance while noticing how first impressions distort what everyone sees.',relevance:'Pride and Prejudice endures because its romance is also a study of how intelligent people misread one another. Attraction, status and self-protection keep turning observation into a story that feels true.',characters:[{name:'Elizabeth',role:'Sharp-eyed heroine',blurb:'Quick, independent and perceptive—except where wit and wounded pride make a satisfying story too easy to believe.'},{name:'Darcy',role:'Reserved gentleman',blurb:'Proud, awkward and more capable of change than Elizabeth first imagines.'},{name:'Jane',role:'Elizabeth’s sister',blurb:'Warm and generous. Her instinct to see the best in others is both a strength and a vulnerability.'},{name:'Bingley',role:'Darcy’s friend',blurb:'Open-hearted and impressionable, especially when stronger personalities claim to know what is best for him.'}]}
     };
@@ -22,7 +24,7 @@
         'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wgARCABuAG4DASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAQIDAAQFBv/EABcBAAMBAAAAAAAAAAAAAAAAAAACAwH/2gAMAwEAAhADEAAAAfngQynYmYLlZipzTgWwYjVxBNGwBgVBCHRn6DaVYcvq+ayqCLRDAmjDAwOMFJXjb0BGsq9Xleh5dJz214gggpGBirGCisj06+No27PL9fz2TnFReU8cC7YGLOuzL2nReoPKm88yrNwr0mEqNIOt8Kuto1BsM2XJpUnjlorEAHUEEtB12vVw9M36eMc7Yyg0R0eYOpGBZXD/xAAlEAACAgAFBAIDAAAAAAAAAAABAgARAxASICEiMDFBMkITM0D/2gAIAQEAAQUC23L/AKTmFuDBJX8JnveclFlTpmHjm8XFa2+W8z6qKKKrR1AlBpjfs7F0RzMM1MSjMPSA3LdlfFxeqYnSnaGSKSdI0umlqmnsiJxHbSOScq2BbhWVAkC9A6VdrMA52KLIlQrxRE1GO9wT0PGxBFg+I+LnoZrhnpp6z9iA8p4vpd+J5M+x2ie0jscxl7bZ/8QAHREAAQUAAwEAAAAAAAAAAAAAAQACEBEgAxIxQf/aAAgBAwEBPwGKVIjQAT6GRHL5lnqC5B9x1TWw51yBLjgIJxz/AP/EABwRAAICAwEBAAAAAAAAAAAAAAECACADEBEhMf/aAAgBAgEBPwHRM7AbEmJ01bWIe1ceQzEw+ULRm0q82TwbVaNDFWv/xAAdEAACAgMBAQEAAAAAAAAAAAABEQAwECExIFBx/9oACAEBAAY/Avh8t0okFFwQ1uajMNncGzsKLuVuvHat1Ga8OgfsMOFWcKwxVf/EACMQAAICAQQCAwEBAAAAAAAAAAABESExECBBUXGBMGGRocH/2gAIAQEAAT8hei1aaJ3La2eRT6MM+0zOxbMNXoPDbTwVtxSLo/jg1KexBtIqhSOEZcT8KwEkxniGwaI9pBESMohWPVbV4Q8CVA6Vi1wNDTbcZY0jt7Ftakp4CFaVTKLPv4VpmRRAExrqyVE0/wCDSYH0IFtgVCT7EVBa88DbTmSYX0Q3yRLuRqNXCAU8/py5ILZWCEwx/otJw/ZJ4HMk3I45WwKm26EyfYYVBLYyxgMKZH3oqPvTJ4P6QP3s/VZCj+igmEi3+GBkkOlJE50Vh4ko/phdwKl9UTqvAqySEjsY6LVhYDBKV7M2NyLU6LQWRaf/2gAMAwEAAgADAAAAEFGwg/J0BAIRgE8DN/nQQuLCxoV2UfQ3mWghJfYOzHBPf6DIImv/xAAcEQEBAAEFAQAAAAAAAAAAAAABABEQICExQVH/2gAIAQMBAT8QdD6sLBqx3BlvXAONnUxw3GMy4G1dJIzsxqJg8gx3Gsea5GLB3ZeDY5XibAv/xAAcEQEBAAIDAQEAAAAAAAAAAAABABEhECAxQVH/2gAIAQIBAT8QOPxsrLpmYnyXBeskm+npZFvOJs3h59EDEDP1Z4IDUj7LnROc/ekLC+WLb0GoX0ei3//EACMQAQACAgICAgMBAQAAAAAAAAEAESExQWFRcRCBkbHBodH/2gAIAQEAAT8Q2z8CdfAGZODHcpepRdc/D7+LiqOcsYFRxmIuNEGzPMot125lAF4vSRqyxWMwUZ3EIwgZcxc6I0nJmDWTcsxmziYIhpyzfVGM7euoUXBZ8Pwc3P3AWViak16mI4IgArlef4j7gMrf2NxoLWhZa9btvBV3HUe5UNy4ZYQ3jBDWdepcYPfmI/UuY2T2CGRoLbw1Ovqfmj4FYicT2iwzDEoRKiNRa2TOBRxEvOGHuM9m/UUcfhCs6l88jGEJ2jLxPEPUrwoHKlbd0yiFB4lFFG1nxG4kYQ1GqqEMRX8KkeYhVwOkOXxKxsUvywQJQvuE0FvUqMrihyM2bicwgQNwWs3uC1nEUClHKAUGNvmDY30hkSdsCaUbW8v9l+0Hb/IvYvytiKki8MNzNODzANHi2aiRh3Jp0YPcJjJK7RWSuVdsa4WuB4IPBmCmVmBc8mCA8plBANnirjllQOjcFGA9S+nBAYoDSPUXWkQE4mBZunURUqGu2Jstun+zm+bibrnScB1EB7iKtrXcTMMNBtGUHkXmoiy+R/MOH1RCayOYpfVB75f9jBrGoAAq6xG1XiVBWpUpeCIbdXglUQAF4uZehvBKg8ND6jF+4CL1ZfqMosT95joq9zd0EaPUWTwx0cwcZ5jx9w7iZlwD5xFT8jU5WK/7NLRyhl0jC2UKM1vENu+Y9Y5hsU6horyystan/9k=',
         'data:image/jpeg;base64,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'
       ],
-      meditations:[],frankenstein:[],pride:[]
+      meditations:[],bible:[],frankenstein:[],pride:[]
     };
     root.querySelectorAll('[data-cover]').forEach(image=>{image.src=coverData[image.dataset.cover]});
     const phone=root.querySelector('.tov5-phone');
@@ -196,7 +198,27 @@
       note.textContent=muted?'Librarian · microphone live':'Librarian · microphone muted';
       if(window.lucide)window.lucide.createIcons();
     });
-    root.querySelectorAll('[data-open-book]').forEach(button=>button.addEventListener('click',()=>showView('book-detail')));
+    const bookKeyFromButton=button=>{
+      const cover=(button.querySelector('[data-cover]')?.dataset.cover||'').replace(/-old$/,'');
+      if(books[cover])return cover;
+      const copy=(button.textContent||'').toLowerCase();
+      if(copy.includes('meditations'))return 'meditations';
+      if(copy.includes('bible'))return 'bible';
+      if(copy.includes('frankenstein'))return 'frankenstein';
+      if(copy.includes('pride'))return 'pride';
+      return 'odyssey';
+    };
+    const libraryBookSelector='.tov5-library-track > button, .tov5-library-section > div > button, .tov5-librarian-chat-books > button, .tov5-librarian-voice-books > button, [data-open-book]';
+    root.querySelectorAll(libraryBookSelector).forEach(button=>button.addEventListener('click',()=>{
+      setBook(bookKeyFromButton(button));
+      showView('book-detail');
+    }));
+    root.querySelector('.tov5-library-search input').addEventListener('input',event=>{
+      const query=event.currentTarget.value.trim().toLowerCase();
+      root.querySelectorAll('.tov5-library-track > button, .tov5-library-section > div > button').forEach(button=>{
+        button.hidden=Boolean(query)&&!(button.textContent||'').toLowerCase().includes(query);
+      });
+    });
     root.querySelectorAll('[data-character]').forEach(button=>button.addEventListener('click',()=>selectCharacter(Number(button.dataset.character))));
     root.querySelectorAll('[data-preface-mode]').forEach(button=>button.addEventListener('click',()=>{
       root.querySelectorAll('[data-preface-mode]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
@@ -229,10 +251,7 @@
       note.textContent='Message sent to the book';
     });
     root.querySelectorAll('.tov5-angle-options button').forEach(button=>button.addEventListener('click',()=>root.querySelectorAll('.tov5-angle-options button').forEach(item=>item.setAttribute('aria-pressed',String(item===button)))));
-    root.querySelectorAll('[data-begin-reading]').forEach(button=>button.addEventListener('click',()=>{
-      root.querySelectorAll('[data-begin-reading]').forEach(item=>{item.textContent=item===button?'Opening '+books[currentBook].title+'…':item.textContent});
-      note.textContent='Opening '+books[currentBook].title+' with your chosen edition and reading angle';
-    }));
+    root.querySelectorAll('[data-begin-reading]').forEach(button=>button.addEventListener('click',()=>window.parent.location.assign('/lab/phone')));
     root.querySelectorAll('[data-frame-dot]').forEach(dot=>dot.addEventListener('click',()=>{stopAutoFrames();showFrame(dot.dataset.frameDot)}));
     root.querySelector('[data-pick-demo-book="odyssey"]').addEventListener('click',buttonEvent=>{
       stopAutoFrames();
@@ -291,19 +310,48 @@
     const params = new URLSearchParams(window.location.search);
     if (params.get('embed') !== '1') return;
 
-    const navigate = path => window.parent.location.assign(path);
-    const stopAndNavigate = path => event => {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      navigate(path);
-    };
-
     const landing = document.querySelector('[data-view-panel="landing"]');
-    landing?.querySelector('.tov5-brand button')?.addEventListener('click', stopAndNavigate('/lab/library'), true);
-    landing?.querySelector('.tov5-footer button')?.addEventListener('click', stopAndNavigate('/lab/phone'), true);
-
-    const library = document.querySelector('[data-view-panel="library"]');
-    library?.querySelectorAll('.tov5-library-track > button, .tov5-library-section > div > button').forEach(button => {
-      button.addEventListener('click', stopAndNavigate('/lab/phone'), true);
+    landing?.querySelector('.tov5-brand button')?.addEventListener('click', () => window.parent.location.assign('/lab/library'));
+    landing?.querySelector('.tov5-footer button')?.addEventListener('click', () => {
+      window.parent.history.pushState({}, '', '/lab/library');
+      document.querySelectorAll('[data-view-panel]').forEach(panel => panel.classList.toggle('is-current', panel.dataset.viewPanel === 'library'));
     });
+
+    const chat=document.querySelector('.tov5-librarian-focus');
+    const chatInput=chat?.querySelector('input[aria-label="Message the librarian"]');
+    const chatSend=chat?.querySelector('button[aria-label="Send"]');
+    const submitChat=async()=>{
+      const question=chatInput?.value.trim();
+      if(!question)return;
+      chatInput.value='';
+      const thread=chat.querySelector('.tov5-librarian-chat');
+      const user=document.createElement('p');
+      user.textContent=question;
+      thread.appendChild(user);
+      const answer=document.createElement('p');
+      answer.textContent='Reading your question…';
+      thread.appendChild(answer);
+      try{
+        const response=await fetch('/api/lab-chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:500,stream:false,system:"You are Tinct's librarian. Recommend public-domain classics warmly and concisely. Ask at most one useful follow-up question. Never invent availability.",messages:[{role:'user',content:question}]})});
+        const data=await response.json();
+        answer.textContent=data?.content?.[0]?.text||'The librarian is unavailable just now.';
+      }catch{
+        answer.textContent='The librarian is unavailable just now.';
+      }
+      thread.scrollTop=thread.scrollHeight;
+    };
+    chatSend?.addEventListener('click',submitChat);
+    chatInput?.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();submitChat();}});
+
+    document.querySelectorAll('[data-librarian-enter="voice"], [data-open-librarian="voice"]').forEach(button=>button.addEventListener('click',()=>{
+      const voice=document.querySelector('.tov5-librarian-voice');
+      voice?.setAttribute('data-voice-adapter','useLabAsk/useVoiceSession');
+      const status=voice?.querySelector(':scope > small');
+      const heading=voice?.querySelector(':scope > h2');
+      const copy=voice?.querySelector(':scope > p');
+      if(status)status.textContent='Ready to talk';
+      if(heading)heading.textContent='Start a voice conversation';
+      if(copy)copy.textContent='Voice uses the existing Tinct session controls when connected.';
+      window.parent.postMessage({type:'tinct:library-voice-start'},window.location.origin);
+    }),true);
   })();

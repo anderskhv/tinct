@@ -31,7 +31,7 @@ describe('Lab entry routes', () => {
     expect(labSurface('/lab/phone')).toBe('reader')
   })
 
-  it('keeps the approved content, interactions, and reader destinations in the embedded artifact', () => {
+  it('keeps the approved content and edge-to-edge mobile treatment', () => {
     const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
     const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
     expect(wireframe).toContain('Fall in love with the books that fight back.')
@@ -44,7 +44,42 @@ describe('Lab entry routes', () => {
     expect(wireframe).toContain('Search 90+ classics')
     expect(wireframe).toContain('Ideas for living')
     expect(wireframe).toContain('Stories that shaped the world')
-    expect(runtime).toContain("stopAndNavigate('/lab/library')")
-    expect(runtime).toContain("stopAndNavigate('/lab/phone')")
+    expect(wireframe).toContain('width: 100vw !important')
+    expect(wireframe).toContain('border-radius: 0 !important')
+    expect(wireframe).toContain('min-height: 100dvh !important')
+    expect(runtime).toContain("window.parent.history.pushState({}, '', '/lab/library')")
+  })
+
+  it('enforces library → detail → edition → preface → reader with no earlier reader jump', () => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
+    const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
+    expect(wireframe).toContain('data-book-detail-title')
+    expect(wireframe).toContain('class="tov5-choose-edition" data-view="edition"')
+    expect(wireframe).toContain('class="tov5-continue" data-view="preface"')
+    expect(runtime).toContain("showView('book-detail')")
+    expect(runtime).toContain("window.parent.location.assign('/lab/phone')")
+    expect(runtime.match(/window\.parent\.location\.assign\('\/lab\/phone'\)/g)).toHaveLength(1)
+  })
+
+  it.each([
+    ['odyssey', 'The Odyssey'],
+    ['meditations', 'Meditations'],
+    ['bible-old', 'The Bible'],
+  ])('opens the %s library card through the common book-detail handler', (cover, title) => {
+    const wireframe = readFileSync(resolve(process.cwd(), 'public/lab-wireframe.html'), 'utf8')
+    const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
+    expect(wireframe).toContain(`data-cover="${cover}"`)
+    expect(wireframe).toContain(title)
+    expect(runtime).toContain("const libraryBookSelector='.tov5-library-track > button, .tov5-library-section > div > button")
+    expect(runtime).toContain("setBook(bookKeyFromButton(button))")
+  })
+
+  it('filters title and author text and keeps full-page librarian close/chat/voice adapters', () => {
+    const runtime = readFileSync(resolve(process.cwd(), 'public/lab-wireframe-runtime.js'), 'utf8')
+    expect(runtime).toContain(".tov5-library-search input').addEventListener('input'")
+    expect(runtime).toContain("(button.textContent||'').toLowerCase().includes(query)")
+    expect(runtime).toContain(".tov5-librarian-close').forEach(button=>button.addEventListener('click',()=>showView('library'))")
+    expect(runtime).toContain("fetch('/api/lab-chat'")
+    expect(runtime).toContain("data-voice-adapter','useLabAsk/useVoiceSession")
   })
 })
