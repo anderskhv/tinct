@@ -138,6 +138,12 @@ test('renders the published catalogue and filters title, author and taxonomy', a
   await expect(page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]')).toHaveCount(1)
   await expect(page.locator('.tov5-search-results')).toContainText('Leo Tolstoy')
 
+  await search.fill('Leo Tolstoy')
+  const authorResults = page.locator('.tov5-search-results [data-catalogue-book]')
+  expect(await authorResults.count()).toBeGreaterThan(1)
+  const authors = await authorResults.locator('small').allTextContents()
+  expect(new Set(authors)).toEqual(new Set(['Leo Tolstoy']))
+
   await search.fill('definitely-not-a-published-book')
   await expect(page.getByText('No books found')).toBeVisible()
   await search.fill('')
@@ -148,7 +154,9 @@ test('renders the published catalogue and filters title, author and taxonomy', a
 test('shows Republic once in a unique flat search result set', async ({ page }) => {
   await page.getByRole('searchbox', { name: 'Search the library' }).fill('Republic')
   const results = page.locator('.tov5-search-results [data-catalogue-book]')
-  await expect(page.locator('.tov5-search-results [data-catalogue-book="the-republic"]')).toHaveCount(1)
+  await expect(results).toHaveCount(1)
+  await expect(results.first()).toHaveAttribute('data-catalogue-book', 'the-republic')
+  await expect(results.first().locator('strong')).toHaveText('The Republic')
   const ids = await results.evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
   expect(new Set(ids).size).toBe(ids.length)
   await expect(page.locator('.tov5-library-section')).toHaveCount(0)

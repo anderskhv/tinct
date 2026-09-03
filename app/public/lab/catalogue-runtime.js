@@ -71,13 +71,22 @@
     return score
   }
 
+  function isDirectSearchMatch(book, rawQuery) {
+    const tokens = normalize(rawQuery).split(/\s+/).filter(Boolean)
+    if (!tokens.length) return false
+    const title = normalize(book.title)
+    const author = normalize(book.author)
+    return tokens.every(token => title.includes(token)) || tokens.every(token => author.includes(token))
+  }
+
   function visibleBooks() {
     const books = state.catalogue.books.filter(book => state.activeHouseId === 'all' || book.houseIds.includes(state.activeHouseId))
     if (!state.query.trim()) return books
-    return books.map(book => ({ book, score: searchScore(book, state.query) }))
+    const results = books.map(book => ({ book, score: searchScore(book, state.query) }))
       .filter(result => result.score > 0)
       .sort((a, b) => b.score - a.score || a.book.catalogueIndex - b.book.catalogueIndex)
-      .map(result => result.book)
+    const directResults = results.filter(result => isDirectSearchMatch(result.book, state.query))
+    return (directResults.length ? directResults : results).map(result => result.book)
   }
 
   function showView(view) {
