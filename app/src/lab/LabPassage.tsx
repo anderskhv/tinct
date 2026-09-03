@@ -124,28 +124,31 @@ function renderHearingWords(
   const lines = readingPage
     ? hearingReadingPageLines(paragraphs, readingPage, follow)
     : hearingStageLines(paragraph, follow, chapterPages)
-  return lines.map((line, lineIndex) => (
-    <p key={lineIndex} className="lab-hearing-line">
-      {renderWordGroups(line.words, (word, wordIndex, spacing) => {
-        const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
-        return (
-          <span
-            key={`${lineIndex}-${wordIndex}`}
-            className={`lab-hearing-word is-${word.role}`}
-            data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
-            data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
-            data-word-index={word.wordIndex}
-            onClick={word.wordIndex != null && onSeekToWord
-              ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
-              : undefined}
-          >
-            {spacing}
-            {renderWordText(word.text, wordIndex < line.words.length - 1)}
-          </span>
-        )
-      })}
-    </p>
-  ))
+  return lines.map((line, lineIndex) => {
+    const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
+    const paragraphCurrent = follow.kind === 'paragraph' && paragraphIndex === follow.paragraphIndex
+    return (
+      <p key={lineIndex} className={`lab-hearing-line${paragraphCurrent ? ' is-paragraph-current' : ''}`}>
+        {renderWordGroups(line.words, (word, wordIndex, spacing) => {
+          return (
+            <span
+              key={`${lineIndex}-${wordIndex}`}
+              className={`lab-hearing-word is-${word.role}`}
+              data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+              data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
+              data-word-index={word.wordIndex}
+              onClick={word.wordIndex != null && onSeekToWord
+                ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
+                : undefined}
+            >
+              {spacing}
+              {renderWordText(word.text, wordIndex < line.words.length - 1)}
+            </span>
+          )
+        })}
+      </p>
+    )
+  })
 }
 
 function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
@@ -387,6 +390,7 @@ export function LabPassage({
         'lab-book',
         'is-reading',
         hearing && !browseWhileListening ? 'is-hearing' : '',
+        followActive && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',
         browseWhileListening ? 'is-browse-listen' : '',
         dimmed ? 'is-dimmed' : '',

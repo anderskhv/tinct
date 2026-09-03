@@ -1806,12 +1806,15 @@ describe('lab bible book', () => {
     expect(screen.getByTestId('lab-chapter-cover').textContent).toContain('Genesis')
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     expect(root.getAttribute('data-place')).toBe(place)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(progress)
+    expect(screen.queryByTestId('lab-header-chapter')).toBeNull()
+    expect(screen.queryByTestId('lab-bottom-chrome')).toBeNull()
+    expect(screen.queryByTestId('lab-chapter-progress')).toBeNull()
 
-    fireEvent.click(screen.getByTestId('lab-page-next'))
+    fireEvent.keyDown(screen.getByTestId('lab-chapter-cover'), { key: 'ArrowRight' })
     expect(root.getAttribute('data-cover-page')).toBe('false')
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
     expect(root.getAttribute('data-place')).toBe(place)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(progress)
   })
 
   it('Previous on Genesis 2 page 1 goes to Genesis 1 last', async () => {
@@ -3375,7 +3378,9 @@ describe('lab chrome pass', () => {
     })
     expect(screen.getByTestId('lab-chapter-cover').textContent).toContain('Genesis')
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(screen.queryByTestId('lab-header-chapter')).toBeNull()
+    expect(screen.queryByTestId('lab-bottom-chrome')).toBeNull()
+    fireEvent.keyDown(screen.getByTestId('lab-chapter-cover'), { key: 'ArrowRight' })
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
   })
 

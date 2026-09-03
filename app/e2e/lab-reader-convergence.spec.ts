@@ -194,7 +194,7 @@ test('phone, tablet, and desktop article geometry stays fixed through repeated p
       playing: Awaited<ReturnType<typeof readingGeometry>>
       paused: Awaited<ReturnType<typeof readingGeometry>>
     }> = []
-    expect(before.align).toBe(viewport.phone ? 'left' : 'justify')
+    expect(before.align).toBe('justify')
     await page.screenshot({ path: join(ARTIFACT_DIR, `playback-before-${viewport.width}x${viewport.height}.png`) })
 
     for (let transition = 0; transition < 3; transition += 1) {
