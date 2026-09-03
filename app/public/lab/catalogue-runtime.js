@@ -20,6 +20,7 @@
   })[character])
   const normalize = value => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim()
   const selectedBook = () => state.booksById.get(state.selectedBookId)
+  const v1Editions = book => book.editions.filter(edition => edition.language !== 'da')
   const formatDate = value => value ? new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(value) : ''
   const formatWordCount = count => count ? `${new Intl.NumberFormat().format(count)} words` : 'Length unavailable'
 
@@ -91,22 +92,28 @@
       zoom.style.setProperty('--tov5-world-ink', book.cover.background)
     })
     const src = worldData(book)
-    root.querySelectorAll('[data-library-world-art],[data-your-library-world-art],[data-librarian-world-art],[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image => { image.src = src })
+    root.querySelectorAll('[data-library-world-art],[data-your-library-world-art],[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image => { image.src = src })
   }
 
   function renderLibrary() {
     const books = visibleBooks()
-    const top = books.slice(0, 16)
+    const searching = Boolean(state.query.trim())
+    const top = searching ? [] : books.slice(0, 16)
     const library = root.querySelector('[data-view-panel="library"]')
+    library.classList.toggle('is-searching', searching)
     const track = library.querySelector('.tov5-library-track')
     track.innerHTML = top.map(book => card(book)).join('')
     library.querySelector('header h2').textContent = state.query ? 'Search results' : state.activeHouseId === 'all' ? 'Popular' : state.catalogue.houses.find(house => house.id === state.activeHouseId)?.title || 'Library'
     library.querySelector('header small').textContent = `${state.catalogue.books.length} published books`
     library.querySelector('.tov5-library-search input').placeholder = `Search ${state.catalogue.books.length} published books`
     const sections = library.querySelector('.tov5-library-body')
-    sections.querySelectorAll('.tov5-library-section,.tov5-library-empty').forEach(section => section.remove())
+    sections.querySelectorAll('.tov5-library-section,.tov5-library-empty,.tov5-search-results').forEach(section => section.remove())
     if (!books.length) {
       sections.insertAdjacentHTML('beforeend', `<section class="tov5-library-empty" aria-live="polite"><h3>No books found</h3><p>Try another title, author or idea.</p></section>`)
+      return
+    }
+    if (searching) {
+      sections.insertAdjacentHTML('beforeend', `<section class="tov5-search-results" aria-live="polite"><div>${books.map(book => card(book)).join('')}</div></section>`)
       return
     }
     const shelves = state.catalogue.houses
@@ -148,39 +155,51 @@
     root.querySelector('[data-book-detail-summary]').textContent = book.summary
     root.querySelector('[data-book-pages]').textContent = formatWordCount(book.wordCount)
     root.querySelector('[data-book-pages]').nextElementSibling.textContent = 'Published text'
-    root.querySelector('[data-book-read-time]').textContent = `${book.editions.length} ${book.editions.length === 1 ? 'edition' : 'editions'}`
+    const editions = v1Editions(book)
+    root.querySelector('[data-book-read-time]').textContent = `${editions.length} ${editions.length === 1 ? 'edition' : 'editions'}`
     root.querySelector('[data-book-read-time]').nextElementSibling.textContent = 'Available'
     root.querySelector('[data-book-listen-time]').textContent = book.availability.audio ? 'Available' : 'Unavailable'
     root.querySelector('[data-book-listen-time]').nextElementSibling.textContent = 'Audio'
   }
 
-  const editionTitle = edition => edition.style === 'modern' ? 'Modern text' : edition.style === 'original' ? 'Original text' : 'Published text'
+  const languageName = language => ({ en: 'English', da: 'Danish' })[language] || language.toUpperCase()
+  const editionTitle = edition => edition.style === 'modern' ? 'Modern' : edition.style === 'original' ? 'Original' : 'Published'
+  const editionChoiceLabel = edition => edition.style === 'modern' ? `Modern ${languageName(edition.language)}` : editionTitle(edition)
   function renderEditions(book) {
+    const editions = v1Editions(book)
     root.querySelector('.tov5-edition-head img').src = coverData(book)
     root.querySelector('.tov5-edition-head img').alt = book.title
     root.querySelector('.tov5-edition-head small').textContent = book.title
     const grid = root.querySelector('.tov5-edition-grid')
-    grid.dataset.editionCount = String(book.editions.length)
-    grid.innerHTML = book.editions.map(edition => `<article data-catalogue-edition="${edition.key}" class="${edition.key === state.selectedEditionKey ? 'is-selected' : ''}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(edition.provenanceLabel)}</em></span></div><p>${escapeHtml(edition.language.toUpperCase())}${edition.year ? ` · ${edition.year}` : ''}<br>${edition.availability.audio ? 'Text and audio available' : 'Text available'}</p><button type="button" data-select-edition="${edition.key}" aria-pressed="${edition.key === state.selectedEditionKey}"><span></span>Choose ${escapeHtml(edition.label)}</button></article>`).join('')
+    grid.dataset.editionCount = String(editions.length)
+    grid.innerHTML = editions.map(edition => {
+      const selected = !state.compareEditionKey && edition.key === state.selectedEditionKey
+      const metadata = [languageName(edition.language), edition.year, edition.provenanceLabel, edition.availability.audio ? 'Text and audio available' : 'Text available'].filter(Boolean).join(' · ')
+      const choiceLabel = editionChoiceLabel(edition)
+      return `<article data-catalogue-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><button type="button" data-select-edition="${edition.key}" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><span></span>Choose ${escapeHtml(choiceLabel)}</button></article>`
+    }).join('')
     root.querySelectorAll('[data-edition-menu]').forEach(menu => { menu.hidden = true })
     updateCompareOption(book)
     updateContinueLabel(book)
   }
 
   function updateCompareOption(book) {
-    const primary = book.editions.find(edition => edition.key === state.selectedEditionKey)
-    const compare = primary?.aligned ? book.editions.find(edition => edition.key !== primary.key && edition.availability.compare) : null
+    const editions = v1Editions(book)
+    const primary = editions.find(edition => edition.key === state.selectedEditionKey)
+    const compare = primary?.aligned ? editions.find(edition => edition.key !== primary.key && edition.availability.compare) : null
     const both = root.querySelector('.tov5-both')
     both.hidden = !compare
     if (compare) {
       both.querySelector('strong').textContent = `Compare ${primary.label} and ${compare.label}.`
       both.querySelector('[data-edition-choice]').dataset.compareEdition = compare.key
     }
+    both.classList.toggle('is-selected', Boolean(compare && state.compareEditionKey))
+    both.querySelector('[data-edition-choice]').setAttribute('aria-pressed', String(Boolean(compare && state.compareEditionKey)))
   }
 
   function updateContinueLabel(book) {
-    const edition = book.editions.find(item => item.key === state.selectedEditionKey)
-    root.querySelector('.tov5-continue').textContent = state.compareEditionKey ? 'Continue with Both' : `Continue with ${edition?.label || 'selected edition'}`
+    const edition = v1Editions(book).find(item => item.key === state.selectedEditionKey)
+    root.querySelector('.tov5-continue').textContent = state.compareEditionKey ? 'Continue with Both' : `Continue with ${edition ? editionChoiceLabel(edition) : 'selected edition'}`
   }
 
   async function loadOnboarding(book) {
@@ -219,16 +238,17 @@
 
   function createHandoff(selection) {
     const book = state.booksById.get(selection?.bookId)
-    const primary = book?.editions.find(edition => edition.key === selection?.primaryEditionKey)
+    const editions = book ? v1Editions(book) : []
+    const primary = editions.find(edition => edition.key === selection?.primaryEditionKey)
     if (!book || !primary?.availability.chapterText) return null
     const intent = { kind: 'open-reader', bookId: book.id, primaryEditionKey: primary.key }
     if (selection.compareEditionKey) {
-      const compare = book.editions.find(edition => edition.key === selection.compareEditionKey)
+      const compare = editions.find(edition => edition.key === selection.compareEditionKey)
       if (!primary.aligned || !compare || compare.key === primary.key || !compare.availability.compare) return null
       intent.compareEditionKey = compare.key
     }
     if (selection.audioEditionKey) {
-      const audio = book.editions.find(edition => edition.key === selection.audioEditionKey)
+      const audio = editions.find(edition => edition.key === selection.audioEditionKey)
       if (!audio?.availability.audio) return null
       intent.audioEditionKey = audio.key
     }
@@ -333,8 +353,7 @@
     if (compareButton) {
       event.preventDefault(); event.stopImmediatePropagation()
       state.compareEditionKey = state.compareEditionKey ? null : compareButton.dataset.compareEdition
-      compareButton.setAttribute('aria-pressed', String(Boolean(state.compareEditionKey)))
-      updateContinueLabel(selectedBook())
+      renderEditions(selectedBook())
       return
     }
     const character = event.target.closest('[data-catalogue-character]')
@@ -397,7 +416,9 @@
     const params = new URLSearchParams(location.search)
     const requested = params.get('book')
     const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
-    return selectBook(state.booksById.has(requested) ? requested : 'odyssey', params.get('view') || routeView)
+    const requestedView = params.get('view')
+    const allowedViews = new Set(['landing', 'library', 'your-library', 'book-detail', 'edition', 'preface'])
+    return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
   }).then(() => {
     window.__tinctLabPreReader.ready = true
     window.dispatchEvent(new CustomEvent('tinct:lab-catalogue-ready'))

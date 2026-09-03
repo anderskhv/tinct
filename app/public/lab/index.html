@@ -31,7 +31,6 @@
     <nav class="tov5-picker" aria-label="Preview controls">
       <div><span>Book world</span><button type="button" data-book="odyssey" aria-pressed="true">Odyssey</button><button type="button" data-book="meditations" aria-pressed="false">Meditations</button><button type="button" data-book="frankenstein" aria-pressed="false">Frankenstein</button><button type="button" data-book="pride" aria-pressed="false">Pride &amp; Prejudice</button></div>
       <div><span>Inspect</span><button type="button" data-view="landing" aria-pressed="false">Landing</button><button type="button" data-view="your-library" aria-pressed="false">Your library</button><button type="button" data-view="library" aria-pressed="true">Browse library · replay</button><button type="button" data-view="book-detail" aria-pressed="false">Book detail</button><button type="button" data-view="edition" aria-pressed="false">Edition picker</button><button type="button" data-view="preface" aria-pressed="false">Optional preface</button></div>
-      <div><span>Librarian opened</span><button type="button" data-librarian-layout="choice" aria-pressed="true">Choose</button><button type="button" data-librarian-layout="voice" aria-pressed="false">Talk</button><button type="button" data-librarian-layout="focus" aria-pressed="false">Chat</button></div>
     </nav>
 
     <section class="tov5-view is-current" data-view-panel="landing">
@@ -123,10 +122,6 @@
         <button type="button" class="tov5-shelf-arrow tov5-shelf-arrow-left" data-shelf-arrow="left" aria-label="Scroll popular books left">‹</button>
         <button type="button" class="tov5-shelf-arrow tov5-shelf-arrow-right" data-shelf-arrow="right" aria-label="Scroll popular books right">›</button>
         <div class="tov5-library-body">
-          <section class="tov5-librarian-row">
-            <button type="button" class="tov5-orb" data-open-librarian="choice" aria-label="Open the librarian"><span><i></i><i></i><i></i><i></i><i></i></span></button>
-            <div><strong>Not sure where to begin?</strong><small class="tov5-librarian-prompt-copy">Ask the librarian.</small><div class="tov5-librarian-actions"><button type="button" data-open-librarian="voice"><i data-lucide="audio-lines" aria-hidden="true"></i> Talk</button><button type="button" data-open-librarian="focus"><i data-lucide="message-circle" aria-hidden="true"></i> Chat</button></div></div>
-          </section>
           <label class="tov5-library-search"><i data-lucide="search" aria-hidden="true"></i><input type="search" placeholder="Search 90+ classics" aria-label="Search the library"></label>
           <nav class="tov5-categories" aria-label="Browse by category">
             <button type="button" data-category="All" aria-pressed="true">All</button>
@@ -159,7 +154,7 @@
       <div class="tov5-zoom tov5-your-library-zoom">
         <img class="tov5-secondary-world-art" src="" data-your-library-world-art alt="" aria-hidden="true">
         <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
-        <header class="tov5-your-library-head"><b>Tinct.</b><button type="button" aria-label="Search your library"><i data-lucide="search" aria-hidden="true"></i></button></header>
+        <header class="tov5-your-library-head"><b>Tinct.</b></header>
         <main class="tov5-your-library-body">
           <section class="tov5-reader-shelf">
             <div class="tov5-section-label"><div><small>Continue where you left off</small><h2>Your library</h2></div><button type="button">See all</button></div>
@@ -187,14 +182,8 @@
           </section>
 
           <div class="tov5-your-library-lower">
-            <section class="tov5-librarian-row">
-              <button type="button" class="tov5-orb" data-open-librarian="choice" aria-label="Open the librarian"><span><i></i><i></i><i></i><i></i><i></i></span></button>
-              <div><strong>Your librarian</strong><div class="tov5-librarian-actions"><button type="button" data-open-librarian="voice"><i data-lucide="audio-lines" aria-hidden="true"></i> Talk</button><button type="button" data-open-librarian="focus"><i data-lucide="message-circle" aria-hidden="true"></i> Chat</button></div></div>
-            </section>
             <section class="tov5-embedded-library">
               <header><div><small>90+ classics and growing</small><h3>Full library</h3></div><button type="button">See all</button></header>
-              <label><i data-lucide="search" aria-hidden="true"></i><input type="search" placeholder="Search books, authors or ideas" aria-label="Search the full library"></label>
-              <nav aria-label="Browse the full library"><button type="button">All</button><button type="button">Philosophy</button><button type="button">Epics</button><button type="button">Fiction</button></nav>
               <div class="tov5-embedded-books">
                 <button type="button" data-open-book><img src="" data-cover="odyssey" alt="The Odyssey"><strong>The Odyssey</strong><small>Homer</small></button>
                 <button type="button"><img src="" data-cover="frankenstein" alt="Frankenstein"><strong>Frankenstein</strong><small>Mary Shelley</small></button>
@@ -207,67 +196,16 @@
       </div>
     </section>
 
-    <section class="tov5-view" data-view-panel="librarian">
-      <div class="tov5-zoom tov5-librarian-zoom" data-librarian-current="choice">
-        <img class="tov5-secondary-world-art" src="" data-librarian-world-art alt="" aria-hidden="true">
-        <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
-        <div class="tov5-librarian-base">
-          <header><b>Tinct.</b><i data-lucide="search" aria-hidden="true"></i></header>
-          <section class="tov5-librarian-trigger"><div class="tov5-preface-orb"><span><i></i><i></i><i></i><i></i><i></i></span></div><div><small>Your librarian</small><h2>What would you like to read?</h2></div><i data-lucide="chevron-right" aria-hidden="true"></i></section>
-          <div class="tov5-librarian-base-copy"><small>Popular choices</small><h3>Books that meet you where you are</h3></div>
-          <div class="tov5-librarian-base-books"><img src="" data-cover="odyssey" alt="The Odyssey"><img src="" data-cover="meditations" alt="Meditations"><img src="" data-cover="frankenstein" alt="Frankenstein"><img src="" data-cover="pride-old" alt="Pride and Prejudice"></div>
-        </div>
-
-        <section class="tov5-librarian-variant tov5-librarian-choice" data-librarian-variant="choice">
-          <button type="button" class="tov5-librarian-close" aria-label="Close librarian"><i data-lucide="x" aria-hidden="true"></i></button>
-          <div class="tov5-preface-orb"><span><i></i><i></i><i></i><i></i><i></i></span></div>
-          <small>Your librarian</small><h2>How would you like to begin?</h2>
-          <div><button type="button" data-librarian-enter="voice"><i data-lucide="audio-lines" aria-hidden="true"></i><span><strong>Talk</strong><small>Have a voice conversation</small></span></button><button type="button" data-librarian-enter="focus"><i data-lucide="message-circle" aria-hidden="true"></i><span><strong>Chat</strong><small>Write to your librarian</small></span></button></div>
-        </section>
-
-        <section class="tov5-librarian-variant tov5-librarian-focus" data-librarian-variant="focus">
-          <button type="button" class="tov5-librarian-close" aria-label="Close librarian"><i data-lucide="x" aria-hidden="true"></i></button>
-          <header><div class="tov5-preface-orb"><span><i></i><i></i><i></i><i></i><i></i></span></div><div><small>Chat with</small><h2>Your librarian</h2></div></header>
-          <div class="tov5-librarian-chat"><p>I want something adventurous, but not shallow.</p><p>The Odyssey is the obvious starting point—but Frankenstein also turns ambition into an adventure with real moral weight.</p></div>
-          <div class="tov5-librarian-chat-books"><button type="button" data-open-book><img src="" data-cover="odyssey" alt="The Odyssey"><span><strong>The Odyssey</strong><small>Epic · 12 hours</small></span></button><button type="button"><img src="" data-cover="frankenstein" alt="Frankenstein"><span><strong>Frankenstein</strong><small>Gothic · 6 hours</small></span></button></div>
-          <label><button type="button" class="tov5-chat-to-voice" data-librarian-enter="voice" aria-label="Switch to voice"><i data-lucide="audio-lines" aria-hidden="true"></i></button><input type="text" placeholder="Message your librarian" aria-label="Message the librarian"><button type="button" aria-label="Send"><i data-lucide="arrow-up" aria-hidden="true"></i></button></label>
-        </section>
-
-        <section class="tov5-librarian-variant tov5-librarian-voice" data-librarian-variant="voice">
-          <button type="button" class="tov5-librarian-close" aria-label="Close librarian"><i data-lucide="x" aria-hidden="true"></i></button>
-          <div class="tov5-librarian-voice-orb"><span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-          <small>Listening</small><h2>“Something adventurous,<br>but not shallow.”</h2>
-          <p>I have two ideas. Let me show you why each might fit.</p>
-          <div class="tov5-librarian-voice-books"><button type="button" data-open-book><img src="" data-cover="odyssey" alt="The Odyssey"><span><strong>The Odyssey</strong><small>Epic · 12 hours</small></span></button><button type="button"><img src="" data-cover="frankenstein" alt="Frankenstein"><span><strong>Frankenstein</strong><small>Gothic · 6 hours</small></span></button></div>
-          <nav class="tov5-voice-controls" aria-label="Voice controls"><button type="button" aria-label="Mute microphone"><i data-lucide="mic-off" aria-hidden="true"></i></button><button type="button" class="tov5-end-voice" aria-label="End voice conversation"><i data-lucide="phone-off" aria-hidden="true"></i></button><button type="button" data-librarian-enter="focus" aria-label="Switch to chat"><i data-lucide="message-circle" aria-hidden="true"></i></button></nav>
-        </section>
-
-        <section class="tov5-librarian-variant tov5-librarian-drawer" data-librarian-variant="drawer">
-          <header><div><small>Talking with</small><h2>Your librarian</h2></div><button type="button" class="tov5-librarian-close" aria-label="Close librarian"><i data-lucide="x" aria-hidden="true"></i></button></header>
-          <div class="tov5-librarian-mini-chat"><p>What kind of book would stay with me after I finish?</p><p>Try one of these. They fight back in different ways.</p></div>
-          <div class="tov5-librarian-rec"><article><img src="" data-cover="meditations" alt="Meditations"><div><strong>Meditations</strong><p>Returns your attention to what you can govern.</p></div></article><article><img src="" data-cover="frankenstein" alt="Frankenstein"><div><strong>Frankenstein</strong><p>Turns invention into a question of responsibility.</p></div></article></div>
-          <label><input type="text" placeholder="Ask a follow-up" aria-label="Ask the librarian"><button type="button" aria-label="Talk"><i data-lucide="mic" aria-hidden="true"></i></button></label>
-        </section>
-
-        <section class="tov5-librarian-variant tov5-librarian-inline" data-librarian-variant="inline">
-          <header><div class="tov5-preface-orb"><span><i></i><i></i><i></i><i></i><i></i></span></div><div><small>Talking with your librarian</small><h2>Find the book you need now</h2></div><button type="button" class="tov5-librarian-close" aria-label="Close librarian"><i data-lucide="chevron-up" aria-hidden="true"></i></button></header>
-          <div class="tov5-librarian-inline-chat"><p>I keep starting classics and losing momentum.</p><p>Let’s choose for momentum first. Do you want plot, practical ideas, or a voice you enjoy spending time with?</p></div>
-          <div class="tov5-librarian-inline-actions"><button type="button">Plot</button><button type="button">Practical ideas</button><button type="button">A great voice</button><button type="button"><i data-lucide="mic" aria-hidden="true"></i> Tell me</button></div>
-        </section>
-      </div>
-    </section>
-
     <section class="tov5-view" data-view-panel="book-detail">
       <div class="tov5-zoom tov5-book-detail-zoom">
         <img class="tov5-secondary-world-art" src="" data-book-detail-world-art alt="" aria-hidden="true">
         <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
         <header class="tov5-book-detail-top"><button type="button" data-view="library"><i data-lucide="arrow-left" aria-hidden="true"></i> Library</button><b>Tinct.</b><span></span></header>
         <main class="tov5-book-detail-body">
-          <img class="tov5-book-detail-cover" src="" data-book-detail-cover alt="The Odyssey">
-          <section class="tov5-book-detail-copy"><small data-book-detail-author>Homer</small><h2 data-book-detail-title>The Odyssey</h2><p data-book-detail-summary>After ten years of war, Odysseus begins the long journey home to Ithaca—while his son searches for news and his household is overrun by rivals.</p>
-            <div class="tov5-book-length"><span><i data-lucide="book-open" aria-hidden="true"></i><b data-book-pages>541 pages</b><small>Print length</small></span><span><i data-lucide="glasses" aria-hidden="true"></i><b data-book-read-time>12 hours</b><small>Reading</small></span><span><i data-lucide="headphones" aria-hidden="true"></i><b data-book-listen-time>14 hours</b><small>Listening</small></span></div>
-            <button type="button" class="tov5-choose-edition" data-view="edition">Start reading <i data-lucide="arrow-right" aria-hidden="true"></i></button>
-          </section>
+          <div class="tov5-book-identity"><img class="tov5-book-detail-cover" src="" data-book-detail-cover alt="The Odyssey"><section class="tov5-book-detail-copy"><small data-book-detail-author>Homer</small><h2 data-book-detail-title>The Odyssey</h2></section></div>
+          <div class="tov5-book-length"><span><i data-lucide="book-open" aria-hidden="true"></i><b data-book-pages>541 pages</b><small>Print length</small></span><span><i data-lucide="glasses" aria-hidden="true"></i><b data-book-read-time>12 hours</b><small>Reading</small></span><span><i data-lucide="headphones" aria-hidden="true"></i><b data-book-listen-time>14 hours</b><small>Listening</small></span></div>
+          <p class="tov5-book-description" data-book-detail-summary>After ten years of war, Odysseus begins the long journey home to Ithaca—while his son searches for news and his household is overrun by rivals.</p>
+          <button type="button" class="tov5-choose-edition" data-view="edition">Start reading <i data-lucide="arrow-right" aria-hidden="true"></i></button>
         </main>
       </div>
     </section>
@@ -1093,7 +1031,163 @@
   @media(prefers-reduced-motion:reduce){ #tinct-onboarding-worlds-v5 .tov5-library-track.is-nudging,#tinct-onboarding-worlds-v5 .tov5-orb i,#tinct-onboarding-worlds-v5 .tov5-frame.is-current { animation:none; } #tinct-onboarding-worlds-v5 [data-chat-item] { transition:none; } #tinct-onboarding-worlds-v5 .tov5-simple-start { transition:none; } #tinct-onboarding-worlds-v5 .tov5-simple-world { animation:none; opacity:0; transform:none; } #tinct-onboarding-worlds-v5 .tov5-simple-world.odyssey { opacity:1; } }
 </style>
 
-<script src="/lab/interaction-runtime.js?v=20260903-3" defer></script>
-<script src="/lab/catalogue-runtime.js?v=20260903-3" defer></script>
+<style id="tov5-responsive-convergence">
+  /* Shared post-landing canvas: broad enough for desktop, still edge-to-edge on a phone. */
+  #tinct-onboarding-worlds-v5,#tinct-onboarding-worlds-v5 .tov5-shell,#tinct-onboarding-worlds-v5 .tov5-view { min-width:0; max-width:100%; }
+  #tinct-onboarding-worlds-v5 .tov5-view { overflow-x:clip; }
+  #tinct-onboarding-worlds-v5 .tov5-zoom { width:min(1240px,calc(100vw - 40px)); min-width:0; max-width:100%; }
+  #tinct-onboarding-worlds-v5 .tov5-library-track>button>strong,
+  #tinct-onboarding-worlds-v5 .tov5-library-section span>strong,
+  #tinct-onboarding-worlds-v5 .tov5-embedded-books strong { overflow:visible; text-overflow:clip; white-space:normal; text-wrap:balance; }
+  #tinct-onboarding-worlds-v5 .tov5-library-track>button>strong { min-height:2.2em; }
+  #tinct-onboarding-worlds-v5 .tov5-library-section span>small { white-space:normal; }
+  #tinct-onboarding-worlds-v5 .tov5-library-search input:focus { outline:0; }
+  #tinct-onboarding-worlds-v5 .tov5-library-search:focus-within { border-color:var(--tov5-world-accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--tov5-world-accent) 20%,transparent); }
+  #tinct-onboarding-worlds-v5 [data-view-panel="library"].is-searching .tov5-library-viewport,
+  #tinct-onboarding-worlds-v5 [data-view-panel="library"].is-searching .tov5-shelf-arrow { display:none; }
+  #tinct-onboarding-worlds-v5 .tov5-search-results { margin:24px 28px 0; }
+  #tinct-onboarding-worlds-v5 .tov5-search-results>div { display:grid; grid-template-columns:repeat(auto-fill,minmax(118px,1fr)); gap:22px 14px; }
+  #tinct-onboarding-worlds-v5 .tov5-search-results button { min-width:0; padding:0; border:0; color:#fffdf7; background:transparent; text-align:left; cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .tov5-search-results img { display:block; width:100%; aspect-ratio:2/3; object-fit:cover; box-shadow:0 10px 24px rgba(0,0,0,.22); }
+  #tinct-onboarding-worlds-v5 .tov5-search-results strong,#tinct-onboarding-worlds-v5 .tov5-search-results small { display:block; }
+  #tinct-onboarding-worlds-v5 .tov5-search-results strong { margin-top:10px; font:16px/1.15 Georgia,serif; text-wrap:balance; }
+  #tinct-onboarding-worlds-v5 .tov5-search-results small { margin-top:5px; color:rgba(255,253,247,.67); font-size:10px; }
+
+  /* Book overview follows one vertical reading order at every width. */
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { min-height:min(760px,calc(100dvh - 24px)); }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:min(960px,100%); margin:0 auto; display:block; padding:42px 48px 50px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-identity { display:grid; grid-template-columns:220px minmax(0,1fr); gap:38px; align-items:end; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:220px; height:330px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { max-width:560px; font-size:clamp(42px,4.4vw,62px); line-height:.96; text-wrap:balance; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length { max-width:760px; gap:12px; margin-top:28px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length span { min-height:92px; padding:14px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length svg { width:19px; height:19px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length b { font-size:15px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length small { font-size:9px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-description { max-width:720px; margin:27px 0 0; color:rgba(255,253,247,.9); font:19px/1.5 Georgia,serif; text-wrap:pretty; }
+  #tinct-onboarding-worlds-v5 .tov5-choose-edition { width:min(420px,100%); min-height:58px; margin-top:28px; font-size:15px; }
+
+  /* Edition metadata belongs to each choice; selection is exclusive with Both. */
+  #tinct-onboarding-worlds-v5 .tov5-edition-zoom { min-height:min(760px,calc(100dvh - 24px)); padding:38px 42px 42px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-head { grid-template-columns:82px minmax(0,1fr); gap:22px; max-width:1120px; margin:0 auto 28px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-head img { width:82px; height:123px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-head h2 { font-size:clamp(32px,3vw,46px); }
+  #tinct-onboarding-worlds-v5 .tov5-edition-head p { font-size:13px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-surface { width:min(1120px,100%); margin:0 auto; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition]) { height:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; overflow:visible; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { min-height:244px; flex:auto; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { min-height:0; flex:1; display:block; padding:20px; cursor:default; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { overflow-wrap:anywhere; font-size:18px; line-height:1.2; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { font-size:11px; line-height:1.55; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-select-edition] { min-height:58px; display:flex; align-items:center; justify-content:center; gap:8px; padding:9px 12px; border:0; border-top:1px solid rgba(255,255,255,.20); color:rgba(255,253,247,.82); background:rgba(255,255,255,.035); font-size:12px; cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-select-edition]>span { width:14px; height:14px; border:1px solid rgba(255,255,255,.58); border-radius:50%; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-select-edition][aria-pressed="true"]>span { border:4px solid var(--tov5-world-accent); }
+  #tinct-onboarding-worlds-v5 .tov5-both { margin-top:16px; }
+  #tinct-onboarding-worlds-v5 .tov5-both>button { min-height:110px; }
+  #tinct-onboarding-worlds-v5 .tov5-continue { min-height:56px; margin-top:16px; border-radius:10px; font-size:15px; }
+
+  /* Optional preface uses the same responsive canvas; unfinished chat/voice controls stay out. */
+  #tinct-onboarding-worlds-v5 .tov5-preface-zoom { width:min(1240px,calc(100vw - 40px)); min-height:min(820px,calc(100dvh - 24px)); border-radius:20px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-body { width:min(1120px,100%); margin:0 auto; display:grid; grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr); gap:22px; padding:38px 42px 44px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-intro { grid-column:1/-1; max-width:none; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-intro h2 { font-size:clamp(38px,4vw,56px); }
+  #tinct-onboarding-worlds-v5 .tov5-preface-companion,#tinct-onboarding-worlds-v5 .tov5-character-section { width:auto; min-height:0; margin-top:0; padding:22px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-companion { grid-column:1; display:block; align-self:start; }
+  #tinct-onboarding-worlds-v5 .tov5-character-section { grid-column:2; grid-row:2; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-message>p { font-size:16px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-suggestion { font-size:14px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-thread .tov5-q { font-size:15px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-thread .tov5-a { min-height:0; font-size:15px; }
+  #tinct-onboarding-worlds-v5 .tov5-preface-composer { display:none; }
+  #tinct-onboarding-worlds-v5 .tov5-character-section>header>small { display:none; }
+  #tinct-onboarding-worlds-v5 .tov5-character-gallery { grid-template-columns:repeat(4,minmax(0,1fr)); overflow:visible; }
+  #tinct-onboarding-worlds-v5 .tov5-character-gallery button { min-width:0; flex:auto; }
+  #tinct-onboarding-worlds-v5 .tov5-begin-book { grid-column:1/-1; width:min(420px,100%); justify-self:center; position:static; min-height:58px; margin-top:2px; font-size:15px; }
+
+  @media (min-width:900px) {
+    #tinct-onboarding-worlds-v5 .tov5-library-zoom { padding-top:42px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-zoom>header { width:min(1160px,calc(100% - 80px)); margin:0 auto; padding:0 0 24px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-zoom>header small { font-size:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-zoom h2 { font-size:48px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-viewport { width:min(1160px,calc(100% - 80px)); margin:0 auto; }
+    #tinct-onboarding-worlds-v5 .tov5-library-track { gap:22px; padding:0 0 24px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-track { width:100%; display:grid; grid-auto-flow:column; grid-auto-columns:calc((100% - 132px)/7); }
+    #tinct-onboarding-worlds-v5 .tov5-library-track>button { width:100%; }
+    #tinct-onboarding-worlds-v5 .tov5-library-track img,#tinct-onboarding-worlds-v5 .tov5-zoom-cover { width:100%; height:auto; aspect-ratio:2/3; }
+    #tinct-onboarding-worlds-v5 .tov5-library-body { margin-top:12px; display:grid; grid-template-columns:minmax(330px,.82fr) minmax(480px,1.18fr); column-gap:30px; padding:8px 40px 46px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-search { grid-column:1; width:100%; height:54px; margin:26px 0 0; }
+    #tinct-onboarding-worlds-v5 .tov5-categories { grid-column:2; align-self:center; margin:26px 0 0; }
+    #tinct-onboarding-worlds-v5 .tov5-categories button { min-height:40px; padding:0 16px; font-size:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section { grid-column:1/-1; margin:34px 0 0; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section h3 { font-size:26px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section>div { grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section>div>button { min-height:92px; grid-template-columns:50px minmax(0,1fr); gap:10px; padding:10px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section img { width:50px; height:72px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section strong { font-size:14px; }
+    #tinct-onboarding-worlds-v5 .tov5-search-results,#tinct-onboarding-worlds-v5 .tov5-library-empty { grid-column:1/-1; margin:32px 0 0; }
+    #tinct-onboarding-worlds-v5 .tov5-search-results>div { grid-template-columns:repeat(auto-fill,minmax(135px,1fr)); gap:30px 22px; }
+    #tinct-onboarding-worlds-v5 .tov5-shelf-arrow { top:184px; }
+    #tinct-onboarding-worlds-v5 .tov5-shelf-arrow-left { left:22px; }
+    #tinct-onboarding-worlds-v5 .tov5-shelf-arrow-right { right:22px; }
+    #tinct-onboarding-worlds-v5 .tov5-your-library-body { width:min(1120px,100%); margin:0 auto; }
+    #tinct-onboarding-worlds-v5 .tov5-reader-card,#tinct-onboarding-worlds-v5 .tov5-reader-card.is-current { flex-basis:520px; width:520px; }
+    #tinct-onboarding-worlds-v5 .tov5-embedded-books { grid-template-columns:repeat(8,minmax(0,1fr)); gap:14px; }
+  }
+
+  @media (min-width:521px) and (max-width:899px) {
+    #tinct-onboarding-worlds-v5 .tov5-zoom,#tinct-onboarding-worlds-v5 .tov5-preface-zoom { width:calc(100vw - 24px); }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:min(680px,100%); padding:34px 38px 42px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-identity { grid-template-columns:190px minmax(0,1fr); gap:30px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:190px; height:285px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:44px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { font-size:17px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-zoom { padding:28px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition]) { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    #tinct-onboarding-worlds-v5 .tov5-preface-body { display:block; padding:30px 32px 38px; }
+    #tinct-onboarding-worlds-v5 .tov5-preface-companion,#tinct-onboarding-worlds-v5 .tov5-character-section { margin-top:20px; }
+    #tinct-onboarding-worlds-v5 .tov5-character-gallery { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  }
+
+  @media (max-width:520px) {
+    #tinct-onboarding-worlds-v5 .tov5-zoom,#tinct-onboarding-worlds-v5 .tov5-preface-zoom { width:100%; min-height:calc(100dvh - 8px); border-left:0; border-right:0; border-radius:0; }
+    #tinct-onboarding-worlds-v5 .tov5-library-track>button>strong { min-height:2.25em; font-size:15px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section>div { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section>div>button { min-height:68px; grid-template-columns:40px minmax(0,1fr); gap:8px; padding:7px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section img { width:40px; height:58px; }
+    #tinct-onboarding-worlds-v5 .tov5-library-section strong { font-size:12px; }
+    #tinct-onboarding-worlds-v5 .tov5-search-results { margin-left:18px; margin-right:18px; }
+    #tinct-onboarding-worlds-v5 .tov5-search-results>div { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 14px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:100%; padding:24px 22px 32px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-identity { display:block; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:148px; height:222px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy { margin-top:22px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:38px; line-height:1; }
+    #tinct-onboarding-worlds-v5 .tov5-book-length { gap:7px; margin-top:23px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-length span { min-height:88px; padding:10px 8px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-length b { overflow-wrap:anywhere; font-size:12px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-length small { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { margin-top:22px; font-size:16px; line-height:1.48; }
+    #tinct-onboarding-worlds-v5 .tov5-choose-edition { min-height:56px; margin-top:24px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-zoom { padding:20px 16px 26px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head { grid-template-columns:64px minmax(0,1fr); gap:14px; margin-bottom:20px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head img { width:64px; height:96px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head h2 { font-size:29px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition]) { height:auto; display:grid; grid-template-columns:minmax(0,1fr); gap:10px; overflow:visible; padding:1px; scroll-snap-type:none; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { width:100%; min-width:0; min-height:230px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { padding:18px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { font-size:17px; }
+    #tinct-onboarding-worlds-v5 .tov5-both>button { grid-template-columns:76px minmax(0,1fr) 14px; min-height:104px; gap:11px; padding:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-both strong { overflow-wrap:anywhere; font-size:14px; }
+    #tinct-onboarding-worlds-v5 .tov5-preface-body { display:block; padding:24px 18px 30px; }
+    #tinct-onboarding-worlds-v5 .tov5-preface-intro h2 { font-size:34px; }
+    #tinct-onboarding-worlds-v5 .tov5-preface-companion,#tinct-onboarding-worlds-v5 .tov5-character-section { width:100%; margin-top:18px; padding:16px; }
+    #tinct-onboarding-worlds-v5 .tov5-character-gallery { display:flex; gap:8px; overflow-x:auto; }
+    #tinct-onboarding-worlds-v5 .tov5-character-gallery button { flex:0 0 104px; }
+    #tinct-onboarding-worlds-v5 .tov5-begin-book { width:100%; margin-top:18px; }
+  }
+</style>
+
+<script src="/lab/interaction-runtime.js?v=20260903-5" defer></script>
+<script src="/lab/catalogue-runtime.js?v=20260903-5" defer></script>
 </body>
 </html>
