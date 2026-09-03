@@ -148,6 +148,10 @@ function isLabPathname(pathname: string): boolean {
 
 const LAB_PRE_READER_PATHS = new Set(['/lab', '/lab/', '/lab/landing', '/lab/library'])
 
+function isLabStaticAssetPath(pathname: string): boolean {
+  return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
+}
+
 async function serveLabPreReader(
   requestMethod: string,
   url: URL,
@@ -346,6 +350,14 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
       const labResp = await serveLabPreReader(request.method, url, env)
       if (labResp) return labResp
+    }
+
+    // run_worker_first sends even matching static assets through this Worker.
+    // Let the standalone Lab's catalogue and runtime files reach ASSETS rather
+    // than being mistaken for nested React reader routes.
+    if ((request.method === 'GET' || request.method === 'HEAD') && isLabStaticAssetPath(url.pathname)) {
+      const assetResp = await env.ASSETS.fetch(request)
+      if (assetResp.ok) return assetResp
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.

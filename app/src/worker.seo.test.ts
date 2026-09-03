@@ -33,6 +33,12 @@ function routerEnv() {
         if (url.pathname === '/lab/') {
           return new Response(lab, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
+        if (url.pathname === '/lab/catalogue.json') {
+          return Response.json({ marker: 'published catalogue' })
+        }
+        if (url.pathname === '/lab/catalogue-runtime.js') {
+          return new Response('window.__labRuntimeLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
         if (url.pathname === '/robots.txt') {
           return new Response('User-agent: *\nAllow: /\nDisallow: /data/\nDisallow: /api/\n', { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
         }
@@ -125,6 +131,18 @@ describe('worker SEO routing', () => {
     const html = await resp.text()
     expect(html).toContain('id="tinct-onboarding-worlds-v5"')
     expect(html).not.toContain('app shell')
+  })
+
+  it.each([
+    ['/lab/catalogue.json', 'application/json', 'published catalogue'],
+    ['/lab/catalogue-runtime.js', 'text/javascript', '__labRuntimeLoaded'],
+  ])('serves the standalone Lab asset %s instead of the app shell', async (pathname, contentType, marker) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('Content-Type')).toContain(contentType)
+    const body = await resp.text()
+    expect(body).toContain(marker)
+    expect(body).not.toContain('app shell')
   })
 
   it('serves the crawlable /read hub instead of the app shell', async () => {
