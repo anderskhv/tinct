@@ -4,6 +4,7 @@ test.use({ viewport: { width: 390, height: 844 } })
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/lab/?autoplay=0')
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
 })
 
 test('opens the landing demonstration and advances from the library to editions', async ({ page }) => {
@@ -18,18 +19,23 @@ test('opens the landing demonstration and advances from the library to editions'
 
 test('opens book detail, chooses an edition, and reaches the optional preface', async ({ page }) => {
   await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
-  await page.locator('[data-open-book]').first().click()
+  await page.locator('[data-catalogue-book="odyssey"]').first().click()
   await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
+  await expect(page.locator('[data-book-detail-title]')).toHaveText('The Odyssey')
 
   await page.getByRole('button', { name: 'Start reading' }).click()
   await expect(page.locator('[data-view-panel="edition"]')).toHaveClass(/is-current/)
-  await page.getByRole('button', { name: 'Choose classic' }).click()
-  await expect(page.locator('.tov5-continue')).toHaveText('Continue with Classic')
+  await page.locator('[data-select-edition="original-en"]').click()
+  await expect(page.locator('.tov5-continue')).toContainText('Butler')
 
   await page.locator('.tov5-continue').click()
   await expect(page.locator('[data-view-panel="preface"]')).toHaveClass(/is-current/)
   await page.getByRole('button', { name: /Give me a standard preface/ }).click()
   await expect(page.locator('[data-preface-thread]')).toBeVisible()
+  await page.locator('.tov5-begin-book').click()
+  await expect.poll(() => page.evaluate(() => window.__tinctLabLastHandoff)).toMatchObject({
+    kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en',
+  })
 })
 
 test('keeps the librarian Talk and Chat entry points directly exposed', async ({ page }) => {
@@ -45,6 +51,83 @@ test('keeps the librarian Talk and Chat entry points directly exposed', async ({
 
 test('applies themed book state from query parameters', async ({ page }) => {
   await page.goto('/lab/?autoplay=0&book=frankenstein&view=book-detail')
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
   await expect(page.locator('[data-book-detail-title]')).toHaveText('Frankenstein')
   await expect(page.locator('.tov5-book-detail-zoom')).toHaveAttribute('data-book-world', 'frankenstein')
 })
+
+test('renders the real published catalogue and filters title, author and taxonomy', async ({ page }) => {
+  await expect(page.locator('[data-view-panel="library"] header').first()).toContainText('100 published books')
+  const search = page.getByRole('searchbox', { name: 'Search the library' })
+  await search.fill('Death of Ivan Ilyich')
+  await expect(page.locator('.tov5-library-track [data-catalogue-book="ivan-ilyich"]')).toHaveCount(1)
+  await expect(page.locator('.tov5-library-track')).toContainText('Leo Tolstoy')
+
+  await search.fill('definitely-not-a-published-book')
+  await expect(page.getByText('No books found')).toBeVisible()
+  await search.fill('')
+  await page.locator('[data-catalogue-house="philosophy"]').click()
+  await expect(page.locator('.tov5-library-track [data-catalogue-book]').first()).toBeVisible()
+})
+
+test('opens a non-showcase book with catalogue-backed detail and editions', async ({ page }) => {
+  const search = page.getByRole('searchbox', { name: 'Search the library' })
+  await search.fill('Ivan Ilyich')
+  await page.locator('.tov5-library-track [data-catalogue-book="ivan-ilyich"]').click()
+  await expect(page.locator('[data-book-detail-title]')).toHaveText('The Death of Ivan Ilyich')
+  await expect(page.locator('[data-book-detail-author]')).toHaveText('Leo Tolstoy')
+  await page.getByRole('button', { name: 'Start reading' }).click()
+  await expect(page.locator('[data-catalogue-edition]')).toHaveCount(4)
+  await expect(page.locator('.tov5-edition-grid')).toContainText('Original public-domain text')
+  await expect(page.locator('.tov5-edition-grid')).toContainText('Tinct AI adaptation')
+})
+
+test('contracts the edition picker for a future single-edition catalogue entry', async ({ page }) => {
+  await page.evaluate(() => {
+    const source = window.__tinctLabPreReader.visibleBooks().find(book => book.id === 'odyssey')
+    window.__tinctLabPreReader.renderEditionsForTest({ ...source, id: 'single-fixture', editions: [source.editions[0]] })
+  })
+  await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '1')
+  await expect(page.locator('[data-catalogue-edition]')).toHaveCount(1)
+})
+
+test('derives returning-library state from a coherent saved reader tuple', async ({ page }) => {
+  await page.evaluate(() => {
+    localStorage.setItem('tinct:position:meditations', JSON.stringify({ bookId: 'meditations', chapterNumber: 4, currentPage: 2, totalPages: 8, scrollFraction: .25, updatedAt: Date.now() }))
+    localStorage.setItem('tinct:progress:meditations', JSON.stringify({ bookId: 'meditations', highestCompletedChapter: 3, totalChapters: 12, percent: 25 }))
+    window.location.reload()
+  })
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
+  await page.getByRole('button', { name: 'Your library' }).click()
+  await expect(page.locator('[data-returning-book="meditations"]')).toContainText('Chapter 4 · 25% read')
+  await page.locator('[data-returning-book="meditations"] [data-continue-book]').click()
+  await expect.poll(() => page.evaluate(() => window.__tinctLabLastHandoff)).toMatchObject({
+    kind: 'open-reader', bookId: 'meditations', savedPlace: { bookId: 'meditations', chapterNumber: 4 },
+  })
+})
+
+for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+  test(`rejects invalid handoffs at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    const invalid = await page.evaluate(() => window.__tinctLabPreReader.createHandoff({ bookId: 'odyssey', primaryEditionKey: 'missing' }))
+    expect(invalid).toBeNull()
+    const crossBook = await page.evaluate(() => window.__tinctLabPreReader.createHandoff({
+      bookId: 'odyssey', primaryEditionKey: 'original-en', savedPlace: { bookId: 'bible', chapterNumber: 1 },
+    }))
+    expect(crossBook).toBeNull()
+    await expect(page.locator('[data-view-panel="library"] .tov5-zoom')).toBeVisible()
+  })
+}
+
+declare global {
+  interface Window {
+    __tinctLabLastHandoff?: Record<string, unknown>
+    __tinctLabPreReader: {
+      ready: boolean
+      createHandoff: (selection: Record<string, unknown>) => Record<string, unknown> | null
+      selectBook: (bookId: string) => Promise<boolean>
+      visibleBooks: () => Array<Record<string, any>>
+      renderEditionsForTest: (book: Record<string, any>) => void
+    }
+  }
+}

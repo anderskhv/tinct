@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import type { IncomingMessage, ServerResponse } from 'http'
 import fs from 'fs'
 import path from 'path'
+import { serializePreReaderCatalogue } from './src/preReader/catalogue'
+
+const serializedPreReaderCatalogue = JSON.stringify(serializePreReaderCatalogue())
 
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -58,6 +61,22 @@ export default defineConfig(({ mode, command }) => {
   base: isCapacitor ? './' : '/',
   plugins: [
     react(),
+    {
+      name: 'lab-pre-reader-catalogue',
+      configureServer(server) {
+        server.middlewares.use('/lab/catalogue.json', (_req, res) => {
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
+          res.end(serializedPreReaderCatalogue)
+        })
+      },
+      generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'lab/catalogue.json',
+          source: serializedPreReaderCatalogue,
+        })
+      },
+    },
     {
       name: 'anthropic-proxy',
       configureServer(server) {

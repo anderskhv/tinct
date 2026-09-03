@@ -497,6 +497,7 @@
   #tinct-onboarding-worlds-v5 .tov5-library-section>div>button { min-width:0; display:grid; grid-template-columns:46px 1fr; gap:9px; align-items:center; padding:8px; border:1px solid rgba(255,255,255,.46); border-radius:10px; color:#2f2a24; background:rgba(255,253,248,.94); box-shadow:0 7px 18px rgba(0,0,0,.10); text-align:left; }
   #tinct-onboarding-worlds-v5 .tov5-library-section img { width:46px; height:66px; object-fit:cover; border-radius:2px 5px 5px 2px; }
   #tinct-onboarding-worlds-v5 .tov5-library-section span>* { display:block; overflow:hidden; text-overflow:ellipsis; }
+  #tinct-onboarding-worlds-v5 .tov5-library-section span>* { white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .tov5-library-section strong { font:13px/1.1 Georgia,serif; }
   #tinct-onboarding-worlds-v5 .tov5-library-section small { margin-top:5px; color:#776f62; font-size:9px; }
 
@@ -885,6 +886,14 @@
   #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>p { flex:1; margin:0; padding:20px 17px; font:15px/1.42 Georgia,serif; }
   #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-edition-choice] { min-height:50px; display:flex; justify-content:center; align-items:center; gap:8px; padding:0; border:0; border-top:1px solid rgba(255,255,255,.20); background:transparent; color:rgba(255,253,247,.78); font-size:11px; cursor:pointer; }
   #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-edition-choice]>span { width:13px; height:13px; border:1px solid rgba(255,255,255,.58); border-radius:50%; } #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-edition-choice][aria-pressed="true"]>span { border:4px solid var(--tov5-world-accent); }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition]) { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition])::-webkit-scrollbar { display:none; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { flex:0 0 calc(50% - 7px); scroll-snap-align:start; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid[data-edition-count="1"] [data-catalogue-edition] { flex-basis:100%; }
+  #tinct-onboarding-worlds-v5 .tov5-library-empty { margin:25px 28px; padding:24px; border:1px solid rgba(255,255,255,.28); border-radius:14px; color:#fffdf7; background:rgba(8,17,22,.35); }
+  #tinct-onboarding-worlds-v5 .tov5-library-empty h3 { margin:0; font:22px Georgia,serif; }
+  #tinct-onboarding-worlds-v5 .tov5-library-empty p { margin:8px 0 0; color:rgba(255,253,247,.7); font-size:11px; }
+  #tinct-onboarding-worlds-v5 .tov5-library-zoom>header>button,#tinct-onboarding-worlds-v5 .tov5-library-section>header>button,#tinct-onboarding-worlds-v5 .tov5-your-library-zoom .tov5-section-label>button,#tinct-onboarding-worlds-v5 .tov5-finished-books>header>button,#tinct-onboarding-worlds-v5 .tov5-embedded-library>header>button { display:none; }
   #tinct-onboarding-worlds-v5 .tov5-both { margin-top:13px; border:1px solid rgba(255,255,255,.30); border-radius:14px; color:#fffdf7; background:rgba(8,17,22,.42); -webkit-backdrop-filter:blur(12px) saturate(.9); backdrop-filter:blur(12px) saturate(.9); box-shadow:0 10px 25px rgba(0,0,0,.14); }
   #tinct-onboarding-worlds-v5 .tov5-both.is-selected { border:2px solid var(--tov5-world-accent); box-shadow:0 12px 28px rgba(0,0,0,.18); }
   #tinct-onboarding-worlds-v5 .tov5-both>button { width:100%; min-height:122px; display:grid; grid-template-columns:92px 1fr 18px; gap:15px; align-items:center; padding:14px; border:0; border-radius:13px; background:transparent; text-align:left; cursor:pointer; }
@@ -1012,6 +1021,8 @@
     #tinct-onboarding-worlds-v5 .tov5-edition-zoom { padding:18px 15px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-surface { margin:0; padding:0; }
     #tinct-onboarding-worlds-v5 .tov5-edition-grid { height:286px; gap:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { flex-basis:calc(86% - 6px); }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid[data-edition-count="1"] [data-catalogue-edition] { flex-basis:100%; }
     #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { min-height:94px; padding:10px 8px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { font-size:12px; } #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { font-size:8px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>p { padding:13px 10px; font-size:11px; }
@@ -1313,5 +1324,6 @@
     scheduleNextFrame();
   })();
 </script>
+<script src="/lab/catalogue-runtime.js" defer></script>
 </body>
 </html>

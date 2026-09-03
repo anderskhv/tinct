@@ -82,6 +82,13 @@ export interface PreReaderCatalogue {
   houses: PreReaderHouseViewModel[]
 }
 
+export interface SerializablePreReaderCatalogue {
+  books: PreReaderBookViewModel[]
+  houses: Array<Omit<PreReaderHouseViewModel, 'shelves'> & {
+    shelves: Array<Omit<PreReaderShelfViewModel, 'books'> & { bookIds: string[] }>
+  }>
+}
+
 export interface BookDetailViewModel {
   book: PreReaderBookViewModel
   facts: {
@@ -266,6 +273,27 @@ export function buildPreReaderCatalogue(): PreReaderCatalogue {
 }
 
 export const PRE_READER_CATALOGUE = buildPreReaderCatalogue()
+
+export function serializePreReaderCatalogue(
+  catalogue: PreReaderCatalogue = PRE_READER_CATALOGUE,
+): SerializablePreReaderCatalogue {
+  return {
+    books: catalogue.books,
+    houses: catalogue.houses.map(house => ({
+      id: house.id,
+      title: house.title,
+      subtitle: house.subtitle,
+      hue: house.hue,
+      shelves: house.shelves.map(shelf => ({
+        id: shelf.id,
+        title: shelf.title,
+        subtitle: shelf.subtitle,
+        hue: shelf.hue,
+        bookIds: shelf.books.map(book => book.id),
+      })),
+    })),
+  }
+}
 
 function normalized(value: string): string {
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim()

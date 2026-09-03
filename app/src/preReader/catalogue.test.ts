@@ -10,6 +10,7 @@ import {
   getBookDetailViewModel,
   getEditionSelectionViewModel,
   searchPreReaderBooks,
+  serializePreReaderCatalogue,
 } from './catalogue'
 
 const publicRoot = resolve(process.cwd(), 'public')
@@ -65,6 +66,20 @@ describe('pre-reader catalogue layer', () => {
     for (const book of PRE_READER_CATALOGUE.books) {
       expect(existsSync(resolve(publicRoot, 'data/onboarding', `${book.id}.json`)), book.id).toBe(true)
       expect(book.availability.optionalPreface).toBe(true)
+    }
+    const source = readFileSync(resolve(process.cwd(), 'src/preReader/catalogue.ts'), 'utf8')
+    expect(source.match(/optionalPreface:\s*true/g)).toHaveLength(1)
+  })
+
+  it('serializes catalogue maps into stable Houses → Shelves → book ids', () => {
+    const serialized = serializePreReaderCatalogue()
+    expect(serialized.books.map(book => book.id)).toEqual(BOOKS.map(book => book.id))
+    expect(JSON.parse(JSON.stringify(serialized))).toEqual(serialized)
+    for (const house of serialized.houses) {
+      for (const shelf of house.shelves) {
+        expect(shelf.bookIds.length).toBeGreaterThan(0)
+        expect(shelf.bookIds.every(id => serialized.books.some(book => book.id === id))).toBe(true)
+      }
     }
   })
 
