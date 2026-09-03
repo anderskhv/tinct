@@ -145,6 +145,12 @@ describe('worker SEO routing', () => {
     expect(body).not.toContain('app shell')
   })
 
+  it('keeps versioned Lab assets on the static asset path', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/catalogue.json?v=20260903-2'), routerEnv() as never, ctx)
+    expect(resp.headers.get('Content-Type')).toContain('application/json')
+    expect(await resp.text()).toContain('published catalogue')
+  })
+
   it('serves the crawlable /read hub instead of the app shell', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/read'), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)

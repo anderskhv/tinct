@@ -383,7 +383,7 @@
     },
   }
 
-  fetch('/lab/catalogue.json').then(response => {
+  fetch('/lab/catalogue.json?v=20260903-2').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {
