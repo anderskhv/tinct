@@ -366,6 +366,34 @@ describe('lab height-fit pages vs chrome', () => {
     ])
   })
 
+  it('keeps a paint-shrunk page contiguous with a following multi-paragraph page', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 77 },
+      {
+        paragraphIndex: 0,
+        from: 77,
+        to: 94,
+        segments: [
+          { paragraphIndex: 0, from: 77, to: 94 },
+          { paragraphIndex: 1, from: 0, to: 55 },
+        ],
+      },
+      { paragraphIndex: 1, from: 55, to: 119 },
+    ]
+
+    const shrunk = applyPaintShrink(pages, 0, 71, { overflowing: true })
+
+    expect(chapterPageSegments(shrunk[1])).toEqual([
+      { paragraphIndex: 0, from: 71, to: 94 },
+      { paragraphIndex: 1, from: 0, to: 55 },
+    ])
+    expect(restorePageIndexForAnchor(shrunk, { paragraphIndex: 0, wordIndex: 71 })).toBe(1)
+    expect(chapterPagesCover([
+      Array.from({ length: 94 }, (_, index) => `p0w${index}`).join(' '),
+      Array.from({ length: 119 }, (_, index) => `p1w${index}`).join(' '),
+    ], shrunk)).toBe(true)
+  })
+
   it('does not peel a single leftover word onto its own page', () => {
     const pages = [{ paragraphIndex: 0, from: 0, to: 80 }]
     expect(applyPaintShrink(pages, 0, 79)).toEqual(pages)

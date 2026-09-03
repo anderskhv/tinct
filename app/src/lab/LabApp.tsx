@@ -1817,7 +1817,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const sourceAnchor = pageAnchorOf(current[currentIndex]) ?? pageAnchorRef.current ?? { paragraphIndex: 0, wordIndex: 0 }
     const nextActive = !mobileCompareActive
     const targetParagraphs = nextActive ? book.compareParagraphs : book.paragraphs
-    const mapped = mapLabCompareAnchor(readerParagraphs, targetParagraphs, sourceAnchor)
+    const mapped = nextActive
+      ? mapLabCompareAnchor(readerParagraphs, targetParagraphs, sourceAnchor)
+      : { ...placeRef.current }
     const primaryAnchor = nextActive ? sourceAnchor : mapped
     const budget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
     const nextPages = chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null)
