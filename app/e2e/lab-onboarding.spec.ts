@@ -3,18 +3,34 @@ import { expect, test } from '@playwright/test'
 test.use({ viewport: { width: 390, height: 844 } })
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/lab/?autoplay=0')
+  await page.goto('/lab/?autoplay=0&view=library')
   await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
 })
 
-test('opens the landing demonstration and advances from the library to editions', async ({ page }) => {
-  await page.getByRole('button', { name: 'Landing' }).click()
-  await expect(page.locator('[data-view-panel="landing"]')).toHaveClass(/is-current/)
-  await expect(page.locator('[data-demo-step-title]')).toHaveText('Pick a book')
+for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+  test(`opens the locked landing and enters the catalogue at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await page.goto('/lab/?autoplay=0')
+    await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
+    const landing = page.locator('[data-view-panel="landing"]')
+    await expect(landing).toHaveClass(/is-current/)
+    await expect(landing.getByRole('heading', { name: 'Fall in love with the books that matter.' })).toBeVisible()
+    await expect(landing.getByText('Free to read · No account required')).toBeVisible()
+    await expect(landing.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about')
+    await expect(landing.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/app?signin=1')
+    await expect(page.locator('.tov5-picker')).toBeHidden()
+    await landing.getByRole('button', { name: 'Start reading' }).click()
+    await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+    await expect(page.locator('.tov5-library-track [data-catalogue-book]')).not.toHaveCount(0)
+  })
+}
 
-  await page.locator('[data-pick-demo-book="odyssey"]').click()
-  await expect(page.locator('[data-frame-panel="versions"]')).toHaveClass(/is-current/)
-  await expect(page.locator('[data-demo-step-title]')).toHaveText('Pick your translation')
+test('keeps the locked landing still when reduced motion is requested', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/lab/?autoplay=0')
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
+  await expect(page.locator('.tov5-simple-world.odyssey')).toHaveCSS('animation-name', 'none')
+  await expect(page.locator('.tov5-simple-start')).toHaveCSS('transition-duration', '0s')
 })
 
 test('opens book detail, chooses an edition, and reaches the optional preface', async ({ page }) => {
@@ -98,7 +114,8 @@ test('derives returning-library state from a coherent saved reader tuple', async
     window.location.reload()
   })
   await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
-  await page.getByRole('button', { name: 'Your library' }).click()
+  await page.goto('/lab/?autoplay=0&view=your-library')
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
   await expect(page.locator('[data-returning-book="meditations"]')).toContainText('Chapter 4 · 25% read')
   await page.locator('[data-returning-book="meditations"] [data-continue-book]').click()
   await expect.poll(() => page.evaluate(() => window.__tinctLabLastHandoff)).toMatchObject({

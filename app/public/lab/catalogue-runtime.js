@@ -289,6 +289,13 @@
   }
 
   root.addEventListener('click', async event => {
+    const startCatalogue = event.target.closest('[data-start-catalogue]')
+    if (startCatalogue) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      showView('library')
+      root.querySelector('[data-view-panel="library"] .tov5-library-search input')?.focus({ preventScroll: true })
+      return
+    }
     const demoBook = event.target.closest('[data-pick-demo-book="odyssey"]')
     if (demoBook) {
       event.preventDefault(); event.stopImmediatePropagation()
@@ -385,7 +392,7 @@
     renderLibrary()
     renderReturningLibrary()
     const requested = new URLSearchParams(location.search).get('book')
-    return selectBook(state.booksById.has(requested) ? requested : 'odyssey', new URLSearchParams(location.search).get('view') || 'library')
+    return selectBook(state.booksById.has(requested) ? requested : 'odyssey', new URLSearchParams(location.search).get('view') || 'landing')
   }).then(() => {
     window.__tinctLabPreReader.ready = true
     window.dispatchEvent(new CustomEvent('tinct:lab-catalogue-ready'))
