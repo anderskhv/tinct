@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 interface LabChapterCoverProps {
@@ -18,10 +18,16 @@ export function labCoverTone(title: string): number {
 }
 
 export function LabChapterCover({ title, series, editionLabel, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
+  const coverRef = useRef<HTMLElement>(null)
   const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
+
+  useLayoutEffect(() => {
+    coverRef.current?.focus({ preventScroll: true })
+  }, [])
 
   return (
     <article
+      ref={coverRef}
       className={`lab-chapter-cover is-tone-${labCoverTone(title)}`}
       style={{
         ...(ground ? { ['--lab-cover-ground' as string]: ground } : {}),
@@ -32,8 +38,14 @@ export function LabChapterCover({ title, series, editionLabel, ground, accent, o
       aria-label={`${title} cover page`}
       tabIndex={0}
       onKeyDown={(event) => {
-        if (event.key === 'ArrowLeft') onPageTurn(-1)
-        if (event.key === 'ArrowRight' || event.key === ' ') onPageTurn(1)
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault()
+          onPageTurn(-1)
+        }
+        if (event.key === 'ArrowRight' || event.key === ' ') {
+          event.preventDefault()
+          onPageTurn(1)
+        }
       }}
       onPointerDown={(event) => {
         pointerRef.current = { x: event.clientX, y: event.clientY, at: event.timeStamp }
