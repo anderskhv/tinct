@@ -28,14 +28,36 @@ export interface LabHighlight {
 }
 
 const STORAGE_KEY = 'tinct-lab-highlights'
+const LEGACY_TAP_CLEANUP_KEY = 'tinct-lab-highlights-tap-cleanup-v1'
+
+/** Remove the one-word gold records produced by the old tap-to-save bug. */
+export function removeLegacyTapHighlights(highlights: LabHighlight[]): LabHighlight[] {
+  return highlights.filter(highlight => !(
+    highlight.color === 'gold'
+    && highlight.paragraphIndex === highlight.endParagraphIndex
+    && highlight.toWord === highlight.fromWord + 1
+    && !highlight.note
+    && !highlight.kept
+  ))
+}
 
 export function readLabHighlights(): LabHighlight[] {
   if (typeof localStorage === 'undefined') return []
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return []
+    if (!raw) {
+      localStorage.setItem(LEGACY_TAP_CLEANUP_KEY, '1')
+      return []
+    }
     const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    if (!Array.isArray(parsed)) return []
+    if (!localStorage.getItem(LEGACY_TAP_CLEANUP_KEY)) {
+      const cleaned = removeLegacyTapHighlights(parsed)
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned))
+      localStorage.setItem(LEGACY_TAP_CLEANUP_KEY, '1')
+      return cleaned
+    }
+    return parsed
   } catch {
     return []
   }
@@ -90,15 +112,32 @@ export function sameHighlightRange(
   )
 }
 
+export function highlightContainsRange(
+  highlight: LabHighlight,
+  range: LabHighlightRange,
+  chapterNumber: number,
+): boolean {
+  if (highlight.chapterNumber !== chapterNumber) return false
+  const startsBefore = highlight.paragraphIndex < range.paragraphIndex
+    || (highlight.paragraphIndex === range.paragraphIndex && highlight.fromWord <= range.fromWord)
+  const endsAfter = highlight.endParagraphIndex > range.endParagraphIndex
+    || (highlight.endParagraphIndex === range.endParagraphIndex && highlight.toWord >= range.toWord)
+  return startsBefore && endsAfter
+}
+
 export function buildHighlightRange(
   paragraphs: string[],
   start: LabWordPlace,
   end: LabWordPlace,
 ): LabHighlightRange | null {
-  const paragraphIndex = Math.min(start.paragraphIndex, end.paragraphIndex)
-  const endParagraphIndex = Math.max(start.paragraphIndex, end.paragraphIndex)
-  const fromWord = start.paragraphIndex <= end.paragraphIndex ? start.wordIndex : end.wordIndex
-  const toWord = start.paragraphIndex <= end.paragraphIndex ? end.wordIndex + 1 : start.wordIndex + 1
+  const startBeforeEnd = start.paragraphIndex < end.paragraphIndex
+    || (start.paragraphIndex === end.paragraphIndex && start.wordIndex <= end.wordIndex)
+  const first = startBeforeEnd ? start : end
+  const last = startBeforeEnd ? end : start
+  const paragraphIndex = first.paragraphIndex
+  const endParagraphIndex = last.paragraphIndex
+  const fromWord = first.wordIndex
+  const toWord = last.wordIndex + 1
   const textParts: string[] = []
   for (let p = paragraphIndex; p <= endParagraphIndex; p += 1) {
     const words = (paragraphs[p] || '').split(/\s+/).filter(Boolean)
@@ -134,7 +173,10 @@ export function highlightColorAt(
   paragraphIndex: number,
   wordIndex: number,
 ): LabHighlightColor | null {
-  for (const h of highlights) {
+  // Later highlights represent the reader's most recent intent. This matters
+  // when a fresh selection overlaps an older saved range.
+  for (let index = highlights.length - 1; index >= 0; index -= 1) {
+    const h = highlights[index]
     if (h.chapterNumber !== chapterNumber) continue
     if (paragraphIndex < h.paragraphIndex || paragraphIndex > h.endParagraphIndex) continue
     if (paragraphIndex === h.paragraphIndex && wordIndex < h.fromWord) continue
@@ -147,9 +189,9 @@ export function highlightColorAt(
 const COLOR_CLASS: Record<LabHighlightColor, string> = {
   gold: 'is-hl-warm',
   rose: 'is-hl-rose',
-  green: 'is-hl-sage',
-  blue: 'is-hl-sky',
-  purple: 'is-hl-lavender',
+  sage: 'is-hl-sage',
+  sky: 'is-hl-sky',
+  lavender: 'is-hl-lavender',
 }
 
 export function labHighlightCssClass(

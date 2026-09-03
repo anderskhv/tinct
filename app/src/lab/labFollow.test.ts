@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  alignTimedWordsToText,
   followAtTime,
   followFromPlayback,
   followParagraphFromManifest,
@@ -11,6 +12,43 @@ import {
 } from './labFollow'
 
 describe('lab word follow', () => {
+  it('keeps silent verse markers from putting the highlight one word behind', () => {
+    const words = alignTimedWordsToText('¹ And the LORD called ² Speak unto Israel', [
+      { text: 'And', start: 0.11, end: 0.49 },
+      { text: 'the', start: 0.49, end: 0.59 },
+      { text: 'Lord', start: 0.59, end: 0.79 },
+      { text: 'called', start: 0.79, end: 1.11 },
+      { text: 'Speak', start: 1.4, end: 1.7 },
+      { text: 'unto', start: 1.7, end: 1.9 },
+      { text: 'Israel', start: 1.9, end: 2.2 },
+    ])!
+    expect(words.map(word => word.text)).toEqual(['¹', 'And', 'the', 'LORD', 'called', '²', 'Speak', 'unto', 'Israel'])
+    expect(wordIndexAtTime(words, 0.3)).toBe(1)
+    expect(wordIndexAtTime(words, 1.5)).toBe(6)
+  })
+
+  it('maps Hebrews speech to visible semantic words across three verse boundaries', () => {
+    const display = '¹ God spoke ² Hath spoken ³ Who shines ⁴ Being made'
+    const sidecar = [
+      { text: 'God', start: 0, end: 0.4 },
+      { text: 'spoke', start: 0.4, end: 0.8 },
+      { text: 'Hath', start: 1, end: 1.3 },
+      { text: 'spoken', start: 1.3, end: 1.7 },
+      { text: 'Who', start: 2, end: 2.3 },
+      { text: 'shines', start: 2.3, end: 2.7 },
+      { text: 'Being', start: 3, end: 3.4 },
+      { text: 'made', start: 3.4, end: 3.8 },
+    ]
+    const words = alignTimedWordsToText(display, sidecar)!
+
+    expect(words.map(word => word.text)).toEqual([
+      '¹', 'God', 'spoke', '²', 'Hath', 'spoken', '³', 'Who', 'shines', '⁴', 'Being', 'made',
+    ])
+    expect(words[wordIndexAtTime(words, 1.1)].text).toBe('Hath')
+    expect(words[wordIndexAtTime(words, 2.1)].text).toBe('Who')
+    expect(words[wordIndexAtTime(words, 3.1)].text).toBe('Being')
+  })
+
   it('uses manifest words when they carry real start and end times', () => {
     const paragraph = followParagraphFromManifest(0, 'Tell me, O Muse', {
       duration: 2,
@@ -179,6 +217,19 @@ describe('followTimeFromAudio', () => {
     ]
     expect(wordIndexAtTime(words, followTimeFromAudio(0.45))).toBe(1)
     expect(wordIndexAtTime(words, followTimeFromAudio(0.75))).toBe(2)
+  })
+
+  it('selects solely from audio currentTime at every playback rate', () => {
+    const words = [
+      { text: 'God', start: 0, end: 0.5 },
+      { text: 'spoke', start: 0.5, end: 1 },
+      { text: 'again', start: 1, end: 1.5 },
+    ]
+    for (const playbackRate of [0.5, 1, 2, 3]) {
+      expect(playbackRate).toBeGreaterThan(0)
+      expect(wordIndexAtTime(words, followTimeFromAudio(0.75))).toBe(1)
+    }
+    expect(wordIndexAtTime(words, followTimeFromAudio(1.25))).toBe(2)
   })
 })
 

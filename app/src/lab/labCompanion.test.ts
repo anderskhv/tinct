@@ -41,6 +41,7 @@ describe('lab escalate gate', () => {
   it('does not escalate playback commands or tiny confirms', () => {
     expect(isLabPlaybackUtterance('go faster')).toBe(true)
     expect(isLabPlaybackUtterance('next chapter')).toBe(true)
+    expect(isLabPlaybackUtterance('play this chapter from the beginning')).toBe(true)
     expect(isLabPlaybackUtterance('resume')).toBe(true)
     expect(isLabPlaybackUtterance('skip ahead')).toBe(true)
     expect(shouldEscalateToCompanion('go faster')).toBe(false)
@@ -69,10 +70,12 @@ describe('lab talk tools', () => {
     expect(LAB_ASK_COMPANION_TOOL.name).toBe('ask_companion')
     expect(names).toContain('set_playback_speed')
     expect(names).toContain('next_chapter')
+    expect(names).toContain('restart_chapter')
     expect(names).toContain('resume_audiobook')
     expect(names).toContain('end_voice_session')
     expect(playbackToolForUtterance('go faster')).toBe('set_playback_speed')
     expect(playbackToolForUtterance('next chapter')).toBe('next_chapter')
+    expect(playbackToolForUtterance('I missed that, play this chapter from the beginning')).toBe('restart_chapter')
     expect(playbackToolForUtterance('resume')).toBe('resume_audiobook')
   })
 })
@@ -81,7 +84,8 @@ describe('talk instructions stay the ear and mouth', () => {
   it('keeps Realtime on tools and cover, not the in-car brief', () => {
     const talk = buildLabTalkInstructions(CONTEXT)
     expect(talk).toContain(ASK_COMPANION_TOOL)
-    expect(talk).toContain('looking at the passage')
+    expect(talk).toContain('Good question. Let me look that up.')
+    expect(talk).toContain('Never say you are thinking')
     expect(talk).toContain('Do not invent a thinner substitute')
     expect(talk).toContain('Never mention a tool, a hop, a cutoff')
     expect(talk).toContain('the answer I received')
@@ -121,6 +125,7 @@ describe('no-dead-air cover', () => {
     expect(spoken[0]).not.toMatch(/please hold|one moment please|searching/i)
     expect(queryStarted).toBe(true)
     expect(coveredBeforeQuery).toBe(true)
+    expect(spoken[0]).toBe('Good question. Let me look that up.')
 
     const result = await hop
     expect(result.covered).toBe(true)

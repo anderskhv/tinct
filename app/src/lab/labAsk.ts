@@ -12,6 +12,8 @@ export interface LabAskTurn {
   role: 'user' | 'assistant'
   content: string
   source: 'typed' | 'voice'
+  chapterNumber?: number
+  paragraphIndex?: number
   cancelled?: boolean
 }
 
@@ -129,6 +131,8 @@ If they want faster, slower, 2x, 1x, or any playback speed for the book, call se
 
 If they want the next or previous chapter, call next_chapter or previous_chapter. Bible chapters are sequential — Genesis 1 then Genesis 2. Never say you cannot skip chapters. On a typed reply, end with [[next_chapter]] (or previous_chapter).
 
+If they ask to restart, replay, or play this chapter from the beginning, call restart_chapter. This means seek to the first word of this same chapter and resume after the short confirmation. Never substitute resume_audiobook, previous_chapter, or previous_paragraph. On a typed reply, end with [[restart_chapter]].
+
 If they want the next or previous paragraph, call next_paragraph or previous_paragraph. Stay in this chapter unless they are on the first paragraph and ask for the previous one. Never say you cannot skip paragraphs. On a typed reply, end with [[next_paragraph]] (or previous_paragraph).
 
 After set_playback_speed, a chapter or paragraph skip, or resume_audiobook, say one short confirm. The app resumes the audiobook after you finish speaking. Do not resume after a normal book question.
@@ -212,7 +216,7 @@ export function isResumeListenCommand(text: string): boolean {
 const LAB_RESUME_TAG = /\[\[resume_audiobook\]\]/i
 const LAB_SPEED_TAG = /\[\[set_playback_speed:([^\]]+)\]\]/i
 const LAB_PACE_TAG = /\[\[set_assistant_pace:(slow|normal|fast)\]\]/i
-const LAB_SKIP_TAG = /\[\[(previous_chapter|next_chapter|previous_paragraph|next_paragraph)\]\]/i
+const LAB_SKIP_TAG = /\[\[(restart_chapter|previous_chapter|next_chapter|previous_paragraph|next_paragraph)\]\]/i
 
 export type AssistantPace = 'slow' | 'normal' | 'fast'
 
@@ -272,6 +276,13 @@ export const LAB_NEXT_CHAPTER_TOOL = {
   parameters: { type: 'object', properties: {}, additionalProperties: false },
 } as const
 
+export const LAB_RESTART_CHAPTER_TOOL = {
+  type: 'function',
+  name: 'restart_chapter',
+  description: 'Restart the open chapter from its first word. Call this when the reader says they missed something, asks to go back to the beginning, start the chapter again, or replay this chapter. The app seeks and resumes after your brief confirmation.',
+  parameters: { type: 'object', properties: {}, additionalProperties: false },
+} as const
+
 export const LAB_PREVIOUS_PARAGRAPH_TOOL = {
   type: 'function',
   name: 'previous_paragraph',
@@ -287,6 +298,7 @@ export const LAB_NEXT_PARAGRAPH_TOOL = {
 } as const
 
 export const LAB_PLAYBACK_SKIP_TOOLS = [
+  'restart_chapter',
   'previous_chapter',
   'next_chapter',
   'previous_paragraph',
@@ -308,6 +320,10 @@ export function resolveLabPlaybackSkip(input: {
 }): { chapterNumber: number; paragraphIndex: number; landing: 'start' | 'end'; chapterChanged: boolean } {
   const last = Math.max(0, input.paragraphCount - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
+
+  if (input.kind === 'restart_chapter') {
+    return { chapterNumber: input.chapterNumber, paragraphIndex: 0, landing: 'start', chapterChanged: false }
+  }
 
   if (input.kind === 'next_chapter') {
     const next = nextLabChapter(input.chapters, input.chapterNumber)
@@ -348,6 +364,7 @@ export const LAB_VOICE_TOOLS = [
   LAB_SET_ASSISTANT_PACE_TOOL,
   LAB_PREVIOUS_CHAPTER_TOOL,
   LAB_NEXT_CHAPTER_TOOL,
+  LAB_RESTART_CHAPTER_TOOL,
   LAB_PREVIOUS_PARAGRAPH_TOOL,
   LAB_NEXT_PARAGRAPH_TOOL,
   LAB_ASK_COMPANION_TOOL,

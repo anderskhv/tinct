@@ -2,12 +2,16 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
+  labCompactFootProgress,
   DEFAULT_LAB_PREFS,
   LAB_LIBRARY_URL,
+  LAB_MAX_FONT_SIZE,
+  LAB_MIN_FONT_SIZE,
   LAB_PREFS_KEY,
   labFootProgress,
   labFootProgressPages,
   labProgressKnobLive,
+  labReaderProgressLabel,
   parseLabPrefs,
   readLabPrefs,
   writeLabPrefs,
@@ -18,10 +22,45 @@ afterEach(() => {
 })
 
 describe('lab prefs', () => {
-  it('points Library at the public Tinct library hub, never /app', () => {
-    expect(LAB_LIBRARY_URL).toBe('/read/')
+  it('keeps mobile progress compact because the chapter is already in the header', () => {
+    expect(labCompactFootProgress('Genesis 1 — 5 / 9')).toBe('5 / 9')
+    expect(labCompactFootProgress('Genesis 1 — 56%')).toBe('56%')
+    expect(labCompactFootProgress('82%')).toBe('82%')
+  })
+
+  it('toggles between total-book and explicit chapter progress', () => {
+    const shared = {
+      currentPage: 4,
+      totalPages: 22,
+      chapterPercent: 18,
+      chapterNumber: 2,
+      chapterWordsRead: 180,
+      chapterWordCounts: [
+        { number: 1, wordCount: 1000 },
+        { number: 2, wordCount: 1000 },
+      ],
+      wordsPerPage: 100,
+    }
+    expect(labReaderProgressLabel({ ...shared, mode: 'book' })).toBe('12 / 20 of book · 59%')
+    expect(labReaderProgressLabel({ ...shared, mode: 'chapter' })).toBe('4 / 22 of chapter · 18%')
+  })
+
+  it('adds thousands separators to reader page totals', () => {
+    expect(labReaderProgressLabel({
+      mode: 'book',
+      currentPage: 1,
+      totalPages: 10,
+      chapterPercent: 50,
+      chapterNumber: 1,
+      chapterWordsRead: 4_799,
+      chapterWordCounts: [{ number: 1, wordCount: 8_921 }],
+      wordsPerPage: 1,
+    })).toBe('4,799 / 8,921 of book · 54%')
+  })
+
+  it('points Library at the lab library, never /app', () => {
+    expect(LAB_LIBRARY_URL).toBe('/lab/library')
     expect(LAB_LIBRARY_URL).not.toContain('/app')
-    expect(LAB_LIBRARY_URL).not.toContain('library')
     expect(LAB_LIBRARY_URL).not.toContain('?')
     expect(LAB_LIBRARY_URL).not.toBe('/read/library')
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')
@@ -43,6 +82,13 @@ describe('lab prefs', () => {
     expect(next.audioEdition).toBe('web-en')
     writeLabPrefs(next)
     expect(readLabPrefs().progressDisplay.scope).toBe('section')
+  })
+
+  it('offers a genuinely smaller size and clamps imported preferences', () => {
+    expect(LAB_MIN_FONT_SIZE).toBe(0.8)
+    expect(LAB_MAX_FONT_SIZE).toBe(2.2)
+    expect(parseLabPrefs({ fontSize: 0.1 }).fontSize).toBe(LAB_MIN_FONT_SIZE)
+    expect(parseLabPrefs({ fontSize: 9 }).fontSize).toBe(LAB_MAX_FONT_SIZE)
   })
 
   it('formats the foot strip from cheap knobs and keeps page/chapter as fallback', () => {

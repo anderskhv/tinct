@@ -18,12 +18,21 @@ export const LAB_AUDIO = {
   chapterNumber: 1,
 } as const
 
-export interface LabAudioClip {
+export interface LabAudioTitleClip {
+  kind: 'title'
+  file: string
+  duration?: number
+}
+
+export interface LabAudioParagraphClip {
+  kind: 'paragraph'
   index: number
   file: string
   duration?: number
   words?: FollowParagraph['words']
 }
+
+export type LabAudioClip = LabAudioTitleClip | LabAudioParagraphClip
 
 export function labAudioChapterBase(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
   return `${LAB_AUDIO.bookId}/${editionKey}/ch${chapterNumber}`
@@ -57,6 +66,7 @@ export function clipsFromFollowParagraphs(paragraphs: FollowParagraph[]): LabAud
   return paragraphs.flatMap((paragraph) => {
     if (!paragraph.file || paragraph.index < 0) return []
     return [{
+      kind: 'paragraph' as const,
       index: paragraph.index,
       file: paragraph.file,
       duration: paragraph.duration,
@@ -70,23 +80,29 @@ export function clipsFromManifest(
   manifestParagraphs: ManifestParagraph[],
 ): LabAudioClip[] {
   const byIndex = new Map<number, ManifestParagraph>()
+  let title: LabAudioTitleClip | null = null
   for (const entry of manifestParagraphs) {
     if (typeof entry.paragraph === 'number') {
-      if (entry.paragraph < 0) continue
+      if (entry.paragraph < 0) {
+        if (entry.file) title = { kind: 'title', file: entry.file, duration: entry.duration }
+        continue
+      }
       byIndex.set(entry.paragraph, entry)
     }
   }
-  return paragraphs.map((text, index) => {
+  const body = paragraphs.map((text, index) => {
     const entry = byIndex.get(index) || byIndex.get(index + 1)
     const followed = followParagraphFromManifest(index, text, entry)
     if (!followed.file) return null
     return {
+      kind: 'paragraph' as const,
       index,
       file: followed.file,
       duration: followed.duration,
       words: followed.words,
     }
-  }).filter((clip): clip is LabAudioClip => clip != null)
+  }).filter((clip): clip is LabAudioParagraphClip => clip != null)
+  return title ? [title, ...body] : body
 }
 
 /** Decode each paragraph MP3 and measure speech bounds → word timings. */
@@ -137,7 +153,7 @@ export function followPlayingClip(
   clip: LabAudioClip | undefined,
   currentTime: number,
 ): FollowTarget {
-  if (!clip) return { kind: 'none' }
+  if (!clip || clip.kind === 'title') return { kind: 'none' }
   return followFromPlayback({
     paragraphs,
     paragraphIndex: clip.index,

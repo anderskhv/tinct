@@ -9,6 +9,7 @@ import {
   measureFollowParagraphWords,
   readLabWordSidecar,
   type LabAudioClip,
+  type LabAudioTitleClip,
 } from './labListen'
 import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import {
@@ -20,12 +21,20 @@ import {
   type ManifestParagraph,
 } from './labFollow'
 
+// Word timestamps are acoustically measured, but a small visual lead prevents
+// the painted word from feeling behind the voice on mobile audio output. This
+// changes only follow paint; seeking and persisted playback time stay exact.
+export const LAB_FOLLOW_LEAD_SECONDS = 0.08
+
 export interface UseLabListenOptions {
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
   chapterNumber?: number
   audioEdition?: string
+  titleClip?: LabAudioTitleClip
   createAudio?: () => HTMLAudioElement
+  /** Return true when the reader accepted a transition to the next chapter. */
+  onChapterComplete?: () => boolean
 }
 
 function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
@@ -54,6 +63,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const positionRef = useRef({ clipIndex: 0, time: 0 })
   const playClipRef = useRef<(index: number, offsetSeconds: number, andPlay?: boolean) => boolean>(() => false)
   const switchingRef = useRef(false)
+  const playingRef = useRef(false)
   const optionsRef = useRef(options)
   optionsRef.current = options
   paragraphsRef.current = followParagraphs
@@ -72,6 +82,7 @@ export function useLabListen(options: UseLabListenOptions) {
     clipsRef.current = []
     setClips([])
     setSrc(null)
+    playingRef.current = false
     setPlaying(false)
     setFollow({ kind: 'none' })
   }, [options.chapterNumber])
@@ -95,23 +106,32 @@ export function useLabListen(options: UseLabListenOptions) {
       positionRef.current = { clipIndex: index, time: Math.max(0, time) }
     }
     setCurrentTime(positionRef.current.time)
-    setFollow(followPlayingClip(paragraphsRef.current, clip, positionRef.current.time))
+    setFollow(followPlayingClip(
+      paragraphsRef.current,
+      clip,
+      positionRef.current.time + LAB_FOLLOW_LEAD_SECONDS,
+    ))
   }, [speed])
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
+    const finishPlayback = () => {
+      try { audio.pause() } catch { /* ignore */ }
+      playingRef.current = false
+      setPlaying(false)
+      setFollow({ kind: 'none' })
+      setSrc(null)
+    }
     const handleTimeUpdate = () => {
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
-      if (switchingRef.current) return
+      if (switchingRef.current || !playingRef.current) return
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
-        try { audio.pause() } catch { /* ignore */ }
-        setPlaying(false)
-        setFollow({ kind: 'none' })
-        setSrc(null)
+        if (optionsRef.current.onChapterComplete?.()) return
+        finishPlayback()
         return
       }
       playClipRef.current(next, 0)
@@ -120,12 +140,7 @@ export function useLabListen(options: UseLabListenOptions) {
       if (switchingRef.current) return
       const next = clipIndexRef.current + 1
       if (next < clipsRef.current.length) playClipRef.current(next, 0)
-      else {
-        try { audio.pause() } catch { /* ignore */ }
-        setPlaying(false)
-        setFollow({ kind: 'none' })
-        setSrc(null)
-      }
+      else if (!optionsRef.current.onChapterComplete?.()) finishPlayback()
     }
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('ended', handleEnded)
@@ -204,12 +219,14 @@ export function useLabListen(options: UseLabListenOptions) {
     if (!andPlay) {
       try { audio.pause() } catch { /* ignore */ }
       switchingRef.current = false
+      playingRef.current = false
       setPlaying(false)
       setCurrentTime(offsetSeconds)
       setFollow({ kind: 'none' })
       return true
     }
     syncFollow(index, offsetSeconds)
+    playingRef.current = true
     setPlaying(true)
     audio.play().then(() => {
       applyRate(audio, speed)
@@ -221,6 +238,7 @@ export function useLabListen(options: UseLabListenOptions) {
         playClipRef.current(index + 1, 0, true)
         return
       }
+      playingRef.current = false
       setPlaying(false)
       setFollow({ kind: 'none' })
     })
@@ -232,12 +250,17 @@ export function useLabListen(options: UseLabListenOptions) {
     clips: LabAudioClip[],
     place: { paragraphIndex?: number; wordIndex?: number } | undefined,
     andPlay: boolean,
+    includeTitleAtChapterStart = false,
   ) => {
     const paragraphIndex = place?.paragraphIndex ?? 0
-    let index = clips.findIndex(clip => clip.index === paragraphIndex)
-    if (index < 0) index = 0
-    const words = clips[index]?.words
     const wordIndex = place?.wordIndex ?? 0
+    const titleIndex = clips.findIndex(clip => clip.kind === 'title')
+    let index = includeTitleAtChapterStart && paragraphIndex === 0 && wordIndex === 0 && titleIndex >= 0
+      ? titleIndex
+      : clips.findIndex(clip => clip.kind === 'paragraph' && clip.index === paragraphIndex)
+    if (index < 0) index = 0
+    const clip = clips[index]
+    const words = clip?.kind === 'paragraph' ? clip.words : undefined
     const clamped = words && words.length > 0
       ? Math.max(0, Math.min(wordIndex, words.length - 1))
       : 0
@@ -251,6 +274,7 @@ export function useLabListen(options: UseLabListenOptions) {
 
     const attachWords = (followed: FollowParagraph[], clips: LabAudioClip[]) => {
       const withWords = clips.map((clip) => {
+        if (clip.kind === 'title') return clip
         const words = followed.find(item => item.index === clip.index)?.words
         return words ? { ...clip, words } : clip
       })
@@ -272,7 +296,8 @@ export function useLabListen(options: UseLabListenOptions) {
         followed = await measureFollowParagraphWords(followed, chapter, edition)
       }
       followed = commitFollowParagraphs(followed)
-      return attachWords(followed, fromSource)
+      const title = optionsRef.current.titleClip?.kind === 'title' ? optionsRef.current.titleClip : null
+      return attachWords(followed, title ? [title, ...fromSource] : fromSource)
     }
 
     const [manifestRes, sidecarRes] = await Promise.all([
@@ -301,17 +326,24 @@ export function useLabListen(options: UseLabListenOptions) {
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
     const clips = await resolveClips()
     if (clips.length === 0) return false
-    return playPlace(clips, place, true)
+    return playPlace(clips, place, true, true)
+  }, [playPlace, resolveClips])
+
+  const startAtPlace = useCallback(async (place: { paragraphIndex: number; wordIndex?: number }) => {
+    const clips = await resolveClips()
+    if (clips.length === 0) return false
+    return playPlace(clips, place, true, false)
   }, [playPlace, resolveClips])
 
   const seekToPlace = useCallback((paragraphIndex: number, wordIndex: number) => {
     const clips = clipsRef.current
     if (clips.length === 0) return
-    playPlace(clips, { paragraphIndex, wordIndex }, playing)
+    playPlace(clips, { paragraphIndex, wordIndex }, playing, false)
   }, [playPlace, playing])
 
   const pause = useCallback(() => {
     audioRef.current?.pause()
+    playingRef.current = false
     setPlaying(false)
     setFollow({ kind: 'none' })
   }, [])
@@ -325,9 +357,11 @@ export function useLabListen(options: UseLabListenOptions) {
     applyRate(audio, speed)
     audio.play().then(() => {
       applyRate(audio, speed)
+      playingRef.current = true
       setPlaying(true)
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }).catch(() => {
+      playingRef.current = false
       setPlaying(false)
     })
   }, [applyRate, speed, start, syncFollow])
@@ -341,6 +375,7 @@ export function useLabListen(options: UseLabListenOptions) {
     clipIndexRef.current = 0
     setClipIndex(0)
     setCurrentTime(0)
+    playingRef.current = false
     setPlaying(false)
     setFollow({ kind: 'none' })
     setSrc(null)
@@ -385,9 +420,16 @@ export function useLabListen(options: UseLabListenOptions) {
     if (audioRef.current) applyRate(audioRef.current, next)
   }, [applyRate])
 
+  // Chapter loading can commit src/clip state in a different React batch from
+  // the outgoing paragraph follow. A title clip must never expose that stale
+  // body-word target, even for a single render.
+  const visibleFollow = clips[clipIndex]?.kind === 'title'
+    ? { kind: 'none' as const }
+    : follow
+
   return {
     playing,
-    follow,
+    follow: visibleFollow,
     followParagraphs,
     clips,
     src,
@@ -395,6 +437,7 @@ export function useLabListen(options: UseLabListenOptions) {
     currentTime,
     speed,
     start,
+    startAtPlace,
     seekToPlace,
     pause,
     resume,

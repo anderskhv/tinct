@@ -144,6 +144,37 @@ describe('SelectionPopup', () => {
     expect(screen.getByText('Report')).toBeTruthy()
   })
 
+  it('keeps the Lab dictionary card stable when More replaces its action row', () => {
+    const sharedSelection = selection({ existingHighlightId: 'hl_1', homeMode: 'define' })
+    const { rerender, container } = render(<SelectionPopup {...props({
+      lab: true,
+      popupMode: 'define',
+      selection: sharedSelection,
+      defineLoading: false,
+      defineNotFound: true,
+      currentHighlightColor: 'sky',
+    })} />)
+
+    const card = container.querySelector('.selection-popup')
+    expect(card?.getAttribute('data-popup-home')).toBe('define')
+    expect(screen.getByText('No definition found for “selfishness”.')).toBeTruthy()
+    expect(screen.getByTitle('Highlight Sky').getAttribute('aria-pressed')).toBe('true')
+
+    rerender(<SelectionPopup {...props({
+      lab: true,
+      popupMode: 'main',
+      selection: sharedSelection,
+      defineLoading: false,
+      defineNotFound: true,
+      currentHighlightColor: 'sky',
+    })} />)
+
+    expect(container.querySelector('.selection-popup')).toBe(card)
+    expect(screen.getByText('No definition found for “selfishness”.')).toBeTruthy()
+    expect(screen.getByText('Explain')).toBeTruthy()
+    expect(screen.getByText('Delete')).toBeTruthy()
+  })
+
   it('existing-highlight note editor still saves and can cancel without deleting', () => {
     const onUpdateHighlightNote = vi.fn()
     const dismissPopup = vi.fn()

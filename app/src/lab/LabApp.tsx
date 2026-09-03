@@ -9,7 +9,6 @@ import {
   LAB_CONNECTING_FAIL_MS,
   labAfterTalk,
   labPhoneBarMode,
-  labPullOpensToc,
   labShowPhoneBar,
   labShowReaderRail,
   labStatusLine,
@@ -23,6 +22,7 @@ import {
   measureLabOnScreenBarTop,
   measureLabPageMetrics,
   measurePaintedOverflow,
+  labPaginationPaintRoot,
   stabilizeLabPageMetrics,
   nextLabVoiceGate,
   nextPaintShrinkTo,
@@ -40,21 +40,24 @@ import {
   bibleEditions,
   labFontFamilyCss,
   labFootProgress,
+  labReaderProgressLabel,
   editionLabelFor,
   readLabPrefs,
   writeLabPrefs,
   syncLabAudioEdition,
   effectiveLabAudioEdition,
   type LabPrefs,
+  type LabReaderProgressMode,
 } from './labPrefs'
 import { labLayoutOverride } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
-import { LabNativePaginator } from './LabNativePaginator'
+import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
+import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
-import { bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
+import { bibleBookOpeningTitle, bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, polishPageEnd, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
@@ -62,8 +65,9 @@ import { SelectionPopup, type PopupMode, type SelectionInfo } from '../component
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { HighlightColor } from '../types'
-import { type LabHighlightRange } from './labHighlights'
+import { type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
+import { readLabTalkHistory } from './labTalkHistory'
 import { useLabAsk } from './useLabAsk'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor } from './labCompare'
@@ -129,10 +133,14 @@ function measureVisiblePageOverflow(
   passage: HTMLElement,
   chromeEl: HTMLElement,
 ) {
-  let painted = measurePaintedOverflow(passage, chromeEl)
+  // Compare is two synchronized paints of one page map. Only the primary
+  // column may author that map; including both columns here can make the
+  // compare tail repeatedly peel valid primary text after a resize.
+  const paintRoot = labPaginationPaintRoot(passage)
+  let painted = measurePaintedOverflow(paintRoot, chromeEl)
   const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
   if (onScreenTop <= 0) return painted
-  const inkBottom = [...passage.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+  const inkBottom = [...paintRoot.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
     .reduce((max, node) => {
       const rect = node.getBoundingClientRect()
       return rect.height > 8 ? Math.max(max, rect.bottom) : max
@@ -152,8 +160,8 @@ function measureVisiblePageOverflow(
 
 function PlayIcon({ size = 22 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M8 5.2v13.6L19.2 12 8 5.2z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8.6 6.4v11.2L17.8 12 8.6 6.4Z" fill="currentColor" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -167,6 +175,26 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   )
 }
 
+function SkipIcon({ direction, seconds = 15 }: { direction: 'back' | 'forward'; seconds?: number }) {
+  const path = direction === 'back'
+    ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15'
+    : 'M15.75 7.15h3.55v-3.5M19.1 7.05A8 8 0 1 0 19.85 15'
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={path} />
+      <text x="12" y="14.15" textAnchor="middle" fill="currentColor" stroke="none" fontSize="6.5" fontFamily="IBM Plex Mono, monospace">{seconds}</text>
+    </svg>
+  )
+}
+
+function ReadIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3.5 5.5c2.7-.8 5.2-.2 8.5 1.8v11c-3.3-2-5.8-2.6-8.5-1.8v-11Zm17 0c-2.7-.8-5.2-.2-8.5 1.8v11c3.3-2 5.8-2.6 8.5-1.8v-11Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function GearIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -176,12 +204,22 @@ function GearIcon() {
   )
 }
 
+function TuneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
+      <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
+      <circle cx="13" cy="7" r="2" />
+      <circle cx="11" cy="17" r="2" />
+    </svg>
+  )
+}
+
 function FullscreenIcon({ on }: { on?: boolean }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg data-icon={on ? 'close' : 'fullscreen'} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {on ? (
         <>
-          <path d="M9 4H4v5M15 4h5v5M4 15v5h5M20 15v5h-5" />
+          <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5" />
         </>
       ) : (
         <>
@@ -223,10 +261,10 @@ function TalkIcon() {
 
 function CompareIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3.5" y="5" width="10.5" height="13" rx="1.5" />
-      <rect x="10" y="3" width="10.5" height="13" rx="1.5" />
-      <path d="m7 9-2 2 2 2M17 11l2-2-2-2" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2.75" y="4.25" width="8" height="15.5" rx="1.65" />
+      <rect x="13.25" y="4.25" width="8" height="15.5" rx="1.65" />
+      <path d="M5.25 8h3M5.25 11h3M15.75 8h3M15.75 11h3" />
     </svg>
   )
 }
@@ -255,7 +293,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(boot.book)
   const [prefs, setPrefs] = useState<LabPrefs>(() => syncLabAudioEdition(readLabPrefs()))
+  const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
+  const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
   const [mobileCompareActive, setMobileCompareActive] = useState(false)
+  const [desktopCompareActive, setDesktopCompareActive] = useState(false)
+  const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
   const audioEditionKey = effectiveLabAudioEdition(prefs)
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(next)
@@ -265,6 +307,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
+  const [readerControlsVisible, setReaderControlsVisible] = useState(true)
+  const [pageTurn, setPageTurn] = useState<{
+    direction: 'next' | 'previous'
+    nonce: number
+  } | null>(null)
+  const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>('book')
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
   const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(true)
@@ -272,12 +320,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
+  const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const [gearOpen, setGearOpen] = useState(false)
   const [desktopAskOpen, setDesktopAskOpen] = useState(false)
   const [marks, setMarks] = useState<LabMark[]>([])
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [chrome, setChrome] = useState<LabChromeState>('reading')
   const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0
+  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -291,6 +341,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [draft, setDraft] = useState('')
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
   const [readingPageIndex, setReadingPageIndex] = useState(0)
+  const countedPageRef = useRef<string | null>(null)
+  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
+  const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
   const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => chapterHearingPages(readerParagraphs, null))
@@ -305,10 +358,44 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   readingPagesRef.current = readingPages
   const workingPagesRef = useRef(draftPages)
   workingPagesRef.current = draftPages
+  // A later page or chapter action owns the reader. This prevents an older
+  // async chapter response from replacing the tuple after the user turned back.
+  const chapterNavigationRef = useRef(0)
+
+  useEffect(() => {
+    const identity = `${book.chapterNumber}:${readingPageIndex}:${chapterCoverTitle ? 'cover' : 'text'}`
+    if (countedPageRef.current == null) { countedPageRef.current = identity; return }
+    if (countedPageRef.current === identity) return
+    countedPageRef.current = identity
+    try {
+      const current = Math.max(0, Number(localStorage.getItem('tinct-lab-page-turns') || 0))
+      localStorage.setItem('tinct-lab-page-turns', String(current + 1))
+    } catch { /* private mode */ }
+  }, [book.chapterNumber, chapterCoverTitle, readingPageIndex])
+
+  useEffect(() => {
+    let last = Date.now()
+    const timer = window.setInterval(() => {
+      const now = Date.now()
+      if (document.visibilityState === 'visible' && !gearOpen && !tocOpen) {
+        try {
+          const elapsed = Math.min(60, Math.max(0, Math.round((now - last) / 1000)))
+          const current = Math.max(0, Number(localStorage.getItem('tinct-lab-reading-seconds') || 0))
+          localStorage.setItem('tinct-lab-reading-seconds', String(current + elapsed))
+        } catch { /* private mode */ }
+      }
+      last = now
+    }, 30_000)
+    return () => window.clearInterval(timer)
+  }, [gearOpen, tocOpen])
 
   useEffect(() => {
     if (!mobileCompareEnabled) setMobileCompareActive(false)
   }, [mobileCompareEnabled])
+
+  useEffect(() => {
+    if (!desktopCompareEnabled) setDesktopCompareActive(false)
+  }, [desktopCompareEnabled])
 
   const toggleFullscreen = useCallback(async () => {
     setGearOpen(false)
@@ -385,8 +472,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const chapterTitleRef = useRef(book.chapterTitle)
   const chapterNumberRef = useRef(book.chapterNumber)
   chapterNumberRef.current = book.chapterNumber
-  const pullStartY = useRef<number | null>(null)
-
   const resumeListenRef = useRef<() => void>(() => {})
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
   const listenSpeedRef = useRef(1)
@@ -436,8 +521,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }),
     openView: openLabVoiceView,
     restoreView: restoreLabVoiceView,
-    getTheme: () => prefs.darkMode ? 'dark' : 'light',
-    setTheme: theme => updatePrefs({ ...prefs, darkMode: theme === 'dark' }),
+    getTheme: () => resolvedDarkMode ? 'dark' : 'light',
+    setTheme: theme => updatePrefs({ ...prefs, theme, darkMode: theme === 'dark' }),
     getFontSize: () => prefs.fontSize,
     setFontSize: fontSize => updatePrefs({ ...prefs, fontSize }),
     getAudioSpeed: () => listenSpeedRef.current,
@@ -458,8 +543,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     chapterNumber: book.chapterNumber,
     paragraphs: book.paragraphs,
     followParagraphs: book.followParagraphs,
+    audioTitle: book.audioTitle,
   }))
   const [browseWhileListening, setBrowseWhileListening] = useState(false)
+  const [audioChapterTransitioning, setAudioChapterTransitioning] = useState(false)
+  const audioChapterCompleteRef = useRef<() => boolean>(() => false)
   const browseWhileListeningRef = useRef(false)
   const listenPlayingRef = useRef(false)
 
@@ -501,6 +589,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
     audioEdition: audioEditionKey,
+    titleClip: listenSource.audioTitle,
+    onChapterComplete: () => audioChapterCompleteRef.current(),
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
@@ -511,8 +601,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       chapterNumber: book.chapterNumber,
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
+      audioTitle: book.audioTitle,
     })
-  }, [book.chapterNumber, book.paragraphs, book.followParagraphs, listen.playing, browseWhileListening])
+  }, [book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, listen.playing, browseWhileListening])
 
   const { notePlace, biblicalBook } = useLabPositionSync({
     book,
@@ -520,6 +611,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     sourceLocked: Boolean(source),
     authToken,
     onRemoteResume: (place) => {
+      setChapterCoverTitle(null)
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       void loadLabSource(place.sequentialChapter, {
@@ -544,29 +636,55 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [])
 
   useEffect(() => {
+    if (typeof matchMedia !== 'function') return
+    const media = matchMedia('(prefers-color-scheme: dark)')
+    const update = () => setSystemDark(media.matches)
+    media.addEventListener?.('change', update)
+    return () => media.removeEventListener?.('change', update)
+  }, [])
+
+  useLayoutEffect(() => {
     const root = document.documentElement
     const prev = root.getAttribute('data-theme')
-    root.setAttribute('data-theme', prefs.darkMode ? 'dark' : 'light')
+    const prevColorScheme = root.style.colorScheme
+    const existingThemeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+    const themeColor = existingThemeColor ?? document.createElement('meta')
+    const previousThemeColor = themeColor.getAttribute('content')
+    if (!existingThemeColor) {
+      themeColor.name = 'theme-color'
+      document.head.appendChild(themeColor)
+    }
+    root.setAttribute('data-theme', resolvedDarkMode ? 'dark' : 'light')
+    root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
+    themeColor.content = resolvedDarkMode ? '#2e2a24' : '#f2eee4'
     return () => {
       root.setAttribute('data-theme', prev ?? 'light')
+      root.style.colorScheme = prevColorScheme
+      if (!existingThemeColor) themeColor.remove()
+      else if (previousThemeColor == null) themeColor.removeAttribute('content')
+      else themeColor.content = previousThemeColor
     }
-  }, [prefs.darkMode])
+  }, [resolvedDarkMode])
 
   useEffect(() => {
     if (source) {
+      chapterNavigationRef.current += 1
+      setChapterCoverTitle(null)
       setBook(source)
       return
     }
     let cancelled = false
+    const navigation = ++chapterNavigationRef.current
     const wanted = chapterNumberRef.current
     loadLabSource(wanted, {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }).then((loaded) => {
-      if (cancelled) return
+      if (cancelled || navigation !== chapterNavigationRef.current) return
       // A failed fetch returns Genesis 1. Never flash that over a restored book.
       if (loaded.chapterNumber !== wanted && wanted !== 1) return
+      setChapterCoverTitle(null)
       setBook(loaded)
     })
     return () => { cancelled = true }
@@ -686,7 +804,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     unmeasuredTriesRef.current = 0
     setSettleIndex(nativePhonePaging ? null : 0)
     settleIndexRef.current = nativePhonePaging ? null : 0
-  }, [prefs.fontFamily, prefs.fontSize, nativePhonePaging])
+  }, [prefs.fontFamily, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, nativePhonePaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -767,6 +885,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       chapterNumber: book.chapterNumber,
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
+      audioTitle: book.audioTitle,
     }
     const chapterChanged = nextSource.chapterNumber !== listenSource.chapterNumber
     if (chapterChanged) {
@@ -783,7 +902,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (!listen.playing) listen.resume()
       return
     }
-    await listen.start(place)
+    await listen.startAtPlace(place)
   }, [book, listen, listenSource.chapterNumber, notePlace])
 
   useLayoutEffect(() => {
@@ -921,14 +1040,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const shown = readingPagesRef.current[Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))]
       const sameAsVisible = !!shown && sameChapterPages([shown], [live])
       if (passage && sameAsVisible) {
-        painted = measurePaintedOverflow(passage, chromeEl) ?? painted
-        const hasWordInk = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+        const paintRoot = labPaginationPaintRoot(passage)
+        painted = measurePaintedOverflow(paintRoot, chromeEl) ?? painted
+        const hasWordInk = [...paintRoot.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
           .some(node => {
             const rect = node.getBoundingClientRect()
             return rect.height > 8 && rect.bottom > 40
           })
         if (!hasWordInk) {
-          const line = passage!.querySelector('.lab-hearing-line') as HTMLElement | null
+          const line = paintRoot.querySelector('.lab-hearing-line') as HTMLElement | null
           const barTop = painted?.chromeTop || measureLabBarTop(wrap.ownerDocument, chromeEl)
           if (line && barTop > 0) {
             const box = line.getBoundingClientRect()
@@ -945,7 +1065,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         } else {
           const onScreenTop = measureLabOnScreenBarTop(wrap.ownerDocument, chromeEl)
           if (onScreenTop > 0) {
-            const inkBottom = [...passage!.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
+            const inkBottom = [...paintRoot.querySelectorAll('.lab-hearing-line > span, .lab-hearing-word')]
               .reduce((max, node) => {
                 const rect = node.getBoundingClientRect()
                 return rect.height > 8 ? Math.max(max, rect.bottom) : max
@@ -1168,12 +1288,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, prefs.fontFamily, prefs.fontSize, fullscreen, nativePhonePaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, prefs.fontFamily, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, nativePhonePaging])
 
   useLayoutEffect(() => {
     if (
-      nativePhonePaging
-      || !pagesStableRef.current
+      !pagesStableRef.current
       || phoneAskOpen
       || listenPlayingRef.current
       || browseWhileListeningRef.current
@@ -1190,13 +1309,23 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     // Hidden preflight catches most pages. This visible-page check is the final
     // invariant for font/browser rounding differences on a page turn.
     const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
+    if (nativePhonePaging) {
+      const pages = readingPagesRef.current
+      const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
+      if (sameChapterPages(next, pages)) return
+      workingPagesRef.current = next
+      readingPagesRef.current = next
+      setDraftPages(next)
+      setReadingPages(next)
+      return
+    }
     pagesStableRef.current = false
     unmeasuredTriesRef.current = 0
     workingPagesRef.current = readingPagesRef.current
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = pageIdx
     setSettleIndex(pageIdx)
-  }, [readingPageIndex, readingPages, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging])
+  }, [readingPageIndex, readingPages, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging, readerControlsVisible, gearOpen, chrome, readerParagraphs])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {
@@ -1257,15 +1386,19 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   desktopAskOpenRef.current = desktopAskOpen
 
   const interruptHearForAsk = useCallback(() => {
-    const hearingNow = chromeRef.current === 'hearing' || !!listen.src || listen.playing
-    if (!hearingNow) return
-    pausedForAskRef.current = true
-    setReturnTo('hearing')
-    returnToRef.current = 'hearing'
-    listen.pause()
+    const hearingNow = listen.playing
+    // Opening a companion pauses audio once. Follow-up actions inside that
+    // companion must not overwrite the original return mode after the audio
+    // element is already paused.
+    if (!hearingNow && pausedForAskRef.current) return
+    const returnMode: LabReturnTo = hearingNow ? 'hearing' : 'reading'
+    pausedForAskRef.current = hearingNow
+    setReturnTo(returnMode)
+    returnToRef.current = returnMode
+    if (hearingNow) listen.pause()
   }, [listen])
 
-  const resumeListenAfterAsk = useCallback(() => {
+  const resumeListenAfterAsk = useCallback((forceHearing = false) => {
     ask.stopVoice()
     if (stayInAskRef.current) {
       stayInAskRef.current = false
@@ -1277,7 +1410,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setPhoneAskOpen(false)
     setDesktopAskOpen(false)
     setPeekBook(false)
-    const shouldHear = pausedForAskRef.current || returnToRef.current === 'hearing'
+    // Closing Talk returns to the mode it interrupted. The explicit voice
+    // command "resume the audiobook" is different: it must begin audio even
+    // when Talk was opened from ordinary reading.
+    const shouldHear = forceHearing || pausedForAskRef.current || returnToRef.current === 'hearing'
     pausedForAskRef.current = false
     if (!shouldHear) {
       setChrome('reading')
@@ -1289,7 +1425,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (listen.src) listen.resume()
     else void listen.start(placeRef.current)
   }, [ask, listen])
-  resumeListenRef.current = resumeListenAfterAsk
+  resumeListenRef.current = () => resumeListenAfterAsk(true)
   setSpeedRef.current = (rate) => {
     listen.setSpeed(rate)
     pausedForAskRef.current = true
@@ -1378,8 +1514,24 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     fullscreen,
     phoneAsk,
   })
+  const audioBarActive = showPhoneChrome
+    && showPhoneBar
+    && !phoneAsk
+    && !mobileCompareActive
+    && (listen.playing || audioChapterTransitioning)
+  useEffect(() => {
+    if (showPhoneChrome ? !audioBarActive : !listen.playing) setSpeedPopoverOpen(false)
+  }, [audioBarActive, listen.playing, showPhoneChrome])
+  const phoneReaderControlsVisible = readerControlsVisible
+    || listen.playing
+    || phoneAsk
+    || chrome === 'talking'
+    || gearOpen
   const canPrevChapter = prevLabChapter(book.chapters, book.chapterNumber) != null
   const canNextChapter = nextLabChapter(book.chapters, book.chapterNumber) != null
+  const currentOpeningTitle = book.bookTitle === LAB_COPY.bookTitle
+    ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
+    : null
   const showReaderRail = !fullscreen && labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
@@ -1407,8 +1559,32 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     metric: prefs.progressDisplay.metric,
     scope: prefs.progressDisplay.scope,
   })
+  const barReturnsFromConversation = phoneAsk || chrome === 'talking'
+  const barPrimaryLabel = barReturnsFromConversation
+    ? (returnTo === 'hearing' ? LAB_COPY.play : LAB_COPY.read)
+    : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
-  const footProgressLabel = footProgress
+  const fullPageWordCounts = readingPages
+    .slice(0, Math.max(1, readingPages.length - 1))
+    .map(page => chapterPageSegments(page).reduce((total, segment) => total + Math.max(0, segment.to - segment.from), 0))
+    .filter(count => count > 0)
+    .sort((a, b) => a - b)
+  const measuredWordsPerPage = fullPageWordCounts.length > 0
+    ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)]
+    : Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
+  const phoneProgressLabel = labReaderProgressLabel({
+    mode: readerProgressMode,
+    currentPage: chapterProgress.currentPage,
+    totalPages: chapterProgress.totalPages,
+    chapterPercent: chapterProgress.percent,
+    chapterNumber: book.chapterNumber,
+    chapterWordsRead: chapterProgress.wordsRead,
+    chapterWordCounts: book.chapters,
+    wordsPerPage: measuredWordsPerPage,
+  })
+  const footProgressLabel = showPhoneChrome
+    ? phoneProgressLabel
+    : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
     if (!showHearing) return
@@ -1426,7 +1602,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const inFirst15 = listen.clipIndex === 0 && listen.currentTime < 15
       if (resetToStart && midBook && !inFirst15) return
       placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
-      if (page && page.paragraphIndex === follow.paragraphIndex && follow.wordIndex < page.to && follow.wordIndex >= page.from) return
+      const followAlreadyVisible = showPhoneChrome
+        ? !!page && page.paragraphIndex === follow.paragraphIndex
+          && follow.wordIndex < page.to && follow.wordIndex >= page.from
+        : followOnReadingPage(follow, readingPages, readingPageIndex)
+      if (followAlreadyVisible) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
         if (next !== current) {
@@ -1441,7 +1621,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const midBook = !!page && page.paragraphIndex > 0
       if (follow.paragraphIndex === 0 && midBook && !(listen.clipIndex === 0 && listen.currentTime < 15)) return
       placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
-      if (page && page.paragraphIndex === follow.paragraphIndex) return
+      const followAlreadyVisible = showPhoneChrome
+        ? !!page && page.paragraphIndex === follow.paragraphIndex
+        : followOnReadingPage(follow, readingPages, readingPageIndex)
+      if (followAlreadyVisible) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
         if (next !== current) {
@@ -1452,12 +1635,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         return next === current ? current : next
       })
     }
-  }, [listen.follow, readingPages, readingPageIndex, showHearing, listen.clipIndex, listen.currentTime])
+  }, [listen.follow, readingPages, readingPageIndex, showHearing, showPhoneChrome, listen.clipIndex, listen.currentTime])
 
   useEffect(() => {
     if (!showHearing || !listen.playing || browseWhileListeningRef.current) return
     const follow = listen.follow
     if (follow.kind !== 'word' && follow.kind !== 'paragraph') return
+    if (!showPhoneChrome && followOnReadingPage(follow, readingPages, readingPageIndexRef.current)) return
     const next = follow.kind === 'word'
       ? pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
       : pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
@@ -1467,7 +1651,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (anchor) pageAnchorRef.current = anchor
     readingPageIndexRef.current = next
     setReadingPageIndex(next)
-  }, [readingPages, showHearing, listen.playing, listen.follow])
+  }, [readingPages, showHearing, showPhoneChrome, listen.playing, listen.follow])
 
   useEffect(() => {
     const editions = {
@@ -1490,6 +1674,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const el = popupRef.current
     if (!el) return
     const rect = el.getBoundingClientRect()
+    if (rect.width <= 0 || rect.height <= 0) return
     const vw = window.innerWidth
     const vh = window.innerHeight
     const margin = 8
@@ -1514,22 +1699,27 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (!selectionPopup) return
     const onPointer = (event: PointerEvent) => {
       const target = event.target as HTMLElement
-      if (target.closest('.selection-popup') || target.closest('[data-testid="lab-word"]')) return
+      if (target.closest('.selection-popup')) return
       dismissSelectionPopup()
     }
-    document.addEventListener('pointerdown', onPointer)
-    return () => document.removeEventListener('pointerdown', onPointer)
+    document.addEventListener('pointerdown', onPointer, true)
+    return () => document.removeEventListener('pointerdown', onPointer, true)
   }, [dismissSelectionPopup, selectionPopup])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number) => {
-    const created = highlightsApi.addOrReuse(range, 'gold')
-    const mode = defaultPopupMode(range.text, created.id)
+    // A completed selection is a saved gold highlight immediately. The menu
+    // edits that record; dismissing it never throws the reader's work away.
+    const existing = highlightsApi.findRange(range) ?? highlightsApi.findContainingRange(range)
+    const highlight = existing ?? highlightsApi.addOrReuse(range, 'gold')
+    const mode = defaultPopupMode(range.text, existing?.id)
     setPopupMode(mode)
-    setNoteInput(created.note || '')
+    setNoteInput(highlight.note || '')
     if (mode === 'define') define.begin(range.text)
     const anchorY = clientY
     const showBelow = window.innerHeight - anchorY > anchorY
-    const mobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+    const mobile = typeof window !== 'undefined'
+      && typeof window.matchMedia === 'function'
+      && window.matchMedia('(max-width: 768px)').matches
     const estimatedHeight = mode === 'define' ? 220 : 64
     const chromeEl = bottomChromeRef.current
     const chromeTop = chromeEl?.getBoundingClientRect().top ?? window.innerHeight
@@ -1548,11 +1738,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       endOffset: range.toWord,
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
-      existingHighlightId: created.id,
-      existingNote: created.note,
+      existingHighlightId: highlight.id,
+      existingNote: highlight.note,
+      homeMode: mode,
       range,
     })
   }, [define, highlightsApi])
+
+  useEffect(() => {
+    if (!phoneAskOpen) setPhoneKeyboardOpen(false)
+  }, [phoneAskOpen])
 
   const leaveTalking = useCallback(() => {
     resumeListenAfterAsk()
@@ -1579,12 +1774,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   ), [book.paragraphs, mobileCompareActive, readerParagraphs])
 
   const goToPage = useCallback((index: number) => {
+    chapterNavigationRef.current += 1
     const reading = readingPagesRef.current
     const working = workingPagesRef.current
     const navPages = labNavPageList(pagesStableRef.current, working, reading)
     let page = navPages[index]
     if (!page) page = reading[index]
     if (!page) return
+    setChapterCoverTitle(null)
     const committed = navPages[index] ? navPages : reading
     commitUnsettledNav(committed)
     chapterLandingRef.current = null
@@ -1594,6 +1791,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const activeAnchor = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
     pageAnchorRef.current = activeAnchor
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
+    const previousPageIndex = readingPageIndexRef.current
+    if (clamped !== previousPageIndex) {
+      setPageTurn(current => ({
+        direction: clamped > previousPageIndex ? 'next' : 'previous',
+        nonce: (current?.nonce ?? 0) + 1,
+      }))
+    }
     readingPageIndexRef.current = clamped
     setReadingPageIndex(clamped)
     if (listen.playing || browseWhileListeningRef.current) {
@@ -1603,7 +1807,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       const primaryAnchor = primaryAnchorFor(activeAnchor)
       placeRef.current = primaryAnchor
       notePlace('page-turn', primaryAnchor)
-      if (listen.src && !mobileCompareActive) listen.seekToPlace(page.paragraphIndex, page.from)
     }
   }, [commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
 
@@ -1627,6 +1830,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setReturnTo('reading')
     setPeekBook(false)
     setInTheBookOpen(false)
+    setChapterCoverTitle(null)
     pageAnchorRef.current = mapped
     placeRef.current = primaryAnchor
     notePlace('page-turn', primaryAnchor)
@@ -1641,6 +1845,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [book.compareParagraphs, book.paragraphs, listen, mobileCompareActive, mobileCompareEnabled, notePlace, readerParagraphs])
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    const navigation = ++chapterNavigationRef.current
     if (listen.playing) {
       browseWhileListeningRef.current = true
       setBrowseWhileListening(true)
@@ -1667,11 +1872,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     })
+    if (
+      navigation !== chapterNavigationRef.current
+      || loaded.chapterNumber !== number
+      || loaded.paragraphs.length === 0
+    ) return
+    setChapterCoverTitle(null)
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
   }, [listen.playing, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
 
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
     prefetchLabChapterTexts(number, {
@@ -1679,6 +1891,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
     }, 1)
     keepPlayingChapterRef.current = listen.playing ? number : null
+    if (listen.playing) setAudioChapterTransitioning(true)
     listen.stop()
     pageAnchorRef.current = null
     restorePlaceRef.current = null
@@ -1700,9 +1913,35 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     })
+    if (
+      navigation !== chapterNavigationRef.current
+      || loaded.chapterNumber !== number
+      || loaded.paragraphs.length === 0
+    ) {
+      if (navigation === chapterNavigationRef.current) setAudioChapterTransitioning(false)
+      return
+    }
+    setChapterCoverTitle(
+      landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
+        ? bibleBookOpeningTitle(loaded.chapters, number)
+        : null,
+    )
+    setListenSource({
+      chapterNumber: loaded.chapterNumber,
+      paragraphs: loaded.paragraphs,
+      followParagraphs: loaded.followParagraphs,
+      audioTitle: loaded.audioTitle,
+    })
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
   }, [listen, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
+
+  audioChapterCompleteRef.current = () => {
+    const next = nextLabChapter(book.chapters, book.chapterNumber)
+    if (next == null) return false
+    void goToChapter(next, 'start')
+    return true
+  }
 
   useEffect(() => {
     const target = keepPlayingChapterRef.current
@@ -1715,7 +1954,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       ? { paragraphIndex: Math.max(0, book.paragraphs.length - 1), wordIndex: 0 }
       : { paragraphIndex: 0, wordIndex: 0 }
     placeRef.current = place
-    void listenStartRef.current(place)
+    void listenStartRef.current(place).finally(() => setAudioChapterTransitioning(false))
     return () => {
       if (keepPlayingChapterRef.current == null) keepPlayingChapterRef.current = target
     }
@@ -1735,6 +1974,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     notePlace('page-turn', { paragraphIndex: next, wordIndex: 0 })
     if (opts?.seekAudio && listen.src) listen.seekToPlace(next, 0)
   }, [book.paragraphs.length, listen, notePlace, readingPages])
+
+  useEffect(() => {
+    const highlight = pendingMapHighlightRef.current
+    if (!highlight || highlight.chapterNumber !== book.chapterNumber) return
+    pendingMapHighlightRef.current = null
+    goToParagraph(highlight.paragraphIndex)
+  }, [book.chapterNumber, goToParagraph])
 
   const applyPlaybackSkip = useCallback(async (kind: LabPlaybackSkip) => {
     pausedForAskRef.current = true
@@ -1759,6 +2005,19 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   skipRef.current = applyPlaybackSkip
 
   const goNext = useCallback(() => {
+    if (chapterCoverTitle) {
+      chapterNavigationRef.current += 1
+      setChapterCoverTitle(null)
+      chapterLandingRef.current = null
+      landingChapterRef.current = null
+      openAtEndRef.current = false
+      setOpenAtEnd(false)
+      const first = readingPagesRef.current[0]
+      pageAnchorRef.current = pageAnchorOf(first)
+      readingPageIndexRef.current = 0
+      setReadingPageIndex(0)
+      return
+    }
     const reading = readingPagesRef.current
     const working = workingPagesRef.current
     const pages = labNavPageList(pagesStableRef.current, working, reading)
@@ -1774,13 +2033,29 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, goToChapter, goToPage, listen.playing])
+  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
 
   const goPrev = useCallback(() => {
+    if (chapterCoverTitle) {
+      chapterNavigationRef.current += 1
+      const previousChapter = prevLabChapter(book.chapters, book.chapterNumber)
+      if (previousChapter != null) {
+        if (listen.playing) void browseToChapter(previousChapter, 'end')
+        else void goToChapter(previousChapter, 'end')
+      }
+      return
+    }
     const reading = readingPagesRef.current
     const working = workingPagesRef.current
     const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
+    const openingTitle = book.bookTitle === LAB_COPY.bookTitle
+      ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
+      : null
+    if (index === 0 && openingTitle && !listen.playing) {
+      setChapterCoverTitle(openingTitle)
+      return
+    }
     const prevPage = adjacentPageIndex(pages.length, index, -1)
     if (prevPage != null) {
       goToPage(prevPage)
@@ -1791,9 +2066,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, goToChapter, goToPage, listen.playing])
+  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
+    setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
     if (chrome === 'hearing' && !opts?.force) {
       listen.pause()
@@ -1823,14 +2099,20 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     const page = readingPages[Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))]
-    const place = page
+    const firstVisibleWord = pageWrapRef.current?.querySelector<HTMLElement>('[data-testid="lab-word"]')
+    const visibleParagraphIndex = Number(firstVisibleWord?.dataset.paragraphIndex)
+    const visibleWordIndex = Number(firstVisibleWord?.dataset.wordIndex)
+    const visiblePlace = Number.isInteger(visibleParagraphIndex) && Number.isInteger(visibleWordIndex)
+      ? { paragraphIndex: visibleParagraphIndex, wordIndex: visibleWordIndex }
+      : null
+    const place = (!showPhoneChrome ? visiblePlace : null) ?? (page
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
-      : placeRef.current
+      : placeRef.current)
     const follow = listen.follow
-    const onThisPage = follow.kind === 'word' && page
-      && follow.paragraphIndex === page.paragraphIndex
-      && follow.wordIndex >= page.from
-      && follow.wordIndex < page.to
+    const onThisPage = follow.kind === 'word' && (showPhoneChrome
+      ? !!page && follow.paragraphIndex === page.paragraphIndex
+        && follow.wordIndex >= page.from && follow.wordIndex < page.to
+      : followOnReadingPage(follow, readingPages, readingPageIndex))
     placeRef.current = onThisPage
       ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
       : place
@@ -1838,6 +2120,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       chapterNumber: book.chapterNumber,
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
+      audioTitle: book.audioTitle,
     }))
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
@@ -1848,7 +2131,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void listen.start(placeRef.current)
-  }, [chrome, listen, notePlace, readingPageIndex, readingPages])
+  }, [chrome, listen, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   const handleHeaderListen = useCallback(() => {
     if (peekBook && chrome === 'hearing') {
@@ -1889,23 +2172,42 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   const handleTalk = useCallback(() => {
     setGearOpen(false)
+    setTocOpen(false)
     interruptHearForAsk()
     setVoiceGate('connecting')
     setChrome('talking')
+    if (!showPhoneChrome) {
+      setDesktopAskOpen(true)
+      void ask.startVoice().then((started) => {
+        if (!started) setVoiceGate('off')
+      })
+      return
+    }
     openPhoneAsk()
     void ask.startVoice().then((started) => {
       if (!started) setVoiceGate('off')
     })
-  }, [ask, interruptHearForAsk, openPhoneAsk])
+  }, [ask, interruptHearForAsk, openPhoneAsk, showPhoneChrome])
 
   const handleChat = useCallback(() => {
     setGearOpen(false)
+    setTocOpen(false)
     setVoiceGate('off')
+    if (!showPhoneChrome) {
+      if (desktopAskOpen && chrome !== 'talking') {
+        resumeListenAfterAsk()
+        return
+      }
+      interruptHearForAsk()
+      setDesktopAskOpen(true)
+      if (ask.voiceActive) ask.stopVoice()
+      return
+    }
     stayInAskRef.current = true
     openPhoneAsk()
     if (ask.voiceActive) ask.stopVoice()
     else stayInAskRef.current = false
-  }, [ask, openPhoneAsk])
+  }, [ask, chrome, desktopAskOpen, interruptHearForAsk, openPhoneAsk, resumeListenAfterAsk, showPhoneChrome])
 
   const handleBarListen = useCallback(() => {
     setGearOpen(false)
@@ -1930,13 +2232,17 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         chapterNumber: book.chapterNumber,
         paragraphs: book.paragraphs,
         followParagraphs: book.followParagraphs,
+        audioTitle: book.audioTitle,
       }))
       void listen.start(primaryAnchor)
       return
     }
     if (chrome === 'hearing') {
       if (listen.playing) {
-        listen.pause()
+        // The phone Pause control is also the explicit return to the reading
+        // surface. Reuse the full transition so the visible page, persisted
+        // place and contextual Chat/Talk return label stay coherent.
+        startHearing()
         return
       }
       if (listen.src) {
@@ -2011,28 +2317,37 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     <div
       ref={labRootRef}
       lang={bibleEditions().find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${prefs.darkMode ? ' is-night' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
+      data-theme={resolvedDarkMode ? 'dark' : 'light'}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
       data-phone-bar={showPhoneBar ? labPhoneBarMode(chrome, peekBook, phoneAskOpen) : 'none'}
       data-page-height={pageMetrics ? String(pageMetrics.height) : ''}
       data-chapter={String(book.chapterNumber)}
+      data-cover-page={chapterCoverTitle ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
       data-fullscreen={fullscreen ? 'true' : 'false'}
+      data-reader-controls={showPhoneChrome ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
-      data-compare-active={mobileCompareActive ? 'true' : 'false'}
+      data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
+      data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
+      data-desktop-panel={!showPhoneChrome && desktopAskOpen ? (chrome === 'talking' ? 'talk' : 'chat') : 'none'}
       data-voice-surface={voiceLabView}
       data-voice-history-fixture={voiceHistoryFixture ? 'true' : 'false'}
       data-audio-speed={String(listen.speed)}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),
         ['--lab-font-size' as string]: String(prefs.fontSize),
+        ['--lab-text-align' as string]: prefs.alignment,
+        ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
+        ['--lab-reader-margin' as string]: prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
+        ['--lab-paragraph-gap' as string]: prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
       }}
     >
-      {fullscreen && (
+      {fullscreen && !showPhoneChrome && (
         <button
           type="button"
           className="lab-fullscreen-exit-hotspot"
@@ -2059,7 +2374,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           </button>
         </div>
         <div className="lab-header-controls">
-          <button
+          {!showPhoneChrome && <button
             type="button"
             className={`lab-fullscreen ${fullscreen ? 'is-on' : ''}`}
             onClick={() => { void toggleFullscreen() }}
@@ -2067,7 +2382,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             data-testid="lab-fullscreen"
           >
             <FullscreenIcon on={fullscreen} />
-          </button>
+          </button>}
           <button
             type="button"
             className={`lab-gear ${gearOpen ? 'is-open' : ''}`}
@@ -2075,9 +2390,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             aria-label={LAB_COPY.settings}
             aria-expanded={gearOpen}
             aria-haspopup="dialog"
+            aria-hidden={showPhoneChrome && !phoneReaderControlsVisible}
+            tabIndex={showPhoneChrome && !phoneReaderControlsVisible ? -1 : undefined}
             data-testid="lab-gear"
           >
-            <GearIcon />
+            <TuneIcon />
           </button>
         </div>
         <p className="lab-status" data-testid="lab-status">
@@ -2095,21 +2412,24 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         <div
           className="lab-page-wrap"
           ref={pageWrapRef}
-          onTouchStart={(event) => { pullStartY.current = event.touches[0]?.clientY ?? null }}
-          onTouchEnd={(event) => {
-            const start = pullStartY.current
-            pullStartY.current = null
-            if (start == null || selectionPopup) return
-            const endY = event.changedTouches[0]?.clientY ?? start
-            if (labPullOpensToc(endY - start)) setTocOpen(true)
-          }}
+          data-testid="lab-page-wrap"
         >
-          <LabPassage
+          {chapterCoverTitle ? (
+            <LabChapterCover
+              title={chapterCoverTitle}
+              onPageTurn={(direction) => {
+                setReaderControlsVisible(false)
+                if (direction > 0) goNext()
+                else goPrev()
+              }}
+              onToggleControls={() => setReaderControlsVisible(visible => !visible)}
+            />
+          ) : <LabPassage
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
-            compare={prefs.compareOpen && !showPhoneChrome}
-            mode={showHearing ? 'hearing' : 'reading'}
+            compare={desktopCompareActive && desktopCompareEnabled}
+            mode={showPhoneChrome && showHearing ? 'hearing' : 'reading'}
             follow={showHearing && listen.playing && !browseWhileListening ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
@@ -2118,6 +2438,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             currentTime={listen.currentTime}
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
+            inlineHearingPaint={!showPhoneChrome && showHearing && listen.playing && !browseWhileListening}
             onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.playing) listen.pause()
@@ -2126,7 +2447,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             }}
             onSeek={listen.seek}
             onCycleSpeed={listen.cycleSpeed}
-            hideTransport={showPhoneChrome}
+            hideTransport
             markedIndexes={mobileCompareActive ? new Set<number>() : markedIndexes}
             onMark={mobileCompareActive ? undefined : handleMark}
             focusParagraph={focusParagraph}
@@ -2137,12 +2458,20 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             highlights={mobileCompareActive ? [] : highlightsApi.chapterHighlights}
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
+            pageTurn={pageTurn}
             onSelectRange={phoneAsk || mobileCompareActive ? undefined : handleSelectRange}
             onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
-              ? (direction) => { if (direction > 0) goNext(); else goPrev() }
+              ? (direction) => {
+                  setReaderControlsVisible(false)
+                  if (direction > 0) goNext()
+                  else goPrev()
+                }
               : undefined}
-          />
-          {nativePhonePaging && (
+            onToggleControls={showPhoneChrome && !phoneAsk && !selectionPopup
+              ? () => setReaderControlsVisible(visible => !visible)
+              : undefined}
+          />}
+          {!chapterCoverTitle && nativePhonePaging && (
             <LabNativePaginator
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
@@ -2151,12 +2480,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
                 readerEditionKey,
                 prefs.fontFamily,
                 prefs.fontSize,
+                prefs.alignment,
+                prefs.lineSpacing,
+                prefs.margins,
+                prefs.paragraphSpacing,
                 fullscreen ? 'fullscreen' : 'windowed',
               ].join(':')}
               onPages={applyNativePages}
             />
           )}
-          {!nativePhonePaging && settleIndex != null && draftPages[settleIndex] && (
+          {!chapterCoverTitle && !nativePhonePaging && settleIndex != null && draftPages[settleIndex] && (
             <div
               className="lab-page-measure"
               ref={measureHostRef}
@@ -2173,16 +2506,6 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           )}
         </div>
         )}
-        {!showPhoneChrome && !desktopAskOpen && (
-          <button
-            type="button"
-            className="lab-ask-tab"
-            data-testid="lab-ask-tab"
-            onClick={() => setDesktopAskOpen(true)}
-          >
-            {LAB_COPY.ask}
-          </button>
-        )}
         {((!showPhoneChrome && desktopAskOpen) || phoneAsk) && (
           <LabAskPane
             conversationState={ask.conversationState}
@@ -2197,14 +2520,66 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             notice={ask.notice}
             onDone={phoneAsk ? undefined : closePhoneAsk}
             phoneSheet={!!phoneAsk}
+            desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
+            onKeyboardOpenChange={setPhoneKeyboardOpen}
+            chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
           />
+        )}
+        {!showPhoneChrome && (
+          <nav className="lab-desktop-action-rail" data-testid="lab-desktop-action-rail" aria-label="Reader actions">
+            <button
+              type="button"
+              className={`lab-desktop-action is-play${listen.playing ? ' is-active' : ''}`}
+              onClick={handleHeaderListen}
+              aria-label={listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+              data-testid="lab-listen"
+            >
+              <span className="lab-desktop-action-icon" data-testid="lab-desktop-play" aria-hidden="true">
+                {listen.playing ? <PauseIcon size={19} /> : <PlayIcon size={19} />}
+              </span>
+              <span>{listen.playing ? LAB_COPY.pause : LAB_COPY.play}</span>
+            </button>
+            {desktopCompareEnabled && (
+              <button
+                type="button"
+                className={`lab-desktop-action${desktopCompareActive ? ' is-active' : ''}`}
+                onClick={() => setDesktopCompareActive(active => !active)}
+                aria-label={desktopCompareActive ? `Close ${LAB_COPY.compare}` : LAB_COPY.compare}
+                aria-pressed={desktopCompareActive}
+                data-testid="lab-desktop-compare"
+              >
+                <CompareIcon />
+                <span>{LAB_COPY.compare}</span>
+              </button>
+            )}
+            <button
+              type="button"
+              className={`lab-desktop-action${desktopAskOpen && chrome !== 'talking' ? ' is-active' : ''}`}
+              onClick={handleChat}
+              aria-pressed={desktopAskOpen && chrome !== 'talking'}
+              data-testid="lab-desktop-chat"
+            >
+              <ChatIcon />
+              <span>{LAB_COPY.chat}</span>
+            </button>
+            <button
+              type="button"
+              className={`lab-desktop-action${desktopAskOpen && chrome === 'talking' ? ' is-active' : ''}`}
+              onClick={handleTalk}
+              aria-pressed={desktopAskOpen && chrome === 'talking'}
+              data-testid="lab-desktop-talk"
+            >
+              <TalkIcon />
+              <span>{LAB_COPY.talk}</span>
+            </button>
+          </nav>
         )}
       </div>
 
       <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
       {showReaderRail && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
-          {readingPageIndex > 0 || canPrevChapter ? (
+          {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
               className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
@@ -2212,19 +2587,32 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               aria-label={LAB_COPY.previous}
               onClick={goPrev}
             >
-              {showPhoneChrome ? '←' : LAB_COPY.previous}
+              {showPhoneChrome ? '←' : '‹'}
             </button>
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
           )}
-          <div
-            className="lab-chapter-progress"
-            data-testid="lab-chapter-progress"
-            title={footProgress}
-          >
-            <span className="lab-chapter-progress-info">{footProgressLabel}</span>
-          </div>
-          {readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
+          {showPhoneChrome ? (
+            <button
+              type="button"
+              className="lab-chapter-progress is-interactive"
+              data-testid="lab-chapter-progress"
+              title={readerProgressMode === 'book' ? 'Show chapter progress' : 'Show book progress'}
+              aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
+              onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
+            >
+              <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+            </button>
+          ) : (
+            <div
+              className="lab-chapter-progress"
+              data-testid="lab-chapter-progress"
+              title={footProgress}
+            >
+              <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+            </div>
+          )}
+          {chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
               className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
@@ -2232,50 +2620,57 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               aria-label={LAB_COPY.next}
               onClick={goNext}
             >
-              {showPhoneChrome ? '→' : LAB_COPY.next}
+              {showPhoneChrome ? '→' : '›'}
             </button>
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
           )}
-          {!showPhoneChrome && (
-            <button
-              type="button"
-              className="lab-header-btn lab-header-listen"
-              onClick={handleHeaderListen}
-              data-testid="lab-listen"
-            >
-              {chrome === 'hearing' && !peekBook ? (
-                LAB_COPY.read
-              ) : (
-                <>
-                  <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
-                    <PlayIcon size={16} />
-                  </span>
-                  {LAB_COPY.listen}
-                </>
-              )}
-            </button>
-          )}
         </nav>
       )}
-      {!showPhoneChrome && !showReaderRail && (
-        <button
-          type="button"
-          className="lab-header-btn lab-header-listen"
-          onClick={handleHeaderListen}
-          data-testid="lab-listen"
+
+      {!showPhoneChrome && listen.playing && (
+        <section className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
+          <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
+          <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
+          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-label={LAB_COPY.pause}><PauseIcon size={22} /></button>
+          <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
+          <div className="lab-desktop-audio-track">
+            <strong>{book.bookTitle}</strong>
+            <span>{book.chapterLabel} · {primaryEditionLabel}</span>
+            <i><b style={{ width: `${Math.max(0, Math.min(100, ((listen.currentTime || 0) / Math.max(1, listen.clips[listen.clipIndex]?.duration || 1)) * 100))}%` }} /></i>
+          </div>
+        </section>
+      )}
+
+      {(audioBarActive || (!showPhoneChrome && listen.playing)) && speedPopoverOpen && (
+        <section
+          id="lab-audio-speed-popover"
+          className="lab-audio-speed-popover"
+          data-testid="lab-audio-speed-popover"
+          aria-label="Playback speed"
         >
-          {chrome === 'hearing' && !peekBook ? (
-            LAB_COPY.read
-          ) : (
-            <>
-              <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
-                <PlayIcon size={16} />
-              </span>
-              {LAB_COPY.listen}
-            </>
-          )}
-        </button>
+          <div className="lab-audio-speed-heading">
+            <span>Playback speed</span>
+            <output htmlFor="lab-audio-speed-slider">{listen.speed}×</output>
+          </div>
+          <input
+            id="lab-audio-speed-slider"
+            data-testid="lab-audio-speed-slider"
+            type="range"
+            min="0.5"
+            max="3"
+            step="0.25"
+            value={listen.speed}
+            aria-label="Playback speed"
+            onChange={(event) => listen.setSpeed(Number(event.target.value))}
+          />
+          <div className="lab-audio-speed-scale" aria-hidden="true">
+            <span>0.5×</span>
+            <span>1×</span>
+            <span>2×</span>
+            <span>3×</span>
+          </div>
+        </section>
       )}
 
       {showPhoneBar && (
@@ -2283,57 +2678,85 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           {ask.notice && !phoneAsk && (
             <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
           )}
-          <div className="lab-phone-bar-row">
-            <button
-              type="button"
-              className={`lab-phone-fat ${listen.playing ? 'is-active' : ''}`}
-              onClick={handleBarListen}
-              aria-label={listen.playing ? LAB_COPY.pause : LAB_COPY.play}
-              data-testid="lab-listen"
-            >
-              {listen.playing ? (
-                <>
+          <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : `is-read ${mobileCompareEnabled ? 'has-4' : 'has-3'}`}`}>
+            {audioBarActive ? (
+              <>
+                <button type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-label="Pause and return to reading" data-testid="lab-listen">
                   <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{LAB_COPY.pause}</span>
-                  <PauseIcon size={18} />
-                </>
-              ) : (
-                <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
-                  <PlayIcon size={18} />
-                </span>
-              )}
-              {listen.playing ? LAB_COPY.pause : LAB_COPY.play}
-            </button>
-            {mobileCompareEnabled && (
-              <button
-                type="button"
-                className={`lab-phone-fat ${mobileCompareActive ? 'is-active' : ''}`}
-                onClick={handleMobileCompare}
-                aria-label={mobileCompareActive ? `Return to ${primaryEditionLabel}` : `Compare with ${compareEditionLabel}`}
-                aria-pressed={mobileCompareActive}
-                data-testid="lab-phone-compare"
-              >
-                <CompareIcon />
-                {LAB_COPY.compare}
-              </button>
+                  <PauseIcon size={21} />
+                </button>
+                <button type="button" className="lab-phone-fat lab-audio-control" data-testid="lab-hearing-back" aria-label="Back 15 seconds" onClick={() => listen.seek(-15)}>
+                  <SkipIcon direction="back" />
+                </button>
+                <button
+                  type="button"
+                  className="lab-phone-fat lab-audio-control lab-audio-speed"
+                  data-testid="lab-hearing-speed"
+                  aria-label={`Playback speed ${listen.speed} times. Open speed control`}
+                  aria-expanded={speedPopoverOpen}
+                  aria-controls="lab-audio-speed-popover"
+                  onClick={() => setSpeedPopoverOpen(open => !open)}
+                >
+                  {listen.speed}×
+                </button>
+                <button type="button" className="lab-phone-fat lab-audio-control" data-testid="lab-hearing-forward" aria-label="Forward 15 seconds" onClick={() => listen.seek(15)}>
+                  <SkipIcon direction="forward" />
+                </button>
+                <button type="button" className="lab-phone-fat lab-audio-control" onClick={handleTalk} aria-label={LAB_COPY.talk} data-testid="lab-phone-talk">
+                  <TalkIcon />
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  className="lab-phone-fat"
+                  onClick={handleBarListen}
+                  aria-label={barPrimaryLabel}
+                  data-testid="lab-listen"
+                >
+                  {barReturnsFromConversation && returnTo === 'reading' ? (
+                    <ReadIcon size={18} />
+                  ) : (
+                    <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
+                      <PlayIcon size={18} />
+                    </span>
+                  )}
+                  {barPrimaryLabel}
+                </button>
+                {mobileCompareEnabled && (
+                  <button
+                    type="button"
+                    className={`lab-phone-fat ${mobileCompareActive ? 'is-active' : ''}`}
+                    onClick={handleMobileCompare}
+                    aria-label={mobileCompareActive ? `Return to ${primaryEditionLabel}` : `Compare with ${compareEditionLabel}`}
+                    aria-pressed={mobileCompareActive}
+                    data-testid="lab-phone-compare"
+                  >
+                    <CompareIcon />
+                    {LAB_COPY.compare}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className={`lab-phone-fat ${phoneAsk && !ask.voiceActive ? 'is-active' : ''}`}
+                  onClick={handleChat}
+                  data-testid="lab-phone-chat"
+                >
+                  <ChatIcon />
+                  {LAB_COPY.chat}
+                </button>
+                <button
+                  type="button"
+                  className={`lab-phone-fat ${ask.voiceActive || (phoneAsk && chrome === 'talking') ? 'is-active' : ''}`}
+                  onClick={handleTalk}
+                  data-testid="lab-phone-talk"
+                >
+                  <TalkIcon />
+                  {LAB_COPY.talk}
+                </button>
+              </>
             )}
-            <button
-              type="button"
-              className={`lab-phone-fat ${phoneAsk && !ask.voiceActive ? 'is-active' : ''}`}
-              onClick={handleChat}
-              data-testid="lab-phone-chat"
-            >
-              <ChatIcon />
-              {LAB_COPY.chat}
-            </button>
-            <button
-              type="button"
-              className={`lab-phone-fat ${ask.voiceActive || (phoneAsk && chrome === 'talking') ? 'is-active' : ''}`}
-              onClick={handleTalk}
-              data-testid="lab-phone-talk"
-            >
-              <TalkIcon />
-              {LAB_COPY.talk}
-            </button>
           </div>
         </footer>
       )}
@@ -2342,7 +2765,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       <LabVoiceActionPanel
         active={ask.voiceActive}
         view={voiceLabView}
-        darkMode={prefs.darkMode}
+        darkMode={resolvedDarkMode}
         fontSize={prefs.fontSize}
         audioSpeed={listen.speed}
         fixtureEnabled={voiceHistoryFixture}
@@ -2385,6 +2808,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           setInTheBookOpen(true)
           setPeekBook(chrome === 'hearing')
         }}
+        desktop={!showPhoneChrome}
       />
 
       {tocOpen && (
@@ -2395,12 +2819,27 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             currentChapter={book.chapterNumber}
             sections={book.sections}
             finishedChapters={finishedChapters}
+            highlights={highlightsApi.highlights}
+            conversations={readLabTalkHistory(biblicalBook)}
             onSelectChapter={(number) => {
               setTocOpen(false)
               if (listen.playing) void browseToChapter(number, 'start')
               else void goToChapter(number, 'start')
             }}
             onWarmChapter={warmChapterTexts}
+            onSelectHighlight={(highlight) => {
+              setTocOpen(false)
+              pendingMapHighlightRef.current = highlight
+              void goToChapter(highlight.chapterNumber, 'start')
+            }}
+            onOpenConversation={() => {
+              setTocOpen(false)
+              handleChat()
+            }}
+            onNewConversation={(number) => {
+              setTocOpen(false)
+              void goToChapter(number, 'start').then(() => window.setTimeout(handleChat, 0))
+            }}
             onClose={() => setTocOpen(false)}
           />
         </div>
@@ -2425,11 +2864,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           popupRef={popupRef}
           popupMode={popupMode}
           setPopupMode={setPopupMode}
+          currentHighlightColor={selectionPopup.existingHighlightId
+            ? highlightsApi.highlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.color
+            : undefined}
           onColorClick={(color: HighlightColor) => {
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
-              dismissSelectionPopup()
+            } else if (selectionPopup.range) {
+              highlightsApi.addOrReuse(selectionPopup.range, color)
             }
+            dismissSelectionPopup()
           }}
           defineQuery={define.query}
           setDefineQuery={define.setQuery}
@@ -2450,7 +2894,17 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           noteInput={noteInput}
           setNoteInput={setNoteInput}
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
-          onRequestNote={() => setPopupMode('note')}
+          onRequestNote={() => {
+            if (!selectionPopup.existingHighlightId && selectionPopup.range) {
+              const created = highlightsApi.addOrReuse(selectionPopup.range, 'gold')
+              setSelectionPopup(current => current ? {
+                ...current,
+                existingHighlightId: created.id,
+                existingNote: created.note,
+              } : current)
+            }
+            setPopupMode('note')
+          }}
           onExplain={() => {
             if (selectionPopup.text) define.begin(selectionPopup.text)
             setPopupMode('define')

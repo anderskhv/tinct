@@ -16,7 +16,7 @@ function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A N
 function routerEnv() {
   const shell = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app shell</body></html>'
   const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey/summary">The Odyssey</a></body></html>'
-  const lab = '<!doctype html><html><head><title>Tinct mobile landing and onboarding lab</title></head><body>lab shell</body></html>'
+  const lab = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Tinct mobile landing and onboarding lab</title></head><body>lab shell</body></html>'
   return {
     ASSETS: {
       fetch: async (request: Request) => {
@@ -177,7 +177,7 @@ describe('worker SEO routing', () => {
     expect(await signedIn.text()).toContain('app shell')
   })
 
-  it('serves /lab as a noindex demo, including nested paths', async () => {
+  it('serves the standalone /lab entry and nested reader as noindex surfaces', async () => {
     const lab = await worker.fetch(new Request('https://tinct.app/lab'), routerEnv() as never, ctx)
     expect(lab.status).toBe(200)
     expect(lab.headers.get('X-Robots-Tag')).toContain('noindex')
@@ -185,7 +185,7 @@ describe('worker SEO routing', () => {
     const html = await lab.text()
     expect(html).toContain('name="robots"')
     expect(html).toContain('noindex')
-    expect(html).toContain('app shell')
+    expect(html).toContain('lab shell')
 
     const nested = await worker.fetch(new Request('https://tinct.app/lab/phone'), routerEnv() as never, ctx)
     expect(nested.headers.get('X-Robots-Tag')).toContain('noindex')

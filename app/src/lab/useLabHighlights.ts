@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   createLabHighlight,
+  highlightContainsRange,
   mergeLabHighlight,
   readLabHighlights,
   sameHighlightRange,
@@ -46,6 +47,16 @@ export function useLabHighlights(chapterNumber: number) {
     return created
   }, [chapterNumber])
 
+  const findRange = useCallback((range: LabHighlightRange) => (
+    highlightsRef.current.find(h => sameHighlightRange(h, range, chapterNumber))
+  ), [chapterNumber])
+
+  const findContainingRange = useCallback((range: LabHighlightRange) => (
+    [...highlightsRef.current]
+      .reverse()
+      .find(h => highlightContainsRange(h, range, chapterNumber))
+  ), [chapterNumber])
+
   const setColor = useCallback((id: string, color: LabHighlightColor) => {
     setHighlights(current => current.map(h => h.id === id ? { ...h, color } : h))
   }, [])
@@ -65,6 +76,8 @@ export function useLabHighlights(chapterNumber: number) {
   return {
     highlights,
     chapterHighlights,
+    findRange,
+    findContainingRange,
     addOrReuse,
     setColor,
     setNote,

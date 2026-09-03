@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
+import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -49,6 +49,20 @@ describe('lab chrome states', () => {
     expect(nextLabVoiceGate('connecting', 'listening', true, null, true)).toBe('connecting')
     expect(nextLabVoiceGate('connecting', 'speaking', true, null, true)).toBe('off')
     expect(nextLabVoiceGate('ready', 'speaking', true, null, true)).toBe('off')
+  })
+})
+
+describe('lab pagination paint authority', () => {
+  it('uses only the primary text column to author a Compare page map', () => {
+    const passage = document.createElement('article')
+    const primary = document.createElement('div')
+    primary.className = 'lab-book-col'
+    const compare = document.createElement('div')
+    compare.className = 'lab-book-col lab-book-col-compare'
+    passage.append(primary, compare)
+
+    expect(labPaginationPaintRoot(passage)).toBe(primary)
+    expect(labPaginationPaintRoot(primary)).toBe(primary)
   })
 })
 
@@ -140,9 +154,9 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('keeps last content bottom strictly above chrome top', () => {
-    // Invariant: last content bottom y < chrome top y - 12px.
-    expect(lastContentClearsChrome(587, 600)).toBe(true)
-    expect(lastContentClearsChrome(588, 600)).toBe(false)
+    // Invariant: last content bottom y < chrome top y - 24px.
+    expect(lastContentClearsChrome(575, 600)).toBe(true)
+    expect(lastContentClearsChrome(576, 600)).toBe(false)
     expect(lastContentClearsChrome(599, 600)).toBe(false)
     expect(lastContentClearsChrome(600, 600)).toBe(false)
     expect(lastContentClearsChrome(640, 600)).toBe(false)
@@ -250,7 +264,7 @@ describe('lab chrome inset invariant', () => {
 
   it('keeps last ink above the bar after a shrink step', () => {
     expect(nextPaintShrinkTo(0, 80, 8, 121, 36)).toBeLessThan(72)
-    expect(lastContentClearsChrome(547, 560)).toBe(true)
+    expect(lastContentClearsChrome(535, 560)).toBe(true)
     expect(settlePageTotal(15, 14)).toBe(15)
     expect(settlePageTotal(14, 15)).toBe(14)
     expect(settlePageTotal(12, 12)).toBe(12)
@@ -258,9 +272,9 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('treats inner passage/wrap scroll or last ink on the bar as an invalid page', () => {
-    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560 })).toBe(true)
-    expect(labPageFitsPaint({ lastBottom: 548, chromeTop: 560 })).toBe(false)
-    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560, scrollOverflow: true })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 535, chromeTop: 560 })).toBe(true)
+    expect(labPageFitsPaint({ lastBottom: 536, chromeTop: 560 })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 535, chromeTop: 560, scrollOverflow: true })).toBe(false)
     document.body.innerHTML = `
       <div class="lab-page-wrap">
         <article class="lab-passage">
@@ -395,17 +409,11 @@ describe('lab readable page vs chrome rect', () => {
 })
 
 
-describe('lab fullscreen and pull', () => {
+describe('lab fullscreen', () => {
   it('hides Play/Chat/Talk in read fullscreen and keeps them for Talk', () => {
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: false, phoneAsk: false })).toBe(true)
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: true, phoneAsk: false })).toBe(false)
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: true, phoneAsk: true })).toBe(true)
     expect(labShowPhoneBar({ phoneChrome: false, fullscreen: false, phoneAsk: false })).toBe(false)
-  })
-
-  it('opens the TOC after a downward pull', () => {
-    expect(labPullOpensToc(20)).toBe(false)
-    expect(labPullOpensToc(56)).toBe(true)
-    expect(labPullOpensToc(80)).toBe(true)
   })
 })

@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
+  bibleBookOpeningTitle,
   bibleFallbackSource,
   labHeaderLine,
   loadLabSource,
@@ -37,6 +38,17 @@ describe('bible chapter identity', () => {
     expect(prevLabChapter(chapters, 2)).toBe(1)
     expect(prevLabChapter(chapters, 51)).toBe(50)
     expect(prevLabChapter(chapters, 1)).toBeNull()
+  })
+
+  it('identifies only chapter 1 as a Bible book opening', () => {
+    const chapters = [
+      { number: 1, title: 'Genesis 1' },
+      { number: 2, title: 'Genesis 2' },
+      { number: 51, title: 'Exodus 1' },
+    ]
+    expect(bibleBookOpeningTitle(chapters, 1)).toBe('Genesis')
+    expect(bibleBookOpeningTitle(chapters, 2)).toBeNull()
+    expect(bibleBookOpeningTitle(chapters, 51)).toBe('Exodus')
   })
 })
 

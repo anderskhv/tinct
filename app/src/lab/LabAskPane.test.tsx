@@ -39,8 +39,9 @@ describe('lab ask living circle', () => {
   it('puts listening and speaking only on the filled circle', () => {
     const { rerender } = render(pane('listening'))
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-listening')
-    expect(screen.getByTestId('lab-ask-voice-status').textContent).toContain('Listening')
-    expect(screen.getByTestId('lab-ask-voice-status').textContent).toContain('Your turn')
+    expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Listening')
+    expect(screen.getByTestId('lab-ask-voice-status').getAttribute('data-voice-phase')).toBe('listening')
+    expect(document.querySelectorAll('.lab-ask-voice-status-glyph i')).toHaveLength(3)
     expect(screen.getByTestId('lab-ask-voice').textContent).not.toContain('Listening')
     expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-listening|is-speaking|is-connecting/)
 
@@ -53,6 +54,9 @@ describe('lab ask living circle', () => {
     rerender(pane('thinking'))
     expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Thinking')
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-thinking')
+
+    rerender(pane('idle'))
+    expect(screen.queryByTestId('lab-ask-voice-status')).toBeNull()
   })
 
   it('toggles start then stop back to idle, including from connecting', () => {
@@ -124,6 +128,36 @@ describe('lab ask phone listen', () => {
 })
 
 describe('lab ask thread above composer', () => {
+  it('renders assistant Markdown through React without enabling raw HTML', () => {
+    render(
+      <LabAskPane
+        conversationState="idle"
+        voiceActive={false}
+        typedLoading={false}
+        turns={[{
+          id: 'a1',
+          role: 'assistant',
+          content: '**Heir of all things**\n\n- *First* point\n- `Second` point\n\n<script>bad()</script>',
+          source: 'typed',
+        }]}
+        draft=""
+        onDraftChange={() => { /* unused */ }}
+        onSubmit={() => { /* unused */ }}
+        onMic={() => { /* unused */ }}
+        onVoiceMode={() => { /* unused */ }}
+      />,
+    )
+
+    const reply = screen.getByTestId('lab-ask-turn-assistant')
+    expect(reply.querySelector('strong')?.textContent).toBe('Heir of all things')
+    expect(reply.querySelector('em')?.textContent).toBe('First')
+    expect(reply.querySelector('code')?.textContent).toBe('Second')
+    expect(reply.querySelectorAll('li')).toHaveLength(2)
+    expect(reply.textContent).not.toContain('**')
+    expect(reply.querySelector('script')).toBeNull()
+    expect(reply.textContent).toContain('<script>bad()</script>')
+  })
+
   it('keeps Talk chrome in flow so the last assistant turn sits above Ask', () => {
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
     expect(css).toMatch(/\.lab-ask-thread\s*\{[^}]*padding-bottom:\s*1\.75rem/)
@@ -188,5 +222,65 @@ describe('lab ask thread above composer', () => {
     expect(users[1].textContent).toContain('thinking about reading the Bible')
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('still on Odyssey Book 1')
     expect(document.querySelector('.lab-passage-headline')).toBeNull()
+  })
+
+  it('keeps chapter context with the historical turns that created it', () => {
+    render(
+      <LabAskPane
+        conversationState="idle"
+        voiceActive={false}
+        typedLoading={false}
+        turns={[
+          { id: 'u1', role: 'user', content: 'What happens here?', source: 'typed', chapterNumber: 1 },
+          { id: 'a1', role: 'assistant', content: 'Light is created.', source: 'typed', chapterNumber: 1 },
+          { id: 'u2', role: 'user', content: 'And here?', source: 'typed', chapterNumber: 2 },
+        ]}
+        chapterLabels={{ 1: 'Genesis 1', 2: 'Genesis 2' }}
+        draft=""
+        onDraftChange={() => { /* unused */ }}
+        onSubmit={() => { /* unused */ }}
+        onMic={() => { /* unused */ }}
+        onVoiceMode={() => { /* unused */ }}
+      />,
+    )
+
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual([
+      'Genesis 1',
+      'Genesis 2',
+    ])
+  })
+
+  it('does not pull the thread while the same assistant reply streams', () => {
+    const props = {
+      conversationState: 'idle' as const,
+      voiceActive: false,
+      typedLoading: true,
+      draft: '',
+      onDraftChange: () => { /* unused */ },
+      onSubmit: () => { /* unused */ },
+      onMic: () => { /* unused */ },
+      onVoiceMode: () => { /* unused */ },
+    }
+    const { rerender } = render(<LabAskPane {...props} turns={[
+      { id: 'u1', role: 'user', content: 'Why?', source: 'typed' },
+      { id: 'a1', role: 'assistant', content: 'Because', source: 'typed' },
+    ]} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    Object.defineProperty(thread, 'scrollHeight', { configurable: true, value: 900 })
+    thread.scrollTop = 125
+
+    rerender(<LabAskPane {...props} turns={[
+      { id: 'u1', role: 'user', content: 'Why?', source: 'typed' },
+      { id: 'a1', role: 'assistant', content: 'Because this reply is still arriving.', source: 'typed' },
+    ]} />)
+
+    expect(thread.scrollTop).toBe(125)
+
+    rerender(<LabAskPane {...props} turns={[
+      { id: 'u1', role: 'user', content: 'Why?', source: 'typed' },
+      { id: 'a1', role: 'assistant', content: 'Because this reply is still arriving.', source: 'typed' },
+      { id: 'u2', role: 'user', content: 'What next?', source: 'typed' },
+    ]} />)
+    expect(thread.scrollTop).toBe(900)
   })
 })

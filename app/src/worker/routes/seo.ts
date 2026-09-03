@@ -316,6 +316,21 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return newResp
     }
 
+    // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
+    // reader SPA on the explicit /lab/phone and /lab/desktop routes below.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/lab' || url.pathname === '/lab/')) {
+      const labResp = await env.ASSETS.fetch(new Request(`${url.origin}/lab/index.html`, request))
+      if (labResp.ok) {
+        const newResp = new Response(request.method === 'HEAD' ? null : labResp.body, labResp)
+        newResp.headers.set('Cache-Control', 'no-store')
+        newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+          newResp.headers.set(key, value)
+        }
+        return newResp
+      }
+    }
+
     // Private reading-chrome demo. Always noindex, including /lab/*.
     if ((request.method === 'GET' || request.method === 'HEAD') && isLabPathname(url.pathname)) {
       const labResp = await serveLabDemo(request.method, url, env)
@@ -328,22 +343,6 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
       if (appResp.ok) {
         const newResp = new Response(request.method === 'HEAD' ? null : appResp.body, appResp)
-        newResp.headers.set('Cache-Control', 'no-store')
-        newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-          newResp.headers.set(key, value)
-        }
-        return newResp
-      }
-    }
-
-    // The mobile landing/onboarding prototype is a self-contained lab page.
-    // Resolve both clean URL forms explicitly so they cannot fall through to
-    // the reader SPA when the assets binding does not resolve directory indexes.
-    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/lab' || url.pathname === '/lab/')) {
-      const labResp = await env.ASSETS.fetch(new Request(`${url.origin}/lab/index.html`, request))
-      if (labResp.ok) {
-        const newResp = new Response(request.method === 'HEAD' ? null : labResp.body, labResp)
         newResp.headers.set('Cache-Control', 'no-store')
         newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
         for (const [key, value] of Object.entries(SECURITY_HEADERS)) {

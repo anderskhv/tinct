@@ -45,6 +45,8 @@ describe('lab talk history', () => {
       'What would Keller say about this?',
       'Keller would start with the gospel, not the law.',
     ])
+    expect(hydrated.map(item => item.chapterNumber)).toEqual([8, 8])
+    expect(hydrated.map(item => item.paragraphIndex)).toEqual([0, 0])
     expect(localStorage.getItem(LAB_CHAT_HISTORY_STORAGE_KEY)).toContain('romans')
     expect(localStorage.getItem(LAB_CHAT_HISTORY_STORAGE_KEY)).not.toContain('"bible"')
   })

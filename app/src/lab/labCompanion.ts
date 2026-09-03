@@ -28,7 +28,7 @@ export const LAB_ASK_COMPANION_TOOL = {
   },
 } as const
 
-const PLAYBACK_COMMAND = /\b(go\s+faster|go\s+slower|speed\s+up|slow\s+down|faster|slower|\d+(\.\d+)?\s*x|next\s+chapter|previous\s+chapter|skip(\s+(ahead|forward|back|this))?\b|next\s+paragraph|previous\s+paragraph|resume|continue|keep\s+going|back\s+to\s+the\s+book|play|pause|talk\s+slower|talk\s+faster|slower\s+please)\b/i
+const PLAYBACK_COMMAND = /\b(go\s+faster|go\s+slower|speed\s+up|slow\s+down|faster|slower|\d+(\.\d+)?\s*x|next\s+chapter|previous\s+chapter|restart(\s+this)?\s+chapter|chapter\s+from\s+the\s+beginning|start\s+(this\s+)?chapter\s+again|skip(\s+(ahead|forward|back|this))?\b|next\s+paragraph|previous\s+paragraph|resume|continue|keep\s+going|back\s+to\s+the\s+book|play|pause|talk\s+slower|talk\s+faster|slower\s+please)\b/i
 
 const HARD_QUESTION = /\b(what does (this|that|it) mean|mean(ing)?|theology|theological|compar(e|ison)|character|argument|who (is|are|was|were)|why (does|is|did|would|are)|theme|symbol|foreshadow|explain|interpret|notice|echo|remind|connect|parallel|resonat(e|es)|like\s+\w+|between\s+\w+\s+and)\b/i
 
@@ -37,9 +37,7 @@ const LITERARY_CONNECTION = /\b(echo|remind|connect|parallel|resonat(e|es)|like\
 const TINY_CONFIRM = /^(ok|okay|yes|yeah|yep|no|nope|thanks|thank you|mm+|mhm|uh huh|got it|sure)\.?$/i
 
 export const LAB_COVER_LINES = [
-  'Let me look at the passage.',
-  'I am looking at this with you.',
-  'Give me a moment with the page.',
+  'Good question. Let me look that up.',
 ] as const
 
 export const SPEAK_CLAUDE_VERBATIM = 'The reading companion answered. Speak that answer as your own. Do not invent a thinner substitute. Do not summarize it into a weaker reply. Do not mention a tool, a hop, a second model, a cutoff, or "the answer I received". Never say the answer got cut off. If you only have part of an answer, do not narrate that — speak the complete sentences you were given, or wait.'
@@ -75,6 +73,7 @@ export function parseAskCompanionArguments(raw?: string): { question: string } {
 }
 
 export function playbackToolForUtterance(text: string): string {
+  if (/\b(restart(\s+this)?\s+chapter|chapter\s+from\s+the\s+beginning|start\s+(this\s+)?chapter\s+again|play\s+(this\s+)?chapter\s+from\s+the\s+beginning)\b/i.test(text)) return 'restart_chapter'
   if (/\b(next\s+chapter)\b/i.test(text)) return 'next_chapter'
   if (/\b(previous\s+chapter)\b/i.test(text)) return 'previous_chapter'
   if (/\b(talk\s+slower|slower\s+please|talk\s+faster)\b/i.test(text)) return 'set_assistant_pace'
@@ -106,7 +105,7 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
     `Do not greet. Do not say hello. The app speaks the opening line.`,
     `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms you answer yourself in one short line.`,
     `Easy questions you can answer from the passage already below, you answer yourself in a short, warm, literary line. Reasonable literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter — no spoilers from later in the book.`,
-    `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — first speak one short natural line as if you are looking at the passage, then call ${ASK_COMPANION_TOOL}. Do not sit in silence. Do not sound like a call-center hold.`,
+    `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — say exactly "Good question. Let me look that up." and immediately call ${ASK_COMPANION_TOOL}. Say nothing else before the tool call. Never say you are thinking or will think about it.`,
     `After ${ASK_COMPANION_TOOL} returns, speak that answer as your own. Do not invent a thinner substitute. Never mention a tool, a hop, a cutoff, or "the answer I received". Never say an answer got cut off. If the hop is incomplete, wait rather than narrating the failure.`,
     `Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.`,
     `If they want the book back, call resume_audiobook. One short goodbye is fine.`,

@@ -79,6 +79,7 @@ describe('lab ask context', () => {
     expect(instructions).toContain('Never say you cannot control speed')
     expect(instructions).toContain('Never tell them to use a podcast app')
     expect(instructions).toContain('call next_chapter or previous_chapter')
+    expect(instructions).toContain('call restart_chapter')
     expect(instructions).toContain('Genesis 1 then Genesis 2')
     expect(instructions).toContain('call next_paragraph or previous_paragraph')
     expect(instructions).toContain('The app resumes the audiobook after you finish speaking')
@@ -156,6 +157,10 @@ describe('resume listen command', () => {
   })
 
   it('honors typed chapter and paragraph skip tags', () => {
+    expect(labTypedSkip('Starting over. [[restart_chapter]]')).toEqual({
+      text: 'Starting over.',
+      skip: 'restart_chapter',
+    })
     expect(labTypedSkip('Genesis 2. [[next_chapter]]')).toEqual({
       text: 'Genesis 2.',
       skip: 'next_chapter',
@@ -187,6 +192,7 @@ describe('lab voice tools', () => {
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'set_assistant_pace')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'next_chapter')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'previous_chapter')).toBe(true)
+    expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'restart_chapter')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'next_paragraph')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'previous_paragraph')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'ask_companion')).toBe(true)
@@ -310,6 +316,13 @@ describe('lab playback skip place', () => {
   ]
 
   it('walks sequential Bible chapters and clamps paragraph ends', () => {
+    expect(resolveLabPlaybackSkip({
+      kind: 'restart_chapter',
+      chapterNumber: 2,
+      paragraphIndex: 4,
+      paragraphCount: 6,
+      chapters,
+    })).toEqual({ chapterNumber: 2, paragraphIndex: 0, landing: 'start', chapterChanged: false })
     expect(resolveLabPlaybackSkip({
       kind: 'next_chapter',
       chapterNumber: 1,

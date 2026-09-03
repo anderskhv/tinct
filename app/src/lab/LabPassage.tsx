@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
@@ -45,8 +45,11 @@ interface LabPassageProps {
   selectingRange?: LabHighlightRange | null
   onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
   browseWhileListening?: boolean
+  inlineHearingPaint?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
+  pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
+  onToggleControls?: () => void
 }
 
 function wordSpacing(
@@ -70,7 +73,7 @@ function renderWordText(text: string, hasFollowingWord = false) {
 
 function renderWordGroups<T extends { text: string }>(
   words: T[],
-  renderWord: (word: T, wordIndex: number) => ReactNode,
+  renderWord: (word: T, wordIndex: number, spacing: string) => ReactNode,
 ): ReactNode[] {
   const rendered: ReactNode[] = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
@@ -78,10 +81,9 @@ function renderWordGroups<T extends { text: string }>(
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
       rendered.push(
         <Fragment key={`verse-${wordIndex}`}>
-          {wordSpacing(word, wordIndex, words[wordIndex - 1])}
           <span className="lab-verse-unit">
-            {renderWord(word, wordIndex)}
-            {renderWord(words[wordIndex + 1], wordIndex + 1)}
+            {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
+            {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
           </span>
         </Fragment>,
       )
@@ -89,8 +91,7 @@ function renderWordGroups<T extends { text: string }>(
     } else {
       rendered.push(
         <Fragment key={`word-${wordIndex}`}>
-          {wordSpacing(word, wordIndex, words[wordIndex - 1])}
-          {renderWord(word, wordIndex)}
+          {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
         </Fragment>,
       )
     }
@@ -101,8 +102,9 @@ function renderWordGroups<T extends { text: string }>(
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {renderWordGroups(line.words, (word, wordIndex) => (
+      {renderWordGroups(line.words, (word, wordIndex, spacing) => (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
+          {spacing}
           {renderWordText(word.text, wordIndex < line.words.length - 1)}
         </span>
       ))}
@@ -124,7 +126,7 @@ function renderHearingWords(
     : hearingStageLines(paragraph, follow, chapterPages)
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className="lab-hearing-line">
-      {renderWordGroups(line.words, (word, wordIndex) => {
+      {renderWordGroups(line.words, (word, wordIndex, spacing) => {
         const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
         return (
           <span
@@ -137,6 +139,7 @@ function renderHearingWords(
               ? () => onSeekToWord(paragraphIndex, word.wordIndex!)
               : undefined}
           >
+            {spacing}
             {renderWordText(word.text, wordIndex < line.words.length - 1)}
           </span>
         )
@@ -183,8 +186,11 @@ export function LabPassage({
   selectingRange = null,
   onSelectRange,
   browseWhileListening = false,
+  inlineHearingPaint = false,
   onSeekToWord,
+  pageTurn,
   onPageTurn,
+  onToggleControls,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -212,9 +218,28 @@ export function LabPassage({
     startX: number
     startY: number
     startedAt: number
+    selecting: boolean
+    touch: boolean
   } | null>(null)
+  const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const lastSelectionPageTurnAtRef = useRef(0)
+  const pageStageRef = useRef<HTMLDivElement>(null)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+
+  useEffect(() => () => {
+    if (longPressRef.current) clearTimeout(longPressRef.current)
+  }, [])
+
+  useLayoutEffect(() => {
+    const stage = pageStageRef.current
+    if (!stage || !pageTurn) return
+    // Restart the same-direction transition without remounting the text. A
+    // remount would sever an in-progress cross-page selection gesture.
+    stage.style.animation = 'none'
+    void stage.offsetWidth
+    stage.style.animation = ''
+  }, [pageTurn])
 
   const finishPointerSelection = (event: React.PointerEvent) => {
     const drag = dragRef.current
@@ -227,46 +252,101 @@ export function LabPassage({
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
-    if (hearing || (event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
-    const place = wordPlaceFromTarget(event.target)
+    if ((event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
+    // Hearing still owns the same page surface. It must accept edge taps and
+    // swipes even though text selection is intentionally reading-only.
+    const place = hearing ? null : wordPlaceFromTarget(event.target)
     if (place && onSeekToWord) return
     if (!place && !onPageTurn) return
-    if (place && onSelectRange) event.preventDefault()
+    const rect = event.currentTarget.getBoundingClientRect()
+    const edgeTurn = onPageTurn
+      ? labTapPageDirection(event.clientX, rect.left, rect.width)
+      : null
+    // A word at the left/right edge can still be long-pressed. A short release
+    // remains an edge page turn, while the long-press timer wins for selection.
+    const selectionPlace = place
+    if (selectionPlace && onSelectRange) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
-    dragRef.current = {
-      start: place,
-      end: place,
+    const touchSelection = event.pointerType === 'touch' && !!selectionPlace && !!onSelectRange
+    const drag = {
+      start: selectionPlace,
+      end: selectionPlace,
       startX: event.clientX,
       startY: event.clientY,
       startedAt: event.timeStamp,
+      selecting: false,
+      touch: touchSelection,
     }
-    if (place && onSelectRange) setLocalSelecting(buildHighlightRange(paragraphs, place, place))
+    dragRef.current = drag
+    if (touchSelection && selectionPlace) {
+      longPressRef.current = setTimeout(() => {
+        if (dragRef.current !== drag) return
+        drag.selecting = true
+        setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
+      }, 300)
+    }
   }
 
   const onPointerMove = (event: React.PointerEvent) => {
     const drag = dragRef.current
     if (!drag) return
-    const place = wordPlaceFromTarget(event.target)
-      || wordPlaceFromTarget(document.elementFromPoint(event.clientX, event.clientY))
-    if (!place) return
-    drag.end = place
-    if (drag.start && onSelectRange) {
+    if (!drag.selecting) {
+      const distance = Math.max(Math.abs(event.clientX - drag.startX), Math.abs(event.clientY - drag.startY))
+      if (drag.touch && distance > 10 && longPressRef.current) {
+        clearTimeout(longPressRef.current)
+        longPressRef.current = null
+        drag.start = null
+        drag.end = null
+        return
+      }
+      if (drag.touch || distance < 3 || !drag.start || !onSelectRange) return
+      drag.selecting = true
+      setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.start))
+    }
+    const pointTarget = typeof document.elementFromPoint === 'function'
+      ? document.elementFromPoint(event.clientX, event.clientY)
+      : null
+    const place = wordPlaceFromTarget(event.target) || wordPlaceFromTarget(pointTarget)
+    if (place) drag.end = place
+    if (drag.start && drag.end && onSelectRange) {
       setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
     }
+    if (!drag.start || !onPageTurn || Date.now() - lastSelectionPageTurnAtRef.current < 900) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const direction = event.clientX >= rect.right - 20 ? 1 : event.clientX <= rect.left + 20 ? -1 : null
+    if (direction == null) return
+    lastSelectionPageTurnAtRef.current = Date.now()
+    const surface = event.currentTarget
+    onPageTurn(direction)
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const current = dragRef.current
+      if (!current?.start || !current.selecting) return
+      const words = surface.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')
+      const boundary = direction > 0 ? words[0] : words[words.length - 1]
+      const boundaryPlace = wordPlaceFromTarget(boundary)
+      if (!boundaryPlace) return
+      current.end = boundaryPlace
+      setLocalSelecting(buildHighlightRange(paragraphs, current.start, current.end))
+    }))
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
     const drag = dragRef.current
     if (!drag) return
+    if (longPressRef.current) {
+      clearTimeout(longPressRef.current)
+      longPressRef.current = null
+    }
     const deltaX = event.clientX - drag.startX
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
-    const swipe = onPageTurn && !selectingRange
+    const swipe = onPageTurn && !selectingRange && !drag.selecting
       ? labSwipePageDirection(deltaX, deltaY)
       : null
     const rect = event.currentTarget.getBoundingClientRect()
     const tap = onPageTurn
       && !selectingRange
+      && !drag.selecting
       && Math.abs(deltaX) <= 10
       && Math.abs(deltaY) <= 10
       && duration <= 500
@@ -279,10 +359,24 @@ export function LabPassage({
       onPageTurn?.(direction)
       return
     }
+    if (!drag.selecting) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      const centeredTap = !selectingRange
+        && !!onToggleControls
+        && Math.abs(deltaX) <= 10
+        && Math.abs(deltaY) <= 10
+        && duration <= 500
+        && tap == null
+      if (centeredTap) onToggleControls()
+      return
+    }
     finishPointerSelection(event)
   }
 
   const onPointerCancel = () => {
+    if (longPressRef.current) clearTimeout(longPressRef.current)
+    longPressRef.current = null
     dragRef.current = null
     setLocalSelecting(null)
   }
@@ -293,6 +387,7 @@ export function LabPassage({
         'lab-passage',
         'lab-book',
         hearing && !browseWhileListening ? 'is-hearing' : 'is-reading',
+        inlineHearingPaint ? 'is-inline-hearing' : '',
         browseWhileListening ? 'is-browse-listen' : '',
         dimmed ? 'is-dimmed' : '',
         compare ? 'is-compare' : '',
@@ -300,6 +395,10 @@ export function LabPassage({
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
       data-passage-mode={mode}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerEnd}
+      onPointerCancel={onPointerCancel}
       onContextMenu={(event) => {
         if (!hearing && onSelectRange) event.preventDefault()
       }}
@@ -329,10 +428,9 @@ export function LabPassage({
             <div
               className="lab-hearing-stage"
               data-testid="lab-reading-stage"
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerEnd}
-              onPointerCancel={onPointerCancel}
+              data-page-turn={pageTurn?.direction}
+              data-page-turn-nonce={pageTurn?.nonce}
+              ref={pageStageRef}
             >
               {readingLines.map((line, lineIndex) => {
                 const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
@@ -347,15 +445,19 @@ export function LabPassage({
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
                     ].filter(Boolean).join(' ')}
                   >
-                    {renderWordGroups(line.words, (word, wordIndex) => {
+                    {renderWordGroups(line.words, (word, wordIndex, spacing) => {
                       const absoluteWord = wordBase + wordIndex
                       const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
                       const selecting = activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
+                      const inlineCurrent = inlineHearingPaint
+                        && follow.kind === 'word'
+                        && follow.paragraphIndex === paragraphIndex
+                        && follow.wordIndex === absoluteWord
                       return (
                         <span
                           key={`${lineIndex}-${wordIndex}`}
-                          className={labHighlightCssClass(color, selecting)}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineCurrent ? ' is-current' : ''}`}
                           data-testid="lab-word"
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
@@ -366,6 +468,7 @@ export function LabPassage({
                               }
                             : undefined}
                         >
+                          {spacing}
                           {renderWordText(word.text, wordIndex < line.words.length - 1)}
                         </span>
                       )
@@ -438,13 +541,14 @@ export function LabPageMeasurePaint(input: {
           <div className="lab-hearing-stage">
             {lines.map((line, lineIndex) => (
               <p key={lineIndex} className="lab-hearing-line">
-                {renderWordGroups(line.words, (word, wordIndex) => (
+                {renderWordGroups(line.words, (word, wordIndex, spacing) => (
                   <span
                     key={`${lineIndex}-${wordIndex}`}
                     className={input.hearingPaint
                       ? `lab-hearing-word ${wordIndex === 0 ? 'is-current' : wordIndex < line.words.length / 2 ? 'is-spoken' : 'is-upcoming'}`
                       : 'lab-hearing-word'}
                   >
+                    {spacing}
                     {renderWordText(word.text, wordIndex < line.words.length - 1)}
                   </span>
                 ))}

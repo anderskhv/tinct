@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isLabPath, labLayoutOverride } from './labRoute'
+import { isLabPath, labLayoutOverride, labSurface } from './labRoute'
 
 describe('lab routes', () => {
   it('treats /lab and nested paths as the demo', () => {
@@ -16,5 +16,14 @@ describe('lab routes', () => {
     expect(labLayoutOverride('/lab')).toBeNull()
     expect(labLayoutOverride('/lab/phone')).toBe('phone')
     expect(labLayoutOverride('/lab/desktop/')).toBe('desktop')
+  })
+
+  it('routes landing and library without changing reader layout routes', () => {
+    expect(labSurface('/lab/landing')).toBe('landing')
+    expect(labSurface('/lab/landing/')).toBe('landing')
+    expect(labSurface('/lab/library?from=reader')).toBe('library')
+    expect(labSurface('/lab')).toBe('reader')
+    expect(labSurface('/lab/phone')).toBe('reader')
+    expect(labSurface('/lab/desktop')).toBe('reader')
   })
 })

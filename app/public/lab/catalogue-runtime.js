@@ -250,8 +250,9 @@
     })
     if (!intent) return false
     window.__tinctLabLastHandoff = intent
+    try { sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(intent)) } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
-    root.querySelector('.tov5-note').textContent = `Reader handoff ready for ${book.title}`
+    window.location.assign('/lab/phone')
     return true
   }
 

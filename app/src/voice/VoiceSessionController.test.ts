@@ -646,6 +646,31 @@ describe('VoiceSessionController lab honor resume', () => {
     expect(controller.getSnapshot().state).toBe('reading')
   })
 
+  it('restarts the current chapter and resumes after the confirmation', () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio,
+      honorModelResume: true,
+      send: (data) => sent.push(data),
+    })
+    sent.length = 0
+    controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'restart_chapter',
+      call_id: 'call_restart',
+    })
+    expect(audio.skipPlayback).toHaveBeenCalledWith('restart_chapter')
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(audio.resumePlayback).toHaveBeenCalled()
+  })
+
   it('does not start the book after a plain question speech_end', () => {
     withWindowTimers()
     const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
@@ -1311,7 +1336,7 @@ describe('VoiceSessionController ask_companion hop', () => {
     const output = events.find(item => item.type === 'conversation.item.create')
     expect(query).toHaveBeenCalledWith('what does this mean', expect.any(Object))
     expect(covers).toHaveLength(1)
-    expect(covers[0].response.instructions).toContain('Let me look at the passage.')
+    expect(covers[0].response.instructions).toContain('Good question. Let me look that up.')
     expect(output.item.output).toContain('Telemachus is being given a path.')
     expect(spoken).toHaveLength(1)
     expect(spoken[0].response.instructions).toContain('Do not invent a thinner substitute')

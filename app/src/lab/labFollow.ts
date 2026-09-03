@@ -48,6 +48,30 @@ export function chapterWordsFromText(text: string): string[] {
   return text.split(/\s+/).map(part => part.trim()).filter(Boolean)
 }
 
+function isSilentVerseMarker(token: string): boolean {
+  return /^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/.test(token)
+}
+
+/**
+ * Word sidecars omit printed verse numbers. Insert zero-duration timing entries
+ * for those silent tokens so every spoken word still addresses its painted word.
+ */
+export function alignTimedWordsToText(text: string, words: TimedWord[] | undefined): TimedWord[] | undefined {
+  if (!words?.length) return undefined
+  const tokens = chapterWordsFromText(text)
+  const spokenTokens = tokens.filter(token => !isSilentVerseMarker(token))
+  if (spokenTokens.length !== words.length || tokens.length === words.length) return words
+  let spokenIndex = 0
+  return tokens.map((token) => {
+    if (isSilentVerseMarker(token)) {
+      const nextStart = words[spokenIndex]?.start ?? words[words.length - 1]?.end ?? 0
+      return { text: token, start: nextStart, end: nextStart }
+    }
+    const word = words[spokenIndex++]
+    return { ...word, text: token }
+  })
+}
+
 export function paragraphHasWordTimings(paragraph: FollowParagraph | undefined): boolean {
   return !!paragraph?.words && paragraph.words.length > 0
 }
@@ -62,7 +86,7 @@ export function followParagraphFromManifest(
   manifestParagraph: ManifestParagraph | undefined,
 ): FollowParagraph {
   const duration = typeof manifestParagraph?.duration === 'number' ? manifestParagraph.duration : undefined
-  const words = wordsFromManifestParagraph(manifestParagraph)
+  const words = alignTimedWordsToText(text, wordsFromManifestParagraph(manifestParagraph))
   return {
     index,
     text,
@@ -186,6 +210,6 @@ export function mergeSidecarWords(
     if (paragraph.words && paragraph.words.length > 0) return paragraph
     const words = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
     if (!words) return paragraph
-    return { ...paragraph, words }
+    return { ...paragraph, words: alignTimedWordsToText(paragraph.text, words) }
   })
 }

@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
+import { LabMarkdown } from './LabMarkdown'
 
 interface LabAskPaneProps {
   conversationState: LabConversationState
@@ -16,6 +17,9 @@ interface LabAskPaneProps {
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
+  onKeyboardOpenChange?: (open: boolean) => void
+  chapterLabels?: Record<number, string>
+  desktopCompanion?: 'chat' | 'talk'
 }
 
 function MicIcon() {
@@ -51,21 +55,29 @@ export function LabAskPane({
   notice,
   onDone,
   phoneSheet = false,
+  onKeyboardOpenChange,
+  chapterLabels = {},
+  desktopCompanion,
 }: LabAskPaneProps) {
   const [localError, setLocalError] = useState<string | null>(null)
   const threadRef = useRef<HTMLDivElement | null>(null)
+  const lastTurnIdRef = useRef<string | null>(null)
+  const didPositionThreadRef = useRef(false)
   const canSend = draft.trim().length > 0
   const empty = turns.length === 0 && !typedLoading
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const node = threadRef.current
     if (!node) return
-    const last = node.lastElementChild
-    if (last && typeof (last as HTMLElement).scrollIntoView === 'function') {
-      (last as HTMLElement).scrollIntoView({ block: 'nearest' })
+    const lastTurn = turns[turns.length - 1]
+    const shouldFollow = !didPositionThreadRef.current
+      || (!!lastTurn && lastTurn.id !== lastTurnIdRef.current && lastTurn.role === 'user')
+    if (shouldFollow) {
+      node.scrollTop = node.scrollHeight
     }
-    node.scrollTop = node.scrollHeight
-  }, [turns, typedLoading])
+    didPositionThreadRef.current = true
+    lastTurnIdRef.current = lastTurn?.id ?? null
+  }, [turns])
 
   const submit = () => {
     if (typedLoading) return
@@ -82,10 +94,14 @@ export function LabAskPane({
     <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}</p>
   )
   const statusNode = conversationState !== 'idle' && (
-    <p className="lab-ask-voice-status" data-testid="lab-ask-voice-status">
-      {conversationState === 'listening'
-        ? `${labVoicePhaseLabel(conversationState)} · ${LAB_COPY.yourTurn}`
-        : labVoicePhaseLabel(conversationState)}
+    <p
+      className={`lab-ask-voice-status is-${conversationState}`}
+      data-testid="lab-ask-voice-status"
+      data-voice-phase={conversationState}
+      role="status"
+    >
+      <span className="lab-ask-voice-status-glyph" aria-hidden="true"><i /><i /><i /></span>
+      <span>{labVoicePhaseLabel(conversationState)}</span>
     </p>
   )
   const composerNode = (
@@ -103,9 +119,12 @@ export function LabAskPane({
       </label>
       <input
         id="lab-ask-input"
+        data-testid="lab-ask-input"
         type="text"
         className="lab-ask-input"
         value={draft}
+        onFocus={() => onKeyboardOpenChange?.(true)}
+        onBlur={() => onKeyboardOpenChange?.(false)}
         onChange={(event) => onDraftChange(event.target.value)}
         onKeyDown={(event) => {
           if (event.key === 'Enter') {
@@ -162,11 +181,19 @@ export function LabAskPane({
   )
   return (
     <aside
-      className={`lab-ask ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}`}
+      className={`lab-ask ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
       data-testid="lab-ask-pane"
+      data-companion={desktopCompanion || undefined}
       aria-label={LAB_DESKTOP_PANES[0]}
     >
-      {onDone && (
+      {desktopCompanion && (
+        <div className="lab-desktop-companion-head">
+          <span className="lab-desktop-companion-mark" aria-hidden="true">{desktopCompanion === 'talk' ? <VoiceIcon /> : '••'}</span>
+          <strong>{desktopCompanion === 'talk' ? LAB_COPY.talk : LAB_COPY.chat}</strong>
+          <button type="button" onClick={onDone} aria-label={`Close ${desktopCompanion}`} data-testid="lab-desktop-companion-close">×</button>
+        </div>
+      )}
+      {onDone && !desktopCompanion && (
         <div className="lab-ask-toolbar">
           <button
             type="button"
@@ -182,25 +209,32 @@ export function LabAskPane({
         <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
       ) : (
         <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef}>
-          {turns.map(turn => (
-            <div
-              key={turn.id}
-              className={`lab-ask-turn is-${turn.role}`}
-              data-testid={`lab-ask-turn-${turn.role}`}
-            >
-              {turn.role === 'user' ? (
-                <p className="lab-ask-user">
-                  <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
-                  {turn.content}
-                </p>
-              ) : (
-                <p className="lab-ask-reply">
-                  <span className="lab-ask-reply-label">{LAB_COPY.tinctLabel}</span>
-                  {turn.content}
-                </p>
-              )}
-            </div>
-          ))}
+          {turns.map((turn, index) => {
+            const previousChapter = turns[index - 1]?.chapterNumber
+            const chapterLabel = turn.chapterNumber != null ? chapterLabels[turn.chapterNumber] : undefined
+            const showChapter = !!chapterLabel && turn.chapterNumber !== previousChapter
+            return (
+              <Fragment key={turn.id}>
+                {showChapter && <p className="lab-ask-location" data-testid="lab-ask-location">{chapterLabel}</p>}
+                <div
+                  className={`lab-ask-turn is-${turn.role}`}
+                  data-testid={`lab-ask-turn-${turn.role}`}
+                >
+                  {turn.role === 'user' ? (
+                    <p className="lab-ask-user">
+                      <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
+                      {turn.content}
+                    </p>
+                  ) : (
+                    <div className="lab-ask-reply">
+                      <span className="lab-ask-reply-label">{LAB_COPY.tinctLabel}</span>
+                      <LabMarkdown>{turn.content}</LabMarkdown>
+                    </div>
+                  )}
+                </div>
+              </Fragment>
+            )
+          })}
           {typedLoading && (
             <p className="lab-ask-pending">{LAB_COPY.typedPending}</p>
           )}

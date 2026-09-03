@@ -2,21 +2,34 @@ import type { Edition, FontFamily, ProgressDisplay, ProgressMetric, ProgressScop
 import { BIBLE } from '../data/bookRegistry'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 
-/** Public Tinct library hub. Full navigation, never /app or a book id. */
-export const LAB_LIBRARY_URL = '/read/'
+/** Lab library route. Full navigation, never /app or a book id. */
+export const LAB_LIBRARY_URL = '/lab/library'
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 
-export const LAB_FONT_SIZES = [1.0, 1.2, 1.5, 1.8, 2.2] as const
+export const LAB_MIN_FONT_SIZE = 0.8
+export const LAB_MAX_FONT_SIZE = 2.2
+export const LAB_FONT_SIZES = [LAB_MIN_FONT_SIZE, 1.0, 1.2, 1.5, 1.8, LAB_MAX_FONT_SIZE] as const
 export const LAB_FONT_FAMILIES: FontFamily[] = ['garamond', 'baskerville', 'sourceserif']
+
+export type LabTheme = 'system' | 'light' | 'dark' | 'book'
+export type LabTextAlignment = 'left' | 'justify'
+export type LabLineSpacing = 'compact' | 'comfortable' | 'open'
+export type LabMargins = 'narrow' | 'medium' | 'wide'
+export type LabParagraphSpacing = 'compact' | 'standard' | 'generous'
 
 export interface LabPrefs {
   primaryEdition: string
   compareEdition: string
   audioEdition: string
   darkMode: boolean
+  theme: LabTheme
   fontFamily: FontFamily
   fontSize: number
+  alignment: LabTextAlignment
+  lineSpacing: LabLineSpacing
+  margins: LabMargins
+  paragraphSpacing: LabParagraphSpacing
   progressDisplay: ProgressDisplay
   compareOpen: boolean
 }
@@ -26,8 +39,13 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   compareEdition: LAB_COMPARE_EDITION_KEY,
   audioEdition: LAB_EDITION_KEY,
   darkMode: false,
+  theme: 'system',
   fontFamily: 'garamond',
   fontSize: 1.3,
+  alignment: 'justify',
+  lineSpacing: 'comfortable',
+  margins: 'medium',
+  paragraphSpacing: 'standard',
   progressDisplay: { metric: 'page', scope: 'chapter' },
   compareOpen: false,
 }
@@ -69,13 +87,17 @@ function isFamily(value: unknown): value is FontFamily {
   return value === 'garamond' || value === 'baskerville' || value === 'sourceserif'
 }
 
+function isTheme(value: unknown): value is LabTheme {
+  return value === 'system' || value === 'light' || value === 'dark' || value === 'book'
+}
+
 export function parseLabPrefs(raw: unknown): LabPrefs {
   const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
   const pd = src.progressDisplay && typeof src.progressDisplay === 'object'
     ? src.progressDisplay as Record<string, unknown>
     : {}
   const fontSize = typeof src.fontSize === 'number' && Number.isFinite(src.fontSize)
-    ? src.fontSize
+    ? Math.max(LAB_MIN_FONT_SIZE, Math.min(LAB_MAX_FONT_SIZE, src.fontSize))
     : DEFAULT_LAB_PREFS.fontSize
   return {
     primaryEdition: typeof src.primaryEdition === 'string' && src.primaryEdition
@@ -88,8 +110,19 @@ export function parseLabPrefs(raw: unknown): LabPrefs {
       ? src.audioEdition
       : DEFAULT_LAB_PREFS.audioEdition,
     darkMode: src.darkMode === true,
+    theme: isTheme(src.theme)
+      ? src.theme
+      : (Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : DEFAULT_LAB_PREFS.theme),
     fontFamily: isFamily(src.fontFamily) ? src.fontFamily : DEFAULT_LAB_PREFS.fontFamily,
     fontSize,
+    alignment: src.alignment === 'left' ? 'left' : DEFAULT_LAB_PREFS.alignment,
+    lineSpacing: src.lineSpacing === 'compact' || src.lineSpacing === 'open'
+      ? src.lineSpacing
+      : DEFAULT_LAB_PREFS.lineSpacing,
+    margins: src.margins === 'narrow' || src.margins === 'wide' ? src.margins : DEFAULT_LAB_PREFS.margins,
+    paragraphSpacing: src.paragraphSpacing === 'compact' || src.paragraphSpacing === 'generous'
+      ? src.paragraphSpacing
+      : DEFAULT_LAB_PREFS.paragraphSpacing,
     progressDisplay: {
       metric: isMetric(pd.metric) ? pd.metric : DEFAULT_LAB_PREFS.progressDisplay.metric,
       scope: isScope(pd.scope) ? pd.scope : DEFAULT_LAB_PREFS.progressDisplay.scope,
@@ -150,6 +183,55 @@ export function labFootProgress(input: {
 /** Page index only — for the slim transport strip while audio is playing. */
 export function labFootProgressPages(currentPage: number, totalPages: number): string {
   return `${currentPage} / ${totalPages}`
+}
+
+/** Mobile reader chrome already names the chapter in the header. */
+export function labCompactFootProgress(progress: string): string {
+  const separator = progress.lastIndexOf(' — ')
+  return separator >= 0 ? progress.slice(separator + 3) : progress
+}
+
+export type LabReaderProgressMode = 'book' | 'chapter'
+
+function labPageNumber(value: number): string {
+  return Math.max(0, Math.round(value)).toLocaleString('en-US')
+}
+
+export function labReaderProgressLabel(input: {
+  mode: LabReaderProgressMode
+  currentPage: number
+  totalPages: number
+  chapterPercent: number
+  chapterNumber: number
+  chapterWordsRead: number
+  chapterWordCounts: Array<{ number: number; wordCount?: number }>
+  wordsPerPage: number
+}): string {
+  if (input.mode === 'chapter') {
+    return `${labPageNumber(input.currentPage)} / ${labPageNumber(input.totalPages)} of chapter · ${input.chapterPercent}%`
+  }
+
+  const ordered = [...input.chapterWordCounts].sort((a, b) => a.number - b.number)
+  const totalWords = ordered.reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
+  const wordsBefore = ordered
+    .filter(chapter => chapter.number < input.chapterNumber)
+    .reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
+
+  if (totalWords <= 0) {
+    const chapterIndex = Math.max(0, ordered.findIndex(chapter => chapter.number === input.chapterNumber))
+    const chapterCount = Math.max(1, ordered.length)
+    const estimatedTotal = Math.max(input.totalPages, input.totalPages * chapterCount)
+    const estimatedPage = Math.max(1, Math.min(estimatedTotal, chapterIndex * input.totalPages + input.currentPage))
+    const estimatedPercent = Math.round((estimatedPage / Math.max(1, estimatedTotal)) * 100)
+    return `${labPageNumber(estimatedPage)} / ${labPageNumber(estimatedTotal)} of book · ${estimatedPercent}%`
+  }
+
+  const absoluteWords = Math.max(0, Math.min(totalWords, wordsBefore + input.chapterWordsRead))
+  const capacity = Math.max(1, Math.round(input.wordsPerPage))
+  const bookTotalPages = Math.max(1, Math.ceil(totalWords / capacity))
+  const bookPage = Math.max(1, Math.min(bookTotalPages, Math.ceil(Math.max(1, absoluteWords) / capacity)))
+  const bookPercent = Math.round((absoluteWords / totalWords) * 100)
+  return `${labPageNumber(bookPage)} / ${labPageNumber(bookTotalPages)} of book · ${bookPercent}%`
 }
 
 export function editionLabelFor(key: string, editions: Edition[]): string {

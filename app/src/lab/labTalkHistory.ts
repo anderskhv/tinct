@@ -159,6 +159,8 @@ export function turnsFromConversations(conversations: ChatConversation[]): LabAs
     role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
     content: message.content,
     source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
+    chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
+    paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
     cancelled: message.isComplete === false,
   })))
 }

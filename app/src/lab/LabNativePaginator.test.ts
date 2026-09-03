@@ -4,11 +4,23 @@ import { createElement } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { chapterPagesCover, chapterPageSegments } from './labHearing'
-import { LabNativePaginator, nativePagesFromPlacements, type LabNativeWordPlacement } from './LabNativePaginator'
+import { LabNativePaginator, balanceNativeChapterTail, nativePagesFromPlacements, polishNativePageEnds, shrinkNativePageAfterPaint, type LabNativeWordPlacement } from './LabNativePaginator'
 
 afterEach(cleanup)
 
 describe('native phone pagination', () => {
+  it('moves a weak final word forward while keeping chapter coverage contiguous', () => {
+    const paragraphs = ['And God said let the earth bring forth grass the herb yielding seed']
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 10 },
+      { paragraphIndex: 0, from: 10, to: 13 },
+    ]
+    expect(polishNativePageEnds(paragraphs, pages)).toEqual([
+      { paragraphIndex: 0, from: 0, to: 9 },
+      { paragraphIndex: 0, from: 9, to: 13 },
+    ])
+  })
+
   it('turns browser column placements into exact multi-paragraph pages', () => {
     const placements: LabNativeWordPlacement[] = [
       { pageIndex: 0, paragraphIndex: 0, wordIndex: 0 },
@@ -42,6 +54,16 @@ describe('native phone pagination', () => {
     expect(nativePagesFromPlacements(placements)).toEqual(nativePagesFromPlacements(placements))
   })
 
+  it('rebalances a sparse same-paragraph final page after a Safari fullscreen resize', () => {
+    expect(balanceNativeChapterTail([
+      { paragraphIndex: 0, from: 0, to: 50 },
+      { paragraphIndex: 0, from: 50, to: 52 },
+    ])).toEqual([
+      { paragraphIndex: 0, from: 0, to: 36, segments: undefined },
+      { paragraphIndex: 0, from: 36, to: 52, segments: undefined },
+    ])
+  })
+
   it('keeps a multi-digit verse marker attached to its first word', () => {
     const view = render(createElement(LabNativePaginator, {
       chapterTitle: 'Genesis 1',
@@ -67,5 +89,24 @@ describe('native phone pagination', () => {
     expect(unit?.previousSibling?.textContent).toBe(' ')
     expect(unit?.textContent).toBe('8\u00a0And')
     expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
+  })
+
+  it('peels a Safari-painted overflow and keeps every word contiguous', () => {
+    const paragraphs = ['one two three four five six seven eight nine ten eleven twelve']
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 10 },
+      { paragraphIndex: 0, from: 10, to: 12 },
+    ]
+    const next = shrinkNativePageAfterPaint(paragraphs, pages, 0, {
+      lastBottom: 430,
+      chromeTop: 400,
+      lineHeight: 40,
+      lastLineWords: 4,
+      scrollOverflow: true,
+    })
+
+    expect(next[0].to).toBeLessThan(10)
+    expect(next[1].from).toBe(next[0].to)
+    expect(chapterPagesCover(paragraphs, next)).toBe(true)
   })
 })

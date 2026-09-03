@@ -1,286 +1,42 @@
-import type { ReactNode } from 'react'
-import type { Edition, FontFamily, ProgressMetric, ProgressScope } from '../types'
-import { LAB_COPY } from './labCopy'
-import {
-  LAB_FONT_FAMILIES,
-  LAB_FONT_SIZES,
-  LAB_LIBRARY_URL,
-  type LabPrefs,
-} from './labPrefs'
+import { useEffect, useState, type ReactNode } from 'react'
+import type { Edition, FontFamily } from '../types'
+import { useAuth } from '../hooks/useAuth'
+import { useBalance } from '../hooks/useBalance'
+import { LAB_FONT_FAMILIES, LAB_LIBRARY_URL, LAB_MAX_FONT_SIZE, LAB_MIN_FONT_SIZE, type LabLineSpacing, type LabMargins, type LabParagraphSpacing, type LabPrefs, type LabTextAlignment, type LabTheme } from './labPrefs'
 
 type SheetSection = 'reading' | 'layout'
+type SettingsView = 'hub' | 'appearance' | 'all' | 'audio' | 'account'
+const Arrow = () => <span className="lab-ss-arrow" aria-hidden="true">›</span>
 
-function Seg({
-  options,
-  active,
-  onChange,
-  testId,
-}: {
-  options: { value: string; label: string }[]
-  active: string
-  onChange: (value: string) => void
-  testId?: string
-}) {
-  return (
-    <div className="lab-ss-seg" data-testid={testId}>
-      {options.map(option => (
-        <button
-          key={option.value}
-          type="button"
-          className={`lab-ss-seg-item${option.value === active ? ' is-active' : ''}`}
-          onClick={() => onChange(option.value)}
-        >
-          {option.label}
-        </button>
-      ))}
-    </div>
-  )
+function HubRow({ icon, title, subtitle, onClick, href, testId }: { icon: string; title: string; subtitle: string; onClick?: () => void; href?: string; testId?: string }) {
+  const content = <><span className="lab-ss-hub-icon" aria-hidden="true">{icon}</span><span><strong>{title}</strong><small>{subtitle}</small></span>{!href && <Arrow />}</>
+  return href ? <a className="lab-ss-hub-row" href={href} data-testid={testId}>{content}</a> : <button type="button" className="lab-ss-hub-row" onClick={onClick} data-testid={testId}>{content}</button>
+}
+function Row({ label, hint, control }: { label: string; hint?: string; control: ReactNode }) {
+  return <div className="lab-ss-row"><div className="lab-ss-row-text"><div className="lab-ss-row-label">{label}</div>{hint && <div className="lab-ss-row-hint">{hint}</div>}</div><div className="lab-ss-row-control">{control}</div></div>
+}
+function Seg({ options, active, onChange, testId }: { options: { value: string; label: string }[]; active: string; onChange: (value: string) => void; testId?: string }) {
+  return <div className="lab-ss-seg" data-testid={testId}>{options.map(option => <button key={option.value} type="button" className={`lab-ss-seg-item${option.value === active ? ' is-active' : ''}`} onClick={() => onChange(option.value)}>{option.label}</button>)}</div>
 }
 
-function Row({
-  label,
-  hint,
-  control,
-}: {
-  label: string
-  hint?: string
-  control: ReactNode
-}) {
-  return (
-    <div className="lab-ss-row">
-      <div className="lab-ss-row-text">
-        <div className="lab-ss-row-label">{label}</div>
-        {hint ? <div className="lab-ss-row-hint">{hint}</div> : null}
-      </div>
-      <div className="lab-ss-row-control">{control}</div>
-    </div>
-  )
-}
+export interface LabSettingsSheetProps { open: boolean; section: SheetSection; onSection: (section: SheetSection) => void; onClose: () => void; prefs: LabPrefs; onPrefs: (prefs: LabPrefs) => void; editions: Edition[]; audioEditions: Edition[]; onOpenThisBook?: () => void; desktop?: boolean }
 
-export interface LabSettingsSheetProps {
-  open: boolean
-  section: SheetSection
-  onSection: (section: SheetSection) => void
-  onClose: () => void
-  prefs: LabPrefs
-  onPrefs: (prefs: LabPrefs) => void
-  editions: Edition[]
-  audioEditions: Edition[]
-  onOpenThisBook?: () => void
-}
-
-export function LabSettingsSheet({
-  open,
-  section,
-  onSection,
-  onClose,
-  prefs,
-  onPrefs,
-  editions,
-  audioEditions,
-  onOpenThisBook,
-}: LabSettingsSheetProps) {
+export function LabSettingsSheet({ open, section, onClose, prefs, onPrefs, editions, audioEditions, onOpenThisBook, desktop = false }: LabSettingsSheetProps) {
+  const [view, setView] = useState<SettingsView>('hub')
+  const [resetStatus, setResetStatus] = useState('')
+  const auth = useAuth()
+  const balance = useBalance(auth.session, auth.profile, auth.user, { authLoading: auth.isLoading, likelyAuthenticated: auth.likelyAuthenticated })
+  useEffect(() => { if (open) setView('hub') }, [open, section])
   if (!open) return null
-  return (
-    <div className="lab-ss-overlay" data-testid="lab-settings-sheet" onClick={onClose}>
-      <div className="lab-ss-sheet" onClick={event => event.stopPropagation()}>
-        <div className="lab-ss-head">
-          <h2 className="lab-ss-title">{LAB_COPY.settings}</h2>
-          <button type="button" className="lab-ss-close" onClick={onClose} aria-label="Close settings">×</button>
-        </div>
-        <nav className="lab-ss-nav" aria-label="Settings">
-          <a
-            className="lab-ss-nav-item"
-            href={LAB_LIBRARY_URL}
-            data-testid="lab-settings-library"
-          >
-            {LAB_COPY.library}
-          </a>
-          <button
-            type="button"
-            className={`lab-ss-nav-item${section === 'reading' ? ' is-active' : ''}`}
-            data-testid="lab-settings-reading"
-            onClick={() => onSection('reading')}
-          >
-            {LAB_COPY.reading}
-          </button>
-          <button
-            type="button"
-            className={`lab-ss-nav-item${section === 'layout' ? ' is-active' : ''}`}
-            data-testid="lab-settings-layout"
-            onClick={() => onSection('layout')}
-          >
-            {LAB_COPY.layout}
-          </button>
-        </nav>
-        <div className="lab-ss-body">
-          {section === 'reading' ? (
-            <div className="lab-ss-reading">
-              <Row
-                label="Text & audio edition"
-                hint="The edition you read and hear. Narration follows this edition."
-                control={(
-                  <select
-                    className="lab-ss-select"
-                    data-testid="lab-primary-edition"
-                    value={prefs.primaryEdition}
-                    onChange={event => onPrefs({ ...prefs, primaryEdition: event.target.value })}
-                  >
-                    {editions.map(edition => (
-                      <option key={edition.key} value={edition.key}>{edition.label}</option>
-                    ))}
-                  </select>
-                )}
-              />
-              <Row
-                label="Compare edition"
-                hint="The edition Compare opens on mobile and shows beside the page on desktop."
-                control={(
-                  <select
-                    className="lab-ss-select"
-                    data-testid="lab-compare-edition"
-                    value={prefs.compareEdition}
-                    onChange={event => onPrefs({ ...prefs, compareEdition: event.target.value })}
-                  >
-                    {editions.map(edition => (
-                      <option key={edition.key} value={edition.key}>{edition.label}</option>
-                    ))}
-                  </select>
-                )}
-              />
-              <Row
-                label="Compare"
-                hint="Add Compare to the mobile reader and split the desktop page."
-                control={(
-                  <button
-                    type="button"
-                    className={`lab-ss-toggle${prefs.compareOpen ? ' is-on' : ''}`}
-                    data-testid="lab-compare"
-                    aria-pressed={prefs.compareOpen}
-                    onClick={() => onPrefs({ ...prefs, compareOpen: !prefs.compareOpen })}
-                  >
-                    <span className="lab-ss-toggle-knob" />
-                  </button>
-                )}
-              />
-              {audioEditions.length > 0 && prefs.audioEdition !== prefs.primaryEdition && (
-                <Row
-                  label="Audiobook fallback"
-                  hint="Used only when the text edition has no narration."
-                  control={(
-                    <select
-                      className="lab-ss-select"
-                      data-testid="lab-audio-edition"
-                      value={prefs.audioEdition}
-                      onChange={event => onPrefs({ ...prefs, audioEdition: event.target.value })}
-                    >
-                      {audioEditions.map(edition => (
-                        <option key={edition.key} value={edition.key}>{edition.label}</option>
-                      ))}
-                    </select>
-                  )}
-                />
-              )}
-              {onOpenThisBook && (
-                <button
-                  type="button"
-                  className="lab-ss-link"
-                  data-testid="lab-in-the-book"
-                  onClick={onOpenThisBook}
-                >
-                  {LAB_COPY.inTheBook}
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className="lab-ss-layout">
-              <Row
-                label="Theme"
-                hint="The colour of paper + ink."
-                control={(
-                  <Seg
-                    testId="lab-theme"
-                    options={[{ value: 'paper', label: 'Paper' }, { value: 'night', label: 'Night' }]}
-                    active={prefs.darkMode ? 'night' : 'paper'}
-                    onChange={value => onPrefs({ ...prefs, darkMode: value === 'night' })}
-                  />
-                )}
-              />
-              <Row
-                label="Font"
-                hint="Serif for the book."
-                control={(
-                  <Seg
-                    testId="lab-font"
-                    options={LAB_FONT_FAMILIES.map(family => ({
-                      value: family,
-                      label: family === 'sourceserif' ? 'Source' : family[0].toUpperCase() + family.slice(1),
-                    }))}
-                    active={prefs.fontFamily}
-                    onChange={value => onPrefs({ ...prefs, fontFamily: value as FontFamily })}
-                  />
-                )}
-              />
-              <Row
-                label="Size"
-                hint="From compact to extra large."
-                control={(
-                  <div className="lab-ss-sizes" data-testid="lab-font-size">
-                    {LAB_FONT_SIZES.map(size => (
-                      <button
-                        key={size}
-                        type="button"
-                        className={`lab-ss-size${Math.abs(prefs.fontSize - size) < 0.01 ? ' is-active' : ''}`}
-                        aria-label={`Font size ${size}`}
-                        onClick={() => onPrefs({ ...prefs, fontSize: size })}
-                      >
-                        A
-                      </button>
-                    ))}
-                  </div>
-                )}
-              />
-              <div className="lab-ss-group">
-                <div className="lab-ss-row-label">Progress</div>
-                <div className="lab-ss-row-hint">What the bottom strip shows.</div>
-                <div className="lab-ss-group-row">
-                  <span className="lab-ss-sub">Show</span>
-                  <Seg
-                    testId="lab-progress-metric"
-                    options={[
-                      { value: 'percent', label: '%' },
-                      { value: 'time', label: 'Time' },
-                      { value: 'page', label: 'Page' },
-                      { value: 'location', label: 'Loc' },
-                    ]}
-                    active={prefs.progressDisplay.metric}
-                    onChange={value => onPrefs({
-                      ...prefs,
-                      progressDisplay: { ...prefs.progressDisplay, metric: value as ProgressMetric },
-                    })}
-                  />
-                </div>
-                <div className="lab-ss-group-row">
-                  <span className="lab-ss-sub">Of</span>
-                  <Seg
-                    testId="lab-progress-scope"
-                    options={[
-                      { value: 'book', label: 'Book' },
-                      { value: 'section', label: 'Section' },
-                      { value: 'chapter', label: 'Chapter' },
-                    ]}
-                    active={prefs.progressDisplay.scope}
-                    onChange={value => onPrefs({
-                      ...prefs,
-                      progressDisplay: { ...prefs.progressDisplay, scope: value as ProgressScope },
-                    })}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  )
+  const appearanceSummary = `${prefs.theme === 'system' ? 'Match system' : prefs.theme[0].toUpperCase() + prefs.theme.slice(1)} · ${prefs.fontFamily === 'sourceserif' ? 'Source Serif' : prefs.fontFamily[0].toUpperCase() + prefs.fontFamily.slice(1)} · ${Math.round((prefs.fontSize / 1.3) * 100)}%`
+  const primaryLabel = editions.find(item => item.key === prefs.primaryEdition)?.label || prefs.primaryEdition
+  const desktopClass = desktop ? ' is-desktop-popover' : ''
+  if (view === 'hub') return <div className={`lab-ss-overlay is-hub${desktopClass}`} data-testid="lab-settings-sheet" onClick={onClose}><div className="lab-ss-hub" onClick={event => event.stopPropagation()}><HubRow icon="⌂" title="Library" subtitle="Return to your books" href={LAB_LIBRARY_URL} testId="lab-settings-library" /><HubRow icon="Aa" title="Appearance & Text" subtitle={appearanceSummary} onClick={() => setView('appearance')} testId="lab-settings-layout" /><HubRow icon="◉" title="Audio & Editions" subtitle={primaryLabel} onClick={() => setView('audio')} testId="lab-settings-reading" /><HubRow icon="○" title="Account" subtitle="Profile, AI credits, and reading history" onClick={() => setView('account')} testId="lab-settings-account" />{onOpenThisBook && <button className="lab-ss-legacy-action" data-testid="lab-in-the-book" onClick={onOpenThisBook}>This book</button>}<button className="lab-ss-legacy-action" data-testid="lab-compare" onClick={() => onPrefs({ ...prefs, compareOpen: !prefs.compareOpen })}>Compare</button></div></div>
+  const title = view === 'appearance' ? 'Appearance & Text' : view === 'all' ? 'All Reading Settings' : view === 'audio' ? 'Audio & Editions' : 'Account'
+  return <div className={`lab-ss-overlay${desktopClass}`} data-testid="lab-settings-sheet" onClick={onClose}><section className="lab-ss-sheet" onClick={event => event.stopPropagation()} aria-label={title}><span className="lab-ss-grabber" /><div className="lab-ss-head"><button type="button" className="lab-ss-back" onClick={() => setView(view === 'all' ? 'appearance' : 'hub')} aria-label="Back">←</button><h2 className="lab-ss-title">{title}</h2><button type="button" className="lab-ss-close" onClick={onClose} aria-label="Close settings">×</button></div><div className="lab-ss-body">
+    {view === 'appearance' && <><div className="lab-ss-theme-grid" data-testid="lab-theme">{(['system', 'light', 'dark', 'book'] as LabTheme[]).map(theme => <button key={theme} type="button" className={`lab-ss-theme${prefs.theme === theme ? ' is-active' : ''}`} onClick={() => onPrefs({ ...prefs, theme, darkMode: theme === 'dark' })}><i className={`is-${theme}`} />{theme === 'system' ? 'Match system' : theme[0].toUpperCase() + theme.slice(1)}</button>)}</div><Row label="Text size" hint={`${Math.round((prefs.fontSize / 1.3) * 100)}%`} control={<div className="lab-ss-size-step"><button type="button" onClick={() => onPrefs({ ...prefs, fontSize: Math.max(LAB_MIN_FONT_SIZE, +(prefs.fontSize - .1).toFixed(1)) })}>A−</button><input aria-label="Text size" type="range" min={LAB_MIN_FONT_SIZE} max={LAB_MAX_FONT_SIZE} step=".1" value={prefs.fontSize} onChange={event => onPrefs({ ...prefs, fontSize: Number(event.target.value) })} /><button type="button" onClick={() => onPrefs({ ...prefs, fontSize: Math.min(LAB_MAX_FONT_SIZE, +(prefs.fontSize + .1).toFixed(1)) })}>A+</button></div>} /><button type="button" className="lab-ss-deep-link" onClick={() => setView('all')}>All Reading Settings <Arrow /></button></>}
+    {view === 'all' && <><Row label="Font" control={<Seg testId="lab-font" options={LAB_FONT_FAMILIES.map(value => ({ value, label: value === 'sourceserif' ? 'Source' : value[0].toUpperCase() + value.slice(1) }))} active={prefs.fontFamily} onChange={value => onPrefs({ ...prefs, fontFamily: value as FontFamily })} />} /><Row label="Alignment" control={<Seg options={[{ value: 'left', label: 'Left' }, { value: 'justify', label: 'Justify' }]} active={prefs.alignment} onChange={value => onPrefs({ ...prefs, alignment: value as LabTextAlignment })} />} /><Row label="Line spacing" control={<select className="lab-ss-select" value={prefs.lineSpacing} onChange={event => onPrefs({ ...prefs, lineSpacing: event.target.value as LabLineSpacing })}><option value="compact">Compact</option><option value="comfortable">Comfortable</option><option value="open">Open</option></select>} /><Row label="Margins" control={<select className="lab-ss-select" value={prefs.margins} onChange={event => onPrefs({ ...prefs, margins: event.target.value as LabMargins })}><option value="narrow">Narrow</option><option value="medium">Medium</option><option value="wide">Wide</option></select>} /><Row label="Paragraph spacing" control={<select className="lab-ss-select" value={prefs.paragraphSpacing} onChange={event => onPrefs({ ...prefs, paragraphSpacing: event.target.value as LabParagraphSpacing })}><option value="compact">Compact</option><option value="standard">Standard</option><option value="generous">Generous</option></select>} /></>}
+    {view === 'audio' && <><Row label="Text & audio edition" hint="Narration follows the edition you read." control={<select className="lab-ss-select" data-testid="lab-primary-edition" value={prefs.primaryEdition} onChange={event => onPrefs({ ...prefs, primaryEdition: event.target.value })}>{editions.map(edition => <option key={edition.key} value={edition.key}>{edition.label}</option>)}</select>} /><Row label="Compare edition" control={<select className="lab-ss-select" data-testid="lab-compare-edition" value={prefs.compareEdition} onChange={event => onPrefs({ ...prefs, compareEdition: event.target.value })}>{editions.map(edition => <option key={edition.key} value={edition.key}>{edition.label}</option>)}</select>} /><Row label="Show Compare" hint="Adds Compare to the reader." control={<button type="button" className={`lab-ss-toggle${prefs.compareOpen ? ' is-on' : ''}`} data-testid="lab-compare" aria-pressed={prefs.compareOpen} onClick={() => onPrefs({ ...prefs, compareOpen: !prefs.compareOpen })}><span className="lab-ss-toggle-knob" /></button>} />{audioEditions.length > 0 && prefs.audioEdition !== prefs.primaryEdition && <Row label="Audiobook fallback" control={<select className="lab-ss-select" data-testid="lab-audio-edition" value={prefs.audioEdition} onChange={event => onPrefs({ ...prefs, audioEdition: event.target.value })}>{audioEditions.map(edition => <option key={edition.key} value={edition.key}>{edition.label}</option>)}</select>} />}</>}
+    {view === 'account' && <><div className="lab-ss-account-card"><strong>{auth.user?.email || 'Reader account'}</strong><span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span></div><Row label="AI credits remaining" control={<strong>{auth.user ? balance.messagesRemaining.toLocaleString('en-US') : '—'}</strong>} /><div className="lab-ss-year"><small>This year</small><div><span><strong>{Math.max(0, Number(localStorage.getItem('tinct-lab-reading-seconds') || 0)) < 3600 ? '<1' : Math.round(Number(localStorage.getItem('tinct-lab-reading-seconds') || 0) / 3600)}</strong> hours</span><span><strong>{Math.max(0, Number(localStorage.getItem('tinct-lab-page-turns') || 0)).toLocaleString('en-US')}</strong> pages</span><span><strong>{auth.user ? '1' : '—'}</strong> books</span></div></div>{auth.user?.email && <button type="button" className="lab-ss-reset" onClick={async () => { const result = await auth.resetPassword(auth.user!.email!); setResetStatus(result.error || 'Password reset email sent.') }}>Reset password</button>}{resetStatus && <p className="lab-ss-reset-status" role="status">{resetStatus}</p>}</>}
+  </div></section></div>
 }

@@ -167,9 +167,6 @@ export type LabPhoneBarMode = 'reading' | 'hearing' | 'talking'
 
 export const LAB_PHONE_BAR_ITEMS = ['Play', 'Chat', 'Talk'] as const
 export const LAB_GEAR_ITEMS = ['Library', 'Reading', 'Layout'] as const
-export const LAB_TOC_PULL_PX = 56
-
-
 /** Phone footer / sheet mode. The Play | Chat | Talk bar stays on. */
 export function labPhoneBarMode(
   state: LabChromeState,
@@ -235,8 +232,8 @@ export function labChromeInsetPx(chromeHeightPx: number, gap = LAB_CHROME_GAP_PX
   return Math.max(0, chromeHeightPx) + gap
 }
 
-/** Painted last ink must sit at least this many px above the visible bar. */
-export const LAB_OVERFLOW_CLEAR_PX = 12
+/** Painted last ink must sit far enough above chrome to preserve a calm gutter. */
+export const LAB_OVERFLOW_CLEAR_PX = 24
 
 /** Extra slack when measuring phone hearing pages — descenders + highlight box. */
 export const LAB_HEARING_MEASURE_SLACK_PX = 8
@@ -431,6 +428,12 @@ export function measurePaintedOverflow(
     lastLineWords: lastPaintedLineWordCount(root),
     scrollOverflow: labScrollportOverflows(root),
   }
+}
+
+/** Compare mirrors one page map; only the primary column may resize it. */
+export function labPaginationPaintRoot(root: HTMLElement): HTMLElement {
+  if (!root.querySelector('.lab-book-col-compare')) return root
+  return root.querySelector<HTMLElement>('.lab-book-col:not(.lab-book-col-compare)') ?? root
 }
 
 /** After document.fonts.ready + first paint (rAF). Never a pre-paint guess. */
@@ -784,10 +787,6 @@ export function labShowPhoneBar(input: {
   if (!input.phoneChrome) return false
   if (input.phoneAsk) return true
   return !input.fullscreen
-}
-
-export function labPullOpensToc(deltaY: number, threshold = LAB_TOC_PULL_PX): boolean {
-  return deltaY >= threshold
 }
 
 export type LabPageTurnDirection = -1 | 1

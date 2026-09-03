@@ -33,26 +33,30 @@ test('keeps the locked landing still when reduced motion is requested', async ({
   await expect(page.locator('.tov5-simple-start')).toHaveCSS('transition-duration', '0s')
 })
 
-test('opens book detail, chooses an edition, and reaches the optional preface', async ({ page }) => {
-  await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
-  await page.locator('[data-catalogue-book="odyssey"]').first().click()
-  await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
-  await expect(page.locator('[data-book-detail-title]')).toHaveText('The Odyssey')
+for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+  test(`opens book detail, chooses an edition, and reaches the reader at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+    await page.locator('[data-catalogue-book="odyssey"]').first().click()
+    await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
+    await expect(page.locator('[data-book-detail-title]')).toHaveText('The Odyssey')
 
-  await page.getByRole('button', { name: 'Start reading' }).click()
-  await expect(page.locator('[data-view-panel="edition"]')).toHaveClass(/is-current/)
-  await page.locator('[data-select-edition="original-en"]').click()
-  await expect(page.locator('.tov5-continue')).toContainText('Butler')
+    await page.getByRole('button', { name: 'Start reading' }).click()
+    await expect(page.locator('[data-view-panel="edition"]')).toHaveClass(/is-current/)
+    await page.locator('[data-select-edition="original-en"]').click()
+    await expect(page.locator('.tov5-continue')).toContainText('Butler')
 
-  await page.locator('.tov5-continue').click()
-  await expect(page.locator('[data-view-panel="preface"]')).toHaveClass(/is-current/)
-  await page.getByRole('button', { name: /Give me a standard preface/ }).click()
-  await expect(page.locator('[data-preface-thread]')).toBeVisible()
-  await page.locator('.tov5-begin-book').click()
-  await expect.poll(() => page.evaluate(() => window.__tinctLabLastHandoff)).toMatchObject({
-    kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en',
+    await page.locator('.tov5-continue').click()
+    await expect(page.locator('[data-view-panel="preface"]')).toHaveClass(/is-current/)
+    await page.getByRole('button', { name: /Give me a standard preface/ }).click()
+    await expect(page.locator('[data-preface-thread]')).toBeVisible()
+    await page.locator('.tov5-begin-book').click()
+    await expect(page).toHaveURL(/\/lab\/phone$/)
+    await expect.poll(() => page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff') || 'null'))).toMatchObject({
+      kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en',
+    })
   })
-})
+}
 
 test('keeps the librarian Talk and Chat entry points directly exposed', async ({ page }) => {
   const prompt = page.locator('[data-view-panel="library"] .tov5-librarian-row')
@@ -118,7 +122,8 @@ test('derives returning-library state from a coherent saved reader tuple', async
   await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
   await expect(page.locator('[data-returning-book="meditations"]')).toContainText('Chapter 4 · 25% read')
   await page.locator('[data-returning-book="meditations"] [data-continue-book]').click()
-  await expect.poll(() => page.evaluate(() => window.__tinctLabLastHandoff)).toMatchObject({
+  await expect(page).toHaveURL(/\/lab\/phone$/)
+  await expect.poll(() => page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff') || 'null'))).toMatchObject({
     kind: 'open-reader', bookId: 'meditations', savedPlace: { bookId: 'meditations', chapterNumber: 4 },
   })
 })

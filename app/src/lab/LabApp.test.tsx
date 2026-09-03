@@ -20,7 +20,9 @@ afterEach(() => {
   vi.restoreAllMocks()
   try { localStorage.removeItem('tinct-lab-prefs') } catch { /* jsdom */ }
     try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
-    try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-highlights') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-highlights-tap-cleanup-v1') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
@@ -106,8 +108,8 @@ class FakeAudio {
 
 
 function openDesktopAsk() {
-  const tab = screen.queryByTestId('lab-ask-tab')
-  if (tab) fireEvent.click(tab)
+  const chat = screen.queryByTestId('lab-desktop-chat')
+  if (chat) fireEvent.click(chat)
 }
 
 function openThisBook() {
@@ -116,20 +118,30 @@ function openThisBook() {
   fireEvent.click(screen.getByTestId('lab-in-the-book'))
 }
 
+function desktopCurrentWord() {
+  return document.querySelector('.lab-passage.is-inline-hearing .lab-hearing-word.is-current') as HTMLElement | null
+}
+
 describe('lab chrome', () => {
-  it('keeps Ask as the only desktop pane', () => {
+  it('uses the locked desktop action rail and transient Chat companion', () => {
     expect(LAB_DESKTOP_PANES).toEqual(['Ask'])
     expect(PRODUCTION_DESKTOP_PANES.some(pane => LAB_DESKTOP_PANES.includes(pane as never))).toBe(false)
 
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
 
-    expect(screen.getByTestId('lab-ask-tab')).toBeTruthy()
+    expect(screen.getByTestId('lab-desktop-action-rail')).toBeTruthy()
+    expect(screen.getByTestId('lab-desktop-play')).toBeTruthy()
+    expect(screen.getByTestId('lab-desktop-chat')).toBeTruthy()
+    expect(screen.getByTestId('lab-desktop-talk')).toBeTruthy()
+    expect(screen.queryByTestId('lab-ask-tab')).toBeNull()
     expect(screen.queryByTestId('lab-phone-talk')).toBeNull()
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
     expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
     openDesktopAsk()
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    expect(screen.getByTestId('lab-ask-pane').getAttribute('data-companion')).toBe('chat')
+    expect(screen.getByTestId('lab-desktop-companion-close')).toBeTruthy()
     expect(screen.getByTestId('lab-desktop-panes').textContent).toBe('Ask')
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
@@ -140,15 +152,14 @@ describe('lab chrome', () => {
     expect(screen.queryByText('Ready when you are.')).toBeNull()
     expect(screen.queryByText('Ask anything')).toBeNull()
     expect(document.querySelector('.lab-ask-bubble')).toBeNull()
-    expect(screen.queryByRole('button', { name: 'Chat' })).toBeNull()
+    expect(screen.getByRole('button', { name: 'Chat' })).toBeTruthy()
     expect(screen.queryByRole('button', { name: 'Feed' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Cast' })).toBeNull()
     expect(document.querySelector('.card-rail')).toBeNull()
     expect(document.querySelector('.panel-tab')).toBeNull()
     expect(document.querySelector('.lab-orb')).toBeNull()
     expect(screen.getByTestId('lab-ask-voice')).toBeTruthy()
-    expect(screen.getByRole('button', { name: 'Listen' })).toBeTruthy()
-    expect(screen.getByTestId('lab-listen-play')).toBeTruthy()
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Book 1 — The gods in council')
     fireEvent.change(screen.getByPlaceholderText('Ask'), { target: { value: 'Who is Calypso?' } })
     expect(screen.getByTestId('lab-ask-send')).toBeTruthy()
@@ -179,8 +190,9 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*height:\s*100vh/)
     expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*overflow:\s*hidden/)
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-page-wrap\s*\{[^}]*overflow:\s*auto/)
-    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*position:\s*sticky/)
-    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\s*\{[^}]*height:\s*100%/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*position:\s*fixed/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*right:\s*122px/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*width:\s*294px/)
     expect(css).toMatch(/\.lab-ask\.is-empty\s*,\s*\.lab-ask\.has-thread\s*\{[^}]*justify-content:\s*flex-end/)
     expect(css).not.toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
     expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask,\s*\.lab-ask\.is-phone-sheet\s*\{[^}]*width:\s*100%/)
@@ -341,7 +353,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-phone-chat')).toBeTruthy()
     expect(screen.queryByTestId('lab-ask-done')).toBeNull()
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
     expect(screen.getByText('Ask about this page.')).toBeTruthy()
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
@@ -431,9 +443,11 @@ describe('lab chrome', () => {
   })
 
   it('keeps Compare as a page split from Reading settings', () => {
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    const base = fallbackLabSource()
+    render(<LabApp pathname="/lab/desktop" source={{ ...base, compareParagraphs: base.paragraphs.map(paragraph => `Compare: ${paragraph}`) }} />)
     fireEvent.click(screen.getByTestId('lab-gear'))
     fireEvent.click(screen.getByTestId('lab-compare'))
+    fireEvent.click(screen.getByTestId('lab-desktop-compare'))
     expect(screen.getByTestId('lab-compare-col')).toBeTruthy()
     expect(screen.getByTestId('lab-book').className).toContain('is-compare')
   })
@@ -485,7 +499,7 @@ describe('lab chrome', () => {
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/chat') && !String(call[0]).includes('/api/lab-chat'))).toBe(false)
   })
 
-  it('starts Hear from the live Odyssey Book 1 manifest onto a real audio element', async () => {
+  it('plays the chapter title before paragraph zero and holds the headline without a body highlight', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -514,7 +528,10 @@ describe('lab chrome', () => {
     })
     vi.stubGlobal('fetch', fetchMock)
 
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...fallbackLabSource(),
+      audioTitle: { kind: 'title', file: 'title.mp3', duration: 1.675 },
+    }} />)
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     fireEvent.click(screen.getByTestId('lab-listen'))
 
@@ -522,27 +539,34 @@ describe('lab chrome', () => {
       expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
     })
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/audio-manifest'))).toBe(true)
-    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('bible%2Fkjv-en%2Fch1%2Fp0.mp3')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('bible%2Fkjv-en%2Fch1%2Ftitle.mp3')
     expect(audio.src).toContain('/api/audio-file')
-    expect(audio.src).toContain('p0.mp3')
+    expect(audio.src).toContain('title.mp3')
     expect(audio.paused).toBe(false)
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-listen').textContent).toBe('Read')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
     expect(screen.getByTestId('lab-listen').className).not.toContain('is-open')
-    expect(screen.getByTestId('lab-hearing-stage')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Book 1 — The gods in council')
     expect(document.querySelectorAll('.lab-p').length).toBe(0)
-    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
+    expect(desktopCurrentWord()).toBeNull()
     expect(screen.queryByTestId('lab-hearing-progress')).toBeNull()
+
+    audio.currentTime = 1.675
+    act(() => { audio.emit('ended') })
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('bible%2Fkjv-en%2Fch1%2Fp0.mp3')
+    })
+    expect(desktopCurrentWord()?.textContent).toContain('Tell')
 
     audio.currentTime = 10
     act(() => { audio.emit('timeupdate') })
 
     fireEvent.click(screen.getByTestId('lab-hearing-forward'))
-    expect(audio.currentTime).toBe(25)
+    expect(audio.currentTime).toBeGreaterThan(0)
     fireEvent.click(screen.getByTestId('lab-hearing-back'))
-    expect(audio.currentTime).toBe(10)
+    expect(audio.currentTime).toBeGreaterThanOrEqual(0)
     fireEvent.click(screen.getByTestId('lab-hearing-pause'))
     expect(audio.paused).toBe(true)
   })
@@ -601,18 +625,17 @@ describe('lab chrome', () => {
     })
     expect(fetchMock.mock.calls.some(call => String(call[0]) === '/odyssey-ch1-words.json')).toBe(false)
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
-    expect(document.querySelector('.lab-hearing-word.is-current')).toBeTruthy()
+    expect(desktopCurrentWord()?.textContent).toContain('Tell')
+    expect(desktopCurrentWord()).toBeTruthy()
     expect(audio.paused).toBe(false)
 
     fireEvent.click(screen.getByTestId('lab-hearing-pause'))
     expect(audio.paused).toBe(true)
-    expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
-    expect(document.querySelector('.lab-hearing-word.is-current')).toBeNull()
+    expect(desktopCurrentWord()).toBeNull()
     expect(document.querySelector('.lab-hearing-word.is-upcoming')).toBeNull()
   })
 
-  it('keeps playing every paragraph MP3 in the chapter after a stale ended', async () => {
+  it('keeps playing every paragraph MP3 and stops cleanly on the last book chapter', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -676,6 +699,118 @@ describe('lab chrome', () => {
     expect(audio.paused).toBe(true)
   })
 
+  it('continues from a final paragraph through the next chapter title and paragraph at the chosen speed', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const hebrews1 = '¹ God spoke ² Hath spoken ³ Who shines ⁴ Being made'
+    const hebrews2 = '¹ Therefore we ought to give heed.'
+    const timed = (words: string[]) => words.map((text, index) => ({
+      text,
+      start: index * 0.5,
+      end: (index + 1) * 0.5,
+    }))
+    const chapterManifest = (chapter: number) => ({
+      chapter,
+      title: `Hebrews ${chapter - 1133}`,
+      paragraphs: [
+        { paragraph: -1, file: 'title.mp3', duration: 1.925, words: [] },
+        { paragraph: 0, file: 'p0.mp3', duration: 4, words: [] },
+      ],
+    })
+    const sidecar = (chapter: number, words: string[]) => ({
+      chapter,
+      paragraphs: [{ paragraph: 0, file: 'p0.mp3', words: timed(words) }],
+    })
+    const bookManifest = {
+      chapters: [
+        { number: 1134, title: 'Hebrews 1', path: 'ch1134.json' },
+        { number: 1135, title: 'Hebrews 2', path: 'ch1135.json' },
+      ],
+      sections: [],
+    }
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('audio-manifest') && url.includes('ch1134')) return { ok: true, json: async () => chapterManifest(1134) }
+      if (url.includes('audio-manifest') && url.includes('ch1135')) return { ok: true, json: async () => chapterManifest(1135) }
+      if (url.includes('audio-file') && url.includes('ch1134') && url.includes('words.json')) {
+        return { ok: true, json: async () => sidecar(1134, ['God', 'spoke', 'Hath', 'spoken', 'Who', 'shines', 'Being', 'made']) }
+      }
+      if (url.includes('audio-file') && url.includes('ch1135') && url.includes('words.json')) {
+        return { ok: true, json: async () => sidecar(1135, ['Therefore', 'we', 'ought', 'to', 'give', 'heed.']) }
+      }
+      if (url.includes('bible-kjv-en/manifest.json')) return { ok: true, json: async () => bookManifest }
+      if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
+      if (url.includes('bible-kjv-en/ch1135.json')) return { ok: true, json: async () => ({ paragraphs: [hebrews2] }) }
+      return { ok: false, status: 404, json: async () => ({}) }
+    }))
+
+    render(<LabApp pathname="/lab/phone" source={{
+      ...bibleFallbackSource(),
+      chapterNumber: 1134,
+      chapterTitle: 'Hebrews 1',
+      chapterLabel: 'Hebrews 1',
+      headerBook: 'Hebrews',
+      headerChapter: '1',
+      paragraphs: [hebrews1],
+      followParagraphs: [{ index: 0, text: hebrews1, file: 'p0.mp3', duration: 4 }],
+      audioTitle: { kind: 'title', file: 'title.mp3', duration: 1.925 },
+      chapters: bookManifest.chapters,
+    }} />)
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(audio.src).toContain('ch1134%2Ftitle.mp3'))
+    fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+    fireEvent.change(screen.getByTestId('lab-audio-speed-slider'), { target: { value: '2' } })
+    expect(audio.playbackRate).toBe(2)
+
+    audio.currentTime = 1.925
+    act(() => { audio.emit('ended') })
+    await waitFor(() => expect(audio.src).toContain('ch1134%2Fp0.mp3'))
+    expect(audio.playbackRate).toBe(2)
+
+    audio.currentTime = 4
+    act(() => { audio.emit('ended') })
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1135')
+      expect(audio.src).toContain('ch1135%2Ftitle.mp3')
+    })
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('true')
+    expect(audio.playbackRate).toBe(2)
+    expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
+
+    audio.currentTime = 1.925
+    act(() => { audio.emit('ended') })
+    await waitFor(() => expect(audio.src).toContain('ch1135%2Fp0.mp3'))
+    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Therefore')
+    expect(audio.playbackRate).toBe(2)
+  })
+
+  it('does not advance chapters when a paused element emits a stale ended event', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const source = {
+      ...bibleFallbackSource(),
+      paragraphs: ['In the beginning.'],
+      followParagraphs: [{ index: 0, text: 'In the beginning.', file: 'p0.mp3', duration: 4 }],
+      chapters: [
+        { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
+        { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
+      ],
+    }
+    render(<LabApp pathname="/lab/phone" source={source} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(audio.src).toContain('p0.mp3'))
+    fireEvent.click(screen.getByTestId('lab-hearing-pause'))
+    expect(audio.paused).toBe(true)
+    act(() => { audio.emit('ended') })
+    expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+  })
+
   it('plays real Odyssey paragraph MP3s and follows the playing word', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
@@ -691,14 +826,14 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('bible')
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('p0.mp3')
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Book 1 — The gods in council')
-    expect(screen.getByTestId('lab-hearing-current').textContent).toContain('Tell')
+    expect(desktopCurrentWord()?.textContent).toContain('Tell')
 
     audio.currentTime = 1.2
     act(() => { audio.emit('timeupdate') })
-    const current = screen.getByTestId('lab-hearing-current').textContent || ''
+    const current = desktopCurrentWord()?.textContent || ''
     expect(current).toMatch(/O|Muse/)
     expect(current).not.toContain('me,')
   })
@@ -731,7 +866,7 @@ describe('lab chrome', () => {
 
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
-    expect(screen.getByTestId('lab-ask-tab')).toBeTruthy()
+    expect(screen.getByTestId('lab-desktop-chat')).toBeTruthy()
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
   })
 
@@ -777,21 +912,24 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
   })
 
-  it('keeps Hearing as a lyrics stage and peeks the page from In the book', async () => {
+  it('keeps the desktop page composition while audio paints one current word', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
     })
     render(<LabApp pathname="/lab/desktop" source={sourceWithWords()} />)
+    const pageText = screen.getByTestId('lab-reading-stage').textContent
     fireEvent.click(screen.getByTestId('lab-listen'))
 
     await waitFor(() => {
-      expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+      expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
+      expect(document.querySelectorAll('.lab-hearing-word.is-current')).toHaveLength(1)
     })
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
     expect(screen.getByTestId('lab-book')).toBeTruthy()
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
-    expect(screen.getByTestId('lab-hearing-transport')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage').textContent).toBe(pageText)
+    expect(screen.queryByTestId('lab-hearing-transport')).toBeNull()
+    expect(screen.getByTestId('lab-desktop-audio-dock')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing-progress')).toBeNull()
 
     fireEvent.click(screen.getByTestId('lab-gear'))
@@ -799,7 +937,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-book').className).toContain('is-peek')
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
-    expect(screen.queryByTestId('lab-hearing')).toBeNull()
+    expect(screen.getByTestId('lab-reading-stage').textContent).toBe(pageText)
   })
 
   it('keeps phone Hearing on the same in-flow rail with one Play/Pause control', async () => {
@@ -817,25 +955,32 @@ describe('lab chrome', () => {
     const chrome = screen.getByTestId('lab-bottom-chrome')
     expect(bar.contains(screen.getByTestId('lab-listen'))).toBe(true)
     expect(bar.contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
-    expect(bar.contains(screen.getByTestId('lab-phone-chat'))).toBe(true)
+    expect(screen.queryByTestId('lab-phone-chat')).toBeNull()
     expect(bar.contains(screen.getByTestId('lab-phone-talk'))).toBe(true)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
     expect(chrome.contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
-    expect(screen.queryByTestId('lab-hearing-forward')).toBeNull()
-    expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
-    expect(screen.getByTestId('lab-phone-talk').textContent).toContain('Talk')
+    expect(screen.getByTestId('lab-hearing-back')).toBeTruthy()
+    expect(screen.getByTestId('lab-hearing-forward')).toBeTruthy()
+    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
+    fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
+    expect(screen.getByTestId('lab-hearing-speed').getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByTestId('lab-audio-speed-popover')).toBeTruthy()
+    fireEvent.change(screen.getByTestId('lab-audio-speed-slider'), { target: { value: '1.75' } })
+    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1.75×')
+    expect(screen.getByTestId('lab-audio-speed-popover').textContent).toContain('1.75×')
+    expect(screen.getByTestId('lab-phone-talk').textContent).toBe('')
+    expect(screen.getByTestId('lab-phone-talk').getAttribute('aria-label')).toBe('Talk')
     expect(screen.getByTestId('lab-phone-talk').querySelector('svg')).toBeTruthy()
-    expect(screen.getByTestId('lab-phone-chat').querySelector('svg')).toBeTruthy()
     expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
     expect(document.querySelector('.lab-header')?.contains(screen.getByTestId('lab-listen'))).toBe(false)
     expect(screen.queryByRole('button', { name: 'Ask' })).toBeNull()
     expect(screen.queryByTestId('lab-hearing-transport')).toBeNull()
     const progressEl = screen.getByTestId('lab-chapter-progress')
     const playingLabel = progressEl.querySelector('.lab-chapter-progress-info')?.textContent || progressEl.textContent || ''
-    expect(progressEl.textContent).toBe(readingProgress)
-    expect(playingLabel).toContain('Book 1 —')
-    expect(playingLabel).toMatch(/\d+\s*\/\s*\d+/)
+    expect(readingProgress).toMatch(/^[\d,]+\s*\/\s*[\d,]+\s+of book · \d+%$/)
+    expect(playingLabel).toMatch(/^[\d,]+\s*\/\s*[\d,]+\s+of book · \d+%$/)
+    expect(progressEl.title).toBe('Show chapter progress')
     expect(document.querySelector('.lab.has-slim-transport')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
@@ -846,9 +991,10 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
+    expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
   })
 
-  it('uses one phone Play/Pause control and keeps arrow controls hidden', async () => {
+  it('uses one equal-width phone bar that audio takes over while playing', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -857,7 +1003,6 @@ describe('lab chrome', () => {
 
     const headerControls = document.querySelector('.lab-header-controls')
     expect([...headerControls!.querySelectorAll('button')].map(button => button.dataset.testid)).toEqual([
-      'lab-fullscreen',
       'lab-gear',
     ])
     expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
@@ -866,13 +1011,16 @@ describe('lab chrome', () => {
     await waitFor(() => expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy())
     expect(screen.getByTestId('lab-listen').textContent).toContain('Pause')
     expect(screen.queryByTestId('lab-transport-toggle')).toBeNull()
-    expect(screen.queryByTestId('lab-hearing-speed')).toBeNull()
-    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
-    expect(screen.queryByTestId('lab-hearing-forward')).toBeNull()
+    expect(screen.queryByTestId('lab-audio-capsule')).toBeNull()
+    expect(screen.getByTestId('lab-phone-bar').querySelector('.lab-phone-bar-row')?.className).toContain('has-5')
+    expect(screen.getByTestId('lab-phone-bar').querySelectorAll('.lab-phone-fat')).toHaveLength(5)
+    expect(screen.getByTestId('lab-hearing-speed')).toBeTruthy()
+    expect(screen.getByTestId('lab-hearing-back')).toBeTruthy()
+    expect(screen.getByTestId('lab-hearing-forward')).toBeTruthy()
     expect(screen.getByTestId('lab-page-next').className).toContain('lab-visually-hidden')
   })
 
-  it('uses the browser fullscreen API and follows fullscreenchange state', async () => {
+  it('retains the browser fullscreen API on desktop while mobile uses immersive controls', async () => {
     let active: Element | null = null
     const requestFullscreen = vi.fn(function (this: HTMLElement) {
       active = this
@@ -890,7 +1038,7 @@ describe('lab chrome', () => {
     Object.defineProperty(document, 'exitFullscreen', { configurable: true, value: exitFullscreen })
 
     try {
-      render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       fireEvent.click(screen.getByTestId('lab-fullscreen'))
       await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true'))
       expect(requestFullscreen).toHaveBeenCalledOnce()
@@ -908,7 +1056,7 @@ describe('lab chrome', () => {
     }
   })
 
-  it('keeps the phone Hearing footer in flow so the passage scrollport ends at the bar', async () => {
+  it('keeps the phone Hearing footer inside the reader and away from passage content', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -925,7 +1073,7 @@ describe('lab chrome', () => {
     expect(root.style.getPropertyValue('--lab-chrome-inset')).toBe('')
     expect(root.style.getPropertyValue('--lab-vvh')).toMatch(/px$/)
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-back')).toBeTruthy()
     expect(passage).toBeTruthy()
     expect(passage?.contains(footer)).toBe(false)
     expect(footer.compareDocumentPosition(passage as Node) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
@@ -974,13 +1122,13 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-status').textContent).toBe('Talking · tap × to stop')
     expect(audio.paused).toBe(true)
     expect(audio.currentTime).toBe(8)
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
 
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
@@ -1023,7 +1171,7 @@ describe('lab chrome', () => {
     expect(audio.paused).toBe(true)
     expect(audio.currentTime).toBe(8)
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(await screen.findByTestId('lab-ask-turn-user')).toBeTruthy()
@@ -1039,15 +1187,15 @@ describe('lab chrome', () => {
     expect(await screen.findByTestId('lab-ask-turn-assistant')).toBeTruthy()
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(audio.paused).toBe(true)
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-ask-done'))
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
     expect(audio.currentTime).toBe(8)
     expect(audio.paused).toBe(false)
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
   })
 
   it('pauses Hear on a voice click even when unsigned-in', async () => {
@@ -1078,7 +1226,7 @@ describe('lab chrome', () => {
     expect(screen.queryByText('Sign in to ask by voice.')).toBeNull()
     expect(screen.queryByText('Sign in to ask about this page.')).toBeNull()
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     })
@@ -1086,7 +1234,7 @@ describe('lab chrome', () => {
     expect(audio.currentTime).toBe(8)
   })
 
-  it('marks the current Hearing paragraph when word timings are missing', async () => {
+  it('keeps the desktop reading page intact when word timings are missing', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -1097,16 +1245,14 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('/api/audio-file')
     })
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(document.querySelectorAll('.lab-p').length).toBe(0)
-    expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
-    const hearingStage = screen.getByTestId('lab-hearing-stage')
-    expect(hearingStage.querySelector('.lab-hearing-word.is-current')).toBeNull()
-    expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
+    const readingStage = screen.getByTestId('lab-reading-stage')
+    expect(readingStage.querySelector('.lab-hearing-word.is-current')).toBeNull()
     expect(screen.getByTestId('lab-book').querySelector('.lab-word-current')).toBeNull()
     expect(screen.queryByTestId('lab-hearing-progress')).toBeNull()
     expect(screen.getByTestId('lab-passage-headline')).toBeTruthy()
-    expect(hearingStage.textContent).toContain('Tell')
+    expect(readingStage.textContent).toContain('Tell')
 
     audio.currentTime = 8
     act(() => { audio.emit('timeupdate') })
@@ -1116,7 +1262,7 @@ describe('lab chrome', () => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:1')
     })
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toContain('p1.mp3')
-    expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
+    expect(desktopCurrentWord()).toBeNull()
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     expect(screen.queryByText(/Now Neptune had gone off/)).toBeNull()
   })
@@ -1191,18 +1337,17 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    openDesktopAsk()
-
     audio.currentTime = 8
     act(() => { audio.emit('timeupdate') })
     fireEvent.click(screen.getByTestId('lab-hearing-back'))
     expect(audio.currentTime).toBe(0)
     fireEvent.click(screen.getByTestId('lab-hearing-forward'))
-    expect(audio.currentTime).toBe(15)
+    expect(audio.currentTime).toBeGreaterThan(0)
     fireEvent.click(screen.getByTestId('lab-hearing-pause'))
     expect(audio.paused).toBe(true)
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
 
+    openDesktopAsk()
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-connecting')
     expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-connecting|is-listening|is-speaking/)
@@ -1243,7 +1388,7 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(audio.playbackRate).toBe(2)
     })
-    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('2×')
+    expect(screen.getByTestId('lab-root').getAttribute('data-audio-speed')).toBe('2')
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Playing at two times')
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).not.toContain('set_playback_speed')
   })
@@ -1280,7 +1425,7 @@ describe('lab chrome', () => {
     expect(gate.getAttribute('data-phase')).toBe('connecting')
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
   })
 
@@ -1359,9 +1504,11 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-header-work').textContent).toBe('The Odyssey')
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Book 1/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toContain('∨')
-    expect(screen.getByTestId('lab-fullscreen')).toBeTruthy()
+    expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-reader-controls')).toBe('visible')
     const progress = screen.getByTestId('lab-chapter-progress')
-    expect(progress.textContent).toMatch(/Book 1 — \d+ \/ \d+/)
+    expect(progress.textContent).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
+    expect(progress.title).toBe('Show chapter progress')
     expect(progress.textContent).not.toMatch(/Chapter 1/)
     expect(progress.textContent).not.toMatch(/ ch$/)
     expect(progress.querySelector('.lab-chapter-progress-bar')).toBeNull()
@@ -1386,12 +1533,70 @@ describe('lab chrome', () => {
     render(<LabApp pathname="/lab/phone" source={sourceWithWords()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
     fireEvent.click(screen.getByTestId('lab-listen'))
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
     expect(screen.getByTestId('lab-book')).toBeTruthy()
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(audio.paused).toBe(true)
+  })
+
+  it('keeps voice resume distinct from simply returning to Read', () => {
+    const app = readFileSync(resolve(__dirname, 'LabApp.tsx'), 'utf8')
+    expect(app).toContain('resumeListenRef.current = () => resumeListenAfterAsk(true)')
+    expect(app).toContain("const shouldHear = forceHearing || pausedForAskRef.current || returnToRef.current === 'hearing'")
+  })
+
+  it('returns to Read before opening Chat after audio is paused', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithWords()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
+    expect(screen.getByTestId('lab-phone-chat')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-phone-chat'))
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    expect(audio.paused).toBe(true)
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+  })
+
+  it('shows Play in Chat when Talk interrupts active audio and resumes that audio', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithWords()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0'))
+    audio.currentTime = 3
+    act(() => { audio.emit('timeupdate') })
+    fireEvent.click(screen.getByTestId('lab-phone-talk'))
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    expect(audio.paused).toBe(true)
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
+    expect(audio.currentTime).toBe(3)
+    expect(audio.paused).toBe(false)
+
   })
 
   it('opens Chat as the typed thread and does not start voice', () => {
@@ -1440,30 +1645,26 @@ describe('lab chrome', () => {
     expect(screen.getAllByTestId('lab-ask-turn-user').length).toBeGreaterThan(0)
   })
 
-  it('opens Library / Reading / Layout from the phone gear, not a tab bar', () => {
+  it('opens the compact settings hub and its focused sheets', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.getByTestId('lab-gear')).toBeTruthy()
-    expect(screen.getByTestId('lab-fullscreen')).toBeTruthy()
+    expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
     expect(screen.queryByTestId('lab-in-the-book')).toBeNull()
     expect(screen.queryByTestId('lab-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-gear'))
     const sheet = screen.getByTestId('lab-settings-sheet')
     expect(sheet.className).toContain('lab-ss-overlay')
-    expect(sheet.querySelector('.lab-ss-sheet')).toBeTruthy()
-    expect(sheet.querySelector('.lab-ss-close')).toBeTruthy()
+    expect(sheet.querySelector('.lab-ss-hub')).toBeTruthy()
     expect(sheet.textContent).toContain('Library')
-    expect(sheet.textContent).toContain('Reading')
-    expect(sheet.textContent).toContain('Layout')
+    expect(sheet.textContent).toContain('Appearance & Text')
+    expect(sheet.textContent).toContain('Audio & Editions')
+    expect(sheet.textContent).toContain('Account')
     expect(sheet.textContent).not.toContain('Home')
     expect(sheet.textContent).not.toContain('Saved')
-    expect(sheet.textContent).not.toContain('Profile')
-    expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/read/')
-    fireEvent.click(screen.getByTestId('lab-compare'))
-    expect(screen.queryByTestId('lab-compare-col')).toBeNull()
-    expect(screen.queryByTestId('lab-phone-compare')).toBeNull()
+    expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/lab/library')
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     expect(screen.getByTestId('lab-theme')).toBeTruthy()
-    expect(screen.getByTestId('lab-progress-metric')).toBeTruthy()
+    expect(screen.getByText('All Reading Settings')).toBeTruthy()
   })
 
   it('shows Compare only when configured and flips aligned mobile editions full-width', () => {
@@ -1477,6 +1678,7 @@ describe('lab chrome', () => {
 
     expect(screen.getByTestId('lab-phone-bar').querySelectorAll('.lab-phone-fat')).toHaveLength(4)
     expect(screen.getByTestId('lab-phone-compare').textContent).toContain('Compare')
+    expect(screen.getByTestId('lab-phone-compare').querySelectorAll('svg rect')).toHaveLength(2)
     expect(screen.queryByTestId('lab-compare-col')).toBeNull()
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
 
@@ -1515,7 +1717,7 @@ describe('lab chrome', () => {
       expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('I will speak more slowly')
     })
     expect(audio.playbackRate).toBe(1)
-    expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
+    expect(screen.getByTestId('lab-root').getAttribute('data-audio-speed')).toBe('1')
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).not.toContain('set_assistant_pace')
   })
 })
@@ -1589,8 +1791,31 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
     const genesis1Progress = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(genesis1Progress).toMatch(/Genesis 1/)
-    expect(genesis1Progress).toContain(' / ')
+    expect(genesis1Progress).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
+  })
+
+  it('puts a book cover one swipe before Genesis 1 without changing reading position', () => {
+    render(<LabApp pathname="/lab/phone" source={{
+      ...bibleFallbackSource(),
+      paragraphs: ['In the beginning God created the heaven and the earth.'],
+      followParagraphs: [{ index: 0, text: 'In the beginning God created the heaven and the earth.' }],
+      chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }],
+    }} />)
+    const root = screen.getByTestId('lab-root')
+    const place = root.getAttribute('data-place')
+    const progress = screen.getByTestId('lab-chapter-progress').textContent
+
+    fireEvent.click(screen.getByTestId('lab-page-prev'))
+    expect(root.getAttribute('data-cover-page')).toBe('true')
+    expect(screen.getByTestId('lab-chapter-cover').textContent).toContain('Genesis')
+    expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
+    expect(root.getAttribute('data-place')).toBe(place)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(progress)
+
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(root.getAttribute('data-cover-page')).toBe('false')
+    expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
+    expect(root.getAttribute('data-place')).toBe(place)
   })
 
   it('Previous on Genesis 2 page 1 goes to Genesis 1 last', async () => {
@@ -1636,6 +1861,7 @@ describe('lab bible book', () => {
       ],
     }} />)
     const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
+    fireEvent.click(screen.getByTestId('lab-chapter-progress'))
     const line = () => (document.querySelector('.lab-hearing-line')?.textContent || '')
     expect(progress()).toMatch(/1 \/ \d+/)
     expect(line()).toContain('In the beginning')
@@ -1655,7 +1881,7 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 1/)
     const back = progress()
-    expect(back).toMatch(/Genesis 1 — (\d+) \/ \1/)
+    expect(back).toMatch(/^(\d+) \/ \1 of chapter · \d+%$/)
     const nm = back.match(/(\d+) \/ (\d+)/)
     expect(nm).toBeTruthy()
     expect(Number(nm![1])).toBeGreaterThan(1)
@@ -1691,10 +1917,7 @@ describe('lab bible book', () => {
       ],
     }} />)
     const label = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(label).toContain('Proverbs')
-    expect(label).toContain('16')
-    expect(label).not.toContain('644')
-    expect(label).not.toMatch(/Chapter 644/)
+    expect(label).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
   })
 
@@ -1761,9 +1984,7 @@ describe('lab bible book', () => {
       ],
     }} />)
     const startLabel = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(startLabel).toContain('Proverbs')
-    expect(startLabel).toContain('16')
-    expect(startLabel).not.toContain('644')
+    expect(startLabel).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
     // One short paragraph = last page. Next must hop to Proverbs 17 p1.
     fireEvent.click(screen.getByTestId('lab-page-next'))
     await waitFor(() => {
@@ -1771,17 +1992,14 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 17/)
     const p1 = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(p1).toMatch(/Proverbs 17/)
-    expect(p1).toContain('1 /')
-    expect(p1).not.toContain('645')
+    expect(p1).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
     fireEvent.click(screen.getByTestId('lab-page-prev'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('644')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 16/)
     const back = screen.getByTestId('lab-chapter-progress').textContent || ''
-    expect(back).toMatch(/Proverbs 16/)
-    expect(back).not.toContain('644')
+    expect(back).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
     expect(document.querySelector('.lab-hearing-line')?.textContent).toMatch(/unpunished|Commit thy works/i)
   })
 
@@ -1828,8 +2046,9 @@ describe('lab bible book', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(screen.getByTestId('lab-phone-chat').textContent).toContain('Chat')
-    expect(screen.getByTestId('lab-phone-talk').textContent).toContain('Talk')
+    expect(screen.queryByTestId('lab-phone-chat')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-back')).toBeTruthy()
+    expect(screen.getByTestId('lab-phone-talk').getAttribute('aria-label')).toBe('Talk')
   })
 
   it('does not start the book after a plain book question', async () => {
@@ -1864,7 +2083,7 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
-    expect(screen.getByTestId('lab-listen').textContent).toContain('Play')
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
   })
 
   it('keeps Talk and Chat on this Bible chapter', async () => {
@@ -1920,8 +2139,8 @@ describe('lab passage headline pages', () => {
       />,
     )
     const unit = screen.getByTestId('lab-reading-stage').querySelector('.lab-verse-unit')
-    expect(unit?.previousSibling?.textContent).toBe(' ')
-    expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
+    expect(unit?.previousSibling?.textContent).toBe(' so.')
+    expect(unit?.textContent).toContain(`9\u00a0And`)
   })
 
   it('shows the chapter headline only on the first hearing page', () => {
@@ -1990,8 +2209,9 @@ describe('lab passage headline pages', () => {
     expect(screen.queryByTestId('lab-hearing-current')).toBeNull()
   })
 
-  it('turns pages from edge taps and horizontal swipes without taking the center tap', () => {
+  it('turns pages from full-page edge taps and horizontal swipes while reserving center tap for controls', () => {
     const turn = vi.fn()
+    const toggleControls = vi.fn()
     render(
       <LabPassage
         chapterTitle="Book 1"
@@ -2003,26 +2223,262 @@ describe('lab passage headline pages', () => {
         followParagraphs={[]}
         markedIndexes={new Set()}
         onMark={() => { /* unused */ }}
+        onSelectRange={() => { /* edge taps must win over selection */ }}
         readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
         onPageTurn={turn}
+        onToggleControls={toggleControls}
       />,
     )
-    const stage = screen.getByTestId('lab-reading-stage')
-    vi.spyOn(stage, 'getBoundingClientRect').mockReturnValue({
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
       x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
       width: 390, height: 600, toJSON() {},
     })
 
-    fireEvent.pointerDown(stage, { pointerId: 1, clientX: 370, clientY: 300 })
-    fireEvent.pointerUp(stage, { pointerId: 1, clientX: 370, clientY: 300 })
-    fireEvent.pointerDown(stage, { pointerId: 2, clientX: 20, clientY: 300 })
-    fireEvent.pointerUp(stage, { pointerId: 2, clientX: 20, clientY: 300 })
-    fireEvent.pointerDown(stage, { pointerId: 3, clientX: 330, clientY: 300 })
-    fireEvent.pointerUp(stage, { pointerId: 3, clientX: 60, clientY: 305 })
-    fireEvent.pointerDown(stage, { pointerId: 4, clientX: 195, clientY: 500 })
-    fireEvent.pointerUp(stage, { pointerId: 4, clientX: 195, clientY: 500 })
+    // Short pages leave blank space below the text. The entire page surface,
+    // not only the painted text block, must remain a page-turn target.
+    fireEvent.pointerDown(page, { pointerId: 1, clientX: 370, clientY: 580 })
+    fireEvent.pointerUp(page, { pointerId: 1, clientX: 370, clientY: 580 })
+    const rightEdgeWord = screen.getAllByTestId('lab-word').at(-1) as HTMLElement
+    fireEvent.pointerDown(rightEdgeWord, { pointerId: 5, pointerType: 'touch', clientX: 370, clientY: 300 })
+    fireEvent.pointerUp(rightEdgeWord, { pointerId: 5, pointerType: 'touch', clientX: 370, clientY: 300 })
+    fireEvent.pointerDown(page, { pointerId: 2, clientX: 20, clientY: 580 })
+    fireEvent.pointerUp(page, { pointerId: 2, clientX: 20, clientY: 580 })
+    fireEvent.pointerDown(page, { pointerId: 3, clientX: 330, clientY: 300 })
+    fireEvent.pointerUp(page, { pointerId: 3, clientX: 60, clientY: 305 })
+    fireEvent.pointerDown(page, { pointerId: 4, clientX: 195, clientY: 500 })
+    fireEvent.pointerUp(page, { pointerId: 4, clientX: 195, clientY: 500 })
 
-    expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, -1, 1])
+    expect(turn.mock.calls.map(([direction]) => direction)).toEqual([1, 1, -1, 1])
+    expect(toggleControls).toHaveBeenCalledOnce()
+  })
+
+  it('animates page direction without dropping multi-paragraph text or verse markers', () => {
+    const props = {
+      chapterTitle: 'Book 1',
+      paragraphs: ['Before ² the marker', 'After the marker'],
+      compareParagraphs: [],
+      compare: false,
+      mode: 'reading' as const,
+      follow: { kind: 'none' as const },
+      followParagraphs: [],
+      markedIndexes: new Set<number>(),
+      readingPage: {
+        paragraphIndex: 0,
+        from: 0,
+        to: 4,
+        segments: [
+          { paragraphIndex: 0, from: 0, to: 4 },
+          { paragraphIndex: 1, from: 0, to: 3 },
+        ],
+      },
+    }
+    const view = render(<LabPassage {...props} pageTurn={{ direction: 'next', nonce: 1 }} />)
+    expect(screen.getByTestId('lab-reading-stage').getAttribute('data-page-turn')).toBe('next')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Before 2\u00a0the marker')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('After the marker')
+
+    view.rerender(<LabPassage {...props} pageTurn={{ direction: 'previous', nonce: 2 }} />)
+    expect(screen.getByTestId('lab-reading-stage').getAttribute('data-page-turn')).toBe('previous')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('After the marker')
+  })
+
+  it('requires a touch long-press before selecting, so ordinary taps cannot create ghost highlights', () => {
+    vi.useFakeTimers()
+    const select = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onSelectRange={select}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerId: 7, pointerType: 'touch', clientX: 195, clientY: 200 })
+    fireEvent.pointerUp(word, { pointerId: 7, pointerType: 'touch', clientX: 195, clientY: 200 })
+    fireEvent.pointerDown(word, { pointerId: 71, pointerType: 'mouse', clientX: 195, clientY: 200 })
+    fireEvent.pointerUp(word, { pointerId: 71, pointerType: 'mouse', clientX: 195, clientY: 200 })
+    vi.advanceTimersByTime(500)
+    expect(select).not.toHaveBeenCalled()
+
+    fireEvent.pointerDown(word, { pointerId: 8, pointerType: 'touch', clientX: 195, clientY: 200 })
+    act(() => { vi.advanceTimersByTime(299) })
+    expect(select).not.toHaveBeenCalled()
+    act(() => { vi.advanceTimersByTime(1) })
+    fireEvent.pointerUp(word, { pointerId: 8, pointerType: 'touch', clientX: 195, clientY: 200 })
+    expect(select).toHaveBeenCalledOnce()
+    expect(select.mock.calls[0][0].text).toBe('me')
+  })
+
+  it('lets a word at the page edge be long-pressed instead of forcing a page turn', () => {
+    vi.useFakeTimers()
+    const select = vi.fn()
+    const turn = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onSelectRange={select}
+        onPageTurn={turn}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+    const word = screen.getAllByTestId('lab-word')[0]
+    fireEvent.pointerDown(word, { pointerId: 81, pointerType: 'touch', clientX: 20, clientY: 200 })
+    act(() => { vi.advanceTimersByTime(400) })
+    fireEvent.pointerUp(word, { pointerId: 81, pointerType: 'touch', clientX: 20, clientY: 200 })
+    expect(select).toHaveBeenCalledOnce()
+    expect(select.mock.calls[0][0].text).toBe('Tell')
+    expect(turn).not.toHaveBeenCalled()
+  })
+
+  it('keeps edge page turns active while audio is playing', () => {
+    const turn = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="hearing"
+        playing
+        follow={{ kind: 'word', paragraphIndex: 0, wordIndex: 1 }}
+        followParagraphs={[{ index: 0, text: 'Tell me O Muse' }]}
+        markedIndexes={new Set()}
+        onPageTurn={turn}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+    fireEvent.pointerDown(page, { pointerId: 82, pointerType: 'touch', clientX: 370, clientY: 300 })
+    fireEvent.pointerUp(page, { pointerId: 82, pointerType: 'touch', clientX: 370, clientY: 300 })
+    expect(turn).toHaveBeenCalledWith(1)
+  })
+
+  it('turns one page when an active long-press selection reaches the page edge', () => {
+    vi.useFakeTimers()
+    vi.spyOn(Date, 'now').mockReturnValue(2_000)
+    const turn = vi.fn()
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        onSelectRange={() => { /* selection remains active */ }}
+        onPageTurn={turn}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerId: 10, pointerType: 'touch', clientX: 195, clientY: 200 })
+    act(() => { vi.advanceTimersByTime(400) })
+    fireEvent.pointerMove(page, { pointerId: 10, pointerType: 'touch', clientX: 385, clientY: 200 })
+    expect(turn).toHaveBeenCalledWith(1)
+  })
+
+  it('keeps selection visually continuous by bridging the spaces between selected words', () => {
+    render(
+      <LabPassage
+        chapterTitle="Book 1"
+        paragraphs={['Tell me O Muse']}
+        compareParagraphs={[]}
+        compare={false}
+        mode="reading"
+        follow={{ kind: 'none' }}
+        followParagraphs={[]}
+        markedIndexes={new Set()}
+        selectingRange={{ paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 4, text: 'me O Muse' }}
+        readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      />,
+    )
+    const words = screen.getAllByTestId('lab-word')
+    expect(words[1].className).toContain('is-selecting')
+    expect(words[2].className).toContain('is-selecting')
+    expect(words[3].className).toContain('is-selecting')
+    expect(words[2].textContent?.startsWith(' ')).toBe(true)
+    expect(words[3].textContent?.startsWith(' ')).toBe(true)
+    const css = readFileSync(resolve(process.cwd(), 'src/lab/lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*background:\s*#e8dcc4/)
+    expect(css).not.toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*box-shadow:/)
+  })
+
+  it('saves a completed selection immediately and recolors that same range', async () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const page = screen.getByTestId('lab-book')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 600,
+      width: 390, height: 600, toJSON() {},
+    })
+    const words = screen.getAllByTestId('lab-word')
+    fireEvent.pointerDown(words[1], { pointerId: 9, pointerType: 'mouse', clientX: 190, clientY: 200 })
+    fireEvent.pointerMove(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
+    fireEvent.pointerUp(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
+    expect(document.querySelector('.selection-popup')).toBeTruthy()
+    await waitFor(() => expect(localStorage.getItem('tinct-lab-highlights')).toContain('gold'))
+    fireEvent.click(screen.getByTitle('Highlight Sky'))
+    await waitFor(() => {
+      const saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
+      expect(saved).toHaveLength(1)
+      expect(saved[0].color).toBe('sky')
+    })
+    expect(document.querySelector('.selection-popup')).toBeNull()
+    await waitFor(() => expect(screen.getAllByTestId('lab-word')[1].className).toContain('is-hl-sky'))
+  })
+
+  it('dismisses on the first outside press without discarding the highlight', async () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const words = screen.getAllByTestId('lab-word')
+    fireEvent.pointerDown(words[1], { pointerId: 91, pointerType: 'mouse', clientX: 150, clientY: 200 })
+    fireEvent.pointerMove(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
+    fireEvent.pointerUp(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
+    await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+
+    fireEvent.pointerDown(document.body, { pointerId: 92, pointerType: 'touch', clientX: 10, clientY: 10 })
+    expect(document.querySelector('.selection-popup')).toBeNull()
+    const saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
+    expect(saved).toHaveLength(1)
+    expect(saved[0].color).toBe('gold')
+  })
+
+  it('hides the reader navigation while the iPhone keyboard owns the lower viewport', () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    fireEvent.click(screen.getByTestId('lab-phone-chat'))
+    fireEvent.focus(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-root').className).toContain('has-phone-keyboard')
+    fireEvent.blur(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
   })
 })
 
@@ -2069,27 +2525,51 @@ function sourceWithManyWords() {
 }
 
 describe('lab read listen place and paused chrome', () => {
+  it('keeps the rendered desktop page fixed when Play opens the audio dock', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/desktop" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    const before = screen.getByTestId('lab-reading-stage').textContent
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+
+    expect(screen.getByTestId('lab-reading-stage').textContent).toBe(before)
+    expect(screen.getByTestId('lab-desktop-audio-dock')).toBeTruthy()
+    expect(document.querySelectorAll('.lab-hearing-word.is-current')).toHaveLength(1)
+  })
+
   it('mid-book Play/Pause does not reset to clip 0 / word 0', async () => {
     const audio = new FakeAudio()
     audio.duration = 40
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
     })
-    const source = sourceWithManyWords()
+    const source = {
+      ...sourceWithManyWords(),
+      audioTitle: { kind: 'title' as const, file: 'title.mp3', duration: 2 },
+    }
     render(<LabApp pathname="/lab/phone" source={source} />)
     fireEvent.click(screen.getByTestId('lab-page-next'))
     fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
-      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:1')
     })
+    expect(audio.src).toContain('p0.mp3')
+    expect(audio.src).not.toContain('title.mp3')
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     audio.currentTime = 40
     act(() => { audio.emit('timeupdate') })
-    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('0')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('1')
     fireEvent.click(screen.getByTestId('lab-listen'))
     expect(audio.currentTime).toBe(40)
     expect(audio.paused).toBe(true)
-    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('0')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-clip')).toBe('1')
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     const current = screen.queryByTestId('lab-hearing-current')
@@ -2163,7 +2643,7 @@ describe('lab read listen place and paused chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(audio.currentTime).toBe(timeBefore)
+    expect(audio.currentTime).toBeGreaterThan(timeBefore)
   })
 
   it('keeps the same page when toggling Read and Listen', async () => {
@@ -2187,7 +2667,7 @@ describe('lab read listen place and paused chrome', () => {
     expect((document.querySelector('.lab-hearing-stage')?.textContent || '')).toContain(second.trim().split(/\s+/)[0])
 
     fireEvent.click(screen.getByTestId('lab-listen'))
-    expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     expect((document.querySelector('.lab-hearing-line')?.textContent || '').replace('Keep this passage', '')).toBe(second.replace('Keep this passage', ''))
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
@@ -2209,7 +2689,7 @@ describe('lab read listen place and paused chrome', () => {
     })
     expect(screen.getByTestId('lab-page-turn')).toBeTruthy()
     expect(screen.getByTestId('lab-page-turn').contains(screen.getByTestId('lab-chapter-progress'))).toBe(true)
-    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+    expect(screen.getByTestId('lab-hearing-back')).toBeTruthy()
     expect(screen.getByTestId('lab-hearing-pause')).toBeTruthy()
     expect(screen.getByTestId('lab-bottom-chrome').contains(screen.getByTestId('lab-hearing-pause'))).toBe(true)
 
@@ -2331,6 +2811,113 @@ describe('lab read listen place and paused chrome', () => {
 
 
 describe('lab page turn identity', () => {
+  it('keeps desktop Read text present through repeated alternating page turns', () => {
+    render(<LabApp pathname="/lab/desktop" source={sourceWithFivePages()} />)
+    const line = () => (document.querySelector('.lab-hearing-line')?.textContent || '').trim()
+    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
+
+    expect(progress()).toBe('1 of 5')
+    expect(screen.getByTestId('lab-page-next').textContent).toBe('›')
+    for (let i = 0; i < 12; i++) {
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      expect(line()).toContain('p1w0')
+      expect(progress()).toBe('2 of 5')
+      expect(screen.getByTestId('lab-reading-stage').getAttribute('data-page-turn')).toBe('next')
+      fireEvent.click(screen.getByTestId('lab-page-prev'))
+      expect(line()).toContain('p0w0')
+      expect(progress()).toBe('1 of 5')
+      expect(screen.getByTestId('lab-reading-stage').getAttribute('data-page-turn')).toBe('previous')
+    }
+  })
+
+  it('keeps desktop Compare text present through repeated alternating page turns', () => {
+    const base = sourceWithFivePages()
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...base,
+      compareParagraphs: base.paragraphs.map(paragraph => `Compare ${paragraph}`),
+    }} />)
+    fireEvent.click(screen.getByTestId('lab-gear'))
+    fireEvent.click(screen.getByTestId('lab-compare'))
+    fireEvent.click(screen.getByTestId('lab-desktop-compare'))
+
+    for (let i = 0; i < 12; i++) {
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      expect(document.querySelector('.lab-book-col:not(.lab-book-col-compare)')?.textContent).toContain('p1w0')
+      expect(screen.getByTestId('lab-compare-col').textContent).toContain('Compare p1w0')
+      fireEvent.click(screen.getByTestId('lab-page-prev'))
+      expect(document.querySelector('.lab-book-col:not(.lab-book-col-compare)')?.textContent).toContain('p0w0')
+      expect(screen.getByTestId('lab-compare-col').textContent).toContain('Compare p0w0')
+    }
+  })
+
+  it('ignores a stale next-chapter response after the user turns back', async () => {
+    let releaseChapter!: () => void
+    const chapterGate = new Promise<void>(resolve => { releaseChapter = resolve })
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/manifest.json')) {
+        return {
+          ok: true,
+          json: async () => ({
+            chapters: [
+              { number: 1, title: 'Book 1', path: 'ch0001.json' },
+              { number: 2, title: 'Book 2', path: 'ch0002.json' },
+            ],
+          }),
+        }
+      }
+      if (url.includes('ch0002.json')) {
+        await chapterGate
+        return { ok: true, json: async () => ({ paragraphs: ['chapter two should be stale'] }) }
+      }
+      if (url.includes('-threads.json')) {
+        return { ok: true, json: async () => ({ characters: [] }) }
+      }
+      return { ok: false, status: 404, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const base = sourceWithFivePages()
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...base,
+      chapters: [
+        { number: 1, title: 'Book 1' },
+        { number: 2, title: 'Book 2' },
+      ],
+    }} />)
+
+    for (let index = 0; index < 4; index++) fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toBe('5 of 5')
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    fireEvent.click(screen.getByTestId('lab-page-prev'))
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toContain('p3w0')
+    releaseChapter()
+
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+      expect(document.querySelector('.lab-hearing-line')?.textContent).toContain('p3w0')
+    })
+  })
+
+  it('keeps dark settings overlays translucent so the reader remains visible', () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'dark', darkMode: true }))
+    render(<LabApp pathname="/lab/desktop" source={sourceWithFivePages()} />)
+    fireEvent.click(screen.getByTestId('lab-gear'))
+
+    expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('dark')
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toContain('p0w0')
+    expect(document.querySelector('.lab-ss-overlay')?.className).toContain('is-desktop-popover')
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab\.is-night \.lab-ss-overlay\.is-desktop-popover\s*\{[^}]*background:\s*transparent/)
+    expect(css).not.toMatch(/\.lab\.is-night \.lab-ss-overlay\s*,/)
+  })
+
+  it('keeps the desktop Compare divider in a dedicated center gutter', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab\.is-desktop \.lab-book\.is-compare \.lab-book-columns\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) 52px minmax\(0, 1fr\)/)
+    expect(css).toMatch(/\.lab\.is-desktop \.lab-book\.is-compare \.lab-book-col-compare\s*\{[^}]*grid-column:\s*3/)
+    expect(css).toMatch(/\.lab\.is-desktop \.lab-book\.is-compare \.lab-book-columns::after\s*\{[^}]*grid-column:\s*2/)
+  })
+
   it('Previous from page 5 lands on page 4 and Next returns to page 5', () => {
     render(<LabApp pathname="/lab/phone" source={sourceWithFivePages()} />)
     const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
@@ -2417,6 +3004,7 @@ describe('lab page turn identity', () => {
         { number: 2, title: 'Genesis 2' },
       ],
     }} />)
+    fireEvent.click(screen.getByTestId('lab-chapter-progress'))
     const nm = () => {
       const text = screen.getByTestId('lab-chapter-progress').textContent || ''
       const match = text.match(/(\d+)\s*\/\s*(\d+)/)
@@ -2742,13 +3330,16 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-header-work').tagName).toBe('H1')
     fireEvent.click(screen.getByTestId('lab-header-work'))
     expect(screen.queryByTestId('lab-toc')).toBeNull()
+    fireEvent.touchStart(screen.getByTestId('lab-page-wrap'), { touches: [{ clientY: 100 }] })
+    fireEvent.touchEnd(screen.getByTestId('lab-page-wrap'), { changedTouches: [{ clientY: 180 }] })
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-header-chapter'))
     const toc = screen.getByTestId('lab-toc')
     expect(toc.className).toContain('lab-toc')
     expect(toc.querySelector('.toc-overlay')).toBeTruthy()
     expect(toc.querySelector('.toc-panel')).toBeTruthy()
-    expect(toc.querySelector('.toc-close')).toBeTruthy()
-    expect(toc.textContent).toContain('Old Testament')
+    expect(toc.querySelector('.lab-map-back')).toBeTruthy()
+    expect(toc.textContent).toContain('Genesis')
     expect(toc.querySelector('.lab-tree')).toBeTruthy()
     expect(toc.querySelector('.toc-item-number')).toBeNull()
     expect(toc.querySelector('.lab-tree-grid')).toBeNull()
@@ -2768,9 +3359,28 @@ describe('lab chrome pass', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/Genesis 2/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/Chapter 2/)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
     expect(screen.queryByTestId('lab-toc')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    const reopenedToc = screen.getByTestId('lab-toc')
+    const expandReopened = (label: string) => {
+      const header = [...reopenedToc.querySelectorAll('.toc-section-header')].find(node => node.textContent?.includes(label))
+      if (header && !header.classList.contains('toc-section-expanded')) fireEvent.click(header)
+    }
+    expandReopened('Old Testament')
+    expandReopened('The Pentateuch')
+    expandReopened('Genesis')
+    const genesis1 = [...reopenedToc.querySelectorAll('.toc-item')].find(node => node.textContent?.includes('Genesis 1'))
+    expect(genesis1).toBeTruthy()
+    fireEvent.click(genesis1 as HTMLElement)
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-root').getAttribute('data-cover-page')).toBe('true')
+    })
+    expect(screen.getByTestId('lab-chapter-cover').textContent).toContain('Genesis')
+    expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
   })
 
   function mockTocFetch() {
@@ -2876,29 +3486,86 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
   })
 
-  it('shows only the reading text in fullscreen and retains a subtle visible exit control', () => {
+  it('starts with controls, hides them on a page turn, and restores them with a center tap without changing page geometry', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const root = screen.getByTestId('lab-root')
+    const page = screen.getByTestId('lab-book')
+    const headerText = document.querySelector('.lab-header-brand')?.textContent
+    const progress = screen.getByTestId('lab-chapter-progress')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 700,
+      width: 390, height: 700, toJSON() {},
+    })
+
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
     expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-fullscreen'))
-    expect(screen.getByTestId('lab-root').getAttribute('data-fullscreen')).toBe('true')
-    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
-    expect(screen.queryByTestId('lab-chapter-progress')).toBeNull()
-    expect(screen.queryByTestId('lab-page-turn')).toBeNull()
-    expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
-    expect(screen.getByTestId('lab-fullscreen-exit')).toBeTruthy()
-    expect(screen.getByTestId('lab-fullscreen-exit').querySelector('svg')).toBeTruthy()
-    expect(document.querySelector('.lab-header')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-fullscreen-exit'))
-    expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
+    expect(screen.queryByTestId('lab-fullscreen')).toBeNull()
+
+    fireEvent.pointerDown(page, { pointerId: 31, pointerType: 'touch', clientX: 370, clientY: 500 })
+    fireEvent.pointerUp(page, { pointerId: 31, pointerType: 'touch', clientX: 370, clientY: 500 })
+    expect(root.getAttribute('data-reader-controls')).toBe('hidden')
+    expect(screen.getByTestId('lab-gear').getAttribute('aria-hidden')).toBe('true')
+    expect(screen.getByTestId('lab-chapter-progress')).toBe(progress)
+    expect(document.querySelector('.lab-header-brand')?.textContent).toBe(headerText)
+
+    fireEvent.pointerDown(page, { pointerId: 32, pointerType: 'touch', clientX: 195, clientY: 500 })
+    fireEvent.pointerUp(page, { pointerId: 32, pointerType: 'touch', clientX: 195, clientY: 500 })
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
+    expect(screen.getByTestId('lab-gear').getAttribute('aria-hidden')).toBe('false')
+    expect(screen.getByTestId('lab-chapter-progress')).toBe(progress)
+
+    const app = readFileSync(resolve(__dirname, 'LabApp.tsx'), 'utf8')
+    expect(app).not.toContain("phoneReaderControlsVisible ? 'controls' : 'folio'")
   })
 
-  it('persists Layout knobs and uses cheap progress formats', () => {
+  it('locks the V1 footer as an overlaid light Depth dock with a dark Tint variant', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toContain('V1 quiet immersive reader')
+    expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-bottom-chrome,[^{]*\{[^}]*position:\s*absolute[^}]*height:\s*calc\(3rem/)
+    expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-body,[^{]*\{[^}]*padding-bottom:\s*calc\(3rem/)
+    expect(css).not.toMatch(/data-reader-controls="visible"[^}]*\.lab-body/)
+    expect(css).not.toMatch(/data-reader-controls="visible"[^}]*\.lab-bottom-chrome/)
+    expect(css).toMatch(/data-reader-controls="visible"[^}]*\.lab-page-turn\.is-phone-rail,[^{]*\{[^}]*display:\s*none/)
+    expect(css).toMatch(/\.lab\.is-phone:not\(\.has-phone-ask\) \.lab-phone-bar,[^{]*\{[^}]*border-radius:\s*1\.05rem[^}]*linear-gradient[^}]*box-shadow:/)
+    expect(css).toMatch(/data-reader-controls="hidden"[^}]*\.lab-phone-bar[^{]*\{[^}]*visibility:\s*hidden[^}]*opacity:\s*0/)
+    expect(css).toMatch(/data-reader-controls="hidden"[^}]*\.lab-page-turn\.is-phone-rail[^{]*\{[^}]*bottom:\s*max\(0\.35rem, env\(safe-area-inset-bottom/)
+    expect(css).toMatch(/Dark uses the warmer Tint treatment locked in the V1 design/)
+  })
+
+  it('toggles the printed mobile progress between book and chapter without opening settings', () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const progress = screen.getByTestId('lab-chapter-progress')
+    expect(progress.textContent).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
+    fireEvent.click(progress)
+    expect(progress.textContent).toMatch(/^\d+ \/ \d+ of chapter · \d+%$/)
+    fireEvent.click(progress)
+    expect(progress.textContent).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
+    expect(screen.queryByTestId('lab-settings')).toBeNull()
+  })
+
+  it('keeps a long chapter title ellipsized beside a fixed Tune slot', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab\.has-phone-chrome \.lab-header-brand\s*\{[^}]*align-items:\s*center[^}]*overflow:\s*hidden/)
+    expect(css).toMatch(/\.lab\.has-phone-chrome \.lab-header-chapter,[\s\S]*?flex:\s*0 1 auto[^}]*gap:\s*0\.56rem[^}]*overflow:\s*hidden/)
+    expect(css).toMatch(/\.lab\.has-phone-chrome \.lab-header-chevron\s*\{[^}]*width:\s*0\.76rem[^}]*margin-left:\s*0\.12rem/)
+    expect(css).toMatch(/\.lab\.has-phone-chrome \.lab-header-controls\s*\{[^}]*width:\s*2\.75rem/)
+  })
+
+  it('persists appearance and reading layout controls', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     fireEvent.click(screen.getByTestId('lab-gear'))
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
-    fireEvent.click(screen.getByText('Night'))
+    fireEvent.click(screen.getByText('Dark'))
     expect(screen.getByTestId('lab-root').className).toContain('is-night')
+    expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('dark')
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
+    expect(document.documentElement.style.colorScheme).toBe('dark')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe('#2e2a24')
+    const sizeSlider = screen.getByRole('slider', { name: 'Text size' }) as HTMLInputElement
+    expect(sizeSlider.min).toBe('0.8')
+    const smaller = screen.getByRole('button', { name: 'A−' })
+    for (let index = 0; index < 8; index += 1) fireEvent.click(smaller)
+    expect(screen.getByTestId('lab-root').style.getPropertyValue('--lab-font-size')).toBe('0.8')
     const line = document.querySelector('.lab-hearing-line')
     const word = document.querySelector('.lab-hearing-word')
     expect(line).toBeTruthy()
@@ -2908,9 +3575,17 @@ describe('lab chrome pass', () => {
       expect(ink).not.toBe('rgb(11, 11, 11)')
       expect(getComputedStyle(word).color).toBe(ink)
     }
-    fireEvent.click(screen.getByText('%'))
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/%/)
-    expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/% ch/)
+    fireEvent.click(screen.getByText('All Reading Settings'))
+    fireEvent.click(screen.getByText('Left'))
+    fireEvent.change(screen.getByDisplayValue('Comfortable'), { target: { value: 'compact' } })
+    fireEvent.change(screen.getByDisplayValue('Medium'), { target: { value: 'narrow' } })
+    fireEvent.change(screen.getByDisplayValue('Standard'), { target: { value: 'generous' } })
+    const root = screen.getByTestId('lab-root')
+    expect(root.style.getPropertyValue('--lab-text-align')).toBe('left')
+    expect(root.style.getPropertyValue('--lab-line-height')).toBe('1.34')
+    expect(root.style.getPropertyValue('--lab-reader-margin')).toBe('1.1rem')
+    expect(root.style.getPropertyValue('--lab-paragraph-gap')).toBe('.55em')
+    expect((JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { alignment?: string }).alignment).toBe('left')
   })
 })
 

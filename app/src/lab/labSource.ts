@@ -1,6 +1,6 @@
 import type { Section, ThreadCharacter } from '../types'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
-import { labAudioManifestUrl } from './labListen'
+import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
 
 export const LAB_BOOK_ID = 'bible'
@@ -24,6 +24,7 @@ export interface LabChapter {
   number: number
   title: string
   path?: string
+  wordCount?: number
 }
 
 export interface LabSource {
@@ -38,6 +39,7 @@ export interface LabSource {
   paragraphs: string[]
   compareParagraphs: string[]
   followParagraphs: FollowParagraph[]
+  audioTitle?: LabAudioTitleClip
   chapters: LabChapter[]
   sections?: Section[]
   cast: LabCastMember[]
@@ -59,6 +61,14 @@ export function parseBibleChapterTitle(title: string): { book: string; chapter: 
   const match = trimmed.match(/^(.*\S)\s+(\d+)$/)
   if (match) return { book: match[1], chapter: match[2] }
   return { book: trimmed || 'Genesis', chapter: '1' }
+}
+
+/** A Bible book gets one decorative opening page, immediately before chapter 1. */
+export function bibleBookOpeningTitle(chapters: LabChapter[], chapterNumber: number): string | null {
+  const chapter = chapters.find(item => item.number === chapterNumber)
+  if (!chapter) return null
+  const parsed = parseBibleChapterTitle(chapter.title)
+  return parsed.chapter === '1' ? parsed.book : null
 }
 
 export function labHeaderLine(book: string, chapter: string): string {
@@ -87,6 +97,7 @@ function sourceFromChapter(input: {
   paragraphs: string[]
   compareParagraphs: string[]
   followParagraphs: FollowParagraph[]
+  audioTitle?: LabAudioTitleClip
   chapters: LabChapter[]
   sections?: Section[]
   cast: LabCastMember[]
@@ -104,6 +115,7 @@ function sourceFromChapter(input: {
     paragraphs: input.paragraphs,
     compareParagraphs: input.compareParagraphs,
     followParagraphs: input.followParagraphs,
+    audioTitle: input.audioTitle,
     chapters: input.chapters,
     sections: input.sections,
     cast: input.cast,
@@ -192,27 +204,33 @@ async function loadAudioFollowMetadata(
   paragraphs: string[],
   chapterNumber: number,
   editionKey = LAB_EDITION_KEY,
-): Promise<FollowParagraph[]> {
+): Promise<{ followParagraphs: FollowParagraph[]; audioTitle?: LabAudioTitleClip }> {
   try {
     const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey))
     if (!manifestRes.ok) {
-      return paragraphs.map((text, index) => ({ index, text }))
+      return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
     }
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
     const byIndex = new Map<number, ManifestParagraph>()
     for (const entry of manifest.paragraphs || []) {
       if (typeof entry.paragraph === 'number') byIndex.set(entry.paragraph, entry)
     }
-    return paragraphs.map((text, index) => (
-      followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
-    ))
+    const titleEntry = (manifest.paragraphs || []).find(entry => entry.paragraph === -1 && entry.file)
+    return {
+      followParagraphs: paragraphs.map((text, index) => (
+        followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
+      )),
+      audioTitle: titleEntry?.file
+        ? { kind: 'title', file: titleEntry.file, duration: titleEntry.duration }
+        : undefined,
+    }
   } catch {
-    return paragraphs.map((text, index) => ({ index, text }))
+    return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
   }
 }
 
 interface BibleManifest {
-  chapters: Array<{ number: number; title: string; path: string }>
+  chapters: Array<{ number: number; title: string; path: string; wordCount?: number }>
   sections?: Section[]
 }
 
@@ -328,14 +346,17 @@ export async function loadLabSource(
       number: item.number,
       title: item.title,
       path: item.path,
+      wordCount: item.wordCount,
     }))
 
+    const audioMetadata = await loadAudioFollowMetadata(paragraphs, entry.number, audio)
     return sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
       paragraphs,
       compareParagraphs,
-      followParagraphs: await loadAudioFollowMetadata(paragraphs, entry.number, audio),
+      followParagraphs: audioMetadata.followParagraphs,
+      audioTitle: audioMetadata.audioTitle,
       chapters,
       sections: manifest.sections,
       cast: spoilerSafeCast(threadsJson.characters || [], entry.number),

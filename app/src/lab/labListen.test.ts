@@ -12,6 +12,7 @@ import {
   loadLabAudioChapter,
   readLabWordSidecar,
 } from './labListen'
+import { LAB_FOLLOW_LEAD_SECONDS } from './useLabListen'
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -27,7 +28,7 @@ describe('lab bible audio paths', () => {
     expect(labAudioFileUrl('p0.mp3', 2)).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch2%2Fp0.mp3')
   })
 
-  it('skips title clips and keeps one MP3 per paragraph', () => {
+  it('keeps the title as a distinct clip before one MP3 per paragraph', () => {
     const clips = clipsFromManifest(
       ['Tell me', 'So now'],
       [
@@ -36,7 +37,11 @@ describe('lab bible audio paths', () => {
         { paragraph: 1, file: 'p1.mp3', duration: 5 },
       ],
     )
-    expect(clips.map(clip => clip.file)).toEqual(['p0.mp3', 'p1.mp3'])
+    expect(clips.map(clip => [clip.kind, clip.file])).toEqual([
+      ['title', 'title.mp3'],
+      ['paragraph', 'p0.mp3'],
+      ['paragraph', 'p1.mp3'],
+    ])
     const fromFollow = clipsFromFollowParagraphs([
       {
         index: 0,
@@ -48,6 +53,8 @@ describe('lab bible audio paths', () => {
       { index: 1, text: 'So now' },
     ])
     expect(fromFollow.map(clip => clip.file)).toEqual(['p0.mp3'])
+    expect(fromFollow[0].kind).toBe('paragraph')
+    if (fromFollow[0].kind !== 'paragraph') throw new Error('expected paragraph clip')
     expect(fromFollow[0].words?.map(word => word.text)).toEqual(['Tell', 'me'])
   })
 
@@ -66,6 +73,8 @@ describe('lab bible audio paths', () => {
     expect(listen).toContain('setSpeed')
     expect(listen).toContain('parseHearingSpeed')
     expect(listen).toContain('followPlayingClip')
+    expect(LAB_FOLLOW_LEAD_SECONDS).toBe(0.08)
+    expect(listen).toContain('positionRef.current.time + LAB_FOLLOW_LEAD_SECONDS')
     expect(listen).toContain('playbackRate')
     expect(listen).toMatch(/const pause = useCallback\(\(\) => \{[\s\S]*setFollow\(\{ kind: 'none' \}\)/)
   })

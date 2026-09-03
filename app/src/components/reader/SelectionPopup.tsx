@@ -21,6 +21,7 @@ export interface SelectionInfo {
   existingHighlightId?: string
   existingNote?: string
   noteEditMode?: boolean
+  homeMode?: SelectionPopupHomeMode
 }
 
 export interface SelectionPopupProps {
@@ -29,6 +30,7 @@ export interface SelectionPopupProps {
   popupMode: PopupMode
   setPopupMode: (mode: PopupMode) => void
   onColorClick: (color: HighlightColor) => void
+  currentHighlightColor?: HighlightColor
   // Define panel
   defineQuery: string
   setDefineQuery: (q: string) => void
@@ -59,7 +61,7 @@ export interface SelectionPopupProps {
 }
 
 function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
-  return defaultPopupMode(selection.text, selection.existingHighlightId)
+  return selection.homeMode ?? defaultPopupMode(selection.text, selection.existingHighlightId)
 }
 
 function CopyIcon() {
@@ -146,6 +148,7 @@ export function SelectionPopup({
   popupMode,
   setPopupMode,
   onColorClick,
+  currentHighlightColor,
   defineQuery,
   setDefineQuery,
   defineResult,
@@ -172,6 +175,7 @@ export function SelectionPopup({
 }: SelectionPopupProps) {
   const homeMode = homeModeFor(selection)
   const showActionBar = popupMode === 'define' || popupMode === 'colors'
+  const showDefinePanel = popupMode === 'define' || (lab && popupMode === 'main' && homeMode === 'define')
   const headword = defineResult?.word || defineQuery
   const showDefineInput = popupMode === 'define' && !headword && !defineLoading
 
@@ -180,6 +184,7 @@ export function SelectionPopup({
       ref={popupRef}
       className={`selection-popup${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-popup-mode={popupMode}
+      data-popup-home={homeMode}
       style={{
         left: selection.x,
         top: selection.y,
@@ -190,7 +195,7 @@ export function SelectionPopup({
       onMouseUp={e => e.stopPropagation()}
       onTouchEnd={e => e.stopPropagation()}
     >
-      {popupMode === 'define' && (
+      {showDefinePanel && (
         <div className="popup-define">
           {showDefineInput ? (
             <div className="popup-define-head">
@@ -234,8 +239,11 @@ export function SelectionPopup({
             {HIGHLIGHT_COLORS.map(c => (
               <button
                 key={c.key}
-                className={`popup-color-dot highlight-${c.key}`}
+                type="button"
+                className={`popup-color-dot highlight-${c.key}${currentHighlightColor === c.key ? ' is-selected' : ''}`}
                 title={`Highlight ${c.label}`}
+                aria-label={`Highlight ${c.label}`}
+                aria-pressed={currentHighlightColor === c.key}
                 onClick={() => onColorClick(c.key)}
               />
             ))}
@@ -246,7 +254,7 @@ export function SelectionPopup({
           <button className="popup-bar-btn" onClick={onRequestNote} title="Add a note">
             <NoteIcon />
           </button>
-          {selection.existingHighlightId && (
+          {selection.existingHighlightId && !lab && (
             <button
               className="popup-bar-btn popup-icon-btn-delete"
               onClick={() => { onDeleteHighlight?.(selection.existingHighlightId!); dismissPopup() }}
@@ -336,6 +344,16 @@ export function SelectionPopup({
             <button className="popup-icon-btn" onClick={onDefine} title="Define">
               <DefineIcon />
               <span className="popup-icon-label">Define</span>
+            </button>
+          )}
+          {lab && selection.existingHighlightId && (
+            <button
+              className="popup-icon-btn popup-icon-btn-delete"
+              onClick={() => { onDeleteHighlight?.(selection.existingHighlightId!); dismissPopup() }}
+              title="Delete highlight"
+            >
+              <DeleteIcon />
+              <span className="popup-icon-label">Delete</span>
             </button>
           )}
         </div>

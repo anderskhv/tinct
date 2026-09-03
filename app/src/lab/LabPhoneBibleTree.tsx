@@ -1,276 +1,59 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import type { Section } from '../types'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { ChatConversation, Section } from '../types'
+import type { LabHighlight } from './labHighlights'
 import type { LabChapter } from './labSource'
-import {
-  ancestorKeysForChapter,
-  buildLabBibleTree,
-  chapterRowsForBook,
-  collectBookKeys,
-  exclusiveToggleBook,
-  labTreeMark,
-  labTreeProgressLabel,
-  toggleExpandedKey,
-  type LabTreeMark,
-  type LabTreeNode,
-} from './labBibleTree'
+import { buildLabBibleTree, chapterRowsForBook, labTreeProgressLabel, type LabTreeNode } from './labBibleTree'
 
-interface LabPhoneBibleTreeProps {
-  title: string
-  chapters: LabChapter[]
-  currentChapter: number
-  sections?: Section[]
-  finishedChapters: Set<number>
-  onSelectChapter: (number: number) => void
-  onWarmChapter?: (number: number) => void
-  onClose: () => void
-}
+type Filter = 'all' | 'highlights' | 'chats'
+interface Props { title: string; chapters: LabChapter[]; currentChapter: number; sections?: Section[]; finishedChapters: Set<number>; highlights?: LabHighlight[]; conversations?: ChatConversation[]; onSelectChapter: (number: number) => void; onSelectHighlight?: (highlight: LabHighlight) => void; onOpenConversation?: (conversation: ChatConversation) => void; onNewConversation?: (chapter: number) => void; onWarmChapter?: (number: number) => void; onClose: () => void }
 
-function Chevron({ open }: { open: boolean }) {
-  return (
-    <svg
-      className={`lab-tree-chevron${open ? ' is-open' : ''}`}
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      aria-hidden="true"
-    >
-      <path
-        d="M4.2 2.4 8.2 6 4.2 9.6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function TreeMark({ mark }: { mark: LabTreeMark }) {
-  if (mark === 'done') {
-    return (
-      <span className="lab-tree-mark is-done" data-mark="done" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <path
-            d="M3 7.2 5.8 10 11 3.8"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-    )
+function findPath(nodes: LabTreeNode[], chapter: number, path: LabTreeNode[] = []): LabTreeNode[] {
+  for (const node of nodes) {
+    const next = [...path, node]
+    if (node.kind === 'book' && node.chapterNumbers.includes(chapter)) return next
+    const found = node.children ? findPath(node.children, chapter, next) : []
+    if (found.length) return found
   }
-  return (
-    <span
-      className={`lab-tree-mark ${mark === 'progress' ? 'is-progress' : 'is-empty'}`}
-      data-mark={mark}
-      aria-hidden="true"
-    />
-  )
+  return []
 }
+function formatDate(value: number) { return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' }).format(new Date(value)) }
 
-function TreeRow({
-  node,
-  depth = 0,
-  chapters,
-  currentChapter,
-  finished,
-  expanded,
-  onToggle,
-  onSelectChapter,
-  onWarmChapter,
-  scrollRef,
-}: {
-  node: LabTreeNode
-  depth?: number
-  chapters: LabChapter[]
-  currentChapter: number
-  finished: Set<number>
-  expanded: Set<string>
-  onToggle: (node: LabTreeNode) => void
-  onSelectChapter: (number: number) => void
-  onWarmChapter?: (number: number) => void
-  scrollRef: React.RefObject<HTMLButtonElement | null>
-}) {
-  const isOpen = expanded.has(node.key)
-  const mark = labTreeMark(node, finished, currentChapter)
-  const progress = labTreeProgressLabel(node, finished)
-  const isCurrentBook = node.kind === 'book' && node.chapterNumbers.includes(currentChapter)
-  const depthClass = `is-depth-${Math.min(depth, 3)}`
-  const headerClass = [
-    'lab-tree-row',
-    'toc-section-header',
-    depthClass,
-    isOpen ? 'toc-section-expanded is-expanded' : '',
-    isCurrentBook ? 'is-current' : '',
-    `is-${node.kind}`,
-  ].filter(Boolean).join(' ')
-
-  if (node.kind === 'chapter') {
-    const isCurrentChapter = node.chapterNumber === currentChapter
-    return (
-      <button
-        type="button"
-        ref={isCurrentChapter ? scrollRef : null}
-        className={`lab-tree-row toc-item lab-tree-chapter ${depthClass}`}
-        data-testid={`lab-tree-chapter-${node.chapterNumber}`}
-        data-kind="chapter"
-        data-mark={mark}
-        onClick={() => { if (node.chapterNumber != null) onSelectChapter(node.chapterNumber) }}
-        onPointerEnter={() => { if (node.chapterNumber != null) onWarmChapter?.(node.chapterNumber) }}
-        onFocus={() => { if (node.chapterNumber != null) onWarmChapter?.(node.chapterNumber) }}
-      >
-        <span className="lab-tree-label">{node.title}</span>
-        <TreeMark mark={mark} />
-      </button>
-    )
-  }
-
-  const bookChapters = node.kind === 'book' && isOpen ? chapterRowsForBook(node, chapters) : []
-
-  return (
-    <div className={`lab-tree-node is-${node.kind}`} data-testid={`lab-tree-node-${node.key}`}>
-      <button
-        type="button"
-        className={headerClass}
-        data-testid={`lab-tree-${node.kind}-${node.key}`}
-        data-kind={node.kind}
-        data-mark={mark}
-        aria-expanded={isOpen}
-        onClick={() => onToggle(node)}
-      >
-        <Chevron open={isOpen} />
-        <span className="lab-tree-label">{node.title}</span>
-        {progress && <span className="lab-tree-progress">{progress}</span>}
-        <TreeMark mark={mark} />
-      </button>
-      {isOpen && (
-        <div className="lab-tree-children">
-          {node.children?.map(child => (
-            <TreeRow
-              key={child.key}
-              node={child}
-              depth={depth + 1}
-              chapters={chapters}
-              currentChapter={currentChapter}
-              finished={finished}
-              expanded={expanded}
-              onToggle={onToggle}
-              onSelectChapter={onSelectChapter}
-              onWarmChapter={onWarmChapter}
-              scrollRef={scrollRef}
-            />
-          ))}
-          {bookChapters.map(chapter => (
-            <button
-              key={chapter.number}
-              type="button"
-              ref={chapter.number === currentChapter ? scrollRef : null}
-              className={`lab-tree-row toc-item lab-tree-chapter is-depth-${Math.min(depth + 1, 3)}`}
-              data-testid={`lab-tree-chapter-${chapter.number}`}
-              data-kind="chapter"
-              data-mark={labTreeMark({
-                key: `chapter/${chapter.number}`,
-                kind: 'chapter',
-                title: chapter.title,
-                chapterNumbers: [chapter.number],
-                chapterNumber: chapter.number,
-              }, finished, currentChapter)}
-              onClick={() => onSelectChapter(chapter.number)}
-              onPointerEnter={() => onWarmChapter?.(chapter.number)}
-              onFocus={() => onWarmChapter?.(chapter.number)}
-            >
-              <span className="lab-tree-label">{chapter.title}</span>
-              <TreeMark mark={labTreeMark({
-                key: `chapter/${chapter.number}`,
-                kind: 'chapter',
-                title: chapter.title,
-                chapterNumbers: [chapter.number],
-                chapterNumber: chapter.number,
-              }, finished, currentChapter)} />
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-export function LabPhoneBibleTree({
-  title,
-  chapters,
-  currentChapter,
-  sections,
-  finishedChapters,
-  onSelectChapter,
-  onWarmChapter,
-  onClose,
-}: LabPhoneBibleTreeProps) {
+export function LabPhoneBibleTree({ title, chapters, currentChapter, sections, finishedChapters, highlights = [], conversations = [], onSelectChapter, onSelectHighlight, onOpenConversation, onNewConversation, onWarmChapter, onClose }: Props) {
   const tree = useMemo(() => buildLabBibleTree(sections, chapters), [sections, chapters])
-  const bookKeys = useMemo(() => collectBookKeys(tree), [tree])
-  const [expanded, setExpanded] = useState<Set<string>>(() => (
-    new Set(ancestorKeysForChapter(tree, currentChapter))
-  ))
-  const scrollRef = useRef<HTMLButtonElement | null>(null)
+  const currentPath = useMemo(() => findPath(tree, currentChapter), [tree, currentChapter])
+  const [path, setPath] = useState<LabTreeNode[]>(() => currentPath)
+  const [filter, setFilter] = useState<Filter>('all')
+  const [searching, setSearching] = useState(false)
+  const [query, setQuery] = useState('')
+  const [conversationChapter, setConversationChapter] = useState<number | null>(null)
+  const [selectedConversation, setSelectedConversation] = useState<ChatConversation | null>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  useEffect(() => { const key = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose() }; window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key) }, [onClose])
+  useEffect(() => { if (searching) inputRef.current?.focus() }, [searching])
+  const active = path[path.length - 1]
+  const atCurrent = active?.kind === 'book' && active.chapterNumbers.includes(currentChapter)
+  const countFor = (node: LabTreeNode, kind: 'highlights' | 'chats') => kind === 'highlights' ? highlights.filter(item => node.chapterNumbers.includes(item.chapterNumber)).length : conversations.filter(item => node.chapterNumbers.includes(item.chapterNumber)).length
+  const visibleNodes = active?.kind === 'book' ? [] : (active?.children || tree)
+  const bookChapters = active?.kind === 'book' ? chapterRowsForBook(active, chapters) : []
+  const passes = (chapterNumbers: number[]) => filter === 'all' || (filter === 'highlights' ? highlights : conversations).some(item => chapterNumbers.includes(item.chapterNumber))
+  const lower = query.trim().toLowerCase()
+  const searchChapters = lower ? chapters.filter(chapter => chapter.title.toLowerCase().includes(lower)) : []
+  const searchHighlights = lower ? highlights.filter(item => item.note?.toLowerCase().includes(lower)) : []
+  const searchChats = lower ? conversations.filter(item => item.messages.some(message => message.content.toLowerCase().includes(lower))) : []
+  const chapterConversations = conversationChapter == null ? [] : conversations.filter(item => item.chapterNumber === conversationChapter).sort((a, b) => b.endTimestamp - a.endTimestamp)
+  const goCurrent = () => { setPath(currentPath); setConversationChapter(null); requestAnimationFrame(() => document.querySelector('[data-current="true"]')?.scrollIntoView({ block: 'center' })) }
 
-  useEffect(() => {
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [onClose])
-
-  useLayoutEffect(() => {
-    scrollRef.current?.scrollIntoView?.({ block: 'center' })
-  }, [expanded, currentChapter])
-
-  const onToggle = (node: LabTreeNode) => {
-    if (node.kind === 'book') {
-      setExpanded(prev => exclusiveToggleBook(prev, node.key, bookKeys))
-      return
-    }
-    setExpanded(prev => toggleExpandedKey(prev, node.key))
-  }
-
-  return (
-    <div className="toc-overlay lab-tree" data-testid="lab-bible-tree" onClick={onClose}>
-      <div className="toc-panel lab-tree-panel" onClick={event => event.stopPropagation()}>
-        <div className="lab-tree-header">
-          <h2 className="lab-tree-title">{title}</h2>
-          <div className="lab-tree-header-actions">
-            <button
-              type="button"
-              className="lab-tree-collapse"
-              data-testid="lab-tree-collapse"
-              onClick={() => setExpanded(new Set(ancestorKeysForChapter(tree, currentChapter)))}
-            >
-              Collapse
-            </button>
-            <button type="button" className="toc-close lab-tree-close" onClick={onClose} aria-label="Close">×</button>
-          </div>
-        </div>
-        <div className="lab-tree-list">
-          {tree.map(node => (
-            <TreeRow
-              key={node.key}
-              node={node}
-              depth={0}
-              chapters={chapters}
-              currentChapter={currentChapter}
-              finished={finishedChapters}
-              expanded={expanded}
-              onToggle={onToggle}
-              onSelectChapter={onSelectChapter}
-              onWarmChapter={onWarmChapter}
-              scrollRef={scrollRef}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  )
+  return <div className="toc-overlay lab-tree" data-testid="lab-bible-tree"><div className="toc-panel lab-tree-panel">
+    <header className="lab-map-head"><button type="button" className="lab-map-back" onClick={onClose} aria-label="Back to reader">←</button>{searching ? <div className="lab-map-search"><input ref={inputRef} value={query} onChange={event => setQuery(event.target.value)} placeholder="Search this book" /><button type="button" onClick={() => { setSearching(false); setQuery('') }}>Cancel</button></div> : <><div><h2>{title}</h2>{path.length === 0 && <small>Last read today · {Math.round((finishedChapters.size / Math.max(1, chapters.length)) * 100)}% complete</small>}</div><button type="button" className="lab-map-search-button" onClick={() => setSearching(true)} aria-label="Search">⌕</button></>}</header>
+    {!searching && <div className="lab-map-filters">{(['all', 'highlights', 'chats'] as Filter[]).map(value => <button type="button" key={value} className={filter === value ? 'is-active' : ''} onClick={() => setFilter(value)}>{value[0].toUpperCase() + value.slice(1)}</button>)}</div>}
+    <main className="lab-map-body">
+      {searching ? <div className="lab-map-results">{!lower && <p>Search chapters, highlights, and conversations.</p>}{searchChapters.map(chapter => <button key={`c-${chapter.number}`} onClick={() => onSelectChapter(chapter.number)}><small>Chapter</small><strong>{chapter.title}</strong></button>)}{searchHighlights.map(item => <button key={item.id} onClick={() => onSelectHighlight?.(item)}><small>Highlight</small><strong>{item.note || `Highlighted passage in ${chapters.find(c => c.number === item.chapterNumber)?.title}`}</strong></button>)}{searchChats.map(item => <button key={item.id} onClick={() => { setConversationChapter(item.chapterNumber); setSearching(false) }}><small>Chat</small><strong>{item.preview}</strong></button>)}</div>
+      : selectedConversation ? <section><button className="lab-map-crumb" onClick={() => setSelectedConversation(null)}>← Conversations</button><div className="lab-map-section-title"><h3>{chapters.find(item => item.number === selectedConversation.chapterNumber)?.title}</h3><small>{formatDate(selectedConversation.startTimestamp)}</small></div><div className="lab-map-source">Source passage · paragraph {(selectedConversation.paragraphIndex ?? 0) + 1}</div><div className="lab-map-thread">{selectedConversation.messages.map(message => <div key={message.id} className={`is-${message.role}`}><small>{message.role === 'user' ? 'You' : 'Tinct'}</small><p>{message.content}</p></div>)}</div><button className="lab-map-new-chat" onClick={() => onOpenConversation?.(selectedConversation)}>Continue this conversation</button></section>
+      : conversationChapter != null ? <section><button className="lab-map-crumb" onClick={() => setConversationChapter(null)}>← {chapters.find(item => item.number === conversationChapter)?.title}</button><div className="lab-map-section-title"><h3>{chapters.find(item => item.number === conversationChapter)?.title}</h3><small>{chapterConversations.length} conversations</small></div>{chapterConversations.map(item => <button className="lab-map-conversation" key={item.id} onClick={() => setSelectedConversation(item)}><time>{formatDate(item.endTimestamp)}</time><strong>{item.messages.find(message => message.role === 'user')?.content || item.preview}</strong><span>{item.messages.find(message => message.role === 'assistant')?.content || ''}</span><small>{item.messages.length} messages</small></button>)}<button className="lab-map-new-chat" onClick={() => onNewConversation?.(conversationChapter)}>Start a new conversation about this chapter</button></section>
+      : <section>{path.length > 0 && <button className="lab-map-crumb" onClick={() => setPath(path.slice(0, -1))}>← {path.length > 1 ? path[path.length - 2].title : 'Contents'}</button>}<div className="lab-map-section-title"><h3>{active?.title || 'Contents'}</h3>{active && <small>{labTreeProgressLabel(active, finishedChapters) || `${active.chapterNumbers.length} chapters`}</small>}</div>
+        {visibleNodes.filter(node => passes(node.chapterNumbers)).map(node => node.kind === 'chapter' ? <button key={node.key} className="lab-map-row lab-tree-chapter toc-item" data-testid={`lab-tree-chapter-${node.chapterNumber}`} onClick={() => onSelectChapter(node.chapterNumber!)}><span><strong>{node.title}</strong><small>{node.chapterNumber === currentChapter ? 'Current chapter' : 'Not started'}</small></span><b>›</b></button> : <button className="lab-map-row lab-tree-row toc-section-header" key={node.key} data-kind={node.kind} onClick={() => setPath([...path, node])}><span><strong>{node.title}</strong><small>{labTreeProgressLabel(node, finishedChapters) || (node.kind === 'book' ? `${node.chapterNumbers.length} chapters` : `${node.children?.length || 0} books`)}</small></span><span className="lab-map-counts">{countFor(node, 'highlights') > 0 && `▰ ${countFor(node, 'highlights')}`}{countFor(node, 'chats') > 0 && ` ◯ ${countFor(node, 'chats')}`} <b>›</b></span></button>)}
+        {bookChapters.filter(chapter => passes([chapter.number])).map(chapter => { const hs = highlights.filter(item => item.chapterNumber === chapter.number); const cs = conversations.filter(item => item.chapterNumber === chapter.number); return <div className={`lab-map-chapter${chapter.number === currentChapter ? ' is-current' : ''}`} key={chapter.number} data-current={chapter.number === currentChapter ? 'true' : undefined}><button className="lab-map-chapter-main lab-tree-chapter toc-item" data-testid={`lab-tree-chapter-${chapter.number}`} onPointerEnter={() => onWarmChapter?.(chapter.number)} onClick={() => onSelectChapter(chapter.number)}><span><strong>{chapter.title}</strong><small>{finishedChapters.has(chapter.number) ? 'Finished' : chapter.number === currentChapter ? 'Current chapter' : 'Not started'}</small></span><b>›</b></button>{hs.map(item => <button className="lab-map-annotation" key={item.id} onClick={() => onSelectHighlight?.(item)}>▰ <span>{item.note || 'Highlighted passage'}</span></button>)}{cs.length > 0 && <button className="lab-map-annotation" onClick={() => setConversationChapter(chapter.number)}>◯ <span>{cs.length} conversation{cs.length === 1 ? '' : 's'}</span></button>}</div> })}
+      </section>}
+    </main>{!atCurrent && !searching && <button className="lab-map-current" onClick={goCurrent}>Current chapter · {chapters.find(item => item.number === currentChapter)?.title}</button>}
+  </div></div>
 }
