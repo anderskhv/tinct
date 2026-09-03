@@ -1,11 +1,9 @@
 import { resolveAudioUrl } from '../utils/audioUrl'
-import { measureWordTimesFromAudioUrl } from './labAudioMeasure'
 import {
   followFromPlayback,
   followParagraphFromManifest,
   followTimeFromAudio,
   mergeSidecarWords,
-  paragraphHasWordTimings,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
@@ -122,25 +120,6 @@ export function clipsFromManifest(
   return title ? [title, ...body] : body
 }
 
-/** Decode each paragraph MP3 and measure speech bounds → word timings. */
-export async function measureFollowParagraphWords(
-  paragraphs: FollowParagraph[],
-  chapterNumber = LAB_AUDIO.chapterNumber,
-  editionKey = LAB_AUDIO.editionKey,
-  bookId = LAB_AUDIO.bookId,
-): Promise<FollowParagraph[]> {
-  return Promise.all(paragraphs.map(async (paragraph) => {
-    if (!paragraph.file || paragraphHasWordTimings(paragraph)) return paragraph
-    const url = labAudioFileUrl(paragraph.file, chapterNumber, editionKey, bookId)
-    const words = await measureWordTimesFromAudioUrl(
-      paragraph.text,
-      url,
-      typeof paragraph.duration === 'number' ? paragraph.duration : undefined,
-    )
-    return words ? { ...paragraph, words, wordsMeasured: true } : paragraph
-  }))
-}
-
 export async function loadLabAudioChapter(
   paragraphs: string[],
   chapterNumber = LAB_AUDIO.chapterNumber,
@@ -163,8 +142,7 @@ export async function loadLabAudioChapter(
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
-  return measureFollowParagraphWords(merged, chapterNumber, editionKey, bookId)
+  return mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes), chapterNumber)
 }
 
 export function followPlayingClip(

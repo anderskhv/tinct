@@ -3,6 +3,10 @@ import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection }
 
 interface LabChapterCoverProps {
   title: string
+  series: string
+  editionLabel: string
+  ground?: string
+  accent?: string
   onPageTurn: (direction: LabPageTurnDirection) => void
   onToggleControls: () => void
 }
@@ -13,12 +17,17 @@ export function labCoverTone(title: string): number {
   return hash % 5
 }
 
-export function LabChapterCover({ title, onPageTurn, onToggleControls }: LabChapterCoverProps) {
+export function LabChapterCover({ title, series, editionLabel, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
   const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
 
   return (
     <article
       className={`lab-chapter-cover is-tone-${labCoverTone(title)}`}
+      style={{
+        ...(ground ? { ['--lab-cover-ground' as string]: ground } : {}),
+        ...(ground ? { ['--lab-cover-shade' as string]: `color-mix(in srgb, ${ground} 72%, black)` } : {}),
+        ...(accent ? { ['--lab-cover-accent' as string]: accent } : {}),
+      }}
       data-testid="lab-chapter-cover"
       aria-label={`${title} cover page`}
       tabIndex={0}
@@ -49,11 +58,11 @@ export function LabChapterCover({ title, onPageTurn, onToggleControls }: LabChap
       }}
     >
       <div className="lab-chapter-cover-book">
-        <span className="lab-chapter-cover-series">The Bible</span>
+        <span className="lab-chapter-cover-series">{series}</span>
         <span className="lab-chapter-cover-mark" aria-hidden="true">{title.slice(0, 1)}</span>
         <h2>{title}</h2>
         <span className="lab-chapter-cover-rule" aria-hidden="true" />
-        <small>King James Version</small>
+        <small>{editionLabel}</small>
       </div>
     </article>
   )

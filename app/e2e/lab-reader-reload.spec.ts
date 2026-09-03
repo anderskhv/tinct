@@ -38,7 +38,18 @@ async function openFromHandoff(page: Page, handoff: ReaderHandoff): Promise<void
   }, { next: handoff, oldPosition: OLD_BIBLE_POSITION })
   await page.goto('/lab/reader', { waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', handoff.bookId)
-  await expect.poll(() => page.locator('.lab-passage').first().innerText()).not.toBe('')
+  if (!handoff.savedPlace) {
+    await expect(page.getByTestId('lab-chapter-cover')).toBeVisible()
+    await expect(page.getByTestId('lab-chapter-cover')).toContainText(
+      handoff.bookId === 'bible' ? 'The Bible' : handoff.bookId === 'odyssey' ? 'The Odyssey' : 'Meditations',
+    )
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-ready', 'true')
+    const coverBox = await page.getByTestId('lab-chapter-cover').boundingBox()
+    if (!coverBox) throw new Error('Frontispiece has no visible bounds')
+    await page.touchscreen.tap(coverBox.x + coverBox.width - 12, coverBox.y + coverBox.height / 2)
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-cover-page', 'false')
+  }
+  await expect.poll(() => page.getByTestId('lab-book').innerText()).not.toBe('')
   await expect.poll(() => page.evaluate(() => sessionStorage.getItem('tinct:lab-reader-handoff'))).toBeNull()
   await page.waitForTimeout(900)
 }

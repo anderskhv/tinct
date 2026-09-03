@@ -16,7 +16,7 @@ export const LAB_COPY = {
   castEmpty: 'No one named on this page has a safe introduction yet.',
   askAbout: 'Ask about this person',
   compare: 'Compare',
-  compareHint: 'Split the page with the modern English facing Butler.',
+  compareHint: 'Read the aligned edition alongside this page.',
   settings: 'Settings',
   library: 'Library',
   reading: 'Reading',

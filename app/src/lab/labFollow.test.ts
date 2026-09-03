@@ -49,6 +49,25 @@ describe('lab word follow', () => {
     expect(words[wordIndexAtTime(words, 3.1)].text).toBe('Being')
   })
 
+  it('rejects a semantically mismatched or malformed timing corpus', () => {
+    expect(alignTimedWordsToText('Hear the word', [
+      { text: 'Here', start: 0, end: 0.3 },
+      { text: 'the', start: 0.3, end: 0.5 },
+      { text: 'word', start: 0.5, end: 0.9 },
+    ])).toBeUndefined()
+    expect(wordsFromManifestParagraph({ words: [
+      { text: 'Hear', start: 0.4, end: 0.7 },
+      { text: 'word', start: 0.2, end: 0.9 },
+    ] })).toBeUndefined()
+  })
+
+  it('rejects sidecars for another chapter or audio file', () => {
+    const paragraph = followParagraphFromManifest(0, 'Hear the word', { file: 'p0.mp3', duration: 1 })
+    const words = [{ text: 'Hear', start: 0, end: 0.3 }, { text: 'the', start: 0.3, end: 0.5 }, { text: 'word', start: 0.5, end: 0.9 }]
+    expect(mergeSidecarWords([paragraph], { chapter: 2, paragraphs: [{ paragraph: 0, file: 'p0.mp3', words }] }, 1)[0].words).toBeUndefined()
+    expect(mergeSidecarWords([paragraph], { chapter: 1, paragraphs: [{ paragraph: 0, file: 'p9.mp3', words }] }, 1)[0].words).toBeUndefined()
+  })
+
   it('uses manifest words when they carry real start and end times', () => {
     const paragraph = followParagraphFromManifest(0, 'Tell me, O Muse', {
       duration: 2,
@@ -225,7 +244,7 @@ describe('followTimeFromAudio', () => {
       { text: 'spoke', start: 0.5, end: 1 },
       { text: 'again', start: 1, end: 1.5 },
     ]
-    for (const playbackRate of [0.5, 1, 2, 3]) {
+    for (const playbackRate of [0.75, 1, 1.5, 2]) {
       expect(playbackRate).toBeGreaterThan(0)
       expect(wordIndexAtTime(words, followTimeFromAudio(0.75))).toBe(1)
     }
@@ -234,7 +253,7 @@ describe('followTimeFromAudio', () => {
 })
 
 describe('paragraphHasWordTimings', () => {
-  it('is false until manifest, sidecar, or measured words exist', () => {
+  it('is false until validated manifest or sidecar words exist', () => {
     expect(paragraphHasWordTimings({ index: 0, text: 'Hi', duration: 2 })).toBe(false)
     expect(paragraphHasWordTimings({
       index: 0,
