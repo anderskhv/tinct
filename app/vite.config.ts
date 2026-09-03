@@ -72,6 +72,11 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
+          if (pathOnly === '/lab' || pathOnly === '/lab/') {
+            req.url = `/lab/index.html${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/' || pathOnly === '/index.html') {
             const landingPath = path.join(process.cwd(), 'public', 'landing.html')
             if (fs.existsSync(landingPath)) {

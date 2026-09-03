@@ -337,6 +337,22 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
+    // The mobile landing/onboarding prototype is a self-contained lab page.
+    // Resolve both clean URL forms explicitly so they cannot fall through to
+    // the reader SPA when the assets binding does not resolve directory indexes.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/lab' || url.pathname === '/lab/')) {
+      const labResp = await env.ASSETS.fetch(new Request(`${url.origin}/lab/index.html`, request))
+      if (labResp.ok) {
+        const newResp = new Response(request.method === 'HEAD' ? null : labResp.body, labResp)
+        newResp.headers.set('Cache-Control', 'no-store')
+        newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+          newResp.headers.set(key, value)
+        }
+        return newResp
+      }
+    }
+
     // Back-compat for old app entry links. Plain /read is the public SEO hub,
     // but query-bearing /read URLs are app intents such as ?signin=1 or
     // ?view=library. Signed-in humans also expect /read to open the app, while

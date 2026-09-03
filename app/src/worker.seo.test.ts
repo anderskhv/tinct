@@ -16,6 +16,7 @@ function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A N
 function routerEnv() {
   const shell = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app shell</body></html>'
   const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey/summary">The Odyssey</a></body></html>'
+  const lab = '<!doctype html><html><head><title>Tinct mobile landing and onboarding lab</title></head><body>lab shell</body></html>'
   return {
     ASSETS: {
       fetch: async (request: Request) => {
@@ -25,6 +26,9 @@ function routerEnv() {
         }
         if (url.pathname === '/read/index.html') {
           return new Response(hub, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
+        if (url.pathname === '/lab/index.html') {
+          return new Response(lab, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
         if (url.pathname === '/robots.txt') {
           return new Response('User-agent: *\nAllow: /\nDisallow: /data/\nDisallow: /api/\n', { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
@@ -110,6 +114,14 @@ describe('worker SEO SPA metadata', () => {
 })
 
 describe('worker SEO routing', () => {
+  it.each(['/lab', '/lab/'])('serves the standalone noindex lab at %s', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('Cache-Control')).toBe('no-store')
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(await resp.text()).toContain('lab shell')
+  })
+
   it('serves the crawlable /read hub instead of the app shell', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/read'), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
