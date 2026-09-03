@@ -331,6 +331,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     direction: 'next' | 'previous'
     nonce: number
   } | null>(null)
+  useEffect(() => {
+    if (!pageTurn) return
+    const nonce = pageTurn.nonce
+    const timer = window.setTimeout(() => {
+      setPageTurn(current => current?.nonce === nonce ? null : current)
+    }, 220)
+    return () => window.clearTimeout(timer)
+  }, [pageTurn])
   const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>('book')
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
@@ -1646,12 +1654,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [book.chapterTitle, readingPageIndex, readingPage?.paragraphIndex, readingPage?.from, readingPage?.to, readingPage?.segments])
   const readingTail = chapterPageTail(readingPage)
   const isOnline = readOnline(online)
+  const frontispieceVisible = chapterCoverTitle != null
   const voiceOverlayOpen = showPhoneChrome && chrome === 'talking' && !phoneAskOpen
   const phoneAsk = showPhoneChrome && phoneAskOpen
   const showHearing = !mobileCompareActive && !peekBook && !phoneAsk && (
     chrome === 'hearing' || (chrome === 'talking' && returnTo === 'hearing')
   )
-  const showPhoneBar = !fullscreen && labShowPhoneBar({
+  const showPhoneBar = !frontispieceVisible && !fullscreen && labShowPhoneBar({
     phoneChrome: showPhoneChrome,
     fullscreen,
     phoneAsk,
@@ -1674,7 +1683,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const currentOpeningTitle = book.bookTitle === LAB_COPY.bookTitle
     ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
     : null
-  const showReaderRail = !fullscreen && labShowReaderRail({
+  const showReaderRail = !frontispieceVisible && !fullscreen && labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
     pageCount: Math.max(readingPages.length, draftPages.length, workingPagesRef.current.length),
@@ -2520,7 +2529,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     <div
       ref={labRootRef}
       lang={bookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-theme={resolvedTheme}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
@@ -2535,7 +2544,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
       data-fullscreen={fullscreen ? 'true' : 'false'}
-      data-reader-controls={showPhoneChrome ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
+      data-reader-controls={frontispieceVisible
+        ? 'hidden'
+        : showPhoneChrome ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
       data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
       data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
@@ -2546,7 +2557,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),
         ['--lab-font-size' as string]: String(prefs.fontSize),
-        ['--lab-text-align' as string]: showPhoneChrome ? 'left' : prefs.alignment,
+        ['--lab-text-align' as string]: prefs.alignment,
         ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
         ['--lab-reader-margin' as string]: prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
         ['--lab-paragraph-gap' as string]: prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
@@ -2563,7 +2574,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           <FullscreenIcon on />
         </button>
       )}
-      <header className="lab-header">
+      {!frontispieceVisible && <header className="lab-header">
         <div className="lab-header-brand">
           <h1 className="lab-header-work" data-testid="lab-header-work">{book.bookTitle}</h1>
           <span className="lab-title-sep" aria-hidden="true"> · </span>
@@ -2609,7 +2620,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             showPhoneChrome ? 'phone' : 'desktop',
           )}
         </p>
-      </header>
+      </header>}
       {readerLoadError && (
         <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
           <p>{readerLoadError}</p>
@@ -2633,9 +2644,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               ground={getBook(book.bookId || 'bible')?.coverColor}
               accent={getBook(book.bookId || 'bible')?.coverAccent}
               onPageTurn={(direction) => {
-                setReaderControlsVisible(false)
-                if (direction > 0) goNext()
-                else goPrev()
+                if (direction > 0) {
+                  setReaderControlsVisible(true)
+                  goNext()
+                } else {
+                  goPrev()
+                }
               }}
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
@@ -2740,7 +2754,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
           />
         )}
-        {!showPhoneChrome && (
+        {!showPhoneChrome && !frontispieceVisible && (
           <nav className="lab-desktop-action-rail" data-testid="lab-desktop-action-rail" aria-label="Reader actions">
             <button
               type="button"
@@ -2791,7 +2805,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         )}
       </div>
 
-      <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
+      {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
       {showReaderRail && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
           {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
@@ -2975,7 +2989,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           </div>
         </footer>
       )}
-      </div>
+      </div>}
 
       <LabVoiceActionPanel
         active={ask.voiceActive}

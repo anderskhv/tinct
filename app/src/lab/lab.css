@@ -496,6 +496,17 @@
   box-decoration-break: clone;
 }
 
+/* Missing word timing is paragraph precision, not word precision. Keep that
+   fallback honest and quiet: a slim wash marks the active paragraph while
+   the individual words retain the normal page typography. */
+.lab-passage.is-reading.is-hearing.has-paragraph-follow .lab-hearing-word.is-line {
+  background: transparent;
+}
+
+.lab-passage.is-reading.is-hearing.has-paragraph-follow .lab-hearing-line.is-paragraph-current {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--lab-surface) 52%, transparent) 0 3px, transparent 3px);
+}
+
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-upcoming {
   color: var(--lab-ink-muted);
 }
@@ -4143,6 +4154,59 @@
   outline-offset: -18px;
   background: linear-gradient(145deg, var(--lab-cover-ground), var(--lab-cover-shade));
   box-shadow: inset 12px 0 rgba(0,0,0,.1), 0 22px 54px rgba(11,11,11,.22);
+}
+
+/* A frontispiece is the reading surface itself, not a text page with reader
+   chrome around it. Keep the same gesture target while allowing the cover to
+   occupy every available pixel at phone, tablet, and desktop widths. */
+.lab.is-frontispiece .lab-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  padding: 0;
+}
+
+.lab.is-frontispiece.is-phone:not(.has-phone-ask) .lab-body,
+.lab.is-frontispiece.has-phone-chrome:not(.has-phone-ask) .lab-body {
+  padding-bottom: 0;
+}
+
+.lab.is-frontispiece .lab-page-wrap {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.lab.is-frontispiece .lab-chapter-cover {
+  width: 100%;
+  height: 100%;
+}
+
+.lab.is-desktop.is-frontispiece .lab-chapter-cover {
+  padding: 0;
+  background: linear-gradient(145deg, var(--lab-cover-ground), var(--lab-cover-shade));
+}
+
+.lab.is-desktop.is-frontispiece .lab-chapter-cover-book,
+.lab.is-desktop.is-frontispiece.is-fullscreen .lab-chapter-cover-book {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  outline: 1px solid color-mix(in srgb, var(--lab-cover-accent) 58%, transparent);
+  outline-offset: -1.15rem;
+  background: transparent;
+  box-shadow: inset 1rem 0 rgba(0,0,0,.06);
 }
 
 .lab.is-desktop .lab-toc .toc-panel {
