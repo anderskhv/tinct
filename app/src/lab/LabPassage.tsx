@@ -175,7 +175,6 @@ export function LabPassage({
   onCycleSpeed,
   hideTransport = false,
   markedIndexes,
-  onMark,
   focusParagraph,
   dimmed,
   peek,
@@ -386,7 +385,8 @@ export function LabPassage({
       className={[
         'lab-passage',
         'lab-book',
-        hearing && !browseWhileListening ? 'is-hearing' : 'is-reading',
+        'is-reading',
+        hearing && !browseWhileListening ? 'is-hearing' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',
         browseWhileListening ? 'is-browse-listen' : '',
         dimmed ? 'is-dimmed' : '',
@@ -473,15 +473,6 @@ export function LabPassage({
                         </span>
                       )
                     })}
-                    {onMark && (
-                      <button
-                        type="button"
-                        className="lab-mark-btn"
-                        onClick={() => onMark(paragraphIndex)}
-                      >
-                        {LAB_COPY.markAction}
-                      </button>
-                    )}
                   </p>
                 )
               })}
@@ -530,7 +521,7 @@ export function LabPageMeasurePaint(input: {
 }) {
   const lines = readingPageLines(input.paragraphs, input.page)
   return (
-    <article className={`lab-passage lab-book ${input.hearingPaint ? 'is-hearing' : 'is-reading'}`}>
+    <article className={`lab-passage lab-book is-reading${input.hearingPaint ? ' is-hearing' : ''}`}>
       {isChapterFirstReadingPage(input.page) && (
         <header className="lab-passage-header">
           <h1 className="lab-passage-headline">{input.chapterTitle}</h1>
@@ -552,7 +543,6 @@ export function LabPageMeasurePaint(input: {
                     {renderWordText(word.text, wordIndex < line.words.length - 1)}
                   </span>
                 ))}
-                <button type="button" className="lab-mark-btn" tabIndex={-1}>{LAB_COPY.markAction}</button>
               </p>
             ))}
           </div>

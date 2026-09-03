@@ -6,22 +6,23 @@ import {
   labAudioFileUrl,
   labAudioManifestUrl,
   labAudioSidecarUrl,
-  measureFollowParagraphWords,
   readLabWordSidecar,
   type LabAudioClip,
   type LabAudioTitleClip,
 } from './labListen'
 import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import {
+  alignTimedWordsToText,
   followParagraphFromManifest,
   mergeSidecarWords,
   paragraphHasWordTimings,
+  wordsFromManifestParagraph,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
 } from './labFollow'
 
-// Word timestamps are acoustically measured, but a small visual lead prevents
+// Validated word timestamps use media time; a small fixed visual lead prevents
 // the painted word from feeling behind the voice on mobile audio output. This
 // changes only follow paint; seeking and persisted playback time stay exact.
 export const LAB_FOLLOW_LEAD_SECONDS = 0.08
@@ -100,10 +101,8 @@ export function useLabListen(options: UseLabListenOptions) {
     try { audio.playbackRate = rate } catch { /* jsdom */ }
   }, [])
 
-  const syncFollow = useCallback((index: number, time: number, playbackRate?: number) => {
+  const syncFollow = useCallback((index: number, time: number) => {
     const clip = clipsRef.current[index]
-    const audio = audioRef.current
-    const rate = playbackRate ?? audio?.playbackRate ?? speed
     if (Number.isFinite(time) && (time > 0 || positionRef.current.time === 0 || positionRef.current.clipIndex !== index)) {
       positionRef.current = { clipIndex: index, time: Math.max(0, time) }
     }
@@ -113,7 +112,7 @@ export function useLabListen(options: UseLabListenOptions) {
       clip,
       positionRef.current.time + LAB_FOLLOW_LEAD_SECONDS,
     ))
-  }, [speed])
+  }, [])
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
     const finishPlayback = () => {
@@ -172,7 +171,7 @@ export function useLabListen(options: UseLabListenOptions) {
       if (audio) {
         const time = playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time)
         if (time > 0 || positionRef.current.time === 0) {
-          syncFollow(clipIndexRef.current, time, audio.playbackRate || speed)
+          syncFollow(clipIndexRef.current, time)
         }
       }
       frame = requestAnimationFrame(tick)
@@ -273,6 +272,21 @@ export function useLabListen(options: UseLabListenOptions) {
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const chapter = audioChapter()
     const edition = audioEdition()
+    const bookId = audioBook()
+    const sourceParagraphs = optionsRef.current.paragraphs
+    const sourceFollowParagraphs = optionsRef.current.followParagraphs.map(paragraph => ({
+      ...paragraph,
+      words: alignTimedWordsToText(
+        paragraph.text,
+        wordsFromManifestParagraph({ words: paragraph.words }),
+      ),
+    }))
+    const titleClip = optionsRef.current.titleClip
+    const tupleMatches = () => (
+      audioChapter() === chapter
+      && audioEdition() === edition
+      && audioBook() === bookId
+    )
 
     const attachWords = (followed: FollowParagraph[], clips: LabAudioClip[]) => {
       const withWords = clips.map((clip) => {
@@ -285,43 +299,58 @@ export function useLabListen(options: UseLabListenOptions) {
       return withWords
     }
 
-    const fromSource = clipsFromFollowParagraphs(optionsRef.current.followParagraphs)
+    const fromSource = clipsFromFollowParagraphs(sourceFollowParagraphs)
     if (fromSource.length > 0) {
-      let followed = chapterHasWordTimings(optionsRef.current.followParagraphs)
-        ? optionsRef.current.followParagraphs
+      let followed = chapterHasWordTimings(sourceFollowParagraphs)
+        ? sourceFollowParagraphs
         : paragraphsRef.current
       if (!chapterHasWordTimings(followed)) {
-        const sidecarRes = await fetch(labAudioSidecarUrl(chapter, edition, audioBook())).catch(() => null)
-        followed = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
+        const [manifestRes, sidecarRes] = await Promise.all([
+          Promise.resolve(fetch(labAudioManifestUrl(chapter, edition, bookId))).catch(() => null),
+          Promise.resolve(fetch(labAudioSidecarUrl(chapter, edition, bookId))).catch(() => null),
+        ])
+        if (manifestRes?.ok) {
+          const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
+          followed = sourceFollowParagraphs.map((paragraph) => {
+            const match = (manifest.paragraphs || []).find(entry => entry.paragraph === paragraph.index)
+              || (manifest.paragraphs || []).find(entry => entry.paragraph === paragraph.index + 1)
+            const timed = followParagraphFromManifest(paragraph.index, paragraph.text, match)
+            return {
+              ...paragraph,
+              duration: timed.duration ?? paragraph.duration,
+              file: timed.file ?? paragraph.file,
+              words: timed.words,
+            }
+          })
+        }
+        followed = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes), chapter)
       }
-      if (!chapterHasWordTimings(followed)) {
-        followed = await measureFollowParagraphWords(followed, chapter, edition, audioBook())
-      }
+      if (!tupleMatches()) return []
       followed = commitFollowParagraphs(followed)
-      const title = optionsRef.current.titleClip?.kind === 'title' ? optionsRef.current.titleClip : null
+      const title = titleClip?.kind === 'title' ? titleClip : null
       return attachWords(followed, title ? [title, ...fromSource] : fromSource)
     }
 
     const [manifestRes, sidecarRes] = await Promise.all([
-      fetch(labAudioManifestUrl(chapter, edition, audioBook())),
-      fetch(labAudioSidecarUrl(chapter, edition, audioBook())).catch(() => null),
+      fetch(labAudioManifestUrl(chapter, edition, bookId)),
+      fetch(labAudioSidecarUrl(chapter, edition, bookId)).catch(() => null),
     ])
-    if (!manifestRes.ok) return []
+    if (!manifestRes.ok || !tupleMatches()) return []
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
+    if (!tupleMatches()) return []
     let followed = mergeSidecarWords(
-      optionsRef.current.paragraphs.map((text, index) => {
+      sourceParagraphs.map((text, index) => {
         const entries = manifest.paragraphs || []
         const match = entries.find(entry => entry.paragraph === index)
           || entries.find(entry => entry.paragraph === index + 1)
         return followParagraphFromManifest(index, text, match)
       }),
       await readLabWordSidecar(sidecarRes),
+      chapter,
     )
-    if (!chapterHasWordTimings(followed)) {
-      followed = await measureFollowParagraphWords(followed, chapter, edition, audioBook())
-    }
+    if (!tupleMatches()) return []
     followed = commitFollowParagraphs(followed)
-    const clips = clipsFromManifest(optionsRef.current.paragraphs, manifest.paragraphs || [])
+    const clips = clipsFromManifest(sourceParagraphs, manifest.paragraphs || [])
     return attachWords(followed, clips)
   }, [commitFollowParagraphs])
 

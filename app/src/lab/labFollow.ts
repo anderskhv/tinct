@@ -17,8 +17,6 @@ export interface FollowParagraph {
   duration?: number
   words?: TimedWord[]
   file?: string
-  /** Word times were measured from the MP3 waveform, not guessed from duration. */
-  wordsMeasured?: boolean
 }
 
 export type FollowTarget =
@@ -39,17 +37,29 @@ function isTimedWord(value: unknown): value is TimedWord {
 
 export function wordsFromManifestParagraph(paragraph: ManifestParagraph | undefined): TimedWord[] | undefined {
   if (!paragraph || !Array.isArray(paragraph.words)) return undefined
-  const words = paragraph.words.filter(isTimedWord)
-  return words.length > 0 ? words : undefined
+  if (paragraph.words.length === 0 || !paragraph.words.every(isTimedWord)) return undefined
+  const words = paragraph.words
+  for (let index = 1; index < words.length; index += 1) {
+    if (words[index].start < words[index - 1].start) return undefined
+  }
+  return words
 }
 
-/** Split on whitespace so measured / manifest times line up with hearing tokens. */
+/** Split on whitespace so validated manifest or sidecar times line up with hearing tokens. */
 export function chapterWordsFromText(text: string): string[] {
   return text.split(/\s+/).map(part => part.trim()).filter(Boolean)
 }
 
 function isSilentVerseMarker(token: string): boolean {
   return /^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/.test(token)
+}
+
+function semanticToken(token: string): string {
+  return token
+    .normalize('NFKC')
+    .toLocaleLowerCase()
+    .replace(/[‘’]/g, "'")
+    .replace(/[^\p{L}\p{N}']/gu, '')
 }
 
 /**
@@ -60,7 +70,11 @@ export function alignTimedWordsToText(text: string, words: TimedWord[] | undefin
   if (!words?.length) return undefined
   const tokens = chapterWordsFromText(text)
   const spokenTokens = tokens.filter(token => !isSilentVerseMarker(token))
-  if (spokenTokens.length !== words.length || tokens.length === words.length) return words
+  if (spokenTokens.length !== words.length) return undefined
+  if (spokenTokens.some((token, index) => semanticToken(token) !== semanticToken(words[index].text))) return undefined
+  if (tokens.length === words.length) {
+    return words.map((word, index) => ({ ...word, text: tokens[index] }))
+  }
   let spokenIndex = 0
   return tokens.map((token) => {
     if (isSilentVerseMarker(token)) {
@@ -77,8 +91,8 @@ export function paragraphHasWordTimings(paragraph: FollowParagraph | undefined):
 }
 
 /**
- * Manifest / sidecar `words` win. No invented linear timings — measure MP3s or
- * fall back to paragraph-level follow.
+ * Validated manifest / sidecar `words` win. No invented linear timings;
+ * otherwise the reader falls back to paragraph-level follow.
  */
 export function followParagraphFromManifest(
   index: number,
@@ -116,7 +130,7 @@ export function wordIndexAtTime(words: TimedWord[], localSeconds: number): numbe
   return index
 }
 
-/** Highlight time equals audio element time — timings come from manifest/sidecar/measurement. */
+/** Highlight time equals audio element time — timings come from a validated manifest or sidecar. */
 export function followTimeFromAudio(currentTime: number): number {
   return Number.isFinite(currentTime) ? Math.max(0, currentTime) : 0
 }
@@ -197,19 +211,22 @@ export interface WordSidecar {
 export function mergeSidecarWords(
   paragraphs: FollowParagraph[],
   sidecar: WordSidecar | null | undefined,
+  expectedChapter?: number,
 ): FollowParagraph[] {
   if (!sidecar?.paragraphs?.length) return paragraphs
-  const byIndex = new Map<number, TimedWord[]>()
+  if (expectedChapter != null && sidecar.chapter !== expectedChapter) return paragraphs
+  const byIndex = new Map<number, { file?: string; words: TimedWord[] }>()
   for (const entry of sidecar.paragraphs) {
     if (typeof entry.paragraph !== 'number') continue
     const words = wordsFromManifestParagraph({ words: entry.words as TimedWord[] })
     if (!words) continue
-    byIndex.set(entry.paragraph, words)
+    byIndex.set(entry.paragraph, { file: entry.file, words })
   }
   return paragraphs.map((paragraph) => {
     if (paragraph.words && paragraph.words.length > 0) return paragraph
-    const words = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
-    if (!words) return paragraph
-    return { ...paragraph, words: alignTimedWordsToText(paragraph.text, words) }
+    const match = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
+    if (!match || (paragraph.file && match.file && paragraph.file !== match.file)) return paragraph
+    const words = alignTimedWordsToText(paragraph.text, match.words)
+    return words ? { ...paragraph, words } : paragraph
   })
 }

@@ -79,6 +79,7 @@ import {
   type LabVoiceViewSnapshot,
 } from './labVoiceControls'
 import type { VoiceTinctView } from '../voice/tinctTools'
+import { getBook } from '../data/bookRegistry'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -305,6 +306,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const bookEditions = book.editions?.length ? book.editions : bibleEditions()
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
+  const resolvedTheme = prefs.theme === 'system' ? (systemDark ? 'dark' : 'light') : prefs.theme
   const resumeInCompare = !readerHandoff && boot.resume?.readerMode === 'compare'
   const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
   const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
@@ -373,7 +375,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   }
   const countedPageRef = useRef<string | null>(null)
-  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
+  const initialFrontispieceRef = useRef(Boolean(readerHandoff && !readerHandoff.savedPlace))
+  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(() => (
+    readerHandoff && !readerHandoff.savedPlace ? book.bookTitle : null
+  ))
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
@@ -741,9 +746,9 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       themeColor.name = 'theme-color'
       document.head.appendChild(themeColor)
     }
-    root.setAttribute('data-theme', resolvedDarkMode ? 'dark' : 'light')
+    root.setAttribute('data-theme', resolvedTheme)
     root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
-    themeColor.content = resolvedDarkMode ? '#2e2a24' : '#f2eee4'
+    themeColor.content = resolvedTheme === 'dark' ? '#2e2a24' : resolvedTheme === 'book' ? '#e7dcc7' : '#f2eee4'
     return () => {
       root.setAttribute('data-theme', prev ?? 'light')
       root.style.colorScheme = prevColorScheme
@@ -751,7 +756,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       else if (previousThemeColor == null) themeColor.removeAttribute('content')
       else themeColor.content = previousThemeColor
     }
-  }, [resolvedDarkMode])
+  }, [resolvedDarkMode, resolvedTheme])
 
   useEffect(() => {
     if (source) {
@@ -796,7 +801,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         }
       }
       setReaderLoadError('')
-      setChapterCoverTitle(null)
+      setChapterCoverTitle(current => initialFrontispieceRef.current ? loaded.bookTitle : current)
+      initialFrontispieceRef.current = false
       setBook(loaded)
     }).catch((error) => {
       if (!cancelled && navigation === chapterNavigationRef.current) {
@@ -2200,6 +2206,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   const goNext = useCallback(() => {
     if (chapterCoverTitle) {
+      if (book.paragraphs.length === 0) return
       chapterNavigationRef.current += 1
       setChapterCoverTitle(null)
       chapterLandingRef.current = null
@@ -2227,7 +2234,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
 
   const goPrev = useCallback(() => {
     if (chapterCoverTitle) {
@@ -2245,7 +2252,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const openingTitle = book.bookTitle === LAB_COPY.bookTitle
       ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
-      : null
+      : (book.chapterNumber === book.chapters[0]?.number ? book.bookTitle : null)
     if (index === 0 && openingTitle && !listen.playing) {
       setChapterCoverTitle(openingTitle)
       return
@@ -2515,7 +2522,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       lang={bookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
-      data-theme={resolvedDarkMode ? 'dark' : 'light'}
+      data-theme={resolvedTheme}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
       data-phone-bar={showPhoneBar ? labPhoneBarMode(chrome, peekBook, phoneAskOpen) : 'none'}
@@ -2523,6 +2530,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-chapter={String(book.chapterNumber)}
       data-book-id={book.bookId || 'bible'}
       data-cover-page={chapterCoverTitle ? 'true' : 'false'}
+      data-reader-ready={book.paragraphs.length > 0 ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
@@ -2538,7 +2546,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),
         ['--lab-font-size' as string]: String(prefs.fontSize),
-        ['--lab-text-align' as string]: prefs.alignment,
+        ['--lab-text-align' as string]: showPhoneChrome ? 'left' : prefs.alignment,
         ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
         ['--lab-reader-margin' as string]: prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
         ['--lab-paragraph-gap' as string]: prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
@@ -2620,6 +2628,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           {chapterCoverTitle ? (
             <LabChapterCover
               title={chapterCoverTitle}
+              series={chapterCoverTitle === book.bookTitle ? book.bookAuthor : book.bookTitle}
+              editionLabel={book.editionLabel}
+              ground={getBook(book.bookId || 'bible')?.coverColor}
+              accent={getBook(book.bookId || 'bible')?.coverAccent}
               onPageTurn={(direction) => {
                 setReaderControlsVisible(false)
                 if (direction > 0) goNext()
@@ -2697,13 +2709,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               className="lab-page-measure"
               ref={measureHostRef}
               aria-hidden="true"
-              key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}-${showHearing && listen.playing && !browseWhileListening ? 'hear' : 'read'}`}
+              key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}`}
             >
               <LabPageMeasurePaint
                 chapterTitle={book.chapterTitle}
                 paragraphs={readerParagraphs}
                 page={draftPages[settleIndex]}
-                hearingPaint={showHearing && listen.playing && !browseWhileListening}
+                hearingPaint={false}
               />
             </div>
           )}

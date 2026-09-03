@@ -1,7 +1,13 @@
 .lab {
+  --lab-paper: #ece7db;
+  --lab-ink: #0b0b0b;
+  --lab-ink-muted: #6a6256;
+  --lab-ink-faint: #82796b;
+  --lab-surface: #e2d8c4;
+  --lab-border: #c8c0ae;
   min-height: 100vh;
-  background: #ece7db;
-  color: #0b0b0b;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
 }
 
@@ -387,7 +393,7 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  background: #ece7db;
+  background: var(--lab-paper);
   padding: 0 0 0.85rem;
 }
 
@@ -484,6 +490,18 @@
   font-weight: 400;
   color: inherit;
   background: none;
+}
+
+.lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
+.lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
+  color: var(--lab-ink);
+  background: color-mix(in srgb, var(--lab-surface) 82%, #d9c69d 18%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.lab-passage.is-reading.is-hearing .lab-hearing-word.is-upcoming {
+  color: var(--lab-ink-muted);
 }
 
 .lab-passage.is-reading .lab-hearing-stage {
@@ -1862,7 +1880,7 @@
   letter-spacing: 0;
 }
 
-/* Reading uses the same .lab-hearing-line type as Hearing. Do not shrink. */
+/* Reading and playback share one exact typographic surface. */
 .lab-passage.is-reading .lab-hearing-line {
   font-weight: 400;
   margin-bottom: 1.15rem;
@@ -1875,13 +1893,13 @@
 
 .lab.is-phone .lab-passage.is-reading .lab-hearing-line {
   font-weight: 400;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: var(--lab-text-align, left);
+  text-justify: auto;
 }
 
 .lab.has-phone-chrome .lab-passage.is-reading .lab-hearing-line {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: var(--lab-text-align, left);
+  text-justify: auto;
 }
 
 .lab.is-phone .lab-passage.is-reading,
@@ -2119,7 +2137,7 @@
 
 .lab.is-phone .lab-hearing-line {
   font-family: var(--lab-font-reader, 'EB Garamond', Georgia, 'Times New Roman', serif);
-  font-size: calc(2rem * (var(--lab-font-size, 1.3) / 1.3));
+  font-size: calc(1.72rem * (var(--lab-font-size, 1.3) / 1.3));
   line-height: 1.42;
   margin: 0 auto;
   max-width: 100%;
@@ -2376,7 +2394,7 @@
 }
 
 .lab-hearing-line {
-  font-size: calc(2.45rem * (var(--lab-font-size, 1.3) / 1.3));
+  font-size: calc(1.86rem * (var(--lab-font-size, 1.3) / 1.3));
 }
 
 .lab.is-night {
@@ -3026,7 +3044,54 @@
 .lab .lab-hearing-line { text-align:var(--lab-text-align,justify);line-height:var(--lab-line-height,1.48); }
 .lab .lab-passage { padding-left:var(--lab-reader-margin,1.55rem);padding-right:var(--lab-reader-margin,1.55rem); }
 .lab .lab-hearing-line + .lab-hearing-line { margin-top:var(--lab-paragraph-gap,.28em); }
-.lab.is-book-theme { --lab-paper:#e7dcc7;--lab-surface:#ded0b7;background:var(--lab-paper); }
+.lab.is-book-theme {
+  --lab-paper: #e7dcc7;
+  --lab-ink: #201a13;
+  --lab-ink-muted: #675b4b;
+  --lab-ink-faint: #796c59;
+  --lab-surface: #d8c9ad;
+  --lab-border: #b9a98d;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+}
+
+.lab.is-book-theme .lab-header,
+.lab.is-book-theme .lab-page-turn,
+.lab.is-book-theme .lab-phone-bar,
+.lab.is-book-theme .lab-ask,
+.lab.is-book-theme .lab-ask-composer,
+.lab.is-book-theme .lab-body,
+.lab.is-book-theme .lab-page-wrap,
+.lab.is-book-theme .lab-book,
+.lab.is-book-theme .lab-passage,
+.lab.is-book-theme .lab-hearing,
+.lab.is-book-theme .lab-hearing-stage,
+.lab.is-book-theme .lab-passage-header {
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-book-theme .lab-header-chapter,
+.lab.is-book-theme .lab-speed-popover,
+.lab.is-book-theme .lab-speed-popover::after {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-book-theme .lab-passage-headline,
+.lab.is-book-theme h1.lab-passage-headline,
+.lab.is-book-theme .lab-hearing-line,
+.lab.is-book-theme .lab-hearing-line > span,
+.lab.is-book-theme .lab-header-work,
+.lab.is-book-theme .lab-gear,
+.lab.is-book-theme .lab-page-turn-btn,
+.lab.is-book-theme .lab-ask-input,
+.lab.is-book-theme .lab-ask-send,
+.lab.is-book-theme .lab-ask-voice-status {
+  color: var(--lab-ink);
+}
 
 /* Terminal night ink — reading words must not stay on paper black (#0b0b0b). */
 .lab.is-night .lab-passage .lab-hearing-line,
@@ -3561,7 +3626,9 @@
 }
 
 .lab.is-desktop .lab-header-work {
-  max-width: 46%;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: min(320px, 42vw);
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 23px;
   line-height: 1;
@@ -4142,6 +4209,78 @@
   .lab.is-desktop .lab-ask.is-desktop-companion {
     width: 270px;
   }
+}
+
+/* Reader control accessibility: quiet glyphs, full finger-sized targets, and
+   one visible keyboard focus language across phone and desktop. */
+.lab :is(
+  .lab-header-chapter,
+  .lab-gear,
+  .lab-fullscreen,
+  .lab-page-turn-btn,
+  .lab-phone-fat,
+  .lab-desktop-action,
+  .lab-desktop-audio-dock > button,
+  .lab-ask-send,
+  .lab-ask-mic,
+  .lab-ask-voice
+) {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.lab:is(.is-phone, .has-phone-chrome, .is-desktop) :is(
+  .lab-header-chapter,
+  .lab-gear,
+  .lab-fullscreen,
+  .lab-page-turn-btn,
+  .lab-phone-fat,
+  .lab-desktop-action,
+  .lab-desktop-audio-dock > button
+) {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.lab :is(
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--lab-ink) 78%, #8a6a35);
+  outline-offset: 3px;
+}
+
+.lab :is(
+  .lab-sub,
+  .lab-book-kicker,
+  .lab-ask-user-label,
+  .lab-ask-reply-label,
+  .lab-chapter-progress-info,
+  .lab-desktop-companion-mark,
+  .lab-speed-scale
+) {
+  color: var(--lab-ink-muted);
+}
+
+.lab .lab-ask-input::placeholder {
+  color: var(--lab-ink-muted);
+}
+
+.lab.is-book-theme :is(
+  .lab-desktop-action-rail,
+  .lab-desktop-audio-dock,
+  .lab-ask.is-desktop-companion,
+  .lab-ss-overlay.is-desktop-popover .lab-ss-hub,
+  .lab-ss-overlay.is-desktop-popover .lab-ss-sheet,
+  .lab-toc .toc-panel
+) {
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+  background: color-mix(in srgb, var(--lab-surface) 88%, transparent);
 }
 .lab-reader-load-error {
   position: absolute;

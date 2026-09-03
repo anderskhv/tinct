@@ -30,15 +30,11 @@ afterEach(() => {
 
 function sourceWithWords() {
   const base = fallbackLabSource()
+  const timedTokens = base.paragraphs[0].split(/\s+/).filter(Boolean)
   const first = followParagraphFromManifest(0, base.paragraphs[0], {
     duration: 20,
     file: 'p0.mp3',
-    words: [
-      { text: 'Tell', start: 0, end: 0.5 },
-      { text: 'me,', start: 0.5, end: 1 },
-      { text: 'O', start: 1, end: 1.4 },
-      { text: 'Muse', start: 1.4, end: 2 },
-    ],
+    words: timedTokens.map((text, index) => ({ text, start: index * 0.5, end: (index + 1) * 0.5 })),
   })
   return {
     ...base,
@@ -209,7 +205,7 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab\.is-fullscreen \.lab-header,\s*\.lab\.is-fullscreen \.lab-bottom-chrome\s*\{[^}]*display:\s*none/)
     expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*border-radius:\s*999px/)
     expect(css).toMatch(/\.lab-fullscreen-exit-hotspot\s*\{[^}]*opacity:\s*0\.62/)
-    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*text-align:\s*justify/)
+    expect(css).toMatch(/\.lab\.is-phone \.lab-passage\.is-reading \.lab-hearing-line\s*\{[^}]*text-align:\s*var\(--lab-text-align, left\)/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-header-brand\s*\{[^}]*flex-direction:\s*row/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-header-brand\s*\{[^}]*white-space:\s*nowrap/)
     expect(css).toMatch(/\.lab\.is-phone \.lab-title,\s*\.lab\.is-phone \.lab-sub\s*\{[^}]*white-space:\s*nowrap/)
@@ -504,17 +500,17 @@ describe('lab chrome', () => {
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
     })
+    const titleTestWords = fallbackLabSource().paragraphs[0].split(/\s+/).filter(Boolean)
     const liveManifest = {
       chapter: 1,
       title: 'Book 1',
       paragraphs: [
         { paragraph: -1, file: 'title.mp3', duration: 1.675, words: [] },
-        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: [
-          { text: 'Tell', start: 0, end: 0.5 },
-          { text: 'me,', start: 0.5, end: 1 },
-          { text: 'O', start: 1, end: 1.4 },
-          { text: 'Muse,', start: 1.4, end: 2 },
-        ] },
+        { paragraph: 0, file: 'p0.mp3', duration: 35.15, words: titleTestWords.map((text, index) => ({
+          text,
+          start: index * 0.5,
+          end: (index + 1) * 0.5,
+        })) },
         { paragraph: 1, file: 'p1.mp3', duration: 37.226, words: [] },
         { paragraph: 2, file: 'p2.mp3', duration: 26.975, words: [] },
       ],
@@ -3575,6 +3571,11 @@ describe('lab chrome pass', () => {
       expect(ink).not.toBe('rgb(11, 11, 11)')
       expect(getComputedStyle(word).color).toBe(ink)
     }
+    fireEvent.click(screen.getByText('Book'))
+    expect(screen.getByTestId('lab-root').className).toContain('is-book-theme')
+    expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('book')
+    expect(document.documentElement.getAttribute('data-theme')).toBe('book')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe('#e7dcc7')
     fireEvent.click(screen.getByText('All Reading Settings'))
     fireEvent.click(screen.getByText('Left'))
     fireEvent.change(screen.getByDisplayValue('Comfortable'), { target: { value: 'compact' } })
