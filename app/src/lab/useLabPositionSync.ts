@@ -12,6 +12,7 @@ import {
   type LabBookPlace,
   type LabPlaceReason,
   type LabPositionController,
+  type LabReaderStateSnapshot,
 } from './labPosition'
 import {
   createLabPositionSync,
@@ -61,13 +62,15 @@ export function bookFromResumePlace(place: LabBookPlace): LabSource {
 export function bootLabReading(source?: LabSource): {
   book: LabSource
   place: { paragraphIndex: number; wordIndex: number }
+  resume: LabBookPlace | null
 } {
-  if (source) return { book: source, place: { paragraphIndex: 0, wordIndex: 0 } }
+  if (source) return { book: source, place: { paragraphIndex: 0, wordIndex: 0 }, resume: null }
   const resume = resumePlace(readLabPositionLocal())
-  if (!resume) return { book: bibleFallbackSource(), place: { paragraphIndex: 0, wordIndex: 0 } }
+  if (!resume) return { book: bibleFallbackSource(), place: { paragraphIndex: 0, wordIndex: 0 }, resume: null }
   return {
     book: bookFromResumePlace(resume),
     place: { paragraphIndex: resume.paragraphIndex, wordIndex: resume.wordIndex },
+    resume,
   }
 }
 
@@ -77,6 +80,7 @@ export function placeFromLabBook(
   deviceId: string,
   now: number,
   rev: number,
+  readerState?: LabReaderStateSnapshot,
 ): LabBookPlace {
   if (book.bookId && book.bookId !== 'bible') {
     return {
@@ -86,6 +90,7 @@ export function placeFromLabBook(
       sequentialChapter: book.chapterNumber,
       paragraphIndex: at.paragraphIndex,
       wordIndex: at.wordIndex,
+      ...(readerState || {}),
       updatedAt: now,
       deviceId,
       rev,
@@ -100,6 +105,7 @@ export function placeFromLabBook(
     sequentialChapter: book.chapterNumber,
     paragraphIndex: at.paragraphIndex,
     wordIndex: at.wordIndex,
+    ...(readerState || {}),
     updatedAt: now,
     deviceId,
     rev,
@@ -109,7 +115,9 @@ export function placeFromLabBook(
 export function useLabPositionSync(args: {
   book: LabSource
   placeRef: MutableRefObject<{ paragraphIndex: number; wordIndex: number }>
+  readerStateRef?: MutableRefObject<LabReaderStateSnapshot>
   sourceLocked: boolean
+  writesSuspended?: boolean
   authToken?: string | null
   onRemoteResume?: (place: LabBookPlace) => void
 }): {
@@ -166,7 +174,10 @@ export function useLabPositionSync(args: {
       const resume = resumePlace(next)
       const current = bookRef.current
       if (!resume) return
-      if (resume.sequentialChapter !== current.chapterNumber || resume.bookId !== biblicalBookId(current.headerBook)) {
+      const currentBookId = current.bookId && current.bookId !== 'bible'
+        ? current.bookId
+        : biblicalBookId(current.headerBook)
+      if (resume.sequentialChapter !== current.chapterNumber || resume.bookId !== currentBookId) {
         onRemoteResumeRef.current?.(resume)
         return
       }
@@ -176,6 +187,7 @@ export function useLabPositionSync(args: {
   }, [args.authToken, args.book.chapters, args.placeRef, args.sourceLocked, liveToken])
 
   const notePlace = useCallback((reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => {
+    if (args.writesSuspended) return
     const book = bookRef.current
     const controller = controllerRef.current
     if (!controller) return
@@ -184,7 +196,7 @@ export function useLabPositionSync(args: {
     const paragraphIndex = at?.paragraphIndex ?? args.placeRef.current.paragraphIndex
     const wordIndex = at?.wordIndex ?? args.placeRef.current.wordIndex
     const place = sequential === book.chapterNumber
-      ? placeFromLabBook(book, { paragraphIndex, wordIndex }, deviceIdRef.current, Date.now(), revRef.current)
+      ? placeFromLabBook(book, { paragraphIndex, wordIndex }, deviceIdRef.current, Date.now(), revRef.current, args.readerStateRef?.current)
       : placeFromChapterRef({
           chapters: book.chapters,
           sequentialChapter: sequential,
@@ -195,9 +207,10 @@ export function useLabPositionSync(args: {
           rev: revRef.current,
           bookId: book.bookId,
           headerBook: book.bookTitle,
+          readerState: args.readerStateRef?.current,
         })
     controller.note({ place, reason })
-  }, [args.placeRef])
+  }, [args.placeRef, args.readerStateRef, args.writesSuspended])
 
   useEffect(() => {
     const onHide = () => notePlace('hide')

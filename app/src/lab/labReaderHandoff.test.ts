@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace } from './labReaderHandoff'
 import { DEFAULT_LAB_PREFS } from './labPrefs'
 
 function storageWith(value: unknown) {
@@ -50,5 +50,17 @@ describe('Lab reader handoff', () => {
     expect(pending.bookId).toBe('ivan-ilyich')
     expect(pending.bookTitle).toBe('The Death of Ivan Ilyich')
     expect(pending.paragraphs).toEqual([])
+  })
+
+  it('restores the edition pair from the same book tuple used for position', () => {
+    const prefs = prefsFromLabResumePlace(DEFAULT_LAB_PREFS, {
+      bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2,
+      paragraphIndex: 4, wordIndex: 7, pageIndex: 3,
+      primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
+      updatedAt: 100, deviceId: 'reader', rev: 2,
+    })
+    expect(prefs).toMatchObject({
+      primaryEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true,
+    })
   })
 })

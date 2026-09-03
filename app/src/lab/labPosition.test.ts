@@ -287,4 +287,63 @@ describe('offline save + reload', () => {
       wordIndex: 11,
     })
   })
+
+  it('activates a selected catalogue book immediately with one coherent reader tuple', () => {
+    const controller = createLabPositionController({ deviceId: DEVICE })
+    controller.replace({
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans() },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 5_000,
+    })
+    const meditations = place({
+      bookId: 'meditations',
+      headerBook: 'Meditations',
+      chapterNumber: 4,
+      sequentialChapter: 4,
+      paragraphIndex: 3,
+      wordIndex: 8,
+      pageIndex: 6,
+      primaryEditionKey: 'original-en',
+      compareEditionKey: 'modern-en',
+      readerMode: 'compare',
+    })
+
+    controller.note({ place: meditations, reason: 'open-book', now: 10_000 })
+    const reloaded = parseLabPositionState(JSON.parse(JSON.stringify(controller.state())), DEVICE)
+
+    expect(resumePlace(reloaded)).toMatchObject({
+      bookId: 'meditations', chapterNumber: 4, sequentialChapter: 4,
+      paragraphIndex: 3, wordIndex: 8, pageIndex: 6,
+      primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
+    })
+    expect(reloaded.books.romans?.wordIndex).toBe(4)
+  })
+
+  it('persists a mode change without mixing it with another book', () => {
+    const controller = createLabPositionController({ deviceId: DEVICE })
+    controller.note({
+      place: place({
+        bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 1, sequentialChapter: 1,
+        paragraphIndex: 2, wordIndex: 5, pageIndex: 3, primaryEditionKey: 'original-en',
+        compareEditionKey: 'modern-en', readerMode: 'read',
+      }),
+      reason: 'open-book',
+      now: 20_000,
+    })
+    controller.note({
+      place: place({
+        bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 1, sequentialChapter: 1,
+        paragraphIndex: 2, wordIndex: 5, pageIndex: 3, primaryEditionKey: 'original-en',
+        compareEditionKey: 'modern-en', readerMode: 'compare', rev: 2,
+      }),
+      reason: 'mode-change',
+      now: 21_000,
+    })
+    expect(controller.resume()).toMatchObject({
+      bookId: 'odyssey', paragraphIndex: 2, wordIndex: 5,
+      primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
+    })
+  })
 })

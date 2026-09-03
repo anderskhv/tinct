@@ -58,7 +58,8 @@ import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
-import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import type { LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, polishPageEnd, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
@@ -295,14 +296,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
   const [prefs, setPrefs] = useState<LabPrefs>(() => {
-    const stored = readLabPrefs()
-    return prefsFromLabReaderHandoff(syncLabAudioEdition(stored), readerHandoff)
+    const stored = syncLabAudioEdition(readLabPrefs())
+    const restored = readerHandoff
+      ? prefsFromLabReaderHandoff(stored, readerHandoff)
+      : prefsFromLabResumePlace(stored, boot.resume)
+    return syncLabAudioEdition(restored, book.editions?.length ? book.editions : bibleEditions())
   })
   const bookEditions = book.editions?.length ? book.editions : bibleEditions()
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
-  const [mobileCompareActive, setMobileCompareActive] = useState(false)
-  const [desktopCompareActive, setDesktopCompareActive] = useState(false)
+  const resumeInCompare = !readerHandoff && boot.resume?.readerMode === 'compare'
+  const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
+  const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
   const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
   const updatePrefs = useCallback((next: LabPrefs) => {
@@ -352,7 +357,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
-  const [readingPageIndex, setReadingPageIndex] = useState(0)
+  const [readingPageIndex, setReadingPageIndex] = useState(
+    readerHandoff?.savedPlace?.page ?? boot.resume?.pageIndex ?? 0,
+  )
+  const readerStateRef = useRef<LabReaderStateSnapshot>({
+    pageIndex: readingPageIndex,
+    primaryEditionKey: prefs.primaryEdition,
+    compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
+    readerMode: resumeInCompare ? 'compare' : 'read',
+  })
+  readerStateRef.current = {
+    pageIndex: readingPageIndex,
+    primaryEditionKey: prefs.primaryEdition,
+    compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
+    readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
+  }
   const countedPageRef = useRef<string | null>(null)
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
@@ -402,12 +421,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [gearOpen, tocOpen])
 
   useEffect(() => {
-    if (!mobileCompareEnabled) setMobileCompareActive(false)
-  }, [mobileCompareEnabled])
+    if (!mobileCompareEnabled && book.paragraphs.length > 0) setMobileCompareActive(false)
+  }, [book.paragraphs.length, mobileCompareEnabled])
 
   useEffect(() => {
-    if (!desktopCompareEnabled) setDesktopCompareActive(false)
-  }, [desktopCompareEnabled])
+    if (!desktopCompareEnabled && book.paragraphs.length > 0) setDesktopCompareActive(false)
+  }, [book.paragraphs.length, desktopCompareEnabled])
 
   const toggleFullscreen = useCallback(async () => {
     setGearOpen(false)
@@ -489,10 +508,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       : (boot.place.paragraphIndex || boot.place.wordIndex ? boot.place : null),
   )
   const restorePageRef = useRef<number | null>(
-    readerHandoff?.savedPlace?.paragraphIndex === undefined
-      ? (readerHandoff?.savedPlace?.page ?? null)
-      : null,
+    readerHandoff
+      ? (readerHandoff.savedPlace?.paragraphIndex === undefined ? (readerHandoff.savedPlace?.page ?? null) : null)
+      : (boot.resume && (boot.resume.paragraphIndex || boot.resume.wordIndex)
+          ? null
+          : (boot.resume?.pageIndex ?? null)),
   )
+  const handoffActivatedRef = useRef(false)
   const headlineHeightRef = useRef(0)
   const chapterTitleRef = useRef(book.chapterTitle)
   const chapterNumberRef = useRef(book.chapterNumber)
@@ -633,10 +655,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     })
   }, [book.bookId, book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, listen.playing, browseWhileListening])
 
+  const positionWritesSuspended = Boolean(
+    readerHandoff
+    && ((book.bookId || 'bible') !== readerHandoff.bookId || book.paragraphs.length === 0),
+  )
   const { notePlace, biblicalBook } = useLabPositionSync({
     book,
     placeRef,
+    readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
+    writesSuspended: positionWritesSuspended,
     authToken,
     onRemoteResume: (place) => {
       setChapterCoverTitle(null)
@@ -655,6 +683,31 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }).then(setBook).catch(() => {})
     },
   })
+
+  const editionTupleRef = useRef(`${prefs.primaryEdition}\u0000${prefs.compareEdition}\u0000${prefs.compareOpen}`)
+  useEffect(() => {
+    const next = `${prefs.primaryEdition}\u0000${prefs.compareEdition}\u0000${prefs.compareOpen}`
+    if (next === editionTupleRef.current) return
+    editionTupleRef.current = next
+    readerStateRef.current = {
+      ...readerStateRef.current,
+      primaryEditionKey: prefs.primaryEdition,
+      compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition
+        ? prefs.compareEdition
+        : undefined,
+    }
+    notePlace('mode-change')
+  }, [notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition])
+
+  useLayoutEffect(() => {
+    if (!readerHandoff || positionWritesSuspended || handoffActivatedRef.current) return
+    handoffActivatedRef.current = true
+    notePlace('open-book', {
+      sequentialChapter: book.chapterNumber,
+      paragraphIndex: placeRef.current.paragraphIndex,
+      wordIndex: placeRef.current.wordIndex,
+    })
+  }, [book.chapterNumber, notePlace, positionWritesSuspended, readerHandoff])
 
   useEffect(() => {
     document.title = LAB_COPY.documentTitle
@@ -1884,6 +1937,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }))
     }
     readingPageIndexRef.current = clamped
+    readerStateRef.current = { ...readerStateRef.current, pageIndex: clamped }
     setReadingPageIndex(clamped)
     if (listen.playing || browseWhileListeningRef.current) {
       browseWhileListeningRef.current = true
@@ -1920,7 +1974,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setChapterCoverTitle(null)
     pageAnchorRef.current = mapped
     placeRef.current = primaryAnchor
-    notePlace('page-turn', primaryAnchor)
+    readerStateRef.current = {
+      ...readerStateRef.current,
+      pageIndex: nextIndex,
+      readerMode: nextActive ? 'compare' : 'read',
+    }
+    notePlace('mode-change', primaryAnchor)
     pagesStableRef.current = false
     readingPagesRef.current = nextPages
     workingPagesRef.current = nextPages
@@ -1930,6 +1989,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setReadingPageIndex(nextIndex)
     setMobileCompareActive(nextActive)
   }, [book.compareParagraphs, book.paragraphs, listen, mobileCompareActive, mobileCompareEnabled, notePlace, readerParagraphs])
+
+  const handleDesktopCompare = useCallback(() => {
+    if (!desktopCompareEnabled) return
+    const nextActive = !desktopCompareActive
+    readerStateRef.current = {
+      ...readerStateRef.current,
+      pageIndex: readingPageIndexRef.current,
+      readerMode: nextActive ? 'compare' : 'read',
+    }
+    setDesktopCompareActive(nextActive)
+    notePlace('mode-change')
+  }, [desktopCompareActive, desktopCompareEnabled, notePlace])
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
     const navigation = ++chapterNavigationRef.current
@@ -1950,6 +2021,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     openAtEndRef.current = landing === 'end'
     if (landing === 'start') {
       placeRef.current = { paragraphIndex: 0, wordIndex: 0 }
+    }
+    readerStateRef.current = {
+      ...readerStateRef.current,
+      pageIndex: landing === 'start' ? 0 : readerStateRef.current.pageIndex,
     }
     notePlace('chapter-jump', {
       sequentialChapter: number,
@@ -2004,6 +2079,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     // here retriggers the landing effect on the outgoing chapter.
     if (landing === 'start') {
       placeRef.current = { paragraphIndex: 0, wordIndex: 0 }
+    }
+    readerStateRef.current = {
+      ...readerStateRef.current,
+      pageIndex: landing === 'start' ? 0 : readerStateRef.current.pageIndex,
     }
     notePlace('chapter-jump', {
       sequentialChapter: number,
@@ -2667,7 +2746,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
               <button
                 type="button"
                 className={`lab-desktop-action${desktopCompareActive ? ' is-active' : ''}`}
-                onClick={() => setDesktopCompareActive(active => !active)}
+                onClick={handleDesktopCompare}
                 aria-label={desktopCompareActive ? `Close ${LAB_COPY.compare}` : LAB_COPY.compare}
                 aria-pressed={desktopCompareActive}
                 data-testid="lab-desktop-compare"

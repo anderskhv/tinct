@@ -25,7 +25,9 @@ export const LAB_POSITION_DWELL_MS = 25_000
 export const LAB_POSITION_DEBOUNCE_MS = 1_000
 
 export type LabPlaceReason =
+  | 'open-book'
   | 'page-turn'
+  | 'mode-change'
   | 'play'
   | 'pause'
   | 'hide'
@@ -40,9 +42,31 @@ export interface LabBookPlace {
   sequentialChapter: number
   paragraphIndex: number
   wordIndex: number
+  pageIndex?: number
+  primaryEditionKey?: string
+  compareEditionKey?: string
+  readerMode?: 'read' | 'compare'
   updatedAt: number
   deviceId: string
   rev: number
+}
+
+export interface LabReaderStateSnapshot {
+  pageIndex: number
+  primaryEditionKey: string
+  compareEditionKey?: string
+  readerMode: 'read' | 'compare'
+}
+
+function withReaderState(place: LabBookPlace, readerState?: LabReaderStateSnapshot): LabBookPlace {
+  if (!readerState) return place
+  return {
+    ...place,
+    pageIndex: Math.max(0, Math.round(readerState.pageIndex)),
+    primaryEditionKey: readerState.primaryEditionKey,
+    compareEditionKey: readerState.compareEditionKey,
+    readerMode: readerState.readerMode,
+  }
 }
 
 export interface LabPositionState {
@@ -95,10 +119,11 @@ export function placeFromChapterRef(input: {
   /** Registry book context. Omitted for the Bible's per-biblical-book pins. */
   bookId?: string
   headerBook?: string
+  readerState?: LabReaderStateSnapshot
 }): LabBookPlace {
   const entry = input.chapters.find(item => item.number === input.sequentialChapter)
   if (input.bookId && input.bookId !== 'bible') {
-    return {
+    return withReaderState({
       bookId: input.bookId,
       headerBook: input.headerBook || input.bookId,
       chapterNumber: entry?.number ?? input.sequentialChapter,
@@ -108,11 +133,11 @@ export function placeFromChapterRef(input: {
       updatedAt: input.now,
       deviceId: input.deviceId,
       rev: input.rev,
-    }
+    }, input.readerState)
   }
   const parsed = parseBiblicalPlaceTitle(entry?.title || 'Genesis 1')
   const chapterNumber = Number(parsed.chapter)
-  return {
+  return withReaderState({
     bookId: biblicalBookId(parsed.book),
     headerBook: parsed.book,
     chapterNumber: Number.isInteger(chapterNumber) && chapterNumber > 0 ? chapterNumber : 1,
@@ -122,7 +147,7 @@ export function placeFromChapterRef(input: {
     updatedAt: input.now,
     deviceId: input.deviceId,
     rev: input.rev,
-  }
+  }, input.readerState)
 }
 
 function isFiniteInt(value: unknown, min: number, max: number): value is number {
@@ -139,6 +164,10 @@ export function parseLabBookPlace(raw: unknown): LabBookPlace | null {
   if (!isFiniteInt(src.sequentialChapter, 1, 5000)) return null
   if (!isFiniteInt(src.paragraphIndex, 0, 10_000)) return null
   if (!isFiniteInt(src.wordIndex, 0, 100_000)) return null
+  if (src.pageIndex !== undefined && !isFiniteInt(src.pageIndex, 0, 100_000)) return null
+  if (src.primaryEditionKey !== undefined && (typeof src.primaryEditionKey !== 'string' || !src.primaryEditionKey || src.primaryEditionKey.length > 80)) return null
+  if (src.compareEditionKey !== undefined && (typeof src.compareEditionKey !== 'string' || !src.compareEditionKey || src.compareEditionKey.length > 80)) return null
+  if (src.readerMode !== undefined && src.readerMode !== 'read' && src.readerMode !== 'compare') return null
   if (!isFiniteInt(src.updatedAt, 1, 1e15)) return null
   if (typeof src.deviceId !== 'string' || !src.deviceId || src.deviceId.length > 80) return null
   if (!isFiniteInt(src.rev, 0, 1e15)) return null
@@ -149,6 +178,10 @@ export function parseLabBookPlace(raw: unknown): LabBookPlace | null {
     sequentialChapter: src.sequentialChapter,
     paragraphIndex: src.paragraphIndex,
     wordIndex: src.wordIndex,
+    ...(src.pageIndex === undefined ? {} : { pageIndex: src.pageIndex }),
+    ...(src.primaryEditionKey === undefined ? {} : { primaryEditionKey: src.primaryEditionKey }),
+    ...(src.compareEditionKey === undefined ? {} : { compareEditionKey: src.compareEditionKey }),
+    ...(src.readerMode === undefined ? {} : { readerMode: src.readerMode }),
     updatedAt: src.updatedAt,
     deviceId: src.deviceId,
     rev: src.rev,
@@ -253,11 +286,11 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
 }
 
 export function settleReason(reason: LabPlaceReason): boolean {
-  return reason === 'page-turn' || reason === 'play' || reason === 'dwell'
+  return reason === 'open-book' || reason === 'page-turn' || reason === 'mode-change' || reason === 'play' || reason === 'dwell'
 }
 
 export function persistImmediate(reason: LabPlaceReason): boolean {
-  return reason === 'pause' || reason === 'hide' || reason === 'chapter-jump' || reason === 'play' || reason === 'dwell'
+  return reason === 'open-book' || reason === 'pause' || reason === 'hide' || reason === 'chapter-jump' || reason === 'mode-change' || reason === 'play' || reason === 'dwell'
 }
 
 export interface LabPositionNote {

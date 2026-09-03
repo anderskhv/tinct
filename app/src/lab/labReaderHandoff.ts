@@ -1,6 +1,8 @@
 import { getBook } from '../data/bookRegistry'
 import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
 import type { LabPrefs } from './labPrefs'
+import { syncLabAudioEdition } from './labPrefs'
+import type { LabBookPlace } from './labPosition'
 import type { LabSource } from './labSource'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
@@ -71,6 +73,24 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     audioEdition: audio,
     compareOpen: Boolean(handoff.compareEditionKey),
   }
+}
+
+/** Restore edition availability from the same per-book tuple as the reading place. */
+export function prefsFromLabResumePlace(current: LabPrefs, place: LabBookPlace | null): LabPrefs {
+  if (!place?.primaryEditionKey) return current
+  const book = getBook(place.bookId) ?? getBook('bible')
+  if (!book) return current
+  const primary = book.editions.find(edition => edition.key === place.primaryEditionKey)
+  if (!primary) return current
+  const compare = place.compareEditionKey
+    ? book.editions.find(edition => edition.key === place.compareEditionKey && edition.key !== primary.key)
+    : undefined
+  return syncLabAudioEdition({
+    ...current,
+    primaryEdition: primary.key,
+    compareEdition: compare?.key ?? current.compareEdition,
+    compareOpen: Boolean(compare),
+  }, book.editions)
 }
 
 /** Correct metadata during the short async load; never paint a previous book's text. */
