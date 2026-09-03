@@ -1803,14 +1803,16 @@ describe('lab bible book', () => {
 
     fireEvent.click(screen.getByTestId('lab-page-prev'))
     expect(root.getAttribute('data-cover-page')).toBe('true')
-    expect(screen.getByTestId('lab-chapter-cover').textContent).toContain('Genesis')
+    const cover = screen.getByTestId('lab-chapter-cover')
+    expect(cover.textContent).toContain('Genesis')
+    expect(document.activeElement).toBe(cover)
     expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
     expect(root.getAttribute('data-place')).toBe(place)
     expect(screen.queryByTestId('lab-header-chapter')).toBeNull()
     expect(screen.queryByTestId('lab-bottom-chrome')).toBeNull()
     expect(screen.queryByTestId('lab-chapter-progress')).toBeNull()
 
-    fireEvent.keyDown(screen.getByTestId('lab-chapter-cover'), { key: 'ArrowRight' })
+    fireEvent.keyDown(cover, { key: 'ArrowRight' })
     expect(root.getAttribute('data-cover-page')).toBe('false')
     expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
     expect(root.getAttribute('data-place')).toBe(place)
