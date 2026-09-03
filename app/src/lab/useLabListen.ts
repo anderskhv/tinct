@@ -266,7 +266,10 @@ export function useLabListen(options: UseLabListenOptions) {
         : paragraphsRef.current
       if (!chapterHasWordTimings(followed)) {
         const sidecarRes = await fetch(labAudioSidecarUrl(chapter, edition)).catch(() => null)
-        followed = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
+        followed = mergeSidecarWords(
+          optionsRef.current.followParagraphs,
+          await readLabWordSidecar(sidecarRes, chapter, edition),
+        )
       }
       if (!chapterHasWordTimings(followed)) {
         followed = await measureFollowParagraphWords(followed, chapter, edition)
@@ -288,7 +291,7 @@ export function useLabListen(options: UseLabListenOptions) {
           || entries.find(entry => entry.paragraph === index + 1)
         return followParagraphFromManifest(index, text, match)
       }),
-      await readLabWordSidecar(sidecarRes),
+      await readLabWordSidecar(sidecarRes, chapter, edition),
     )
     if (!chapterHasWordTimings(followed)) {
       followed = await measureFollowParagraphWords(followed, chapter, edition)

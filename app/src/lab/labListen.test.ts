@@ -9,6 +9,8 @@ import {
   labAudioFileUrl,
   labAudioManifestUrl,
   labAudioSidecarUrl,
+  labStaticWordSidecarUrl,
+  labStaticWordSidecarUrls,
   loadLabAudioChapter,
   readLabWordSidecar,
 } from './labListen'
@@ -16,6 +18,14 @@ import {
 afterEach(() => {
   vi.unstubAllGlobals()
 })
+
+function jsonResponse(body: unknown, ok = true): Response {
+  return {
+    ok,
+    headers: { get: (name: string) => (name.toLowerCase() === 'content-type' ? 'application/json' : null) },
+    json: async () => body,
+  } as Response
+}
 
 describe('lab bible audio paths', () => {
   it('uses the production Bible chapter manifest and paragraph files', () => {
@@ -70,20 +80,53 @@ describe('lab bible audio paths', () => {
     expect(listen).toMatch(/const pause = useCallback\(\(\) => \{[\s\S]*setFollow\(\{ kind: 'none' \}\)/)
   })
 
-  it('does not download a word corpus when words.json is missing', async () => {
-    expect(LAB_STATIC_WORD_SIDECAR_URL).toBeNull()
-    const fetchMock = vi.fn(async () => ({ ok: true, json: async () => ({}) }))
+  it('builds a convention static sidecar path for any bible chapter', () => {
+    expect(labStaticWordSidecarUrl(768)).toBe('/bible-kjv-en-ch768-words.json')
+    expect(labStaticWordSidecarUrl(1)).toBe('/bible-kjv-en-ch1-words.json')
+    expect(labStaticWordSidecarUrl(42)).toBe('/bible-kjv-en-ch42-words.json')
+    expect(labStaticWordSidecarUrls('odyssey', 'original-en', 1)).toEqual([
+      '/odyssey-original-en-ch1-words.json',
+      '/odyssey-ch1-words.json',
+    ])
+    expect(LAB_STATIC_WORD_SIDECAR_URL).toBe('/odyssey-ch1-words.json')
+  })
+
+  it('falls back to static sidecar when api returns HTML (dev SPA shell)', async () => {
+    const sidecar = { chapter: 768, paragraphs: [{ paragraph: 0, words: [{ text: 'Woe', start: 0, end: 0.5 }] }] }
+    const fetchMock = vi.fn(async (url: string) => {
+      if (url === '/bible-kjv-en-ch768-words.json') {
+        return { ok: true, headers: { get: () => 'application/json' }, json: async () => sidecar }
+      }
+      return { ok: false, json: async () => ({}) }
+    })
     vi.stubGlobal('fetch', fetchMock)
 
-    const miss = await readLabWordSidecar({ ok: false } as Response)
-    expect(miss).toBeNull()
-    expect(fetchMock).not.toHaveBeenCalled()
-
-    const hit = await readLabWordSidecar({
+    const htmlRes = {
       ok: true,
-      json: async () => ({ chapter: 1, paragraphs: [{ paragraph: 0, words: [{ text: 'R2', start: 0, end: 1 }] }] }),
-    } as Response)
+      headers: { get: () => 'text/html' },
+      json: async () => { throw new SyntaxError('Unexpected token') },
+    } as Response
+
+    const merged = await readLabWordSidecar(htmlRes, 768)
+    expect(merged?.paragraphs?.[0].words?.[0].text).toBe('Woe')
+    expect(fetchMock).toHaveBeenCalledWith('/bible-kjv-en-ch768-words.json')
+  })
+
+  it('does not download a word corpus when words.json is missing', async () => {
+    const fetchMock = vi.fn(async () => ({ ok: false, json: async () => ({}) }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    const miss = await readLabWordSidecar({ ok: false } as Response, 768)
+    expect(miss).toBeNull()
+    expect(fetchMock).toHaveBeenCalledWith('/bible-kjv-en-ch768-words.json')
+
+    vi.clearAllMocks()
+    const hit = await readLabWordSidecar(jsonResponse({
+      chapter: 768,
+      paragraphs: [{ paragraph: 0, words: [{ text: 'R2', start: 0, end: 1 }] }],
+    }), 768)
     expect(hit?.paragraphs?.[0].words?.[0].text).toBe('R2')
+    expect(fetchMock).not.toHaveBeenCalled()
 
     const followed = mergeSidecarWords(
       [followParagraphFromManifest(0, 'In the beginning', { duration: 25, file: 'p0.mp3' })],
@@ -105,12 +148,12 @@ describe('lab bible audio paths', () => {
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
       if (url.includes('manifest.json')) {
-        return { ok: true, json: async () => ({ paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 25 }] }) }
+        return jsonResponse({ paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 25 }] })
       }
       if (url.includes('words.json')) {
-        return { ok: true, json: async () => ({ chapter: 1, paragraphs: [{ paragraph: 0, file: 'p0.mp3', words: sidecarWords }] }) }
+        return jsonResponse({ chapter: 1, paragraphs: [{ paragraph: 0, file: 'p0.mp3', words: sidecarWords }] })
       }
-      return { ok: false, json: async () => ({}) }
+      return jsonResponse({}, false)
     }))
 
     const followed = await loadLabAudioChapter(['In the beginning'])
@@ -127,9 +170,9 @@ describe('lab bible audio paths', () => {
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
       if (url.includes('manifest.json')) {
-        return { ok: true, json: async () => ({ paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 25 }] }) }
+        return jsonResponse({ paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 25 }] })
       }
-      return { ok: false, json: async () => ({}) }
+      return jsonResponse({}, false)
     }))
 
     const followed = await loadLabAudioChapter(['In the beginning'])

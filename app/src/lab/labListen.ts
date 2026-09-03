@@ -37,14 +37,60 @@ export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, edit
   return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/words.json`, 'file')
 }
 
-/** Bible has chapter audio on R2; word sidecars are optional. */
-export const LAB_STATIC_WORD_SIDECAR_URL = null
+/** Odyssey Book 1 — committed Whisper sidecar when R2 words.json 404s. */
+export const LAB_STATIC_WORD_SIDECAR_URL = '/odyssey-ch1-words.json'
 
+/**
+ * Committed static sidecar URLs for any book/chapter (same schema as odyssey-ch1-words.json).
+ * Fetch each until one returns JSON; 404 on uncommitted chapters is expected.
+ */
+export function labStaticWordSidecarUrls(
+  bookId = LAB_AUDIO.bookId,
+  editionKey = LAB_AUDIO.editionKey,
+  chapterNumber = LAB_AUDIO.chapterNumber,
+): string[] {
+  const urls = [`/${bookId}-${editionKey}-ch${chapterNumber}-words.json`]
+  if (bookId === 'odyssey') {
+    urls.push(`/${bookId}-ch${chapterNumber}-words.json`)
+  }
+  return urls
+}
+
+export function labStaticWordSidecarUrl(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string | null {
+  return labStaticWordSidecarUrls(bookId, editionKey, chapterNumber)[0] ?? null
+}
+
+async function parseWordSidecarResponse(res: Response): Promise<WordSidecar | null> {
+  const contentType = res.headers?.get?.('content-type') || ''
+  if (!contentType.includes('json')) return null
+  try {
+    return await res.json() as WordSidecar
+  } catch {
+    return null
+  }
+}
+
+/** Prefer R2/asset sidecar; fall back to committed static JSON. Never invent timings. */
 export async function readLabWordSidecar(
   r2Res: Response | null | undefined,
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
 ): Promise<WordSidecar | null> {
   if (r2Res && 'ok' in r2Res && r2Res.ok) {
-    return await r2Res.json() as WordSidecar
+    const fromApi = await parseWordSidecarResponse(r2Res)
+    if (fromApi) return fromApi
+  }
+  for (const staticUrl of labStaticWordSidecarUrls(bookId, editionKey, chapterNumber)) {
+    const fallback = await fetch(staticUrl).catch(() => null)
+    if (fallback && 'ok' in fallback && fallback.ok) {
+      const sidecar = await parseWordSidecarResponse(fallback)
+      if (sidecar) return sidecar
+    }
   }
   return null
 }
@@ -128,7 +174,7 @@ export async function loadLabAudioChapter(
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
+  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes, chapterNumber, editionKey))
   return measureFollowParagraphWords(merged, chapterNumber, editionKey)
 }
 
