@@ -242,7 +242,7 @@
       showFrame(previewFrame);
     }
     const previewView=previewParams.get('view');
-    if(previewView==='library'||previewView==='your-library'||previewView==='book-detail'||previewView==='edition'||previewView==='preface')showView(previewView);
+    if(previewView==='library'||previewView==='your-library'||previewView==='book-detail'||previewView==='edition')showView(previewView);
     const previewMenu=previewParams.get('menu');
     if(previewMenu==='human'||previewMenu==='ai')root.querySelector(`[data-edition-menu="${previewMenu}"]`).classList.add('is-open');
     scheduleNextFrame();

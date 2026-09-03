@@ -3,6 +3,15 @@ import { expect, test, type Page } from '@playwright/test'
 const PHONE = { width: 390, height: 844 }
 const TABLET = { width: 768, height: 1024 }
 const DESKTOP = { width: 1440, height: 900 }
+const REQUIRED_VIEWPORTS = [
+  { label: 'small-phone', width: 320, height: 568 },
+  { label: 'iphone-se', width: 375, height: 667 },
+  { label: 'phone', ...PHONE },
+  { label: 'iphone-15', width: 393, height: 852 },
+  { label: 'large-phone', width: 430, height: 932 },
+  { label: 'tablet', ...TABLET },
+  { label: 'desktop', ...DESKTOP },
+]
 
 test.use({ viewport: PHONE })
 
@@ -85,13 +94,11 @@ for (const viewport of [PHONE, DESKTOP]) {
     await expect(page.locator('.tov5-continue')).toHaveText('Continue with Original')
 
     await page.locator('.tov5-continue').click()
-    await expect(page.locator('[data-view-panel="preface"]')).toHaveClass(/is-current/)
-    await page.getByRole('button', { name: /Give me a standard preface/ }).click()
-    await expect(page.locator('[data-preface-thread]')).toBeVisible()
-    await page.locator('.tov5-begin-book').click()
     await expect(page).toHaveURL(/\/lab\/reader$/)
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'odyssey')
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'original-en')
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-cover-page', 'true')
+    await expect(page.getByTestId('lab-chapter-cover')).toContainText('The Odyssey')
   })
 }
 
@@ -103,13 +110,12 @@ for (const viewport of [PHONE, DESKTOP]) {
     await page.getByRole('button', { name: 'Start reading' }).click()
     await page.locator('[data-select-edition="original-en"]').click()
     await page.locator('.tov5-continue').click()
-    await page.getByRole('button', { name: /Give me a standard preface/ }).click()
-    await expect(page.locator('[data-preface-thread]')).toBeVisible()
-    await page.locator('.tov5-begin-book').click()
 
     await expect(page).toHaveURL(/\/lab\/reader$/)
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'ivan-ilyich')
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'original-en')
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-cover-page', 'true')
+    await expect(page.getByTestId('lab-chapter-cover')).toContainText('The Death of Ivan Ilyich')
   })
 }
 
@@ -186,7 +192,7 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   await openPreReader(page, '/lab/?autoplay=0&book=ulysses&view=edition')
   const original = page.locator('[data-select-edition="original-en"]')
   const modern = page.locator('[data-select-edition="modern-en"]')
-  const both = page.locator('.tov5-both [data-edition-choice]')
+  const both = page.locator('.tov5-both[data-edition-choice]')
 
   await expect(page.locator('[data-catalogue-edition]')).toHaveCount(2)
   await expect(page.locator('[data-select-edition="modern-da"]')).toHaveCount(0)
@@ -219,6 +225,85 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   await expect(page.locator('[data-catalogue-edition].is-selected')).toHaveCount(0)
   await expect(page.locator('.tov5-both')).toHaveClass(/is-selected/)
   await expect(page.locator('.tov5-continue')).toHaveText('Continue with Both')
+})
+
+for (const viewport of REQUIRED_VIEWPORTS) {
+  test(`selects every edition card from its title, body and footer at ${viewport.label}`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height })
+    await openPreReader(page, '/lab/?autoplay=0&book=ulysses&view=edition')
+
+    const assertions = [
+      { key: 'original-en', prepare: 'modern-en', cta: 'Continue with Original' },
+      { key: 'modern-en', prepare: 'original-en', cta: 'Continue with Modern English' },
+      { key: 'both', prepare: 'original-en', cta: 'Continue with Both' },
+    ]
+    for (const assertion of assertions) {
+      for (const verticalPosition of [.12, .5, .88]) {
+        await page.locator(`[data-catalogue-edition="${assertion.prepare}"]`).click()
+        const target = assertion.key === 'both'
+          ? page.locator('.tov5-both[data-edition-choice]')
+          : page.locator(`[data-catalogue-edition="${assertion.key}"]`)
+        const box = await target.boundingBox()
+        expect(box).not.toBeNull()
+        const before = await page.evaluate(() => window.__tinctLabPreReader.selectionState().revision)
+        await target.click({ position: { x: box!.width / 2, y: Math.max(2, Math.min(box!.height - 2, box!.height * verticalPosition)) } })
+        const after = await page.evaluate(() => window.__tinctLabPreReader.selectionState().revision)
+        expect(after).toBe(before + 1)
+        await expect(target).toHaveAttribute('aria-pressed', 'true')
+        await expect(page.locator('.tov5-continue')).toHaveText(assertion.cta)
+        await expectNoDocumentOverflow(page)
+      }
+    }
+  })
+}
+
+test('removes preface from the V1 route and direct handoff flow', async ({ page }) => {
+  await expect(page.locator('[data-view-panel="preface"]')).toBeHidden()
+  await expect(page.locator('[data-view="preface"]')).toHaveCount(0)
+  await expect(page.locator('[data-begin-reading]:visible')).toHaveCount(0)
+
+  await openPreReader(page, '/lab/?autoplay=0&book=odyssey&view=preface')
+  await expect(page.locator('[data-view-panel="landing"]')).toHaveClass(/is-current/)
+  await expect(page.locator('[data-view-panel="preface"]')).toBeHidden()
+
+  await openPreReader(page, '/lab/library?autoplay=0&book=odyssey&view=preface')
+  await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+  await expect(page.locator('[data-view-panel="preface"]')).toBeHidden()
+
+  await openPreReader(page, '/lab/?autoplay=0&book=odyssey&view=edition')
+  await page.locator('.tov5-continue').click()
+  await expect(page).toHaveURL(/\/lab\/reader$/)
+  await page.goBack()
+  await waitForPreReader(page)
+  await expect(page.locator('[data-view-panel="edition"]')).toHaveClass(/is-current/)
+  await expect(page.locator('[data-view-panel="preface"]')).toBeHidden()
+})
+
+test('keeps full-bleed phone geometry with simulated iOS safe areas', async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 852 })
+  await openPreReader(page, '/lab/?autoplay=0')
+  await page.evaluate(() => {
+    document.documentElement.style.setProperty('--tov5-safe-top', '47px')
+    document.documentElement.style.setProperty('--tov5-safe-right', '0px')
+    document.documentElement.style.setProperty('--tov5-safe-bottom', '34px')
+    document.documentElement.style.setProperty('--tov5-safe-left', '0px')
+  })
+  const safeGeometry = await page.evaluate(() => {
+    const landing = document.querySelector('.tov5-simple-landing').getBoundingClientRect()
+    const wordmark = document.querySelector('.tov5-simple-wordmark').getBoundingClientRect()
+    const entry = document.querySelector('.tov5-simple-entry').getBoundingClientRect()
+    return { landingTop: landing.top, landingBottom: landing.bottom, wordmarkTop: wordmark.top, entryBottomGap: window.innerHeight - entry.bottom }
+  })
+  expect(safeGeometry.landingTop).toBe(0)
+  expect(safeGeometry.landingBottom).toBe(852)
+  expect(safeGeometry.wordmarkTop).toBeGreaterThanOrEqual(47)
+  expect(safeGeometry.entryBottomGap).toBeGreaterThanOrEqual(52)
+  await expectNoDocumentOverflow(page)
+
+  await page.getByRole('button', { name: 'Start reading' }).click()
+  const library = await page.locator('.tov5-library-zoom').boundingBox()
+  expect(library).toMatchObject({ x: 0, y: 0, width: 393 })
+  await expectNoDocumentOverflow(page)
 })
 
 for (const viewport of [PHONE, DESKTOP]) {
@@ -277,15 +362,40 @@ for (const viewport of [PHONE, DESKTOP]) {
   })
 }
 
-for (const viewport of [PHONE, TABLET, DESKTOP]) {
-  test(`uses intentional pre-reader geometry without accidental overflow at ${viewport.width}px`, async ({ page }) => {
-    await page.setViewportSize(viewport)
+for (const viewport of REQUIRED_VIEWPORTS) {
+  test(`uses intentional pre-reader geometry without accidental overflow at ${viewport.label}`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height })
     await page.emulateMedia({ reducedMotion: 'reduce' })
-    await openPreReader(page)
+    await openPreReader(page, '/lab/?autoplay=0')
+    const landingGeometry = await page.evaluate(() => {
+      const bodyStyle = getComputedStyle(document.body)
+      const shell = document.querySelector('.tov5-shell').getBoundingClientRect()
+      const landing = document.querySelector('.tov5-simple-landing').getBoundingClientRect()
+      const entry = document.querySelector('.tov5-simple-entry').getBoundingClientRect()
+      const copy = document.querySelector('.tov5-simple-hero > p').getBoundingClientRect()
+      return {
+        bodyPadding: [bodyStyle.paddingTop, bodyStyle.paddingRight, bodyStyle.paddingBottom, bodyStyle.paddingLeft],
+        shell: { left: shell.left, top: shell.top, width: shell.width },
+        landing: { left: landing.left, top: landing.top, width: landing.width, height: landing.height, radius: getComputedStyle(document.querySelector('.tov5-simple-landing')).borderTopLeftRadius },
+        copyBottom: copy.bottom,
+        entryTop: entry.top,
+      }
+    })
+    await expectNoDocumentOverflow(page)
+    if (viewport.width <= 520) {
+      expect(landingGeometry.bodyPadding).toEqual(['0px', '0px', '0px', '0px'])
+      expect(landingGeometry.shell.left).toBe(0)
+      expect(landingGeometry.shell.top).toBe(0)
+      expect(landingGeometry.shell.width).toBe(viewport.width)
+      expect(landingGeometry.landing).toMatchObject({ left: 0, top: 0, width: viewport.width, height: viewport.height, radius: '0px' })
+      expect(landingGeometry.entryTop - landingGeometry.copyBottom).toBeGreaterThanOrEqual(12)
+    }
+
+    await page.getByRole('button', { name: 'Start reading' }).click()
     const geometry = await page.locator('.tov5-library-zoom').evaluate(element => {
       const rect = element.getBoundingClientRect()
       const body = element.querySelector('.tov5-library-body')
-      return { width: rect.width, left: rect.left, right: window.innerWidth - rect.right, bodyFits: !body || body.scrollWidth <= body.clientWidth + 1 }
+      return { width: rect.width, left: rect.left, top: rect.top, right: window.innerWidth - rect.right, bodyFits: !body || body.scrollWidth <= body.clientWidth + 1 }
     })
     await expectNoDocumentOverflow(page)
     expect(geometry.bodyFits).toBe(true)
@@ -297,6 +407,8 @@ for (const viewport of [PHONE, TABLET, DESKTOP]) {
       expect(geometry.width).toBeGreaterThanOrEqual(720)
     } else {
       expect(geometry.width).toBe(viewport.width)
+      expect(geometry.left).toBe(0)
+      expect(geometry.top).toBe(0)
     }
 
     const labelStyles = await page.locator('.tov5-library-section [data-catalogue-book] strong').evaluateAll(elements => elements.filter(element => (element as HTMLElement).offsetParent !== null).map(element => {
@@ -316,14 +428,12 @@ for (const viewport of [PHONE, TABLET, DESKTOP]) {
 
     await page.getByRole('button', { name: 'Start reading' }).click()
     await expectNoDocumentOverflow(page)
-    if (viewport.width > PHONE.width) {
-      expect(await page.locator('.tov5-edition-surface').evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true)
-    }
-
-    await page.locator('.tov5-continue').click()
-    await expect(page.locator('[data-view-panel="preface"]')).toHaveClass(/is-current/)
-    await expectNoDocumentOverflow(page)
-    expect(await page.locator('.tov5-preface-body').evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true)
+    expect(await page.locator('.tov5-edition-surface').evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true)
+    const cardsFit = await page.locator('[data-catalogue-edition],.tov5-both:not([hidden])').evaluateAll(elements => elements.every(element => {
+      const rect = element.getBoundingClientRect()
+      return rect.left >= 0 && rect.right <= window.innerWidth + 1 && element.scrollWidth <= element.clientWidth + 1
+    }))
+    expect(cardsFit).toBe(true)
   })
 }
 
@@ -345,12 +455,9 @@ for (const { label, viewport } of [{ label: 'phone', viewport: PHONE }, { label:
     await expect(page.locator('[data-catalogue-edition]')).toHaveCount(2)
     await expect(page.locator('[data-select-edition="modern-da"]')).toHaveCount(0)
     await capture(page, `${label}-05-edition-picker`)
-    await page.locator('.tov5-both [data-edition-choice]').click()
-    await expect(page.locator('.tov5-both [data-edition-choice]')).toHaveAttribute('aria-pressed', 'true')
+    await page.locator('.tov5-both[data-edition-choice]').click()
+    await expect(page.locator('.tov5-both[data-edition-choice]')).toHaveAttribute('aria-pressed', 'true')
     await capture(page, `${label}-06-both-selected`)
-    await page.locator('.tov5-continue').click()
-    await expect(page.locator('[data-view-panel="preface"]')).toHaveClass(/is-current/)
-    await capture(page, `${label}-07-optional-preface`)
     await expectNoDocumentOverflow(page)
   })
 }
@@ -363,6 +470,7 @@ declare global {
       createHandoff: (selection: Record<string, unknown>) => Record<string, unknown> | null
       selectBook: (bookId: string) => Promise<boolean>
       visibleBooks: () => Array<Record<string, any>>
+      selectionState: () => { primaryEditionKey: string | null; compareEditionKey: string | null; revision: number }
       renderEditionsForTest: (book: Record<string, any>) => void
     }
   }

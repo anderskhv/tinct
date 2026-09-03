@@ -8,6 +8,7 @@
     selectedBookId: 'odyssey',
     selectedEditionKey: null,
     compareEditionKey: null,
+    selectionRevision: 0,
     activeHouseId: 'all',
     query: '',
     onboarding: null,
@@ -147,11 +148,9 @@
       || book.editions.find(edition => edition.style === 'modern' && edition.language === 'en')?.key
       || book.editions[0]?.key
     state.compareEditionKey = null
-    state.onboarding = null
     applyWorld(book)
     renderDetail(book)
     renderEditions(book)
-    await loadOnboarding(book)
     showView(destination)
     return true
   }
@@ -185,7 +184,7 @@
       const selected = !state.compareEditionKey && edition.key === state.selectedEditionKey
       const metadata = [languageName(edition.language), edition.year, edition.provenanceLabel, edition.availability.audio ? 'Text and audio available' : 'Text available'].filter(Boolean).join(' · ')
       const choiceLabel = editionChoiceLabel(edition)
-      return `<article data-catalogue-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><button type="button" data-select-edition="${edition.key}" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><span></span>Choose ${escapeHtml(choiceLabel)}</button></article>`
+      return `<article data-catalogue-edition="${edition.key}" data-select-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><div class="tov5-edition-select" aria-hidden="true"><span></span>Choose ${escapeHtml(choiceLabel)}</div></article>`
     }).join('')
     root.querySelectorAll('[data-edition-menu]').forEach(menu => { menu.hidden = true })
     updateCompareOption(book)
@@ -200,15 +199,24 @@
     both.hidden = !compare
     if (compare) {
       both.querySelector('strong').textContent = `Compare ${primary.label} and ${compare.label}.`
-      both.querySelector('[data-edition-choice]').dataset.compareEdition = compare.key
+      both.dataset.compareEdition = compare.key
     }
     both.classList.toggle('is-selected', Boolean(compare && state.compareEditionKey))
-    both.querySelector('[data-edition-choice]').setAttribute('aria-pressed', String(Boolean(compare && state.compareEditionKey)))
+    both.setAttribute('aria-pressed', String(Boolean(compare && state.compareEditionKey)))
   }
 
   function updateContinueLabel(book) {
     const edition = v1Editions(book).find(item => item.key === state.selectedEditionKey)
     root.querySelector('.tov5-continue').textContent = state.compareEditionKey ? 'Continue with Both' : `Continue with ${edition ? editionChoiceLabel(edition) : 'selected edition'}`
+  }
+
+  function selectEdition(primaryEditionKey, compareEditionKey = null) {
+    if (state.selectedEditionKey === primaryEditionKey && state.compareEditionKey === compareEditionKey) return false
+    state.selectedEditionKey = primaryEditionKey
+    state.compareEditionKey = compareEditionKey
+    state.selectionRevision += 1
+    renderEditions(selectedBook())
+    return true
   }
 
   async function loadOnboarding(book) {
@@ -350,19 +358,16 @@
       renderCategories(); renderLibrary()
       return
     }
-    const editionButton = event.target.closest('[data-select-edition]')
-    if (editionButton) {
+    const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
+    if (editionCard) {
       event.preventDefault(); event.stopImmediatePropagation()
-      state.selectedEditionKey = editionButton.dataset.selectEdition
-      state.compareEditionKey = null
-      renderEditions(selectedBook())
+      selectEdition(editionCard.dataset.selectEdition)
       return
     }
-    const compareButton = event.target.closest('.tov5-both [data-edition-choice]')
-    if (compareButton) {
+    const compareCard = event.target.closest('.tov5-both[data-edition-choice]')
+    if (compareCard) {
       event.preventDefault(); event.stopImmediatePropagation()
-      state.compareEditionKey = state.compareEditionKey ? null : compareButton.dataset.compareEdition
-      renderEditions(selectedBook())
+      selectEdition(state.selectedEditionKey, compareCard.dataset.compareEdition)
       return
     }
     const character = event.target.closest('[data-catalogue-character]')
@@ -385,12 +390,22 @@
       event.preventDefault(); event.stopImmediatePropagation(); renderEditions(selectedBook()); showView('edition'); return
     }
     if (event.target.closest('.tov5-continue')) {
-      event.preventDefault(); event.stopImmediatePropagation(); renderOnboarding(selectedBook()); showView('preface'); return
+      event.preventDefault(); event.stopImmediatePropagation(); openReader(); return
     }
     if (event.target.closest('[data-begin-reading]')) {
       event.preventDefault(); event.stopImmediatePropagation(); openReader(); return
     }
   }, true)
+
+  root.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return
+    const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
+    const compareCard = event.target.closest('.tov5-both[data-edition-choice]')
+    if (!editionCard && !compareCard) return
+    event.preventDefault()
+    if (editionCard) selectEdition(editionCard.dataset.selectEdition)
+    else selectEdition(state.selectedEditionKey, compareCard.dataset.compareEdition)
+  })
 
   root.addEventListener('input', event => {
     if (!event.target.matches('[data-view-panel="library"] .tov5-library-search input')) return
@@ -403,6 +418,7 @@
     createHandoff,
     selectBook,
     visibleBooks,
+    selectionState: () => ({ primaryEditionKey: state.selectedEditionKey, compareEditionKey: state.compareEditionKey, revision: state.selectionRevision }),
     renderEditionsForTest(book) {
       const previous = state.booksById.get(book.id)
       state.booksById.set(book.id, book)
@@ -426,7 +442,7 @@
     const requested = params.get('book')
     const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
     const requestedView = params.get('view')
-    const allowedViews = new Set(['landing', 'library', 'your-library', 'book-detail', 'edition', 'preface'])
+    const allowedViews = new Set(['landing', 'library', 'your-library', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
   }).then(() => {
     window.__tinctLabPreReader.ready = true

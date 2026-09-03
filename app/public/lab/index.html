@@ -15,6 +15,10 @@
       --border: #d5cec2;
       --primary: #24211d;
       --primary-foreground: #fffdf8;
+      --tov5-safe-top: env(safe-area-inset-top, 0px);
+      --tov5-safe-right: env(safe-area-inset-right, 0px);
+      --tov5-safe-bottom: env(safe-area-inset-bottom, 0px);
+      --tov5-safe-left: env(safe-area-inset-left, 0px);
     }
     html { min-width: 320px; min-height: 100%; background: #f4f0e9; }
     body { min-width: 320px; min-height: 100%; margin: 0; padding: 12px; background: #f4f0e9; }
@@ -30,7 +34,7 @@
   <div class="tov5-shell">
     <nav class="tov5-picker" aria-label="Preview controls">
       <div><span>Book world</span><button type="button" data-book="odyssey" aria-pressed="true">Odyssey</button><button type="button" data-book="meditations" aria-pressed="false">Meditations</button><button type="button" data-book="frankenstein" aria-pressed="false">Frankenstein</button><button type="button" data-book="pride" aria-pressed="false">Pride &amp; Prejudice</button></div>
-      <div><span>Inspect</span><button type="button" data-view="landing" aria-pressed="false">Landing</button><button type="button" data-view="your-library" aria-pressed="false">Your library</button><button type="button" data-view="library" aria-pressed="true">Browse library · replay</button><button type="button" data-view="book-detail" aria-pressed="false">Book detail</button><button type="button" data-view="edition" aria-pressed="false">Edition picker</button><button type="button" data-view="preface" aria-pressed="false">Optional preface</button></div>
+      <div><span>Inspect</span><button type="button" data-view="landing" aria-pressed="false">Landing</button><button type="button" data-view="your-library" aria-pressed="false">Your library</button><button type="button" data-view="library" aria-pressed="true">Browse library · replay</button><button type="button" data-view="book-detail" aria-pressed="false">Book detail</button><button type="button" data-view="edition" aria-pressed="false">Edition picker</button></div>
     </nav>
 
     <section class="tov5-view is-current" data-view-panel="landing">
@@ -228,14 +232,14 @@
             <button type="button" data-edition-choice="modern" aria-pressed="true"><span></span>Choose modern</button>
           </article>
           </div>
-          <article class="tov5-both" data-edition-card="both">
-            <button type="button" data-edition-choice="both" aria-pressed="false">
+          <article class="tov5-both" data-edition-card="both" data-edition-choice="both" role="button" tabindex="0" aria-pressed="false">
+            <div class="tov5-both-choice">
               <div class="tov5-toggle-demo"><span data-edition-short-classic>Butler</span><span>Modern</span><i data-lucide="arrow-left-right" aria-hidden="true"></i></div>
               <div><small>Both versions</small><strong>Flick back and forth between versions.</strong></div>
               <i data-lucide="chevron-right" aria-hidden="true"></i>
-            </button>
+            </div>
           </article>
-          <button type="button" class="tov5-continue" data-view="preface">Continue with Modern</button>
+          <button type="button" class="tov5-continue">Continue with Modern</button>
 
           <div class="tov5-menu" data-edition-menu="human" role="dialog" aria-label="Human translations">
           <header><div><small>Classic text</small><strong>Choose a human translation</strong></div><button type="button" data-close-menu aria-label="Close"><i data-lucide="x" aria-hidden="true"></i></button></header>
@@ -253,7 +257,7 @@
       </div>
     </section>
 
-    <section class="tov5-view" data-view-panel="preface">
+    <section class="tov5-view" data-view-panel="preface" hidden inert aria-hidden="true">
       <div class="tov5-zoom tov5-preface-zoom">
         <img class="tov5-secondary-world-art" src="" data-preface-world-art alt="" aria-hidden="true">
         <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
@@ -878,13 +882,13 @@
   #tinct-onboarding-worlds-v5 .tov5-library-zoom>header>button,#tinct-onboarding-worlds-v5 .tov5-library-section>header>button,#tinct-onboarding-worlds-v5 .tov5-your-library-zoom .tov5-section-label>button,#tinct-onboarding-worlds-v5 .tov5-finished-books>header>button,#tinct-onboarding-worlds-v5 .tov5-embedded-library>header>button { display:none; }
   #tinct-onboarding-worlds-v5 .tov5-both { margin-top:13px; border:1px solid rgba(255,255,255,.30); border-radius:14px; color:#fffdf7; background:rgba(8,17,22,.42); -webkit-backdrop-filter:blur(12px) saturate(.9); backdrop-filter:blur(12px) saturate(.9); box-shadow:0 10px 25px rgba(0,0,0,.14); }
   #tinct-onboarding-worlds-v5 .tov5-both.is-selected { border:2px solid var(--tov5-world-accent); box-shadow:0 12px 28px rgba(0,0,0,.18); }
-  #tinct-onboarding-worlds-v5 .tov5-both>button { width:100%; min-height:122px; display:grid; grid-template-columns:92px 1fr 18px; gap:15px; align-items:center; padding:14px; border:0; border-radius:13px; background:transparent; text-align:left; cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice { width:100%; min-height:122px; display:grid; grid-template-columns:92px 1fr 18px; gap:15px; align-items:center; padding:14px; border:0; border-radius:13px; background:transparent; text-align:left; cursor:pointer; }
   #tinct-onboarding-worlds-v5 .tov5-toggle-demo { position:relative; height:82px; display:grid; grid-template-columns:1fr 1fr; overflow:hidden; border-radius:9px; background:#eee6da; }
   #tinct-onboarding-worlds-v5 .tov5-toggle-demo span { display:grid; place-items:center; padding:5px; font:9px Georgia,serif; writing-mode:vertical-rl; } #tinct-onboarding-worlds-v5 .tov5-toggle-demo span+span { color:#fffdf8; background:var(--tov5-world-ink); }
   #tinct-onboarding-worlds-v5 .tov5-toggle-demo svg { position:absolute; left:36px; top:31px; width:20px; height:20px; padding:4px; border-radius:50%; color:var(--tov5-world-ink); background:#fffdf8; }
   #tinct-onboarding-worlds-v5 .tov5-edition-zoom .tov5-toggle-demo { background:rgba(255,255,255,.10); }
   #tinct-onboarding-worlds-v5 .tov5-edition-zoom .tov5-toggle-demo span+span { background:var(--tov5-world-ink); }
-  #tinct-onboarding-worlds-v5 .tov5-both>button>div:nth-child(2)>* { display:block; } #tinct-onboarding-worlds-v5 .tov5-both small { color:rgba(255,253,247,.66); font-size:9px; text-transform:uppercase; letter-spacing:.05em; } #tinct-onboarding-worlds-v5 .tov5-both strong { margin-top:6px; font:18px Georgia,serif; }
+  #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice>div:nth-child(2)>* { display:block; } #tinct-onboarding-worlds-v5 .tov5-both small { color:rgba(255,253,247,.66); font-size:9px; text-transform:uppercase; letter-spacing:.05em; } #tinct-onboarding-worlds-v5 .tov5-both strong { margin-top:6px; font:18px Georgia,serif; }
   #tinct-onboarding-worlds-v5 .tov5-continue { width:100%; min-height:50px; margin-top:13px; border:1px solid rgba(255,255,255,.35); border-radius:5px; color:#fffdf8; background:var(--tov5-world-ink); box-shadow:0 9px 22px rgba(0,0,0,.18); font-weight:500; cursor:pointer; }
   #tinct-onboarding-worlds-v5 .tov5-menu { display:none; position:absolute; z-index:8; left:43px; right:43px; top:147px; overflow:hidden; border-radius:15px; background:#fffdf8; box-shadow:0 20px 55px rgba(43,30,12,.25); }
   #tinct-onboarding-worlds-v5 .tov5-menu.is-open { display:block; }
@@ -1023,7 +1027,7 @@
     #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { min-height:94px; padding:10px 8px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { font-size:12px; } #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { font-size:8px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>p { padding:13px 10px; font-size:11px; }
-    #tinct-onboarding-worlds-v5 .tov5-both>button { grid-template-columns:73px 1fr 14px; min-height:105px; padding:10px; gap:10px; }
+    #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice { grid-template-columns:73px 1fr 14px; min-height:105px; padding:10px; gap:10px; }
     #tinct-onboarding-worlds-v5 .tov5-toggle-demo { height:74px; } #tinct-onboarding-worlds-v5 .tov5-toggle-demo svg { left:27px; top:27px; }
     #tinct-onboarding-worlds-v5 .tov5-both strong { font-size:14px; }
     #tinct-onboarding-worlds-v5 .tov5-menu { left:18px; right:18px; top:128px; }
@@ -1079,11 +1083,11 @@
   #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { min-height:0; flex:1; display:block; padding:20px; cursor:default; }
   #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { overflow-wrap:anywhere; font-size:18px; line-height:1.2; }
   #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { font-size:11px; line-height:1.55; }
-  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-select-edition] { min-height:58px; display:flex; align-items:center; justify-content:center; gap:8px; padding:9px 12px; border:0; border-top:1px solid rgba(255,255,255,.20); color:rgba(255,253,247,.82); background:rgba(255,255,255,.035); font-size:12px; cursor:pointer; }
-  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-select-edition]>span { width:14px; height:14px; border:1px solid rgba(255,255,255,.58); border-radius:50%; }
-  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>[data-select-edition][aria-pressed="true"]>span { border:4px solid var(--tov5-world-accent); }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>.tov5-edition-select { min-height:58px; display:flex; align-items:center; justify-content:center; gap:8px; padding:9px 12px; border:0; border-top:1px solid rgba(255,255,255,.20); color:rgba(255,253,247,.82); background:rgba(255,255,255,.035); font-size:12px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>.tov5-edition-select>span { width:14px; height:14px; border:1px solid rgba(255,255,255,.58); border-radius:50%; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article[aria-pressed="true"]>.tov5-edition-select>span { border:4px solid var(--tov5-world-accent); }
   #tinct-onboarding-worlds-v5 .tov5-both { margin-top:16px; }
-  #tinct-onboarding-worlds-v5 .tov5-both>button { min-height:110px; }
+  #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice { min-height:110px; }
   #tinct-onboarding-worlds-v5 .tov5-continue { min-height:56px; margin-top:16px; border-radius:10px; font-size:15px; }
 
   /* Optional preface uses the same responsive canvas; unfinished chat/voice controls stay out. */
@@ -1176,7 +1180,7 @@
     #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { width:100%; min-width:0; min-height:230px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { padding:18px; }
     #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { font-size:17px; }
-    #tinct-onboarding-worlds-v5 .tov5-both>button { grid-template-columns:76px minmax(0,1fr) 14px; min-height:104px; gap:11px; padding:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice { grid-template-columns:76px minmax(0,1fr) 14px; min-height:104px; gap:11px; padding:11px; }
     #tinct-onboarding-worlds-v5 .tov5-both strong { overflow-wrap:anywhere; font-size:14px; }
     #tinct-onboarding-worlds-v5 .tov5-preface-body { display:block; padding:24px 18px 30px; }
     #tinct-onboarding-worlds-v5 .tov5-preface-intro h2 { font-size:34px; }
@@ -1185,9 +1189,33 @@
     #tinct-onboarding-worlds-v5 .tov5-character-gallery button { flex:0 0 104px; }
     #tinct-onboarding-worlds-v5 .tov5-begin-book { width:100%; margin-top:18px; }
   }
+
+  /* V1 stabilization: the preface is not part of this journey. */
+  #tinct-onboarding-worlds-v5 [data-view-panel="preface"] { display:none!important; }
+  #tinct-onboarding-worlds-v5 [data-catalogue-edition],
+  #tinct-onboarding-worlds-v5 .tov5-both { cursor:pointer; touch-action:manipulation; }
+  #tinct-onboarding-worlds-v5 [data-catalogue-edition]:focus-visible,
+  #tinct-onboarding-worlds-v5 .tov5-both:focus-visible { outline:3px solid color-mix(in srgb,var(--tov5-world-accent) 78%,white); outline-offset:3px; }
+
+  @media (max-width:520px) {
+    html,body { width:100%; min-width:0; max-width:100%; min-height:100%; overflow-x:hidden; background:#071723; }
+    body { padding:0; }
+    #tinct-onboarding-worlds-v5 { width:100%; min-height:100dvh; padding:0; overflow-x:hidden; }
+    #tinct-onboarding-worlds-v5 .tov5-shell { min-height:100dvh; gap:0; }
+    #tinct-onboarding-worlds-v5 .tov5-view.is-current { min-height:100dvh; align-items:stretch; }
+    #tinct-onboarding-worlds-v5 .tov5-simple-landing { width:100%; height:100dvh; min-height:100svh; aspect-ratio:auto; border:0; border-radius:0; box-shadow:none; }
+    #tinct-onboarding-worlds-v5 .tov5-simple-header { height:calc(68px + var(--tov5-safe-top)); padding:var(--tov5-safe-top) max(20px,var(--tov5-safe-right)) 0 max(20px,var(--tov5-safe-left)); }
+    #tinct-onboarding-worlds-v5 .tov5-simple-hero { top:calc(116px + var(--tov5-safe-top)); }
+    #tinct-onboarding-worlds-v5 .tov5-simple-entry { position:fixed; inset:auto max(24px,var(--tov5-safe-right)) max(18px,calc(18px + var(--tov5-safe-bottom))) max(24px,var(--tov5-safe-left)); width:auto; }
+    #tinct-onboarding-worlds-v5 .tov5-zoom { width:100%; min-height:100dvh; border:0; border-radius:0; box-shadow:none; }
+    #tinct-onboarding-worlds-v5 .tov5-library-zoom { padding-top:calc(20px + var(--tov5-safe-top)); }
+    #tinct-onboarding-worlds-v5 .tov5-your-library-zoom,
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { padding-top:var(--tov5-safe-top); }
+    #tinct-onboarding-worlds-v5 .tov5-edition-zoom { padding-top:calc(20px + var(--tov5-safe-top)); padding-right:max(16px,var(--tov5-safe-right)); padding-bottom:max(26px,var(--tov5-safe-bottom)); padding-left:max(16px,var(--tov5-safe-left)); }
+  }
 </style>
 
-<script src="/lab/interaction-runtime.js?v=20260903-5" defer></script>
-<script src="/lab/catalogue-runtime.js?v=20260903-6" defer></script>
+<script src="/lab/interaction-runtime.js?v=20260903-6" defer></script>
+<script src="/lab/catalogue-runtime.js?v=20260903-7" defer></script>
 </body>
 </html>
