@@ -356,8 +356,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Let the standalone Lab's catalogue and runtime files reach ASSETS rather
     // than being mistaken for nested React reader routes.
     if ((request.method === 'GET' || request.method === 'HEAD') && isLabStaticAssetPath(url.pathname)) {
-      const assetResp = await env.ASSETS.fetch(request)
-      if (assetResp.ok) return assetResp
+      // Return the binding response as-is, including conditional 304s. Treating
+      // a 304 as a miss makes a warm browser fall through to the Lab reader SPA,
+      // caching HTML under a JavaScript URL and breaking every later navigation.
+      return env.ASSETS.fetch(request)
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.

@@ -37,6 +37,9 @@ function routerEnv() {
           return Response.json({ marker: 'published catalogue' })
         }
         if (url.pathname === '/lab/catalogue-runtime.js') {
+          if (request.headers.has('If-None-Match')) {
+            return new Response(null, { status: 304, headers: { ETag: '"lab-runtime"' } })
+          }
           return new Response('window.__labRuntimeLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
         }
         if (url.pathname === '/robots.txt') {
@@ -149,6 +152,14 @@ describe('worker SEO routing', () => {
     const resp = await worker.fetch(new Request('https://tinct.app/lab/catalogue.json?v=20260903-2'), routerEnv() as never, ctx)
     expect(resp.headers.get('Content-Type')).toContain('application/json')
     expect(await resp.text()).toContain('published catalogue')
+  })
+
+  it('returns conditional Lab asset responses without falling through to the app shell', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/catalogue-runtime.js?v=20260903-2', {
+      headers: { 'If-None-Match': '"lab-runtime"' },
+    }), routerEnv() as never, ctx)
+    expect(resp.status).toBe(304)
+    expect(await resp.text()).toBe('')
   })
 
   it('serves the crawlable /read hub instead of the app shell', async () => {
