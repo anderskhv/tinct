@@ -36,7 +36,6 @@ import { LabPhoneBibleTree } from './LabPhoneBibleTree'
 import { markChapterFinished, readFinishedChapters } from './labBibleTree'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import {
-  bibleAudioEditions,
   bibleEditions,
   labFontFamilyCss,
   labFootProgress,
@@ -57,8 +56,9 @@ import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
-import { bibleBookOpeningTitle, bibleFallbackSource, loadLabSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
+import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
+import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, polishPageEnd, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
@@ -290,19 +290,31 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const phone = readPhoneSurface(layoutOverride)
     return readPhoneFooter(layoutOverride, phone)
   })
+  const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
   const boot = bootLabReading(source)
-  const [book, setBook] = useState<LabSource>(boot.book)
-  const [prefs, setPrefs] = useState<LabPrefs>(() => syncLabAudioEdition(readLabPrefs()))
+  const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
+  const [readerLoadError, setReaderLoadError] = useState('')
+  const [prefs, setPrefs] = useState<LabPrefs>(() => {
+    const stored = readLabPrefs()
+    return prefsFromLabReaderHandoff(syncLabAudioEdition(stored), readerHandoff)
+  })
+  const bookEditions = book.editions?.length ? book.editions : bibleEditions()
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
   const [mobileCompareActive, setMobileCompareActive] = useState(false)
   const [desktopCompareActive, setDesktopCompareActive] = useState(false)
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
-  const audioEditionKey = effectiveLabAudioEdition(prefs)
+  const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
   const updatePrefs = useCallback((next: LabPrefs) => {
-    const synced = syncLabAudioEdition(next)
+    const synced = syncLabAudioEdition(next, bookEditions)
     setPrefs(synced)
     writeLabPrefs(synced)
+  }, [bookEditions])
+  useEffect(() => {
+    releaseLabReaderHandoffForPage(readerHandoff)
+    if (readerHandoff) writeLabPrefs(prefs)
+    // This effect only releases the StrictMode bridge after the committed mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
   const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
@@ -334,8 +346,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const readerEditionKey = mobileCompareActive && mobileCompareEnabled
     ? prefs.compareEdition
     : prefs.primaryEdition
-  const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, bibleEditions())
-  const compareEditionLabel = editionLabelFor(prefs.compareEdition, bibleEditions())
+  const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, bookEditions)
+  const compareEditionLabel = editionLabelFor(prefs.compareEdition, bookEditions)
   const nativePhonePaging = showPhoneChrome && browserHasNativePaging()
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
@@ -466,8 +478,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const unmeasuredTriesRef = useRef(0)
   const chapterLandingRef = useRef<'start' | 'end' | null>(null)
   const landingChapterRef = useRef<number | null>(null)
-  const placeRef = useRef(boot.place)
-  const restorePlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(boot.place.paragraphIndex || boot.place.wordIndex ? boot.place : null)
+  const handoffPlace = readerHandoff
+    ? { paragraphIndex: readerHandoff.savedPlace?.paragraphIndex ?? 0, wordIndex: 0 }
+    : null
+  const initialPlace = handoffPlace ?? boot.place
+  const placeRef = useRef(initialPlace)
+  const restorePlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(
+    handoffPlace
+      ? (handoffPlace.paragraphIndex || handoffPlace.wordIndex ? handoffPlace : null)
+      : (boot.place.paragraphIndex || boot.place.wordIndex ? boot.place : null),
+  )
+  const restorePageRef = useRef<number | null>(
+    readerHandoff?.savedPlace?.paragraphIndex === undefined
+      ? (readerHandoff?.savedPlace?.page ?? null)
+      : null,
+  )
   const headlineHeightRef = useRef(0)
   const chapterTitleRef = useRef(book.chapterTitle)
   const chapterNumberRef = useRef(book.chapterNumber)
@@ -540,6 +565,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   })
 
   const [listenSource, setListenSource] = useState(() => ({
+    bookId: book.bookId || 'bible',
     chapterNumber: book.chapterNumber,
     paragraphs: book.paragraphs,
     followParagraphs: book.followParagraphs,
@@ -585,6 +611,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   })
 
   const listen = useLabListen({
+    bookId: listenSource.bookId,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
@@ -598,27 +625,34 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   useEffect(() => {
     if (listen.playing || browseWhileListening) return
     setListenSource({
+      bookId: book.bookId || 'bible',
       chapterNumber: book.chapterNumber,
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
       audioTitle: book.audioTitle,
     })
-  }, [book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, listen.playing, browseWhileListening])
+  }, [book.bookId, book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, listen.playing, browseWhileListening])
 
   const { notePlace, biblicalBook } = useLabPositionSync({
     book,
     placeRef,
-    sourceLocked: Boolean(source),
+    sourceLocked: Boolean(source || readerHandoff),
     authToken,
     onRemoteResume: (place) => {
       setChapterCoverTitle(null)
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
-      void loadLabSource(place.sequentialChapter, {
-        primary: prefs.primaryEdition,
-        compare: prefs.compareEdition,
-        audio: audioEditionKey,
-      }).then(setBook)
+      const resumeBookId = (book.bookId || 'bible') === 'bible' ? 'bible' : place.bookId
+      const compareEditionKey = prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition
+        ? prefs.compareEdition
+        : undefined
+      void loadLabBookSource({
+        bookId: resumeBookId,
+        chapterNumber: place.sequentialChapter,
+        primaryEditionKey: prefs.primaryEdition,
+        compareEditionKey,
+        audioEditionKey,
+      }).then(setBook).catch(() => {})
     },
   })
 
@@ -676,19 +710,49 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     let cancelled = false
     const navigation = ++chapterNavigationRef.current
     const wanted = chapterNumberRef.current
-    loadLabSource(wanted, {
-      primary: prefs.primaryEdition,
-      compare: prefs.compareEdition,
-      audio: audioEditionKey,
+    const activeBookId = book.bookId || 'bible'
+    const primaryEditionKey = bookEditions.some(edition => edition.key === prefs.primaryEdition)
+      ? prefs.primaryEdition
+      : (bookEditions.find(edition => edition.style === 'original' && edition.language === 'en') || bookEditions[0])?.key
+    if (!primaryEditionKey) {
+      setReaderLoadError('This book does not currently have a readable edition.')
+      return
+    }
+    const compareEditionKey = prefs.compareOpen
+      && prefs.compareEdition !== primaryEditionKey
+      && bookEditions.some(edition => edition.key === prefs.compareEdition)
+      ? prefs.compareEdition
+      : undefined
+    loadLabBookSource({
+      bookId: activeBookId,
+      chapterNumber: wanted,
+      primaryEditionKey,
+      compareEditionKey,
+      audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
     }).then((loaded) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
-      // A failed fetch returns Genesis 1. Never flash that over a restored book.
-      if (loaded.chapterNumber !== wanted && wanted !== 1) return
+      // Bible's legacy loader has a Genesis fallback for network failures;
+      // never let that replace a requested Bible chapter. Generic books may
+      // safely normalize an invalid saved chapter to their own first chapter.
+      if (activeBookId === 'bible' && loaded.chapterNumber !== wanted && wanted !== 1) return
+      if (restorePlaceRef.current) {
+        const paragraphIndex = restorePlaceRef.current.paragraphIndex
+        if (paragraphIndex >= loaded.paragraphs.length) {
+          restorePlaceRef.current = { paragraphIndex: 0, wordIndex: 0 }
+          placeRef.current = restorePlaceRef.current
+        }
+      }
+      setReaderLoadError('')
       setChapterCoverTitle(null)
       setBook(loaded)
+    }).catch((error) => {
+      if (!cancelled && navigation === chapterNavigationRef.current) {
+        console.warn('[labReader] Failed to load selected edition', error)
+        setReaderLoadError('This edition is temporarily unavailable. Choose another edition from settings or return to the library.')
+      }
     })
     return () => { cancelled = true }
-  }, [source, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
+  }, [source, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
 
   const openAtEndRef = useRef(false)
 
@@ -756,6 +820,16 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         placeRef.current = place
         const idx = pageIndexForPlace(next, place.paragraphIndex, place.wordIndex)
         pageAnchorRef.current = pageAnchorOf(next[idx])
+        readingPageIndexRef.current = idx
+        setReadingPageIndex(idx)
+      } else if (!nativePhonePaging && restorePageRef.current != null) {
+        const idx = Math.max(0, Math.min(restorePageRef.current, next.length - 1))
+        restorePageRef.current = null
+        const anchor = pageAnchorOf(next[idx])
+        if (anchor) {
+          pageAnchorRef.current = anchor
+          placeRef.current = anchor
+        }
         readingPageIndexRef.current = idx
         setReadingPageIndex(idx)
       } else if (landing !== 'end') {
@@ -858,6 +932,15 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     }
 
     let nextIndex = keep ? restorePageIndexForAnchor(next, keep) : 0
+    if (restorePageRef.current != null) {
+      nextIndex = Math.max(0, Math.min(restorePageRef.current, next.length - 1))
+      restorePageRef.current = null
+      const restored = pageAnchorOf(next[nextIndex])
+      if (restored) {
+        pageAnchorRef.current = restored
+        placeRef.current = restored
+      }
+    }
     if (landing === 'end') {
       nextIndex = next.length - 1
       const page = next[nextIndex]
@@ -1654,20 +1737,22 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [readingPages, showHearing, showPhoneChrome, listen.playing, listen.follow])
 
   useEffect(() => {
+    if ((book.bookId || 'bible') !== 'bible') return
     const editions = {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }
     prefetchLabChapterTexts(book.chapterNumber, editions, 3)
-  }, [book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
+  }, [book.bookId, book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
 
   const warmChapterTexts = useCallback((number: number) => {
+    if ((book.bookId || 'bible') !== 'bible') return
     prefetchLabChapterTexts(number, {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
     }, 1)
-  }, [prefs.primaryEdition, prefs.compareEdition])
+  }, [book.bookId, prefs.primaryEdition, prefs.compareEdition])
 
   useLayoutEffect(() => {
     if (!selectionPopup) return
@@ -1852,10 +1937,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       browseWhileListeningRef.current = true
       setBrowseWhileListening(true)
     }
-    prefetchLabChapterTexts(number, {
-      primary: prefs.primaryEdition,
-      compare: prefs.compareEdition,
-    }, 3)
+    if ((book.bookId || 'bible') === 'bible') {
+      prefetchLabChapterTexts(number, {
+        primary: prefs.primaryEdition,
+        compare: prefs.compareEdition,
+      }, 3)
+    }
     pageAnchorRef.current = null
     restorePlaceRef.current = null
     chapterLandingRef.current = landing
@@ -1869,29 +1956,42 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       paragraphIndex: 0,
       wordIndex: 0,
     })
-    const loaded = await loadLabSource(number, {
-      primary: prefs.primaryEdition,
-      compare: prefs.compareEdition,
-      audio: audioEditionKey,
-    })
+    let loaded: LabSource
+    try {
+      loaded = await loadLabBookSource({
+        bookId: book.bookId || 'bible',
+        chapterNumber: number,
+        primaryEditionKey: prefs.primaryEdition,
+        compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
+        audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
+      })
+    } catch {
+      if (navigation === chapterNavigationRef.current) {
+        setReaderLoadError('That chapter is temporarily unavailable. Your current reading place has been preserved.')
+      }
+      return
+    }
     if (
       navigation !== chapterNavigationRef.current
       || loaded.chapterNumber !== number
       || loaded.paragraphs.length === 0
     ) return
+    setReaderLoadError('')
     setChapterCoverTitle(null)
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
-  }, [listen.playing, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
+  }, [book.bookId, bookEditions, listen.playing, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
-    prefetchLabChapterTexts(number, {
-      primary: prefs.primaryEdition,
-      compare: prefs.compareEdition,
-    }, 1)
+    if ((book.bookId || 'bible') === 'bible') {
+      prefetchLabChapterTexts(number, {
+        primary: prefs.primaryEdition,
+        compare: prefs.compareEdition,
+      }, 1)
+    }
     keepPlayingChapterRef.current = listen.playing ? number : null
     if (listen.playing) setAudioChapterTransitioning(true)
     listen.stop()
@@ -1910,11 +2010,22 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       paragraphIndex: 0,
       wordIndex: 0,
     })
-    const loaded = await loadLabSource(number, {
-      primary: prefs.primaryEdition,
-      compare: prefs.compareEdition,
-      audio: audioEditionKey,
-    })
+    let loaded: LabSource
+    try {
+      loaded = await loadLabBookSource({
+        bookId: book.bookId || 'bible',
+        chapterNumber: number,
+        primaryEditionKey: prefs.primaryEdition,
+        compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
+        audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
+      })
+    } catch {
+      if (navigation === chapterNavigationRef.current) {
+        setAudioChapterTransitioning(false)
+        setReaderLoadError('That chapter is temporarily unavailable. Your current reading place has been preserved.')
+      }
+      return
+    }
     if (
       navigation !== chapterNavigationRef.current
       || loaded.chapterNumber !== number
@@ -1923,12 +2034,14 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (navigation === chapterNavigationRef.current) setAudioChapterTransitioning(false)
       return
     }
+    setReaderLoadError('')
     setChapterCoverTitle(
       landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
         ? bibleBookOpeningTitle(loaded.chapters, number)
         : null,
     )
     setListenSource({
+      bookId: loaded.bookId || 'bible',
       chapterNumber: loaded.chapterNumber,
       paragraphs: loaded.paragraphs,
       followParagraphs: loaded.followParagraphs,
@@ -1936,7 +2049,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     })
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
-  }, [listen, notePlace, prefs.compareEdition, prefs.primaryEdition, audioEditionKey])
+  }, [book.bookId, bookEditions, listen, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
   audioChapterCompleteRef.current = () => {
     const next = nextLabChapter(book.chapters, book.chapterNumber)
@@ -2119,6 +2232,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
       : place
     flushSync(() => setListenSource({
+      bookId: book.bookId || 'bible',
       chapterNumber: book.chapterNumber,
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
@@ -2231,6 +2345,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       setPeekBook(false)
       setInTheBookOpen(false)
       flushSync(() => setListenSource({
+        bookId: book.bookId || 'bible',
         chapterNumber: book.chapterNumber,
         paragraphs: book.paragraphs,
         followParagraphs: book.followParagraphs,
@@ -2318,7 +2433,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   return (
     <div
       ref={labRootRef}
-      lang={bibleEditions().find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      lang={bookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
       data-testid="lab-root"
       data-theme={resolvedDarkMode ? 'dark' : 'light'}
@@ -2327,6 +2442,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-phone-bar={showPhoneBar ? labPhoneBarMode(chrome, peekBook, phoneAskOpen) : 'none'}
       data-page-height={pageMetrics ? String(pageMetrics.height) : ''}
       data-chapter={String(book.chapterNumber)}
+      data-book-id={book.bookId || 'bible'}
       data-cover-page={chapterCoverTitle ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
@@ -2407,6 +2523,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           )}
         </p>
       </header>
+      {readerLoadError && (
+        <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
+          <p>{readerLoadError}</p>
+          <a href="/lab/library">Return to the library</a>
+        </div>
+      )}
 
 
       <div className="lab-body">
@@ -2802,8 +2924,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         onClose={() => setGearOpen(false)}
         prefs={prefs}
         onPrefs={updatePrefs}
-        editions={bibleEditions()}
-        audioEditions={bibleAudioEditions()}
+        editions={bookEditions}
+        audioEditions={bookEditions.filter(edition => edition.hasAudio)}
         onOpenThisBook={() => {
           setGearOpen(false)
           setPhoneAskOpen(false)

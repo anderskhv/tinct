@@ -34,16 +34,28 @@ export interface LabAudioParagraphClip {
 
 export type LabAudioClip = LabAudioTitleClip | LabAudioParagraphClip
 
-export function labAudioChapterBase(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return `${LAB_AUDIO.bookId}/${editionKey}/ch${chapterNumber}`
+export function labAudioChapterBase(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return `${bookId}/${editionKey}/ch${chapterNumber}`
 }
 
-export function labAudioManifestUrl(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/manifest.json`, 'manifest')
+export function labAudioManifestUrl(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/manifest.json`, 'manifest')
 }
 
-export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/words.json`, 'file')
+export function labAudioSidecarUrl(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/words.json`, 'file')
 }
 
 /** Bible has chapter audio on R2; word sidecars are optional. */
@@ -58,8 +70,13 @@ export async function readLabWordSidecar(
   return null
 }
 
-export function labAudioFileUrl(file: string, chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/${file}`, 'file')
+export function labAudioFileUrl(
+  file: string,
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/${file}`, 'file')
 }
 
 export function clipsFromFollowParagraphs(paragraphs: FollowParagraph[]): LabAudioClip[] {
@@ -110,10 +127,11 @@ export async function measureFollowParagraphWords(
   paragraphs: FollowParagraph[],
   chapterNumber = LAB_AUDIO.chapterNumber,
   editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
 ): Promise<FollowParagraph[]> {
   return Promise.all(paragraphs.map(async (paragraph) => {
     if (!paragraph.file || paragraphHasWordTimings(paragraph)) return paragraph
-    const url = labAudioFileUrl(paragraph.file, chapterNumber, editionKey)
+    const url = labAudioFileUrl(paragraph.file, chapterNumber, editionKey, bookId)
     const words = await measureWordTimesFromAudioUrl(
       paragraph.text,
       url,
@@ -127,10 +145,11 @@ export async function loadLabAudioChapter(
   paragraphs: string[],
   chapterNumber = LAB_AUDIO.chapterNumber,
   editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
 ): Promise<FollowParagraph[]> {
   const [manifestRes, sidecarRes] = await Promise.all([
-    fetch(labAudioManifestUrl(chapterNumber, editionKey)),
-    fetch(labAudioSidecarUrl(chapterNumber, editionKey)).catch(() => null),
+    fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId)),
+    fetch(labAudioSidecarUrl(chapterNumber, editionKey, bookId)).catch(() => null),
   ])
   if (!manifestRes.ok) {
     return paragraphs.map((text, index) => ({ index, text }))
@@ -145,7 +164,7 @@ export async function loadLabAudioChapter(
   ))
 
   const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
-  return measureFollowParagraphWords(merged, chapterNumber, editionKey)
+  return measureFollowParagraphWords(merged, chapterNumber, editionKey, bookId)
 }
 
 export function followPlayingClip(

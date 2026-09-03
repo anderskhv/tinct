@@ -1,4 +1,6 @@
-import type { Section, ThreadCharacter } from '../types'
+import type { Edition, Section, ThreadCharacter } from '../types'
+import { getBook } from '../data/bookRegistry'
+import { loadEditionWindow } from '../data/editionLoader'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
@@ -28,6 +30,9 @@ export interface LabChapter {
 }
 
 export interface LabSource {
+  /** Registry book id. Older test fixtures omit it and therefore remain Bible-scoped. */
+  bookId?: string
+  editions?: Edition[]
   bookTitle: string
   bookAuthor: string
   editionLabel: string
@@ -104,6 +109,8 @@ function sourceFromChapter(input: {
 }): LabSource {
   const parsed = parseBibleChapterTitle(input.chapterTitle)
   return {
+    bookId: LAB_BOOK_ID,
+    editions: getBook(LAB_BOOK_ID)?.editions,
     bookTitle: LAB_COPY.bookTitle,
     bookAuthor: LAB_COPY.bookAuthor,
     editionLabel: LAB_COPY.editionLabel,
@@ -200,13 +207,35 @@ async function loadThreadsJson(): Promise<{ characters?: ThreadCharacter[] }> {
   return threadsJson
 }
 
+const bookThreadsJsonCache = new Map<string, { characters?: ThreadCharacter[] }>()
+
+async function loadBookThreadsJson(bookId: string): Promise<{ characters?: ThreadCharacter[] }> {
+  if (bookId === LAB_BOOK_ID) return loadThreadsJson()
+  const cached = bookThreadsJsonCache.get(bookId)
+  if (cached) return cached
+  const response = await fetch(`/data/editions/${bookId}-threads.json?v=${encodeURIComponent(labBuildVersion())}`).catch(() => null)
+  let data: { characters?: ThreadCharacter[] } = { characters: [] }
+  if (response?.ok) {
+    try {
+      const parsed = await response.json() as { characters?: ThreadCharacter[] }
+      if (Array.isArray(parsed.characters)) data = parsed
+    } catch {
+      // Threads are optional. Dev/static hosts may answer a missing JSON asset
+      // with the SPA shell; that must never make readable chapter text fail.
+    }
+  }
+  bookThreadsJsonCache.set(bookId, data)
+  return data
+}
+
 async function loadAudioFollowMetadata(
   paragraphs: string[],
   chapterNumber: number,
   editionKey = LAB_EDITION_KEY,
+  bookId = LAB_BOOK_ID,
 ): Promise<{ followParagraphs: FollowParagraph[]; audioTitle?: LabAudioTitleClip }> {
   try {
-    const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey))
+    const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId))
     if (!manifestRes.ok) {
       return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
     }
@@ -363,5 +392,89 @@ export async function loadLabSource(
     })
   } catch {
     return bibleFallbackSource()
+  }
+}
+
+export interface LabBookSourceSelection {
+  bookId: string
+  primaryEditionKey: string
+  compareEditionKey?: string
+  audioEditionKey?: string
+  chapterNumber?: number
+}
+
+/**
+ * Adapt any published registry edition into the existing Lab reader contract.
+ * This deliberately returns the same LabSource shape as the Bible loader so
+ * pagination, Compare, highlighting and navigation keep one state path.
+ */
+export async function loadLabBookSource(selection: LabBookSourceSelection): Promise<LabSource> {
+  if (selection.bookId === LAB_BOOK_ID) {
+    return loadLabSource(selection.chapterNumber ?? 1, {
+      primary: selection.primaryEditionKey,
+      compare: selection.compareEditionKey,
+      audio: selection.audioEditionKey,
+    })
+  }
+
+  const registryBook = getBook(selection.bookId)
+  if (!registryBook) throw new Error(`Unknown published book: ${selection.bookId}`)
+  const primaryEdition = registryBook.editions.find(edition => edition.key === selection.primaryEditionKey)
+  if (!primaryEdition) throw new Error(`Unknown edition ${selection.primaryEditionKey} for ${selection.bookId}`)
+  const compareEdition = selection.compareEditionKey
+    ? registryBook.editions.find(edition => edition.key === selection.compareEditionKey)
+    : undefined
+  if (selection.compareEditionKey && (!compareEdition || compareEdition.key === primaryEdition.key)) {
+    throw new Error(`Invalid compare edition ${selection.compareEditionKey} for ${selection.bookId}`)
+  }
+  const audioEdition = selection.audioEditionKey
+    ? registryBook.editions.find(edition => edition.key === selection.audioEditionKey && edition.hasAudio)
+    : (primaryEdition.hasAudio ? primaryEdition : registryBook.editions.find(edition => edition.hasAudio))
+  if (selection.audioEditionKey && !audioEdition) {
+    throw new Error(`Invalid audio edition ${selection.audioEditionKey} for ${selection.bookId}`)
+  }
+
+  const requestedChapter = selection.chapterNumber ?? 1
+  const [primaryData, compareData, threads] = await Promise.all([
+    loadEditionWindow(registryBook.id, primaryEdition.key, requestedChapter),
+    compareEdition
+      ? loadEditionWindow(registryBook.id, compareEdition.key, requestedChapter).catch(() => null)
+      : Promise.resolve(null),
+    loadBookThreadsJson(registryBook.id),
+  ])
+  const entry = primaryData.chapters.find(chapter => chapter.number === requestedChapter)
+    ?? primaryData.chapters.find(chapter => chapter.paragraphs.length > 0)
+  if (!entry?.paragraphs.length) {
+    throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
+  }
+  const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
+  const audioMetadata = audioEdition
+    ? await loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
+    : { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })) }
+
+  return {
+    bookId: registryBook.id,
+    editions: registryBook.editions,
+    bookTitle: registryBook.title,
+    bookAuthor: registryBook.author,
+    editionLabel: primaryEdition.label,
+    chapterLabel: entry.title,
+    chapterTitle: entry.title,
+    chapterNumber: entry.number,
+    headerBook: registryBook.title,
+    headerChapter: entry.title,
+    paragraphs: entry.paragraphs,
+    compareParagraphs,
+    followParagraphs: audioMetadata.followParagraphs,
+    audioTitle: audioMetadata.audioTitle,
+    chapters: primaryData.chapters.map(chapter => ({
+      number: chapter.number,
+      title: chapter.title,
+      wordCount: chapter.paragraphs.length
+        ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
+        : undefined,
+    })),
+    sections: primaryData.sections,
+    cast: spoilerSafeCast(threads.characters || [], entry.number),
   }
 }

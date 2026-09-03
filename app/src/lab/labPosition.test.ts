@@ -102,6 +102,26 @@ describe('biblical book identity', () => {
     expect(fromList.chapterNumber).toBe(1)
     expect(fromList.sequentialChapter).toBe(1147)
   })
+
+  it('keeps a catalogue book and chapter as one coherent non-Bible tuple', () => {
+    const place = placeFromChapterRef({
+      chapters: [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }],
+      sequentialChapter: 2,
+      paragraphIndex: 4,
+      wordIndex: 7,
+      deviceId: DEVICE,
+      now: 10,
+      rev: 2,
+      bookId: 'odyssey',
+      headerBook: 'The Odyssey',
+    })
+    expect(place).toMatchObject({
+      bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2,
+      sequentialChapter: 2, paragraphIndex: 4, wordIndex: 7,
+    })
+    expect(chapterExistsOnClient(place, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }])).toBe(true)
+    expect(chapterExistsOnClient({ ...place, sequentialChapter: 3, chapterNumber: 3 }, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }])).toBe(false)
+  })
 })
 
 describe('same-book cloud apply', () => {

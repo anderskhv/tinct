@@ -25,5 +25,10 @@ describe('lab routes', () => {
     expect(labSurface('/lab')).toBe('reader')
     expect(labSurface('/lab/phone')).toBe('reader')
     expect(labSurface('/lab/desktop')).toBe('reader')
+    expect(labSurface('/lab/reader')).toBe('reader')
+  })
+
+  it('keeps the neutral reader route responsive', () => {
+    expect(labLayoutOverride('/lab/reader')).toBeNull()
   })
 })

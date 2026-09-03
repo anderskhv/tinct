@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { bibleFallbackSource, type LabSource } from './labSource'
+import { getBook } from '../data/bookRegistry'
 import {
   biblicalBookId,
   createLabPositionController,
@@ -21,6 +22,27 @@ import {
 } from './labPositionStore'
 
 export function bookFromResumePlace(place: LabBookPlace): LabSource {
+  const registryBook = getBook(place.bookId)
+  if (registryBook && registryBook.id !== 'bible') {
+    const chapterLabel = `Chapter ${place.chapterNumber}`
+    return {
+      bookId: registryBook.id,
+      editions: registryBook.editions,
+      bookTitle: registryBook.title,
+      bookAuthor: registryBook.author,
+      editionLabel: registryBook.editions[0]?.label || '',
+      chapterNumber: place.sequentialChapter,
+      chapterTitle: chapterLabel,
+      chapterLabel,
+      headerBook: registryBook.title,
+      headerChapter: chapterLabel,
+      paragraphs: [],
+      compareParagraphs: [],
+      followParagraphs: [],
+      chapters: [{ number: place.sequentialChapter, title: chapterLabel }],
+      cast: [],
+    }
+  }
   const base = bibleFallbackSource()
   const title = `${place.headerBook} ${place.chapterNumber}`
   return {
@@ -56,6 +78,19 @@ export function placeFromLabBook(
   now: number,
   rev: number,
 ): LabBookPlace {
+  if (book.bookId && book.bookId !== 'bible') {
+    return {
+      bookId: book.bookId,
+      headerBook: book.bookTitle,
+      chapterNumber: book.chapterNumber,
+      sequentialChapter: book.chapterNumber,
+      paragraphIndex: at.paragraphIndex,
+      wordIndex: at.wordIndex,
+      updatedAt: now,
+      deviceId,
+      rev,
+    }
+  }
   const parsed = parseBiblicalPlaceTitle(book.chapterTitle)
   const inBook = Number(book.headerChapter) || Number(parsed.chapter) || 1
   return {
@@ -158,6 +193,8 @@ export function useLabPositionSync(args: {
           deviceId: deviceIdRef.current,
           now: Date.now(),
           rev: revRef.current,
+          bookId: book.bookId,
+          headerBook: book.bookTitle,
         })
     controller.note({ place, reason })
   }, [args.placeRef])
@@ -175,6 +212,8 @@ export function useLabPositionSync(args: {
 
   return {
     notePlace,
-    biblicalBook: biblicalBookId(args.book.headerBook),
+    biblicalBook: args.book.bookId && args.book.bookId !== 'bible'
+      ? args.book.bookId
+      : biblicalBookId(args.book.headerBook),
   }
 }

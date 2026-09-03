@@ -27,6 +27,7 @@ import {
 export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 
 export interface UseLabListenOptions {
+  bookId?: string
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
   chapterNumber?: number
@@ -70,6 +71,7 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const audioChapter = () => optionsRef.current.chapterNumber ?? 1
   const audioEdition = () => optionsRef.current.audioEdition || 'kjv-en'
+  const audioBook = () => optionsRef.current.bookId || 'bible'
 
   const commitFollowParagraphs = useCallback((followed: FollowParagraph[]) => {
     paragraphsRef.current = followed
@@ -85,7 +87,7 @@ export function useLabListen(options: UseLabListenOptions) {
     playingRef.current = false
     setPlaying(false)
     setFollow({ kind: 'none' })
-  }, [options.chapterNumber])
+  }, [options.audioEdition, options.bookId, options.chapterNumber])
 
   useEffect(() => {
     setFollowParagraphs((current) => {
@@ -193,7 +195,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) return false
-    const url = labAudioFileUrl(clip.file, audioChapter(), audioEdition())
+    const url = labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
     switchingRef.current = true
     clipIndexRef.current = index
     setClipIndex(index)
@@ -289,11 +291,11 @@ export function useLabListen(options: UseLabListenOptions) {
         ? optionsRef.current.followParagraphs
         : paragraphsRef.current
       if (!chapterHasWordTimings(followed)) {
-        const sidecarRes = await fetch(labAudioSidecarUrl(chapter, edition)).catch(() => null)
+        const sidecarRes = await fetch(labAudioSidecarUrl(chapter, edition, audioBook())).catch(() => null)
         followed = mergeSidecarWords(optionsRef.current.followParagraphs, await readLabWordSidecar(sidecarRes))
       }
       if (!chapterHasWordTimings(followed)) {
-        followed = await measureFollowParagraphWords(followed, chapter, edition)
+        followed = await measureFollowParagraphWords(followed, chapter, edition, audioBook())
       }
       followed = commitFollowParagraphs(followed)
       const title = optionsRef.current.titleClip?.kind === 'title' ? optionsRef.current.titleClip : null
@@ -301,8 +303,8 @@ export function useLabListen(options: UseLabListenOptions) {
     }
 
     const [manifestRes, sidecarRes] = await Promise.all([
-      fetch(labAudioManifestUrl(chapter, edition)),
-      fetch(labAudioSidecarUrl(chapter, edition)).catch(() => null),
+      fetch(labAudioManifestUrl(chapter, edition, audioBook())),
+      fetch(labAudioSidecarUrl(chapter, edition, audioBook())).catch(() => null),
     ])
     if (!manifestRes.ok) return []
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
@@ -316,7 +318,7 @@ export function useLabListen(options: UseLabListenOptions) {
       await readLabWordSidecar(sidecarRes),
     )
     if (!chapterHasWordTimings(followed)) {
-      followed = await measureFollowParagraphWords(followed, chapter, edition)
+      followed = await measureFollowParagraphWords(followed, chapter, edition, audioBook())
     }
     followed = commitFollowParagraphs(followed)
     const clips = clipsFromManifest(optionsRef.current.paragraphs, manifest.paragraphs || [])

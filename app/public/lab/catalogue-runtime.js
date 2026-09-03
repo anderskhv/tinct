@@ -252,7 +252,9 @@
     window.__tinctLabLastHandoff = intent
     try { sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(intent)) } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
-    window.location.assign('/lab/phone')
+    // Neutral reader route: its layout follows the viewport. Explicit
+    // /lab/phone and /lab/desktop remain useful QA overrides.
+    window.location.assign('/lab/reader')
     return true
   }
 

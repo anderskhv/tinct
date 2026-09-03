@@ -46,6 +46,11 @@ test('keeps the locked landing still when reduced motion is requested', async ({
 for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
   test(`opens book detail, chooses an edition, and reaches the reader at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport)
+    await page.evaluate(() => {
+      const now = Date.now()
+      const hebrews = { bookId: 'hebrews', headerBook: 'Hebrews', chapterNumber: 1, sequentialChapter: 1134, paragraphIndex: 2, wordIndex: 4, updatedAt: now, deviceId: 'qa-old-bible', rev: 1 }
+      localStorage.setItem('tinct-lab-position', JSON.stringify({ books: { hebrews }, lastSettledBookId: 'hebrews', lastSettledAt: now, updatedAt: now, deviceId: 'qa-old-bible' }))
+    })
     await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
     await page.locator('[data-catalogue-book="odyssey"]').first().click()
     await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
@@ -61,10 +66,38 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 
     await page.getByRole('button', { name: /Give me a standard preface/ }).click()
     await expect(page.locator('[data-preface-thread]')).toBeVisible()
     await page.locator('.tov5-begin-book').click()
-    await expect(page).toHaveURL(/\/lab\/phone$/)
-    await expect.poll(() => page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff') || 'null'))).toMatchObject({
-      kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en',
-    })
+    await expect(page).toHaveURL(/\/lab\/reader$/)
+    // The reader consumes the handoff before loading, so it cannot replay on refresh.
+    await expect.poll(() => page.evaluate(() => sessionStorage.getItem('tinct:lab-reader-handoff'))).toBeNull()
+    const reader = page.getByTestId('lab-root')
+    await expect(reader).toHaveAttribute('data-book-id', 'odyssey')
+    await expect(reader).toHaveAttribute('data-reader-edition', 'original-en')
+    await expect(reader).toHaveAttribute('data-lab-layout', viewport.width <= 1024 ? 'phone' : 'desktop')
+    await expect(page.getByTestId('lab-header-work')).toHaveText('The Odyssey')
+    await expect(page.locator('.lab-passage').first()).toContainText(/Tell me, O Muse/)
+  })
+}
+
+for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+  test(`renders a non-showcase catalogue book in the responsive reader at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    const search = page.getByRole('searchbox', { name: 'Search the library' })
+    await search.fill('Ivan Ilyich')
+    await page.locator('.tov5-library-track [data-catalogue-book="ivan-ilyich"]').click()
+    await page.getByRole('button', { name: 'Start reading' }).click()
+    await page.locator('[data-select-edition="original-en"]').click()
+    await page.locator('.tov5-continue').click()
+    await page.getByRole('button', { name: /Give me a standard preface/ }).click()
+    await expect(page.locator('[data-preface-thread]')).toBeVisible()
+    await page.locator('.tov5-begin-book').click()
+
+    await expect(page).toHaveURL(/\/lab\/reader$/)
+    const reader = page.getByTestId('lab-root')
+    await expect(reader).toHaveAttribute('data-book-id', 'ivan-ilyich')
+    await expect(reader).toHaveAttribute('data-reader-edition', 'original-en')
+    await expect(reader).toHaveAttribute('data-lab-layout', viewport.width <= 1024 ? 'phone' : 'desktop')
+    await expect(page.getByTestId('lab-header-work')).toHaveText('The Death of Ivan Ilyich')
+    await expect(page.locator('.lab-passage').first()).toContainText(/During an interval in the Melvinski trial/)
   })
 }
 
@@ -132,10 +165,13 @@ test('derives returning-library state from a coherent saved reader tuple', async
   await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
   await expect(page.locator('[data-returning-book="meditations"]')).toContainText('Chapter 4 · 25% read')
   await page.locator('[data-returning-book="meditations"] [data-continue-book]').click()
-  await expect(page).toHaveURL(/\/lab\/phone$/)
-  await expect.poll(() => page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff') || 'null'))).toMatchObject({
-    kind: 'open-reader', bookId: 'meditations', savedPlace: { bookId: 'meditations', chapterNumber: 4 },
-  })
+  await expect(page).toHaveURL(/\/lab\/reader$/)
+  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'meditations')
+  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '4')
+  await expect(page.getByTestId('lab-header-work')).toHaveText('Meditations')
+  await expect.poll(() => page.getByTestId('lab-root').getAttribute('data-place')).not.toBe('0:0')
+  await expect(page.locator('.lab-passage').first()).toContainText(/Let nothing be done rashly/)
+  await expect.poll(() => page.evaluate(() => sessionStorage.getItem('tinct:lab-reader-handoff'))).toBeNull()
 })
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {

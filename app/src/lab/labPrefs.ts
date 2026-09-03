@@ -59,14 +59,16 @@ export function bibleAudioEditions(): Edition[] {
 }
 
 /** Lab Hear locks narration to the primary edition when it has audio. */
-export function syncLabAudioEdition(prefs: LabPrefs): LabPrefs {
-  const primaryHasAudio = bibleAudioEditions().some(edition => edition.key === prefs.primaryEdition)
+export function syncLabAudioEdition(prefs: LabPrefs, editions: Edition[] = bibleEditions()): LabPrefs {
+  const audioEditions = editions.filter(edition => edition.hasAudio)
+  const primaryHasAudio = audioEditions.some(edition => edition.key === prefs.primaryEdition)
   if (primaryHasAudio) return { ...prefs, audioEdition: prefs.primaryEdition }
-  return prefs
+  if (audioEditions.some(edition => edition.key === prefs.audioEdition)) return prefs
+  return { ...prefs, audioEdition: audioEditions[0]?.key || prefs.primaryEdition }
 }
 
-export function effectiveLabAudioEdition(prefs: LabPrefs): string {
-  return syncLabAudioEdition(prefs).audioEdition
+export function effectiveLabAudioEdition(prefs: LabPrefs, editions: Edition[] = bibleEditions()): string {
+  return syncLabAudioEdition(prefs, editions).audioEdition
 }
 
 export function labFontFamilyCss(family: FontFamily): string {

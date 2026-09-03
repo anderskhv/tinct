@@ -3,6 +3,7 @@ import {
   bibleBookOpeningTitle,
   bibleFallbackSource,
   labHeaderLine,
+  loadLabBookSource,
   loadLabSource,
   nextLabChapter,
   parseBibleChapterTitle,
@@ -53,6 +54,48 @@ describe('bible chapter identity', () => {
 })
 
 describe('loadLabSource', () => {
+  it('adapts a selected published book and compare edition without Bible fallback', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    const requested: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requested.push(url)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('odyssey-original-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Book 1', paragraphs: ['Tell me, O Muse, of that ingenious hero.'] },
+          { number: 2, title: 'Book 2', paragraphs: ['Now when the child of morning appeared.'] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('odyssey-modern-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Book 1', paragraphs: ['Tell me about the clever hero.'] },
+          { number: 2, title: 'Book 2', paragraphs: ['When morning came.'] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('odyssey-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      if (url.includes('audio-manifest')) return new Response('{}', { status: 404 })
+      return new Response('{}', { status: 404 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const source = await loadLabBookSource({
+      bookId: 'odyssey',
+      primaryEditionKey: 'original-en',
+      compareEditionKey: 'modern-en',
+      audioEditionKey: 'original-en',
+      chapterNumber: 2,
+    })
+
+    expect(source.bookId).toBe('odyssey')
+    expect(source.bookTitle).toBe('The Odyssey')
+    expect(source.chapterNumber).toBe(2)
+    expect(source.paragraphs[0]).toContain('child of morning')
+    expect(source.compareParagraphs[0]).toContain('morning came')
+    expect(requested.some(url => url.includes('bible-'))).toBe(false)
+    expect(requested.some(url => url.includes('path=odyssey%2Foriginal-en%2Fch2'))).toBe(true)
+  })
+
   it('loads production Bible Genesis 1 and the chapter list', async () => {
     const manifest = {
       chapters: [

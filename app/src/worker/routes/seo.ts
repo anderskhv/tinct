@@ -346,7 +346,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
-    // reader SPA on the explicit /lab/phone and /lab/desktop routes below.
+    // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
       const labResp = await serveLabPreReader(request.method, url, env)
       if (labResp) return labResp

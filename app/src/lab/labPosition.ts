@@ -92,8 +92,24 @@ export function placeFromChapterRef(input: {
   deviceId: string
   now: number
   rev: number
+  /** Registry book context. Omitted for the Bible's per-biblical-book pins. */
+  bookId?: string
+  headerBook?: string
 }): LabBookPlace {
   const entry = input.chapters.find(item => item.number === input.sequentialChapter)
+  if (input.bookId && input.bookId !== 'bible') {
+    return {
+      bookId: input.bookId,
+      headerBook: input.headerBook || input.bookId,
+      chapterNumber: entry?.number ?? input.sequentialChapter,
+      sequentialChapter: input.sequentialChapter,
+      paragraphIndex: Math.max(0, input.paragraphIndex),
+      wordIndex: Math.max(0, input.wordIndex),
+      updatedAt: input.now,
+      deviceId: input.deviceId,
+      rev: input.rev,
+    }
+  }
   const parsed = parseBiblicalPlaceTitle(entry?.title || 'Genesis 1')
   const chapterNumber = Number(parsed.chapter)
   return {
@@ -119,8 +135,8 @@ export function parseLabBookPlace(raw: unknown): LabBookPlace | null {
   if (typeof src.bookId !== 'string' || !src.bookId || src.bookId.length > 80) return null
   if (src.bookId === 'bible') return null
   if (typeof src.headerBook !== 'string' || !src.headerBook || src.headerBook.length > 80) return null
-  if (!isFiniteInt(src.chapterNumber, 1, 200)) return null
-  if (!isFiniteInt(src.sequentialChapter, 1, 2000)) return null
+  if (!isFiniteInt(src.chapterNumber, 1, 5000)) return null
+  if (!isFiniteInt(src.sequentialChapter, 1, 5000)) return null
   if (!isFiniteInt(src.paragraphIndex, 0, 10_000)) return null
   if (!isFiniteInt(src.wordIndex, 0, 100_000)) return null
   if (!isFiniteInt(src.updatedAt, 1, 1e15)) return null
@@ -170,7 +186,10 @@ export function chapterExistsOnClient(place: LabBookPlace, chapters: LabChapterR
   const sequential = chapters.find(item => item.number === place.sequentialChapter)
   if (sequential) {
     const parsed = parseBiblicalPlaceTitle(sequential.title)
-    return biblicalBookId(parsed.book) === place.bookId
+    const bibleScoped = biblicalBookId(parsed.book) === biblicalBookId(place.headerBook)
+    return bibleScoped
+      ? biblicalBookId(parsed.book) === place.bookId
+      : sequential.number === place.chapterNumber
   }
   return chapters.some((item) => {
     const parsed = parseBiblicalPlaceTitle(item.title)
