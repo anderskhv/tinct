@@ -115,12 +115,7 @@
       phone.dataset.bookWorld=key;
       root.querySelectorAll('.tov5-zoom').forEach(zoom=>{zoom.dataset.bookWorld=key});
       root.querySelector('[data-world-art]').src=coverData[book.art];
-      root.querySelector('[data-library-world-art]').src=coverData[book.art];
-      root.querySelector('[data-your-library-world-art]').src=coverData[book.art];
-      root.querySelector('[data-librarian-world-art]').src=coverData[book.art];
-      root.querySelector('[data-book-detail-world-art]').src=coverData[book.art];
-      root.querySelector('[data-edition-world-art]').src=coverData[book.art];
-      root.querySelector('[data-preface-world-art]').src=coverData[book.art];
+      root.querySelectorAll('[data-library-world-art],[data-your-library-world-art],[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image=>{image.src=coverData[book.art]});
       root.querySelector('[data-current-cover]').src=coverData[book.art];
       root.querySelector('[data-current-cover]').alt=book.title;
       root.querySelector('[data-current-author]').textContent=book.author;
@@ -168,34 +163,6 @@
     };
     root.querySelectorAll('[data-book]').forEach(button=>button.addEventListener('click',()=>{setBook(button.dataset.book);showView('landing')}));
     root.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
-    root.querySelectorAll('[data-librarian-layout]').forEach(button=>button.addEventListener('click',()=>{
-      root.querySelector('.tov5-librarian-zoom').dataset.librarianCurrent=button.dataset.librarianLayout;
-      root.querySelectorAll('[data-librarian-layout]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-      showView('librarian');
-    }));
-    root.querySelectorAll('[data-open-librarian]').forEach(button=>button.addEventListener('click',()=>{
-      const mode=button.dataset.openLibrarian;
-      root.querySelector('.tov5-librarian-zoom').dataset.librarianCurrent=mode;
-      root.querySelectorAll('[data-librarian-layout]').forEach(item=>item.setAttribute('aria-pressed',String(item.dataset.librarianLayout===mode)));
-      showView('librarian');
-    }));
-    root.querySelectorAll('[data-librarian-enter]').forEach(button=>button.addEventListener('click',()=>{
-      const mode=button.dataset.librarianEnter;
-      root.querySelector('.tov5-librarian-zoom').dataset.librarianCurrent=mode;
-      root.querySelectorAll('[data-librarian-layout]').forEach(item=>item.setAttribute('aria-pressed',String(item.dataset.librarianLayout===mode)));
-      note.textContent=mode==='voice'?'Librarian · voice conversation':'Librarian · chat conversation';
-    }));
-    root.querySelectorAll('.tov5-librarian-close').forEach(button=>button.addEventListener('click',()=>showView('library')));
-    root.querySelector('.tov5-end-voice').addEventListener('click',()=>showView('library'));
-    root.querySelector('.tov5-voice-controls button[aria-label="Mute microphone"]').addEventListener('click',event=>{
-      const button=event.currentTarget;
-      const muted=button.getAttribute('aria-pressed')==='true';
-      button.setAttribute('aria-pressed',String(!muted));
-      button.setAttribute('aria-label',muted?'Mute microphone':'Unmute microphone');
-      button.innerHTML=muted?'<i data-lucide="mic-off" aria-hidden="true"></i>':'<i data-lucide="mic" aria-hidden="true"></i>';
-      note.textContent=muted?'Librarian · microphone live':'Librarian · microphone muted';
-      if(window.lucide)window.lucide.createIcons();
-    });
     root.querySelectorAll('[data-open-book]').forEach(button=>button.addEventListener('click',()=>showView('book-detail')));
     root.querySelectorAll('[data-character]').forEach(button=>button.addEventListener('click',()=>selectCharacter(Number(button.dataset.character))));
     root.querySelectorAll('[data-preface-mode]').forEach(button=>button.addEventListener('click',()=>{
@@ -275,13 +242,7 @@
       showFrame(previewFrame);
     }
     const previewView=previewParams.get('view');
-    if(previewView==='library'||previewView==='your-library'||previewView==='librarian'||previewView==='book-detail'||previewView==='edition'||previewView==='preface')showView(previewView);
-    const previewLibrarian=previewParams.get('librarian');
-    if(['choice','focus','voice'].includes(previewLibrarian)){
-      root.querySelector('.tov5-librarian-zoom').dataset.librarianCurrent=previewLibrarian;
-      root.querySelectorAll('[data-librarian-layout]').forEach(item=>item.setAttribute('aria-pressed',String(item.dataset.librarianLayout===previewLibrarian)));
-      showView('librarian');
-    }
+    if(previewView==='library'||previewView==='your-library'||previewView==='book-detail'||previewView==='edition'||previewView==='preface')showView(previewView);
     const previewMenu=previewParams.get('menu');
     if(previewMenu==='human'||previewMenu==='ai')root.querySelector(`[data-edition-menu="${previewMenu}"]`).classList.add('is-open');
     scheduleNextFrame();
