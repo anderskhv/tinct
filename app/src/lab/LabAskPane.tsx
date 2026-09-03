@@ -145,11 +145,18 @@ export function LabAskPane({
         <MicIcon />
       </button>
       <button
-        type="submit"
+        type="button"
         className="lab-ask-send"
         aria-label={LAB_COPY.sendLabel}
         data-testid="lab-ask-send"
         disabled={typedLoading}
+        onPointerDown={(event) => {
+          // Keep the focused input (and mobile keyboard chrome) stable until
+          // the activation completes. Otherwise the target can move between
+          // pointer-down and click when the input blurs.
+          event.preventDefault()
+        }}
+        onClick={submit}
       >
         {LAB_COPY.sendLabel}
       </button>

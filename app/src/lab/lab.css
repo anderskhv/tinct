@@ -928,10 +928,21 @@
 }
 
 .lab-ask-send {
+  position: relative;
+  z-index: 1;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 0.72rem;
   letter-spacing: 0.03em;
   color: #0b0b0b;
+}
+
+/* Preserve the quiet text-only control while giving pointer and touch users
+   a stable minimum 44px activation area. The pseudo-element participates in
+   hit testing without changing the composer's visual geometry. */
+.lab-ask-send::before {
+  content: '';
+  position: absolute;
+  inset: -0.5rem -0.25rem;
 }
 
 .lab-ask-voice.is-connecting,

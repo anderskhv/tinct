@@ -105,7 +105,9 @@ describe('lab ask typed send', () => {
       />,
     )
     expect(screen.getByTestId('lab-ask-send').textContent).toBe('Send')
-    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    const send = screen.getByTestId('lab-ask-send')
+    expect(fireEvent.pointerDown(send)).toBe(false)
+    fireEvent.click(send)
     expect(onSubmit).toHaveBeenCalledWith('Who is Calypso?')
     fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter' })
     expect(onSubmit).toHaveBeenCalledTimes(2)
