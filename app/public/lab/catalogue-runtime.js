@@ -392,8 +392,10 @@
     renderCategories()
     renderLibrary()
     renderReturningLibrary()
-    const requested = new URLSearchParams(location.search).get('book')
-    return selectBook(state.booksById.has(requested) ? requested : 'odyssey', new URLSearchParams(location.search).get('view') || 'landing')
+    const params = new URLSearchParams(location.search)
+    const requested = params.get('book')
+    const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
+    return selectBook(state.booksById.has(requested) ? requested : 'odyssey', params.get('view') || routeView)
   }).then(() => {
     window.__tinctLabPreReader.ready = true
     window.dispatchEvent(new CustomEvent('tinct:lab-catalogue-ready'))

@@ -7,6 +7,16 @@ test.beforeEach(async ({ page }) => {
   await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
 })
 
+test('maps the explicit landing and library aliases to their intended states', async ({ page }) => {
+  await page.goto('/lab/landing?autoplay=0')
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
+  await expect(page.locator('[data-view-panel="landing"]')).toHaveClass(/is-current/)
+
+  await page.goto('/lab/library?autoplay=0')
+  await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true)
+  await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+})
+
 for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
   test(`opens the locked landing and enters the catalogue at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport)

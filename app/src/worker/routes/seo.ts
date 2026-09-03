@@ -146,6 +146,31 @@ function isLabPathname(pathname: string): boolean {
   return isLabPath(pathname)
 }
 
+const LAB_PRE_READER_PATHS = new Set(['/lab', '/lab/', '/lab/landing', '/lab/library'])
+
+async function serveLabPreReader(
+  requestMethod: string,
+  url: URL,
+  env: SeoEnv,
+): Promise<Response | null> {
+  // Cloudflare Assets applies html_handling to binding fetches. Requesting
+  // /lab/index.html is therefore canonicalized to /lab/ with a 307, which is
+  // not an `ok` response and previously caused this route to fall through to
+  // the React reader shell. Fetch the canonical directory URL directly.
+  const assetUrl = new URL(url.toString())
+  assetUrl.pathname = '/lab/'
+  const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
+  if (!labResp.ok) return null
+
+  const newResp = new Response(requestMethod === 'HEAD' ? null : labResp.body, labResp)
+  newResp.headers.set('Cache-Control', 'no-store')
+  newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    newResp.headers.set(key, value)
+  }
+  return newResp
+}
+
 async function serveLabDemo(
   requestMethod: string,
   url: URL,
@@ -318,17 +343,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
 
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
     // reader SPA on the explicit /lab/phone and /lab/desktop routes below.
-    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/lab' || url.pathname === '/lab/')) {
-      const labResp = await env.ASSETS.fetch(new Request(`${url.origin}/lab/index.html`, request))
-      if (labResp.ok) {
-        const newResp = new Response(request.method === 'HEAD' ? null : labResp.body, labResp)
-        newResp.headers.set('Cache-Control', 'no-store')
-        newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-          newResp.headers.set(key, value)
-        }
-        return newResp
-      }
+    if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
+      const labResp = await serveLabPreReader(request.method, url, env)
+      if (labResp) return labResp
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.

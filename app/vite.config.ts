@@ -91,7 +91,7 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
-          if (pathOnly === '/lab' || pathOnly === '/lab/') {
+          if (pathOnly === '/lab' || pathOnly === '/lab/' || pathOnly === '/lab/landing' || pathOnly === '/lab/library') {
             req.url = `/lab/index.html${url.slice(pathOnly.length)}`
             next()
             return
