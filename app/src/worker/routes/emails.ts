@@ -3,7 +3,6 @@ export type EmailEnv = {
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
 }
-
 // ===== Email: Send via Brevo =====
 
 export async function sendEmail(
@@ -57,6 +56,15 @@ const BTN_STYLE = `background: #1f4a5c; color: #fff; padding: 11px 24px; text-de
 
 function wrapEmail(inner: string): string {
   return `<div style="${EMAIL_STYLE}">${inner}${EMAIL_FOOTER}</div>`
+}
+
+// V1 lab pause: lifecycle/promotional emails are temporarily limited to
+// Anders' own account and numbered Tinct test aliases. Keep this gate local to
+// the scheduled campaign so transactional auth, issue-review, and internal
+// anomaly emails continue to work normally.
+function isLifecycleTestRecipient(email: string): boolean {
+  const normalized = email.trim().toLowerCase()
+  return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
 }
 
 // Day 0 — welcome
@@ -175,13 +183,18 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
     }
     const { subject, html } = email()
     let sent = 0
+    let skipped = 0
     for (const user of users) {
       if (!user.email) continue
+      if (!isLifecycleTestRecipient(user.email)) {
+        skipped++
+        continue
+      }
       const ok = await sendEmail(env, user.email, subject, html)
       if (ok) sent++
     }
     totalSent += sent
-    console.log(`[cron] daysAgo=${daysAgo}: sent ${sent}/${users.length}`)
+    console.log(`[cron] daysAgo=${daysAgo}: sent ${sent}/${users.length}, paused ${skipped}`)
   }
   console.log(`[cron] total emails sent: ${totalSent}`)
 
@@ -217,4 +230,3 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
     // Silent
   }
 }
-

@@ -55,12 +55,16 @@ describe('email worker helpers', () => {
     })
   })
 
-  it('sends lifecycle and anomaly emails on schedule', async () => {
+  it('sends lifecycle emails only to Anders test accounts while keeping anomaly alerts', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
       if (url.includes('/rest/v1/profiles?')) {
         if (url.includes('created_at=gte.2026-06-16T00:00:00.000Z')) {
-          return json([{ id: 'u1', email: 'new@example.com' }])
+          return json([
+            { id: 'u1', email: 'new@example.com' },
+            { id: 'u2', email: 'tinct12@fastmail.com' },
+            { id: 'u3', email: 'ahvelplund@fastmail.com' },
+          ])
         }
         return json([])
       }
@@ -79,14 +83,37 @@ describe('email worker helpers', () => {
     await handleScheduled(env)
 
     const brevoCalls = fetchMock.mock.calls.filter(([input]) => String(input) === 'https://api.brevo.com/v3/smtp/email')
-    expect(brevoCalls).toHaveLength(2)
+    expect(brevoCalls).toHaveLength(3)
     expect(JSON.parse(String(brevoCalls[0][1]?.body))).toMatchObject({
-      to: [{ email: 'new@example.com' }],
+      to: [{ email: 'tinct12@fastmail.com' }],
       subject: 'Welcome to Tinct',
     })
     expect(JSON.parse(String(brevoCalls[1][1]?.body))).toMatchObject({
+      to: [{ email: 'ahvelplund@fastmail.com' }],
+      subject: 'Welcome to Tinct',
+    })
+    expect(JSON.parse(String(brevoCalls[2][1]?.body))).toMatchObject({
       to: [{ email: 'contact@tinct.app' }],
       subject: '[Tinct Anomaly] High issue volume detected',
     })
+  })
+
+  it('pauses lifecycle emails for ordinary users', async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles?')) {
+        return json([{ id: 'u1', email: 'reader@example.com' }])
+      }
+      if (url.includes('/rest/v1/rpc/issue_anomalies')) return json([])
+      if (url === 'https://api.brevo.com/v3/smtp/email') {
+        return new Response('{}', { status: 202 })
+      }
+      return json({ error: 'unexpected URL' }, 500)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    await handleScheduled(env)
+
+    expect(fetchMock.mock.calls.some(([input]) => String(input) === 'https://api.brevo.com/v3/smtp/email')).toBe(false)
   })
 })
