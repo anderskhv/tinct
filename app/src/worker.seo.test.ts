@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
 import worker, { serveSpaWithMetaForTest } from './worker'
 import { handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
 
@@ -41,6 +42,9 @@ function routerEnv() {
             return new Response(null, { status: 304, headers: { ETag: '"lab-runtime"' } })
           }
           return new Response('window.__labRuntimeLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/interaction-runtime.js') {
+          return new Response('window.__labInteractionsLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
         }
         if (url.pathname === '/robots.txt') {
           return new Response('User-agent: *\nAllow: /\nDisallow: /data/\nDisallow: /api/\n', { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
@@ -139,6 +143,7 @@ describe('worker SEO routing', () => {
   it.each([
     ['/lab/catalogue.json', 'application/json', 'published catalogue'],
     ['/lab/catalogue-runtime.js', 'text/javascript', '__labRuntimeLoaded'],
+    ['/lab/interaction-runtime.js', 'text/javascript', '__labInteractionsLoaded'],
   ])('serves the standalone Lab asset %s instead of the app shell', async (pathname, contentType, marker) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
@@ -160,6 +165,20 @@ describe('worker SEO routing', () => {
     }), routerEnv() as never, ctx)
     expect(resp.status).toBe(304)
     expect(await resp.text()).toBe('')
+  })
+
+  it('keeps every Lab interaction script executable under the production CSP', async () => {
+    const source = readFileSync(new URL('../public/lab/index.html', import.meta.url), 'utf8')
+    const scripts = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
+    expect(scripts.length).toBeGreaterThan(0)
+    expect(scripts.every(([, attributes, body]) => /\bsrc=/i.test(attributes) && body.trim() === '')).toBe(true)
+    expect(source).toMatch(/src="\/lab\/interaction-runtime\.js\?v=[\d-]+"/)
+
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/'), routerEnv() as never, ctx)
+    const csp = resp.headers.get('Content-Security-Policy') || ''
+    const scriptDirective = csp.split(';').find(directive => directive.trim().startsWith('script-src')) || ''
+    expect(scriptDirective).toContain("script-src 'self'")
+    expect(scriptDirective).not.toContain("'unsafe-inline'")
   })
 
   it('serves the crawlable /read hub instead of the app shell', async () => {
