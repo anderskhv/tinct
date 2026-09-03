@@ -414,18 +414,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     // Library route is in the sitemap, so serve the committed crawlable hub
-    // rather than the SPA shell. This exposes internal book links to crawlers
-    // while the app remains available at /read?view=library and deep links.
-    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/read') {
-      const hubResp = await env.ASSETS.fetch(new Request(`${url.origin}/read/index.html`, request))
-      if (hubResp.ok) {
-        const newResp = new Response(request.method === 'HEAD' ? null : hubResp.body, hubResp)
-        newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
-        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-          newResp.headers.set(key, value)
-        }
-        return newResp
-      }
+    // rather than the SPA shell. Fetch the canonical directory URL: with
+    // auto-trailing-slash HTML handling, /read/index.html redirects to /read/.
+    // Returning that content directly keeps both public URL forms reliable.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/read' || url.pathname === '/read/')) {
+      const hubResp = await serveStaticHtml(request.method, request, url, '/read/', env)
+      if (hubResp) return hubResp
     }
 
     // Per-book transactional SEO: inject book-specific meta tags into the SPA

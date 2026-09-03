@@ -26,6 +26,9 @@ function routerEnv() {
           return new Response(shell, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
         if (url.pathname === '/read/index.html') {
+          return new Response(null, { status: 307, headers: { Location: '/read/' } })
+        }
+        if (url.pathname === '/read/') {
           return new Response(hub, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
         if (url.pathname === '/lab/index.html') {
@@ -181,9 +184,10 @@ describe('worker SEO routing', () => {
     expect(scriptDirective).not.toContain("'unsafe-inline'")
   })
 
-  it('serves the crawlable /read hub instead of the app shell', async () => {
-    const resp = await worker.fetch(new Request('https://tinct.app/read'), routerEnv() as never, ctx)
+  it.each(['/read', '/read/'])('serves the crawlable hub directly at %s instead of redirecting or falling back', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
+    expect(resp.headers.get('Location')).toBeNull()
     expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, must-revalidate')
     expect(await resp.text()).toContain('/read/odyssey/summary')
   })
