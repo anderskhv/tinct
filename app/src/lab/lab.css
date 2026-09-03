@@ -489,7 +489,9 @@
 .lab-passage.is-reading .lab-hearing-stage {
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
+  /* Keep vertical browser gestures, but reserve horizontal movement for the
+     reader's page-swipe handler instead of letting the browser cancel it. */
+  touch-action: pan-y;
 }
 
 .lab-passage.is-reading .lab-hearing-stage[data-page-turn='next'] {
