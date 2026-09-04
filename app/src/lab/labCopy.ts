@@ -44,7 +44,7 @@ export const LAB_COPY = {
   conversationHint: 'Speak. The page stays behind the conversation.',
   listening: 'Listening',
   speaking: 'Speaking',
-  connecting: 'Starting',
+  connecting: 'Connecting',
   readyToSpeak: 'Ready to speak',
   stopTalk: 'Stop talking',
   typedPending: 'A reply is on the way.',

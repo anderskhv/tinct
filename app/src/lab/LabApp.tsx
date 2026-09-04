@@ -370,6 +370,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const [readingPageIndex, setReadingPageIndex] = useState(
     readerHandoff?.savedPlace?.page ?? boot.resume?.pageIndex ?? 0,
   )
+  const [nativePagesRevision, setNativePagesRevision] = useState(0)
   const readerStateRef = useRef<LabReaderStateSnapshot>({
     pageIndex: readingPageIndex,
     primaryEditionKey: prefs.primaryEdition,
@@ -951,6 +952,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
+  const nativePaintPageRef = useRef<string | null>(null)
+  const nativePaintSettledRef = useRef<string | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
@@ -986,6 +989,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     unmeasuredTriesRef.current = 0
     lastAdjustRef.current = null
     beforeGrowPagesRef.current = null
+    nativePaintPageRef.current = null
+    nativePaintSettledRef.current = null
     settleIndexRef.current = null
     setSettleIndex(null)
     const wrapRect = pageWrapRef.current?.getBoundingClientRect()
@@ -1020,6 +1025,10 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     nextIndex = Math.max(0, Math.min(nextIndex, next.length - 1))
     readingPageIndexRef.current = nextIndex
     setReadingPageIndex(currentValue => currentValue === nextIndex ? currentValue : nextIndex)
+    // The native map can equal the provisional map. Still schedule the
+    // rendered-page verification now that the font-settled preflight is the
+    // authority; refs alone do not trigger that verification effect.
+    setNativePagesRevision(revision => revision + 1)
   }, [nativePhonePaging])
 
   const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
@@ -1442,7 +1451,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
   useLayoutEffect(() => {
     if (
-      !pagesStableRef.current
+      (nativePhonePaging ? nativePagesRevision === 0 : !pagesStableRef.current)
       || phoneAskOpen
       || listenPlayingRef.current
       || browseWhileListeningRef.current
@@ -1454,28 +1463,89 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       .find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
     if (!passage) return
     const painted = measureVisiblePageOverflow(wrap, passage, chromeEl)
-    if (!painted || labPageFitsPaint(painted)) return
+    if (!painted) return
 
     // Hidden preflight catches most pages. This visible-page check is the final
     // invariant for font/browser rounding differences on a page turn.
     const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
     if (nativePhonePaging) {
       const pages = readingPagesRef.current
+      const page = pages[pageIdx]
+      const head = pageAnchorOf(page)
+      const paintPage = `${book.chapterNumber}:${pageIdx}:${head?.paragraphIndex ?? -1}:${head?.wordIndex ?? -1}`
+      if (nativePaintPageRef.current !== paintPage) {
+        nativePaintPageRef.current = paintPage
+        lastAdjustRef.current = null
+        beforeGrowPagesRef.current = null
+      }
+
+      if (labPageFitsPaint(painted)) {
+        if (nativePaintSettledRef.current === paintPage) return
+        const next = growPaintedPageIfSlack(
+          pages,
+          pageIdx,
+          painted,
+          lastAdjustRef.current,
+          readerParagraphs,
+        )
+        if (sameChapterPages(next, pages)) return
+        beforeGrowPagesRef.current = pages
+        lastAdjustRef.current = 'grow'
+        workingPagesRef.current = next
+        readingPagesRef.current = next
+        setDraftPages(next)
+        setReadingPages(next)
+        return
+      }
+
+      // The column preflight and the visible word paint do not always wrap a
+      // hyphenated word identically. If a visible growth trial overflows,
+      // restore the last page map that actually fit and stop at that bound.
+      if (lastAdjustRef.current === 'grow' && beforeGrowPagesRef.current) {
+        const fitted = beforeGrowPagesRef.current
+        const trialWords = Math.max(
+          1,
+          leftoverWordCount(page) - leftoverWordCount(fitted[pageIdx]),
+        )
+        if (trialWords > 1) {
+          const refined = growPageByWords(fitted, pageIdx, Math.max(1, Math.floor(trialWords / 2)))
+          if (!sameChapterPages(refined, fitted)) {
+            beforeGrowPagesRef.current = fitted
+            lastAdjustRef.current = 'grow'
+            workingPagesRef.current = refined
+            readingPagesRef.current = refined
+            setDraftPages(refined)
+            setReadingPages(refined)
+            return
+          }
+        }
+        beforeGrowPagesRef.current = null
+        lastAdjustRef.current = 'polish'
+        nativePaintSettledRef.current = paintPage
+        workingPagesRef.current = fitted
+        readingPagesRef.current = fitted
+        setDraftPages(fitted)
+        setReadingPages(fitted)
+        return
+      }
+
       const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
       if (sameChapterPages(next, pages)) return
+      lastAdjustRef.current = 'peel'
       workingPagesRef.current = next
       readingPagesRef.current = next
       setDraftPages(next)
       setReadingPages(next)
       return
     }
+    if (labPageFitsPaint(painted)) return
     pagesStableRef.current = false
     unmeasuredTriesRef.current = 0
     workingPagesRef.current = readingPagesRef.current
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = pageIdx
     setSettleIndex(pageIdx)
-  }, [readingPageIndex, readingPages, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging, readerControlsVisible, gearOpen, chrome, readerParagraphs])
+  }, [readingPageIndex, readingPages, nativePagesRevision, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging, readerControlsVisible, gearOpen, chrome, readerParagraphs, book.chapterNumber])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {

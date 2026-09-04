@@ -71,16 +71,16 @@ export function nextLabVoiceGate(
   if (!voiceActive && conversationState !== 'connecting' && conversationState !== 'listening' && conversationState !== 'thinking') {
     return 'off'
   }
-  // Starting overlay only at Talk open. Do not resurrect it when she
-  // later listens / thinks / speaks.
-  if (conversationState === 'speaking') return 'off'
-  if (current === 'off' && conversationState === 'connecting') return 'connecting'
-  if (current === 'connecting') return 'connecting'
+  // The gate describes transport setup only. Once the live voice machine
+  // reports listening, thinking, or speaking, reveal that exact state rather
+  // than holding a synthetic startup label over it.
+  if (conversationState !== 'connecting') return 'off'
+  if (current === 'off' || current === 'connecting') return 'connecting'
   return current
 }
 
 export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking'): string | null {
-  if (phase === 'connecting') return 'Starting'
+  if (phase === 'connecting') return 'Connecting'
   if (phase === 'listening') return 'Listening'
   if (phase === 'thinking') return 'Thinking'
   if (phase === 'speaking') return 'Speaking'

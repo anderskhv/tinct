@@ -3211,6 +3211,28 @@
   pointer-events: none;
 }
 
+/* Passive reading keeps the location available without presenting it as an
+   open control. A centre tap restores the normal pill and control contrast. */
+.lab.is-phone[data-reader-controls="hidden"] .lab-header-brand,
+.lab.has-phone-chrome[data-reader-controls="hidden"] .lab-header-brand {
+  opacity: 0.58;
+  transition: opacity 160ms ease;
+}
+
+.lab.is-phone[data-reader-controls="hidden"] .lab-header-chapter,
+.lab.has-phone-chrome[data-reader-controls="hidden"] .lab-header-chapter,
+.lab.is-night.is-phone[data-reader-controls="hidden"] .lab-header-chapter,
+.lab.is-night.has-phone-chrome[data-reader-controls="hidden"] .lab-header-chapter {
+  background: transparent;
+  pointer-events: none;
+  cursor: default;
+}
+
+.lab.is-phone[data-reader-controls="hidden"] .lab-header-chevron,
+.lab.has-phone-chrome[data-reader-controls="hidden"] .lab-header-chevron {
+  opacity: 0.42;
+}
+
 .lab.is-phone:not(.has-phone-ask) .lab-bottom-chrome,
 .lab.has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
   position: absolute;
@@ -3697,6 +3719,7 @@
 
 .lab.is-desktop .lab-page-wrap {
   grid-column: 1;
+  grid-row: 1;
   position: relative;
   width: 100%;
   height: 100%;
@@ -3798,6 +3821,7 @@
 
 .lab-desktop-action-rail {
   grid-column: 2;
+  grid-row: 1;
   align-self: center;
   justify-self: center;
   width: 72px;
@@ -3858,20 +3882,24 @@
 }
 
 .lab.is-desktop .lab-ask.is-desktop-companion {
-  position: fixed;
-  top: 92px;
-  right: 122px;
-  bottom: 24px;
-  width: 294px;
-  height: auto;
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  justify-self: end;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: min(560px, 48%);
+  height: 100%;
   max-height: none;
   box-sizing: border-box;
   display: flex;
   padding: 14px;
   border: 1px solid rgba(123, 108, 85, .22);
-  border-radius: 23px;
-  background: rgba(249, 245, 236, .84);
-  box-shadow: 0 22px 54px rgba(53, 43, 30, .18), inset 0 1px 0 rgba(255,255,255,.8);
+  border-radius: 4px;
+  background: rgba(249, 245, 236, .96);
+  box-shadow: -18px 0 42px rgba(53, 43, 30, .1), inset 0 1px 0 rgba(255,255,255,.8);
   backdrop-filter: blur(24px) saturate(1.08);
   -webkit-backdrop-filter: blur(24px) saturate(1.08);
   overflow: hidden;
@@ -3879,7 +3907,7 @@
 }
 
 .lab.is-desktop[data-playing="true"] .lab-ask.is-desktop-companion {
-  bottom: 112px;
+  bottom: auto;
 }
 
 .lab-desktop-companion-head {
@@ -4266,9 +4294,7 @@
     padding-left: 46px;
   }
 
-  .lab.is-desktop .lab-ask.is-desktop-companion {
-    width: 270px;
-  }
+  .lab.is-desktop .lab-ask.is-desktop-companion { width: 50%; }
 }
 
 /* Reader control accessibility: quiet glyphs, full finger-sized targets, and

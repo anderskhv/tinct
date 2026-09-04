@@ -109,4 +109,31 @@ describe('native phone pagination', () => {
     expect(next[1].from).toBe(next[0].to)
     expect(chapterPagesCover(paragraphs, next)).toBe(true)
   })
+
+  it('moves a one-word paragraph tail when that unit is the painted overflow', () => {
+    const paragraphs = ['one two three four', '⁶ And more words follow']
+    const pages = [
+      {
+        paragraphIndex: 0,
+        from: 0,
+        to: 4,
+        segments: [
+          { paragraphIndex: 0, from: 0, to: 4 },
+          { paragraphIndex: 1, from: 0, to: 1 },
+        ],
+      },
+      { paragraphIndex: 1, from: 1, to: 5 },
+    ]
+    const next = shrinkNativePageAfterPaint(paragraphs, pages, 0, {
+      lastBottom: 424,
+      chromeTop: 440,
+      lineHeight: 32,
+      lastLineWords: 1,
+      scrollOverflow: false,
+    })
+
+    expect(chapterPageSegments(next[0])).toEqual([{ paragraphIndex: 0, from: 0, to: 4 }])
+    expect(chapterPageSegments(next[1])[0]).toEqual({ paragraphIndex: 1, from: 0, to: 5 })
+    expect(chapterPagesCover(paragraphs, next)).toBe(true)
+  })
 })

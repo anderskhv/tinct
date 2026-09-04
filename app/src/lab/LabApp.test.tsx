@@ -181,14 +181,14 @@ describe('lab chrome', () => {
     expect(ask.lastElementChild).toBe(composer)
   })
 
-  it('locks the desktop Ask pane to the viewport instead of the chapter height', () => {
+  it('places the desktop Ask pane over the stable secondary reading region', () => {
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
     expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*height:\s*100vh/)
     expect(css).toMatch(/\.lab\.is-desktop\s*\{[^}]*overflow:\s*hidden/)
     expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-page-wrap\s*\{[^}]*overflow:\s*auto/)
-    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*position:\s*fixed/)
-    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*right:\s*122px/)
-    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*width:\s*294px/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*position:\s*relative/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*grid-column:\s*1[^}]*grid-row:\s*1/)
+    expect(css).toMatch(/\.lab\.is-desktop\s+\.lab-ask\.is-desktop-companion\s*\{[^}]*width:\s*min\(560px,\s*48%\)/)
     expect(css).toMatch(/\.lab-ask\.is-empty\s*,\s*\.lab-ask\.has-thread\s*\{[^}]*justify-content:\s*flex-end/)
     expect(css).not.toMatch(/\.lab-ask\.is-empty\s*\{[^}]*justify-content:\s*center/)
     expect(css).toMatch(/\.lab\.is-phone\s+\.lab-ask,\s*\.lab-ask\.is-phone-sheet\s*\{[^}]*width:\s*100%/)
@@ -850,8 +850,8 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-ask-composer').getAttribute('data-voice-phase')).toBe('connecting')
     expect(screen.getByTestId('lab-status').textContent).toBe('Talking · tap × to stop')
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-connecting')
-    expect(screen.getByTestId('lab-ask-voice-status').textContent).toContain('Starting')
-    expect(screen.getByTestId('lab-ask-voice').textContent).not.toContain('Starting')
+    expect(screen.getByTestId('lab-ask-voice-status').textContent).toContain('Connecting')
+    expect(screen.getByTestId('lab-ask-voice').textContent).not.toContain('Connecting')
     expect(screen.getByTestId('lab-ask-mic').className).not.toContain('is-connecting')
     expect(screen.queryByTestId('lab-conversation')).toBeNull()
     expect(screen.queryByTestId('lab-orb')).toBeNull()
@@ -1394,20 +1394,19 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-voice-gate').textContent).toBe('Ready to speak')
     expect(screen.getByTestId('lab-voice-gate').getAttribute('data-phase')).toBe('ready')
     const chrome = readFileSync(resolve(__dirname, 'labChrome.ts'), 'utf8')
-    expect(chrome).toMatch(/current === 'off' && conversationState === 'connecting'/)
+    expect(chrome).toMatch(/conversationState !== 'connecting'/)
     expect(chrome).not.toMatch(/current === 'connecting' && conversationState === 'listening'\) return 'ready'/)
   })
 
-  it('drops Starting when the session is ready instead of holding Ready to speak', () => {
+  it('drops Connecting when the live session leaves transport setup', () => {
     const app = readFileSync(resolve(__dirname, 'LabApp.tsx'), 'utf8')
     const chrome = readFileSync(resolve(__dirname, 'labChrome.ts'), 'utf8')
     expect(app).not.toMatch(/LAB_READY_HOLD_MS/)
-    expect(app).toMatch(/userSpeechStarted/)
-    expect(chrome).toMatch(/userSpeechStarted/)
+    expect(chrome).toMatch(/conversationState !== 'connecting'/)
     expect(chrome).not.toMatch(/LAB_READY_HOLD_MS/)
   })
 
-  it('covers the phone chat with a Starting overlay on Talk', () => {
+  it('covers the phone chat with a Connecting overlay on Talk', () => {
     vi.stubGlobal('navigator', {
       ...navigator,
       mediaDevices: {
@@ -1417,7 +1416,7 @@ describe('lab chrome', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="signed-in" />)
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     const gate = screen.getByTestId('lab-voice-gate')
-    expect(gate.textContent).toContain('Starting')
+    expect(gate.textContent).toContain('Connecting')
     expect(gate.getAttribute('data-phase')).toBe('connecting')
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
@@ -1425,7 +1424,7 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
   })
 
-  it('drops Starting and shows the chat sheet when unsigned-in Talk fails', async () => {
+  it('drops Connecting and shows the chat sheet when unsigned-in Talk fails', async () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
@@ -1439,7 +1438,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-phone-talk')).toBeTruthy()
   })
 
-  it('drops Starting after 8s if voice never reaches listening', async () => {
+  it('drops Connecting after 8s if voice setup never completes', async () => {
     vi.useFakeTimers()
     vi.stubGlobal('fetch', () => new Promise(() => { /* hang token fetch */ }))
     vi.stubGlobal('navigator', {
@@ -1450,7 +1449,7 @@ describe('lab chrome', () => {
     })
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="signed-in" />)
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
-    expect(screen.getByTestId('lab-voice-gate').textContent).toContain('Starting')
+    expect(screen.getByTestId('lab-voice-gate').textContent).toContain('Connecting')
     await act(async () => {
       await vi.advanceTimersByTimeAsync(8000)
     })
@@ -1616,7 +1615,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
   })
 
-  it('submits typed Chat on Send and on Enter without Starting', async () => {
+  it('submits typed Chat on Send and on Enter without opening voice setup', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
       status: 200,

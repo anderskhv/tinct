@@ -23,19 +23,19 @@ describe('lab chrome states', () => {
     expect(labAfterTalk('reading')).toBe('reading')
   })
 
-  it('names Starting / Listening / Thinking / Speaking for the composer status', () => {
-    expect(labVoicePhaseLabel('connecting')).toBe('Starting')
+  it('names Connecting / Listening / Thinking / Speaking for the composer status', () => {
+    expect(labVoicePhaseLabel('connecting')).toBe('Connecting')
     expect(labVoicePhaseLabel('listening')).toBe('Listening')
     expect(labVoicePhaseLabel('thinking')).toBe('Thinking')
     expect(labVoicePhaseLabel('speaking')).toBe('Speaking')
     expect(labVoicePhaseLabel('idle')).toBeNull()
   })
 
-  it('holds Starting until her greeting audio begins, not when the session is listening', () => {
+  it('shows setup only while the live session is connecting', () => {
     expect(nextLabVoiceGate('off', 'connecting', true)).toBe('connecting')
     expect(nextLabVoiceGate('connecting', 'connecting', true)).toBe('connecting')
-    expect(nextLabVoiceGate('connecting', 'listening', true)).toBe('connecting')
-    expect(nextLabVoiceGate('connecting', 'thinking', true)).toBe('connecting')
+    expect(nextLabVoiceGate('connecting', 'listening', true)).toBe('off')
+    expect(nextLabVoiceGate('connecting', 'thinking', true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'speaking', true)).toBe('off')
     expect(nextLabVoiceGate('off', 'listening', true)).toBe('off')
     expect(nextLabVoiceGate('off', 'thinking', true)).toBe('off')
@@ -45,8 +45,8 @@ describe('lab chrome states', () => {
     expect(nextLabVoiceGate('connecting', 'connecting', false)).toBe('connecting')
   })
 
-  it('does not dismiss Starting just because the mic heard a blip', () => {
-    expect(nextLabVoiceGate('connecting', 'listening', true, null, true)).toBe('connecting')
+  it('does not mask a live state after the microphone becomes active', () => {
+    expect(nextLabVoiceGate('connecting', 'listening', true, null, true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'speaking', true, null, true)).toBe('off')
     expect(nextLabVoiceGate('ready', 'speaking', true, null, true)).toBe('off')
   })

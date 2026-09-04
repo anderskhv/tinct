@@ -44,7 +44,17 @@ export function shrinkNativePageAfterPaint(
   if (labPageFitsPaint(painted)) return pages
   const page = pages[pageIndex]
   const tail = chapterPageTail(page)
-  if (!page || !tail || tail.to <= tail.from + 1) return pages
+  if (!page || !tail) return pages
+  const segments = chapterPageSegments(page)
+  // A browser-laid-out page can end with only a verse unit or one word from
+  // the next paragraph. That tiny final segment may be exactly what crosses
+  // the chrome boundary. Move it forward as a unit, then let the next painted
+  // pass decide whether the preceding segment also needs trimming.
+  if (tail.to <= tail.from + 1) {
+    if (segments.length <= 1 || tail.to <= tail.from) return pages
+    const next = cutPageTailTo(pages, pageIndex, tail.from)
+    return sameChapterPages(next, pages) ? pages : next
+  }
   const overflowPx = Math.max(0, painted.lastBottom - painted.chromeTop)
   let nextTo = nextPaintShrinkTo(tail.from, tail.to, painted.lastLineWords, overflowPx, painted.lineHeight)
   nextTo = snapShrinkEndToSentence(
@@ -55,7 +65,7 @@ export function shrinkNativePageAfterPaint(
     Math.max(6, painted.lastLineWords || 0),
   )
   if (nextTo >= tail.to) return pages
-  const next = chapterPageSegments(page).length > 1
+  const next = segments.length > 1
     ? cutPageTailTo(pages, pageIndex, nextTo)
     : applyPaintShrink(pages, pageIndex, nextTo, {
         lastLineWords: painted.lastLineWords,
