@@ -28,6 +28,36 @@ ROMAN_TO_ARABIC = {
     "XXIII": "23", "XXIV": "24",
 }
 
+# Whisper commonly transcribes a printed list marker such as ``1.`` as the
+# spoken token ``one``.  This table is deliberately limited to standalone
+# cardinal forms: it is an acoustic equivalence, not a fuzzy text-rewrite
+# mechanism.  Speaker labels and other genuine text/audio differences must
+# remain visible to the quality gate.
+CARDINAL_WORDS = {
+    0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+    6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
+    11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen",
+    15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen",
+    19: "nineteen", 20: "twenty", 30: "thirty", 40: "forty",
+    50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty",
+    90: "ninety", 100: "onehundred",
+}
+
+
+def canonical_alignment_token(token: str) -> str:
+    """Return a conservative acoustic comparison token for alignment only."""
+    normalized = normalize_token(token)
+    if not normalized:
+        return normalized
+    if normalized.isdecimal():
+        value = int(normalized)
+        if value in CARDINAL_WORDS:
+            return CARDINAL_WORDS[value]
+        if 21 <= value <= 99 and value % 10:
+            tens, ones = divmod(value, 10)
+            return CARDINAL_WORDS[tens * 10] + CARDINAL_WORDS[ones]
+    return normalized
+
 
 def clean_text(text: str) -> str:
     """Same normalization Kokoro uses before TTS (run-kokoro-cloud.py)."""
@@ -44,7 +74,7 @@ def clean_text(text: str) -> str:
         text,
     )
     text = re.sub(r"\b([A-Z]{2,})\b", lambda m: m.group(1).title(), text)
-    text = text.replace("'", "'").replace("'", "'").replace(""", '"').replace(""", '"')
+    text = text.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"')
     text = re.sub(r"  +", " ", text).strip()
     return text
 
@@ -69,21 +99,47 @@ class HeardWord:
         return normalize_token(self.raw)
 
 
-def align_tokens(expected_tokens: Sequence[str], heard: Sequence[HeardWord]) -> List[dict[str, Any]]:
-    """Map edition tokens onto whisper timings; interpolate gaps."""
-    if not expected_tokens:
-        return []
-    if not heard:
-        return []
+@dataclass(frozen=True)
+class AlignmentStats:
+    """How much of an alignment came from Whisper rather than interpolation."""
 
-    exp_norm = [normalize_token(t) for t in expected_tokens]
-    heard_norm = [h.norm for h in heard]
+    expected_words: int
+    heard_words: int
+    matched_words: int
+
+    @property
+    def match_ratio(self) -> float:
+        if self.expected_words <= 0:
+            return 1.0
+        return self.matched_words / self.expected_words
+
+
+def align_tokens_with_stats(
+    expected_tokens: Sequence[str],
+    heard: Sequence[HeardWord],
+) -> Tuple[List[dict[str, Any]], AlignmentStats]:
+    """Map edition tokens onto Whisper timings and report observed coverage.
+
+    Missing edition tokens are interpolated so the reader still receives one
+    timing per rendered whitespace token. ``matched_words`` deliberately counts
+    only exact normalized matches produced by Whisper; interpolated tokens must
+    not make a low-quality transcript look complete.
+    """
+    if not expected_tokens:
+        return [], AlignmentStats(0, len(heard), 0)
+    if not heard:
+        return [], AlignmentStats(len(expected_tokens), 0, 0)
+
+    exp_norm = [canonical_alignment_token(t) for t in expected_tokens]
+    heard_norm = [canonical_alignment_token(h.raw) for h in heard]
 
     sm = SequenceMatcher(None, exp_norm, heard_norm, autojunk=False)
     aligned: List[Optional[dict[str, Any]]] = [None] * len(expected_tokens)
+    matched_words = 0
 
     for tag, i1, i2, j1, j2 in sm.get_opcodes():
         if tag == "equal":
+            matched_words += i2 - i1
             for offset, ei in enumerate(range(i1, i2)):
                 hj = j1 + offset
                 aligned[ei] = {
@@ -121,7 +177,14 @@ def align_tokens(expected_tokens: Sequence[str], heard: Sequence[HeardWord]) -> 
         if i + 1 < len(aligned) and aligned[i + 1] is not None:
             entry["end"] = min(entry["end"], aligned[i + 1]["start"])
 
-    return [entry for entry in aligned if entry is not None]
+    words = [entry for entry in aligned if entry is not None]
+    return words, AlignmentStats(len(expected_tokens), len(heard), matched_words)
+
+
+def align_tokens(expected_tokens: Sequence[str], heard: Sequence[HeardWord]) -> List[dict[str, Any]]:
+    """Backward-compatible alignment helper used by existing callers/tests."""
+    words, _stats = align_tokens_with_stats(expected_tokens, heard)
+    return words
 
 
 def is_timed_word(value: Any) -> bool:
@@ -142,12 +205,14 @@ def is_timed_word(value: Any) -> bool:
 def validate_sidecar(
     sidecar: dict[str, Any],
     expected_paragraphs: Optional[Sequence[Sequence[str]]] = None,
+    manifest_by_paragraph: Optional[dict[int, dict[str, Any]]] = None,
 ) -> Tuple[bool, List[str]]:
     errors: List[str] = []
     paragraphs = sidecar.get("paragraphs")
     if not isinstance(paragraphs, list):
         return False, ["paragraphs must be an array"]
 
+    seen_paragraphs: set[int] = set()
     for entry in paragraphs:
         if not isinstance(entry, dict):
             errors.append("paragraph entry is not an object")
@@ -157,12 +222,34 @@ def validate_sidecar(
         if not isinstance(pidx, int):
             errors.append("paragraph index missing or not int")
             continue
+        if pidx in seen_paragraphs:
+            errors.append(f"paragraph {pidx}: duplicate entry")
+        seen_paragraphs.add(pidx)
         if not isinstance(words, list) or len(words) == 0:
             errors.append(f"paragraph {pidx}: words missing or empty")
             continue
+        duration: Optional[float] = None
+        manifest_entry = (
+            manifest_by_paragraph.get(pidx)
+            if manifest_by_paragraph is not None else None
+        )
+        if manifest_by_paragraph is not None:
+            if manifest_entry is None:
+                errors.append(f"paragraph {pidx}: absent from audio manifest")
+            else:
+                expected_file = manifest_entry.get("file")
+                if entry.get("file") != expected_file:
+                    errors.append(f"paragraph {pidx}: file does not match audio manifest")
+                manifest_duration = manifest_entry.get("duration")
+                if not isinstance(manifest_duration, (int, float)) or manifest_duration < 0:
+                    errors.append(f"paragraph {pidx}: audio manifest duration is invalid")
+                else:
+                    duration = float(manifest_duration)
         for wi, word in enumerate(words):
             if not is_timed_word(word):
                 errors.append(f"paragraph {pidx} word {wi}: invalid timed word")
+            elif duration is not None and word["end"] > duration + 0.05:
+                errors.append(f"paragraph {pidx} word {wi}: timestamp exceeds audio duration")
         for wi in range(1, len(words)):
             if words[wi]["start"] < words[wi - 1]["start"]:
                 errors.append(f"paragraph {pidx}: non-monotonic start at word {wi}")
@@ -173,6 +260,24 @@ def validate_sidecar(
                 errors.append(
                     f"paragraph {pidx}: word count {len(words)} != expected {len(exp)}",
                 )
+            else:
+                for wi, (word, expected) in enumerate(zip(words, exp)):
+                    if not isinstance(word, dict):
+                        continue
+                    if word.get("text") != expected:
+                        errors.append(
+                            f"paragraph {pidx} word {wi}: text does not match edition token",
+                        )
+                        break
+
+    if expected_paragraphs is not None:
+        required = {
+            index
+            for index, expected in enumerate(expected_paragraphs)
+            if len(expected) > 0
+        }
+        for missing in sorted(required - seen_paragraphs):
+            errors.append(f"paragraph {missing}: missing sidecar entry")
 
     return len(errors) == 0, errors
 
