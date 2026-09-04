@@ -8,7 +8,6 @@ import {
   applyPaintShrink,
   isLabVerseMarker,
   labVerseMarkerDisplay,
-  polishPageEnd,
   sameChapterPages,
   snapShrinkEndToSentence,
   tokenizeHearingWords,
@@ -150,28 +149,6 @@ export function nativePagesFromPlacements(
   return balanceNativeChapterTail(pages)
 }
 
-/**
- * Keep a browser-measured page from ending on a verse marker or a weak joiner
- * such as “and” or “the”. Applying every boundary in order passes the small
- * rollback through the following pages instead of progressively overfilling
- * them, while preserving the chapter's contiguous word coverage.
- */
-export function polishNativePageEnds(
-  paragraphs: string[],
-  pages: ChapterHearingPage[],
-): ChapterHearingPage[] {
-  let next = pages
-  for (let pageIndex = 0; pageIndex < next.length - 1; pageIndex += 1) {
-    const segments = chapterPageSegments(next[pageIndex])
-    const tail = segments[segments.length - 1]
-    if (!tail) continue
-    const words = tokenizeHearingWords(paragraphs[tail.paragraphIndex] || '')
-    const polishedTo = polishPageEnd(words, tail.from, tail.to, 6)
-    if (polishedTo < tail.to) next = cutPageTailTo(next, pageIndex, polishedTo)
-  }
-  return balanceNativeChapterTail(next)
-}
-
 function nativeWordSpacing(
   word: { text: string },
   wordIndex: number,
@@ -301,7 +278,7 @@ export function LabNativePaginator({
           wordIndex,
         })
       })
-      const pages = polishNativePageEnds(paragraphs, nativePagesFromPlacements(placements))
+      const pages = nativePagesFromPlacements(placements)
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)) {
         onPages(pages)
       }

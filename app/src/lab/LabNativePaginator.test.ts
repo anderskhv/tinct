@@ -4,23 +4,11 @@ import { createElement } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { chapterPagesCover, chapterPageSegments } from './labHearing'
-import { LabNativePaginator, balanceNativeChapterTail, nativePagesFromPlacements, polishNativePageEnds, shrinkNativePageAfterPaint, type LabNativeWordPlacement } from './LabNativePaginator'
+import { LabNativePaginator, balanceNativeChapterTail, nativePagesFromPlacements, shrinkNativePageAfterPaint, type LabNativeWordPlacement } from './LabNativePaginator'
 
 afterEach(cleanup)
 
 describe('native phone pagination', () => {
-  it('moves a weak final word forward while keeping chapter coverage contiguous', () => {
-    const paragraphs = ['And God said let the earth bring forth grass the herb yielding seed']
-    const pages = [
-      { paragraphIndex: 0, from: 0, to: 10 },
-      { paragraphIndex: 0, from: 10, to: 13 },
-    ]
-    expect(polishNativePageEnds(paragraphs, pages)).toEqual([
-      { paragraphIndex: 0, from: 0, to: 9 },
-      { paragraphIndex: 0, from: 9, to: 13 },
-    ])
-  })
-
   it('turns browser column placements into exact multi-paragraph pages', () => {
     const placements: LabNativeWordPlacement[] = [
       { pageIndex: 0, paragraphIndex: 0, wordIndex: 0 },

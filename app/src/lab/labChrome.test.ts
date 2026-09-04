@@ -169,12 +169,12 @@ describe('lab chrome inset invariant', () => {
     expect(nextPaintShrinkTo(10, 11, 4)).toBe(11)
   })
 
-  it('does not regrow a page after finalizing the result of a trial grow', () => {
+  it('does not regrow a page after a one-word trial establishes the painted bound', () => {
     expect(shouldGrowPaintedPage(null, 80, 40)).toBe(true)
     expect(shouldGrowPaintedPage('peel', 80, 40)).toBe(true)
     expect(shouldGrowPaintedPage('grow', 80, 40)).toBe(true)
-    expect(shouldGrowPaintedPage('polish', 80, 40)).toBe(false)
-    expect(shouldGrowPaintedPage('polish', 101, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('bounded', 80, 40)).toBe(false)
+    expect(shouldGrowPaintedPage('bounded', 200, 40)).toBe(false)
   })
 
   it('does not eat Genesis page 1 down to the verse number when last-line count is the whole pack', () => {
