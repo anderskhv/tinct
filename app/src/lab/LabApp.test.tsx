@@ -3592,7 +3592,7 @@ describe('lab chrome pass', () => {
     expect(root.style.getPropertyValue('--lab-line-height')).toBe('1.34')
     expect(root.style.getPropertyValue('--lab-reader-margin')).toBe('1.1rem')
     expect(root.style.getPropertyValue('--lab-paragraph-gap')).toBe('.55em')
-    expect((JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { alignment?: string }).alignment).toBe('left')
+    expect((JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { phone?: { alignment?: string } }).phone?.alignment).toBe('left')
   })
 })
 

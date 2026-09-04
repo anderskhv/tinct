@@ -46,6 +46,7 @@ import {
   syncLabAudioEdition,
   effectiveLabAudioEdition,
   type LabPrefs,
+  type LabAppearanceProfile,
   type LabReaderProgressMode,
 } from './labPrefs'
 import { labLayoutOverride } from './labRoute'
@@ -292,12 +293,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const phone = readPhoneSurface(layoutOverride)
     return readPhoneFooter(layoutOverride, phone)
   })
+  const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
   const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
   const [prefs, setPrefs] = useState<LabPrefs>(() => {
-    const stored = syncLabAudioEdition(readLabPrefs())
+    const stored = syncLabAudioEdition(readLabPrefs(appearanceProfile))
     const restored = readerHandoff
       ? prefsFromLabReaderHandoff(stored, readerHandoff)
       : prefsFromLabResumePlace(stored, boot.resume)
@@ -315,11 +317,17 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(next, bookEditions)
     setPrefs(synced)
-    writeLabPrefs(synced)
-  }, [bookEditions])
+    writeLabPrefs(synced, appearanceProfile)
+  }, [appearanceProfile, bookEditions])
+  const prefsProfileRef = useRef(appearanceProfile)
+  useLayoutEffect(() => {
+    if (prefsProfileRef.current === appearanceProfile) return
+    prefsProfileRef.current = appearanceProfile
+    setPrefs(syncLabAudioEdition(readLabPrefs(appearanceProfile), bookEditions))
+  }, [appearanceProfile, bookEditions])
   useEffect(() => {
     releaseLabReaderHandoffForPage(readerHandoff)
-    if (readerHandoff) writeLabPrefs(prefs)
+    if (readerHandoff) writeLabPrefs(prefs, appearanceProfile)
     // This effect only releases the StrictMode bridge after the committed mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -652,6 +660,8 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
     audioEdition: audioEditionKey,
+    playbackSpeed: prefs.audioSpeed,
+    onPlaybackSpeedChange: (audioSpeed) => updatePrefs({ ...prefs, audioSpeed }),
     titleClip: listenSource.audioTitle,
     onChapterComplete: () => audioChapterCompleteRef.current(),
   })

@@ -13,6 +13,7 @@ import {
   labProgressKnobLive,
   labReaderProgressLabel,
   parseLabPrefs,
+  parseLabStoredPrefs,
   readLabPrefs,
   writeLabPrefs,
 } from './labPrefs'
@@ -84,11 +85,90 @@ describe('lab prefs', () => {
     expect(readLabPrefs().progressDisplay.scope).toBe('section')
   })
 
+  it('migrates one legacy appearance into both profiles without losing shared choices', () => {
+    const migrated = parseLabStoredPrefs({
+      primaryEdition: 'web-en',
+      compareEdition: 'kjv-en',
+      audioEdition: 'web-en',
+      audioSpeed: 1.75,
+      compareOpen: true,
+      darkMode: true,
+      fontFamily: 'baskerville',
+      fontSize: 1.8,
+      alignment: 'left',
+      lineSpacing: 'open',
+      margins: 'wide',
+      paragraphSpacing: 'generous',
+      progressDisplay: { metric: 'percent', scope: 'book' },
+    })
+
+    expect(migrated.version).toBe(2)
+    expect(migrated.shared).toEqual({
+      primaryEdition: 'web-en',
+      compareEdition: 'kjv-en',
+      audioEdition: 'web-en',
+      audioSpeed: 1.75,
+      compareOpen: true,
+    })
+    expect(migrated.phone).toEqual(migrated.desktop)
+    expect(migrated.phone).toMatchObject({
+      theme: 'dark',
+      fontFamily: 'baskerville',
+      fontSize: 1.8,
+      alignment: 'left',
+      lineSpacing: 'open',
+      margins: 'wide',
+      paragraphSpacing: 'generous',
+      progressDisplay: { metric: 'percent', scope: 'book' },
+    })
+  })
+
+  it('updates only the active appearance profile while editions, Compare, and audio stay shared', () => {
+    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify({
+      primaryEdition: 'web-en',
+      compareEdition: 'kjv-en',
+      audioEdition: 'web-en',
+      audioSpeed: 1.5,
+      compareOpen: true,
+      theme: 'book',
+      fontSize: 1.2,
+      alignment: 'justify',
+    }))
+
+    writeLabPrefs({
+      ...readLabPrefs('phone'),
+      theme: 'dark',
+      fontSize: 1.6,
+      alignment: 'left',
+      audioSpeed: 2,
+    }, 'phone')
+    writeLabPrefs({
+      ...readLabPrefs('desktop'),
+      theme: 'light',
+      fontSize: 1,
+      alignment: 'justify',
+    }, 'desktop')
+
+    const phone = readLabPrefs('phone')
+    const desktop = readLabPrefs('desktop')
+    expect(phone).toMatchObject({ theme: 'dark', fontSize: 1.6, alignment: 'left' })
+    expect(desktop).toMatchObject({ theme: 'light', fontSize: 1, alignment: 'justify' })
+    expect(phone.primaryEdition).toBe('web-en')
+    expect(desktop.primaryEdition).toBe('web-en')
+    expect(phone.compareOpen).toBe(true)
+    expect(desktop.compareOpen).toBe(true)
+    expect(phone.audioEdition).toBe('web-en')
+    expect(desktop.audioEdition).toBe('web-en')
+    expect(phone.audioSpeed).toBe(2)
+    expect(desktop.audioSpeed).toBe(2)
+  })
+
   it('offers a genuinely smaller size and clamps imported preferences', () => {
     expect(LAB_MIN_FONT_SIZE).toBe(0.8)
     expect(LAB_MAX_FONT_SIZE).toBe(2.2)
     expect(parseLabPrefs({ fontSize: 0.1 }).fontSize).toBe(LAB_MIN_FONT_SIZE)
     expect(parseLabPrefs({ fontSize: 9 }).fontSize).toBe(LAB_MAX_FONT_SIZE)
+    expect(parseLabPrefs({ audioSpeed: 9 }).audioSpeed).toBe(3)
   })
 
   it('formats the foot strip from cheap knobs and keeps page/chapter as fallback', () => {
