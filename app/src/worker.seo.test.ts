@@ -19,6 +19,7 @@ function routerEnv() {
   const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey/summary">The Odyssey</a></body></html>'
   const lab = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Tinct mobile landing and onboarding lab</title></head><body><div id="tinct-onboarding-worlds-v5">lab shell</div></body></html>'
   const library2 = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Library 2</title></head><body><div id="tinct-library-2">library 2 shell</div></body></html>'
+  const labSignIn = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Sign in</title></head><body><div id="tinct-lab-sign-in">sign in shell</div></body></html>'
   return {
     ASSETS: {
       fetch: async (request: Request) => {
@@ -41,6 +42,9 @@ function routerEnv() {
         if (url.pathname === '/lab/library-2/') {
           return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
+        if (url.pathname === '/lab/sign-in/') {
+          return new Response(labSignIn, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
         if (url.pathname === '/lab/catalogue.json') {
           return Response.json({ marker: 'published catalogue' })
         }
@@ -55,6 +59,15 @@ function routerEnv() {
         }
         if (url.pathname === '/lab/library-2-runtime.js') {
           return new Response('window.__labLibrary2Loaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/library-2-model.js') {
+          return new Response('export const library2Model = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/auth-status.js') {
+          return new Response('window.__labAuthStatusLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/sign-in-runtime.js') {
+          return new Response('window.__labSignInLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
         }
         if (url.pathname === '/robots.txt') {
           return new Response('User-agent: *\nAllow: /\nDisallow: /data/\nDisallow: /api/\n', { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
@@ -161,11 +174,23 @@ describe('worker SEO routing', () => {
     expect(html).not.toContain('app shell')
   })
 
+  it.each(['/lab/sign-in', '/lab/sign-in/'])('serves the real Lab sign-in route at %s', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    const html = await resp.text()
+    expect(html).toContain('id="tinct-lab-sign-in"')
+    expect(html).not.toContain('app shell')
+  })
+
   it.each([
     ['/lab/catalogue.json', 'application/json', 'published catalogue'],
     ['/lab/catalogue-runtime.js', 'text/javascript', '__labRuntimeLoaded'],
     ['/lab/interaction-runtime.js', 'text/javascript', '__labInteractionsLoaded'],
     ['/lab/library-2-runtime.js', 'text/javascript', '__labLibrary2Loaded'],
+    ['/lab/library-2-model.js', 'text/javascript', 'library2Model'],
+    ['/lab/auth-status.js', 'text/javascript', '__labAuthStatusLoaded'],
+    ['/lab/sign-in-runtime.js', 'text/javascript', '__labSignInLoaded'],
   ])('serves the standalone Lab asset %s instead of the app shell', async (pathname, contentType, marker) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)

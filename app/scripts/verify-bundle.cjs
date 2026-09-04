@@ -14,7 +14,22 @@ if (!bundle) {
   process.exit(1)
 }
 
-const content = fs.readFileSync(path.join(assetsDir, bundle), 'utf8')
+// Vite can factor shared client code into an imported chunk when the build has
+// more than one browser entry (the Lab auth surfaces are deliberately separate
+// from the reader SPA). Verify the complete reachable app graph rather than
+// assuming every public env value remains textually inside index-*.js.
+const visited = new Set()
+function readBundleGraph(filePath) {
+  const resolved = path.resolve(filePath)
+  if (visited.has(resolved) || !fs.existsSync(resolved)) return ''
+  visited.add(resolved)
+  const source = fs.readFileSync(resolved, 'utf8')
+  const imports = [...source.matchAll(/(?:from\s*|import\s*)["']([^"']+\.js)["']/g)]
+    .map(match => path.resolve(path.dirname(resolved), match[1]))
+  return [source, ...imports.map(readBundleGraph)].join('\n')
+}
+
+const content = readBundleGraph(path.join(assetsDir, bundle))
 
 const checks = [
   ['supabase URL',       'yazjyiqsxjystvpkyouk'],

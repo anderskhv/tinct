@@ -1,6 +1,12 @@
-(() => {
+import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from './library-2-model.js'
+
+{
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
-  if (!root) return
+  if (!root) throw new Error('Lab pre-reader root is missing')
+
+  const READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
+  const LAB_POSITION_KEY = 'tinct-lab-position'
+  const INVITE_DISMISSED_KEY = 'tinct:lab-library-invite-dismissed'
 
   const state = {
     catalogue: null,
@@ -12,18 +18,39 @@
     activeHouseId: 'all',
     query: '',
     onboarding: null,
+    continuations: [],
+    pendingResume: null,
+    auth: { ready: false, signedIn: false, email: null },
   }
   const coverCache = new Map()
   const worldCache = new Map()
+  const editionSampleCache = new Map()
+  let editionSampleRenderToken = 0
 
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   })[character])
   const normalize = value => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim()
+  const number = value => typeof value === 'number' && Number.isFinite(value) ? value : null
+  const integer = (value, minimum = 0) => Number.isInteger(value) && value >= minimum ? value : null
   const selectedBook = () => state.booksById.get(state.selectedBookId)
   const v1Editions = book => book.editions.filter(edition => edition.language !== 'da')
   const formatDate = value => value ? new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(value) : ''
   const formatWordCount = count => count ? `${new Intl.NumberFormat().format(count)} words` : 'Length unavailable'
+
+  function readJson(key) {
+    try {
+      const raw = localStorage.getItem(key)
+      return raw === null ? null : JSON.parse(raw)
+    } catch { return null }
+  }
+
+  function defaultEdition(book) {
+    const editions = v1Editions(book).filter(edition => edition.availability.chapterText)
+    return editions.find(edition => edition.style === 'original' && edition.language === 'en')
+      || editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+      || editions[0]
+  }
 
   function coverData(book) {
     if (coverCache.has(book.id)) return coverCache.get(book.id)
@@ -54,45 +81,26 @@
     ? `<button type="button" data-catalogue-book="${book.id}"><img src="${coverData(book)}" alt="${escapeHtml(book.title)}"><span><strong>${escapeHtml(book.title)}</strong><small>${escapeHtml(book.author)}</small></span></button>`
     : `<button type="button" data-catalogue-book="${book.id}"><img src="${coverData(book)}" alt="${escapeHtml(book.title)}"><strong>${escapeHtml(book.title)}</strong><small>${escapeHtml(book.author)}</small></button>`
 
-  function searchScore(book, rawQuery) {
-    const query = normalize(rawQuery)
-    if (!query) return 1
-    const title = normalize(book.title)
-    const author = normalize(book.author)
-    const topics = normalize([book.summary, ...book.topics].join(' '))
-    const tokens = query.split(/\s+/).filter(Boolean)
-    if (!tokens.every(token => `${title} ${author} ${topics}`.includes(token))) return 0
-    let score = title === query ? 10000 : title.startsWith(query) ? 5000 : title.includes(query) ? 2500 : 0
-    score += author === query ? 8000 : author.startsWith(query) ? 4000 : author.includes(query) ? 2000 : 0
-    tokens.forEach(token => {
-      score += title.split(/\s+/).includes(token) ? 900 : title.includes(token) ? 500 : 0
-      score += author.split(/\s+/).includes(token) ? 700 : author.includes(token) ? 350 : 0
-      score += topics.includes(token) ? 100 : 0
-    })
-    return score
-  }
-
-  function isDirectSearchMatch(book, rawQuery) {
-    const tokens = normalize(rawQuery).split(/\s+/).filter(Boolean)
-    if (!tokens.length) return false
-    const title = normalize(book.title)
-    const author = normalize(book.author)
-    return tokens.every(token => title.includes(token)) || tokens.every(token => author.includes(token))
-  }
-
   function visibleBooks() {
     const books = state.catalogue.books.filter(book => state.activeHouseId === 'all' || book.houseIds.includes(state.activeHouseId))
-    if (!state.query.trim()) return books
-    const results = books.map(book => ({ book, score: searchScore(book, state.query) }))
-      .filter(result => result.score > 0)
-      .sort((a, b) => b.score - a.score || a.book.catalogueIndex - b.book.catalogueIndex)
-    const directResults = results.filter(result => isDirectSearchMatch(result.book, state.query))
-    return (directResults.length ? directResults : results).map(result => result.book)
+    return state.query.trim() ? searchPublishedBooks(books, state.query) : books
   }
 
   function showView(view) {
     root.querySelectorAll('[data-view-panel]').forEach(panel => panel.classList.toggle('is-current', panel.dataset.viewPanel === view))
     root.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)))
+  }
+
+  function routeFor(view, bookId = state.selectedBookId) {
+    if (view === 'landing') return '/lab/landing'
+    if (view === 'library') return '/lab/library'
+    return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}`
+  }
+
+  function navigateView(view, replace = false) {
+    showView(view)
+    const method = replace ? 'replaceState' : 'pushState'
+    history[method]({ view, bookId: state.selectedBookId }, '', routeFor(view))
   }
 
   function applyWorld(book) {
@@ -105,6 +113,117 @@
     root.querySelectorAll('[data-library-world-art],[data-your-library-world-art],[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image => { image.src = src })
   }
 
+  function progressRecord(bookId) {
+    const value = readJson(`tinct:progress:${bookId}`)
+    return value && value.bookId === bookId ? value : null
+  }
+
+  function completionRecord(bookId) {
+    const record = readJson(`tinct:book-completed:${bookId}`)
+    if (record) return { completed: true, completedAt: number(record.completedAt) }
+    const progress = progressRecord(bookId)
+    const completed = Boolean(progress && (number(progress.percent) >= 100 || (integer(progress.totalChapters, 1) !== null && integer(progress.highestCompletedChapter, 0) >= progress.totalChapters)))
+    return { completed, completedAt: null }
+  }
+
+  function chapterDetails(book, chapterNumber) {
+    const chapters = book?.readingStructure?.chapters || []
+    return chapters.find(chapter => chapter.number === chapterNumber) || chapters[Math.max(0, chapterNumber - 1)] || null
+  }
+
+  function compactChapterTitle(chapter, fallback) {
+    return String(chapter?.title || fallback).split(/\s+[—–-]\s+/)[0].trim()
+  }
+
+  function productionPosition(bookId) {
+    const value = readJson(`tinct:position:${bookId}`)
+    if (!value || value.bookId !== bookId) return null
+    const chapterNumber = integer(value.chapterNumber, 1)
+    const page = integer(value.currentPage, 0)
+    if (chapterNumber === null || page === null) return null
+    const book = state.booksById.get(bookId)
+    const chapterLabel = compactChapterTitle(chapterDetails(book, chapterNumber), `Chapter ${chapterNumber}`)
+    return {
+      source: 'production', bookId, chapterNumber, page,
+      totalPages: integer(value.totalPages, 1), scrollFraction: number(value.scrollFraction),
+      paragraphIndex: integer(value.lastParagraphIndex, 0), updatedAt: number(value.updatedAt) || 0,
+      placeLabel: `${chapterLabel}${page > 0 ? ` · Page ${page + 1}` : ''}`,
+      recap: `You left off in ${chapterLabel}.`,
+    }
+  }
+
+  function labPositions() {
+    const snapshot = readJson(LAB_POSITION_KEY)
+    if (!snapshot || typeof snapshot !== 'object' || !snapshot.books || typeof snapshot.books !== 'object') return []
+    return Object.values(snapshot.books).map(place => {
+      if (!place || typeof place !== 'object') return null
+      const directBook = state.booksById.get(place.bookId)
+      const isBiblePlace = !directBook && state.booksById.has('bible') && integer(place.sequentialChapter, 1) !== null && typeof place.headerBook === 'string'
+      const book = directBook || (isBiblePlace ? state.booksById.get('bible') : null)
+      if (!book) return null
+      const chapterNumber = isBiblePlace ? integer(place.sequentialChapter, 1) : integer(place.chapterNumber, 1)
+      if (chapterNumber === null) return null
+      const page = integer(place.pageIndex, 0)
+      const paragraphIndex = integer(place.paragraphIndex, 0)
+      const chapterLabel = compactChapterTitle(chapterDetails(book, chapterNumber), isBiblePlace ? `${place.headerBook} ${integer(place.chapterNumber, 1) || 1}` : `Chapter ${chapterNumber}`)
+      return {
+        source: 'lab', bookId: book.id, chapterNumber, page, paragraphIndex,
+        primaryEditionKey: typeof place.primaryEditionKey === 'string' ? place.primaryEditionKey : null,
+        compareEditionKey: place.readerMode === 'compare' && typeof place.compareEditionKey === 'string' ? place.compareEditionKey : null,
+        updatedAt: number(place.updatedAt) || number(snapshot.lastSettledAt) || 0,
+        placeLabel: `${chapterLabel}${page !== null && page > 0 ? ` · Page ${page + 1}` : ''}`,
+        recap: `You left off in ${chapterLabel}.`,
+      }
+    }).filter(Boolean)
+  }
+
+  function resolveContinuations() {
+    const currentBookId = readJson('tinct:tinct-current-book')
+    const candidates = [...labPositions(), ...state.catalogue.books.map(book => productionPosition(book.id)).filter(Boolean)].sort((left, right) => {
+      if (left.bookId === currentBookId && right.bookId !== currentBookId) return -1
+      if (right.bookId === currentBookId && left.bookId !== currentBookId) return 1
+      return right.updatedAt - left.updatedAt
+    })
+    const seen = new Set()
+    return candidates.filter(candidate => !seen.has(candidate.bookId) && seen.add(candidate.bookId))
+  }
+
+  function progressFor(resume) {
+    const book = state.booksById.get(resume.bookId)
+    return wholeBookProgress(book, resume, progressRecord(resume.bookId), completionRecord(resume.bookId).completed)
+  }
+
+  function resumeSavedPlace(resume) {
+    return resume ? {
+      bookId: resume.bookId, chapterNumber: resume.chapterNumber,
+      ...(resume.page === null || resume.page === undefined ? {} : { page: resume.page }),
+      ...(resume.paragraphIndex === null || resume.paragraphIndex === undefined ? {} : { paragraphIndex: resume.paragraphIndex }),
+    } : null
+  }
+
+  function renderReaderState() {
+    state.continuations = resolveContinuations()
+    const section = root.querySelector('.tov5-library-continue')
+    const rail = root.querySelector('[data-library-continue-rail]')
+    section.hidden = state.continuations.length === 0
+    section.querySelector('small').textContent = state.auth.signedIn ? 'Synced to your account' : 'Saved on this device'
+    rail.innerHTML = state.continuations.map(resume => {
+      const book = state.booksById.get(resume.bookId)
+      const progress = progressFor(resume)
+      return `<button type="button" class="tov5-continue-card" data-continue-book="${escapeHtml(book.id)}" aria-label="Continue ${escapeHtml(book.title)} from ${escapeHtml(resume.placeLabel)}"><img src="${coverData(book)}" alt=""><span><small>${escapeHtml(book.author)}</small><strong>${escapeHtml(book.title)}</strong><em>${escapeHtml(resume.placeLabel)}</em><i>${escapeHtml(resume.recap)}</i><span class="tov5-reading-progress" role="progressbar" aria-label="Whole-book progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress === null ? 0 : progress.toFixed(2)}"><b style="width:${progress ?? 0}%"></b></span><u>${formatWholeBookProgress(progress)} · Continue →</u></span></button>`
+    }).join('')
+
+    const finished = state.catalogue.books.filter(book => completionRecord(book.id).completed)
+    const finishedSection = root.querySelector('.tov5-library-finished')
+    finishedSection.hidden = finished.length === 0
+    finishedSection.querySelector('[data-library-finished-rail]').innerHTML = finished.map(book => card(book, true)).join('')
+
+    const savedIds = readJson('tinct:library')
+    const localBooks = new Set([...(Array.isArray(savedIds) ? savedIds : []), ...state.continuations.map(item => item.bookId)])
+    const dismissed = localStorage.getItem(INVITE_DISMISSED_KEY) === '1'
+    root.querySelector('[data-library-account-invite]').hidden = state.auth.signedIn || localBooks.size < 2 || dismissed
+  }
+
   function renderLibrary() {
     const books = visibleBooks()
     const searching = Boolean(state.query.trim())
@@ -113,8 +232,8 @@
     library.classList.toggle('is-searching', searching)
     const track = library.querySelector('.tov5-library-track')
     track.innerHTML = top.map(book => card(book)).join('')
-    library.querySelector('header h2').textContent = state.query ? 'Search results' : state.activeHouseId === 'all' ? 'Popular' : state.catalogue.houses.find(house => house.id === state.activeHouseId)?.title || 'Library'
-    library.querySelector('header small').textContent = `${state.catalogue.books.length} published books`
+    library.querySelector('.tov5-library-heading h2').textContent = state.query ? 'Search results' : state.activeHouseId === 'all' ? 'Popular' : state.catalogue.houses.find(house => house.id === state.activeHouseId)?.title || 'Library'
+    library.querySelector('.tov5-library-heading small').textContent = `${state.catalogue.books.length} published books`
     library.querySelector('.tov5-library-search input').placeholder = `Search ${state.catalogue.books.length} published books`
     const sections = library.querySelector('.tov5-library-body')
     sections.querySelectorAll('.tov5-library-section,.tov5-library-empty,.tov5-search-results').forEach(section => section.remove())
@@ -131,7 +250,8 @@
       .flatMap(house => house.shelves)
       .map(shelf => ({ ...shelf, books: shelf.bookIds.map(id => state.booksById.get(id)).filter(book => books.includes(book)) }))
       .filter(shelf => shelf.books.length)
-    shelves.slice(0, state.query ? 12 : 6).forEach(shelf => sections.insertAdjacentHTML('beforeend', `<section class="tov5-library-section" data-shelf-id="${shelf.id}"><header><h3>${escapeHtml(shelf.title)}</h3></header><div>${shelf.books.slice(0, 6).map(book => card(book, true)).join('')}</div></section>`))
+    shelves.forEach(shelf => sections.insertAdjacentHTML('beforeend', `<section class="tov5-library-section" data-shelf-id="${shelf.id}"><header><h3>${escapeHtml(shelf.title)}</h3>${shelf.subtitle ? `<small>${escapeHtml(shelf.subtitle)}</small>` : ''}</header><div class="tov5-library-rail" tabindex="0" aria-label="${escapeHtml(shelf.title)} books">${shelf.books.map(book => card(book, true)).join('')}</div></section>`))
+    sections.append(root.querySelector('.tov5-library-finished'))
     if (window.lucide) window.lucide.createIcons()
   }
 
@@ -140,18 +260,20 @@
     nav.innerHTML = [{ id: 'all', title: 'All' }, ...state.catalogue.houses].map(item => `<button type="button" data-catalogue-house="${item.id}" aria-pressed="${item.id === state.activeHouseId}">${escapeHtml(item.title)}</button>`).join('')
   }
 
-  async function selectBook(bookId, destination = 'book-detail') {
+  async function selectBook(bookId, destination = 'book-detail', updateHistory = false) {
     const book = state.booksById.get(bookId)
     if (!book) return false
     state.selectedBookId = book.id
-    state.selectedEditionKey = book.editions.find(edition => edition.style === 'original' && edition.language === 'en')?.key
-      || book.editions.find(edition => edition.style === 'modern' && edition.language === 'en')?.key
-      || book.editions[0]?.key
-    state.compareEditionKey = null
+    state.pendingResume = state.continuations.find(item => item.bookId === book.id) || null
+    const resumePrimary = v1Editions(book).find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
+    state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
+    const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
+    state.compareEditionKey = resumeCompare?.key || null
     applyWorld(book)
     renderDetail(book)
     renderEditions(book)
-    showView(destination)
+    if (updateHistory) navigateView(destination)
+    else showView(destination)
     return true
   }
 
@@ -168,11 +290,68 @@
     root.querySelector('[data-book-read-time]').nextElementSibling.textContent = 'Available'
     root.querySelector('[data-book-listen-time]').textContent = book.availability.audio ? 'Available' : 'Unavailable'
     root.querySelector('[data-book-listen-time]').nextElementSibling.textContent = 'Audio'
+    root.querySelector('.tov5-choose-edition').childNodes[0].textContent = state.pendingResume ? 'Continue reading ' : 'Start reading '
   }
 
   const languageName = language => ({ en: 'English', da: 'Danish' })[language] || language.toUpperCase()
   const editionTitle = edition => edition.style === 'modern' ? 'Modern' : edition.style === 'original' ? 'Original' : 'Published'
   const editionChoiceLabel = edition => edition.style === 'modern' ? `Modern ${languageName(edition.language)}` : editionTitle(edition)
+
+  function firstReadableParagraph(payload) {
+    const chapters = Array.isArray(payload?.chapters) ? payload.chapters : []
+    const paragraphs = Array.isArray(payload?.paragraphs) ? payload.paragraphs : chapters.flatMap(chapter => Array.isArray(chapter?.paragraphs) ? chapter.paragraphs : [])
+    const cleaned = paragraphs.map(paragraph => String(paragraph || '').replace(/\s+/g, ' ').trim()).filter(Boolean)
+    return cleaned.find(paragraph => paragraph.length >= 80) || cleaned[0] || null
+  }
+
+  async function fetchJsonIfAvailable(url) {
+    try {
+      const response = await fetch(url)
+      if (!response.ok || !String(response.headers.get('content-type') || '').includes('application/json')) return null
+      return await response.json()
+    } catch {
+      return null
+    }
+  }
+
+  async function loadEditionSample(bookId, editionKey) {
+    const cacheKey = `${bookId}:${editionKey}`
+    if (editionSampleCache.has(cacheKey)) return editionSampleCache.get(cacheKey)
+    const request = (async () => {
+      const manifestUrl = `/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/manifest.json?v=20260904-1`
+      const manifest = await fetchJsonIfAvailable(manifestUrl)
+      const chapterPath = manifest?.chapters?.find(chapter => chapter?.path)?.path
+      if (chapterPath) {
+        const chapter = await fetchJsonIfAvailable(`/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/${encodeURIComponent(chapterPath)}?v=20260904-1`)
+        const chapterSample = firstReadableParagraph(chapter)
+        if (chapterSample) return chapterSample
+      }
+      const edition = await fetchJsonIfAvailable(`/data/editions/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}.json?v=20260904-1`)
+      return firstReadableParagraph(edition)
+    })()
+    editionSampleCache.set(cacheKey, request)
+    return request
+  }
+
+  async function renderEditionSample(book) {
+    const sample = root.querySelector('[data-edition-sample]')
+    const heading = root.querySelector('[data-edition-sample-heading]')
+    const body = root.querySelector('[data-edition-sample-body]')
+    const editions = v1Editions(book)
+    const primary = editions.find(edition => edition.key === state.selectedEditionKey)
+    const compare = editions.find(edition => edition.key === state.compareEditionKey)
+    const choices = [primary, compare].filter(Boolean)
+    const token = ++editionSampleRenderToken
+    sample.setAttribute('aria-busy', 'true')
+    sample.classList.toggle('is-comparison', Boolean(compare))
+    heading.textContent = compare ? `${primary.label} and ${compare.label}` : primary?.label || 'Selected edition'
+    body.innerHTML = '<p class="tov5-edition-sample-loading">Loading from the published text…</p>'
+    const texts = await Promise.all(choices.map(edition => loadEditionSample(book.id, edition.key)))
+    if (token !== editionSampleRenderToken) return
+    sample.setAttribute('aria-busy', 'false')
+    body.innerHTML = choices.map((edition, index) => `<article data-edition-sample-text="${escapeHtml(edition.key)}"><small>${escapeHtml(editionChoiceLabel(edition))}</small><strong>${escapeHtml(edition.label)}</strong><p>${texts[index] ? escapeHtml(texts[index]) : 'Sample unavailable for this published edition.'}</p></article>`).join('')
+  }
+
   function renderEditions(book) {
     const editions = v1Editions(book)
     root.querySelector('.tov5-edition-head img').src = coverData(book)
@@ -184,11 +363,12 @@
       const selected = !state.compareEditionKey && edition.key === state.selectedEditionKey
       const metadata = [languageName(edition.language), edition.year, edition.provenanceLabel, edition.availability.audio ? 'Text and audio available' : 'Text available'].filter(Boolean).join(' · ')
       const choiceLabel = editionChoiceLabel(edition)
-      return `<article data-catalogue-edition="${edition.key}" data-select-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><div class="tov5-edition-select" aria-hidden="true"><span></span>Choose ${escapeHtml(choiceLabel)}</div></article>`
+      return `<article data-catalogue-edition="${edition.key}" data-select-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><div class="tov5-edition-select" aria-hidden="true"><span></span>${escapeHtml(choiceLabel)}</div></article>`
     }).join('')
     root.querySelectorAll('[data-edition-menu]').forEach(menu => { menu.hidden = true })
     updateCompareOption(book)
     updateContinueLabel(book)
+    void renderEditionSample(book)
   }
 
   function updateCompareOption(book) {
@@ -198,8 +378,12 @@
     const both = root.querySelector('.tov5-both')
     both.hidden = !compare
     if (compare) {
-      both.querySelector('strong').textContent = `Compare ${primary.label} and ${compare.label}.`
+      both.querySelector('strong').textContent = `${primary.label} + ${compare.label}`
       both.dataset.compareEdition = compare.key
+      both.setAttribute('aria-label', `Choose Both: compare ${primary.label} and ${compare.label}`)
+    } else {
+      delete both.dataset.compareEdition
+      both.removeAttribute('aria-label')
     }
     both.classList.toggle('is-selected', Boolean(compare && state.compareEditionKey))
     both.setAttribute('aria-pressed', String(Boolean(compare && state.compareEditionKey)))
@@ -279,15 +463,22 @@
 
   function openReader(savedPlace) {
     const book = selectedBook()
+    const resolvedPlace = savedPlace || resumeSavedPlace(state.pendingResume)
     const intent = createHandoff({
       bookId: book.id,
       primaryEditionKey: state.selectedEditionKey,
       ...(state.compareEditionKey ? { compareEditionKey: state.compareEditionKey } : {}),
-      ...(savedPlace ? { savedPlace } : {}),
+      ...(resolvedPlace ? { savedPlace: resolvedPlace } : {}),
     })
     if (!intent) return false
     window.__tinctLabLastHandoff = intent
-    try { sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(intent)) } catch { /* private mode */ }
+    try {
+      sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent))
+      const saved = readJson('tinct:library')
+      const ids = new Set(Array.isArray(saved) ? saved : [])
+      ids.add(book.id)
+      localStorage.setItem('tinct:library', JSON.stringify([...ids]))
+    } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
@@ -295,9 +486,7 @@
     return true
   }
 
-  function readStored(key) {
-    try { return JSON.parse(localStorage.getItem(`tinct:${key}`) || 'null') } catch { return null }
-  }
+  function readStored(key) { return readJson(`tinct:${key}`) }
 
   function returningItems() {
     return state.catalogue.books.flatMap(book => {
@@ -329,12 +518,31 @@
   }
 
   root.addEventListener('click', async event => {
+    const directView = event.target.closest('[data-view="library"],[data-view="landing"]')
+    if (directView) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      if (directView.dataset.view === 'library' && new URLSearchParams(location.search).get('from') === 'library-2') location.assign('/lab/library-2')
+      else navigateView(directView.dataset.view)
+      return
+    }
     const startCatalogue = event.target.closest('[data-start-catalogue]')
     if (startCatalogue) {
       event.preventDefault(); event.stopImmediatePropagation()
-      showView('library')
-      root.querySelector('[data-view-panel="library"] .tov5-library-search input')?.focus({ preventScroll: true })
+      navigateView('library')
       return
+    }
+    if (event.target.closest('[data-library-home]')) {
+      event.preventDefault(); event.stopImmediatePropagation(); navigateView('landing'); return
+    }
+    if (event.target.closest('[data-library-search-trigger]')) {
+      event.preventDefault(); event.stopImmediatePropagation(); setSearchOpen(true); return
+    }
+    if (event.target.closest('[data-library-search-close]')) {
+      event.preventDefault(); event.stopImmediatePropagation(); setSearchOpen(false, true); return
+    }
+    if (event.target.closest('[data-library-invite-dismiss]')) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      localStorage.setItem(INVITE_DISMISSED_KEY, '1'); renderReaderState(); return
     }
     const demoBook = event.target.closest('[data-pick-demo-book="odyssey"]')
     if (demoBook) {
@@ -348,7 +556,7 @@
     const bookButton = event.target.closest('[data-catalogue-book]')
     if (bookButton) {
       event.preventDefault(); event.stopImmediatePropagation()
-      await selectBook(bookButton.dataset.catalogueBook)
+      await selectBook(bookButton.dataset.catalogueBook, 'book-detail', true)
       return
     }
     const category = event.target.closest('[data-catalogue-house]')
@@ -356,6 +564,7 @@
       event.preventDefault(); event.stopImmediatePropagation()
       state.activeHouseId = category.dataset.catalogueHouse
       renderCategories(); renderLibrary()
+      category.scrollIntoView({ inline: 'center', block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
       return
     }
     const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
@@ -379,15 +588,14 @@
     const continuing = event.target.closest('[data-continue-book]')
     if (continuing) {
       event.preventDefault(); event.stopImmediatePropagation()
-      const item = returningItems().find(candidate => candidate.book.id === continuing.dataset.continueBook)
+      const item = state.continuations.find(candidate => candidate.bookId === continuing.dataset.continueBook)
       if (!item) return
-      await selectBook(item.book.id, 'your-library')
-      state.selectedEditionKey = item.edition.key
-      openReader({ bookId: item.book.id, chapterNumber: item.position.chapterNumber, page: item.position.currentPage, paragraphIndex: item.position.lastParagraphIndex })
+      await selectBook(item.bookId, 'library')
+      openReader(resumeSavedPlace(item))
       return
     }
     if (event.target.closest('.tov5-choose-edition')) {
-      event.preventDefault(); event.stopImmediatePropagation(); renderEditions(selectedBook()); showView('edition'); return
+      event.preventDefault(); event.stopImmediatePropagation(); renderEditions(selectedBook()); navigateView('edition'); return
     }
     if (event.target.closest('.tov5-continue')) {
       event.preventDefault(); event.stopImmediatePropagation(); openReader(); return
@@ -398,6 +606,9 @@
   }, true)
 
   root.addEventListener('keydown', event => {
+    if ((event.key === 'ArrowLeft' || event.key === 'ArrowRight') && event.target.matches('.tov5-library-rail,[data-library-continue-rail]')) {
+      event.preventDefault(); event.target.scrollBy({ left: event.key === 'ArrowRight' ? 260 : -260, behavior: 'smooth' }); return
+    }
     if (event.key !== 'Enter' && event.key !== ' ') return
     const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
     const compareCard = event.target.closest('.tov5-both[data-edition-choice]')
@@ -413,12 +624,27 @@
     renderLibrary()
   })
 
+  function setSearchOpen(open, clear = false) {
+    const panel = root.querySelector('[data-library-search-panel],#tov5-library-search-panel')
+    const trigger = root.querySelector('[data-library-search-trigger]')
+    const input = panel.querySelector('input')
+    panel.hidden = !open
+    trigger.setAttribute('aria-expanded', String(open))
+    if (clear) {
+      input.value = ''; state.query = ''; renderLibrary()
+    }
+    if (open) requestAnimationFrame(() => input.focus())
+    else trigger.focus()
+  }
+
   window.__tinctLabPreReader = {
     ready: false,
     createHandoff,
     selectBook,
     visibleBooks,
     selectionState: () => ({ primaryEditionKey: state.selectedEditionKey, compareEditionKey: state.compareEditionKey, revision: state.selectionRevision }),
+    continuations: () => state.continuations.map(item => ({ ...item, progress: progressFor(item) })),
+    authState: () => ({ ...state.auth }),
     renderEditionsForTest(book) {
       const previous = state.booksById.get(book.id)
       state.booksById.set(book.id, book)
@@ -435,14 +661,16 @@
   }).then(catalogue => {
     state.catalogue = catalogue
     state.booksById = new Map(catalogue.books.map(book => [book.id, book]))
+    state.auth = window.__tinctLabAuthState || state.auth
+    state.continuations = resolveContinuations()
     renderCategories()
     renderLibrary()
-    renderReturningLibrary()
+    renderReaderState()
     const params = new URLSearchParams(location.search)
     const requested = params.get('book')
     const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
     const requestedView = params.get('view')
-    const allowedViews = new Set(['landing', 'library', 'your-library', 'book-detail', 'edition'])
+    const allowedViews = new Set(['landing', 'library', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
   }).then(() => {
     window.__tinctLabPreReader.ready = true
@@ -451,4 +679,19 @@
     console.error(error)
     root.querySelector('.tov5-note').textContent = 'Published catalogue unavailable.'
   })
-})()
+
+  window.addEventListener('tinct:lab-auth-state', event => {
+    state.auth = event.detail || state.auth
+    if (state.catalogue) renderReaderState()
+  })
+
+  window.addEventListener('popstate', async () => {
+    if (!state.catalogue) return
+    const params = new URLSearchParams(location.search)
+    const bookId = params.get('book')
+    const path = location.pathname.replace(/\/+$/, '')
+    const view = path === '/lab/library' ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
+    if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) await selectBook(bookId, view)
+    else showView(view === 'library' ? 'library' : 'landing')
+  })
+}
