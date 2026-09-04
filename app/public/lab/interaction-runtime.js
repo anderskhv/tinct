@@ -162,7 +162,13 @@
       note.textContent='Library reveal · a slower browse from later books back to the opening choices';
     };
     root.querySelectorAll('[data-book]').forEach(button=>button.addEventListener('click',()=>{setBook(button.dataset.book);showView('landing')}));
-    root.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
+    root.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{
+      if(previewParams.get('from')==='library-2'&&button.dataset.view==='library'){
+        location.assign('/lab/library-2');
+        return;
+      }
+      showView(button.dataset.view);
+    }));
     root.querySelectorAll('[data-open-book]').forEach(button=>button.addEventListener('click',()=>showView('book-detail')));
     root.querySelectorAll('[data-character]').forEach(button=>button.addEventListener('click',()=>selectCharacter(Number(button.dataset.character))));
     root.querySelectorAll('[data-preface-mode]').forEach(button=>button.addEventListener('click',()=>{

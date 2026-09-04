@@ -146,7 +146,14 @@ function isLabPathname(pathname: string): boolean {
   return isLabPath(pathname)
 }
 
-const LAB_PRE_READER_PATHS = new Set(['/lab', '/lab/', '/lab/landing', '/lab/library'])
+const LAB_PRE_READER_PATHS = new Map([
+  ['/lab', '/lab/'],
+  ['/lab/', '/lab/'],
+  ['/lab/landing', '/lab/'],
+  ['/lab/library', '/lab/'],
+  ['/lab/library-2', '/lab/library-2/'],
+  ['/lab/library-2/', '/lab/library-2/'],
+])
 
 function isLabStaticAssetPath(pathname: string): boolean {
   return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
@@ -156,13 +163,14 @@ async function serveLabPreReader(
   requestMethod: string,
   url: URL,
   env: SeoEnv,
+  assetPath: string,
 ): Promise<Response | null> {
   // Cloudflare Assets applies html_handling to binding fetches. Requesting
   // /lab/index.html is therefore canonicalized to /lab/ with a 307, which is
   // not an `ok` response and previously caused this route to fall through to
   // the React reader shell. Fetch the canonical directory URL directly.
   const assetUrl = new URL(url.toString())
-  assetUrl.pathname = '/lab/'
+  assetUrl.pathname = assetPath
   const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
   if (!labResp.ok) return null
 
@@ -348,7 +356,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
     // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
-      const labResp = await serveLabPreReader(request.method, url, env)
+      const labResp = await serveLabPreReader(request.method, url, env, LAB_PRE_READER_PATHS.get(url.pathname)!)
       if (labResp) return labResp
     }
 
