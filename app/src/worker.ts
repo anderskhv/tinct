@@ -19,6 +19,7 @@ import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleLabVoiceSession, handleVoiceSession } from './worker/routes/voice'
+import { handleAdminDiagnostics, handleDiagnosticConsent, handleDiagnosticEvent } from './worker/routes/diagnostics'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
 import { handleEditionPatches } from './worker/routes/editionPatches'
@@ -53,6 +54,7 @@ interface Env {
   STRIPE_PRICE_CHAT_200?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
+  OWNER_DIAGNOSTIC_USER_ID?: string
   BREVO_API_KEY?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
@@ -157,6 +159,9 @@ export default {
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
+      case '/api/diagnostics/consent': return handleDiagnosticConsent(request, env, verifyUser)
+      case '/api/diagnostics/events': return handleDiagnosticEvent(request, env, verifyUser)
+      case '/api/admin/diagnostics': return handleAdminDiagnostics(request, env, verifyUser, verifySiteAdmin)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
       case '/api/balance': return handleBalance(request, env, verifyUser)

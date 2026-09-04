@@ -3,10 +3,12 @@ import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
+import { getDiagnosticConsent, isConfiguredOwner, recordServerDiagnosticEvent } from '../lib/diagnostics'
 
 export type VoiceEnv = SupabaseEnv & {
   OPENAI_API_KEY?: string
   RATE_LIMIT?: KVNamespace
+  OWNER_DIAGNOSTIC_USER_ID?: string
 }
 
 type VerifiedUser = { id: string; email: string }
@@ -85,6 +87,23 @@ export async function handleVoiceSession(
   }
 
   try {
+    const diagnosticSessionId = user && isConfiguredOwner(env, userId)
+      && (await getDiagnosticConsent(env, userId)).enabled
+      ? crypto.randomUUID()
+      : null
+    if (diagnosticSessionId) {
+      await recordServerDiagnosticEvent(env, userId, {
+        sessionId: diagnosticSessionId,
+        type: 'request_accepted',
+        metadata: { source: 'voice_session', transport: 'webrtc', model: VOICE_REALTIME_MODEL },
+      })
+      await recordServerDiagnosticEvent(env, userId, {
+        sessionId: diagnosticSessionId,
+        type: 'provider_started',
+        metadata: { source: 'voice_session', model: VOICE_REALTIME_MODEL },
+      })
+    }
+    const providerStartedAt = Date.now()
     const safetyId = await hashSafetyIdentifier(userId)
     const response = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
       method: 'POST',
@@ -104,8 +123,23 @@ export async function handleVoiceSession(
 
     const data = await response.json() as { value?: string; expires_at?: number; error?: { message?: string } }
     if (!response.ok || !data.value) {
+      if (diagnosticSessionId) {
+        await recordServerDiagnosticEvent(env, userId, {
+          sessionId: diagnosticSessionId,
+          type: 'provider_error',
+          metadata: { source: 'voice_session', status: response.status, latency_ms: Date.now() - providerStartedAt, error_class: 'session_token' },
+        })
+      }
       const message = data.error?.message || 'Could not start a voice session.'
       return jsonResponse({ error: message }, response.status >= 400 ? response.status : 502, request)
+    }
+
+    if (diagnosticSessionId) {
+      await recordServerDiagnosticEvent(env, userId, {
+        sessionId: diagnosticSessionId,
+        type: 'provider_completed',
+        metadata: { source: 'voice_session', status: response.status, latency_ms: Date.now() - providerStartedAt },
+      })
     }
 
     if (user && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -116,6 +150,7 @@ export async function handleVoiceSession(
       value: data.value,
       expires_at: data.expires_at ?? null,
       model: VOICE_REALTIME_MODEL,
+      ...(diagnosticSessionId ? { diagnostic_session_id: diagnosticSessionId } : {}),
     }, 200, request)
   } catch {
     return jsonResponse({ error: 'Could not start a voice session.' }, 500, request)
