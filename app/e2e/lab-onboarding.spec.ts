@@ -40,6 +40,13 @@ async function capture(page: Page, name: string) {
   await page.screenshot({ path: `${directory}/${name}.png`, fullPage: true })
 }
 
+async function searchLibrary(page: Page, query: string) {
+  const input = page.getByRole('searchbox', { name: 'Search by title or author' })
+  if (!await input.isVisible()) await page.getByRole('button', { name: 'Search library' }).click()
+  await input.fill(query)
+  return input
+}
+
 test.beforeEach(async ({ page }) => {
   await openPreReader(page)
 })
@@ -61,7 +68,7 @@ for (const viewport of [PHONE, DESKTOP]) {
     await expect(landing.getByRole('heading', { name: 'Fall in love with the books that matter.' })).toBeVisible()
     await expect(landing.getByText('Free to read · No account required')).toBeVisible()
     await expect(landing.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about')
-    await expect(landing.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/app?signin=1')
+    await expect(landing.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/lab/sign-in?returnTo=%2Flab%2Flanding')
     await expect(page.locator('.tov5-picker')).toBeHidden()
     await landing.getByRole('button', { name: 'Start reading' }).click()
     await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
@@ -105,7 +112,7 @@ for (const viewport of [PHONE, DESKTOP]) {
 for (const viewport of [PHONE, DESKTOP]) {
   test(`renders a non-showcase catalogue book and hands it off at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport)
-    await page.getByRole('searchbox', { name: 'Search the library' }).fill('Ivan Ilyich')
+    await searchLibrary(page, 'Ivan Ilyich')
     await page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]').click()
     await page.getByRole('button', { name: 'Start reading' }).click()
     await page.locator('[data-select-edition="original-en"]').click()
@@ -128,6 +135,10 @@ test('removes the unfinished Librarian path and rejects its old view parameter',
   await openPreReader(page, '/lab/?autoplay=0&view=librarian')
   await expect(page.locator('[data-view-panel="landing"]')).toHaveClass(/is-current/)
   await expect(page.locator('[data-view-panel].is-current')).toHaveCount(1)
+
+  await openPreReader(page, '/lab/?autoplay=0&view=your-library')
+  await expect(page.locator('[data-view-panel="landing"]')).toHaveClass(/is-current/)
+  await expect(page.locator('[data-view-panel="your-library"]')).not.toHaveClass(/is-current/)
 })
 
 test('applies themed book state from query parameters', async ({ page }) => {
@@ -138,9 +149,8 @@ test('applies themed book state from query parameters', async ({ page }) => {
 
 test('renders the published catalogue and filters title, author and taxonomy', async ({ page }) => {
   const publishedCount = await page.evaluate(() => window.__tinctLabPreReader.visibleBooks().length)
-  await expect(page.locator('[data-view-panel="library"] header').first()).toContainText(`${publishedCount} published books`)
-  const search = page.getByRole('searchbox', { name: 'Search the library' })
-  await search.fill('Death of Ivan Ilyich')
+  await expect(page.locator('.tov5-library-heading')).toContainText(`${publishedCount} published books`)
+  const search = await searchLibrary(page, 'Death of Ivan Ilyich')
   await expect(page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]')).toHaveCount(1)
   await expect(page.locator('.tov5-search-results')).toContainText('Leo Tolstoy')
 
@@ -158,7 +168,7 @@ test('renders the published catalogue and filters title, author and taxonomy', a
 })
 
 test('shows Republic once in a unique flat search result set', async ({ page }) => {
-  await page.getByRole('searchbox', { name: 'Search the library' }).fill('Republic')
+  await searchLibrary(page, 'Republic')
   const results = page.locator('.tov5-search-results [data-catalogue-book]')
   await expect(results).toHaveCount(1)
   await expect(results.first()).toHaveAttribute('data-catalogue-book', 'the-republic')
@@ -168,8 +178,72 @@ test('shows Republic once in a unique flat search result set', async ({ page }) 
   await expect(page.locator('.tov5-library-section')).toHaveCount(0)
 })
 
+test('opens, searches and closes the compact dark-library search reliably', async ({ page }) => {
+  const trigger = page.getByRole('button', { name: 'Search library' })
+  for (let pass = 0; pass < 3; pass += 1) {
+    await trigger.click()
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true')
+    const search = page.getByRole('searchbox', { name: 'Search by title or author' })
+    await search.fill(pass === 0 ? 'Republic' : pass === 1 ? 'Jane Austen' : 'not-in-the-published-catalogue')
+    if (pass === 0) {
+      const ids = await page.locator('.tov5-search-results [data-catalogue-book]').evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
+      expect(ids).toEqual(['the-republic'])
+    } else if (pass === 1) {
+      const authors = await page.locator('.tov5-search-results [data-catalogue-book] small').allTextContents()
+      expect(authors.length).toBeGreaterThan(0)
+      expect(new Set(authors)).toEqual(new Set(['Jane Austen']))
+    } else {
+      await expect(page.getByText('No books found')).toBeVisible()
+    }
+    await page.getByRole('button', { name: 'Close search' }).click()
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false')
+    await expect(page.getByRole('searchbox', { name: 'Search by title or author' })).toBeHidden()
+  }
+})
+
+test('keeps real category rails compact, scrollable and keyboard operable', async ({ page }) => {
+  await page.setViewportSize(PHONE)
+  const philosophy = page.locator('[data-catalogue-house="philosophy"]')
+  for (let pass = 0; pass < 3; pass += 1) {
+    await philosophy.click()
+    await expect(philosophy).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('.tov5-library-heading h2')).toHaveText('Philosophy')
+    await page.locator('[data-catalogue-house="all"]').click()
+  }
+  await philosophy.click()
+  const rail = page.locator('.tov5-library-rail').first()
+  await rail.focus()
+  const before = await rail.evaluate(element => element.scrollLeft)
+  await rail.press('ArrowRight')
+  await expect.poll(() => rail.evaluate(element => element.scrollLeft)).toBeGreaterThan(before)
+  await expectNoDocumentOverflow(page)
+})
+
+test('uses real dark-library history, credible Bible progress, finished state and local account invitation', async ({ page }) => {
+  await page.evaluate(() => {
+    const now = Date.now()
+    localStorage.setItem('tinct:position:bible', JSON.stringify({ bookId: 'bible', chapterNumber: 1, currentPage: 1, totalPages: 2, scrollFraction: .1, updatedAt: now }))
+    localStorage.setItem('tinct:progress:bible', JSON.stringify({ bookId: 'bible', highestCompletedChapter: 0, totalChapters: 1189, percent: 72 }))
+    localStorage.setItem('tinct:position:meditations', JSON.stringify({ bookId: 'meditations', chapterNumber: 4, currentPage: 2, totalPages: 8, lastParagraphIndex: 7, updatedAt: now - 1000 }))
+    localStorage.setItem('tinct:library', JSON.stringify(['bible', 'meditations']))
+    localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ completedAt: now }))
+  })
+  await openPreReader(page, '/lab/library')
+  const continueSection = page.locator('.tov5-library-continue')
+  await expect(continueSection).toBeVisible()
+  await expect(continueSection).toContainText('Saved on this device')
+  const bible = page.locator('[data-continue-book="bible"]')
+  await expect(bible).toContainText('Genesis 1')
+  const progress = Number(await bible.locator('[role=progressbar]').getAttribute('aria-valuenow'))
+  expect(progress).toBeGreaterThanOrEqual(0)
+  expect(progress).toBeLessThan(1)
+  await expect(page.locator('[data-library-account-invite]')).toBeVisible()
+  await expect(page.locator('[data-library-finished-rail] [data-catalogue-book="hamlet"]')).toHaveCount(1)
+  await expectNoDocumentOverflow(page)
+})
+
 test('opens a non-showcase book with catalogue-backed detail and editions', async ({ page }) => {
-  await page.getByRole('searchbox', { name: 'Search the library' }).fill('Ivan Ilyich')
+  await searchLibrary(page, 'Ivan Ilyich')
   await page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]').click()
   await expect(page.locator('[data-book-detail-title]')).toHaveText('The Death of Ivan Ilyich')
   await expect(page.locator('[data-book-detail-author]')).toHaveText('Leo Tolstoy')
@@ -188,7 +262,7 @@ test('opens a non-showcase book with catalogue-backed detail and editions', asyn
   await expect(page.locator('.tov5-edition-grid')).toContainText('Tinct AI adaptation')
 })
 
-test('keeps the English V1 choices and Both mutually exclusive in a complete phone stack', async ({ page }) => {
+test('keeps the English V1 choices and Both mutually exclusive in one compact phone surface', async ({ page }) => {
   await openPreReader(page, '/lab/?autoplay=0&book=ulysses&view=edition')
   const original = page.locator('[data-select-edition="original-en"]')
   const modern = page.locator('[data-select-edition="modern-en"]')
@@ -206,8 +280,13 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   }))
   expect(stack.fits).toBe(true)
   expect(stack.cards.every(card => card.left >= 0 && card.right <= stack.viewportWidth + 1)).toBe(true)
-  expect(stack.cards[0].bottom).toBeLessThanOrEqual(stack.cards[1].top)
+  expect(Math.abs(stack.cards[0].top - stack.cards[1].top)).toBeLessThanOrEqual(1)
   await expectNoDocumentOverflow(page)
+  await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+  await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('Stately, plump Buck Mulligan')
+  const initialCta = await page.locator('.tov5-continue').boundingBox()
+  expect(initialCta).not.toBeNull()
+  expect(initialCta!.y + initialCta!.height).toBeLessThanOrEqual(PHONE.height)
 
   await expect(original).toHaveAttribute('aria-pressed', 'true')
   await expect(modern).toHaveAttribute('aria-pressed', 'false')
@@ -217,6 +296,8 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   await expect(modern).toHaveAttribute('aria-pressed', 'true')
   await expect(both).toHaveAttribute('aria-pressed', 'false')
   await expect(page.locator('.tov5-continue')).toHaveText('Continue with Modern English')
+  await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+  await expect(page.locator('[data-edition-sample-text="modern-en"]')).toContainText('carrying a bowl of shaving lather')
 
   await both.click()
   await expect(original).toHaveAttribute('aria-pressed', 'false')
@@ -225,7 +306,52 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   await expect(page.locator('[data-catalogue-edition].is-selected')).toHaveCount(0)
   await expect(page.locator('.tov5-both')).toHaveClass(/is-selected/)
   await expect(page.locator('.tov5-continue')).toHaveText('Continue with Both')
+  await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+  await expect(page.locator('[data-edition-sample-text]')).toHaveCount(2)
+  await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('Stately, plump Buck Mulligan')
+  await expect(page.locator('[data-edition-sample-text="modern-en"]')).toContainText('carrying a bowl of shaving lather')
 })
+
+for (const viewport of [
+  { label: 'small-phone', width: 320, height: 568 },
+  { label: 'phone', ...PHONE },
+  { label: 'tablet', ...TABLET },
+  { label: 'desktop', ...DESKTOP },
+]) {
+  test(`renders real compact samples for one, two and three edition surfaces at ${viewport.label}`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height })
+
+    await openPreReader(page, '/lab/?autoplay=0&book=odyssey&view=edition')
+    await page.evaluate(() => {
+      const source = window.__tinctLabPreReader.visibleBooks().find(book => book.id === 'odyssey')!
+      window.__tinctLabPreReader.renderEditionsForTest({ ...source, editions: [source.editions[0]] })
+    })
+    await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '1')
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text="original-en"]')).not.toContainText('Sample unavailable')
+    await expectNoDocumentOverflow(page)
+    await capture(page, `${viewport.label}-edition-one`)
+
+    await openPreReader(page, '/lab/?autoplay=0&book=divine-comedy&view=edition')
+    await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '2')
+    await expect(page.locator('[data-catalogue-edition="original-en"]')).toContainText('Longfellow Translation (1867)')
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('Midway upon the journey of our life')
+    await expectNoDocumentOverflow(page)
+    await capture(page, `${viewport.label}-edition-two-long-label`)
+
+    await openPreReader(page, '/lab/?autoplay=0&book=ivan-ilyich&view=edition')
+    await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '3')
+    await expect(page.locator('[data-select-edition="modern-da"]')).toHaveCount(0)
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('During an interval in the Melvinski trial')
+    const cta = await page.locator('.tov5-continue').boundingBox()
+    expect(cta).not.toBeNull()
+    expect(cta!.y + cta!.height).toBeLessThanOrEqual(viewport.height)
+    await expectNoDocumentOverflow(page)
+    await capture(page, `${viewport.label}-edition-three`)
+  })
+}
 
 for (const viewport of REQUIRED_VIEWPORTS) {
   test(`selects every edition card from its title, body and footer at ${viewport.label}`, async ({ page }) => {
@@ -336,17 +462,51 @@ test('creates valid Ulysses, Divine Comedy and future single-edition handoffs', 
   await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '1')
 })
 
-test('derives returning-library state from a coherent saved reader tuple', async ({ page }) => {
+test('shows truthful dark-library continuation and resumes the coherent saved tuple', async ({ page }) => {
   await page.evaluate(() => {
     localStorage.setItem('tinct:position:meditations', JSON.stringify({ bookId: 'meditations', chapterNumber: 4, currentPage: 2, totalPages: 8, scrollFraction: .25, updatedAt: Date.now() }))
     localStorage.setItem('tinct:progress:meditations', JSON.stringify({ bookId: 'meditations', highestCompletedChapter: 3, totalChapters: 12, percent: 25 }))
   })
-  await openPreReader(page, '/lab/?autoplay=0&view=your-library')
-  await expect(page.locator('[data-returning-book="meditations"]')).toContainText('Chapter 4 · 25% read')
-  await page.locator('[data-returning-book="meditations"] [data-continue-book]').click()
-  await expect(page).toHaveURL(/\/lab\/reader$/)
-  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'meditations')
-  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '4')
+  await openPreReader(page, '/lab/library?autoplay=0')
+  const card = page.locator('[data-continue-book="meditations"]')
+  await expect(card).toBeVisible()
+  await expect(page.locator('.tov5-library-continue')).toContainText('Saved on this device')
+  await expect(card).toContainText('Book 4')
+  for (let pass = 0; pass < 3; pass += 1) {
+    await page.locator('[data-continue-book="meditations"]').click()
+    await expect(page).toHaveURL(/\/lab\/reader$/)
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'meditations')
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '4')
+    if (pass < 2) {
+      await page.goBack()
+      await waitForPreReader(page)
+      await expect(page.locator('[data-continue-book="meditations"]')).toBeVisible()
+    }
+  }
+})
+
+test('preserves the exact Lab auth return destination for landing and dark library', async ({ page }) => {
+  await openPreReader(page, '/lab/landing')
+  await page.locator('.tov5-simple-sign-in').click()
+  await expect(page).toHaveURL(/returnTo=%2Flab%2Flanding/)
+  await expect(page.getByRole('link', { name: 'Library' })).toHaveAttribute('href', '/lab/landing')
+
+  await openPreReader(page, '/lab/library')
+  await page.locator('.tov5-library-topbar [data-lab-auth-link]').click()
+  await expect(page).toHaveURL(/returnTo=%2Flab%2Flibrary/)
+  await expect(page.getByRole('link', { name: 'Library' })).toHaveAttribute('href', '/lab/library')
+})
+
+test('browser Back restores edition, detail and dark-library states without preface', async ({ page }) => {
+  await openPreReader(page, '/lab/library')
+  await page.locator('[data-catalogue-book="odyssey"]').first().click()
+  await page.getByRole('button', { name: 'Start reading' }).click()
+  await expect(page.locator('[data-view-panel="edition"]')).toHaveClass(/is-current/)
+  await page.goBack()
+  await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
+  await page.goBack()
+  await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+  await expect(page.locator('[data-view-panel="preface"]')).toBeHidden()
 })
 
 for (const viewport of [PHONE, DESKTOP]) {
@@ -401,7 +561,7 @@ for (const viewport of REQUIRED_VIEWPORTS) {
     expect(geometry.bodyFits).toBe(true)
     if (viewport.width === DESKTOP.width) {
       expect(geometry.width).toBeGreaterThanOrEqual(1100)
-      expect(geometry.width).toBeLessThanOrEqual(1280)
+      expect(geometry.width).toBeGreaterThanOrEqual(1400)
       expect(Math.abs(geometry.left - geometry.right)).toBeLessThanOrEqual(2)
     } else if (viewport.width === TABLET.width) {
       expect(geometry.width).toBeGreaterThanOrEqual(720)
@@ -445,7 +605,7 @@ for (const { label, viewport } of [{ label: 'phone', viewport: PHONE }, { label:
     await capture(page, `${label}-01-landing`)
     await page.getByRole('button', { name: 'Start reading' }).click()
     await capture(page, `${label}-02-library`)
-    await page.getByRole('searchbox', { name: 'Search the library' }).fill('Republic')
+    await searchLibrary(page, 'Republic')
     await expect(page.locator('.tov5-search-results [data-catalogue-book="the-republic"]')).toHaveCount(1)
     await capture(page, `${label}-03-republic-search`)
     await page.evaluate(() => window.__tinctLabPreReader.selectBook('ulysses'))
@@ -457,6 +617,8 @@ for (const { label, viewport } of [{ label: 'phone', viewport: PHONE }, { label:
     await capture(page, `${label}-05-edition-picker`)
     await page.locator('.tov5-both[data-edition-choice]').click()
     await expect(page.locator('.tov5-both[data-edition-choice]')).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text]')).toHaveCount(2)
     await capture(page, `${label}-06-both-selected`)
     await expectNoDocumentOverflow(page)
   })

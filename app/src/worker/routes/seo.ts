@@ -153,6 +153,8 @@ const LAB_PRE_READER_PATHS = new Map([
   ['/lab/library', '/lab/'],
   ['/lab/library-2', '/lab/library-2/'],
   ['/lab/library-2/', '/lab/library-2/'],
+  ['/lab/sign-in', '/lab/sign-in/'],
+  ['/lab/sign-in/', '/lab/sign-in/'],
 ])
 
 function isLabStaticAssetPath(pathname: string): boolean {

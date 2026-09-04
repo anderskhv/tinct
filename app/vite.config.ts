@@ -4,8 +4,12 @@ import type { IncomingMessage, ServerResponse } from 'http'
 import fs from 'fs'
 import path from 'path'
 import { serializePreReaderCatalogue } from './src/preReader/catalogue'
+import { addLibraryReadingStructures } from './src/preReader/libraryReadingStructure'
 
-const serializedPreReaderCatalogue = JSON.stringify(serializePreReaderCatalogue())
+const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
+  serializePreReaderCatalogue(),
+  path.resolve(process.cwd(), 'public'),
+))
 
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -59,6 +63,22 @@ export default defineConfig(({ mode, command }) => {
     __BUILD_VERSION__: JSON.stringify(buildVersion),
   },
   base: isCapacitor ? './' : '/',
+  build: {
+    rollupOptions: {
+      input: {
+        index: path.resolve(process.cwd(), 'index.html'),
+        labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
+        labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
+      },
+      output: {
+        entryFileNames: chunk => chunk.name === 'labAuthStatus'
+          ? 'lab/auth-status.js'
+          : chunk.name === 'labSignIn'
+            ? 'lab/sign-in-runtime.js'
+            : 'assets/[name]-[hash].js',
+      },
+    },
+  },
   plugins: [
     react(),
     {
@@ -91,6 +111,21 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
+          if (pathOnly === '/lab/auth-status.js') {
+            req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/sign-in-runtime.js') {
+            req.url = `/src/labSignIn.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/sign-in' || pathOnly === '/lab/sign-in/') {
+            req.url = `/lab/sign-in/index.html${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/lab/library-2' || pathOnly === '/lab/library-2/') {
             req.url = `/lab/library-2/index.html${url.slice(pathOnly.length)}`
             next()

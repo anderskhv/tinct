@@ -140,7 +140,8 @@
       root.querySelector('[data-edition-classic-name]').textContent=book.classicLabel;
       root.querySelector('[data-edition-classic-copy]').textContent=book.classic;
       root.querySelector('[data-edition-modern-copy]').textContent=book.modern;
-      root.querySelector('[data-edition-short-classic]').textContent=book.classicLabel.split(' · ')[0].split(' ').at(-1);
+      const shortClassic=root.querySelector('[data-edition-short-classic]');
+      if(shortClassic)shortClassic.textContent=book.classicLabel.split(' · ')[0].split(' ').at(-1);
       root.querySelector('[data-classic-label]').textContent=book.classicLabel;
       root.querySelector('[data-classic-copy]').textContent=book.classic;
       root.querySelector('[data-modern-copy]').textContent=book.modern;

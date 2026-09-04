@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, noarchive">
+  <meta name="theme-color" content="#07141f">
+  <title>Sign in · Tinct</title>
+  <style>
+    :root{color-scheme:dark;--ink:#f1eadb;--muted:#91a0a7;--night:#07141f;--night2:#102635;--paper:#f7f1e6;--dark:#29251f;--grey:#746d63;--rule:#d8cfc1;--serif:Iowan Old Style,Palatino Linotype,Book Antiqua,Palatino,Georgia,serif;--sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html,body{width:100%;min-width:320px;min-height:100%;margin:0}body{font-family:var(--sans);background:var(--night);color:var(--ink)}button,input{font:inherit}.auth-page{min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background:radial-gradient(circle at 76% 4%,rgba(86,145,169,.2),transparent 30%),linear-gradient(145deg,var(--night),var(--night2))}.auth-top{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 clamp(18px,4vw,54px);border-bottom:1px solid rgba(241,234,219,.12)}.auth-back{color:var(--muted);text-decoration:none;font-size:13px}.auth-logo{font:500 29px/1 var(--serif)}.auth-logo::after{content:".";color:#8fc4d6}.auth-main{min-height:calc(100dvh - 72px);display:grid;place-items:center;padding:32px 18px}.auth-card{width:min(100%,420px);padding:32px;border-radius:19px;background:var(--paper);color:var(--dark);box-shadow:0 24px 70px rgba(0,0,0,.32)}.auth-eyebrow{margin:0 0 12px;color:#777064;font-size:10px;font-weight:650;letter-spacing:.12em;text-transform:uppercase}.auth-card h1{margin:0 0 8px;font:500 34px/1 var(--serif);letter-spacing:-.025em}.auth-copy{margin:0 0 22px;color:var(--grey);font-size:13px;line-height:1.5}.auth-google,.auth-primary,.auth-secondary,.auth-link{width:100%;min-height:44px;border-radius:10px;cursor:pointer}.auth-google{border:1px solid var(--rule);background:#fffaf2;color:#39352f}.auth-or{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:16px 0;color:#8b8378;font-size:9px;text-transform:uppercase}.auth-or::before,.auth-or::after{content:"";height:1px;background:#ddd4c7}.auth-field{display:block;margin-top:13px;color:#625b52;font-size:11px}.auth-field[hidden]{display:none}.auth-field input{width:100%;height:46px;margin-top:6px;padding:0 13px;border:1px solid var(--rule);border-radius:10px;background:#fffdf8;color:#2d2924;outline:none}.auth-field input:focus-visible{border-color:#274d5d;box-shadow:0 0 0 3px rgba(39,77,93,.15)}.auth-primary{margin-top:17px;border:0;background:#302c26;color:#fffaf1}.auth-primary:disabled{opacity:.55}.auth-secondary{margin-top:12px;border:1px solid var(--rule);background:transparent;color:#5e574e}.auth-link{min-height:34px;border:0;background:transparent;color:#625b52;font-size:11px;text-decoration:underline}.auth-fine{margin:14px 0 0;padding-top:13px;border-top:1px solid #ddd4c7;color:#7c756b;font-size:10px;line-height:1.45;text-align:center}.auth-status{margin:14px 0 0;padding:10px 12px;border-radius:9px;background:#e9e2d6;color:#5e574e;font-size:11px;line-height:1.4}.auth-status[data-tone=error]{background:#f4ded8;color:#81382c}.auth-status[data-tone=success]{background:#e1eadf;color:#315b3a}.auth-account{padding:2px 0}.auth-account-email{margin:14px 0 22px;color:var(--grey);font-size:13px}.auth-page:not([data-mode=signin]) [data-mode-copy=signin],.auth-page:not([data-mode=create]) [data-mode-copy=create],.auth-page:not([data-mode=forgot]) [data-mode-copy=forgot],.auth-page:not([data-mode=reset]) [data-mode-copy=reset],.auth-page:not([data-mode=account]) [data-mode-copy=account]{display:none}.auth-page[data-mode=account] form{display:none}.auth-page:not([data-mode=signin]):not([data-mode=create]) [data-google],.auth-page:not([data-mode=signin]):not([data-mode=create]) .auth-or{display:none}@media(max-width:520px){.auth-top{height:60px;padding:0 18px}.auth-logo{font-size:25px}.auth-main{min-height:calc(100dvh - 60px);align-items:end;padding:12px}.auth-card{padding:26px 20px 20px;border-radius:20px}.auth-card h1{font-size:30px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div id="tinct-lab-sign-in" class="auth-page" data-mode="signin" data-ready="false">
+    <header class="auth-top"><a class="auth-back" data-auth-back href="/lab/library">← Library</a><div class="auth-logo">Tinct</div><span></span></header>
+    <main class="auth-main">
+      <section class="auth-card" aria-live="polite">
+        <div data-mode-copy="signin"><p class="auth-eyebrow">Welcome back</p><h1>Sign in</h1><p class="auth-copy">Return to your saved books and reading places.</p></div>
+        <div data-mode-copy="create" hidden><p class="auth-eyebrow">Save this reading</p><h1>Create a free account</h1><p class="auth-copy">Keep your reading places and sync them across your devices.</p></div>
+        <div data-mode-copy="forgot" hidden><p class="auth-eyebrow">Password recovery</p><h1>Reset your password</h1><p class="auth-copy">We’ll email you a secure reset link.</p></div>
+        <div data-mode-copy="reset" hidden><p class="auth-eyebrow">Secure link confirmed</p><h1>Set a new password</h1><p class="auth-copy">Choose a new password, then return to your library.</p></div>
+        <div class="auth-account" data-mode-copy="account" hidden><p class="auth-eyebrow">Account</p><h1>Your reading is in sync</h1><p class="auth-account-email" data-account-email></p><button class="auth-primary" type="button" data-return>Return to Library</button><button class="auth-secondary" type="button" data-sign-out>Sign out</button></div>
+        <form data-auth-form novalidate>
+          <button class="auth-google" type="button" data-google>Continue with Google</button><div class="auth-or">or with email</div>
+          <label class="auth-field" data-email-field>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label class="auth-field" data-password-field>Password<input name="password" type="password" minlength="8" autocomplete="current-password" required></label>
+          <label class="auth-field" data-confirm-field hidden>Confirm password<input name="confirmPassword" type="password" minlength="8" autocomplete="new-password"></label>
+          <button class="auth-primary" type="submit" data-auth-submit><span data-mode-copy="signin">Sign in</span><span data-mode-copy="create" hidden>Create account and keep reading</span><span data-mode-copy="forgot" hidden>Send reset link</span><span data-mode-copy="reset" hidden>Save password and continue</span></button>
+          <button class="auth-link" type="button" data-set-mode="forgot" data-mode-copy="signin">Forgot password?</button>
+          <button class="auth-link" type="button" data-set-mode="signin" data-mode-copy="forgot" hidden>Back to sign in</button>
+          <p class="auth-fine" data-mode-copy="signin">No account? <button class="auth-link" type="button" data-set-mode="create">Create one free</button></p>
+          <p class="auth-fine" data-mode-copy="create" hidden>Reading remains free. <button class="auth-link" type="button" data-set-mode="signin">I already have an account</button></p>
+        </form>
+        <p class="auth-status" data-auth-status hidden></p>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/lab/sign-in-runtime.js"></script>
+</body>
+</html>
