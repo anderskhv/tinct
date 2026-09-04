@@ -69,13 +69,16 @@ export default defineConfig(({ mode, command }) => {
         index: path.resolve(process.cwd(), 'index.html'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
+        labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
       },
       output: {
         entryFileNames: chunk => chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'
-            : 'assets/[name]-[hash].js',
+            : chunk.name === 'labReadingMemory'
+              ? 'lab/reading-memory.js'
+              : 'assets/[name]-[hash].js',
       },
     },
   },
@@ -118,6 +121,11 @@ export default defineConfig(({ mode, command }) => {
           }
           if (pathOnly === '/lab/sign-in-runtime.js') {
             req.url = `/src/labSignIn.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/reading-memory.js') {
+            req.url = `/src/labReadingMemory.ts${url.slice(pathOnly.length)}`
             next()
             return
           }

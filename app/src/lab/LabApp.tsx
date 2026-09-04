@@ -81,6 +81,7 @@ import {
 } from './labVoiceControls'
 import type { VoiceTinctView } from '../voice/tinctTools'
 import { getBook } from '../data/bookRegistry'
+import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import './lab.css'
 
 const PHONE_QUERY = '(max-width: 1024px)'
@@ -1794,6 +1795,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     wordIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.wordIndex : readingTail?.to,
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
+  // Durable reading memory: a read-only observer of the rendered tuple. It
+  // records sessions for the library recap and never touches position logic.
+  useLabReadingMemory({
+    bookId: book.bookId || 'bible',
+    editionKey: readerEditionKey,
+    chapterNumber: book.chapterNumber,
+    chapterLabel: book.chapterTitle,
+    paragraphs: readerParagraphs,
+    pageIndex: readingPageIndex,
+    pages: readingPages,
+    pagesSettled: nativePhonePaging ? nativePagesRevision > 0 : settleIndex === null,
+    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0,
+    pageTurnDirection: pageTurn?.direction ?? null,
+    finishedChapters,
+  })
   const footProgress = labFootProgress({
     chapterNumber: book.chapterNumber,
     chapterLabel: book.chapterLabel,
