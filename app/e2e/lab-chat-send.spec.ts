@@ -29,6 +29,7 @@ async function openIvanChat(page: Page, viewport: ReaderViewport): Promise<void>
       kind: 'open-reader',
       bookId: 'ivan-ilyich',
       primaryEditionKey: 'original-en',
+      savedPlace: { bookId: 'ivan-ilyich', chapterNumber: 1, paragraphIndex: 0, page: 0 },
     }))
   })
   await page.goto('/lab/reader', { waitUntil: 'networkidle' })
