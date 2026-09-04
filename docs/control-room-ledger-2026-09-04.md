@@ -15,7 +15,7 @@ Reference commits were initially absent from the remote (unpushed on Anders's Ma
 on 2026-09-04 evening: `42a019f8` → `origin/codex/ref-explicit-goodbye`, `9684bd4e` →
 `origin/codex/ref-word-timing-tooling`, `b4312203` → `origin/codex/ref-reading-memory`. Both running lanes
 were notified. The Mac-only artifact folders are being published as `codex/ref-artifacts-2026-09-04`
-(pending push at time of writing). `app/.env` and all Cloudflare/R2 credentials remain absent here.
+(pushed; 42 files, pilots and plans included). `app/.env` and all Cloudflare/R2 credentials remain absent here.
 
 ## Lane status
 
@@ -24,9 +24,9 @@ Status vocabulary: not started · implementing · tests passing · clean commit 
 | Lane | Branch / location | Status | Notes |
 |---|---|---|---|
 | 1 Voice V2 preview | `codex/claude-voice-v2-preview` @ `/home/user/tinct-wt/voice-v2` | implementing | Subagent running; `42a019f8` reference forwarded mid-flight. |
-| 2 Word-timing canary | `codex/claude-word-timing-production` | blocked | No `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_R2_TOKEN` or R2 keys in this environment; no GPU; egress to tinct.app denied. Decision: Lane 2 runs on the Mac/RunPod via Codex using `codex/ref-word-timing-tooling` and the execution plan. Branch not created here. |
+| 2 Word-timing canary | `codex/claude-word-timing-production` @ `/home/user/tinct-wt/word-timing` | implementing (offline part) / blocked (R2 + GPU part) | Subagent cherry-picks tooling `9684bd4e` onto baseline, validates the two Genesis 1 pilots offline, and writes the four-shard plan. Upload, R2 verification, production highlighting check and GPU benchmark are blocked here: no R2 token, no GPU, egress to tinct.app denied. Per EXECUTION-PLAN.md a dedicated least-privilege R2 object read/write token must be provisioned first (the Workers deploy token fails R2 with error 10000). |
 | 3 Reading memory + recap | `codex/claude-reading-memory-recap` @ `/home/user/tinct-wt/reading-memory` | implementing | Subagent running; `b4312203` reference forwarded mid-flight (design reference only). |
-| 4 100-cover collection | artifact-only | blocked | No image-generation capability in this environment. Decision: generate where the pilot was made; control room reviews contact sheets and manifest once pushed under `artifacts/`. |
+| 4 100-cover collection | artifact-only | blocked | The pilot was generated with Codex's built-in image tool (`render_pilot.py` only overlays type with Pillow). This environment has no image-generation tool, so the 92 remaining covers must be generated in Codex. Control room reviews contact sheets and manifest once pushed under `artifacts/`. |
 | 5 Integration + release | `codex/claude-convergence-integration` @ `/private/tmp/tinct-claude-convergence-integration` | not started | Worktree created at baseline. Deploy blocked here: wrangler unauthenticated, egress to api.cloudflare.com and tinct.app denied. Decision: Codex on the Mac deploys from a clean worktree of `codex/claude-convergence-integration`, then promotes to `codex/lab-convergence`. |
 
 ## Decisions
