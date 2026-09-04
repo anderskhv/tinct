@@ -41,7 +41,7 @@
       <section class="tov5-simple-landing" aria-label="Tinct landing page">
         <div class="tov5-simple-worlds" aria-hidden="true"><span class="tov5-simple-world odyssey"></span><span class="tov5-simple-world pride"></span><span class="tov5-simple-world frankenstein"></span></div>
         <div class="tov5-simple-scrim" aria-hidden="true"></div>
-        <header class="tov5-simple-header"><span class="tov5-simple-wordmark">Tinct.</span><nav class="tov5-simple-actions" aria-label="Site links"><a class="tov5-simple-about" href="/about">About</a><a class="tov5-simple-sign-in" href="/app?signin=1">Sign in</a></nav></header>
+        <header class="tov5-simple-header"><span class="tov5-simple-wordmark">Tinct.</span><nav class="tov5-simple-actions" aria-label="Site links"><a class="tov5-simple-about" href="/about">About</a><a class="tov5-simple-sign-in" data-lab-auth-link href="/lab/sign-in?returnTo=%2Flab%2Flibrary-2">Sign in</a></nav></header>
         <main class="tov5-simple-hero">
           <h1>Fall in love with the books that matter.</h1>
           <p>Immerse yourself in the world's greatest books. Read, listen and talk with them at will – in a language and style that speaks to you.</p>
@@ -1217,5 +1217,6 @@
 
 <script src="/lab/interaction-runtime.js?v=20260904-1" defer></script>
 <script src="/lab/catalogue-runtime.js?v=20260903-7" defer></script>
+  <script type="module" src="/lab/auth-status.js"></script>
 </body>
 </html>
