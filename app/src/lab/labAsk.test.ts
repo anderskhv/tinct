@@ -32,15 +32,17 @@ describe('lab conversation state', () => {
   it('goes connecting the moment start is requested', () => {
     expect(labConversationState({ voiceState: 'reading' })).toBe('idle')
     expect(labConversationState({ voiceState: 'reading', starting: true })).toBe('connecting')
-    expect(labConversationState({ voiceState: 'conversation_idle' })).toBe('thinking')
-    expect(labConversationState({ voiceState: 'resume_pending' })).toBe('thinking')
+    expect(labConversationState({ voiceState: 'conversation_idle' })).toBe('listening')
+    expect(labConversationState({ voiceState: 'resume_pending' })).toBe('preparing')
   })
 
-  it('maps listening, answering, and a thinking wait', () => {
+  it('maps observed lifecycle activity instead of inferring synthetic thinking', () => {
     expect(labConversationState({ voiceState: 'listening' })).toBe('listening')
     expect(labConversationState({ voiceState: 'answering' })).toBe('speaking')
-    expect(labConversationState({ voiceState: 'conversation_idle' })).toBe('thinking')
-    expect(labConversationState({ voiceState: 'resume_pending' })).toBe('thinking')
+    expect(labConversationState({ voiceState: 'conversation_idle', activity: 'listening' })).toBe('listening')
+    expect(labConversationState({ voiceState: 'answering', activity: 'checking_text' })).toBe('checking')
+    expect(labConversationState({ voiceState: 'answering', activity: 'preparing_answer' })).toBe('preparing')
+    expect(labConversationState({ voiceState: 'resume_pending' })).toBe('preparing')
   })
 })
 
@@ -73,6 +75,8 @@ describe('lab ask context', () => {
     expect(instructions).toContain('Never say you cannot control playback')
     expect(instructions).toContain('call set_assistant_pace')
     expect(instructions).toContain('Never say you cannot change your pace')
+    expect(instructions).toContain('Answer directly and concisely')
+    expect(instructions).toContain('Never praise the question or the reader')
     expect(instructions).toContain('talk slower')
     expect(instructions).toContain('slower please')
     expect(instructions).toContain('call set_playback_speed')

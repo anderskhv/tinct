@@ -23,10 +23,11 @@ describe('lab chrome states', () => {
     expect(labAfterTalk('reading')).toBe('reading')
   })
 
-  it('names Connecting / Listening / Thinking / Speaking for the composer status', () => {
+  it('names only lifecycle-backed phases for the composer status', () => {
     expect(labVoicePhaseLabel('connecting')).toBe('Connecting')
     expect(labVoicePhaseLabel('listening')).toBe('Listening')
-    expect(labVoicePhaseLabel('thinking')).toBe('Thinking')
+    expect(labVoicePhaseLabel('checking')).toBe('Checking the text')
+    expect(labVoicePhaseLabel('preparing')).toBe('Preparing answer')
     expect(labVoicePhaseLabel('speaking')).toBe('Speaking')
     expect(labVoicePhaseLabel('idle')).toBeNull()
   })
@@ -35,10 +36,11 @@ describe('lab chrome states', () => {
     expect(nextLabVoiceGate('off', 'connecting', true)).toBe('connecting')
     expect(nextLabVoiceGate('connecting', 'connecting', true)).toBe('connecting')
     expect(nextLabVoiceGate('connecting', 'listening', true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'thinking', true)).toBe('off')
+    expect(nextLabVoiceGate('connecting', 'checking', true)).toBe('off')
+    expect(nextLabVoiceGate('connecting', 'preparing', true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'speaking', true)).toBe('off')
     expect(nextLabVoiceGate('off', 'listening', true)).toBe('off')
-    expect(nextLabVoiceGate('off', 'thinking', true)).toBe('off')
+    expect(nextLabVoiceGate('off', 'checking', true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'idle', false)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'idle', true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'connecting', true, 'Sign in to ask by voice.')).toBe('off')

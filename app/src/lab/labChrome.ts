@@ -62,27 +62,28 @@ export type LabVoiceGatePhase = 'off' | 'connecting' | 'ready'
 
 export function nextLabVoiceGate(
   current: LabVoiceGatePhase,
-  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking',
+  conversationState: 'idle' | 'connecting' | 'listening' | 'checking' | 'preparing' | 'speaking',
   voiceActive: boolean,
   notice?: string | null,
   _userSpeechStarted?: boolean,
 ): LabVoiceGatePhase {
   if (notice || conversationState === 'idle') return 'off'
-  if (!voiceActive && conversationState !== 'connecting' && conversationState !== 'listening' && conversationState !== 'thinking') {
+  if (!voiceActive && conversationState !== 'connecting' && conversationState !== 'listening' && conversationState !== 'checking' && conversationState !== 'preparing') {
     return 'off'
   }
   // The gate describes transport setup only. Once the live voice machine
-  // reports listening, thinking, or speaking, reveal that exact state rather
+  // reports listening, checking, preparing, or speaking, reveal that exact state rather
   // than holding a synthetic startup label over it.
   if (conversationState !== 'connecting') return 'off'
   if (current === 'off' || current === 'connecting') return 'connecting'
   return current
 }
 
-export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking'): string | null {
+export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'checking' | 'preparing' | 'speaking'): string | null {
   if (phase === 'connecting') return 'Connecting'
   if (phase === 'listening') return 'Listening'
-  if (phase === 'thinking') return 'Thinking'
+  if (phase === 'checking') return 'Checking the text'
+  if (phase === 'preparing') return 'Preparing answer'
   if (phase === 'speaking') return 'Speaking'
   return null
 }

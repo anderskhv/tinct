@@ -4,18 +4,19 @@ import {
   ASK_COMPANION_TOOL,
   companionSpeakInstructions,
   isLabPlaybackUtterance,
+  LAB_HOP_FALLBACK,
   parseAskCompanionArguments,
   playbackArgsForUtterance,
   playbackToolForUtterance,
-  runEscalatedCompanionTurn,
   shouldEscalateToCompanion,
-  spokenCompanionAnswer,
+  type CompanionAskResult,
   type CompanionAskNotify,
 } from '../lab/labCompanion'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
+import { createVoiceDiagnosticReporter, nextVoiceDiagnosticId, type VoiceDiagnosticReporter } from './diagnostics'
 import { classifyVoiceUtterance, shouldHonorModelEnd, shouldHonorModelResume } from './intents'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
-import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
+import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceActivityPhase, VoiceApplicationToolHandler, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, VOICE_CLOSE_LINE, VOICE_REALTIME_MODEL } from './types'
 import {
   INITIAL_VOICE_TURN,
@@ -51,6 +52,7 @@ export interface VoiceSessionCallbacks {
 export interface VoiceUiSnapshot {
   state: VoiceModeState
   mode: VoiceMachineSnapshot['mode']
+  activity: VoiceActivityPhase
   resumeInSeconds: number | null
   error: string | null
   isActive: boolean
@@ -77,18 +79,19 @@ export interface StartVoiceSessionInput {
   /** Lab-only. Realtime audio.output.speed. */
   assistantPace?: AssistantPace
   /** Lab-only. Production AudioStrip leaves this unset. */
-  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string>
+  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<CompanionAskResult>
 }
 
 type RealtimeEvent = VoiceRealtimeEvent
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
-  extra: { resumeInSeconds?: number | null; error?: string | null; userSpeechStarted?: boolean } = {},
+  extra: { activity?: VoiceActivityPhase; resumeInSeconds?: number | null; error?: string | null; userSpeechStarted?: boolean } = {},
 ): VoiceUiSnapshot {
   return {
     state: machine.state,
     mode: machine.mode,
+    activity: extra.activity ?? 'idle',
     resumeInSeconds: extra.resumeInSeconds ?? null,
     error: extra.error ?? null,
     isActive: isVoiceSessionActive(machine.state),
@@ -131,6 +134,7 @@ function monotonicNow(): number {
 
 export class VoiceSessionController {
   private machine: VoiceMachineSnapshot = INITIAL_VOICE_SNAPSHOT
+  private activity: VoiceActivityPhase = 'idle'
   private lastUserIntent: VoiceIntent = 'none'
   private callbacks: VoiceSessionCallbacks
   private audio: VoiceAudioEngine | null = null
@@ -174,6 +178,10 @@ export class VoiceSessionController {
   private speechStoppedAt: number | null = null
   private latencyTurnNumber = 0
   private firstAudioRecordedForTurn = false
+  private diagnostics: VoiceDiagnosticReporter | null = null
+  private diagnosticTurnId: string | null = null
+  private realtimeProviderId: string | null = null
+  private diagnosticFirstAudio = false
 
   constructor(callbacks: VoiceSessionCallbacks) {
     this.callbacks = callbacks
@@ -181,6 +189,7 @@ export class VoiceSessionController {
 
   getSnapshot(): VoiceUiSnapshot {
     return snapshotFrom(this.machine, {
+      activity: this.activity,
       resumeInSeconds: this.currentResumeSeconds(),
       userSpeechStarted: this.userSpeechStarted,
     })
@@ -193,10 +202,15 @@ export class VoiceSessionController {
     }
 
     this.closed = false
+    this.activity = 'connecting'
     this.sessionStartedAt = monotonicNow()
     this.speechStoppedAt = null
     this.latencyTurnNumber = 0
     this.firstAudioRecordedForTurn = false
+    this.diagnostics = null
+    this.diagnosticTurnId = null
+    this.realtimeProviderId = null
+    this.diagnosticFirstAudio = false
     this.lastUserIntent = 'none'
     this.userSpeechStarted = false
     this.lastUtteranceConfirmed = false
@@ -263,7 +277,7 @@ export class VoiceSessionController {
         return
       }
       const tokenRes = tokenResult.value
-      const tokenData = await tokenRes.json().catch(() => ({})) as { value?: string; error?: string }
+      const tokenData = await tokenRes.json().catch(() => ({})) as { value?: string; error?: string; diagnostic_session_id?: string }
 
       if (tokenRes.status === 402) {
         this.fail('Your AI chat balance is empty. Top up to continue.')
@@ -280,6 +294,18 @@ export class VoiceSessionController {
         return
       }
 
+      this.diagnostics = createVoiceDiagnosticReporter({
+        sessionId: tokenData.diagnostic_session_id,
+        authToken: input.authToken,
+      })
+      this.diagnostics?.report('session_started', {
+        metadata: { source: 'voice_session', transport: 'webrtc', model: VOICE_REALTIME_MODEL },
+      })
+      this.diagnostics?.report('microphone_connect', {
+        metadata: { source: 'browser', status: 'granted' },
+      })
+      this.reportContextBound()
+
       this.callbacks.onUsage?.()
       await this.connectRealtime(tokenData.value)
       if (this.closed) {
@@ -287,6 +313,7 @@ export class VoiceSessionController {
         return
       }
       this.dispatch({ type: 'START', mode: input.mode })
+      this.setActivity('listening')
       if (this.sessionStartedAt != null) {
         this.callbacks.onLatency?.({
           kind: 'session_setup',
@@ -324,6 +351,8 @@ export class VoiceSessionController {
     this.assistantDraft = ''
     this.assistantTranscriptFamily = null
     this.assistantLineFinished = false
+    this.reportSessionEnded('stopped')
+    this.activity = 'idle'
     this.clearBargeInTimer()
     this.clearMicUnmuteTimer()
     if (this.machine.state === 'reading') {
@@ -338,6 +367,8 @@ export class VoiceSessionController {
 
   dispose(): void {
     this.closed = true
+    this.reportSessionEnded('disposed')
+    this.activity = 'idle'
     this.restoreBook({ speakClose: false })
   }
 
@@ -368,6 +399,7 @@ export class VoiceSessionController {
       if (!refreshedMatches) this.shouldResumeBook = false
     }
     if (this.machine.state !== 'reading') this.sendSessionUpdate()
+    if (this.machine.state !== 'reading') this.reportContextBound()
   }
 
   testAssistantPace(): AssistantPace {
@@ -386,9 +418,11 @@ export class VoiceSessionController {
     greet?: boolean
     shouldResumeBook?: boolean
     applicationTools?: readonly unknown[]
+    diagnostics?: VoiceDiagnosticReporter
   }): void {
     this.honorModelResume = input.honorModelResume === true
     this.applicationTools = input.applicationTools ?? []
+    this.diagnostics = input.diagnostics ?? null
     this.onCompanionAsk = input.onCompanionAsk
     this.lastUserIntent = input.lastUserIntent ?? 'none'
     this.userSpeechStarted = false
@@ -453,10 +487,45 @@ export class VoiceSessionController {
 
   private emit(error: string | null = null): void {
     this.callbacks.onSnapshot(snapshotFrom(this.machine, {
+      activity: this.activity,
       resumeInSeconds: this.currentResumeSeconds(),
       error,
       userSpeechStarted: this.userSpeechStarted,
     }))
+  }
+
+  private setActivity(activity: VoiceActivityPhase): void {
+    if (this.activity === activity) return
+    this.activity = activity
+    this.emit()
+  }
+
+  private reportContextBound(): void {
+    if (!this.context) return
+    this.diagnostics?.report('context_bound', {
+      turnId: this.diagnosticTurnId ?? undefined,
+      metadata: {
+        source: 'reader_context',
+        book_id: this.context.bookId,
+        edition_key: this.context.editionKey,
+        chapter_number: this.context.chapterNumber,
+        page_number: this.context.pageNumber,
+        paragraph_index: this.context.paragraphIndex,
+      },
+      raw: this.instructions ? { prompt: this.instructions } : undefined,
+    })
+  }
+
+  private reportSessionEnded(reason: string): void {
+    const diagnostics = this.diagnostics
+    if (!diagnostics) return
+    diagnostics.report('session_ended', {
+      turnId: this.diagnosticTurnId ?? undefined,
+      metadata: { source: 'browser', reason, phase: this.activity },
+    })
+    this.diagnostics = null
+    this.diagnosticTurnId = null
+    this.realtimeProviderId = null
   }
 
   private noteSpeechStoppedForLatency(): void {
@@ -482,6 +551,13 @@ export class VoiceSessionController {
   }
 
   private fail(error: string): void {
+    this.diagnostics?.report('provider_error', {
+      turnId: this.diagnosticTurnId ?? undefined,
+      providerId: this.realtimeProviderId ?? undefined,
+      metadata: { source: 'voice_session', error_class: error, phase: this.activity },
+    })
+    this.reportSessionEnded('failed')
+    this.activity = 'idle'
     this.machine = INITIAL_VOICE_SNAPSHOT
     this.turn = INITIAL_VOICE_TURN
     this.userSpeechStarted = false
@@ -505,6 +581,7 @@ export class VoiceSessionController {
 
   /** Undo the Ask pause: resume if the book was playing, keep the paused-at-Ask place either way. */
   private async restoreBook(opts: { speakClose: boolean }): Promise<void> {
+    this.reportSessionEnded('reader_restored')
     const resumeBook = this.shouldResumeBook
     const anchor = this.anchor
     const audio = this.audio
@@ -671,6 +748,12 @@ export class VoiceSessionController {
   private applyTurnResult(result: { state: VoiceTurnState; signal: VoiceTurnSignal }): void {
     this.turn = result.state
     if (result.signal === 'speech_start') {
+      this.activity = 'speaking'
+      this.diagnostics?.report('speak', {
+        turnId: this.diagnosticTurnId ?? undefined,
+        providerId: this.realtimeProviderId ?? undefined,
+        metadata: { source: 'realtime', phase: 'speaking' },
+      })
       this.assistantLineFinished = false
       this.dispatch({ type: 'ASSISTANT_SPEECH_START' })
       if (this.honorModelResume && !this.firstAssistantDone) {
@@ -687,6 +770,12 @@ export class VoiceSessionController {
       }
     }
     if (result.signal === 'speech_end') {
+      this.activity = 'listening'
+      this.diagnostics?.report('tts_completed', {
+        turnId: this.diagnosticTurnId ?? undefined,
+        providerId: this.realtimeProviderId ?? undefined,
+        metadata: { source: 'realtime', status: 'completed' },
+      })
       this.assistantLineFinished = true
       this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
       if (this.honorModelResume) {
@@ -761,10 +850,17 @@ export class VoiceSessionController {
     this.userSpeechStarted = true
     this.assistantLineFinished = false
     if (this.honorModelResume && this.firstAssistantDone && this.assistantIsSpeaking()) {
+      this.diagnostics?.report('tts_interrupted', {
+        turnId: this.diagnosticTurnId ?? undefined,
+        providerId: this.realtimeProviderId ?? undefined,
+        metadata: { source: 'browser', cancellation_reason: 'barge_in' },
+      })
       this.sendEvent({ type: 'response.cancel' })
       this.sendEvent({ type: 'output_audio_buffer.clear' })
     }
     this.dispatch({ type: 'USER_SPEECH_START' })
+    this.setActivity('listening')
+    this.diagnostics?.report('listen', { metadata: { source: 'realtime', phase: 'listening' } })
     this.awaitingModelResponse = false
     this.armLabUserTurnWatch()
   }
@@ -778,6 +874,8 @@ export class VoiceSessionController {
       this.lastUtteranceConfirmed = true
       this.userSpeechStarted = true
       this.dispatch({ type: 'USER_SPEECH_START' })
+      this.setActivity('listening')
+      this.diagnostics?.report('listen', { metadata: { source: 'realtime', phase: 'listening' } })
       this.awaitingModelResponse = false
       this.armLabUserTurnWatch()
       return
@@ -800,6 +898,8 @@ export class VoiceSessionController {
       this.noteSpeechStoppedForLatency()
       this.clearLabUserTurnWatch()
       this.dispatch({ type: 'USER_SPEECH_END' })
+      this.setActivity('preparing_answer')
+      this.diagnostics?.report('think', { metadata: { source: 'realtime', phase: 'preparing_answer' } })
       this.ensureResponseAfterUserSpeech()
       return
     }
@@ -821,6 +921,8 @@ export class VoiceSessionController {
     }
     this.clearLabUserTurnWatch()
     this.dispatch({ type: 'USER_SPEECH_END' })
+    this.setActivity('preparing_answer')
+    this.diagnostics?.report('think', { metadata: { source: 'realtime', phase: 'preparing_answer' } })
     this.lastUtteranceConfirmed = false
     if (!this.firstUserTurnCommitted) {
       this.firstUserTurnCommitted = true
@@ -848,6 +950,14 @@ export class VoiceSessionController {
         this.clearForceResponseTimer()
         this.assistantDraft = ''
         this.assistantTranscriptFamily = null
+        this.setActivity('preparing_answer')
+        this.realtimeProviderId = nextVoiceDiagnosticId('provider')
+        this.diagnosticFirstAudio = false
+        this.diagnostics?.report('provider_started', {
+          turnId: this.diagnosticTurnId ?? undefined,
+          providerId: this.realtimeProviderId,
+          metadata: { source: 'realtime', model: VOICE_REALTIME_MODEL, phase: 'preparing_answer' },
+        })
         if (this.honorModelResume && !this.firstAssistantDone) {
           this.clearMicUnmuteTimer()
           this.setOutgoingMicEnabled(false)
@@ -862,9 +972,38 @@ export class VoiceSessionController {
       case 'response.cancelled': {
         if (event.type === 'output_audio_buffer.started' || event.type === 'response.output_audio.delta' || event.type === 'response.audio.delta') {
           this.noteFirstAudioForLatency()
+          if (!this.diagnosticFirstAudio) {
+            this.diagnosticFirstAudio = true
+            this.diagnostics?.report('tts_first_audio', {
+              turnId: this.diagnosticTurnId ?? undefined,
+              providerId: this.realtimeProviderId ?? undefined,
+              metadata: { source: 'realtime' },
+            })
+          }
+          if (event.type === 'output_audio_buffer.started') {
+            this.diagnostics?.report('tts_started', {
+              turnId: this.diagnosticTurnId ?? undefined,
+              providerId: this.realtimeProviderId ?? undefined,
+              metadata: { source: 'realtime' },
+            })
+          }
         }
         this.applyTurnResult(reduceVoiceTurn(this.turn, event))
         const cancelled = event.type === 'response.cancelled' || event.response?.status === 'cancelled'
+        if (event.type === 'response.done' && !cancelled) {
+          this.diagnostics?.report('provider_completed', {
+            turnId: this.diagnosticTurnId ?? undefined,
+            providerId: this.realtimeProviderId ?? undefined,
+            metadata: { source: 'realtime', status: event.response?.status ?? 'completed' },
+          })
+        }
+        if (cancelled) {
+          this.diagnostics?.report('tts_cancelled', {
+            turnId: this.diagnosticTurnId ?? undefined,
+            providerId: this.realtimeProviderId ?? undefined,
+            metadata: { source: 'realtime', cancellation_reason: 'provider_cancelled' },
+          })
+        }
         if (cancelled) this.flushAssistantDraft(true)
         if (this.honorModelResume && this.firstUserTurnCommitted && !this.turn.audioPlaying) {
           this.completeFirstAssistantResponse()
@@ -889,6 +1028,12 @@ export class VoiceSessionController {
         if (!text) return
         if (this.shouldDiscardUserTranscript()) return
         this.lastUtteranceConfirmed = false
+        this.diagnosticTurnId = nextVoiceDiagnosticId('turn')
+        this.diagnostics?.report('submitted', {
+          turnId: this.diagnosticTurnId,
+          metadata: { source: 'voice', input_characters: text.length },
+          raw: { transcript: text },
+        })
         this.callbacks.onTurn('user', text)
         const intent = classifyVoiceUtterance(text)
         this.lastUserIntent = intent
@@ -907,6 +1052,14 @@ export class VoiceSessionController {
         if (!this.acceptAssistantTranscript(event.type || '')) return
         const text = (event.transcript || event.item?.transcript || '').trim()
         if (text) this.keepAssistantDraft(text)
+        if (text) {
+          this.diagnostics?.report('response_persisted', {
+            turnId: this.diagnosticTurnId ?? undefined,
+            providerId: this.realtimeProviderId ?? undefined,
+            metadata: { source: 'voice', output_characters: text.length },
+            raw: { response: text },
+          })
+        }
         this.flushAssistantDraft(false)
         return
       }
@@ -919,23 +1072,16 @@ export class VoiceSessionController {
         return this.handleToolCall(name, callId, rawArguments)
       }
       case 'error':
+        this.diagnostics?.report('provider_error', {
+          turnId: this.diagnosticTurnId ?? undefined,
+          providerId: this.realtimeProviderId ?? undefined,
+          metadata: { source: 'realtime', error_class: event.error?.message ?? 'realtime_error', phase: this.activity },
+        })
         if (event.error?.message) this.emit(event.error.message)
         return
       default:
         return
     }
-  }
-
-  private speakCoverLine(text: string): boolean {
-    const line = text.replace(/\s+/g, ' ').trim()
-    if (!line || !this.dc || this.dc.readyState !== 'open') return false
-    this.sendEvent({
-      type: 'response.create',
-      response: {
-        instructions: `Say this one short line naturally, then stop and wait. Do not answer the question yet. Do not mention tools, models, or waiting.\n\n${line}`,
-      },
-    })
-    return true
   }
 
   private alreadySpeakingThisTurn(): boolean {
@@ -965,28 +1111,98 @@ export class VoiceSessionController {
       return
     }
 
-    let latest = ''
-    const hopPromise = runEscalatedCompanionTurn({
-      question,
-      alreadySpeaking: this.alreadySpeakingThisTurn(),
-      speakCover: line => this.speakCoverLine(line),
-      query: (asked) => query(asked, {
-        onDelta: (text) => { latest = text },
-        onFirstSpeakable: () => { /* cover line only; full answer spoken once below */ },
-      }),
+    this.setActivity('checking_text')
+    this.diagnostics?.report('checking_text', {
+      turnId: this.diagnosticTurnId ?? undefined,
+      metadata: { source: 'companion', phase: 'checking_text' },
     })
-    const hop = await hopPromise
+    const providerId = nextVoiceDiagnosticId('provider')
+    const startedAt = monotonicNow()
+    let firstToken = false
+    this.diagnostics?.report('provider_started', {
+      turnId: this.diagnosticTurnId ?? undefined,
+      providerId,
+      metadata: { source: 'companion', model: 'claude-sonnet-4-6', attempt: 1 },
+      raw: { prompt: question },
+    })
+    let hop: CompanionAskResult
+    try {
+      hop = await query(question, {
+        onDelta: (text) => {
+          if (firstToken || !text) return
+          firstToken = true
+          this.diagnostics?.report('provider_first_token', {
+            turnId: this.diagnosticTurnId ?? undefined,
+            providerId,
+            metadata: { source: 'companion', latency_ms: Math.round(monotonicNow() - startedAt) },
+          })
+        },
+        onAttempt: (attempt) => {
+          if (attempt <= 1) return
+          this.diagnostics?.report('provider_started', {
+            turnId: this.diagnosticTurnId ?? undefined,
+            providerId,
+            metadata: { source: 'companion', model: 'claude-sonnet-4-6', attempt },
+          })
+        },
+        onRetry: (reason) => {
+          this.diagnostics?.report('retry', {
+            turnId: this.diagnosticTurnId ?? undefined,
+            providerId,
+            metadata: { source: 'companion', reason },
+          })
+        },
+      })
+    } catch {
+      hop = {
+        status: 'failed',
+        answer: LAB_HOP_FALLBACK,
+        attempts: 1,
+        stopReason: 'error',
+        failureReason: 'request_failed',
+      }
+    }
     if (this.closed) return
-    const full = spokenCompanionAnswer(hop.answer.trim() || latest.trim())
-      || hop.answer.trim()
-      || latest.trim()
-      || 'I could not get a reading of this passage just now.'
+    this.setActivity('preparing_answer')
+    const full = hop.answer
+    if (hop.status === 'completed') {
+      this.diagnostics?.report('provider_completed', {
+        turnId: this.diagnosticTurnId ?? undefined,
+        providerId,
+        metadata: {
+          source: 'companion',
+          status: 'completed',
+          attempt: hop.attempts,
+          stop_reason: hop.stopReason,
+          latency_ms: Math.round(monotonicNow() - startedAt),
+          output_characters: full.length,
+        },
+        raw: { response: full },
+      })
+    } else {
+      this.diagnostics?.report('provider_error', {
+        turnId: this.diagnosticTurnId ?? undefined,
+        providerId,
+        metadata: {
+          source: 'companion',
+          error_class: hop.failureReason ?? 'companion_failed',
+          attempt: hop.attempts,
+          stop_reason: hop.stopReason,
+          latency_ms: Math.round(monotonicNow() - startedAt),
+        },
+      })
+      this.diagnostics?.report('fallback', {
+        turnId: this.diagnosticTurnId ?? undefined,
+        providerId,
+        metadata: { source: 'companion', reason: hop.failureReason ?? 'companion_failed' },
+      })
+    }
     this.sendEvent({
       type: 'conversation.item.create',
       item: {
         type: 'function_call_output',
         call_id: callId,
-        output: JSON.stringify({ speak_verbatim: true, answer: full }),
+        output: JSON.stringify({ ok: hop.status === 'completed', speak_verbatim: true, answer: full }),
       },
     })
     this.applyTurnResult(noteToolCallHandled(this.turn))
@@ -1283,6 +1499,8 @@ export class VoiceSessionController {
   private forceEndUserTurn(): void {
     this.clearLabUserTurnWatch()
     this.dispatch({ type: 'USER_SPEECH_END' })
+    this.setActivity('preparing_answer')
+    this.diagnostics?.report('think', { metadata: { source: 'browser', reason: 'silence_timeout', phase: 'preparing_answer' } })
     this.sendEvent({ type: 'input_audio_buffer.commit' })
     if (this.honorModelResume && !this.firstUserTurnCommitted) {
       this.firstUserTurnCommitted = true

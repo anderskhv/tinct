@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { VoiceSessionController } from './VoiceSessionController'
+import type { VoiceDiagnosticReporter, VoiceDiagnosticEventType } from './diagnostics'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING } from './types'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from './types'
 
@@ -19,9 +20,9 @@ const CONTEXT: VoiceReaderContext = {
 }
 
 function makeController() {
-  const snapshots: Array<{ error: string | null; state: string }> = []
+  const snapshots: Array<{ error: string | null; state: string; activity: string }> = []
   const controller = new VoiceSessionController({
-    onSnapshot: snapshot => snapshots.push({ error: snapshot.error, state: snapshot.state }),
+    onSnapshot: snapshot => snapshots.push({ error: snapshot.error, state: snapshot.state, activity: snapshot.activity }),
     onTurn: () => { /* unused */ },
   })
   return { controller, snapshots }
@@ -241,6 +242,28 @@ describe('VoiceSessionController production continuity', () => {
     vi.advanceTimersByTime(10 * 60_000)
     expect(controller.getSnapshot().state).toBe('conversation_idle')
     expect(audio.resumePlayback).not.toHaveBeenCalled()
+  })
+
+  it('shows voice activity only from observed listen, prepare, speak, and completion events', () => {
+    const { controller, snapshots } = makeController()
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      honorModelResume: false,
+    })
+    controller.testRealtime({ type: 'input_audio_buffer.speech_started' })
+    expect(controller.getSnapshot().activity).toBe('listening')
+    controller.testRealtime({ type: 'input_audio_buffer.speech_stopped' })
+    expect(controller.getSnapshot().activity).toBe('preparing_answer')
+    controller.testRealtime({ type: 'response.created' })
+    expect(controller.getSnapshot().activity).toBe('preparing_answer')
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    expect(controller.getSnapshot().activity).toBe('speaking')
+    controller.testRealtime({ type: 'response.done', response: { status: 'completed' } })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(controller.getSnapshot().activity).toBe('listening')
+    expect(snapshots.map(snapshot => snapshot.activity)).toEqual(expect.arrayContaining([
+      'listening', 'preparing_answer', 'speaking',
+    ]))
   })
 
   it('uses balanced semantic VAD for faster natural turn detection', () => {
@@ -1311,12 +1334,17 @@ describe('VoiceSessionController ask_companion hop', () => {
     })
   }
 
-  it('covers then tells her to speak the companion answer', async () => {
+  it('waits silently, then tells her to speak the companion answer once', async () => {
     withWindowTimers()
     const sent: string[] = []
-    const query = vi.fn(async () => 'Telemachus is being given a path.')
+    const query = vi.fn(async () => ({
+      status: 'completed' as const,
+      answer: 'Telemachus is being given a path.',
+      attempts: 1,
+      stopReason: 'end_turn',
+    }))
     const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
-    const { controller } = makeController()
+    const { controller, snapshots } = makeController()
     controller.testPrimeSession({
       audio,
       honorModelResume: true,
@@ -1335,18 +1363,109 @@ describe('VoiceSessionController ask_companion hop', () => {
     const spoken = events.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Telemachus is being given a path.'))
     const output = events.find(item => item.type === 'conversation.item.create')
     expect(query).toHaveBeenCalledWith('what does this mean', expect.any(Object))
-    expect(covers).toHaveLength(1)
-    expect(covers[0].response.instructions).toContain('Good question. Let me look that up.')
+    expect(snapshots.some(snapshot => snapshot.activity === 'checking_text')).toBe(true)
+    expect(snapshots.some(snapshot => snapshot.activity === 'preparing_answer')).toBe(true)
+    expect(covers).toHaveLength(0)
     expect(output.item.output).toContain('Telemachus is being given a path.')
     expect(spoken).toHaveLength(1)
-    expect(spoken[0].response.instructions).toContain('Do not invent a thinner substitute')
+    expect(spoken[0].response.instructions).toContain('Speak only the answer below, once')
     expect(audio.setPlaybackSpeed).not.toHaveBeenCalled()
     expect(audio.skipPlayback).not.toHaveBeenCalled()
   })
 
+  it('speaks one plain failure instead of an incomplete or still-working answer', async () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const query = vi.fn(async () => ({
+      status: 'failed' as const,
+      answer: 'I could not get a reading of this passage just now.',
+      attempts: 2,
+      stopReason: 'max_tokens',
+      failureReason: 'incomplete' as const,
+    }))
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      honorModelResume: true,
+      send: data => sent.push(data),
+      onCompanionAsk: query,
+    })
+    sent.length = 0
+
+    await controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'ask_companion',
+      call_id: 'call_failed_hop',
+      arguments: '{"question":"What should I notice?"}',
+    })
+
+    const responses = sent.map(item => JSON.parse(item))
+      .filter(item => item.type === 'response.create')
+    expect(responses).toHaveLength(1)
+    expect(responses[0].response.instructions).toContain('I could not get a reading of this passage just now.')
+    expect(responses[0].response.instructions).not.toMatch(/still working|try a simpler|good question/i)
+  })
+
+  it('records enough owner-only lifecycle evidence to reconstruct the failed Phaedo handoff', async () => {
+    withWindowTimers()
+    const events: Array<{ type: VoiceDiagnosticEventType; payload?: Record<string, unknown> }> = []
+    const diagnostics: VoiceDiagnosticReporter = {
+      sessionId: 'owner_session',
+      report: (type, payload) => events.push({ type, payload: payload as Record<string, unknown> }),
+    }
+    const query = vi.fn(async (_question: string, notify?: {
+      onDelta?: (text: string) => void
+      onAttempt?: (attempt: number) => void
+      onRetry?: (reason: 'incomplete') => void
+    }) => {
+      notify?.onAttempt?.(1)
+      notify?.onDelta?.('The double frame asks us to notice')
+      notify?.onRetry?.('incomplete')
+      notify?.onAttempt?.(2)
+      return {
+        status: 'failed' as const,
+        answer: 'I could not get a reading of this passage just now.',
+        attempts: 2,
+        stopReason: 'max_tokens',
+        failureReason: 'incomplete' as const,
+      }
+    })
+    const sent: string[] = []
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio: audioEngine({ anchor: ANCHOR, wasPlaying: true }),
+      honorModelResume: true,
+      send: data => sent.push(data),
+      onCompanionAsk: query,
+      diagnostics,
+    })
+    await controller.testRealtime({
+      type: 'conversation.item.input_audio_transcription.completed',
+      transcript: 'What should I notice in the opening of Phaedo?',
+    })
+    await controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'ask_companion',
+      call_id: 'call_phaedo',
+      arguments: '{"question":"What should I notice in the opening of Phaedo?"}',
+    })
+
+    const types = events.map(event => event.type)
+    expect(types).toContain('submitted')
+    expect(types).toContain('checking_text')
+    expect(types).toContain('provider_first_token')
+    expect(types).toContain('retry')
+    expect(types).toContain('provider_error')
+    expect(types).toContain('fallback')
+    expect(types.indexOf('checking_text')).toBeLessThan(types.indexOf('fallback'))
+    const output = sent.map(item => JSON.parse(item)).find(item => item.type === 'conversation.item.create')
+    expect(output.item.output).toContain('"ok":false')
+    expect(output.item.output).toContain('I could not get a reading of this passage just now.')
+  })
+
   it('does not call the companion for playback tools', async () => {
     withWindowTimers()
-    const query = vi.fn(async () => 'should not run')
+    const query = vi.fn(async () => ({ status: 'completed' as const, answer: 'should not run.', attempts: 1, stopReason: 'end_turn' }))
     const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
     const { controller } = makeController()
     controller.testPrimeSession({
@@ -1371,13 +1490,13 @@ describe('VoiceSessionController ask_companion hop', () => {
     expect(audio.skipPlayback).toHaveBeenCalledWith('next_chapter')
   })
 
-  it('starts speaking the first sentence before the hop finishes', async () => {
+  it('stays silent until the complete companion answer is ready', async () => {
     withWindowTimers()
     const sent: string[] = []
-    let finish: (value: string) => void = () => { /* pending */ }
+    let finish: (value: { status: 'completed'; answer: string; attempts: number; stopReason: string }) => void = () => { /* pending */ }
     const query = vi.fn((_question: string, notify?: { onFirstSpeakable?: (text: string) => void }) => {
       notify?.onFirstSpeakable?.('Athena is already beside him.')
-      return new Promise<string>(resolve => { finish = resolve })
+      return new Promise<{ status: 'completed'; answer: string; attempts: number; stopReason: string }>(resolve => { finish = resolve })
     })
     const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
     const { controller } = makeController()
@@ -1400,9 +1519,9 @@ describe('VoiceSessionController ask_companion hop', () => {
     const early = sent.map(item => JSON.parse(item))
     const covers = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Do not answer the question yet'))
     const first = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Athena is already beside him.'))
-    expect(covers).toHaveLength(1)
+    expect(covers).toHaveLength(0)
     expect(first).toHaveLength(0)
-    finish('Athena is already beside him. The council is about homecoming.')
+    finish({ status: 'completed', answer: 'Athena is already beside him. The council is about homecoming.', attempts: 1, stopReason: 'end_turn' })
     await pending
     const later = sent.map(item => JSON.parse(item))
     const speakFull = later.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('The council is about homecoming.'))
@@ -1413,10 +1532,10 @@ describe('VoiceSessionController ask_companion hop', () => {
   it('speaks the rest even if the first sentence does not prefix-match', async () => {
     withWindowTimers()
     const sent: string[] = []
-    let finish: (value: string) => void = () => { /* pending */ }
+    let finish: (value: { status: 'completed'; answer: string; attempts: number; stopReason: string }) => void = () => { /* pending */ }
     const query = vi.fn((_question: string, notify?: { onFirstSpeakable?: (text: string) => void }) => {
       notify?.onFirstSpeakable?.('Keller would treat Genesis 1 as a theological statement.')
-      return new Promise<string>(resolve => { finish = resolve })
+      return new Promise<{ status: 'completed'; answer: string; attempts: number; stopReason: string }>(resolve => { finish = resolve })
     })
     const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
     const { controller } = makeController()
@@ -1436,7 +1555,7 @@ describe('VoiceSessionController ask_companion hop', () => {
     await Promise.resolve()
     await Promise.resolve()
     await Promise.resolve()
-    finish('Keller treats Genesis 1 as a theological statement of God\'s good world. He would linger on the blessing.')
+    finish({ status: 'completed', answer: 'Keller treats Genesis 1 as a theological statement of God\'s good world. He would linger on the blessing.', attempts: 1, stopReason: 'end_turn' })
     await pending
     const later = sent.map(item => JSON.parse(item))
     const spoken = later.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('linger on the blessing'))
@@ -1448,7 +1567,7 @@ describe('VoiceSessionController ask_companion hop', () => {
 
   it('reroutes a playback question if Realtime asked the companion by mistake', async () => {
     withWindowTimers()
-    const query = vi.fn(async () => 'should not run')
+    const query = vi.fn(async () => ({ status: 'completed' as const, answer: 'should not run.', attempts: 1, stopReason: 'end_turn' }))
     const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
     const { controller } = makeController()
     controller.testPrimeSession({

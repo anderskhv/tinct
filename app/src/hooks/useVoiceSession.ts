@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
-import type { CompanionAskNotify } from '../lab/labCompanion'
+import type { CompanionAskNotify, CompanionAskResult } from '../lab/labCompanion'
 import { nearbyParagraphWindow } from '../voice/context'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
 import { VOICE_REALTIME_MODEL } from '../voice/types'
@@ -57,12 +57,13 @@ export interface UseVoiceSessionOptions {
   assistantPace?: AssistantPace
   onSetAssistantPace?: (pace: AssistantPace) => void
   /** Lab-only. Hard book questions hop to /api/lab-chat. Production leaves this unset. */
-  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string>
+  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<CompanionAskResult>
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   state: 'reading',
   mode: 'conversation',
+  activity: 'idle',
   resumeInSeconds: null,
   error: null,
   isActive: false,
@@ -221,22 +222,26 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   const statusLabel = (() => {
     if (ui.error) return ui.error
-    switch (ui.state) {
+    switch (ui.activity) {
+      case 'connecting':
+        return 'Connecting…'
       case 'listening':
         return 'Listening…'
-      case 'answering':
-        return 'Answering…'
-      case 'resume_pending':
-        return `Continuing in ${ui.resumeInSeconds ?? 3}…`
-      case 'conversation_idle':
-        return 'Still here — ask another, or go back to the book.'
+      case 'checking_text':
+        return 'Checking the text…'
+      case 'preparing_answer':
+        return 'Preparing answer…'
+      case 'speaking':
+        return 'Speaking…'
       default:
+        if (ui.state === 'resume_pending') return `Continuing in ${ui.resumeInSeconds ?? 3}…`
         return null
     }
   })()
 
   return {
     state: ui.state,
+    activity: ui.activity,
     isActive: ui.isActive,
     error: ui.error,
     resumeInSeconds: ui.resumeInSeconds,

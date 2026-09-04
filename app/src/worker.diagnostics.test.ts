@@ -118,7 +118,15 @@ describe('owner conversation diagnostics', () => {
   })
 
   it('only accepts explicitly safe metadata fields', () => {
-    expect(sanitizeDiagnosticMetadata({ status: 'ok', token: 'x', cookie: 'y', nested: { secret: 'z' } })).toEqual({ status: 'ok' })
+    expect(sanitizeDiagnosticMetadata({
+      status: 'ok',
+      book_id: 'phaedo',
+      chapter_number: 1,
+      phase: 'checking_text',
+      token: 'x',
+      cookie: 'y',
+      nested: { secret: 'z' },
+    })).toEqual({ status: 'ok', book_id: 'phaedo', chapter_number: 1, phase: 'checking_text' })
   })
 
   it('keeps every diagnostic table behind RLS with no authenticated read policy', () => {

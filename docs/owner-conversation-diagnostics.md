@@ -76,23 +76,25 @@ provider start, and provider completion/error for an opted-in owner, and returns
 the opaque diagnostic session ID. No ordinary account takes the diagnostic DB
 path.
 
-## Narrow deferred client hook
+## Voice client hook
 
-This branch intentionally does not edit `App.tsx`, active Reader files, or the
-voice controller while Reader/Library work is converging. To complete end-to-end
-voice reconstruction, pass `diagnostic_session_id` from
-`VoiceSessionController.start()` into a tiny reporter and emit from
-`handleRealtimeEvent()` at the existing cases:
+The voice controller consumes the server-issued `diagnostic_session_id` only
+for an authenticated, opted-in owner. A fail-soft reporter now records the
+observed browser lifecycle without changing the voice path:
 
-- `input_audio_buffer.speech_started/stopped` -> `listen` / `think`
-- `response.created` -> `provider_started`
-- first output-audio delta -> `tts_first_audio`
-- output-audio started/stopped -> `tts_started` / `tts_completed`
-- transcript done -> raw `transcript` plus character count
-- response done/cancelled and controller `response.cancel` -> completed/cancelled
-- data-channel close, `stop()`, and playback restoration -> interruption reason
+- reader context binding, session start/end, and microphone connection;
+- finalized user transcript and opaque turn ID;
+- listen, checking-text, preparing-answer, and speaking phases derived from
+  actual VAD, retrieval, provider, and output-audio events;
+- Realtime and companion provider start, first token/audio, retry, completion,
+  failure, and fallback, correlated by opaque provider IDs;
+- finalized assistant transcript plus interruption/cancellation evidence.
 
-For text chat, generate a client session/turn UUID in `useClaude.sendMessage()`,
+The client never generates an owner session ID itself and cannot enable capture.
+It receives no diagnostic read capability. Reporter failures are swallowed so
+diagnostics can never block or alter voice or reading behavior.
+
+For non-voice text chat, generate a client session/turn UUID in `useClaude.sendMessage()`,
 send `submitted`, `retry`, `fallback`, `response_persisted`, and stream first-token
 events to the same endpoint. Never put authorization headers or request bodies in
 metadata. This is a narrow follow-up because those two client files are active in

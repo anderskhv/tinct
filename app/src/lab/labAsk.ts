@@ -1,11 +1,11 @@
-import type { VoiceModeState } from '../voice/types'
+import type { VoiceActivityPhase, VoiceModeState } from '../voice/types'
 import { VOICE_TOOLS } from '../voice/context'
 import { parseHearingSpeed } from './labHearing'
 import { nextLabChapter, prevLabChapter, type LabChapter } from './labSource'
 import { storage } from '../services/storage'
 import { LAB_ASK_COMPANION_TOOL } from './labCompanion'
 
-export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking'
+export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'checking' | 'preparing' | 'speaking'
 
 export interface LabAskTurn {
   id: string
@@ -119,6 +119,8 @@ export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page
 
 Do not greet. Do not say hello. Do not start with small talk. The app speaks the opening line.
 
+Answer directly and concisely in complete sentences. Use the shortest answer that preserves the substance; expand only when the reader asks for more depth. Never praise the question or the reader. Never say "good question", "great insight", "let me think", "let me check", or narrate your process. Do not say an answer is still working or ask the reader to retry with a simpler question.
+
 Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.
 
 If they ask you to read a paragraph that is in the chapter payload below, read it from that payload. Do not ask them to paste. Do not say you lack the book.
@@ -180,13 +182,19 @@ export function buildLabAskInstructions(input: LabAskContext): string {
  */
 export function labConversationState(input: {
   voiceState: VoiceModeState
+  activity?: VoiceActivityPhase
   error?: string | null
   starting?: boolean
 }): LabConversationState {
   if (input.error) return 'idle'
-  if (input.voiceState === 'listening') return 'listening'
+  if (input.activity === 'connecting') return 'connecting'
+  if (input.activity === 'listening') return 'listening'
+  if (input.activity === 'checking_text') return 'checking'
+  if (input.activity === 'preparing_answer') return 'preparing'
+  if (input.activity === 'speaking') return 'speaking'
+  if (input.voiceState === 'listening' || input.voiceState === 'conversation_idle') return 'listening'
   if (input.voiceState === 'answering') return 'speaking'
-  if (input.voiceState === 'conversation_idle' || input.voiceState === 'resume_pending') return 'thinking'
+  if (input.voiceState === 'resume_pending') return 'preparing'
   if (input.starting || input.voiceState !== 'reading') return 'connecting'
   return 'idle'
 }

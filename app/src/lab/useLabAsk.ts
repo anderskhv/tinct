@@ -473,6 +473,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     typedLoading,
     conversationState: labConversationState({
       voiceState: voice.state,
+      activity: voice.activity,
       error: voice.error,
       starting,
     }),

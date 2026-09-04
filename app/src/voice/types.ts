@@ -7,6 +7,15 @@ export type VoiceModeState =
 
 export type VoiceSessionMode = 'quick' | 'conversation'
 
+/** User-visible work phase, derived only from observed session/retrieval events. */
+export type VoiceActivityPhase =
+  | 'idle'
+  | 'connecting'
+  | 'listening'
+  | 'checking_text'
+  | 'preparing_answer'
+  | 'speaking'
+
 export type VoiceIntent =
   | 'resume_audiobook'
   | 'end_voice_session'

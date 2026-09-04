@@ -17,7 +17,7 @@ export const ASK_COMPANION_TOOL = 'ask_companion'
 export const LAB_ASK_COMPANION_TOOL = {
   type: 'function',
   name: ASK_COMPANION_TOOL,
-  description: 'Ask Tinct\'s reading companion for a spoiler-safe book answer. Use only for meaning, theology, who, why, argument, comparison, or character. Speak a short looking-at-the-passage line first. Never use for skip, speed, next chapter, resume, play, or tiny confirms.',
+  description: 'Ask Tinct\'s reading companion for a spoiler-safe book answer. Use only for meaning, theology, who, why, argument, comparison, or character. Call it immediately and stay silent until it returns. Never use it for skip, speed, next chapter, resume, play, or tiny confirms.',
   parameters: {
     type: 'object',
     properties: {
@@ -36,11 +36,7 @@ const LITERARY_CONNECTION = /\b(echo|remind|connect|parallel|resonat(e|es)|like\
 
 const TINY_CONFIRM = /^(ok|okay|yes|yeah|yep|no|nope|thanks|thank you|mm+|mhm|uh huh|got it|sure)\.?$/i
 
-export const LAB_COVER_LINES = [
-  'Good question. Let me look that up.',
-] as const
-
-export const SPEAK_CLAUDE_VERBATIM = 'The reading companion answered. Speak that answer as your own. Do not invent a thinner substitute. Do not summarize it into a weaker reply. Do not mention a tool, a hop, a second model, a cutoff, or "the answer I received". Never say the answer got cut off. If you only have part of an answer, do not narrate that — speak the complete sentences you were given, or wait.'
+export const SPEAK_COMPANION_VERBATIM = 'Speak only the answer below, once, as your own complete answer. Do not add praise, a greeting, a preamble, a summary, or a description of your process. Do not mention tools, models, retrieval, waiting, or cutoffs.'
 
 export function isLabPlaybackUtterance(text: string): boolean {
   return PLAYBACK_COMMAND.test(text.trim())
@@ -56,10 +52,6 @@ export function shouldEscalateToCompanion(text: string): boolean {
   if (TINY_CONFIRM.test(trimmed)) return false
   if (isLabPlaybackUtterance(trimmed) && !HARD_QUESTION.test(trimmed) && !LITERARY_CONNECTION.test(trimmed)) return false
   return HARD_QUESTION.test(trimmed) || LITERARY_CONNECTION.test(trimmed) || trimmed.length > 48
-}
-
-export function pickLabCoverLine(index = 0): string {
-  return LAB_COVER_LINES[Math.abs(index) % LAB_COVER_LINES.length]
 }
 
 export function parseAskCompanionArguments(raw?: string): { question: string } {
@@ -101,15 +93,15 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
   const nearby = nearbyParagraphWindow(input.paragraphs, idx)
   const edition = input.editionLabel || 'Butler'
   const lines = [
-    `You are Tinct's ear and mouth beside the page on /lab. You listen, handle barge-in, and run playback tools. You do not do the deep thinking.`,
+    `You are Tinct's concise reading companion beside the page on /lab. You listen, handle barge-in, and run playback tools.`,
     `Do not greet. Do not say hello. The app speaks the opening line.`,
     `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms you answer yourself in one short line.`,
-    `Easy questions you can answer from the passage already below, you answer yourself in a short, warm, literary line. Reasonable literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter — no spoilers from later in the book.`,
-    `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — say exactly "Good question. Let me look that up." and immediately call ${ASK_COMPANION_TOOL}. Say nothing else before the tool call. Never say you are thinking or will think about it.`,
-    `After ${ASK_COMPANION_TOOL} returns, speak that answer as your own. Do not invent a thinner substitute. Never mention a tool, a hop, a cutoff, or "the answer I received". Never say an answer got cut off. If the hop is incomplete, wait rather than narrating the failure.`,
+    `Easy questions you can answer from the passage already below, answer directly in one or two natural sentences. Reasonable literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter — no spoilers from later in the book.`,
+    `When the turn is a substantive book question — meaning, theology, who, why, argument, comparison, character — call ${ASK_COMPANION_TOOL} immediately and stay silent until it returns. Do not praise the question or narrate your process.`,
+    `After ${ASK_COMPANION_TOOL} returns, speak its answer once as your own. Do not add a preamble or a thinner substitute. Never mention tools, models, retrieval, waiting, or cutoffs.`,
     `Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.`,
     `If they want the book back, call resume_audiobook. One short goodbye is fine.`,
-    `Speak in complete sentences. Warm, literary, and calm. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
+    `Speak in complete sentences. Be calm, direct, and concise without becoming staccato. Never say "good question", "great insight", "let me think", "let me check", or similar praise or process filler. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
     `[Current state]`,
     `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${edition}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}. Treat later chapters as unknown.`,
@@ -137,7 +129,7 @@ export function buildCompanionHopUserContent(input: LabTalkContext & { question:
   ].filter(Boolean).join('\n')
 }
 
-export const LAB_HOP_SPOKEN_LENGTH = 'Answer for the ear in a few spoken sentences unless the reader asked for more. Finish the thought. Do not write a long essay.'
+export const LAB_HOP_SPOKEN_LENGTH = 'Answer directly for the ear. Usually use two to four spoken sentences; expand only when the reader explicitly asks for depth. Finish the thought. Do not praise the question, narrate your process, mention waiting, or say the answer is still working. Do not write a long essay.'
 
 export const LAB_HOP_MAX_TOKENS = 1024
 
@@ -146,6 +138,18 @@ export const LAB_HOP_FALLBACK = 'I could not get a reading of this passage just 
 export type CompanionAskNotify = {
   onDelta?: (text: string) => void
   onFirstSpeakable?: (text: string) => void
+  onAttempt?: (attempt: number) => void
+  onRetry?: (reason: CompanionAskFailureReason) => void
+}
+
+export type CompanionAskFailureReason = 'request_failed' | 'incomplete' | 'empty'
+
+export type CompanionAskResult = {
+  status: 'completed' | 'failed'
+  answer: string
+  attempts: number
+  stopReason: string | null
+  failureReason?: CompanionAskFailureReason
 }
 
 const SENTENCE_END = /^[\s\S]+?[.!?](?:["'\u201d\u2019)\]]+)?/
@@ -199,6 +203,24 @@ export function spokenCompanionAnswer(text: string): string {
   if (ends.length === 0) return ''
   const last = ends[ends.length - 1]
   return t.slice(0, (last.index ?? 0) + last[0].length).trim()
+}
+
+const COMPANION_FILLER_PREFIXES = [
+  /^(?:good|great|excellent|important|interesting)\s+(?:question|point|observation|insight)[.!,:-]*\s*/i,
+  /^(?:absolutely|certainly|of course)[.!,:-]*\s*/i,
+  /^(?:let me|i(?:'ll| will))\s+(?:think(?: about that)?|check|look(?: that)? up|take a closer look)[.!,:-]*\s*/i,
+  /^it (?:looks|seems) like (?:the )?(?:answer|companion(?:'s response)?) (?:is )?(?:still )?(?:working|waiting|loading)[.!,:-]*\s*/i,
+] as const
+
+/** Remove model-added praise/process filler without rewriting the substantive answer. */
+export function directCompanionAnswer(text: string): string {
+  let next = text.replace(/\s+/g, ' ').trim()
+  let previous = ''
+  while (next && next !== previous) {
+    previous = next
+    for (const prefix of COMPANION_FILLER_PREFIXES) next = next.replace(prefix, '').trim()
+  }
+  return next
 }
 
 export function extractAnthropicSseStopReason(line: string): string | null {
@@ -321,49 +343,62 @@ export async function queryLabCompanion(input: {
   context: LabTalkContext
   onDelta?: (text: string) => void
   onFirstSpeakable?: (text: string) => void
-}): Promise<string> {
+  onAttempt?: (attempt: number) => void
+  onRetry?: (reason: CompanionAskFailureReason) => void
+}): Promise<CompanionAskResult> {
   let notified = false
-  const readHop = async () => {
-    const response = await fetchLabCompanionHop(input)
-    if (!response.ok) return { text: '', stopReason: 'error', sawStop: false }
-    return readAnthropicStream(response, (accumulated) => {
-      input.onDelta?.(accumulated)
-      if (notified) return
-      const speakable = firstSpeakableChunk(accumulated)
-      if (!speakable) return
-      notified = true
-      input.onFirstSpeakable?.(speakable)
-    })
-  }
-
-  let result = await readHop()
-  if (companionHopLooksIncomplete(result.text, result.stopReason)) {
-    const retry = await readHop()
-    if (retry.text && !companionHopLooksIncomplete(retry.text, retry.stopReason)) {
-      result = retry
-    } else if (retry.text.length > result.text.length) {
-      result = retry
+  const readHop = async (attempt: number) => {
+    input.onAttempt?.(attempt)
+    try {
+      const response = await fetchLabCompanionHop(input)
+      if (!response.ok) return { text: '', stopReason: 'error', sawStop: false }
+      return readAnthropicStream(response, (accumulated) => {
+        input.onDelta?.(accumulated)
+        if (notified) return
+        const speakable = firstSpeakableChunk(accumulated)
+        if (!speakable) return
+        notified = true
+        input.onFirstSpeakable?.(speakable)
+      })
+    } catch {
+      return { text: '', stopReason: 'error', sawStop: false }
     }
   }
-  const spoken = spokenCompanionAnswer(result.text) || result.text.trim()
-  if (!notified && spoken) input.onFirstSpeakable?.(spoken)
-  return spoken
-}
 
-export async function runEscalatedCompanionTurn(input: {
-  question: string
-  alreadySpeaking: boolean
-  speakCover: (line: string) => boolean
-  query: (question: string) => Promise<string>
-  coverLine?: string
-}): Promise<{ answer: string; covered: boolean }> {
-  const covered = input.alreadySpeaking
-    ? true
-    : input.speakCover(input.coverLine || pickLabCoverLine())
-  const answer = await input.query(input.question)
-  return { answer, covered }
+  const failureFor = (result: AnthropicStreamResult): CompanionAskFailureReason => {
+    if (!result.text.trim()) return result.stopReason === 'error' ? 'request_failed' : 'empty'
+    return 'incomplete'
+  }
+
+  let result = await readHop(1)
+  if (!companionHopLooksIncomplete(result.text, result.stopReason)) {
+    const answer = directCompanionAnswer(result.text)
+    if (answer && !companionHopLooksIncomplete(answer, result.stopReason)) {
+      if (!notified) input.onFirstSpeakable?.(answer)
+      return { status: 'completed', answer, attempts: 1, stopReason: result.stopReason }
+    }
+  }
+
+  const firstFailure = failureFor(result)
+  input.onRetry?.(firstFailure)
+  result = await readHop(2)
+  if (!companionHopLooksIncomplete(result.text, result.stopReason)) {
+    const answer = directCompanionAnswer(result.text)
+    if (answer && !companionHopLooksIncomplete(answer, result.stopReason)) {
+      if (!notified) input.onFirstSpeakable?.(answer)
+      return { status: 'completed', answer, attempts: 2, stopReason: result.stopReason }
+    }
+  }
+
+  return {
+    status: 'failed',
+    answer: LAB_HOP_FALLBACK,
+    attempts: 2,
+    stopReason: result.stopReason,
+    failureReason: failureFor(result),
+  }
 }
 
 export function companionSpeakInstructions(answer: string): string {
-  return `${SPEAK_CLAUDE_VERBATIM}\n\n${answer}`
+  return `${SPEAK_COMPANION_VERBATIM}\n\n${answer}`
 }

@@ -13,17 +13,18 @@ export type DiagnosticConsent = {
 export const DIAGNOSTIC_RETENTION_DAYS = 14
 
 const EVENT_TYPES = new Set([
-  'submitted', 'request_accepted', 'provider_started', 'provider_first_token',
+  'session_started', 'session_ended', 'context_bound', 'submitted', 'request_accepted', 'provider_started', 'provider_first_token',
   'provider_completed', 'provider_error', 'fallback', 'retry', 'response_persisted',
   'tts_queued', 'tts_started', 'tts_first_audio', 'tts_completed', 'tts_interrupted',
-  'tts_cancelled', 'playback_ended', 'microphone_connect', 'listen', 'think', 'speak',
+  'tts_cancelled', 'playback_ended', 'microphone_connect', 'listen', 'think', 'checking_text', 'preparing_answer', 'speak',
   'cancelled',
 ])
 
 const SAFE_METADATA_KEYS = new Set([
   'latency_ms', 'input_characters', 'output_characters', 'input_tokens', 'output_tokens',
   'attempt', 'status', 'error_class', 'cancellation_reason', 'transport', 'model',
-  'source', 'audio_duration_ms',
+  'source', 'audio_duration_ms', 'book_id', 'edition_key', 'chapter_number',
+  'page_number', 'paragraph_index', 'phase', 'reason', 'stop_reason',
 ])
 
 const SENSITIVE_KEY = /(authorization|token|secret|password|cookie|payment|card|email)/i

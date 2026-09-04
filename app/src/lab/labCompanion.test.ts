@@ -3,22 +3,21 @@ import { VOICE_AGENT_POLICY } from '../voice/context'
 import {
   ASK_COMPANION_TOOL,
   LAB_ASK_COMPANION_TOOL,
-  LAB_COVER_LINES,
+  LAB_HOP_FALLBACK,
   LAB_HOP_MAX_TOKENS,
   LAB_HOP_SPOKEN_LENGTH,
-  SPEAK_CLAUDE_VERBATIM,
+  SPEAK_COMPANION_VERBATIM,
   buildCompanionHopUserContent,
   buildLabTalkInstructions,
   companionHopLooksIncomplete,
   companionSpeakInstructions,
+  directCompanionAnswer,
   firstSpeakableChunk,
   isLabPlaybackUtterance,
-  pickLabCoverLine,
   playbackToolForUtterance,
   queryLabCompanion,
   remainderAfterSpeakable,
   remainingCompanionSpeech,
-  runEscalatedCompanionTurn,
   shouldEscalateToCompanion,
   spokenCompanionAnswer,
 } from './labCompanion'
@@ -80,16 +79,13 @@ describe('lab talk tools', () => {
   })
 })
 
-describe('talk instructions stay the ear and mouth', () => {
-  it('keeps Realtime on tools and cover, not the in-car brief', () => {
+describe('talk instructions stay direct and concise', () => {
+  it('keeps Realtime on tools without praise or narrated-process filler', () => {
     const talk = buildLabTalkInstructions(CONTEXT)
     expect(talk).toContain(ASK_COMPANION_TOOL)
-    expect(talk).toContain('Good question. Let me look that up.')
-    expect(talk).toContain('Never say you are thinking')
-    expect(talk).toContain('Do not invent a thinner substitute')
-    expect(talk).toContain('Never mention a tool, a hop, a cutoff')
-    expect(talk).toContain('the answer I received')
-    expect(talk).toContain('Never say an answer got cut off')
+    expect(talk).toContain('call ask_companion immediately and stay silent')
+    expect(talk).toContain('Do not praise the question or narrate your process')
+    expect(talk).toContain('speak its answer once')
     expect(talk).toContain(`Never call ${ASK_COMPANION_TOOL} for those`)
     expect(talk).toContain('only have this chapter so far')
     expect(talk).toContain('The reader is on paragraph 1 of 3')
@@ -99,69 +95,21 @@ describe('talk instructions stay the ear and mouth', () => {
   })
 })
 
-describe('no-dead-air cover', () => {
-  it('speaks a looking-at-the-passage line before the hop completes', async () => {
-    const spoken: string[] = []
-    let queryStarted = false
-    let coveredBeforeQuery = false
-    const hop = runEscalatedCompanionTurn({
-      question: 'what does this mean',
-      alreadySpeaking: false,
-      speakCover: (line) => {
-        spoken.push(line)
-        return true
-      },
-      query: async () => {
-        queryStarted = true
-        coveredBeforeQuery = spoken.length > 0
-        await new Promise(resolve => setTimeout(resolve, 20))
-        return 'The council is about the unseen homecoming.'
-      },
-    })
-
-    await Promise.resolve()
-    expect(spoken[0]).toBe(pickLabCoverLine())
-    expect(LAB_COVER_LINES).toContain(spoken[0])
-    expect(spoken[0]).not.toMatch(/please hold|one moment please|searching/i)
-    expect(queryStarted).toBe(true)
-    expect(coveredBeforeQuery).toBe(true)
-    expect(spoken[0]).toBe('Good question. Let me look that up.')
-
-    const result = await hop
-    expect(result.covered).toBe(true)
-    expect(result.answer).toContain('unseen homecoming')
-  })
-
-  it('does not invent a hold-music cover when she is already speaking', async () => {
-    const speakCover = vi.fn(() => true)
-    const result = await runEscalatedCompanionTurn({
-      question: 'what does this mean',
-      alreadySpeaking: true,
-      speakCover,
-      query: async () => 'Athena is already beside him.',
-    })
-    expect(speakCover).not.toHaveBeenCalled()
-    expect(result.covered).toBe(true)
-  })
-})
-
 describe('tool result is what she is told to speak', () => {
   it('puts Claude\'s answer in the spoken instructions', () => {
     const answer = 'Telemachus is being given a path.'
     const instructions = companionSpeakInstructions(answer)
-    expect(instructions).toContain(SPEAK_CLAUDE_VERBATIM)
+    expect(instructions).toContain(SPEAK_COMPANION_VERBATIM)
     expect(instructions).toContain(answer)
-    expect(instructions).toContain('Do not invent a thinner substitute')
-    expect(SPEAK_CLAUDE_VERBATIM).toMatch(/cutoff|cut off/)
-    expect(SPEAK_CLAUDE_VERBATIM).toContain('the answer I received')
-    expect(SPEAK_CLAUDE_VERBATIM).not.toMatch(/got cut off, so I only have part/i)
+    expect(instructions).toContain('Speak only the answer below, once')
+    expect(SPEAK_COMPANION_VERBATIM).not.toMatch(/the answer I received|good question/i)
   })
 })
 
 describe('spoken-length hop', () => {
   it('asks Claude for a few spoken sentences with room for a complete thought', () => {
-    expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/few spoken sentences/)
-    expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/unless the reader asked for more/)
+    expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/two to four spoken sentences/)
+    expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/reader explicitly asks for depth/)
     expect(LAB_HOP_SPOKEN_LENGTH).toMatch(/Finish the thought/)
     expect(LAB_HOP_MAX_TOKENS).toBeGreaterThan(256)
     expect(LAB_HOP_MAX_TOKENS).toBeLessThanOrEqual(1024)
@@ -182,6 +130,7 @@ describe('spoken-length hop', () => {
     expect(companionHopLooksIncomplete('Keller would treat Genesis 1 as primarily a theological statement', 'max_tokens')).toBe(true)
     expect(companionHopLooksIncomplete('Keller would treat Genesis 1 as a theological statement.')).toBe(false)
     expect(spokenCompanionAnswer('Keller would treat Genesis 1 as a theological statement. He would then')).toBe('Keller would treat Genesis 1 as a theological statement.')
+    expect(directCompanionAnswer('Good question. Let me think. The frame is twice removed from the event.')).toBe('The frame is twice removed from the event.')
   })
 })
 
@@ -203,14 +152,14 @@ describe('signed-out lab hop', () => {
     expect(hop).toContain('How far read: paragraph 1 of 3')
     expect(hop).toContain('So now all who escaped death')
 
-    const text = await queryLabCompanion({
+    const result = await queryLabCompanion({
       authToken: null,
       system: 'only have this chapter so far',
       question: 'Who is speaking in this opening?',
       context: CONTEXT,
     })
 
-    expect(text).toBe('Paul wrote Romans.')
+    expect(result).toMatchObject({ status: 'completed', answer: 'Paul wrote Romans.', attempts: 1 })
     expect(String(fetchMock.mock.calls[0][0])).toContain('/api/lab-chat')
     expect(String(fetchMock.mock.calls[0][0])).not.toMatch(/\/api\/chat$/)
     const init = fetchMock.mock.calls[0][1] as RequestInit
@@ -265,8 +214,8 @@ describe('signed-out lab hop', () => {
         if (firstAtPull < 0) firstAtPull = pull
       },
     })
-    const text = await first
-    expect(text).toBe('Athena is already beside him. The council is about homecoming.')
+    const result = await first
+    expect(result.answer).toBe('Athena is already beside him. The council is about homecoming.')
     expect(firstAtPull).toBeGreaterThan(0)
     expect(firstAtPull).toBeLessThan(2)
     vi.unstubAllGlobals()
@@ -287,7 +236,7 @@ describe('signed-out lab hop', () => {
       }))
     vi.stubGlobal('fetch', fetchMock)
 
-    const text = await queryLabCompanion({
+    const result = await queryLabCompanion({
       authToken: null,
       system: 'only have this chapter so far',
       question: 'How would Tim Keller read this Genesis 1?',
@@ -295,8 +244,37 @@ describe('signed-out lab hop', () => {
     })
 
     expect(fetchMock).toHaveBeenCalledTimes(2)
-    expect(text).toBe("Keller would treat Genesis 1 as a theological statement of God's good world.")
-    expect(text).not.toMatch(/cut off|the answer I received/i)
+    expect(result).toMatchObject({
+      status: 'completed',
+      answer: "Keller would treat Genesis 1 as a theological statement of God's good world.",
+      attempts: 2,
+    })
+    expect(result.answer).not.toMatch(/cut off|the answer I received/i)
+    vi.unstubAllGlobals()
+  })
+
+  it('never returns a partial answer after both attempts are incomplete', async () => {
+    const encoder = new TextEncoder()
+    const truncated = 'data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"The frame asks us to notice"}}\n\ndata: {"type":"message_delta","delta":{"stop_reason":"max_tokens"}}\n\n'
+    const fetchMock = vi.fn(async () => new Response(encoder.encode(truncated), {
+      status: 200,
+      headers: { 'content-type': 'text/event-stream; charset=utf-8' },
+    }))
+    vi.stubGlobal('fetch', fetchMock)
+    const retries: string[] = []
+
+    const result = await queryLabCompanion({
+      authToken: null,
+      system: 'only have this chapter so far',
+      question: 'What should I notice?',
+      context: CONTEXT,
+      onRetry: reason => retries.push(reason),
+    })
+
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(retries).toEqual(['incomplete'])
+    expect(result).toMatchObject({ status: 'failed', answer: LAB_HOP_FALLBACK, attempts: 2, failureReason: 'incomplete' })
+    expect(result.answer).not.toContain('frame asks')
     vi.unstubAllGlobals()
   })
 })

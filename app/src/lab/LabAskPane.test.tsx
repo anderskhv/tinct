@@ -51,9 +51,13 @@ describe('lab ask living circle', () => {
     expect(screen.getByTestId('lab-ask-voice').textContent).not.toContain('Speaking')
     expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-listening|is-speaking|is-connecting/)
 
-    rerender(pane('thinking'))
-    expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Thinking')
-    expect(screen.getByTestId('lab-ask-voice').className).toContain('is-thinking')
+    rerender(pane('checking'))
+    expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Checking the text')
+    expect(screen.getByTestId('lab-ask-voice').className).toContain('is-checking')
+
+    rerender(pane('preparing'))
+    expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Preparing answer')
+    expect(screen.getByTestId('lab-ask-voice').className).toContain('is-preparing')
 
     rerender(pane('idle'))
     expect(screen.queryByTestId('lab-ask-voice-status')).toBeNull()
