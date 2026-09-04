@@ -16,6 +16,11 @@ export const LAB_AUDIO = {
   chapterNumber: 1,
 } as const
 
+// Word timing files are generated independently from their MP3s and may be
+// repaired in place. Keep a version in the request URL so a device cannot be
+// pinned forever to an older service-worker/browser cache entry.
+export const LAB_WORD_SIDECAR_VERSION = '2'
+
 export interface LabAudioTitleClip {
   kind: 'title'
   file: string
@@ -53,7 +58,8 @@ export function labAudioSidecarUrl(
   editionKey = LAB_AUDIO.editionKey,
   bookId = LAB_AUDIO.bookId,
 ): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/words.json`, 'file')
+  const url = resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/words.json`, 'file')
+  return `${url}&timing=${LAB_WORD_SIDECAR_VERSION}`
 }
 
 /** Bible has chapter audio on R2; word sidecars are optional. */
