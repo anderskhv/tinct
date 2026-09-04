@@ -411,6 +411,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   readingPagesRef.current = readingPages
   const workingPagesRef = useRef(draftPages)
   workingPagesRef.current = draftPages
+  const mobilePrimaryPagesRef = useRef<ChapterHearingPage[] | null>(null)
   // A later page or chapter action owns the reader. This prevents an older
   // async chapter response from replacing the tuple after the user turned back.
   const chapterNavigationRef = useRef(0)
@@ -878,7 +879,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (readerParagraphs.length === 0) return
     const budget = pageMetrics ? labPageBudgetFromMetrics(pageMetrics) : null
     if (canUseLabPageBudget(budget)) didBudgetPageRef.current = true
-    const next = chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
+    const settledPrimaryPages = contentChanged && !mobileCompareActive
+      ? mobilePrimaryPagesRef.current
+      : null
+    const next = settledPrimaryPages
+      ?? chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
+    if (settledPrimaryPages) {
+      mobilePrimaryPagesRef.current = null
+      pagesStableRef.current = true
+      didBudgetPageRef.current = true
+      setSettleIndex(null)
+      settleIndexRef.current = null
+    }
     readingPagesRef.current = next
     workingPagesRef.current = next
     setReadingPages(next)
@@ -917,7 +929,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterTitle, readerParagraphs, nativePhonePaging])
+  }, [book.chapterTitle, mobileCompareActive, readerParagraphs, nativePhonePaging])
+
+  useEffect(() => {
+    mobilePrimaryPagesRef.current = null
+  }, [book.bookId, book.chapterNumber, prefs.fontFamily, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
     if (nativePhonePaging) return
@@ -1589,7 +1605,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       if (next !== current) {
         const page = readingPages[next]
         const anchor = pageAnchorOf(page)
-        if (anchor) pageAnchorRef.current = anchor
+        // A Compare edition switch first produces an estimated map and then
+        // the font-painted map. Keep the semantic transition anchor until the
+        // latter is stable, otherwise the provisional page can snap Read back
+        // to an earlier page even while the persisted place stays unchanged.
+        if (anchor && pagesStableRef.current) pageAnchorRef.current = anchor
       }
       readingPageIndexRef.current = next
       return next === current ? current : next
@@ -1783,9 +1803,11 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     scope: prefs.progressDisplay.scope,
   })
   const barReturnsFromConversation = phoneAsk || chrome === 'talking'
-  const barPrimaryLabel = barReturnsFromConversation
-    ? (returnTo === 'hearing' ? LAB_COPY.play : LAB_COPY.read)
-    : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)
+  const barPrimaryLabel = mobileCompareActive
+    ? LAB_COPY.read
+    : barReturnsFromConversation
+      ? (returnTo === 'hearing' ? LAB_COPY.play : LAB_COPY.read)
+      : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
   const fullPageWordCounts = readingPages
     .slice(0, Math.max(1, readingPages.length - 1))
@@ -2042,16 +2064,21 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
     const sourceAnchor = pageAnchorOf(current[currentIndex]) ?? pageAnchorRef.current ?? { paragraphIndex: 0, wordIndex: 0 }
     const nextActive = !mobileCompareActive
+    if (nextActive) mobilePrimaryPagesRef.current = current
     const targetParagraphs = nextActive ? book.compareParagraphs : book.paragraphs
     const mapped = nextActive
       ? mapLabCompareAnchor(readerParagraphs, targetParagraphs, sourceAnchor)
       : { ...placeRef.current }
     const primaryAnchor = nextActive ? sourceAnchor : mapped
     const budget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
-    const nextPages = chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null)
+    const settledPrimaryPages = !nextActive ? mobilePrimaryPagesRef.current : null
+    const nextPages = settledPrimaryPages
+      ?? chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null)
     const nextIndex = pageIndexForPlace(nextPages, mapped.paragraphIndex, mapped.wordIndex)
 
-    if (listen.playing) listen.pause()
+    // Entering Compare interrupts playback, but returning to Read is a pure
+    // reader-mode transition. The Read action must not mutate the audio tuple.
+    if (nextActive && listen.playing) listen.pause()
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
     setChrome('reading')
@@ -2499,26 +2526,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     if (mobileCompareActive) {
-      const current = readingPagesRef.current
-      const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
-      const compareAnchor = pageAnchorOf(current[index]) ?? pageAnchorRef.current ?? { paragraphIndex: 0, wordIndex: 0 }
-      const primaryAnchor = mapLabCompareAnchor(readerParagraphs, book.paragraphs, compareAnchor)
-      pageAnchorRef.current = primaryAnchor
-      placeRef.current = primaryAnchor
-      notePlace('play', primaryAnchor)
-      setMobileCompareActive(false)
-      setReturnTo('hearing')
-      setChrome('hearing')
-      setPeekBook(false)
-      setInTheBookOpen(false)
-      flushSync(() => setListenSource({
-        bookId: book.bookId || 'bible',
-        chapterNumber: book.chapterNumber,
-        paragraphs: book.paragraphs,
-        followParagraphs: book.followParagraphs,
-        audioTitle: book.audioTitle,
-      }))
-      void listen.start(primaryAnchor)
+      handleMobileCompare()
       return
     }
     if (chrome === 'hearing') {
@@ -2537,7 +2545,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     startHearing()
-  }, [book.chapterNumber, book.followParagraphs, book.paragraphs, chrome, listen, mobileCompareActive, notePlace, phoneAskOpen, readerParagraphs, resumeListenAfterAsk, startHearing])
+  }, [chrome, handleMobileCompare, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing])
 
   const closePhoneAsk = useCallback(() => {
     resumeListenAfterAsk()
@@ -2830,15 +2838,22 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           <nav className="lab-desktop-action-rail" data-testid="lab-desktop-action-rail" aria-label="Reader actions">
             <button
               type="button"
-              className={`lab-desktop-action is-play${listen.playing ? ' is-active' : ''}`}
-              onClick={handleHeaderListen}
-              aria-label={listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+              className={`lab-desktop-action is-play${desktopCompareActive || listen.playing ? ' is-active' : ''}`}
+              onClick={desktopCompareActive ? handleDesktopCompare : handleHeaderListen}
+              aria-label={desktopCompareActive ? LAB_COPY.read : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}
+              data-reader-action={desktopCompareActive ? 'read' : 'listen'}
               data-testid="lab-listen"
             >
-              <span className="lab-desktop-action-icon" data-testid="lab-desktop-play" aria-hidden="true">
-                {listen.playing ? <PauseIcon size={19} /> : <PlayIcon size={19} />}
+              <span
+                className="lab-desktop-action-icon"
+                data-testid={desktopCompareActive ? 'lab-desktop-read' : 'lab-desktop-play'}
+                aria-hidden="true"
+              >
+                {desktopCompareActive
+                  ? <ReadIcon size={19} />
+                  : (listen.playing ? <PauseIcon size={19} /> : <PlayIcon size={19} />)}
               </span>
-              <span>{listen.playing ? LAB_COPY.pause : LAB_COPY.play}</span>
+              <span>{desktopCompareActive ? LAB_COPY.read : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}</span>
             </button>
             {desktopCompareEnabled && (
               <button
@@ -3014,10 +3029,13 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
                   className="lab-phone-fat"
                   onClick={handleBarListen}
                   aria-label={barPrimaryLabel}
+                  data-reader-action={mobileCompareActive ? 'read' : 'listen'}
                   data-testid="lab-listen"
                 >
-                  {barReturnsFromConversation && returnTo === 'reading' ? (
-                    <ReadIcon size={18} />
+                  {mobileCompareActive || (barReturnsFromConversation && returnTo === 'reading') ? (
+                    <span data-testid="lab-reader-primary-read-icon" aria-hidden="true">
+                      <ReadIcon size={18} />
+                    </span>
                   ) : (
                     <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
                       <PlayIcon size={18} />

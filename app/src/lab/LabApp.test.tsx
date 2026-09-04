@@ -1662,9 +1662,15 @@ describe('lab chrome', () => {
     expect(screen.getByText('All Reading Settings')).toBeTruthy()
   })
 
-  it('shows Compare only when configured and flips aligned mobile editions full-width', () => {
+  it('shows Compare only when configured and returns through a Read action without touching audio', async () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
-    const base = fallbackLabSource()
+    const audio = new FakeAudio()
+    const playSpy = vi.spyOn(audio, 'play')
+    const pauseSpy = vi.spyOn(audio, 'pause')
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const base = sourceWithWords()
     render(<LabApp pathname="/lab/phone" source={{
       ...base,
       paragraphs: ['Old wording begins here and continues through the original passage.'],
@@ -1683,9 +1689,64 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Modern wording')
     expect(screen.queryByTestId('lab-compare-col')).toBeNull()
 
-    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    const primary = screen.getByTestId('lab-listen')
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    const audioState = screen.getByTestId('lab-listen-status').getAttribute('data-src')
+    const playCalls = playSpy.mock.calls.length
+    const pauseCalls = pauseSpy.mock.calls.length
+    expect(primary.textContent).toContain('Read')
+    expect(primary.getAttribute('aria-label')).toBe('Read')
+    expect(primary.getAttribute('data-reader-action')).toBe('read')
+    expect(screen.getByTestId('lab-reader-primary-read-icon').querySelector('svg path')?.getAttribute('d')).toContain('M3.5 5.5')
+    expect(screen.queryByTestId('lab-listen-play')).toBeNull()
+
+    fireEvent.click(primary)
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Old wording')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toBe(audioState)
+    expect(playSpy).toHaveBeenCalledTimes(playCalls)
+    expect(pauseSpy).toHaveBeenCalledTimes(pauseCalls)
+    expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('false')
+  })
+
+  it('uses the desktop Read action to leave Compare without changing active playback or position', async () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
+    const audio = new FakeAudio()
+    const playSpy = vi.spyOn(audio, 'play')
+    const pauseSpy = vi.spyOn(audio, 'pause')
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const base = sourceWithWords()
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...base,
+      compareParagraphs: base.paragraphs.map(paragraph => `Compare ${paragraph}`),
+    }} />)
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('true'))
+    fireEvent.click(screen.getByTestId('lab-desktop-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
+
+    const primary = screen.getByTestId('lab-listen')
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    const src = screen.getByTestId('lab-listen-status').getAttribute('data-src')
+    const playCalls = playSpy.mock.calls.length
+    const pauseCalls = pauseSpy.mock.calls.length
+    expect(primary.textContent).toContain('Read')
+    expect(primary.getAttribute('aria-label')).toBe('Read')
+    expect(primary.getAttribute('data-reader-action')).toBe('read')
+    expect(screen.getByTestId('lab-desktop-read').querySelector('svg path')?.getAttribute('d')).toContain('M3.5 5.5')
+    expect(screen.queryByTestId('lab-desktop-play')).toBeNull()
+
+    fireEvent.click(primary)
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('true')
+    expect(screen.getByTestId('lab-listen-status').getAttribute('data-src')).toBe(src)
+    expect(playSpy).toHaveBeenCalledTimes(playCalls)
+    expect(pauseSpy).toHaveBeenCalledTimes(pauseCalls)
   })
 
   it('applies a typed set_assistant_pace tag without changing book speed', async () => {
