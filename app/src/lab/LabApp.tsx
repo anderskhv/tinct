@@ -62,7 +62,7 @@ import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
 import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import type { LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, polishPageEnd, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -1258,30 +1258,19 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       }
       if (!painted) return lastBarTopRef.current > 0 ? 'unmeasured' : 'fits'
       if (labPageFitsPaint(painted)) {
-        if (!listenPlayingRef.current && !browseWhileListeningRef.current) {
-          const grown = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, readerParagraphs)
+        if (
+          !listenPlayingRef.current
+          && !browseWhileListeningRef.current
+          && lastAdjustRef.current !== 'bounded'
+        ) {
+          const estimated = growPaintedPageIfSlack(pages, pageIdx, painted, lastAdjustRef.current, readerParagraphs)
+          const grown = sameChapterPages(estimated, pages)
+            ? growPageByFirstOmittedWord(pages, pageIdx, readerParagraphs)
+            : estimated
           if (!sameChapterPages(grown, pages)) {
             beforeGrowPagesRef.current = pages
             lastAdjustRef.current = 'grow'
             return applyPageList(grown, sameAsVisible)
-          }
-        }
-        const tail = chapterPageTail(live)
-        if (!tail) return 'fits'
-        const paraWords = tokenizeHearingWords(readerParagraphs[tail.paragraphIndex] || '')
-        const polishedTo = polishPageEnd(
-          paraWords,
-          tail.from,
-          tail.to,
-          Math.max(6, painted.lastLineWords || 0),
-        )
-        if (polishedTo < tail.to) {
-          const polished = cutPageTailTo(pages, pageIdx, polishedTo)
-          if (!sameChapterPages(polished, pages)) {
-            // The cleaner end is final for this page. Pulling the weak fragment
-            // straight back would undo the typographic cleanup forever.
-            lastAdjustRef.current = 'polish'
-            return applyPageList(polished, sameAsVisible)
           }
         }
         return 'fits'
@@ -1301,7 +1290,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           }
         }
         beforeGrowPagesRef.current = null
-        lastAdjustRef.current = 'polish'
+        lastAdjustRef.current = 'bounded'
         return applyPageList(reverted, sameAsVisible)
       }
       const tail = chapterPageTail(live)
@@ -1329,9 +1318,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
             canUseLabPageBudget(budget) ? budget : null,
             { lastLineWords: painted.lastLineWords, overflowing: true },
           )
-      // If the last paint was a trial grow, this peel establishes its upper
-      // bound. Keep the fitted result instead of growing straight back.
-      lastAdjustRef.current = lastAdjustRef.current === 'grow' ? 'polish' : 'peel'
+      lastAdjustRef.current = 'peel'
       return applyPageList(shrunk, sameAsVisible)
     }
     const shrinkIfNeeded = () => {
@@ -1491,13 +1478,18 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
 
       if (labPageFitsPaint(painted)) {
         if (nativePaintSettledRef.current === paintPage) return
-        const next = growPaintedPageIfSlack(
+        const estimated = growPaintedPageIfSlack(
           pages,
           pageIdx,
           painted,
           lastAdjustRef.current,
           readerParagraphs,
         )
+        const next = lastAdjustRef.current === 'bounded'
+          ? pages
+          : sameChapterPages(estimated, pages)
+            ? growPageByFirstOmittedWord(pages, pageIdx, readerParagraphs)
+            : estimated
         if (sameChapterPages(next, pages)) return
         beforeGrowPagesRef.current = pages
         lastAdjustRef.current = 'grow'
@@ -1530,7 +1522,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
           }
         }
         beforeGrowPagesRef.current = null
-        lastAdjustRef.current = 'polish'
+        lastAdjustRef.current = 'bounded'
         nativePaintSettledRef.current = paintPage
         workingPagesRef.current = fitted
         readingPagesRef.current = fitted

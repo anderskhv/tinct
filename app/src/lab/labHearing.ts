@@ -214,6 +214,26 @@ export function growPaintedPageIfSlack(
   return sameChapterPages(grown, pages) ? pages : grown
 }
 
+/**
+ * Append exactly the first omitted word, regardless of estimated line slack.
+ * The caller must paint this trial and keep it only when the real browser
+ * geometry still clears the reader chrome. This is the final maximal-fill
+ * check after the faster multi-word estimate has converged.
+ */
+export function growPageByFirstOmittedWord(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  paragraphs?: string[],
+): ChapterHearingPage[] {
+  const fromNext = wordsAvailableOnNextPage(pages, pageIndex)
+  if (fromNext > 0) return growPageByWords(pages, pageIndex, 1)
+  if (!paragraphs) return pages
+  const tail = chapterPageTail(pages[pageIndex])
+  if (!tail) return pages
+  const paragraphLength = tokenizeHearingWords(paragraphs[tail.paragraphIndex] || '').length
+  return growPageTailInParagraph(pages, pageIndex, 1, paragraphLength)
+}
+
 export const HEARING_PAGE_MIN = 70
 export const HEARING_PAGE_MAX = 90
 /** A leftover page this short is an orphan line, not a real page. */

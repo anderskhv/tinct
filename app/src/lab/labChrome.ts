@@ -471,7 +471,7 @@ export function labPageSlackPx(lastBottom: number, chromeTop: number): number {
   return Math.max(0, chromeTop - LAB_OVERFLOW_CLEAR_PX - lastBottom)
 }
 
-export type LabPageAdjust = 'peel' | 'grow' | 'polish' | null
+export type LabPageAdjust = 'peel' | 'grow' | 'bounded' | null
 
 /** Room for at least one more line below the last painted ink. */
 export function labPaintHasGrowableSlack(
@@ -491,11 +491,8 @@ export function shouldGrowPaintedPage(
   lineHeight: number,
 ): boolean {
   const line = lineHeight > 8 ? lineHeight : 24
+  if (lastAdjust === 'bounded') return false
   if (slackPx <= line) return false
-  // A typographic cleanup may intentionally leave a line or two. If a resize
-  // leaves substantially more space than that, refill instead of freezing a
-  // nearly empty page; the next overflow trial can still revert to the clean end.
-  if (lastAdjust === 'polish') return slackPx > line * 2.5
   if (lastAdjust !== 'peel') return true
   return slackPx > line * 1.1
 }
