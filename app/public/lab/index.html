@@ -234,11 +234,14 @@
           </div>
           <article class="tov5-both" data-edition-card="both" data-edition-choice="both" role="button" tabindex="0" aria-pressed="false">
             <div class="tov5-both-choice">
-              <div class="tov5-toggle-demo"><span data-edition-short-classic>Butler</span><span>Modern</span><i data-lucide="arrow-left-right" aria-hidden="true"></i></div>
-              <div><small>Both versions</small><strong>Flick back and forth between versions.</strong></div>
-              <i data-lucide="chevron-right" aria-hidden="true"></i>
+              <span class="tov5-edition-radio" aria-hidden="true"></span>
+              <div><small>Both</small><strong>Read and compare both versions.</strong></div>
             </div>
           </article>
+          <section class="tov5-edition-sample" data-edition-sample aria-live="polite" aria-busy="true">
+            <header><small>Real text sample</small><strong data-edition-sample-heading>Loading selected edition…</strong></header>
+            <div class="tov5-edition-sample-body" data-edition-sample-body><p>Loading from the published text…</p></div>
+          </section>
           <button type="button" class="tov5-continue">Continue with Modern</button>
 
           <div class="tov5-menu" data-edition-menu="human" role="dialog" aria-label="Human translations">
@@ -1197,6 +1200,38 @@
   #tinct-onboarding-worlds-v5 [data-catalogue-edition]:focus-visible,
   #tinct-onboarding-worlds-v5 .tov5-both:focus-visible { outline:3px solid color-mix(in srgb,var(--tov5-world-accent) 78%,white); outline-offset:3px; }
 
+  /* One compact decision surface: choices first, then one real-text sample. */
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition]) { height:auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; overflow:visible; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { min-height:118px; display:grid; grid-template-rows:minmax(0,1fr) 34px; overflow:visible; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { min-height:0; display:block; padding:13px 14px 10px; border:0; background:rgba(255,255,255,.065); pointer-events:none; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown small { font-size:9px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { margin-top:4px; overflow-wrap:anywhere; font-size:15px; line-height:1.15; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { margin-top:5px; font-size:9px; line-height:1.25; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>.tov5-edition-select { min-height:34px; padding:5px 9px; justify-content:flex-start; border-top:1px solid rgba(255,255,255,.18); font-size:10px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>.tov5-edition-select>span,
+  #tinct-onboarding-worlds-v5 .tov5-edition-radio { width:13px; height:13px; flex:0 0 13px; border:1px solid rgba(255,255,255,.58); border-radius:50%; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-grid>article[aria-pressed="true"]>.tov5-edition-select>span,
+  #tinct-onboarding-worlds-v5 .tov5-both[aria-pressed="true"] .tov5-edition-radio { border:4px solid var(--tov5-world-accent); }
+  #tinct-onboarding-worlds-v5 .tov5-both { margin-top:10px; }
+  #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice { min-height:58px; display:grid; grid-template-columns:13px minmax(0,1fr); gap:11px; padding:9px 13px; pointer-events:none; }
+  #tinct-onboarding-worlds-v5 .tov5-both strong { margin-top:3px; overflow-wrap:anywhere; font:14px/1.2 Georgia,serif; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample { min-width:0; min-height:164px; margin-top:10px; padding:14px 16px; border:1px solid rgba(255,255,255,.24); border-radius:14px; color:#fffdf7; background:rgba(5,15,23,.58); -webkit-backdrop-filter:blur(12px) saturate(.9); backdrop-filter:blur(12px) saturate(.9); box-shadow:0 10px 25px rgba(0,0,0,.12); }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample>header { display:flex; align-items:baseline; justify-content:space-between; gap:14px; margin-bottom:10px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample>header small { flex:0 0 auto; color:var(--tov5-world-accent); font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample>header strong { min-width:0; color:rgba(255,253,247,.74); font-size:10px; font-weight:500; text-align:right; overflow-wrap:anywhere; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body { min-width:0; display:grid; grid-template-columns:minmax(0,1fr); gap:10px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample.is-comparison .tov5-edition-sample-body { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body>article { min-width:0; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body>article+article { padding-left:12px; border-left:1px solid rgba(255,255,255,.18); }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body small,
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body strong { display:block; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body small { color:var(--tov5-world-accent); font-size:8px; letter-spacing:.06em; text-transform:uppercase; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body strong { margin-top:3px; color:rgba(255,253,247,.72); font-size:9px; font-weight:500; overflow-wrap:anywhere; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-body p { display:-webkit-box; margin:8px 0 0; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:4; color:#fffdf7; font:15px/1.4 Georgia,serif; text-wrap:pretty; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample.is-comparison .tov5-edition-sample-body p { -webkit-line-clamp:3; font-size:14px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-sample-loading { color:rgba(255,253,247,.62)!important; font-family:Arial,sans-serif!important; font-size:10px!important; }
+  #tinct-onboarding-worlds-v5 .tov5-continue { min-height:50px; margin-top:10px; }
+
   @media (max-width:520px) {
     html,body { width:100%; min-width:0; max-width:100%; min-height:100%; overflow-x:hidden; background:#071723; }
     body { padding:0; }
@@ -1211,12 +1246,45 @@
     #tinct-onboarding-worlds-v5 .tov5-library-zoom { padding-top:calc(20px + var(--tov5-safe-top)); }
     #tinct-onboarding-worlds-v5 .tov5-your-library-zoom,
     #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { padding-top:var(--tov5-safe-top); }
-    #tinct-onboarding-worlds-v5 .tov5-edition-zoom { padding-top:calc(20px + var(--tov5-safe-top)); padding-right:max(16px,var(--tov5-safe-right)); padding-bottom:max(26px,var(--tov5-safe-bottom)); padding-left:max(16px,var(--tov5-safe-left)); }
+    #tinct-onboarding-worlds-v5 .tov5-edition-zoom { height:100dvh; min-height:100dvh; overflow-y:auto; padding-top:calc(10px + var(--tov5-safe-top)); padding-right:max(12px,var(--tov5-safe-right)); padding-bottom:max(10px,var(--tov5-safe-bottom)); padding-left:max(12px,var(--tov5-safe-left)); }
+    #tinct-onboarding-worlds-v5 .tov5-edition-zoom { scrollbar-width:none; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-zoom::-webkit-scrollbar { display:none; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head { grid-template-columns:46px minmax(0,1fr); gap:10px; margin-bottom:9px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head img { width:46px; height:69px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head small { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head h2 { margin-top:3px; font-size:23px; line-height:.96; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-head p { margin-top:4px; font-size:9px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid:has([data-catalogue-edition]) { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid [data-catalogue-edition] { min-height:88px; grid-template-rows:minmax(0,1fr) 29px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-dropdown { padding:8px 9px 6px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-dropdown small { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-dropdown b { margin-top:2px; font-size:12px; line-height:1.08; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-dropdown em { margin-top:3px; font-size:8px; line-height:1.12; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>.tov5-edition-select { min-height:29px; padding:3px 7px; font-size:9px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid>article>.tov5-edition-select>span,
+    #tinct-onboarding-worlds-v5 .tov5-edition-radio { width:11px; height:11px; flex-basis:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-grid>article[aria-pressed="true"]>.tov5-edition-select>span,
+    #tinct-onboarding-worlds-v5 .tov5-both[aria-pressed="true"] .tov5-edition-radio { border-width:3px; }
+    #tinct-onboarding-worlds-v5 .tov5-both { margin-top:6px; }
+    #tinct-onboarding-worlds-v5 .tov5-both>.tov5-both-choice { min-height:45px; gap:8px; padding:6px 9px; }
+    #tinct-onboarding-worlds-v5 .tov5-both small { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-both strong { margin-top:1px; font-size:11px; line-height:1.12; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample { min-height:112px; margin-top:6px; padding:9px 10px; border-radius:10px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample>header { gap:8px; margin-bottom:5px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample>header small { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample>header strong { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample-body { gap:6px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample-body>article+article { padding-left:7px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample-body small { font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample-body strong { margin-top:1px; font-size:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample-body p { margin-top:4px; -webkit-line-clamp:3; font-size:12px; line-height:1.25; }
+    #tinct-onboarding-worlds-v5 .tov5-edition-sample.is-comparison .tov5-edition-sample-body p { -webkit-line-clamp:3; font-size:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-continue { min-height:43px; margin-top:6px; font-size:12px; }
   }
 </style>
 
 <script src="/lab/interaction-runtime.js?v=20260904-1" defer></script>
-<script src="/lab/catalogue-runtime.js?v=20260903-7" defer></script>
+<script src="/lab/catalogue-runtime.js?v=20260904-2" defer></script>
   <script type="module" src="/lab/auth-status.js"></script>
 </body>
 </html>

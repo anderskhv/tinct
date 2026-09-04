@@ -61,7 +61,7 @@ for (const viewport of [PHONE, DESKTOP]) {
     await expect(landing.getByRole('heading', { name: 'Fall in love with the books that matter.' })).toBeVisible()
     await expect(landing.getByText('Free to read · No account required')).toBeVisible()
     await expect(landing.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about')
-    await expect(landing.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/app?signin=1')
+    await expect(landing.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/lab/sign-in?returnTo=%2Flab%2Flibrary-2')
     await expect(page.locator('.tov5-picker')).toBeHidden()
     await landing.getByRole('button', { name: 'Start reading' }).click()
     await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
@@ -188,7 +188,7 @@ test('opens a non-showcase book with catalogue-backed detail and editions', asyn
   await expect(page.locator('.tov5-edition-grid')).toContainText('Tinct AI adaptation')
 })
 
-test('keeps the English V1 choices and Both mutually exclusive in a complete phone stack', async ({ page }) => {
+test('keeps the English V1 choices and Both mutually exclusive in one compact phone surface', async ({ page }) => {
   await openPreReader(page, '/lab/?autoplay=0&book=ulysses&view=edition')
   const original = page.locator('[data-select-edition="original-en"]')
   const modern = page.locator('[data-select-edition="modern-en"]')
@@ -206,8 +206,13 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   }))
   expect(stack.fits).toBe(true)
   expect(stack.cards.every(card => card.left >= 0 && card.right <= stack.viewportWidth + 1)).toBe(true)
-  expect(stack.cards[0].bottom).toBeLessThanOrEqual(stack.cards[1].top)
+  expect(Math.abs(stack.cards[0].top - stack.cards[1].top)).toBeLessThanOrEqual(1)
   await expectNoDocumentOverflow(page)
+  await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+  await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('Stately, plump Buck Mulligan')
+  const initialCta = await page.locator('.tov5-continue').boundingBox()
+  expect(initialCta).not.toBeNull()
+  expect(initialCta!.y + initialCta!.height).toBeLessThanOrEqual(PHONE.height)
 
   await expect(original).toHaveAttribute('aria-pressed', 'true')
   await expect(modern).toHaveAttribute('aria-pressed', 'false')
@@ -217,6 +222,8 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   await expect(modern).toHaveAttribute('aria-pressed', 'true')
   await expect(both).toHaveAttribute('aria-pressed', 'false')
   await expect(page.locator('.tov5-continue')).toHaveText('Continue with Modern English')
+  await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+  await expect(page.locator('[data-edition-sample-text="modern-en"]')).toContainText('carrying a bowl of shaving lather')
 
   await both.click()
   await expect(original).toHaveAttribute('aria-pressed', 'false')
@@ -225,7 +232,52 @@ test('keeps the English V1 choices and Both mutually exclusive in a complete pho
   await expect(page.locator('[data-catalogue-edition].is-selected')).toHaveCount(0)
   await expect(page.locator('.tov5-both')).toHaveClass(/is-selected/)
   await expect(page.locator('.tov5-continue')).toHaveText('Continue with Both')
+  await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+  await expect(page.locator('[data-edition-sample-text]')).toHaveCount(2)
+  await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('Stately, plump Buck Mulligan')
+  await expect(page.locator('[data-edition-sample-text="modern-en"]')).toContainText('carrying a bowl of shaving lather')
 })
+
+for (const viewport of [
+  { label: 'small-phone', width: 320, height: 568 },
+  { label: 'phone', ...PHONE },
+  { label: 'tablet', ...TABLET },
+  { label: 'desktop', ...DESKTOP },
+]) {
+  test(`renders real compact samples for one, two and three edition surfaces at ${viewport.label}`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height })
+
+    await openPreReader(page, '/lab/?autoplay=0&book=odyssey&view=edition')
+    await page.evaluate(() => {
+      const source = window.__tinctLabPreReader.visibleBooks().find(book => book.id === 'odyssey')!
+      window.__tinctLabPreReader.renderEditionsForTest({ ...source, editions: [source.editions[0]] })
+    })
+    await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '1')
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text="original-en"]')).not.toContainText('Sample unavailable')
+    await expectNoDocumentOverflow(page)
+    await capture(page, `${viewport.label}-edition-one`)
+
+    await openPreReader(page, '/lab/?autoplay=0&book=divine-comedy&view=edition')
+    await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '2')
+    await expect(page.locator('[data-catalogue-edition="original-en"]')).toContainText('Longfellow Translation (1867)')
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('Midway upon the journey of our life')
+    await expectNoDocumentOverflow(page)
+    await capture(page, `${viewport.label}-edition-two-long-label`)
+
+    await openPreReader(page, '/lab/?autoplay=0&book=ivan-ilyich&view=edition')
+    await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '3')
+    await expect(page.locator('[data-select-edition="modern-da"]')).toHaveCount(0)
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text="original-en"]')).toContainText('During an interval in the Melvinski trial')
+    const cta = await page.locator('.tov5-continue').boundingBox()
+    expect(cta).not.toBeNull()
+    expect(cta!.y + cta!.height).toBeLessThanOrEqual(viewport.height)
+    await expectNoDocumentOverflow(page)
+    await capture(page, `${viewport.label}-edition-three`)
+  })
+}
 
 for (const viewport of REQUIRED_VIEWPORTS) {
   test(`selects every edition card from its title, body and footer at ${viewport.label}`, async ({ page }) => {
@@ -457,6 +509,8 @@ for (const { label, viewport } of [{ label: 'phone', viewport: PHONE }, { label:
     await capture(page, `${label}-05-edition-picker`)
     await page.locator('.tov5-both[data-edition-choice]').click()
     await expect(page.locator('.tov5-both[data-edition-choice]')).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('[data-edition-sample]')).toHaveAttribute('aria-busy', 'false')
+    await expect(page.locator('[data-edition-sample-text]')).toHaveCount(2)
     await capture(page, `${label}-06-both-selected`)
     await expectNoDocumentOverflow(page)
   })

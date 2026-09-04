@@ -15,6 +15,8 @@
   }
   const coverCache = new Map()
   const worldCache = new Map()
+  const editionSampleCache = new Map()
+  let editionSampleRenderToken = 0
 
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -173,6 +175,62 @@
   const languageName = language => ({ en: 'English', da: 'Danish' })[language] || language.toUpperCase()
   const editionTitle = edition => edition.style === 'modern' ? 'Modern' : edition.style === 'original' ? 'Original' : 'Published'
   const editionChoiceLabel = edition => edition.style === 'modern' ? `Modern ${languageName(edition.language)}` : editionTitle(edition)
+
+  function firstReadableParagraph(payload) {
+    const chapters = Array.isArray(payload?.chapters) ? payload.chapters : []
+    const paragraphs = Array.isArray(payload?.paragraphs) ? payload.paragraphs : chapters.flatMap(chapter => Array.isArray(chapter?.paragraphs) ? chapter.paragraphs : [])
+    const cleaned = paragraphs.map(paragraph => String(paragraph || '').replace(/\s+/g, ' ').trim()).filter(Boolean)
+    return cleaned.find(paragraph => paragraph.length >= 80) || cleaned[0] || null
+  }
+
+  async function fetchJsonIfAvailable(url) {
+    try {
+      const response = await fetch(url)
+      if (!response.ok || !String(response.headers.get('content-type') || '').includes('application/json')) return null
+      return await response.json()
+    } catch {
+      return null
+    }
+  }
+
+  async function loadEditionSample(bookId, editionKey) {
+    const cacheKey = `${bookId}:${editionKey}`
+    if (editionSampleCache.has(cacheKey)) return editionSampleCache.get(cacheKey)
+    const request = (async () => {
+      const manifestUrl = `/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/manifest.json?v=20260904-1`
+      const manifest = await fetchJsonIfAvailable(manifestUrl)
+      const chapterPath = manifest?.chapters?.find(chapter => chapter?.path)?.path
+      if (chapterPath) {
+        const chapter = await fetchJsonIfAvailable(`/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/${encodeURIComponent(chapterPath)}?v=20260904-1`)
+        const chapterSample = firstReadableParagraph(chapter)
+        if (chapterSample) return chapterSample
+      }
+      const edition = await fetchJsonIfAvailable(`/data/editions/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}.json?v=20260904-1`)
+      return firstReadableParagraph(edition)
+    })()
+    editionSampleCache.set(cacheKey, request)
+    return request
+  }
+
+  async function renderEditionSample(book) {
+    const sample = root.querySelector('[data-edition-sample]')
+    const heading = root.querySelector('[data-edition-sample-heading]')
+    const body = root.querySelector('[data-edition-sample-body]')
+    const editions = v1Editions(book)
+    const primary = editions.find(edition => edition.key === state.selectedEditionKey)
+    const compare = editions.find(edition => edition.key === state.compareEditionKey)
+    const choices = [primary, compare].filter(Boolean)
+    const token = ++editionSampleRenderToken
+    sample.setAttribute('aria-busy', 'true')
+    sample.classList.toggle('is-comparison', Boolean(compare))
+    heading.textContent = compare ? `${primary.label} and ${compare.label}` : primary?.label || 'Selected edition'
+    body.innerHTML = '<p class="tov5-edition-sample-loading">Loading from the published text…</p>'
+    const texts = await Promise.all(choices.map(edition => loadEditionSample(book.id, edition.key)))
+    if (token !== editionSampleRenderToken) return
+    sample.setAttribute('aria-busy', 'false')
+    body.innerHTML = choices.map((edition, index) => `<article data-edition-sample-text="${escapeHtml(edition.key)}"><small>${escapeHtml(editionChoiceLabel(edition))}</small><strong>${escapeHtml(edition.label)}</strong><p>${texts[index] ? escapeHtml(texts[index]) : 'Sample unavailable for this published edition.'}</p></article>`).join('')
+  }
+
   function renderEditions(book) {
     const editions = v1Editions(book)
     root.querySelector('.tov5-edition-head img').src = coverData(book)
@@ -184,11 +242,12 @@
       const selected = !state.compareEditionKey && edition.key === state.selectedEditionKey
       const metadata = [languageName(edition.language), edition.year, edition.provenanceLabel, edition.availability.audio ? 'Text and audio available' : 'Text available'].filter(Boolean).join(' · ')
       const choiceLabel = editionChoiceLabel(edition)
-      return `<article data-catalogue-edition="${edition.key}" data-select-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><div class="tov5-edition-select" aria-hidden="true"><span></span>Choose ${escapeHtml(choiceLabel)}</div></article>`
+      return `<article data-catalogue-edition="${edition.key}" data-select-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><div class="tov5-edition-select" aria-hidden="true"><span></span>${escapeHtml(choiceLabel)}</div></article>`
     }).join('')
     root.querySelectorAll('[data-edition-menu]').forEach(menu => { menu.hidden = true })
     updateCompareOption(book)
     updateContinueLabel(book)
+    void renderEditionSample(book)
   }
 
   function updateCompareOption(book) {
@@ -198,8 +257,12 @@
     const both = root.querySelector('.tov5-both')
     both.hidden = !compare
     if (compare) {
-      both.querySelector('strong').textContent = `Compare ${primary.label} and ${compare.label}.`
+      both.querySelector('strong').textContent = `${primary.label} + ${compare.label}`
       both.dataset.compareEdition = compare.key
+      both.setAttribute('aria-label', `Choose Both: compare ${primary.label} and ${compare.label}`)
+    } else {
+      delete both.dataset.compareEdition
+      both.removeAttribute('aria-label')
     }
     both.classList.toggle('is-selected', Boolean(compare && state.compareEditionKey))
     both.setAttribute('aria-pressed', String(Boolean(compare && state.compareEditionKey)))
