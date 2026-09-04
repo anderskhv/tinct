@@ -21,11 +21,23 @@ afterEach(() => {
 describe('lab bible audio paths', () => {
   it('uses the production Bible chapter manifest and paragraph files', () => {
     expect(labAudioManifestUrl()).toBe('/api/audio-manifest?path=bible%2Fkjv-en%2Fch1%2Fmanifest.json')
-    expect(labAudioSidecarUrl()).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fwords.json')
+    expect(labAudioSidecarUrl()).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fwords.json&timing=2')
     expect(labAudioFileUrl('p0.mp3')).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fp0.mp3')
     expect(labAudioFileUrl('p1.mp3')).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fp1.mp3')
     expect(labAudioManifestUrl(2)).toBe('/api/audio-manifest?path=bible%2Fkjv-en%2Fch2%2Fmanifest.json')
     expect(labAudioFileUrl('p0.mp3', 2)).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch2%2Fp0.mp3')
+  })
+
+  it('does not leave mutable word timings behind the immutable MP3 cache path', () => {
+    const worker = readFileSync(resolve(__dirname, '../../public/sw.js'), 'utf8')
+    const metadataBranch = worker.indexOf("const isAudioMetadata")
+    const rangeBranch = worker.indexOf("event.request.headers.has('range')")
+
+    expect(labAudioSidecarUrl()).toContain('&timing=')
+    expect(metadataBranch).toBeGreaterThan(-1)
+    expect(metadataBranch).toBeLessThan(rangeBranch)
+    expect(worker).toMatch(/handleAudioMetadata[\s\S]*fetch\(request, \{ cache: 'no-store' \}\)/)
+    expect(worker).toMatch(/handleAudioMetadata[\s\S]*cache\.match\(request\)/)
   })
 
   it('keeps the title as a distinct clip before one MP3 per paragraph', () => {
