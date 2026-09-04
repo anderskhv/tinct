@@ -49,3 +49,14 @@ export async function supabaseInsert(env: SupabaseEnv, table: string, data: Reco
     body: JSON.stringify(data),
   })
 }
+
+export async function supabaseDelete(env: SupabaseEnv, path: string) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/${path}`, {
+    method: 'DELETE',
+    headers: {
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'return=minimal',
+    },
+  })
+}
