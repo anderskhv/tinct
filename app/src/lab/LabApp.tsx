@@ -412,6 +412,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   const workingPagesRef = useRef(draftPages)
   workingPagesRef.current = draftPages
   const mobilePrimaryPagesRef = useRef<ChapterHearingPage[] | null>(null)
+  const mobileCompareReturnPlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   // A later page or chapter action owns the reader. This prevents an older
   // async chapter response from replacing the tuple after the user turned back.
   const chapterNavigationRef = useRef(0)
@@ -1007,7 +1008,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
-    const keep = pageAnchorRef.current ?? pageAnchorOf(current[currentIndex])
+    const keep = mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current ?? pageAnchorOf(current[currentIndex])
     const landing = chapterLandingRef.current
 
     pagesStableRef.current = true
@@ -1095,6 +1096,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     lastBarTopRef.current = 0
     lastAdjustRef.current = null
     beforeGrowPagesRef.current = null
+    mobileCompareReturnPlaceRef.current = null
     pagesStableRef.current = false
     settleIndexRef.current = nativePhonePaging ? null : 0
     setSettleIndex(nativePhonePaging ? null : 0)
@@ -1594,7 +1596,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       return
     }
     setReadingPageIndex((current) => {
-      const keep = pageAnchorRef.current
+      const keep = mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current
       const next = keep
         ? restorePageIndexForAnchor(readingPages, keep)
         : pageIndexForPlace(
@@ -1609,7 +1611,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
         // the font-painted map. Keep the semantic transition anchor until the
         // latter is stable, otherwise the provisional page can snap Read back
         // to an earlier page even while the persisted place stays unchanged.
-        if (anchor && pagesStableRef.current) pageAnchorRef.current = anchor
+        if (anchor && pagesStableRef.current && !mobileCompareReturnPlaceRef.current) pageAnchorRef.current = anchor
       }
       readingPageIndexRef.current = next
       return next === current ? current : next
@@ -2021,6 +2023,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   ), [book.paragraphs, mobileCompareActive, readerParagraphs])
 
   const goToPage = useCallback((index: number) => {
+    mobileCompareReturnPlaceRef.current = null
     chapterNavigationRef.current += 1
     const reading = readingPagesRef.current
     const working = workingPagesRef.current
@@ -2062,8 +2065,12 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     if (!mobileCompareEnabled) return
     const current = readingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
-    const sourceAnchor = pageAnchorOf(current[currentIndex]) ?? pageAnchorRef.current ?? { paragraphIndex: 0, wordIndex: 0 }
     const nextActive = !mobileCompareActive
+    const visiblePageAnchor = pageAnchorOf(current[currentIndex]) ?? pageAnchorRef.current ?? { paragraphIndex: 0, wordIndex: 0 }
+    // Enter Compare from the precise primary ReaderSession place. Playback can
+    // pause between page boundaries, and falling back to the visible page head
+    // would silently rewind that semantic word.
+    const sourceAnchor = nextActive ? { ...placeRef.current } : visiblePageAnchor
     if (nextActive) mobilePrimaryPagesRef.current = current
     const targetParagraphs = nextActive ? book.compareParagraphs : book.paragraphs
     const mapped = nextActive
@@ -2088,6 +2095,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     setChapterCoverTitle(null)
     pageAnchorRef.current = mapped
     placeRef.current = primaryAnchor
+    mobileCompareReturnPlaceRef.current = nextActive ? null : primaryAnchor
     readerStateRef.current = {
       ...readerStateRef.current,
       pageIndex: nextIndex,
@@ -2378,6 +2386,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
   }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
+    mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
     if (chrome === 'hearing' && !opts?.force) {

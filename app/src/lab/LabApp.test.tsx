@@ -1710,6 +1710,45 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('false')
   })
 
+  it('keeps a paused mid-page word when entering and leaving phone Compare', async () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
+    const audio = new FakeAudio()
+    const playSpy = vi.spyOn(audio, 'play')
+    const pauseSpy = vi.spyOn(audio, 'pause')
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const base = sourceWithWords()
+    render(<LabApp pathname="/lab/phone" source={{
+      ...base,
+      compareParagraphs: base.paragraphs.map(paragraph => `Compare ${paragraph}`),
+    }} />)
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('true'))
+    audio.currentTime = 2.2
+    act(() => audio.emit('timeupdate'))
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('false'))
+
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    expect(place).toBe('0:4')
+    const playCalls = playSpy.mock.calls.length
+    const pauseCalls = pauseSpy.mock.calls.length
+
+    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    expect(screen.getByTestId('lab-listen').getAttribute('data-reader-action')).toBe('read')
+
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('false')
+    expect(playSpy).toHaveBeenCalledTimes(playCalls)
+    expect(pauseSpy).toHaveBeenCalledTimes(pauseCalls)
+  })
+
   it('uses the desktop Read action to leave Compare without changing active playback or position', async () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     const audio = new FakeAudio()
