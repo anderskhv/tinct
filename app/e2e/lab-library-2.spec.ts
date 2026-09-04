@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test'
+import { mkdir, writeFile } from 'node:fs/promises'
 
 const VIEWPORTS = [
   { label: 'small-phone', width: 320, height: 568 },
@@ -22,27 +23,48 @@ async function expectNoOverflow(page: Page) {
     const shell = root.getBoundingClientRect()
     return {
       viewport: window.innerWidth,
-      document: document.documentElement.scrollWidth,
+      documentClient: document.documentElement.clientWidth,
+      documentScroll: document.documentElement.scrollWidth,
+      bodyClient: document.body.clientWidth,
       bodyScroll: document.body.scrollWidth,
       bodyLeft: body.left,
+      bodyRight: body.right,
       bodyWidth: body.width,
+      shellClient: root.clientWidth,
+      shellScroll: root.scrollWidth,
       shellLeft: shell.left,
+      shellRight: shell.right,
       shellWidth: shell.width,
       shellRadius: getComputedStyle(root).borderTopLeftRadius,
     }
   })
-  expect(geometry.document).toBeLessThanOrEqual(geometry.viewport + 1)
-  expect(geometry.bodyScroll).toBeLessThanOrEqual(geometry.viewport + 1)
+  expect(geometry.documentScroll).toBe(geometry.documentClient)
+  expect(geometry.bodyScroll).toBe(geometry.bodyClient)
+  expect(geometry.bodyClient).toBe(geometry.documentClient)
+  expect(geometry.shellScroll).toBe(geometry.shellClient)
+  expect(geometry.shellClient).toBe(geometry.documentClient)
   expect(geometry.bodyLeft).toBe(0)
-  expect(geometry.bodyWidth).toBeCloseTo(geometry.viewport, 0)
+  expect(geometry.bodyRight).toBe(geometry.documentClient)
+  expect(geometry.bodyWidth).toBeCloseTo(geometry.bodyClient, 0)
   expect(geometry.shellLeft).toBe(0)
-  expect(geometry.shellWidth).toBeCloseTo(geometry.viewport, 0)
+  expect(geometry.shellRight).toBe(geometry.documentClient)
+  expect(geometry.shellWidth).toBeCloseTo(geometry.shellClient, 0)
   expect(geometry.shellRadius).toBe('0px')
+  return geometry
 }
 
 async function capture(page: Page, name: string) {
   const directory = process.env.LAB2_SCREENSHOT_DIR
-  if (directory) await page.screenshot({ path: `${directory}/${name}.png`, fullPage: false })
+  if (!directory) return
+  await mkdir(directory, { recursive: true })
+  await page.screenshot({ path: `${directory}/${name}.png`, fullPage: false })
+}
+
+async function captureGeometry(name: string, geometry: Awaited<ReturnType<typeof expectNoOverflow>>) {
+  const directory = process.env.LAB2_SCREENSHOT_DIR
+  if (!directory) return
+  await mkdir(directory, { recursive: true })
+  await writeFile(`${directory}/${name}-geometry.json`, `${JSON.stringify(geometry, null, 2)}\n`, 'utf8')
 }
 
 for (const viewport of VIEWPORTS) {
@@ -56,7 +78,8 @@ for (const viewport of VIEWPORTS) {
     await expect(page.locator('[data-explore-grid] [data-book-id]')).toHaveCount(100)
     const ids = await page.locator('[data-explore-grid] [data-book-id]').evaluateAll(elements => elements.map(element => element.getAttribute('data-book-id')))
     expect(new Set(ids).size).toBe(ids.length)
-    await expectNoOverflow(page)
+    const geometry = await expectNoOverflow(page)
+    await captureGeometry(`library-2-new-${viewport.label}`, geometry)
     await capture(page, `library-2-new-${viewport.label}`)
   })
 }
