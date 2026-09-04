@@ -1,0 +1,4738 @@
+{
+  "schema_version": 1,
+  "generated_from": "app/src/data/bookRegistry.ts::BOOKS",
+  "generated_at": "2026-09-04",
+  "published_count": 100,
+  "asset_policy": {
+    "artwork": "original AI-generated, no embedded typography",
+    "final": "deterministic typesetting over reviewed artwork",
+    "filename_pattern": "{book-id}--artwork-v{n}.png / {book-id}--cover-v{n}.webp"
+  },
+  "books": [
+    {
+      "symbol": "ODYSSEY",
+      "id": "odyssey",
+      "title": "The Odyssey",
+      "author": "Homer",
+      "year": -800,
+      "form": "epic",
+      "era": "antiquity",
+      "shelves": [
+        "ancient-epics"
+      ],
+      "themes": [
+        "homecoming",
+        "cunning",
+        "sea",
+        "myth"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a3a5c",
+      "cover_accent": "#c9a45c",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "odyssey--artwork-v1.png",
+      "final_cover_filename": "odyssey--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "antiquity",
+        "themes": [
+          "homecoming",
+          "cunning",
+          "sea",
+          "myth"
+        ],
+        "title": "The Odyssey",
+        "author": "Homer"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Odyssey; emphasize homecoming, cunning, sea; avoid literal plot montage.",
+      "artwork_sha256": "81bf95d265cd1105bf0f0e897d72fe761e696dad072eeadd4fb46f234538bc7a",
+      "final_sha256": "b18b66448ccb5e9dd5bfb09b2c0c08ad34dcb6fc45706c46d30fd8a8b2789ef7"
+    },
+    {
+      "symbol": "ULYSSES",
+      "id": "ulysses",
+      "title": "Ulysses",
+      "author": "James Joyce",
+      "year": 1922,
+      "form": "novel",
+      "era": "contemporary",
+      "shelves": [
+        "modernist-novels"
+      ],
+      "themes": [
+        "stream-of-consciousness",
+        "dublin",
+        "myth"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2c1810",
+      "cover_accent": "#d4a843",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "ulysses--artwork-v1.png",
+      "final_cover_filename": "ulysses--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "contemporary",
+        "themes": [
+          "stream-of-consciousness",
+          "dublin",
+          "myth"
+        ],
+        "title": "Ulysses",
+        "author": "James Joyce"
+      },
+      "concept_seed": "One symbolic visual metaphor for Ulysses; emphasize stream-of-consciousness, dublin, myth; avoid literal plot montage."
+    },
+    {
+      "symbol": "WAR_AND_PEACE",
+      "id": "war-and-peace",
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "year": 1869,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "russian-novels",
+        "on-war"
+      ],
+      "themes": [
+        "war",
+        "family",
+        "history"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3c1a1a",
+      "cover_accent": "#c9a45c",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "war-and-peace--artwork-v1.png",
+      "final_cover_filename": "war-and-peace--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "war",
+          "family",
+          "history"
+        ],
+        "title": "War and Peace",
+        "author": "Leo Tolstoy"
+      },
+      "concept_seed": "One symbolic visual metaphor for War and Peace; emphasize war, family, history; avoid literal plot montage."
+    },
+    {
+      "symbol": "BIBLE",
+      "id": "bible",
+      "title": "The Bible",
+      "author": "Various",
+      "year": -1400,
+      "form": "scripture",
+      "era": "antiquity",
+      "shelves": [
+        "bible-and-devotion",
+        "christian-tradition"
+      ],
+      "themes": [
+        "covenant",
+        "wisdom",
+        "prophecy",
+        "grace"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a0e",
+      "cover_accent": "#d4a843",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "bible--artwork-v1.png",
+      "final_cover_filename": "bible--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "scripture",
+        "era": "antiquity",
+        "themes": [
+          "covenant",
+          "wisdom",
+          "prophecy",
+          "grace"
+        ],
+        "title": "The Bible",
+        "author": "Various"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Bible; emphasize covenant, wisdom, prophecy; avoid literal plot montage.",
+      "artwork_sha256": "4ed2ac946ded584c753ac4605fbd75fd9d7d1588b437b3bc931365c2ebbff097",
+      "final_sha256": "740ebe39ae65fcc464b13ca83a2af7756fdeddb71e6e33b9e642d05edbf85240"
+    },
+    {
+      "symbol": "GILGAMESH",
+      "id": "gilgamesh",
+      "title": "The Epic of Gilgamesh",
+      "author": "Anonymous",
+      "year": -2100,
+      "form": "epic",
+      "era": "antiquity",
+      "shelves": [
+        "ancient-epics"
+      ],
+      "themes": [
+        "friendship",
+        "mortality",
+        "flood-myth"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#4a3728",
+      "cover_accent": "#c9963a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "gilgamesh--artwork-v1.png",
+      "final_cover_filename": "gilgamesh--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "antiquity",
+        "themes": [
+          "friendship",
+          "mortality",
+          "flood-myth"
+        ],
+        "title": "The Epic of Gilgamesh",
+        "author": "Anonymous"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Epic of Gilgamesh; emphasize friendship, mortality, flood-myth; avoid literal plot montage."
+    },
+    {
+      "symbol": "HAMLET",
+      "id": "hamlet",
+      "title": "Hamlet",
+      "author": "William Shakespeare",
+      "year": 1600,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy"
+      ],
+      "themes": [
+        "revenge",
+        "melancholy",
+        "mortality"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a2e",
+      "cover_accent": "#8a7fb5",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "hamlet--artwork-v1.png",
+      "final_cover_filename": "hamlet--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "revenge",
+          "melancholy",
+          "mortality"
+        ],
+        "title": "Hamlet",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Hamlet; emphasize revenge, melancholy, mortality; avoid literal plot montage.",
+      "artwork_sha256": "1f5e120ec679112f53ca66c3c9b943019e489ac0b82c8eb592004fb6db49141a",
+      "final_sha256": "36ca76d5cfdc0f780da1be90c161a0c3d333c8f39ab24a0c009f77ad5f1f3e9b"
+    },
+    {
+      "symbol": "MACBETH",
+      "id": "macbeth",
+      "title": "Macbeth",
+      "author": "William Shakespeare",
+      "year": 1606,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy",
+        "on-power"
+      ],
+      "themes": [
+        "ambition",
+        "prophecy",
+        "guilt"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a0a0a",
+      "cover_accent": "#b53a3a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "macbeth--artwork-v1.png",
+      "final_cover_filename": "macbeth--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "ambition",
+          "prophecy",
+          "guilt"
+        ],
+        "title": "Macbeth",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Macbeth; emphasize ambition, prophecy, guilt; avoid literal plot montage."
+    },
+    {
+      "symbol": "MIDSUMMER",
+      "id": "midsummer",
+      "title": "A Midsummer Night's Dream",
+      "author": "William Shakespeare",
+      "year": 1595,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "love",
+        "dream",
+        "enchantment"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0e2a1a",
+      "cover_accent": "#6abf8a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "midsummer--artwork-v1.png",
+      "final_cover_filename": "midsummer--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "love",
+          "dream",
+          "enchantment"
+        ],
+        "title": "A Midsummer Night's Dream",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for A Midsummer Night's Dream; emphasize love, dream, enchantment; avoid literal plot montage."
+    },
+    {
+      "symbol": "ROMEO_AND_JULIET",
+      "id": "romeo-and-juliet",
+      "title": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "year": 1597,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy"
+      ],
+      "themes": [
+        "love",
+        "feud",
+        "youth"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2e1020",
+      "cover_accent": "#d4667a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "romeo-and-juliet--artwork-v1.png",
+      "final_cover_filename": "romeo-and-juliet--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "love",
+          "feud",
+          "youth"
+        ],
+        "title": "Romeo and Juliet",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Romeo and Juliet; emphasize love, feud, youth; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_TEMPEST",
+      "id": "the-tempest",
+      "title": "The Tempest",
+      "author": "William Shakespeare",
+      "year": 1611,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-romance"
+      ],
+      "themes": [
+        "magic",
+        "forgiveness",
+        "colonialism"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0e1a2e",
+      "cover_accent": "#5a9abf",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-tempest--artwork-v1.png",
+      "final_cover_filename": "the-tempest--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "magic",
+          "forgiveness",
+          "colonialism"
+        ],
+        "title": "The Tempest",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Tempest; emphasize magic, forgiveness, colonialism; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_ART_OF_WAR",
+      "id": "the-art-of-war",
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "year": -500,
+      "form": "strategy",
+      "era": "antiquity",
+      "shelves": [
+        "strategy",
+        "on-war"
+      ],
+      "themes": [
+        "strategy",
+        "deception",
+        "terrain"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a0a",
+      "cover_accent": "#c4a035",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-art-of-war--artwork-v1.png",
+      "final_cover_filename": "the-art-of-war--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "strategy",
+        "era": "antiquity",
+        "themes": [
+          "strategy",
+          "deception",
+          "terrain"
+        ],
+        "title": "The Art of War",
+        "author": "Sun Tzu"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Art of War; emphasize strategy, deception, terrain; avoid literal plot montage.",
+      "artwork_sha256": "bdef4b147c946a8a62d8c87ce5702656afb9e79d699352d493558f6a3e9c5e9e",
+      "final_sha256": "2e6618a0af1a3d9f22b4cc22f9e4f265407008cf8ea3cf99b1a6b2ba8a8e32ae"
+    },
+    {
+      "symbol": "PRIDE_AND_PREJUDICE",
+      "id": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "year": 1813,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "english-novels"
+      ],
+      "themes": [
+        "marriage",
+        "class",
+        "irony"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2e2014",
+      "cover_accent": "#d4a86a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "pride-and-prejudice--artwork-v1.png",
+      "final_cover_filename": "pride-and-prejudice--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "marriage",
+          "class",
+          "irony"
+        ],
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen"
+      },
+      "concept_seed": "One symbolic visual metaphor for Pride and Prejudice; emphasize marriage, class, irony; avoid literal plot montage.",
+      "artwork_sha256": "5ede3ef7bebd0169e313c78b2e7957ae076f9f38be1d2041d8882a7bc0d049e6",
+      "final_sha256": "5978503296995c653809410f78e14bf80ea16e80cbd74e1a37be2aebd10fb4a6"
+    },
+    {
+      "symbol": "CRIME_AND_PUNISHMENT",
+      "id": "crime-and-punishment",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "year": 1866,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "russian-novels"
+      ],
+      "themes": [
+        "guilt",
+        "poverty",
+        "redemption"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a1a",
+      "cover_accent": "#8b4513",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "crime-and-punishment--artwork-v1.png",
+      "final_cover_filename": "crime-and-punishment--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "guilt",
+          "poverty",
+          "redemption"
+        ],
+        "title": "Crime and Punishment",
+        "author": "Fyodor Dostoevsky"
+      },
+      "concept_seed": "One symbolic visual metaphor for Crime and Punishment; emphasize guilt, poverty, redemption; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_REPUBLIC",
+      "id": "the-republic",
+      "title": "The Republic",
+      "author": "Plato",
+      "year": -375,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "plato",
+        "on-the-state"
+      ],
+      "themes": [
+        "justice",
+        "ideal-state",
+        "cave"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a3a",
+      "cover_accent": "#c9b896",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-republic--artwork-v1.png",
+      "final_cover_filename": "the-republic--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "justice",
+          "ideal-state",
+          "cave"
+        ],
+        "title": "The Republic",
+        "author": "Plato"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Republic; emphasize justice, ideal-state, cave; avoid literal plot montage.",
+      "artwork_sha256": "d032ac6794c59bc4c6ff09b07190a6081f89308574de85902687e121f04f1463",
+      "final_sha256": "149934528f131bbf73a4bc5f3c72768b025d53276e7365cb9d7b99ee326bdd4f"
+    },
+    {
+      "symbol": "MEDITATIONS",
+      "id": "meditations",
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "year": 180,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "stoics"
+      ],
+      "themes": [
+        "stoicism",
+        "duty",
+        "impermanence"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a2018",
+      "cover_accent": "#9a8a6a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "meditations--artwork-v1.png",
+      "final_cover_filename": "meditations--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "stoicism",
+          "duty",
+          "impermanence"
+        ],
+        "title": "Meditations",
+        "author": "Marcus Aurelius"
+      },
+      "concept_seed": "One symbolic visual metaphor for Meditations; emphasize stoicism, duty, impermanence; avoid literal plot montage."
+    },
+    {
+      "symbol": "DIVINE_COMEDY",
+      "id": "divine-comedy",
+      "title": "The Divine Comedy",
+      "author": "Dante Alighieri",
+      "year": 1320,
+      "form": "epic",
+      "era": "medieval",
+      "shelves": [
+        "sacred-epics",
+        "christian-tradition"
+      ],
+      "themes": [
+        "afterlife",
+        "love",
+        "sin"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a0a0a",
+      "cover_accent": "#d4a030",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "divine-comedy--artwork-v1.png",
+      "final_cover_filename": "divine-comedy--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "medieval",
+        "themes": [
+          "afterlife",
+          "love",
+          "sin"
+        ],
+        "title": "The Divine Comedy",
+        "author": "Dante Alighieri"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Divine Comedy; emphasize afterlife, love, sin; avoid literal plot montage."
+    },
+    {
+      "symbol": "JANE_EYRE",
+      "id": "jane-eyre",
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "year": 1847,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "english-novels",
+        "gothic-novels"
+      ],
+      "themes": [
+        "governess",
+        "independence",
+        "gothic"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a2a",
+      "cover_accent": "#b87aa0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "jane-eyre--artwork-v1.png",
+      "final_cover_filename": "jane-eyre--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "governess",
+          "independence",
+          "gothic"
+        ],
+        "title": "Jane Eyre",
+        "author": "Charlotte Brontë"
+      },
+      "concept_seed": "One symbolic visual metaphor for Jane Eyre; emphasize governess, independence, gothic; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_AENEID",
+      "id": "the-aeneid",
+      "title": "The Aeneid",
+      "author": "Virgil",
+      "year": -19,
+      "form": "epic",
+      "era": "antiquity",
+      "shelves": [
+        "ancient-epics"
+      ],
+      "themes": [
+        "duty",
+        "exile",
+        "empire"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a0a",
+      "cover_accent": "#c4a035",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-aeneid--artwork-v1.png",
+      "final_cover_filename": "the-aeneid--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "antiquity",
+        "themes": [
+          "duty",
+          "exile",
+          "empire"
+        ],
+        "title": "The Aeneid",
+        "author": "Virgil"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Aeneid; emphasize duty, exile, empire; avoid literal plot montage."
+    },
+    {
+      "symbol": "PARADISE_LOST",
+      "id": "paradise-lost",
+      "title": "Paradise Lost",
+      "author": "John Milton",
+      "year": 1667,
+      "form": "epic",
+      "era": "early-modern",
+      "shelves": [
+        "sacred-epics",
+        "christian-tradition"
+      ],
+      "themes": [
+        "fall",
+        "rebellion",
+        "providence"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0a0a1a",
+      "cover_accent": "#a0a0d4",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "paradise-lost--artwork-v1.png",
+      "final_cover_filename": "paradise-lost--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "early-modern",
+        "themes": [
+          "fall",
+          "rebellion",
+          "providence"
+        ],
+        "title": "Paradise Lost",
+        "author": "John Milton"
+      },
+      "concept_seed": "One symbolic visual metaphor for Paradise Lost; emphasize fall, rebellion, providence; avoid literal plot montage."
+    },
+    {
+      "symbol": "FRANKENSTEIN",
+      "id": "frankenstein",
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "year": 1818,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "english-novels",
+        "gothic-novels"
+      ],
+      "themes": [
+        "creation",
+        "responsibility",
+        "monstrosity"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0a1a0a",
+      "cover_accent": "#6ab56a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "frankenstein--artwork-v1.png",
+      "final_cover_filename": "frankenstein--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "creation",
+          "responsibility",
+          "monstrosity"
+        ],
+        "title": "Frankenstein",
+        "author": "Mary Shelley"
+      },
+      "concept_seed": "One symbolic visual metaphor for Frankenstein; emphasize creation, responsibility, monstrosity; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_MANUAL",
+      "id": "the-manual",
+      "title": "The Manual",
+      "author": "Epictetus",
+      "year": 125,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "stoics"
+      ],
+      "themes": [
+        "stoicism",
+        "control",
+        "equanimity"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2c2c1e",
+      "cover_accent": "#c8b87a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-manual--artwork-v1.png",
+      "final_cover_filename": "the-manual--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "stoicism",
+          "control",
+          "equanimity"
+        ],
+        "title": "The Manual",
+        "author": "Epictetus"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Manual; emphasize stoicism, control, equanimity; avoid literal plot montage."
+    },
+    {
+      "symbol": "APOLOGY",
+      "id": "apology",
+      "title": "Apology",
+      "author": "Plato",
+      "year": -399,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "plato"
+      ],
+      "themes": [
+        "examined-life",
+        "death",
+        "irony"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2f2f",
+      "cover_accent": "#c4a35a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "apology--artwork-v1.png",
+      "final_cover_filename": "apology--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "examined-life",
+          "death",
+          "irony"
+        ],
+        "title": "Apology",
+        "author": "Plato"
+      },
+      "concept_seed": "One symbolic visual metaphor for Apology; emphasize examined-life, death, irony; avoid literal plot montage."
+    },
+    {
+      "symbol": "SYMPOSIUM",
+      "id": "symposium",
+      "title": "Symposium",
+      "author": "Plato",
+      "year": -385,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "plato"
+      ],
+      "themes": [
+        "love",
+        "beauty",
+        "desire"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#4a2040",
+      "cover_accent": "#d4a0b0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "symposium--artwork-v1.png",
+      "final_cover_filename": "symposium--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "love",
+          "beauty",
+          "desire"
+        ],
+        "title": "Symposium",
+        "author": "Plato"
+      },
+      "concept_seed": "One symbolic visual metaphor for Symposium; emphasize love, beauty, desire; avoid literal plot montage."
+    },
+    {
+      "symbol": "PHAEDO",
+      "id": "phaedo",
+      "title": "Phaedo",
+      "author": "Plato",
+      "year": -385,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "plato"
+      ],
+      "themes": [
+        "soul",
+        "immortality",
+        "forms"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1e2a3a",
+      "cover_accent": "#8ab4d4",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "phaedo--artwork-v1.png",
+      "final_cover_filename": "phaedo--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "soul",
+          "immortality",
+          "forms"
+        ],
+        "title": "Phaedo",
+        "author": "Plato"
+      },
+      "concept_seed": "One symbolic visual metaphor for Phaedo; emphasize soul, immortality, forms; avoid literal plot montage."
+    },
+    {
+      "symbol": "CRITO",
+      "id": "crito",
+      "title": "Crito",
+      "author": "Plato",
+      "year": -399,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "plato"
+      ],
+      "themes": [
+        "law",
+        "obligation",
+        "justice"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f2a3a",
+      "cover_accent": "#7aa8c4",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "crito--artwork-v1.png",
+      "final_cover_filename": "crito--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "law",
+          "obligation",
+          "justice"
+        ],
+        "title": "Crito",
+        "author": "Plato"
+      },
+      "concept_seed": "One symbolic visual metaphor for Crito; emphasize law, obligation, justice; avoid literal plot montage."
+    },
+    {
+      "symbol": "PHAEDRUS",
+      "id": "phaedrus",
+      "title": "Phaedrus",
+      "author": "Plato",
+      "year": -370,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "plato"
+      ],
+      "themes": [
+        "rhetoric",
+        "love",
+        "writing"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a3a4a",
+      "cover_accent": "#c4d0a8",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "phaedrus--artwork-v1.png",
+      "final_cover_filename": "phaedrus--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "rhetoric",
+          "love",
+          "writing"
+        ],
+        "title": "Phaedrus",
+        "author": "Plato"
+      },
+      "concept_seed": "One symbolic visual metaphor for Phaedrus; emphasize rhetoric, love, writing; avoid literal plot montage."
+    },
+    {
+      "symbol": "POETICS",
+      "id": "poetics",
+      "title": "Poetics",
+      "author": "Aristotle",
+      "year": -335,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "aristotle"
+      ],
+      "themes": [
+        "tragedy",
+        "mimesis",
+        "catharsis"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1e2516",
+      "cover_accent": "#a8b078",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "poetics--artwork-v1.png",
+      "final_cover_filename": "poetics--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "tragedy",
+          "mimesis",
+          "catharsis"
+        ],
+        "title": "Poetics",
+        "author": "Aristotle"
+      },
+      "concept_seed": "One symbolic visual metaphor for Poetics; emphasize tragedy, mimesis, catharsis; avoid literal plot montage."
+    },
+    {
+      "symbol": "MOBY_DICK",
+      "id": "moby-dick",
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "year": 1851,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "american-novels"
+      ],
+      "themes": [
+        "obsession",
+        "sea",
+        "symbol"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a3e",
+      "cover_accent": "#a8c8d8",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "moby-dick--artwork-v1.png",
+      "final_cover_filename": "moby-dick--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "obsession",
+          "sea",
+          "symbol"
+        ],
+        "title": "Moby Dick",
+        "author": "Herman Melville"
+      },
+      "concept_seed": "One symbolic visual metaphor for Moby Dick; emphasize obsession, sea, symbol; avoid literal plot montage."
+    },
+    {
+      "symbol": "GREAT_EXPECTATIONS",
+      "id": "great-expectations",
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "year": 1861,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "english-novels"
+      ],
+      "themes": [
+        "class",
+        "identity",
+        "expectation"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2a1a",
+      "cover_accent": "#d4b896",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "great-expectations--artwork-v1.png",
+      "final_cover_filename": "great-expectations--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "class",
+          "identity",
+          "expectation"
+        ],
+        "title": "Great Expectations",
+        "author": "Charles Dickens"
+      },
+      "concept_seed": "One symbolic visual metaphor for Great Expectations; emphasize class, identity, expectation; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_HISTORIES",
+      "id": "the-histories",
+      "title": "The Histories",
+      "author": "Herodotus",
+      "year": -440,
+      "form": "history",
+      "era": "antiquity",
+      "shelves": [
+        "ancient-history"
+      ],
+      "themes": [
+        "persia",
+        "greece",
+        "custom"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#4a3a2a",
+      "cover_accent": "#c8a860",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-histories--artwork-v2.png",
+      "final_cover_filename": "the-histories--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "history",
+        "era": "antiquity",
+        "themes": [
+          "persia",
+          "greece",
+          "custom"
+        ],
+        "title": "The Histories",
+        "author": "Herodotus"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Histories; emphasize persia, greece, custom; avoid literal plot montage.",
+      "artwork_sha256": "b1f305d921f0b4ac64ec5327a78000f98d2434d8bbf0d6a7ebc5910949b8041d",
+      "final_sha256": "ced0a927f307ad2bd93a8a3e05b669660833cb856f0530dd21ef65686a09ae8b"
+    },
+    {
+      "symbol": "NIELS_LYHNE",
+      "id": "niels-lyhne",
+      "title": "Niels Lyhne",
+      "author": "J.P. Jacobsen",
+      "year": 1880,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "nordic-novels"
+      ],
+      "themes": [
+        "atheism",
+        "melancholy",
+        "denmark"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a3a2e",
+      "cover_accent": "#a8b89a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "niels-lyhne--artwork-v1.png",
+      "final_cover_filename": "niels-lyhne--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "atheism",
+          "melancholy",
+          "denmark"
+        ],
+        "title": "Niels Lyhne",
+        "author": "J.P. Jacobsen"
+      },
+      "concept_seed": "One symbolic visual metaphor for Niels Lyhne; emphasize atheism, melancholy, denmark; avoid literal plot montage."
+    },
+    {
+      "symbol": "IMITATION_OF_CHRIST",
+      "id": "imitation-of-christ",
+      "title": "The Imitation of Christ",
+      "author": "Thomas à Kempis",
+      "year": 1418,
+      "form": "scripture",
+      "era": "medieval",
+      "shelves": [
+        "christian-philosophy",
+        "bible-and-devotion",
+        "christian-tradition"
+      ],
+      "themes": [
+        "humility",
+        "interior-life",
+        "devotion"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a2a3a",
+      "cover_accent": "#a0a0c8",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "imitation-of-christ--artwork-v1.png",
+      "final_cover_filename": "imitation-of-christ--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "scripture",
+        "era": "medieval",
+        "themes": [
+          "humility",
+          "interior-life",
+          "devotion"
+        ],
+        "title": "The Imitation of Christ",
+        "author": "Thomas à Kempis"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Imitation of Christ; emphasize humility, interior-life, devotion; avoid literal plot montage."
+    },
+    {
+      "symbol": "JERUSALEM",
+      "id": "jerusalem",
+      "title": "Jerusalem",
+      "author": "Selma Lagerlöf",
+      "year": 1901,
+      "form": "novel",
+      "era": "contemporary",
+      "shelves": [
+        "nordic-novels"
+      ],
+      "themes": [
+        "faith",
+        "migration",
+        "community"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#4a3a2a",
+      "cover_accent": "#c8b878",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "jerusalem--artwork-v1.png",
+      "final_cover_filename": "jerusalem--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "contemporary",
+        "themes": [
+          "faith",
+          "migration",
+          "community"
+        ],
+        "title": "Jerusalem",
+        "author": "Selma Lagerlöf"
+      },
+      "concept_seed": "One symbolic visual metaphor for Jerusalem; emphasize faith, migration, community; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_AWAKENING",
+      "id": "the-awakening",
+      "title": "The Awakening",
+      "author": "Kate Chopin",
+      "year": 1899,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "american-novels"
+      ],
+      "themes": [
+        "desire",
+        "autonomy",
+        "sea"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0d2233",
+      "cover_accent": "#6aabcc",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-awakening--artwork-v1.png",
+      "final_cover_filename": "the-awakening--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "desire",
+          "autonomy",
+          "sea"
+        ],
+        "title": "The Awakening",
+        "author": "Kate Chopin"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Awakening; emphasize desire, autonomy, sea; avoid literal plot montage."
+    },
+    {
+      "symbol": "BROTHERS_KARAMAZOV",
+      "id": "brothers-karamazov",
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "year": 1880,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "russian-novels"
+      ],
+      "themes": [
+        "faith",
+        "doubt",
+        "family"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#5a1a1a",
+      "cover_accent": "#d4a843",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "brothers-karamazov--artwork-v1.png",
+      "final_cover_filename": "brothers-karamazov--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "faith",
+          "doubt",
+          "family"
+        ],
+        "title": "The Brothers Karamazov",
+        "author": "Fyodor Dostoevsky"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Brothers Karamazov; emphasize faith, doubt, family; avoid literal plot montage."
+    },
+    {
+      "symbol": "ILIAD",
+      "id": "iliad",
+      "title": "The Iliad",
+      "author": "Homer",
+      "year": -750,
+      "form": "epic",
+      "era": "antiquity",
+      "shelves": [
+        "ancient-epics"
+      ],
+      "themes": [
+        "war",
+        "honor",
+        "rage",
+        "fate"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a1a1a",
+      "cover_accent": "#c9a04a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "iliad--artwork-v1.png",
+      "final_cover_filename": "iliad--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "antiquity",
+        "themes": [
+          "war",
+          "honor",
+          "rage",
+          "fate"
+        ],
+        "title": "The Iliad",
+        "author": "Homer"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Iliad; emphasize war, honor, rage; avoid literal plot montage."
+    },
+    {
+      "symbol": "NICOMACHEAN_ETHICS",
+      "id": "nicomachean-ethics",
+      "title": "Nicomachean Ethics",
+      "author": "Aristotle",
+      "year": -350,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "aristotle"
+      ],
+      "themes": [
+        "virtue",
+        "happiness",
+        "habit"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a2a1a",
+      "cover_accent": "#b89a4a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "nicomachean-ethics--artwork-v1.png",
+      "final_cover_filename": "nicomachean-ethics--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "virtue",
+          "happiness",
+          "habit"
+        ],
+        "title": "Nicomachean Ethics",
+        "author": "Aristotle"
+      },
+      "concept_seed": "One symbolic visual metaphor for Nicomachean Ethics; emphasize virtue, happiness, habit; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_PRINCE",
+      "id": "the-prince",
+      "title": "The Prince",
+      "author": "Niccolò Machiavelli",
+      "year": 1532,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-power"
+      ],
+      "themes": [
+        "power",
+        "fortune",
+        "virtù"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2018",
+      "cover_accent": "#b8804a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "the-prince--artwork-v1.png",
+      "final_cover_filename": "the-prince--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "power",
+          "fortune",
+          "virtù"
+        ],
+        "title": "The Prince",
+        "author": "Niccolò Machiavelli"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Prince; emphasize power, fortune, virtù; avoid literal plot montage."
+    },
+    {
+      "symbol": "BEYOND_GOOD_AND_EVIL",
+      "id": "beyond-good-and-evil",
+      "title": "Beyond Good and Evil",
+      "author": "Friedrich Nietzsche",
+      "year": 1886,
+      "form": "philosophy",
+      "era": "modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "will-to-power",
+        "master-slave",
+        "perspectivism"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a1a",
+      "cover_accent": "#8b5a3c",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "beyond-good-and-evil--artwork-v1.png",
+      "final_cover_filename": "beyond-good-and-evil--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "modern",
+        "themes": [
+          "will-to-power",
+          "master-slave",
+          "perspectivism"
+        ],
+        "title": "Beyond Good and Evil",
+        "author": "Friedrich Nietzsche"
+      },
+      "concept_seed": "One symbolic visual metaphor for Beyond Good and Evil; emphasize will-to-power, master-slave, perspectivism; avoid literal plot montage."
+    },
+    {
+      "symbol": "KANT_GROUNDWORK",
+      "id": "kant-groundwork",
+      "title": "Groundwork of the Metaphysics of Morals",
+      "author": "Immanuel Kant",
+      "year": 1785,
+      "form": "philosophy",
+      "era": "early-modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "ethics",
+        "duty",
+        "reason"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1820",
+      "cover_accent": "#a09090",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "kant-groundwork--artwork-v1.png",
+      "final_cover_filename": "kant-groundwork--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "early-modern",
+        "themes": [
+          "ethics",
+          "duty",
+          "reason"
+        ],
+        "title": "Groundwork of the Metaphysics of Morals",
+        "author": "Immanuel Kant"
+      },
+      "concept_seed": "One symbolic visual metaphor for Groundwork of the Metaphysics of Morals; emphasize ethics, duty, reason; avoid literal plot montage."
+    },
+    {
+      "symbol": "BEOWULF",
+      "id": "beowulf",
+      "title": "Beowulf",
+      "author": "Anonymous",
+      "year": 1000,
+      "form": "epic",
+      "era": "medieval",
+      "shelves": [
+        "medieval-epics"
+      ],
+      "themes": [
+        "heroism",
+        "monsters",
+        "fate"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2332",
+      "cover_accent": "#a89060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "beowulf--artwork-v1.png",
+      "final_cover_filename": "beowulf--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "epic",
+        "era": "medieval",
+        "themes": [
+          "heroism",
+          "monsters",
+          "fate"
+        ],
+        "title": "Beowulf",
+        "author": "Anonymous"
+      },
+      "concept_seed": "One symbolic visual metaphor for Beowulf; emphasize heroism, monsters, fate; avoid literal plot montage."
+    },
+    {
+      "symbol": "CANDIDE",
+      "id": "candide",
+      "title": "Candide",
+      "author": "Voltaire",
+      "year": 1759,
+      "form": "novel",
+      "era": "early-modern",
+      "shelves": [
+        "satirical-novels"
+      ],
+      "themes": [
+        "satire",
+        "optimism",
+        "tour"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#8b2c1e",
+      "cover_accent": "#d4a574",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "candide--artwork-v1.png",
+      "final_cover_filename": "candide--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "early-modern",
+        "themes": [
+          "satire",
+          "optimism",
+          "tour"
+        ],
+        "title": "Candide",
+        "author": "Voltaire"
+      },
+      "concept_seed": "One symbolic visual metaphor for Candide; emphasize satire, optimism, tour; avoid literal plot montage."
+    },
+    {
+      "symbol": "DEMOCRACY_IN_AMERICA",
+      "id": "democracy-in-america",
+      "title": "Democracy in America",
+      "author": "Alexis de Tocqueville",
+      "year": 1835,
+      "form": "political",
+      "era": "modern",
+      "shelves": [
+        "on-the-state"
+      ],
+      "themes": [
+        "democracy",
+        "equality",
+        "associations"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f3a5f",
+      "cover_accent": "#c9a04a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "democracy-in-america--artwork-v1.png",
+      "final_cover_filename": "democracy-in-america--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "modern",
+        "themes": [
+          "democracy",
+          "equality",
+          "associations"
+        ],
+        "title": "Democracy in America",
+        "author": "Alexis de Tocqueville"
+      },
+      "concept_seed": "One symbolic visual metaphor for Democracy in America; emphasize democracy, equality, associations; avoid literal plot montage."
+    },
+    {
+      "symbol": "OEDIPUS_REX",
+      "id": "oedipus-rex",
+      "title": "Oedipus Rex",
+      "author": "Sophocles",
+      "year": -429,
+      "form": "drama",
+      "era": "antiquity",
+      "shelves": [
+        "greek-tragedy"
+      ],
+      "themes": [
+        "fate",
+        "identity",
+        "blindness"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a12",
+      "cover_accent": "#c9a04a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "oedipus-rex--artwork-v1.png",
+      "final_cover_filename": "oedipus-rex--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "antiquity",
+        "themes": [
+          "fate",
+          "identity",
+          "blindness"
+        ],
+        "title": "Oedipus Rex",
+        "author": "Sophocles"
+      },
+      "concept_seed": "One symbolic visual metaphor for Oedipus Rex; emphasize fate, identity, blindness; avoid literal plot montage."
+    },
+    {
+      "symbol": "OEDIPUS_AT_COLONUS",
+      "id": "oedipus-at-colonus",
+      "title": "Oedipus at Colonus",
+      "author": "Sophocles",
+      "year": -406,
+      "form": "drama",
+      "era": "antiquity",
+      "shelves": [
+        "greek-tragedy"
+      ],
+      "themes": [
+        "exile",
+        "grace",
+        "old-age"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1e2a3a",
+      "cover_accent": "#a08456",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "oedipus-at-colonus--artwork-v1.png",
+      "final_cover_filename": "oedipus-at-colonus--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "antiquity",
+        "themes": [
+          "exile",
+          "grace",
+          "old-age"
+        ],
+        "title": "Oedipus at Colonus",
+        "author": "Sophocles"
+      },
+      "concept_seed": "One symbolic visual metaphor for Oedipus at Colonus; emphasize exile, grace, old-age; avoid literal plot montage."
+    },
+    {
+      "symbol": "ANTIGONE",
+      "id": "antigone",
+      "title": "Antigone",
+      "author": "Sophocles",
+      "year": -441,
+      "form": "drama",
+      "era": "antiquity",
+      "shelves": [
+        "greek-tragedy",
+        "on-power"
+      ],
+      "themes": [
+        "civil-disobedience",
+        "family",
+        "law"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a1a1a",
+      "cover_accent": "#c9a068",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "antigone--artwork-v1.png",
+      "final_cover_filename": "antigone--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "antiquity",
+        "themes": [
+          "civil-disobedience",
+          "family",
+          "law"
+        ],
+        "title": "Antigone",
+        "author": "Sophocles"
+      },
+      "concept_seed": "One symbolic visual metaphor for Antigone; emphasize civil-disobedience, family, law; avoid literal plot montage."
+    },
+    {
+      "symbol": "GENEALOGY_OF_MORALS",
+      "id": "genealogy-of-morals",
+      "title": "On the Genealogy of Morals",
+      "author": "Friedrich Nietzsche",
+      "year": 1887,
+      "form": "philosophy",
+      "era": "modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "morality",
+        "resentment",
+        "asceticism"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a1a",
+      "cover_accent": "#9a4a4a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "genealogy-of-morals--artwork-v1.png",
+      "final_cover_filename": "genealogy-of-morals--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "modern",
+        "themes": [
+          "morality",
+          "resentment",
+          "asceticism"
+        ],
+        "title": "On the Genealogy of Morals",
+        "author": "Friedrich Nietzsche"
+      },
+      "concept_seed": "One symbolic visual metaphor for On the Genealogy of Morals; emphasize morality, resentment, asceticism; avoid literal plot montage."
+    },
+    {
+      "symbol": "DESCARTES_MEDITATIONS",
+      "id": "descartes-meditations",
+      "title": "Meditations on First Philosophy",
+      "author": "René Descartes",
+      "year": 1641,
+      "form": "philosophy",
+      "era": "early-modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "doubt",
+        "mind",
+        "god"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0e2030",
+      "cover_accent": "#c4a85f",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "descartes-meditations--artwork-v1.png",
+      "final_cover_filename": "descartes-meditations--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "early-modern",
+        "themes": [
+          "doubt",
+          "mind",
+          "god"
+        ],
+        "title": "Meditations on First Philosophy",
+        "author": "René Descartes"
+      },
+      "concept_seed": "One symbolic visual metaphor for Meditations on First Philosophy; emphasize doubt, mind, god; avoid literal plot montage."
+    },
+    {
+      "symbol": "ON_LIBERTY",
+      "id": "on-liberty",
+      "title": "On Liberty",
+      "author": "John Stuart Mill",
+      "year": 1859,
+      "form": "political",
+      "era": "modern",
+      "shelves": [
+        "on-liberty"
+      ],
+      "themes": [
+        "liberty",
+        "harm",
+        "opinion"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a2a3a",
+      "cover_accent": "#c0c4d0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "on-liberty--artwork-v1.png",
+      "final_cover_filename": "on-liberty--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "modern",
+        "themes": [
+          "liberty",
+          "harm",
+          "opinion"
+        ],
+        "title": "On Liberty",
+        "author": "John Stuart Mill"
+      },
+      "concept_seed": "One symbolic visual metaphor for On Liberty; emphasize liberty, harm, opinion; avoid literal plot montage."
+    },
+    {
+      "symbol": "UTILITARIANISM",
+      "id": "utilitarianism",
+      "title": "Utilitarianism",
+      "author": "John Stuart Mill",
+      "year": 1861,
+      "form": "philosophy",
+      "era": "modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "ethics",
+        "utility",
+        "justice"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2a1f",
+      "cover_accent": "#d4b078",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "utilitarianism--artwork-v1.png",
+      "final_cover_filename": "utilitarianism--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "modern",
+        "themes": [
+          "ethics",
+          "utility",
+          "justice"
+        ],
+        "title": "Utilitarianism",
+        "author": "John Stuart Mill"
+      },
+      "concept_seed": "One symbolic visual metaphor for Utilitarianism; emphasize ethics, utility, justice; avoid literal plot montage."
+    },
+    {
+      "symbol": "PELOPONNESIAN_WAR",
+      "id": "peloponnesian-war",
+      "title": "History of the Peloponnesian War",
+      "author": "Thucydides",
+      "year": -400,
+      "form": "history",
+      "era": "antiquity",
+      "shelves": [
+        "ancient-history",
+        "on-war"
+      ],
+      "themes": [
+        "war",
+        "power",
+        "realism"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a3a",
+      "cover_accent": "#9a6a4a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "peloponnesian-war--artwork-v1.png",
+      "final_cover_filename": "peloponnesian-war--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "history",
+        "era": "antiquity",
+        "themes": [
+          "war",
+          "power",
+          "realism"
+        ],
+        "title": "History of the Peloponnesian War",
+        "author": "Thucydides"
+      },
+      "concept_seed": "One symbolic visual metaphor for History of the Peloponnesian War; emphasize war, power, realism; avoid literal plot montage."
+    },
+    {
+      "symbol": "ARISTOTLE_POLITICS",
+      "id": "aristotle-politics",
+      "title": "Politics",
+      "author": "Aristotle",
+      "year": -335,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "aristotle",
+        "on-the-state"
+      ],
+      "themes": [
+        "polis",
+        "citizenship",
+        "constitutions"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a2a",
+      "cover_accent": "#8a6a9a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "aristotle-politics--artwork-v1.png",
+      "final_cover_filename": "aristotle-politics--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "polis",
+          "citizenship",
+          "constitutions"
+        ],
+        "title": "Politics",
+        "author": "Aristotle"
+      },
+      "concept_seed": "One symbolic visual metaphor for Politics; emphasize polis, citizenship, constitutions; avoid literal plot montage."
+    },
+    {
+      "symbol": "LEVIATHAN",
+      "id": "leviathan",
+      "title": "Leviathan",
+      "author": "Thomas Hobbes",
+      "year": 1651,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-the-state"
+      ],
+      "themes": [
+        "sovereignty",
+        "state-of-nature",
+        "contract"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1c1c2e",
+      "cover_accent": "#8a9bb5",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "leviathan--artwork-v1.png",
+      "final_cover_filename": "leviathan--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "sovereignty",
+          "state-of-nature",
+          "contract"
+        ],
+        "title": "Leviathan",
+        "author": "Thomas Hobbes"
+      },
+      "concept_seed": "One symbolic visual metaphor for Leviathan; emphasize sovereignty, state-of-nature, contract; avoid literal plot montage."
+    },
+    {
+      "symbol": "FEAR_AND_TREMBLING",
+      "id": "fear-and-trembling",
+      "title": "Fear and Trembling",
+      "author": "Søren Kierkegaard",
+      "year": 1843,
+      "form": "philosophy",
+      "era": "modern",
+      "shelves": [
+        "christian-philosophy"
+      ],
+      "themes": [
+        "faith",
+        "sacrifice",
+        "absurd"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a24",
+      "cover_accent": "#a08a4a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "fear-and-trembling--artwork-v1.png",
+      "final_cover_filename": "fear-and-trembling--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "modern",
+        "themes": [
+          "faith",
+          "sacrifice",
+          "absurd"
+        ],
+        "title": "Fear and Trembling",
+        "author": "Søren Kierkegaard"
+      },
+      "concept_seed": "One symbolic visual metaphor for Fear and Trembling; emphasize faith, sacrifice, absurd; avoid literal plot montage."
+    },
+    {
+      "symbol": "COMMUNIST_MANIFESTO",
+      "id": "communist-manifesto",
+      "title": "The Communist Manifesto",
+      "author": "Karl Marx & Friedrich Engels",
+      "year": 1848,
+      "form": "political",
+      "era": "modern",
+      "shelves": [
+        "on-power"
+      ],
+      "themes": [
+        "class",
+        "revolution",
+        "history"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a0a0a",
+      "cover_accent": "#c93a3a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "communist-manifesto--artwork-v1.png",
+      "final_cover_filename": "communist-manifesto--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "modern",
+        "themes": [
+          "class",
+          "revolution",
+          "history"
+        ],
+        "title": "The Communist Manifesto",
+        "author": "Karl Marx & Friedrich Engels"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Communist Manifesto; emphasize class, revolution, history; avoid literal plot montage."
+    },
+    {
+      "symbol": "SECOND_TREATISE",
+      "id": "second-treatise",
+      "title": "Second Treatise of Government",
+      "author": "John Locke",
+      "year": 1689,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-the-state",
+        "founding-docs"
+      ],
+      "themes": [
+        "property",
+        "consent",
+        "natural-rights"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a3a2a",
+      "cover_accent": "#a0c0a0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "second-treatise--artwork-v1.png",
+      "final_cover_filename": "second-treatise--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "property",
+          "consent",
+          "natural-rights"
+        ],
+        "title": "Second Treatise of Government",
+        "author": "John Locke"
+      },
+      "concept_seed": "One symbolic visual metaphor for Second Treatise of Government; emphasize property, consent, natural-rights; avoid literal plot montage."
+    },
+    {
+      "symbol": "HUME_ENQUIRY",
+      "id": "hume-enquiry",
+      "title": "An Enquiry Concerning Human Understanding",
+      "author": "David Hume",
+      "year": 1748,
+      "form": "philosophy",
+      "era": "early-modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "causation",
+        "induction",
+        "skepticism"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2030",
+      "cover_accent": "#a0b0c8",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "hume-enquiry--artwork-v1.png",
+      "final_cover_filename": "hume-enquiry--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "early-modern",
+        "themes": [
+          "causation",
+          "induction",
+          "skepticism"
+        ],
+        "title": "An Enquiry Concerning Human Understanding",
+        "author": "David Hume"
+      },
+      "concept_seed": "One symbolic visual metaphor for An Enquiry Concerning Human Understanding; emphasize causation, induction, skepticism; avoid literal plot montage."
+    },
+    {
+      "symbol": "SOCIAL_CONTRACT",
+      "id": "social-contract",
+      "title": "The Social Contract",
+      "author": "Jean-Jacques Rousseau",
+      "year": 1762,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-the-state"
+      ],
+      "themes": [
+        "general-will",
+        "sovereignty",
+        "liberty"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a3a",
+      "cover_accent": "#c0a060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "social-contract--artwork-v1.png",
+      "final_cover_filename": "social-contract--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "general-will",
+          "sovereignty",
+          "liberty"
+        ],
+        "title": "The Social Contract",
+        "author": "Jean-Jacques Rousseau"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Social Contract; emphasize general-will, sovereignty, liberty; avoid literal plot montage."
+    },
+    {
+      "symbol": "WEALTH_OF_NATIONS",
+      "id": "wealth-of-nations",
+      "title": "The Wealth of Nations",
+      "author": "Adam Smith",
+      "year": 1776,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-the-state",
+        "on-liberty"
+      ],
+      "themes": [
+        "markets",
+        "division-of-labor",
+        "liberty"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f2820",
+      "cover_accent": "#c8b070",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "wealth-of-nations--artwork-v1.png",
+      "final_cover_filename": "wealth-of-nations--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "markets",
+          "division-of-labor",
+          "liberty"
+        ],
+        "title": "The Wealth of Nations",
+        "author": "Adam Smith"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Wealth of Nations; emphasize markets, division-of-labor, liberty; avoid literal plot montage."
+    },
+    {
+      "symbol": "WERTHER",
+      "id": "werther",
+      "title": "The Sorrows of Young Werther",
+      "author": "Johann Wolfgang von Goethe",
+      "year": 1774,
+      "form": "novel",
+      "era": "early-modern",
+      "shelves": [
+        "satirical-novels",
+        "modern-philosophy"
+      ],
+      "themes": [
+        "romanticism",
+        "desire",
+        "melancholy"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#251c24",
+      "cover_accent": "#c78a6a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "werther--artwork-v1.png",
+      "final_cover_filename": "werther--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "early-modern",
+        "themes": [
+          "romanticism",
+          "desire",
+          "melancholy"
+        ],
+        "title": "The Sorrows of Young Werther",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Sorrows of Young Werther; emphasize romanticism, desire, melancholy; avoid literal plot montage."
+    },
+    {
+      "symbol": "FAUST_PART_1",
+      "id": "faust-part-1",
+      "title": "Faust, Part One",
+      "author": "Johann Wolfgang von Goethe",
+      "year": 1808,
+      "form": "drama",
+      "era": "modern",
+      "shelves": [
+        "modern-drama"
+      ],
+      "themes": [
+        "knowledge",
+        "bargain",
+        "damnation"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a0e1a",
+      "cover_accent": "#c93a3a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "faust-part-1--artwork-v1.png",
+      "final_cover_filename": "faust-part-1--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "modern",
+        "themes": [
+          "knowledge",
+          "bargain",
+          "damnation"
+        ],
+        "title": "Faust, Part One",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      "concept_seed": "One symbolic visual metaphor for Faust, Part One; emphasize knowledge, bargain, damnation; avoid literal plot montage."
+    },
+    {
+      "symbol": "ORESTEIA",
+      "id": "oresteia",
+      "title": "The Oresteia",
+      "author": "Aeschylus",
+      "year": -458,
+      "form": "drama",
+      "era": "antiquity",
+      "shelves": [
+        "greek-tragedy"
+      ],
+      "themes": [
+        "vengeance",
+        "justice",
+        "curse"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a0a1a",
+      "cover_accent": "#a04040",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "oresteia--artwork-v1.png",
+      "final_cover_filename": "oresteia--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "antiquity",
+        "themes": [
+          "vengeance",
+          "justice",
+          "curse"
+        ],
+        "title": "The Oresteia",
+        "author": "Aeschylus"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Oresteia; emphasize vengeance, justice, curse; avoid literal plot montage."
+    },
+    {
+      "symbol": "BACCHAE",
+      "id": "bacchae",
+      "title": "The Bacchae",
+      "author": "Euripides",
+      "year": -405,
+      "form": "drama",
+      "era": "antiquity",
+      "shelves": [
+        "greek-tragedy"
+      ],
+      "themes": [
+        "ecstasy",
+        "reason",
+        "retribution"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a0e2a",
+      "cover_accent": "#9a4ac0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "bacchae--artwork-v1.png",
+      "final_cover_filename": "bacchae--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "antiquity",
+        "themes": [
+          "ecstasy",
+          "reason",
+          "retribution"
+        ],
+        "title": "The Bacchae",
+        "author": "Euripides"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Bacchae; emphasize ecstasy, reason, retribution; avoid literal plot montage."
+    },
+    {
+      "symbol": "MEDEA",
+      "id": "medea",
+      "title": "Medea",
+      "author": "Euripides",
+      "year": -431,
+      "form": "drama",
+      "era": "antiquity",
+      "shelves": [
+        "greek-tragedy"
+      ],
+      "themes": [
+        "betrayal",
+        "revenge",
+        "exile"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a0a",
+      "cover_accent": "#c96a4a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "medea--artwork-v1.png",
+      "final_cover_filename": "medea--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "antiquity",
+        "themes": [
+          "betrayal",
+          "revenge",
+          "exile"
+        ],
+        "title": "Medea",
+        "author": "Euripides"
+      },
+      "concept_seed": "One symbolic visual metaphor for Medea; emphasize betrayal, revenge, exile; avoid literal plot montage."
+    },
+    {
+      "symbol": "CONFESSIONS",
+      "id": "confessions",
+      "title": "Confessions",
+      "author": "Augustine",
+      "year": 397,
+      "form": "philosophy",
+      "era": "antiquity",
+      "shelves": [
+        "christian-philosophy",
+        "christian-tradition"
+      ],
+      "themes": [
+        "memory",
+        "conversion",
+        "time"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2a1a",
+      "cover_accent": "#c8a060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "confessions--artwork-v1.png",
+      "final_cover_filename": "confessions--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "antiquity",
+        "themes": [
+          "memory",
+          "conversion",
+          "time"
+        ],
+        "title": "Confessions",
+        "author": "Augustine"
+      },
+      "concept_seed": "One symbolic visual metaphor for Confessions; emphasize memory, conversion, time; avoid literal plot montage."
+    },
+    {
+      "symbol": "NOTES_FROM_UNDERGROUND",
+      "id": "notes-from-underground",
+      "title": "Notes from Underground",
+      "author": "Fyodor Dostoevsky",
+      "year": 1864,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "russian-novels"
+      ],
+      "themes": [
+        "alienation",
+        "spite",
+        "consciousness"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a1a",
+      "cover_accent": "#9c3a3a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "notes-from-underground--artwork-v1.png",
+      "final_cover_filename": "notes-from-underground--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "alienation",
+          "spite",
+          "consciousness"
+        ],
+        "title": "Notes from Underground",
+        "author": "Fyodor Dostoevsky"
+      },
+      "concept_seed": "One symbolic visual metaphor for Notes from Underground; emphasize alienation, spite, consciousness; avoid literal plot montage."
+    },
+    {
+      "symbol": "MAGNA_CARTA",
+      "id": "magna-carta",
+      "title": "Magna Carta",
+      "author": "Anonymous (sealed by King John)",
+      "year": 1215,
+      "form": "history",
+      "era": "medieval",
+      "shelves": [
+        "founding-docs",
+        "on-power"
+      ],
+      "themes": [
+        "law",
+        "liberty",
+        "tyranny"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2d1f",
+      "cover_accent": "#a87838",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "magna-carta--artwork-v1.png",
+      "final_cover_filename": "magna-carta--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "history",
+        "era": "medieval",
+        "themes": [
+          "law",
+          "liberty",
+          "tyranny"
+        ],
+        "title": "Magna Carta",
+        "author": "Anonymous (sealed by King John)"
+      },
+      "concept_seed": "One symbolic visual metaphor for Magna Carta; emphasize law, liberty, tyranny; avoid literal plot montage."
+    },
+    {
+      "symbol": "US_FOUNDING_DOCUMENTS",
+      "id": "us-founding-documents",
+      "title": "The US Founding Documents",
+      "author": "Various (Jefferson, Madison, et al.)",
+      "year": 1776,
+      "form": "history",
+      "era": "early-modern",
+      "shelves": [
+        "founding-docs"
+      ],
+      "themes": [
+        "liberty",
+        "federalism",
+        "rights"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f2a3a",
+      "cover_accent": "#c0432a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "us-founding-documents--artwork-v1.png",
+      "final_cover_filename": "us-founding-documents--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "history",
+        "era": "early-modern",
+        "themes": [
+          "liberty",
+          "federalism",
+          "rights"
+        ],
+        "title": "The US Founding Documents",
+        "author": "Various (Jefferson, Madison, et al.)"
+      },
+      "concept_seed": "One symbolic visual metaphor for The US Founding Documents; emphasize liberty, federalism, rights; avoid literal plot montage."
+    },
+    {
+      "symbol": "FEDERALIST_PAPERS",
+      "id": "federalist-papers",
+      "title": "The Federalist Papers",
+      "author": "Hamilton, Madison, Jay (as \"Publius\")",
+      "year": 1788,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "founding-docs",
+        "on-the-state"
+      ],
+      "themes": [
+        "federalism",
+        "faction",
+        "ratification"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1f3a",
+      "cover_accent": "#d4a843",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "federalist-papers--artwork-v1.png",
+      "final_cover_filename": "federalist-papers--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "federalism",
+          "faction",
+          "ratification"
+        ],
+        "title": "The Federalist Papers",
+        "author": "Hamilton, Madison, Jay (as \"Publius\")"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Federalist Papers; emphasize federalism, faction, ratification; avoid literal plot montage."
+    },
+    {
+      "symbol": "FREDERICK_DOUGLASS",
+      "id": "frederick-douglass",
+      "title": "Narrative of the Life of Frederick Douglass",
+      "author": "Frederick Douglass",
+      "year": 1845,
+      "form": "memoir",
+      "era": "modern",
+      "shelves": [
+        "on-power"
+      ],
+      "themes": [
+        "slavery",
+        "literacy",
+        "freedom"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#201a18",
+      "cover_accent": "#c0905a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "frederick-douglass--artwork-v1.png",
+      "final_cover_filename": "frederick-douglass--cover-v1.png",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": "2026-09-04",
+      "review_status": "pilot-reviewed",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "memoir",
+        "era": "modern",
+        "themes": [
+          "slavery",
+          "literacy",
+          "freedom"
+        ],
+        "title": "Narrative of the Life of Frederick Douglass",
+        "author": "Frederick Douglass"
+      },
+      "concept_seed": "One symbolic visual metaphor for Narrative of the Life of Frederick Douglass; emphasize slavery, literacy, freedom; avoid literal plot montage.",
+      "artwork_sha256": "f3cce070bcf151c16a6d3ab9d69231a24d9f88e25d56957836a55dd7aab212b8",
+      "final_sha256": "f81f5b4fa15b47741cf4a0881b8a0e5dfbb1945d951db2409f18b25dcac65870"
+    },
+    {
+      "symbol": "A_LITTLE_PRINCESS",
+      "id": "a-little-princess",
+      "title": "A Little Princess",
+      "author": "Frances Hodgson Burnett",
+      "year": 1905,
+      "form": "children",
+      "era": "contemporary",
+      "shelves": [
+        "childrens-classics"
+      ],
+      "themes": [
+        "imagination",
+        "resilience",
+        "school"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3d2a3a",
+      "cover_accent": "#d4a872",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "a-little-princess--artwork-v1.png",
+      "final_cover_filename": "a-little-princess--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "children",
+        "era": "contemporary",
+        "themes": [
+          "imagination",
+          "resilience",
+          "school"
+        ],
+        "title": "A Little Princess",
+        "author": "Frances Hodgson Burnett"
+      },
+      "concept_seed": "One symbolic visual metaphor for A Little Princess; emphasize imagination, resilience, school; avoid literal plot montage."
+    },
+    {
+      "symbol": "THE_JUNGLE_BOOK",
+      "id": "jungle-book",
+      "title": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "year": 1894,
+      "form": "children",
+      "era": "modern",
+      "shelves": [
+        "childrens-classics"
+      ],
+      "themes": [
+        "wild",
+        "belonging",
+        "law"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a0e",
+      "cover_accent": "#6b8f3a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "jungle-book--artwork-v1.png",
+      "final_cover_filename": "jungle-book--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "children",
+        "era": "modern",
+        "themes": [
+          "wild",
+          "belonging",
+          "law"
+        ],
+        "title": "The Jungle Book",
+        "author": "Rudyard Kipling"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Jungle Book; emphasize wild, belonging, law; avoid literal plot montage."
+    },
+    {
+      "symbol": "AROUND_THE_WORLD_IN_80_DAYS",
+      "id": "around-the-world-80-days",
+      "title": "Around the World in Eighty Days",
+      "author": "Jules Verne",
+      "year": 1872,
+      "form": "children",
+      "era": "modern",
+      "shelves": [
+        "childrens-classics"
+      ],
+      "themes": [
+        "adventure",
+        "wager",
+        "travel"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#0e1a2a",
+      "cover_accent": "#3a6b8f",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "around-the-world-80-days--artwork-v1.png",
+      "final_cover_filename": "around-the-world-80-days--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "children",
+        "era": "modern",
+        "themes": [
+          "adventure",
+          "wager",
+          "travel"
+        ],
+        "title": "Around the World in Eighty Days",
+        "author": "Jules Verne"
+      },
+      "concept_seed": "One symbolic visual metaphor for Around the World in Eighty Days; emphasize adventure, wager, travel; avoid literal plot montage."
+    },
+    {
+      "symbol": "HEART_OF_DARKNESS",
+      "id": "heart-of-darkness",
+      "title": "Heart of Darkness",
+      "author": "Joseph Conrad",
+      "year": 1899,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "english-novels"
+      ],
+      "themes": [
+        "empire",
+        "horror",
+        "journey"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1410",
+      "cover_accent": "#8a6035",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "heart-of-darkness--artwork-v1.png",
+      "final_cover_filename": "heart-of-darkness--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "empire",
+          "horror",
+          "journey"
+        ],
+        "title": "Heart of Darkness",
+        "author": "Joseph Conrad"
+      },
+      "concept_seed": "One symbolic visual metaphor for Heart of Darkness; emphasize empire, horror, journey; avoid literal plot montage."
+    },
+    {
+      "symbol": "DISCOURSE_ON_INEQUALITY",
+      "id": "discourse-on-inequality",
+      "title": "Discourse on the Origin of Inequality",
+      "author": "Jean-Jacques Rousseau",
+      "year": 1755,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-liberty"
+      ],
+      "themes": [
+        "property",
+        "origins",
+        "civilization"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f2a3a",
+      "cover_accent": "#a89060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "discourse-on-inequality--artwork-v1.png",
+      "final_cover_filename": "discourse-on-inequality--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "property",
+          "origins",
+          "civilization"
+        ],
+        "title": "Discourse on the Origin of Inequality",
+        "author": "Jean-Jacques Rousseau"
+      },
+      "concept_seed": "One symbolic visual metaphor for Discourse on the Origin of Inequality; emphasize property, origins, civilization; avoid literal plot montage."
+    },
+    {
+      "symbol": "JEKYLL_AND_HYDE",
+      "id": "jekyll-and-hyde",
+      "title": "Strange Case of Dr Jekyll and Mr Hyde",
+      "author": "Robert Louis Stevenson",
+      "year": 1886,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "english-novels",
+        "gothic-novels"
+      ],
+      "themes": [
+        "double",
+        "vice",
+        "victorian"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1b1d24",
+      "cover_accent": "#a83232",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "jekyll-and-hyde--artwork-v1.png",
+      "final_cover_filename": "jekyll-and-hyde--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "double",
+          "vice",
+          "victorian"
+        ],
+        "title": "Strange Case of Dr Jekyll and Mr Hyde",
+        "author": "Robert Louis Stevenson"
+      },
+      "concept_seed": "One symbolic visual metaphor for Strange Case of Dr Jekyll and Mr Hyde; emphasize double, vice, victorian; avoid literal plot montage."
+    },
+    {
+      "symbol": "WALDEN",
+      "id": "walden",
+      "title": "Walden",
+      "author": "Henry David Thoreau",
+      "year": 1854,
+      "form": "philosophy",
+      "era": "modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "nature",
+        "solitude",
+        "self-reliance"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1b2a1f",
+      "cover_accent": "#7a8c5a",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "walden--artwork-v1.png",
+      "final_cover_filename": "walden--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "modern",
+        "themes": [
+          "nature",
+          "solitude",
+          "self-reliance"
+        ],
+        "title": "Walden",
+        "author": "Henry David Thoreau"
+      },
+      "concept_seed": "One symbolic visual metaphor for Walden; emphasize nature, solitude, self-reliance; avoid literal plot montage."
+    },
+    {
+      "symbol": "VINDICATION_RIGHTS_OF_WOMAN",
+      "id": "vindication-rights-of-woman",
+      "title": "A Vindication of the Rights of Woman",
+      "author": "Mary Wollstonecraft",
+      "year": 1792,
+      "form": "political",
+      "era": "early-modern",
+      "shelves": [
+        "on-liberty"
+      ],
+      "themes": [
+        "rights",
+        "education",
+        "equality"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#3a2a4a",
+      "cover_accent": "#c89a5c",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "vindication-rights-of-woman--artwork-v1.png",
+      "final_cover_filename": "vindication-rights-of-woman--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "political",
+        "era": "early-modern",
+        "themes": [
+          "rights",
+          "education",
+          "equality"
+        ],
+        "title": "A Vindication of the Rights of Woman",
+        "author": "Mary Wollstonecraft"
+      },
+      "concept_seed": "One symbolic visual metaphor for A Vindication of the Rights of Woman; emphasize rights, education, equality; avoid literal plot montage."
+    },
+    {
+      "symbol": "COMEDY_OF_ERRORS",
+      "id": "comedy-of-errors",
+      "title": "The Comedy of Errors",
+      "author": "William Shakespeare",
+      "year": 1594,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "mistaken-identity",
+        "farce",
+        "reunion"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a2018",
+      "cover_accent": "#d0b070",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "comedy-of-errors--artwork-v1.png",
+      "final_cover_filename": "comedy-of-errors--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "mistaken-identity",
+          "farce",
+          "reunion"
+        ],
+        "title": "The Comedy of Errors",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Comedy of Errors; emphasize mistaken-identity, farce, reunion; avoid literal plot montage."
+    },
+    {
+      "symbol": "MERCHANT_OF_VENICE",
+      "id": "merchant-of-venice",
+      "title": "The Merchant of Venice",
+      "author": "William Shakespeare",
+      "year": 1596,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "justice",
+        "mercy",
+        "prejudice"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a0a",
+      "cover_accent": "#c89030",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "merchant-of-venice--artwork-v1.png",
+      "final_cover_filename": "merchant-of-venice--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "justice",
+          "mercy",
+          "prejudice"
+        ],
+        "title": "The Merchant of Venice",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Merchant of Venice; emphasize justice, mercy, prejudice; avoid literal plot montage."
+    },
+    {
+      "symbol": "HENRY_V",
+      "id": "henry-v",
+      "title": "Henry V",
+      "author": "William Shakespeare",
+      "year": 1599,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-history"
+      ],
+      "themes": [
+        "kingship",
+        "war",
+        "rhetoric"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2230",
+      "cover_accent": "#c0a060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "henry-v--artwork-v1.png",
+      "final_cover_filename": "henry-v--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "kingship",
+          "war",
+          "rhetoric"
+        ],
+        "title": "Henry V",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Henry V; emphasize kingship, war, rhetoric; avoid literal plot montage."
+    },
+    {
+      "symbol": "AS_YOU_LIKE_IT",
+      "id": "as-you-like-it",
+      "title": "As You Like It",
+      "author": "William Shakespeare",
+      "year": 1599,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "pastoral",
+        "disguise",
+        "love"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a1a",
+      "cover_accent": "#a0b070",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "as-you-like-it--artwork-v1.png",
+      "final_cover_filename": "as-you-like-it--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "pastoral",
+          "disguise",
+          "love"
+        ],
+        "title": "As You Like It",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for As You Like It; emphasize pastoral, disguise, love; avoid literal plot montage."
+    },
+    {
+      "symbol": "WINTERS_TALE",
+      "id": "winters-tale",
+      "title": "The Winter's Tale",
+      "author": "William Shakespeare",
+      "year": 1611,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-romance"
+      ],
+      "themes": [
+        "jealousy",
+        "time",
+        "reunion"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2230",
+      "cover_accent": "#a8b8c8",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "winters-tale--artwork-v1.png",
+      "final_cover_filename": "winters-tale--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "jealousy",
+          "time",
+          "reunion"
+        ],
+        "title": "The Winter's Tale",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Winter's Tale; emphasize jealousy, time, reunion; avoid literal plot montage."
+    },
+    {
+      "symbol": "JULIUS_CAESAR",
+      "id": "julius-caesar",
+      "title": "Julius Caesar",
+      "author": "William Shakespeare",
+      "year": 1599,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy",
+        "on-power"
+      ],
+      "themes": [
+        "conspiracy",
+        "rhetoric",
+        "tyranny"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2030",
+      "cover_accent": "#c0b070",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "julius-caesar--artwork-v1.png",
+      "final_cover_filename": "julius-caesar--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "conspiracy",
+          "rhetoric",
+          "tyranny"
+        ],
+        "title": "Julius Caesar",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Julius Caesar; emphasize conspiracy, rhetoric, tyranny; avoid literal plot montage."
+    },
+    {
+      "symbol": "TWELFTH_NIGHT",
+      "id": "twelfth-night",
+      "title": "Twelfth Night",
+      "author": "William Shakespeare",
+      "year": 1601,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "disguise",
+        "longing",
+        "folly"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2a3a",
+      "cover_accent": "#e0c060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "twelfth-night--artwork-v1.png",
+      "final_cover_filename": "twelfth-night--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "disguise",
+          "longing",
+          "folly"
+        ],
+        "title": "Twelfth Night",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Twelfth Night; emphasize disguise, longing, folly; avoid literal plot montage."
+    },
+    {
+      "symbol": "MEASURE_FOR_MEASURE",
+      "id": "measure-for-measure",
+      "title": "Measure for Measure",
+      "author": "William Shakespeare",
+      "year": 1604,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "mercy",
+        "law",
+        "hypocrisy"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f1a2a",
+      "cover_accent": "#8a7090",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "measure-for-measure--artwork-v1.png",
+      "final_cover_filename": "measure-for-measure--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "mercy",
+          "law",
+          "hypocrisy"
+        ],
+        "title": "Measure for Measure",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Measure for Measure; emphasize mercy, law, hypocrisy; avoid literal plot montage."
+    },
+    {
+      "symbol": "HENRY_IV_PART_2",
+      "id": "henry-iv-part-2",
+      "title": "Henry IV, Part 2",
+      "author": "William Shakespeare",
+      "year": 1598,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-history"
+      ],
+      "themes": [
+        "fathers",
+        "kingship",
+        "rejection"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a28",
+      "cover_accent": "#a89060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "henry-iv-part-2--artwork-v1.png",
+      "final_cover_filename": "henry-iv-part-2--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "fathers",
+          "kingship",
+          "rejection"
+        ],
+        "title": "Henry IV, Part 2",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Henry IV, Part 2; emphasize fathers, kingship, rejection; avoid literal plot montage."
+    },
+    {
+      "symbol": "MERRY_WIVES_OF_WINDSOR",
+      "id": "merry-wives-of-windsor",
+      "title": "The Merry Wives of Windsor",
+      "author": "William Shakespeare",
+      "year": 1597,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "scheming",
+        "farce",
+        "jealousy"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f2820",
+      "cover_accent": "#c0a850",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "merry-wives-of-windsor--artwork-v1.png",
+      "final_cover_filename": "merry-wives-of-windsor--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "scheming",
+          "farce",
+          "jealousy"
+        ],
+        "title": "The Merry Wives of Windsor",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Merry Wives of Windsor; emphasize scheming, farce, jealousy; avoid literal plot montage."
+    },
+    {
+      "symbol": "OTHELLO",
+      "id": "othello",
+      "title": "Othello",
+      "author": "William Shakespeare",
+      "year": 1603,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy"
+      ],
+      "themes": [
+        "jealousy",
+        "race",
+        "manipulation"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a0e0e",
+      "cover_accent": "#8a3a1f",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "othello--artwork-v1.png",
+      "final_cover_filename": "othello--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "jealousy",
+          "race",
+          "manipulation"
+        ],
+        "title": "Othello",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Othello; emphasize jealousy, race, manipulation; avoid literal plot montage."
+    },
+    {
+      "symbol": "KING_LEAR",
+      "id": "king-lear",
+      "title": "King Lear",
+      "author": "William Shakespeare",
+      "year": 1606,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy"
+      ],
+      "themes": [
+        "old-age",
+        "folly",
+        "nothing"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f1015",
+      "cover_accent": "#a04050",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "king-lear--artwork-v1.png",
+      "final_cover_filename": "king-lear--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "old-age",
+          "folly",
+          "nothing"
+        ],
+        "title": "King Lear",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for King Lear; emphasize old-age, folly, nothing; avoid literal plot montage."
+    },
+    {
+      "symbol": "MUCH_ADO_ABOUT_NOTHING",
+      "id": "much-ado-about-nothing",
+      "title": "Much Ado About Nothing",
+      "author": "William Shakespeare",
+      "year": 1599,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [],
+      "themes": [],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1820",
+      "cover_accent": "#d090a0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "much-ado-about-nothing--artwork-v1.png",
+      "final_cover_filename": "much-ado-about-nothing--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [],
+        "title": "Much Ado About Nothing",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Much Ado About Nothing; emphasize drama; avoid literal plot montage."
+    },
+    {
+      "symbol": "TAMING_OF_THE_SHREW",
+      "id": "taming-of-the-shrew",
+      "title": "The Taming of the Shrew",
+      "author": "William Shakespeare",
+      "year": 1592,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-comedy"
+      ],
+      "themes": [
+        "marriage",
+        "power",
+        "disguise"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a1a",
+      "cover_accent": "#d0a070",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "taming-of-the-shrew--artwork-v1.png",
+      "final_cover_filename": "taming-of-the-shrew--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "marriage",
+          "power",
+          "disguise"
+        ],
+        "title": "The Taming of the Shrew",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Taming of the Shrew; emphasize marriage, power, disguise; avoid literal plot montage."
+    },
+    {
+      "symbol": "ANTONY_AND_CLEOPATRA",
+      "id": "antony-and-cleopatra",
+      "title": "Antony and Cleopatra",
+      "author": "William Shakespeare",
+      "year": 1606,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy"
+      ],
+      "themes": [
+        "love",
+        "politics",
+        "grandeur"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1228",
+      "cover_accent": "#c89060",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "antony-and-cleopatra--artwork-v1.png",
+      "final_cover_filename": "antony-and-cleopatra--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "love",
+          "politics",
+          "grandeur"
+        ],
+        "title": "Antony and Cleopatra",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Antony and Cleopatra; emphasize love, politics, grandeur; avoid literal plot montage."
+    },
+    {
+      "symbol": "RICHARD_III",
+      "id": "richard-iii",
+      "title": "Richard III",
+      "author": "William Shakespeare",
+      "year": 1593,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-history",
+        "on-power"
+      ],
+      "themes": [
+        "ambition",
+        "tyranny",
+        "conscience"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1f0a0a",
+      "cover_accent": "#a85030",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "richard-iii--artwork-v1.png",
+      "final_cover_filename": "richard-iii--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "ambition",
+          "tyranny",
+          "conscience"
+        ],
+        "title": "Richard III",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Richard III; emphasize ambition, tyranny, conscience; avoid literal plot montage."
+    },
+    {
+      "symbol": "CORIOLANUS",
+      "id": "coriolanus",
+      "title": "Coriolanus",
+      "author": "William Shakespeare",
+      "year": 1608,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-tragedy"
+      ],
+      "themes": [
+        "pride",
+        "populism",
+        "exile"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a1a",
+      "cover_accent": "#8a4030",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "coriolanus--artwork-v1.png",
+      "final_cover_filename": "coriolanus--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "pride",
+          "populism",
+          "exile"
+        ],
+        "title": "Coriolanus",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Coriolanus; emphasize pride, populism, exile; avoid literal plot montage."
+    },
+    {
+      "symbol": "CYMBELINE",
+      "id": "cymbeline",
+      "title": "Cymbeline",
+      "author": "William Shakespeare",
+      "year": 1610,
+      "form": "drama",
+      "era": "early-modern",
+      "shelves": [
+        "shakespeare-romance"
+      ],
+      "themes": [
+        "jealousy",
+        "reunion",
+        "disguise"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a2528",
+      "cover_accent": "#a0c0b0",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "cymbeline--artwork-v1.png",
+      "final_cover_filename": "cymbeline--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "drama",
+        "era": "early-modern",
+        "themes": [
+          "jealousy",
+          "reunion",
+          "disguise"
+        ],
+        "title": "Cymbeline",
+        "author": "William Shakespeare"
+      },
+      "concept_seed": "One symbolic visual metaphor for Cymbeline; emphasize jealousy, reunion, disguise; avoid literal plot montage."
+    },
+    {
+      "symbol": "ANNA_KARENINA",
+      "id": "anna-karenina",
+      "title": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "year": 1877,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [
+        "russian-novels"
+      ],
+      "themes": [
+        "marriage",
+        "adultery",
+        "grace"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#1a1a28",
+      "cover_accent": "#b09870",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "anna-karenina--artwork-v1.png",
+      "final_cover_filename": "anna-karenina--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [
+          "marriage",
+          "adultery",
+          "grace"
+        ],
+        "title": "Anna Karenina",
+        "author": "Leo Tolstoy"
+      },
+      "concept_seed": "One symbolic visual metaphor for Anna Karenina; emphasize marriage, adultery, grace; avoid literal plot montage."
+    },
+    {
+      "symbol": "DON_QUIXOTE",
+      "id": "don-quixote",
+      "title": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "year": 1605,
+      "form": "novel",
+      "era": "early-modern",
+      "shelves": [
+        "satirical-novels"
+      ],
+      "themes": [
+        "illusion",
+        "chivalry",
+        "madness"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a1a10",
+      "cover_accent": "#c08a40",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "don-quixote--artwork-v1.png",
+      "final_cover_filename": "don-quixote--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "early-modern",
+        "themes": [
+          "illusion",
+          "chivalry",
+          "madness"
+        ],
+        "title": "Don Quixote",
+        "author": "Miguel de Cervantes"
+      },
+      "concept_seed": "One symbolic visual metaphor for Don Quixote; emphasize illusion, chivalry, madness; avoid literal plot montage."
+    },
+    {
+      "symbol": "ESSAYS_MONTAIGNE",
+      "id": "essays-montaigne",
+      "title": "Essays",
+      "author": "Michel de Montaigne",
+      "year": 1580,
+      "form": "philosophy",
+      "era": "early-modern",
+      "shelves": [
+        "modern-philosophy"
+      ],
+      "themes": [
+        "self",
+        "skepticism",
+        "custom"
+      ],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#2a2218",
+      "cover_accent": "#b0a070",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "essays-montaigne--artwork-v1.png",
+      "final_cover_filename": "essays-montaigne--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "philosophy",
+        "era": "early-modern",
+        "themes": [
+          "self",
+          "skepticism",
+          "custom"
+        ],
+        "title": "Essays",
+        "author": "Michel de Montaigne"
+      },
+      "concept_seed": "One symbolic visual metaphor for Essays; emphasize self, skepticism, custom; avoid literal plot montage."
+    },
+    {
+      "symbol": "IVAN_ILYICH",
+      "id": "ivan-ilyich",
+      "title": "The Death of Ivan Ilyich",
+      "author": "Leo Tolstoy",
+      "year": 1886,
+      "form": "novel",
+      "era": "modern",
+      "shelves": [],
+      "themes": [],
+      "current_cover_kind": "css-template-placeholder",
+      "current_cover_reference": "BookStore.tsx::BookCover and BookOnboarding/BookOnboardingPreface CSS covers; registry coverColor/coverAccent",
+      "current_cover_asset": null,
+      "current_dimensions": "CSS 2:3; 108x162 mobile, 126x189 default, 58x86 tiny, up to 276x414 large",
+      "cover_color": "#262a2e",
+      "cover_accent": "#b0894e",
+      "audit_status": "replace-after-review",
+      "artwork_filename": "ivan-ilyich--artwork-v1.png",
+      "final_cover_filename": "ivan-ilyich--cover-v1.webp",
+      "artwork_text_policy": "no embedded text",
+      "typesetting_policy": "deterministic overlay",
+      "rights_status": "review-required",
+      "rights_basis": "public-domain text does not imply artwork rights; use newly generated original artwork",
+      "provenance_provider": "OpenAI built-in image generation",
+      "provenance_prompt_version": "tinct-cover-v1",
+      "provenance_generated_at": null,
+      "review_status": "not-generated",
+      "prompt_template_version": "tinct-cover-v1",
+      "prompt_inputs": {
+        "form": "novel",
+        "era": "modern",
+        "themes": [],
+        "title": "The Death of Ivan Ilyich",
+        "author": "Leo Tolstoy"
+      },
+      "concept_seed": "One symbolic visual metaphor for The Death of Ivan Ilyich; emphasize novel; avoid literal plot montage."
+    }
+  ]
+}

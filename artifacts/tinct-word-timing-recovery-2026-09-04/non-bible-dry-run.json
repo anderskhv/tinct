@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-09-04",
+  "uploaded": false,
+  "purpose": "Representative non-Bible safety dry-run against exact production audio and edition text",
+  "results": [
+    {
+      "bookId": "the-art-of-war",
+      "editionKey": "original-en",
+      "chapter": 1,
+      "paragraphs": 31,
+      "audioMinutes": 4.32,
+      "status": "rejected-safely",
+      "reason": "Observed alignment below 85% for paragraphs containing printed numeric enumeration",
+      "failures": [
+        {"paragraph": 0, "observedMatchRatio": 0.8, "matched": 12, "expected": 15},
+        {"paragraph": 3, "observedMatchRatio": 0.67, "matched": 12, "expected": 18}
+      ],
+      "diagnosis": "The text contains 1/2/3/4/5 while Whisper reports one/two/three/four/five; the aligner's normalization does not yet treat those as equivalent. The audio itself matches semantically. No sidecar was emitted."
+    },
+    {
+      "bookId": "the-art-of-war",
+      "editionKey": "modern-en",
+      "chapter": 1,
+      "paragraphs": 31,
+      "audioMinutes": 3.45,
+      "status": "rejected-safely",
+      "reason": "Observed alignment below 85% for one paragraph containing printed numeric enumeration",
+      "failures": [
+        {"paragraph": 3, "observedMatchRatio": 0.67, "matched": 10, "expected": 15}
+      ],
+      "diagnosis": "The text contains 1/2/3/4/5 while Whisper reports one/two/three/four/five. No sidecar was emitted."
+    },
+    {
+      "bookId": "phaedo",
+      "editionKey": "original-en",
+      "chapter": 1,
+      "paragraphs": 61,
+      "audioMinutes": 16.49,
+      "status": "rejected-safely",
+      "reason": "Several speaker-label paragraphs fell below the 85% observed-match gate",
+      "examples": [
+        {"printed": "Phaedo:", "spokenAsRecognized": "P. H. A. D. O."},
+        {"printed": "Echecrates:", "spokenAsRecognized": "E-C-H-U-C-R-A-T-S"}
+      ],
+      "diagnosis": "Legacy production TTS spelled uppercase speaker labels letter by letter, so the audio is not a literal reading of the current displayed token. This requires a documented label-equivalence rule or replacement audio; lowering the quality threshold would be unsafe. No sidecar was emitted."
+    }
+  ]
+}

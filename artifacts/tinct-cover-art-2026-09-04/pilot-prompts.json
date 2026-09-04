@@ -1,0 +1,61 @@
+{
+  "mode": "OpenAI built-in image generation",
+  "use_case": "stylized-concept",
+  "asset_type": "portrait book-cover artwork pilot for Tinct, artwork only",
+  "shared_style": "Sophisticated limited-palette linocut and letterpress print, visible ink grain on warm uncoated paper, mid-century literary press restraint, flat shapes and strong silhouette.",
+  "shared_composition": "Exact 2:3 portrait; bold central motif readable at 108x162 pixels; quiet low-detail bands across upper 24% and lower 18% for later deterministic title and author typesetting.",
+  "shared_constraints": "Artwork only; absolutely no words, letters, numerals, pseudo-text, borders, logos, signatures, watermarks, gradients, or physical-book mockup; original artwork; avoid generic AI fantasy imagery and crowded detail.",
+  "prompts": [
+    {
+      "id": "the-republic-v1",
+      "request": "A severe ancient city seen as interlocking geometric terraces, with one small cave opening below and a clean shaft of daylight above, suggesting justice, the ideal city, and the allegory of the cave.",
+      "palette": "warm parchment, deep blue-black, muted mineral blue, restrained ochre",
+      "mood": "lucid, austere, contemplative"
+    },
+    {
+      "id": "bible-v1",
+      "request": "A vast branching river seen from above, dividing and rejoining through a dry landscape, with a small dawn horizon, suggesting a library of many books, covenant, exile, wisdom, and return without depicting God or a literal holy book.",
+      "palette": "warm parchment, deep umber-black, muted lapis blue, restrained gold ochre",
+      "mood": "ancient, humane, numinous but unsentimental"
+    },
+    {
+      "id": "odyssey-v1",
+      "request": "One tiny black sail crossing a vast patterned wine-dark sea toward a narrow pale opening between two abstract rocky forms, suggesting danger, cunning, distance, and homecoming.",
+      "palette": "warm parchment, deep blue-black, oxidized teal, restrained burnt sienna",
+      "mood": "restless, salt-worn, resolute"
+    },
+    {
+      "id": "pride-and-prejudice-v1",
+      "request": "Two Regency-era profiles constructed from opposing cut-paper silhouettes, almost facing but separated by a narrow vertical interval, with a subtle country-house window rhythm behind them; wit, misreading, social form, and eventual recognition.",
+      "palette": "warm parchment, deep plum-black, dusty rose, restrained sage",
+      "mood": "poised, intelligent, lightly ironic"
+    },
+    {
+      "id": "hamlet-v1",
+      "request": "An empty dark throne-like chair casting a long split shadow across the stone floor of an austere Elsinore hall, with a small pale opening beyond; surveillance, grief, indecision, and a corrupted court, no skull.",
+      "palette": "warm parchment, charcoal blue-black, muted iron blue, restrained blood-rust",
+      "mood": "cold, watchful, tragic"
+    },
+    {
+      "id": "the-histories-v2",
+      "request": "Five irregular paths made from distinct line rhythms enter from different edges and nearly converge around one small open circle, while a single broken river shape crosses them; inquiry, travel, competing testimony, cause and consequence, not a literal map.",
+      "palette": "warm parchment, deep blue-black, faded Nile blue, restrained terracotta",
+      "mood": "curious, rigorous, expansive",
+      "extra_constraints": "No people, buildings, monuments, boats, compasses, eyes, pictograms, literal maps, or culturally stereotyped icons."
+    },
+    {
+      "id": "frederick-douglass-v1",
+      "request": "A single broken chain link transformed into the nib of a writing pen, against strong diagonal bands suggesting movement from darkness toward open air; literacy, self-authorship, resistance, and freedom, without depicting a face or body.",
+      "palette": "warm parchment, deep near-black, muted indigo, restrained copper",
+      "mood": "resolute, unsentimental, dignified",
+      "extra_constraints": "Avoid dehumanizing or sensational imagery, plantation imagery, and portrait imitation."
+    },
+    {
+      "id": "the-art-of-war-v1",
+      "request": "Two opposing fields of small disciplined marks flow around an empty central space like water around stone, with one subtle red seal-like square containing no character; strategy as position, terrain, asymmetry, and winning without collision.",
+      "palette": "warm parchment, carbon black, smoke gray, muted cinnabar",
+      "mood": "calm, exact, restrained",
+      "extra_constraints": "No Chinese characters, samurai, warriors, swords, or battlefield spectacle."
+    }
+  ]
+}

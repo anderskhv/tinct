@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-09-04",
+  "uploaded": false,
+  "generator": "app/tts/generate-words-sidecar.py",
+  "model": "small.en",
+  "device": "cpu",
+  "computeType": "int8",
+  "minimumObservedParagraphMatchRatio": 0.85,
+  "pilots": [
+    {
+      "bookId": "bible",
+      "editionKey": "web-en",
+      "chapter": 1,
+      "paragraphs": 7,
+      "expectedWords": 738,
+      "heardWords": 738,
+      "matchedWords": 738,
+      "observedMatchRatio": 1.0,
+      "minimumParagraphMatchRatio": 1.0,
+      "exactEditionTokenSequence": true,
+      "monotonicTimestamps": true,
+      "manifestFileIdentity": true,
+      "withinManifestDurationBounds": true,
+      "validator": "pass",
+      "spotEvidence": {
+        "firstToken": {"text": "In", "start": 0.05, "end": 0.53},
+        "lastToken": {"text": "day.", "start": 6.97, "end": 7.33}
+      },
+      "artifact": "pilots/bible-web-en-ch1.words.json"
+    },
+    {
+      "bookId": "bible",
+      "editionKey": "modern-en",
+      "chapter": 1,
+      "paragraphs": 7,
+      "expectedWords": 735,
+      "heardWords": 728,
+      "matchedWords": 724,
+      "observedMatchRatio": 0.985,
+      "minimumParagraphMatchRatio": 0.9565,
+      "exactEditionTokenSequence": true,
+      "monotonicTimestamps": true,
+      "manifestFileIdentity": true,
+      "withinManifestDurationBounds": true,
+      "validator": "pass",
+      "spotEvidence": {
+        "firstToken": {"text": "In", "start": 0.05, "end": 0.53},
+        "lastToken": {"text": "day.", "start": 6.37, "end": 6.73}
+      },
+      "artifact": "pilots/bible-modern-en-ch1.words.json"
+    }
+  ],
+  "verification": {
+    "pythonUnitTests": "12/12 pass",
+    "nodeValidatorTests": "2/2 pass",
+    "strictSidecarValidation": "2/2 pass"
+  }
+}
