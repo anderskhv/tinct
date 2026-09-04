@@ -62,7 +62,7 @@ export type LabVoiceGatePhase = 'off' | 'connecting' | 'ready'
 
 export function nextLabVoiceGate(
   current: LabVoiceGatePhase,
-  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking',
+  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing',
   voiceActive: boolean,
   notice?: string | null,
   _userSpeechStarted?: boolean,
@@ -79,11 +79,14 @@ export function nextLabVoiceGate(
   return current
 }
 
-export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking'): string | null {
+export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'): string | null {
   if (phase === 'connecting') return 'Connecting'
   if (phase === 'listening') return 'Listening'
   if (phase === 'thinking') return 'Thinking'
   if (phase === 'speaking') return 'Speaking'
+  // Voice V2 only.
+  if (phase === 'checking') return 'Checking text'
+  if (phase === 'preparing') return 'Preparing answer'
   return null
 }
 

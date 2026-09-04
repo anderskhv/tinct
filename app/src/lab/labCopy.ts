@@ -45,6 +45,8 @@ export const LAB_COPY = {
   listening: 'Listening',
   speaking: 'Speaking',
   connecting: 'Connecting',
+  checkingText: 'Checking text',
+  preparingAnswer: 'Preparing answer',
   readyToSpeak: 'Ready to speak',
   stopTalk: 'Stop talking',
   typedPending: 'A reply is on the way.',

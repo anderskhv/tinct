@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isLabPath, labLayoutOverride, labSurface } from './labRoute'
+import { isLabPath, labLayoutOverride, labSurface, labVoiceVersion } from './labRoute'
 
 describe('lab routes', () => {
   it('treats /lab and nested paths as the demo', () => {
@@ -30,5 +30,45 @@ describe('lab routes', () => {
 
   it('keeps the neutral reader route responsive', () => {
     expect(labLayoutOverride('/lab/reader')).toBeNull()
+  })
+})
+
+describe('lab voice version flag', () => {
+  it('defaults every lab route to Voice V1', () => {
+    expect(labVoiceVersion('/lab')).toBe('v1')
+    expect(labVoiceVersion('/lab/')).toBe('v1')
+    expect(labVoiceVersion('/lab/phone')).toBe('v1')
+    expect(labVoiceVersion('/lab/desktop')).toBe('v1')
+    expect(labVoiceVersion('/lab/reader')).toBe('v1')
+    expect(labVoiceVersion('/lab/reader', '')).toBe('v1')
+    expect(labVoiceVersion('/lab/reader', '?voice=v1')).toBe('v1')
+    expect(labVoiceVersion('/lab/reader', '?voice=')).toBe('v1')
+    expect(labVoiceVersion('/lab/reader', '?voice=v3')).toBe('v1')
+  })
+
+  it('enables Voice V2 only at /lab/reader?voice=v2', () => {
+    expect(labVoiceVersion('/lab/reader', '?voice=v2')).toBe('v2')
+    expect(labVoiceVersion('/lab/reader/', '?voice=v2')).toBe('v2')
+    expect(labVoiceVersion('/lab/reader?voice=v2')).toBe('v2')
+    expect(labVoiceVersion('/lab/reader?from=library&voice=V2')).toBe('v2')
+    expect(labVoiceVersion('/lab/reader?voice=v2#p3')).toBe('v2')
+    expect(labVoiceVersion('/lab/reader', 'voice=v2')).toBe('v2')
+  })
+
+  it('never lets the preview flag reach other lab layouts or production routes', () => {
+    expect(labVoiceVersion('/lab', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/lab/phone', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/lab/desktop', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/lab/library', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/lab/phone?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/app', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/read/odyssey', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/', '?voice=v2')).toBe('v1')
+  })
+
+  it('keeps the existing lab routing helpers unaware of the flag', () => {
+    expect(isLabPath('/lab/reader?voice=v2')).toBe(true)
+    expect(labSurface('/lab/reader?voice=v2')).toBe('reader')
+    expect(labLayoutOverride('/lab/reader?voice=v2')).toBeNull()
   })
 })

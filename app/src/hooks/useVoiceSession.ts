@@ -3,6 +3,7 @@ import type { ChatMessage } from '../types'
 import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { CompanionAskNotify } from '../lab/labCompanion'
+import type { CompanionAskResult, VoiceVersion } from '../voice/v2/voiceV2'
 import { nearbyParagraphWindow } from '../voice/context'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
 import { VOICE_REALTIME_MODEL } from '../voice/types'
@@ -57,12 +58,15 @@ export interface UseVoiceSessionOptions {
   assistantPace?: AssistantPace
   onSetAssistantPace?: (pace: AssistantPace) => void
   /** Lab-only. Hard book questions hop to /api/lab-chat. Production leaves this unset. */
-  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string>
+  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string | CompanionAskResult>
+  /** Lab-only. `'v2'` only from `/lab/reader?voice=v2`; production and V1 leave this unset. */
+  voiceVersion?: VoiceVersion
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   state: 'reading',
   mode: 'conversation',
+  activity: 'idle',
   resumeInSeconds: null,
   error: null,
   isActive: false,
@@ -197,6 +201,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       honorModelResume: opts.honorModelResume,
       assistantPace: opts.assistantPace,
       onCompanionAsk: opts.onCompanionAsk,
+      voiceVersion: opts.voiceVersion,
     })
     return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
   }, [buildContext])
@@ -237,6 +242,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   return {
     state: ui.state,
+    activity: ui.activity,
     isActive: ui.isActive,
     error: ui.error,
     resumeInSeconds: ui.resumeInSeconds,

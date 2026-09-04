@@ -5,7 +5,8 @@ import { nextLabChapter, prevLabChapter, type LabChapter } from './labSource'
 import { storage } from '../services/storage'
 import { LAB_ASK_COMPANION_TOOL } from './labCompanion'
 
-export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking'
+/** `checking` and `preparing` are Voice V2 only; V1 never produces them. */
+export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'
 
 export interface LabAskTurn {
   id: string

@@ -30,7 +30,11 @@ export function LabOrb({ state, onActivate, label }: LabOrbProps) {
       ? LAB_COPY.speaking
       : state === 'connecting'
         ? LAB_COPY.connecting
-        : null
+        : state === 'checking'
+          ? LAB_COPY.checkingText
+          : state === 'preparing'
+            ? LAB_COPY.preparingAnswer
+            : null
 
   return (
     <div className={`lab-orb-wrap lab-orb-${state}`}>

@@ -21,6 +21,8 @@ import {
   type LabPlaybackSkip,
 } from './labAsk'
 import { buildLabTalkInstructions, queryLabCompanion, readAnthropicResponse, type CompanionAskNotify } from './labCompanion'
+import { buildLabTalkInstructionsV2, LAB_VOICE_TOOLS_V2, labConversationStateV2, queryLabCompanionV2 } from './labVoiceV2'
+import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
 import {
@@ -65,10 +67,14 @@ export interface UseLabAskOptions {
   voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
   onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
   onVoiceToolSessionStart?: () => void
+  /** `'v2'` only from `/lab/reader?voice=v2`. Defaults to Voice V1. */
+  voiceVersion?: LabVoiceVersion
 }
 
 export function useLabAsk(options: UseLabAskOptions) {
   const { session } = useAuth()
+  const voiceVersion: LabVoiceVersion = options.voiceVersion === 'v2' ? 'v2' : 'v1'
+  const isVoiceV2 = voiceVersion === 'v2'
   const chatBook = resolveLabChatBook(options.headerBook || options.chapterLabel)
   const chatBookId = chatBook?.bookId ?? ''
   const [typedLoading, setTypedLoading] = useState(false)
@@ -148,11 +154,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     return acrossLibrary.length > 0 ? acrossLibrary : turns
   }, [turns])
   const talkInstructions = useMemo(
-    () => buildLabVoiceControlInstructions(buildLabTalkInstructions(askContext), rememberedLabTurns),
-    [askContext, rememberedLabTurns],
+    () => buildLabVoiceControlInstructions(
+      isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
+      rememberedLabTurns,
+    ),
+    [askContext, isVoiceV2, rememberedLabTurns],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
-  const mergedVoiceTools = useMemo(() => mergeLabVoiceTools(LAB_VOICE_TOOLS), [])
+  const mergedVoiceTools = useMemo(
+    () => mergeLabVoiceTools(isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS),
+    [isVoiceV2],
+  )
 
   const onTinctVoiceTool = useCallback(async (
     name: string,
@@ -170,7 +182,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
-    return queryLabCompanion({
+    const query = isVoiceV2 ? queryLabCompanionV2 : queryLabCompanion
+    return query({
       authToken,
       system: buildLabAskInstructions({
         bookTitle: optionsRef.current.bookTitle,
@@ -196,7 +209,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       onDelta: notify?.onDelta,
       onFirstSpeakable: notify?.onFirstSpeakable,
     })
-  }, [sessionToken])
+  }, [isVoiceV2, sessionToken])
 
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
@@ -262,7 +275,19 @@ export function useLabAsk(options: UseLabAskOptions) {
     skipPlayback: (kind) => optionsRef.current.onPlaybackSkip?.(kind),
     assistantPace,
     onSetAssistantPace: setAssistantPace,
+    voiceVersion,
   })
+
+  // Voice V2: a mid-session failure is shown, not swallowed. The notice
+  // clears the moment the reader starts a new turn. V1 keeps its own path.
+  useEffect(() => {
+    if (!isVoiceV2 || !voice.error) return
+    setNotice(voice.error)
+  }, [isVoiceV2, voice.error])
+  useEffect(() => {
+    if (!isVoiceV2 || !voice.userSpeechStarted) return
+    setNotice(null)
+  }, [isVoiceV2, voice.userSpeechStarted])
 
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive || starting) return true
@@ -471,11 +496,14 @@ export function useLabAsk(options: UseLabAskOptions) {
     turns,
     notice,
     typedLoading,
-    conversationState: labConversationState({
-      voiceState: voice.state,
-      error: voice.error,
-      starting,
-    }),
+    conversationState: isVoiceV2
+      ? labConversationStateV2({ activity: voice.activity, starting })
+      : labConversationState({
+        voiceState: voice.state,
+        error: voice.error,
+        starting,
+      }),
+    voiceVersion,
     voiceActive: voice.isActive || starting,
     userSpeechStarted: voice.userSpeechStarted,
     startVoice,

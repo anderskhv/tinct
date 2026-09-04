@@ -12,8 +12,23 @@ import {
   spokenCompanionAnswer,
   type CompanionAskNotify,
 } from '../lab/labCompanion'
+import {
+  closingLineInstructionsV2,
+  companionSpeakInstructionsV2,
+  failureSpeakInstructionsV2,
+  signOffInstructionsV2,
+} from '../lab/labVoiceV2'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
 import { classifyVoiceUtterance, shouldHonorModelEnd, shouldHonorModelResume } from './intents'
+import {
+  isBenignRealtimeError,
+  normalizeCompanionResult,
+  VOICE_V2_FAILURE_LINE,
+  VOICE_V2_FAILURE_NOTICE,
+  type CompanionAskResult,
+  type VoiceActivityPhase,
+  type VoiceVersion,
+} from './v2/voiceV2'
 import { INITIAL_VOICE_SNAPSHOT, isVoiceSessionActive, reduceVoiceSession, shouldResumeAudiobookOnEnterReading } from './stateMachine'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceEvent, VoiceIntent, VoiceLatencySample, VoiceMachineSnapshot, VoiceModeState, VoiceReaderContext, VoiceSessionMode } from './types'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_HONOR_RESUME_IDLE_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING, VOICE_CLOSE_LINE, VOICE_REALTIME_MODEL } from './types'
@@ -51,6 +66,8 @@ export interface VoiceSessionCallbacks {
 export interface VoiceUiSnapshot {
   state: VoiceModeState
   mode: VoiceMachineSnapshot['mode']
+  /** Voice V2 only. Event-derived work phase; V1 always reports `idle`. */
+  activity: VoiceActivityPhase
   resumeInSeconds: number | null
   error: string | null
   isActive: boolean
@@ -76,19 +93,22 @@ export interface StartVoiceSessionInput {
   honorModelResume?: boolean
   /** Lab-only. Realtime audio.output.speed. */
   assistantPace?: AssistantPace
-  /** Lab-only. Production AudioStrip leaves this unset. */
-  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string>
+  /** Lab-only. Production AudioStrip leaves this unset. V2 may return a structured result. */
+  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string | CompanionAskResult>
+  /** Lab-only. `/lab/reader?voice=v2` sets `'v2'`; everything else is V1. */
+  voiceVersion?: VoiceVersion
 }
 
 type RealtimeEvent = VoiceRealtimeEvent
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
-  extra: { resumeInSeconds?: number | null; error?: string | null; userSpeechStarted?: boolean } = {},
+  extra: { activity?: VoiceActivityPhase; resumeInSeconds?: number | null; error?: string | null; userSpeechStarted?: boolean } = {},
 ): VoiceUiSnapshot {
   return {
     state: machine.state,
     mode: machine.mode,
+    activity: extra.activity ?? 'idle',
     resumeInSeconds: extra.resumeInSeconds ?? null,
     error: extra.error ?? null,
     isActive: isVoiceSessionActive(machine.state),
@@ -174,6 +194,16 @@ export class VoiceSessionController {
   private speechStoppedAt: number | null = null
   private latencyTurnNumber = 0
   private firstAudioRecordedForTurn = false
+  // Voice V2 preview state. Untouched (defaults) for V1 sessions.
+  private voiceVersion: VoiceVersion = 'v1'
+  private activity: VoiceActivityPhase = 'idle'
+  /** Bumped on every confirmed reader turn so a stale companion hop can tell it was superseded. */
+  private v2HopSeq = 0
+  private v2HopInFlight = false
+  private v2CreateOutstanding = false
+  private v2UserSpeaking = false
+  private v2SpokeThisResponse = false
+  private v2SignOffRequested = false
 
   constructor(callbacks: VoiceSessionCallbacks) {
     this.callbacks = callbacks
@@ -181,6 +211,7 @@ export class VoiceSessionController {
 
   getSnapshot(): VoiceUiSnapshot {
     return snapshotFrom(this.machine, {
+      activity: this.activity,
       resumeInSeconds: this.currentResumeSeconds(),
       userSpeechStarted: this.userSpeechStarted,
     })
@@ -193,6 +224,9 @@ export class VoiceSessionController {
     }
 
     this.closed = false
+    this.voiceVersion = input.voiceVersion === 'v2' ? 'v2' : 'v1'
+    this.resetV2Turn()
+    this.activity = this.isV2() ? 'connecting' : 'idle'
     this.sessionStartedAt = monotonicNow()
     this.speechStoppedAt = null
     this.latencyTurnNumber = 0
@@ -286,6 +320,8 @@ export class VoiceSessionController {
         this.restoreBook({ speakClose: false })
         return
       }
+      // The data channel is open: the first live snapshot already says so.
+      if (this.isV2()) this.activity = this.turn.audioPlaying ? 'speaking' : 'listening'
       this.dispatch({ type: 'START', mode: input.mode })
       if (this.sessionStartedAt != null) {
         this.callbacks.onLatency?.({
@@ -315,6 +351,7 @@ export class VoiceSessionController {
 
   stop(): void {
     this.closed = true
+    this.activity = 'idle'
     this.userSpeechStarted = false
     this.lastUtteranceConfirmed = false
     this.sessionVadReady = false
@@ -386,7 +423,11 @@ export class VoiceSessionController {
     greet?: boolean
     shouldResumeBook?: boolean
     applicationTools?: readonly unknown[]
+    voiceVersion?: VoiceVersion
   }): void {
+    this.voiceVersion = input.voiceVersion === 'v2' ? 'v2' : 'v1'
+    this.resetV2Turn()
+    this.activity = 'idle'
     this.honorModelResume = input.honorModelResume === true
     this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
@@ -427,12 +468,18 @@ export class VoiceSessionController {
       offsetSeconds: 1,
     }
     this.shouldResumeBook = input.shouldResumeBook !== false
+    if (this.isV2()) this.activity = this.turn.audioPlaying ? 'speaking' : 'listening'
     this.dispatch({ type: 'START', mode: 'conversation' })
   }
 
   /** Test-only: inject a realtime event. */
   testRealtime(event: VoiceRealtimeEvent): void | Promise<void> {
     return this.handleRealtimeEvent(event)
+  }
+
+  /** Test-only: simulate the Realtime data channel closing under a live session. */
+  testDataChannelClosed(): void {
+    if (this.dc) this.handleDataChannelClosed(this.dc)
   }
 
   private dispatch(event: VoiceEvent): void {
@@ -442,6 +489,7 @@ export class VoiceSessionController {
       return
     }
     this.machine = next
+    if (next.state === 'reading') this.activity = 'idle'
     this.emit()
 
     if (shouldResumeAudiobookOnEnterReading(previous, next)) {
@@ -453,10 +501,66 @@ export class VoiceSessionController {
 
   private emit(error: string | null = null): void {
     this.callbacks.onSnapshot(snapshotFrom(this.machine, {
+      activity: this.activity,
       resumeInSeconds: this.currentResumeSeconds(),
       error,
       userSpeechStarted: this.userSpeechStarted,
     }))
+  }
+
+  private isV2(): boolean {
+    return this.voiceVersion === 'v2'
+  }
+
+  /** V2 only: publish a phase change the moment the event that proves it arrives. */
+  private setActivity(next: VoiceActivityPhase): void {
+    if (!this.isV2() || this.activity === next) return
+    this.activity = next
+    this.emit()
+  }
+
+  private resetV2Turn(): void {
+    this.v2HopInFlight = false
+    this.v2CreateOutstanding = false
+    this.v2UserSpeaking = false
+    this.v2SpokeThisResponse = false
+    this.v2SignOffRequested = false
+  }
+
+  /** V2: a turn is still owed an answer while any of these is true. */
+  private v2TurnBusy(): boolean {
+    return this.v2HopInFlight || this.v2CreateOutstanding || this.turn.pendingFunctionCall
+  }
+
+  private v2SessionGone(): boolean {
+    return this.closed || this.machine.state === 'reading'
+  }
+
+  /** V2: the Realtime leg failed after a request was live. Say so visibly, keep listening. */
+  private noticeV2Failure(): void {
+    this.v2HopInFlight = false
+    this.v2CreateOutstanding = false
+    this.awaitingModelResponse = false
+    this.clearForceResponseTimer()
+    this.activity = 'listening'
+    this.emit(VOICE_V2_FAILURE_NOTICE)
+  }
+
+  private sendFunctionOutput(callId: string, output: Record<string, unknown>): void {
+    this.sendEvent({
+      type: 'conversation.item.create',
+      item: {
+        type: 'function_call_output',
+        call_id: callId,
+        output: JSON.stringify(output),
+      },
+    })
+  }
+
+  private handleDataChannelClosed(dc: RTCDataChannel): void {
+    if (!this.isV2() || this.closed || this.dc !== dc) return
+    if (this.machine.state === 'reading') return
+    this.fail('Connection lost.')
   }
 
   private noteSpeechStoppedForLatency(): void {
@@ -482,6 +586,8 @@ export class VoiceSessionController {
   }
 
   private fail(error: string): void {
+    this.activity = 'idle'
+    this.resetV2Turn()
     this.machine = INITIAL_VOICE_SNAPSHOT
     this.turn = INITIAL_VOICE_TURN
     this.userSpeechStarted = false
@@ -535,6 +641,7 @@ export class VoiceSessionController {
     this.awaitingModelResponse = false
     this.speechStoppedAt = null
     this.firstAudioRecordedForTurn = false
+    this.resetV2Turn()
   }
 
   private async connectRealtime(ephemeralKey: string): Promise<void> {
@@ -587,6 +694,7 @@ export class VoiceSessionController {
         this.handleRealtimeEvent(JSON.parse(String(event.data)) as RealtimeEvent)
       } catch { /* ignore malformed events */ }
     })
+    dc.addEventListener('close', () => this.handleDataChannelClosed(dc))
 
     const offer = await pc.createOffer()
     await pc.setLocalDescription(offer)
@@ -666,11 +774,14 @@ export class VoiceSessionController {
   private sendEvent(payload: Record<string, unknown>): void {
     if (!this.dc || this.dc.readyState !== 'open') return
     this.dc.send(JSON.stringify(payload))
+    if (this.isV2() && payload.type === 'response.create') this.v2CreateOutstanding = true
   }
 
   private applyTurnResult(result: { state: VoiceTurnState; signal: VoiceTurnSignal }): void {
     this.turn = result.state
     if (result.signal === 'speech_start') {
+      this.v2SpokeThisResponse = true
+      this.setActivity('speaking')
       this.assistantLineFinished = false
       this.dispatch({ type: 'ASSISTANT_SPEECH_START' })
       if (this.honorModelResume && !this.firstAssistantDone) {
@@ -689,6 +800,14 @@ export class VoiceSessionController {
     if (result.signal === 'speech_end') {
       this.assistantLineFinished = true
       this.dispatch({ type: 'ASSISTANT_SPEECH_END' })
+      if (
+        this.isV2()
+        && !this.v2TurnBusy()
+        && this.deferredHonorEnd !== 'waiting_for_end'
+        && this.deferredHonorResume !== 'waiting_for_end'
+      ) {
+        this.setActivity('listening')
+      }
       if (this.honorModelResume) {
         this.completeFirstAssistantResponse()
         this.armMicUnmute()
@@ -760,11 +879,16 @@ export class VoiceSessionController {
     this.lastUtteranceConfirmed = true
     this.userSpeechStarted = true
     this.assistantLineFinished = false
-    if (this.honorModelResume && this.firstAssistantDone && this.assistantIsSpeaking()) {
+    // V2 also cancels a response that is still being prepared (no audio yet),
+    // so the reader's new turn is never answered twice or queued behind a stale answer.
+    const v2PreparingAnswer = this.isV2() && this.turn.responseOpen
+    if (this.honorModelResume && this.firstAssistantDone && (this.assistantIsSpeaking() || v2PreparingAnswer)) {
       this.sendEvent({ type: 'response.cancel' })
       this.sendEvent({ type: 'output_audio_buffer.clear' })
     }
+    this.v2UserSpeaking = true
     this.dispatch({ type: 'USER_SPEECH_START' })
+    this.setActivity('listening')
     this.awaitingModelResponse = false
     this.armLabUserTurnWatch()
   }
@@ -821,12 +945,21 @@ export class VoiceSessionController {
     }
     this.clearLabUserTurnWatch()
     this.dispatch({ type: 'USER_SPEECH_END' })
+    this.noteV2UserTurnEnded()
     this.lastUtteranceConfirmed = false
     if (!this.firstUserTurnCommitted) {
       this.firstUserTurnCommitted = true
       this.sendEvent({ type: 'input_audio_buffer.clear' })
     }
     this.ensureResponseAfterUserSpeech()
+  }
+
+  /** V2: the reader finished a turn. Anything still checking for an older turn is now stale. */
+  private noteV2UserTurnEnded(): void {
+    if (!this.isV2()) return
+    this.v2UserSpeaking = false
+    this.v2HopSeq += 1
+    this.setActivity('checking_text')
   }
 
   private shouldDiscardUserTranscript(): boolean {
@@ -853,6 +986,13 @@ export class VoiceSessionController {
           this.setOutgoingMicEnabled(false)
         }
         this.applyTurnResult(reduceVoiceTurn(this.turn, event))
+        if (this.isV2()) {
+          this.v2CreateOutstanding = false
+          this.v2SpokeThisResponse = false
+          // The opening "I'm listening." is not an answer being prepared.
+          const greeting = this.greetingRequested && !this.firstAssistantDone && !this.firstUserTurnCommitted
+          if (!greeting) this.setActivity('preparing_answer')
+        }
         return
       case 'output_audio_buffer.started':
       case 'response.output_audio.delta':
@@ -863,7 +1003,8 @@ export class VoiceSessionController {
         if (event.type === 'output_audio_buffer.started' || event.type === 'response.output_audio.delta' || event.type === 'response.audio.delta') {
           this.noteFirstAudioForLatency()
         }
-        this.applyTurnResult(reduceVoiceTurn(this.turn, event))
+        const turnResult = reduceVoiceTurn(this.turn, event)
+        this.applyTurnResult(turnResult)
         const cancelled = event.type === 'response.cancelled' || event.response?.status === 'cancelled'
         if (cancelled) this.flushAssistantDraft(true)
         if (this.honorModelResume && this.firstUserTurnCommitted && !this.turn.audioPlaying) {
@@ -873,6 +1014,9 @@ export class VoiceSessionController {
           this.completeFirstAssistantResponse()
           this.armMicUnmute()
           this.recoverAfterCancel()
+        }
+        if (this.isV2() && (event.type === 'response.done' || event.type === 'response.cancelled')) {
+          this.settleV2Response(event, cancelled, turnResult.signal)
         }
         return
       }
@@ -919,11 +1063,74 @@ export class VoiceSessionController {
         return this.handleToolCall(name, callId, rawArguments)
       }
       case 'error':
+        if (this.isV2()) {
+          this.handleV2RealtimeError(event.error?.message)
+          return
+        }
         if (event.error?.message) this.emit(event.error.message)
         return
       default:
         return
     }
+  }
+
+  /**
+   * V2: a response finished without leaving speech behind. Decide, from the
+   * events alone, whether the turn is settled, owed a sign-off, or failed.
+   */
+  private settleV2Response(event: RealtimeEvent, cancelled: boolean, signal: VoiceTurnSignal): void {
+    if (this.v2SessionGone()) return
+    if (signal === 'speech_end') return
+    if (this.turn.audioPlaying || this.v2TurnBusy()) return
+    if (this.v2SpokeThisResponse) return
+    if (event.response?.status === 'failed') {
+      this.noticeV2Failure()
+      return
+    }
+    if (this.deferredHonorEnd === 'waiting_for_start') {
+      // The model called end_voice_session without speaking. One sign-off, then close.
+      if (this.v2SignOffRequested) {
+        this.commitHonoredEnd()
+        return
+      }
+      this.v2SignOffRequested = true
+      this.sendEvent({ type: 'response.create', response: { instructions: signOffInstructionsV2() } })
+      return
+    }
+    if (this.deferredHonorResume === 'waiting_for_start') {
+      if (this.v2SignOffRequested) {
+        this.commitHonoredResume()
+        return
+      }
+      this.v2SignOffRequested = true
+      this.sendEvent({ type: 'response.create', response: { instructions: closingLineInstructionsV2() } })
+      return
+    }
+    if (cancelled) {
+      this.setActivity('listening')
+      return
+    }
+    if (this.activity === 'preparing_answer') {
+      // A live request produced no speech and no tool call: a silent drop. Say so.
+      this.noticeV2Failure()
+      return
+    }
+    this.setActivity('listening')
+  }
+
+  private handleV2RealtimeError(message: string | undefined): void {
+    const hadOutstandingCreate = this.v2CreateOutstanding
+    this.v2CreateOutstanding = false
+    if (isBenignRealtimeError(message)) return
+    if (this.v2SessionGone()) {
+      if (message) this.emit(message)
+      return
+    }
+    if (hadOutstandingCreate || this.activity === 'preparing_answer') {
+      this.noticeV2Failure()
+      return
+    }
+    if (message) this.emit(message)
   }
 
   private speakCoverLine(text: string): boolean {
@@ -973,7 +1180,7 @@ export class VoiceSessionController {
       query: (asked) => query(asked, {
         onDelta: (text) => { latest = text },
         onFirstSpeakable: () => { /* cover line only; full answer spoken once below */ },
-      }),
+      }).then(result => (typeof result === 'string' ? result : result.answer)),
     })
     const hop = await hopPromise
     if (this.closed) return
@@ -1014,9 +1221,91 @@ export class VoiceSessionController {
     })
   }
 
+  /** V2: never attach an answer while the reader is mid-sentence. */
+  private waitForV2UserTurnEnd(): Promise<void> {
+    if (!this.v2UserSpeaking) return Promise.resolve()
+    return new Promise(resolve => {
+      const started = Date.now()
+      const tick = () => {
+        if (!this.v2UserSpeaking || this.closed || Date.now() - started > 10_000) resolve()
+        else window.setTimeout(tick, 50)
+      }
+      tick()
+    })
+  }
+
+  /**
+   * V2 companion hop. No cover line, no narrated waiting. The hop either
+   * returns one complete answer, which is then spoken once, or an explicit
+   * one-line failure. A newer reader turn supersedes an older hop.
+   */
+  private async handleCompanionAskV2(callId: string, rawArguments?: string): Promise<void> {
+    const question = parseAskCompanionArguments(rawArguments).question
+    const query = this.onCompanionAsk
+
+    if (question && isLabPlaybackUtterance(question) && !shouldEscalateToCompanion(question)) {
+      await this.handleToolCall(playbackToolForUtterance(question), callId, JSON.stringify(playbackArgsForUtterance(question)))
+      return
+    }
+
+    if (!question || !query) {
+      this.sendFunctionOutput(callId, { ok: false, error: 'missing_question' })
+      this.applyTurnResult(noteToolCallHandled(this.turn))
+      this.setActivity('preparing_answer')
+      this.sendEvent({ type: 'response.create', response: { instructions: failureSpeakInstructionsV2() } })
+      return
+    }
+
+    const seq = this.v2HopSeq
+    this.v2HopInFlight = true
+    this.setActivity('checking_text')
+    let result: CompanionAskResult
+    try {
+      result = normalizeCompanionResult(await query(question))
+    } catch {
+      result = { status: 'failed', answer: '', attempts: 1, stopReason: 'error', failureReason: 'request_failed' }
+    }
+    if (this.v2SessionGone()) {
+      this.v2HopInFlight = false
+      return
+    }
+    await this.waitForV2UserTurnEnd()
+    if (this.v2SessionGone()) {
+      this.v2HopInFlight = false
+      return
+    }
+    if (seq !== this.v2HopSeq) {
+      // The reader moved on while we were checking. The newer turn owns the
+      // answer; close this call quietly so the conversation stays well-formed.
+      this.sendFunctionOutput(callId, { ok: false, superseded: true })
+      this.v2HopInFlight = false
+      this.applyTurnResult(noteToolCallHandled(this.turn))
+      return
+    }
+
+    const completed = result.status === 'completed' && result.answer.trim().length > 0
+    const answer = completed ? result.answer.trim() : VOICE_V2_FAILURE_LINE
+    this.setActivity('preparing_answer')
+    this.sendFunctionOutput(callId, { ok: completed, speak_verbatim: true, answer })
+    this.applyTurnResult(noteToolCallHandled(this.turn))
+    await this.waitUntilQuietForHop()
+    if (this.v2SessionGone()) {
+      this.v2HopInFlight = false
+      return
+    }
+    this.sendEvent({
+      type: 'response.create',
+      response: {
+        instructions: completed ? companionSpeakInstructionsV2(answer) : failureSpeakInstructionsV2(),
+      },
+    })
+    this.v2HopInFlight = false
+  }
+
   private async handleToolCall(name: string, callId: string, rawArguments?: string): Promise<void> {
     if (name === ASK_COMPANION_TOOL) {
-      await this.handleCompanionAsk(callId, rawArguments)
+      if (this.isV2()) await this.handleCompanionAskV2(callId, rawArguments)
+      else await this.handleCompanionAsk(callId, rawArguments)
       return
     }
 
@@ -1283,6 +1572,7 @@ export class VoiceSessionController {
   private forceEndUserTurn(): void {
     this.clearLabUserTurnWatch()
     this.dispatch({ type: 'USER_SPEECH_END' })
+    this.noteV2UserTurnEnded()
     this.sendEvent({ type: 'input_audio_buffer.commit' })
     if (this.honorModelResume && !this.firstUserTurnCommitted) {
       this.firstUserTurnCommitted = true

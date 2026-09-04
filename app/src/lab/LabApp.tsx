@@ -49,7 +49,7 @@ import {
   type LabAppearanceProfile,
   type LabReaderProgressMode,
 } from './labPrefs'
-import { labLayoutOverride } from './labRoute'
+import { labLayoutOverride, labVoiceVersion } from './labRoute'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
@@ -274,6 +274,8 @@ function CompareIcon() {
 
 export interface LabAppProps {
   pathname?: string
+  /** Query string. Only `?voice=v2` on `/lab/reader` selects the Voice V2 preview. */
+  search?: string
   online?: boolean
   source?: LabSource
   authToken?: string | null
@@ -285,9 +287,10 @@ function readOnline(override?: boolean): boolean {
   return navigator.onLine
 }
 
-export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
+export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
+  const voiceVersion = labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const [isPhone, setIsPhone] = useState(() => readPhoneSurface(layoutOverride))
   const [showPhoneChrome, setShowPhoneChrome] = useState(() => {
     const phone = readPhoneSurface(layoutOverride)
@@ -639,6 +642,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
     voiceToolAdapter,
+    voiceVersion,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
         const next = [...current, entry].slice(-20)
@@ -2641,6 +2645,7 @@ export function LabApp({ pathname, online, source, authToken }: LabAppProps) {
       data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
       data-desktop-panel={!showPhoneChrome && desktopAskOpen ? (chrome === 'talking' ? 'talk' : 'chat') : 'none'}
       data-voice-surface={voiceLabView}
+      data-voice-version={voiceVersion}
       data-voice-history-fixture={voiceHistoryFixture ? 'true' : 'false'}
       data-audio-speed={String(listen.speed)}
       style={{
