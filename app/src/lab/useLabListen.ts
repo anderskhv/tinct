@@ -33,6 +33,8 @@ export interface UseLabListenOptions {
   followParagraphs: FollowParagraph[]
   chapterNumber?: number
   audioEdition?: string
+  playbackSpeed?: number
+  onPlaybackSpeedChange?: (speed: number) => void
   titleClip?: LabAudioTitleClip
   createAudio?: () => HTMLAudioElement
   /** Return true when the reader accepted a transition to the next chapter. */
@@ -55,7 +57,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const [src, setSrc] = useState<string | null>(null)
   const [clipIndex, setClipIndex] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
-  const [speed, setSpeedState] = useState(1)
+  const [speed, setSpeedState] = useState(() => parseHearingSpeed(options.playbackSpeed) ?? 1)
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
   const [clips, setClips] = useState<LabAudioClip[]>([])
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -100,6 +102,13 @@ export function useLabListen(options: UseLabListenOptions) {
   const applyRate = useCallback((audio: HTMLAudioElement, rate: number) => {
     try { audio.playbackRate = rate } catch { /* jsdom */ }
   }, [])
+
+  useEffect(() => {
+    const next = parseHearingSpeed(options.playbackSpeed)
+    if (next == null) return
+    setSpeedState(current => current === next ? current : next)
+    if (audioRef.current) applyRate(audioRef.current, next)
+  }, [applyRate, options.playbackSpeed])
 
   const syncFollow = useCallback((index: number, time: number) => {
     const clip = clipsRef.current[index]
@@ -440,6 +449,7 @@ export function useLabListen(options: UseLabListenOptions) {
     setSpeedState((current) => {
       const next = nextHearingSpeed(current)
       if (audioRef.current) applyRate(audioRef.current, next)
+      optionsRef.current.onPlaybackSpeedChange?.(next)
       return next
     })
   }, [applyRate])
@@ -449,6 +459,7 @@ export function useLabListen(options: UseLabListenOptions) {
     if (next == null) return
     setSpeedState(next)
     if (audioRef.current) applyRate(audioRef.current, next)
+    optionsRef.current.onPlaybackSpeedChange?.(next)
   }, [applyRate])
 
   // Chapter loading can commit src/clip state in a different React batch from

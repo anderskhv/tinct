@@ -17,12 +17,9 @@ export type LabTextAlignment = 'left' | 'justify'
 export type LabLineSpacing = 'compact' | 'comfortable' | 'open'
 export type LabMargins = 'narrow' | 'medium' | 'wide'
 export type LabParagraphSpacing = 'compact' | 'standard' | 'generous'
+export type LabAppearanceProfile = 'phone' | 'desktop'
 
-export interface LabPrefs {
-  primaryEdition: string
-  compareEdition: string
-  audioEdition: string
-  darkMode: boolean
+export interface LabAppearancePrefs {
   theme: LabTheme
   fontFamily: FontFamily
   fontSize: number
@@ -31,13 +28,33 @@ export interface LabPrefs {
   margins: LabMargins
   paragraphSpacing: LabParagraphSpacing
   progressDisplay: ProgressDisplay
+}
+
+export interface LabSharedPrefs {
+  primaryEdition: string
+  compareEdition: string
+  audioEdition: string
+  audioSpeed: number
   compareOpen: boolean
+}
+
+export interface LabStoredPrefs {
+  version: 2
+  shared: LabSharedPrefs
+  phone: LabAppearancePrefs
+  desktop: LabAppearancePrefs
+}
+
+export interface LabPrefs extends LabSharedPrefs, LabAppearancePrefs {
+  /** Runtime compatibility mirror. The stored source of truth is `theme`. */
+  darkMode: boolean
 }
 
 export const DEFAULT_LAB_PREFS: LabPrefs = {
   primaryEdition: LAB_EDITION_KEY,
   compareEdition: LAB_COMPARE_EDITION_KEY,
   audioEdition: LAB_EDITION_KEY,
+  audioSpeed: 1,
   darkMode: false,
   theme: 'system',
   fontFamily: 'garamond',
@@ -93,61 +110,152 @@ function isTheme(value: unknown): value is LabTheme {
   return value === 'system' || value === 'light' || value === 'dark' || value === 'book'
 }
 
-export function parseLabPrefs(raw: unknown): LabPrefs {
+function parseAppearance(
+  raw: unknown,
+  fallback: LabAppearancePrefs,
+  legacy = false,
+): LabAppearancePrefs {
   const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
   const pd = src.progressDisplay && typeof src.progressDisplay === 'object'
     ? src.progressDisplay as Record<string, unknown>
     : {}
   const fontSize = typeof src.fontSize === 'number' && Number.isFinite(src.fontSize)
     ? Math.max(LAB_MIN_FONT_SIZE, Math.min(LAB_MAX_FONT_SIZE, src.fontSize))
-    : DEFAULT_LAB_PREFS.fontSize
+    : fallback.fontSize
+  return {
+    theme: isTheme(src.theme)
+      ? src.theme
+      : (legacy && Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : fallback.theme),
+    fontFamily: isFamily(src.fontFamily) ? src.fontFamily : fallback.fontFamily,
+    fontSize,
+    alignment: src.alignment === 'left' || src.alignment === 'justify' ? src.alignment : fallback.alignment,
+    lineSpacing: src.lineSpacing === 'compact' || src.lineSpacing === 'open'
+      ? src.lineSpacing
+      : fallback.lineSpacing,
+    margins: src.margins === 'narrow' || src.margins === 'wide' || src.margins === 'medium'
+      ? src.margins
+      : fallback.margins,
+    paragraphSpacing: src.paragraphSpacing === 'compact' || src.paragraphSpacing === 'generous'
+      ? src.paragraphSpacing
+      : fallback.paragraphSpacing,
+    progressDisplay: {
+      metric: isMetric(pd.metric) ? pd.metric : fallback.progressDisplay.metric,
+      scope: isScope(pd.scope) ? pd.scope : fallback.progressDisplay.scope,
+    },
+  }
+}
+
+function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
+  const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
+  const parsedSpeed = typeof src.audioSpeed === 'number' && Number.isFinite(src.audioSpeed)
+    ? Math.max(0.5, Math.min(3, Math.round(src.audioSpeed * 100) / 100))
+    : fallback.audioSpeed
   return {
     primaryEdition: typeof src.primaryEdition === 'string' && src.primaryEdition
       ? src.primaryEdition
-      : DEFAULT_LAB_PREFS.primaryEdition,
+      : fallback.primaryEdition,
     compareEdition: typeof src.compareEdition === 'string' && src.compareEdition
       ? src.compareEdition
-      : DEFAULT_LAB_PREFS.compareEdition,
+      : fallback.compareEdition,
     audioEdition: typeof src.audioEdition === 'string' && src.audioEdition
       ? src.audioEdition
-      : DEFAULT_LAB_PREFS.audioEdition,
-    darkMode: src.darkMode === true,
-    theme: isTheme(src.theme)
-      ? src.theme
-      : (Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : DEFAULT_LAB_PREFS.theme),
-    fontFamily: isFamily(src.fontFamily) ? src.fontFamily : DEFAULT_LAB_PREFS.fontFamily,
-    fontSize,
-    alignment: src.alignment === 'left' ? 'left' : DEFAULT_LAB_PREFS.alignment,
-    lineSpacing: src.lineSpacing === 'compact' || src.lineSpacing === 'open'
-      ? src.lineSpacing
-      : DEFAULT_LAB_PREFS.lineSpacing,
-    margins: src.margins === 'narrow' || src.margins === 'wide' ? src.margins : DEFAULT_LAB_PREFS.margins,
-    paragraphSpacing: src.paragraphSpacing === 'compact' || src.paragraphSpacing === 'generous'
-      ? src.paragraphSpacing
-      : DEFAULT_LAB_PREFS.paragraphSpacing,
-    progressDisplay: {
-      metric: isMetric(pd.metric) ? pd.metric : DEFAULT_LAB_PREFS.progressDisplay.metric,
-      scope: isScope(pd.scope) ? pd.scope : DEFAULT_LAB_PREFS.progressDisplay.scope,
-    },
-    compareOpen: src.compareOpen === true,
+      : fallback.audioEdition,
+    audioSpeed: parsedSpeed,
+    compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
   }
 }
 
-export function readLabPrefs(): LabPrefs {
-  if (typeof localStorage === 'undefined') return parseLabPrefs(null)
+const DEFAULT_LAB_APPEARANCE: LabAppearancePrefs = {
+  theme: DEFAULT_LAB_PREFS.theme,
+  fontFamily: DEFAULT_LAB_PREFS.fontFamily,
+  fontSize: DEFAULT_LAB_PREFS.fontSize,
+  alignment: DEFAULT_LAB_PREFS.alignment,
+  lineSpacing: DEFAULT_LAB_PREFS.lineSpacing,
+  margins: DEFAULT_LAB_PREFS.margins,
+  paragraphSpacing: DEFAULT_LAB_PREFS.paragraphSpacing,
+  progressDisplay: DEFAULT_LAB_PREFS.progressDisplay,
+}
+
+const DEFAULT_LAB_SHARED: LabSharedPrefs = {
+  primaryEdition: DEFAULT_LAB_PREFS.primaryEdition,
+  compareEdition: DEFAULT_LAB_PREFS.compareEdition,
+  audioEdition: DEFAULT_LAB_PREFS.audioEdition,
+  audioSpeed: DEFAULT_LAB_PREFS.audioSpeed,
+  compareOpen: DEFAULT_LAB_PREFS.compareOpen,
+}
+
+export function parseLabStoredPrefs(raw: unknown): LabStoredPrefs {
+  const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
+  if (src.version === 2 && src.shared && typeof src.shared === 'object') {
+    return {
+      version: 2,
+      shared: parseShared(src.shared, DEFAULT_LAB_SHARED),
+      phone: parseAppearance(src.phone, DEFAULT_LAB_APPEARANCE),
+      desktop: parseAppearance(src.desktop, DEFAULT_LAB_APPEARANCE),
+    }
+  }
+
+  // V1 was one flat object. Cloning its appearance into both profiles keeps
+  // every existing choice while making the migration deterministic.
+  const appearance = parseAppearance(src, DEFAULT_LAB_APPEARANCE, true)
+  return {
+    version: 2,
+    shared: parseShared(src, DEFAULT_LAB_SHARED),
+    phone: { ...appearance, progressDisplay: { ...appearance.progressDisplay } },
+    desktop: { ...appearance, progressDisplay: { ...appearance.progressDisplay } },
+  }
+}
+
+function runtimeLabPrefs(stored: LabStoredPrefs, profile: LabAppearanceProfile): LabPrefs {
+  const appearance = stored[profile]
+  return {
+    ...stored.shared,
+    ...appearance,
+    progressDisplay: { ...appearance.progressDisplay },
+    darkMode: appearance.theme === 'dark',
+  }
+}
+
+export function parseLabPrefs(raw: unknown, profile: LabAppearanceProfile = 'phone'): LabPrefs {
+  return runtimeLabPrefs(parseLabStoredPrefs(raw), profile)
+}
+
+function readLabStoredPrefs(): LabStoredPrefs {
+  if (typeof localStorage === 'undefined') return parseLabStoredPrefs(null)
   try {
     const raw = localStorage.getItem(LAB_PREFS_KEY)
-    if (!raw) return parseLabPrefs(null)
-    return parseLabPrefs(JSON.parse(raw))
+    if (!raw) return parseLabStoredPrefs(null)
+    return parseLabStoredPrefs(JSON.parse(raw))
   } catch {
-    return parseLabPrefs(null)
+    return parseLabStoredPrefs(null)
   }
 }
 
-export function writeLabPrefs(prefs: LabPrefs): void {
+export function readLabPrefs(profile: LabAppearanceProfile = 'phone'): LabPrefs {
+  return runtimeLabPrefs(readLabStoredPrefs(), profile)
+}
+
+export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = 'phone'): void {
   if (typeof localStorage === 'undefined') return
   try {
-    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(prefs))
+    const current = readLabStoredPrefs()
+    const appearance: LabAppearancePrefs = {
+      theme: prefs.theme,
+      fontFamily: prefs.fontFamily,
+      fontSize: prefs.fontSize,
+      alignment: prefs.alignment,
+      lineSpacing: prefs.lineSpacing,
+      margins: prefs.margins,
+      paragraphSpacing: prefs.paragraphSpacing,
+      progressDisplay: { ...prefs.progressDisplay },
+    }
+    const next: LabStoredPrefs = {
+      version: 2,
+      shared: parseShared(prefs, current.shared),
+      phone: profile === 'phone' ? appearance : current.phone,
+      desktop: profile === 'desktop' ? appearance : current.desktop,
+    }
+    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
   } catch {
     /* quota / private mode */
   }
