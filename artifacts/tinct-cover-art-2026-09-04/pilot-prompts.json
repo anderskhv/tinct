@@ -57,5 +57,76 @@
       "mood": "calm, exact, restrained",
       "extra_constraints": "No Chinese characters, samurai, warriors, swords, or battlefield spectacle."
     }
+  ],
+  "templates": {
+    "tinct-cover-v2": {
+      "id": "tinct-cover-v2",
+      "style": "Painterly, full-bleed, textured and atmospheric literary art. One dominant light source; shared charcoal-indigo, smoke-blue, muted ochre, moon-ivory and umber palette; a single dominant silhouette that holds at 108x162.",
+      "artwork_spec": "Text-free original artwork, exact 1024x1536 2:3 portrait. Reserve a quiet upper-third title zone and lower author zone. No embedded text, pseudo-text, logo, signature, watermark, border or physical-book mockup.",
+      "anti_repetition": "Every cover gets one declared composition type and unique recipe. No composition type exceeds one third of the set. Reject period shorthand, generic AI illustration and embedded pseudo-text.",
+      "overlay": "EB Garamond title in a subtle upper-third scrim; author uppercase/small-caps treatment in matching lower scrim; fixed margins and sizes from render_v2.py."
+    }
+  },
+  "v2_prompts": [
+    {
+      "id": "bible-v2",
+      "composition_type": "landscape",
+      "request": "An ancient olive tree at a dry river valley dawn; the tree is the silhouette.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "odyssey-v2",
+      "composition_type": "landscape",
+      "request": "A black-sailed ship beneath a crescent moon, crossing dark water toward a lit island.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "the-republic-v2",
+      "composition_type": "interior",
+      "request": "A monumental stair rising to one luminous doorway, with a small side-profile philosopher.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "pride-and-prejudice-v2",
+      "composition_type": "object",
+      "request": "An unmarked letter caught in an open casement window over a rain-softened garden.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "hamlet-v2",
+      "composition_type": "interior",
+      "request": "A lone throne-like chair and its long diagonal shadow in a cold stone hall.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "the-histories-v2",
+      "composition_type": "landscape",
+      "request": "A single S-curved river and five paths meeting at a distant illuminated ford.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "frederick-douglass-v2",
+      "composition_type": "figure",
+      "request": "A dignified man in side profile holding an unmarked book at a sea-bright doorway.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "the-art-of-war-v2",
+      "composition_type": "object",
+      "request": "A dark square strategy board with plain stones forming an empty channel.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "frankenstein-v2",
+      "composition_type": "interior",
+      "request": "The existing laboratory scene: lone figure from behind within an electric green laboratory.",
+      "template": "tinct-cover-v2"
+    },
+    {
+      "id": "meditations-v2",
+      "composition_type": "symbol",
+      "request": "A worn marble bust facing dawn through a bare arch, treated as an emblem rather than a figure.",
+      "template": "tinct-cover-v2"
+    }
   ]
 }
