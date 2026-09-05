@@ -11,18 +11,57 @@ export interface ManifestParagraph {
   words?: TimedWord[]
 }
 
+/** Sidecar `alignment` block (chapter-level carries `minimumParagraphRatio`). */
+export interface SidecarAlignment {
+  expectedWords?: number
+  heardWords?: number
+  matchedWords?: number
+  matchRatio?: number
+  minimumParagraphRatio?: number
+}
+
+/**
+ * Provenance of a paragraph's word timings: the sidecar's forced-alignment
+ * match ratio and the chapter threshold it is judged against.
+ */
+export interface FollowAlignment {
+  matchRatio: number
+  threshold: number
+}
+
+export type FollowGranularity = 'word' | 'sentence'
+
 export interface FollowParagraph {
   index: number
   text: string
   duration?: number
   words?: TimedWord[]
   file?: string
+  alignment?: FollowAlignment
+}
+
+/** Half-open word range `[from, to)` marked current, with its sidecar times. */
+export interface FollowSpan {
+  from: number
+  to: number
+  start: number
+  end: number
 }
 
 export type FollowTarget =
-  | { kind: 'word'; paragraphIndex: number; wordIndex: number }
+  | {
+      kind: 'word'
+      paragraphIndex: number
+      wordIndex: number
+      /** Present only when the paragraph follows sentence by sentence. */
+      granularity?: 'sentence'
+      span?: FollowSpan
+    }
   | { kind: 'paragraph'; paragraphIndex: number }
   | { kind: 'none' }
+
+/** Sidecar paragraphs aligned below this ratio follow by sentence, not word. */
+export const DEFAULT_FOLLOW_MATCH_RATIO = 0.85
 
 function isTimedWord(value: unknown): value is TimedWord {
   if (!value || typeof value !== 'object') return false
@@ -90,6 +129,91 @@ export function paragraphHasWordTimings(paragraph: FollowParagraph | undefined):
   return !!paragraph?.words && paragraph.words.length > 0
 }
 
+function isUnitRatio(value: unknown): value is number {
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 1
+}
+
+/** Chapter threshold from `alignment.minimumParagraphRatio`, else the default. */
+export function followThresholdFromSidecar(sidecar: WordSidecar | null | undefined): number {
+  const ratio = sidecar?.alignment?.minimumParagraphRatio
+  return isUnitRatio(ratio) ? ratio : DEFAULT_FOLLOW_MATCH_RATIO
+}
+
+export function followAlignmentFromSidecar(
+  alignment: SidecarAlignment | undefined,
+  threshold: number,
+): FollowAlignment | undefined {
+  if (!alignment || !isUnitRatio(alignment.matchRatio)) return undefined
+  return { matchRatio: alignment.matchRatio, threshold }
+}
+
+/**
+ * Weakly aligned sidecars still carry one timing per word, but the timings of
+ * unmatched words are interpolated and drift inside name lists. Below the
+ * threshold the paragraph follows the enclosing sentence instead of one word.
+ * Missing alignment metadata (older sidecars) keeps word-level follow.
+ */
+export function followGranularity(paragraph: FollowParagraph | undefined): FollowGranularity {
+  const alignment = paragraph?.alignment
+  if (!alignment) return 'word'
+  return alignment.matchRatio < alignment.threshold ? 'sentence' : 'word'
+}
+
+/** `.`, `!`, `?`, `;` or `:` ending a token (closing quotes/brackets allowed). */
+export function isSentenceTerminator(text: string): boolean {
+  return /[.!?;:][\u0022\u0027\u2019\u201d)\]]*$/.test(text)
+}
+
+/**
+ * Sentence containing `wordIndex`: from the token after the previous
+ * terminator (or a verse marker, which opens its own span) to the next
+ * terminator inclusive. Times are the first word's start and last word's end.
+ */
+export function sentenceSpanAt(words: TimedWord[], wordIndex: number): FollowSpan {
+  const last = words.length - 1
+  const at = Math.max(0, Math.min(wordIndex, last))
+  let from = 0
+  for (let i = at; i > 0; i -= 1) {
+    if (isSilentVerseMarker(words[i].text) || isSentenceTerminator(words[i - 1].text)) {
+      from = i
+      break
+    }
+  }
+  let to = words.length
+  for (let i = at; i < last; i += 1) {
+    if (isSentenceTerminator(words[i].text) || isSilentVerseMarker(words[i + 1].text)) {
+      to = i + 1
+      break
+    }
+  }
+  return { from, to, start: words[from].start, end: words[to - 1].end }
+}
+
+/** Word target for a paragraph, widened to its sentence when the alignment is weak. */
+export function followWordTarget(paragraph: FollowParagraph, wordIndex: number): FollowTarget {
+  const target: FollowTarget = { kind: 'word', paragraphIndex: paragraph.index, wordIndex }
+  if (paragraph.words && paragraph.words.length > 0 && followGranularity(paragraph) === 'sentence') {
+    return { ...target, granularity: 'sentence', span: sentenceSpanAt(paragraph.words, wordIndex) }
+  }
+  return target
+}
+
+/** Paint role of one painted word under a follow target; null when not word-following. */
+export function followWordRole(
+  follow: FollowTarget,
+  paragraphIndex: number,
+  wordIndex: number,
+): 'spoken' | 'current' | 'upcoming' | null {
+  if (follow.kind !== 'word') return null
+  if (paragraphIndex < follow.paragraphIndex) return 'spoken'
+  if (paragraphIndex > follow.paragraphIndex) return 'upcoming'
+  const from = follow.span ? follow.span.from : follow.wordIndex
+  const to = follow.span ? follow.span.to : follow.wordIndex + 1
+  if (wordIndex < from) return 'spoken'
+  if (wordIndex >= to) return 'upcoming'
+  return 'current'
+}
+
 /**
  * Validated manifest / sidecar `words` win. No invented linear timings;
  * otherwise the reader falls back to paragraph-level follow.
@@ -150,7 +274,7 @@ export function followAtTime(paragraphs: FollowParagraph[], elapsedSeconds: numb
     if (duration == null) {
       if (elapsedSeconds >= cursor) {
         return paragraph.words
-          ? { kind: 'word', paragraphIndex: paragraph.index, wordIndex: wordIndexAtTime(paragraph.words, elapsedSeconds - cursor) }
+          ? followWordTarget(paragraph, wordIndexAtTime(paragraph.words, elapsedSeconds - cursor))
           : { kind: 'paragraph', paragraphIndex: paragraph.index }
       }
       return { kind: 'none' }
@@ -159,11 +283,7 @@ export function followAtTime(paragraphs: FollowParagraph[], elapsedSeconds: numb
     const local = elapsedSeconds - cursor
     if (local < duration || paragraph === paragraphs[paragraphs.length - 1]) {
       if (paragraph.words) {
-        return {
-          kind: 'word',
-          paragraphIndex: paragraph.index,
-          wordIndex: wordIndexAtTime(paragraph.words, Math.max(0, local)),
-        }
+        return followWordTarget(paragraph, wordIndexAtTime(paragraph.words, Math.max(0, local)))
       }
       return { kind: 'paragraph', paragraphIndex: paragraph.index }
     }
@@ -172,7 +292,7 @@ export function followAtTime(paragraphs: FollowParagraph[], elapsedSeconds: numb
 
   const last = paragraphs[paragraphs.length - 1]
   return last.words
-    ? { kind: 'word', paragraphIndex: last.index, wordIndex: last.words.length - 1 }
+    ? followWordTarget(last, last.words.length - 1)
     : { kind: 'paragraph', paragraphIndex: last.index }
 }
 
@@ -189,21 +309,19 @@ export function followFromPlayback(input: {
     ?? input.paragraphs[input.paragraphIndex]
   if (!paragraph) return { kind: 'none' }
   if (paragraph.words && paragraph.words.length > 0) {
-    return {
-      kind: 'word',
-      paragraphIndex: paragraph.index,
-      wordIndex: wordIndexAtTime(paragraph.words, Math.max(0, input.currentTime)),
-    }
+    return followWordTarget(paragraph, wordIndexAtTime(paragraph.words, Math.max(0, input.currentTime)))
   }
   return { kind: 'paragraph', paragraphIndex: paragraph.index }
 }
 
 export interface WordSidecar {
   chapter?: number
+  alignment?: SidecarAlignment
   paragraphs?: Array<{
     paragraph?: number
     file?: string
     words?: unknown
+    alignment?: SidecarAlignment
   }>
 }
 
@@ -215,18 +333,24 @@ export function mergeSidecarWords(
 ): FollowParagraph[] {
   if (!sidecar?.paragraphs?.length) return paragraphs
   if (expectedChapter != null && sidecar.chapter !== expectedChapter) return paragraphs
-  const byIndex = new Map<number, { file?: string; words: TimedWord[] }>()
+  const threshold = followThresholdFromSidecar(sidecar)
+  const byIndex = new Map<number, { file?: string; words: TimedWord[]; alignment?: FollowAlignment }>()
   for (const entry of sidecar.paragraphs) {
     if (typeof entry.paragraph !== 'number') continue
     const words = wordsFromManifestParagraph({ words: entry.words as TimedWord[] })
     if (!words) continue
-    byIndex.set(entry.paragraph, { file: entry.file, words })
+    byIndex.set(entry.paragraph, {
+      file: entry.file,
+      words,
+      alignment: followAlignmentFromSidecar(entry.alignment, threshold),
+    })
   }
   return paragraphs.map((paragraph) => {
     if (paragraph.words && paragraph.words.length > 0) return paragraph
     const match = byIndex.get(paragraph.index) || byIndex.get(paragraph.index + 1)
     if (!match || (paragraph.file && match.file && paragraph.file !== match.file)) return paragraph
     const words = alignTimedWordsToText(paragraph.text, match.words)
-    return words ? { ...paragraph, words } : paragraph
+    if (!words) return paragraph
+    return match.alignment ? { ...paragraph, words, alignment: match.alignment } : { ...paragraph, words }
   })
 }

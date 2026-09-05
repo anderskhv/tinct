@@ -479,6 +479,16 @@
   box-decoration-break: clone;
 }
 
+/* Sentence-level follow: a paragraph whose sidecar aligned below the chapter
+   match ratio carries data-follow-granularity="sentence" and marks every word
+   of the spoken sentence current. Same wash as word-level, kept continuous
+   across the span. */
+.lab-passage.is-hearing .lab-hearing-line[data-follow-granularity="sentence"] .lab-hearing-word.is-current,
+.lab-passage.is-reading.is-inline-hearing .lab-hearing-line[data-follow-granularity="sentence"] .is-current {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 .lab-passage.is-reading .lab-hearing-word,
 .lab-passage.is-reading .lab-word-current,
 .lab-passage.is-reading .lab-paragraph-current,

@@ -11,6 +11,7 @@ import {
 } from './LabPassage'
 import { chapterPageSegments, isLabVerseMarker, labVerseMarkerDisplay, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
 import { bibleFallbackSource } from './labSource'
+import { followFromPlayback, mergeSidecarWords, type TimedWord } from './labFollow'
 
 afterEach(cleanup)
 
@@ -162,5 +163,72 @@ describe('continued page tails', () => {
     const line = screen.getByTestId('lab-reading-stage').querySelector('.lab-hearing-line')!
     expect(line.className).toContain('is-continued')
     expect(line.className).not.toContain('is-tail-full')
+  })
+})
+
+describe('sentence-level hearing follow', () => {
+  const paragraphs = [
+    'In the beginning God created the heavens and the earth.',
+    'These are the generations of Noah. Noah was a righteous man; he walked with God.',
+  ]
+  const timed = (text: string): TimedWord[] => text.split(' ')
+    .map((word, index) => ({ text: word, start: index * 0.5, end: (index + 1) * 0.5 }))
+  const followParagraphs = mergeSidecarWords(
+    paragraphs.map((text, index) => ({ index, text, file: `p${index}.mp3` })),
+    {
+      chapter: 1,
+      alignment: { minimumParagraphRatio: 0.85 },
+      paragraphs: [
+        { paragraph: 0, file: 'p0.mp3', words: timed(paragraphs[0]), alignment: { matchRatio: 1 } },
+        { paragraph: 1, file: 'p1.mp3', words: timed(paragraphs[1]), alignment: { matchRatio: 0.8 } },
+      ],
+    },
+    1,
+  )
+
+  function hearingProps(paragraphIndex: number, currentTime: number) {
+    return {
+      chapterTitle: 'Genesis',
+      paragraphs,
+      compareParagraphs: [],
+      compare: false,
+      mode: 'hearing' as const,
+      playing: true,
+      clipIndex: paragraphIndex,
+      currentTime,
+      follow: followFromPlayback({ paragraphs: followParagraphs, paragraphIndex, currentTime }),
+      followParagraphs,
+      markedIndexes: new Set<number>(),
+    }
+  }
+
+  it('marks one word current on a fully aligned paragraph', () => {
+    render(<LabPassage {...hearingProps(0, 1.6)} />)
+    const line = screen.getByTestId('lab-hearing-stage').querySelector('.lab-hearing-line')!
+    expect(line.getAttribute('data-follow-granularity')).toBeNull()
+    const current = line.querySelectorAll('.lab-hearing-word.is-current')
+    expect(current).toHaveLength(1)
+    expect(current[0].textContent?.trim()).toBe('God')
+    expect(line.querySelectorAll('.lab-hearing-word.is-spoken')).toHaveLength(3)
+  })
+
+  it('marks the whole sentence current on a weakly aligned paragraph', () => {
+    render(<LabPassage {...hearingProps(1, 3.6)} />)
+    const line = screen.getByTestId('lab-hearing-stage').querySelector('.lab-hearing-line')!
+    expect(line.getAttribute('data-follow-granularity')).toBe('sentence')
+    const current = [...line.querySelectorAll('.lab-hearing-word.is-current')]
+    expect(current.map(el => el.textContent?.trim())).toEqual(['Noah', 'was', 'a', 'righteous', 'man;'])
+    expect(line.querySelectorAll('.lab-hearing-word.is-spoken')).toHaveLength(6)
+    expect(line.querySelectorAll('.lab-hearing-word.is-upcoming')).toHaveLength(4)
+    expect(screen.getAllByTestId('lab-hearing-current')).toHaveLength(5)
+  })
+
+  it('paints the sentence span inline on the reading page too', () => {
+    const page: ChapterHearingPage = { paragraphIndex: 1, from: 0, to: 15 }
+    render(<LabPassage {...hearingProps(1, 3.6)} mode="reading" inlineHearingPaint readingPage={page} />)
+    const line = screen.getByTestId('lab-reading-stage').querySelector('.lab-hearing-line')!
+    expect(line.getAttribute('data-follow-granularity')).toBe('sentence')
+    const current = [...line.querySelectorAll('[data-testid="lab-word"].is-current')]
+    expect(current.map(el => el.getAttribute('data-word-index'))).toEqual(['6', '7', '8', '9', '10'])
   })
 })

@@ -11,7 +11,7 @@ import {
 } from './labHighlights'
 import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
-import type { FollowParagraph, FollowTarget } from './labFollow'
+import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
@@ -175,10 +175,17 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
   ))
 }
 
+/** `data-follow-granularity` marks paragraphs whose weak sidecar alignment follows by sentence. */
+function followGranularityAttr(followParagraphs: FollowParagraph[], paragraphIndex: number): 'sentence' | undefined {
+  const paragraph = followParagraphs.find(item => item.index === paragraphIndex) || followParagraphs[paragraphIndex]
+  return followGranularity(paragraph) === 'sentence' ? 'sentence' : undefined
+}
+
 function renderHearingWords(
   paragraph: FollowParagraph | undefined,
   follow: FollowTarget,
   paragraphs: string[],
+  followParagraphs: FollowParagraph[],
   readingPage?: ChapterHearingPage,
   chapterPages?: ChapterHearingPage[],
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
@@ -191,13 +198,19 @@ function renderHearingWords(
     const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
     const paragraphCurrent = follow.kind === 'paragraph' && paragraphIndex === follow.paragraphIndex
     return (
-      <p key={lineIndex} className={`lab-hearing-line${paragraphCurrent ? ' is-paragraph-current' : ''}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
+      <p
+        key={lineIndex}
+        className={`lab-hearing-line${paragraphCurrent ? ' is-paragraph-current' : ''}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}
+        data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
+      >
         {renderWordGroups(line.words, (word, wordIndex, spacing) => {
+          // A sentence-level follow widens "current" to the whole span; word-level is unchanged.
+          const role = word.wordIndex != null ? followWordRole(follow, paragraphIndex, word.wordIndex) ?? word.role : word.role
           return (
             <span
               key={`${lineIndex}-${wordIndex}`}
-              className={`lab-hearing-word is-${word.role}`}
-              data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+              className={`lab-hearing-word is-${role}`}
+              data-testid={role === 'current' ? 'lab-hearing-current' : undefined}
               data-paragraph-index={word.wordIndex != null ? paragraphIndex : undefined}
               data-word-index={word.wordIndex}
               onClick={word.wordIndex != null && onSeekToWord
@@ -490,7 +503,7 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, paragraphs, readingPage, chapterPages, onSeekToWord)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (
@@ -520,6 +533,7 @@ export function LabPassage({
                       markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
                     ].filter(Boolean).join(' ')}
+                    data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}
                   >
                     {renderWordGroups(line.words, (word, wordIndex, spacing) => {
                       const absoluteWord = wordBase + wordIndex
@@ -527,9 +541,7 @@ export function LabPassage({
                       const selecting = activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
                       const inlineCurrent = inlineHearingPaint
-                        && follow.kind === 'word'
-                        && follow.paragraphIndex === paragraphIndex
-                        && follow.wordIndex === absoluteWord
+                        && followWordRole(follow, paragraphIndex, absoluteWord) === 'current'
                       return (
                         <span
                           key={`${lineIndex}-${wordIndex}`}
