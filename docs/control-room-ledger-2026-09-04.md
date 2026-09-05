@@ -35,6 +35,8 @@ Status vocabulary: not started · implementing · tests passing · clean commit 
 
 ## Decisions
 
+- 2026-09-05 (Anders): "I'm the only real user, others have churned. Just deploy; prefer to test production until we can't do that any more." Control-room policy from here: every clean lane commit is integrated and deployed after `npm test`, `npm run build`, `npm run verify-bundle` pass; production is the test surface; long baseline A/B browser comparisons are dropped; release 2 (reading memory) deploys straight after rebase + gates.
+
 - 2026-09-05 morning feedback (Anders): four lab phone-reader issues A–D investigated by a separate agent; Anders authorized "apply the best fixes and push to production". Fix lanes 6–8 created on the production baseline; Lane 5 integrates and deploys them as release 1.1 before release 2 (reading memory). The investigator's claim that production ran unpushed code was wrong: it compared against `main`; the deployed code is `codex/lab-convergence`.
 
 - Integration lane will push the integrated result to `codex/claude-convergence-integration` (a fast-forward of `codex/lab-convergence` + approved lane commits) rather than rewriting `codex/lab-convergence`, because deploy cannot run from this environment and the repo policy is never to push a convergence state that is not deployed.
