@@ -48,11 +48,45 @@ export interface ReadingAnchor {
   range: ReadingTextRange
 }
 
+/**
+ * A summary stored INSIDE the session record, so it syncs through the same
+ * versioned row and is never regenerated on another device. Carries its
+ * provenance: when it was generated, which model and route produced it, and
+ * the exact anchor tuple (at which session seq) it was grounded in.
+ */
+export interface StoredRecapSummary {
+  text: string
+  model: string
+  /** Worker route the summary came through (e.g. "/api/chat"). */
+  route: string
+  /** Prompt version. */
+  version: string
+  generatedAt: number
+  /** Session seq the summary was generated from. */
+  sessionSeq: number
+  /** Anchor tuple the summary was grounded in (must still match the session). */
+  anchor: ReadingAnchor
+}
+
+/** The last failed summary attempt; drives the retry back-off. */
+export interface RecapSummaryError {
+  at: number
+  /** Total attempts so far, including this failed one. */
+  attempts: number
+  message: string
+}
+
 export interface ReadingSession {
   id: string
   /** Monotonic per-session sequence; replaying the same (id, seq) is a no-op. */
   seq: number
   deviceId: string
+  /**
+   * Account that owns the session, or null when it was recorded signed out.
+   * Only `owner: null` sessions are ever adopted by an account on sign-in;
+   * sessions owned by a different account are never adopted or shown.
+   */
+  owner: string | null
   state: ReadingSessionState
   anchor: ReadingAnchor
   startedAt: number
@@ -60,6 +94,10 @@ export interface ReadingSession {
   endedAt: number | null
   /** Set only on an explicit completion signal. */
   completedAt: number | null
+  /** Automatic summary of the closed session, once generated. */
+  summary?: StoredRecapSummary | null
+  /** Last failed summary attempt, if any. */
+  summaryError?: RecapSummaryError | null
 }
 
 export interface ReadingMemoryState {
@@ -77,6 +115,13 @@ export interface ReadingMemoryEvent {
 
 export type RecapSource = 'device' | 'cloud'
 export type RecapGeneratedBy = 'excerpt' | 'summary'
+/**
+ * synced      — the shown session is in the account's cloud copy at this seq;
+ * pending     — signed in, but this session still waits in the write queue
+ *               (offline, or the last drain failed);
+ * device-only — signed out: nothing leaves the device.
+ */
+export type RecapSyncState = 'synced' | 'pending' | 'device-only'
 
 export interface RecapProvenance {
   source: RecapSource
@@ -85,6 +130,10 @@ export interface RecapProvenance {
   model?: string
   /** Summary prompt version when a summary was produced. */
   version?: string
+  /** Worker route the summary came through, when a summary was produced. */
+  route?: string
+  /** Clock value when the summary was generated, when a summary was produced. */
+  generatedAt?: number
   sessionId: string
   sessionSeq: number
   sessionState: ReadingSessionState
@@ -105,5 +154,6 @@ export interface RecapCard {
   /** Lines formatted from stored timestamps only; missing values are omitted. */
   timeline: string[]
   completed: boolean
+  syncState: RecapSyncState
   provenance: RecapProvenance
 }

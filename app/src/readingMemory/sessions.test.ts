@@ -3,6 +3,7 @@ import { chapterFixtures, sessionFor } from './fixtures.test-helpers'
 import {
   applyReadingMemoryEvent,
   applyReadingMemoryEvents,
+  closeStaleSessions,
   emptyReadingMemory,
   eventFromSession,
   latestReadingSession,
@@ -10,6 +11,7 @@ import {
   parseAnchor,
   parseReadingMemory,
   parseReadingSession,
+  visibleToViewer,
 } from './sessions'
 
 const T0 = Date.UTC(2026, 8, 3, 9, 0)
@@ -81,5 +83,48 @@ describe('reading memory sessions', () => {
     expect(merged.sessions.g.seq).toBe(2)
     expect(merged.sessions.j.state).toBe('completed')
     expect(latestReadingSession(merged)?.id).toBe('j')
+  })
+
+  it('reads a missing owner as no account, keeps a string owner, and ignores the extra keys the projection trigger does not read', () => {
+    const fixture = chapterFixtures()[0]
+    const session = sessionFor(fixture, { state: 'started', startedAt: T0 })
+    const { owner: _omitted, ...legacy } = session
+    void _omitted
+    expect(parseReadingSession(legacy)?.owner).toBeNull()
+    expect(parseReadingSession({ ...session, owner: 'user-a' })?.owner).toBe('user-a')
+    expect(parseReadingSession({ ...session, owner: 42 })?.owner).toBeNull()
+    // A malformed stored summary or error is dropped; the session survives.
+    const parsed = parseReadingSession({ ...session, summary: { text: 'no provenance' }, summaryError: { at: 'never' } })
+    expect(parsed).not.toBeNull()
+    expect(parsed?.summary).toBeUndefined()
+    expect(parsed?.summaryError).toBeUndefined()
+  })
+
+  it('closes open sessions older than the gap at their last real activity, idempotently', () => {
+    const fixture = chapterFixtures()[1]
+    const gap = 30 * 60_000
+    const stale = sessionFor(fixture, { id: 'stale', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 60_000 })
+    const fresh = sessionFor(fixture, { id: 'fresh', state: 'started', startedAt: T0 + gap })
+    const closed = sessionFor(fixture, { id: 'closed', state: 'started', startedAt: T0, endedAt: T0 })
+    const state = applyReadingMemoryEvents(emptyReadingMemory(), [stale, fresh, closed].map(eventFromSession))
+    const now = T0 + 60_000 + gap + 1
+    const events = closeStaleSessions(state, now, gap)
+    expect(events.map(event => event.sessionId)).toEqual(['stale'])
+    expect(events[0].session).toMatchObject({ seq: stale.seq + 1, endedAt: stale.lastActiveAt, lastActiveAt: stale.lastActiveAt })
+    const next = applyReadingMemoryEvents(state, events)
+    expect(closeStaleSessions(next, now, gap)).toEqual([])
+    expect(next.sessions.fresh.endedAt).toBeNull()
+  })
+
+  it('shows a viewer only unowned sessions and their own; the newest visible one wins', () => {
+    const fixture = chapterFixtures()[2]
+    const anonymous = sessionFor(fixture, { id: 'anon', state: 'started', startedAt: T0, owner: null })
+    const mine = sessionFor(fixture, { id: 'mine', state: 'started', startedAt: T0 + 1000, owner: 'user-a' })
+    const theirs = sessionFor(fixture, { id: 'theirs', state: 'started', startedAt: T0 + 2000, owner: 'user-b' })
+    const state = applyReadingMemoryEvents(emptyReadingMemory(), [anonymous, mine, theirs].map(eventFromSession))
+    expect(latestReadingSession(state)?.id).toBe('theirs')
+    expect(latestReadingSession(state, visibleToViewer('user-a'))?.id).toBe('mine')
+    expect(latestReadingSession(state, visibleToViewer(null))?.id).toBe('anon')
+    expect(latestReadingSession(state, visibleToViewer('user-c'))?.id).toBe('anon')
   })
 })

@@ -103,4 +103,15 @@ describe('what you read last recap', () => {
     expect(formatStoredTimestamp(Number.NaN, format)).toBeNull()
     expect(formatStoredTimestamp(0, format)).toBeNull()
   })
+
+  it('carries the sync state: explicit when given, otherwise synced for cloud and device-only for device', () => {
+    const fixture = platoDialogueFixture()
+    const session = sessionFor(fixture, { state: 'started', startedAt: Date.UTC(2026, 8, 5, 9) })
+    expect(buildRecapCard({ session, source: 'cloud', paragraphs: fixture.paragraphs, format }).syncState).toBe('synced')
+    expect(buildRecapCard({ session, source: 'device', paragraphs: fixture.paragraphs, format }).syncState).toBe('device-only')
+    expect(buildRecapCard({ session, source: 'device', paragraphs: fixture.paragraphs, syncState: 'pending', format }).syncState).toBe('pending')
+    const stored = { text: 'A recap.', model: 'm', version: 'v', route: '/api/chat', generatedAt: Date.UTC(2026, 8, 5, 10) }
+    const card = buildRecapCard({ session, source: 'cloud', paragraphs: fixture.paragraphs, summary: stored, format })
+    expect(card.provenance).toMatchObject({ generatedBy: 'summary', route: '/api/chat', generatedAt: stored.generatedAt })
+  })
 })

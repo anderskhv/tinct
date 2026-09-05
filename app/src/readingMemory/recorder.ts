@@ -27,6 +27,8 @@ export interface ReaderObservation {
 
 export interface ReadingMemoryRecorderOptions {
   deviceId: string
+  /** Account that owns new sessions; null (default) while signed out. */
+  owner?: () => string | null
   now?: () => number
   createId?: () => string
   load: () => ReadingMemoryState
@@ -42,6 +44,8 @@ export interface ReadingMemoryRecorder {
   end(): ReadingSession | null
   current(): ReadingSession | null
   state(): ReadingMemoryState
+  /** Re-read the store after something else rewrote it (sign-in adoption). */
+  reload(): void
 }
 
 export function createReadingSessionId(): string {
@@ -77,6 +81,7 @@ export function createReadingMemoryRecorder(options: ReadingMemoryRecorderOption
   const now = options.now ?? (() => Date.now())
   const createId = options.createId ?? createReadingSessionId
   const gapMs = options.sessionGapMs ?? READING_SESSION_GAP_MS
+  const owner = options.owner ?? (() => null)
   let state = options.load()
   let current: ReadingSession | null = null
 
@@ -100,8 +105,11 @@ export function createReadingMemoryRecorder(options: ReadingMemoryRecorderOption
     observe(observation) {
       if (!observation.ready || observation.paragraphs.length === 0) return current
       const at = now()
+      const ownerNow = owner()
       const tuple = sessionTupleKey(observation)
-      const sameTuple = current !== null && sessionTupleKey(current.anchor) === tuple
+      // A session belongs to exactly one owner; an auth change closes it and
+      // opens the next one under the new owner.
+      const sameTuple = current !== null && sessionTupleKey(current.anchor) === tuple && current.owner === ownerNow
       const stale = current !== null && (current.endedAt !== null || at - current.lastActiveAt > gapMs)
 
       if (!sameTuple || stale) {
@@ -115,6 +123,7 @@ export function createReadingMemoryRecorder(options: ReadingMemoryRecorderOption
           id: createId(),
           seq: 1,
           deviceId: options.deviceId,
+          owner: ownerNow,
           state: observation.completionSignal ? 'completed' : (resumed ? 'resumed' : 'started'),
           anchor,
           startedAt: at,
@@ -149,6 +158,11 @@ export function createReadingMemoryRecorder(options: ReadingMemoryRecorderOption
     },
     current: () => current,
     state: () => state,
+    reload() {
+      state = options.load()
+      // The open session may have been retagged (adopted) by the rewrite.
+      if (current) current = state.sessions[current.id] ?? null
+    },
   }
 }
 

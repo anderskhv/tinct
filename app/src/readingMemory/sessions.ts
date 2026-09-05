@@ -1,4 +1,4 @@
-import type { ReadingAnchor, ReadingMemoryEvent, ReadingMemoryState, ReadingSession, ReadingSessionState, ReadingTextRange } from './types'
+import type { ReadingAnchor, ReadingMemoryEvent, ReadingMemoryState, ReadingSession, ReadingSessionState, ReadingTextRange, RecapSummaryError, StoredRecapSummary } from './types'
 
 export const READING_MEMORY_VERSION = 1 as const
 /** Keep the memory bounded; the recap only needs the most recent sessions. */
@@ -68,10 +68,41 @@ export function parseAnchor(raw: unknown): ReadingAnchor | null {
   }
 }
 
+export const SUMMARY_MAX_CHARS = 4000
+
+/** A stored summary is only trusted whole: text, provenance and its anchor. */
+export function parseStoredSummary(raw: unknown): StoredRecapSummary | null {
+  if (!raw || typeof raw !== 'object') return null
+  const src = raw as Record<string, unknown>
+  if (!isText(src.text, SUMMARY_MAX_CHARS) || !isText(src.model, 120) || !isText(src.route, 200) || !isText(src.version, 120)) return null
+  if (!isClock(src.generatedAt) || !isInt(src.sessionSeq, 1)) return null
+  const anchor = parseAnchor(src.anchor)
+  if (!anchor) return null
+  return {
+    text: src.text,
+    model: src.model,
+    route: src.route,
+    version: src.version,
+    generatedAt: src.generatedAt,
+    sessionSeq: src.sessionSeq,
+    anchor,
+  }
+}
+
+export function parseSummaryError(raw: unknown): RecapSummaryError | null {
+  if (!raw || typeof raw !== 'object') return null
+  const src = raw as Record<string, unknown>
+  if (!isClock(src.at) || !isInt(src.attempts, 1, 1000)) return null
+  const message = typeof src.message === 'string' ? src.message.slice(0, 500) : ''
+  return { at: src.at, attempts: src.attempts, message }
+}
+
 export function parseReadingSession(raw: unknown): ReadingSession | null {
   if (!raw || typeof raw !== 'object') return null
   const src = raw as Record<string, unknown>
   if (!isText(src.id, 120) || !isInt(src.seq, 1) || !isText(src.deviceId, 120)) return null
+  // A session recorded before owners existed, or signed out, belongs to no account.
+  const owner = isText(src.owner, 120) ? src.owner : null
   if (!STATES.includes(src.state as ReadingSessionState)) return null
   const anchor = parseAnchor(src.anchor)
   if (!anchor) return null
@@ -82,16 +113,21 @@ export function parseReadingSession(raw: unknown): ReadingSession | null {
   // Completed is a stored fact, never a derived one: the state and the
   // timestamp must agree.
   if ((src.state === 'completed') !== (src.completedAt !== null)) return null
+  const summary = parseStoredSummary(src.summary)
+  const summaryError = parseSummaryError(src.summaryError)
   return {
     id: src.id,
     seq: src.seq,
     deviceId: src.deviceId,
+    owner,
     state: src.state as ReadingSessionState,
     anchor,
     startedAt: src.startedAt,
     lastActiveAt: src.lastActiveAt,
     endedAt: src.endedAt === null ? null : (src.endedAt as number),
     completedAt: src.completedAt === null ? null : (src.completedAt as number),
+    ...(summary ? { summary } : {}),
+    ...(summaryError ? { summaryError } : {}),
   }
 }
 
@@ -165,15 +201,44 @@ export function eventFromSession(session: ReadingSession): ReadingMemoryEvent {
   return { sessionId: session.id, seq: session.seq, session }
 }
 
-/** Most recently active session, if any. */
-export function latestReadingSession(state: ReadingMemoryState): ReadingSession | null {
+/**
+ * Most recently active session by `lastActiveAt`, regardless of whether it
+ * has synced yet. An optional filter narrows the candidates (see
+ * `visibleToViewer`).
+ */
+export function latestReadingSession(state: ReadingMemoryState, filter?: (session: ReadingSession) => boolean): ReadingSession | null {
   let best: ReadingSession | null = null
   for (const session of Object.values(state.sessions)) {
+    if (filter && !filter(session)) continue
     if (!best || session.lastActiveAt > best.lastActiveAt || (session.lastActiveAt === best.lastActiveAt && session.seq > best.seq)) {
       best = session
     }
   }
   return best
+}
+
+/**
+ * A viewer sees sessions recorded by no account (owner null) and sessions
+ * owned by their own account. Another account's sessions left on the device
+ * are never shown, adopted or resumed.
+ */
+export function visibleToViewer(viewer: string | null): (session: ReadingSession) => boolean {
+  return session => session.owner === null || session.owner === viewer
+}
+
+/**
+ * Open sessions whose last activity is older than the gap are closed by the
+ * 30-minute rule. Each returned event ends the session at its last real
+ * activity, never at "now". Applying them is idempotent (seq + 1).
+ */
+export function closeStaleSessions(state: ReadingMemoryState, now: number, gapMs: number): ReadingMemoryEvent[] {
+  const events: ReadingMemoryEvent[] = []
+  for (const session of Object.values(state.sessions)) {
+    if (session.endedAt !== null) continue
+    if (now - session.lastActiveAt <= gapMs) continue
+    events.push(eventFromSession({ ...session, seq: session.seq + 1, endedAt: session.lastActiveAt }))
+  }
+  return events
 }
 
 export function sessionTupleKey(anchor: Pick<ReadingAnchor, 'bookId' | 'editionKey' | 'chapterNumber'>): string {

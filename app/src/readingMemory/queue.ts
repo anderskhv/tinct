@@ -11,6 +11,8 @@ export interface ReadingMemoryQueue {
   pending(): ReadingMemoryEvent[]
   /** Drop every queued event at or below the given seq for that session. */
   ack(acked: Array<{ sessionId: string; seq: number }>): void
+  /** Keep only the events the predicate accepts (used on user switch). */
+  retain(keep: (event: ReadingMemoryEvent) => boolean): void
   clear(): void
 }
 
@@ -40,6 +42,9 @@ export function createReadingMemoryQueue(storage: ReadingMemoryQueueStorage): Re
     ack(acked) {
       const remaining = load().filter(event => !acked.some(item => item.sessionId === event.sessionId && item.seq >= event.seq))
       save(remaining)
+    },
+    retain(keep) {
+      save(load().filter(keep))
     },
     clear() {
       save([])
