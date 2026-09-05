@@ -1288,3 +1288,177 @@ curl -sS -H "Authorization: Bearer <R2_TOKEN>" \
 
 Not run: `wrangler r2 object put`, `wrangler deploy`, any bucket list, any
 GPU or corpus job, any browser session.
+
+### Rerun 3 with CF_R2_TOKEN (2026-09-05)
+
+Lane 2 rerun in a fresh cloud session, checkout
+`codex/claude-word-timing-production` at `6207dbea`, `git status --short`
+clean before and after `npm ci --no-audit --no-fund` (wrangler 4.124.0 via
+`npx` from `app/`). Outcome: **all steps pass.** Both Genesis 1 pilot
+sidecars were uploaded to `tinct-audio` (neither key existed beforehand),
+read back byte-identical, and production serves both at `200`. Headless
+Chromium against `https://tinct.app/lab/reader` shows word highlighting
+advancing with media time for `web-en` and `modern-en` at 1× and 2×, with
+the `words.json` sidecar fetched from production in every run. No deploy,
+no bucket list, no GPU or corpus job. The Workers deploy token was not used
+for any R2 or Cloudflare call.
+
+**Environment note.** The variable is exported as `CF_R2_Token` (mixed
+case), not `CF_R2_TOKEN`. A first probe under the upper-case name found it
+empty (`Authorization: Bearer` with no value → code 6111). All commands below
+used `"$CF_R2_Token"`; the value was never printed or written anywhere.
+
+#### Step 0 — token identity (facts only, never the value)
+
+| Check | Result |
+|---|---|
+| Length / SHA-256 prefix | 53 chars; `122e8a01…` (the rerun-2 token was `4c2a18aa…`, so this is a different value) |
+| `GET /client/v4/accounts/58f26c4a…/tokens/verify` | `success:false`, code `1000 Invalid API Token` (expected: this is not an account-owned token) |
+| `GET /client/v4/user/tokens/verify` | `success:true`, `status:"active"` (user-owned custom token; the user endpoint returns only `id` + `status`, no `not_before` / `expires_on`) |
+| `GET /client/v4/accounts/58f26c4a…/r2/buckets/tinct-audio` | HTTP 200, `success:true`, `name:"tinct-audio"`, location `EEUR`, created 2026-03-26 |
+
+Verdict: **new token**, not the 05:31 account-owned one. It is user-owned,
+active, and authorised on the bucket.
+
+#### Step results
+
+| Step | Result |
+|---|---|
+| 1. Pilots | **pass.** `bible-web-en-ch1.words.json` 72,454 B, SHA-256 `2f0e8e15031138a2e78735fc6033cacf612ebc7c4cc8afac38b784cd0e53b7c3`; `bible-modern-en-ch1.words.json` 72,226 B, SHA-256 `1b384804edf8ceaa04a8af7e0c8ffa07a544c0847c030dc3db131ea7334f64e5`. Both equal the recorded hashes. Validator `OK … (7 paragraphs)`, exit 0 for both. |
+| 2. Known-object read | **pass.** `wrangler r2 object get tinct-audio/bible/kjv-en/ch1/words.json … --remote` exit 0, 76,890 B, SHA-256 `9dcd404d57fc80e85fc94363ed9e3071176bb589fee8f450b997ca42a8f28a15`; validator `OK … (7 paragraphs)`, exit 0 (`--edition bible-kjv-en --chapter 1`). |
+| 3. No-overwrite | Production pre-check: both targets `404` (9 B text/plain). R2 pre-check: `wrangler r2 object get` for `bible/web-en/ch1/words.json` and `bible/modern-en/ch1/words.json` both exit 1 with `The specified key does not exist.` (0-byte output). **Uploaded both** with `wrangler r2 object put … --content-type application/json --remote`: `Creating object … Upload complete.`, exit 0 each. |
+| 4. Verify | **pass.** R2 GET back: `web-en` 72,454 B, SHA-256 `2f0e8e15…53b7c3` (= pilot); `modern-en` 72,226 B, SHA-256 `1b384804…4f64e5` (= pilot). Validator exit 0 for both. Provenance present in both: `method: faster-whisper-word-timestamps`, `model: small.en`, `language: en`, `alignment` block (`web-en`: 738/738/738 matched, ratio 1; `modern-en`: expected 735, heard 728, matched 724, ratio 0.985; `minimumParagraphRatio` 0.85). Production headers below. |
+| 5. Highlighting 1× / 2× | **pass** for `web-en` and `modern-en` at both speeds (tables below). |
+
+#### Production headers (after upload, ~1 min later)
+
+`curl -sD - https://tinct.app/api/audio-file?path=bible/<edition>/ch1/words.json`,
+plain and with `&v=1788589953`. No `age` or `cf-cache-status` header is
+emitted by the Worker, so no stale-404 retry was needed; the plain URL was
+already serving the new object.
+
+| Key | HTTP | content-type | content-length | cache-control | body SHA-256 | with `&v=` |
+|---|---|---|---|---|---|---|
+| `bible/web-en/ch1/words.json` | 200 | application/json | 72,454 | `public, max-age=86400` | `2f0e8e15…53b7c3` (= pilot) | identical |
+| `bible/modern-en/ch1/words.json` | 200 | application/json | 72,226 | `public, max-age=86400` | `1b384804…4f64e5` (= pilot) | identical |
+
+Other headers: `accept-ranges: bytes`, `access-control-allow-origin: *`,
+`server: cloudflare`, `cf-ray: …-IAD`.
+
+#### Step 5 — production highlighting (headless, word identity only)
+
+Setup: preinstalled Chromium `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`
+via `playwright` 1.58.2 from `app/node_modules`, headless, args
+`--autoplay-policy=no-user-gesture-required --no-sandbox
+--disable-background-networking --ssl-version-max=tls1.2`, viewport 390×844,
+iPhone UA, `isMobile`. `addInitScript` wrapped `window.Audio` to record the
+off-DOM audio element the lab creates (`useLabListen.ts` uses `new Audio()`),
+seeded `localStorage["tinct-lab-prefs"]` (v2, `shared.primaryEdition` =
+`shared.audioEdition` = edition, `shared.audioSpeed` = 1 or 2) and cleared
+`tinct-lab-position`. Loaded `https://tinct.app/lab/reader` (header
+"The Bible · Genesis 1"), clicked `[data-testid="lab-listen"]`, then sampled
+every 0.5 s for 20 s: `audio.src`, `audio.currentTime`, `audio.playbackRate`,
+the current-word element (`[data-testid="lab-hearing-current"]` or
+`[data-testid="lab-word"].is-current`), and `data-audio-speed` on the lab
+root. Expected word = sidecar word for the playing paragraph clip
+(`pN.mp3`) at `currentTime + 0.08` (`LAB_FOLLOW_LEAD_SECONDS`), under two
+rules: *window* (`start <= t < end`) and *last-started* (last word with
+`start <= t`, which is what `wordIndexAtTime` in `labFollow.ts` implements;
+the window rule has no match inside inter-word gaps). Comparison strips
+punctuation and case.
+
+Environment caveat: Chromium's TLS 1.3 client hello was reset by the
+session's TLS-terminating egress proxy (`ERR_CONNECTION_RESET`, relay log
+"tunnel closed after 6s; ~1.7 KB sent, 39 B received"); capping at TLS 1.2
+fixed it. Verification stayed on; this affects only the test harness, not
+production.
+
+| Run | words.json fetch | clips played | `currentTime` range | `playbackRate` / `data-audio-speed` | samples with a highlighted word | distinct words | match (last-started) | match (window) | mismatches |
+|---|---|---|---|---|---|---|---|---|---|
+| `web-en` 1× | 200 (`…&timing=2`) | title, p0 | 0 → 16.53 s | 1 / `1` | 34 / 40 | 25 | 31 / 34 | 22 / 34 | 3, all DOM one word *behind* sidecar |
+| `web-en` 2× | 200 | title, p0, p1 | 0 → 24.5 s (p0 done in ~12.5 s wall) | 2 / `2` | 36 / 40 | 28 | 35 / 36 | 28 / 36 | 1, one word behind |
+| `modern-en` 1× | 200 | title, p0 | 0 → 16.4 s | 1 / `1` | 34 / 40 | 24 | 33 / 34 | 28 / 34 | 1, one word behind |
+| `modern-en` 2× | 200 | title, p0, p1 | 0 → 23.17 s | 2 / `2` | 36 / 40 | 31 | 32 / 36 | 23 / 36 | 4, all one word behind |
+
+The first ~5 samples of each run have no highlighted word because
+`title.mp3` (1.95 s) plays first and the sidecar has no title words. Every
+mismatch is the immediately preceding sidecar word (offset −1), i.e. the
+DOM had not yet advanced when `currentTime` was read in the same tick; that
+is `timeupdate` granularity in the probe, not a timing-file error. Window
+misses beyond those are samples that fell in the gap after a word's `end`
+(the highlight correctly stays on the finished word).
+
+Excerpt, `web-en` 1× (`p0.mp3`, `t` = `currentTime`):
+
+| t (s) | DOM word | sidecar (last-started) | sidecar (window) |
+|---|---|---|---|
+| 0.00 | In | In | In |
+| 0.79 | beginning | beginning | beginning |
+| 1.30 | created | created | created |
+| 2.81 | earth. | earth. | — (gap) |
+| 4.32 | formless | formless | formless |
+| 7.87 | God's | God's | God's |
+| 8.41 | Spirit | was | was |
+| 12.47 | light," | light," | light," |
+| 16.02 | good. | good. | good. |
+
+Excerpt, `modern-en` 2× (`p0.mp3` then `p1.mp3`):
+
+| t (s) | clip | DOM word | sidecar (last-started) |
+|---|---|---|---|
+| 0.04 | p0 | In | In |
+| 1.99 | p0 | heavens | heavens |
+| 8.06 | p0 | of | of |
+| 14.08 | p0 | that | that |
+| 20.14 | p0 | There | There |
+| 23.17 | p0 | day. | day. |
+| 0.00 | p1 | God | God |
+| 3.03 | p1 | to | to |
+| 9.10 | p1 | above | above |
+
+Screenshots (not committed) show the WEB / modern text with one word
+highlighted and the phone transport at 1× / 2×. **This asserts word
+identity against the sidecar as media time advances; it says nothing about
+perceptual sync**, which still needs a human listening pass.
+
+#### What remains blocked
+
+- **Genesis 1–10 GPU benchmark** (`generate-words-sidecar.py --start-ch 1 --end-ch 10`): still needs a GPU pod; nothing here.
+- **Human listening pass** at 1× and 2× on `web-en` and `modern-en`, now possible on production.
+- Only Genesis 1 has sidecars for `web-en` / `modern-en`; every other chapter still falls back to client measurement.
+
+#### Exact commands used
+
+```bash
+git rev-parse --short HEAD && git status --short          # 6207dbea, clean
+env | cut -d= -f1 | grep -i r2                             # CF_R2_Token (mixed case)
+curl -s -H "Authorization: Bearer <R2_TOKEN>" https://api.cloudflare.com/client/v4/accounts/58f26c4a077e8c66e0b017d2399ae1b3/tokens/verify   # code 1000 (not account-owned)
+curl -s -H "Authorization: Bearer <R2_TOKEN>" https://api.cloudflare.com/client/v4/user/tokens/verify                                        # success, active
+curl -s -H "Authorization: Bearer <R2_TOKEN>" https://api.cloudflare.com/client/v4/accounts/58f26c4a077e8c66e0b017d2399ae1b3/r2/buckets/tinct-audio   # 200, success
+
+git fetch origin codex/ref-artifacts-2026-09-04
+mkdir -p /tmp/pilots
+git show origin/codex/ref-artifacts-2026-09-04:artifacts/tinct-word-timing-recovery-2026-09-04/pilots/bible-web-en-ch1.words.json    > /tmp/pilots/bible-web-en-ch1.words.json
+git show origin/codex/ref-artifacts-2026-09-04:artifacts/tinct-word-timing-recovery-2026-09-04/pilots/bible-modern-en-ch1.words.json > /tmp/pilots/bible-modern-en-ch1.words.json
+sha256sum /tmp/pilots/*.json
+node app/scripts/validate-words-sidecar.cjs /tmp/pilots/bible-web-en-ch1.words.json    --edition bible-web-en    --chapter 1   # OK, exit 0
+node app/scripts/validate-words-sidecar.cjs /tmp/pilots/bible-modern-en-ch1.words.json --edition bible-modern-en --chapter 1   # OK, exit 0
+
+cd app && npm ci --no-audit --no-fund && npx wrangler --version   # 4.124.0
+export CLOUDFLARE_ACCOUNT_ID=58f26c4a077e8c66e0b017d2399ae1b3      # (inline on each call in practice)
+CLOUDFLARE_API_TOKEN="<R2_TOKEN>" npx wrangler r2 object get tinct-audio/bible/kjv-en/ch1/words.json --file /tmp/kjv-ch1.words.json --remote   # exit 0, 76,890 B
+node scripts/validate-words-sidecar.cjs /tmp/kjv-ch1.words.json --edition bible-kjv-en --chapter 1                                       # OK, exit 0
+for k in bible/web-en/ch1/words.json bible/modern-en/ch1/words.json; do curl -s -o /dev/null -w '%{http_code}\n' "https://tinct.app/api/audio-file?path=$k"; done   # 404 404
+for e in web-en modern-en; do
+  CLOUDFLARE_API_TOKEN="<R2_TOKEN>" npx wrangler r2 object get tinct-audio/bible/$e/ch1/words.json --file /tmp/pre-$e.json --remote        # "The specified key does not exist."
+  CLOUDFLARE_API_TOKEN="<R2_TOKEN>" npx wrangler r2 object put tinct-audio/bible/$e/ch1/words.json --file /tmp/pilots/bible-$e-ch1.words.json --content-type application/json --remote   # Upload complete
+  CLOUDFLARE_API_TOKEN="<R2_TOKEN>" npx wrangler r2 object get tinct-audio/bible/$e/ch1/words.json --file /tmp/post-$e.json --remote
+  sha256sum /tmp/post-$e.json /tmp/pilots/bible-$e-ch1.words.json                                                                          # equal
+  node scripts/validate-words-sidecar.cjs /tmp/post-$e.json --edition bible-$e --chapter 1                                                # OK, exit 0
+  curl -sD - -o /tmp/prod-$e.json "https://tinct.app/api/audio-file?path=bible/$e/ch1/words.json"; sha256sum /tmp/prod-$e.json            # 200, = pilot
+  curl -sD - -o /tmp/prod-$e-v.json "https://tinct.app/api/audio-file?path=bible/$e/ch1/words.json&v=$(date +%s)"                          # 200, = pilot
+done
+# step 5: NODE_PATH=app/node_modules node highlight.cjs <web-en|modern-en> <1|2> out.json  (Playwright script described above)
+```
+
+Not run: `wrangler deploy`, any bucket list, any GPU or corpus job.
