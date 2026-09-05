@@ -1019,3 +1019,141 @@ catalogue run, in a separate tooling commit.
 - one further commit — this document.
 - No pilot JSON, logs, `__pycache__`, or artifacts were committed; the working
   tree is clean after the docs commit.
+
+## Canary upload and production verification (2026-09-05)
+
+Lane 2 rerun in a fresh cloud session with network egress and two tokens in
+the environment. Outcome: **stopped at step 2 (known-object read test)**.
+The value supplied as `CLOUDFLARE_R2_TOKEN` is rejected by Cloudflare as an
+invalid API token, so no object was read from or written to R2. Nothing was
+uploaded; both target keys are still absent from production.
+
+### Environment facts
+
+| Fact | Value |
+|---|---|
+| Checkout | `codex/claude-word-timing-production` at `df82698f`, `git status --short` clean before and after `npm ci` |
+| Node / npm | v22.22.2 / npm 11 (npm suggested 12.0.2; not upgraded) |
+| wrangler | 4.124.0 via `npx` from `app/` after `npm ci --no-audit --no-fund` |
+| Egress | works to `tinct.app` and `api.cloudflare.com` through the session proxy (TLS re-terminated; the proxy reported no relay failures and does not inject Cloudflare credentials) |
+| `app/.env`, `app/.dev.vars` | absent, so wrangler could only have read the inline `CLOUDFLARE_API_TOKEN` override (it printed "The API Token is read from the CLOUDFLARE_API_TOKEN environment variable") |
+| GPU / faster-whisper | none / not installed; no benchmark attempted |
+| Browser | preinstalled Chromium under `/opt/pw-browsers`; not used, because step 5 needs the sidecars on production first |
+
+### Step 1 — pilot files (pass)
+
+Fetched from `origin/codex/ref-artifacts-2026-09-04` with `git show` into
+`/tmp/pilots/` (not committed).
+
+| File | Size | SHA-256 | Matches §4.2 | Validator |
+|---|---|---|---|---|
+| `bible-web-en-ch1.words.json` | 72,454 B | `2f0e8e15031138a2e78735fc6033cacf612ebc7c4cc8afac38b784cd0e53b7c3` | yes | `OK … (7 paragraphs)`, exit 0 (`--edition bible-web-en --chapter 1`) |
+| `bible-modern-en-ch1.words.json` | 72,226 B | `1b384804edf8ceaa04a8af7e0c8ffa07a544c0847c030dc3db131ea7334f64e5` | yes | `OK … (7 paragraphs)`, exit 0 (`--edition bible-modern-en --chapter 1`) |
+
+### Production key inventory (curl, before any R2 call)
+
+| Key (`/api/audio-file?path=…`) | HTTP | content-type | size |
+|---|---|---|---|
+| `bible/kjv-en/ch1/manifest.json` | 200 | application/json | 729 B |
+| `bible/kjv-en/ch1/p0.mp3` | 200 | audio/mpeg | 411,693 B |
+| `bible/kjv-en/ch1/words.json` (control, `cache-control: public, max-age=86400`) | 200 | application/json | 76,890 B |
+| `bible/web-en/ch1/manifest.json` | 200 | application/json | 728 B |
+| **`bible/web-en/ch1/words.json`** (target) | **404** | text/plain | 9 B |
+| `bible/modern-en/ch1/manifest.json` | 200 | application/json | 738 B |
+| **`bible/modern-en/ch1/words.json`** (target) | **404** | text/plain | 9 B |
+
+So the no-overwrite precondition for both targets holds on production, and
+`bible/kjv-en/ch1/words.json` is a real, existing object suitable for the
+known-object read test.
+
+### Step 2 — known-object read test (FAIL, hard stop)
+
+```
+cd app
+CLOUDFLARE_ACCOUNT_ID=58f26c4a077e8c66e0b017d2399ae1b3 CLOUDFLARE_API_TOKEN="<R2_TOKEN>" \
+  npx wrangler r2 object get tinct-audio/bible/kjv-en/ch1/words.json --file /tmp/kjv-ch1.words.json --remote
+```
+
+Result: exit 1, output file 0 bytes. wrangler resolved the account
+(`Ahvelplund@fastmail.com's Account`, `58f26c4a077e8c66e0b017d2399ae1b3`) and
+then:
+
+```
+✘ [ERROR] Failed to fetch /accounts/58f26c4a077e8c66e0b017d2399ae1b3/r2/buckets/tinct-audio/objects/bible/kjv-en/ch1/words.json - 403: Forbidden;
+{"success":false,"errors":[{"code":10000,"message":"Authentication error"}],"messages":[],"result":null}
+```
+
+This is an object-level GET, not a bucket list, so the §5 caveat (a 10000 on
+`bucket list` proves nothing) does not apply: the token is not authorized for
+object reads on `tinct-audio`.
+
+Two confirming checks, both with the same `<R2_TOKEN>` value:
+
+| Check | Result |
+|---|---|
+| `curl -H "Authorization: Bearer <R2_TOKEN>" https://api.cloudflare.com/client/v4/user/tokens/verify` | `{"success":false,"errors":[{"code":1000,"message":"Invalid API Token"}]}` |
+| Direct REST GET of the same object (`…/r2/buckets/tinct-audio/objects/bible/kjv-en/ch1/words.json`) | HTTP 403, code 10000 "Authentication error" (identical to wrangler) |
+
+Code 1000 from `tokens/verify` means Cloudflare does not recognise the value
+as any API token at all (an existing token with insufficient scope would
+verify as `active` and then fail with 10000 on the object call). Likely
+causes, in order: the wrong secret was pasted into the environment variable
+(for example an R2 S3 access-key or secret rather than an API token), the
+token was rolled or deleted after being created, or the value was truncated
+or altered when stored. Cloudflare API tokens are usually 40 characters; the
+supplied value is 53 characters of `[A-Za-z0-9_-]` with no whitespace. The
+value itself was never printed or written anywhere.
+
+The Workers deploy token was not used for any R2 or Cloudflare call, per
+lane rules.
+
+### Steps 3–5 — not attempted
+
+| Step | Status | Reason |
+|---|---|---|
+| 3. No-overwrite check / upload | not attempted | No authorised token; production already shows both targets 404, so nothing would have been overwritten had the token worked |
+| 4. R2 GET / hash / validator / production headers | not attempted | Nothing uploaded |
+| 5. Highlighting at 1× and 2× (`web-en`, `modern-en`) | not attempted | Sidecars are not on production; the reader would only exercise client measurement fallback, which is not what the canary tests |
+
+### What remains blocked
+
+- **Step 2 onward**: a valid least-privilege R2 API token (Object Read &
+  Write on bucket `tinct-audio`, created under Account → R2 → Manage API
+  tokens or as a user API token with the `Workers R2 Storage` permission)
+  exported as `CLOUDFLARE_R2_TOKEN`. First check on the rerun:
+  `tokens/verify` must return `"status":"active"`, then the known-object GET
+  above must produce a 76,890-byte file that passes
+  `node app/scripts/validate-words-sidecar.cjs /tmp/kjv-ch1.words.json --edition bible-kjv-en --chapter 1`.
+- **Genesis 1–10 GPU benchmark** (`generate-words-sidecar.py --start-ch 1 --end-ch 10`): still needs a GPU pod; nothing here.
+- **Human listening pass** at 1× and 2× on `web-en` and `modern-en`: still
+  needed after the upload; the headless check in step 5 only asserts word
+  identity against the sidecar, never perceptual sync.
+
+### Exact commands used
+
+```bash
+git rev-parse --short HEAD && git status --short          # df82698f, clean
+git fetch origin codex/ref-artifacts-2026-09-04
+mkdir -p /tmp/pilots
+git show origin/codex/ref-artifacts-2026-09-04:artifacts/tinct-word-timing-recovery-2026-09-04/pilots/bible-web-en-ch1.words.json    > /tmp/pilots/bible-web-en-ch1.words.json
+git show origin/codex/ref-artifacts-2026-09-04:artifacts/tinct-word-timing-recovery-2026-09-04/pilots/bible-modern-en-ch1.words.json > /tmp/pilots/bible-modern-en-ch1.words.json
+sha256sum /tmp/pilots/*.json
+node app/scripts/validate-words-sidecar.cjs /tmp/pilots/bible-web-en-ch1.words.json    --edition bible-web-en    --chapter 1
+node app/scripts/validate-words-sidecar.cjs /tmp/pilots/bible-modern-en-ch1.words.json --edition bible-modern-en --chapter 1
+
+for k in bible/kjv-en/ch1/manifest.json bible/kjv-en/ch1/p0.mp3 bible/kjv-en/ch1/words.json \
+         bible/web-en/ch1/manifest.json bible/web-en/ch1/words.json \
+         bible/modern-en/ch1/manifest.json bible/modern-en/ch1/words.json; do
+  printf '%s -> ' "$k"; curl -s -o /dev/null -w '%{http_code} %{content_type} %{size_download}\n' "https://tinct.app/api/audio-file?path=$k"
+done
+
+cd app && npm ci --no-audit --no-fund && npx wrangler --version   # 4.124.0
+CLOUDFLARE_ACCOUNT_ID=58f26c4a077e8c66e0b017d2399ae1b3 CLOUDFLARE_API_TOKEN="<R2_TOKEN>" \
+  npx wrangler r2 object get tinct-audio/bible/kjv-en/ch1/words.json --file /tmp/kjv-ch1.words.json --remote   # exit 1, 403 / 10000
+curl -sS -H "Authorization: Bearer <R2_TOKEN>" https://api.cloudflare.com/client/v4/user/tokens/verify          # code 1000 Invalid API Token
+curl -sS -o /tmp/kjv-rest.json -w 'http=%{http_code}\n' -H "Authorization: Bearer <R2_TOKEN>" \
+  "https://api.cloudflare.com/client/v4/accounts/58f26c4a077e8c66e0b017d2399ae1b3/r2/buckets/tinct-audio/objects/bible/kjv-en/ch1/words.json"  # 403 / 10000
+```
+
+Not run: `wrangler r2 object put`, `wrangler deploy`, any bucket list, any
+GPU or corpus job.
