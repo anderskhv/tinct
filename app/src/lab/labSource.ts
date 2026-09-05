@@ -46,6 +46,12 @@ export interface LabSource {
   followParagraphs: FollowParagraph[]
   audioTitle?: LabAudioTitleClip
   chapters: LabChapter[]
+  /**
+   * True while `chapters` is a placeholder (boot render, network fallback)
+   * rather than the loaded manifest. Anything that validates a position
+   * against the chapter list must wait until this is cleared.
+   */
+  chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
 }
@@ -104,6 +110,7 @@ function sourceFromChapter(input: {
   followParagraphs: FollowParagraph[]
   audioTitle?: LabAudioTitleClip
   chapters: LabChapter[]
+  chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
 }): LabSource {
@@ -124,6 +131,7 @@ function sourceFromChapter(input: {
     followParagraphs: input.followParagraphs,
     audioTitle: input.audioTitle,
     chapters: input.chapters,
+    ...(input.chaptersProvisional ? { chaptersProvisional: true } : {}),
     sections: input.sections,
     cast: input.cast,
   }
@@ -166,6 +174,7 @@ export function bibleFallbackSource(): LabSource {
       { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
       { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
     ],
+    chaptersProvisional: true,
     sections: [
       {
         title: 'Old Testament',

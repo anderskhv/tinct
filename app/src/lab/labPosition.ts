@@ -15,12 +15,19 @@
  *   the Romans pin. Last-write-wins *inside* a book; never furthest-across-Bible.
  * - Resume is `lastSettledBookId`, not max(chapterNumber). A short visit does
  *   not become the resume book until dwell (~25s) or a page turn / Play there.
+ *   Leaving (hide/pagehide) after any real reading in the visited book also
+ *   settles it; iOS throttles timers, so the dwell timer alone is not enough.
  * - Another device applies a cloud pin only if: same bookId, newer updatedAt
- *   (or higher rev), and that chapter exists on this client.
+ *   (or higher rev), and that chapter exists on this client. "This client"
+ *   means the loaded manifest, never the boot-render fallback chapter list.
+ * - Every note writes localStorage synchronously (merge-before-write, newer
+ *   per-book record wins). Only the cloud PUT is debounced.
  * - Record is small: books map + lastSettledBookId. GET/PUT /api/lab-position.
  */
 export const LAB_POSITION_STORAGE_KEY = 'tinct-lab-position'
 export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-device-id'
+/** Set when a cloud PUT failed or was skipped offline; cleared once a PUT lands. */
+export const LAB_POSITION_DIRTY_KEY = 'tinct-lab-position-dirty'
 export const LAB_POSITION_DWELL_MS = 25_000
 export const LAB_POSITION_DEBOUNCE_MS = 1_000
 
@@ -285,6 +292,32 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
   }
 }
 
+/**
+ * Time-ordered merge with no chapter gate: newer per-book record wins, newer
+ * settle wins. Used by the server (chapter existence is a client concern) and
+ * by the localStorage layer so an older tab cannot regress a newer record.
+ */
+export function mergeLabPositionStatesByTime(local: LabPositionState, incoming: LabPositionState): LabPositionState {
+  const books = { ...local.books }
+  for (const [bookId, place] of Object.entries(incoming.books)) {
+    if (place.bookId !== bookId) continue
+    if (isNewerPlace(place, books[bookId])) books[bookId] = place
+  }
+  let lastSettledBookId = local.lastSettledBookId
+  let lastSettledAt = local.lastSettledAt
+  if (incoming.lastSettledAt > local.lastSettledAt && incoming.lastSettledBookId && books[incoming.lastSettledBookId]) {
+    lastSettledBookId = incoming.lastSettledBookId
+    lastSettledAt = incoming.lastSettledAt
+  }
+  return {
+    books,
+    lastSettledBookId,
+    lastSettledAt,
+    updatedAt: Math.max(local.updatedAt, incoming.updatedAt),
+    deviceId: incoming.deviceId || local.deviceId,
+  }
+}
+
 export function settleReason(reason: LabPlaceReason): boolean {
   return reason === 'open-book' || reason === 'page-turn' || reason === 'mode-change' || reason === 'play' || reason === 'dwell'
 }
@@ -308,10 +341,16 @@ export interface LabPositionController {
   flush(): LabPositionState
 }
 
+/**
+ * `local`: write the local store now, cloud PUT still pending on the debounce.
+ * `debounce` / `immediate`: write everywhere.
+ */
+export type LabPersistCause = 'debounce' | 'immediate' | 'local'
+
 export function createLabPositionController(opts: {
   deviceId: string
   now?: () => number
-  persist?: (state: LabPositionState, cause: 'debounce' | 'immediate') => void
+  persist?: (state: LabPositionState, cause: LabPersistCause, reason?: LabPlaceReason) => void
   dwellMs?: number
   debounceMs?: number
   schedule?: (fn: () => void, ms: number) => () => void
@@ -323,23 +362,34 @@ export function createLabPositionController(opts: {
   let visitingBookId: string | null = null
   let visitStartedAt = 0
   let visitPlace: LabBookPlace | null = null
+  /** Any note other than `hide` inside the visited book: a page turn, Play, a next chapter. */
+  let visitActivity = false
   let cancelDebounce: (() => void) | null = null
   let cancelDwell: (() => void) | null = null
 
-  const persist = (cause: 'debounce' | 'immediate') => {
-    opts.persist?.(state, cause)
+  const persist = (cause: LabPersistCause, reason?: LabPlaceReason) => {
+    opts.persist?.(state, cause, reason)
   }
 
-  const scheduleDebounce = () => {
+  const scheduleDebounce = (reason: LabPlaceReason) => {
     cancelDebounce?.()
     if (!opts.schedule) {
-      persist('immediate')
+      persist('immediate', reason)
       return
     }
+    persist('local', reason)
     cancelDebounce = opts.schedule(() => {
       cancelDebounce = null
-      persist('debounce')
+      persist('debounce', reason)
     }, debounceMs)
+  }
+
+  const startVisit = (place: LabBookPlace, now: number) => {
+    visitingBookId = place.bookId
+    visitStartedAt = now
+    visitPlace = place
+    visitActivity = false
+    armDwell(place, now)
   }
 
   const writeSettled = (place: LabBookPlace, now: number) => {
@@ -354,6 +404,7 @@ export function createLabPositionController(opts: {
     visitingBookId = null
     visitPlace = null
     visitStartedAt = 0
+    visitActivity = false
     cancelDwell?.()
     cancelDwell = null
   }
@@ -391,31 +442,21 @@ export function createLabPositionController(opts: {
       const sameSettled = settled === place.bookId
       const firstPin = !settled
 
-      if (input.reason === 'chapter-jump' && !sameSettled && !firstPin) {
-        visitingBookId = place.bookId
-        visitStartedAt = now
-        visitPlace = place
-        armDwell(place, now)
-        if (persistImmediate(input.reason)) persist('immediate')
+      if (input.reason === 'chapter-jump' && !sameSettled && !firstPin && visitingBookId !== place.bookId) {
+        startVisit(place, now)
+        persist('immediate', input.reason)
         return state
       }
 
       if (visitingBookId && visitingBookId === place.bookId && !sameSettled) {
         visitPlace = place
-        if (settleReason(input.reason) || (input.reason === 'hide' && now - visitStartedAt >= dwellMs) || firstPin) {
+        if (input.reason !== 'hide') visitActivity = true
+        const leavingAfterReading = input.reason === 'hide' && (visitActivity || now - visitStartedAt >= dwellMs)
+        if (settleReason(input.reason) || leavingAfterReading || firstPin) {
           writeSettled(place, now)
         }
-        if (persistImmediate(input.reason)) persist('immediate')
-        else scheduleDebounce()
-        return state
-      }
-
-      if (input.reason === 'chapter-jump' && visitingBookId && visitingBookId !== place.bookId && !sameSettled) {
-        visitingBookId = place.bookId
-        visitStartedAt = now
-        visitPlace = place
-        armDwell(place, now)
-        persist('immediate')
+        if (persistImmediate(input.reason)) persist('immediate', input.reason)
+        else scheduleDebounce(input.reason)
         return state
       }
 
@@ -426,8 +467,8 @@ export function createLabPositionController(opts: {
         if (sameSettled || firstPin) writeSettled(place, now)
       }
 
-      if (persistImmediate(input.reason) || firstPin) persist('immediate')
-      else scheduleDebounce()
+      if (persistImmediate(input.reason) || firstPin) persist('immediate', input.reason)
+      else scheduleDebounce(input.reason)
       return state
     },
     applyCloud(cloud, chapters) {

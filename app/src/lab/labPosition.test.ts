@@ -5,6 +5,7 @@ import {
   createLabPositionController,
   emptyLabPositionState,
   mergeLabPositionStates,
+  mergeLabPositionStatesByTime,
   parseBiblicalPlaceTitle,
   parseLabPositionState,
   placeFromChapterRef,
@@ -267,6 +268,107 @@ describe('dwell and peek', () => {
     vi.advanceTimersByTime(25_000)
     expect(controller.resume()?.bookId).toBe('james')
     expect(controller.state().books.genesis?.wordIndex).toBe(8)
+  })
+})
+
+describe('leaving a visited book', () => {
+  it('settles the visited book on hide after real reading, before the dwell timer', () => {
+    const controller = createLabPositionController({
+      deviceId: DEVICE,
+      schedule: () => () => {},
+    })
+    controller.replace({
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans() },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 5_000,
+    })
+
+    // Jump into James 1, read to the end of the short chapter, tap into James 2.
+    controller.note({ place: james({ sequentialChapter: 1147, paragraphIndex: 0, wordIndex: 0 }), reason: 'chapter-jump', now: 10_000 })
+    controller.note({ place: james({ sequentialChapter: 1148, chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 }), reason: 'chapter-jump', now: 14_000 })
+    expect(controller.resume()?.bookId).toBe('romans')
+
+    // Leave 4s later: iOS never fired the 25s dwell, but reading happened.
+    controller.note({ place: james({ sequentialChapter: 1148, chapterNumber: 2, paragraphIndex: 1, wordIndex: 3 }), reason: 'hide', now: 18_000 })
+    expect(controller.resume()).toMatchObject({ bookId: 'james', sequentialChapter: 1148, paragraphIndex: 1, wordIndex: 3 })
+    expect(controller.state().books.romans?.wordIndex).toBe(4)
+  })
+
+  it('still treats jump-then-leave with no reading as a peek', () => {
+    const controller = createLabPositionController({ deviceId: DEVICE, schedule: () => () => {} })
+    controller.replace({
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans() },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 5_000,
+    })
+    controller.note({ place: james(), reason: 'chapter-jump', now: 10_000 })
+    controller.note({ place: james(), reason: 'hide', now: 12_000 })
+    expect(controller.resume()?.bookId).toBe('romans')
+    expect(controller.state().books.james).toBeUndefined()
+  })
+})
+
+describe('write timing', () => {
+  it('writes a page turn to the local store synchronously and only debounces the rest', () => {
+    const causes: string[] = []
+    let scheduled: (() => void) | null = null
+    const controller = createLabPositionController({
+      deviceId: DEVICE,
+      persist: (_state, cause, reason) => { causes.push(`${cause}:${reason}`) },
+      schedule: (fn) => {
+        scheduled = fn
+        return () => { scheduled = null }
+      },
+    })
+    controller.replace({
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans() },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 5_000,
+    })
+    controller.note({ place: romans({ paragraphIndex: 3, wordIndex: 0 }), reason: 'page-turn', now: 6_000 })
+    expect(causes).toEqual(['local:page-turn'])
+    expect(controller.state().books.romans?.paragraphIndex).toBe(3)
+    scheduled!()
+    expect(causes).toEqual(['local:page-turn', 'debounce:page-turn'])
+
+    controller.note({ place: romans({ paragraphIndex: 3, wordIndex: 0 }), reason: 'hide', now: 7_000 })
+    expect(causes[causes.length - 1]).toBe('immediate:hide')
+  })
+})
+
+describe('time-ordered merge (no chapter gate)', () => {
+  it('keeps the newer per-book place and the newer settle from either side', () => {
+    const older: LabPositionState = {
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans({ updatedAt: 5_000 }), genesis: genesis({ updatedAt: 9_000, wordIndex: 9 }) },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 9_000,
+    }
+    const newer: LabPositionState = {
+      ...emptyLabPositionState('device-b'),
+      books: { romans: romans({ updatedAt: 7_000, wordIndex: 40, deviceId: 'device-b' }), genesis: genesis({ updatedAt: 1_000 }) },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 7_000,
+      updatedAt: 7_000,
+    }
+    const merged = mergeLabPositionStatesByTime(older, newer)
+    expect(merged.books.romans?.wordIndex).toBe(40)
+    expect(merged.books.genesis?.wordIndex).toBe(9)
+    expect(merged.lastSettledAt).toBe(7_000)
+    expect(merged.updatedAt).toBe(9_000)
+    expect(merged.deviceId).toBe('device-b')
+
+    // Reverse direction: an older incoming record cannot regress anything.
+    const back = mergeLabPositionStatesByTime(merged, older)
+    expect(back.books.romans?.wordIndex).toBe(40)
+    expect(back.lastSettledAt).toBe(7_000)
   })
 })
 

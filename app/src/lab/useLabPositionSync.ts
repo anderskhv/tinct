@@ -41,6 +41,7 @@ export function bookFromResumePlace(place: LabBookPlace): LabSource {
       compareParagraphs: [],
       followParagraphs: [],
       chapters: [{ number: place.sequentialChapter, title: chapterLabel }],
+      chaptersProvisional: true,
       cast: [],
     }
   }
@@ -127,6 +128,8 @@ export function useLabPositionSync(args: {
   const { session } = useAuth()
   const liveToken = args.authToken !== undefined ? args.authToken : (session?.access_token ?? null)
   const deviceIdRef = useRef(readLabDeviceId())
+  // Seeded from the stored record below so a reload never restarts at 0 and
+  // loses a same-millisecond tie-break against an older place.
   const revRef = useRef(0)
   const controllerRef = useRef<LabPositionController | null>(null)
   const syncRef = useRef<ReturnType<typeof createLabPositionSync> | null>(null)
@@ -141,9 +144,10 @@ export function useLabPositionSync(args: {
     const local = readLabPositionLocal(deviceId)
     const controller = createLabPositionController({
       deviceId,
-      persist: (state) => {
+      persist: (state, cause, reason) => {
         writeLabPositionLocal(state)
-        syncRef.current?.persist(state)
+        if (cause === 'local') return
+        syncRef.current?.persist(state, { keepalive: reason === 'hide' })
       },
       schedule: (fn, ms) => {
         const id = window.setTimeout(fn, ms)
@@ -152,23 +156,33 @@ export function useLabPositionSync(args: {
     })
     controller.replace(local)
     controllerRef.current = controller
+    revRef.current = Object.values(local.books).reduce((max, place) => Math.max(max, place.rev), 0)
   }
 
   useEffect(() => {
-    syncRef.current = createLabPositionSync({ token: liveToken })
+    const sync = createLabPositionSync({ token: liveToken })
+    syncRef.current = sync
+    if (sync.isDirty()) void sync.flush()
+    const onOnline = () => { void syncRef.current?.flush() }
+    window.addEventListener('online', onOnline)
+    return () => window.removeEventListener('online', onOnline)
   }, [liveToken])
 
   useEffect(() => {
     if (args.sourceLocked || !liveToken || cloudDoneRef.current) return
-    if (args.book.chapters.length < 2) return
+    // The boot render spreads the Genesis fallback (two chapters) under the
+    // resume place; merging against that list would discard every cloud
+    // place outside Genesis 1-2. Wait for the loaded manifest.
+    if (args.book.chaptersProvisional || args.book.chapters.length === 0) return
     let cancelled = false
     const chapters = args.book.chapters
     void fetchLabPositionCloud(liveToken).then((cloud) => {
       if (cancelled || !cloud) return
-      cloudDoneRef.current = true
       const controller = controllerRef.current
       if (!controller) return
       const next = controller.applyCloud(cloud, chapters)
+      // Latch only now: the record was merged against the real chapter list.
+      cloudDoneRef.current = true
       writeLabPositionLocal(next)
       syncRef.current?.persist(next)
       const resume = resumePlace(next)

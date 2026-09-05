@@ -1,8 +1,10 @@
 import { apiUrl } from '../utils/apiUrl'
 import {
   LAB_POSITION_DEVICE_KEY,
+  LAB_POSITION_DIRTY_KEY,
   LAB_POSITION_STORAGE_KEY,
   emptyLabPositionState,
+  mergeLabPositionStatesByTime,
   parseLabPositionState,
   type LabPositionState,
 } from './labPosition'
@@ -82,17 +84,40 @@ async function writeIdb(state: LabPositionState): Promise<void> {
   })
 }
 
-export function writeLabPositionLocal(state: LabPositionState): void {
+/**
+ * Merge-before-write. Another tab (or a stale in-memory state after a cloud
+ * apply) may hold an older record; the newer per-book place and the newer
+ * settle survive whichever tab writes last. Returns what was stored.
+ */
+export function writeLabPositionLocal(state: LabPositionState): LabPositionState {
+  let merged = state
   if (typeof localStorage !== 'undefined') {
     try {
-      localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(state))
+      const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
+      if (raw) merged = mergeLabPositionStatesByTime(parseLabPositionState(JSON.parse(raw), state.deviceId), state)
+    } catch { /* unreadable record: overwrite it */ }
+    try {
+      localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(merged))
     } catch { /* quota / private mode */ }
   }
-  void writeIdb(state)
+  void writeIdb(merged)
+  return merged
 }
 
 export function clearLabPositionLocal(): void {
   try { localStorage.removeItem(LAB_POSITION_STORAGE_KEY) } catch { /* jsdom */ }
+  try { localStorage.removeItem(LAB_POSITION_DIRTY_KEY) } catch { /* jsdom */ }
+}
+
+export function readLabPositionDirty(): boolean {
+  try { return localStorage.getItem(LAB_POSITION_DIRTY_KEY) === '1' } catch { return false }
+}
+
+function writeLabPositionDirty(dirty: boolean): void {
+  try {
+    if (dirty) localStorage.setItem(LAB_POSITION_DIRTY_KEY, '1')
+    else localStorage.removeItem(LAB_POSITION_DIRTY_KEY)
+  } catch { /* jsdom / private mode */ }
 }
 
 export async function fetchLabPositionCloud(token: string | null | undefined): Promise<LabPositionState | null> {
@@ -109,9 +134,15 @@ export async function fetchLabPositionCloud(token: string | null | undefined): P
   }
 }
 
+export interface LabPositionPutOptions {
+  /** Let the request outlive the page (hide / pagehide). */
+  keepalive?: boolean
+}
+
 export async function putLabPositionCloud(
   token: string | null | undefined,
   state: LabPositionState,
+  options: LabPositionPutOptions = {},
 ): Promise<boolean> {
   if (!token) return false
   try {
@@ -122,6 +153,7 @@ export async function putLabPositionCloud(
         'content-type': 'application/json',
       },
       body: JSON.stringify(state),
+      ...(options.keepalive ? { keepalive: true } : {}),
     })
     return res.ok
   } catch {
@@ -134,28 +166,36 @@ export function createLabPositionSync(opts: {
   online?: () => boolean
   put?: typeof putLabPositionCloud
 }) {
-  let dirty = false
+  // The dirty flag survives reloads so a PUT that failed (or never ran while
+  // offline) is retried on the next load or `online`, not forgotten.
+  let dirty = readLabPositionDirty()
   let last: LabPositionState | null = null
   const put = opts.put ?? putLabPositionCloud
   const isOnline = opts.online ?? (() => typeof navigator === 'undefined' || navigator.onLine)
 
+  const markDirty = (next: boolean) => {
+    dirty = next
+    writeLabPositionDirty(next)
+  }
+
   return {
-    persist(state: LabPositionState) {
-      last = state
-      writeLabPositionLocal(state)
+    persist(state: LabPositionState, options: LabPositionPutOptions = {}) {
+      last = writeLabPositionLocal(state)
       if (!opts.token) return
       if (!isOnline()) {
-        dirty = true
+        markDirty(true)
         return
       }
-      void put(opts.token, state).then((ok) => {
-        if (!ok) dirty = true
+      void put(opts.token, state, options).then((ok) => {
+        markDirty(!ok)
       })
     },
     async flush() {
-      if (!opts.token || !last) return false
-      const ok = await put(opts.token, last)
-      if (ok) dirty = false
+      if (!opts.token) return false
+      const state = last ?? readLabPositionLocal()
+      if (!state.updatedAt) return false
+      const ok = await put(opts.token, state)
+      if (ok) markDirty(false)
       return ok
     },
     isDirty: () => dirty,
