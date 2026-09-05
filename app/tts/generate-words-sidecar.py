@@ -38,18 +38,27 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Any, List, Optional, Sequence, Tuple
+from typing import Any, Callable, List, Optional, Sequence, Tuple
 
 from words_sidecar_lib import (
     AlignmentStats,
+    BIAS_MODES,
+    BIAS_OFF,
+    BiasRequest,
+    DEFAULT_BIAS_RETRY_BELOW,
+    ParagraphAlignment,
     align_tokens_with_stats,
     audio_file_url,
+    bias_cascade,
+    build_bias_request,
     build_sidecar,
     chapter_words_from_text,
     clean_text,
     HeardWord,
     load_chapter_text,
     manifest_url,
+    should_retry_without_bias,
+    prefer_plain_result,
     validate_sidecar,
     write_json,
     REPO_ROOT,
@@ -60,6 +69,7 @@ DEFAULT_EN_MODEL = "small.en"
 DEFAULT_MULTILINGUAL_MODEL = "small"
 DEFAULT_DEVICE = "cuda"
 DEFAULT_COMPUTE = "float16"
+DEFAULT_BIAS_MODE = "off"
 
 
 def ts() -> str:
@@ -178,12 +188,35 @@ def load_whisper_model(model_size: str, device: str, compute_type: str):
     return WhisperModel(model_size, device=device, compute_type=compute_type)
 
 
-def transcribe_words(model, audio_path: Path, language: str) -> List[HeardWord]:
+def whisper_token_counter(model) -> Optional[Callable[[str], int]]:
+    """Exact prompt-token counter from the loaded model, or None to estimate."""
+    tokenizer = getattr(model, "hf_tokenizer", None)
+    if tokenizer is None or not hasattr(tokenizer, "encode"):
+        return None
+
+    def count(text: str) -> int:
+        return len(tokenizer.encode(" " + text, add_special_tokens=False).ids)
+
+    return count
+
+
+def transcribe_words(
+    model,
+    audio_path: Path,
+    language: str,
+    bias: BiasRequest = BIAS_OFF,
+) -> List[HeardWord]:
+    extra: dict[str, Any] = {}
+    if bias.initial_prompt:
+        extra["initial_prompt"] = bias.initial_prompt
+    if bias.hotwords:
+        extra["hotwords"] = bias.hotwords
     segments, _ = model.transcribe(
         str(audio_path),
         word_timestamps=True,
         vad_filter=True,
         language=language,
+        **extra,
     )
     heard: List[HeardWord] = []
     for segment in segments:
@@ -204,10 +237,50 @@ def process_paragraph(
     mp3_path: Path,
     paragraph_text: str,
     language: str,
+    bias: BiasRequest = BIAS_OFF,
 ) -> Tuple[List[dict[str, Any]], AlignmentStats]:
     expected = chapter_words_from_text(clean_text(paragraph_text.replace("\n", " ")))
-    heard = transcribe_words(model, mp3_path, language)
+    heard = transcribe_words(model, mp3_path, language, bias)
     return align_tokens_with_stats(expected, heard)
+
+
+def align_paragraph(
+    model,
+    mp3_path: Path,
+    paragraph_text: str,
+    language: str,
+    bias_mode: str = DEFAULT_BIAS_MODE,
+    retry_below: float = DEFAULT_BIAS_RETRY_BELOW,
+) -> ParagraphAlignment:
+    """Transcribe one paragraph, biased by its own text when requested.
+
+    Each request mode in the cascade for ``bias_mode`` is tried in turn and
+    accepted as soon as it is not suspect (no prompt echo, match ratio at or
+    above ``retry_below``).  If every biased pass is suspect, a plain pass
+    runs and the pass with the most observed words wins, so biasing can only
+    add matches relative to the plain pipeline.
+    """
+    expected = chapter_words_from_text(clean_text(paragraph_text.replace("\n", " ")))
+    counter = whisper_token_counter(model)
+    best: Optional[ParagraphAlignment] = None
+    tried: set[BiasRequest] = set()
+    for request_mode in bias_cascade(bias_mode):
+        request = build_bias_request(expected, request_mode, count_tokens=counter)
+        if request.is_off or request in tried:
+            continue
+        tried.add(request)
+        words, stats = process_paragraph(model, mp3_path, paragraph_text, language, request)
+        candidate = ParagraphAlignment(words, stats, request.mode, False)
+        if not should_retry_without_bias(stats, retry_below):
+            return candidate
+        if best is None or stats.matched_words > best.stats.matched_words:
+            best = candidate
+    plain_words, plain_stats = process_paragraph(model, mp3_path, paragraph_text, language)
+    if best is None:
+        return ParagraphAlignment(plain_words, plain_stats, "off", False)
+    if prefer_plain_result(best.stats, plain_stats):
+        return ParagraphAlignment(plain_words, plain_stats, "off", True)
+    return best
 
 
 def ensure_mp3(
@@ -240,7 +313,11 @@ def generate_chapter(
     local_mp3_dir: Optional[Path] = None,
     skip_existing: bool = True,
     keep_downloads: bool = False,
+    bias_mode: str = DEFAULT_BIAS_MODE,
+    bias_retry_below: float = DEFAULT_BIAS_RETRY_BELOW,
 ) -> Tuple[bool, str]:
+    if bias_mode not in BIAS_MODES:
+        raise ValueError(f"unknown bias mode {bias_mode!r}")
     chapter = load_chapter_text(book, edition, chapter_number)
     paragraphs = chapter.get("paragraphs", [])
     title = chapter.get("title", f"Chapter {chapter_number}")
@@ -283,7 +360,7 @@ def generate_chapter(
 
     mp3_dir = local_mp3_dir or out_dir
     results: List[Tuple[int, str, List[dict[str, Any]]]] = []
-    alignments: dict[int, AlignmentStats] = {}
+    alignments: dict[int, ParagraphAlignment] = {}
     low_alignment: List[str] = []
 
     for pindex, para_text in enumerate(paragraphs):
@@ -307,11 +384,16 @@ def generate_chapter(
             return False, f"missing {mp3_path}"
 
         try:
-            words, stats = process_paragraph(model, mp3_path, para_text, language)
+            aligned = align_paragraph(
+                model, mp3_path, para_text, language, bias_mode, bias_retry_below,
+            )
         finally:
             if downloaded and not keep_downloads:
                 mp3_path.unlink(missing_ok=True)
-        alignments[pindex] = stats
+        words, stats = aligned.words, aligned.stats
+        alignments[pindex] = aligned
+        if aligned.bias_fallback:
+            log(f"  p{pindex}: {bias_mode} bias fell back to plain pass ({stats.match_ratio:.0%})")
         if stats.match_ratio < min_alignment:
             low_alignment.append(
                 f"p{pindex} {stats.match_ratio:.0%} ({stats.matched_words}/{stats.expected_words})",
@@ -322,9 +404,9 @@ def generate_chapter(
         return False, "low observed alignment: " + ", ".join(low_alignment[:8])
 
     sidecar = build_sidecar(book, edition, chapter_number, title, results)
-    total_expected = sum(stats.expected_words for stats in alignments.values())
-    total_heard = sum(stats.heard_words for stats in alignments.values())
-    total_matched = sum(stats.matched_words for stats in alignments.values())
+    total_expected = sum(item.stats.expected_words for item in alignments.values())
+    total_heard = sum(item.stats.heard_words for item in alignments.values())
+    total_matched = sum(item.stats.matched_words for item in alignments.values())
     sidecar["language"] = language
     sidecar["model"] = model_name
     sidecar["alignment"] = {
@@ -333,17 +415,24 @@ def generate_chapter(
         "matchedWords": total_matched,
         "matchRatio": round(total_matched / max(1, total_expected), 4),
         "minimumParagraphRatio": min_alignment,
+        "bias": bias_mode,
     }
+    if bias_mode != "off":
+        sidecar["alignment"]["biasRetryBelow"] = bias_retry_below
     for entry in sidecar["paragraphs"]:
-        stats = alignments.get(entry["paragraph"])
-        if not stats:
+        aligned = alignments.get(entry["paragraph"])
+        if not aligned:
             continue
+        stats = aligned.stats
         entry["alignment"] = {
             "expectedWords": stats.expected_words,
             "heardWords": stats.heard_words,
             "matchedWords": stats.matched_words,
             "matchRatio": round(stats.match_ratio, 4),
+            "bias": aligned.bias,
         }
+        if aligned.bias_fallback:
+            entry["alignment"]["biasFallback"] = True
     ok, errors = validate_sidecar(sidecar, expected_tokens, manifest_by_index)
     if not ok:
         return False, "; ".join(errors[:5])
@@ -432,6 +521,27 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     )
     parser.add_argument("--device", default=DEFAULT_DEVICE)
     parser.add_argument("--compute-type", default=DEFAULT_COMPUTE)
+    parser.add_argument(
+        "--bias-text",
+        choices=BIAS_MODES,
+        default=DEFAULT_BIAS_MODE,
+        help=(
+            "bias Whisper with the paragraph's own text: prompt = initial_prompt, "
+            "hotwords = capitalised tokens, both = the two combined, auto = both "
+            "then hotwords; a biased pass that echoes the prompt or falls below "
+            f"--bias-retry-below is cross-checked plain (default {DEFAULT_BIAS_MODE})"
+        ),
+    )
+    parser.add_argument(
+        "--bias-retry-below",
+        type=float,
+        default=DEFAULT_BIAS_RETRY_BELOW,
+        help=(
+            "with --bias-text, re-run a paragraph without bias when its biased "
+            "match ratio is below this and keep the better pass (default 1.0: "
+            "every imperfect biased paragraph is cross-checked)"
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -450,6 +560,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     if not 0 <= args.min_alignment <= 1:
         raise SystemExit("--min-alignment must be between 0 and 1")
+    if not 0 <= args.bias_retry_below <= 1:
+        raise SystemExit("--bias-retry-below must be between 0 and 1")
     targets = resolve_targets(args)
     if args.upload and not __import__("os").environ.get("CLOUDFLARE_API_TOKEN"):
         log("ERROR: CLOUDFLARE_API_TOKEN is required for --upload")
@@ -464,7 +576,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         DEFAULT_EN_MODEL if languages == {"en"} else DEFAULT_MULTILINGUAL_MODEL
     )
 
-    log(f"Targets: {len(targets)} edition(s); languages={','.join(sorted(languages))}")
+    log(
+        f"Targets: {len(targets)} edition(s); languages={','.join(sorted(languages))}; "
+        f"bias-text={args.bias_text}"
+        + (f" (retry below {args.bias_retry_below:.2f})" if args.bias_text != "off" else "")
+    )
     log(f"Loading whisper model {model_name} ({args.device}/{args.compute_type})")
     model = load_whisper_model(model_name, args.device, args.compute_type)
 
@@ -512,6 +628,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                         or args.out is not None
                         or args.local_dir is not None
                     ),
+                    bias_mode=args.bias_text,
+                    bias_retry_below=args.bias_retry_below,
                 )
             except Exception as exc:
                 log(f"{book}/{edition} ch{ch}: FAIL {exc}")

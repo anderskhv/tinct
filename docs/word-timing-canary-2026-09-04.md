@@ -1489,3 +1489,275 @@ Alignment (match ratio) per chapter: web-en ch2 99.2 %, ch3 99.8 %, ch4 97.1 %, 
 - Danish (1,318 chapters, ≈ 94 h audio, `--model small`) adds ≈ 5 GPU-hours ≈ $2–4; still gated on explicit approval.
 
 Next gate per the execution plan: run Genesis 1–50 with `--upload` (≈ 6 h audio ≈ 20 min GPU) as Shard 0, then open Shards 1–4. The 18 calibration sidecars on the pod volume need not be uploaded separately; Shard 0 regenerates them (skip-if-valid applies only to chapters already on R2).
+
+## Text-biased alignment (2026-09-05)
+
+Lane 9 (tooling only, no app code, no R2 writes, no deploy). Branch
+`codex/claude-word-timing-production` on top of `b8d23149`. Goal: lift the
+name-heavy chapters that failed the 85 % gate in the RTX 4090 calibration
+(Genesis 5 WEB, Genesis 10 WEB and Modern) by biasing faster-whisper with
+the paragraph's own text, without changing the CLI contract or the sidecar
+schema (new provenance fields are additive only).
+
+### Environment
+
+| Fact | Value |
+|---|---|
+| Machine | 4 vCPU, 15 GB RAM, no GPU (the four RunPod pods keep running `b8d23149` untouched) |
+| `faster-whisper` | 1.2.1 (`pip install --user faster-whisper`; CTranslate2 4.8.2, `hotwords` supported) |
+| Model | `small.en`, `--device cpu --compute-type int8`, 8 s load |
+| Audio | 26 paragraph MP3s fetched once from `https://tinct.app/api/audio-file?path=bible/<edition>/ch<N>/p<i>.mp3` into `/tmp/words-mp3`, fed to the CLI with `--local-dir` (no tokens involved) |
+| Text | `app/public/data/editions-chapters/bible-{web,modern}-en/ch00{02,05,10}.json` |
+
+### What was built
+
+`app/tts/words_sidecar_lib.py` + `app/tts/generate-words-sidecar.py`, same CLI,
+same schema:
+
+- `--bias-text {off,prompt,hotwords,both,auto}` (default **`off`**).
+  `prompt` passes the paragraph text (reader token split, joined by spaces)
+  as `initial_prompt`; `hotwords` passes the paragraph's capitalised tokens
+  that never occur lowercase in it (proper names, deduplicated, order kept)
+  as `hotwords`; `both` combines the two; `auto` is the cascade
+  `both` → `hotwords` → plain (see below).
+- Prompt budget: faster-whisper keeps only the *last* 223 prompt tokens
+  (`max_length // 2 - 1`), so the library truncates itself, counting with
+  the model's own tokenizer (`model.hf_tokenizer`) and falling back to a
+  conservative estimate (`1 + len(word) // 3` per word, never under-counts
+  on the measured chapters). Truncation strategy `names` (names first,
+  then the paragraph head) is the default; `head` (first 180 words) is
+  kept as an option. In `both` mode hotwords and prompt share the one
+  223-token budget (hotwords ≤ 64 tokens) so the decoder keeps room for
+  output on a 30 s window.
+- Echo guard: `should_retry_without_bias()` flags a biased pass when Whisper
+  heard < 60 % of the expected words (prompt echo / early stop) **or** its
+  match ratio is below `--bias-retry-below` (default **1.0**). A flagged
+  paragraph moves to the next request mode in the cascade and finally to a
+  plain pass; the pass with the most matched words is kept. With the default
+  every imperfect biased paragraph is cross-checked against plain, so a
+  biased run can only add matches (that is the guarantee, at the cost of
+  extra passes).
+- Provenance (additive): per paragraph `alignment.bias` = `"prompt" |
+  "hotwords" | "both" | "off"` (the request mode that produced the kept
+  words) and `alignment.biasFallback: true` when the plain pass won after
+  biased attempts; per chapter `alignment.bias` = the CLI mode and
+  `alignment.biasRetryBelow` (biased runs only). `--bias-text off` writes
+  `"bias": "off"` per paragraph and nothing else new.
+- Tests: `words_sidecar_lib_test.py` 9 → 21 (prompt construction and both
+  truncation strategies, budget with estimated tokens, hotword extraction,
+  request modes and shared budget, cascade order, echo/retry decision,
+  plain-vs-biased preference, provenance defaults);
+  `generate_words_sidecar_test.py` 3 → 13 (flag plumbing incl. `auto` and
+  `--bias-retry-below`, transcribe kwargs, cascade with a fake Whisper,
+  fallback and provenance in the written sidecar).
+
+### Baseline on CPU (reproduces the GPU failures)
+
+`generate-words-sidecar.py bible <edition> --chapter N --out /tmp/words-base
+--local-dir /tmp/words-mp3/... --device cpu --compute-type int8 --force`,
+then the same with `--min-alignment 0` so every paragraph ratio is written:
+
+- Genesis 5 WEB: **FAIL** `p1 79% (61/77), p2 79% (54/68), p3 75% (59/79),
+  p5 85% (82/97), p6 83% (24/29)` — identical to the 4090 run.
+- Genesis 10 WEB: **FAIL** `p2 81% (44/54), p5 78% (32/41)`.
+- Genesis 10 Modern: **FAIL** `p2 78% (46/59), p5 78% (31/40)`.
+- Genesis 2 WEB: pass, 99.2 %.
+
+Root cause is not only names: Genesis 5 is dominated by spelled-out numbers
+("one hundred five years") that Whisper writes as digits ("105"), which the
+aligner's cardinal table (single tokens up to 99) cannot equate. Genesis 10
+is the pure Hebrew-name case.
+
+Provenance note: the Genesis 5 default-gate baseline ran on the pristine
+`b8d23149` generator; the other baseline runs started after the new code was
+on disk and ran it with the default `--bias-text off`, which issues the
+identical `transcribe()` call (no prompt/hotwords kwargs) — their sidecars
+therefore carry `"bias": "off"`.
+
+### Mode comparison, one biased pass per paragraph (no cross-check)
+
+Harness over the same 26 paragraphs, model loaded once. Cells are
+`matchRatio (matched/heard/expected)`; **E** marks a pass the echo guard
+would send to retry. `(matched/heard/expected)` shows the failure mode
+directly: a prompt-biased pass that hears 21 of 134 words has resumed
+*after* the prompt and transcribed only the paragraph's last sentence.
+
+| chapter | para | off (baseline) | prompt | hotwords | both |
+|---|---|---|---|---|---|
+| web-en Genesis 5 | p0 | 92.4 % (97/100/105) | 100.0 % (105/105/105) | 92.4 % (97/100/105) | 100.0 % (105/105/105) |
+| web-en Genesis 5 | p1 | 79.2 % (61/69/77) | 94.8 % (73/75/77) | 84.4 % (65/69/77) **E** | 100.0 % (77/77/77) |
+| web-en Genesis 5 | p2 | 79.4 % (54/62/68) | 98.5 % (67/69/68) | 86.8 % (59/62/68) | 98.5 % (67/69/68) |
+| web-en Genesis 5 | p3 | 74.7 % (59/70/79) | 96.2 % (76/82/79) | 82.3 % (65/70/79) **E** | 96.2 % (76/82/79) |
+| web-en Genesis 5 | p4 | 87.9 % (58/61/66) | 95.5 % (63/69/66) | 87.9 % (58/61/66) | 95.5 % (63/69/66) |
+| web-en Genesis 5 | p5 | 84.5 % (82/89/97) | 95.9 % (93/101/97) | 87.6 % (85/89/97) | 95.9 % (93/101/97) |
+| web-en Genesis 5 | p6 | 82.8 % (24/26/29) | 96.5 % (28/30/29) | 82.8 % (24/26/29) **E** | 96.5 % (28/30/29) |
+| web-en Genesis 2 | p0 | 100.0 % (134/134/134) | 15.7 % (21/42/134) **E** | 100.0 % (134/134/134) | 99.2 % (133/134/134) |
+| web-en Genesis 2 | p1 | 100.0 % (121/121/121) | 100.0 % (121/121/121) | 100.0 % (121/121/121) | 59.5 % (72/94/121) **E** |
+| web-en Genesis 2 | p2 | 95.1 % (97/102/102) | 93.1 % (95/95/102) | 99.0 % (101/102/102) | 100.0 % (102/102/102) |
+| web-en Genesis 2 | p3 | 100.0 % (143/143/143) | 27.3 % (39/39/143) **E** | 27.3 % (39/39/143) **E** | 27.3 % (39/39/143) **E** |
+| web-en Genesis 2 | p4 | 100.0 % (112/112/112) | 11.6 % (13/26/112) **E** | 100.0 % (112/112/112) | 11.6 % (13/26/112) **E** |
+| web-en Genesis 10 | p0 | 93.6 % (73/78/78) | 98.7 % (77/78/78) | 98.7 % (77/78/78) | 100.0 % (78/78/78) |
+| web-en Genesis 10 | p1 | 85.5 % (65/76/76) | 100.0 % (76/76/76) | 100.0 % (76/76/76) | 100.0 % (76/76/76) |
+| web-en Genesis 10 | p2 | 81.5 % (44/54/54) | 13.0 % (7/29/54) **E** | 98.2 % (53/55/54) | 7.4 % (4/4/54) **E** |
+| web-en Genesis 10 | p3 | 95.8 % (69/88/72) | 73.6 % (53/53/72) **E** | 81.9 % (59/59/72) **E** | 73.6 % (53/56/72) **E** |
+| web-en Genesis 10 | p4 | 94.9 % (74/78/78) | 100.0 % (78/78/78) | 97.4 % (76/78/78) | 100.0 % (78/78/78) |
+| web-en Genesis 10 | p5 | 78.0 % (32/41/41) | 100.0 % (41/41/41) | 97.6 % (40/41/41) | 100.0 % (41/41/41) |
+| web-en Genesis 10 | p6 | 100.0 % (45/45/45) | 100.0 % (45/45/45) | 100.0 % (45/45/45) | 100.0 % (45/45/45) |
+| modern-en Genesis 10 | p0 | 91.4 % (64/70/70) | 98.6 % (69/70/70) | 28.6 % (20/20/70) **E** | 100.0 % (70/70/70) |
+| modern-en Genesis 10 | p1 | 87.3 % (69/79/79) | 100.0 % (79/79/79) | 100.0 % (79/79/79) | 100.0 % (79/79/79) |
+| modern-en Genesis 10 | p2 | 78.0 % (46/59/59) | 17.0 % (10/15/59) **E** | 98.3 % (58/58/59) | 96.6 % (57/58/59) |
+| modern-en Genesis 10 | p3 | 93.0 % (53/58/57) | 28.1 % (16/16/57) **E** | 98.2 % (56/57/57) | 28.1 % (16/16/57) **E** |
+| modern-en Genesis 10 | p4 | 85.3 % (64/82/75) | 98.7 % (74/75/75) | 100.0 % (75/75/75) | 98.7 % (74/75/75) |
+| modern-en Genesis 10 | p5 | 77.5 % (31/40/40) | 100.0 % (40/40/40) | 97.5 % (39/40/40) | 100.0 % (40/40/40) |
+| modern-en Genesis 10 | p6 | 100.0 % (44/44/44) | 100.0 % (44/44/44) | 100.0 % (44/44/44) | 100.0 % (44/44/44) |
+
+Single-mode summary (min / overall over all 26 paragraphs): off 74.7 % /
+90.7 %; prompt 11.6 % / 75.1 %; hotwords 27.3 % / 87.8 %; both 7.4 % /
+81.1 %. No single request mode is safe on its own — `prompt`/`both` fix the
+number-heavy Genesis 5 but echo on several Genesis 2 prose paragraphs and on
+Genesis 10 p2/p3, where `hotwords` alone is clean (98 %); `hotwords` alone
+cannot fix Genesis 5 (still writes "105"). The modes are complementary,
+hence the `auto` cascade with the plain cross-check.
+
+### Truncation strategy (forced 60-token budget, Genesis 10)
+
+All 26 test paragraphs fit the 223-token budget (max 172 tokens), so
+head-vs-names could only be measured by forcing the budget down:
+
+| chapter | para | off | full prompt | head @ 60 tok | names @ 60 tok |
+|---|---|---|---|---|---|
+| web-en Genesis 10 | p0 | 93.6 % | 98.7 % | 47.4 % | 69.2 % |
+| web-en Genesis 10 | p1 | 85.5 % | 100.0 % | 57.9 % | 76.3 % |
+| web-en Genesis 10 | p2 | 81.5 % | 13.0 % | 33.3 % | 59.3 % |
+| web-en Genesis 10 | p3 | 95.8 % | 73.6 % | 58.3 % | 79.2 % |
+| web-en Genesis 10 | p4 | 94.9 % | 100.0 % | 48.7 % | 94.9 % |
+| web-en Genesis 10 | p5 | 78.0 % | 100.0 % | 41.5 % | 68.3 % |
+| web-en Genesis 10 | p6 | 100.0 % | 100.0 % | 100.0 % | 100.0 % |
+| modern-en Genesis 10 | p0 | 91.4 % | 98.6 % | 50.0 % | 67.1 % |
+| modern-en Genesis 10 | p1 | 87.3 % | 100.0 % | 59.5 % | 79.8 % |
+| modern-en Genesis 10 | p2 | 78.0 % | 17.0 % | 32.2 % | 59.3 % |
+| modern-en Genesis 10 | p3 | 93.0 % | 28.1 % | 49.1 % | 84.2 % |
+| modern-en Genesis 10 | p4 | 85.3 % | 98.7 % | 45.3 % | 69.3 % |
+| modern-en Genesis 10 | p5 | 77.5 % | 100.0 % | 40.0 % | 62.5 % |
+| modern-en Genesis 10 | p6 | 100.0 % | 100.0 % | 100.0 % | 100.0 % |
+
+Overall at 60 tokens: `head` 53.5 %, `names` 76.3 %. Names-first is the
+default; both degrade badly, which is why the plain fallback exists.
+Paragraphs that actually need truncation (> 223 tokens ≈ 110+ name-heavy
+words, ≈ 60 s audio) were not present in the test set — the cross-check
+protects them, the bias itself is unproven there.
+
+### After: `--bias-text auto` through the CLI (default gate 0.85)
+
+`generate-words-sidecar.py bible <edition> --chapter N --out /tmp/words-after
+--local-dir /tmp/words-mp3/... --device cpu --compute-type int8 --force
+--bias-text auto`. All four chapters pass the gate; every sidecar passes
+`node app/scripts/validate-words-sidecar.cjs ... --edition bible-<edition>
+--chapter N`.
+
+| chapter | para | before (`off`, b8d23149 behaviour) | after (`--bias-text auto`) | produced by | delta |
+|---|---|---|---|---|---|
+| web-en Genesis 5 | p0 | 92.4 % (97/105) | 100.0 % (105/105) | `both` | +7.6 pt |
+| web-en Genesis 5 | p1 | 79.2 % (61/77) | 100.0 % (77/77) | `both` | +20.8 pt |
+| web-en Genesis 5 | p2 | 79.4 % (54/68) | 98.5 % (67/68) | `both` | +19.1 pt |
+| web-en Genesis 5 | p3 | 74.7 % (59/79) | 96.2 % (76/79) | `both` | +21.5 pt |
+| web-en Genesis 5 | p4 | 87.9 % (58/66) | 95.5 % (63/66) | `both` | +7.6 pt |
+| web-en Genesis 5 | p5 | 84.5 % (82/97) | 95.9 % (93/97) | `both` | +11.3 pt |
+| web-en Genesis 5 | p6 | 82.8 % (24/29) | 96.5 % (28/29) | `both` | +13.8 pt |
+| web-en Genesis 5 | **chapter** | **83.5 %** | **97.7 %** | gate 0.85: FAIL → **pass** | |
+| web-en Genesis 2 | p0 | 100.0 % (134/134) | 100.0 % (134/134) | `hotwords` | +0.0 pt |
+| web-en Genesis 2 | p1 | 100.0 % (121/121) | 100.0 % (121/121) | `hotwords` | +0.0 pt |
+| web-en Genesis 2 | p2 | 95.1 % (97/102) | 100.0 % (102/102) | `both` | +4.9 pt |
+| web-en Genesis 2 | p3 | 100.0 % (143/143) | 100.0 % (143/143) | `off (plain fallback)` | +0.0 pt |
+| web-en Genesis 2 | p4 | 100.0 % (112/112) | 100.0 % (112/112) | `hotwords` | +0.0 pt |
+| web-en Genesis 2 | **chapter** | **99.2 %** | **100.0 %** | gate 0.85: pass → **pass** | |
+| web-en Genesis 10 | p0 | 93.6 % (73/78) | 100.0 % (78/78) | `both` | +6.4 pt |
+| web-en Genesis 10 | p1 | 85.5 % (65/76) | 100.0 % (76/76) | `both` | +14.5 pt |
+| web-en Genesis 10 | p2 | 81.5 % (44/54) | 98.2 % (53/54) | `hotwords` | +16.7 pt |
+| web-en Genesis 10 | p3 | 95.8 % (69/72) | 95.8 % (69/72) | `off (plain fallback)` | +0.0 pt |
+| web-en Genesis 10 | p4 | 94.9 % (74/78) | 100.0 % (78/78) | `both` | +5.1 pt |
+| web-en Genesis 10 | p5 | 78.0 % (32/41) | 100.0 % (41/41) | `both` | +22.0 pt |
+| web-en Genesis 10 | p6 | 100.0 % (45/45) | 100.0 % (45/45) | `both` | +0.0 pt |
+| web-en Genesis 10 | **chapter** | **90.5 %** | **99.1 %** | gate 0.85: FAIL → **pass** | |
+| modern-en Genesis 10 | p0 | 91.4 % (64/70) | 100.0 % (70/70) | `both` | +8.6 pt |
+| modern-en Genesis 10 | p1 | 87.3 % (69/79) | 100.0 % (79/79) | `both` | +12.7 pt |
+| modern-en Genesis 10 | p2 | 78.0 % (46/59) | 98.3 % (58/59) | `hotwords` | +20.3 pt |
+| modern-en Genesis 10 | p3 | 93.0 % (53/57) | 98.2 % (56/57) | `hotwords` | +5.3 pt |
+| modern-en Genesis 10 | p4 | 85.3 % (64/75) | 100.0 % (75/75) | `hotwords` | +14.7 pt |
+| modern-en Genesis 10 | p5 | 77.5 % (31/40) | 100.0 % (40/40) | `both` | +22.5 pt |
+| modern-en Genesis 10 | p6 | 100.0 % (44/44) | 100.0 % (44/44) | `both` | +0.0 pt |
+| modern-en Genesis 10 | **chapter** | **87.5 %** | **99.5 %** | gate 0.85: FAIL → **pass** | |
+
+Success criterion check: Genesis 5 WEB min 95.5 %, Genesis 10 WEB min
+95.8 %, Genesis 10 Modern min 98.2 % — all paragraphs ≥ 0.85. Genesis 2 WEB
+is unchanged on 4 of 5 paragraphs (100 % → 100 %) and *improves* on p2
+(95.1 % → 100 %); it does not regress anywhere. Every paragraph is ≥ its
+baseline (the cross-check guarantee held in practice: the two plain
+fallbacks, Genesis 2 p3 and Genesis 10 WEB p3, kept exactly the baseline
+result).
+
+### CPU wall time
+
+| chapter | audio | baseline wall (default gate / gate 0) | `auto` wall | × baseline | transcription passes |
+|---|---:|---:|---:|---:|---:|
+| web-en Genesis 5 | 178 s | 118 s / 104 s | 251 s | ×2.3 | 17 for 7 paragraphs: 2 perfect on the first `both` pass, 0 perfect on the `hotwords` pass, 5 ran all three |
+| web-en Genesis 2 | 171 s | 131 s / 117 s | 118 s | ×1.0 | 10 for 5 paragraphs: 1 perfect on the first `both` pass, 3 perfect on the `hotwords` pass, 1 ran all three |
+| web-en Genesis 10 | 161 s | 70 s / 71 s | 107 s | ×1.5 | 11 for 7 paragraphs: 5 perfect on the first `both` pass, 0 perfect on the `hotwords` pass, 2 ran all three |
+| modern-en Genesis 10 | 160 s | 65 s / 66 s | 104 s | ×1.6 | 12 for 7 paragraphs: 4 perfect on the first `both` pass, 1 perfect on the `hotwords` pass, 2 ran all three |
+
+Each pass in the cascade is a full transcription, and with the default
+`--bias-retry-below 1.0` any imperfect first pass runs all three, so cost
+scales with how many paragraphs are imperfect on the first biased pass —
+≈ 1× on clean prose (Genesis 2), 1.5–2.3× on genealogies. On the 4090 (≈ 20× real time)
+that is seconds per chapter.
+
+### Chosen default: `off`
+
+`auto` (or any biased mode) is **not** the default because the rule for a
+default was "wins on all three test chapters without regressing Genesis 2".
+It does clear that bar on quality, but only *because* of the plain
+cross-check, which makes a biased run cost 1–2.3× a plain run and gains
+nothing on the ~97 % of chapters that already pass. It is therefore shipped
+**opt-in** for the second pass over the chapters that failed the 85 % gate,
+where the extra passes touch a small subset. The four pods running
+`b8d23149` are unaffected; `--bias-text off` is byte-for-byte the old
+behaviour apart from the additive `"bias": "off"` provenance.
+
+### Second-pass command for failed chapters
+
+Resumable (chapters with a validated `words.json` on R2 are skipped unless
+`--force`; chapters whose local `words.json` already passes the gate are
+skipped too), one model load per invocation, operator adds `--upload` and
+the usual `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`:
+
+```bash
+cd /workspace/tinct/app/tts
+python3 generate-words-sidecar.py bible web-en --chapter 5 \
+  --model small.en --bias-text auto --min-alignment 0.85 \
+  --out /workspace/words-out/bible/web-en          # add --upload when ready
+# ranges / several editions in one model load:
+python3 generate-words-sidecar.py --target bible/web-en --target bible/modern-en \
+  --start-ch 5 --end-ch 10 --model small.en --bias-text auto --min-alignment 0.85
+```
+
+Chapters that still fail with `auto` are logged `FAIL low observed
+alignment: ...` exactly as before and are left without a sidecar; they are
+the residue for the "accept with a `< 0.85` flag" decision that is still
+pending with Anders.
+
+### Caveats
+
+- This is a **measured recognition improvement** (more edition tokens
+  observed by Whisper, fewer interpolated), not a perceptual verification of
+  word-timing accuracy. Nobody has listened to a biased sidecar at 1× or 2×;
+  the human-listen of one genealogy chapter recommended in the calibration
+  section still stands, and should now be done on a biased Genesis 5 WEB.
+- Measured on CPU `int8`; the pods run `float16` on CUDA. Decoding is
+  deterministic per configuration, but the echo behaviour may differ
+  slightly between the two, which is one more reason the cross-check is
+  unconditional by default.
+- The echo failure is a property of Whisper's prompt semantics (the prompt is
+  "already spoken" text, so the decoder resumes after it). Truncated prompts
+  make it worse; long paragraphs (> 223 tokens) were not in the test set.
+- Sidecars, MP3s and the model live under `/tmp` and
+  `~/.cache/huggingface`; nothing was committed or uploaded.

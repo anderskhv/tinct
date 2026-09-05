@@ -11,7 +11,7 @@ import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Any, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Iterable, List, Optional, Sequence, Tuple
 from urllib.parse import quote
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -185,6 +185,250 @@ def align_tokens(expected_tokens: Sequence[str], heard: Sequence[HeardWord]) -> 
     """Backward-compatible alignment helper used by existing callers/tests."""
     words, _stats = align_tokens_with_stats(expected_tokens, heard)
     return words
+
+
+# ---------------------------------------------------------------------------
+# Text biasing: feed Whisper the paragraph's own words so that proper names and
+# spelled-out numbers ("one hundred five") are recognised in the edition's
+# form.  faster-whisper keeps at most ``max_length // 2 - 1`` = 223 prompt
+# tokens; anything longer is silently cut from the FRONT, so the prompt is
+# truncated here (exactly with the model tokenizer when available, otherwise
+# with a conservative estimate) to keep control over which words survive.
+# ---------------------------------------------------------------------------
+
+# Request modes map 1:1 onto transcribe() arguments.  ``auto`` is a cascade
+# over request modes (see ``bias_cascade``): measured 2026-09-05 on Genesis
+# 5/10, ``both`` fixes spelled-out numbers but echoes on some name lists where
+# ``hotwords`` alone is clean, so no single request mode clears every chapter.
+BIAS_REQUEST_MODES = ("off", "prompt", "hotwords", "both")
+BIAS_MODES = BIAS_REQUEST_MODES + ("auto",)
+AUTO_BIAS_CASCADE = ("both", "hotwords")
+WHISPER_PROMPT_TOKEN_BUDGET = 223
+DEFAULT_BIAS_MAX_WORDS = 180
+DEFAULT_HOTWORDS_TOKEN_BUDGET = 64
+# A biased transcript that hears far fewer words than the text contains is the
+# classic "echo the prompt / emit nothing" failure; fall back to a plain pass.
+BIAS_MIN_HEARD_FRACTION = 0.6
+
+TokenCounter = Callable[[str], int]
+
+
+@dataclass(frozen=True)
+class BiasRequest:
+    """What to pass to ``model.transcribe`` for one paragraph."""
+
+    mode: str
+    initial_prompt: Optional[str] = None
+    hotwords: Optional[str] = None
+
+    @property
+    def is_off(self) -> bool:
+        return self.initial_prompt is None and self.hotwords is None
+
+
+BIAS_OFF = BiasRequest(mode="off")
+
+
+def estimate_prompt_tokens(text: str) -> int:
+    """Conservative Whisper token estimate when no tokenizer is available.
+
+    Measured on Genesis 2/5/10 (WEB + Modern): the real count never exceeded
+    ``1 + len(word) // 3`` summed over words, and English prose sits well
+    below it, so this only ever truncates early, never late.
+    """
+    return sum(1 + len(word) // 3 for word in text.split())
+
+
+def bias_hotwords(expected_tokens: Sequence[str]) -> List[str]:
+    """Capitalised tokens that never appear in lowercase in the paragraph.
+
+    Sentence-initial words ("All", "Their") usually also occur lowercased in
+    the same paragraph and are dropped; proper names survive.  Order is kept
+    and duplicates removed so the list reads like a name roll.
+    """
+    lowercase_forms = {
+        normalize_token(token)
+        for token in expected_tokens
+        if token[:1].islower()
+    }
+    names: List[str] = []
+    seen: set[str] = set()
+    for token in expected_tokens:
+        word = re.sub(r"^[^\w]+|[^\w]+$", "", token)
+        if not word or not word[:1].isupper() or not any(ch.isalpha() for ch in word):
+            continue
+        key = normalize_token(word)
+        if not key or key in seen or key in lowercase_forms:
+            continue
+        seen.add(key)
+        names.append(word)
+    return names
+
+
+def _fit_words(
+    words: Sequence[str],
+    max_tokens: int,
+    count_tokens: TokenCounter,
+    separator: str = " ",
+) -> List[str]:
+    """Longest prefix of ``words`` whose joined text fits ``max_tokens``."""
+    kept = list(words)
+    if max_tokens <= 0:
+        return []
+    while kept:
+        total = count_tokens(separator.join(kept))
+        if total <= max_tokens:
+            break
+        # Drop roughly the overshoot's worth of words (at least one) and re-count.
+        per_word = total / len(kept)
+        kept = kept[: len(kept) - max(1, int((total - max_tokens) / per_word))]
+    return kept
+
+
+def build_bias_prompt(
+    expected_tokens: Sequence[str],
+    max_tokens: int = WHISPER_PROMPT_TOKEN_BUDGET,
+    count_tokens: Optional[TokenCounter] = None,
+    max_words: int = DEFAULT_BIAS_MAX_WORDS,
+    strategy: str = "names",
+) -> str:
+    """Paragraph text for ``initial_prompt`` within Whisper's prompt budget.
+
+    ``head`` keeps the first ``max_words`` words.  ``names`` (default) puts
+    the paragraph's capitalised tokens first and fills the rest of the budget
+    with the head, for paragraphs whose names sit past the truncation point;
+    at a forced 60-token budget on Genesis 10 it matched 76 % of words against
+    54 % for ``head``.  When the whole paragraph fits, both strategies return
+    the full text.
+    """
+    if strategy not in ("head", "names"):
+        raise ValueError(f"unknown bias prompt strategy {strategy!r}")
+    counter = count_tokens or estimate_prompt_tokens
+    words = [token for token in expected_tokens if token][:max_words]
+    if not words:
+        return ""
+    head = _fit_words(words, max_tokens, counter)
+    if strategy == "head" or len(head) == len(words):
+        return " ".join(head)
+    names = bias_hotwords(expected_tokens)
+    names = _fit_words(names, max_tokens // 2, counter, separator=", ")
+    if not names:
+        return " ".join(head)
+    name_text = ", ".join(names) + "."
+    remaining = max_tokens - counter(name_text)
+    filler = _fit_words(words, remaining, counter)
+    # BPE merges across the join can differ from the two separate counts;
+    # trim the filler until the composed prompt itself fits.
+    while filler and counter(f"{name_text} {' '.join(filler)}") > max_tokens:
+        filler.pop()
+    return f"{name_text} {' '.join(filler)}".strip()
+
+
+def build_bias_request(
+    expected_tokens: Sequence[str],
+    mode: str,
+    count_tokens: Optional[TokenCounter] = None,
+    max_tokens: int = WHISPER_PROMPT_TOKEN_BUDGET,
+    max_words: int = DEFAULT_BIAS_MAX_WORDS,
+    strategy: str = "names",
+    hotwords_budget: int = DEFAULT_HOTWORDS_TOKEN_BUDGET,
+) -> BiasRequest:
+    """Build the transcribe() biasing arguments for ``mode``.
+
+    ``hotwords`` and ``initial_prompt`` are both prepended to Whisper's
+    decoder prompt, so in ``both`` mode they share the single 223-token
+    budget; otherwise the combined prompt would starve the decoder of output
+    tokens on a 30 s window.  The returned ``mode`` is the *effective* one:
+    a paragraph without capitalised tokens yields ``off`` in hotwords mode.
+    """
+    if mode not in BIAS_REQUEST_MODES:
+        raise ValueError(
+            f"unknown bias request mode {mode!r}; expected one of {BIAS_REQUEST_MODES}",
+        )
+    if mode == "off":
+        return BIAS_OFF
+    counter = count_tokens or estimate_prompt_tokens
+    hotwords: Optional[str] = None
+    prompt_budget = max_tokens
+    if mode in ("hotwords", "both"):
+        budget = max_tokens if mode == "hotwords" else min(hotwords_budget, max_tokens)
+        names = _fit_words(bias_hotwords(expected_tokens), budget, counter, separator=", ")
+        if names:
+            hotwords = ", ".join(names)
+            prompt_budget = max_tokens - counter(hotwords)
+    initial_prompt: Optional[str] = None
+    if mode in ("prompt", "both"):
+        text = build_bias_prompt(
+            expected_tokens,
+            max_tokens=prompt_budget,
+            count_tokens=counter,
+            max_words=max_words,
+            strategy=strategy,
+        )
+        initial_prompt = text or None
+    if initial_prompt is None and hotwords is None:
+        return BIAS_OFF
+    if initial_prompt is not None and hotwords is not None:
+        effective = "both"
+    elif initial_prompt is not None:
+        effective = "prompt"
+    else:
+        effective = "hotwords"
+    return BiasRequest(mode=effective, initial_prompt=initial_prompt, hotwords=hotwords)
+
+
+def bias_cascade(mode: str) -> Tuple[str, ...]:
+    """Request modes to try, in order, for a CLI ``--bias-text`` mode."""
+    if mode not in BIAS_MODES:
+        raise ValueError(f"unknown bias mode {mode!r}; expected one of {BIAS_MODES}")
+    if mode == "off":
+        return ()
+    if mode == "auto":
+        return AUTO_BIAS_CASCADE
+    return (mode,)
+
+
+@dataclass(frozen=True)
+class ParagraphAlignment:
+    """One paragraph's aligned words plus the bias provenance that produced them."""
+
+    words: List[dict[str, Any]]
+    stats: AlignmentStats
+    bias: str = "off"            # effective bias mode that produced ``words``
+    bias_fallback: bool = False  # True when a biased pass was replaced by a plain one
+
+
+# Measured 2026-09-05 (Genesis 2 WEB, small.en): with the paragraph's own text
+# as prompt Whisper resumes *after* the prompt and emits only the last
+# sentence(s) on 3 of 5 prose paragraphs, and silently drops 95 % -> 93 % on a
+# fourth.  Cross-checking every imperfect biased paragraph against a plain pass
+# is the only rule that made a biased run never worse than the plain pipeline.
+DEFAULT_BIAS_RETRY_BELOW = 1.0
+
+
+def should_retry_without_bias(
+    stats: AlignmentStats,
+    retry_below: float = DEFAULT_BIAS_RETRY_BELOW,
+    min_heard_fraction: float = BIAS_MIN_HEARD_FRACTION,
+) -> bool:
+    """Decide whether a biased pass must be re-run without bias.
+
+    Two triggers: the echo/dropout failure (Whisper heard far fewer words than
+    the paragraph has, so the prompt replaced transcription) and a match ratio
+    below ``retry_below``.  At the default 1.0 every imperfect biased paragraph
+    is cross-checked against a plain pass and the better one is kept, so
+    biasing can only add matches; lowering it trades that guarantee for fewer
+    passes.
+    """
+    if stats.expected_words <= 0:
+        return False
+    heard_fraction = stats.heard_words / stats.expected_words
+    return heard_fraction < min_heard_fraction or stats.match_ratio < retry_below
+
+
+def prefer_plain_result(biased: AlignmentStats, plain: AlignmentStats) -> bool:
+    """After a retry, keep the plain pass only when it observed more words."""
+    return plain.matched_words > biased.matched_words
 
 
 def is_timed_word(value: Any) -> bool:
