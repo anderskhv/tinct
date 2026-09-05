@@ -3,7 +3,7 @@
 from pathlib import Path
 import hashlib
 import json
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageStat
 
 ROOT = Path(__file__).resolve().parent
 ART = ROOT / "pilot-v2" / "artwork"
@@ -88,15 +88,29 @@ def tracked(draw, xy, text, font, fill, max_width, tracking=3.4):
         draw.text((x, xy[1]), char, font=font, fill=fill, anchor="la")
         x += width + tracking
 
-def scrim(im, box, alpha=102):
+def needs_scrim(im, box):
+    """Only add a scrim when the reserved zone is too bright or visually noisy."""
+    zone = im.crop(box).convert("L")
+    stat = ImageStat.Stat(zone)
+    return stat.mean[0] > 122 or stat.var[0] > 1050
+
+def vertical_scrim(im, box, alpha=82, top_to_bottom=True):
+    """A feathered vertical gradient, never a rectangular panel."""
+    left, top, right, bottom = box
     layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
-    ImageDraw.Draw(layer).rounded_rectangle(box, radius=8, fill=(13, 19, 23, alpha))
+    px = layer.load(); height = max(1, bottom - top)
+    for y in range(top, bottom):
+        t = (y - top) / height
+        strength = int(alpha * ((1 - t) ** 1.8 if top_to_bottom else t ** 1.8))
+        for x in range(left, right): px[x, y] = (11, 16, 20, strength)
     return Image.alpha_composite(im.convert("RGBA"), layer)
 
-def render_cover(slug, title, author):
-    im = Image.open(ART / f"{slug}--artwork-v2.png").convert("RGB").resize((1024, 1536), Image.Resampling.LANCZOS)
-    im = scrim(im, (72, 88, 952, 382), 92)
-    im = scrim(im, (72, 1294, 952, 1452), 98)
+def render_cover(slug, title, author, version=2):
+    im = Image.open(ART / f"{slug}--artwork-v{version}.png").convert("RGB").resize((1024, 1536), Image.Resampling.LANCZOS)
+    if needs_scrim(im, (92, 84, 932, 350)):
+        im = vertical_scrim(im, (0, 0, 1024, 450), 88, True)
+    if needs_scrim(im, (92, 1282, 932, 1452)):
+        im = vertical_scrim(im, (0, 1120, 1024, 1536), 92, False)
     draw = ImageDraw.Draw(im)
     font, lines = lines_for(draw, title, 800)
     line_height = int(font.size * .90)
@@ -109,7 +123,7 @@ def render_cover(slug, title, author):
     tracked(draw, (512, 1376), author.upper(), author_font, (242, 235, 215), 760)
     draw.line((476, 1336, 548, 1336), fill=(196, 159, 107), width=3)
     FINAL.mkdir(parents=True, exist_ok=True)
-    path = FINAL / f"{slug}--cover-v2.png"
+    path = FINAL / f"{slug}--cover-v{version}.png"
     im.convert("RGB").save(path, optimize=True)
     return path
 
@@ -151,6 +165,8 @@ def comparison(v1, v2):
 
 if __name__ == "__main__":
     v2 = [render_cover(*book) for book in BOOKS]
+    render_cover("meditations", "MEDITATIONS", "MARCUS AURELIUS", 3)
+    render_cover("pride-and-prejudice", "PRIDE AND PREJUDICE", "JANE AUSTEN", 3)
     sheet(v2, "pilot-v2-10-up.png", (256,384), 5, "Tinct cover system — pilot v2")
     sheet(v2, "pilot-v2-thumbnails.png", (108,162), 5, "Tinct cover system — v2 library-scale proof")
     comparison(ROOT / "pilot" / "final", FINAL)
