@@ -1,6 +1,7 @@
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import {
+  mergeLabPositionStatesByTime,
   parseLabPositionState,
   type LabPositionState,
 } from '../../lab/labPosition'
@@ -67,28 +68,7 @@ export async function handleLabPosition(
   return jsonResponse(stored, 200, request)
 }
 
-function mergeWithoutChapterGate(local: LabPositionState, cloud: LabPositionState): LabPositionState {
-  const books = { ...local.books }
-  for (const [bookId, incoming] of Object.entries(cloud.books)) {
-    if (incoming.bookId !== bookId) continue
-    const existing = books[bookId]
-    if (!existing || incoming.updatedAt > existing.updatedAt || (incoming.updatedAt === existing.updatedAt && incoming.rev > existing.rev)) {
-      books[bookId] = incoming
-    }
-  }
-  let lastSettledBookId = local.lastSettledBookId
-  let lastSettledAt = local.lastSettledAt
-  if (cloud.lastSettledAt > local.lastSettledAt && cloud.lastSettledBookId && books[cloud.lastSettledBookId]) {
-    lastSettledBookId = cloud.lastSettledBookId
-    lastSettledAt = cloud.lastSettledAt
-  }
-  return {
-    books,
-    lastSettledBookId,
-    lastSettledAt,
-    updatedAt: Math.max(local.updatedAt, cloud.updatedAt),
-    deviceId: cloud.deviceId || local.deviceId,
-  }
-}
+/** Same time-ordered merge the localStorage layer uses; shared so both sides agree. */
+const mergeWithoutChapterGate = mergeLabPositionStatesByTime
 
 export { mergeWithoutChapterGate }
