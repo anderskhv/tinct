@@ -120,8 +120,10 @@ export function useStorageBootstrap(args: {
             // anonymous-default-state guard.
             for (const [key, value] of Object.entries(localData)) {
               // Reading memory has its own versioned merge path (queue +
-              // commit_user_data); its write queue must not become a row.
-              if (key.startsWith('reading-memory:')) continue
+              // commit_user_data). Neither its write queue nor the device
+              // snapshot (captured above BEFORE adoption retagged owners) may
+              // become a row here; the adoption drain commits the owned copy.
+              if (key === 'reading-memory' || key.startsWith('reading-memory:')) continue
               const cloudValue = provider.get(key)
               if (!cloudValue) {
                 provider.set(key, value)
