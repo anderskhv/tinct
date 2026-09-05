@@ -1462,3 +1462,30 @@ done
 ```
 
 Not run: `wrangler deploy`, any bucket list, any GPU or corpus job.
+
+## Measured GPU calibration (2026-09-05, RunPod RTX 4090, run by GrokBot)
+
+Pod `zurxlhqh2uc6tb` (On-Demand RTX 4090, 50 GB volume, stopped afterwards, volume kept). Checkout `6207dbea`. Command shape: `generate-words-sidecar.py bible <edition> --start-ch 1 --end-ch 10 --model small.en --out /workspace/words-out/...` with **no upload**. Chapter 1 of each edition was skipped by the tool because the canary sidecar already exists on R2.
+
+| Edition | Chapters run | Wall (incl. model load, downloads) | Audio covered | × real time |
+|---|---:|---:|---:|---:|
+| `bible/web-en` | 2–10 (9) | 1 m 21.7 s | ≈ 25.8 min | ≈ 19 |
+| `bible/modern-en` | 2–10 (9) | 1 m 13.2 s | ≈ 25.3 min | ≈ 21 |
+| total | 18 | 2 m 35 s | ≈ 51 min | **≈ 20** |
+
+Per chapter: 6–11 s wall each. Validator: 18/18 pass, 0 failures. GPU memory in use at idle: 2 MiB.
+
+Alignment (match ratio) per chapter: web-en ch2 99.2 %, ch3 99.8 %, ch4 97.1 %, **ch5 FAIL** (p1 79 %, p2 79 %, p3 78 %, p5 85 %, p6 83 %), ch6 99.8 %, ch7 98.9 %, ch8 98.1 %, ch9 98.7 %, **ch10 FAIL** (p1 83 %, p2 81 %, p5 78 %); modern-en ch2 99.3 %, ch3 99.7 %, ch4 96.4 %, ch5 96.2 %, ch6 98.5 %, ch7 98.4 %, ch8 98.9 %, ch9 99.7 %, **ch10 FAIL** (p2 81 %, p5 78 %).
+
+**Classification of the three 85 %-gate failures.** Genesis 5 and Genesis 10 are genealogies: long lists of Hebrew proper names that Whisper transcribes inconsistently. This is a content class, not a pipeline defect; the sidecars still carry full token coverage (the validator passes) and timings for unmatched names are interpolated by the aligner. Expect the same class in Numbers, 1 Chronicles 1–9, Ezra/Nehemiah lists, and the Matthew/Luke genealogies. Recommendation (pending Anders): accept such chapters with an `alignment.matchRatio < 0.85` flag in provenance rather than blocking the run, and human-listen one genealogy chapter (Genesis 5 WEB) at 1× and 2×.
+
+### Projection replacing section 8's planning estimates
+
+- Missing-sidecar audio ≈ 1,829 h × (12,567 / 13,743) ≈ **1,670 h**.
+- GPU time at 20× ≈ **84 GPU-hours** (range 75–95 h allowing for model load, downloads, longer non-Bible paragraphs).
+- Four balanced shards (≈ 440 h audio each, section 6.4): ≈ **21 h wall** each in parallel; one pod ≈ 3.5 days.
+- Cost: Community $0.34/h ≈ **$29** (budget $40 with 25 % retry allowance); Secure/On-Demand $0.45–0.74/h ≈ $38–62 (budget $80).
+- Storage ≈ 1.8 GB of `words.json`, as planned.
+- Danish (1,318 chapters, ≈ 94 h audio, `--model small`) adds ≈ 5 GPU-hours ≈ $2–4; still gated on explicit approval.
+
+Next gate per the execution plan: run Genesis 1–50 with `--upload` (≈ 6 h audio ≈ 20 min GPU) as Shard 0, then open Shards 1–4. The 18 calibration sidecars on the pod volume need not be uploaded separately; Shard 0 regenerates them (skip-if-valid applies only to chapters already on R2).
