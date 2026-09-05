@@ -105,8 +105,8 @@ def vertical_scrim(im, box, alpha=82, top_to_bottom=True):
         for x in range(left, right): px[x, y] = (11, 16, 20, strength)
     return Image.alpha_composite(im.convert("RGBA"), layer)
 
-def render_cover(slug, title, author, version=2):
-    im = Image.open(ART / f"{slug}--artwork-v{version}.png").convert("RGB").resize((1024, 1536), Image.Resampling.LANCZOS)
+def render_artwork(src, destination, title, author):
+    im = Image.open(src).convert("RGB").resize((1024, 1536), Image.Resampling.LANCZOS)
     if needs_scrim(im, (92, 84, 932, 350)):
         im = vertical_scrim(im, (0, 0, 1024, 450), 88, True)
     if needs_scrim(im, (92, 1282, 932, 1452)):
@@ -122,10 +122,12 @@ def render_cover(slug, title, author, version=2):
     author_font = ImageFont.truetype(str(SERIF), 32)
     tracked(draw, (512, 1376), author.upper(), author_font, (242, 235, 215), 760)
     draw.line((476, 1336, 548, 1336), fill=(196, 159, 107), width=3)
-    FINAL.mkdir(parents=True, exist_ok=True)
-    path = FINAL / f"{slug}--cover-v{version}.png"
-    im.convert("RGB").save(path, optimize=True)
-    return path
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    im.convert("RGB").save(destination, optimize=True)
+    return destination
+
+def render_cover(slug, title, author, version=2):
+    return render_artwork(ART / f"{slug}--artwork-v{version}.png", FINAL / f"{slug}--cover-v{version}.png", title, author)
 
 def sheet(paths, name, thumb, cols, heading):
     pad, gap, label_h, head = 34, 24, 30, 75
