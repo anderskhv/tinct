@@ -22,6 +22,64 @@ export interface PreReaderCoverViewModel {
   accent: string
 }
 
+/**
+ * Real cover art shipped as an app asset (2:3, 540×810 WebP, optional 2×).
+ * The art carries its own title and author, so the cover component is the
+ * image alone. Books without art keep the generated typographic placeholder.
+ */
+export interface PreReaderCoverArt {
+  src: string
+  srcSet: string
+}
+
+/** Pilot v2 covers under public/covers/v2 (the ten titles that have art). */
+export const LAB_COVER_ART_BOOK_IDS: readonly string[] = [
+  'bible',
+  'odyssey',
+  'the-republic',
+  'pride-and-prejudice',
+  'hamlet',
+  'the-histories',
+  'the-art-of-war',
+  'frankenstein',
+  'meditations',
+  'frederick-douglass',
+]
+
+/** Covers with a 2× variant (under ~150 KB each); the rest ship at 1× only. */
+export const LAB_COVER_ART_2X_BOOK_IDS: readonly string[] = [
+  'odyssey',
+  'the-republic',
+  'pride-and-prejudice',
+  'the-histories',
+  'the-art-of-war',
+  'frankenstein',
+  'meditations',
+  'frederick-douglass',
+]
+
+/**
+ * The popular shelf, in shelf order (left to right). Eight titles with art;
+ * Meditations and Frederick Douglass have art but are not on the shelf.
+ */
+export const LAB_POPULAR_BOOK_IDS: readonly string[] = [
+  'odyssey',
+  'hamlet',
+  'the-republic',
+  'pride-and-prejudice',
+  'bible',
+  'frankenstein',
+  'the-art-of-war',
+  'the-histories',
+]
+
+export function labCoverArt(bookId: string): PreReaderCoverArt | null {
+  if (!LAB_COVER_ART_BOOK_IDS.includes(bookId)) return null
+  const src = `/covers/v2/${bookId}.webp`
+  const srcSet = LAB_COVER_ART_2X_BOOK_IDS.includes(bookId) ? `${src} 1x, /covers/v2/${bookId}@2x.webp 2x` : `${src} 1x`
+  return { src, srcSet }
+}
+
 export interface PreReaderAvailability {
   cover: boolean
   chapterText: boolean
@@ -49,9 +107,12 @@ export interface PreReaderBookViewModel {
   title: string
   author: string
   summary: string
+  /** One-line description from the library taxonomy (falls back to the first sentence of the summary). */
+  blurb: string
   displayYear: string
   wordCount: number | null
   cover: PreReaderCoverViewModel
+  art: PreReaderCoverArt | null
   shelfIds: string[]
   houseIds: string[]
   topics: string[]
@@ -87,6 +148,8 @@ export interface SerializablePreReaderCatalogue {
   houses: Array<Omit<PreReaderHouseViewModel, 'shelves'> & {
     shelves: Array<Omit<PreReaderShelfViewModel, 'books'> & { bookIds: string[] }>
   }>
+  /** Popular shelf order; only published ids. */
+  popular: string[]
 }
 
 export interface BookDetailViewModel {
@@ -154,6 +217,11 @@ export interface ReaderHandoffIntent {
   savedPlace?: SavedReaderPlaceInput
 }
 
+function firstSentence(text: string): string {
+  const match = text.match(/^.*?[.!?](?=\s|$)/)
+  return (match ? match[0] : text).trim()
+}
+
 function unique(values: Array<string | undefined>): string[] {
   return [...new Set(values.filter((value): value is string => Boolean(value?.trim())))]
 }
@@ -210,6 +278,7 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
 
   const editions = editionViewModels(book.editions)
   const summary = book.description?.trim() || meta.blurb?.trim() || `${book.title} by ${book.author}.`
+  const blurb = meta.blurb?.trim() || firstSentence(summary)
   const cover = {
     kind: 'generated' as const,
     background: book.coverColor || FALLBACK_COVER_BACKGROUND,
@@ -220,9 +289,11 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     title: book.title.trim(),
     author: book.author.trim(),
     summary,
+    blurb,
     displayYear: getBookDisplayYear(book, meta),
     wordCount: book.wordCount ?? null,
     cover,
+    art: labCoverArt(book.id),
     shelfIds: [...meta.shelves],
     houseIds,
     topics: unique([
@@ -292,6 +363,7 @@ export function serializePreReaderCatalogue(
         bookIds: shelf.books.map(book => book.id),
       })),
     })),
+    popular: LAB_POPULAR_BOOK_IDS.filter(id => catalogue.booksById.has(id)),
   }
 }
 

@@ -1,4 +1,17 @@
-import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from './library-2-model.js'
+import { wholeBookProgress } from './library-2-model.js'
+import {
+  READING_MEMORY_DEVICE_KEY,
+  claimReveal,
+  filterIndexBooks,
+  indexHouses,
+  libraryModeFromDeviceMemory,
+  moveSelection,
+  popularBooks,
+  publishedCount,
+  revealDelayMs,
+  searchPlaceholder,
+  selectionEyebrow,
+} from './library-model.js'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -6,7 +19,6 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
 
   const READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
   const LAB_POSITION_KEY = 'tinct-lab-position'
-  const INVITE_DISMISSED_KEY = 'tinct:lab-library-invite-dismissed'
 
   const state = {
     catalogue: null,
@@ -15,12 +27,16 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     selectedEditionKey: null,
     compareEditionKey: null,
     selectionRevision: 0,
-    activeHouseId: 'all',
     query: '',
     onboarding: null,
     continuations: [],
     pendingResume: null,
-    auth: { ready: false, signedIn: false, email: null },
+    auth: { ready: false, signedIn: false, email: null, name: null },
+    /** 'new' (selection shelf) or 'returning' (uniform shelf under the recap). */
+    libraryMode: 'new',
+    shelfBooks: [],
+    shelfIndex: 0,
+    expandedHouseId: null,
   }
   const coverCache = new Map()
   const worldCache = new Map()
@@ -30,13 +46,12 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   })[character])
-  const normalize = value => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim()
   const number = value => typeof value === 'number' && Number.isFinite(value) ? value : null
   const integer = (value, minimum = 0) => Number.isInteger(value) && value >= minimum ? value : null
   const selectedBook = () => state.booksById.get(state.selectedBookId)
   const v1Editions = book => book.editions.filter(edition => edition.language !== 'da')
-  const formatDate = value => value ? new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(value) : ''
   const formatWordCount = count => count ? `${new Intl.NumberFormat().format(count)} words` : 'Length unavailable'
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   function readJson(key) {
     try {
@@ -52,6 +67,7 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
       || editions[0]
   }
 
+  /** Typographic placeholder for books without pilot cover art. */
   function coverData(book) {
     if (coverCache.has(book.id)) return coverCache.get(book.id)
     const title = escapeHtml(book.title.toUpperCase())
@@ -69,6 +85,17 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     return data
   }
 
+  /** Real art when the book has it, else the placeholder. The cover is the image alone. */
+  function coverFor(book) {
+    if (book?.art?.src) return { src: book.art.src, srcSet: book.art.srcSet || '' }
+    return { src: coverData(book), srcSet: '' }
+  }
+
+  function coverImage(book, eager = false) {
+    const cover = coverFor(book)
+    return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async"${eager ? '' : ' loading="lazy"'}></span>`
+  }
+
   function worldData(book) {
     if (worldCache.has(book.id)) return worldCache.get(book.id)
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><defs><radialGradient id="g" cx="28%" cy="18%"><stop stop-color="${book.cover.accent}" stop-opacity=".38"/><stop offset=".55" stop-color="${book.cover.background}"/><stop offset="1" stop-color="#071018"/></radialGradient><filter id="n"><feTurbulence baseFrequency=".015" numOctaves="3" seed="${book.catalogueIndex + 1}"/><feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .11 0"/></filter></defs><rect width="1200" height="900" fill="url(#g)"/><rect width="1200" height="900" filter="url(#n)" opacity=".42"/></svg>`
@@ -77,13 +104,8 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     return data
   }
 
-  const card = (book, compact = false) => compact
-    ? `<button type="button" data-catalogue-book="${book.id}"><img src="${coverData(book)}" alt="${escapeHtml(book.title)}"><span><strong>${escapeHtml(book.title)}</strong><small>${escapeHtml(book.author)}</small></span></button>`
-    : `<button type="button" data-catalogue-book="${book.id}"><img src="${coverData(book)}" alt="${escapeHtml(book.title)}"><strong>${escapeHtml(book.title)}</strong><small>${escapeHtml(book.author)}</small></button>`
-
   function visibleBooks() {
-    const books = state.catalogue.books.filter(book => state.activeHouseId === 'all' || book.houseIds.includes(state.activeHouseId))
-    return state.query.trim() ? searchPublishedBooks(books, state.query) : books
+    return state.catalogue ? filterIndexBooks(state.catalogue, state.query) : []
   }
 
   function showView(view) {
@@ -110,7 +132,7 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
       zoom.style.setProperty('--tov5-world-ink', book.cover.background)
     })
     const src = worldData(book)
-    root.querySelectorAll('[data-library-world-art],[data-your-library-world-art],[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image => { image.src = src })
+    root.querySelectorAll('[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image => { image.src = src })
   }
 
   function progressRecord(bookId) {
@@ -201,64 +223,113 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     } : null
   }
 
-  function renderReaderState() {
-    state.continuations = resolveContinuations()
-    const section = root.querySelector('.tov5-library-continue')
-    const rail = root.querySelector('[data-library-continue-rail]')
-    section.hidden = state.continuations.length === 0
-    section.querySelector('small').textContent = state.auth.signedIn ? 'Synced to your account' : 'Saved on this device'
-    rail.innerHTML = state.continuations.map(resume => {
-      const book = state.booksById.get(resume.bookId)
-      const progress = progressFor(resume)
-      return `<button type="button" class="tov5-continue-card" data-continue-book="${escapeHtml(book.id)}" aria-label="Continue ${escapeHtml(book.title)} from ${escapeHtml(resume.placeLabel)}"><img src="${coverData(book)}" alt=""><span><small>${escapeHtml(book.author)}</small><strong>${escapeHtml(book.title)}</strong><em>${escapeHtml(resume.placeLabel)}</em><i>${escapeHtml(resume.recap)}</i><span class="tov5-reading-progress" role="progressbar" aria-label="Whole-book progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress === null ? 0 : progress.toFixed(2)}"><b style="width:${progress ?? 0}%"></b></span><u>${formatWholeBookProgress(progress)} · Continue →</u></span></button>`
+  // ------------------------------------------------------------------ library
+  // Locked design: header, (recap, rendered by reading-memory.js), popular
+  // shelf, one hairline search row, index of houses. No banners, chips or
+  // sign-up nudges.
+
+  const library = () => root.querySelector('[data-library]')
+  const chevron = '<svg class="lib-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>'
+
+  function safeSessionStorage() {
+    try { return window.sessionStorage } catch { return null }
+  }
+
+  function setLibraryMode(mode) {
+    if (mode !== 'new' && mode !== 'returning') return
+    if (state.libraryMode === mode) return
+    state.libraryMode = mode
+    if (state.catalogue) renderPopular()
+  }
+
+  function shelfItem(book, index) {
+    const selected = index === state.shelfIndex
+    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}</button>`
+  }
+
+  function renderCaption() {
+    const caption = root.querySelector('[data-popular-caption]')
+    const eyebrow = root.querySelector('[data-popular-eyebrow]')
+    if (state.libraryMode !== 'new' || !state.shelfBooks.length) {
+      caption.innerHTML = ''
+      eyebrow.textContent = 'Popular'
+      eyebrow.classList.add('is-dim')
+      return
+    }
+    const book = state.shelfBooks[state.shelfIndex]
+    eyebrow.textContent = selectionEyebrow(state.shelfIndex, state.shelfBooks.length)
+    eyebrow.classList.remove('is-dim')
+    caption.innerHTML = `<h1 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h1><p class="lib-lede" data-popular-blurb>${escapeHtml(book.blurb || book.summary)}</p>`
+  }
+
+  function setShelfIndex(index, focus = false) {
+    const next = moveSelection(index, 0, state.shelfBooks.length)
+    state.shelfIndex = next
+    root.querySelectorAll('[data-popular-shelf] [data-shelf-index]').forEach(item => {
+      const selected = Number(item.dataset.shelfIndex) === next
+      item.classList.toggle('is-selected', selected)
+      item.setAttribute('aria-current', String(selected))
+      if (selected) {
+        if (focus) item.focus({ preventScroll: true })
+        item.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reducedMotion() ? 'auto' : 'smooth' })
+      }
+    })
+    renderCaption()
+  }
+
+  function renderPopular() {
+    const shelf = root.querySelector('[data-popular-shelf]')
+    const section = root.querySelector('[data-library-popular]')
+    library().dataset.libraryMode = state.libraryMode
+    state.shelfBooks = popularBooks(state.catalogue)
+    state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
+    section.hidden = state.shelfBooks.length === 0
+    if (state.libraryMode === 'new') {
+      shelf.className = 'lib-shelf'
+      shelf.innerHTML = state.shelfBooks.map(shelfItem).join('')
+      // Slide in from the right, one after another — once per session.
+      if (claimReveal(safeSessionStorage(), reducedMotion())) {
+        shelf.classList.add('is-revealing')
+        const last = shelf.querySelector(`[data-shelf-index="${state.shelfBooks.length - 1}"] .lib-cover`)
+        last?.addEventListener('animationend', () => shelf.classList.remove('is-revealing'), { once: true })
+      }
+    } else {
+      shelf.className = 'lib-grid'
+      shelf.innerHTML = state.shelfBooks.map(book => `<button type="button" class="lib-grid-item" data-shelf-book="${escapeHtml(book.id)}" aria-label="${escapeHtml(book.title)}">${coverImage(book)}<span class="lib-bt">${escapeHtml(book.title)}</span><span class="lib-ba">${escapeHtml(book.author)}</span></button>`).join('')
+    }
+    renderCaption()
+  }
+
+  const bookRow = book => `<button type="button" class="lib-row lib-row-book" data-catalogue-book="${escapeHtml(book.id)}"><span class="lib-row-t">${escapeHtml(book.title)}</span><span class="lib-row-end"><span class="lib-row-a">${escapeHtml(book.author)}</span>${chevron}</span></button>`
+
+  function renderIndex() {
+    const body = root.querySelector('[data-library-index]')
+    const label = root.querySelector('[data-index-label]')
+    const count = root.querySelector('[data-index-count]')
+    if (state.query.trim()) {
+      const books = visibleBooks()
+      label.textContent = 'Search results'
+      count.textContent = String(books.length)
+      body.innerHTML = books.length
+        ? books.map(book => `<div class="lib-index-group">${bookRow(book)}</div>`).join('')
+        : `<div class="lib-row is-empty" aria-live="polite"><span class="lib-row-t">No book matches “${escapeHtml(state.query.trim())}”</span></div>`
+      return
+    }
+    label.textContent = 'All books'
+    count.textContent = String(publishedCount(state.catalogue))
+    body.innerHTML = indexHouses(state.catalogue).map(house => {
+      const expanded = house.id === state.expandedHouseId
+      return `<div class="lib-index-group"><button type="button" class="lib-row" data-index-house="${escapeHtml(house.id)}" aria-expanded="${expanded}"><span class="lib-row-t">${escapeHtml(house.title)}</span><span class="lib-row-end"><span class="lib-cnt">${house.count}</span>${chevron}</span></button>${expanded ? `<div class="lib-row-books">${house.books.map(bookRow).join('')}</div>` : ''}</div>`
     }).join('')
-
-    const finished = state.catalogue.books.filter(book => completionRecord(book.id).completed)
-    const finishedSection = root.querySelector('.tov5-library-finished')
-    finishedSection.hidden = finished.length === 0
-    finishedSection.querySelector('[data-library-finished-rail]').innerHTML = finished.map(book => card(book, true)).join('')
-
-    const savedIds = readJson('tinct:library')
-    const localBooks = new Set([...(Array.isArray(savedIds) ? savedIds : []), ...state.continuations.map(item => item.bookId)])
-    const dismissed = localStorage.getItem(INVITE_DISMISSED_KEY) === '1'
-    root.querySelector('[data-library-account-invite]').hidden = state.auth.signedIn || localBooks.size < 2 || dismissed
   }
 
   function renderLibrary() {
-    const books = visibleBooks()
-    const searching = Boolean(state.query.trim())
-    const top = searching ? [] : books.slice(0, 16)
-    const library = root.querySelector('[data-view-panel="library"]')
-    library.classList.toggle('is-searching', searching)
-    const track = library.querySelector('.tov5-library-track')
-    track.innerHTML = top.map(book => card(book)).join('')
-    library.querySelector('.tov5-library-heading h2').textContent = state.query ? 'Search results' : state.activeHouseId === 'all' ? 'Popular' : state.catalogue.houses.find(house => house.id === state.activeHouseId)?.title || 'Library'
-    library.querySelector('.tov5-library-heading small').textContent = `${state.catalogue.books.length} published books`
-    library.querySelector('.tov5-library-search input').placeholder = `Search ${state.catalogue.books.length} published books`
-    const sections = library.querySelector('.tov5-library-body')
-    sections.querySelectorAll('.tov5-library-section,.tov5-library-empty,.tov5-search-results').forEach(section => section.remove())
-    if (!books.length) {
-      sections.insertAdjacentHTML('beforeend', `<section class="tov5-library-empty" aria-live="polite"><h3>No books found</h3><p>Try another title, author or idea.</p></section>`)
-      return
-    }
-    if (searching) {
-      sections.insertAdjacentHTML('beforeend', `<section class="tov5-search-results" aria-live="polite"><div>${books.map(book => card(book)).join('')}</div></section>`)
-      return
-    }
-    const shelves = state.catalogue.houses
-      .filter(house => state.activeHouseId === 'all' || house.id === state.activeHouseId)
-      .flatMap(house => house.shelves)
-      .map(shelf => ({ ...shelf, books: shelf.bookIds.map(id => state.booksById.get(id)).filter(book => books.includes(book)) }))
-      .filter(shelf => shelf.books.length)
-    shelves.forEach(shelf => sections.insertAdjacentHTML('beforeend', `<section class="tov5-library-section" data-shelf-id="${shelf.id}"><header><h3>${escapeHtml(shelf.title)}</h3>${shelf.subtitle ? `<small>${escapeHtml(shelf.subtitle)}</small>` : ''}</header><div class="tov5-library-rail" tabindex="0" aria-label="${escapeHtml(shelf.title)} books">${shelf.books.map(book => card(book, true)).join('')}</div></section>`))
-    sections.append(root.querySelector('.tov5-library-finished'))
-    if (window.lucide) window.lucide.createIcons()
+    root.querySelector('[data-library-search]').placeholder = searchPlaceholder(state.catalogue)
+    renderPopular()
+    renderIndex()
   }
 
-  function renderCategories() {
-    const nav = root.querySelector('[data-view-panel="library"] .tov5-categories')
-    nav.innerHTML = [{ id: 'all', title: 'All' }, ...state.catalogue.houses].map(item => `<button type="button" data-catalogue-house="${item.id}" aria-pressed="${item.id === state.activeHouseId}">${escapeHtml(item.title)}</button>`).join('')
-  }
+  // ---------------------------------------------------------- detail / editions
 
   async function selectBook(bookId, destination = 'book-detail', updateHistory = false) {
     const book = state.booksById.get(bookId)
@@ -278,7 +349,9 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
   }
 
   function renderDetail(book) {
-    root.querySelector('[data-book-detail-cover]').src = coverData(book)
+    const cover = coverFor(book)
+    root.querySelector('[data-book-detail-cover]').src = cover.src
+    root.querySelector('[data-book-detail-cover]').srcset = cover.srcSet
     root.querySelector('[data-book-detail-cover]').alt = book.title
     root.querySelector('[data-book-detail-author]').textContent = book.author
     root.querySelector('[data-book-detail-title]').textContent = book.title
@@ -354,7 +427,9 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
 
   function renderEditions(book) {
     const editions = v1Editions(book)
-    root.querySelector('.tov5-edition-head img').src = coverData(book)
+    const cover = coverFor(book)
+    root.querySelector('.tov5-edition-head img').src = cover.src
+    root.querySelector('.tov5-edition-head img').srcset = cover.srcSet
     root.querySelector('.tov5-edition-head img').alt = book.title
     root.querySelector('.tov5-edition-head small').textContent = book.title
     const grid = root.querySelector('.tov5-edition-grid')
@@ -486,35 +561,10 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     return true
   }
 
-  function readStored(key) { return readJson(`tinct:${key}`) }
-
-  function returningItems() {
-    return state.catalogue.books.flatMap(book => {
-      const position = readStored(`position:${book.id}`)
-      if (!position || position.bookId !== book.id || !Number.isInteger(position.chapterNumber) || position.chapterNumber < 1) return []
-      const progress = readStored(`progress:${book.id}`)
-      const log = readStored(`reading-log:${book.id}`)
-      const lastReadAt = position.updatedAt || log?.updatedAt || null
-      const edition = book.editions.find(item => item.style === 'original' && item.language === 'en') || book.editions[0]
-      return [{ book, position, edition, percent: typeof progress?.percent === 'number' ? Math.max(0, Math.min(100, progress.percent)) : null, lastReadAt }]
-    }).sort((a, b) => (b.lastReadAt || 0) - (a.lastReadAt || 0))
-  }
-
-  function renderReturningLibrary() {
-    const items = returningItems()
-    const panel = root.querySelector('[data-view-panel="your-library"]')
-    const carousel = panel.querySelector('[data-reader-carousel]')
-    const finished = panel.querySelector('.tov5-finished-books')
-    finished.hidden = true
-    if (!items.length) {
-      carousel.innerHTML = '<div class="tov5-library-empty"><h3>No books in progress yet</h3><p>Choose a published book from the full library to begin.</p></div>'
-    } else {
-      carousel.innerHTML = items.map(({ book, position, percent, lastReadAt }, index) => `<article class="tov5-reader-card ${index === 0 ? 'is-current' : ''}" data-returning-book="${book.id}"><img src="${coverData(book)}" alt="${escapeHtml(book.title)}"><div class="tov5-reader-card-copy"><small>${escapeHtml(book.author)}</small><h3>${escapeHtml(book.title)}</h3><p class="tov5-reader-position">Chapter ${position.chapterNumber}${percent === null ? '' : ` · ${percent}% read`}</p><div class="tov5-progress"><span style="width:${percent || 0}%"></span></div><aside><small>${lastReadAt ? `Last read ${formatDate(lastReadAt)}` : 'Saved reading place'}</small><p>Continue at chapter ${position.chapterNumber}.</p></aside><button type="button" data-continue-book="${book.id}">Continue <i data-lucide="arrow-right" aria-hidden="true"></i></button></div></article>`).join('')
-    }
-    const embedded = panel.querySelector('.tov5-embedded-books')
-    embedded.innerHTML = state.catalogue.books.slice(0, 8).map(book => card(book)).join('')
-    panel.querySelector('.tov5-embedded-library header small').textContent = `${state.catalogue.books.length} published books`
-    if (window.lucide) window.lucide.createIcons()
+  /** The cover is the button: open the book in the reader through the existing handoff. */
+  async function openBookFromShelf(bookId) {
+    if (!await selectBook(bookId, 'library')) return false
+    return openReader()
   }
 
   root.addEventListener('click', async event => {
@@ -534,15 +584,27 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     if (event.target.closest('[data-library-home]')) {
       event.preventDefault(); event.stopImmediatePropagation(); navigateView('landing'); return
     }
-    if (event.target.closest('[data-library-search-trigger]')) {
-      event.preventDefault(); event.stopImmediatePropagation(); setSearchOpen(true); return
-    }
-    if (event.target.closest('[data-library-search-close]')) {
-      event.preventDefault(); event.stopImmediatePropagation(); setSearchOpen(false, true); return
-    }
-    if (event.target.closest('[data-library-invite-dismiss]')) {
+    const shelfBook = event.target.closest('[data-shelf-book]')
+    if (shelfBook) {
       event.preventDefault(); event.stopImmediatePropagation()
-      localStorage.setItem(INVITE_DISMISSED_KEY, '1'); renderReaderState(); return
+      const index = Number(shelfBook.dataset.shelfIndex)
+      // New reader: a tap on a cover that sits back selects it; a tap on the
+      // selected cover opens the book. Returning reader: every cover opens.
+      if (state.libraryMode === 'new' && Number.isInteger(index) && index !== state.shelfIndex) {
+        setShelfIndex(index)
+        return
+      }
+      await openBookFromShelf(shelfBook.dataset.shelfBook)
+      return
+    }
+    const houseRow = event.target.closest('[data-index-house]')
+    if (houseRow) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      const houseId = houseRow.dataset.indexHouse
+      state.expandedHouseId = state.expandedHouseId === houseId ? null : houseId
+      renderIndex()
+      root.querySelector(`[data-index-house="${CSS.escape(houseId)}"]`)?.focus({ preventScroll: true })
+      return
     }
     const demoBook = event.target.closest('[data-pick-demo-book="odyssey"]')
     if (demoBook) {
@@ -557,14 +619,6 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     if (bookButton) {
       event.preventDefault(); event.stopImmediatePropagation()
       await selectBook(bookButton.dataset.catalogueBook, 'book-detail', true)
-      return
-    }
-    const category = event.target.closest('[data-catalogue-house]')
-    if (category) {
-      event.preventDefault(); event.stopImmediatePropagation()
-      state.activeHouseId = category.dataset.catalogueHouse
-      renderCategories(); renderLibrary()
-      category.scrollIntoView({ inline: 'center', block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
       return
     }
     const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
@@ -585,15 +639,6 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
       renderCharacter(state.onboarding.cast[Number(character.dataset.catalogueCharacter)], Number(character.dataset.catalogueCharacter))
       return
     }
-    const continuing = event.target.closest('[data-continue-book]')
-    if (continuing) {
-      event.preventDefault(); event.stopImmediatePropagation()
-      const item = state.continuations.find(candidate => candidate.bookId === continuing.dataset.continueBook)
-      if (!item) return
-      await selectBook(item.bookId, 'library')
-      openReader(resumeSavedPlace(item))
-      return
-    }
     if (event.target.closest('.tov5-choose-edition')) {
       event.preventDefault(); event.stopImmediatePropagation(); renderEditions(selectedBook()); navigateView('edition'); return
     }
@@ -606,12 +651,27 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
   }, true)
 
   root.addEventListener('keydown', event => {
-    if ((event.key === 'ArrowLeft' || event.key === 'ArrowRight') && event.target.matches('.tov5-library-rail,[data-library-continue-rail]')) {
-      event.preventDefault(); event.target.scrollBy({ left: event.key === 'ArrowRight' ? 260 : -260, behavior: 'smooth' }); return
+    const target = event.target instanceof Element ? event.target : null
+    const shelfItem = target?.closest('[data-shelf-index]')
+    if (shelfItem && state.libraryMode === 'new') {
+      const count = state.shelfBooks.length
+      const moves = { ArrowLeft: -1, ArrowRight: 1, Home: -count, End: count }
+      if (event.key in moves) {
+        event.preventDefault()
+        setShelfIndex(moveSelection(state.shelfIndex, moves[event.key], count), true)
+        return
+      }
+    }
+    if (event.key === 'Escape' && target?.matches('[data-library-search]') && state.query) {
+      event.preventDefault()
+      target.value = ''
+      state.query = ''
+      renderIndex()
+      return
     }
     if (event.key !== 'Enter' && event.key !== ' ') return
-    const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
-    const compareCard = event.target.closest('.tov5-both[data-edition-choice]')
+    const editionCard = target?.closest('[data-catalogue-edition][data-select-edition]')
+    const compareCard = target?.closest('.tov5-both[data-edition-choice]')
     if (!editionCard && !compareCard) return
     event.preventDefault()
     if (editionCard) selectEdition(editionCard.dataset.selectEdition)
@@ -619,29 +679,24 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
   })
 
   root.addEventListener('input', event => {
-    if (!event.target.matches('[data-view-panel="library"] .tov5-library-search input')) return
+    if (!event.target.matches('[data-library-search]')) return
     state.query = event.target.value
-    renderLibrary()
+    renderIndex()
   })
-
-  function setSearchOpen(open, clear = false) {
-    const panel = root.querySelector('[data-library-search-panel],#tov5-library-search-panel')
-    const trigger = root.querySelector('[data-library-search-trigger]')
-    const input = panel.querySelector('input')
-    panel.hidden = !open
-    trigger.setAttribute('aria-expanded', String(open))
-    if (clear) {
-      input.value = ''; state.query = ''; renderLibrary()
-    }
-    if (open) requestAnimationFrame(() => input.focus())
-    else trigger.focus()
-  }
 
   window.__tinctLabPreReader = {
     ready: false,
     createHandoff,
     selectBook,
+    openBook: openBookFromShelf,
     visibleBooks,
+    coverFor: bookId => state.booksById.has(bookId) ? coverFor(state.booksById.get(bookId)) : null,
+    bookProgress: (bookId, place) => {
+      const book = state.booksById.get(bookId)
+      return book ? wholeBookProgress(book, place, progressRecord(bookId), completionRecord(bookId).completed) : null
+    },
+    libraryState: () => ({ mode: state.libraryMode, shelfIndex: state.shelfIndex, shelf: state.shelfBooks.map(book => book.id), query: state.query, expandedHouseId: state.expandedHouseId }),
+    setLibraryMode,
     selectionState: () => ({ primaryEditionKey: state.selectedEditionKey, compareEditionKey: state.compareEditionKey, revision: state.selectionRevision }),
     continuations: () => state.continuations.map(item => ({ ...item, progress: progressFor(item) })),
     authState: () => ({ ...state.auth }),
@@ -655,7 +710,15 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     },
   }
 
-  fetch('/lab/catalogue.json?v=20260903-2').then(response => {
+  // Provisional mode from the device mirror, so the shelf paints in the right
+  // shape on first render; reading-memory.js confirms or corrects it once the
+  // recap has loaded.
+  state.libraryMode = libraryModeFromDeviceMemory((() => {
+    try { return localStorage.getItem(READING_MEMORY_DEVICE_KEY) } catch { return null }
+  })())
+  if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
+
+  fetch('/lab/catalogue.json?v=20260905-1').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {
@@ -663,9 +726,7 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
     state.booksById = new Map(catalogue.books.map(book => [book.id, book]))
     state.auth = window.__tinctLabAuthState || state.auth
     state.continuations = resolveContinuations()
-    renderCategories()
     renderLibrary()
-    renderReaderState()
     const params = new URLSearchParams(location.search)
     const requested = params.get('book')
     const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
@@ -682,7 +743,10 @@ import { formatWholeBookProgress, searchPublishedBooks, wholeBookProgress } from
 
   window.addEventListener('tinct:lab-auth-state', event => {
     state.auth = event.detail || state.auth
-    if (state.catalogue) renderReaderState()
+  })
+
+  window.addEventListener('tinct:lab-library-mode', event => {
+    setLibraryMode(event.detail?.mode)
   })
 
   window.addEventListener('popstate', async () => {

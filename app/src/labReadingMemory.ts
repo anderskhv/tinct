@@ -1,13 +1,20 @@
 /**
- * "What you read last" card for the dark /lab library.
+ * Returning-reader hero for the locked /lab library.
  *
  * Reads durable reading sessions (device-only when signed out; device mirror
- * + versioned cloud copy when signed in), resolves the saved anchors against
- * the exact edition chapter text, and renders a truthful recap: the real
- * location, an exact excerpt of the read range or the stored automatic
- * summary, and stored timestamps only.
+ * + versioned cloud copy when signed in), resolves the newest session's
+ * anchor against the exact edition chapter text and renders it truthfully:
+ * the eyebrow names the chapter the reader recorded, the headline is the
+ * stored automatic summary or the exact excerpt, the book is named under
+ * it, and one cream "Continue reading" pill resumes at the saved anchor.
+ * Other books in progress follow as quiet rows with the same label.
  *
- * Summaries are automatic, never a button: a session closed by the
+ * It also tells the library which mode it is in: a reader with at least one
+ * session is a returning reader (uniform popular shelf under the recap); a
+ * reader with none is new (selection shelf). No banners, no sync copy, no
+ * sign-up nudges.
+ *
+ * Summaries stay automatic, never a button: a session closed by the
  * 30-minute rule gets ONE generation attempt per library load for signed-in
  * readers, stored inside the session record so it syncs with the session
  * and is never regenerated elsewhere. Signed-out readers get the exact
@@ -17,17 +24,31 @@
 import { supabase } from './services/supabase'
 import { createSupabaseReadingMemoryCloud, clearCloudReadingMemory } from './readingMemory/cloud'
 import { loadChapterText } from './readingMemory/chapterText'
-import { clearDeviceReadingMemory } from './readingMemory/deviceStore'
-import { loadRecap, recapSyncCopy, type RecapAuth, type RecapLoadResult } from './readingMemory/recapLoad'
-import { formatStoredTimestamp } from './readingMemory/recap'
-import { requestRecapSummary, SUMMARY_MAX_ATTEMPTS } from './readingMemory/summary'
+import { clearDeviceReadingMemory, readDeviceReadingMemory } from './readingMemory/deviceStore'
+import { loadRecap, type RecapAuth, type RecapLoadResult } from './readingMemory/recapLoad'
+import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
+import {
+  inProgressLabel,
+  libraryModeFor,
+  otherBooksInProgress,
+  recapEyebrow,
+  recapHeadline,
+  type InProgressRow,
+  type LibraryMode,
+} from './preReader/libraryRecap'
 
 interface CatalogueBook {
   id: string
   title: string
   author: string
+  art?: { src: string; srcSet: string } | null
   editions: Array<{ key: string; label: string }>
+}
+
+interface CoverSource {
+  src: string
+  srcSet: string
 }
 
 interface LabPreReaderApi {
@@ -36,10 +57,13 @@ interface LabPreReaderApi {
     primaryEditionKey: string
     savedPlace?: { bookId: string; chapterNumber: number; page?: number; paragraphIndex?: number }
   }) => unknown | null
-  selectBook?: (id: string, view: string, history: boolean) => Promise<void>
+  openBook?: (bookId: string) => Promise<boolean>
+  coverFor?: (bookId: string) => CoverSource | null
+  bookProgress?: (bookId: string, place: { chapterNumber: number; page?: number; totalPages?: number | null; paragraphIndex?: number }) => number | null
 }
 
 const READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
+const IN_PROGRESS_ROWS_MAX = 4
 
 const root = document.querySelector<HTMLElement>('#tinct-onboarding-worlds-v5')
 const section = root?.querySelector<HTMLElement>('[data-reading-memory-recap]') ?? null
@@ -50,10 +74,15 @@ const escapeHtml = (value: unknown) => String(value ?? '').replace(/[&<>"']/g, c
 
 let catalogue: Map<string, CatalogueBook> | null = null
 let lastRendered: RecapLoadResult | null = null
+let lastRows: InProgressRow[] = []
 /** One automatic summary attempt per library load, whatever re-renders happen. */
 let summaryBudgetSpent = false
 let renderChain: Promise<void> = Promise.resolve()
 let renderQueued = false
+
+function preReader(): LabPreReaderApi | undefined {
+  return (window as Window & { __tinctLabPreReader?: LabPreReaderApi }).__tinctLabPreReader
+}
 
 function buildVersion(): string {
   return typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev'
@@ -62,7 +91,7 @@ function buildVersion(): string {
 async function loadCatalogue(): Promise<Map<string, CatalogueBook>> {
   if (catalogue) return catalogue
   try {
-    const response = await fetch('/lab/catalogue.json?v=20260903-2')
+    const response = await fetch('/lab/catalogue.json?v=20260905-1')
     if (!response.ok) throw new Error(String(response.status))
     const data = await response.json() as { books?: CatalogueBook[] }
     catalogue = new Map((data.books ?? []).map(book => [book.id, book]))
@@ -90,70 +119,76 @@ function isOnline(): boolean {
   return typeof navigator === 'undefined' || navigator.onLine !== false
 }
 
-function bookLabel(book: CatalogueBook | undefined, bookId: string): { title: string; author: string } {
-  if (book) return { title: book.title, author: book.author }
-  if (bookId === 'bible') return { title: 'The Bible', author: 'Various' }
-  return { title: bookId, author: '' }
+function bookTitle(book: CatalogueBook | undefined, bookId: string): string {
+  if (book) return book.title
+  if (bookId === 'bible') return 'The Bible'
+  return bookId
 }
 
-function editionLabel(book: CatalogueBook | undefined, editionKey: string): string {
-  return book?.editions.find(edition => edition.key === editionKey)?.label || editionKey
+function coverFor(book: CatalogueBook | undefined, bookId: string): CoverSource | null {
+  const fromRuntime = preReader()?.coverFor?.(bookId) ?? null
+  if (fromRuntime) return fromRuntime
+  if (book?.art?.src) return { src: book.art.src, srcSet: book.art.srcSet }
+  return null
 }
 
-function summaryNote(rendered: RecapLoadResult): { text: string; retry: boolean } | null {
-  if (!rendered.signedIn || rendered.card.bodyKind === 'summary') return null
-  const error = rendered.session.summaryError ?? null
-  if (!error) return null
-  const exhausted = error.attempts >= SUMMARY_MAX_ATTEMPTS
-  return {
-    text: exhausted
-      ? 'A summary could not be written for this passage; the exact excerpt stays.'
-      : 'A summary is not available right now; the exact excerpt stays.',
-    retry: !exhausted && rendered.online && rendered.paragraphs !== null,
-  }
+function coverMarkup(book: CatalogueBook | undefined, bookId: string): string {
+  const cover = coverFor(book, bookId)
+  if (!cover) return '<span class="lib-cover" aria-hidden="true"></span>'
+  return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async"></span>`
 }
 
-function renderCard(rendered: RecapLoadResult, extra: { busy?: boolean } = {}): void {
+function progressNote(rendered: RecapLoadResult): string | null {
+  const { anchor } = rendered.session
+  const percent = preReader()?.bookProgress?.(anchor.bookId, {
+    chapterNumber: anchor.chapterNumber,
+    page: Math.max(0, anchor.page - 1),
+    totalPages: anchor.totalPages,
+    paragraphIndex: anchor.paragraphIndex,
+  })
+  if (typeof percent !== 'number' || !Number.isFinite(percent)) return null
+  if (percent > 0 && percent < 1) return '<1% read'
+  return `${Math.round(percent)}% read`
+}
+
+function publishMode(mode: LibraryMode): void {
+  ;(window as Window & { __tinctLabLibraryMode?: LibraryMode }).__tinctLabLibraryMode = mode
+  window.dispatchEvent(new CustomEvent('tinct:lab-library-mode', { detail: { mode } }))
+}
+
+function renderHero(rendered: RecapLoadResult, rows: InProgressRow[]): void {
   if (!section) return
   const { card, session } = rendered
   const books = catalogue ?? new Map<string, CatalogueBook>()
   const book = books.get(card.bookId)
-  const label = bookLabel(book, card.bookId)
-  const body = card.bodyKind === 'summary'
-    ? `<p class="tov5-recap-summary" data-testid="lab-recap-summary">${escapeHtml(card.body)}</p>`
-    : card.bodyKind === 'excerpt'
-      ? `<blockquote class="tov5-recap-excerpt" data-testid="lab-recap-excerpt">“${escapeHtml(card.body)}”</blockquote>`
-      : `<p class="tov5-recap-missing" data-testid="lab-recap-missing">The exact passage could not be loaded right now.</p>`
-  const generated = card.provenance.generatedAt ? formatStoredTimestamp(card.provenance.generatedAt) : null
-  const provenance = card.bodyKind === 'summary'
-    ? `Summary of the exact passage you read · ${escapeHtml(card.provenance.model ?? '')}${generated ? ` · written ${escapeHtml(generated)}` : ''}`
-    : card.bodyKind === 'excerpt'
-      ? `Exact excerpt · ${escapeHtml(editionLabel(book, card.editionKey))}`
-      : `Location from your saved reading place · ${escapeHtml(editionLabel(book, card.editionKey))}`
-  const note = summaryNote(rendered)
+  const note = progressNote(rendered)
   section.hidden = false
-  section.querySelector('[data-recap-source]')!.textContent = recapSyncCopy(rendered.syncState, rendered.online)
-  section.querySelector('[data-recap-body]')!.innerHTML = `
-    <article class="tov5-recap-card" data-testid="lab-recap-card" data-book="${escapeHtml(card.bookId)}" data-session-state="${escapeHtml(session.state)}" data-completed="${card.completed ? 'true' : 'false'}" data-body-kind="${escapeHtml(card.bodyKind)}" data-source="${escapeHtml(card.provenance.source)}" data-sync-state="${escapeHtml(card.syncState)}" data-summary-status="${escapeHtml(rendered.summaryStatus)}">
-      <small>${escapeHtml(label.author)}${label.author ? ' · ' : ''}${escapeHtml(label.title)}</small>
-      <strong data-testid="lab-recap-headline">${escapeHtml(card.headline)}</strong>
-      <em data-testid="lab-recap-location">${escapeHtml(card.location)}</em>
-      ${body}
-      ${card.timeline.length ? `<p class="tov5-recap-times" data-testid="lab-recap-timeline">${card.timeline.map(line => escapeHtml(line)).join(' · ')}</p>` : ''}
-      ${note ? `<p class="tov5-recap-note" data-testid="lab-recap-summary-note">${escapeHtml(note.text)}</p>` : ''}
-      <div class="tov5-recap-actions">
-        <button type="button" data-recap-continue="${escapeHtml(card.bookId)}">${card.completed ? 'Open the book' : 'Continue reading'} →</button>
-        ${note?.retry && !extra.busy ? '<button type="button" class="is-secondary" data-recap-summary-retry>Try again</button>' : ''}
-        ${extra.busy ? '<span class="tov5-recap-note">Writing a summary…</span>' : ''}
-      </div>
-      <p class="tov5-recap-provenance" data-testid="lab-recap-provenance">${provenance}</p>
-    </article>`
+  section.dataset.testid = 'lab-recap-card'
+  section.dataset.book = card.bookId
+  section.dataset.sessionState = session.state
+  section.dataset.completed = card.completed ? 'true' : 'false'
+  section.dataset.bodyKind = card.bodyKind
+  section.dataset.syncState = card.syncState
+  section.dataset.summaryStatus = rendered.summaryStatus
+  section.innerHTML = `
+    <div class="lib-recap-head">
+      <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(card))}</p>
+      <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(recapHeadline(card))}</h1>
+    </div>
+    <div class="lib-recap-cover">${coverMarkup(book, card.bookId)}</div>
+    <div class="lib-recap-meta">
+      <p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, card.bookId))}</p>
+      <div class="lib-recap-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(card.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>
+    </div>
+    <div class="lib-recap-others" data-recap-others>${rows.map(row => {
+      const rowBook = books.get(row.bookId)
+      return `<button type="button" class="lib-recap-row" data-recap-open="${escapeHtml(row.bookId)}" aria-label="${escapeHtml(`Continue ${bookTitle(rowBook, row.bookId)} from ${row.chapterLabel}`)}">${coverMarkup(rowBook, row.bookId)}<span class="lib-recap-row-copy"><span class="lib-recap-row-t">${escapeHtml(bookTitle(rowBook, row.bookId))}</span><span class="lib-eyebrow is-dim">${escapeHtml(inProgressLabel(row))}</span></span><svg class="lib-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>`
+    }).join('')}</div>`
 }
 
-async function performRender(options: { manualSummary?: boolean } = {}): Promise<void> {
+async function performRender(): Promise<void> {
   if (!section) return
-  const allowSummary = options.manualSummary === true || !summaryBudgetSpent
-  const [books, rendered] = await Promise.all([
+  const [, rendered] = await Promise.all([
     loadCatalogue(),
     loadRecap({
       auth: readAuth,
@@ -167,27 +202,30 @@ async function performRender(options: { manualSummary?: boolean } = {}): Promise
       requestSummary: input => requestRecapSummary(input),
       bookTitle: bookId => catalogue?.get(bookId)?.title,
       online: isOnline,
-      allowSummary,
-      manualSummary: options.manualSummary,
+      allowSummary: !summaryBudgetSpent,
     }),
   ])
-  void books
   if (rendered?.summaryAttempted) summaryBudgetSpent = true
   lastRendered = rendered
+  const mode = libraryModeFor(rendered)
   if (!rendered) {
+    lastRows = []
     section.hidden = true
+    section.innerHTML = ''
+    publishMode(mode)
     return
   }
-  renderCard(rendered)
+  // loadRecap has already merged the cloud copy into the device mirror;
+  // the viewer sees no-account sessions and their own account's sessions.
+  const viewer = rendered.signedIn ? (await readAuth()).userId : null
+  lastRows = otherBooksInProgress(readDeviceReadingMemory(), viewer, rendered.card.bookId, IN_PROGRESS_ROWS_MAX)
+  renderHero(rendered, lastRows)
+  publishMode(mode)
   window.dispatchEvent(new CustomEvent('tinct:lab-reading-memory-rendered', { detail: rendered.card }))
 }
 
 /** Renders never overlap; a request during a render runs once more afterwards. */
-function render(options: { manualSummary?: boolean } = {}): Promise<void> {
-  if (options.manualSummary) {
-    renderChain = renderChain.then(() => performRender(options)).catch(() => {})
-    return renderChain
-  }
+function render(): Promise<void> {
   if (renderQueued) return renderChain
   renderQueued = true
   renderChain = renderChain.then(() => {
@@ -197,17 +235,13 @@ function render(options: { manualSummary?: boolean } = {}): Promise<void> {
   return renderChain
 }
 
-function continueReading(): void {
-  const current = lastRendered
-  if (!current) return
-  const preReader = (window as Window & { __tinctLabPreReader?: LabPreReaderApi }).__tinctLabPreReader
-  const { resume } = current
-  // Open the reader at the newest session's anchor through the existing
-  // handoff, whatever the session's sync state.
-  const intent = preReader?.createHandoff?.({
-    bookId: resume.bookId,
-    primaryEditionKey: resume.editionKey,
-    savedPlace: { bookId: resume.bookId, chapterNumber: resume.chapterNumber, page: resume.pageIndex, paragraphIndex: resume.paragraphIndex },
+/** Open the reader at a recorded anchor through the existing handoff, in the edition the session was read in. */
+function openAt(target: { bookId: string; editionKey: string; chapterNumber: number; pageIndex: number; paragraphIndex: number }): void {
+  const api = preReader()
+  const intent = api?.createHandoff?.({
+    bookId: target.bookId,
+    primaryEditionKey: target.editionKey,
+    savedPlace: { bookId: target.bookId, chapterNumber: target.chapterNumber, page: target.pageIndex, paragraphIndex: target.paragraphIndex },
   })
   if (intent) {
     try { sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent)) } catch { /* private mode */ }
@@ -215,25 +249,30 @@ function continueReading(): void {
     window.location.assign('/lab/reader')
     return
   }
-  const rail = root?.querySelector<HTMLButtonElement>(`[data-library-continue-rail] [data-continue-book="${CSS.escape(resume.bookId)}"]`)
-  if (rail) {
-    rail.click()
-    return
-  }
-  void preReader?.selectBook?.(resume.bookId, 'book-detail', true)
+  // The session's edition is not offered by the library (e.g. a Danish
+  // edition): open the book in its default edition; the reader restores its
+  // own saved place.
+  void api?.openBook?.(target.bookId)
+}
+
+function continueReading(): void {
+  if (!lastRendered) return
+  openAt(lastRendered.resume)
 }
 
 section?.addEventListener('click', (event) => {
   const target = event.target as HTMLElement
-  if (target.closest('[data-recap-continue]')) {
+  const continueButton = target.closest<HTMLElement>('[data-recap-continue]')
+  if (continueButton) {
     event.preventDefault()
     continueReading()
     return
   }
-  if (target.closest('[data-recap-summary-retry]')) {
+  const row = target.closest<HTMLElement>('[data-recap-open]')
+  if (row) {
     event.preventDefault()
-    if (lastRendered) renderCard(lastRendered, { busy: true })
-    void render({ manualSummary: true })
+    const item = lastRows.find(candidate => candidate.bookId === row.dataset.recapOpen)
+    if (item) openAt(item)
   }
 })
 
@@ -247,6 +286,7 @@ window.addEventListener('offline', () => { void render() })
   render: () => render(),
   lastCard: () => lastRendered?.card ?? null,
   lastResult: () => lastRendered,
+  lastRows: () => lastRows,
   clear: async () => {
     const auth = await readAuth()
     clearDeviceReadingMemory()

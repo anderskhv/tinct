@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { expect, test, type Page } from '@playwright/test'
 
 const PHONE = { width: 390, height: 844 }
@@ -42,9 +44,63 @@ async function capture(page: Page, name: string) {
 
 async function searchLibrary(page: Page, query: string) {
   const input = page.getByRole('searchbox', { name: 'Search by title or author' })
-  if (!await input.isVisible()) await page.getByRole('button', { name: 'Search library' }).click()
   await input.fill(query)
   return input
+}
+
+/**
+ * A genuine device reading memory: sessions whose anchors resolve against the
+ * exact published chapter text, the shape the lab recorder writes.
+ */
+type SeedEntry = { id: string; bookId: string; editionKey: string; chapterNumber: number; page: number; totalPages: number; ageMs: number }
+
+function wordSpans(text: string) {
+  const spans: Array<{ start: number; end: number; text: string }> = []
+  const re = /\S+/g
+  let match: RegExpExecArray | null
+  while ((match = re.exec(text)) !== null) spans.push({ start: match.index, end: match.index + match[0].length, text: match[0] })
+  return spans
+}
+
+function chapterParagraphs(bookId: string, editionKey: string, chapterNumber: number): { label: string; paragraphs: string[] } {
+  const publicDir = [resolve(process.cwd(), 'public'), resolve(process.cwd(), '../public')].find(existsSync)!
+  const shardDir = resolve(publicDir, 'data/editions-chapters', `${bookId}-${editionKey}`)
+  if (existsSync(resolve(shardDir, 'manifest.json'))) {
+    const manifest = JSON.parse(readFileSync(resolve(shardDir, 'manifest.json'), 'utf8')) as { chapters: Array<{ path: string; title?: string }> }
+    const entry = manifest.chapters[chapterNumber - 1]
+    const data = JSON.parse(readFileSync(resolve(shardDir, entry.path), 'utf8')) as { title?: string; paragraphs: string[] }
+    return { label: data.title || entry.title || `Chapter ${chapterNumber}`, paragraphs: data.paragraphs }
+  }
+  const edition = JSON.parse(readFileSync(resolve(publicDir, 'data/editions', `${bookId}-${editionKey}.json`), 'utf8')) as { chapters: Array<{ title?: string; paragraphs: string[] }> }
+  const data = edition.chapters[chapterNumber - 1]
+  return { label: data.title || `Chapter ${chapterNumber}`, paragraphs: data.paragraphs }
+}
+
+function readingMemorySeed(entries: SeedEntry[]) {
+  const now = Date.now()
+  const sessions = entries.map(entry => {
+    const chapter = chapterParagraphs(entry.bookId, entry.editionKey, entry.chapterNumber)
+    const endParagraph = Math.min(2, chapter.paragraphs.length - 1)
+    const startWords = wordSpans(chapter.paragraphs[0])
+    const endWords = wordSpans(chapter.paragraphs[endParagraph])
+    const range = {
+      startParagraphIndex: 0, startWordIndex: 0, startCharOffset: startWords[0].start,
+      endParagraphIndex: endParagraph, endWordIndex: endWords.length, endCharOffset: endWords[endWords.length - 1].end,
+      firstWords: startWords.slice(0, 4).map(word => word.text).join(' '),
+      lastWords: endWords.slice(-4).map(word => word.text).join(' '),
+    }
+    const lastActiveAt = now - entry.ageMs
+    return {
+      id: entry.id, seq: 1, deviceId: 'e2e-device', owner: null, state: 'progressed',
+      anchor: { bookId: entry.bookId, editionKey: entry.editionKey, chapterNumber: entry.chapterNumber, chapterLabel: chapter.label, page: entry.page, totalPages: entry.totalPages, paragraphIndex: endParagraph, wordIndex: endWords.length, range },
+      startedAt: lastActiveAt - 20 * 60 * 1000, lastActiveAt, endedAt: lastActiveAt, completedAt: null,
+    }
+  })
+  return { v: 1, sessions: Object.fromEntries(sessions.map(session => [session.id, session])), updatedAt: now }
+}
+
+const seedReadingMemory = (memory: ReturnType<typeof readingMemorySeed>) => {
+  localStorage.setItem('tinct:reading-memory', JSON.stringify(memory))
 }
 
 test.beforeEach(async ({ page }) => {
@@ -72,7 +128,7 @@ for (const viewport of [PHONE, DESKTOP]) {
     await expect(page.locator('.tov5-picker')).toBeHidden()
     await landing.getByRole('button', { name: 'Start reading' }).click()
     await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
-    await expect(page.locator('.tov5-library-track [data-catalogue-book]')).not.toHaveCount(0)
+    await expect(page.locator('[data-popular-shelf] [data-shelf-book]')).toHaveCount(8)
   })
 }
 
@@ -91,7 +147,8 @@ for (const viewport of [PHONE, DESKTOP]) {
       const hebrews = { bookId: 'hebrews', headerBook: 'Hebrews', chapterNumber: 1, sequentialChapter: 1134, paragraphIndex: 2, wordIndex: 4, updatedAt: now, deviceId: 'qa-old-bible', rev: 1 }
       localStorage.setItem('tinct-lab-position', JSON.stringify({ books: { hebrews }, lastSettledBookId: 'hebrews', lastSettledAt: now, updatedAt: now, deviceId: 'qa-old-bible' }))
     })
-    await page.locator('[data-catalogue-book="odyssey"]').first().click()
+    await searchLibrary(page, 'Odyssey')
+    await page.locator('[data-library-index] [data-catalogue-book="odyssey"]').click()
     await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
     await expect(page.locator('[data-book-detail-title]')).toHaveText('The Odyssey')
 
@@ -113,7 +170,7 @@ for (const viewport of [PHONE, DESKTOP]) {
   test(`renders a non-showcase catalogue book and hands it off at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport)
     await searchLibrary(page, 'Ivan Ilyich')
-    await page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]').click()
+    await page.locator('[data-library-index] [data-catalogue-book="ivan-ilyich"]').click()
     await page.getByRole('button', { name: 'Start reading' }).click()
     await page.locator('[data-select-edition="original-en"]').click()
     await page.locator('.tov5-continue').click()
@@ -138,7 +195,7 @@ test('removes the unfinished Librarian path and rejects its old view parameter',
 
   await openPreReader(page, '/lab/?autoplay=0&view=your-library')
   await expect(page.locator('[data-view-panel="landing"]')).toHaveClass(/is-current/)
-  await expect(page.locator('[data-view-panel="your-library"]')).not.toHaveClass(/is-current/)
+  await expect(page.locator('[data-view-panel="your-library"]')).toHaveCount(0)
 })
 
 test('applies themed book state from query parameters', async ({ page }) => {
@@ -147,104 +204,115 @@ test('applies themed book state from query parameters', async ({ page }) => {
   await expect(page.locator('.tov5-book-detail-zoom')).toHaveAttribute('data-book-world', 'frankenstein')
 })
 
-test('renders the published catalogue and filters title, author and taxonomy', async ({ page }) => {
+test('renders the published catalogue index and filters title and author', async ({ page }) => {
   const publishedCount = await page.evaluate(() => window.__tinctLabPreReader.visibleBooks().length)
-  await expect(page.locator('.tov5-library-heading')).toContainText(`${publishedCount} published books`)
+  await expect(page.locator('[data-index-label]')).toHaveText('All books')
+  await expect(page.locator('[data-index-count]')).toHaveText(String(publishedCount))
+  const houseCounts = (await page.locator('[data-index-house] .lib-cnt').allTextContents()).map(Number)
+  expect(houseCounts.length).toBeGreaterThan(0)
+  expect(houseCounts.every(count => count > 0)).toBe(true)
   const search = await searchLibrary(page, 'Death of Ivan Ilyich')
-  await expect(page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]')).toHaveCount(1)
-  await expect(page.locator('.tov5-search-results')).toContainText('Leo Tolstoy')
+  await expect(page.locator('[data-library-index] [data-catalogue-book="ivan-ilyich"]')).toHaveCount(1)
+  await expect(page.locator('[data-library-index]')).toContainText('Leo Tolstoy')
 
   await search.fill('Leo Tolstoy')
-  const authorResults = page.locator('.tov5-search-results [data-catalogue-book]')
+  const authorResults = page.locator('[data-library-index] [data-catalogue-book]')
   expect(await authorResults.count()).toBeGreaterThan(1)
-  const authors = await authorResults.locator('small').allTextContents()
+  const authors = await authorResults.locator('.lib-row-a').allTextContents()
   expect(new Set(authors)).toEqual(new Set(['Leo Tolstoy']))
 
   await search.fill('definitely-not-a-published-book')
-  await expect(page.getByText('No books found')).toBeVisible()
+  await expect(page.locator('[data-library-index] .lib-row.is-empty')).toContainText('No book matches')
   await search.fill('')
-  await page.locator('[data-catalogue-house="philosophy"]').click()
-  await expect(page.locator('.tov5-library-track [data-catalogue-book]').first()).toBeVisible()
+  await page.locator('[data-index-house="philosophy"]').click()
+  await expect(page.locator('[data-index-house="philosophy"]')).toHaveAttribute('aria-expanded', 'true')
+  await expect(page.locator('[data-index-house="philosophy"] + .lib-row-books [data-catalogue-book="the-republic"]')).toBeVisible()
 })
 
 test('shows Republic once in a unique flat search result set', async ({ page }) => {
   await searchLibrary(page, 'Republic')
-  const results = page.locator('.tov5-search-results [data-catalogue-book]')
+  const results = page.locator('[data-library-index] [data-catalogue-book]')
   await expect(results).toHaveCount(1)
   await expect(results.first()).toHaveAttribute('data-catalogue-book', 'the-republic')
-  await expect(results.first().locator('strong')).toHaveText('The Republic')
+  await expect(results.first().locator('.lib-row-t')).toHaveText('The Republic')
   const ids = await results.evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
   expect(new Set(ids).size).toBe(ids.length)
-  await expect(page.locator('.tov5-library-section')).toHaveCount(0)
+  await expect(page.locator('[data-index-house]')).toHaveCount(0)
 })
 
-test('opens, searches and closes the compact dark-library search reliably', async ({ page }) => {
-  const trigger = page.getByRole('button', { name: 'Search library' })
-  for (let pass = 0; pass < 3; pass += 1) {
-    await trigger.click()
-    await expect(trigger).toHaveAttribute('aria-expanded', 'true')
-    const search = page.getByRole('searchbox', { name: 'Search by title or author' })
-    await search.fill(pass === 0 ? 'Republic' : pass === 1 ? 'Jane Austen' : 'not-in-the-published-catalogue')
-    if (pass === 0) {
-      const ids = await page.locator('.tov5-search-results [data-catalogue-book]').evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
+test('filters the index inline from the one search row and clears with Escape', async ({ page }) => {
+  const search = page.getByRole('searchbox', { name: 'Search by title or author' })
+  await expect(search).toHaveAttribute('placeholder', /^Search \d+ books$/)
+  await expect(page.locator('.lib-hdr input, .lib-hdr [aria-label="Search library"]')).toHaveCount(0)
+  for (const query of ['Republic', 'Jane Austen', 'not-in-the-published-catalogue']) {
+    await search.fill(query)
+    await expect(page.locator('[data-index-label]')).toHaveText('Search results')
+    if (query === 'Republic') {
+      const ids = await page.locator('[data-library-index] [data-catalogue-book]').evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
       expect(ids).toEqual(['the-republic'])
-    } else if (pass === 1) {
-      const authors = await page.locator('.tov5-search-results [data-catalogue-book] small').allTextContents()
+    } else if (query === 'Jane Austen') {
+      const authors = await page.locator('[data-library-index] [data-catalogue-book] .lib-row-a').allTextContents()
       expect(authors.length).toBeGreaterThan(0)
       expect(new Set(authors)).toEqual(new Set(['Jane Austen']))
     } else {
-      await expect(page.getByText('No books found')).toBeVisible()
+      await expect(page.locator('[data-library-index] .lib-row.is-empty')).toContainText('No book matches')
     }
-    await page.getByRole('button', { name: 'Close search' }).click()
-    await expect(trigger).toHaveAttribute('aria-expanded', 'false')
-    await expect(page.getByRole('searchbox', { name: 'Search by title or author' })).toBeHidden()
   }
+  await search.press('Escape')
+  await expect(search).toHaveValue('')
+  await expect(page.locator('[data-index-label]')).toHaveText('All books')
+  await expect(page.locator('[data-index-house]').first()).toBeVisible()
 })
 
-test('keeps real category rails compact, scrollable and keyboard operable', async ({ page }) => {
+test('keeps the popular shelf selectable by tap and keyboard on the phone', async ({ page }) => {
   await page.setViewportSize(PHONE)
-  const philosophy = page.locator('[data-catalogue-house="philosophy"]')
-  for (let pass = 0; pass < 3; pass += 1) {
-    await philosophy.click()
-    await expect(philosophy).toHaveAttribute('aria-pressed', 'true')
-    await expect(page.locator('.tov5-library-heading h2')).toHaveText('Philosophy')
-    await page.locator('[data-catalogue-house="all"]').click()
-  }
-  await philosophy.click()
-  const rail = page.locator('.tov5-library-rail').first()
-  await rail.focus()
-  const before = await rail.evaluate(element => element.scrollLeft)
-  await rail.press('ArrowRight')
-  await expect.poll(() => rail.evaluate(element => element.scrollLeft)).toBeGreaterThan(before)
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await openPreReader(page, '/lab/library?autoplay=0')
+  await expect(page.locator('[data-popular-shelf].is-revealing')).toHaveCount(0)
+  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular · 1 of 8')
+  await expect(page.locator('[data-popular-title]')).toHaveText('The Odyssey')
+  await expect(page.locator('[data-shelf-index="0"]')).toHaveAttribute('aria-label', 'The Odyssey')
+  await page.locator('[data-shelf-index="1"]').click()
+  await expect(page.locator('[data-popular-title]')).toHaveText('Hamlet')
+  await expect(page.locator('[data-shelf-index="1"]')).toHaveAttribute('aria-current', 'true')
+  await expect(page).toHaveURL(/\/lab\/library/)
+  await page.locator('[data-shelf-index="1"]').focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular · 3 of 8')
+  await expect(page.locator('[data-popular-title]')).toHaveText('The Republic')
+  await expect(page.locator('[data-shelf-index="2"]')).toBeFocused()
+  await page.keyboard.press('Home')
+  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular · 1 of 8')
   await expectNoDocumentOverflow(page)
 })
 
-test('uses real dark-library history, credible Bible progress, finished state and local account invitation', async ({ page }) => {
-  await page.evaluate(() => {
-    const now = Date.now()
-    localStorage.setItem('tinct:position:bible', JSON.stringify({ bookId: 'bible', chapterNumber: 1, currentPage: 1, totalPages: 2, scrollFraction: .1, updatedAt: now }))
-    localStorage.setItem('tinct:progress:bible', JSON.stringify({ bookId: 'bible', highestCompletedChapter: 0, totalChapters: 1189, percent: 72 }))
-    localStorage.setItem('tinct:position:meditations', JSON.stringify({ bookId: 'meditations', chapterNumber: 4, currentPage: 2, totalPages: 8, lastParagraphIndex: 7, updatedAt: now - 1000 }))
-    localStorage.setItem('tinct:library', JSON.stringify(['bible', 'meditations']))
-    localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ completedAt: now }))
-  })
+test('renders the returning reader from reading memory: recap headline, one pill, quiet rows, uniform shelf', async ({ page }) => {
+  await page.evaluate(seedReadingMemory, readingMemorySeed([
+    { id: 'bible-1', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, page: 2, totalPages: 4, ageMs: 2 * 3600e3 },
+    { id: 'meditations-1', bookId: 'meditations', editionKey: 'original-en', chapterNumber: 1, page: 3, totalPages: 9, ageMs: 26 * 3600e3 },
+  ]))
   await openPreReader(page, '/lab/library')
-  const continueSection = page.locator('.tov5-library-continue')
-  await expect(continueSection).toBeVisible()
-  await expect(continueSection).toContainText('Saved on this device')
-  const bible = page.locator('[data-continue-book="bible"]')
-  await expect(bible).toContainText('Genesis 1')
-  const progress = Number(await bible.locator('[role=progressbar]').getAttribute('aria-valuenow'))
-  expect(progress).toBeGreaterThanOrEqual(0)
-  expect(progress).toBeLessThan(1)
-  await expect(page.locator('[data-library-account-invite]')).toBeVisible()
-  await expect(page.locator('[data-library-finished-rail] [data-catalogue-book="hamlet"]')).toHaveCount(1)
+  const recap = page.locator('[data-reading-memory-recap]')
+  await expect(recap).toBeVisible()
+  await expect(recap).toHaveAttribute('data-body-kind', 'excerpt')
+  await expect(recap).toHaveAttribute('data-completed', 'false')
+  await expect(recap.getByTestId('lab-recap-eyebrow')).toHaveText('Last time you read · Genesis 1')
+  await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^“In the beginning God created/)
+  await expect(recap.getByTestId('lab-recap-book')).toHaveText('The Bible')
+  await expect(recap.locator('[data-recap-continue]')).toHaveCount(1)
+  await expect(recap.locator('[data-recap-open]')).toHaveCount(1)
+  await expect(recap.locator('[data-recap-open="meditations"] .lib-recap-row-t')).toHaveText('Meditations')
+  await expect(recap.locator('[data-recap-open="meditations"] .lib-eyebrow')).toHaveText('Last time · Book 1')
+  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular')
+  await expect(page.locator('[data-popular-shelf]')).toHaveClass(/lib-grid/)
+  await expect(page.locator('[data-popular-shelf] [data-shelf-book]')).toHaveCount(8)
+  await expect(page.locator('[data-library-account-invite], .tov5-library-finished, .tov5-categories, .tov5-library-continue')).toHaveCount(0)
   await expectNoDocumentOverflow(page)
 })
 
 test('opens a non-showcase book with catalogue-backed detail and editions', async ({ page }) => {
   await searchLibrary(page, 'Ivan Ilyich')
-  await page.locator('.tov5-search-results [data-catalogue-book="ivan-ilyich"]').click()
+  await page.locator('[data-library-index] [data-catalogue-book="ivan-ilyich"]').click()
   await expect(page.locator('[data-book-detail-title]')).toHaveText('The Death of Ivan Ilyich')
   await expect(page.locator('[data-book-detail-author]')).toHaveText('Leo Tolstoy')
   expect(await page.locator('.tov5-book-detail-body').evaluate(element => Array.from(element.children).map(child => child.className))).toEqual([
@@ -427,7 +495,7 @@ test('keeps full-bleed phone geometry with simulated iOS safe areas', async ({ p
   await expectNoDocumentOverflow(page)
 
   await page.getByRole('button', { name: 'Start reading' }).click()
-  const library = await page.locator('.tov5-library-zoom').boundingBox()
+  const library = await page.locator('.lib').boundingBox()
   expect(library).toMatchObject({ x: 0, y: 0, width: 393 })
   await expectNoDocumentOverflow(page)
 })
@@ -462,25 +530,26 @@ test('creates valid Ulysses, Divine Comedy and future single-edition handoffs', 
   await expect(page.locator('.tov5-edition-grid')).toHaveAttribute('data-edition-count', '1')
 })
 
-test('shows truthful dark-library continuation and resumes the coherent saved tuple', async ({ page }) => {
-  await page.evaluate(() => {
-    localStorage.setItem('tinct:position:meditations', JSON.stringify({ bookId: 'meditations', chapterNumber: 4, currentPage: 2, totalPages: 8, scrollFraction: .25, updatedAt: Date.now() }))
-    localStorage.setItem('tinct:progress:meditations', JSON.stringify({ bookId: 'meditations', highestCompletedChapter: 3, totalChapters: 12, percent: 25 }))
-  })
+test('shows the truthful returning-reader recap and resumes the coherent saved tuple', async ({ page }) => {
+  await page.evaluate(seedReadingMemory, readingMemorySeed([
+    { id: 'meditations-4', bookId: 'meditations', editionKey: 'original-en', chapterNumber: 4, page: 2, totalPages: 8, ageMs: 60_000 },
+  ]))
   await openPreReader(page, '/lab/library?autoplay=0')
-  const card = page.locator('[data-continue-book="meditations"]')
-  await expect(card).toBeVisible()
-  await expect(page.locator('.tov5-library-continue')).toContainText('Saved on this device')
-  await expect(card).toContainText('Book 4')
+  const recap = page.locator('[data-reading-memory-recap]')
+  await expect(recap).toBeVisible()
+  await expect(page.locator('[data-library]')).toHaveAttribute('data-library-mode', 'returning')
+  await expect(recap.getByTestId('lab-recap-eyebrow')).toHaveText('Last time you read · Book 4')
+  await expect(recap.getByTestId('lab-recap-book')).toHaveText('Meditations')
+  await expect(recap.locator('[data-recap-continue]')).toHaveText('Continue reading')
   for (let pass = 0; pass < 3; pass += 1) {
-    await page.locator('[data-continue-book="meditations"]').click()
+    await recap.locator('[data-recap-continue]').click()
     await expect(page).toHaveURL(/\/lab\/reader$/)
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'meditations')
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '4')
     if (pass < 2) {
       await page.goBack()
       await waitForPreReader(page)
-      await expect(page.locator('[data-continue-book="meditations"]')).toBeVisible()
+      await expect(page.locator('[data-reading-memory-recap] [data-recap-continue]')).toBeVisible()
     }
   }
 })
@@ -492,14 +561,15 @@ test('preserves the exact Lab auth return destination for landing and dark libra
   await expect(page.getByRole('link', { name: 'Library' })).toHaveAttribute('href', '/lab/landing')
 
   await openPreReader(page, '/lab/library')
-  await page.locator('.tov5-library-topbar [data-lab-auth-link]').click()
+  await page.locator('.lib-hdr [data-lab-auth-link]').click()
   await expect(page).toHaveURL(/returnTo=%2Flab%2Flibrary/)
   await expect(page.getByRole('link', { name: 'Library' })).toHaveAttribute('href', '/lab/library')
 })
 
 test('browser Back restores edition, detail and dark-library states without preface', async ({ page }) => {
   await openPreReader(page, '/lab/library')
-  await page.locator('[data-catalogue-book="odyssey"]').first().click()
+  await searchLibrary(page, 'Odyssey')
+  await page.locator('[data-library-index] [data-catalogue-book="odyssey"]').click()
   await page.getByRole('button', { name: 'Start reading' }).click()
   await expect(page.locator('[data-view-panel="edition"]')).toHaveClass(/is-current/)
   await page.goBack()
@@ -518,7 +588,7 @@ for (const viewport of [PHONE, DESKTOP]) {
       bookId: 'odyssey', primaryEditionKey: 'original-en', savedPlace: { bookId: 'bible', chapterNumber: 1 },
     }))
     expect(crossBook).toBeNull()
-    await expect(page.locator('[data-view-panel="library"] .tov5-zoom')).toBeVisible()
+    await expect(page.locator('[data-view-panel="library"] .lib')).toBeVisible()
   })
 }
 
@@ -552,9 +622,9 @@ for (const viewport of REQUIRED_VIEWPORTS) {
     }
 
     await page.getByRole('button', { name: 'Start reading' }).click()
-    const geometry = await page.locator('.tov5-library-zoom').evaluate(element => {
+    const geometry = await page.locator('.lib').evaluate(element => {
       const rect = element.getBoundingClientRect()
-      const body = element.querySelector('.tov5-library-body')
+      const body = element.querySelector('.lib-main')
       return { width: rect.width, left: rect.left, top: rect.top, right: window.innerWidth - rect.right, bodyFits: !body || body.scrollWidth <= body.clientWidth + 1 }
     })
     await expectNoDocumentOverflow(page)
@@ -571,7 +641,7 @@ for (const viewport of REQUIRED_VIEWPORTS) {
       expect(geometry.top).toBe(0)
     }
 
-    const labelStyles = await page.locator('.tov5-library-section [data-catalogue-book] strong').evaluateAll(elements => elements.filter(element => (element as HTMLElement).offsetParent !== null).map(element => {
+    const labelStyles = await page.locator('[data-library-index] .lib-row-t').evaluateAll(elements => elements.filter(element => (element as HTMLElement).offsetParent !== null).map(element => {
       const style = getComputedStyle(element)
       return { textOverflow: style.textOverflow, whiteSpace: style.whiteSpace }
     }))
@@ -606,7 +676,7 @@ for (const { label, viewport } of [{ label: 'phone', viewport: PHONE }, { label:
     await page.getByRole('button', { name: 'Start reading' }).click()
     await capture(page, `${label}-02-library`)
     await searchLibrary(page, 'Republic')
-    await expect(page.locator('.tov5-search-results [data-catalogue-book="the-republic"]')).toHaveCount(1)
+    await expect(page.locator('[data-library-index] [data-catalogue-book="the-republic"]')).toHaveCount(1)
     await capture(page, `${label}-03-republic-search`)
     await page.evaluate(() => window.__tinctLabPreReader.selectBook('ulysses'))
     await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
@@ -632,6 +702,8 @@ declare global {
       createHandoff: (selection: Record<string, unknown>) => Record<string, unknown> | null
       selectBook: (bookId: string) => Promise<boolean>
       visibleBooks: () => Array<Record<string, any>>
+      openBook: (bookId: string) => Promise<boolean>
+      libraryState: () => { mode: 'new' | 'returning'; shelfIndex: number; shelf: string[]; query: string; expandedHouseId: string | null }
       selectionState: () => { primaryEditionKey: string | null; compareEditionKey: string | null; revision: number }
       renderEditionsForTest: (book: Record<string, any>) => void
     }

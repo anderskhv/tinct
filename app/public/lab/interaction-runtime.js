@@ -115,12 +115,7 @@
       phone.dataset.bookWorld=key;
       root.querySelectorAll('.tov5-zoom').forEach(zoom=>{zoom.dataset.bookWorld=key});
       root.querySelector('[data-world-art]').src=coverData[book.art];
-      root.querySelectorAll('[data-library-world-art],[data-your-library-world-art],[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image=>{image.src=coverData[book.art]});
-      root.querySelector('[data-current-cover]').src=coverData[book.art];
-      root.querySelector('[data-current-cover]').alt=book.title;
-      root.querySelector('[data-current-author]').textContent=book.author;
-      root.querySelector('[data-current-title]').textContent=book.title;
-      root.querySelector('[data-current-summary]').textContent=book.a2;
+      root.querySelectorAll('[data-book-detail-world-art],[data-edition-world-art],[data-preface-world-art]').forEach(image=>{image.src=coverData[book.art]});
       root.querySelector('[data-book-detail-cover]').src=coverData[book.art];
       root.querySelector('[data-book-detail-cover]').alt=book.title;
       root.querySelector('[data-book-detail-author]').textContent=book.author;
@@ -151,16 +146,8 @@
     const showView=view=>{
       root.querySelectorAll('[data-view-panel]').forEach(panel=>panel.classList.toggle('is-current',panel.dataset.viewPanel===view));
       root.querySelectorAll('[data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===view)));
-      if(view==='library')replayShelf();
       if(view==='edition')note.textContent='Edition picker · select a card or open either translation menu';
       if(view==='preface')note.textContent='Mobile preface · one tap for standard, or talk and chat to tailor it';
-    };
-    const replayShelf=()=>{
-      const track=root.querySelector('.tov5-library-track');
-      track.classList.remove('is-nudging');
-      void track.offsetWidth;
-      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)track.classList.add('is-nudging');
-      note.textContent='Library reveal · a slower browse from later books back to the opening choices';
     };
     root.querySelectorAll('[data-book]').forEach(button=>button.addEventListener('click',()=>{setBook(button.dataset.book);showView('landing')}));
     root.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{
@@ -170,7 +157,6 @@
       }
       showView(button.dataset.view);
     }));
-    root.querySelectorAll('[data-open-book]').forEach(button=>button.addEventListener('click',()=>showView('book-detail')));
     root.querySelectorAll('[data-character]').forEach(button=>button.addEventListener('click',()=>selectCharacter(Number(button.dataset.character))));
     root.querySelectorAll('[data-preface-mode]').forEach(button=>button.addEventListener('click',()=>{
       root.querySelectorAll('[data-preface-mode]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
@@ -215,21 +201,6 @@
       window.setTimeout(()=>showFrame('versions'),260);
     });
     root.querySelector('.tov5-demo-library-scroll').addEventListener('pointerdown',()=>{if(libraryScrollTimer)window.clearTimeout(libraryScrollTimer)},{passive:true});
-    root.querySelectorAll('[data-category]').forEach(button=>button.addEventListener('click',()=>{
-      root.querySelectorAll('[data-category]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-      note.textContent='Library · '+button.dataset.category;
-    }));
-    root.querySelectorAll('[data-shelf-arrow]').forEach(button=>button.addEventListener('click',()=>{
-      const viewport=root.querySelector('.tov5-library-viewport');
-      root.querySelector('.tov5-library-track').classList.remove('is-nudging');
-      viewport.scrollBy({left:button.dataset.shelfArrow==='right'?180:-180,behavior:'smooth'});
-    }));
-    root.querySelectorAll('[data-mini-arrow]').forEach(button=>button.addEventListener('click',()=>{
-      root.querySelector('[data-mini-shelf]').scrollBy({left:button.dataset.miniArrow==='right'?150:-150,behavior:'smooth'});
-    }));
-    root.querySelectorAll('[data-reader-arrow]').forEach(button=>button.addEventListener('click',()=>{
-      root.querySelector('[data-reader-carousel]').scrollBy({left:button.dataset.readerArrow==='right'?270:-270,behavior:'smooth'});
-    }));
     root.querySelectorAll('[data-edition-choice]').forEach(button=>button.addEventListener('click',()=>{
       const choice=button.dataset.editionChoice;
       root.querySelectorAll('[data-edition-card]').forEach(card=>card.classList.toggle('is-selected',card.dataset.editionCard===choice));
@@ -238,7 +209,6 @@
     }));
     root.querySelectorAll('[data-edition-menu-button]').forEach(button=>button.addEventListener('click',()=>root.querySelectorAll('[data-edition-menu]').forEach(menu=>menu.classList.toggle('is-open',menu.dataset.editionMenu===button.dataset.editionMenuButton))));
     root.querySelectorAll('[data-close-menu]').forEach(button=>button.addEventListener('click',()=>root.querySelectorAll('[data-edition-menu]').forEach(menu=>menu.classList.remove('is-open'))));
-    root.querySelector('.tov5-library-viewport').addEventListener('pointerdown',()=>root.querySelector('.tov5-library-track').classList.remove('is-nudging'),{once:true});
     phone.addEventListener('pointerdown',stopAutoFrames,{once:true});
     phone.addEventListener('focusin',stopAutoFrames,{once:true});
     const previewBook=previewParams.get('book');
@@ -249,7 +219,7 @@
       showFrame(previewFrame);
     }
     const previewView=previewParams.get('view');
-    if(previewView==='library'||previewView==='your-library'||previewView==='book-detail'||previewView==='edition')showView(previewView);
+    if(previewView==='library'||previewView==='book-detail'||previewView==='edition')showView(previewView);
     const previewMenu=previewParams.get('menu');
     if(previewMenu==='human'||previewMenu==='ai')root.querySelector(`[data-edition-menu="${previewMenu}"]`).classList.add('is-open');
     scheduleNextFrame();
