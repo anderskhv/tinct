@@ -1,0 +1,707 @@
+{
+  "version": "tinct-cover-v2",
+  "asset_only": true,
+  "title_count": 100,
+  "titles": [
+    {
+      "id": "odyssey",
+      "title": "The Odyssey",
+      "author": "Homer",
+      "cover": "pilot-v2/final/odyssey--cover-v2.png",
+      "sha256": "8e21a88982357d0122d69834743070124e3c2b5c60c4304ec8f50019b36e355c"
+    },
+    {
+      "id": "ulysses",
+      "title": "Ulysses",
+      "author": "James Joyce",
+      "cover": "collection-v2/final/ulysses--cover-v2.png",
+      "sha256": "ff909cb1b2347b304ba296b8206f4cd32e99261fa729297c238a9b636207c8b9"
+    },
+    {
+      "id": "war-and-peace",
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "cover": "collection-v2/final/war-and-peace--cover-v2.png",
+      "sha256": "1380f81caf1d2c26ba7cce957d4e5494d7d8bcd533d9b4fe3a7ddc3073a64e78"
+    },
+    {
+      "id": "bible",
+      "title": "The Bible",
+      "author": "Various",
+      "cover": "pilot-v2/final/bible--cover-v2.png",
+      "sha256": "ebfc4a8549afce1154014ed7a6ae363ee8239dbe01559a889d63e6ab46f1d24a"
+    },
+    {
+      "id": "gilgamesh",
+      "title": "The Epic of Gilgamesh",
+      "author": "Anonymous",
+      "cover": "collection-v2/final/gilgamesh--cover-v2.png",
+      "sha256": "7f7c559ae60a299cee3e83168f22d28f3ac7ac15ac1ae6e92ff85d4e5144154f"
+    },
+    {
+      "id": "hamlet",
+      "title": "Hamlet",
+      "author": "William Shakespeare",
+      "cover": "pilot-v2/final/hamlet--cover-v2.png",
+      "sha256": "b7a12b1b64e5ea7e1d09bf4210265ee29e12d973636f25c173f91e950160d208"
+    },
+    {
+      "id": "macbeth",
+      "title": "Macbeth",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/macbeth--cover-v2.png",
+      "sha256": "30811af089eea39a3d1e941be0b9def77bfb8fb16669b425583d627bfaacc02f"
+    },
+    {
+      "id": "midsummer",
+      "title": "A Midsummer Night's Dream",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/midsummer--cover-v2.png",
+      "sha256": "2cfeba4506ff756a30572cb145a60252144434fd19eaf7da316e7777dbc55dfc"
+    },
+    {
+      "id": "romeo-and-juliet",
+      "title": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/romeo-and-juliet--cover-v2.png",
+      "sha256": "19d2a0cb3c6239a4687263509bc6e79dd481d3fbc4b59ac866604be804604de1"
+    },
+    {
+      "id": "the-tempest",
+      "title": "The Tempest",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/the-tempest--cover-v2.png",
+      "sha256": "0425a9c45d16e624290f39b89a6ef0402b380e11d86165579d7a8222b878dc27"
+    },
+    {
+      "id": "the-art-of-war",
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "cover": "pilot-v2/final/the-art-of-war--cover-v2.png",
+      "sha256": "9167a75132b2b7c2d81a3a2bdda800a03fa4005fcbb4c7e1311591f9cddb9b69"
+    },
+    {
+      "id": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "cover": "pilot-v2/final/pride-and-prejudice--cover-v2.png",
+      "sha256": "7837b66156ec4fbbcd8f03f25e344579c7b9a2ba8ec297cc647a70c28395b4d3"
+    },
+    {
+      "id": "crime-and-punishment",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "cover": "collection-v2/final/crime-and-punishment--cover-v2.png",
+      "sha256": "8d0701f6d57d08f60fd0de9f6f881ec4b88559d6aefffd0cf13f468a81bcdc47"
+    },
+    {
+      "id": "the-republic",
+      "title": "The Republic",
+      "author": "Plato",
+      "cover": "pilot-v2/final/the-republic--cover-v2.png",
+      "sha256": "ec7fb6de6e9565a1de7fb4bc88265d6bfb6c5d8031b91e8bbe06d71738db4576"
+    },
+    {
+      "id": "meditations",
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "cover": "pilot-v2/final/meditations--cover-v2.png",
+      "sha256": "58e87e43be392746703ebe8d2c4f1d6be30ca050b73d540be45a7a0b75491cb9"
+    },
+    {
+      "id": "divine-comedy",
+      "title": "The Divine Comedy",
+      "author": "Dante Alighieri",
+      "cover": "collection-v2/final/divine-comedy--cover-v2.png",
+      "sha256": "e8a3bbfd6e7c4972b9c81cdb43d87105dd973a3bb499c1280e60ccce0b45f1b1"
+    },
+    {
+      "id": "jane-eyre",
+      "title": "Jane Eyre",
+      "author": "Charlotte Bront\u00eb",
+      "cover": "collection-v2/final/jane-eyre--cover-v2.png",
+      "sha256": "11847002f86a457030ea5340184b4ce66ef3065de0edb66c5d718661e633350b"
+    },
+    {
+      "id": "the-aeneid",
+      "title": "The Aeneid",
+      "author": "Virgil",
+      "cover": "collection-v2/final/the-aeneid--cover-v2.png",
+      "sha256": "5b57d84af7b5a159ed39dc486d609fc1d376c67146c2aaaac85f84967c1993e0"
+    },
+    {
+      "id": "paradise-lost",
+      "title": "Paradise Lost",
+      "author": "John Milton",
+      "cover": "collection-v2/final/paradise-lost--cover-v2.png",
+      "sha256": "8b312b33e358b413fd5427eadff7e0b3b70bb51c67142aa1889577c91aefb3d0"
+    },
+    {
+      "id": "frankenstein",
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "cover": "pilot-v2/final/frankenstein--cover-v2.png",
+      "sha256": "544addddeaf1c1107a6a7face2756fb76210765eb2cdcb4d0f1ee9886bc37109"
+    },
+    {
+      "id": "the-manual",
+      "title": "The Manual",
+      "author": "Epictetus",
+      "cover": "collection-v2/final/the-manual--cover-v2.png",
+      "sha256": "7f1f9f87bdbce6230adfaea3f9cdf55883c82837f81dee35666a3032ee16624a"
+    },
+    {
+      "id": "apology",
+      "title": "Apology",
+      "author": "Plato",
+      "cover": "collection-v2/final/apology--cover-v2.png",
+      "sha256": "6d9d391f35da7f219a1b44f425b89d623f666a7b5416aaaf967e9e58ab099b73"
+    },
+    {
+      "id": "symposium",
+      "title": "Symposium",
+      "author": "Plato",
+      "cover": "collection-v2/final/symposium--cover-v2.png",
+      "sha256": "8345036df63d7083d82227b167449a8ea3266c1dfc7a2ca4df95bb362d9ff792"
+    },
+    {
+      "id": "phaedo",
+      "title": "Phaedo",
+      "author": "Plato",
+      "cover": "collection-v2/final/phaedo--cover-v2.png",
+      "sha256": "a61c0bebb870b913c39184172c1b427a3b322aa14fdc64811dc0de2f8d20cf6b"
+    },
+    {
+      "id": "crito",
+      "title": "Crito",
+      "author": "Plato",
+      "cover": "collection-v2/final/crito--cover-v2.png",
+      "sha256": "60e4d6d28863578721e89a75afeb10abf0bfcdbbcb80d53ffbea9b54227e3515"
+    },
+    {
+      "id": "phaedrus",
+      "title": "Phaedrus",
+      "author": "Plato",
+      "cover": "collection-v2/final/phaedrus--cover-v2.png",
+      "sha256": "3c74e12b6d02bd41aec5ccba80ef90230fb70b1aab149e64e8c64fe7c71df03a"
+    },
+    {
+      "id": "poetics",
+      "title": "Poetics",
+      "author": "Aristotle",
+      "cover": "collection-v2/final/poetics--cover-v2.png",
+      "sha256": "566715ffcda6e617c1c3f3250e820aad170c1a4c906665ccf259feef74f19c2a"
+    },
+    {
+      "id": "moby-dick",
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "cover": "collection-v2/final/moby-dick--cover-v2.png",
+      "sha256": "e9865abba33f3c3e7924a47596b947d1b738e20e36285ec2766187d80f32980c"
+    },
+    {
+      "id": "great-expectations",
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "cover": "collection-v2/final/great-expectations--cover-v2.png",
+      "sha256": "771cd6b03f33eb04d23a37aaf6eabd3481361f940b830a110e28fa08a7bf96a8"
+    },
+    {
+      "id": "the-histories",
+      "title": "The Histories",
+      "author": "Herodotus",
+      "cover": "pilot-v2/final/the-histories--cover-v2.png",
+      "sha256": "bdff5b2e924237ea0f94ca00d7b8b1f04f471eceec5088065b773ede4fc8fd9b"
+    },
+    {
+      "id": "niels-lyhne",
+      "title": "Niels Lyhne",
+      "author": "J.P. Jacobsen",
+      "cover": "collection-v2/final/niels-lyhne--cover-v2.png",
+      "sha256": "08bdb9b68e018fb717bfd15aa5adff81da0d45e54a0ba1494b30b1064568879b"
+    },
+    {
+      "id": "imitation-of-christ",
+      "title": "The Imitation of Christ",
+      "author": "Thomas \u00e0 Kempis",
+      "cover": "collection-v2/final/imitation-of-christ--cover-v2.png",
+      "sha256": "bf9c8825915a632f95370965d4607a5e13634a51628bb895a8ac79f96ca1f150"
+    },
+    {
+      "id": "jerusalem",
+      "title": "Jerusalem",
+      "author": "Selma Lagerl\u00f6f",
+      "cover": "collection-v2/final/jerusalem--cover-v2.png",
+      "sha256": "0ef08b22a8d5d8086813366f59a2ebbaaf38ed3cea8abceced9aeffe09f79acd"
+    },
+    {
+      "id": "the-awakening",
+      "title": "The Awakening",
+      "author": "Kate Chopin",
+      "cover": "collection-v2/final/the-awakening--cover-v2.png",
+      "sha256": "bb12a91dae8bcf57e68d5030d81007154db5507b064ced54d9cca2239ad6f45e"
+    },
+    {
+      "id": "brothers-karamazov",
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "cover": "collection-v2/final/brothers-karamazov--cover-v2.png",
+      "sha256": "e5dbd1567f24e8361a6f6ceeebd7148b5ed21ca6824333bce20cd356b13dc279"
+    },
+    {
+      "id": "iliad",
+      "title": "The Iliad",
+      "author": "Homer",
+      "cover": "collection-v2/final/iliad--cover-v2.png",
+      "sha256": "42c9b3fd8c6e631401f5d54ffe7eeccdcaf53748445a67f3bfbbe0a438851b55"
+    },
+    {
+      "id": "nicomachean-ethics",
+      "title": "Nicomachean Ethics",
+      "author": "Aristotle",
+      "cover": "collection-v2/final/nicomachean-ethics--cover-v2.png",
+      "sha256": "98f81845270e2c5be64b9e94b5bab20aa00d6172aca9e3eb2f4e002970b8037e"
+    },
+    {
+      "id": "the-prince",
+      "title": "The Prince",
+      "author": "Niccol\u00f2 Machiavelli",
+      "cover": "collection-v2/final/the-prince--cover-v2.png",
+      "sha256": "3b5a3fd2cb58c1ff6ecc25223084ed0600a995e2bd9492b7ddfa0aa4ef261b00"
+    },
+    {
+      "id": "beyond-good-and-evil",
+      "title": "Beyond Good and Evil",
+      "author": "Friedrich Nietzsche",
+      "cover": "collection-v2/final/beyond-good-and-evil--cover-v2.png",
+      "sha256": "20596cbd9610f3f4a52d33c1d6083826b5b19c24f94a0f451da3a11ae41e1dd6"
+    },
+    {
+      "id": "kant-groundwork",
+      "title": "Groundwork of the Metaphysics of Morals",
+      "author": "Immanuel Kant",
+      "cover": "collection-v2/final/kant-groundwork--cover-v2.png",
+      "sha256": "2ce18fbc7842f052278da66711bec2c749cdb5777d86a69c06733d74ddf22fd3"
+    },
+    {
+      "id": "beowulf",
+      "title": "Beowulf",
+      "author": "Anonymous",
+      "cover": "collection-v2/final/beowulf--cover-v2.png",
+      "sha256": "fcda747ee04cdd40144238bd935a9aeacb7c84ca8b80133052bdcc0c1ce5159c"
+    },
+    {
+      "id": "candide",
+      "title": "Candide",
+      "author": "Voltaire",
+      "cover": "collection-v2/final/candide--cover-v2.png",
+      "sha256": "bf97bae1f71095bcab4fae111ef3a0ce73d963f6c1e57316baf536bf05150c2f"
+    },
+    {
+      "id": "democracy-in-america",
+      "title": "Democracy in America",
+      "author": "Alexis de Tocqueville",
+      "cover": "collection-v2/final/democracy-in-america--cover-v2.png",
+      "sha256": "fdf378d46083b830a5ea5ba6a2c9cf79d148376b9686cc229c0ef984342af222"
+    },
+    {
+      "id": "oedipus-rex",
+      "title": "Oedipus Rex",
+      "author": "Sophocles",
+      "cover": "collection-v2/final/oedipus-rex--cover-v2.png",
+      "sha256": "e92ed22ef436ed01847c8317948535db1343a31cabda81635cd45cf4f2848d1b"
+    },
+    {
+      "id": "oedipus-at-colonus",
+      "title": "Oedipus at Colonus",
+      "author": "Sophocles",
+      "cover": "collection-v2/final/oedipus-at-colonus--cover-v2.png",
+      "sha256": "deef5ee35da39d846643f2a737897800ba0325e2881995b1ff534a7dfa719ea6"
+    },
+    {
+      "id": "antigone",
+      "title": "Antigone",
+      "author": "Sophocles",
+      "cover": "collection-v2/final/antigone--cover-v2.png",
+      "sha256": "80ee58546a02bbd2a3119a774f923937ee0bc9ea383324d670fb1bb40a7ac08d"
+    },
+    {
+      "id": "genealogy-of-morals",
+      "title": "On the Genealogy of Morals",
+      "author": "Friedrich Nietzsche",
+      "cover": "collection-v2/final/genealogy-of-morals--cover-v2.png",
+      "sha256": "1067f63262a9400aa67d387b068bdbe0f354d1ffde8c10dc8541fe94f7bbf759"
+    },
+    {
+      "id": "descartes-meditations",
+      "title": "Meditations on First Philosophy",
+      "author": "Ren\u00e9 Descartes",
+      "cover": "collection-v2/final/descartes-meditations--cover-v2.png",
+      "sha256": "5c10f40618f02f66258317e249e55dd7ad68ad5e4b295dcd2a72c6663a99bfd9"
+    },
+    {
+      "id": "on-liberty",
+      "title": "On Liberty",
+      "author": "John Stuart Mill",
+      "cover": "collection-v2/final/on-liberty--cover-v2.png",
+      "sha256": "09df6c0048cde226d8d6a7911a843c4264f0de8767eea3e6d5a27d62650c94e3"
+    },
+    {
+      "id": "utilitarianism",
+      "title": "Utilitarianism",
+      "author": "John Stuart Mill",
+      "cover": "collection-v2/final/utilitarianism--cover-v2.png",
+      "sha256": "0abfce51b71376dc114c8ce9e6af64cbdd47a83b52c82138784ff4451eac5326"
+    },
+    {
+      "id": "peloponnesian-war",
+      "title": "History of the Peloponnesian War",
+      "author": "Thucydides",
+      "cover": "collection-v2/final/peloponnesian-war--cover-v2.png",
+      "sha256": "3b6b1ea3aabc7b59a1e924569474b59f2161196a73e73225d7e0d7869bc38a46"
+    },
+    {
+      "id": "aristotle-politics",
+      "title": "Politics",
+      "author": "Aristotle",
+      "cover": "collection-v2/final/aristotle-politics--cover-v2.png",
+      "sha256": "34621a844e3b27a461b7396607328593342d5bd58c4d5c32f549ee89f3e90ade"
+    },
+    {
+      "id": "leviathan",
+      "title": "Leviathan",
+      "author": "Thomas Hobbes",
+      "cover": "collection-v2/final/leviathan--cover-v2.png",
+      "sha256": "2a1f3704fb9145d5e7e325579742a32910cab11a72bb70c279934db826215320"
+    },
+    {
+      "id": "fear-and-trembling",
+      "title": "Fear and Trembling",
+      "author": "S\u00f8ren Kierkegaard",
+      "cover": "collection-v2/final/fear-and-trembling--cover-v2.png",
+      "sha256": "e9286a595841c5a56414ccc9e1810458f1f6fd479e6542d965ab9b07ca76021a"
+    },
+    {
+      "id": "communist-manifesto",
+      "title": "The Communist Manifesto",
+      "author": "Karl Marx & Friedrich Engels",
+      "cover": "collection-v2/final/communist-manifesto--cover-v2.png",
+      "sha256": "5385adeab77f30e31f52fb38b6dfc2b0236740440ec53957f52c3c033b027328"
+    },
+    {
+      "id": "second-treatise",
+      "title": "Second Treatise of Government",
+      "author": "John Locke",
+      "cover": "collection-v2/final/second-treatise--cover-v2.png",
+      "sha256": "869311b913ed91fbfdf5ea83f47fbe2cb89fce1dcb63a1f330b7204a8569b5c4"
+    },
+    {
+      "id": "hume-enquiry",
+      "title": "An Enquiry Concerning Human Understanding",
+      "author": "David Hume",
+      "cover": "collection-v2/final/hume-enquiry--cover-v2.png",
+      "sha256": "dbb1bb398268259a916c082bf6cc9a58132e929b999efe5c0db743290fd9a252"
+    },
+    {
+      "id": "social-contract",
+      "title": "The Social Contract",
+      "author": "Jean-Jacques Rousseau",
+      "cover": "collection-v2/final/social-contract--cover-v2.png",
+      "sha256": "8b68e50949296ba65af37fbb9c70caa4574b4b8830411ff2cf41a18fbc2b8d44"
+    },
+    {
+      "id": "wealth-of-nations",
+      "title": "The Wealth of Nations",
+      "author": "Adam Smith",
+      "cover": "collection-v2/final/wealth-of-nations--cover-v2.png",
+      "sha256": "9a71bc06d7f2efb7d3f3e62c004b570f5d8d65941a71b1edf594460575424669"
+    },
+    {
+      "id": "werther",
+      "title": "The Sorrows of Young Werther",
+      "author": "Johann Wolfgang von Goethe",
+      "cover": "collection-v2/final/werther--cover-v2.png",
+      "sha256": "42f1aef26e0dba3cb70d143e0fb20947ce3c78abe86d6c643df51582eccea9cf"
+    },
+    {
+      "id": "faust-part-1",
+      "title": "Faust, Part One",
+      "author": "Johann Wolfgang von Goethe",
+      "cover": "collection-v2/final/faust-part-1--cover-v2.png",
+      "sha256": "f27c044defe2ffcf49a70ff7cb3045646bd6ecebc08a5a41486549f55aca971d"
+    },
+    {
+      "id": "oresteia",
+      "title": "The Oresteia",
+      "author": "Aeschylus",
+      "cover": "collection-v2/final/oresteia--cover-v2.png",
+      "sha256": "f8d2cc164af6c018a1233419d3edf77d457287c435678f0c9f1a064d38482d66"
+    },
+    {
+      "id": "bacchae",
+      "title": "The Bacchae",
+      "author": "Euripides",
+      "cover": "collection-v2/final/bacchae--cover-v2.png",
+      "sha256": "75aff8eea7431852b1ed6dbbaf9e0df78844248233d5278ce848a974e8749498"
+    },
+    {
+      "id": "medea",
+      "title": "Medea",
+      "author": "Euripides",
+      "cover": "collection-v2/final/medea--cover-v2.png",
+      "sha256": "9aaa97d75246b28f6449bc81efbb1f327032b0629f9e229c2ec6c6e4f171837a"
+    },
+    {
+      "id": "confessions",
+      "title": "Confessions",
+      "author": "Augustine",
+      "cover": "collection-v2/final/confessions--cover-v2.png",
+      "sha256": "7119ee332dac714d2f044c57964c7c6eb258ffe265fd033494bb5086e490da52"
+    },
+    {
+      "id": "notes-from-underground",
+      "title": "Notes from Underground",
+      "author": "Fyodor Dostoevsky",
+      "cover": "collection-v2/final/notes-from-underground--cover-v2.png",
+      "sha256": "f7e726129c1c91f93579892a6e6083510a86bdf4c267f1243d2b962ec25f535a"
+    },
+    {
+      "id": "magna-carta",
+      "title": "Magna Carta",
+      "author": "Anonymous (sealed by King John)",
+      "cover": "collection-v2/final/magna-carta--cover-v2.png",
+      "sha256": "1590e04c33a1dad76dbaf1a779b041f85966ba95052f552ee907a5077eea91da"
+    },
+    {
+      "id": "us-founding-documents",
+      "title": "The US Founding Documents",
+      "author": "Various (Jefferson, Madison, et al.)",
+      "cover": "collection-v2/final/us-founding-documents--cover-v2.png",
+      "sha256": "38959f0b192f796421c7fa9caab00fd85fa7c28c9bb347880da6e0b499522f66"
+    },
+    {
+      "id": "federalist-papers",
+      "title": "The Federalist Papers",
+      "author": "Hamilton, Madison, Jay (as \"Publius\")",
+      "cover": "collection-v2/final/federalist-papers--cover-v2.png",
+      "sha256": "236c6871c7cfd415867bb62435d21d5c20a804e2bd268adf08b94fb730b1094e"
+    },
+    {
+      "id": "frederick-douglass",
+      "title": "Narrative of the Life of Frederick Douglass",
+      "author": "Frederick Douglass",
+      "cover": "pilot-v2/final/frederick-douglass--cover-v2.png",
+      "sha256": "0ffe7e4ffabdcb759ec78431546e85750e040038c2ef4d4b2c9cde29d905b729"
+    },
+    {
+      "id": "a-little-princess",
+      "title": "A Little Princess",
+      "author": "Frances Hodgson Burnett",
+      "cover": "collection-v2/final/a-little-princess--cover-v2.png",
+      "sha256": "e0c3642508197c1518bcd2cb09d171c2175608503da10fce9b15f93671feffeb"
+    },
+    {
+      "id": "jungle-book",
+      "title": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "cover": "collection-v2/final/jungle-book--cover-v2.png",
+      "sha256": "454eb25acdce096a234129dfea3e7613535ad0e8f1ebfe0dce09adccb2bd1489"
+    },
+    {
+      "id": "around-the-world-80-days",
+      "title": "Around the World in Eighty Days",
+      "author": "Jules Verne",
+      "cover": "collection-v2/final/around-the-world-80-days--cover-v2.png",
+      "sha256": "be896a6f3084e161775820dc5bb9f20114dcc758602216dd9d333605f70fde77"
+    },
+    {
+      "id": "heart-of-darkness",
+      "title": "Heart of Darkness",
+      "author": "Joseph Conrad",
+      "cover": "collection-v2/final/heart-of-darkness--cover-v2.png",
+      "sha256": "a9a6bd08cf3702023a5a5397c33af6a5cde072395c0141f744db9d38a7b5460b"
+    },
+    {
+      "id": "discourse-on-inequality",
+      "title": "Discourse on the Origin of Inequality",
+      "author": "Jean-Jacques Rousseau",
+      "cover": "collection-v2/final/discourse-on-inequality--cover-v2.png",
+      "sha256": "4dce8f892eec84928df046d81694df7d44b164ac51ca1146a36bc28179ef0069"
+    },
+    {
+      "id": "jekyll-and-hyde",
+      "title": "Strange Case of Dr Jekyll and Mr Hyde",
+      "author": "Robert Louis Stevenson",
+      "cover": "collection-v2/final/jekyll-and-hyde--cover-v2.png",
+      "sha256": "66ef1c5d5f905bd9ac4d970181f5324c0aa045c947485fed8bec0243a8a77acb"
+    },
+    {
+      "id": "walden",
+      "title": "Walden",
+      "author": "Henry David Thoreau",
+      "cover": "collection-v2/final/walden--cover-v2.png",
+      "sha256": "3863a87252802c868e5c16c4c10c483720974f4247495ecbd77d4834ce0e9f81"
+    },
+    {
+      "id": "vindication-rights-of-woman",
+      "title": "A Vindication of the Rights of Woman",
+      "author": "Mary Wollstonecraft",
+      "cover": "collection-v2/final/vindication-rights-of-woman--cover-v2.png",
+      "sha256": "84cc0fe2cd683016d95ea531474e682baa3c0d20ae53ace04d4d239195473480"
+    },
+    {
+      "id": "comedy-of-errors",
+      "title": "The Comedy of Errors",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/comedy-of-errors--cover-v2.png",
+      "sha256": "1f21bb45849d3aa95bb5148798dd1e17520a60c40300ea30e2126ccfa3242837"
+    },
+    {
+      "id": "merchant-of-venice",
+      "title": "The Merchant of Venice",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/merchant-of-venice--cover-v2.png",
+      "sha256": "9d214f755a69cd0fb7e74a7ff07b065e9f3ab82e1ceb05d59c33640349f05636"
+    },
+    {
+      "id": "henry-v",
+      "title": "Henry V",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/henry-v--cover-v2.png",
+      "sha256": "d6b7bb8b3db98b6c7170178c4e20643068dacd77e4b98754e17b0d3e4c64af03"
+    },
+    {
+      "id": "as-you-like-it",
+      "title": "As You Like It",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/as-you-like-it--cover-v2.png",
+      "sha256": "a92426fd8736c05e76cde6b42dcad9ae00a4e7fd482c0e014fb449082ea63697"
+    },
+    {
+      "id": "winters-tale",
+      "title": "The Winter's Tale",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/winters-tale--cover-v2.png",
+      "sha256": "81c4e27bbed021a7194d0df69ea1a61615e0e5fdcbe6aa905b545caf2e7d391e"
+    },
+    {
+      "id": "julius-caesar",
+      "title": "Julius Caesar",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/julius-caesar--cover-v2.png",
+      "sha256": "1c9ffa366231934e1474a743a8260c3d7f33da28b07a3bffa07402ec7558dfa5"
+    },
+    {
+      "id": "twelfth-night",
+      "title": "Twelfth Night",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/twelfth-night--cover-v2.png",
+      "sha256": "ecb171b4ca5b32d2a653a6c1806880d0af5763db6cf71064d9caf691bcef019b"
+    },
+    {
+      "id": "measure-for-measure",
+      "title": "Measure for Measure",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/measure-for-measure--cover-v2.png",
+      "sha256": "43d930a6a784c953ea1612f52f3fcee43029dd07f5e7797a05042e2bcab07094"
+    },
+    {
+      "id": "henry-iv-part-2",
+      "title": "Henry IV, Part 2",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/henry-iv-part-2--cover-v2.png",
+      "sha256": "a0fc719ce5049862bdf0c9f1be7e11a6ad763602d1f49321fbe4e0b18f24a578"
+    },
+    {
+      "id": "merry-wives-of-windsor",
+      "title": "The Merry Wives of Windsor",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/merry-wives-of-windsor--cover-v2.png",
+      "sha256": "87b7ddacaad87e18c13608d18383bd12c049cb58f93618da5653a178a7f9256a"
+    },
+    {
+      "id": "othello",
+      "title": "Othello",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/othello--cover-v2.png",
+      "sha256": "8c13b0aa87b0a1f7196163d33ed211a4b67433d95a7454615f549b4977cc7b68"
+    },
+    {
+      "id": "king-lear",
+      "title": "King Lear",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/king-lear--cover-v2.png",
+      "sha256": "4688110fb160dd2b3cbbb2c1407fd17e31b154d3db3d95fc3fc52184e6f9602b"
+    },
+    {
+      "id": "much-ado-about-nothing",
+      "title": "Much Ado About Nothing",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/much-ado-about-nothing--cover-v2.png",
+      "sha256": "7fe4f12f6242d6f8e2fefbfd42ea0b0329ceaaaa10b24b798104de0b11679e10"
+    },
+    {
+      "id": "taming-of-the-shrew",
+      "title": "The Taming of the Shrew",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/taming-of-the-shrew--cover-v2.png",
+      "sha256": "8b4e80033d99766ea2a5df882819a3e24193d09b123fb6e2263a5c7130279294"
+    },
+    {
+      "id": "antony-and-cleopatra",
+      "title": "Antony and Cleopatra",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/antony-and-cleopatra--cover-v2.png",
+      "sha256": "9d2364f2ce46bc42ed86cb5b1acde446d2106d54575796e1e19ec3d2cc6a4609"
+    },
+    {
+      "id": "richard-iii",
+      "title": "Richard III",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/richard-iii--cover-v2.png",
+      "sha256": "7a3cb56be0964d7d095f2a04b887182553b80eba78e28d5589028ac3a0cc90a1"
+    },
+    {
+      "id": "coriolanus",
+      "title": "Coriolanus",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/coriolanus--cover-v2.png",
+      "sha256": "30c85814ed365020a9331236f20c808e19f03ad373d40ba8fe6bd6937965553d"
+    },
+    {
+      "id": "cymbeline",
+      "title": "Cymbeline",
+      "author": "William Shakespeare",
+      "cover": "collection-v2/final/cymbeline--cover-v2.png",
+      "sha256": "9e31cd16cdbdf20686bdd4ca8a511dee7785750e455f6008a6ad8236ea154c4e"
+    },
+    {
+      "id": "anna-karenina",
+      "title": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "cover": "collection-v2/final/anna-karenina--cover-v2.png",
+      "sha256": "33ecb398cbc8e9d98f5766c038a6726227d4cd9dd629a93c7c50b7b6446693a4"
+    },
+    {
+      "id": "don-quixote",
+      "title": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "cover": "collection-v2/final/don-quixote--cover-v2.png",
+      "sha256": "e2adeecb92d3a12905f45420a52e18cd38c817e48d06327dc11d24ac6f902311"
+    },
+    {
+      "id": "essays-montaigne",
+      "title": "Essays",
+      "author": "Michel de Montaigne",
+      "cover": "collection-v2/final/essays-montaigne--cover-v2.png",
+      "sha256": "0e1fdbbb75df44785ea0e67539f3ff1a7ebc045e0e2c6809c4f033b6163501c5"
+    },
+    {
+      "id": "ivan-ilyich",
+      "title": "The Death of Ivan Ilyich",
+      "author": "Leo Tolstoy",
+      "cover": "collection-v2/final/ivan-ilyich--cover-v2.png",
+      "sha256": "f0b6cb3b2bec272b7b47dbde1be41c8f0bd3a41a3ecb97461ad81dce7c6487d2"
+    }
+  ]
+}
