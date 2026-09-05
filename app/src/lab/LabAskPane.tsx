@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useRef, useState } from 'react'
+import { Fragment, useLayoutEffect, useRef, useState, type Ref } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
@@ -18,6 +18,8 @@ interface LabAskPaneProps {
   onDone?: () => void
   phoneSheet?: boolean
   onKeyboardOpenChange?: (open: boolean) => void
+  /** The host focuses this inside the Chat tap; iOS only raises the keyboard for a gesture-synchronous focus(). */
+  inputRef?: Ref<HTMLInputElement>
   chapterLabels?: Record<number, string>
   desktopCompanion?: 'chat' | 'talk'
 }
@@ -56,6 +58,7 @@ export function LabAskPane({
   onDone,
   phoneSheet = false,
   onKeyboardOpenChange,
+  inputRef,
   chapterLabels = {},
   desktopCompanion,
 }: LabAskPaneProps) {
@@ -120,6 +123,7 @@ export function LabAskPane({
       <input
         id="lab-ask-input"
         data-testid="lab-ask-input"
+        ref={inputRef}
         type="text"
         className="lab-ask-input"
         value={draft}

@@ -2130,6 +2130,18 @@
   display: none;
 }
 
+/* The keyboard covers the home indicator, so the safe-area inset would
+   only float the composer above the keys. Sit flush on the keyboard. */
+.lab.is-phone.has-phone-keyboard .lab-ask .lab-ask-chrome,
+.lab.has-phone-chrome.has-phone-keyboard .lab-ask .lab-ask-chrome {
+  padding-bottom: 0;
+}
+
+.lab.is-phone.has-phone-keyboard .lab-ask .lab-ask-composer,
+.lab.has-phone-chrome.has-phone-keyboard .lab-ask .lab-ask-composer {
+  padding-bottom: 0.34rem;
+}
+
 .lab.has-phone-chrome .lab-hearing-transport {
   display: none;
 }
