@@ -1,10 +1,13 @@
 import { excerptOfRange } from './textRange'
-import type { RecapCard, RecapSource, ReadingSession } from './types'
+import type { RecapCard, RecapSource, RecapSyncState, ReadingSession } from './types'
 
 export interface RecapSummary {
   text: string
   model: string
   version: string
+  /** Present when the summary is a stored one with provenance. */
+  route?: string
+  generatedAt?: number
 }
 
 export interface RecapFormatOptions {
@@ -71,10 +74,13 @@ export function buildRecapCard(input: {
   source: RecapSource
   paragraphs: string[] | null
   summary?: RecapSummary | null
+  /** Defaults to synced for a cloud-sourced card and device-only otherwise. */
+  syncState?: RecapSyncState
   format?: RecapFormatOptions
   excerptChars?: number
 }): RecapCard {
   const { session, source } = input
+  const syncState: RecapSyncState = input.syncState ?? (source === 'cloud' ? 'synced' : 'device-only')
   const excerpt = input.paragraphs ? excerptOfRange(input.paragraphs, session.anchor.range, input.excerptChars) : null
   const summaryText = input.summary?.text.trim() || ''
   const useSummary = Boolean(summaryText && excerpt !== null)
@@ -90,10 +96,13 @@ export function buildRecapCard(input: {
     bodyKind,
     timeline: recapTimeline(session, input.format),
     completed: session.state === 'completed',
+    syncState,
     provenance: {
       source,
       generatedBy: useSummary ? 'summary' : 'excerpt',
       ...(useSummary && input.summary ? { model: input.summary.model, version: input.summary.version } : {}),
+      ...(useSummary && input.summary?.route ? { route: input.summary.route } : {}),
+      ...(useSummary && typeof input.summary?.generatedAt === 'number' ? { generatedAt: input.summary.generatedAt } : {}),
       sessionId: session.id,
       sessionSeq: session.seq,
       sessionState: session.state,

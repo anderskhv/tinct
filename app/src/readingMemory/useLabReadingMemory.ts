@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { chapterPageSegments, type ChapterHearingPage } from '../lab/labHearing'
 import { readLabDeviceId } from '../lab/labPositionStore'
+import { adoptReadingMemoryOnSignIn } from './adoption'
 import { createSupabaseReadingMemoryCloud } from './cloud'
 import { deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory } from './deviceStore'
 import { drainReadingMemoryQueue, type ReadingMemoryQueue } from './queue'
@@ -63,6 +64,8 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
     queueRef.current = deviceReadingMemoryQueue()
     recorderRef.current = createReadingMemoryRecorder({
       deviceId: readLabDeviceId(),
+      // Sessions are owned by the signed-in account, or by no account.
+      owner: () => userIdRef.current,
       load: () => readDeviceReadingMemory(),
       save: state => writeDeviceReadingMemory(state),
       onEvent: (event) => {
@@ -136,9 +139,19 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // A sign-in mid-session flushes whatever the device queued for this user.
+  // Signed-out → signed-in: sessions recorded by no account are adopted by
+  // this one (retagged, queued, drained), and the recorder re-reads the
+  // rewritten store so it never writes the pre-adoption copy back.
   useEffect(() => {
-    if (userId) scheduleDrain(true)
+    if (!userId) return
+    let cancelled = false
+    const cloud = createSupabaseReadingMemoryCloud(userId)
+    void adoptReadingMemoryOnSignIn({ userId, cloud, drain: false }).then(() => {
+      if (cancelled) return
+      recorderRef.current?.reload()
+      scheduleDrain(true)
+    })
+    return () => { cancelled = true }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId])
 }

@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import type { KeyValueStorage } from './deviceStore'
+import type { CloudCommitResult, ReadingMemoryCloud, VersionedCloudRow } from './queue'
+import { emptyReadingMemory } from './sessions'
 import { buildTextRange, wordCount } from './textRange'
-import type { ReadingAnchor, ReadingSession, ReadingSessionState } from './types'
+import type { ReadingAnchor, ReadingMemoryState, ReadingSession, ReadingSessionState } from './types'
 
 /**
  * Chapter fixtures parameterised by bookId / edition / chapter. The Bible
@@ -100,6 +103,7 @@ export function sessionFor(fixture: ChapterFixture, opts: {
   page?: number
   totalPages?: number
   wordsPerPage?: number
+  owner?: string | null
 }): ReadingSession {
   const totalPages = opts.totalPages ?? pagesFor(fixture, opts.wordsPerPage ?? 40).length
   const page = opts.page ?? (opts.state === 'completed' ? totalPages : Math.max(1, Math.ceil(totalPages / 2)))
@@ -107,11 +111,51 @@ export function sessionFor(fixture: ChapterFixture, opts: {
     id: opts.id ?? `session-${fixture.bookId}-${fixture.chapterNumber}`,
     seq: opts.seq ?? 1,
     deviceId: 'device-a',
+    owner: opts.owner ?? null,
     state: opts.state,
     anchor: anchorFor(fixture, { page, totalPages, wordsPerPage: opts.wordsPerPage }),
     startedAt: opts.startedAt,
     lastActiveAt: opts.lastActiveAt ?? opts.startedAt,
     endedAt: opts.endedAt ?? null,
     completedAt: opts.state === 'completed' ? (opts.completedAt ?? opts.lastActiveAt ?? opts.startedAt) : null,
+  }
+}
+
+/** Map-backed KeyValueStorage for tests that must not touch localStorage. */
+export function memoryStorage(): KeyValueStorage & { dump(): Record<string, string> } {
+  const map = new Map<string, string>()
+  return {
+    getItem: key => map.get(key) ?? null,
+    setItem: (key, value) => { map.set(key, value) },
+    removeItem: key => { map.delete(key) },
+    dump: () => Object.fromEntries(map),
+  }
+}
+
+/** A commit_user_data stand-in: rev-checked, conflicts return the server row. */
+export function fakeVersionedCloud(initial: VersionedCloudRow | null = null) {
+  let row = initial
+  const commits: Array<{ expectedRev: number | null; state: ReadingMemoryState | null }> = []
+  let reads = 0
+  const cloud: ReadingMemoryCloud = {
+    async read() {
+      reads++
+      return row
+    },
+    async commit(state, expectedRev): Promise<CloudCommitResult> {
+      commits.push({ expectedRev, state })
+      const currentRev = row?.rev ?? 0
+      if (expectedRev !== null && expectedRev !== currentRev) return { applied: false, conflict: true, row }
+      row = { state: state ?? emptyReadingMemory(), rev: currentRev + 1 }
+      return { applied: true, conflict: false, row }
+    },
+  }
+  return {
+    cloud,
+    commits,
+    reads: () => reads,
+    row: () => row,
+    /** Another device wrote: bump the rev with a new state. */
+    bump: (state: ReadingMemoryState) => { row = { state, rev: (row?.rev ?? 0) + 1 } },
   }
 }

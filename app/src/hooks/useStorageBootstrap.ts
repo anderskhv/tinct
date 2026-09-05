@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { shouldMigrateLocalToCloud } from './useReadingPosition.guards'
 import { clearLocalUserData, localStorageProvider, setAnonymousMode, setStorageProvider } from '../services/storage'
+import { commitReadingMemoryAdoption, stageReadingMemoryAdoption } from '../readingMemory/adoption'
+import { createSupabaseReadingMemoryCloud } from '../readingMemory/cloud'
+import { deviceReadingMemoryQueue } from '../readingMemory/deviceStore'
+import { drainReadingMemoryQueue } from '../readingMemory/queue'
 import { SupabaseStorageProvider } from '../services/supabaseStorage'
 import type { ReadingPosition } from '../types'
 
@@ -55,9 +59,16 @@ export function useStorageBootstrap(args: {
       const lastUserId = localStorage.getItem(LAST_USER_KEY)
       const isUserSwitch = lastUserId !== null && lastUserId !== user.id
       localFirstFromCacheRef.current = hasLocalMirror && !isUserSwitch
+      // Reading memory recorded while signed out (owner: null) is adopted by
+      // the account signing in. Stage it BEFORE the user-switch wipe below,
+      // commit it right after; another account's sessions are never adopted.
+      const readingMemoryAdoption = stageReadingMemoryAdoption(user.id)
       if (isUserSwitch) {
         clearLocalUserData()
       }
+      commitReadingMemoryAdoption(readingMemoryAdoption)
+      const readingMemoryCloud = createSupabaseReadingMemoryCloud(user.id)
+      if (readingMemoryCloud) void drainReadingMemoryQueue(deviceReadingMemoryQueue(), readingMemoryCloud).catch(() => {})
       try { localStorage.setItem(LAST_USER_KEY, user.id) } catch { /* ignore */ }
       let cancelled = false
       let providerInstalled = false
@@ -108,6 +119,9 @@ export function useStorageBootstrap(args: {
             // For position keys, use shouldMigrateLocalToCloud which adds the
             // anonymous-default-state guard.
             for (const [key, value] of Object.entries(localData)) {
+              // Reading memory has its own versioned merge path (queue +
+              // commit_user_data); its write queue must not become a row.
+              if (key.startsWith('reading-memory:')) continue
               const cloudValue = provider.get(key)
               if (!cloudValue) {
                 provider.set(key, value)

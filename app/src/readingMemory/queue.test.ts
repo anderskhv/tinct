@@ -120,4 +120,13 @@ describe('reading memory queue', () => {
     expect((await drainReadingMemoryQueue(memoryQueue(), cloud)).status).toBe('idle')
     expect(cloud.read).not.toHaveBeenCalled()
   })
+
+  it('retains only the events a predicate accepts (another account\'s writes are dropped on user switch)', () => {
+    const fixture = chapterFixtures()[1]
+    const queue = memoryQueue()
+    queue.push(eventFromSession(sessionFor(fixture, { id: 'mine', state: 'started', startedAt: T0, owner: 'user-a' })))
+    queue.push(eventFromSession(sessionFor(fixture, { id: 'theirs', state: 'started', startedAt: T0, owner: 'user-b' })))
+    queue.retain(event => event.session.owner === 'user-a')
+    expect(queue.pending().map(event => event.sessionId)).toEqual(['mine'])
+  })
 })
