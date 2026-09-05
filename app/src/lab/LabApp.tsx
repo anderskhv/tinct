@@ -359,6 +359,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
+  const askInputRef = useRef<HTMLInputElement | null>(null)
   const [gearOpen, setGearOpen] = useState(false)
   const [desktopAskOpen, setDesktopAskOpen] = useState(false)
   const [marks, setMarks] = useState<LabMark[]>([])
@@ -2527,9 +2528,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     stayInAskRef.current = true
-    openPhoneAsk()
+    // iOS raises the keyboard only for a focus() that runs synchronously
+    // inside the tap, so commit the sheet now and focus before returning.
+    // Every other way into the sheet (Ask about, voice view) stays unfocused.
+    flushSync(() => openPhoneAsk())
     if (ask.voiceActive) ask.stopVoice()
     else stayInAskRef.current = false
+    askInputRef.current?.focus({ preventScroll: true })
   }, [ask, chrome, desktopAskOpen, interruptHearForAsk, openPhoneAsk, resumeListenAfterAsk, showPhoneChrome])
 
   const handleBarListen = useCallback(() => {
@@ -2848,6 +2853,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             phoneSheet={!!phoneAsk}
             desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
             onKeyboardOpenChange={setPhoneKeyboardOpen}
+            inputRef={askInputRef}
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
           />
         )}

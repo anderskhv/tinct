@@ -252,6 +252,28 @@ describe('lab ask thread above composer', () => {
     ])
   })
 
+  it('hands the composer input to the host so a tap can focus it', () => {
+    const ref = { current: null as HTMLInputElement | null }
+    render(
+      <LabAskPane
+        conversationState="idle"
+        voiceActive={false}
+        typedLoading={false}
+        turns={[]}
+        draft=""
+        onDraftChange={vi.fn()}
+        onSubmit={vi.fn()}
+        onMic={vi.fn()}
+        onVoiceMode={vi.fn()}
+        phoneSheet
+        inputRef={ref}
+      />,
+    )
+    expect(ref.current).toBe(screen.getByTestId('lab-ask-input'))
+    ref.current?.focus({ preventScroll: true })
+    expect(document.activeElement).toBe(screen.getByTestId('lab-ask-input'))
+  })
+
   it('does not pull the thread while the same assistant reply streams', () => {
     const props = {
       conversationState: 'idle' as const,

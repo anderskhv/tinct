@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
-import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -112,6 +112,70 @@ describe('lab visual viewport height', () => {
     expect(labVisualViewportHeightPx(undefined, 844)).toBe(844)
     expect(labVisualViewportHeightPx(0, 390)).toBe(390)
     expect(labVisualViewportHeightPx()).toBe(0)
+  })
+})
+
+describe('lab keyboard pan reset', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+    document.body.innerHTML = ''
+  })
+
+  it('treats only text entry as keyboard ownership', () => {
+    document.body.innerHTML = '<input id="t" type="text"><input id="b" type="button"><textarea id="a"></textarea><button id="c"></button>'
+    expect(labTextEntryFocused(document.getElementById('t'))).toBe(true)
+    expect(labTextEntryFocused(document.getElementById('a'))).toBe(true)
+    expect(labTextEntryFocused(document.getElementById('b'))).toBe(false)
+    expect(labTextEntryFocused(document.getElementById('c'))).toBe(false)
+    expect(labTextEntryFocused(document.body)).toBe(false)
+    expect(labTextEntryFocused(null)).toBe(false)
+  })
+
+  it('resets the pan only while a text field owns the keyboard', () => {
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 0, textEntryFocused: true })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 300, textEntryFocused: true })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: true })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false })).toBe(false)
+    expect(labShouldResetViewportPan({ textEntryFocused: true })).toBe(false)
+  })
+
+  it('scrolls the window back to the top when Safari pans the focused composer under the URL bar', () => {
+    document.body.innerHTML = '<div id="host"></div><input id="ask" type="text">'
+    const host = document.getElementById('host') as HTMLElement
+    const listeners = new Map<string, () => void>()
+    const viewport = {
+      height: 400,
+      offsetTop: 444,
+      addEventListener: (type: string, fn: () => void) => { listeners.set(type, fn) },
+      removeEventListener: (type: string) => { listeners.delete(type) },
+    }
+    const original = window.visualViewport
+    Object.defineProperty(window, 'visualViewport', { configurable: true, value: viewport })
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => {})
+    try {
+      const unbind = bindLabVisualViewportHeight(host)
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('400px')
+      // Nothing focused: a pinch-zoom pan is the user's, leave it alone.
+      expect(scrollTo).not.toHaveBeenCalled()
+
+      ;(document.getElementById('ask') as HTMLInputElement).focus()
+      listeners.get('resize')?.()
+      expect(scrollTo).toHaveBeenCalledWith(0, 0)
+      scrollTo.mockClear()
+      listeners.get('scroll')?.()
+      expect(scrollTo).toHaveBeenCalledWith(0, 0)
+
+      scrollTo.mockClear()
+      viewport.offsetTop = 0
+      listeners.get('resize')?.()
+      expect(scrollTo).not.toHaveBeenCalled()
+
+      unbind()
+      expect(listeners.size).toBe(0)
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('')
+    } finally {
+      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
+    }
   })
 })
 

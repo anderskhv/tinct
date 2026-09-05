@@ -2580,6 +2580,38 @@ describe('lab passage headline pages', () => {
     fireEvent.blur(screen.getByTestId('lab-ask-input'))
     expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
   })
+
+  it('focuses the chat composer synchronously from the Chat tab tap', () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    expect(screen.queryByTestId('lab-ask-input')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-phone-chat'))
+    // No waitFor: iOS only raises the keyboard when focus() runs inside the tap.
+    const input = screen.getByTestId('lab-ask-input')
+    expect(document.activeElement).toBe(input)
+    expect(focus).toHaveBeenCalledTimes(1)
+    expect(focus).toHaveBeenCalledWith({ preventScroll: true })
+    expect(screen.getByTestId('lab-root').className).toContain('has-phone-keyboard')
+  })
+
+  it('does not steal focus when the sheet opens from Ask about instead of the tab', () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    openThisBook()
+    fireEvent.click(screen.getByRole('tab', { name: 'People' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Ask about this person' }))
+    expect(screen.getByTestId('lab-ask-input')).toBeTruthy()
+    expect(focus).not.toHaveBeenCalled()
+    expect(document.activeElement).not.toBe(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
+  })
+
+  it('sits the composer flush on the keyboard without the safe-area inset', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab\.is-phone\.has-phone-keyboard \.lab-ask \.lab-ask-chrome[^{]*\{[^}]*padding-bottom:\s*0;/)
+    expect(css).toMatch(/\.lab\.is-phone\.has-phone-keyboard \.lab-ask \.lab-ask-composer[^{]*\{[^}]*padding-bottom:\s*0\.34rem;/)
+    expect(css).not.toMatch(/\.lab\.is-phone\.has-phone-keyboard \.lab-ask \.lab-ask-composer[^{]*\{[^}]*safe-area-inset-bottom/)
+  })
 })
 
 

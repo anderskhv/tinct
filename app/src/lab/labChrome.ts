@@ -196,17 +196,53 @@ export function labVisualViewportHeightPx(
   return Math.round(vv || inner)
 }
 
+/** A focused text field is the only thing that puts the software keyboard in front of the shell. */
+export function labTextEntryFocused(active: Element | null | undefined): boolean {
+  if (!active) return false
+  if (active.tagName === 'TEXTAREA') return true
+  if (active.tagName === 'INPUT') {
+    const type = (active as HTMLInputElement).type
+    return !['button', 'checkbox', 'color', 'file', 'image', 'radio', 'range', 'reset', 'submit'].includes(type)
+  }
+  return (active as HTMLElement).isContentEditable === true
+}
+
+/**
+ * iOS Safari answers a focused composer by shrinking the visual viewport and
+ * panning it down the (unchanged) layout viewport. The shell is already
+ * sized to the visible box, so the pan only hides the header under the URL
+ * bar and leaves dead paper above the keyboard. Reset it while the keyboard
+ * is up; a pinch-zoom pan with nothing focused is left alone.
+ */
+export function labShouldResetViewportPan(input: {
+  offsetTop?: number
+  scrollY?: number
+  textEntryFocused: boolean
+}): boolean {
+  if (!input.textEntryFocused) return false
+  const offsetTop = typeof input.offsetTop === 'number' ? input.offsetTop : 0
+  const scrollY = typeof input.scrollY === 'number' ? input.scrollY : 0
+  return offsetTop > 0 || scrollY > 0
+}
+
 /**
  * Pin the phone shell to the visible viewport so the in-flow footer
  * sits above the iOS Safari toolbar. 100vh/100dvh are the large viewport
- * and push the footer below the fold.
+ * and push the footer below the fold. While the keyboard is up, also
+ * undo the pan Safari applies to reveal the focused composer.
  */
 export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   const apply = () => {
-    const vv = typeof window !== 'undefined' ? window.visualViewport?.height : undefined
-    const inner = typeof window !== 'undefined' ? window.innerHeight : undefined
-    const px = labVisualViewportHeightPx(vv, inner)
+    if (typeof window === 'undefined') return
+    const viewport = window.visualViewport
+    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight)
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
+    const panned = labShouldResetViewportPan({
+      offsetTop: viewport?.offsetTop,
+      scrollY: window.scrollY,
+      textEntryFocused: labTextEntryFocused(typeof document !== 'undefined' ? document.activeElement : null),
+    })
+    if (panned) window.scrollTo(0, 0)
   }
   apply()
   const viewport = typeof window !== 'undefined' ? window.visualViewport : null
