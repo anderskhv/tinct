@@ -2669,7 +2669,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </button>
       )}
       {!frontispieceVisible && <header className="lab-header">
-        <div className="lab-header-brand">
+        <div
+          className="lab-header-brand"
+          onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
+        >
           <h1 className="lab-header-work" data-testid="lab-header-work">{book.bookTitle}</h1>
           <span className="lab-title-sep" aria-hidden="true"> · </span>
           <button
@@ -2677,7 +2680,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             className="lab-header-chapter"
             data-testid="lab-header-chapter"
             aria-label={`Table of contents, ${book.chapterLabel}`}
-            onClick={() => { setGearOpen(false); setTocOpen(true) }}
+            onClick={() => { setGearOpen(false); setReaderControlsVisible(true); setTocOpen(true) }}
           >
             <span className="lab-header-chapter-label">{book.chapterLabel}</span>
             <span className="lab-header-chevron" aria-hidden="true">∨</span>

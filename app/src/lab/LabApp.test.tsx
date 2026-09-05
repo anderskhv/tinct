@@ -3620,6 +3620,46 @@ describe('lab chrome pass', () => {
     expect(app).not.toContain("phoneReaderControlsVisible ? 'controls' : 'folio'")
   })
 
+  it('wakes hidden controls from the top bar: the title reveals them, the chapter pill also opens the picker, neither turns the page', () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const root = screen.getByTestId('lab-root')
+    const page = screen.getByTestId('lab-book')
+    const stage = screen.getByTestId('lab-reading-stage')
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, top: 0, right: 390, bottom: 700,
+      width: 390, height: 700, toJSON() {},
+    })
+    const hideControls = (pointerId: number) => {
+      fireEvent.pointerDown(page, { pointerId, pointerType: 'touch', clientX: 370, clientY: 500 })
+      fireEvent.pointerUp(page, { pointerId, pointerType: 'touch', clientX: 370, clientY: 500 })
+      expect(root.getAttribute('data-reader-controls')).toBe('hidden')
+    }
+
+    hideControls(41)
+    const pageText = stage.textContent
+    fireEvent.click(screen.getByTestId('lab-header-work'))
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
+    expect(stage.textContent).toBe(pageText)
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
+    // Visible controls: the title stays inert, as before.
+    fireEvent.click(screen.getByTestId('lab-header-work'))
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
+
+    hideControls(42)
+    const nextPageText = stage.textContent
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(root.getAttribute('data-reader-controls')).toBe('visible')
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(stage.textContent).toBe(nextPageText)
+
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    const hiddenPill = css.match(/data-reader-controls="hidden"\] \.lab-header-chapter,[^{]*\{([^}]*)\}/)
+    expect(hiddenPill).toBeTruthy()
+    expect(hiddenPill![1]).not.toContain('pointer-events')
+    expect(css).toMatch(/\.lab \.lab-hearing-line\.is-continued\.is-tail-full\s*\{[^}]*text-align-last:\s*var\(--lab-text-align, justify\)/)
+  })
+
   it('locks the V1 footer as an overlaid light Depth dock with a dark Tint variant', () => {
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
     expect(css).toContain('V1 quiet immersive reader')
