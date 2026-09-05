@@ -3227,7 +3227,9 @@
 }
 
 /* Passive reading keeps the location available without presenting it as an
-   open control. A centre tap restores the normal pill and control contrast. */
+   open control. A centre tap restores the normal pill and control contrast,
+   and so does a tap on the title or the chapter pill itself: the top bar
+   stays live, it only dims. */
 .lab.is-phone[data-reader-controls="hidden"] .lab-header-brand,
 .lab.has-phone-chrome[data-reader-controls="hidden"] .lab-header-brand {
   opacity: 0.58;
@@ -3239,8 +3241,15 @@
 .lab.is-night.is-phone[data-reader-controls="hidden"] .lab-header-chapter,
 .lab.is-night.has-phone-chrome[data-reader-controls="hidden"] .lab-header-chapter {
   background: transparent;
-  pointer-events: none;
-  cursor: default;
+}
+
+/* A page-tail slice whose paragraph continues on the next page is its own
+   block, so its bottom line would otherwise fall ragged. LabPassage marks the
+   slice `is-continued` and, after measuring a reasonably full last line,
+   `is-tail-full`; only then is that line set like an interior line. Follows
+   the reader's alignment preference so a left-aligned setting stays ragged. */
+.lab .lab-hearing-line.is-continued.is-tail-full {
+  text-align-last: var(--lab-text-align, justify);
 }
 
 .lab.is-phone[data-reader-controls="hidden"] .lab-header-chevron,

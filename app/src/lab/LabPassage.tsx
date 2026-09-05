@@ -99,9 +99,72 @@ function renderWordGroups<T extends { text: string }>(
   return rendered
 }
 
-function renderPlainWords(lines: ReturnType<typeof readingPageLines>) {
+/**
+ * A page-tail slice is painted as its own block, so its bottom line reads as a
+ * paragraph end. Flag slices whose paragraph continues on the next page so the
+ * renderer can justify that last line like any interior line.
+ */
+export function lineContinuesParagraph(
+  paragraphs: string[],
+  line: { paragraphIndex?: number; from?: number; words: Array<{ text: string }> },
+): boolean {
+  if (line.paragraphIndex == null || line.from == null || line.words.length === 0) return false
+  const total = tokenizeHearingWords(paragraphs[line.paragraphIndex] || '').length
+  return line.from + line.words.length < total
+}
+
+/**
+ * Only a reasonably full last line may be stretched to the margin. Below this
+ * fill a justified tail reads as rivers, so it stays start-aligned instead.
+ */
+export const LAB_CONTINUED_TAIL_MIN_FILL = 0.8
+
+interface TailRect { left: number; right: number; bottom: number; height: number }
+
+/** Natural fill (0..1) of the last painted line, from per-fragment word rects. */
+export function continuedTailFill(
+  contentLeft: number,
+  contentRight: number,
+  fragments: TailRect[],
+): number {
+  const width = contentRight - contentLeft
+  const painted = fragments.filter(rect => rect.height > 0 && rect.right > rect.left)
+  if (!(width > 0) || painted.length === 0) return 0
+  const lastBottom = Math.max(...painted.map(rect => rect.bottom))
+  const lastRight = Math.max(...painted
+    .filter(rect => Math.abs(rect.bottom - lastBottom) < Math.max(8, rect.height / 2))
+    .map(rect => rect.right))
+  return Math.max(0, Math.min(1, (lastRight - contentLeft) / width))
+}
+
+/**
+ * Measure each continued slice with its tail start-aligned, then mark the ones
+ * whose last line is full enough to justify. Runs before paint, so the reader
+ * never sees the intermediate state. Line breaks are untouched either way.
+ */
+export function markFullContinuedTails(root: HTMLElement | null): void {
+  if (!root) return
+  const lines = root.querySelectorAll<HTMLElement>('.lab-hearing-line.is-continued')
+  lines.forEach(line => line.classList.remove('is-tail-full'))
+  lines.forEach((line) => {
+    try {
+      const box = line.getBoundingClientRect()
+      const style = root.ownerDocument.defaultView?.getComputedStyle(line)
+      const padLeft = parseFloat(style?.paddingLeft || '0') || 0
+      const padRight = parseFloat(style?.paddingRight || '0') || 0
+      const fragments: TailRect[] = []
+      line.querySelectorAll<HTMLElement>(':scope > span, :scope > .lab-verse-unit > span').forEach((word) => {
+        for (const rect of word.getClientRects()) fragments.push(rect)
+      })
+      const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
+      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.classList.add('is-tail-full')
+    } catch { /* jsdom has no layout */ }
+  })
+}
+
+function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
   return lines.map((line, lineIndex) => (
-    <p key={lineIndex} className="lab-hearing-line">
+    <p key={lineIndex} className={`lab-hearing-line${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
       {renderWordGroups(line.words, (word, wordIndex, spacing) => (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
@@ -128,7 +191,7 @@ function renderHearingWords(
     const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
     const paragraphCurrent = follow.kind === 'paragraph' && paragraphIndex === follow.paragraphIndex
     return (
-      <p key={lineIndex} className={`lab-hearing-line${paragraphCurrent ? ' is-paragraph-current' : ''}`}>
+      <p key={lineIndex} className={`lab-hearing-line${paragraphCurrent ? ' is-paragraph-current' : ''}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
         {renderWordGroups(line.words, (word, wordIndex, spacing) => {
           return (
             <span
@@ -226,12 +289,19 @@ export function LabPassage({
   const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const lastSelectionPageTurnAtRef = useRef(0)
   const pageStageRef = useRef<HTMLDivElement>(null)
+  const articleRef = useRef<HTMLElement>(null)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
 
   useEffect(() => () => {
     if (longPressRef.current) clearTimeout(longPressRef.current)
   }, [])
+
+  // Fill depends on font, size, margins and alignment, which arrive as root
+  // CSS variables rather than props, so re-measure after every commit.
+  useLayoutEffect(() => {
+    markFullContinuedTails(articleRef.current)
+  })
 
   useLayoutEffect(() => {
     const stage = pageStageRef.current
@@ -385,6 +455,7 @@ export function LabPassage({
 
   return (
     <article
+      ref={articleRef}
       className={[
         'lab-passage',
         'lab-book',
@@ -425,7 +496,7 @@ export function LabPassage({
           ) : hearing && !browseWhileListening ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderPlainWords(readingLines)}
+                {renderPlainWords(readingLines, paragraphs)}
               </div>
             </div>
           ) : (
@@ -445,6 +516,7 @@ export function LabPassage({
                     id={`lab-p-${paragraphIndex}`}
                     className={[
                       'lab-hearing-line',
+                      lineContinuesParagraph(paragraphs, line) ? 'is-continued' : '',
                       markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
                     ].filter(Boolean).join(' ')}
