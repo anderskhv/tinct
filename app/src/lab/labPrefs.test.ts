@@ -4,7 +4,11 @@ import { afterEach, describe, expect, it } from 'vitest'
 import {
   labCompactFootProgress,
   DEFAULT_LAB_PREFS,
+  LAB_ACCOUNT_URL,
   LAB_LIBRARY_URL,
+  LAB_SIGN_IN_URL,
+  labAccountUrl,
+  labSignInUrl,
   LAB_MAX_FONT_SIZE,
   LAB_MIN_FONT_SIZE,
   LAB_PREFS_KEY,
@@ -230,5 +234,15 @@ describe('lab prefs', () => {
       metric: 'time',
       scope: 'book',
     })).toBe('Chapter 643 — 4 / 7')
+  })
+})
+
+describe('lab sign-in URLs', () => {
+  it('return to the reader path they were given and default to the library', () => {
+    expect(labSignInUrl('/lab/reader?voice=v2')).toBe('/lab/sign-in?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+    expect(labAccountUrl('/lab/phone')).toBe('/lab/sign-in?mode=account&returnTo=%2Flab%2Fphone')
+    expect(labSignInUrl()).toBe(LAB_SIGN_IN_URL)
+    expect(labAccountUrl('')).toBe(LAB_ACCOUNT_URL)
+    expect(LAB_SIGN_IN_URL).toBe(`/lab/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`)
   })
 })

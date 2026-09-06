@@ -4,9 +4,16 @@ import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/lab/library'
-/** The sign-in page only returns to pre-reader routes, so the reader's account links land in the library. */
-export const LAB_SIGN_IN_URL = `/lab/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`
-export const LAB_ACCOUNT_URL = `/lab/sign-in?mode=account&returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`
+/** Sign-in page URL. Pass the current reader path so the reader comes back to the same book after signing in. */
+export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
+  return `/lab/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
+}
+export function labAccountUrl(returnTo: string = LAB_LIBRARY_URL): string {
+  return `/lab/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
+}
+/** Library defaults, for surfaces with no reader to return to. */
+export const LAB_SIGN_IN_URL = labSignInUrl()
+export const LAB_ACCOUNT_URL = labAccountUrl()
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 

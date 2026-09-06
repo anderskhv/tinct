@@ -1,3 +1,5 @@
+import { safeLabReturnTo } from './lab/labSignInReturn'
+import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
 
@@ -16,17 +18,7 @@ let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
   ? initialParams.get('mode') as Mode
   : 'signin'
 
-function safeReturnTo(value: string | null) {
-  if (!value) return '/lab/library'
-  try {
-    const destination = new URL(value, location.origin)
-    if (destination.origin !== location.origin || !destination.pathname.startsWith('/lab')) return '/lab/library'
-    if (/^\/lab\/(?:reader|phone|desktop)(?:\/|$)/.test(destination.pathname)) return '/lab/library'
-    return `${destination.pathname}${destination.search}${destination.hash}`
-  } catch { return '/lab/library' }
-}
-
-const returnTo = safeReturnTo(initialParams.get('returnTo'))
+const returnTo = safeLabReturnTo(initialParams.get('returnTo'))
 
 function setStatus(message = '', tone: 'error' | 'success' | 'neutral' = 'neutral') {
   if (!status) return
@@ -138,6 +130,8 @@ root?.addEventListener('click', async event => {
     if (error) setStatus(error.message, 'error')
     else {
       clearSignedInCookie()
+      // The next person on this device must not inherit this reader's data.
+      wipeLabDeviceUserData()
       returnToLibrary()
     }
     setBusy(false)

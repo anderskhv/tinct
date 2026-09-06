@@ -1443,6 +1443,24 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-phone-talk')).toBeTruthy()
   })
 
+  it('keeps the desktop companion open with the notice when Talk fails, instead of closing silently', async () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('talk')
+    expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
+    // The failed session has ended: the pane stays up as Chat with the composer, no Talk chrome.
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-chrome-state')).toBe('reading')
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('is-desktop-companion')
+    expect(screen.getByTestId('lab-ask-notice').textContent).toContain('Type a question instead')
+    expect(screen.getByPlaceholderText('Ask')).toBeTruthy()
+    expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
+    // Closing the companion is still the reader's call.
+    fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('none')
+  })
+
   it('drops Connecting after 8s if voice setup never completes', async () => {
     vi.useFakeTimers()
     vi.stubGlobal('fetch', () => new Promise(() => { /* hang token fetch */ }))

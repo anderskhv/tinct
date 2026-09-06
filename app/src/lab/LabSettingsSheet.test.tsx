@@ -31,4 +31,10 @@ describe('LabSettingsSheet', () => {
     expect(LAB_ACCOUNT_URL).toBe('/lab/sign-in?mode=account&returnTo=%2Flab%2Flibrary')
     expect(screen.queryByTestId('lab-account-manage')).toBeNull()
   })
+
+  it('sends the sign-in link back to the current reader path when one is given', () => {
+    render(<LabSettingsSheet open section="reading" onSection={() => {}} onClose={() => {}} prefs={DEFAULT_LAB_PREFS} onPrefs={() => {}} editions={[]} audioEditions={[]} returnTo="/lab/desktop?voice=v2" />)
+    fireEvent.click(screen.getByTestId('lab-settings-account'))
+    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/lab/sign-in?returnTo=%2Flab%2Fdesktop%3Fvoice%3Dv2')
+  })
 })

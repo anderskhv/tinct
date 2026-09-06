@@ -1678,6 +1678,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   phoneAskOpenRef.current = phoneAskOpen
   const desktopAskOpenRef = useRef(desktopAskOpen)
   desktopAskOpenRef.current = desktopAskOpen
+  const askNoticeRef = useRef(ask.notice)
+  askNoticeRef.current = ask.notice
 
   const interruptHearForAsk = useCallback(() => {
     const hearingNow = listen.playing
@@ -1758,7 +1760,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (pausedForAskRef.current || returnToRef.current === 'hearing') {
       resumeListenAfterAsk()
     } else {
-      setDesktopAskOpen(false)
+      // Voice that ended with a notice (mic refused, token missing, timed
+      // out) keeps the desktop companion open as Chat, the way the phone
+      // sheet stays up, so the reader sees why and can type instead.
+      if (!askNoticeRef.current) setDesktopAskOpen(false)
       setChrome(current => (current === 'talking' ? labAfterTalk(returnToRef.current) : current))
     }
   }, [ask.voiceActive, resumeListenAfterAsk])
@@ -3269,6 +3274,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           setPeekBook(chrome === 'hearing')
         }}
         desktop={!showPhoneChrome}
+        returnTo={signInReturnTo}
       />
 
       <LabAccountSheet

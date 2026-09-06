@@ -129,6 +129,12 @@ export function clearLabPositionLocal(): void {
   try { localStorage.removeItem(LAB_POSITION_DIRTY_KEY) } catch { /* jsdom */ }
 }
 
+/** Drop the write-only IndexedDB mirror too (sign-out on a shared device). Best effort. */
+export function clearLabPositionMirror(): void {
+  if (!idbAvailable()) return
+  try { indexedDB.deleteDatabase(IDB_NAME) } catch { /* private mode */ }
+}
+
 export function readLabPositionDirty(): boolean {
   try { return localStorage.getItem(LAB_POSITION_DIRTY_KEY) === '1' } catch { return false }
 }
