@@ -1,5 +1,7 @@
 import { apiUrl } from '../utils/apiUrl'
-import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace, type LabPlaybackSkip, cleanLabVoiceTranscript } from '../lab/labAsk'
+import { ASSISTANT_PACE_SPEED, affirmativeAnswersLookupOffer, isLabPlaybackSkip, lookupQuestionFromOffer, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace, type LabPlaybackSkip, cleanLabVoiceTranscript } from '../lab/labAsk'
+import { shouldResumePlaybackAfterNavigation, type LabPlaybackNavigationOutcome } from '../lab/labVoiceControls'
+import { holdingLineInstructions, LAB_HOLDING_LINE, LAB_HOP_NARRATION, LAB_STILL_LOOKING_LINE, LAB_STILL_LOOKING_MS } from '../lab/labCompanion'
 import {
   ASK_COMPANION_TOOL,
   companionSpeakInstructions,
@@ -46,8 +48,12 @@ export interface VoiceAudioEngine {
   resumePlayback: (anchor: AudioPlaybackAnchor) => void
   /** Lab-only. Production audio engines leave this unset. */
   setPlaybackSpeed?: (rate: number) => void
-  /** Lab-only. Production audio engines leave this unset. */
-  skipPlayback?: (kind: LabPlaybackSkip) => void | Promise<void>
+  /**
+   * Lab-only. Production audio engines leave this unset. May return whether
+   * playback should resume after the move (see shouldResumePlaybackAfterNavigation);
+   * when it returns nothing, the session's own wasPlaying decides.
+   */
+  skipPlayback?: (kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>
 }
 
 export interface VoiceSessionCallbacks {
@@ -152,6 +158,20 @@ function monotonicNow(): number {
 export class VoiceSessionController {
   private machine: VoiceMachineSnapshot = INITIAL_VOICE_SNAPSHOT
   private lastUserIntent: VoiceIntent = 'none'
+  /** Last confirmed reader utterance and last finished assistant line, for the lookup-offer guard. */
+  private lastUserUtterance = ''
+  private lastAssistantLine = ''
+  /** A companion hop is in flight (V1 or V2): the model may speak only the holding line. */
+  private hopPending = false
+  private hopResponseAllowed = false
+  private hopOverrunCancelled = false
+  private holdingLine: string | null = null
+  private stillLookingTimer: number | null = null
+  /** Reader utterance that must reach the companion even if the model starts answering itself. */
+  private pendingEscalation: string | null = null
+  private assistantAnsweredSinceUserTurn = false
+  /** The pending hop was started by the app (not by a model tool call). */
+  private appHopActive = false
   private callbacks: VoiceSessionCallbacks
   private audio: VoiceAudioEngine | null = null
   private anchor: AudioPlaybackAnchor | null = null
@@ -232,6 +252,11 @@ export class VoiceSessionController {
     this.latencyTurnNumber = 0
     this.firstAudioRecordedForTurn = false
     this.lastUserIntent = 'none'
+    this.lastUserUtterance = ''
+    this.lastAssistantLine = ''
+    this.pendingEscalation = null
+    this.assistantAnsweredSinceUserTurn = false
+    this.endHop()
     this.userSpeechStarted = false
     this.lastUtteranceConfirmed = false
     this.sessionVadReady = false
@@ -432,6 +457,11 @@ export class VoiceSessionController {
     this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
     this.lastUserIntent = input.lastUserIntent ?? 'none'
+    this.lastUserUtterance = ''
+    this.lastAssistantLine = ''
+    this.pendingEscalation = null
+    this.assistantAnsweredSinceUserTurn = false
+    this.endHop()
     this.userSpeechStarted = false
     this.lastUtteranceConfirmed = false
     this.firstUserTurnCommitted = false
@@ -629,6 +659,8 @@ export class VoiceSessionController {
   }
 
   private clearTimers(): void {
+    this.endHop()
+    this.pendingEscalation = null
     this.clearDeferredHonorResumeTimer()
     this.clearDeferredHonorEndTimer()
     this.clearLabUserTurnWatch()
@@ -773,6 +805,10 @@ export class VoiceSessionController {
 
   private sendEvent(payload: Record<string, unknown>): void {
     if (!this.dc || this.dc.readyState !== 'open') return
+    // While a companion hop is pending the only responses allowed are the
+    // holding lines and the answer itself; a stray response.create is how the
+    // Realtime model ended up narrating "I'm still waiting on the companion…".
+    if (payload.type === 'response.create' && this.hopPending && !this.hopResponseAllowed) return
     this.dc.send(JSON.stringify(payload))
     if (this.isV2() && payload.type === 'response.create') this.v2CreateOutstanding = true
   }
@@ -879,6 +915,7 @@ export class VoiceSessionController {
     this.lastUtteranceConfirmed = true
     this.userSpeechStarted = true
     this.assistantLineFinished = false
+    this.assistantAnsweredSinceUserTurn = false
     // V2 also cancels a response that is still being prepared (no audio yet),
     // so the reader's new turn is never answered twice or queued behind a stale answer.
     const v2PreparingAnswer = this.isV2() && this.turn.responseOpen
@@ -1005,6 +1042,10 @@ export class VoiceSessionController {
         }
         const turnResult = reduceVoiceTurn(this.turn, event)
         this.applyTurnResult(turnResult)
+        if (event.type === 'output_audio_buffer.started' && this.pendingEscalation && !this.hopPending && !this.turn.pendingFunctionCall) {
+          this.escalateNow()
+        }
+        if (event.type === 'response.done' && this.assistantDraft.trim()) this.assistantAnsweredSinceUserTurn = true
         const cancelled = event.type === 'response.cancelled' || event.response?.status === 'cancelled'
         if (cancelled) this.flushAssistantDraft(true)
         if (this.honorModelResume && this.firstUserTurnCommitted && !this.turn.audioPlaying) {
@@ -1024,6 +1065,11 @@ export class VoiceSessionController {
       case 'response.audio_transcript.delta': {
         if (!this.acceptAssistantTranscript(event.type || '')) return
         const piece = event.delta || event.transcript || ''
+        if (piece && this.pendingEscalation && !this.hopPending && !this.turn.pendingFunctionCall) {
+          // The model chose to answer a book question itself: cut it off and ask the companion.
+          this.escalateNow()
+          return
+        }
         if (piece) this.noteAssistantDelta(piece)
         return
       }
@@ -1033,10 +1079,14 @@ export class VoiceSessionController {
         if (!text) return
         if (this.shouldDiscardUserTranscript()) return
         this.lastUtteranceConfirmed = false
+        this.lastUserUtterance = text
         this.callbacks.onTurn('user', text)
         const intent = classifyVoiceUtterance(text)
         this.lastUserIntent = intent
-        if (intent === 'none') return
+        if (intent === 'none') {
+          this.noteEscalationCandidate(text)
+          return
+        }
         if (this.honorModelResume && intent === 'resume_audiobook') return
         if (this.honorModelResume && intent === 'end_voice_session') {
           this.deferredHonorEnd = 'waiting_for_start'
@@ -1051,6 +1101,7 @@ export class VoiceSessionController {
         if (!this.acceptAssistantTranscript(event.type || '')) return
         const text = (event.transcript || event.item?.transcript || '').trim()
         if (text) this.keepAssistantDraft(text)
+        this.enforceHoldingLine()
         this.flushAssistantDraft(false)
         return
       }
@@ -1136,21 +1187,229 @@ export class VoiceSessionController {
   private speakCoverLine(text: string): boolean {
     const line = text.replace(/\s+/g, ' ').trim()
     if (!line || !this.dc || this.dc.readyState !== 'open') return false
-    this.sendEvent({
+    this.holdingLine = line
+    this.hopOverrunCancelled = false
+    this.sendHopResponse({
       type: 'response.create',
-      response: {
-        instructions: `Say this one short line naturally, then stop and wait. Do not answer the question yet. Do not mention tools, models, or waiting.\n\n${line}`,
-      },
+      response: { instructions: holdingLineInstructions(line) },
     })
     return true
+  }
+
+  /** A response.create the hop itself is allowed to make (holding line or answer). */
+  private sendHopResponse(payload: Record<string, unknown>): void {
+    this.hopResponseAllowed = true
+    try {
+      this.sendEvent(payload)
+    } finally {
+      this.hopResponseAllowed = false
+    }
+  }
+
+  private beginHop(): void {
+    this.hopPending = true
+    this.hopOverrunCancelled = false
+    this.holdingLine = null
+    this.armStillLookingTimer()
+  }
+
+  private endHop(): void {
+    this.hopPending = false
+    this.appHopActive = false
+    this.holdingLine = null
+    this.clearStillLookingTimer()
+  }
+
+  /** Rule 2: after ~6 s of a pending hop, one more short line, then silence. */
+  private armStillLookingTimer(): void {
+    this.clearStillLookingTimer()
+    if (typeof window === 'undefined') return
+    this.stillLookingTimer = window.setTimeout(() => {
+      this.stillLookingTimer = null
+      if (!this.hopPending || this.closed || this.turn.audioPlaying) return
+      this.holdingLine = LAB_STILL_LOOKING_LINE
+      this.hopOverrunCancelled = false
+      this.sendHopResponse({
+        type: 'response.create',
+        response: { instructions: holdingLineInstructions(LAB_STILL_LOOKING_LINE) },
+      })
+    }, LAB_STILL_LOOKING_MS)
+  }
+
+  private clearStillLookingTimer(): void {
+    if (this.stillLookingTimer != null && typeof window !== 'undefined') window.clearTimeout(this.stillLookingTimer)
+    this.stillLookingTimer = null
+  }
+
+  /**
+   * Rules 1 and 3: during a hop the model may say the holding line and
+   * nothing else. Anything longer, or any mention of the mechanism, is cut
+   * off at once and the transcript keeps only the holding line.
+   */
+  private enforceHoldingLine(): void {
+    if (!this.hopPending || this.hopOverrunCancelled) return
+    const draft = this.assistantDraft.replace(/\s+/g, ' ').trim()
+    if (!draft) return
+    const allowed = this.holdingLine ?? LAB_HOLDING_LINE
+    const overrun = draft.length > allowed.length + 12 || LAB_HOP_NARRATION.test(draft)
+    if (!overrun) return
+    this.hopOverrunCancelled = true
+    this.sendEvent({ type: 'response.cancel' })
+    this.sendEvent({ type: 'output_audio_buffer.clear' })
+    this.assistantDraft = allowed
+  }
+
+  /**
+   * Every reader utterance about the book goes to the companion. If the
+   * Realtime model starts answering it itself, that answer is cancelled and
+   * the companion is asked directly.
+   */
+  private noteEscalationCandidate(text: string): void {
+    if (!this.honorModelResume || !this.onCompanionAsk) return
+    if (this.hopPending || this.turn.pendingFunctionCall) return
+    let question: string | null = null
+    if (affirmativeAnswersLookupOffer(text, this.lastAssistantLine)) {
+      question = lookupQuestionFromOffer(this.lastAssistantLine, text)
+    } else if (shouldEscalateToCompanion(text)) {
+      question = text
+    }
+    if (!question) return
+    this.pendingEscalation = question
+    if (this.turn.responseOpen || this.turn.audioPlaying) {
+      // The model is already answering in its own words: cut it off now.
+      // If it has produced nothing yet, wait for its first signal (a tool
+      // call is fine; speech is not).
+      if (this.assistantDraft.trim() || this.turn.audioPlaying) this.escalateNow()
+      return
+    }
+    if (this.assistantAnsweredSinceUserTurn) this.escalateNow()
+  }
+
+  private escalateNow(): void {
+    const question = this.pendingEscalation
+    this.pendingEscalation = null
+    if (!question || this.hopPending || !this.onCompanionAsk) return
+    if (this.turn.responseOpen || this.turn.audioPlaying) {
+      this.sendEvent({ type: 'response.cancel' })
+      this.sendEvent({ type: 'output_audio_buffer.clear' })
+      this.assistantDraft = ''
+    }
+    if (this.lastAssistantLine && affirmativeAnswersLookupOffer(this.lastUserUtterance, this.lastAssistantLine)) this.lastAssistantLine = ''
+    void this.runAppEscalation(question)
+  }
+
+  private async runAppEscalation(question: string): Promise<void> {
+    const query = this.onCompanionAsk
+    if (!query) return
+    if (this.isV2()) {
+      await this.runAppEscalationV2(question, query)
+      return
+    }
+    this.beginHop()
+    this.appHopActive = true
+    let latest = ''
+    const hop = await runEscalatedCompanionTurn({
+      question,
+      alreadySpeaking: this.alreadySpeakingThisTurn(),
+      speakCover: line => this.speakCoverLine(line),
+      query: (asked) => query(asked, {
+        onDelta: (text) => { latest = text },
+        onFirstSpeakable: () => { /* holding line only; the full answer is spoken once below */ },
+      }).then(result => (typeof result === 'string' ? result : result.answer)),
+    })
+    if (this.closed) {
+      this.endHop()
+      return
+    }
+    const full = spokenCompanionAnswer(hop.answer.trim() || latest.trim())
+      || hop.answer.trim()
+      || latest.trim()
+      || 'I could not get a reading of this passage just now.'
+    await this.waitUntilQuietForHop()
+    this.endHop()
+    if (this.closed) return
+    this.sendHopResponse({
+      type: 'response.create',
+      response: { instructions: companionSpeakInstructions(full) },
+    })
+  }
+
+  private async runAppEscalationV2(question: string, query: NonNullable<StartVoiceSessionInput['onCompanionAsk']>): Promise<void> {
+    const seq = this.v2HopSeq
+    this.beginHop()
+    this.appHopActive = true
+    this.v2HopInFlight = true
+    this.setActivity('checking_text')
+    let result: CompanionAskResult
+    try {
+      result = normalizeCompanionResult(await query(question))
+    } catch {
+      result = { status: 'failed', answer: '', attempts: 1, stopReason: 'error', failureReason: 'request_failed' }
+    }
+    if (this.v2SessionGone()) {
+      this.endHop()
+      this.v2HopInFlight = false
+      return
+    }
+    await this.waitForV2UserTurnEnd()
+    if (this.v2SessionGone() || seq !== this.v2HopSeq) {
+      this.endHop()
+      this.v2HopInFlight = false
+      if (!this.v2SessionGone()) this.setActivity('listening')
+      return
+    }
+    const completed = result.status === 'completed' && result.answer.trim().length > 0
+    const answer = completed ? result.answer.trim() : VOICE_V2_FAILURE_LINE
+    this.setActivity('preparing_answer')
+    await this.waitUntilQuietForHop()
+    this.endHop()
+    if (this.v2SessionGone()) {
+      this.v2HopInFlight = false
+      return
+    }
+    this.sendHopResponse({
+      type: 'response.create',
+      response: { instructions: completed ? companionSpeakInstructionsV2(answer) : failureSpeakInstructionsV2() },
+    })
+    this.v2HopInFlight = false
   }
 
   private alreadySpeakingThisTurn(): boolean {
     return this.turn.audioPlaying || this.turn.spokenThisTurn
   }
 
+  /**
+   * A bare "yes" to an offer such as "we could go back a few chapters and
+   * have a look?" is consent to the lookup. The hop carries no history, so
+   * the offer itself becomes the question.
+   */
+  private expandAffirmativeQuestion(question: string): string {
+    if (!affirmativeAnswersLookupOffer(question, this.lastAssistantLine)) return question
+    const expanded = lookupQuestionFromOffer(this.lastAssistantLine, question)
+    this.lastAssistantLine = ''
+    return expanded
+  }
+
+  private lookupConsentPending(): boolean {
+    return affirmativeAnswersLookupOffer(this.lastUserUtterance, this.lastAssistantLine)
+  }
+
+  /** The model answered a lookup consent with a move or a resume: do the lookup instead. */
+  private async redirectToLookup(callId: string): Promise<void> {
+    const question = lookupQuestionFromOffer(this.lastAssistantLine, this.lastUserUtterance)
+    this.lastAssistantLine = ''
+    const rawArguments = JSON.stringify({ question })
+    if (this.isV2()) await this.handleCompanionAskV2(callId, rawArguments)
+    else await this.handleCompanionAsk(callId, rawArguments)
+  }
+
+  private resumeAfterNavigation(outcome: void | LabPlaybackNavigationOutcome): boolean {
+    if (outcome && typeof outcome === 'object' && typeof outcome.resumePlayback === 'boolean') return outcome.resumePlayback
+    return shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: this.shouldResumeBook })
+  }
+
   private async handleCompanionAsk(callId: string, rawArguments?: string): Promise<void> {
-    const question = parseAskCompanionArguments(rawArguments).question
+    const question = this.expandAffirmativeQuestion(parseAskCompanionArguments(rawArguments).question)
     const query = this.onCompanionAsk
 
     if (question && isLabPlaybackUtterance(question) && !shouldEscalateToCompanion(question)) {
@@ -1172,6 +1431,8 @@ export class VoiceSessionController {
       return
     }
 
+    this.pendingEscalation = null
+    this.beginHop()
     let latest = ''
     const hopPromise = runEscalatedCompanionTurn({
       question,
@@ -1183,7 +1444,10 @@ export class VoiceSessionController {
       }).then(result => (typeof result === 'string' ? result : result.answer)),
     })
     const hop = await hopPromise
-    if (this.closed) return
+    if (this.closed) {
+      this.endHop()
+      return
+    }
     const full = spokenCompanionAnswer(hop.answer.trim() || latest.trim())
       || hop.answer.trim()
       || latest.trim()
@@ -1198,9 +1462,10 @@ export class VoiceSessionController {
     })
     this.applyTurnResult(noteToolCallHandled(this.turn))
     await this.waitUntilQuietForHop()
+    this.endHop()
     if (this.closed) return
     if (!this.alreadySpeakingThisTurn() && full) {
-      this.sendEvent({
+      this.sendHopResponse({
         type: 'response.create',
         response: {
           instructions: companionSpeakInstructions(full),
@@ -1240,7 +1505,7 @@ export class VoiceSessionController {
    * one-line failure. A newer reader turn supersedes an older hop.
    */
   private async handleCompanionAskV2(callId: string, rawArguments?: string): Promise<void> {
-    const question = parseAskCompanionArguments(rawArguments).question
+    const question = this.expandAffirmativeQuestion(parseAskCompanionArguments(rawArguments).question)
     const query = this.onCompanionAsk
 
     if (question && isLabPlaybackUtterance(question) && !shouldEscalateToCompanion(question)) {
@@ -1257,6 +1522,8 @@ export class VoiceSessionController {
     }
 
     const seq = this.v2HopSeq
+    this.pendingEscalation = null
+    this.beginHop()
     this.v2HopInFlight = true
     this.setActivity('checking_text')
     let result: CompanionAskResult
@@ -1266,17 +1533,20 @@ export class VoiceSessionController {
       result = { status: 'failed', answer: '', attempts: 1, stopReason: 'error', failureReason: 'request_failed' }
     }
     if (this.v2SessionGone()) {
+      this.endHop()
       this.v2HopInFlight = false
       return
     }
     await this.waitForV2UserTurnEnd()
     if (this.v2SessionGone()) {
+      this.endHop()
       this.v2HopInFlight = false
       return
     }
     if (seq !== this.v2HopSeq) {
       // The reader moved on while we were checking. The newer turn owns the
       // answer; close this call quietly so the conversation stays well-formed.
+      this.endHop()
       this.sendFunctionOutput(callId, { ok: false, superseded: true })
       this.v2HopInFlight = false
       this.applyTurnResult(noteToolCallHandled(this.turn))
@@ -1289,11 +1559,12 @@ export class VoiceSessionController {
     this.sendFunctionOutput(callId, { ok: completed, speak_verbatim: true, answer })
     this.applyTurnResult(noteToolCallHandled(this.turn))
     await this.waitUntilQuietForHop()
+    this.endHop()
     if (this.v2SessionGone()) {
       this.v2HopInFlight = false
       return
     }
-    this.sendEvent({
+    this.sendHopResponse({
       type: 'response.create',
       response: {
         instructions: completed ? companionSpeakInstructionsV2(answer) : failureSpeakInstructionsV2(),
@@ -1303,6 +1574,17 @@ export class VoiceSessionController {
   }
 
   private async handleToolCall(name: string, callId: string, rawArguments?: string): Promise<void> {
+    this.pendingEscalation = null
+    const busyWithLookup = (this.hopPending && (isLabPlaybackSkip(name) || name === 'resume_audiobook'))
+      || (this.appHopActive && name === ASK_COMPANION_TOOL)
+    if (busyWithLookup) {
+      // The app is already asking the companion for this turn. A second hop,
+      // a move, or a resume in the meantime would answer the reader twice or
+      // move them away from the passage the answer is about.
+      this.sendFunctionOutput(callId, { ok: false, handled_by: 'app', busy: 'looking_it_up' })
+      this.applyTurnResult(noteToolCallHandled(this.turn))
+      return
+    }
     if (name === ASK_COMPANION_TOOL) {
       if (this.isV2()) await this.handleCompanionAskV2(callId, rawArguments)
       else await this.handleCompanionAsk(callId, rawArguments)
@@ -1354,6 +1636,12 @@ export class VoiceSessionController {
 
     if (isLabPlaybackSkip(name)) {
       const honor = this.honorModelResume
+      if (honor && this.lookupConsentPending()) {
+        // "Yes!!" to "we could go back and have a look?" must not move the
+        // reader; the companion reads the earlier chapter instead.
+        await this.redirectToLookup(callId)
+        return
+      }
       this.sendEvent({
         type: 'conversation.item.create',
         item: {
@@ -1364,19 +1652,27 @@ export class VoiceSessionController {
       })
       this.applyTurnResult(noteToolCallHandled(this.turn))
       if (!honor) return
+      const settle = (outcome: void | LabPlaybackNavigationOutcome) => {
+        if (this.closed) return
+        // A move opens the reader at the new place. Audio follows only when
+        // this session began from playback; otherwise confirm and keep listening.
+        if (this.resumeAfterNavigation(outcome)) this.continueAfterPlaybackAdjust()
+        else this.continueAfterNonResumeTool()
+      }
       const result = this.audio?.skipPlayback?.(name)
-      if (result && typeof result.then === 'function') {
-        void result.then(() => {
-          if (this.closed) return
-          this.continueAfterPlaybackAdjust()
-        })
+      if (result && typeof (result as Promise<unknown>).then === 'function') {
+        void (result as Promise<void | LabPlaybackNavigationOutcome>).then(settle, () => settle(undefined))
         return
       }
-      this.continueAfterPlaybackAdjust()
+      settle(result as void | LabPlaybackNavigationOutcome)
       return
     }
 
     if (name === 'resume_audiobook') {
+      if (this.honorModelResume && this.lookupConsentPending()) {
+        await this.redirectToLookup(callId)
+        return
+      }
       const honor = this.honorModelResume || shouldHonorModelResume(this.lastUserIntent)
       this.sendEvent({
         type: 'conversation.item.create',
@@ -1709,6 +2005,7 @@ export class VoiceSessionController {
     if (glued === greeting || /^I'm listening\.(?:\s*listening\.)*$/i.test(glued)) {
       this.assistantDraft = greeting
     }
+    this.enforceHoldingLine()
     const text = this.assistantDraft.trim()
     if (text && this.shouldEmitAssistantTurn(text)) this.callbacks.onTurn('assistant', text)
   }
@@ -1727,6 +2024,7 @@ export class VoiceSessionController {
 
   private flushAssistantDraft(cancelled: boolean): void {
     const text = this.assistantDraft.trim()
+    if (text) this.lastAssistantLine = text
     if (text && this.shouldEmitAssistantTurn(text)) {
       this.callbacks.onTurn('assistant', text, cancelled ? { cancelled: true } : undefined)
     }

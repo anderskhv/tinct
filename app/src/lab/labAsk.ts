@@ -4,6 +4,7 @@ import { parseHearingSpeed } from './labHearing'
 import { nextLabChapter, prevLabChapter, type LabChapter } from './labSource'
 import { storage } from '../services/storage'
 import { LAB_ASK_COMPANION_TOOL } from './labCompanion'
+import type { LabReadingTrailEntry } from './labReadingTrail'
 
 /** `checking` and `preparing` are Voice V2 only; V1 never produces them. */
 export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'
@@ -98,9 +99,20 @@ export interface LabAskContext {
   paragraphs: string[]
   paragraphIndex: number
   readingAngle?: string
+  /** Registry book id + edition key. When both are set the request carries `book` and the worker serves read_chapter / find_in_book. */
+  bookId?: string
+  editionKey?: string
+  chapterCount?: number
+  pageNumber?: number
+  totalPages?: number
+  /** Last few chapters the reader visited in this book, newest last. */
+  readingTrail?: LabReadingTrailEntry[]
 }
 
 const LAB_CHAPTER_CAP = 30_000
+/** Mirrors the worker's MAX_SYSTEM_PROMPT_LENGTH; the chapter is trimmed so the whole prompt fits. */
+export const LAB_ASK_SYSTEM_CAP = 32_000
+const LAB_ASK_SYSTEM_MARGIN = 200
 
 export function labReadingAngle(): string | undefined {
   const prefs = storage.get<{ readingObjective?: string }>('preferences')
@@ -116,11 +128,30 @@ export function numberedLabChapter(paragraphs: string[]): string {
     .join('\n\n')
 }
 
+/**
+ * Exact rule that turns "I only have Jeremiah 37 in front of me" into a lookup.
+ * Present only when the request can carry `book` (see buildLabAskInstructions).
+ */
+export const LAB_ASK_BOOK_TOOLS_RULE = `When the reader refers to something outside the passage in front of you (earlier chapters, something they remember, 'wasn't he just…'), use read_chapter or find_in_book to check the book before answering. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). Do not narrate the lookup: call the tool, then answer, as briefly as the question allows.`
+
+/** Struck everywhere, typed and spoken. */
+export const LAB_ASK_NO_PRAISE_RULE = `Never praise the question or the reader: no "Good question", "Good catch", "Great point", "Fair question", or any evaluative opener. Start with the substance.`
+
+/** The companion has the book; it never declines on the grounds of what it can see. */
+export const LAB_ASK_NO_DECLINE_RULE = `Never decline because of what you can see. Never say "I only have what's here", "I can't explain what comes after this chapter", "I only have this chapter in front of me", or any variant that pleads limited context: check the book and answer. "The ending" means the end of the chapter the reader is in unless they say otherwise, and that chapter is in front of you in full.`
+
+/** A bare "yes" after an offer to check is consent to the lookup, never a move or Play. */
+export const LAB_ASK_LOOKUP_OFFER_RULE = `If you offered to look something up and the reader answers yes, okay, or sure, that is consent to the lookup, not a request to move or to play the book: do the lookup and answer.`
+
 export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page on /lab. This is a conversation next to the open chapter, not an in-car interruption.
 
 Do not greet. Do not say hello. Do not start with small talk. The app speaks the opening line.
 
-Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.
+${LAB_ASK_NO_PRAISE_RULE}
+
+${LAB_ASK_NO_DECLINE_RULE}
+
+Spoiler rule: nothing after the reader's current chapter exists for you — no later chapters, no Book 3, no ending, no plot from further on. If asked for the ending or anything after this chapter, say you only have the book up to this chapter so far. Earlier chapters are different: never say you cannot see them.
 
 If they ask you to read a paragraph that is in the chapter payload below, read it from that payload. Do not ask them to paste. Do not say you lack the book.
 
@@ -130,7 +161,9 @@ If they say talk slower, talk faster, or slower please, call set_assistant_pace 
 
 If they want faster, slower, 2x, 1x, or any playback speed for the book, call set_playback_speed with rate 0.75, 1, 1.25, 1.5, or 2. Never say you cannot control speed. Never tell them to use a podcast app. On a typed reply, end with [[set_playback_speed:2]] (or the rate they asked for).
 
-If they want the next or previous chapter, call next_chapter or previous_chapter. Bible chapters are sequential — Genesis 1 then Genesis 2. Never say you cannot skip chapters. On a typed reply, end with [[next_chapter]] (or previous_chapter).
+If they want the next or previous chapter, call next_chapter or previous_chapter. Bible chapters are sequential — Genesis 1 then Genesis 2. Never say you cannot skip chapters. On a typed reply, end with [[next_chapter]] (or previous_chapter). Moving the reader is only for an explicit request to go to another chapter. Never move them in order to answer a question or to look something up, and never offer to "go back and have a look" — check the book yourself and answer where they are.
+
+${LAB_ASK_LOOKUP_OFFER_RULE}
 
 If they ask to restart, replay, or play this chapter from the beginning, call restart_chapter. This means seek to the first word of this same chapter and resume after the short confirmation. Never substitute resume_audiobook, previous_chapter, or previous_paragraph. On a typed reply, end with [[restart_chapter]].
 
@@ -144,21 +177,52 @@ You are here for this book and this chapter. If they ask about coding, interface
  * Lab typed + voice instructions. Full current chapter, numbered.
  * Production AudioStrip still uses buildVoiceInstructions.
  */
+export function renderLabReadingTrail(input: Pick<LabAskContext, 'readingTrail' | 'chapterLabel' | 'chapterNumber' | 'chapterCount' | 'pageNumber' | 'totalPages' | 'paragraphs' | 'paragraphIndex'>): string {
+  const trail = (input.readingTrail || []).filter(entry => entry && entry.label)
+  const last = Math.max(0, input.paragraphs.length - 1)
+  const idx = Math.max(0, Math.min(last, input.paragraphIndex))
+  const now = [
+    `${input.chapterLabel}${typeof input.chapterNumber === 'number' ? ` (chapter ${input.chapterNumber}${typeof input.chapterCount === 'number' ? ` of ${input.chapterCount}` : ''})` : ''}`,
+    typeof input.pageNumber === 'number' ? `page ${input.pageNumber}${typeof input.totalPages === 'number' ? ` of ${input.totalPages}` : ''}` : '',
+    `paragraph ${idx + 1} of ${input.paragraphs.length}`,
+  ].filter(Boolean).join(', ')
+  const lines = ['[What the reader has read recently]']
+  if (trail.length > 0) {
+    lines.push('Earlier chapters they visited in this book, oldest first, newest last:')
+    for (const entry of trail) {
+      const parts = [`- ${entry.label} (chapter ${entry.chapterNumber})`]
+      if (entry.openingLine) parts.push(`opens "${entry.openingLine.replace(/\s+/g, ' ').trim()}"`)
+      if (entry.recap) parts.push(`recap: ${entry.recap.replace(/\s+/g, ' ').trim()}`)
+      lines.push(parts.join(' — '))
+    }
+  } else {
+    lines.push('No earlier chapters of this book are on record for this reader yet.')
+  }
+  lines.push(`Now: ${now}.`)
+  lines.push(`When they say "earlier", "a few chapters back", or "wasn't he just…", these are the chapters they mean.`)
+  return lines.join('\n')
+}
+
+/**
+ * Lab typed + voice instructions. Full current chapter, numbered, trimmed so
+ * the whole prompt stays under the worker's system cap.
+ * Production AudioStrip still uses buildVoiceInstructions.
+ */
 export function buildLabAskInstructions(input: LabAskContext): string {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
   const current = (input.paragraphs[idx] || '').replace(/\s+/g, ' ').trim()
-  const chapter = numberedLabChapter(input.paragraphs)
-  const capped = chapter.length > LAB_CHAPTER_CAP
-    ? `${chapter.slice(0, LAB_CHAPTER_CAP).trim()}\n\n[…chapter continues]`
-    : chapter
+  const toolsAvailable = Boolean(input.bookId && input.editionKey)
 
   const lines = [
     LAB_ASK_POLICY,
+  ]
+  if (toolsAvailable) lines.push(LAB_ASK_BOOK_TOOLS_RULE)
+  lines.push(
     `[Current state]`,
     `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
-  ]
+  )
 
   if (input.readingAngle) {
     lines.push(`Reading angle: ${input.readingAngle}`)
@@ -166,10 +230,21 @@ export function buildLabAskInstructions(input: LabAskContext): string {
   if (current) {
     lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   }
-  if (capped) {
-    lines.push(
-      `Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.\n${capped}`,
+  if (toolsAvailable || (input.readingTrail && input.readingTrail.length > 0)) {
+    lines.push(renderLabReadingTrail(input))
+  }
+
+  const chapter = numberedLabChapter(input.paragraphs)
+  if (chapter) {
+    const lead = `Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.\n`
+    const budget = Math.min(
+      LAB_CHAPTER_CAP,
+      Math.max(4_000, LAB_ASK_SYSTEM_CAP - LAB_ASK_SYSTEM_MARGIN - lines.join('\n\n').length - lead.length),
     )
+    const capped = chapter.length > budget
+      ? `${chapter.slice(0, budget).trim()}\n\n[…chapter continues]`
+      : chapter
+    lines.push(`${lead}${capped}`)
   }
 
   return lines.join('\n\n')
@@ -190,6 +265,51 @@ export function labConversationState(input: {
   if (input.voiceState === 'conversation_idle' || input.voiceState === 'resume_pending') return 'thinking'
   if (input.starting || input.voiceState !== 'reading') return 'connecting'
   return 'idle'
+}
+
+const AFFIRMATIVE_WORDS = new Set([
+  'yes', 'yeah', 'yep', 'yup', 'ya', 'sure', 'ok', 'okay', 'please', 'do', 'go', 'ahead',
+  'absolutely', 'definitely', 'certainly', 'of', 'course', 'sounds', 'good', 'great', 'fine',
+  'lets', "let's", 'it', 'that', 'would', 'be', 'yes!!', 'alright', 'right', 'thanks', 'thank', 'you',
+])
+
+/** "Yes", "ok sure", "yes please do", "go ahead" — nothing that names a place or an action. */
+export function isBareAffirmative(text: string): boolean {
+  const words = text.toLowerCase().replace(/[^a-z'\s]/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean)
+  if (words.length === 0 || words.length > 6) return false
+  if (!words.some(word => /^(yes|yeah|yep|yup|ya|sure|ok|okay|please|absolutely|definitely|certainly|alright)$/.test(word) || word === 'go' || word === 'do')) return false
+  return words.every(word => AFFIRMATIVE_WORDS.has(word))
+}
+
+const OFFER_FORM = /\b(shall i|should i|want me to|would you like|do you want|i can|i could|we could|we can|could go|let'?s (?:go|have|take|look)|like me to|if you like|if you want|i'?ll (?:go|have|take|look|check))\b/i
+const LOOKUP_VERB = /\b(look|check|read|see|find|go back|pull up|search|have a look|take a look|dig|revisit|glance|open|flip back|turn back)\b/i
+
+/** Does the assistant's last line offer to look something up (or go back and check)? */
+export function assistantOffersLookup(text: string): boolean {
+  const normalized = text.replace(/\s+/g, ' ').trim()
+  if (!normalized) return false
+  const sentences = normalized.split(/(?<=[.!?])\s+/)
+  const tail = sentences.slice(-2).join(' ')
+  if (!LOOKUP_VERB.test(tail)) return false
+  return OFFER_FORM.test(tail) || /\?\s*$/.test(tail)
+}
+
+/**
+ * The transcript failure: the assistant offered "we could go back a few
+ * chapters and have a look?", the reader said "Yes!!", and the app navigated
+ * and started playback. A bare affirmative after a lookup offer is consent to
+ * the lookup, never a move or a resume.
+ */
+export function affirmativeAnswersLookupOffer(userText: string, previousAssistantText: string | null | undefined): boolean {
+  if (!previousAssistantText) return false
+  return isBareAffirmative(userText) && assistantOffersLookup(previousAssistantText)
+}
+
+/** Self-contained question for the companion hop, which carries no conversation history. */
+export function lookupQuestionFromOffer(offer: string, reply: string): string {
+  const cleanOffer = offer.replace(/\s+/g, ' ').trim().slice(0, 600)
+  const cleanReply = reply.replace(/\s+/g, ' ').trim().slice(0, 60)
+  return `The reader answered "${cleanReply}" to this offer of yours: "${cleanOffer}". Do what you offered: look it up in the book and answer them directly, without moving them to another chapter.`
 }
 
 const RESUME_LISTEN_PHRASES = [

@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useRef, useState, type Ref } from 'react'
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
@@ -22,6 +22,15 @@ interface LabAskPaneProps {
   inputRef?: Ref<HTMLInputElement>
   chapterLabels?: Record<number, string>
   desktopCompanion?: 'chat' | 'talk'
+}
+
+/** Within this many pixels of the bottom counts as "at the bottom". */
+export const LAB_ASK_FOLLOW_PX = 80
+/** Breathing room above a reply pinned to the top of the viewport. */
+export const LAB_ASK_REPLY_TOP_GAP = 8
+
+function isNearBottom(node: HTMLElement): boolean {
+  return node.scrollHeight - node.scrollTop - node.clientHeight <= LAB_ASK_FOLLOW_PX
 }
 
 function MicIcon() {
@@ -66,21 +75,131 @@ export function LabAskPane({
   const threadRef = useRef<HTMLDivElement | null>(null)
   const lastTurnIdRef = useRef<string | null>(null)
   const didPositionThreadRef = useRef(false)
+  // Where we last pinned the thread, and whether the reader has scrolled
+  // since. A reader who is reading older messages is never yanked down;
+  // one who is at (or within LAB_ASK_FOLLOW_PX of) the bottom keeps following.
+  const pinnedScrollTopRef = useRef<number | null>(null)
+  const nearBottomRef = useRef(true)
+  // 'bottom': keep the newest line in view. 'reply-top': the reader's answer
+  // just began; its first line sits near the top of the viewport and the
+  // thread follows only while the end of the reply is still within reach.
+  const pinModeRef = useRef<'bottom' | 'reply-top'>('bottom')
+  // Room below the newest reply so its first line can sit at the top of the
+  // viewport even while the reply is short; it shrinks as the reply grows,
+  // so the text fills downward under a still first line.
+  const spacerRef = useRef<HTMLDivElement | null>(null)
   const canSend = draft.trim().length > 0
   const empty = turns.length === 0 && !typedLoading
+
+  const lastReplyOf = (node: HTMLDivElement): HTMLElement | null => {
+    const replies = node.querySelectorAll<HTMLElement>('[data-testid="lab-ask-turn-assistant"]')
+    return replies[replies.length - 1] ?? null
+  }
+
+  const replyTopOf = (node: HTMLDivElement, reply: HTMLElement): number => (
+    reply.getBoundingClientRect().top - node.getBoundingClientRect().top + node.scrollTop - LAB_ASK_REPLY_TOP_GAP
+  )
+
+  /**
+   * Size the room below the reply so the furthest the thread can scroll is
+   * exactly the reply's first line. Measured from real geometry, so the
+   * thread's own padding and the pending row are accounted for.
+   */
+  const setSpacer = useCallback((node: HTMLDivElement, reply: HTMLElement | null) => {
+    const spacer = spacerRef.current
+    if (!spacer) return
+    if (!reply) {
+      spacer.style.height = '0px'
+      return
+    }
+    const current = parseFloat(spacer.style.height || '0') || 0
+    const wanted = current + (replyTopOf(node, reply) + node.clientHeight - node.scrollHeight)
+    spacer.style.height = `${Math.max(0, Math.round(wanted))}px`
+  }, [])
+
+  /** Keep the reply's first line at the top while it streams (the spacer absorbs the growth). */
+  const holdReplyTop = useCallback((node: HTMLDivElement, reply: HTMLElement) => {
+    node.scrollTop = Math.max(0, replyTopOf(node, reply))
+    pinnedScrollTopRef.current = node.scrollTop
+    nearBottomRef.current = isNearBottom(node)
+    pinModeRef.current = 'reply-top'
+  }, [])
+
+  const pinToBottom = useCallback((node: HTMLDivElement) => {
+    node.scrollTop = node.scrollHeight
+    pinnedScrollTopRef.current = node.scrollTop
+    nearBottomRef.current = true
+    pinModeRef.current = 'bottom'
+  }, [])
+
+  /** Scroll so the first line of the newest reply is visible near the top of the viewport. */
+  const pinToReplyTop = useCallback((node: HTMLDivElement) => {
+    const reply = lastReplyOf(node)
+    if (!reply) {
+      pinToBottom(node)
+      return
+    }
+    setSpacer(node, reply)
+    holdReplyTop(node, reply)
+  }, [holdReplyTop, pinToBottom, setSpacer])
+
+  const onThreadScroll = useCallback(() => {
+    const node = threadRef.current
+    if (!node) return
+    if (pinnedScrollTopRef.current !== null && node.scrollTop === pinnedScrollTopRef.current) return
+    pinnedScrollTopRef.current = null
+    nearBottomRef.current = isNearBottom(node)
+  }, [])
 
   useLayoutEffect(() => {
     const node = threadRef.current
     if (!node) return
     const lastTurn = turns[turns.length - 1]
-    const shouldFollow = !didPositionThreadRef.current
-      || (!!lastTurn && lastTurn.id !== lastTurnIdRef.current && lastTurn.role === 'user')
-    if (shouldFollow) {
-      node.scrollTop = node.scrollHeight
+    const newTurn = !!lastTurn && lastTurn.id !== lastTurnIdRef.current
+    const justOpened = !didPositionThreadRef.current
+    // Detect scrolling that did not raise a scroll event (tests, programmatic).
+    const scrolledSincePin = pinnedScrollTopRef.current !== null && node.scrollTop !== pinnedScrollTopRef.current
+    if (scrolledSincePin) {
+      pinnedScrollTopRef.current = null
+      nearBottomRef.current = isNearBottom(node)
+    }
+    const replyJustBegan = newTurn && lastTurn.role === 'assistant' && turns[turns.length - 2]?.role === 'user' && !justOpened
+    const heldReply = !newTurn && lastTurn?.role === 'assistant' && pinModeRef.current === 'reply-top' && pinnedScrollTopRef.current !== null
+      ? lastReplyOf(node)
+      : null
+    if (replyJustBegan) {
+      // The reader should see the answer begin, not their own question.
+      pinToReplyTop(node)
+    } else if (heldReply) {
+      // Still streaming under a held first line: the text fills downward.
+      setSpacer(node, heldReply)
+      holdReplyTop(node, heldReply)
+    } else {
+      if (newTurn || justOpened) setSpacer(node, null)
+      const shouldFollow = justOpened
+        || (newTurn && lastTurn.role === 'user')
+        || pinnedScrollTopRef.current !== null
+        || nearBottomRef.current
+      if (shouldFollow) pinToBottom(node)
     }
     didPositionThreadRef.current = true
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [turns])
+  }, [holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
+
+  // The phone keyboard shrinks the thread; keep the newest message in view
+  // when the reader was already at the bottom.
+  useEffect(() => {
+    const node = threadRef.current
+    if (!node || typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(() => {
+      const current = threadRef.current
+      if (!current) return
+      if (pinModeRef.current === 'reply-top' && pinnedScrollTopRef.current !== null) return
+      if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
+    })
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [empty, pinToBottom])
 
   const submit = () => {
     if (typedLoading) return
@@ -219,7 +338,7 @@ export function LabAskPane({
       {empty ? (
         <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
       ) : (
-        <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef}>
+        <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll}>
           {turns.map((turn, index) => {
             const previousChapter = turns[index - 1]?.chapterNumber
             const chapterLabel = turn.chapterNumber != null ? chapterLabels[turn.chapterNumber] : undefined
@@ -249,6 +368,7 @@ export function LabAskPane({
           {typedLoading && (
             <p className="lab-ask-pending">{LAB_COPY.typedPending}</p>
           )}
+          <div className="lab-ask-thread-spacer" data-testid="lab-ask-thread-spacer" ref={spacerRef} aria-hidden="true" />
         </div>
       )}
       {phoneSheet ? (

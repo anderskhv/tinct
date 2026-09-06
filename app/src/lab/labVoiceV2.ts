@@ -5,6 +5,7 @@
  * `buildLabTalkInstructions`, `LAB_VOICE_TOOLS`, and `queryLabCompanion`
  * untouched in `labCompanion.ts` / `labAsk.ts`.
  */
+import { COMPANION_EFFORT_VOICE, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { nearbyParagraphWindow, VOICE_TOOLS } from '../voice/context'
 import type { VoiceActivityPhase } from '../voice/v2/voiceV2'
@@ -30,6 +31,9 @@ import {
   buildCompanionHopUserContent,
   companionHopLooksIncomplete,
   firstSpeakableChunk,
+  LAB_TALK_HOLDING_POLICY,
+  LAB_TALK_LOOKUP_POLICY,
+  labCompanionBookFields,
   readAnthropicStream,
   type AnthropicStreamResult,
   type LabTalkContext,
@@ -81,11 +85,12 @@ export function buildLabTalkInstructionsV2(input: LabTalkContext): string {
     `You are Tinct's concise reading companion beside the page on /lab. You listen, handle interruptions, and run playback tools.`,
     `Do not greet. Do not say hello. The app speaks the opening line.`,
     `Answer directly. Start with the substance. Never praise the question or the reader. Never narrate your process: do not say you are looking, checking, thinking, or about to answer. Do not read any prepared line before an answer.`,
-    `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms you answer yourself in one short line.`,
-    `Easy questions you can answer from the passage below, answer yourself in one or two plain sentences. Literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter.`,
-    `When the turn is a substantive book question that needs a mind (meaning, theology, who, why, argument, comparison, character) call ${ASK_COMPANION_TOOL} immediately and say nothing until it returns. No preface, no filler, no tool talk.`,
+    `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms, greetings and goodbyes you answer yourself in one short line.`,
+    `For anything else the reader says about the book (a question, a remark, "what does the king want", "explain the ending") call ${ASK_COMPANION_TOOL} immediately and say nothing until it returns. No preface, no filler, no tool talk. Never answer a book question yourself, even an easy one.`,
+    LAB_TALK_HOLDING_POLICY,
     `After ${ASK_COMPANION_TOOL} returns, speak its answer once, complete, as your own. Do not add a preamble, a summary, or a thinner substitute. Never mention a tool, a hop, a second model, waiting, or a cutoff. Never say an answer got cut off.`,
     `Hard spoiler rule: you only have the current chapter. Nothing after it exists for you. If asked for the ending or anything after this chapter, say you only have this chapter so far.`,
+    LAB_TALK_LOOKUP_POLICY,
     `If they want the book back, call resume_audiobook and say one short closing sentence. If they clearly say goodbye or that the conversation is over, say one short goodbye and call end_voice_session. A bare thanks or thank you is not a goodbye; answer it in a word or two and keep listening.`,
     `Speak in complete sentences. Calm and direct. Short by default; go longer only when the question or the reader asks for depth, and then finish the thought. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
     `[Current state]`,
@@ -156,14 +161,16 @@ async function fetchLabCompanionHopV2(input: {
     method: 'POST',
     headers,
     body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
+      model: COMPANION_MODEL,
       max_tokens: LAB_HOP_MAX_TOKENS_V2,
       stream: true,
+      effort: COMPANION_EFFORT_VOICE,
       system: `${input.system}\n\n${LAB_V2_COMPANION_POLICY}\n\n${LAB_HOP_SPOKEN_LENGTH_V2}`,
       messages: [{
         role: 'user',
         content: buildCompanionHopUserContent({ ...input.context, question: input.question }),
       }],
+      ...labCompanionBookFields(input.context),
     }),
   })
 }

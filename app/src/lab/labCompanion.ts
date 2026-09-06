@@ -1,5 +1,7 @@
+import { COMPANION_EFFORT_VOICE, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { nearbyParagraphWindow } from '../voice/context'
+import type { LabReadingTrailEntry } from './labReadingTrail'
 
 export interface LabTalkContext {
   bookTitle: string
@@ -10,9 +12,47 @@ export interface LabTalkContext {
   paragraphs: string[]
   paragraphIndex: number
   readingAngle?: string
+  /** Registry book id + edition key; when both are set the companion hop carries `book` so the worker can read other chapters. */
+  bookId?: string
+  editionKey?: string
+  /** Last few chapters the reader visited in this book, newest last (see labReadingTrail). */
+  readingTrail?: LabReadingTrailEntry[]
+}
+
+/** Request-body fields that enable in-book retrieval on the worker. */
+export function labCompanionBookFields(context: Pick<LabTalkContext, 'bookId' | 'editionKey' | 'chapterNumber' | 'readingTrail'>): {
+  book?: { bookId: string; editionKey: string; chapterNumber?: number }
+  readingTrail?: Array<{ chapterNumber: number }>
+} {
+  if (!context.bookId || !context.editionKey) return {}
+  return {
+    book: {
+      bookId: context.bookId,
+      editionKey: context.editionKey,
+      ...(typeof context.chapterNumber === 'number' ? { chapterNumber: context.chapterNumber } : {}),
+    },
+    ...(context.readingTrail && context.readingTrail.length > 0
+      ? { readingTrail: context.readingTrail.map(entry => ({ chapterNumber: entry.chapterNumber })) }
+      : {}),
+  }
 }
 
 export const ASK_COMPANION_TOOL = 'ask_companion'
+
+/**
+ * The only line the Realtime model may speak while a companion hop is pending.
+ * No praise, no narration of the mechanism.
+ */
+export const LAB_HOLDING_LINE = "I'll look that up."
+/** Spoken once if the hop is still pending after LAB_STILL_LOOKING_MS. */
+export const LAB_STILL_LOOKING_LINE = 'Still looking, back in a moment.'
+export const LAB_STILL_LOOKING_MS = 6_000
+
+/** Realtime (V1 and V2) never navigates to answer; the companion reads earlier chapters. */
+export const LAB_TALK_LOOKUP_POLICY = `Every question or remark about the book goes to ${ASK_COMPANION_TOOL}, however short or easy it seems: "what does the king want", "explain the ending", "who is he", all of them. Never answer a book question yourself. The companion has the whole book; you only see the current passage. Never say you cannot see earlier chapters, never say you only have what is here, never say you cannot explain what comes after, and never offer to go back a few chapters to have a look. "The ending" means the end of the chapter the reader is in unless they say otherwise. If you offered to look something up and the reader says yes, okay, or sure, call ${ASK_COMPANION_TOOL} with what you offered to look up. next_chapter, previous_chapter, and resume_audiobook move or play the book only when the reader explicitly asks to move or to hear it; never use them to answer a question, and a move never starts the audiobook by itself.`
+
+/** Holding phase and no-praise rules shared by V1 and V2. */
+export const LAB_TALK_HOLDING_POLICY = `While ${ASK_COMPANION_TOOL} is pending you may say only "${LAB_HOLDING_LINE}" and nothing else: no partial answer, no description of what you are doing, no mention of a companion, a tool, waiting, or a fuller explanation to come. When its answer arrives, speak it once as the one answer. Never praise the question or the reader and never open with an evaluative phrase (good question, good catch, great point, fair question). Start with the substance.`
 
 export const LAB_ASK_COMPANION_TOOL = {
   type: 'function',
@@ -36,26 +76,44 @@ const LITERARY_CONNECTION = /\b(echo|remind|connect|parallel|resonat(e|es)|like\
 
 const TINY_CONFIRM = /^(ok|okay|yes|yeah|yep|no|nope|thanks|thank you|mm+|mhm|uh huh|got it|sure)\.?$/i
 
+/** Greetings and goodbyes stay with the Realtime model; everything about the book goes to the companion. */
+const GREETING_OR_GOODBYE = /^(?:(?:ok|okay|alright|all right)[,\s]+)?(?:(?:hi|hello|hey)(?: there)?|good (?:morning|afternoon|evening)|bye|bye for now|goodbye|good bye|see you(?: later| next time)?|talk (?:to you )?later|thanks?(?: you)?(?: very much| a lot)?|thank you|that's (?:it|all)(?: for now)?|thats (?:it|all)(?: for now)?|i'm done(?: for now)?|im done|nothing else|end (?:the|this) conversation|end voice mode|stop talking)[\s.!?]*$/i
+
 export const LAB_COVER_LINES = [
-  'Good question. Let me look that up.',
+  LAB_HOLDING_LINE,
 ] as const
 
-export const SPEAK_CLAUDE_VERBATIM = 'The reading companion answered. Speak that answer as your own. Do not invent a thinner substitute. Do not summarize it into a weaker reply. Do not mention a tool, a hop, a second model, a cutoff, or "the answer I received". Never say the answer got cut off. If you only have part of an answer, do not narrate that — speak the complete sentences you were given, or wait.'
+/** Words that mean the Realtime model is narrating the hop instead of holding. */
+export const LAB_HOP_NARRATION = /\b(companion|waiting on|waiting for|full explanation|don't want to invent|do not want to invent|still waiting|second model|the answer I received)\b/i
+
+/** The praise and evaluative openers struck everywhere, typed and spoken. */
+export const LAB_BANNED_PRAISE = ['Good question', 'Great question', 'Good catch', 'Great catch', 'Great point', 'Good point', 'Fair question', 'Great insight'] as const
+
+/** Declines the companion must never produce; with read_chapter / find_in_book it looks instead. */
+export const LAB_BANNED_DECLINES = ["I only have what's here", "I can't explain what comes after this chapter", 'I only have this chapter in front of me'] as const
+
+export function holdingLineInstructions(line: string): string {
+  return `Say exactly this one short line and then stop: "${line}" Do not add anything else. Do not answer yet. Do not describe what you are doing, do not mention looking anything up beyond that line, and do not mention a companion, a tool, a model, or waiting. Do not call any tools.`
+}
+
+export const SPEAK_CLAUDE_VERBATIM = 'The reading companion answered. Speak that answer as your own, once, and nothing else. Do not invent a thinner substitute. Do not summarize it into a weaker reply. Do not add praise or an opener. Do not mention a tool, a hop, a second model, a cutoff, or "the answer I received". Never say the answer got cut off. If you only have part of an answer, do not narrate that — speak the complete sentences you were given, or wait.'
 
 export function isLabPlaybackUtterance(text: string): boolean {
   return PLAYBACK_COMMAND.test(text.trim())
 }
 
 /**
- * Cost gate: only hard book questions hop to Claude.
- * Playback, greetings, and thin confirms stay on Realtime.
+ * Every reader utterance about the book goes to the companion. The Realtime
+ * model keeps only playback commands, tiny confirms, greetings and goodbyes.
+ * "But what does the king want?" is a book question however short it is.
  */
 export function shouldEscalateToCompanion(text: string): boolean {
-  const trimmed = text.trim()
+  const trimmed = text.replace(/\s+/g, ' ').trim()
   if (!trimmed) return false
   if (TINY_CONFIRM.test(trimmed)) return false
-  if (isLabPlaybackUtterance(trimmed) && !HARD_QUESTION.test(trimmed) && !LITERARY_CONNECTION.test(trimmed)) return false
-  return HARD_QUESTION.test(trimmed) || LITERARY_CONNECTION.test(trimmed) || trimmed.length > 48
+  if (GREETING_OR_GOODBYE.test(trimmed)) return false
+  if (isLabPlaybackUtterance(trimmed) && !HARD_QUESTION.test(trimmed) && !LITERARY_CONNECTION.test(trimmed) && !/\?$/.test(trimmed)) return false
+  return true
 }
 
 export function pickLabCoverLine(index = 0): string {
@@ -103,11 +161,12 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
   const lines = [
     `You are Tinct's ear and mouth beside the page on /lab. You listen, handle barge-in, and run playback tools. You do not do the deep thinking.`,
     `Do not greet. Do not say hello. The app speaks the opening line.`,
-    `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms you answer yourself in one short line.`,
-    `Easy questions you can answer from the passage already below, you answer yourself in a short, warm, literary line. Reasonable literary connections to other books, authors, or traditions are welcome when they stay within what the reader could know from this chapter — no spoilers from later in the book.`,
-    `When the turn is a book question that needs a mind — meaning, theology, who, why, argument, comparison, character — say exactly "Good question. Let me look that up." and immediately call ${ASK_COMPANION_TOOL}. Say nothing else before the tool call. Never say you are thinking or will think about it.`,
+    `Playback stays instant. For go faster, slower, skip, next chapter, previous chapter, next or previous paragraph, resume, or play, call the matching playback tool immediately. Never call ${ASK_COMPANION_TOOL} for those. Tiny confirms, greetings and goodbyes you answer yourself in one short line.`,
+    `For anything else the reader says about the book — a question, a remark, a "what does he want", an "explain the ending" — say exactly "${LAB_HOLDING_LINE}" and immediately call ${ASK_COMPANION_TOOL}. Say nothing else before the tool call. Never answer a book question yourself, even an easy one. Never say you are thinking or will think about it.`,
     `After ${ASK_COMPANION_TOOL} returns, speak that answer as your own. Do not invent a thinner substitute. Never mention a tool, a hop, a cutoff, or "the answer I received". Never say an answer got cut off. If the hop is incomplete, wait rather than narrating the failure.`,
+    LAB_TALK_HOLDING_POLICY,
     `Hard spoiler rule: you only have the current chapter. Nothing after it exists for you — no later books, no Book 3, no ending, no plot that is not in this chapter. If asked for the ending or anything after this chapter, say you only have this chapter so far.`,
+    LAB_TALK_LOOKUP_POLICY,
     `If they want the book back, call resume_audiobook. One short goodbye is fine.`,
     `Speak in complete sentences. Warm, literary, and calm. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
     `[Current state]`,
@@ -302,14 +361,16 @@ async function fetchLabCompanionHop(input: {
     method: 'POST',
     headers,
     body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
+      model: COMPANION_MODEL,
       max_tokens: LAB_HOP_MAX_TOKENS,
       stream: true,
+      effort: COMPANION_EFFORT_VOICE,
       system: `${input.system}\n\n${LAB_HOP_SPOKEN_LENGTH}`,
       messages: [{
         role: 'user',
         content: buildCompanionHopUserContent({ ...input.context, question: input.question }),
       }],
+      ...labCompanionBookFields(input.context),
     }),
   })
 }

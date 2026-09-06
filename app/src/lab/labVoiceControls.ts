@@ -185,6 +185,27 @@ export async function getLabVoiceReadingHistory(input: LabVoiceHistoryInput): Pr
   }
 }
 
+/**
+ * Navigation policy shared by typed chat and voice (V1 and V2).
+ *
+ * A chapter or paragraph move requested through the companion opens the
+ * reader at that place. It starts the audiobook only when the session began
+ * from playback (the companion paused a playing book) or the reader
+ * explicitly asked to play or read aloud. A move made to look something up
+ * must never turn the audiobook on by itself.
+ */
+export interface LabPlaybackNavigationOutcome {
+  /** True when playback should resume once the companion has confirmed the move. */
+  resumePlayback: boolean
+}
+
+export function shouldResumePlaybackAfterNavigation(input: {
+  sessionStartedFromPlayback: boolean
+  explicitPlayRequest?: boolean
+}): boolean {
+  return input.sessionStartedFromPlayback || input.explicitPlayRequest === true
+}
+
 export interface LabVoiceActionEntry {
   id: string
   tool: string

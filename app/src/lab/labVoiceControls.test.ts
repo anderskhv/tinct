@@ -9,6 +9,7 @@ import {
   labVoiceActionEntry,
   mergeLabVoiceTools,
   type LabVoiceViewSnapshot,
+  shouldResumePlaybackAfterNavigation,
 } from './labVoiceControls'
 
 describe('Lab production voice-tool bridge', () => {
@@ -162,5 +163,14 @@ describe('Lab production voice-tool bridge', () => {
       originatingTurn: 'theme-1',
       undoResult: 'Undid dark mode',
     })
+  })
+})
+
+describe('navigation never starts playback by itself', () => {
+  it('resumes only when the session began from playback or the reader asked to hear the book', () => {
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: false })).toBe(false)
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: false, explicitPlayRequest: false })).toBe(false)
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: true })).toBe(true)
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: false, explicitPlayRequest: true })).toBe(true)
   })
 })

@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { LAB_HOLDING_LINE, LAB_STILL_LOOKING_LINE, LAB_STILL_LOOKING_MS } from '../lab/labCompanion'
 import { VoiceSessionController } from './VoiceSessionController'
 import { LAB_BARGE_IN_MS, LAB_FORCE_RESPONSE_MS, LAB_MIC_SETTLE_MS, LAB_VOICE_GREETING } from './types'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from './types'
@@ -143,7 +144,7 @@ describe('Voice V1 is untouched by the V2 preview', () => {
       call_id: 'call_v1',
       arguments: '{"question":"what does this mean"}',
     })
-    const covers = h.creates().filter(item => String(item.response?.instructions).includes('Good question. Let me look that up.'))
+    const covers = h.creates().filter(item => String(item.response?.instructions).includes(LAB_HOLDING_LINE))
     expect(covers).toHaveLength(1)
     expect(h.creates().some(item => String(item.response?.instructions).includes(SPEAK_COMPANION_VERBATIM_V2))).toBe(false)
     expect(h.activity()).toBe('idle')
@@ -624,5 +625,57 @@ describe('Voice V2 explicit goodbye', () => {
     h.controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'end_voice_session', call_id: 'call_end_wrong' })
     h.controller.testRealtime({ type: 'response.done', response: { status: 'completed', output: [{ type: 'function_call' }] } })
     expect(h.controller.getSnapshot().isActive).toBe(true)
+  })
+})
+
+describe('Voice V2 hop stays silent and every book question reaches the companion', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('produces no response.create during the hop except one "still looking" line after 6 s', async () => {
+    vi.useFakeTimers()
+    withWindowTimers()
+    let resolveHop: (value: string) => void = () => { /* pending */ }
+    const query = vi.fn(() => new Promise<string>(resolve => { resolveHop = resolve }))
+    const h = harness({ onCompanionAsk: query })
+    h.sent.length = 0
+    const hop = h.controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'ask_companion', call_id: 'call_v2_hold', arguments: '{"question":"But what does the king want?"}' })
+    await Promise.resolve()
+    expect(h.creates()).toHaveLength(0)
+    await h.controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'hold_voice_session', call_id: 'call_stray' })
+    expect(h.creates()).toHaveLength(0)
+    vi.advanceTimersByTime(LAB_STILL_LOOKING_MS + 1)
+    expect(h.creates()).toHaveLength(1)
+    expect(String(h.creates()[0].response?.instructions)).toContain(LAB_STILL_LOOKING_LINE)
+    resolveHop('He wants reassurance without cost.')
+    await hop
+    expect(h.creates()).toHaveLength(2)
+    expect(String(h.creates()[1].response?.instructions)).toContain(SPEAK_COMPANION_VERBATIM_V2)
+    expect(String(h.creates()[1].response?.instructions)).toContain('He wants reassurance without cost.')
+    expect(h.creates().every(item => !/waiting on|full explanation|don't want to invent/i.test(String(item.response?.instructions)))).toBe(true)
+    expect(h.activity()).toBe('preparing_answer')
+  })
+
+  it('cancels a Realtime self-answer and routes the short question to the companion', async () => {
+    vi.useFakeTimers()
+    withWindowTimers()
+    const query = vi.fn(async () => 'Zedekiah wants a safe word from God.')
+    const h = harness({ onCompanionAsk: query })
+    finishGreeting(h)
+    userSays(h, 'But what does the king want?')
+    expect(query).not.toHaveBeenCalled()
+    h.controller.testRealtime({ type: 'response.created' })
+    h.controller.testRealtime({ type: 'response.output_audio_transcript.delta', delta: 'Great catch. I only have what is here' })
+    await vi.advanceTimersByTimeAsync(0)
+    expect(h.types()).toContain('response.cancel')
+    expect(query).toHaveBeenCalledTimes(1)
+    expect(String(query.mock.calls[0][0])).toBe('But what does the king want?')
+    expect(h.turns.some(turn => turn.role === 'assistant' && turn.text.includes('Great catch'))).toBe(false)
+    const spoken = h.creates().at(-1)
+    expect(String(spoken?.response?.instructions)).toContain(SPEAK_COMPANION_VERBATIM_V2)
+    expect(String(spoken?.response?.instructions)).toContain('Zedekiah wants a safe word from God.')
+    expect(h.activity()).toBe('preparing_answer')
   })
 })
