@@ -99,7 +99,7 @@ async function handleAudioMetadata(request) {
 
 function isAppShellNavigation(request, url) {
   if (request.mode !== 'navigate') return false
-  if (url.pathname === '/app' || url.pathname === '/app.html' || url.pathname === '/admin/metrics') return true
+  if (url.pathname === '/app' || url.pathname === '/app.html' || url.pathname === '/classic' || url.pathname === '/admin/metrics') return true
   if (url.pathname === '/read' || /^\/read\/[a-z0-9-]+\/?$/i.test(url.pathname)) return true
   return false
 }

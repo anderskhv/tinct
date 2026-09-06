@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, labReaderHandoffFromLocation, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace } from './labReaderHandoff'
 import { DEFAULT_LAB_PREFS } from './labPrefs'
 
 function storageWith(value: unknown) {
@@ -62,5 +62,25 @@ describe('Lab reader handoff', () => {
     expect(prefs).toMatchObject({
       primaryEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true,
     })
+  })
+})
+
+describe('Lab reader handoff from the URL', () => {
+  it('opens /read/{bookId} on the registry book with its first edition', () => {
+    expect(labReaderHandoffFromLocation('/read/odyssey')).toEqual({ kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en' })
+    expect(labReaderHandoffFromLocation('/read/odyssey/')).toMatchObject({ bookId: 'odyssey' })
+  })
+
+  it('honours a chapter in the path and the SEO tour-card chapter/edition query', () => {
+    expect(labReaderHandoffFromLocation('/read/odyssey/3')).toMatchObject({ bookId: 'odyssey', primaryEditionKey: 'original-en', savedPlace: { bookId: 'odyssey', chapterNumber: 3 } })
+    expect(labReaderHandoffFromLocation('/read/odyssey', '?chapter=2&edition=modern-en')).toMatchObject({ primaryEditionKey: 'modern-en', savedPlace: { chapterNumber: 2 } })
+    expect(labReaderHandoffFromLocation('/read/odyssey', '?edition=bogus')).toMatchObject({ primaryEditionKey: 'original-en' })
+  })
+
+  it('returns nothing for unknown books and non-reader paths', () => {
+    expect(labReaderHandoffFromLocation('/read/not-a-book')).toBeNull()
+    expect(labReaderHandoffFromLocation('/read/odyssey/summary')).toBeNull()
+    expect(labReaderHandoffFromLocation('/lab/reader')).toBeNull()
+    expect(labReaderHandoffFromLocation('/classic')).toBeNull()
   })
 })

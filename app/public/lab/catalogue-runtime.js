@@ -146,9 +146,11 @@ import {
     document.documentElement.removeAttribute('data-lab-boot-view')
   }
 
+  const LIBRARY_ROUTE = '/library'
+  const isLibraryRoute = path => path === LIBRARY_ROUTE || path === '/lab/library'
   function routeFor(view, bookId = state.selectedBookId) {
     if (view === 'landing') return '/lab/landing'
-    if (view === 'library') return '/lab/library'
+    if (view === 'library') return LIBRARY_ROUTE
     return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}`
   }
 
@@ -1022,9 +1024,9 @@ import {
     } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
     rememberLibrary(book.id)
-    // Neutral reader route: its layout follows the viewport. Explicit
-    // /lab/phone and /lab/desktop remain useful QA overrides.
-    window.location.assign('/lab/reader')
+    // The reader lives at /read/{bookId}; its layout follows the viewport.
+    // Explicit /lab/phone and /lab/desktop remain useful QA overrides.
+    window.location.assign(`/read/${encodeURIComponent(book.id)}`)
     return true
   }
 

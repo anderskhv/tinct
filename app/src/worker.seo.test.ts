@@ -303,10 +303,56 @@ describe('worker SEO routing', () => {
     expect(await head.text()).toBe('')
   })
 
-  it('keeps /app on the production SPA shell', async () => {
-    const resp = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
-    expect(await resp.text()).toContain('app shell')
+  it('moves the classic app to /classic (noindex) and redirects /app there with its query', async () => {
+    const app = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
+    expect(app.status).toBe(302)
+    expect(app.headers.get('Location')).toBe('/classic')
+    const withQuery = await worker.fetch(new Request('https://tinct.app/app?view=library&signin=1'), routerEnv() as never, ctx)
+    expect(withQuery.headers.get('Location')).toBe('/classic?view=library&signin=1')
+    const classic = await worker.fetch(new Request('https://tinct.app/classic'), routerEnv() as never, ctx)
+    expect(classic.status).toBe(200)
+    expect(classic.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(classic.headers.get('Cache-Control')).toBe('no-store')
+    const html = await classic.text()
+    expect(html).toContain('app shell')
+    expect(html).toContain('name="robots"')
+    // the shell asset itself is untouched
+    const shell = await worker.fetch(new Request('https://tinct.app/app.html'), routerEnv() as never, ctx)
+    expect(shell.status).toBe(200)
+    expect(await shell.text()).toContain('app shell')
+  })
+
+  it('serves the lab library at /library, indexable, while /lab/library stays a noindex alias', async () => {
+    for (const pathname of ['/library', '/library/']) {
+      const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+      expect(resp.status).toBe(200)
+      expect(resp.headers.get('X-Robots-Tag')).toBeNull()
+      expect(resp.headers.get('Cache-Control')).toBe('no-store')
+      const html = await resp.text()
+      expect(html).toContain('id="tinct-onboarding-worlds-v5"')
+      expect(html).not.toContain('noindex')
+    }
+    const alias = await worker.fetch(new Request('https://tinct.app/lab/library'), routerEnv() as never, ctx)
+    expect(alias.headers.get('X-Robots-Tag')).toContain('noindex')
+    const head = await worker.fetch(new Request('https://tinct.app/library', { method: 'HEAD' }), routerEnv() as never, ctx)
+    expect(head.status).toBe(200)
+    expect(head.headers.get('X-Robots-Tag')).toBeNull()
+    expect(await head.text()).toBe('')
+  })
+
+  it('sends signed-in readers from / and app-intent /read URLs to the lab library', async () => {
+    const root = await worker.fetch(new Request('https://tinct.app/', { headers: { Cookie: 'tinct_auth=1' } }), routerEnv() as never, ctx)
+    expect(root.status).toBe(302)
+    expect(root.headers.get('Location')).toBe('/library')
+    const readSignedIn = await worker.fetch(new Request('https://tinct.app/read', { headers: { Cookie: 'tinct_auth=1' } }), routerEnv() as never, ctx)
+    expect(readSignedIn.status).toBe(302)
+    expect(readSignedIn.headers.get('Location')).toBe('/library')
+    const readIntent = await worker.fetch(new Request('https://tinct.app/read?signin=1'), routerEnv() as never, ctx)
+    expect(readIntent.headers.get('Location')).toBe('/library?signin=1')
+    // signed-out /read stays the static crawlable hub
+    const hub = await worker.fetch(new Request('https://tinct.app/read'), routerEnv() as never, ctx)
+    expect(hub.status).toBe(200)
+    expect(await hub.text()).toContain('/read/odyssey/summary')
   })
 
   it('serves unknown app paths as noindex SPA fallback', async () => {
