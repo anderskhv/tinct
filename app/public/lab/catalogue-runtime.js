@@ -1,17 +1,28 @@
 import { wholeBookProgress } from './library-2-model.js'
 import {
+  LAB_PHONE_PROFILE_MAX_WIDTH,
+  LAB_POSITION_DEVICE_KEY,
+  LAB_PREFS_DEVICE_KEY,
+  LIBRARY_RETURN_SESSION_KEY,
+  LIBRARY_SHELF_SESSION_KEY,
   READING_MEMORY_DEVICE_KEY,
+  bookDescription,
   claimReveal,
   filterIndexBooks,
   indexHouses,
+  labProfileForWidth,
   libraryModeFromDeviceMemory,
+  libraryPaletteFromPrefs,
+  librarySnapshot,
   moveSelection,
+  parseLibrarySnapshot,
   popularBooks,
+  popularHead,
   publishedCount,
   revealDelayMs,
   searchPlaceholder,
-  selectionEyebrow,
-} from './library-model.js'
+  shelfScrollLeft,
+} from './library-model.js?v=20260906-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -37,6 +48,10 @@ import {
     shelfBooks: [],
     shelfIndex: 0,
     expandedHouseId: null,
+    /** 'dark' | 'light' | 'book' — the reader's theme preference, applied to the library. */
+    palette: 'dark',
+    /** window.scrollY when the current search began; null while no search is active. */
+    preSearchScrollY: null,
   }
   const coverCache = new Map()
   const worldCache = new Map()
@@ -120,6 +135,7 @@ import {
   }
 
   function navigateView(view, replace = false) {
+    if (view !== 'library') rememberLibrary()
     showView(view)
     const method = replace ? 'replaceState' : 'pushState'
     history[method]({ view, bookId: state.selectedBookId }, '', routeFor(view))
@@ -234,6 +250,36 @@ import {
   function safeSessionStorage() {
     try { return window.sessionStorage } catch { return null }
   }
+  function readSession(key) {
+    try { return safeSessionStorage()?.getItem(key) ?? null } catch { return null }
+  }
+  function writeSession(key, value) {
+    try { safeSessionStorage()?.setItem(key, value) } catch { /* private mode */ }
+  }
+  function removeSession(key) {
+    try { safeSessionStorage()?.removeItem(key) } catch { /* private mode */ }
+  }
+  function readLocal(key) {
+    try { return localStorage.getItem(key) } catch { return null }
+  }
+
+  // Theme carry-over: the library wears the reader's theme for the profile
+  // the reader would use at this width (phone ≤ 1024px, else desktop);
+  // `system` follows prefers-color-scheme. Tokens live in lab/index.html
+  // under html[data-lib-palette].
+  const darkScheme = window.matchMedia('(prefers-color-scheme: dark)')
+  const phoneProfile = window.matchMedia(`(max-width: ${LAB_PHONE_PROFILE_MAX_WIDTH}px)`)
+  function applyPalette() {
+    const profile = labProfileForWidth(phoneProfile.matches ? LAB_PHONE_PROFILE_MAX_WIDTH : LAB_PHONE_PROFILE_MAX_WIDTH + 1)
+    const palette = libraryPaletteFromPrefs(readLocal(LAB_PREFS_DEVICE_KEY), profile, darkScheme.matches)
+    state.palette = palette
+    document.documentElement.dataset.libPalette = palette
+  }
+  applyPalette()
+  darkScheme.addEventListener('change', applyPalette)
+  phoneProfile.addEventListener('change', applyPalette)
+  window.addEventListener('storage', event => { if (event.key === null || event.key === LAB_PREFS_DEVICE_KEY) applyPalette() })
+  window.addEventListener('pageshow', applyPalette)
 
   function setLibraryMode(mode) {
     if (mode !== 'new' && mode !== 'returning') return
@@ -242,36 +288,56 @@ import {
     if (state.catalogue) renderPopular()
   }
 
+  const coverLabels = book => `<span class="lib-cover-copy"><span class="lib-bt">${escapeHtml(book.title)}</span><span class="lib-ba">${escapeHtml(book.author)}</span></span>`
+
   function shelfItem(book, index) {
     const selected = index === state.shelfIndex
-    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}</button>`
+    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}${coverLabels(book)}</button>`
+  }
+
+  /** The popular head, in the index row's language: "POPULAR" left, the count right. One place to change or cut. */
+  function renderPopularHead() {
+    const head = popularHead(state.shelfBooks.length)
+    root.querySelector('[data-popular-eyebrow]').textContent = head.label
+    root.querySelector('[data-popular-count]').textContent = head.count
   }
 
   function renderCaption() {
     const caption = root.querySelector('[data-popular-caption]')
-    const eyebrow = root.querySelector('[data-popular-eyebrow]')
     if (state.libraryMode !== 'new' || !state.shelfBooks.length) {
       caption.innerHTML = ''
-      eyebrow.textContent = 'Popular'
-      eyebrow.classList.add('is-dim')
       return
     }
     const book = state.shelfBooks[state.shelfIndex]
-    eyebrow.textContent = selectionEyebrow(state.shelfIndex, state.shelfBooks.length)
-    eyebrow.classList.remove('is-dim')
-    caption.innerHTML = `<h1 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h1><p class="lib-lede" data-popular-blurb>${escapeHtml(book.blurb || book.summary)}</p>`
+    caption.innerHTML = `<h1 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h1><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
+  }
+
+  /** Horizontal only: the shelf reserves its tallest state, so a selection never moves the page. */
+  function revealShelfItem(shelf, item) {
+    const style = getComputedStyle(shelf)
+    const left = shelfScrollLeft({
+      scrollLeft: shelf.scrollLeft,
+      clientWidth: shelf.clientWidth,
+      itemLeft: item.offsetLeft - shelf.offsetLeft,
+      itemWidth: item.offsetWidth,
+      padLeft: parseFloat(style.paddingLeft) || 0,
+      padRight: parseFloat(style.paddingRight) || 0,
+    })
+    if (left !== shelf.scrollLeft) shelf.scrollTo({ left, behavior: reducedMotion() ? 'auto' : 'smooth' })
   }
 
   function setShelfIndex(index, focus = false) {
     const next = moveSelection(index, 0, state.shelfBooks.length)
     state.shelfIndex = next
-    root.querySelectorAll('[data-popular-shelf] [data-shelf-index]').forEach(item => {
+    writeSession(LIBRARY_SHELF_SESSION_KEY, String(next))
+    const shelf = root.querySelector('[data-popular-shelf]')
+    shelf.querySelectorAll('[data-shelf-index]').forEach(item => {
       const selected = Number(item.dataset.shelfIndex) === next
       item.classList.toggle('is-selected', selected)
       item.setAttribute('aria-current', String(selected))
       if (selected) {
         if (focus) item.focus({ preventScroll: true })
-        item.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reducedMotion() ? 'auto' : 'smooth' })
+        revealShelfItem(shelf, item)
       }
     })
     renderCaption()
@@ -284,6 +350,7 @@ import {
     state.shelfBooks = popularBooks(state.catalogue)
     state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
     section.hidden = state.shelfBooks.length === 0
+    renderPopularHead()
     if (state.libraryMode === 'new') {
       shelf.className = 'lib-shelf'
       shelf.innerHTML = state.shelfBooks.map(shelfItem).join('')
@@ -295,12 +362,14 @@ import {
       }
     } else {
       shelf.className = 'lib-grid'
-      shelf.innerHTML = state.shelfBooks.map(book => `<button type="button" class="lib-grid-item" data-shelf-book="${escapeHtml(book.id)}" aria-label="${escapeHtml(book.title)}">${coverImage(book)}<span class="lib-bt">${escapeHtml(book.title)}</span><span class="lib-ba">${escapeHtml(book.author)}</span></button>`).join('')
+      shelf.innerHTML = state.shelfBooks.map(book => `<button type="button" class="lib-grid-item" data-shelf-book="${escapeHtml(book.id)}" aria-label="${escapeHtml(book.title)}">${coverImage(book)}${coverLabels(book)}</button>`).join('')
     }
     renderCaption()
   }
 
-  const bookRow = book => `<button type="button" class="lib-row lib-row-book" data-catalogue-book="${escapeHtml(book.id)}"><span class="lib-row-t">${escapeHtml(book.title)}</span><span class="lib-row-end"><span class="lib-row-a">${escapeHtml(book.author)}</span>${chevron}</span></button>`
+  /** A cover cell: art when the book has it, else the typographic placeholder; title and author underneath. */
+  const bookCell = book => `<button type="button" class="lib-cell" data-catalogue-book="${escapeHtml(book.id)}">${coverImage(book)}<span class="lib-cover-copy"><span class="lib-cell-t">${escapeHtml(book.title)}</span><span class="lib-cell-a">${escapeHtml(book.author)}</span></span></button>`
+  const bookCells = (books, attr = '') => `<div class="lib-cells"${attr ? ` ${attr}` : ''}>${books.map(bookCell).join('')}</div>`
 
   function renderIndex() {
     const body = root.querySelector('[data-library-index]')
@@ -311,7 +380,7 @@ import {
       label.textContent = 'Search results'
       count.textContent = String(books.length)
       body.innerHTML = books.length
-        ? books.map(book => `<div class="lib-index-group">${bookRow(book)}</div>`).join('')
+        ? bookCells(books, 'data-search-results')
         : `<div class="lib-row is-empty" aria-live="polite"><span class="lib-row-t">No book matches “${escapeHtml(state.query.trim())}”</span></div>`
       return
     }
@@ -319,8 +388,52 @@ import {
     count.textContent = String(publishedCount(state.catalogue))
     body.innerHTML = indexHouses(state.catalogue).map(house => {
       const expanded = house.id === state.expandedHouseId
-      return `<div class="lib-index-group"><button type="button" class="lib-row" data-index-house="${escapeHtml(house.id)}" aria-expanded="${expanded}"><span class="lib-row-t">${escapeHtml(house.title)}</span><span class="lib-row-end"><span class="lib-cnt">${house.count}</span>${chevron}</span></button>${expanded ? `<div class="lib-row-books">${house.books.map(bookRow).join('')}</div>` : ''}</div>`
+      return `<div class="lib-index-group"><button type="button" class="lib-row" data-index-house="${escapeHtml(house.id)}" aria-expanded="${expanded}"><span class="lib-row-t">${escapeHtml(house.title)}</span><span class="lib-row-end"><span class="lib-cnt">${house.count}</span>${chevron}</span></button>${expanded ? bookCells(house.books, `data-house-books="${escapeHtml(house.id)}"`) : ''}</div>`
     }).join('')
+  }
+
+  // Leaving and coming back. When the library is left — a book opened from
+  // the results, the reader, a link — it parks the state Back should find:
+  // the scroll position from before the search began, the shelf selection,
+  // the open house, and whether the search must be cleared. Back (SPA
+  // popstate, bfcache pageshow, or a back/forward load) restores exactly
+  // that instead of a stale results view.
+  const isLibraryCurrent = () => root.querySelector('[data-view-panel="library"]')?.classList.contains('is-current') === true
+
+  function rememberLibrary() {
+    if (!state.catalogue || !isLibraryCurrent()) return
+    writeSession(LIBRARY_RETURN_SESSION_KEY, JSON.stringify(librarySnapshot({
+      scrollY: window.scrollY,
+      preSearchScrollY: state.preSearchScrollY,
+      shelfIndex: state.shelfIndex,
+      expandedHouseId: state.expandedHouseId,
+      query: state.query,
+    })))
+  }
+
+  function restoreLibrary() {
+    const snapshot = parseLibrarySnapshot(readSession(LIBRARY_RETURN_SESSION_KEY))
+    if (!snapshot || !state.catalogue) return false
+    removeSession(LIBRARY_RETURN_SESSION_KEY)
+    if (snapshot.clearSearch || state.query) {
+      root.querySelector('[data-library-search]').value = ''
+      state.query = ''
+      state.preSearchScrollY = null
+    }
+    state.expandedHouseId = snapshot.expandedHouseId
+    renderIndex()
+    if (state.libraryMode === 'new' && state.shelfBooks.length) setShelfIndex(snapshot.shelfIndex)
+    const settle = () => window.scrollTo({ top: snapshot.scrollY, left: 0, behavior: 'auto' })
+    settle()
+    requestAnimationFrame(settle)
+    return true
+  }
+
+  function isBackForwardLoad() {
+    try {
+      const [entry] = performance.getEntriesByType('navigation')
+      return entry?.type === 'back_forward'
+    } catch { return false }
   }
 
   function renderLibrary() {
@@ -555,6 +668,7 @@ import {
       localStorage.setItem('tinct:library', JSON.stringify([...ids]))
     } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
+    rememberLibrary()
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
     window.location.assign('/lab/reader')
@@ -666,6 +780,7 @@ import {
       event.preventDefault()
       target.value = ''
       state.query = ''
+      state.preSearchScrollY = null
       renderIndex()
       return
     }
@@ -680,7 +795,10 @@ import {
 
   root.addEventListener('input', event => {
     if (!event.target.matches('[data-library-search]')) return
-    state.query = event.target.value
+    const next = event.target.value
+    if (next.trim() && !state.query.trim()) state.preSearchScrollY = window.scrollY
+    if (!next.trim()) state.preSearchScrollY = null
+    state.query = next
     renderIndex()
   })
 
@@ -695,7 +813,7 @@ import {
       const book = state.booksById.get(bookId)
       return book ? wholeBookProgress(book, place, progressRecord(bookId), completionRecord(bookId).completed) : null
     },
-    libraryState: () => ({ mode: state.libraryMode, shelfIndex: state.shelfIndex, shelf: state.shelfBooks.map(book => book.id), query: state.query, expandedHouseId: state.expandedHouseId }),
+    libraryState: () => ({ mode: state.libraryMode, shelfIndex: state.shelfIndex, shelf: state.shelfBooks.map(book => book.id), query: state.query, expandedHouseId: state.expandedHouseId, palette: state.palette, preSearchScrollY: state.preSearchScrollY }),
     setLibraryMode,
     selectionState: () => ({ primaryEditionKey: state.selectedEditionKey, compareEditionKey: state.compareEditionKey, revision: state.selectionRevision }),
     continuations: () => state.continuations.map(item => ({ ...item, progress: progressFor(item) })),
@@ -713,10 +831,12 @@ import {
   // Provisional mode from the device mirror, so the shelf paints in the right
   // shape on first render; reading-memory.js confirms or corrects it once the
   // recap has loaded.
-  state.libraryMode = libraryModeFromDeviceMemory((() => {
-    try { return localStorage.getItem(READING_MEMORY_DEVICE_KEY) } catch { return null }
-  })())
+  state.libraryMode = libraryModeFromDeviceMemory(readLocal(READING_MEMORY_DEVICE_KEY), readLocal(LAB_POSITION_DEVICE_KEY))
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
+  // The shelf selection outlives a trip into a book or the reader.
+  state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? '', 10) || 0
+  // The library restores its own scroll position on the way back.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
   fetch('/lab/catalogue.json?v=20260905-1').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
@@ -734,6 +854,8 @@ import {
     const allowedViews = new Set(['landing', 'library', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
   }).then(() => {
+    if (isLibraryCurrent() && isBackForwardLoad()) restoreLibrary()
+    else if (isLibraryCurrent()) removeSession(LIBRARY_RETURN_SESSION_KEY)
     window.__tinctLabPreReader.ready = true
     window.dispatchEvent(new CustomEvent('tinct:lab-catalogue-ready'))
   }).catch(error => {
@@ -755,7 +877,17 @@ import {
     const bookId = params.get('book')
     const path = location.pathname.replace(/\/+$/, '')
     const view = path === '/lab/library' ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
-    if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) await selectBook(bookId, view)
-    else showView(view === 'library' ? 'library' : 'landing')
+    if (view !== 'library') rememberLibrary()
+    if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) {
+      await selectBook(bookId, view)
+    } else {
+      showView(view === 'library' ? 'library' : 'landing')
+      if (view === 'library') restoreLibrary()
+    }
   })
+
+  window.addEventListener('pageshow', event => {
+    if (event.persisted && isLibraryCurrent()) restoreLibrary()
+  })
+  window.addEventListener('pagehide', () => { rememberLibrary() })
 }

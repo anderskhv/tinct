@@ -1,18 +1,26 @@
 import { describe, expect, it } from 'vitest'
 import {
   REVEAL_SESSION_KEY,
+  bookDescription,
   claimReveal,
   columnise,
   filterIndexBooks,
   indexHouses,
+  labProfileForWidth,
+  labThemeFromPrefs,
   libraryModeFromDeviceMemory,
+  libraryPaletteFor,
+  libraryPaletteFromPrefs,
+  librarySnapshot,
   moveSelection,
+  parseLibrarySnapshot,
   popularBooks,
+  popularHead,
   publishedCount,
   revealDelayMs,
   revealTotalMs,
   searchPlaceholder,
-  selectionEyebrow,
+  shelfScrollLeft,
 } from '../../public/lab/library-model.js'
 
 type TestBook = {
@@ -65,15 +73,69 @@ describe('locked library model', () => {
     expect(popularBooks({ books: catalogue.books })).toEqual([])
   })
 
-  it('moves the selection with clamping and labels the eyebrow', () => {
+  it('moves the selection with clamping and heads the shelf like an index row', () => {
     expect(moveSelection(0, -1, 8)).toBe(0)
     expect(moveSelection(0, 1, 8)).toBe(1)
     expect(moveSelection(7, 1, 8)).toBe(7)
     expect(moveSelection(99, 0, 8)).toBe(7)
     expect(moveSelection(3, 0, 0)).toBe(0)
-    expect(selectionEyebrow(0, 8)).toBe('Popular · 1 of 8')
-    expect(selectionEyebrow(7, 8)).toBe('Popular · 8 of 8')
-    expect(selectionEyebrow(0, 0)).toBe('Popular')
+    expect(popularHead(8)).toEqual({ label: 'Popular', count: '8' })
+    expect(popularHead(0)).toEqual({ label: 'Popular', count: '0' })
+    expect(popularHead(undefined)).toEqual({ label: 'Popular', count: '0' })
+  })
+
+  it('reads the reader theme per profile and picks the palette', () => {
+    const v2 = JSON.stringify({ version: 2, shared: {}, phone: { theme: 'book' }, desktop: { theme: 'dark' } })
+    expect(labThemeFromPrefs(v2, 'phone')).toBe('book')
+    expect(labThemeFromPrefs(v2, 'desktop')).toBe('dark')
+    expect(labThemeFromPrefs(JSON.stringify({ theme: 'light' }), 'phone')).toBe('light')
+    expect(labThemeFromPrefs(JSON.stringify({ darkMode: true }), 'phone')).toBe('dark')
+    expect(labThemeFromPrefs(JSON.stringify({ darkMode: false }), 'desktop')).toBe('light')
+    expect(labThemeFromPrefs(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'sepia' } }), 'phone')).toBe('system')
+    expect(labThemeFromPrefs(null)).toBe('system')
+    expect(labThemeFromPrefs('{oops')).toBe('system')
+    expect(labProfileForWidth(390)).toBe('phone')
+    expect(labProfileForWidth(1024)).toBe('phone')
+    expect(labProfileForWidth(1025)).toBe('desktop')
+    expect(labProfileForWidth(1440)).toBe('desktop')
+    expect(libraryPaletteFor('dark', false)).toBe('dark')
+    expect(libraryPaletteFor('book', true)).toBe('book')
+    expect(libraryPaletteFor('light', true)).toBe('light')
+    expect(libraryPaletteFor('system', true)).toBe('dark')
+    expect(libraryPaletteFor('system', false)).toBe('light')
+    expect(libraryPaletteFor(undefined, true)).toBe('dark')
+    expect(libraryPaletteFromPrefs(v2, 'phone', true)).toBe('book')
+    expect(libraryPaletteFromPrefs(null, 'desktop', false)).toBe('light')
+  })
+
+  it('prefers the registry description and falls back to the taxonomy one-liner', () => {
+    expect(bookDescription({ summary: ' Two sentences. Maybe three. ', blurb: 'One line.' })).toBe('Two sentences. Maybe three.')
+    expect(bookDescription({ summary: '', blurb: 'One line.' })).toBe('One line.')
+    expect(bookDescription({ blurb: 'One line.' })).toBe('One line.')
+    expect(bookDescription({})).toBe('')
+    expect(bookDescription(null)).toBe('')
+  })
+
+  it('scrolls the shelf horizontally only as far as needed to show the item', () => {
+    const base = { scrollLeft: 0, clientWidth: 390, padLeft: 14, padRight: 14 }
+    expect(shelfScrollLeft({ ...base, itemLeft: 14, itemWidth: 124 })).toBe(0)
+    expect(shelfScrollLeft({ ...base, itemLeft: 434, itemWidth: 124 })).toBe(434 + 124 + 14 - 390)
+    expect(shelfScrollLeft({ ...base, scrollLeft: 300, itemLeft: 14, itemWidth: 124 })).toBe(0)
+    expect(shelfScrollLeft({ ...base, scrollLeft: 300, itemLeft: 154, itemWidth: 124 })).toBe(140)
+    expect(shelfScrollLeft({ ...base, scrollLeft: 300, itemLeft: 400, itemWidth: 124 })).toBe(300)
+  })
+
+  it('parks the pre-search state on leave and parses it back on return', () => {
+    const searched = librarySnapshot({ scrollY: 900, preSearchScrollY: 320, shelfIndex: 3, expandedHouseId: 'drama', query: 'republic' })
+    expect(searched).toEqual({ scrollY: 320, shelfIndex: 3, expandedHouseId: 'drama', clearSearch: true })
+    const plain = librarySnapshot({ scrollY: 900.4, preSearchScrollY: 320, shelfIndex: 1, expandedHouseId: null, query: '' })
+    expect(plain).toEqual({ scrollY: 900, shelfIndex: 1, expandedHouseId: null, clearSearch: false })
+    expect(librarySnapshot({ query: '  ', shelfIndex: -2 })).toEqual({ scrollY: 0, shelfIndex: 0, expandedHouseId: null, clearSearch: false })
+    expect(parseLibrarySnapshot(JSON.stringify(searched))).toEqual(searched)
+    expect(parseLibrarySnapshot(JSON.stringify(plain))).toEqual(plain)
+    expect(parseLibrarySnapshot(null)).toBeNull()
+    expect(parseLibrarySnapshot('nope')).toBeNull()
+    expect(parseLibrarySnapshot('[]')).toEqual({ scrollY: 0, shelfIndex: 0, expandedHouseId: null, clearSearch: false })
   })
 
   it('staggers the reveal from the artboard timings', () => {
@@ -104,6 +166,11 @@ describe('locked library model', () => {
     expect(libraryModeFromDeviceMemory(JSON.stringify({ v: 1, sessions: {}, updatedAt: 0 }))).toBe('new')
     expect(libraryModeFromDeviceMemory(JSON.stringify({ v: 1, sessions: { a: { anchor: {} } } }))).toBe('new')
     expect(libraryModeFromDeviceMemory(JSON.stringify({ v: 1, sessions: { a: { anchor: { bookId: 'bible' } } } }))).toBe('returning')
+    expect(libraryModeFromDeviceMemory(null, JSON.stringify({ books: { daniel: { bookId: 'daniel', sequentialChapter: 857 } } }))).toBe('returning')
+    expect(libraryModeFromDeviceMemory('{not json', JSON.stringify({ books: { daniel: { bookId: 'daniel', sequentialChapter: 857 } } }))).toBe('returning')
+    expect(libraryModeFromDeviceMemory(null, JSON.stringify({ books: { daniel: { bookId: 'daniel' } } }))).toBe('new')
+    expect(libraryModeFromDeviceMemory(null, JSON.stringify({ books: {} }))).toBe('new')
+    expect(libraryModeFromDeviceMemory(null, '{bad')).toBe('new')
   })
 
   it('lists houses with counts, hides stubs and unpublished books, and omits empty houses', () => {

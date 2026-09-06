@@ -120,7 +120,7 @@
           <main class="lib-main">
             <section class="lib-recap" data-reading-memory-recap hidden aria-label="What you read last"></section>
             <section class="lib-popular" data-library-popular aria-label="Popular books">
-              <p class="lib-eyebrow" data-popular-eyebrow>Popular</p>
+              <header class="lib-index-head lib-sec-head" data-popular-head><span class="lib-eyebrow is-dim" data-popular-eyebrow>Popular</span><span class="lib-cnt" data-popular-count></span></header>
               <div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
               <div class="lib-caption" data-popular-caption aria-live="polite"></div>
             </section>
@@ -875,21 +875,32 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      headlines, EB Garamond for reading text, IBM Plex Mono for eyebrows and
      counts, IBM Plex Sans for pills. Mobile per the 390 artboard, desktop per
      the 1440 artboard; intermediate widths scroll the shelf and use two index
-     columns. */
-  html:has(#tinct-onboarding-worlds-v5 [data-view-panel="library"].is-current) { background:#0c1920; }
-  body:has(#tinct-onboarding-worlds-v5 [data-view-panel="library"].is-current) { padding:0; background:#0c1920; }
+     columns.
+
+     Round 2: the composition is unchanged; the palette follows the reader's
+     theme preference (html[data-lib-palette], set by catalogue-runtime.js from
+     tinct-lab-prefs). Every colour is a token below, defined once per palette:
+     dark (the locked navy), light (the reader's light paper) and book (the
+     reader's book-theme paper). */
+  :root { --lib-ground:#0c1920; --lib-cream:#f3ecdc; --lib-amber:#c9a25a; --lib-muted:#8d8672; --lib-lede:#cfc6b2; --lib-rule:rgba(243,236,220,.12); --lib-rule-strong:rgba(243,236,220,.22); --lib-ring:rgba(243,236,220,.045); --lib-glow-a:rgba(201,162,90,.20); --lib-glow-b:rgba(201,162,90,.06); --lib-band:rgba(243,236,220,.05); --lib-shadow:rgba(0,0,0,.45); --lib-shadow-soft:rgba(0,0,0,.4); --lib-cover-ground:#0c1920; --lib-cover-frame:rgba(243,236,220,.3); --lib-cover-spine:rgba(0,0,0,.3); --lib-select-glow:rgba(201,162,90,.18); --lib-cta-bg:#f3ecdc; --lib-cta-fg:#0c1920; }
+  :root[data-lib-palette="light"] { --lib-ground:#ece7db; --lib-cream:#0b0b0b; --lib-amber:#8a6a2b; --lib-muted:#6a6256; --lib-lede:#3f3a32; --lib-rule:rgba(11,11,11,.12); --lib-rule-strong:rgba(11,11,11,.3); --lib-ring:rgba(11,11,11,.05); --lib-glow-a:rgba(201,162,90,.26); --lib-glow-b:rgba(201,162,90,.08); --lib-band:rgba(255,255,255,.3); --lib-shadow:rgba(40,30,10,.28); --lib-shadow-soft:rgba(40,30,10,.22); --lib-cover-ground:#2c2417; --lib-cover-frame:rgba(243,236,220,.3); --lib-cover-spine:rgba(0,0,0,.25); --lib-select-glow:rgba(201,162,90,.42); --lib-cta-bg:#0b0b0b; --lib-cta-fg:#ece7db; }
+  :root[data-lib-palette="book"] { --lib-ground:#e7dcc7; --lib-cream:#201a13; --lib-amber:#8a6a2b; --lib-muted:#675b4b; --lib-lede:#4a4034; --lib-rule:rgba(32,26,19,.14); --lib-rule-strong:rgba(32,26,19,.32); --lib-ring:rgba(32,26,19,.055); --lib-glow-a:rgba(201,162,90,.28); --lib-glow-b:rgba(201,162,90,.08); --lib-band:rgba(255,250,240,.3); --lib-shadow:rgba(40,30,10,.3); --lib-shadow-soft:rgba(40,30,10,.24); --lib-cover-ground:#2c2417; --lib-cover-frame:rgba(243,236,220,.3); --lib-cover-spine:rgba(0,0,0,.25); --lib-select-glow:rgba(201,162,90,.42); --lib-cta-bg:#201a13; --lib-cta-fg:#e7dcc7; }
+
+  html:has(#tinct-onboarding-worlds-v5 [data-view-panel="library"].is-current) { background:var(--lib-ground); }
+  body:has(#tinct-onboarding-worlds-v5 [data-view-panel="library"].is-current) { padding:0; background:var(--lib-ground); }
   #tinct-onboarding-worlds-v5:has([data-view-panel="library"].is-current) { padding:0; }
   #tinct-onboarding-worlds-v5:has([data-view-panel="library"].is-current) .tov5-shell { gap:0; }
 
-  #tinct-onboarding-worlds-v5 .lib { --lib-ground:#0c1920; --lib-cream:#f3ecdc; --lib-amber:#c9a25a; --lib-muted:#8d8672; --lib-lede:#cfc6b2; --lib-rule:rgba(243,236,220,.12); --lib-rule-strong:rgba(243,236,220,.22); --lib-pf:'Playfair Display',Georgia,serif; --lib-serif:'EB Garamond',Georgia,'Times New Roman',serif; --lib-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace; --lib-sans:'IBM Plex Sans',system-ui,sans-serif; --lib-pad-l:max(20px,var(--tov5-safe-left)); --lib-pad-r:max(20px,var(--tov5-safe-right)); position:relative; isolation:isolate; width:100%; min-height:100dvh; overflow:hidden; color:var(--lib-cream); background:var(--lib-ground); font-family:var(--lib-serif); -webkit-font-smoothing:antialiased; }
+  #tinct-onboarding-worlds-v5 .lib { --lib-pf:'Playfair Display',Georgia,serif; --lib-serif:'EB Garamond',Georgia,'Times New Roman',serif; --lib-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace; --lib-sans:'IBM Plex Sans',system-ui,sans-serif; --lib-pad-l:max(14px,var(--tov5-safe-left)); --lib-pad-r:max(14px,var(--tov5-safe-right)); position:relative; isolation:isolate; width:100%; min-height:100dvh; overflow:hidden; color:var(--lib-cream); background:var(--lib-ground); font-family:var(--lib-serif); -webkit-font-smoothing:antialiased; }
   #tinct-onboarding-worlds-v5 .lib a { color:var(--lib-cream); text-decoration:none; }
   #tinct-onboarding-worlds-v5 .lib a:hover { color:var(--lib-amber); }
   #tinct-onboarding-worlds-v5 .lib button { font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
   #tinct-onboarding-worlds-v5 .lib :focus-visible { outline:2px solid var(--lib-amber); outline-offset:3px; }
   #tinct-onboarding-worlds-v5 .lib-atmos { position:absolute; inset:0; z-index:0; pointer-events:none; }
   #tinct-onboarding-worlds-v5 .lib-atmos svg { position:absolute; inset:0; width:100%; height:100%; }
-  #tinct-onboarding-worlds-v5 .lib-glow { position:absolute; right:-10%; top:-8%; width:70%; height:60%; background:radial-gradient(ellipse at center,rgba(201,162,90,.20) 0%,rgba(201,162,90,.06) 35%,rgba(201,162,90,0) 65%); }
-  #tinct-onboarding-worlds-v5 .lib-band { position:absolute; left:-20%; right:-20%; top:52%; height:32%; background:linear-gradient(170deg,rgba(243,236,220,0) 30%,rgba(243,236,220,.05) 50%,rgba(243,236,220,0) 70%); }
+  #tinct-onboarding-worlds-v5 .lib-atmos circle { stroke:var(--lib-ring); }
+  #tinct-onboarding-worlds-v5 .lib-glow { position:absolute; right:-10%; top:-8%; width:70%; height:60%; background:radial-gradient(ellipse at center,var(--lib-glow-a) 0%,var(--lib-glow-b) 35%,rgba(201,162,90,0) 65%); }
+  #tinct-onboarding-worlds-v5 .lib-band { position:absolute; left:-20%; right:-20%; top:52%; height:32%; background:linear-gradient(170deg,rgba(243,236,220,0) 30%,var(--lib-band) 50%,rgba(243,236,220,0) 70%); }
   #tinct-onboarding-worlds-v5 .lib-content { position:relative; z-index:1; }
 
   #tinct-onboarding-worlds-v5 .lib-hdr { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:calc(22px + var(--tov5-safe-top)) var(--lib-pad-r) 18px var(--lib-pad-l); border-bottom:1px solid var(--lib-rule); }
@@ -897,32 +908,48 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-nav { display:flex; align-items:center; gap:22px; }
   #tinct-onboarding-worlds-v5 .lib-lnk { font-family:var(--lib-sans); font-size:15px; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-pill { font-family:var(--lib-sans); font-size:16px; color:var(--lib-cream); border:1px solid var(--lib-rule-strong); border-radius:18px; padding:12px 22px; line-height:1.2; white-space:nowrap; }
-  #tinct-onboarding-worlds-v5 .lib-pill[data-signed-in="true"] { border-color:transparent; padding:0; font-size:15px; color:var(--lib-muted); }
-  /* Signed in, the header carries only the name (the landing header's signed-in state). */
+  #tinct-onboarding-worlds-v5 .lib-pill[data-signed-in="true"] { display:inline-flex; align-items:center; border-color:transparent; padding:0; font-size:15px; color:var(--lib-muted); }
+  /* Signed in, the header carries the name on wide screens and a small circular glyph with the initial on phones. */
   #tinct-onboarding-worlds-v5 .lib-nav:has(.lib-pill[data-signed-in="true"]) .lib-lnk { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-acct-glyph { display:none; width:34px; height:34px; border-radius:50%; border:1px solid var(--lib-rule-strong); color:var(--lib-cream); font-family:var(--lib-mono); font-size:13px; line-height:1; align-items:center; justify-content:center; }
+  @media (max-width:600px) {
+    #tinct-onboarding-worlds-v5 .lib-acct-name { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+    #tinct-onboarding-worlds-v5 .lib-acct-glyph { display:inline-flex; }
+  }
 
   #tinct-onboarding-worlds-v5 .lib-main { display:flex; flex-direction:column; gap:44px; padding:28px var(--lib-pad-r) calc(56px + var(--tov5-safe-bottom)) var(--lib-pad-l); }
   #tinct-onboarding-worlds-v5 .lib-eyebrow { margin:0; font-family:var(--lib-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--lib-amber); }
   #tinct-onboarding-worlds-v5 .lib-eyebrow.is-dim { color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-h1 { margin:0; font-family:var(--lib-pf); font-weight:400; font-size:30px; line-height:1.08; letter-spacing:-.01em; color:var(--lib-cream); text-wrap:balance; }
-  #tinct-onboarding-worlds-v5 .lib-lede { margin:0; font-size:16.5px; line-height:1.45; color:var(--lib-lede); max-width:320px; }
+  #tinct-onboarding-worlds-v5 .lib-lede { margin:0; font-size:16.5px; line-height:1.45; color:var(--lib-lede); max-width:340px; }
   #tinct-onboarding-worlds-v5 .lib-cnt { font-family:var(--lib-mono); font-size:12px; letter-spacing:.06em; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-chev { flex:none; width:16px; height:16px; stroke:var(--lib-muted); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s ease; }
+  /* One section head everywhere: small mono label left, count right, one rule under it. */
+  #tinct-onboarding-worlds-v5 .lib-index-head { display:flex; justify-content:space-between; align-items:baseline; margin:0; }
+  #tinct-onboarding-worlds-v5 .lib-sec-head { padding-bottom:10px; border-bottom:1px solid var(--lib-rule-strong); }
 
   /* The cover is the image alone: the art carries its own type. */
-  #tinct-onboarding-worlds-v5 .lib-cover { position:relative; display:block; aspect-ratio:2/3; width:100%; overflow:hidden; background:var(--lib-ground); box-shadow:0 18px 40px rgba(0,0,0,.45); }
+  #tinct-onboarding-worlds-v5 .lib-cover { position:relative; display:block; aspect-ratio:2/3; width:100%; overflow:hidden; background:var(--lib-cover-ground); box-shadow:0 18px 40px var(--lib-shadow); }
   #tinct-onboarding-worlds-v5 .lib-cover img { display:block; width:100%; height:100%; object-fit:cover; }
-  #tinct-onboarding-worlds-v5 .lib-cover::before { content:''; position:absolute; inset:6px; border:1px solid rgba(243,236,220,.3); pointer-events:none; }
-  #tinct-onboarding-worlds-v5 .lib-cover::after { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:rgba(0,0,0,.3); }
+  #tinct-onboarding-worlds-v5 .lib-cover::before { content:''; position:absolute; inset:6px; border:1px solid var(--lib-cover-frame); pointer-events:none; }
+  #tinct-onboarding-worlds-v5 .lib-cover::after { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--lib-cover-spine); }
+  /* Title and author under a cover, fixed height so nothing below moves. */
+  #tinct-onboarding-worlds-v5 .lib-cover-copy { display:flex; flex-direction:column; gap:2px; margin-top:10px; min-height:52px; }
+  #tinct-onboarding-worlds-v5 .lib-bt,#tinct-onboarding-worlds-v5 .lib-cell-t { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:13.5px; line-height:1.25; color:var(--lib-cream); }
+  #tinct-onboarding-worlds-v5 .lib-ba,#tinct-onboarding-worlds-v5 .lib-cell-a { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; line-height:1.3; color:var(--lib-muted); }
 
-  /* Popular shelf — new reader: the selected cover stands taller and lit, the rest sit back. */
-  #tinct-onboarding-worlds-v5 .lib-popular { display:flex; flex-direction:column; gap:22px; }
-  #tinct-onboarding-worlds-v5 .lib-shelf { display:flex; gap:16px; align-items:flex-end; margin:0 calc(-1 * var(--lib-pad-r)) -40px calc(-1 * var(--lib-pad-l)); padding:8px var(--lib-pad-r) 40px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
+  /* Popular shelf — new reader: the selected cover stands taller and lit, the
+     rest sit back. The shelf reserves the height of the tallest state
+     (--lib-shelf-lift) and the selection scales with a transform from the
+     cover's foot, so selecting never moves the page. */
+  #tinct-onboarding-worlds-v5 .lib-popular { --lib-shelf-w:124px; --lib-shelf-scale:1.22; --lib-shelf-lift:44px; display:flex; flex-direction:column; gap:22px; }
+  #tinct-onboarding-worlds-v5 .lib-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:var(--lib-shelf-lift) var(--lib-pad-r) 12px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
   #tinct-onboarding-worlds-v5 .lib-shelf::-webkit-scrollbar { display:none; }
-  #tinct-onboarding-worlds-v5 .lib-shelf-item { flex:0 0 124px; opacity:.55; transition:flex-basis .32s cubic-bezier(.2,.7,.2,1),opacity .32s ease; }
-  #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected { flex-basis:168px; opacity:1; }
-  #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected .lib-cover { box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 64px rgba(201,162,90,.18); }
-  #tinct-onboarding-worlds-v5 .lib-caption { display:flex; flex-direction:column; gap:10px; }
+  #tinct-onboarding-worlds-v5 .lib-shelf-item { position:relative; flex:0 0 var(--lib-shelf-w); display:flex; flex-direction:column; text-align:left; opacity:.55; transition:opacity .32s ease; }
+  #tinct-onboarding-worlds-v5 .lib-shelf-item .lib-cover { transform-origin:50% 100%; transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease; }
+  #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected { opacity:1; z-index:1; }
+  #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected .lib-cover { transform:scale(var(--lib-shelf-scale)); box-shadow:0 18px 40px var(--lib-shadow),0 0 64px var(--lib-select-glow); }
+  #tinct-onboarding-worlds-v5 .lib-caption { display:flex; flex-direction:column; gap:10px; min-height:176px; }
   #tinct-onboarding-worlds-v5 .lib-caption:empty { display:none; }
   @keyframes lib-rail-in { from { transform:translateX(56px); } to { transform:translateX(0); } }
   @keyframes lib-cover-in { from { opacity:0; } to { opacity:1; } }
@@ -930,15 +957,13 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-shelf.is-revealing .lib-cover { animation:lib-cover-in 520ms ease-out both; animation-delay:var(--lib-delay,120ms); }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib-shelf.is-revealing .lib-shelf-item,#tinct-onboarding-worlds-v5 .lib-shelf.is-revealing .lib-cover { animation:none; }
-    #tinct-onboarding-worlds-v5 .lib-shelf-item,#tinct-onboarding-worlds-v5 .lib-chev { transition:none; }
+    #tinct-onboarding-worlds-v5 .lib-shelf-item,#tinct-onboarding-worlds-v5 .lib-shelf-item .lib-cover,#tinct-onboarding-worlds-v5 .lib-chev { transition:none; }
   }
 
   /* Popular shelf — returning reader: uniform size. */
   #tinct-onboarding-worlds-v5 .lib-grid { display:flex; gap:14px; margin-right:calc(-1 * var(--lib-pad-r)); padding:4px var(--lib-pad-r) 12px 0; overflow-x:auto; scrollbar-width:none; }
   #tinct-onboarding-worlds-v5 .lib-grid::-webkit-scrollbar { display:none; }
   #tinct-onboarding-worlds-v5 .lib-grid-item { flex:0 0 132px; display:flex; flex-direction:column; text-align:left; }
-  #tinct-onboarding-worlds-v5 .lib-bt { display:block; margin-top:12px; font-size:15px; line-height:1.25; color:var(--lib-cream); }
-  #tinct-onboarding-worlds-v5 .lib-ba { display:none; margin-top:2px; font-size:14px; color:var(--lib-muted); }
 
   /* Search: one hairline row between the popular books and the index. */
   #tinct-onboarding-worlds-v5 .lib-search { display:flex; align-items:center; gap:14px; padding:18px 0; border-top:1px solid var(--lib-rule); border-bottom:1px solid var(--lib-rule); cursor:text; }
@@ -948,64 +973,72 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-search input::-webkit-search-cancel-button,#tinct-onboarding-worlds-v5 .lib-search input::-webkit-search-decoration { -webkit-appearance:none; appearance:none; }
   #tinct-onboarding-worlds-v5 .lib-search:focus-within { border-bottom-color:var(--lib-rule-strong); }
 
-  /* Index: houses as rows with counts; a house opens its books inline. */
+  /* Index: houses as rows with counts; a house opens a cover grid; search results use the same grid. */
   #tinct-onboarding-worlds-v5 .lib-index { display:flex; flex-direction:column; gap:8px; }
-  #tinct-onboarding-worlds-v5 .lib-index-head { display:flex; justify-content:space-between; align-items:baseline; }
-  #tinct-onboarding-worlds-v5 .lib-index-body { border-top:1px solid var(--lib-rule-strong); }
-  #tinct-onboarding-worlds-v5 .lib-index-group { break-inside:avoid; }
+  #tinct-onboarding-worlds-v5 .lib-index-body { display:grid; grid-template-columns:minmax(0,1fr); border-top:1px solid var(--lib-rule-strong); }
+  #tinct-onboarding-worlds-v5 .lib-index-group { display:contents; }
   #tinct-onboarding-worlds-v5 .lib .lib-row { width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--lib-rule); text-align:left; }
   #tinct-onboarding-worlds-v5 .lib-row-t { font-size:20px; line-height:1.2; color:var(--lib-cream); }
   #tinct-onboarding-worlds-v5 .lib-row-end { display:flex; align-items:center; gap:12px; flex:none; }
-  #tinct-onboarding-worlds-v5 .lib-row-a { font-size:14px; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib .lib-row[aria-expanded="true"] .lib-chev { transform:rotate(90deg); }
-  #tinct-onboarding-worlds-v5 .lib-row-books { padding-left:16px; }
-  #tinct-onboarding-worlds-v5 .lib-row-books .lib-row-t { font-size:18px; }
   #tinct-onboarding-worlds-v5 .lib .lib-row.is-empty { color:var(--lib-muted); font-style:italic; cursor:default; }
   #tinct-onboarding-worlds-v5 .lib .lib-row.is-empty .lib-row-t { color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-cells { grid-column:1 / -1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 14px; padding:18px 0 22px; border-bottom:1px solid var(--lib-rule); }
+  #tinct-onboarding-worlds-v5 .lib .lib-cell { display:flex; flex-direction:column; text-align:left; }
+  #tinct-onboarding-worlds-v5 .lib-cell .lib-cover-copy { min-height:0; }
+  #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
+  #tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
 
-  /* Returning reader: the recap sentence is the headline, one cream pill. */
+  /* Returning reader: Reading now (hero first, then quiet rows) and Finished. */
   #tinct-onboarding-worlds-v5 .lib-recap[hidden] { display:none; }
-  #tinct-onboarding-worlds-v5 .lib-recap { display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-areas:"head head" "cover meta" "others others"; gap:22px 18px; align-items:end; }
+  #tinct-onboarding-worlds-v5 .lib-recap { display:flex; flex-direction:column; gap:44px; }
+  #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { display:flex; flex-direction:column; gap:22px; }
+  #tinct-onboarding-worlds-v5 .lib-recap-hero { display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-areas:"head head" "cover meta"; gap:22px 18px; align-items:end; }
   #tinct-onboarding-worlds-v5 .lib-recap-head { grid-area:head; display:flex; flex-direction:column; gap:22px; }
   #tinct-onboarding-worlds-v5 .lib-recap-head .lib-h1 { line-height:1.2; }
   #tinct-onboarding-worlds-v5 .lib-recap-cover { grid-area:cover; }
   #tinct-onboarding-worlds-v5 .lib-recap-meta { grid-area:meta; display:flex; flex-direction:column; gap:14px; }
   #tinct-onboarding-worlds-v5 .lib-recap-meta .lib-lede { font-size:19px; max-width:none; }
   #tinct-onboarding-worlds-v5 .lib-recap-cta { display:flex; align-items:center; gap:24px; }
-  #tinct-onboarding-worlds-v5 .lib .lib-cta { display:inline-flex; align-items:center; justify-content:center; font-family:var(--lib-sans); font-size:16px; font-weight:500; color:var(--lib-ground); background:var(--lib-cream); border-radius:999px; padding:13px 26px; line-height:1.2; white-space:nowrap; }
+  #tinct-onboarding-worlds-v5 .lib .lib-cta { display:inline-flex; align-items:center; justify-content:center; font-family:var(--lib-sans); font-size:16px; font-weight:500; color:var(--lib-cta-fg); background:var(--lib-cta-bg); border-radius:999px; padding:13px 26px; line-height:1.2; white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .lib-cta-note { display:none; font-family:var(--lib-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--lib-muted); }
-  #tinct-onboarding-worlds-v5 .lib-recap-others { grid-area:others; margin-top:8px; border-top:1px solid var(--lib-rule-strong); }
+  #tinct-onboarding-worlds-v5 .lib-recap-others { border-top:1px solid var(--lib-rule-strong); }
   #tinct-onboarding-worlds-v5 .lib-recap-others:empty { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-finished .lib-recap-others { border-top:0; }
   #tinct-onboarding-worlds-v5 .lib .lib-recap-row { width:100%; display:grid; grid-template-columns:36px minmax(0,1fr) auto; gap:16px; align-items:center; padding:14px 0; border-bottom:1px solid var(--lib-rule); text-align:left; }
-  #tinct-onboarding-worlds-v5 .lib .lib-recap-row .lib-cover { box-shadow:0 6px 16px rgba(0,0,0,.4); }
+  #tinct-onboarding-worlds-v5 .lib .lib-recap-row .lib-cover { box-shadow:0 6px 16px var(--lib-shadow-soft); }
   #tinct-onboarding-worlds-v5 .lib .lib-recap-row .lib-cover::before { inset:3px; }
   #tinct-onboarding-worlds-v5 .lib .lib-recap-row .lib-cover::after { width:2px; }
   #tinct-onboarding-worlds-v5 .lib-recap-row-copy { display:flex; flex-direction:column; gap:5px; min-width:0; }
   #tinct-onboarding-worlds-v5 .lib-recap-row-t { font-size:19px; line-height:1.2; }
   #tinct-onboarding-worlds-v5 .lib .lib-recap-row .lib-eyebrow { font-size:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #tinct-onboarding-worlds-v5 .lib-recap-row-recap { font-style:italic; font-size:15px; line-height:1.35; color:var(--lib-lede); }
+  #tinct-onboarding-worlds-v5 .lib-check { flex:none; width:18px; height:18px; stroke:var(--lib-amber); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  #tinct-onboarding-worlds-v5 .lib .lib-recap-row.is-finished .lib-recap-row-t { color:var(--lib-lede); }
 
   @media (min-width:601px) {
     #tinct-onboarding-worlds-v5 .lib { --lib-pad-l:48px; --lib-pad-r:48px; }
     #tinct-onboarding-worlds-v5 .lib-hdr { padding:calc(26px + var(--tov5-safe-top)) 48px 22px; }
     #tinct-onboarding-worlds-v5 .lib-main { gap:64px; padding:64px 48px 96px; }
     #tinct-onboarding-worlds-v5 .lib[data-library-mode="returning"] .lib-main { gap:72px; padding-top:72px; }
-    #tinct-onboarding-worlds-v5 .lib-popular { gap:28px; }
+    #tinct-onboarding-worlds-v5 .lib-popular { --lib-shelf-w:136px; --lib-shelf-scale:1.3; --lib-shelf-lift:64px; gap:28px; }
     #tinct-onboarding-worlds-v5 .lib-shelf { gap:24px; }
-    #tinct-onboarding-worlds-v5 .lib-shelf-item { flex-basis:136px; }
-    #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected { flex-basis:208px; }
-    #tinct-onboarding-worlds-v5 .lib-caption { gap:14px; padding-top:8px; }
+    #tinct-onboarding-worlds-v5 .lib-caption { gap:14px; padding-top:8px; min-height:220px; }
     #tinct-onboarding-worlds-v5 .lib-h1 { font-size:56px; }
-    #tinct-onboarding-worlds-v5 .lib-lede { font-size:22px; max-width:640px; }
+    #tinct-onboarding-worlds-v5 .lib-lede { font-size:22px; max-width:680px; }
+    #tinct-onboarding-worlds-v5 .lib-bt,#tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
+    #tinct-onboarding-worlds-v5 .lib-ba,#tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
     #tinct-onboarding-worlds-v5 .lib-search { gap:16px; padding:22px 0; }
     #tinct-onboarding-worlds-v5 .lib-search svg { width:20px; height:20px; }
     #tinct-onboarding-worlds-v5 .lib-search input { font-size:22px; }
     #tinct-onboarding-worlds-v5 .lib-index { gap:20px; }
-    #tinct-onboarding-worlds-v5 .lib-index-body { column-count:2; column-gap:56px; }
+    #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
+    #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px 24px; padding:24px 0 28px; }
+    #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:17px; }
     #tinct-onboarding-worlds-v5 .lib-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; margin:0; padding:0; overflow:visible; }
     #tinct-onboarding-worlds-v5 .lib-grid-item { flex:none; }
-    #tinct-onboarding-worlds-v5 .lib-bt { font-size:17px; }
-    #tinct-onboarding-worlds-v5 .lib-ba { display:block; }
-    #tinct-onboarding-worlds-v5 .lib-recap { grid-template-columns:220px minmax(0,1fr); grid-template-rows:auto 1fr auto; grid-template-areas:"cover head" "cover meta" "others others"; gap:22px 48px; align-items:start; }
+    #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { gap:28px; }
+    #tinct-onboarding-worlds-v5 .lib-recap-hero { grid-template-columns:220px minmax(0,1fr); grid-template-rows:auto 1fr; grid-template-areas:"cover head" "cover meta"; gap:22px 48px; align-items:start; }
     #tinct-onboarding-worlds-v5 .lib-recap-head { padding-top:12px; }
     #tinct-onboarding-worlds-v5 .lib-recap-head .lib-h1 { font-size:46px; line-height:1.15; }
     #tinct-onboarding-worlds-v5 .lib-recap-meta { gap:22px; }
@@ -1013,19 +1046,21 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-recap-cta { margin-top:8px; }
     #tinct-onboarding-worlds-v5 .lib .lib-cta { font-size:18px; padding:18px 40px; }
     #tinct-onboarding-worlds-v5 .lib-cta-note { display:block; }
-    #tinct-onboarding-worlds-v5 .lib-recap-others { margin-top:0; padding-top:12px; }
+    #tinct-onboarding-worlds-v5 .lib-recap-others { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
     #tinct-onboarding-worlds-v5 .lib .lib-recap-row { grid-template-columns:44px minmax(0,1fr) auto; gap:18px; padding:18px 0; }
     #tinct-onboarding-worlds-v5 .lib-recap-row-t { font-size:20px; }
   }
   @media (min-width:1100px) {
-    #tinct-onboarding-worlds-v5 .lib-index-body { column-count:3; }
+    #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(6,minmax(0,1fr)); }
     #tinct-onboarding-worlds-v5 .lib-grid { grid-template-columns:repeat(8,minmax(0,1fr)); }
-    #tinct-onboarding-worlds-v5 .lib-recap { grid-template-columns:300px minmax(0,1fr) 380px; grid-template-rows:auto 1fr; grid-template-areas:"cover head others" "cover meta others"; gap:22px 72px; }
+    #tinct-onboarding-worlds-v5 .lib-recap-hero { grid-template-columns:300px minmax(0,1fr); gap:22px 72px; }
+    #tinct-onboarding-worlds-v5 .lib-recap-others { grid-template-columns:repeat(3,minmax(0,1fr)); }
   }
 </style>
 
 <script src="/lab/interaction-runtime.js?v=20260905-1" defer></script>
-<script type="module" src="/lab/catalogue-runtime.js?v=20260905-1"></script>
+<script type="module" src="/lab/catalogue-runtime.js?v=20260906-1"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>
