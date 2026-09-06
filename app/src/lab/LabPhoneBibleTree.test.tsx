@@ -110,4 +110,16 @@ describe('Lab Reading Map', () => {
     expect(screen.getByTestId('lab-tree-chapter-3').textContent).toContain('Not started')
     expect(screen.queryByRole('button', { name: /Current chapter/ })).toBeNull()
   })
+
+  it('lists highlights under their chapter in a flat non-Bible contents list', () => {
+    const onSelectHighlight = vi.fn()
+    const chapters = [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }, { number: 3, title: 'Book 3' }]
+    const highlight = { id: 'h3', chapterNumber: 3, paragraphIndex: 0, fromWord: 2, endParagraphIndex: 0, toWord: 7, color: 'gold' as const }
+    render(<LabPhoneBibleTree title="The Odyssey" chapters={chapters} currentChapter={3} finishedChapters={new Set()} highlights={[highlight]} onSelectChapter={() => {}} onSelectHighlight={onSelectHighlight} onClose={() => {}} />)
+    const annotation = screen.getByText('Highlighted passage')
+    expect(annotation.closest('.lab-map-chapter')?.contains(screen.getByTestId('lab-tree-chapter-3'))).toBe(true)
+    expect(screen.getByTestId('lab-tree-chapter-2').closest('.lab-map-chapter')?.querySelector('.lab-map-annotation')).toBeNull()
+    fireEvent.click(annotation)
+    expect(onSelectHighlight).toHaveBeenCalledWith(highlight)
+  })
 })

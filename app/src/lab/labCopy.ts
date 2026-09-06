@@ -1,5 +1,5 @@
 export const LAB_COPY = {
-  documentTitle: 'Tinct lab',
+  documentTitle: 'Tinct',
   bookTitle: 'The Bible',
   bookAuthor: 'Various',
   editionLabel: 'King James Version (1611)',
