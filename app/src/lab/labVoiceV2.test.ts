@@ -8,6 +8,8 @@ import {
   LAB_HOP_SPOKEN_LENGTH,
   pickLabCoverLine,
   SPEAK_CLAUDE_VERBATIM,
+  LAB_HOLDING_LINE,
+  LAB_TALK_HOLDING_POLICY,
 } from './labCompanion'
 import {
   buildLabTalkInstructionsV2,
@@ -59,6 +61,9 @@ describe('voice v2 instructions are concise and direct', () => {
     expect(text).toContain('answer directly')
     expect(text).toContain('never praise the question')
     expect(text).toContain('say nothing until it returns')
+    expect(text).toContain('never answer a book question yourself')
+    expect(text).toContain(LAB_TALK_HOLDING_POLICY.toLowerCase())
+    expect(text).toContain('never say you only have what is here')
     expect(text).toContain('the odyssey by homer')
     expect(text).toContain('tell me, o muse')
   })
@@ -98,10 +103,10 @@ describe('voice v2 instructions are concise and direct', () => {
 describe('voice v1 stays byte-for-byte on its own instructions', () => {
   it('still scripts the V1 cover line and verbatim brief', () => {
     const v1 = buildLabTalkInstructions(CONTEXT)
-    expect(v1).toContain('say exactly "Good question. Let me look that up."')
+    expect(v1).toContain(`say exactly "${LAB_HOLDING_LINE}"`)
     expect(v1).toContain('You do not do the deep thinking.')
-    expect(LAB_COVER_LINES).toEqual(['Good question. Let me look that up.'])
-    expect(pickLabCoverLine()).toBe('Good question. Let me look that up.')
+    expect(LAB_COVER_LINES).toEqual([LAB_HOLDING_LINE])
+    expect(pickLabCoverLine()).toBe(LAB_HOLDING_LINE)
     expect(SPEAK_CLAUDE_VERBATIM).toContain('the answer I received')
     expect(LAB_HOP_SPOKEN_LENGTH).toBe('Answer for the ear in a few spoken sentences unless the reader asked for more. Finish the thought. Do not write a long essay.')
   })

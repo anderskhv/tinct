@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LabAskPane } from './LabAskPane'
 import type { LabConversationState } from './labAsk'
 
@@ -306,5 +306,180 @@ describe('lab ask thread above composer', () => {
       { id: 'u2', role: 'user', content: 'What next?', source: 'typed' },
     ]} />)
     expect(thread.scrollTop).toBe(900)
+  })
+})
+
+describe('lab ask thread opens at the newest message', () => {
+  const metrics = { scrollHeight: 0, clientHeight: 300 }
+  const scrollHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
+  const clientHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
+  const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
+
+  beforeEach(() => {
+    metrics.scrollHeight = 2000
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
+      get(this: HTMLElement) { return isThread(this) ? metrics.scrollHeight : 0 },
+    })
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
+      configurable: true,
+      get(this: HTMLElement) { return isThread(this) ? metrics.clientHeight : 0 },
+    })
+  })
+
+  afterEach(() => {
+    if (scrollHeightDescriptor) Object.defineProperty(HTMLElement.prototype, 'scrollHeight', scrollHeightDescriptor)
+    if (clientHeightDescriptor) Object.defineProperty(HTMLElement.prototype, 'clientHeight', clientHeightDescriptor)
+  })
+
+  const history = (count: number, extra: Array<{ id: string; role: 'user' | 'assistant'; content: string }> = []) => [
+    ...Array.from({ length: count }, (_, i) => ({
+      id: `t${i}`,
+      role: (i % 2 === 0 ? 'user' : 'assistant') as 'user' | 'assistant',
+      content: `Turn ${i} of a long conversation about Jeremiah.`,
+      source: 'typed' as const,
+    })),
+    ...extra.map(turn => ({ ...turn, source: 'typed' as const })),
+  ]
+
+  const props = {
+    conversationState: 'idle' as const,
+    voiceActive: false,
+    typedLoading: false,
+    draft: '',
+    onDraftChange: () => { /* unused */ },
+    onSubmit: () => { /* unused */ },
+    onMic: () => { /* unused */ },
+    onVoiceMode: () => { /* unused */ },
+    phoneSheet: true,
+    onDone: () => { /* unused */ },
+  }
+
+  it('opens scrolled to the bottom with a long seeded history', () => {
+    render(<LabAskPane {...props} turns={history(40)} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    expect(thread.scrollTop).toBe(2000)
+  })
+
+  it('follows a new assistant message while the reader is at the bottom', () => {
+    const { rerender } = render(<LabAskPane {...props} turns={history(40)} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    expect(thread.scrollTop).toBe(2000)
+    metrics.scrollHeight = 2400
+    rerender(<LabAskPane {...props} turns={history(40, [{ id: 'a-new', role: 'assistant', content: 'In chapter 32, Jeremiah bought a field.' }])} />)
+    expect(thread.scrollTop).toBe(2400)
+    // Within LAB_ASK_FOLLOW_PX of the bottom still counts as at the bottom.
+    thread.scrollTop = 2400 - 300 - 40
+    fireEvent.scroll(thread)
+    metrics.scrollHeight = 2600
+    rerender(<LabAskPane {...props} turns={history(40, [
+      { id: 'a-new', role: 'assistant', content: 'In chapter 32, Jeremiah bought a field.' },
+      { id: 'a-new-2', role: 'assistant', content: 'Then in chapter 37 Zedekiah moved him.' },
+    ])} />)
+    expect(thread.scrollTop).toBe(2600)
+  })
+
+  it('does not yank a reader who scrolled up to read older messages', () => {
+    const { rerender } = render(<LabAskPane {...props} turns={history(40)} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    thread.scrollTop = 120
+    fireEvent.scroll(thread)
+    metrics.scrollHeight = 2400
+    rerender(<LabAskPane {...props} turns={history(40, [{ id: 'a-new', role: 'assistant', content: 'A message arriving while they read.' }])} />)
+    expect(thread.scrollTop).toBe(120)
+    // Their own new question still brings them to it.
+    metrics.scrollHeight = 2500
+    rerender(<LabAskPane {...props} turns={history(40, [
+      { id: 'a-new', role: 'assistant', content: 'A message arriving while they read.' },
+      { id: 'u-new', role: 'user', content: 'And then?' },
+    ])} />)
+    expect(thread.scrollTop).toBe(2500)
+  })
+})
+
+describe('lab ask thread shows the answer begin', () => {
+  const metrics = { scrollHeight: 0, clientHeight: 300 }
+  const descriptors = {
+    scrollHeight: Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight'),
+    clientHeight: Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight'),
+    rect: HTMLElement.prototype.getBoundingClientRect,
+  }
+  const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
+  const TURN_HEIGHT = 100
+
+  beforeEach(() => {
+    metrics.scrollHeight = 4000
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? metrics.scrollHeight : 0 } })
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? metrics.clientHeight : 0 } })
+    // Each turn is TURN_HEIGHT tall, stacked from the top of the thread.
+    HTMLElement.prototype.getBoundingClientRect = function (this: HTMLElement) {
+      const thread = this.closest('[data-testid="lab-ask-thread"]') as HTMLElement | null
+      let top = 0
+      if (isThread(this)) top = 0
+      else if (thread && this.classList.contains('lab-ask-turn')) {
+        const turnsBefore = Array.from(thread.querySelectorAll('.lab-ask-turn')).indexOf(this)
+        top = turnsBefore * TURN_HEIGHT - thread.scrollTop
+      }
+      return { top, bottom: top + TURN_HEIGHT, left: 0, right: 0, width: 0, height: TURN_HEIGHT, x: 0, y: top, toJSON: () => ({}) } as DOMRect
+    }
+  })
+
+  afterEach(() => {
+    if (descriptors.scrollHeight) Object.defineProperty(HTMLElement.prototype, 'scrollHeight', descriptors.scrollHeight)
+    if (descriptors.clientHeight) Object.defineProperty(HTMLElement.prototype, 'clientHeight', descriptors.clientHeight)
+    HTMLElement.prototype.getBoundingClientRect = descriptors.rect
+  })
+
+  const turnsOf = (count: number) => Array.from({ length: count }, (_, i) => ({
+    id: `t${i}`,
+    role: (i % 2 === 0 ? 'user' : 'assistant') as 'user' | 'assistant',
+    content: `Turn ${i}.`,
+    source: 'typed' as const,
+  }))
+
+  const props = {
+    conversationState: 'idle' as const,
+    voiceActive: false,
+    draft: '',
+    onDraftChange: () => { /* unused */ },
+    onSubmit: () => { /* unused */ },
+    onMic: () => { /* unused */ },
+    onVoiceMode: () => { /* unused */ },
+    phoneSheet: true,
+    onDone: () => { /* unused */ },
+  }
+
+  it('scrolls the first line of a new reply near the top, then follows only while its end is within reach', () => {
+    const history = turnsOf(40)
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    expect(thread.scrollTop).toBe(4000)
+    // The reader asks; the thread follows their own question.
+    const asked = [...history, { id: 'u-ask', role: 'user' as const, content: 'How did Jeremiah get out of prison?', source: 'typed' as const }]
+    metrics.scrollHeight = 4100
+    rerender(<LabAskPane {...props} typedLoading turns={asked} />)
+    expect(thread.scrollTop).toBe(4100)
+    // The reply begins: its first line is pinned near the top of the viewport (turn index 41).
+    const replying = [...asked, { id: 'a-reply', role: 'assistant' as const, content: 'In chapter 32', source: 'typed' as const }]
+    metrics.scrollHeight = 4200
+    rerender(<LabAskPane {...props} typedLoading turns={replying} />)
+    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - 8)
+    // Room below the reply so its first line can hold the top of the viewport while it is short.
+    expect(screen.getByTestId('lab-ask-thread-spacer').style.height).toBe(`${300 - TURN_HEIGHT - 8}px`)
+    // Streaming continues under a held first line: the text fills downward, the top does not move.
+    metrics.scrollHeight = 4300
+    rerender(<LabAskPane {...props} typedLoading turns={[...asked, { ...replying[replying.length - 1], content: 'In chapter 32, Jeremiah bought a field while in the court of the prison.' }]} />)
+    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - 8)
+    // A long reply grows past the viewport: the reader keeps reading from where they are.
+    thread.scrollTop = 3500
+    fireEvent.scroll(thread)
+    metrics.scrollHeight = 5000
+    rerender(<LabAskPane {...props} typedLoading turns={[...asked, { ...replying[replying.length - 1], content: 'A much longer reply. '.repeat(40) }]} />)
+    expect(thread.scrollTop).toBe(3500)
+    // The next question clears the room and follows the reader's own message again.
+    metrics.scrollHeight = 5100
+    rerender(<LabAskPane {...props} typedLoading turns={[...asked, replying[replying.length - 1], { id: 'u-next', role: 'user' as const, content: 'And then?', source: 'typed' as const }]} />)
+    expect(screen.getByTestId('lab-ask-thread-spacer').style.height).toBe('0px')
+    expect(thread.scrollTop).toBe(5100)
   })
 })

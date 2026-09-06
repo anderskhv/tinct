@@ -3,9 +3,11 @@ import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useTinctVoiceTools } from '../hooks/useTinctVoiceTools'
 import { useVoiceSession } from '../hooks/useVoiceSession'
+import { COMPANION_EFFORT_TYPED, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import type { TinctVoiceToolAdapter } from '../voice/tinctTools'
 import {
+  affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
   buildLabAskInstructions,
   isResumeListenCommand,
@@ -17,10 +19,18 @@ import {
   labTypedSkip,
   labTypedSpeed,
   type AssistantPace,
+  type LabAskContext,
   type LabAskTurn,
   type LabPlaybackSkip,
 } from './labAsk'
-import { buildLabTalkInstructions, queryLabCompanion, readAnthropicResponse, type CompanionAskNotify } from './labCompanion'
+import {
+  buildLabTalkInstructions,
+  labCompanionBookFields,
+  queryLabCompanion,
+  readAnthropicResponse,
+  type CompanionAskNotify,
+} from './labCompanion'
+import { buildLabReadingTrail, openingLineOf, recordTrailVisit, type LabReadingTrailEntry, type LabTrailVisit } from './labReadingTrail'
 import { buildLabTalkInstructionsV2, LAB_VOICE_TOOLS_V2, labConversationStateV2, queryLabCompanionV2 } from './labVoiceV2'
 import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
@@ -42,6 +52,8 @@ import {
   buildLabVoiceControlInstructions,
   labVoiceActionEntry,
   mergeLabVoiceTools,
+  shouldResumePlaybackAfterNavigation,
+  type LabPlaybackNavigationOutcome,
   type LabVoiceActionEntry,
   type LabVoiceViewSnapshot,
 } from './labVoiceControls'
@@ -61,9 +73,17 @@ export interface UseLabAskOptions {
   paragraphs: string[]
   paragraphIndex: number
   authToken?: string | null
+  /** Registry book id + edition key. Both present → requests carry `book` and the worker can read other chapters. */
+  bookId?: string
+  editionKey?: string
+  chapterCount?: number
+  /** Rendered page for the trail's "Now:" line; read at send time. */
+  getPage?: () => { pageNumber: number; totalPages: number } | null
+  /** True when opening this companion paused a playing audiobook (the session started from playback). */
+  playbackInterrupted?: () => boolean
   onResumeListen?: () => void
   onSetPlaybackSpeed?: (rate: number) => void
-  onPlaybackSkip?: (kind: LabPlaybackSkip) => void | Promise<void>
+  onPlaybackSkip?: (kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>
   voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
   onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
   onVoiceToolSessionStart?: () => void
@@ -96,6 +116,63 @@ export function useLabAsk(options: UseLabAskOptions) {
   chatBookRef.current = chatBook
 
   const sessionToken = session?.access_token ?? null
+  const viewerId = session?.user?.id ?? null
+
+  // Chapters the reader visited during this session, with their opening
+  // lines, for the companion's reading trail. Read-only observation of the
+  // rendered tuple; nothing here changes position logic.
+  const trailVisitsRef = useRef<LabTrailVisit[]>([])
+  const trailBookRef = useRef(options.bookId)
+  if (trailBookRef.current !== options.bookId) {
+    trailBookRef.current = options.bookId
+    trailVisitsRef.current = []
+  }
+  useEffect(() => {
+    if (options.chapterNumber == null || options.paragraphs.length === 0) return
+    trailVisitsRef.current = recordTrailVisit(trailVisitsRef.current, {
+      chapterNumber: options.chapterNumber,
+      label: options.chapterLabel,
+      openingLine: openingLineOf(options.paragraphs),
+      at: Date.now(),
+    })
+  }, [options.bookId, options.chapterNumber, options.chapterLabel, options.paragraphs])
+
+  const readTrail = useCallback(async (): Promise<LabReadingTrailEntry[]> => {
+    const current = optionsRef.current
+    if (!current.bookId) return []
+    try {
+      return await buildLabReadingTrail({
+        bookId: current.bookId,
+        editionKey: current.editionKey,
+        currentChapter: current.chapterNumber,
+        visits: trailVisitsRef.current,
+        viewer: viewerId,
+      })
+    } catch {
+      return []
+    }
+  }, [viewerId])
+
+  const askContextNow = useCallback((readingTrail: LabReadingTrailEntry[]): LabAskContext => {
+    const current = optionsRef.current
+    const page = current.getPage?.() ?? null
+    return {
+      bookTitle: current.bookTitle,
+      bookAuthor: current.bookAuthor,
+      chapterLabel: current.chapterLabel,
+      chapterNumber: current.chapterNumber,
+      editionLabel: current.editionLabel,
+      paragraphs: current.paragraphs,
+      paragraphIndex: current.paragraphIndex,
+      readingAngle: labReadingAngle(),
+      bookId: current.bookId,
+      editionKey: current.editionKey,
+      chapterCount: current.chapterCount,
+      pageNumber: page?.pageNumber,
+      totalPages: page?.totalPages,
+      readingTrail,
+    }
+  }, [])
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
   const syncRef = useRef(createLabChatHistorySync({ token: liveToken }))
   useEffect(() => {
@@ -133,6 +210,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     paragraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
     readingAngle: labReadingAngle(),
+    bookId: options.bookId,
+    editionKey: options.editionKey,
   }), [
     options.bookAuthor,
     options.bookTitle,
@@ -141,8 +220,9 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.editionLabel,
     options.paragraphIndex,
     options.paragraphs,
+    options.bookId,
+    options.editionKey,
   ])
-  const instructions = useMemo(() => buildLabAskInstructions(askContext), [askContext])
   const rememberedLabTurns = useMemo(() => {
     const acrossLibrary = readLabTalkHistory()
       .sort((a, b) => a.endTimestamp - b.endTimestamp)
@@ -183,33 +263,16 @@ export function useLabAsk(options: UseLabAskOptions) {
       readSession: readSupabaseAccessToken,
     })
     const query = isVoiceV2 ? queryLabCompanionV2 : queryLabCompanion
+    const context = askContextNow(await readTrail())
     return query({
       authToken,
-      system: buildLabAskInstructions({
-        bookTitle: optionsRef.current.bookTitle,
-        bookAuthor: optionsRef.current.bookAuthor,
-        chapterLabel: optionsRef.current.chapterLabel,
-        chapterNumber: optionsRef.current.chapterNumber,
-        editionLabel: optionsRef.current.editionLabel,
-        paragraphs: optionsRef.current.paragraphs,
-        paragraphIndex: optionsRef.current.paragraphIndex,
-        readingAngle: labReadingAngle(),
-      }),
+      system: buildLabAskInstructions(context),
       question,
-      context: {
-        bookTitle: optionsRef.current.bookTitle,
-        bookAuthor: optionsRef.current.bookAuthor,
-        chapterLabel: optionsRef.current.chapterLabel,
-        chapterNumber: optionsRef.current.chapterNumber,
-        editionLabel: optionsRef.current.editionLabel,
-        paragraphs: optionsRef.current.paragraphs,
-        paragraphIndex: optionsRef.current.paragraphIndex,
-        readingAngle: labReadingAngle(),
-      },
+      context,
       onDelta: notify?.onDelta,
       onFirstSpeakable: notify?.onFirstSpeakable,
     })
-  }, [isVoiceV2, sessionToken])
+  }, [askContextNow, isVoiceV2, readTrail, sessionToken])
 
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
@@ -379,6 +442,11 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     setTypedLoading(true)
     try {
+      const previousAssistant = [...turns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
+      // "Yes!!" after "we could go back a few chapters and have a look?" is
+      // consent to the lookup. The model gets the tools; the app ignores any
+      // move or resume marker it might still emit for that turn.
+      const lookupConsent = affirmativeAnswersLookupOffer(text, previousAssistant)
       const history = [...turns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
@@ -386,15 +454,18 @@ export function useLabAsk(options: UseLabAskOptions) {
         'Content-Type': 'application/json',
       }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
+      const context = askContextNow(await readTrail())
       const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
+          model: COMPANION_MODEL,
           max_tokens: 1024,
           stream: true,
-          system: instructions,
+          effort: COMPANION_EFFORT_TYPED,
+          system: buildLabAskInstructions(context),
           messages: history,
+          ...labCompanionBookFields(context),
         }),
       })
       if (response.status === 401) {
@@ -477,10 +548,22 @@ export function useLabAsk(options: UseLabAskOptions) {
         setAssistantPace(paced.pace)
         voice.setAssistantPace(paced.pace)
       }
-      if (skipped.skip) {
-        await optionsRef.current.onPlaybackSkip?.(skipped.skip)
+      const skip = lookupConsent ? null : skipped.skip
+      const resume = lookupConsent ? false : resumed.resume
+      let resumeAfterNavigation = false
+      if (skip) {
+        // A move opens the reader at the new place. It plays only when this
+        // companion session began from playback or the reader asked to hear
+        // the book; a move made to look something up never starts audio.
+        const outcome = await optionsRef.current.onPlaybackSkip?.(skip)
+        resumeAfterNavigation = outcome && typeof outcome === 'object'
+          ? outcome.resumePlayback
+          : shouldResumePlaybackAfterNavigation({
+              sessionStartedFromPlayback: optionsRef.current.playbackInterrupted?.() === true,
+              explicitPlayRequest: resume,
+            })
       }
-      if (resumed.resume || skipped.skip) {
+      if (resume || resumeAfterNavigation) {
         // Let a chapter skip commit (header + listen chapter) before Play.
         window.setTimeout(() => optionsRef.current.onResumeListen?.(), 0)
       }
@@ -490,7 +573,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       sendingRef.current = false
       setTypedLoading(false)
     }
-  }, [instructions, options.authToken, sessionToken, turns])
+  }, [askContextNow, options.authToken, readTrail, sessionToken, turns])
 
   return {
     turns,

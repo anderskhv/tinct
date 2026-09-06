@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
-import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
+import { VoiceSessionController, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { CompanionAskNotify } from '../lab/labCompanion'
 import type { CompanionAskResult, VoiceVersion } from '../voice/v2/voiceV2'
@@ -53,7 +53,7 @@ export interface UseVoiceSessionOptions {
   /** Lab-only. Production AudioStrip leaves this unset. */
   setPlaybackSpeed?: (rate: number) => void
   /** Lab-only. Production AudioStrip leaves this unset. */
-  skipPlayback?: (kind: LabPlaybackSkip) => void | Promise<void>
+  skipPlayback?: VoiceAudioEngine['skipPlayback']
   /** Lab-only. Production AudioStrip leaves this unset. */
   assistantPace?: AssistantPace
   onSetAssistantPace?: (pace: AssistantPace) => void

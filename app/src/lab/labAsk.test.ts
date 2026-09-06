@@ -3,12 +3,22 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { VOICE_AGENT_POLICY, VOICE_TOOLS } from '../voice/context'
 import {
+  affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
+  assistantOffersLookup,
+  isBareAffirmative,
   isStuckRepeatedLine,
   ASSISTANT_PACE_SPEED,
   buildLabAskInstructions,
   isResumeListenCommand,
+  LAB_ASK_BOOK_TOOLS_RULE,
+  LAB_ASK_LOOKUP_OFFER_RULE,
+  LAB_ASK_NO_DECLINE_RULE,
+  LAB_ASK_NO_PRAISE_RULE,
+  LAB_ASK_SYSTEM_CAP,
   LAB_VOICE_TOOLS,
+  lookupQuestionFromOffer,
+  renderLabReadingTrail,
   labTypedPace,
   labTypedResume,
   labTypedSkip,
@@ -68,7 +78,8 @@ describe('lab ask context', () => {
       readingAngle: 'homecoming',
     })
     expect(instructions).toContain('[2] So now all who escaped death')
-    expect(instructions).toContain('only have this chapter so far')
+    expect(instructions).toContain('only have the book up to this chapter so far')
+    expect(instructions).toContain('never say you cannot see them')
     expect(instructions).toContain('call resume_audiobook')
     expect(instructions).toContain('Never say you cannot control playback')
     expect(instructions).toContain('call set_assistant_pace')
@@ -372,5 +383,113 @@ describe('lab playback skip place', () => {
       paragraphCount: 3,
       chapters,
     })).toEqual({ chapterNumber: 1, paragraphIndex: 0, landing: 'start', chapterChanged: false })
+  })
+})
+
+describe('lab ask reading trail and in-book retrieval', () => {
+  const paragraphs = [
+    'And king Zedekiah the son of Josiah reigned instead of Coniah.',
+    'Then Zedekiah the king commanded that they should commit Jeremiah into the court of the prison.',
+  ]
+  const base = {
+    bookTitle: 'The Bible',
+    bookAuthor: 'Various',
+    chapterLabel: 'Jeremiah 37',
+    chapterNumber: 782,
+    chapterCount: 1189,
+    editionLabel: 'King James Version (1611)',
+    paragraphs,
+    paragraphIndex: 1,
+    pageNumber: 2,
+    totalPages: 3,
+    readingTrail: [
+      { chapterNumber: 777, label: 'Jeremiah 32', openingLine: 'The word that came to Jeremiah from the LORD in the tenth year of Zedekiah', recap: 'Jeremiah buys a field while shut up in the court of the prison.' },
+      { chapterNumber: 781, label: 'Jeremiah 36', openingLine: 'And it came to pass in the fourth year of Jehoiakim' },
+    ],
+  }
+
+  it('renders what the reader has read recently and the retrieval rule when a book is named', () => {
+    const instructions = buildLabAskInstructions({ ...base, bookId: 'bible', editionKey: 'kjv-en' })
+    expect(instructions).toContain(LAB_ASK_BOOK_TOOLS_RULE)
+    expect(instructions).toContain('use read_chapter or find_in_book to check the book before answering')
+    expect(instructions).toContain('Never say you cannot see earlier chapters')
+    expect(instructions).toContain('Never claim to have looked without calling a tool')
+    expect(instructions).toContain("Cite the chapter you used ('In chapter 37, verse 21…')")
+    expect(instructions).toContain('[What the reader has read recently]')
+    expect(instructions).toContain('- Jeremiah 32 (chapter 777) — opens "The word that came to Jeremiah from the LORD in the tenth year of Zedekiah" — recap: Jeremiah buys a field while shut up in the court of the prison.')
+    expect(instructions).toContain('- Jeremiah 36 (chapter 781) — opens "And it came to pass in the fourth year of Jehoiakim"')
+    expect(instructions).toContain('Now: Jeremiah 37 (chapter 782 of 1189), page 2 of 3, paragraph 2 of 2.')
+    expect(instructions.indexOf('[What the reader has read recently]')).toBeLessThan(instructions.indexOf('Full current chapter'))
+    expect(instructions).toContain(LAB_ASK_LOOKUP_OFFER_RULE)
+    expect(instructions).toContain('never offer to "go back and have a look"')
+  })
+
+  it('omits the retrieval rule and trail when no book is named, so plain fixtures stay tool-free', () => {
+    const instructions = buildLabAskInstructions({ ...base, readingTrail: undefined })
+    expect(instructions).not.toContain(LAB_ASK_BOOK_TOOLS_RULE)
+    expect(instructions).not.toContain('[What the reader has read recently]')
+    expect(renderLabReadingTrail({ ...base, readingTrail: [] })).toContain('No earlier chapters of this book are on record')
+  })
+
+  it('keeps the whole prompt under the worker cap even for a huge chapter', () => {
+    const huge = Array.from({ length: 900 }, (_, i) => `Paragraph ${i + 1}. ${'Word '.repeat(20)}`)
+    const instructions = buildLabAskInstructions({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })
+    expect(instructions.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
+    expect(instructions).toContain('[…chapter continues]')
+    expect(instructions).toContain('[What the reader has read recently]')
+  })
+})
+
+describe('bare affirmative after a lookup offer', () => {
+  const offer = 'I only have Jeremiah 37 in front of me, so I cannot say exactly how he got out. We could go back a few chapters and have a look?'
+
+  it('recognises bare affirmatives and nothing else', () => {
+    for (const text of ['Yes!!', 'yes', 'Yeah', 'ok', 'Okay, sure.', 'Yes please', 'go ahead', 'Sure, do it', 'yes, let\'s']) {
+      expect(isBareAffirmative(text), text).toBe(true)
+    }
+    for (const text of ['yes, go to chapter 32', 'no', 'resume', 'play the book', 'yes but what about Baruch', '']) {
+      expect(isBareAffirmative(text), text).toBe(false)
+    }
+  })
+
+  it('recognises an offer to look something up', () => {
+    expect(assistantOffersLookup(offer)).toBe(true)
+    expect(assistantOffersLookup('Want me to check chapter 32?')).toBe(true)
+    expect(assistantOffersLookup('I can look that up if you like.')).toBe(true)
+    expect(assistantOffersLookup('Shall I read the earlier chapter?')).toBe(true)
+    expect(assistantOffersLookup('Zedekiah moved him to the court of the prison.')).toBe(false)
+    expect(assistantOffersLookup('Is there anything else about this chapter?')).toBe(false)
+    expect(assistantOffersLookup('')).toBe(false)
+  })
+
+  it('treats "Yes!!" after the offer as consent to look, not a move or a resume', () => {
+    expect(affirmativeAnswersLookupOffer('Yes!!', offer)).toBe(true)
+    expect(affirmativeAnswersLookupOffer('Yes!!', 'Zedekiah is the king of Judah.')).toBe(false)
+    expect(affirmativeAnswersLookupOffer('go to the previous chapter', offer)).toBe(false)
+    expect(affirmativeAnswersLookupOffer('Yes!!', null)).toBe(false)
+    expect(isResumeListenCommand('Yes!!')).toBe(false)
+    expect(labTypedSkip('Going back. [[previous_chapter]]').skip).toBe('previous_chapter')
+    const question = lookupQuestionFromOffer(offer, 'Yes!!')
+    expect(question).toContain('"Yes!!"')
+    expect(question).toContain('go back a few chapters and have a look')
+    expect(question).toContain('without moving them to another chapter')
+  })
+})
+
+describe('no praise and no context-limit declines, typed and spoken', () => {
+  it('puts the rules in the companion prompt', () => {
+    const instructions = buildLabAskInstructions({
+      bookTitle: 'The Bible',
+      bookAuthor: 'Various',
+      chapterLabel: 'Jeremiah 38',
+      paragraphs: ['Then Shephatiah heard the words that Jeremiah had spoken.'],
+      paragraphIndex: 0,
+    })
+    expect(instructions).toContain(LAB_ASK_NO_PRAISE_RULE)
+    expect(instructions).toContain('no "Good question", "Good catch", "Great point", "Fair question"')
+    expect(instructions).toContain(LAB_ASK_NO_DECLINE_RULE)
+    expect(instructions).toContain(`Never say "I only have what's here"`)
+    expect(instructions).toContain(`"I can't explain what comes after this chapter"`)
+    expect(instructions).toContain('"The ending" means the end of the chapter the reader is in')
   })
 })

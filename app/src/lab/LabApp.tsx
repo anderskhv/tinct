@@ -78,6 +78,8 @@ import {
   getLabVoiceReadingHistory,
   type LabVoiceActionEntry,
   type LabVoiceViewSnapshot,
+  shouldResumePlaybackAfterNavigation,
+  type LabPlaybackNavigationOutcome,
 } from './labVoiceControls'
 import type { VoiceTinctView } from '../voice/tinctTools'
 import { getBook } from '../data/bookRegistry'
@@ -361,6 +363,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const askInputRef = useRef<HTMLInputElement | null>(null)
+  /** Rendered page for the companion's reading trail; written once chapter progress is known. */
+  const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
+  const playbackInterruptedRef = useRef<() => boolean>(() => false)
   const [gearOpen, setGearOpen] = useState(false)
   const [desktopAskOpen, setDesktopAskOpen] = useState(false)
   const [marks, setMarks] = useState<LabMark[]>([])
@@ -551,7 +556,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const resumeListenRef = useRef<() => void>(() => {})
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
   const listenSpeedRef = useRef(1)
-  const skipRef = useRef<(kind: LabPlaybackSkip) => void | Promise<void>>(() => {})
+  const skipRef = useRef<(kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>>(() => {})
 
   const openLabVoiceView = useCallback((view: VoiceTinctView) => {
     setVoiceLabView(view)
@@ -640,6 +645,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     paragraphs: book.paragraphs,
     paragraphIndex: focusParagraph ?? 0,
     authToken,
+    bookId: book.bookId || 'bible',
+    editionKey: readerEditionKey,
+    chapterCount: book.chapters.length,
+    getPage: () => askPageRef.current,
+    playbackInterrupted: () => playbackInterruptedRef.current(),
     onResumeListen: () => resumeListenRef.current(),
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
@@ -1629,6 +1639,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const returnToRef = useRef(returnTo)
   returnToRef.current = returnTo
   const pausedForAskRef = useRef(false)
+  playbackInterruptedRef.current = () => pausedForAskRef.current
   const stayInAskRef = useRef(false)
   const phoneAskOpenRef = useRef(phoneAskOpen)
   phoneAskOpenRef.current = phoneAskOpen
@@ -1800,6 +1811,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     wordIndex: showHearing && listen.follow.kind === 'word' ? listen.follow.wordIndex : readingTail?.to,
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
+  askPageRef.current = { pageNumber: chapterProgress.currentPage, totalPages: chapterProgress.totalPages }
   // Durable reading memory: a read-only observer of the rendered tuple. It
   // records sessions for the library recap and never touches position logic.
   useLabReadingMemory({
@@ -2319,10 +2331,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     goToParagraph(highlight.paragraphIndex)
   }, [book.chapterNumber, goToParagraph])
 
-  const applyPlaybackSkip = useCallback(async (kind: LabPlaybackSkip) => {
-    pausedForAskRef.current = true
-    setReturnTo('hearing')
-    returnToRef.current = 'hearing'
+  const applyPlaybackSkip = useCallback(async (kind: LabPlaybackSkip): Promise<LabPlaybackNavigationOutcome> => {
+    // A companion-initiated move opens the reader at the new place. It only
+    // brings the audiobook back when this companion session paused it; a move
+    // from ordinary reading (or one made to look something up) stays silent.
+    const outcome: LabPlaybackNavigationOutcome = {
+      resumePlayback: shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: pausedForAskRef.current }),
+    }
     const resolved = resolveLabPlaybackSkip({
       kind,
       chapterNumber: book.chapterNumber,
@@ -2335,9 +2350,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         setFinishedChapters(markChapterFinished(book.chapterNumber))
       }
       await goToChapter(resolved.chapterNumber, resolved.landing)
-      return
+      return outcome
     }
-    goToParagraph(resolved.paragraphIndex, { seekAudio: true })
+    goToParagraph(resolved.paragraphIndex, { seekAudio: outcome.resumePlayback })
+    return outcome
   }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph])
   skipRef.current = applyPlaybackSkip
 

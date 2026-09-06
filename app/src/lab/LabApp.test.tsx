@@ -888,7 +888,7 @@ describe('lab chrome', () => {
     })
     const body = JSON.parse(String(chatCall?.[1]?.body))
     expect(body.system).toContain('[2] So now all who escaped death')
-    expect(body.system).toContain('only have this chapter so far')
+    expect(body.system).toContain('only have the book up to this chapter so far')
     expect(body.system).not.toContain('Speak for about 20')
     expect(body.system).toContain('resume_audiobook')
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
@@ -2103,7 +2103,7 @@ describe('lab bible book', () => {
     expect(document.querySelector('.lab-hearing-line')?.textContent).toMatch(/unpunished|Commit thy works/i)
   })
 
-  it('next_chapter moves Genesis and plays after the confirm line', async () => {
+  it('next_chapter from chat opens Genesis 2 without starting the audiobook when reading', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
       constructor() { return audio }
@@ -2142,13 +2142,61 @@ describe('lab bible book', () => {
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
     expect(JSON.parse(localStorage.getItem('tinct-lab-finished-chapters') || '[]')).toContain(1)
-    expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Genesis 2.')
+    })
+    await new Promise(resolve => setTimeout(resolve, 20))
+    // The move opened the chapter; it did not start audio, and the chat stayed open.
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    expect(audio.paused).toBe(true)
+    expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    expect(screen.queryByTestId('lab-hearing-back')).toBeNull()
+  })
+
+  it('next_chapter from chat resumes the audiobook only when chat interrupted playback', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const bibleFetch = mockBibleFetch()
+    vi.stubGlobal('fetch', async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/chat')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ content: [{ text: 'Genesis 2. [[next_chapter]]' }] }),
+        }
+      }
+      return bibleFetch(input)
+    })
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...bibleFallbackSource(),
+      paragraphs: ['In the beginning God created the heaven and the earth.', 'And the earth was without form, and void.'],
+      followParagraphs: [
+        { index: 0, text: 'In the beginning God created the heaven and the earth.', file: 'p0.mp3', duration: 4 },
+        { index: 1, text: 'And the earth was without form, and void.', file: 'p1.mp3', duration: 4 },
+      ],
+      chapters: [
+        { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
+        { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
+      ],
+    }} authToken="signed-in" />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(screen.queryByTestId('lab-phone-chat')).toBeNull()
-    expect(screen.getByTestId('lab-hearing-back')).toBeTruthy()
-    expect(screen.getByTestId('lab-phone-talk').getAttribute('aria-label')).toBe('Talk')
+    openDesktopAsk()
+    expect(audio.paused).toBe(true)
+    fireEvent.change(screen.getByPlaceholderText('Ask'), { target: { value: 'next chapter' } })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
+    })
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
+    })
+    expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
   })
 
   it('does not start the book after a plain book question', async () => {

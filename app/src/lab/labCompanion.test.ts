@@ -1,12 +1,17 @@
 import { describe, expect, it, vi } from 'vitest'
+import { COMPANION_MODEL } from '../companionModel'
 import { VOICE_AGENT_POLICY } from '../voice/context'
 import {
   ASK_COMPANION_TOOL,
   LAB_ASK_COMPANION_TOOL,
   LAB_COVER_LINES,
+  LAB_HOLDING_LINE,
   LAB_HOP_MAX_TOKENS,
   LAB_HOP_SPOKEN_LENGTH,
+  LAB_STILL_LOOKING_LINE,
+  LAB_TALK_HOLDING_POLICY,
   SPEAK_CLAUDE_VERBATIM,
+  holdingLineInstructions,
   buildCompanionHopUserContent,
   buildLabTalkInstructions,
   companionHopLooksIncomplete,
@@ -38,28 +43,32 @@ const CONTEXT = {
 }
 
 describe('lab escalate gate', () => {
-  it('does not escalate playback commands or tiny confirms', () => {
+  it('keeps only playback commands, tiny confirms, greetings and goodbyes on Realtime', () => {
     expect(isLabPlaybackUtterance('go faster')).toBe(true)
     expect(isLabPlaybackUtterance('next chapter')).toBe(true)
     expect(isLabPlaybackUtterance('play this chapter from the beginning')).toBe(true)
     expect(isLabPlaybackUtterance('resume')).toBe(true)
     expect(isLabPlaybackUtterance('skip ahead')).toBe(true)
-    expect(shouldEscalateToCompanion('go faster')).toBe(false)
-    expect(shouldEscalateToCompanion('next chapter')).toBe(false)
-    expect(shouldEscalateToCompanion('resume')).toBe(false)
-    expect(shouldEscalateToCompanion('skip')).toBe(false)
-    expect(shouldEscalateToCompanion('play')).toBe(false)
-    expect(shouldEscalateToCompanion('ok')).toBe(false)
-    expect(shouldEscalateToCompanion('thanks')).toBe(false)
-    expect(shouldEscalateToCompanion('yes')).toBe(false)
+    for (const text of ['go faster', 'next chapter', 'resume', 'skip', 'play', 'ok', 'thanks', 'yes', 'hello', 'Hi there', 'bye', 'Okay, goodbye.', 'thank you very much', "that's it for now", '']) {
+      expect(shouldEscalateToCompanion(text), text).toBe(false)
+    }
   })
 
-  it('escalates book questions that need a mind', () => {
-    expect(shouldEscalateToCompanion('what does this mean')).toBe(true)
-    expect(shouldEscalateToCompanion('Compare Athena and Telemachus here.')).toBe(true)
-    expect(shouldEscalateToCompanion('What is the theological argument in this council?')).toBe(true)
-    expect(shouldEscalateToCompanion('Who is Calypso in this opening?')).toBe(true)
-    expect(shouldEscalateToCompanion('Why does Poseidon stay away?')).toBe(true)
+  it('escalates every other reader utterance about the book, however short', () => {
+    for (const text of [
+      'what does this mean',
+      'Compare Athena and Telemachus here.',
+      'What is the theological argument in this council?',
+      'Who is Calypso in this opening?',
+      'Why does Poseidon stay away?',
+      'But what does the king want?',
+      'Can you explain the ending to me?',
+      'who is he',
+      'Hmm, the king seems afraid.',
+      'What happens next chapter?',
+    ]) {
+      expect(shouldEscalateToCompanion(text), text).toBe(true)
+    }
   })
 })
 
@@ -84,7 +93,12 @@ describe('talk instructions stay the ear and mouth', () => {
   it('keeps Realtime on tools and cover, not the in-car brief', () => {
     const talk = buildLabTalkInstructions(CONTEXT)
     expect(talk).toContain(ASK_COMPANION_TOOL)
-    expect(talk).toContain('Good question. Let me look that up.')
+    expect(talk).toContain(`say exactly "${LAB_HOLDING_LINE}"`)
+    expect(talk).not.toMatch(/say exactly "good question|good question\. let me look/i)
+    expect(talk).toContain('Never answer a book question yourself')
+    expect(talk).toContain('never say you only have what is here')
+    expect(talk).toContain(LAB_TALK_HOLDING_POLICY)
+    expect(talk).toContain('Never praise the question or the reader')
     expect(talk).toContain('Never say you are thinking')
     expect(talk).toContain('Do not invent a thinner substitute')
     expect(talk).toContain('Never mention a tool, a hop, a cutoff')
@@ -125,7 +139,8 @@ describe('no-dead-air cover', () => {
     expect(spoken[0]).not.toMatch(/please hold|one moment please|searching/i)
     expect(queryStarted).toBe(true)
     expect(coveredBeforeQuery).toBe(true)
-    expect(spoken[0]).toBe('Good question. Let me look that up.')
+    expect(spoken[0]).toBe(LAB_HOLDING_LINE)
+    expect(spoken[0]).not.toMatch(/good question|companion|waiting/i)
 
     const result = await hop
     expect(result.covered).toBe(true)
@@ -222,7 +237,7 @@ describe('signed-out lab hop', () => {
       system: string
       messages: Array<{ content: string }>
     }
-    expect(body.model).toBe('claude-sonnet-4-6')
+    expect(body.model).toBe(COMPANION_MODEL)
     expect(body.stream).toBe(true)
     expect(body.max_tokens).toBe(LAB_HOP_MAX_TOKENS)
     expect(body.system).toContain('only have this chapter so far')
@@ -298,5 +313,19 @@ describe('signed-out lab hop', () => {
     expect(text).toBe("Keller would treat Genesis 1 as a theological statement of God's good world.")
     expect(text).not.toMatch(/cut off|the answer I received/i)
     vi.unstubAllGlobals()
+  })
+})
+
+
+describe('holding lines never narrate the mechanism', () => {
+  it('scripts one short line and forbids everything else', () => {
+    for (const line of [LAB_HOLDING_LINE, LAB_STILL_LOOKING_LINE]) {
+      const instructions = holdingLineInstructions(line)
+      expect(instructions).toContain(`"${line}"`)
+      expect(instructions).toContain('Do not answer yet')
+      expect(instructions).toContain('Do not call any tools')
+      expect(line).not.toMatch(/good question|companion|waiting on|full explanation/i)
+    }
+    expect(LAB_STILL_LOOKING_LINE).toBe('Still looking, back in a moment.')
   })
 })
