@@ -11,6 +11,7 @@ import {
 import {
   clearLabPositionLocal,
   createLabPositionSync,
+  migrateLegacyFinishedChapters,
   putLabPositionCloud,
   readLabPositionDirty,
   readLabPositionLocal,
@@ -46,6 +47,7 @@ function stateWithRomans(): LabPositionState {
 
 afterEach(() => {
   clearLabPositionLocal()
+  try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
 })
@@ -180,5 +182,25 @@ describe('boot restore', () => {
     expect(boot.book.chapterNumber).toBe(1054)
     expect(boot.place).toEqual({ paragraphIndex: 4, wordIndex: 11 })
     expect(boot.book.headerBook).not.toBe('Genesis')
+  })
+})
+
+describe('finished chapters in the local store', () => {
+  it('folds the legacy device-only list into the record under bible once, then drops the key', () => {
+    writeLabPositionLocal({ ...stateWithRomans(), finished: { bible: [1] } })
+    localStorage.setItem('tinct-lab-finished-chapters', JSON.stringify([747, 2]))
+    const migrated = migrateLegacyFinishedChapters(readLabPositionLocal(DEVICE))
+    expect(migrated.finished).toEqual({ bible: [1, 2, 747] })
+    expect(localStorage.getItem('tinct-lab-finished-chapters')).toBeNull()
+    expect(readLabPositionLocal(DEVICE).finished).toEqual({ bible: [1, 2, 747] })
+    expect(resumePlace(readLabPositionLocal(DEVICE))?.bookId).toBe('romans')
+    expect(migrateLegacyFinishedChapters(readLabPositionLocal(DEVICE))).toEqual(readLabPositionLocal(DEVICE))
+  })
+
+  it('keeps finished chapters from an older tab when a newer record without them is written', () => {
+    writeLabPositionLocal({ ...stateWithRomans(), finished: { bible: [746] } })
+    const stored = writeLabPositionLocal({ ...stateWithRomans(), updatedAt: 41_000, finished: { bible: [747] } })
+    expect(stored.finished).toEqual({ bible: [746, 747] })
+    expect(readLabPositionLocal(DEVICE).finished).toEqual({ bible: [746, 747] })
   })
 })

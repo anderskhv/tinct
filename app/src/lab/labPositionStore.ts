@@ -1,4 +1,5 @@
 import { apiUrl } from '../utils/apiUrl'
+import { LAB_FINISHED_STORAGE_KEY, readFinishedChapters } from './labBibleTree'
 import {
   LAB_POSITION_DEVICE_KEY,
   LAB_POSITION_DIRTY_KEY,
@@ -6,6 +7,7 @@ import {
   emptyLabPositionState,
   mergeLabPositionStatesByTime,
   parseLabPositionState,
+  unionFinishedChapters,
   type LabPositionState,
 } from './labPosition'
 
@@ -45,6 +47,24 @@ export function readLabPositionLocal(deviceId = readLabDeviceId()): LabPositionS
   } catch {
     return emptyLabPositionState(deviceId)
   }
+}
+
+/**
+ * Before finished chapters lived in the position record they sat in a flat,
+ * device-only `tinct-lab-finished-chapters` list (sequential chapter numbers
+ * of whatever book was open; in practice the Bible). Fold that list into the
+ * record once, under `bible`, so it starts syncing, then drop the old key.
+ */
+export function migrateLegacyFinishedChapters(state: LabPositionState): LabPositionState {
+  const legacy = readFinishedChapters()
+  if (legacy.size === 0) return state
+  const next = {
+    ...state,
+    finished: unionFinishedChapters(state.finished, { bible: [...legacy] }),
+  }
+  const stored = writeLabPositionLocal(next)
+  try { localStorage.removeItem(LAB_FINISHED_STORAGE_KEY) } catch { /* private mode */ }
+  return stored
 }
 
 function idbAvailable(): boolean {

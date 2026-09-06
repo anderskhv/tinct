@@ -23,6 +23,9 @@
  * - Every note writes localStorage synchronously (merge-before-write, newer
  *   per-book record wins). Only the cloud PUT is debounced.
  * - Record is small: books map + lastSettledBookId. GET/PUT /api/lab-position.
+ * - Finished chapters ride in the same record (`finished[libraryBookId]`, sorted
+ *   sequential chapter numbers) so they survive devices and reloads like the
+ *   pin does. A finish is monotonic: merges union, never regress.
  */
 export const LAB_POSITION_STORAGE_KEY = 'tinct-lab-position'
 export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-device-id'
@@ -78,6 +81,11 @@ function withReaderState(place: LabBookPlace, readerState?: LabReaderStateSnapsh
 
 export interface LabPositionState {
   books: Record<string, LabBookPlace>
+  /**
+   * Chapters the reader turned past (or heard to the end), keyed by library
+   * bookId (`bible`, `odyssey`, …) with sequential chapter numbers, sorted.
+   */
+  finished: Record<string, number[]>
   lastSettledBookId: string | null
   lastSettledAt: number
   updatedAt: number
@@ -92,10 +100,58 @@ export interface LabChapterRef {
 export function emptyLabPositionState(deviceId: string): LabPositionState {
   return {
     books: {},
+    finished: {},
     lastSettledBookId: null,
     lastSettledAt: 0,
     updatedAt: 0,
     deviceId,
+  }
+}
+
+const MAX_FINISHED_PER_BOOK = 5000
+
+function normalizeFinishedList(raw: unknown): number[] {
+  if (!Array.isArray(raw)) return []
+  const seen = new Set<number>()
+  for (const item of raw) {
+    if (isFiniteInt(item, 1, 5000)) seen.add(item)
+    if (seen.size >= MAX_FINISHED_PER_BOOK) break
+  }
+  return [...seen].sort((a, b) => a - b)
+}
+
+export function parseFinishedChapters(raw: unknown): Record<string, number[]> {
+  if (!raw || typeof raw !== 'object') return {}
+  const finished: Record<string, number[]> = {}
+  for (const [bookId, list] of Object.entries(raw as Record<string, unknown>)) {
+    if (!bookId || bookId.length > 80) continue
+    const chapters = normalizeFinishedList(list)
+    if (chapters.length > 0) finished[bookId] = chapters
+  }
+  return finished
+}
+
+/** Union per book; a chapter once finished stays finished on every device. */
+export function unionFinishedChapters(a: Record<string, number[]>, b: Record<string, number[]>): Record<string, number[]> {
+  const out: Record<string, number[]> = {}
+  for (const bookId of new Set([...Object.keys(a), ...Object.keys(b)])) {
+    const merged = normalizeFinishedList([...(a[bookId] || []), ...(b[bookId] || [])])
+    if (merged.length > 0) out[bookId] = merged
+  }
+  return out
+}
+
+export function finishedChaptersFor(state: LabPositionState, bookId: string): Set<number> {
+  return new Set(state.finished[bookId] || [])
+}
+
+export function withFinishedChapter(state: LabPositionState, bookId: string, sequentialChapter: number, now: number): LabPositionState {
+  if (!isFiniteInt(sequentialChapter, 1, 5000) || !bookId) return state
+  if (state.finished[bookId]?.includes(sequentialChapter)) return state
+  return {
+    ...state,
+    finished: unionFinishedChapters(state.finished, { [bookId]: [sequentialChapter] }),
+    updatedAt: Math.max(state.updatedAt, now),
   }
 }
 
@@ -213,7 +269,7 @@ export function parseLabPositionState(raw: unknown, fallbackDeviceId = 'lab'): L
     : null
   const lastSettledAt = isFiniteInt(src.lastSettledAt, 0, 1e15) ? src.lastSettledAt : 0
   const updatedAt = isFiniteInt(src.updatedAt, 0, 1e15) ? src.updatedAt : 0
-  return { books, lastSettledBookId, lastSettledAt, updatedAt, deviceId }
+  return { books, finished: parseFinishedChapters(src.finished), lastSettledBookId, lastSettledAt, updatedAt, deviceId }
 }
 
 export function resumePlace(state: LabPositionState): LabBookPlace | null {
@@ -285,6 +341,7 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
 
   return {
     books,
+    finished: unionFinishedChapters(local.finished, cloud.finished),
     lastSettledBookId,
     lastSettledAt,
     updatedAt: Math.max(local.updatedAt, cloud.updatedAt),
@@ -311,6 +368,7 @@ export function mergeLabPositionStatesByTime(local: LabPositionState, incoming: 
   }
   return {
     books,
+    finished: unionFinishedChapters(local.finished, incoming.finished),
     lastSettledBookId,
     lastSettledAt,
     updatedAt: Math.max(local.updatedAt, incoming.updatedAt),
@@ -336,6 +394,12 @@ export interface LabPositionController {
   state(): LabPositionState
   replace(state: LabPositionState): void
   note(input: LabPositionNote): LabPositionState
+  /**
+   * The reader turned past the last page (or heard the chapter out). An
+   * explicit (bookId, chapter) tuple, never the in-memory place, so no
+   * suspension gate can drop it; persisted at once.
+   */
+  finish(input: { bookId: string; sequentialChapter: number; now?: number }): LabPositionState
   applyCloud(cloud: LabPositionState, chapters: LabChapterRef[]): LabPositionState
   resume(): LabBookPlace | null
   flush(): LabPositionState
@@ -469,6 +533,13 @@ export function createLabPositionController(opts: {
 
       if (persistImmediate(input.reason) || firstPin) persist('immediate', input.reason)
       else scheduleDebounce(input.reason)
+      return state
+    },
+    finish(input) {
+      const next = withFinishedChapter(state, input.bookId, input.sequentialChapter, input.now ?? nowFn())
+      if (next === state) return state
+      state = { ...next, deviceId: opts.deviceId }
+      persist('immediate')
       return state
     },
     applyCloud(cloud, chapters) {

@@ -33,7 +33,9 @@ import {
   type LabVoiceGatePhase,
 } from './labChrome'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
-import { markChapterFinished, readFinishedChapters } from './labBibleTree'
+import { labChapterStatuses, labFinishedChapterSet } from './labChapterStatus'
+import { readDeviceReadingMemory } from '../readingMemory'
+import { useAuth } from '../hooks/useAuth'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import {
   bibleEditions,
@@ -299,6 +301,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
   const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
+  const { user: authUser } = useAuth()
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
@@ -336,7 +339,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
-  const [finishedChapters, setFinishedChapters] = useState(() => readFinishedChapters())
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [pageTurn, setPageTurn] = useState<{
@@ -691,7 +693,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerHandoff
     && ((book.bookId || 'bible') !== readerHandoff.bookId || book.paragraphs.length === 0),
   )
-  const { notePlace, biblicalBook } = useLabPositionSync({
+  const { notePlace, biblicalBook, finishedChapters, markChapterFinished, readPositionState } = useLabPositionSync({
     book,
     placeRef,
     readerStateRef,
@@ -1815,6 +1817,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
   })
+  // Picker rows: the position record's finished signal cross-checked with
+  // reading memory (a `completed` session marks Finished even if the flag was
+  // missed; any session or pin marks In progress). Read when the picker opens.
+  const pickerStatuses = useMemo(() => {
+    if (!tocOpen) return new Map()
+    return labChapterStatuses({
+      bookId: book.bookId || 'bible',
+      chapterNumbers: book.chapters.map(chapter => chapter.number),
+      finished: finishedChapters,
+      memory: readDeviceReadingMemory(),
+      position: readPositionState(),
+      viewer: authUser?.id ?? null,
+    })
+  }, [authUser?.id, book.bookId, book.chapters, finishedChapters, readPositionState, tocOpen])
   const footProgress = labFootProgress({
     chapterNumber: book.chapterNumber,
     chapterLabel: book.chapterLabel,
@@ -2276,6 +2292,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   audioChapterCompleteRef.current = () => {
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     if (next == null) return false
+    // Hearing a chapter out is finishing it, same as turning past the last page.
+    markChapterFinished(book.chapterNumber)
     void goToChapter(next, 'start')
     return true
   }
@@ -2332,13 +2350,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
     if (resolved.chapterChanged) {
       if (resolved.chapterNumber > book.chapterNumber) {
-        setFinishedChapters(markChapterFinished(book.chapterNumber))
+        markChapterFinished(book.chapterNumber)
       }
       await goToChapter(resolved.chapterNumber, resolved.landing)
       return
     }
     goToParagraph(resolved.paragraphIndex, { seekAudio: true })
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph, markChapterFinished])
   skipRef.current = applyPlaybackSkip
 
   const goNext = useCallback(() => {
@@ -2367,11 +2385,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     if (next != null) {
-      setFinishedChapters(markChapterFinished(book.chapterNumber))
+      markChapterFinished(book.chapterNumber)
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished])
 
   const goPrev = useCallback(() => {
     if (chapterCoverTitle) {
@@ -3176,7 +3194,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             chapters={book.chapters}
             currentChapter={book.chapterNumber}
             sections={book.sections}
-            finishedChapters={finishedChapters}
+            finishedChapters={labFinishedChapterSet(pickerStatuses)}
+            statuses={pickerStatuses}
             highlights={highlightsApi.highlights}
             conversations={readLabTalkHistory(biblicalBook)}
             onSelectChapter={(number) => {

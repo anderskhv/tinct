@@ -128,7 +128,11 @@ function stubPositionApi(cloud: Promise<LabPositionState | null>) {
   }
 }
 
-const harness: { notePlace: ReturnType<typeof useLabPositionSync>['notePlace'] | null } = { notePlace: null }
+const harness: {
+  notePlace: ReturnType<typeof useLabPositionSync>['notePlace'] | null
+  markChapterFinished: ReturnType<typeof useLabPositionSync>['markChapterFinished'] | null
+  finishedChapters: Set<number>
+} = { notePlace: null, markChapterFinished: null, finishedChapters: new Set() }
 
 function Harness(props: {
   book: LabSource
@@ -136,7 +140,7 @@ function Harness(props: {
   onRemoteResume: (place: LabBookPlace) => void
   token?: string | null
 }) {
-  const { notePlace } = useLabPositionSync({
+  const { notePlace, markChapterFinished, finishedChapters } = useLabPositionSync({
     book: props.book,
     placeRef: props.placeRef,
     sourceLocked: false,
@@ -144,6 +148,8 @@ function Harness(props: {
     onRemoteResume: props.onRemoteResume,
   })
   harness.notePlace = notePlace
+  harness.markChapterFinished = markChapterFinished
+  harness.finishedChapters = finishedChapters
   return null
 }
 
@@ -160,6 +166,9 @@ beforeEach(() => {
 afterEach(() => {
   cleanup()
   harness.notePlace = null
+  harness.markChapterFinished = null
+  harness.finishedChapters = new Set()
+  try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
   clearLabPositionLocal()
   try { localStorage.removeItem(LAB_POSITION_DEVICE_KEY) } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-position-dirty') } catch { /* jsdom */ }
@@ -320,5 +329,38 @@ describe('bookFromResumePlace', () => {
     expect(book.chapterNumber).toBe(645)
     expect(book.chaptersProvisional).toBe(true)
     expect(bibleFallbackSource().chaptersProvisional).toBe(true)
+  })
+})
+
+describe('finished chapters sync with the position record', () => {
+  it('writes a finished chapter to the local record and PUTs it at once, and it is there after a reload', async () => {
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    const { unmount } = render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    await settle()
+    expect(harness.finishedChapters.size).toBe(0)
+    act(() => { harness.markChapterFinished!(645) })
+    expect(harness.finishedChapters).toEqual(new Set([645]))
+    expect(readLabPositionLocal(PHONE).finished).toEqual({ bible: [645] })
+    await settle()
+    const put = api.puts()[api.puts().length - 1]
+    expect(put).toBeTruthy()
+    expect(JSON.parse(String(put!.init?.body)).finished).toEqual({ bible: [645] })
+    unmount()
+    render(<Harness book={manifestBook(646)} placeRef={placeRef} onRemoteResume={() => {}} token={null} />)
+    expect(harness.finishedChapters).toEqual(new Set([645]))
+  })
+
+  it('adopts finished chapters from the cloud and the legacy device list on boot', async () => {
+    localStorage.setItem('tinct-lab-finished-chapters', JSON.stringify([644]))
+    stubPositionApi(Promise.resolve({ ...settledProverbsLocal(), deviceId: DESK, finished: { bible: [1134], odyssey: [2] } }))
+    const placeRef = { current: { paragraphIndex: 0, wordIndex: 0 } }
+    render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    expect(harness.finishedChapters).toEqual(new Set([644]))
+    expect(localStorage.getItem('tinct-lab-finished-chapters')).toBeNull()
+    await waitFor(() => {
+      expect(harness.finishedChapters).toEqual(new Set([644, 1134]))
+    })
+    expect(readLabPositionLocal(PHONE).finished).toEqual({ bible: [644, 1134], odyssey: [2] })
   })
 })

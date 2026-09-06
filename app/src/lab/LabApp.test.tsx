@@ -12,6 +12,8 @@ import { LabVoiceGate } from './LabConversation'
 import { bibleFallbackSource, fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { followParagraphFromManifest } from './labFollow'
 import { persistLabTalkTurn } from './labTalkHistory'
+import { readLabPositionLocal } from './labPositionStore'
+import { READING_MEMORY_DEVICE_KEY } from '../readingMemory'
 
 afterEach(() => {
   cleanup()
@@ -21,6 +23,7 @@ afterEach(() => {
   try { localStorage.removeItem('tinct-lab-prefs') } catch { /* jsdom */ }
     try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:reading-memory') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-highlights') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-highlights-tap-cleanup-v1') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
@@ -2141,7 +2144,7 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
-    expect(JSON.parse(localStorage.getItem('tinct-lab-finished-chapters') || '[]')).toContain(1)
+    expect(readLabPositionLocal().finished.bible).toContain(1)
     expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
@@ -3895,5 +3898,133 @@ describe('lab ask history persist', () => {
     expect((await screen.findByTestId('lab-ask-turn-assistant')).textContent).toContain('Paul wrote Romans.')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-chat-history'))).toBe(false)
     expect(localStorage.getItem('tinct:chat-history:lab')).toContain('Who wrote Romans?')
+  })
+})
+
+describe('lab chapter progress (picker)', () => {
+  const genesisSections = [{ title: 'Old Testament', sections: [{ title: 'The Pentateuch', sections: [{ title: 'Genesis', chapters: [1, 2, 3] }] }] }]
+  const genesisChapters = [
+    { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
+    { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
+    { number: 3, title: 'Genesis 3', path: 'ch0003.json' },
+  ]
+  function genesisFetch() {
+    const text: Record<string, string[]> = {
+      ch0001: ['In the beginning God created the heaven and the earth.'],
+      ch0002: ['Thus the heavens and the earth were finished.'],
+      ch0003: ['Now the serpent was more subtil than any beast of the field.'],
+    }
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('bible-kjv-en/manifest.json')) return { ok: true, json: async () => ({ chapters: genesisChapters, sections: genesisSections }) }
+      const hit = Object.keys(text).find(key => url.includes(`bible-kjv-en/${key}.json`))
+      if (hit) return { ok: true, json: async () => ({ paragraphs: text[hit] }) }
+      if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
+      return { ok: false, status: 404, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    return fetchMock
+  }
+  function genesisSource(chapter: 1 | 2 | 3) {
+    const paragraphs = {
+      1: ['In the beginning God created the heaven and the earth.'],
+      2: ['Thus the heavens and the earth were finished.'],
+      3: ['Now the serpent was more subtil than any beast of the field.'],
+    }[chapter]
+    return {
+      ...bibleFallbackSource(),
+      chapterNumber: chapter,
+      chapterTitle: `Genesis ${chapter}`,
+      chapterLabel: `Genesis ${chapter}`,
+      headerBook: 'Genesis',
+      headerChapter: String(chapter),
+      paragraphs,
+      followParagraphs: paragraphs.map((text, index) => ({ index, text })),
+      chapters: genesisChapters,
+      sections: genesisSections,
+    }
+  }
+  function memorySession(id: string, chapterNumber: number, state: 'progressed' | 'completed', at: number, page: number, totalPages: number) {
+    return {
+      id, seq: 2, deviceId: 'phone', owner: null, state,
+      anchor: {
+        bookId: 'bible', editionKey: 'kjv-en', chapterNumber, chapterLabel: `Genesis ${chapterNumber}`, page, totalPages,
+        paragraphIndex: 0, wordIndex: 4,
+        range: { startParagraphIndex: 0, startWordIndex: 0, startCharOffset: 0, endParagraphIndex: 0, endWordIndex: 4, endCharOffset: 20, firstWords: 'Thus the', lastWords: 'the earth' },
+      },
+      startedAt: at - 60_000, lastActiveAt: at, endedAt: at, completedAt: state === 'completed' ? at : null,
+    }
+  }
+  const rowStatus = (chapter: number) => screen.getByTestId(`lab-tree-chapter-${chapter}`).querySelector('small')?.textContent || ''
+
+  it('records a chapter turned past its last page in the synced position record and shows it Finished after a reload', async () => {
+    genesisFetch()
+    const first = render(<LabApp pathname="/lab/phone" source={genesisSource(1)} />)
+    expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
+    })
+    expect(readLabPositionLocal().finished.bible).toEqual([1])
+    expect(localStorage.getItem('tinct-lab-finished-chapters')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(rowStatus(1)).toContain('Finished')
+    expect(rowStatus(2)).toBe('Reading now')
+    expect(rowStatus(3)).toBe('Not started')
+    first.unmount()
+
+    render(<LabApp pathname="/lab/phone" source={genesisSource(2)} />)
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(rowStatus(1)).toContain('Finished')
+    expect(screen.getByTestId('lab-tree-chapter-2').getAttribute('aria-current')).toBe('true')
+    expect(screen.getByText(/1 of 3 finished/)).toBeTruthy()
+  })
+
+  it('marks the chapter finished when its audio plays through to the next chapter', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const chapterManifest = (chapter: number) => ({ chapter, paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 4, words: [] }] })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('audio-manifest') && url.includes('ch1')) return { ok: true, json: async () => chapterManifest(1) }
+      if (url.includes('audio-manifest') && url.includes('ch2')) return { ok: true, json: async () => chapterManifest(2) }
+      if (url.includes('bible-kjv-en/manifest.json')) return { ok: true, json: async () => ({ chapters: genesisChapters, sections: genesisSections }) }
+      if (url.includes('bible-kjv-en/ch0002.json')) return { ok: true, json: async () => ({ paragraphs: ['Thus the heavens and the earth were finished.'] }) }
+      if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
+      return { ok: false, status: 404, json: async () => ({}) }
+    }))
+    render(<LabApp pathname="/lab/phone" source={{
+      ...genesisSource(1),
+      followParagraphs: [{ index: 0, text: 'In the beginning God created the heaven and the earth.', file: 'p0.mp3', duration: 4 }],
+    }} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(audio.src).toContain('p0.mp3'))
+    audio.currentTime = 4
+    act(() => { audio.emit('ended') })
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2')
+    })
+    expect(readLabPositionLocal().finished.bible).toEqual([1])
+  })
+
+  it('shows a completed reading-memory session as Finished and an open one as In progress', () => {
+    genesisFetch()
+    localStorage.setItem(READING_MEMORY_DEVICE_KEY, JSON.stringify({
+      v: 1,
+      updatedAt: 2_000_000,
+      sessions: {
+        done: memorySession('done', 2, 'completed', 1_000_000, 3, 3),
+        open: memorySession('open', 3, 'progressed', 2_000_000, 2, 5),
+      },
+    }))
+    render(<LabApp pathname="/lab/phone" source={genesisSource(1)} />)
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(rowStatus(1)).toBe('Reading now')
+    expect(rowStatus(2)).toContain('Finished')
+    expect(rowStatus(3)).toContain('In progress')
+    expect(rowStatus(3)).toContain('page 2 of 5')
+    expect(screen.getByText(/1 of 3 finished/)).toBeTruthy()
   })
 })

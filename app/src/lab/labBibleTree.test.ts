@@ -176,8 +176,8 @@ describe('lab finished chapter marks', () => {
     const ot = tree()[0]
     expect(labTreeProgressLabel(ot, empty)).toBeNull()
     expect(labTreeProgressLabel(book('Genesis'), empty)).toBeNull()
-    expect(labTreeProgressLabel(book('Genesis'), new Set([1]))).toBe('1 of 3')
-    expect(labTreeProgressLabel(ot, new Set([1, 2, 3]))).toBe('1 of 2 books')
+    expect(labTreeProgressLabel(book('Genesis'), new Set([1]))).toBe('1 of 3 finished')
+    expect(labTreeProgressLabel(ot, new Set([1, 2, 3]))).toBe('1 of 2 books finished')
     expect(labTreeProgressLabel(book('Genesis'), new Set([1, 2, 3]))).toBeNull()
   })
 

@@ -10,6 +10,8 @@ import {
   parseLabPositionState,
   placeFromChapterRef,
   resumePlace,
+  unionFinishedChapters,
+  withFinishedChapter,
   shouldApplyCloudBookPlace,
   type LabBookPlace,
   type LabChapterRef,
@@ -447,5 +449,40 @@ describe('offline save + reload', () => {
       bookId: 'odyssey', paragraphIndex: 2, wordIndex: 5,
       primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
     })
+  })
+})
+
+describe('finished chapters in the position record', () => {
+  it('parses, sorts, dedupes and drops junk; a missing field is an empty map', () => {
+    expect(parseLabPositionState({ books: {} }, DEVICE).finished).toEqual({})
+    const parsed = parseLabPositionState({ books: {}, finished: { bible: [747, 746, 746, 'x', 0, 9999], odyssey: [], '': [1] } }, DEVICE)
+    expect(parsed.finished).toEqual({ bible: [746, 747] })
+  })
+
+  it('unions per book on both merges: a finish never regresses across devices', () => {
+    const local: LabPositionState = { ...emptyLabPositionState(DEVICE), finished: { bible: [746, 747] }, updatedAt: 5_000 }
+    const cloud: LabPositionState = { ...emptyLabPositionState('desk'), finished: { bible: [780], odyssey: [1] }, updatedAt: 1_000 }
+    expect(mergeLabPositionStates(local, cloud, []).finished).toEqual({ bible: [746, 747, 780], odyssey: [1] })
+    expect(mergeLabPositionStatesByTime(local, cloud).finished).toEqual({ bible: [746, 747, 780], odyssey: [1] })
+    expect(mergeLabPositionStatesByTime(cloud, local).finished).toEqual({ bible: [746, 747, 780], odyssey: [1] })
+    expect(unionFinishedChapters({}, {})).toEqual({})
+  })
+
+  it('finish() persists at once with the explicit (book, chapter) tuple and is idempotent', () => {
+    const causes: string[] = []
+    const controller = createLabPositionController({
+      deviceId: DEVICE,
+      persist: (_state, cause) => { causes.push(cause) },
+      schedule: () => () => {},
+    })
+    const first = controller.finish({ bookId: 'bible', sequentialChapter: 780, now: 9_000 })
+    expect(first.finished).toEqual({ bible: [780] })
+    expect(first.updatedAt).toBe(9_000)
+    expect(causes).toEqual(['immediate'])
+    const again = controller.finish({ bookId: 'bible', sequentialChapter: 780, now: 9_500 })
+    expect(again).toBe(first)
+    expect(causes).toEqual(['immediate'])
+    expect(withFinishedChapter(first, 'bible', 0, 10_000)).toBe(first)
+    expect(withFinishedChapter(first, 'odyssey', 3, 10_000).finished).toEqual({ bible: [780], odyssey: [3] })
   })
 })

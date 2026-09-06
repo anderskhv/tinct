@@ -34,6 +34,7 @@ function romansState(): LabPositionState {
         rev: 4,
       },
     },
+    finished: {},
     lastSettledBookId: 'romans',
     lastSettledAt: 50_000,
     updatedAt: 50_000,
@@ -135,5 +136,21 @@ describe('lab-position route', () => {
     )
     const stored = await got.json() as LabPositionState
     expect(stored.books.romans?.paragraphIndex).toBe(4)
+  })
+
+  it('PUT unions finished chapters across devices instead of last-write-wins', async () => {
+    const kv = memoryKv()
+    const env = { RATE_LIMIT: kv as unknown as KVNamespace }
+    const verify = async () => ({ id: userId, email: 'reader@example.com' })
+    const put = (body: unknown) => handleLabPosition(
+      new Request('https://tinct.app/api/lab-position', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }),
+      env,
+      verify,
+    )
+    await put({ ...romansState(), finished: { bible: [780, 781] } })
+    const second = await put({ ...romansState(), updatedAt: 1_000, deviceId: 'tablet', finished: { bible: [746], odyssey: [1] } })
+    expect((await second.json() as LabPositionState).finished).toEqual({ bible: [746, 780, 781], odyssey: [1] })
+    const get = await handleLabPosition(new Request('https://tinct.app/api/lab-position', { method: 'GET' }), env, verify)
+    expect((await get.json() as LabPositionState).finished).toEqual({ bible: [746, 780, 781], odyssey: [1] })
   })
 })

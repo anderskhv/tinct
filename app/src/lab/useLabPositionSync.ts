@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { bibleFallbackSource, type LabSource } from './labSource'
@@ -6,21 +6,29 @@ import { getBook } from '../data/bookRegistry'
 import {
   biblicalBookId,
   createLabPositionController,
+  finishedChaptersFor,
   parseBiblicalPlaceTitle,
   placeFromChapterRef,
   resumePlace,
   type LabBookPlace,
   type LabPlaceReason,
   type LabPositionController,
+  type LabPositionState,
   type LabReaderStateSnapshot,
 } from './labPosition'
 import {
   createLabPositionSync,
   fetchLabPositionCloud,
+  migrateLegacyFinishedChapters,
   readLabDeviceId,
   readLabPositionLocal,
   writeLabPositionLocal,
 } from './labPositionStore'
+
+/** Library bookId the position record keys finished chapters by. */
+export function labLibraryBookId(book: Pick<LabSource, 'bookId'>): string {
+  return book.bookId && book.bookId !== 'bible' ? book.bookId : 'bible'
+}
 
 export function bookFromResumePlace(place: LabBookPlace): LabSource {
   const registryBook = getBook(place.bookId)
@@ -124,6 +132,12 @@ export function useLabPositionSync(args: {
 }): {
   notePlace: (reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => void
   biblicalBook: string
+  /** Sequential chapters of the current library book the reader has finished. */
+  finishedChapters: Set<number>
+  /** Record that the reader turned past (or heard out) the given chapter of the current library book. */
+  markChapterFinished: (sequentialChapter: number) => void
+  /** Current in-memory record (pins + finished), for read-only views such as the picker. */
+  readPositionState: () => LabPositionState
 } {
   const { session } = useAuth()
   const liveToken = args.authToken !== undefined ? args.authToken : (session?.access_token ?? null)
@@ -138,10 +152,13 @@ export function useLabPositionSync(args: {
   onRemoteResumeRef.current = args.onRemoteResume
   const bookRef = useRef(args.book)
   bookRef.current = args.book
+  // Bumped whenever the finished map changes (finish, cloud apply) so views
+  // re-derive their Set; the controller itself is ref-held.
+  const [finishedRevision, setFinishedRevision] = useState(0)
 
   if (!controllerRef.current) {
     const deviceId = deviceIdRef.current
-    const local = readLabPositionLocal(deviceId)
+    const local = migrateLegacyFinishedChapters(readLabPositionLocal(deviceId))
     const controller = createLabPositionController({
       deviceId,
       persist: (state, cause, reason) => {
@@ -185,6 +202,7 @@ export function useLabPositionSync(args: {
       cloudDoneRef.current = true
       writeLabPositionLocal(next)
       syncRef.current?.persist(next)
+      setFinishedRevision(revision => revision + 1)
       const resume = resumePlace(next)
       const current = bookRef.current
       if (!resume) return
@@ -226,6 +244,23 @@ export function useLabPositionSync(args: {
     controller.note({ place, reason })
   }, [args.placeRef, args.readerStateRef, args.writesSuspended])
 
+  const markChapterFinished = useCallback((sequentialChapter: number) => {
+    const controller = controllerRef.current
+    if (!controller) return
+    const before = controller.state()
+    const after = controller.finish({ bookId: labLibraryBookId(bookRef.current), sequentialChapter })
+    if (after !== before) setFinishedRevision(revision => revision + 1)
+  }, [])
+
+  const libraryBookId = labLibraryBookId(args.book)
+  const finishedChapters = useMemo(
+    () => controllerRef.current ? finishedChaptersFor(controllerRef.current.state(), libraryBookId) : new Set<number>(),
+    // finishedRevision is the change signal for the ref-held record.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [finishedRevision, libraryBookId],
+  )
+  const readPositionState = useCallback(() => controllerRef.current?.state() ?? readLabPositionLocal(deviceIdRef.current), [])
+
   useEffect(() => {
     const onHide = () => notePlace('hide')
     const onVis = () => { if (document.visibilityState === 'hidden') onHide() }
@@ -242,5 +277,8 @@ export function useLabPositionSync(args: {
     biblicalBook: args.book.bookId && args.book.bookId !== 'bible'
       ? args.book.bookId
       : biblicalBookId(args.book.headerBook),
+    finishedChapters,
+    markChapterFinished,
+    readPositionState,
   }
 }
