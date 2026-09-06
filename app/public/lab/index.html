@@ -45,7 +45,7 @@
         <main class="tov5-simple-hero">
           <h1>Fall in love with the books that matter.</h1>
           <p>Immerse yourself in the world's greatest books. Read, listen and talk with them at will – in a language and style that speaks to you.</p>
-          <div class="tov5-simple-entry"><button class="tov5-simple-start" type="button" data-start-catalogue>Start reading</button><p>Free to read · No account required</p></div>
+          <div class="tov5-simple-entry"><button class="tov5-simple-start" type="button" data-start-catalogue>Start reading</button><p>Free to read · No account required</p><details class="tov5-simple-pricing" data-pricing-note><summary>What's free</summary><p>Reading is free, with no account, for as long as you like.</p><p>A free account adds cross-device sync and 30 days of Premium.</p><p>Premium is $3/mo: AI chat and voice, audiobook, Cast, offline mode, and the reading journal.</p></details></div>
         </main>
       </section>
       <div class="tov5-phone" data-book-world="odyssey" data-frame="library-demo" hidden aria-hidden="true">
@@ -278,6 +278,14 @@
   #tinct-onboarding-worlds-v5 .tov5-simple-start:active { background:#ded2bc; box-shadow:0 7px 18px rgba(0,0,0,.2),inset 0 2px 5px rgba(69,53,34,.12); transform:translateY(1px) scale(.992); }
   #tinct-onboarding-worlds-v5 .tov5-simple-start:focus-visible { outline:3px solid #f8ecd1; outline-offset:4px; box-shadow:0 0 0 7px rgba(31,78,91,.76),0 12px 32px rgba(0,0,0,.21); }
   #tinct-onboarding-worlds-v5 .tov5-simple-entry p { margin:11px 0 0; color:rgba(239,230,215,.67); font-size:10px; letter-spacing:.075em; text-align:center; text-transform:uppercase; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing { margin:12px 0 0; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing summary { list-style:none; cursor:pointer; color:rgba(239,230,215,.55); font-size:10px; letter-spacing:.075em; text-align:center; text-transform:uppercase; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing summary::-webkit-details-marker { display:none; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing summary::after { content:" +"; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing[open] summary::after { content:" \2013"; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing summary:hover { color:rgba(239,230,215,.8); }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing summary:focus-visible { outline:2px solid #f8ecd1; outline-offset:3px; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-pricing p { margin:8px 0 0; color:rgba(241,232,217,.79); font:13px/1.45 Georgia,"Times New Roman",serif; letter-spacing:0; text-align:left; text-transform:none; }
   #tinct-onboarding-worlds-v5 .tov5-phone { --tov5-accent:#7fb8d0; --tov5-button:#f5ead5; --tov5-binder:#164d70; --tov5-book-ink:#174f6d; --tov5-paper:#fffaf0; --tov5-paper-alt:#eee4d5; --tov5-demo-surface:rgba(5,27,43,.54); --tov5-demo-alt:rgba(22,72,96,.46); --tov5-demo-text:#fffaf0; --tov5-demo-muted:rgba(255,250,240,.76); --tov5-step-accent:#9fd0e3; --tov5-edition-one:rgba(20,68,91,.50); --tov5-edition-two:rgba(55,111,138,.56); --tov5-edition-two-text:#f8fcff; --tov5-pill-active:#75b2cc; position:relative; width:min(390px,calc(100vw - 28px)); height:650px; overflow:hidden; border:1px solid rgba(255,255,255,.34); border-radius:30px; color:#fffdf7; background:#0b2034; box-shadow:0 24px 66px rgba(10,15,20,.32); }
   #tinct-onboarding-worlds-v5 .tov5-phone[data-book-world="meditations"] { --tov5-accent:#9b6a38; --tov5-button:#f3dec0; --tov5-binder:#8a5b2a; --tov5-book-ink:#7a4d24; --tov5-paper:#fbf4e7; --tov5-paper-alt:#eadcc5; --tov5-demo-surface:rgba(248,239,221,.10); --tov5-demo-alt:rgba(223,203,173,.16); --tov5-demo-text:#2c241d; --tov5-demo-muted:rgba(54,43,34,.72); --tov5-step-accent:#754719; --tov5-edition-one:rgba(235,218,190,.34); --tov5-edition-two:rgba(131,82,38,.50); --tov5-edition-two-text:#fff8eb; --tov5-pill-active:#88582b; background:#593517; }
   #tinct-onboarding-worlds-v5 .tov5-phone[data-book-world="frankenstein"] { --tov5-accent:#8cc2a1; --tov5-button:#d8efdf; --tov5-binder:#244c3b; --tov5-book-ink:#315b55; --tov5-paper:#f2f6ef; --tov5-paper-alt:#dce9df; --tov5-demo-surface:rgba(11,43,34,.32); --tov5-demo-alt:rgba(43,83,70,.38); --tov5-demo-text:#f3f7f0; --tov5-demo-muted:rgba(243,247,240,.74); --tov5-step-accent:#a9d8bb; --tov5-edition-one:rgba(35,78,64,.48); --tov5-edition-two:rgba(99,145,117,.54); --tov5-edition-two-text:#f7fff9; --tov5-pill-active:#8cc2a1; background:#112d26; }

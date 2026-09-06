@@ -4438,3 +4438,130 @@
   text-decoration: underline;
   text-underline-offset: .2em;
 }
+
+/* Account prompt (labAccountPrompt.ts): the sheet on an anonymous reader's
+   second AI action, and the one-line second-book nudge under the header. */
+.lab-account-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  background: rgba(28, 24, 18, .22);
+}
+.lab.is-phone .lab-account-overlay {
+  height: var(--lab-vvh, 100%);
+  max-height: var(--lab-vvh, 100%);
+}
+.lab-account-sheet {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 1.25rem calc(1.4rem + env(safe-area-inset-bottom, 0px));
+  border-radius: 1.35rem 1.35rem 0 0;
+  background: #f7f3e9;
+  color: #171510;
+  box-shadow: 0 -12px 40px rgba(35, 29, 21, .16);
+}
+.lab-account-sheet .lab-ss-grabber { align-self: center; }
+.lab-account-close {
+  position: absolute;
+  top: .55rem;
+  right: .8rem;
+  padding: .3rem .45rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #6a6555;
+  cursor: pointer;
+}
+.lab-account-eyebrow {
+  margin: 1rem 0 .4rem;
+  font: 600 .66rem/1 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #81796b;
+}
+.lab-account-title {
+  margin: 0;
+  font: 500 1.35rem/1.15 'Playfair Display', Georgia, serif;
+  letter-spacing: -.01em;
+}
+.lab-account-body {
+  margin: .6rem 0 1.1rem;
+  color: #4f4940;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.lab-account-primary {
+  display: grid;
+  place-items: center;
+  min-height: 2.9rem;
+  border: 1px solid #0b0b0b;
+  border-radius: 999px;
+  background: #eee4d1;
+  color: #0b0b0b;
+  font: 500 1rem/1 'EB Garamond', Georgia, serif;
+  text-decoration: none;
+}
+.lab-account-primary:hover { background: #f6eddd; }
+.lab-account-secondary {
+  align-self: center;
+  margin-top: .75rem;
+  padding: .3rem .2rem;
+  color: #4f4940;
+  font-size: .95rem;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+.lab-account-overlay.is-desktop-popover { background: rgba(28, 24, 18, .16); }
+.lab-account-overlay.is-desktop-popover .lab-account-sheet {
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: min(24rem, calc(100% - 2.5rem));
+  padding: .2rem 1.5rem 1.5rem;
+  border: 1px solid rgba(123, 108, 85, .22);
+  border-radius: 1.4rem;
+  box-shadow: 0 22px 54px rgba(53, 43, 30, .17);
+}
+.lab-account-overlay.is-desktop-popover .lab-ss-grabber { display: none; }
+.lab.is-night .lab-account-overlay { background: rgba(12, 10, 8, .38); }
+.lab.is-night .lab-account-sheet { background: var(--lab-paper); color: var(--lab-ink); }
+.lab.is-night .lab-account-eyebrow,
+.lab.is-night .lab-account-body,
+.lab.is-night .lab-account-secondary,
+.lab.is-night .lab-account-close { color: var(--lab-ink-muted); }
+.lab.is-night .lab-account-primary { border-color: #eee4d1; }
+
+.lab-account-nudge {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin: 0;
+  padding: .35rem .85rem;
+  border-bottom: 1px solid #d4cdc0;
+  color: #6a6555;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.lab.is-desktop .lab-account-nudge { padding: .4rem 1.75rem; }
+.lab-account-nudge a {
+  color: #0b0b0b;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+.lab-account-nudge-dismiss {
+  flex: 0 0 auto;
+  padding: .1rem .3rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #6a6555;
+  cursor: pointer;
+}
+.lab.is-night .lab-account-nudge { color: var(--lab-ink-muted); border-color: var(--lab-border); }
+.lab.is-night .lab-account-nudge a { color: var(--lab-ink); }

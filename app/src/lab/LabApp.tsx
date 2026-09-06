@@ -73,6 +73,9 @@ import { type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
 import { readLabTalkHistory } from './labTalkHistory'
 import { useLabAsk } from './useLabAsk'
+import { readLabPositionLocal } from './labPositionStore'
+import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt'
+import { labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor } from './labCompare'
 import {
@@ -303,7 +306,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
   const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
-  const { user: authUser } = useAuth()
+  const { user: authUser, likelyAuthenticated } = useAuth()
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
@@ -387,6 +390,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
+  // Account policy (labAccountPrompt.ts): reading is always free; an
+  // anonymous reader's second AI action shows a sheet and is not sent; a
+  // second book shows one quiet line under the header, once per device.
+  const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
+  const [accountPrompt, setAccountPrompt] = useState<LabAccountPromptRequest | null>(null)
+  const [secondBookNudge, setSecondBookNudge] = useState(() => shouldShowSecondBookNudge({
+    signedIn,
+    bookId: book.bookId || 'bible',
+    booksRead: labBooksReadOnDevice({ memory: readDeviceReadingMemory(), position: readLabPositionLocal() }),
+  }))
+  useEffect(() => {
+    if (secondBookNudge) markSecondBookNudgeShown()
+  }, [secondBookNudge])
+  useEffect(() => {
+    if (signedIn) {
+      setSecondBookNudge(false)
+      setAccountPrompt(null)
+    }
+  }, [signedIn])
+  const signInReturnTo = labCurrentPath()
   const [readingPageIndex, setReadingPageIndex] = useState(
     readerHandoff?.savedPlace?.page ?? boot.resume?.pageIndex ?? 0,
   )
@@ -647,6 +670,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     paragraphs: book.paragraphs,
     paragraphIndex: focusParagraph ?? 0,
     authToken,
+    signedIn,
+    onAccountPrompt: (request) => {
+      setAccountPrompt(request)
+      // Keep the unsent question in the composer; a held-back Talk never connects.
+      if (request.text) setDraft(request.text)
+      if (request.action === 'voice') setVoiceGate('off')
+    },
     bookId: book.bookId || 'bible',
     editionKey: readerEditionKey,
     chapterCount: book.chapters.length,
@@ -1689,6 +1719,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     else void listen.start(placeRef.current)
   }, [ask, listen])
   resumeListenRef.current = () => resumeListenAfterAsk(true)
+  const closeAccountPrompt = useCallback(() => {
+    const request = accountPrompt
+    setAccountPrompt(null)
+    // A held-back Talk leaves the talking chrome the way a closed Talk does.
+    if (request?.action === 'voice') resumeListenAfterAsk()
+  }, [accountPrompt, resumeListenAfterAsk])
   setSpeedRef.current = (rate) => {
     listen.setSpeed(rate)
     pausedForAskRef.current = true
@@ -2773,6 +2809,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
         </p>
       </header>}
+      {!frontispieceVisible && secondBookNudge && (
+        <LabSecondBookNudge returnTo={signInReturnTo} onDismiss={() => setSecondBookNudge(false)} />
+      )}
       {readerLoadError && (
         <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
           <p>{readerLoadError}</p>
@@ -3200,6 +3239,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           setInTheBookOpen(true)
           setPeekBook(chrome === 'hearing')
         }}
+        desktop={!showPhoneChrome}
+      />
+
+      <LabAccountSheet
+        open={accountPrompt !== null}
+        action={accountPrompt?.action ?? 'chat'}
+        returnTo={signInReturnTo}
+        onClose={closeAccountPrompt}
         desktop={!showPhoneChrome}
       />
 

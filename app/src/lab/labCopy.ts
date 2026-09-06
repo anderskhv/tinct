@@ -65,4 +65,13 @@ export const LAB_COPY = {
   offlineCast: 'You can read this introduction now. Ask needs a connection.',
   markAction: 'Keep this passage',
   labNote: 'Private lab for the new reading chrome.',
+  accountEyebrow: 'Free account',
+  accountTitle: 'Create a free account to keep chatting',
+  accountBody: 'Reading stays free; a free account keeps the conversation going, saves your place across devices, and includes 30 days of Premium.',
+  accountCreate: 'Create free account',
+  accountSignIn: 'Sign in',
+  accountDismiss: 'Not now',
+  secondBookNudge: 'Keep your place across books: ',
+  secondBookNudgeLink: 'create a free account',
+  secondBookNudgeDismiss: 'Dismiss',
 } as const

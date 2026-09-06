@@ -35,6 +35,7 @@ import { buildLabTalkInstructionsV2, LAB_VOICE_TOOLS_V2, labConversationStateV2,
 import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
+import { gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
 import {
   createLabChatHistorySync,
   dumpLabTalkTurns,
@@ -73,6 +74,10 @@ export interface UseLabAskOptions {
   paragraphs: string[]
   paragraphIndex: number
   authToken?: string | null
+  /** Signed-in override (host / tests). Defaults to a live token or a likely Supabase session. */
+  signedIn?: boolean
+  /** The account policy held back an anonymous reader's AI action; the host shows the sheet. The turn is not sent. */
+  onAccountPrompt?: (request: LabAccountPromptRequest) => void
   /** Registry book id + edition key. Both present → requests carry `book` and the worker can read other chapters. */
   bookId?: string
   editionKey?: string
@@ -92,7 +97,7 @@ export interface UseLabAskOptions {
 }
 
 export function useLabAsk(options: UseLabAskOptions) {
-  const { session } = useAuth()
+  const { session, likelyAuthenticated } = useAuth()
   const voiceVersion: LabVoiceVersion = options.voiceVersion === 'v2' ? 'v2' : 'v1'
   const isVoiceV2 = voiceVersion === 'v2'
   const chatBook = resolveLabChatBook(options.headerBook || options.chapterLabel)
@@ -174,6 +179,15 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
   }, [])
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
+  const signedIn = options.signedIn ?? (Boolean(liveToken) || likelyAuthenticated)
+  // Account policy (labAccountPrompt.ts), in one place, before any network
+  // call or mic session: the first anonymous AI action is free, the second
+  // shows the account sheet and is not sent. Signed in: never gated.
+  const gateAiAction = useCallback((action: LabAiAction, text?: string): boolean => {
+    const decision = gateLabAiAction({ signedIn })
+    if (!decision.allowed) optionsRef.current.onAccountPrompt?.({ action, text })
+    return decision.allowed
+  }, [signedIn])
   const syncRef = useRef(createLabChatHistorySync({ token: liveToken }))
   useEffect(() => {
     syncRef.current = createLabChatHistorySync({ token: liveToken })
@@ -354,6 +368,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive || starting) return true
+    if (!gateAiAction('voice')) return false
     voice.unlockAudio()
     setNotice(null)
     const knownToken = options.authToken !== undefined ? options.authToken : sessionToken
@@ -375,7 +390,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       return false
     }
     return true
-  }, [options.authToken, sessionToken, starting, voice.isActive, voice.start])
+  }, [gateAiAction, options.authToken, sessionToken, starting, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
     setStarting(false)
@@ -403,6 +418,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       options.onResumeListen?.()
       return
     }
+    if (!gateAiAction('chat', text)) return
     sendingRef.current = true
 
     const userTurn: LabAskTurn = {
@@ -573,7 +589,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       sendingRef.current = false
       setTypedLoading(false)
     }
-  }, [askContextNow, options.authToken, readTrail, sessionToken, turns])
+  }, [askContextNow, gateAiAction, options.authToken, readTrail, sessionToken, turns])
 
   return {
     turns,

@@ -27,6 +27,8 @@ afterEach(() => {
   try { localStorage.removeItem('tinct-lab-highlights') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-highlights-tap-cleanup-v1') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:lab-ai-actions') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:lab-second-book-nudge') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
 })
