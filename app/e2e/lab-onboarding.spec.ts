@@ -52,7 +52,7 @@ async function searchLibrary(page: Page, query: string) {
  * A genuine device reading memory: sessions whose anchors resolve against the
  * exact published chapter text, the shape the lab recorder writes.
  */
-type SeedEntry = { id: string; bookId: string; editionKey: string; chapterNumber: number; page: number; totalPages: number; ageMs: number }
+type SeedEntry = { id: string; bookId: string; editionKey: string; chapterNumber: number; page: number; totalPages: number; ageMs: number; state?: 'progressed' | 'completed' }
 
 function wordSpans(text: string) {
   const spans: Array<{ start: number; end: number; text: string }> = []
@@ -91,9 +91,9 @@ function readingMemorySeed(entries: SeedEntry[]) {
     }
     const lastActiveAt = now - entry.ageMs
     return {
-      id: entry.id, seq: 1, deviceId: 'e2e-device', owner: null, state: 'progressed',
+      id: entry.id, seq: 1, deviceId: 'e2e-device', owner: null, state: entry.state ?? 'progressed',
       anchor: { bookId: entry.bookId, editionKey: entry.editionKey, chapterNumber: entry.chapterNumber, chapterLabel: chapter.label, page: entry.page, totalPages: entry.totalPages, paragraphIndex: endParagraph, wordIndex: endWords.length, range },
-      startedAt: lastActiveAt - 20 * 60 * 1000, lastActiveAt, endedAt: lastActiveAt, completedAt: null,
+      startedAt: lastActiveAt - 20 * 60 * 1000, lastActiveAt, endedAt: lastActiveAt, completedAt: entry.state === 'completed' ? lastActiveAt : null,
     }
   })
   return { v: 1, sessions: Object.fromEntries(sessions.map(session => [session.id, session])), updatedAt: now }
@@ -218,7 +218,7 @@ test('renders the published catalogue index and filters title and author', async
   await search.fill('Leo Tolstoy')
   const authorResults = page.locator('[data-library-index] [data-catalogue-book]')
   expect(await authorResults.count()).toBeGreaterThan(1)
-  const authors = await authorResults.locator('.lib-row-a').allTextContents()
+  const authors = await authorResults.locator('.lib-cell-a').allTextContents()
   expect(new Set(authors)).toEqual(new Set(['Leo Tolstoy']))
 
   await search.fill('definitely-not-a-published-book')
@@ -226,15 +226,43 @@ test('renders the published catalogue index and filters title and author', async
   await search.fill('')
   await page.locator('[data-index-house="philosophy"]').click()
   await expect(page.locator('[data-index-house="philosophy"]')).toHaveAttribute('aria-expanded', 'true')
-  await expect(page.locator('[data-index-house="philosophy"] + .lib-row-books [data-catalogue-book="the-republic"]')).toBeVisible()
+  await expect(page.locator('[data-house-books="philosophy"] [data-catalogue-book="the-republic"]')).toBeVisible()
 })
+
+for (const [label, viewport, columns] of [['phone', PHONE, 2], ['desktop', DESKTOP, 6]] as const) {
+  test(`opens a house as a cover grid with ${columns} columns on ${label} and searches in the same grid`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await openPreReader(page, '/lab/library?autoplay=0')
+    await page.locator('[data-index-house="philosophy"]').click()
+    const grid = page.locator('[data-house-books="philosophy"]')
+    await expect(grid).toHaveClass(/lib-cells/)
+    const cells = grid.locator('.lib-cell[data-catalogue-book]')
+    expect(await cells.count()).toBe(Number(await page.locator('[data-index-house="philosophy"] .lib-cnt').textContent()))
+    const geometry = await cells.evaluateAll(elements => {
+      const tops = [...new Set(elements.map(element => Math.round(element.getBoundingClientRect().top)))]
+      return { firstRow: elements.filter(element => Math.round(element.getBoundingClientRect().top) === tops[0]).length, labelled: elements.every(element => element.querySelector('.lib-cover img') && element.querySelector('.lib-cell-t')?.textContent && element.querySelector('.lib-cell-a')?.textContent) }
+    })
+    expect(geometry.firstRow).toBe(columns)
+    expect(geometry.labelled).toBe(true)
+    await expect(grid.locator('[data-catalogue-book="the-republic"] .lib-cover img')).toHaveAttribute('src', /\/covers\/v2\/the-republic/)
+    await expect(grid.locator('[data-catalogue-book="apology"] .lib-cover img')).toHaveAttribute('src', /^data:image\/svg/)
+    await page.locator('[data-index-house="philosophy"]').click()
+    await expect(page.locator('[data-house-books]')).toHaveCount(0)
+    await searchLibrary(page, 'Austen')
+    await expect(page.locator('[data-search-results].lib-cells .lib-cell[data-catalogue-book]')).toHaveCount(1)
+    await page.locator('[data-search-results] [data-catalogue-book="pride-and-prejudice"]').click()
+    await expect(page.locator('[data-book-detail-title]')).toHaveText('Pride and Prejudice')
+    await expectNoDocumentOverflow(page)
+  })
+}
 
 test('shows Republic once in a unique flat search result set', async ({ page }) => {
   await searchLibrary(page, 'Republic')
   const results = page.locator('[data-library-index] [data-catalogue-book]')
   await expect(results).toHaveCount(1)
   await expect(results.first()).toHaveAttribute('data-catalogue-book', 'the-republic')
-  await expect(results.first().locator('.lib-row-t')).toHaveText('The Republic')
+  await expect(results.first().locator('.lib-cell-t')).toHaveText('The Republic')
   const ids = await results.evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
   expect(new Set(ids).size).toBe(ids.length)
   await expect(page.locator('[data-index-house]')).toHaveCount(0)
@@ -251,7 +279,7 @@ test('filters the index inline from the one search row and clears with Escape', 
       const ids = await page.locator('[data-library-index] [data-catalogue-book]').evaluateAll(elements => elements.map(element => element.getAttribute('data-catalogue-book')))
       expect(ids).toEqual(['the-republic'])
     } else if (query === 'Jane Austen') {
-      const authors = await page.locator('[data-library-index] [data-catalogue-book] .lib-row-a').allTextContents()
+      const authors = await page.locator('[data-library-index] [data-catalogue-book] .lib-cell-a').allTextContents()
       expect(authors.length).toBeGreaterThan(0)
       expect(new Set(authors)).toEqual(new Set(['Jane Austen']))
     } else {
@@ -269,7 +297,8 @@ test('keeps the popular shelf selectable by tap and keyboard on the phone', asyn
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await openPreReader(page, '/lab/library?autoplay=0')
   await expect(page.locator('[data-popular-shelf].is-revealing')).toHaveCount(0)
-  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular · 1 of 8')
+  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular')
+  await expect(page.locator('[data-popular-count]')).toHaveText('8')
   await expect(page.locator('[data-popular-title]')).toHaveText('The Odyssey')
   await expect(page.locator('[data-shelf-index="0"]')).toHaveAttribute('aria-label', 'The Odyssey')
   await page.locator('[data-shelf-index="1"]').click()
@@ -278,13 +307,140 @@ test('keeps the popular shelf selectable by tap and keyboard on the phone', asyn
   await expect(page).toHaveURL(/\/lab\/library/)
   await page.locator('[data-shelf-index="1"]').focus()
   await page.keyboard.press('ArrowRight')
-  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular · 3 of 8')
   await expect(page.locator('[data-popular-title]')).toHaveText('The Republic')
   await expect(page.locator('[data-shelf-index="2"]')).toBeFocused()
+  await expect(page.locator('[data-shelf-index="2"]')).toHaveAttribute('aria-current', 'true')
   await page.keyboard.press('Home')
-  await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular · 1 of 8')
+  await expect(page.locator('[data-shelf-index="0"]')).toHaveAttribute('aria-current', 'true')
   await expectNoDocumentOverflow(page)
 })
+
+for (const viewport of [PHONE, DESKTOP]) {
+  test(`labels every shelf cover, shows the registry description, and never moves the page on selection at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await openPreReader(page, '/lab/library?autoplay=0')
+    const labels = await page.locator('[data-popular-shelf] [data-shelf-book]').evaluateAll(items => items.map(item => [item.querySelector('.lib-bt')?.textContent, item.querySelector('.lib-ba')?.textContent]))
+    expect(labels).toHaveLength(8)
+    expect(labels[0]).toEqual(['The Odyssey', 'Homer'])
+    expect(labels.every(([title, author]) => title && author)).toBe(true)
+    const description = await page.evaluate(() => window.__tinctLabPreReader.visibleBooks().find(book => book.id === 'odyssey')?.summary)
+    await expect(page.locator('[data-popular-blurb]')).toHaveText(description as string)
+    expect((description as string).split(/[.!?]\s/).length).toBeGreaterThanOrEqual(2)
+    const geometry = () => page.evaluate(() => ({ search: document.querySelector('.lib-search')!.getBoundingClientRect().top, index: document.querySelector('.lib-index')!.getBoundingClientRect().top, scrollY: window.scrollY }))
+    const before = await geometry()
+    await page.locator('[data-shelf-index="2"]').click()
+    await expect(page.locator('[data-popular-title]')).toHaveText('The Republic')
+    await expect(page.locator('[data-shelf-index="2"] .lib-cover')).toHaveCSS('transform', /matrix\(1\.\d+/)
+    await expect(page.locator('[data-shelf-index="0"] .lib-cover')).toHaveCSS('transform', 'none')
+    const middle = await geometry()
+    await page.locator('[data-shelf-index="7"]').click()
+    await expect(page.locator('[data-popular-title]')).toHaveText('The Histories')
+    const after = await geometry()
+    expect(middle).toEqual(before)
+    expect(after).toEqual(before)
+    await expectNoDocumentOverflow(page)
+  })
+}
+
+test('reduces the phone side paddings to 14px and heads Popular like an index row', async ({ page }) => {
+  await page.setViewportSize(PHONE)
+  await openPreReader(page, '/lab/library?autoplay=0')
+  const paddings = await page.evaluate(() => {
+    const main = getComputedStyle(document.querySelector('.lib-main')!)
+    const shelf = document.querySelector('[data-popular-shelf]')!.getBoundingClientRect()
+    return { left: main.paddingLeft, right: main.paddingRight, shelfLeft: shelf.left, shelfRight: window.innerWidth - shelf.right }
+  })
+  expect(paddings).toEqual({ left: '14px', right: '14px', shelfLeft: 0, shelfRight: 0 })
+  const heads = await page.evaluate(() => {
+    const style = (selector: string) => { const s = getComputedStyle(document.querySelector(selector)!); return `${s.fontFamily.split(',')[0]} ${s.fontSize} ${s.textTransform}` }
+    return { popular: style('[data-popular-eyebrow]'), index: style('[data-index-label]'), rule: getComputedStyle(document.querySelector('[data-popular-head]')!).borderBottomWidth, count: document.querySelector('[data-popular-count]')!.textContent }
+  })
+  expect(heads.popular).toBe(heads.index)
+  expect(heads.rule).toBe('1px')
+  expect(heads.count).toBe('8')
+})
+
+for (const [theme, scheme, palette, expectedGround] of [
+  ['dark', 'light', 'dark', 'rgb(12, 25, 32)'],
+  ['book', 'dark', 'book', 'rgb(231, 220, 199)'],
+  ['light', 'dark', 'light', 'rgb(236, 231, 219)'],
+  ['system', 'dark', 'dark', 'rgb(12, 25, 32)'],
+  ['system', 'light', 'light', 'rgb(236, 231, 219)'],
+] as const) {
+  test(`wears the reader's ${theme} theme under a ${scheme} system scheme`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: scheme, reducedMotion: 'reduce' })
+    await page.goto('/lab/library?autoplay=0')
+    await page.evaluate(theme => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: {}, phone: { theme }, desktop: { theme } })), theme)
+    await openPreReader(page, '/lab/library?autoplay=0')
+    await expect(page.locator('html')).toHaveAttribute('data-lib-palette', palette)
+    expect(await page.evaluate(() => window.__tinctLabPreReader.libraryState().palette)).toBe(palette)
+    await expect(page.locator('.lib')).toHaveCSS('background-color', expectedGround)
+    await expect(page.locator('body')).toHaveCSS('background-color', expectedGround)
+    const ink = await page.locator('.lib-h1').evaluate(element => getComputedStyle(element).color)
+    expect(ink).toBe(palette === 'dark' ? 'rgb(243, 236, 220)' : palette === 'book' ? 'rgb(32, 26, 19)' : 'rgb(11, 11, 11)')
+  })
+}
+
+test('follows a system scheme change live when the theme is system', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await openPreReader(page, '/lab/library?autoplay=0')
+  await expect(page.locator('html')).toHaveAttribute('data-lib-palette', 'light')
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await expect(page.locator('html')).toHaveAttribute('data-lib-palette', 'dark')
+})
+
+for (const viewport of [PHONE, DESKTOP]) {
+  test(`restores the pre-search library on Back after opening a search result at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await openPreReader(page, '/lab/library?autoplay=0')
+    await page.locator('[data-shelf-index="3"]').click()
+    await expect(page.locator('[data-popular-title]')).toHaveText('Pride and Prejudice')
+    await page.locator('[data-library-search]').evaluate(element => element.scrollIntoView({ block: 'center' }))
+    const preSearchScrollY = await page.evaluate(() => window.scrollY)
+    expect(preSearchScrollY).toBeGreaterThan(0)
+    await searchLibrary(page, 'republic')
+    await page.locator('[data-search-results] [data-catalogue-book="the-republic"]').click()
+    await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
+    expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-library-return') || 'null'))).toMatchObject({ scrollY: preSearchScrollY, shelfIndex: 3, clearSearch: true })
+    await page.evaluate(() => history.back())
+    await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+    await expect(page.locator('[data-library-search]')).toHaveValue('')
+    await expect(page.locator('[data-index-label]')).toHaveText('All books')
+    await expect(page.locator('[data-index-house]').first()).toBeVisible()
+    await expect(page.locator('[data-shelf-index="3"]')).toHaveAttribute('aria-current', 'true')
+    await expect(page.locator('[data-popular-title]')).toHaveText('Pride and Prejudice')
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(preSearchScrollY)
+    expect(await page.evaluate(() => sessionStorage.getItem('tinct:lab-library-return'))).toBeNull()
+  })
+}
+
+for (const viewport of [PHONE, DESKTOP]) {
+  test(`shows the account as a glyph on the phone and as the name on desktop at ${viewport.width}px`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+    await openPreReader(page, '/lab/library?autoplay=0')
+    const link = page.locator('.lib-hdr [data-lab-auth-link]')
+    // The real session resolves asynchronously; simulate only once it has published.
+    await expect(link).toHaveAttribute('data-auth-ready', 'true')
+    await page.evaluate(() => window.__tinctLabAuthStatus.publishForTest({ signedIn: true, email: 'anders@example.com', name: 'Anders' }))
+    await expect(link).toHaveAttribute('data-signed-in', 'true')
+    await expect(link).toHaveAttribute('aria-label', 'Anders — account')
+    await expect(link).toHaveAttribute('href', '/lab/sign-in?mode=account&returnTo=%2Flab%2Flibrary')
+    await expect(link.locator('.lib-acct-glyph')).toHaveText('A')
+    if (viewport.width === PHONE.width) {
+      await expect(link.locator('.lib-acct-glyph')).toBeVisible()
+      await expect(link.locator('.lib-acct-glyph')).toHaveCSS('border-radius', '50%')
+      expect(await link.locator('.lib-acct-name').evaluate(element => element.getBoundingClientRect().width)).toBeLessThanOrEqual(1)
+    } else {
+      await expect(link.locator('.lib-acct-name')).toBeVisible()
+      await expect(link.locator('.lib-acct-glyph')).toBeHidden()
+    }
+    await expect(page.locator('.lib-hdr .lib-lnk')).toBeHidden()
+    await page.evaluate(() => window.__tinctLabAuthStatus.publishForTest({ signedIn: false }))
+    await expect(link).toHaveText('Sign in')
+  })
+}
 
 test('renders the returning reader from reading memory: recap headline, one pill, quiet rows, uniform shelf', async ({ page }) => {
   await page.evaluate(seedReadingMemory, readingMemorySeed([
@@ -300,14 +456,88 @@ test('renders the returning reader from reading memory: recap headline, one pill
   await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^“In the beginning God created/)
   await expect(recap.getByTestId('lab-recap-book')).toHaveText('The Bible')
   await expect(recap.locator('[data-recap-continue]')).toHaveCount(1)
+  await expect(recap.locator('[data-reading-now-head] .lib-eyebrow')).toHaveText('Reading now')
+  await expect(recap.locator('[data-reading-now-head] .lib-cnt')).toHaveText('2')
+  await expect(recap.locator('[data-reading-now-section] > :nth-child(2)')).toHaveAttribute('data-recap-hero', 'bible')
   await expect(recap.locator('[data-recap-open]')).toHaveCount(1)
   await expect(recap.locator('[data-recap-open="meditations"] .lib-recap-row-t')).toHaveText('Meditations')
   await expect(recap.locator('[data-recap-open="meditations"] .lib-eyebrow')).toHaveText('Last time · Book 1')
+  await expect(recap.locator('[data-finished-section]')).toHaveCount(0)
   await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular')
   await expect(page.locator('[data-popular-shelf]')).toHaveClass(/lib-grid/)
   await expect(page.locator('[data-popular-shelf] [data-shelf-book]')).toHaveCount(8)
+  await expect(page.locator('[data-popular-shelf] [data-shelf-book="odyssey"] .lib-ba')).toHaveText('Homer')
   await expect(page.locator('[data-library-account-invite], .tov5-library-finished, .tov5-categories, .tov5-library-continue')).toHaveCount(0)
   await expectNoDocumentOverflow(page)
+})
+
+test('lists every book in progress under Reading now and completed books under Finished', async ({ page }) => {
+  const meditationsChapters = await page.evaluate(() => window.__tinctLabPreReader.visibleBooks().find(book => book.id === 'meditations')?.readingStructure?.chapters?.length as number)
+  await page.evaluate(seedReadingMemory, readingMemorySeed([
+    { id: 'bible-1', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, page: 2, totalPages: 4, ageMs: 2 * 3600e3 },
+    { id: 'odyssey-5', bookId: 'odyssey', editionKey: 'original-en', chapterNumber: 5, page: 4, totalPages: 12, ageMs: 3 * 86400e3 },
+    { id: 'meditations-last', bookId: 'meditations', editionKey: 'original-en', chapterNumber: meditationsChapters, page: 9, totalPages: 9, ageMs: 26 * 3600e3, state: 'completed' },
+    { id: 'hamlet-1', bookId: 'hamlet', editionKey: 'original-en', chapterNumber: 1, page: 1, totalPages: 6, ageMs: 5 * 86400e3 },
+  ]))
+  await page.evaluate(() => localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ completedAt: Date.now() })))
+  await openPreReader(page, '/lab/library?autoplay=0')
+  const recap = page.locator('[data-reading-memory-recap]')
+  await expect(recap).toBeVisible()
+  await expect(recap).toHaveAttribute('data-reading-now', '2')
+  await expect(recap).toHaveAttribute('data-finished', '2')
+  await expect(recap.locator('[data-reading-now-head] .lib-cnt')).toHaveText('2')
+  await expect(recap.locator('[data-recap-hero]')).toHaveAttribute('data-recap-hero', 'bible')
+  await expect(recap.locator('[data-recap-open]')).toHaveCount(1)
+  await expect(recap.locator('[data-recap-open="odyssey"] .lib-eyebrow')).toHaveText('Last time · Book 5')
+  await expect(recap.locator('[data-finished-head] .lib-eyebrow')).toHaveText('Finished')
+  await expect(recap.locator('[data-finished-head] .lib-cnt')).toHaveText('2')
+  expect(await recap.locator('[data-finished-book]').evaluateAll(rows => rows.map(row => row.getAttribute('data-finished-book')))).toEqual(['meditations', 'hamlet'])
+  await expect(recap.locator('[data-finished-book="meditations"] .lib-check')).toBeVisible()
+  await expect(recap.locator('[data-finished-book="meditations"] .lib-eyebrow')).toHaveText('Finished')
+  // sections sit above the popular shelf
+  const order = await page.evaluate(() => ({ recap: document.querySelector('[data-reading-memory-recap]')!.getBoundingClientRect().top, finished: document.querySelector('[data-finished-section]')!.getBoundingClientRect().top, popular: document.querySelector('[data-library-popular]')!.getBoundingClientRect().top }))
+  expect(order.recap).toBeLessThan(order.finished)
+  expect(order.finished).toBeLessThan(order.popular)
+  await expectNoDocumentOverflow(page)
+})
+
+test('resumes at the reader\'s own newer position instead of an older reading-memory anchor', async ({ page }) => {
+  await page.evaluate(seedReadingMemory, readingMemorySeed([
+    { id: 'bible-genesis', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, page: 2, totalPages: 4, ageMs: 3 * 3600e3 },
+  ]))
+  await page.evaluate(() => {
+    const at = Date.now() - 3600e3
+    const daniel = { bookId: 'daniel', headerBook: 'Daniel', chapterNumber: 7, sequentialChapter: 857, paragraphIndex: 2, wordIndex: 5, pageIndex: 1, primaryEditionKey: 'kjv-en', readerMode: 'read', updatedAt: at, deviceId: 'qa-reader', rev: 3 }
+    localStorage.setItem('tinct-lab-position', JSON.stringify({ books: { daniel }, lastSettledBookId: 'daniel', lastSettledAt: at, updatedAt: at, deviceId: 'qa-reader' }))
+  })
+  await openPreReader(page, '/lab/library?autoplay=0')
+  const recap = page.locator('[data-reading-memory-recap]')
+  await expect(recap).toBeVisible()
+  await expect(recap).toHaveAttribute('data-continue-source', 'position')
+  await expect(recap).toHaveAttribute('data-continue-chapter', '857')
+  await expect(recap.getByTestId('lab-recap-eyebrow')).toHaveText('Last time you read · Daniel 7')
+  await expect(recap.getByTestId('lab-recap-headline')).toHaveText('You stopped in Daniel 7')
+  await recap.locator('[data-recap-continue]').click()
+  await expect(page).toHaveURL(/\/lab\/reader$/)
+  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'bible')
+  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '857')
+
+  // the other way round: a newer memory session wins and keeps its excerpt.
+  // (Opening the reader just wrote a fresh Daniel 7 record; age it first.)
+  await page.goBack()
+  await waitForPreReader(page)
+  await page.evaluate(() => {
+    const at = Date.now() - 2 * 3600e3
+    const daniel = { bookId: 'daniel', headerBook: 'Daniel', chapterNumber: 7, sequentialChapter: 857, paragraphIndex: 2, wordIndex: 5, pageIndex: 1, primaryEditionKey: 'kjv-en', readerMode: 'read', updatedAt: at, deviceId: 'qa-reader', rev: 9 }
+    localStorage.setItem('tinct-lab-position', JSON.stringify({ books: { daniel }, lastSettledBookId: 'daniel', lastSettledAt: at, updatedAt: at, deviceId: 'qa-reader' }))
+  })
+  await page.evaluate(seedReadingMemory, readingMemorySeed([
+    { id: 'bible-genesis-fresh', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, page: 2, totalPages: 4, ageMs: 60e3 },
+  ]))
+  await openPreReader(page, '/lab/library?autoplay=0')
+  await expect(recap).toHaveAttribute('data-continue-source', 'memory')
+  await expect(recap).toHaveAttribute('data-continue-chapter', '1')
+  await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^“In the beginning God created/)
 })
 
 test('opens a non-showcase book with catalogue-backed detail and editions', async ({ page }) => {
@@ -703,9 +933,12 @@ declare global {
       selectBook: (bookId: string) => Promise<boolean>
       visibleBooks: () => Array<Record<string, any>>
       openBook: (bookId: string) => Promise<boolean>
-      libraryState: () => { mode: 'new' | 'returning'; shelfIndex: number; shelf: string[]; query: string; expandedHouseId: string | null }
+      libraryState: () => { mode: 'new' | 'returning'; shelfIndex: number; shelf: string[]; query: string; expandedHouseId: string | null; palette: 'dark' | 'light' | 'book'; preSearchScrollY: number | null }
       selectionState: () => { primaryEditionKey: string | null; compareEditionKey: string | null; revision: number }
       renderEditionsForTest: (book: Record<string, any>) => void
+    }
+    __tinctLabAuthStatus: {
+      publishForTest: (state: { signedIn?: boolean; email?: string | null; name?: string | null }) => void
     }
   }
 }

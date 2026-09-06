@@ -22,11 +22,34 @@ export function displayNameFor(user: UserLike): string | null {
   return local || null
 }
 
+/** The account glyph's letter: the first letter of the display name. */
+export function accountInitial(name: string | null): string {
+  const first = (name ?? '').trim().charAt(0)
+  return first ? first.toLocaleUpperCase() : ''
+}
+
+function span(className: string, text: string, hidden = false): HTMLSpanElement {
+  const element = document.createElement('span')
+  element.className = className
+  element.textContent = text
+  if (hidden) element.setAttribute('aria-hidden', 'true')
+  return element
+}
+
 function publish(state: LabAuthState) {
   ;(window as Window & { __tinctLabAuthState?: LabAuthState }).__tinctLabAuthState = state
   document.querySelectorAll<HTMLAnchorElement>('[data-lab-auth-link]').forEach(link => {
     const returnTo = link.dataset.authReturnTo || '/lab/library'
-    link.textContent = state.signedIn ? (link.hasAttribute('data-lab-auth-name') && state.name ? state.name : 'Account') : 'Sign in'
+    const named = state.signedIn && link.hasAttribute('data-lab-auth-name') && state.name
+    if (named) {
+      // The name on wide screens, a small circular glyph with the initial on
+      // phones (see .lib-acct-* in lab/index.html); the link is named for both.
+      link.replaceChildren(span('lib-acct-name', state.name as string), span('lib-acct-glyph', accountInitial(state.name), true))
+      link.setAttribute('aria-label', `${state.name} — account`)
+    } else {
+      link.textContent = state.signedIn ? 'Account' : 'Sign in'
+      link.removeAttribute('aria-label')
+    }
     link.href = state.signedIn
       ? `/lab/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo)}`
       : `/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}`
@@ -63,4 +86,9 @@ if (supabase) {
     else clearSignedInCookie()
     publish({ ready: true, signedIn, email: session?.user.email || null, name: displayNameFor(session?.user) })
   })
+}
+
+/** QA hook: render a signed-in header without an account (browser evidence only). */
+;(window as Window & { __tinctLabAuthStatus?: unknown }).__tinctLabAuthStatus = {
+  publishForTest: (state: Partial<LabAuthState>) => publish({ ready: true, signedIn: false, email: null, name: null, ...state }),
 }
