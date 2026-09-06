@@ -1,5 +1,7 @@
 import { getBook } from '../data/bookRegistry'
 import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
+import { labReaderRoute } from './labRoute'
+import { readLabPositionLocal } from './labPositionStore'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
 import type { LabBookPlace } from './labPosition'
@@ -39,11 +41,47 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
   }
 }
 
+/**
+ * `/read/{bookId}` opened without a parked handoff (bookmark, reload, SEO
+ * tour card, shared link): open that book. The edition comes from the URL
+ * when it names one, else from the book's saved place, else the registry's
+ * first edition; the chapter from the URL when named, else the saved place.
+ */
+export function labReaderHandoffFromLocation(pathname: string, search = ''): ReaderHandoffIntent | null {
+  const route = labReaderRoute(pathname, search)
+  if (!route) return null
+  const book = getBook(route.bookId)
+  if (!book) return null
+  let saved: { chapterNumber?: number; paragraphIndex?: number; primaryEditionKey?: string } | null = null
+  try {
+    saved = readLabPositionLocal()?.books?.[book.id] ?? null
+  } catch {
+    saved = null
+  }
+  const editionKey = route.editionKey && book.editions.some(edition => edition.key === route.editionKey)
+    ? route.editionKey
+    : saved?.primaryEditionKey && book.editions.some(edition => edition.key === saved?.primaryEditionKey)
+      ? saved.primaryEditionKey
+      : book.editions[0]?.key
+  if (!editionKey) return null
+  const chapterNumber = route.chapterNumber ?? saved?.chapterNumber ?? null
+  const savedPlace = chapterNumber
+    ? {
+        bookId: book.id,
+        chapterNumber,
+        ...(route.chapterNumber == null && Number.isInteger(saved?.paragraphIndex) ? { paragraphIndex: saved!.paragraphIndex } : {}),
+      }
+    : undefined
+  return createReaderHandoffIntent({ bookId: book.id, primaryEditionKey: editionKey, ...(savedPlace ? { savedPlace } : {}) })
+    ?? createReaderHandoffIntent({ bookId: book.id, primaryEditionKey: editionKey })
+}
+
 /** React StrictMode may evaluate component initializers twice; consume storage once per document. */
 export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
   if (!pageHandoffRead) {
     pageHandoffRead = true
     pageHandoff = consumeLabReaderHandoff()
+      ?? (typeof window === 'undefined' ? null : labReaderHandoffFromLocation(window.location.pathname, window.location.search))
   }
   return pageHandoff
 }

@@ -27,8 +27,8 @@ describe('LabSettingsSheet', () => {
     fireEvent.click(screen.getByTestId('lab-settings-account'))
     const link = screen.getByTestId('lab-account-sign-in') as HTMLAnchorElement
     expect(link.getAttribute('href')).toBe(LAB_SIGN_IN_URL)
-    expect(LAB_SIGN_IN_URL).toBe('/lab/sign-in?returnTo=%2Flab%2Flibrary')
-    expect(LAB_ACCOUNT_URL).toBe('/lab/sign-in?mode=account&returnTo=%2Flab%2Flibrary')
+    expect(LAB_SIGN_IN_URL).toBe('/lab/sign-in?returnTo=%2Flibrary')
+    expect(LAB_ACCOUNT_URL).toBe('/lab/sign-in?mode=account&returnTo=%2Flibrary')
     expect(screen.queryByTestId('lab-account-manage')).toBeNull()
   })
 

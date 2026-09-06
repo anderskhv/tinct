@@ -128,9 +128,11 @@ import {
     root.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)))
   }
 
+  const LIBRARY_ROUTE = '/library'
+  const isLibraryRoute = path => path === LIBRARY_ROUTE || path === '/lab/library'
   function routeFor(view, bookId = state.selectedBookId) {
     if (view === 'landing') return '/lab/landing'
-    if (view === 'library') return '/lab/library'
+    if (view === 'library') return LIBRARY_ROUTE
     return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}`
   }
 
@@ -669,9 +671,9 @@ import {
     } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
     rememberLibrary()
-    // Neutral reader route: its layout follows the viewport. Explicit
-    // /lab/phone and /lab/desktop remain useful QA overrides.
-    window.location.assign('/lab/reader')
+    // The reader lives at /read/{bookId}; its layout follows the viewport.
+    // Explicit /lab/phone and /lab/desktop remain useful QA overrides.
+    window.location.assign(`/read/${encodeURIComponent(book.id)}`)
     return true
   }
 
@@ -849,7 +851,7 @@ import {
     renderLibrary()
     const params = new URLSearchParams(location.search)
     const requested = params.get('book')
-    const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
+    const routeView = isLibraryRoute(location.pathname.replace(/\/+$/, '')) ? 'library' : 'landing'
     const requestedView = params.get('view')
     const allowedViews = new Set(['landing', 'library', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
@@ -876,7 +878,7 @@ import {
     const params = new URLSearchParams(location.search)
     const bookId = params.get('book')
     const path = location.pathname.replace(/\/+$/, '')
-    const view = path === '/lab/library' ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
+    const view = isLibraryRoute(path) ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
     if (view !== 'library') rememberLibrary()
     if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) {
       await selectBook(bookId, view)

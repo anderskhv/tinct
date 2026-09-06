@@ -1679,7 +1679,7 @@ describe('lab chrome', () => {
     expect(sheet.textContent).toContain('Account')
     expect(sheet.textContent).not.toContain('Home')
     expect(sheet.textContent).not.toContain('Saved')
-    expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/lab/library')
+    expect(screen.getByTestId('lab-settings-library').getAttribute('href')).toBe('/library')
     fireEvent.click(screen.getByTestId('lab-settings-layout'))
     expect(screen.getByTestId('lab-theme')).toBeTruthy()
     expect(screen.getByText('All Reading Settings')).toBeTruthy()

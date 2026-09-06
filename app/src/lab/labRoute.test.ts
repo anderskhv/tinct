@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isLabPath, labLayoutOverride, labSurface, labVoiceVersion } from './labRoute'
+import { CLASSIC_APP_PATH, LIBRARY_PATH, isLabPath, isLabReaderPath, labLayoutOverride, labReaderRoute, labSurface, labVoiceVersion } from './labRoute'
 
 describe('lab routes', () => {
   it('treats /lab and nested paths as the demo', () => {
@@ -70,5 +70,36 @@ describe('lab voice version flag', () => {
     expect(isLabPath('/lab/reader?voice=v2')).toBe(true)
     expect(labSurface('/lab/reader?voice=v2')).toBe('reader')
     expect(labLayoutOverride('/lab/reader?voice=v2')).toBeNull()
+  })
+})
+
+describe('launch switch routes', () => {
+  it('names the public library and the classic app', () => {
+    expect(LIBRARY_PATH).toBe('/library')
+    expect(CLASSIC_APP_PATH).toBe('/classic')
+  })
+
+  it('mounts the lab reader for /read/{bookId} but leaves the static SEO pages alone', () => {
+    expect(isLabReaderPath('/read/odyssey')).toBe(true)
+    expect(isLabReaderPath('/read/odyssey/')).toBe(true)
+    expect(isLabReaderPath('/read/odyssey/3')).toBe(true)
+    expect(isLabReaderPath('/read/odyssey?chapter=2&edition=modern-en')).toBe(true)
+    expect(isLabReaderPath('/read')).toBe(false)
+    expect(isLabReaderPath('/read/')).toBe(false)
+    expect(isLabReaderPath('/read/odyssey/summary')).toBe(false)
+    expect(isLabReaderPath('/read/odyssey/chapter-3')).toBe(false)
+    expect(isLabReaderPath('/classic')).toBe(false)
+    expect(isLabReaderPath('/library')).toBe(false)
+    expect(isLabReaderPath('/lab/reader')).toBe(false)
+  })
+
+  it('parses book, chapter and edition from reader URLs', () => {
+    expect(labReaderRoute('/read/odyssey')).toEqual({ bookId: 'odyssey', chapterNumber: null, editionKey: null })
+    expect(labReaderRoute('/read/Odyssey/4')).toEqual({ bookId: 'odyssey', chapterNumber: 4, editionKey: null })
+    expect(labReaderRoute('/read/odyssey', '?chapter=2&edition=modern-en')).toEqual({ bookId: 'odyssey', chapterNumber: 2, editionKey: 'modern-en' })
+    expect(labReaderRoute('/read/odyssey/7?chapter=2')).toEqual({ bookId: 'odyssey', chapterNumber: 7, editionKey: null })
+    expect(labReaderRoute('/read/odyssey?chapter=0')).toEqual({ bookId: 'odyssey', chapterNumber: null, editionKey: null })
+    expect(labReaderRoute('/read/odyssey/summary')).toBeNull()
+    expect(labReaderRoute('/lab/reader')).toBeNull()
   })
 })

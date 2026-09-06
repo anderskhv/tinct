@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { LabApp } from './lab/LabApp'
-import { isLabPath } from './lab/labRoute'
+import { isLabPath, isLabReaderPath } from './lab/labRoute'
 import './index.css'
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices
@@ -32,7 +32,9 @@ if (isEink) {
 }
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
-const Root = isLabPath(pathname) ? LabApp : App
+// The lab is the official experience: /lab/* (aliases) and /read/{bookId}
+// mount the lab reader; everything else (including /classic) is the classic app.
+const Root = isLabPath(pathname) || isLabReaderPath(pathname) ? LabApp : App
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -3,7 +3,7 @@ import { BIBLE } from '../data/bookRegistry'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 
 /** Lab library route. Full navigation, never /app or a book id. */
-export const LAB_LIBRARY_URL = '/lab/library'
+export const LAB_LIBRARY_URL = '/library'
 /** Sign-in page URL. Pass the current reader path so the reader comes back to the same book after signing in. */
 export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
   return `/lab/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`

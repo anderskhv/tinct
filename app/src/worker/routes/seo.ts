@@ -1,5 +1,5 @@
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
-import { isLabPath } from '../../lab/labRoute'
+import { CLASSIC_APP_PATH, LIBRARY_PATH, isLabPath } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
 
 export type SeoEnv = {
@@ -166,6 +166,7 @@ async function serveLabPreReader(
   url: URL,
   env: SeoEnv,
   assetPath: string,
+  options: { indexable?: boolean } = {},
 ): Promise<Response | null> {
   // Cloudflare Assets applies html_handling to binding fetches. Requesting
   // /lab/index.html is therefore canonicalized to /lab/ with a 307, which is
@@ -176,9 +177,15 @@ async function serveLabPreReader(
   const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
   if (!labResp.ok) return null
 
-  const newResp = new Response(requestMethod === 'HEAD' ? null : labResp.body, labResp)
+  // The public library is indexable; the /lab/* aliases of the same file
+  // stay noindex so crawlers consolidate on the canonical URL.
+  const body = options.indexable && requestMethod !== 'HEAD'
+    ? (await labResp.text()).replace(/<meta name="robots"[^>]*>\s*/i, '')
+    : requestMethod === 'HEAD' ? null : labResp.body
+  const newResp = new Response(body, labResp)
   newResp.headers.set('Cache-Control', 'no-store')
-  newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  if (options.indexable) newResp.headers.delete('X-Robots-Tag')
+  else newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
     newResp.headers.set(key, value)
   }
@@ -323,12 +330,13 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     // Root URL serves the landing page (which is index.html after build swap).
-    // SPA is available at /app.html and /app. Plain /read is now the static
-    // crawlable library hub, so signed-in app traffic must not redirect there.
+    // The SPA shell is /app.html; the classic app lives at /classic. Plain
+    // /read is the static crawlable library hub, so signed-in traffic must not
+    // redirect there.
     //
     // Signed-in short-circuit: if the client has a `tinct_auth=1` cookie
       // (set by the SPA in useAuth on sign-in, cleared on sign-out), 302 to
-      // /app before serving landing.html. This is deterministic across
+      // the lab library before serving landing.html. This is deterministic across
     // browsers/devices and far more reliable than the inline-script
     // localStorage probe in landing.html. That inline script remains as a
     // fallback for cookie-disabled browsers.
@@ -338,7 +346,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       if (hasAuthCookie) {
         return new Response(null, {
           status: 302,
-          headers: { Location: '/app', 'Cache-Control': 'no-store' },
+          headers: { Location: LIBRARY_PATH, 'Cache-Control': 'no-store' },
         })
       }
       // For signed-out users, serve landing.html but mark it no-store so the
@@ -353,6 +361,26 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         newResp.headers.set(key, value)
       }
       return newResp
+    }
+
+    // Launch switch: the lab library is the official library at /library
+    // (indexable). /lab/library keeps working as a noindex alias.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === LIBRARY_PATH || url.pathname === `${LIBRARY_PATH}/`)) {
+      const libraryResp = await serveLabPreReader(request.method, url, env, '/lab/', { indexable: true })
+      if (libraryResp) return libraryResp
+    }
+
+    // The classic app moved to /classic for a short overlap; old /app links
+    // and bookmarks follow it with their query (?view=library, ?signin=1).
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/app' || url.pathname === '/app/')) {
+      return new Response(null, {
+        status: 302,
+        headers: { Location: `${CLASSIC_APP_PATH}${url.search}`, 'Cache-Control': 'no-store' },
+      })
+    }
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === CLASSIC_APP_PATH || url.pathname === `${CLASSIC_APP_PATH}/`)) {
+      const classicResp = await serveLabDemo(request.method, url, env)
+      if (classicResp) return classicResp
     }
 
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
@@ -395,17 +423,15 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
 
     // Back-compat for old app entry links. Plain /read is the public SEO hub,
     // but query-bearing /read URLs are app intents such as ?signin=1 or
-    // ?view=library. Signed-in humans also expect /read to open the app, while
-    // crawlers and signed-out visitors can still receive the static hub.
+    // ?view=library. Signed-in humans also expect /read to open their library,
+    // while crawlers and signed-out visitors can still receive the static hub.
     if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/read') {
       const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
       const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
       if (url.search || hasAuthCookie) {
-        const appUrl = new URL(url.toString())
-        appUrl.pathname = '/app'
         return new Response(null, {
           status: 302,
-          headers: { Location: `${appUrl.pathname}${appUrl.search}`, 'Cache-Control': 'no-store' },
+          headers: { Location: `${LIBRARY_PATH}${url.search}`, 'Cache-Control': 'no-store' },
         })
       }
     }
@@ -445,7 +471,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
       // Bare `/read/{bookId}` is the public SEO book page. In-app opens add
       // a query (`?from=app`) and signed-in readers carry `tinct_auth=1`;
-      // both must skip the extra marketing gate and load the SPA.
+      // both must skip the extra marketing gate and load the SPA shell, where
+      // main.tsx mounts the lab reader for /read/{bookId}.
       if (!url.search && !hasAuthCookie) {
         const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
         if (staticBookResp) return staticBookResp

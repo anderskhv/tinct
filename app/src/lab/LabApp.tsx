@@ -62,6 +62,7 @@ import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
+import { isLabPath } from './labRoute'
 import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import type { LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
@@ -786,6 +787,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   useEffect(() => {
     document.title = LAB_COPY.documentTitle
+    // /lab/* stays a noindex alias; /read/{bookId} is the indexable reader
+    // whose metadata the Worker already injected.
+    if (!isLabPath(path)) return
     const existing = document.querySelector('meta[name="robots"]')
     if (existing) {
       existing.setAttribute('content', 'noindex, noarchive')
