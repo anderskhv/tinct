@@ -4,6 +4,9 @@ import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/lab/library'
+/** The sign-in page only returns to pre-reader routes, so the reader's account links land in the library. */
+export const LAB_SIGN_IN_URL = `/lab/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`
+export const LAB_ACCOUNT_URL = `/lab/sign-in?mode=account&returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 

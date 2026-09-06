@@ -25,6 +25,7 @@ import {
   labPaginationPaintRoot,
   stabilizeLabPageMetrics,
   nextLabVoiceGate,
+  labKeyboardPageDirection,
   nextPaintShrinkTo,
   type LabPageAdjust,
   type LabPageMetrics,
@@ -2000,8 +2001,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (target.closest('.selection-popup')) return
       dismissSelectionPopup()
     }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') dismissSelectionPopup()
+    }
     document.addEventListener('pointerdown', onPointer, true)
-    return () => document.removeEventListener('pointerdown', onPointer, true)
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onPointer, true)
+      window.removeEventListener('keydown', onKey)
+    }
   }, [dismissSelectionPopup, selectionPopup])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number) => {
@@ -2439,6 +2447,27 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       else void goToChapter(prev, 'end')
     }
   }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
+
+  // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
+  // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
+  // overlays keep their keys; the chapter cover handles its own arrows and
+  // marks the event handled, so it never double-turns here.
+  const keyboardPageTurnsBlocked = gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
+  useEffect(() => {
+    if (keyboardPageTurnsBlocked) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return
+      const direction = labKeyboardPageDirection(event.key)
+      if (direction == null) return
+      const target = event.target as HTMLElement | null
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable)) return
+      event.preventDefault()
+      if (direction > 0) goNext()
+      else goPrev()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
     mobileCompareReturnPlaceRef.current = null

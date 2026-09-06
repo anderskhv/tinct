@@ -434,7 +434,7 @@ describe('lab chrome', () => {
 
   it('marks the client document noindex', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
-    expect(document.title).toBe('Tinct lab')
+    expect(document.title).toBe('Tinct')
     expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex')
     expect(screen.queryByText('Private lab for the new reading chrome.')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-gear'))
@@ -4074,5 +4074,41 @@ describe('lab chapter progress (picker)', () => {
     expect(rowStatus(3)).toContain('In progress')
     expect(rowStatus(3)).toContain('page 2 of 5')
     expect(screen.getByText(/1 of 3 finished/)).toBeTruthy()
+  })
+})
+
+describe('lab keyboard page turns', () => {
+  it('turns pages with the classic Reader keys and leaves typing surfaces and open sheets alone', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    const first = document.querySelector('.lab-hearing-line')?.textContent || ''
+    expect(first).toContain('Tell me, O Muse')
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    const second = document.querySelector('.lab-hearing-line')?.textContent || ''
+    expect(second).not.toBe(first)
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(first)
+    fireEvent.keyDown(window, { key: 'PageDown' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(second)
+    fireEvent.keyDown(window, { key: 'PageUp' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(first)
+    fireEvent.keyDown(window, { key: ' ' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(second)
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    // keys typed into a field never turn the page
+    const input = document.createElement('input')
+    document.body.appendChild(input)
+    input.focus()
+    fireEvent.keyDown(input, { key: 'ArrowRight' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(first)
+    input.remove()
+    // an open settings sheet keeps the keys, and Esc closes it
+    fireEvent.click(screen.getByTestId('lab-gear'))
+    expect(screen.getByTestId('lab-settings-sheet')).toBeTruthy()
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(first)
+    fireEvent.keyDown(window, { key: 'Escape' })
+    expect(screen.queryByTestId('lab-settings-sheet')).toBeNull()
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(second)
   })
 })

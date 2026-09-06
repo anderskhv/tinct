@@ -827,6 +827,13 @@ export function labShowPhoneBar(input: {
 
 export type LabPageTurnDirection = -1 | 1
 
+/** Keyboard page turns: the classic Reader's keys, so desktop readers keep their habits. */
+export function labKeyboardPageDirection(key: string): LabPageTurnDirection | null {
+  if (key === 'ArrowRight' || key === 'PageDown' || key === ' ') return 1
+  if (key === 'ArrowLeft' || key === 'PageUp') return -1
+  return null
+}
+
 /** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
 export function labSwipePageDirection(
   deltaX: number,
