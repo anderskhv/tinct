@@ -5,9 +5,10 @@
  * position store: which books are being read (and which are finished), where
  * "Continue" must land for each of them, and what the hero says. Nothing here
  * fabricates: chapter labels are the ones the reader recorded, the headline
- * is the stored summary or the exact excerpt, and "finished" is only ever the
- * session's own completed state on the final chapter or the app's own
- * `book-completed` mark.
+ * says where in the chapter the reader is from the recorded paragraph and the
+ * chapter's length ("You’re in the middle of Proverbs 17"), and "finished" is
+ * only ever the session's own completed state, the reader's finished-chapter
+ * record, or the app's own `book-completed` mark.
  *
  * Two stores, one target. Reading memory records sessions for the recap; the
  * reader's position store (`tinct-lab-position`, per-book records plus
@@ -17,16 +18,18 @@
  * whichever record is newer, and the recap text is shown only when it
  * describes that place.
  */
-import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type ReadingSession, type RecapCard } from '../readingMemory'
+import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type ReadingSession } from '../readingMemory'
+import { READING_SESSION_GAP_MS } from '../readingMemory/recorder'
 import type { LabBookPlace, LabPositionState } from '../lab/labPosition'
+import { chapterProgress, includesPreviousChapter, positionLine, type ChapterProgress } from './recapPosition'
 
 export type LibraryMode = 'new' | 'returning'
-
-export const RECAP_HEADLINE_MAX_CHARS = 180
 
 export interface LibraryChapterRef {
   number: number
   title: string
+  /** Paragraphs in the visible reading edition; missing when the catalogue did not say. */
+  paragraphCount?: number
 }
 
 /** What the library knows about a catalogue book for resolving places. */
@@ -47,6 +50,8 @@ export interface ContinueTarget {
   /** 0-based rendered page for the reader handoff. */
   pageIndex: number
   paragraphIndex: number
+  /** Paragraphs in the chapter per the catalogue; null when unknown. */
+  paragraphCount: number | null
   source: 'position' | 'memory'
   /** Clock value of the winning record. */
   at: number
@@ -61,6 +66,10 @@ export interface ReadingListRow {
   session: ReadingSession | null
   /** Stored automatic summary, only when it describes the chapter Continue resumes in. */
   recap: string | null
+  /** Where in the chapter Continue resumes: drives the hero headline. */
+  progress: ChapterProgress
+  /** The "so far" summary should cover the previous chapter too (finished, same sitting or barely into this one). */
+  includePreviousChapter: boolean
 }
 
 export interface FinishedRow {
@@ -92,26 +101,6 @@ export function libraryModeFor(list: Pick<ReadingList, 'readingNow' | 'finished'
 /** "Last time you read · Genesis 1" — the chapter label of the place Continue resumes in. */
 export function recapEyebrow(chapterLabel: string): string {
   return `Last time you read · ${chapterLabel}`
-}
-
-function trimToWord(text: string, maxChars: number): string {
-  if (text.length <= maxChars) return text
-  const cut = text.slice(0, maxChars)
-  const atWord = cut.lastIndexOf(' ')
-  return `${(atWord > maxChars * 0.6 ? cut.slice(0, atWord) : cut).replace(/[\s,;:—–-]+$/, '')}…`
-}
-
-/**
- * The recap headline: the stored summary when present, else the exact
- * excerpt (quoted, trimmed at a word boundary and marked with an ellipsis so
- * a cut is never passed off as the whole passage), else the truthful
- * location line from the card ("You stopped in …" / "You finished …").
- */
-export function recapHeadline(card: Pick<RecapCard, 'body' | 'bodyKind' | 'headline'>, maxChars = RECAP_HEADLINE_MAX_CHARS): string {
-  const body = card.body.trim()
-  if (card.bodyKind === 'summary' && body) return body
-  if (card.bodyKind === 'excerpt' && body) return `“${trimToWord(body, maxChars)}”`
-  return card.headline
 }
 
 /** "Chapter 1 — Loomings" → "Chapter 1"; labels the reader already shows, unchanged otherwise. */
@@ -195,6 +184,7 @@ export function continueTargetFor(input: {
       chapterLabel: placeLabel(book, place),
       pageIndex: Math.max(0, place.pageIndex ?? 0),
       paragraphIndex: Math.max(0, place.paragraphIndex),
+      paragraphCount: chapterParagraphCount(book, place.sequentialChapter),
       source: 'position',
       at: place.updatedAt,
     }
@@ -207,9 +197,60 @@ export function continueTargetFor(input: {
     chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`),
     pageIndex: Math.max(0, session.anchor.page - 1),
     paragraphIndex: session.anchor.paragraphIndex,
+    paragraphCount: chapterParagraphCount(book, session.anchor.chapterNumber),
     source: 'memory',
     at: session.lastActiveAt,
   }
+}
+
+/** Paragraphs in a chapter per the catalogue's reading structure; null when it did not say. */
+export function chapterParagraphCount(book: LibraryBookInfo | undefined, chapterNumber: number): number | null {
+  const count = book?.chapters.find(item => item.number === chapterNumber)?.paragraphCount
+  return typeof count === 'number' && Number.isFinite(count) && count > 0 ? Math.floor(count) : null
+}
+
+/**
+ * Whether the reader finished the chapter Continue resumes in. A memory
+ * anchor says so itself (`completed`); a position record says so only when
+ * the reader's finished-chapter record lists the chapter AND the record
+ * still sits in its last paragraph — a reader who turned back into a
+ * finished chapter is in the middle of it again.
+ */
+export function chapterFinishedAt(input: {
+  target: Pick<ContinueTarget, 'bookId' | 'chapterNumber' | 'paragraphIndex' | 'paragraphCount' | 'source'>
+  session: ReadingSession | null
+  finishedChapters: ReadonlySet<number>
+}): boolean {
+  const { target, session } = input
+  const sameChapter = session !== null && session.anchor.bookId === target.bookId && session.anchor.chapterNumber === target.chapterNumber
+  const sessionCompleted = sameChapter && session.state === 'completed'
+  if (target.source === 'memory') return sessionCompleted
+  const atLastParagraph = target.paragraphCount !== null && target.paragraphIndex >= target.paragraphCount - 1
+  if (input.finishedChapters.has(target.chapterNumber) && atLastParagraph) return true
+  return sessionCompleted && session !== null && target.paragraphIndex >= session.anchor.paragraphIndex
+}
+
+/**
+ * The previous chapter was read in the same sitting: a visible session for
+ * it ended within the session gap of when this chapter's session began (or,
+ * without one, of the resume record itself).
+ */
+export function previousChapterSameSitting(input: {
+  memory: ReadingMemoryState
+  viewer: string | null
+  target: Pick<ContinueTarget, 'bookId' | 'chapterNumber' | 'at'>
+  session: ReadingSession | null
+}): boolean {
+  const { target, session } = input
+  const visible = visibleToViewer(input.viewer)
+  const sameChapter = session !== null && session.anchor.bookId === target.bookId && session.anchor.chapterNumber === target.chapterNumber
+  const startedAt = sameChapter ? session.startedAt : target.at
+  return Object.values(input.memory.sessions).some(candidate =>
+    visible(candidate)
+    && candidate.anchor.bookId === target.bookId
+    && candidate.anchor.chapterNumber === target.chapterNumber - 1
+    && candidate.lastActiveAt <= startedAt
+    && startedAt - candidate.lastActiveAt <= READING_SESSION_GAP_MS)
 }
 
 function lastChapterNumber(book: LibraryBookInfo | undefined): number | null {
@@ -249,12 +290,28 @@ export function readingList(input: ReadingListInput): ReadingList {
       finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
       continue
     }
+    const finishedChapters = new Set<number>(input.positions?.finished?.[bookId] ?? [])
+    const progress = chapterProgress({
+      paragraphIndex: target.paragraphIndex,
+      paragraphCount: target.paragraphCount,
+      finished: chapterFinishedAt({ target, session, finishedChapters }),
+    })
+    const previousFinished = finishedChapters.has(target.chapterNumber - 1)
+      || Object.values(input.memory.sessions).some(candidate => visibleToViewer(input.viewer)(candidate)
+        && candidate.anchor.bookId === bookId && candidate.anchor.chapterNumber === target.chapterNumber - 1 && candidate.state === 'completed')
     readingNow.push({
       bookId,
       target,
       lastActiveAt: Math.max(session?.lastActiveAt ?? 0, place?.updatedAt ?? 0),
       session,
       recap: recapForTarget(session, target),
+      progress,
+      includePreviousChapter: includesPreviousChapter({
+        chapterNumber: target.chapterNumber,
+        progress,
+        previousChapterFinished: previousFinished,
+        sameSitting: previousChapterSameSitting({ memory: input.memory, viewer: input.viewer, target, session }),
+      }),
     })
   }
   readingNow.sort((a, b) => b.lastActiveAt - a.lastActiveAt)
@@ -263,18 +320,13 @@ export function readingList(input: ReadingListInput): ReadingList {
 }
 
 /**
- * The hero headline. The recap card is used only when it was built from the
- * hero's own session, carries text (summary or excerpt) and Continue resumes
- * in that session's chapter; otherwise the stored summary (same condition),
- * else the truthful location line for the place Continue resumes in.
+ * The hero headline: where in the chapter the place Continue resumes in is —
+ * "You’re at the start of / in the middle of / near the end of Proverbs 17",
+ * or "You finished Proverbs 17" when that is what the records say. The "so
+ * far" summary is a separate line the client fills in under it.
  */
-export function heroHeadline(row: Pick<ReadingListRow, 'session' | 'target' | 'recap'>, card: Pick<RecapCard, 'body' | 'bodyKind' | 'headline' | 'provenance'> | null): string {
-  const { session, target } = row
-  const sameChapter = session !== null && session.anchor.bookId === target.bookId && session.anchor.chapterNumber === target.chapterNumber
-  if (sameChapter && card && card.provenance.sessionId === session.id && card.bodyKind !== 'location-only' && card.body.trim()) return recapHeadline(card)
-  if (sameChapter && row.recap) return row.recap
-  if (sameChapter && session.state === 'completed') return `You finished ${target.chapterLabel}`
-  return `You stopped in ${target.chapterLabel}`
+export function heroHeadline(row: Pick<ReadingListRow, 'target' | 'progress'>): string {
+  return positionLine(row.progress, row.target.chapterLabel)
 }
 
 /** Label under an in-progress row: "Last time · Book 1". */

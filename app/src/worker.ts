@@ -21,6 +21,7 @@ import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleLabVoiceSession, handleVoiceSession } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
+import { handleLabRecap } from './worker/routes/labRecap'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import {
@@ -159,6 +160,7 @@ export default {
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
+      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit)
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser)
       case '/api/webhook': return handleWebhook(request, env)

@@ -261,6 +261,8 @@ function parseChapterText(value: unknown, fallbackNumber: number): ChapterText |
 export interface BookRetrieval {
   readChapter(input: unknown): Promise<ToolOutcome>
   findInBook(input: unknown): Promise<ToolOutcome>
+  /** The raw chapter (untrimmed paragraphs) for server-side callers such as the recap summary; null when the edition lacks it. */
+  chapterText(chapterNumber: number): Promise<ChapterText | null>
 }
 
 export function createBookRetrieval(input: {
@@ -383,6 +385,8 @@ export function createBookRetrieval(input: {
   }
 
   return {
+    chapterText: loadChapter,
+
     async readChapter(rawInput: unknown): Promise<ToolOutcome> {
       const resolved = await resolveChapterNumber(rawInput)
       if ('error' in resolved) return { content: resolved.error, isError: true }

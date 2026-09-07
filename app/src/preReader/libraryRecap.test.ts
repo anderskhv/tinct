@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest'
-import { buildRecapCard } from '../readingMemory/recap'
 import { applyReadingMemoryEvents, emptyReadingMemory, eventFromSession } from '../readingMemory/sessions'
 import { bibleChapterFixture, genesisOneFixture, platoDialogueFixture, sessionFor } from '../readingMemory/fixtures.test-helpers'
 import type { ReadingSession } from '../readingMemory/types'
@@ -15,15 +14,14 @@ import {
   positionPlacesByBook,
   readingList,
   recapEyebrow,
-  recapHeadline,
   type LibraryBookInfo,
 } from './libraryRecap'
 
 const T0 = 1_750_000_000_000
 
 const books = new Map<string, LibraryBookInfo>([
-  ['bible', { id: 'bible', title: 'The Bible', chapters: [{ number: 1, title: 'Genesis 1' }, { number: 857, title: 'Daniel 7' }, { number: 1147, title: 'James 1' }, { number: 1189, title: 'Revelation 22' }] }],
-  ['plato-republic', { id: 'plato-republic', title: 'The Republic', chapters: [{ number: 1, title: 'Book I' }, { number: 2, title: 'Book II — The Just City' }, { number: 10, title: 'Book X' }] }],
+  ['bible', { id: 'bible', title: 'The Bible', chapters: [{ number: 1, title: 'Genesis 1', paragraphCount: 7 }, { number: 2, title: 'Genesis 2', paragraphCount: 6 }, { number: 644, title: 'Proverbs 16', paragraphCount: 7 }, { number: 645, title: 'Proverbs 17', paragraphCount: 6 }, { number: 646, title: 'Proverbs 18', paragraphCount: 5 }, { number: 857, title: 'Daniel 7', paragraphCount: 6 }, { number: 1147, title: 'James 1', paragraphCount: 5 }, { number: 1189, title: 'Revelation 22' }] }],
+  ['plato-republic', { id: 'plato-republic', title: 'The Republic', chapters: [{ number: 1, title: 'Book I', paragraphCount: 40 }, { number: 2, title: 'Book II — The Just City', paragraphCount: 40 }, { number: 10, title: 'Book X' }] }],
   ['meditations', { id: 'meditations', title: 'Meditations', chapters: [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }, { number: 12, title: 'Book 12' }] }],
   ['hamlet', { id: 'hamlet', title: 'Hamlet', chapters: [{ number: 1, title: 'Act 1' }, { number: 5, title: 'Act 5' }] }],
 ])
@@ -32,9 +30,10 @@ function place(partial: Partial<LabBookPlace> & Pick<LabBookPlace, 'bookId' | 'h
   return { paragraphIndex: 0, wordIndex: 0, deviceId: 'device-a', rev: 1, ...partial }
 }
 
-function positions(places: LabBookPlace[], lastSettledBookId: string | null = null): LabPositionState {
+function positions(places: LabBookPlace[], lastSettledBookId: string | null = null, finished: Record<string, number[]> = {}): LabPositionState {
   return {
     books: Object.fromEntries(places.map(item => [item.bookId, item])),
+    finished,
     lastSettledBookId,
     lastSettledAt: lastSettledBookId ? T0 : 0,
     updatedAt: Math.max(0, ...places.map(item => item.updatedAt)),
@@ -65,39 +64,52 @@ describe('library recap helpers', () => {
     expect(compactChapterTitle(undefined, 'Chapter 4')).toBe('Chapter 4')
   })
 
-  it('uses the stored summary as the headline when present', () => {
-    const session = sessionFor(genesisOneFixture(), { state: 'progressed', startedAt: T0 })
-    const card = buildRecapCard({
-      session,
-      source: 'cloud',
-      paragraphs: genesisOneFixture().paragraphs,
-      summary: { text: 'God separates light from dark, sea from land, and makes the first people.', model: 'm', version: 'v1' },
-    })
-    expect(card.bodyKind).toBe('summary')
-    expect(recapHeadline(card)).toBe('God separates light from dark, sea from land, and makes the first people.')
+  it('says where in the chapter the reader is from the paragraph and the chapter length', () => {
+    const at = (paragraphIndex: number) => place({ bookId: 'proverbs', headerBook: 'Proverbs', chapterNumber: 17, sequentialChapter: 645, paragraphIndex, primaryEditionKey: 'kjv-en', updatedAt: T0 + 1_000 })
+    const rowAt = (paragraphIndex: number, finished: Record<string, number[]> = {}) => readingList({ memory: memoryOf(), viewer: null, positions: positions([at(paragraphIndex)], 'proverbs', finished), books }).readingNow[0]
+    expect(rowAt(0).progress).toBe('start')
+    expect(heroHeadline(rowAt(0))).toBe('You’re at the start of Proverbs 17')
+    expect(heroHeadline(rowAt(3))).toBe('You’re in the middle of Proverbs 17')
+    expect(heroHeadline(rowAt(5))).toBe('You’re near the end of Proverbs 17')
+    // The finished-chapter record makes it "finished" only while the pin still sits in the last paragraph.
+    expect(heroHeadline(rowAt(5, { bible: [645] }))).toBe('You finished Proverbs 17')
+    expect(heroHeadline(rowAt(2, { bible: [645] }))).toBe('You’re in the middle of Proverbs 17')
+    expect(rowAt(5, { bible: [645] }).target.paragraphCount).toBe(6)
   })
 
-  it('quotes and word-trims the exact excerpt when there is no summary', () => {
-    const session = sessionFor(genesisOneFixture(), { state: 'progressed', startedAt: T0 })
-    const card = buildRecapCard({ session, source: 'device', paragraphs: genesisOneFixture().paragraphs })
-    expect(card.bodyKind).toBe('excerpt')
-    const headline = recapHeadline(card, 60)
-    expect(headline.startsWith('“')).toBe(true)
-    expect(headline.endsWith('…”')).toBe(true)
-    expect(headline.length).toBeLessThanOrEqual(63)
-    expect(card.body.startsWith(headline.slice(1, headline.indexOf('…')))).toBe(true)
-    const short = recapHeadline({ body: 'In the beginning.', bodyKind: 'excerpt', headline: 'x' })
-    expect(short).toBe('“In the beginning.”')
+  it('claims only start or middle when the catalogue does not know the chapter length', () => {
+    const unknown = new Map<string, LibraryBookInfo>([['hamlet', { id: 'hamlet', title: 'Hamlet', chapters: [{ number: 1, title: 'Act 1' }] }]])
+    const rowAt = (paragraphIndex: number) => readingList({ memory: memoryOf(), viewer: null, positions: positions([place({ bookId: 'hamlet', headerBook: 'Hamlet', chapterNumber: 1, sequentialChapter: 1, paragraphIndex, updatedAt: T0 })]), books: unknown }).readingNow[0]
+    expect(rowAt(0).target.paragraphCount).toBeNull()
+    expect(heroHeadline(rowAt(0))).toBe('You’re at the start of Act 1')
+    expect(heroHeadline(rowAt(40))).toBe('You’re in the middle of Act 1')
   })
 
-  it('falls back to the truthful location line and never claims completion', () => {
-    const stopped = sessionFor(genesisOneFixture(), { state: 'progressed', startedAt: T0 })
-    const missing = buildRecapCard({ session: stopped, source: 'device', paragraphs: null })
-    expect(missing.bodyKind).toBe('location-only')
-    expect(recapHeadline(missing)).toBe('You stopped in Genesis 1')
-    const finished = sessionFor(genesisOneFixture(), { state: 'completed', startedAt: T0 })
-    const finishedCard = buildRecapCard({ session: finished, source: 'device', paragraphs: null })
-    expect(recapHeadline(finishedCard)).toBe('You finished Genesis 1')
+  it('reaches back to a finished previous chapter when the reader has just started the next one or read both in one sitting', () => {
+    const startOf18 = place({ bookId: 'proverbs', headerBook: 'Proverbs', chapterNumber: 18, sequentialChapter: 646, paragraphIndex: 0, primaryEditionKey: 'kjv-en', updatedAt: T0 + 1_000 })
+    const fresh = readingList({ memory: memoryOf(), viewer: null, positions: positions([startOf18], 'proverbs', { bible: [645] }), books }).readingNow[0]
+    expect(heroHeadline(fresh)).toBe('You’re at the start of Proverbs 18')
+    expect(fresh.includePreviousChapter).toBe(true)
+    // Not when the previous chapter was never finished.
+    expect(readingList({ memory: memoryOf(), viewer: null, positions: positions([startOf18], 'proverbs'), books }).readingNow[0].includePreviousChapter).toBe(false)
+
+    // Mid-chapter: only when the previous chapter was read in the same sitting.
+    const proverbs = (chapterNumber: number, label: string) => ({ ...bibleChapterFixture(), chapterNumber, chapterLabel: label })
+    const seventeen = sessionFor(proverbs(645, 'Proverbs 17'), { id: 'p17', state: 'completed', startedAt: T0, lastActiveAt: T0 + 10 * 60_000 })
+    const eighteenSameSitting = sessionFor(proverbs(646, 'Proverbs 18'), { id: 'p18', state: 'progressed', startedAt: T0 + 11 * 60_000, lastActiveAt: T0 + 20 * 60_000, page: 2 })
+    const same = readingList({ memory: memoryOf(seventeen, eighteenSameSitting), viewer: null, positions: null, books }).readingNow[0]
+    expect(same.target.chapterNumber).toBe(646)
+    expect(same.progress).not.toBe('start')
+    expect(same.includePreviousChapter).toBe(true)
+    const eighteenNextDay = sessionFor(proverbs(646, 'Proverbs 18'), { id: 'p18b', state: 'progressed', startedAt: T0 + 24 * 3_600_000, lastActiveAt: T0 + 24 * 3_600_000 + 60_000, page: 2 })
+    expect(readingList({ memory: memoryOf(seventeen, eighteenNextDay), viewer: null, positions: null, books }).readingNow[0].includePreviousChapter).toBe(false)
+    // Finished in the same sitting as the previous chapter: the sitting covered two chapters, so the summary does too (never more).
+    const eighteenDone = sessionFor(proverbs(646, 'Proverbs 18'), { id: 'p18c', state: 'completed', startedAt: T0 + 11 * 60_000, lastActiveAt: T0 + 20 * 60_000 })
+    const done = readingList({ memory: memoryOf(seventeen, eighteenDone), viewer: null, positions: null, books }).readingNow[0]
+    expect(heroHeadline(done)).toBe('You finished Proverbs 18')
+    expect(done.includePreviousChapter).toBe(true)
+    const doneAlone = sessionFor(proverbs(646, 'Proverbs 18'), { id: 'p18d', state: 'completed', startedAt: T0 + 3 * 3_600_000, lastActiveAt: T0 + 3 * 3_600_000 + 60_000 })
+    expect(readingList({ memory: memoryOf(seventeen, doneAlone), viewer: null, positions: null, books }).readingNow[0].includePreviousChapter).toBe(false)
   })
 
   it('keeps the newest visible session per book', () => {
@@ -140,7 +152,8 @@ describe('library recap helpers', () => {
     expect(list.readingNow[0].target.chapterNumber).toBe(1147)
     expect(list.readingNow[0].lastActiveAt).toBe(T0 + 60_000)
     expect(list.readingNow[0].recap).toBeNull()
-    expect(heroHeadline(list.readingNow[0], buildRecapCard({ session: memory, source: 'device', paragraphs: null }))).toBe('You stopped in James 1')
+    expect(list.readingNow[0].target.paragraphCount).toBe(5)
+    expect(heroHeadline(list.readingNow[0])).toBe('You’re in the middle of James 1')
   })
 
   it('resolves Continue to the memory anchor when it is newer, keeping the recap', () => {
@@ -148,10 +161,9 @@ describe('library recap helpers', () => {
     const older = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 0, pageIndex: 0, updatedAt: T0 + 1_000 })
     const target = continueTargetFor({ book: books.get('bible'), session: memory, place: older })
     expect(target).toMatchObject({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, chapterLabel: 'Genesis 1', pageIndex: 1, source: 'memory', at: T0 + 90_000 })
-    const card = buildRecapCard({ session: memory, source: 'device', paragraphs: genesisOneFixture().paragraphs })
     const list = readingList({ memory: memoryOf(memory), viewer: null, positions: positions([older], 'genesis'), books })
-    expect(heroHeadline(list.readingNow[0], card)).toBe(recapHeadline(card))
-    expect(heroHeadline(list.readingNow[0], null)).toBe('You stopped in Genesis 1')
+    expect(heroHeadline(list.readingNow[0])).toMatch(/^You’re (at the start|in the middle|near the end) of Genesis 1$/)
+    expect(heroHeadline(list.readingNow[0])).not.toBe('You finished Genesis 1')
     expect(inProgressLabel(list.readingNow[0])).toBe('Last time · Genesis 1')
   })
 
@@ -196,7 +208,8 @@ describe('library recap helpers', () => {
     })
     expect(list.readingNow.map(row => row.bookId)).toEqual(['plato-republic'])
     expect(list.finished.map(row => [row.bookId, row.finishedAt])).toEqual([['bible', T0 + 7_000], ['hamlet', T0 + 2_000]])
-    expect(heroHeadline({ session: completedMidBook, target: continueTargetFor({ book: books.get('plato-republic'), session: completedMidBook, place: null })!, recap: null }, null)).toBe('You finished Book I')
+    expect(list.readingNow[0].progress).toBe('finished')
+    expect(heroHeadline(list.readingNow[0])).toBe('You finished Book I')
 
     const readingAgain = place({ bookId: 'revelation', headerBook: 'Revelation', chapterNumber: 1, sequentialChapter: 1170, updatedAt: T0 + 20_000 })
     const again = readingList({ memory: memoryOf(finishedRevelation), viewer: null, positions: positions([readingAgain], 'revelation'), books })
@@ -215,6 +228,8 @@ describe('library recap helpers', () => {
     const moved = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 2, sequentialChapter: 2, updatedAt: T0 + 8_000 })
     const other = readingList({ memory: memoryOf(summarised), viewer: null, positions: positions([moved], 'genesis'), books })
     expect(other.readingNow[0].recap).toBeNull()
-    expect(heroHeadline(other.readingNow[0], null)).toBe('You stopped in Genesis 2')
+    expect(heroHeadline(other.readingNow[0])).toBe('You’re at the start of Genesis 2')
+    // Genesis 1 was never finished, so the summary does not reach back into it.
+    expect(other.readingNow[0].includePreviousChapter).toBe(false)
   })
 })
