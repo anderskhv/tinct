@@ -22,6 +22,9 @@ afterEach(() => {
   vi.restoreAllMocks()
   try { localStorage.removeItem('tinct-lab-prefs') } catch { /* jsdom */ }
     try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct-lab-device-id') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:lab-library-boot') } catch { /* jsdom */ }
+  try { sessionStorage.removeItem('tinct:lab-reader-handoff') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:reading-memory') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-highlights') } catch { /* jsdom */ }
@@ -4011,6 +4014,170 @@ describe('lab reading position', () => {
     expect(root.getAttribute('data-place')).toBe('4:11')
     await waitFor(() => {
       expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Romans 8/)
+    })
+  })
+})
+
+describe('lab reader first paint: one resolved position', () => {
+  const MANIFEST = {
+    chapters: [
+      { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
+      { number: 645, title: 'Proverbs 17', path: 'ch0645.json' },
+      { number: 1054, title: 'Romans 8', path: 'ch1054.json' },
+      { number: 1136, title: 'Hebrews 3', path: 'ch1136.json' },
+    ],
+  }
+  const TEXT: Record<string, string> = {
+    'ch0001.json': 'In the beginning God created the heaven and the earth.',
+    'ch0645.json': 'Better is a dry morsel, and quietness therewith.',
+    'ch1054.json': 'There is therefore now no condemnation.',
+    'ch1136.json': 'Wherefore, holy brethren, partakers of the heavenly calling.',
+  }
+  function place(bookId: string, headerBook: string, chapterNumber: number, sequentialChapter: number, updatedAt: number, deviceId: string) {
+    return { bookId, headerBook, chapterNumber, sequentialChapter, paragraphIndex: 0, wordIndex: 0, updatedAt, deviceId, rev: 1 }
+  }
+  function record(books: Record<string, ReturnType<typeof place>>, lastSettledBookId: string, lastSettledAt: number, deviceId: string) {
+    return { books, finished: {}, lastSettledBookId, lastSettledAt, updatedAt: lastSettledAt, deviceId }
+  }
+  function stubBible(cloud: () => Promise<unknown | null>) {
+    resetLabBibleManifestCache()
+    resetLabChapterTextCache()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('manifest.json')) return { ok: true, json: async () => MANIFEST }
+      const chapter = Object.keys(TEXT).find(file => url.includes(file))
+      if (chapter) return { ok: true, json: async () => ({ paragraphs: [TEXT[chapter]] }) }
+      if (url.includes('threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
+      if (url.includes('lab-position')) {
+        if (init?.method === 'PUT') return { ok: true, json: async () => ({}) }
+        const body = await cloud()
+        return body ? { ok: true, json: async () => body } : { ok: false, status: 503, json: async () => ({}) }
+      }
+      return { ok: false, json: async () => ({}) }
+    }))
+  }
+  /** Every distinct chapter heading the header painted, in order, plus the ready flags seen with it. */
+  function observeHeadings(root: HTMLElement) {
+    const trail: Array<{ label: string; ready: string | null; resolving: string | null }> = []
+    const sample = () => {
+      const label = root.querySelector('[data-testid="lab-header-chapter-label"], .lab-header-chapter-label')?.textContent ?? ''
+      const entry = { label, ready: root.getAttribute('data-reader-ready'), resolving: root.getAttribute('data-position-resolving') }
+      const last = trail[trail.length - 1]
+      if (!last || last.label !== entry.label || last.ready !== entry.ready || last.resolving !== entry.resolving) trail.push(entry)
+    }
+    sample()
+    const observer = new MutationObserver(sample)
+    observer.observe(root, { subtree: true, childList: true, characterData: true, attributes: true })
+    return { trail, stop: () => observer.disconnect() }
+  }
+
+  it('local says Proverbs 17, cloud says Hebrews 3 (newer): the header names Hebrews 3 and nothing else', async () => {
+    localStorage.setItem('tinct-lab-device-id', 'phone')
+    localStorage.setItem('tinct-lab-position', JSON.stringify(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 100_000, 'phone') }, 'proverbs', 100_000, 'phone')))
+    let answer!: (value: unknown) => void
+    const cloud = new Promise<unknown>((resolve) => { answer = resolve })
+    stubBible(() => cloud)
+    render(<LabApp pathname="/lab/phone" authToken="signed-in" />)
+    const root = screen.getByTestId('lab-root')
+    const headings = observeHeadings(root)
+    expect(root.getAttribute('data-position-resolving')).toBe('true')
+    expect(screen.getByTestId('lab-header-chapter').textContent).not.toMatch(/Proverbs/)
+    // The local chapter loads while the cloud is still pending: still no heading.
+    await waitFor(() => expect(root.getAttribute('data-chapter')).toBe('645'))
+    expect(root.getAttribute('data-position-resolving')).toBe('true')
+    expect(screen.getByTestId('lab-header-chapter').textContent).not.toMatch(/Proverbs/)
+    await act(async () => {
+      answer(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 100_000, 'phone'), hebrews: place('hebrews', 'Hebrews', 3, 1136, 200_000, 'desk') }, 'hebrews', 200_000, 'desk'))
+    })
+    await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Hebrews 3/))
+    await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+    headings.stop()
+    const painted = [...new Set(headings.trail.map(entry => entry.label).filter(Boolean))]
+    expect(painted).toEqual(['Hebrews 3'])
+    expect(headings.trail.some(entry => entry.ready === 'true' && entry.label !== 'Hebrews 3')).toBe(false)
+    expect(root.getAttribute('data-biblical-book')).toBe('hebrews')
+  })
+
+  it('local says Proverbs 17, cloud is older (Hebrews 3): the header names Proverbs 17 and nothing else', async () => {
+    localStorage.setItem('tinct-lab-device-id', 'phone')
+    localStorage.setItem('tinct-lab-position', JSON.stringify(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 300_000, 'phone') }, 'proverbs', 300_000, 'phone')))
+    stubBible(async () => record({ hebrews: place('hebrews', 'Hebrews', 3, 1136, 200_000, 'desk') }, 'hebrews', 200_000, 'desk'))
+    render(<LabApp pathname="/lab/phone" authToken="signed-in" />)
+    const root = screen.getByTestId('lab-root')
+    const headings = observeHeadings(root)
+    await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Proverbs 17/))
+    await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+    headings.stop()
+    expect([...new Set(headings.trail.map(entry => entry.label).filter(Boolean))]).toEqual(['Proverbs 17'])
+  })
+
+  it('a library handoff (reading-memory anchor Romans 8) wins over local Proverbs 17 and cloud Hebrews 3, painted once', async () => {
+    localStorage.setItem('tinct-lab-device-id', 'phone')
+    localStorage.setItem('tinct-lab-position', JSON.stringify(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 100_000, 'phone') }, 'proverbs', 100_000, 'phone')))
+    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
+      kind: 'open-reader', bookId: 'bible', primaryEditionKey: 'kjv-en',
+      savedPlace: { bookId: 'bible', chapterNumber: 1054, paragraphIndex: 0 },
+    }))
+    stubBible(async () => record({ hebrews: place('hebrews', 'Hebrews', 3, 1136, 900_000, 'desk') }, 'hebrews', 900_000, 'desk'))
+    render(<LabApp pathname="/lab/phone" authToken="signed-in" />)
+    const root = screen.getByTestId('lab-root')
+    const headings = observeHeadings(root)
+    // The handoff's placeholder label ("Chapter 1054") is never painted.
+    expect(screen.getByTestId('lab-header-chapter').textContent).not.toMatch(/Chapter/)
+    await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Romans 8/))
+    await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)) })
+    headings.stop()
+    expect([...new Set(headings.trail.map(entry => entry.label).filter(Boolean))]).toEqual(['Romans 8'])
+    expect(root.getAttribute('data-biblical-book')).toBe('romans')
+  })
+
+  it('signed out: the local place is final and paints at once', async () => {
+    localStorage.setItem('tinct-lab-device-id', 'phone')
+    localStorage.setItem('tinct-lab-position', JSON.stringify(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 100_000, 'phone') }, 'proverbs', 100_000, 'phone')))
+    stubBible(async () => null)
+    render(<LabApp pathname="/lab/phone" authToken={null} />)
+    const root = screen.getByTestId('lab-root')
+    expect(root.getAttribute('data-position-resolving')).toBe('false')
+    expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Proverbs 17/)
+    await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Proverbs 17/))
+  })
+})
+
+describe('lab reader hands the library its first paint', () => {
+  it('writes the boot snapshot when the Library link is followed and when the page is hidden', () => {
+    render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'odyssey' }} authToken={null} />)
+    expect(localStorage.getItem('tinct:lab-library-boot')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-gear'))
+    const link = screen.getByTestId('lab-settings-library')
+    link.addEventListener('click', event => event.preventDefault())
+    fireEvent.click(link)
+    const written = JSON.parse(localStorage.getItem('tinct:lab-library-boot') || 'null')
+    expect(written).toMatchObject({
+      v: 1,
+      userId: null,
+      readingNow: 1,
+      hero: { bookId: 'odyssey', title: 'The Odyssey', chapterLabel: 'Book 1', headline: 'You stopped in Book 1' },
+    })
+
+    localStorage.removeItem('tinct:lab-library-boot')
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'hidden' })
+    fireEvent(document, new Event('visibilitychange'))
+    expect(JSON.parse(localStorage.getItem('tinct:lab-library-boot') || 'null')?.hero?.bookId).toBe('odyssey')
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' })
+  })
+
+  it('keeps the account and a same-chapter headline the library had confirmed', () => {
+    localStorage.setItem('tinct:lab-library-boot', JSON.stringify({ v: 1, at: Date.now() - 1000, userId: null, readingNow: 2, finished: 1, hero: { bookId: 'odyssey', title: 'The Odyssey', chapterLabel: 'Book 1', headline: '“Tell me, O muse…”', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null, note: '3% read' } }))
+    render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'odyssey' }} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-gear'))
+    const link = screen.getByTestId('lab-settings-library')
+    link.addEventListener('click', event => event.preventDefault())
+    fireEvent.click(link)
+    expect(JSON.parse(localStorage.getItem('tinct:lab-library-boot') || 'null')).toMatchObject({
+      readingNow: 2,
+      finished: 1,
+      hero: { headline: '“Tell me, O muse…”', coverSrc: '/covers/odyssey.jpg', note: '3% read' },
     })
   })
 })

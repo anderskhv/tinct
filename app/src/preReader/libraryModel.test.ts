@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   REVEAL_SESSION_KEY,
   bookDescription,
+  libraryViewFromLocation,
   claimReveal,
   columnise,
   filterIndexBooks,
@@ -197,5 +198,18 @@ describe('locked library model', () => {
     expect(filterIndexBooks(catalogue, 'HOMER').map((item: TestBook) => item.id)).toEqual(['odyssey'])
     expect(filterIndexBooks(catalogue, 'summa')).toEqual([])
     expect(filterIndexBooks(catalogue, 'zzz')).toEqual([])
+  })
+})
+
+describe('libraryViewFromLocation', () => {
+  it('matches the lab route, the launch route and the query form only', () => {
+    expect(libraryViewFromLocation('/lab/library')).toBe(true)
+    expect(libraryViewFromLocation('/lab/library/', '')).toBe(true)
+    expect(libraryViewFromLocation('/library', '')).toBe(true)
+    expect(libraryViewFromLocation('/lab/', '?view=library&book=odyssey')).toBe(true)
+    expect(libraryViewFromLocation('/lab/', 'view=library')).toBe(true)
+    expect(libraryViewFromLocation('/lab/landing', '')).toBe(false)
+    expect(libraryViewFromLocation('/lab/', '?view=edition')).toBe(false)
+    expect(libraryViewFromLocation('/lab/reader', '')).toBe(false)
   })
 })

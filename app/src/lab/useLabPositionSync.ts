@@ -3,13 +3,17 @@ import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { bibleFallbackSource, type LabSource } from './labSource'
 import { getBook } from '../data/bookRegistry'
+import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
+import { prefsFromLabResumePlace } from './labReaderHandoff'
 import {
+  LAB_INITIAL_CLOUD_WAIT_MS,
   biblicalBookId,
   createLabPositionController,
   finishedChaptersFor,
   parseBiblicalPlaceTitle,
   placeFromChapterRef,
   resumePlace,
+  shouldFollowLateCloudResume,
   type LabBookPlace,
   type LabPlaceReason,
   type LabPositionController,
@@ -66,6 +70,44 @@ export function bookFromResumePlace(place: LabBookPlace): LabSource {
     compareParagraphs: [],
     followParagraphs: [],
   }
+}
+
+export interface LabRemoteResumeSelection {
+  /** Library book to load: `bible` for a biblical pin, else the registry book the pin names. */
+  bookId: string
+  primaryEditionKey: string
+  compareEditionKey?: string
+  /** Prefs to adopt with the load; the current object when nothing changes. */
+  prefs: LabPrefs
+}
+
+/**
+ * What a resolved cloud place means for the reader: which library book to
+ * load and in which editions. A biblical pin (hebrews) is the Bible; a
+ * registry pin (crito) is that book, in the edition it was read in when this
+ * book offers it, else its default edition. Never the currently open book's
+ * loader for another book's chapter number.
+ */
+export function remoteResumeSelection(place: LabBookPlace, current: { libraryBookId: string; prefs: LabPrefs }): LabRemoteResumeSelection | null {
+  const registryBook = getBook(place.bookId)
+  const bookId = registryBook && registryBook.id !== 'bible' ? registryBook.id : 'bible'
+  const editions = bookId === 'bible' ? bibleEditions() : registryBook!.editions
+  const basePrefs = bookId === current.libraryBookId
+    ? current.prefs
+    : syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
+  const primaryEditionKey = editions.some(edition => edition.key === basePrefs.primaryEdition)
+    ? basePrefs.primaryEdition
+    : (editions.find(edition => edition.style === 'original' && edition.language === 'en') || editions[0])?.key
+  if (!primaryEditionKey) return null
+  const compareEditionKey = basePrefs.compareOpen
+    && basePrefs.compareEdition !== primaryEditionKey
+    && editions.some(edition => edition.key === basePrefs.compareEdition)
+    ? basePrefs.compareEdition
+    : undefined
+  const prefs = basePrefs.primaryEdition === primaryEditionKey
+    ? basePrefs
+    : syncLabAudioEdition({ ...basePrefs, primaryEdition: primaryEditionKey }, editions)
+  return { bookId, primaryEditionKey, compareEditionKey, prefs }
 }
 
 export function bootLabReading(source?: LabSource): {
@@ -128,9 +170,23 @@ export function useLabPositionSync(args: {
   sourceLocked: boolean
   writesSuspended?: boolean
   authToken?: string | null
+  /** True once the reader has touched the page (tap, key, wheel); a late cloud record then never moves it. */
+  interactedRef?: MutableRefObject<boolean>
+  /** The resolved place is in another chapter (or book): load it. */
   onRemoteResume?: (place: LabBookPlace) => void
+  /** The resolved place is in the chapter already open: restore to it without a reload. */
+  onResolvedPlace?: (place: LabBookPlace) => void
+  /** Test hook: the initial cloud wait, ms. */
+  initialCloudWaitMs?: number
 }): {
   notePlace: (reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => void
+  /**
+   * False while a signed-in reader is still resolving its first place
+   * (local record + cloud record, validated against the loaded manifest).
+   * The reader must not paint a chapter until this is true; it flips after
+   * the merge, a failed fetch, a signed-out verdict, or the bounded wait.
+   */
+  initialPositionResolved: boolean
   biblicalBook: string
   /** Sequential chapters of the current library book the reader has finished. */
   finishedChapters: Set<number>
@@ -139,7 +195,7 @@ export function useLabPositionSync(args: {
   /** Current in-memory record (pins + finished), for read-only views such as the picker. */
   readPositionState: () => LabPositionState
 } {
-  const { session } = useAuth()
+  const { session, likelyAuthenticated, isLoading: authLoading } = useAuth()
   const liveToken = args.authToken !== undefined ? args.authToken : (session?.access_token ?? null)
   const deviceIdRef = useRef(readLabDeviceId())
   // Seeded from the stored record below so a reload never restarts at 0 and
@@ -150,8 +206,35 @@ export function useLabPositionSync(args: {
   const cloudDoneRef = useRef(false)
   const onRemoteResumeRef = useRef(args.onRemoteResume)
   onRemoteResumeRef.current = args.onRemoteResume
+  const onResolvedPlaceRef = useRef(args.onResolvedPlace)
+  onResolvedPlaceRef.current = args.onResolvedPlace
   const bookRef = useRef(args.book)
   bookRef.current = args.book
+  // Initial resolution. A device that looks signed in (live token, cached
+  // Supabase session, or the signed-in cookie) waits for the cloud record
+  // before the reader paints a chapter, so the first paint is the resolved
+  // place and not the local guess that a newer cloud record then replaces.
+  const [initialPositionResolved, setInitialPositionResolved] = useState(() => {
+    if (args.sourceLocked) return true
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) return true
+    if (args.authToken !== undefined) return !args.authToken
+    return !(session || likelyAuthenticated)
+  })
+  const initialResolvedRef = useRef(initialPositionResolved)
+  const settleInitial = useCallback(() => {
+    if (initialResolvedRef.current) return
+    initialResolvedRef.current = true
+    setInitialPositionResolved(true)
+  }, [])
+  // The in-flight GET, started as soon as a token exists so the merge (which
+  // waits for the manifest) does not also wait for the network.
+  const cloudFetchRef = useRef<{ token: string; promise: Promise<LabPositionState | null> } | null>(null)
+  const cloudRecord = useCallback((token: string) => {
+    if (cloudFetchRef.current?.token === token) return cloudFetchRef.current.promise
+    const promise = fetchLabPositionCloud(token)
+    cloudFetchRef.current = { token, promise }
+    return promise
+  }, [])
   // Bumped whenever the finished map changes (finish, cloud apply) so views
   // re-derive their Set; the controller itself is ref-held.
   const [finishedRevision, setFinishedRevision] = useState(0)
@@ -185,6 +268,28 @@ export function useLabPositionSync(args: {
     return () => window.removeEventListener('online', onOnline)
   }, [liveToken])
 
+  // Bounded wait: the local place paints after this even if the cloud (or the
+  // manifest it is validated against) has not answered.
+  useEffect(() => {
+    if (initialResolvedRef.current) return
+    const id = window.setTimeout(settleInitial, args.initialCloudWaitMs ?? LAB_INITIAL_CLOUD_WAIT_MS)
+    return () => window.clearTimeout(id)
+    // Armed once, on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // The signed-in hint was wrong (stale cookie): nothing to wait for.
+  useEffect(() => {
+    if (args.authToken !== undefined || authLoading || session) return
+    settleInitial()
+  }, [args.authToken, authLoading, session, settleInitial])
+
+  // Warm the GET as soon as the token is known.
+  useEffect(() => {
+    if (args.sourceLocked || !liveToken || cloudDoneRef.current) return
+    void cloudRecord(liveToken)
+  }, [args.sourceLocked, cloudRecord, liveToken])
+
   useEffect(() => {
     if (args.sourceLocked || !liveToken || cloudDoneRef.current) return
     // The boot render spreads the Genesis fallback (two chapters) under the
@@ -193,33 +298,56 @@ export function useLabPositionSync(args: {
     if (args.book.chaptersProvisional || args.book.chapters.length === 0) return
     let cancelled = false
     const chapters = args.book.chapters
-    void fetchLabPositionCloud(liveToken).then((cloud) => {
-      if (cancelled || !cloud) return
+    void cloudRecord(liveToken).then((cloud) => {
+      if (cancelled) return
+      if (!cloud) {
+        // Failed or empty answer: paint the local place now; the next
+        // chapter list retries the fetch.
+        if (cloudFetchRef.current?.token === liveToken) cloudFetchRef.current = null
+        settleInitial()
+        return
+      }
       const controller = controllerRef.current
       if (!controller) return
-      const next = controller.applyCloud(cloud, chapters)
+      const next = controller.applyCloud(cloud, chapters, labLibraryBookId(bookRef.current))
       // Latch only now: the record was merged against the real chapter list.
       cloudDoneRef.current = true
       writeLabPositionLocal(next)
       syncRef.current?.persist(next)
       setFinishedRevision(revision => revision + 1)
+      const initial = !initialResolvedRef.current
+      settleInitial()
       const resume = resumePlace(next)
       const current = bookRef.current
       if (!resume) return
       const currentBookId = current.bookId && current.bookId !== 'bible'
         ? current.bookId
         : biblicalBookId(current.headerBook)
-      if (resume.sequentialChapter !== current.chapterNumber || resume.bookId !== currentBookId) {
+      const sameChapter = resume.sequentialChapter === current.chapterNumber && resume.bookId === currentBookId
+      if (!initial) {
+        // The reader has painted. Follow only forward, inside this book, and
+        // only while the reader has not touched the page.
+        const followed = shouldFollowLateCloudResume({
+          current: { bookId: currentBookId, sequentialChapter: current.chapterNumber, paragraphIndex: args.placeRef.current.paragraphIndex },
+          incoming: resume,
+          interacted: Boolean(args.interactedRef?.current),
+        })
+        if (!followed) return
+      }
+      if (!sameChapter) {
         onRemoteResumeRef.current?.(resume)
         return
       }
       args.placeRef.current = { paragraphIndex: resume.paragraphIndex, wordIndex: resume.wordIndex }
+      onResolvedPlaceRef.current?.(resume)
     })
     return () => { cancelled = true }
-  }, [args.authToken, args.book.chapters, args.placeRef, args.sourceLocked, liveToken])
+  }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, cloudRecord, liveToken, settleInitial])
 
   const notePlace = useCallback((reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => {
-    if (args.writesSuspended) return
+    // Nothing is painted while the first place is still being resolved; a
+    // note now would persist the provisional tuple.
+    if (args.writesSuspended || !initialResolvedRef.current) return
     const book = bookRef.current
     const controller = controllerRef.current
     if (!controller) return
@@ -274,6 +402,7 @@ export function useLabPositionSync(args: {
 
   return {
     notePlace,
+    initialPositionResolved,
     biblicalBook: args.book.bookId && args.book.bookId !== 'bible'
       ? args.book.bookId
       : biblicalBookId(args.book.headerBook),

@@ -14,6 +14,7 @@ import {
   libraryModeFromDeviceMemory,
   libraryPaletteFromPrefs,
   librarySnapshot,
+  libraryViewFromLocation,
   moveSelection,
   parseLibrarySnapshot,
   popularBooks,
@@ -126,6 +127,9 @@ import {
   function showView(view) {
     root.querySelectorAll('[data-view-panel]').forEach(panel => panel.classList.toggle('is-current', panel.dataset.viewPanel === view))
     root.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)))
+    // The boot paint (lab/index.html) chose the first panel from the URL; the
+    // runtime owns the panels from here.
+    document.documentElement.removeAttribute('data-lab-boot-view')
   }
 
   function routeFor(view, bookId = state.selectedBookId) {
@@ -832,6 +836,7 @@ import {
   // shape on first render; reading-memory.js confirms or corrects it once the
   // recap has loaded.
   state.libraryMode = libraryModeFromDeviceMemory(readLocal(READING_MEMORY_DEVICE_KEY), readLocal(LAB_POSITION_DEVICE_KEY))
+  if (window.__tinctLabBoot?.state?.returning) state.libraryMode = 'returning'
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
   // The shelf selection outlives a trip into a book or the reader.
   state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? '', 10) || 0
@@ -849,7 +854,7 @@ import {
     renderLibrary()
     const params = new URLSearchParams(location.search)
     const requested = params.get('book')
-    const routeView = location.pathname.replace(/\/+$/, '') === '/lab/library' ? 'library' : 'landing'
+    const routeView = libraryViewFromLocation(location.pathname, location.search) ? 'library' : 'landing'
     const requestedView = params.get('view')
     const allowedViews = new Set(['landing', 'library', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
@@ -876,7 +881,7 @@ import {
     const params = new URLSearchParams(location.search)
     const bookId = params.get('book')
     const path = location.pathname.replace(/\/+$/, '')
-    const view = path === '/lab/library' ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
+    const view = libraryViewFromLocation(path, location.search) ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
     if (view !== 'library') rememberLibrary()
     if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) {
       await selectBook(bookId, view)

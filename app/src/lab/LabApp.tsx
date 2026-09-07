@@ -63,7 +63,8 @@ import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
-import { bootLabReading, useLabPositionSync } from './useLabPositionSync'
+import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
+import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import type { LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
@@ -732,34 +733,111 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
   }, [book.bookId, book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, listen.playing, browseWhileListening])
 
-  const positionWritesSuspended = Boolean(
+  const handoffWritesSuspended = Boolean(
     readerHandoff
     && ((book.bookId || 'bible') !== readerHandoff.bookId || book.paragraphs.length === 0),
   )
-  const { notePlace, biblicalBook, finishedChapters, markChapterFinished, readPositionState } = useLabPositionSync({
+  // A resolved place in another chapter is loading; the reader keeps its
+  // resolving state (no chapter heading, no passage) until it lands.
+  const [remoteResumePending, setRemoteResumePending] = useState(false)
+  // Set by the first tap, key or wheel on the reader; a cloud record that
+  // lands after that never moves the page.
+  const interactionRef = useRef(false)
+  const { notePlace, initialPositionResolved, biblicalBook, finishedChapters, markChapterFinished, readPositionState } = useLabPositionSync({
     book,
     placeRef,
     readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
-    writesSuspended: positionWritesSuspended,
+    writesSuspended: handoffWritesSuspended || remoteResumePending,
     authToken,
+    interactedRef: interactionRef,
+    onResolvedPlace: (place) => {
+      restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+      placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+      restorePageRef.current = null
+      if (pagesStableRef.current && readingPagesRef.current.length > 0) {
+        const idx = pageIndexForPlace(readingPagesRef.current, place.paragraphIndex, place.wordIndex)
+        restorePlaceRef.current = null
+        pageAnchorRef.current = pageAnchorOf(readingPagesRef.current[idx])
+        readingPageIndexRef.current = idx
+        setReadingPageIndex(idx)
+      }
+    },
     onRemoteResume: (place) => {
+      // The place names the book to load: a biblical pin is the Bible, a
+      // registry pin is that book (never this book's loader with another
+      // book's chapter number: a Crito 3 pin must not open Genesis 3).
+      const currentLibraryBookId = book.bookId || 'bible'
+      const selection = remoteResumeSelection(place, { libraryBookId: currentLibraryBookId, prefs })
+      if (!selection) return
       setChapterCoverTitle(null)
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
-      const resumeBookId = (book.bookId || 'bible') === 'bible' ? 'bible' : place.bookId
-      const compareEditionKey = prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition
-        ? prefs.compareEdition
-        : undefined
+      restorePageRef.current = null
+      // Own the reader like any chapter navigation: an older in-flight load
+      // (the local chapter, an edition change) must not land after this one.
+      const navigation = ++chapterNavigationRef.current
+      setRemoteResumePending(true)
       void loadLabBookSource({
-        bookId: resumeBookId,
+        bookId: selection.bookId,
         chapterNumber: place.sequentialChapter,
-        primaryEditionKey: prefs.primaryEdition,
-        compareEditionKey,
-        audioEditionKey,
-      }).then(setBook).catch(() => {})
+        primaryEditionKey: selection.primaryEditionKey,
+        compareEditionKey: selection.compareEditionKey,
+        audioEditionKey: selection.bookId === currentLibraryBookId ? audioEditionKey : undefined,
+      }).then((loaded) => {
+        if (navigation !== chapterNavigationRef.current) return
+        if (selection.prefs !== prefs) updatePrefs(selection.prefs)
+        setBook(loaded)
+      }).catch(() => {}).finally(() => {
+        if (navigation === chapterNavigationRef.current) setRemoteResumePending(false)
+      })
     },
   })
+  const initialResolving = !initialPositionResolved || remoteResumePending
+  const positionWritesSuspended = handoffWritesSuspended || initialResolving
+  // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
+  // reader knows the account and the place: hand them over when leaving for
+  // the library and whenever the page is hidden, so the library never has to
+  // wait for the network to show "Reading now".
+  const rememberLibraryPlace = useCallback(() => {
+    if (positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
+    const userId = authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)
+    writeLabLibraryBootSnapshot(snapshotWithReaderPlace(readLabLibraryBootSnapshot(), {
+      userId,
+      bookId: book.bookId || 'bible',
+      title: book.bookTitle,
+      chapterLabel: book.chapterLabel,
+      now: Date.now(),
+    }))
+  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, positionWritesSuspended, readerLoadError])
+  const rememberLibraryPlaceRef = useRef(rememberLibraryPlace)
+  rememberLibraryPlaceRef.current = rememberLibraryPlace
+  useEffect(() => {
+    const onHide = () => rememberLibraryPlaceRef.current()
+    const onVisibility = () => { if (document.visibilityState === 'hidden') onHide() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', onHide)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', onHide)
+    }
+  }, [])
+  useEffect(() => {
+    const root = labRootRef.current
+    if (!root) return
+    const mark = () => { interactionRef.current = true }
+    const options: AddEventListenerOptions = { capture: true, passive: true }
+    root.addEventListener('pointerdown', mark, options)
+    root.addEventListener('keydown', mark, options)
+    root.addEventListener('wheel', mark, options)
+    root.addEventListener('touchstart', mark, options)
+    return () => {
+      root.removeEventListener('pointerdown', mark, options)
+      root.removeEventListener('keydown', mark, options)
+      root.removeEventListener('wheel', mark, options)
+      root.removeEventListener('touchstart', mark, options)
+    }
+  }, [])
 
   const editionTupleRef = useRef(`${prefs.primaryEdition}\u0000${prefs.compareEdition}\u0000${prefs.compareOpen}`)
   useEffect(() => {
@@ -1812,6 +1890,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const readingTail = chapterPageTail(readingPage)
   const isOnline = readOnline(online)
   const frontispieceVisible = chapterCoverTitle != null
+  // The chapter heading appears once, naming the chapter that will be read:
+  // not the local guess a cloud record may replace, not the placeholder label
+  // of a handoff whose chapter is still loading. A signed-out boot from the
+  // device record is final and paints at once.
+  const paintedChapterLabel = initialResolving || handoffWritesSuspended ? '' : book.chapterLabel
   const voiceOverlayOpen = showPhoneChrome && chrome === 'talking' && !phoneAskOpen
   const phoneAsk = showPhoneChrome && phoneAskOpen
   const showHearing = !mobileCompareActive && !peekBook && !phoneAsk && (
@@ -1928,9 +2011,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterWordCounts: book.chapters,
     wordsPerPage: measuredWordsPerPage,
   })
-  const footProgressLabel = showPhoneChrome
-    ? phoneProgressLabel
-    : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
+  // No figure until the chapter list is real and the place is resolved: the
+  // boot list has two chapters and would read "1 / 2 of book" for a moment.
+  const footProgressLabel = initialResolving || (book.chaptersProvisional && book.paragraphs.length === 0)
+    ? ''
+    : showPhoneChrome
+      ? phoneProgressLabel
+      : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
     if (!showHearing) return
@@ -2791,7 +2878,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-chapter={String(book.chapterNumber)}
       data-book-id={book.bookId || 'bible'}
       data-cover-page={chapterCoverTitle ? 'true' : 'false'}
-      data-reader-ready={book.paragraphs.length > 0 ? 'true' : 'false'}
+      data-reader-ready={book.paragraphs.length > 0 && !initialResolving ? 'true' : 'false'}
+      data-position-resolving={initialResolving ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
@@ -2838,10 +2926,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             type="button"
             className="lab-header-chapter"
             data-testid="lab-header-chapter"
-            aria-label={`Table of contents, ${book.chapterLabel}`}
+            aria-label={paintedChapterLabel ? `Table of contents, ${paintedChapterLabel}` : 'Table of contents'}
             onClick={() => { setGearOpen(false); setReaderControlsVisible(true); setTocOpen(true) }}
           >
-            <span className="lab-header-chapter-label">{book.chapterLabel}</span>
+            <span className="lab-header-chapter-label">{paintedChapterLabel}</span>
             <span className="lab-header-chevron" aria-hidden="true">∨</span>
           </button>
         </div>
@@ -2872,7 +2960,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <p className="lab-status" data-testid="lab-status">
           {labStatusLine(
             labVisibleChrome(chrome, peekBook),
-            book.chapterLabel,
+            paintedChapterLabel,
             showPhoneChrome ? 'phone' : 'desktop',
           )}
         </p>
@@ -2891,9 +2979,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className="lab-page-wrap"
+          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
+          aria-busy={initialResolving || undefined}
         >
           {chapterCoverTitle ? (
             <LabChapterCover
@@ -3309,6 +3398,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         }}
         desktop={!showPhoneChrome}
         returnTo={signInReturnTo}
+        onLeaveToLibrary={rememberLibraryPlace}
       />
 
       <LabAccountSheet

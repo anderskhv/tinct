@@ -22,6 +22,7 @@ const USER_KEYS: Record<string, string> = {
   [LAB_AI_ACTIONS_KEY]: '1',
   [LAB_SECOND_BOOK_NUDGE_KEY]: '1',
   'tinct:library': '["odyssey"]',
+  'tinct:lab-library-boot': '{"v":1,"at":1,"userId":"user-a","readingNow":1,"finished":0,"hero":null}',
 }
 const DEVICE_KEYS: Record<string, string> = {
   [LAB_PREFS_KEY]: '{"version":2,"shared":{"audioSpeed":1.5},"phone":{},"desktop":{}}',

@@ -27,6 +27,28 @@
       body { padding: 8px 0 0; }
     }
   </style>
+  <script src="/lab/library-boot.js?v=20260907-1"></script>
+  <style>
+    /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
+       from the first frame. catalogue-runtime.js drops the attribute once it
+       owns the panels. */
+    html[data-lab-boot-view="library"] #tinct-onboarding-worlds-v5 .tov5-view[data-view-panel="landing"] { display:none; }
+    html[data-lab-boot-view="library"] #tinct-onboarding-worlds-v5 .tov5-view[data-view-panel="library"] { display:flex; min-height:100dvh; align-items:stretch; }
+    html[data-lab-boot-view="library"] { background:var(--lib-ground); }
+    html[data-lab-boot-view="library"] body { padding:0; background:var(--lib-ground); }
+    html[data-lab-boot-view="library"] #tinct-onboarding-worlds-v5 { padding:0; }
+    html[data-lab-boot-view="library"] #tinct-onboarding-worlds-v5 .tov5-shell { gap:0; }
+    /* Signed-in hint: never show "Sign in" on a signed-in device. The pill is
+       blank until the boot paint or auth-status.js names the account. */
+    html[data-lab-auth-hint="signed-in"] #tinct-onboarding-worlds-v5 .lib-pill:not([data-auth-ready]) { visibility:hidden; }
+    html[data-lab-auth-hint="signed-in"] #tinct-onboarding-worlds-v5 .lib-nav .lib-lnk { display:none; }
+    /* Returning reader whose recap is not cached yet: a quiet placeholder in the recap's own shape. */
+    #tinct-onboarding-worlds-v5 .lib-boot-bar { display:block; min-height:1em; border-radius:6px; background:var(--lib-rule-strong, rgba(243,236,220,.14)); color:transparent; }
+    #tinct-onboarding-worlds-v5 .lib-boot-skel .lib-eyebrow.lib-boot-bar { width:52%; min-height:11px; }
+    #tinct-onboarding-worlds-v5 .lib-boot-skel .lib-h1.lib-boot-bar { width:88%; min-height:1.2em; }
+    #tinct-onboarding-worlds-v5 .lib-boot-skel .lib-lede.lib-boot-bar { width:40%; }
+    #tinct-onboarding-worlds-v5 .lib-boot-skel .lib-cta { opacity:.6; }
+  </style>
   <script src="/lab/icons.js?v=20260903-2" defer></script>
 </head>
 <body>
