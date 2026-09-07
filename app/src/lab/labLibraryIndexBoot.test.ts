@@ -34,8 +34,13 @@ function mountRoot(): HTMLElement {
 const SESSION = JSON.stringify({ access_token: 'x', user: { id: 'user-a', email: 'anders@example.com', user_metadata: { full_name: 'Anders Hvelplund' } } })
 const SNAPSHOT = { v: 1, at: Date.now() - 5_000, userId: 'user-a', readingNow: 2, finished: 0, hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: 'You stopped in Proverbs 17', coverSrc: '/covers/bible.jpg', coverSrcSet: null, note: '12% read' } }
 
-beforeEach(() => { localStorage.clear(); document.body.innerHTML = '' })
-afterEach(() => { localStorage.clear(); document.body.innerHTML = '' })
+beforeEach(() => { localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
+afterEach(() => { localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
+
+const READER_ORIGIN_KEY = 'tinct:lab-reader-origin'
+const leftReaderOn = (bookId: string, at = Date.now() - 20_000) => {
+  sessionStorage.setItem(READER_ORIGIN_KEY, JSON.stringify({ v: 1, bookId, at }))
+}
 
 describe('lab/index.html boot script', () => {
   it('is a blocking classic script in <head>, before the panels (the production CSP forbids inline scripts)', () => {
@@ -133,6 +138,54 @@ describe('lab/index.html boot script', () => {
     boot.paint(anonymousRoot, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
     expect(anonymousRoot.querySelector('[data-reading-memory-recap]')?.getAttribute('data-boot-recap')).toBe('snapshot')
     expect(anonymousRoot.querySelector('.lib-pill')?.textContent).toBe('Sign in')
+  })
+
+  /**
+   * The boot paint and the confirmed render must reserve the "so far" block
+   * on exactly the same terms, or the page grows or shrinks three lines a
+   * frame after it paints — which is the return-from-the-reader jump.
+   */
+  it('reserves the three-line summary block, and leaves it out coming back from the hero\'s reader', () => {
+    localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', SESSION)
+    localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))
+    const boot = runBoot()
+
+    // Ordinary visit: the block is there, empty, disabled, three lines tall.
+    let root = mountRoot()
+    boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
+    const block = root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')!
+    expect(block).toBeTruthy()
+    expect(block.tagName).toBe('BUTTON')
+    expect(block.disabled).toBe(true)
+    expect(block.querySelector('.lib-recap-summary-text')?.textContent).toBe('')
+    expect(block.querySelector('.lib-recap-summary-more')?.textContent).toBe('')
+
+    // Straight back out of the hero's own reader: no block at all.
+    leftReaderOn('bible')
+    root = mountRoot()
+    boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
+    expect(root.querySelector('[data-now-caption] .lib-recap-summary')).toBeNull()
+
+    // Another book's reader: the hero is unaffected, so the block stays.
+    leftReaderOn('odyssey')
+    root = mountRoot()
+    boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
+    expect(root.querySelector('[data-now-caption] .lib-recap-summary')).toBeTruthy()
+
+    // A marker written after the snapshot names the book the reader was last
+    // in, whatever the stale snapshot says the hero is.
+    leftReaderOn('odyssey', Date.now() - 1_000)
+    localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify({ ...SNAPSHOT, at: Date.now() - 60_000 }))
+    root = mountRoot()
+    boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
+    expect(root.querySelector('[data-now-caption] .lib-recap-summary')).toBeNull()
+
+    // An hour later the marker means nothing.
+    localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))
+    leftReaderOn('bible', Date.now() - 61 * 60_000)
+    root = mountRoot()
+    boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
+    expect(root.querySelector('[data-now-caption] .lib-recap-summary')).toBeTruthy()
   })
 
   it('leaves a new reader\'s library untouched, and the recap alone on the landing URL', () => {

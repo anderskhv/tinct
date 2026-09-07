@@ -1049,15 +1049,27 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { display:flex; flex-direction:column; gap:22px; }
   /* The "so far" line arrives after the page does — from the device cache in
      the same frame, from /api/lab-recap a second later, or never. So it is a
-     block of a FIXED number of lines from the first paint: the text fades
-     into space that is already there instead of pushing the book, the button
-     and everything below it down the page. A longer summary is clamped at a
-     whole line with the ellipsis the clamp draws; a shorter one leaves the
-     rest of the block empty. --lib-recap-lines is the reserved line count. */
-  #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:8; margin:0; font-size:16.5px; line-height:1.5; color:var(--lib-lede); max-width:52ch; height:calc(var(--lib-recap-lines) * 1.5em); overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); opacity:0; transition:opacity .28s ease; }
-  #tinct-onboarding-worlds-v5 .lib-recap-summary.is-shown { opacity:1; }
+     block of THREE lines from the first paint: the text fades into space
+     that is already there instead of pushing the book, the button and
+     everything below down the page, and a longer summary is clamped at a
+     whole line with the ellipsis the clamp draws.
+     Three lines is the summary at a glance. The reader who wants the rest
+     taps the block — it is a button, so the whole 3-line box is the target
+     (67px on a phone, well past 44) — and one quiet mono word under it says
+     which way the tap goes. It opens collapsed every time: what is worth
+     remembering is the place, not whether a paragraph was open. */
+  #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:3; display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; margin:0; padding:0; border:0; background:none; text-align:left; font-family:inherit; color:var(--lib-lede); max-width:52ch; }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary-text { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); overflow:hidden; width:100%; height:calc(var(--lib-recap-lines) * 1.5em); font-size:16.5px; line-height:1.5; color:var(--lib-lede); opacity:0; transition:opacity .28s ease,height .3s cubic-bezier(.2,.7,.2,1); }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary.is-shown .lib-recap-summary-text { opacity:1; }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary.is-open .lib-recap-summary-text { -webkit-line-clamp:unset; height:auto; }
+  /* The affordance keeps its row whether or not it has a word in it, so a
+     summary that turns out to be short does not change the block's height. */
+  #tinct-onboarding-worlds-v5 .lib-recap-summary-more { min-height:16px; font-family:var(--lib-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary:hover .lib-recap-summary-more { color:var(--lib-cream); }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary[disabled] { cursor:default; }
   @media (prefers-reduced-motion:reduce) {
-    #tinct-onboarding-worlds-v5 .lib-recap-summary { transition:none; }
+    #tinct-onboarding-worlds-v5 .lib-recap-summary-text { transition:none; }
   }
   #tinct-onboarding-worlds-v5 .lib .lib-cta { display:inline-flex; align-items:center; justify-content:center; font-family:var(--lib-sans); font-size:16px; font-weight:500; color:var(--lib-cta-fg); background:var(--lib-cta-bg); border-radius:999px; padding:13px 26px; line-height:1.2; white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .lib-cta-note { display:none; font-family:var(--lib-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--lib-muted); }
@@ -1097,7 +1109,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px 24px; padding:24px 0 28px; }
     #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:17px; }
     #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { gap:28px; }
-    #tinct-onboarding-worlds-v5 .lib-recap-summary { font-size:18px; line-height:1.5; }
+    #tinct-onboarding-worlds-v5 .lib-recap-summary-text { font-size:18px; line-height:1.5; }
     #tinct-onboarding-worlds-v5 .lib .lib-cta { font-size:18px; padding:18px 40px; }
     #tinct-onboarding-worlds-v5 .lib-cta-note { display:block; }
     #tinct-onboarding-worlds-v5 .lib-recap-others { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
@@ -1305,7 +1317,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-remove:hover { background:rgba(7,23,35,.9); }
   #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-height:132px; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:26px; line-height:1.14; }
-  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; font-size:15.5px; line-height:1.45; color:var(--lib-lede); max-width:52ch; height:calc(var(--lib-recap-lines) * 1.45em); }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; max-width:52ch; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary-text { font-size:15.5px; line-height:1.45; height:calc(var(--lib-recap-lines) * 1.45em); }
   #tinct-onboarding-worlds-v5 .lib-now-cta { display:flex; align-items:center; gap:16px; margin-top:2px; }
   @media (min-width:601px) {
     #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { max-width:66ch; }

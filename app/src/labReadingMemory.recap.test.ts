@@ -211,8 +211,8 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
-    // The block is on the page at its reserved height either way; only the
-    // text is missing, so nothing below it moves when one does arrive.
+    // The three-line block is on the page either way; only the text is
+    // missing, so nothing below it moves when one does arrive.
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(false)
     expect(line.textContent).toBe('')
@@ -234,7 +234,7 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.dataset.summaryLine).toBe('fresh')
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(true)
-    expect(line.textContent).toBe('So far in bible 645.')
+    expect(line.textContent).toContain('So far in bible 645.')
   })
 
   it('still shows a summary the device already cached for that exact place, without a request', async () => {
@@ -248,7 +248,7 @@ describe('recap hero: a short absence is not summarised', () => {
     )
     expect(recapCalls).toEqual([])
     expect(section.dataset.summaryLine).toBe('cached')
-    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('Cached line for Proverbs 17.')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toContain('Cached line for Proverbs 17.')
   })
 
   it('falls back to the position record when the book has no reading-memory session', async () => {
@@ -281,9 +281,10 @@ describe('back out of the book\u2019s own reader', () => {
       .toBe('You\u2019re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('from-reader')
     expect(recapCalls).toEqual([])
-    const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
-    expect(line.classList.contains('is-shown')).toBe(false)
-    expect(line.textContent).toBe('')
+    // Nothing is going to arrive, so the block is not on the page at all —
+    // and lab/library-boot.js leaves it out for the same reason, so the two
+    // paints are the same height.
+    expect(section.querySelector('[data-testid=lab-recap-summary]')).toBeNull()
   })
 
   it('does not even show a summary this device already cached for that place', async () => {
@@ -297,7 +298,7 @@ describe('back out of the book\u2019s own reader', () => {
       positionState([biblePlace(ago(3 * DAY))], 'proverbs'),
     )
     expect(section.dataset.summaryLine).toBe('from-reader')
-    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')).toBeNull()
     expect(recapCalls).toEqual([])
   })
 
@@ -321,7 +322,7 @@ describe('back out of the book\u2019s own reader', () => {
     expect(section.dataset.book).toBe('bible')
     expect(section.dataset.summaryLine).toBe('fresh')
     expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
-    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('So far in bible 645.')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toContain('So far in bible 645.')
   })
 
   it('summarises a fresh visit an hour later, when nothing says the reader came from the book', async () => {
@@ -389,7 +390,7 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     await flush()
     expect(section.dataset.book).toBe('bible')
     expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent)
-      .toBe('Solomon weighs quiet bread against a house of strife.')
+      .toContain('Solomon weighs quiet bread against a house of strife.')
     expect(section.dataset.summaryLine).toBe('cached')
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
   })
@@ -406,7 +407,92 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     await vi.advanceTimersByTimeAsync(800)
     await flush()
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic', 'bible'])
-    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('So far in bible 645.')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toContain('So far in bible 645.')
+  })
+})
+
+/**
+ * The "so far" block opens and closes. Three lines is what the library shows
+ * without being asked; the reader who wants the rest taps the block. jsdom
+ * has no layout, so the clamp itself is measured in the browser — here the
+ * control's behaviour is pinned: which way the word points, what
+ * aria-expanded says, and that it opens closed every time.
+ */
+describe('the so-far block opens and closes', () => {
+  const heroSummary = (section: HTMLElement) =>
+    section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')!
+
+  async function renderWithSummary() {
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * HOUR))],
+      positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
+    )
+    return section
+  }
+
+  it('collapses to three lines, and a clamped summary becomes the control', async () => {
+    const section = await renderWithSummary()
+    const block = heroSummary(section)
+    expect(block.tagName).toBe('BUTTON')
+    expect(block.querySelector('.lib-recap-summary-text')!.textContent).toBe('So far in bible 645.')
+    expect(block.classList.contains('is-open')).toBe(false)
+    // jsdom reports no overflow, so this short line is not a control at all.
+    expect(block.dataset.expandable).toBe('false')
+    expect(block.disabled).toBe(true)
+    expect(block.hasAttribute('aria-expanded')).toBe(false)
+    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('')
+  })
+
+  it('opens on a tap and closes on the next one, and says which way it goes', async () => {
+    const section = await renderWithSummary()
+    const block = heroSummary(section)
+    // A clamped summary in a real browser; here, said outright.
+    block.dataset.expandable = 'true'
+    block.disabled = false
+    block.setAttribute('aria-expanded', 'false')
+    block.querySelector('.lib-recap-summary-more')!.textContent = 'More'
+
+    block.click()
+    expect(block.classList.contains('is-open')).toBe(true)
+    expect(block.getAttribute('aria-expanded')).toBe('true')
+    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('Less')
+
+    block.click()
+    expect(block.classList.contains('is-open')).toBe(false)
+    expect(block.getAttribute('aria-expanded')).toBe('false')
+    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('More')
+  })
+
+  it('does nothing when there is no more of it to show', async () => {
+    const section = await renderWithSummary()
+    const block = heroSummary(section)
+    block.click()
+    expect(block.classList.contains('is-open')).toBe(false)
+    expect(block.hasAttribute('aria-expanded')).toBe(false)
+  })
+
+  it('opens closed again when the row moves to another book', async () => {
+    const { sessions, positions } = {
+      sessions: [
+        bibleSession(ago(9 * HOUR)),
+        sessionFor(platoDialogueFixture(), { id: 'republic', state: 'progressed', startedAt: ago(2 * HOUR), lastActiveAt: ago(90 * MINUTE), page: 2, owner: USER }),
+      ],
+      positions: positionState([
+        biblePlace(ago(9 * HOUR) + MINUTE),
+        place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 1, primaryEditionKey: 'original-en', updatedAt: ago(89 * MINUTE) }),
+      ], 'plato-republic'),
+    }
+    const section = await renderLibrary(sessions, positions)
+    const block = heroSummary(section)
+    block.dataset.expandable = 'true'
+    block.disabled = false
+    block.click()
+    expect(block.classList.contains('is-open')).toBe(true)
+    // Scrolling the Bible to the middle repaints the caption from scratch.
+    section.querySelector<HTMLElement>('[data-now-book="bible"] [data-recap-open]')!.click()
+    await flush()
+    expect(section.dataset.book).toBe('bible')
+    expect(heroSummary(section).classList.contains('is-open')).toBe(false)
   })
 })
 

@@ -40,6 +40,11 @@
    * one way into the reader that does not pass through the library.
    */
   var READER_ORIGIN_SESSION_KEY = 'tinct:lab-reader-origin'
+  /**
+   * The hour the recap's "so far" line is governed by. Mirrors
+   * LAB_RECAP_MIN_AWAY_MS in src/preReader/recapSummaryClient.ts.
+   */
+  var RECAP_MIN_AWAY_MS = 60 * 60 * 1000
 
   function landingWorld(session) {
     try {
@@ -180,7 +185,39 @@
       snapshot: snapshot,
       returning: returning,
       entry: entry,
+      noRecapSummary: cameFromHerosReader(sessionStore(), snapshot, now),
     }
+  }
+
+  function sessionStore() {
+    try { return window.sessionStorage } catch (e) { return null }
+  }
+
+  /**
+   * Whether this load came straight back out of the hero's own reader — the
+   * one case where we know before painting that no "so far" summary is
+   * coming, so the block is left out rather than reserved empty. Same marker,
+   * same hour and same question as `recapSummaryPermission` in
+   * src/preReader/recapSummaryClient.ts, so the boot paint and the confirmed
+   * render agree and the block cannot appear or vanish between them.
+   *
+   * The snapshot's hero can be stale — the reader may have opened a different
+   * book from the index. A marker written AFTER the snapshot names the book
+   * the reader was last in, and that book carries the newest place, so it is
+   * the hero on this load whatever the snapshot says.
+   */
+  function cameFromHerosReader(store, snapshot, now) {
+    var hero = snapshot && snapshot.hero
+    if (!hero) return false
+    var raw = null
+    try { raw = store ? store.getItem(READER_ORIGIN_SESSION_KEY) : null } catch (e) { return false }
+    if (!raw) return false
+    var origin = null
+    try { origin = JSON.parse(raw) } catch (e) { return false }
+    if (!origin || origin.v !== 1 || typeof origin.bookId !== 'string' || !origin.bookId) return false
+    var at = typeof origin.at === 'number' && isFinite(origin.at) ? origin.at : null
+    if (at === null || now - at < 0 || now - at >= RECAP_MIN_AWAY_MS) return false
+    return origin.bookId === hero.bookId || snapshot.at <= at
   }
 
   function el(tag, className, textContent) {
@@ -203,6 +240,19 @@
     }
     return cover
   }
+  /** The same element the confirmed render builds, with no text in it yet. */
+  function summaryBlock() {
+    var block = el('button', 'lib-recap-summary')
+    block.type = 'button'
+    block.disabled = true
+    block.setAttribute('data-expandable', 'false')
+    block.appendChild(el('span', 'lib-recap-summary-text'))
+    var more = el('span', 'lib-recap-summary-more')
+    more.setAttribute('aria-hidden', 'true')
+    block.appendChild(more)
+    return block
+  }
+
   function sectionHead(label, count, attr) {
     var head = el('header', 'lib-index-head lib-sec-head')
     head.setAttribute(attr, '')
@@ -248,11 +298,13 @@
       section.setAttribute('data-boot-recap', 'snapshot')
       caption.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
       caption.appendChild(el('h1', 'lib-h1', hero.headline))
-      // The reserved "so far" block, empty. src/labReadingMemory.ts renders
-      // the same block a moment later and fades the text into it; painting it
-      // here too means the confirmed render is the same height as this one,
-      // and coming back from the reader does not shove the page down.
-      caption.appendChild(el('p', 'lib-recap-summary'))
+      // The reserved "so far" block — three lines, empty. src/labReadingMemory.ts
+      // renders the same block a moment later and fades the text into it;
+      // painting it here too means the confirmed render is the same height as
+      // this one, and coming back from the reader does not shove the page
+      // down. It is left out entirely in the one case both paints can already
+      // answer: straight back out of this book's reader, no summary coming.
+      if (!state.noRecapSummary) caption.appendChild(summaryBlock())
       caption.appendChild(el('p', 'lib-lede', hero.title))
       var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
@@ -267,7 +319,7 @@
       caption.className = 'lib-now-caption lib-boot-skel'
       caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
       caption.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
-      caption.appendChild(el('p', 'lib-recap-summary'))
+      caption.appendChild(summaryBlock())
       caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')
@@ -340,6 +392,7 @@
   window.__tinctLabBoot = {
     state: null,
     bootState: bootState,
+    cameFromHerosReader: cameFromHerosReader,
     paint: paint,
     observe: observe,
     entryTarget: entryTarget,
@@ -360,7 +413,10 @@
       // record it the same way, so the library this reader reaches next knows
       // which book they have just come out of.
       try {
-        var origin = settledBookId(window.localStorage)
+        // The catalogue's id when the snapshot knows it (the reader pins the
+        // Bible per biblical book, and the library compares catalogue ids),
+        // else the reader's own settled id, which the library maps.
+        var origin = (state.snapshot && state.snapshot.hero && state.snapshot.hero.bookId) || settledBookId(window.localStorage)
         if (origin) window.sessionStorage.setItem(READER_ORIGIN_SESSION_KEY, JSON.stringify({ v: 1, bookId: origin, at: Date.now() }))
       } catch (e) { /* storage blocked */ }
       location.replace('/lab/reader')

@@ -314,17 +314,68 @@ function setSummaryStatus(key: string, status: SummaryLineStatus): void {
 
 /**
  * Fill the reserved "so far" block. The block is already on the page at its
- * full height (lab/index.html reserves --lib-recap-lines lines from the first
- * paint), so this only ever fades text into space that is there: the book,
- * the button and everything under them never move when a summary arrives, is
- * replaced by another book's, or never comes.
+ * collapsed height — three lines, from the first paint (lab/index.html) — so
+ * this only ever fades text into space that is there: the book, the button
+ * and everything under them never move when a summary arrives, is replaced
+ * by another book's, or never comes.
+ *
+ * Whether it can be opened is a question about this summary at this width,
+ * so it is asked of the rendered text rather than guessed from its length.
  */
 function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): void {
   const line = heroSummaryLine(key)
   if (!line || !section) return
-  line.textContent = summary
+  const text = line.querySelector<HTMLElement>('.lib-recap-summary-text')
+  if (!text) return
+  text.textContent = summary
   line.classList.add('is-shown')
   section.dataset.summaryLine = status
+  markExpandable(line, text)
+}
+
+const MORE_LABEL = 'More'
+const LESS_LABEL = 'Less'
+
+/** Clamped text is text there is more of; only then is the block a control. */
+function markExpandable(line: HTMLElement, text: HTMLElement): void {
+  const clamped = text.scrollHeight > text.clientHeight + 1
+  const more = line.querySelector<HTMLElement>('.lib-recap-summary-more')
+  line.toggleAttribute('disabled', !clamped)
+  if (clamped) line.setAttribute('aria-expanded', 'false')
+  else line.removeAttribute('aria-expanded')
+  if (more) more.textContent = clamped ? MORE_LABEL : ''
+  line.dataset.expandable = String(clamped)
+}
+
+/**
+ * Open or close the "so far" block. The clamp comes off in one frame, so the
+ * height is animated from the measured collapsed height to the measured full
+ * one and the inline height is dropped again at the end — the box grows
+ * calmly and the page below it follows, and nothing scrolls on its own.
+ */
+function toggleSummary(line: HTMLElement): void {
+  if (line.dataset.expandable !== 'true') return
+  const text = line.querySelector<HTMLElement>('.lib-recap-summary-text')
+  if (!text) return
+  const opening = !line.classList.contains('is-open')
+  const from = text.getBoundingClientRect().height
+  line.classList.toggle('is-open', opening)
+  line.setAttribute('aria-expanded', String(opening))
+  const more = line.querySelector<HTMLElement>('.lib-recap-summary-more')
+  if (more) more.textContent = opening ? LESS_LABEL : MORE_LABEL
+  if (reducedMotion()) return
+  text.style.height = 'auto'
+  const to = text.getBoundingClientRect().height
+  if (Math.abs(to - from) < 1) { text.style.height = ''; return }
+  text.style.height = `${from}px`
+  void text.getBoundingClientRect().height
+  const settle = (event: TransitionEvent) => {
+    if (event.propertyName !== 'height') return
+    text.style.height = ''
+    text.removeEventListener('transitionend', settle)
+  }
+  text.addEventListener('transitionend', settle)
+  requestAnimationFrame(() => { text.style.height = `${to}px` })
 }
 
 /**
@@ -370,9 +421,10 @@ async function fillHeroSummary(
     showSummary(key, cached, 'cached')
     return
   }
-  // Came out of this book's reader: the position line is the whole hero.
+  // Came out of this book's reader: the position line is the whole hero, and
+  // nowCaptionMarkup has already left the block out of the page.
   if (permission.reason === 'from-reader') {
-    setSummaryStatus(key, 'from-reader')
+    section.dataset.summaryLine = 'from-reader'
     return
   }
   // Scrolling PAST a book is not asking about it. The caption repaints on
@@ -446,14 +498,38 @@ function removeMarkup(bookId: string, title: string): string {
   return `<button type="button" class="lib-now-remove" data-now-remove="${escapeHtml(bookId)}" aria-label="${escapeHtml(`Remove ${title} from currently reading`)}" title="Remove from currently reading">×</button>`
 }
 
+/**
+ * Whether this caption reserves a "so far" block at all. Three lines is a
+ * small reservation, but a reader who has just walked out of this book's
+ * reader is never getting a summary — the rule says so synchronously — so
+ * the block is not there rather than empty. lab/library-boot.js asks exactly
+ * the same question of exactly the same marker before it paints, so the
+ * block cannot appear or vanish between the boot paint and this one.
+ */
+function summaryBlockReserved(row: ReadingListRow, books: Map<string, CatalogueBook>): boolean {
+  return recapSummaryPermission({
+    bookId: row.bookId,
+    origin: readerOrigin(books),
+    sessionLastActiveAt: row.session?.lastActiveAt ?? null,
+    placeUpdatedAt: row.target.at,
+    now: Date.now(),
+  }).reason !== 'from-reader'
+}
+
+/** The block: a button, so the whole three-line box is the tap target. */
+function summaryMarkup(summaryKey: string): string {
+  return `<button type="button" class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-expandable="false" disabled><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
+}
+
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
   const note = progressNote(row.target, row.session)
   const request = summaryRequestFor(row, books)
   const summaryKey = request ? summaryKeyFor(row, request) : ''
+  const summary = request && summaryBlockReserved(row, books) ? summaryMarkup(summaryKey) : ''
   return `<p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.target.chapterLabel))}</p>
       <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(row))}</h1>
-      <p class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}"></p>
+      ${summary}
       <p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, row.bookId))}</p>
       <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
 }
@@ -821,6 +897,12 @@ function continueReading(bookId?: string): void {
 
 section?.addEventListener('click', (event) => {
   const target = event.target as HTMLElement
+  const summary = target.closest<HTMLElement>('.lib-recap-summary')
+  if (summary) {
+    event.preventDefault()
+    toggleSummary(summary)
+    return
+  }
   const continueButton = target.closest<HTMLElement>('[data-recap-continue]')
   if (continueButton) {
     event.preventDefault()
