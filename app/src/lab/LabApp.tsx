@@ -3152,11 +3152,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}`}
+          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareActive && !chapterCoverTitle ? ' has-edition-name' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
         >
+          {/* In Compare, the page is headed by the edition it is showing —
+              centred, in the page-number treatment, where a running head
+              belongs. It names what the reader is looking at; it does not
+              explain how they got here. */}
+          {chromeV2 && showPhoneChrome && mobileCompareActive && !chapterCoverTitle && (
+            <span className="lab-v2-edition-name" data-testid="lab-v2-edition-name">{compareEditionLabel}</span>
+          )}
           {chapterCoverTitle ? (
             <LabChapterCover
               title={chapterCoverTitle}
@@ -3217,6 +3224,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                   if (direction > 0) goNext()
                   else goPrev()
                 }
+              : undefined}
+            onCompareSwap={chromeV2 && showPhoneChrome && mobileCompareEnabled && !phoneAsk && !selectionPopup
+              ? handleMobileCompare
               : undefined}
             onToggleControls={showPhoneChrome && !phoneAsk && !selectionPopup
               ? () => setReaderControlsVisible(visible => !visible)
@@ -3361,6 +3371,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
             >
               <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+              {chromeV2 && mobileCompareActive && (
+                <span className="lab-v2-compare-mark" data-testid="lab-v2-compare-mark">Compare version</span>
+              )}
             </button>
           ) : (
             <div

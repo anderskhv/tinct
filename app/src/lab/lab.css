@@ -5442,3 +5442,34 @@
   color: var(--lab-ink);
   margin-right: 4px;
 }
+
+/* ── Compare ─────────────────────────────────────────────────────────────
+   A whole-page swap on a vertical swipe, and two quiet labels: the edition's
+   name over the page, and "Compare version" beside the progress. The chrome
+   never explains the swipe — that belongs in the edition picker. */
+
+.lab[data-chrome-version="v2"] .lab-v2-edition-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 10.7px;
+  letter-spacing: 0.035em;
+  color: var(--lab-v2-quiet);
+  pointer-events: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-page-wrap.has-edition-name {
+  padding-top: 1.4rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-compare-mark {
+  margin-left: 10px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 9.6px;
+  letter-spacing: 0.05em;
+  color: var(--lab-v2-faint);
+}
