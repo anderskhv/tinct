@@ -42,6 +42,54 @@ function romansState(): LabPositionState {
   }
 }
 
+
+function jeremiahState(): LabPositionState {
+  return {
+    books: {
+      jeremiah: {
+        bookId: 'jeremiah',
+        headerBook: 'Jeremiah',
+        chapterNumber: 38,
+        sequentialChapter: 774,
+        paragraphIndex: 6,
+        wordIndex: 3,
+        updatedAt: 500_000,
+        deviceId: 'phone',
+        rev: 12,
+      },
+    },
+    finished: {},
+    lastSettledBookId: 'jeremiah',
+    lastSettledAt: 500_000,
+    updatedAt: 500_000,
+    deviceId: 'phone',
+  }
+}
+
+/** What a wiped device settles when it paints the Bible fallback chapter. */
+function genesisFallbackState(now: number): LabPositionState {
+  return {
+    books: {
+      genesis: {
+        bookId: 'genesis',
+        headerBook: 'Genesis',
+        chapterNumber: 1,
+        sequentialChapter: 1,
+        paragraphIndex: 0,
+        wordIndex: 0,
+        updatedAt: now,
+        deviceId: 'wiped-phone',
+        rev: 1,
+      },
+    },
+    finished: {},
+    lastSettledBookId: 'genesis',
+    lastSettledAt: now,
+    updatedAt: now,
+    deviceId: 'wiped-phone',
+  }
+}
+
 describe('lab-position route', () => {
   it('rejects guests: no cloud write without auth', async () => {
     const kv = memoryKv()
@@ -152,5 +200,63 @@ describe('lab-position route', () => {
     expect((await second.json() as LabPositionState).finished).toEqual({ bible: [746, 780, 781], odyssey: [1] })
     const get = await handleLabPosition(new Request('https://tinct.app/api/lab-position', { method: 'GET' }), env, verify)
     expect((await get.json() as LabPositionState).finished).toEqual({ bible: [746, 780, 781], odyssey: [1] })
+  })
+  it('a device that never saw the stored resume cannot demote it to its boot fallback', async () => {
+    // The 2026-09-07 incident. The account's row resumes Jeremiah 38. A
+    // device whose local record was wiped (sign-out) paints the Genesis 1
+    // fallback, settles it, and PUTs before the GET it started has answered.
+    // The row of record must keep the reader's real place.
+    const kv = memoryKv()
+    const env = { RATE_LIMIT: kv as unknown as KVNamespace }
+    const verify = async () => ({ id: userId, email: 'reader@example.com' })
+    const put = (body: unknown) => handleLabPosition(
+      new Request('https://tinct.app/api/lab-position', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }),
+      env,
+      verify,
+    )
+
+    await put(jeremiahState())
+    const after = await put(genesisFallbackState(900_000))
+    const body = await after.json() as LabPositionState
+
+    expect(body.lastSettledBookId).toBe('jeremiah')
+    expect(body.lastSettledAt).toBe(500_000)
+    // The fallback pin is still kept — nothing the reader did is thrown away.
+    expect(body.books.genesis?.chapterNumber).toBe(1)
+    expect(body.books.jeremiah?.chapterNumber).toBe(38)
+  })
+
+  it('a device that carries the stored resume may still move it on', async () => {
+    const kv = memoryKv()
+    const env = { RATE_LIMIT: kv as unknown as KVNamespace }
+    const verify = async () => ({ id: userId, email: 'reader@example.com' })
+    const put = (body: unknown) => handleLabPosition(
+      new Request('https://tinct.app/api/lab-position', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }),
+      env,
+      verify,
+    )
+
+    await put(jeremiahState())
+    const informed = genesisFallbackState(900_000)
+    informed.books.jeremiah = jeremiahState().books.jeremiah
+    const after = await put(informed)
+    const body = await after.json() as LabPositionState
+
+    expect(body.lastSettledBookId).toBe('genesis')
+    expect(body.lastSettledAt).toBe(900_000)
+  })
+
+  it('stamps the row with its owner so a client can tell whose record it is', async () => {
+    const kv = memoryKv()
+    const env = { RATE_LIMIT: kv as unknown as KVNamespace }
+    const verify = async () => ({ id: userId, email: 'reader@example.com' })
+    const stored = await handleLabPosition(
+      new Request('https://tinct.app/api/lab-position', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...romansState(), owner: 'someone-else' }) }),
+      env,
+      verify,
+    )
+    expect((await stored.json() as LabPositionState).owner).toBe(userId)
+    const got = await handleLabPosition(new Request('https://tinct.app/api/lab-position'), env, verify)
+    expect((await got.json() as LabPositionState).owner).toBe(userId)
   })
 })

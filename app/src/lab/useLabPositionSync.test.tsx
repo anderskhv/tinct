@@ -16,12 +16,16 @@ import { bookFromResumePlace, bootLabReading, remoteResumeSelection, useLabPosit
 import { readLabPrefs } from './labPrefs'
 
 const PHONE = 'phone-device'
+const READER = 'user-reader'
+const OTHER_ACCOUNT = 'user-github'
 const DESK = 'desk-device'
 
 /** Enough of the real KJV manifest to place Proverbs and Hebrews. */
 const MANIFEST: LabChapter[] = [
   { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
   { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
+  { number: 773, title: 'Jeremiah 37', path: 'ch0773.json' },
+  { number: 774, title: 'Jeremiah 38', path: 'ch0774.json' },
   { number: 644, title: 'Proverbs 16', path: 'ch0644.json' },
   { number: 645, title: 'Proverbs 17', path: 'ch0645.json' },
   { number: 646, title: 'Proverbs 18', path: 'ch0646.json' },
@@ -59,6 +63,35 @@ function hebrews3(over: Partial<LabBookPlace> = {}): LabBookPlace {
     deviceId: DESK,
     rev: 1,
     ...over,
+  }
+}
+
+function jeremiah38(over: Partial<LabBookPlace> = {}): LabBookPlace {
+  return {
+    bookId: 'jeremiah',
+    headerBook: 'Jeremiah',
+    chapterNumber: 38,
+    sequentialChapter: 774,
+    paragraphIndex: 6,
+    wordIndex: 3,
+    pageIndex: 2,
+    updatedAt: 500_000,
+    deviceId: DESK,
+    rev: 12,
+    ...over,
+  }
+}
+
+/** The account's real row: a long Bible history, settled in Jeremiah 38. */
+function settledJeremiahCloud(owner?: string): LabPositionState {
+  return {
+    ...emptyLabPositionState(DESK),
+    books: { jeremiah: jeremiah38(), proverbs: proverbs17() },
+    finished: { bible: [773] },
+    lastSettledBookId: 'jeremiah',
+    lastSettledAt: 500_000,
+    updatedAt: 500_000,
+    ...(owner ? { owner } : {}),
   }
 }
 
@@ -145,6 +178,7 @@ function Harness(props: {
   onResolvedPlace?: (place: LabBookPlace) => void
   interactedRef?: MutableRefObject<boolean>
   token?: string | null
+  ownerId?: string | null
   sourceLocked?: boolean
   initialCloudWaitMs?: number
 }) {
@@ -153,6 +187,7 @@ function Harness(props: {
     placeRef: props.placeRef,
     sourceLocked: props.sourceLocked ?? false,
     authToken: props.token === undefined ? 'signed-in' : props.token,
+    ownerId: props.ownerId === undefined ? READER : props.ownerId,
     onRemoteResume: props.onRemoteResume,
     onResolvedPlace: props.onResolvedPlace,
     interactedRef: props.interactedRef,
@@ -555,5 +590,94 @@ describe('remoteResumeSelection', () => {
     const odyssey: LabBookPlace = { ...hebrews3(), bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2, primaryEditionKey: 'modern-en' }
     const selection = remoteResumeSelection(odyssey, { libraryBookId: 'crito', prefs })
     expect(selection).toMatchObject({ bookId: 'odyssey', primaryEditionKey: 'modern-en' })
+  })
+})
+
+describe('sign-in restore (2026-09-07 Genesis 1 incident)', () => {
+  /**
+   * A device wiped by sign-out signs back in. The reader has nothing local,
+   * paints the Genesis 1 fallback, and the bounded paint wait expires before
+   * the account's record answers. Leaving the page must not settle that
+   * fallback as the account's place, and the record that comes back must
+   * still be the reader's real one.
+   */
+  it('a fallback painted before the cloud answers never becomes the account place', async () => {
+    const cloud = deferred<LabPositionState | null>()
+    const api = stubPositionApi(cloud.promise)
+    const onRemoteResume = vi.fn()
+    const placeRef = { current: { paragraphIndex: 0, wordIndex: 0 } }
+
+    const boot = bootLabReading()
+    expect(boot.book.headerBook).toBe('Genesis')
+    const view = render(<Harness book={boot.book} placeRef={placeRef} onRemoteResume={onRemoteResume} initialCloudWaitMs={5} />)
+    view.rerender(<Harness book={manifestBook(1)} placeRef={placeRef} onRemoteResume={onRemoteResume} initialCloudWaitMs={5} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+
+    // The reader leaves the page while the record is still in flight.
+    act(() => { harness.notePlace!('hide') })
+    await settle()
+    expect(readLabPositionLocal(PHONE).lastSettledBookId).not.toBe('genesis')
+    expect(api.puts().map(put => (JSON.parse(String(put.init?.body)) as LabPositionState).lastSettledBookId)).not.toContain('genesis')
+
+    await act(async () => { cloud.resolve(settledJeremiahCloud(READER)) })
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'jeremiah', sequentialChapter: 774 })))
+    const stored = readLabPositionLocal(PHONE)
+    expect(stored.lastSettledBookId).toBe('jeremiah')
+    expect(stored.books.jeremiah?.chapterNumber).toBe(38)
+  })
+
+  /**
+   * The same device read Genesis 1 anonymously between sign-out and sign-in.
+   * That pin is newer in wall-clock time than the account's record, but the
+   * account's own place still wins: the local record was never this
+   * account's.
+   */
+  it('an anonymous Genesis pin does not outrank the account record on first sign-in', async () => {
+    const anonymous: LabPositionState = {
+      ...emptyLabPositionState(PHONE),
+      books: { genesis: { bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 900_000, deviceId: PHONE, rev: 1 } },
+      lastSettledBookId: 'genesis',
+      lastSettledAt: 900_000,
+      updatedAt: 900_000,
+    }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(anonymous))
+    stubPositionApi(Promise.resolve(settledJeremiahCloud(READER)))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(1)} placeRef={{ current: { paragraphIndex: 0, wordIndex: 0 } }} onRemoteResume={onRemoteResume} />)
+
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'jeremiah', sequentialChapter: 774 })))
+    const stored = readLabPositionLocal(PHONE)
+    expect(stored.lastSettledBookId).toBe('jeremiah')
+    // The anonymous pin is adopted, not thrown away.
+    expect(stored.books.genesis?.chapterNumber).toBe(1)
+    expect(stored.owner).toBe(READER)
+  })
+
+  /**
+   * Signing in with a second provider makes a second account. That account
+   * must not inherit — or push to its own row — the place the previous
+   * account left on this device.
+   */
+  it('another account record on the device is never adopted or pushed', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...settledJeremiahCloud(READER) , deviceId: PHONE }))
+    const api = stubPositionApi(Promise.resolve(emptyLabPositionState(OTHER_ACCOUNT)))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(1)} placeRef={{ current: { paragraphIndex: 0, wordIndex: 0 } }} onRemoteResume={onRemoteResume} ownerId={OTHER_ACCOUNT} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    await settle()
+
+    act(() => { harness.notePlace!('hide') })
+    await settle()
+
+    const stored = readLabPositionLocal(PHONE)
+    expect(stored.books.jeremiah).toBeUndefined()
+    expect(stored.books.proverbs).toBeUndefined()
+    expect(stored.finished.bible ?? []).not.toContain(773)
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    for (const put of api.puts()) {
+      const body = JSON.parse(String(put.init?.body)) as LabPositionState
+      expect(body.books.jeremiah).toBeUndefined()
+      expect(body.books.proverbs).toBeUndefined()
+    }
   })
 })

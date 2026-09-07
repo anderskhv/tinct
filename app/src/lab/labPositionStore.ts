@@ -104,17 +104,34 @@ async function writeIdb(state: LabPositionState): Promise<void> {
   })
 }
 
+export interface WriteLabPositionOptions {
+  /**
+   * The caller's state is a resolved account record (the cloud merge), not a
+   * note from the reader: its resume replaces whatever is stored, even when
+   * the stored settle carries a newer clock. Without this the merge-before-
+   * write below hands the resume straight back to the device record the
+   * account's row just overruled.
+   */
+  authoritative?: boolean
+}
+
 /**
  * Merge-before-write. Another tab (or a stale in-memory state after a cloud
  * apply) may hold an older record; the newer per-book place and the newer
  * settle survive whichever tab writes last. Returns what was stored.
  */
-export function writeLabPositionLocal(state: LabPositionState): LabPositionState {
+export function writeLabPositionLocal(state: LabPositionState, options: WriteLabPositionOptions = {}): LabPositionState {
   let merged = state
   if (typeof localStorage !== 'undefined') {
     try {
       const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
-      if (raw) merged = mergeLabPositionStatesByTime(parseLabPositionState(JSON.parse(raw), state.deviceId), state)
+      if (raw) {
+        merged = mergeLabPositionStatesByTime(
+          parseLabPositionState(JSON.parse(raw), state.deviceId),
+          state,
+          { preferIncomingSettle: options.authoritative },
+        )
+      }
     } catch { /* unreadable record: overwrite it */ }
     try {
       localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(merged))
@@ -146,17 +163,30 @@ function writeLabPositionDirty(dirty: boolean): void {
   } catch { /* jsdom / private mode */ }
 }
 
+/**
+ * A reader with no stored place holds its position writes until this answers,
+ * so it must always answer. A hung request is a failed one.
+ */
+export const LAB_POSITION_FETCH_TIMEOUT_MS = 10_000
+
 export async function fetchLabPositionCloud(token: string | null | undefined): Promise<LabPositionState | null> {
   if (!token) return null
+  const controller = typeof AbortController === 'undefined' ? null : new AbortController()
+  const timeout = controller && typeof setTimeout !== 'undefined'
+    ? setTimeout(() => controller.abort(), LAB_POSITION_FETCH_TIMEOUT_MS)
+    : null
   try {
     const res = await fetch(apiUrl('/api/lab-position'), {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
+      ...(controller ? { signal: controller.signal } : {}),
     })
     if (!res.ok) return null
     return parseLabPositionState(await res.json(), readLabDeviceId())
   } catch {
     return null
+  } finally {
+    if (timeout !== null) clearTimeout(timeout)
   }
 }
 

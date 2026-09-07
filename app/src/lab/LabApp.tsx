@@ -750,6 +750,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     sourceLocked: Boolean(source || readerHandoff),
     writesSuspended: handoffWritesSuspended || remoteResumePending,
     authToken,
+    // Same shape the reading-memory hook takes: an explicit token means an
+    // explicit identity, so the position record is reconciled against the
+    // same account the memory is.
+    ownerId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     interactedRef: interactionRef,
     onResolvedPlace: (place) => {
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }

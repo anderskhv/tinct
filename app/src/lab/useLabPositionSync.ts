@@ -7,6 +7,8 @@ import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
 import { prefsFromLabResumePlace } from './labReaderHandoff'
 import {
   LAB_INITIAL_CLOUD_WAIT_MS,
+  LAB_POSITION_WRITE_ARM_MS,
+  adoptLabPositionRecord,
   biblicalBookId,
   createLabPositionController,
   finishedChaptersFor,
@@ -14,13 +16,16 @@ import {
   placeFromChapterRef,
   resumePlace,
   shouldFollowLateCloudResume,
+  shouldPreferAccountSettle,
   type LabBookPlace,
   type LabPlaceReason,
   type LabPositionController,
+  type LabPositionOwnership,
   type LabPositionState,
   type LabReaderStateSnapshot,
 } from './labPosition'
 import {
+  clearLabPositionLocal,
   createLabPositionSync,
   fetchLabPositionCloud,
   migrateLegacyFinishedChapters,
@@ -170,6 +175,11 @@ export function useLabPositionSync(args: {
   sourceLocked: boolean
   writesSuspended?: boolean
   authToken?: string | null
+  /**
+   * Account the reader is signed in as. Defaults to the Supabase session's
+   * user; passed explicitly by tests. Null means signed out.
+   */
+  ownerId?: string | null
   /** True once the reader has touched the page (tap, key, wheel); a late cloud record then never moves it. */
   interactedRef?: MutableRefObject<boolean>
   /** The resolved place is in another chapter (or book): load it. */
@@ -197,6 +207,7 @@ export function useLabPositionSync(args: {
 } {
   const { session, likelyAuthenticated, isLoading: authLoading } = useAuth()
   const liveToken = args.authToken !== undefined ? args.authToken : (session?.access_token ?? null)
+  const ownerId = args.ownerId !== undefined ? args.ownerId : (session?.user?.id ?? null)
   const deviceIdRef = useRef(readLabDeviceId())
   // Seeded from the stored record below so a reload never restarts at 0 and
   // loses a same-millisecond tie-break against an older place.
@@ -204,6 +215,11 @@ export function useLabPositionSync(args: {
   const controllerRef = useRef<LabPositionController | null>(null)
   const syncRef = useRef<ReturnType<typeof createLabPositionSync> | null>(null)
   const cloudDoneRef = useRef(false)
+  // Whether the record this device booted with was this account's own. Set
+  // once per account by `reconcileOwner`; it decides whether the account's
+  // row outranks the device on the first merge.
+  const ownershipRef = useRef<LabPositionOwnership>('own')
+  const ownerAppliedRef = useRef<string | null | undefined>(undefined)
   const onRemoteResumeRef = useRef(args.onRemoteResume)
   onRemoteResumeRef.current = args.onRemoteResume
   const onResolvedPlaceRef = useRef(args.onResolvedPlace)
@@ -239,6 +255,11 @@ export function useLabPositionSync(args: {
   // re-derive their Set; the controller itself is ref-held.
   const [finishedRevision, setFinishedRevision] = useState(0)
 
+  // Null until the first render has a controller to inspect; then a boolean.
+  const writesArmedRef = useRef<boolean | null>(null)
+  const reconcileOwnerRef = useRef<((userId: string | null) => void) | null>(null)
+  const armWrites = useCallback(() => { writesArmedRef.current = true }, [])
+
   if (!controllerRef.current) {
     const deviceId = deviceIdRef.current
     const local = migrateLegacyFinishedChapters(readLabPositionLocal(deviceId))
@@ -258,6 +279,42 @@ export function useLabPositionSync(args: {
     controllerRef.current = controller
     revRef.current = Object.values(local.books).reduce((max, place) => Math.max(max, place.rev), 0)
   }
+
+  /**
+   * Position writes are armed at mount unless the reader is showing a place
+   * it invented. A signed-in device with nothing stored paints the Genesis 1
+   * fallback; settling that as the account's place — and PUTting it — is how
+   * a real reading history was demoted to "Genesis 1 · <1% read"
+   * (2026-09-07). Such a reader writes nothing until its account's record has
+   * had its say. A reader with a stored place, a library handoff, or an
+   * offline/signed-out reader has nothing to wait for.
+   */
+  if (writesArmedRef.current === null) {
+    const offline = typeof navigator !== 'undefined' && navigator.onLine === false
+    const looksSignedIn = args.authToken !== undefined ? Boolean(args.authToken) : Boolean(session || likelyAuthenticated)
+    const inventedPlace = !args.sourceLocked && !offline && looksSignedIn && resumePlace(controllerRef.current.state()) === null
+    writesArmedRef.current = !inventedPlace
+  }
+
+  /**
+   * Sign-in reconciliation, before anything is merged or written: the
+   * account's own record is kept, a signed-out one adopted, another
+   * account's dropped from this device (never merged, never pushed).
+   */
+  const reconcileOwner = (userId: string | null) => {
+    const controller = controllerRef.current
+    if (!controller || !userId || ownerAppliedRef.current === userId) return
+    ownerAppliedRef.current = userId
+    const current = controller.state()
+    const adoption = adoptLabPositionRecord(current, userId)
+    ownershipRef.current = adoption.status
+    if (adoption.state === current) return
+    // Merge-before-write would resurrect a dropped record from localStorage.
+    if (adoption.status === 'dropped') clearLabPositionLocal()
+    controller.replace(adoption.state)
+    writeLabPositionLocal(adoption.state)
+  }
+  reconcileOwnerRef.current = reconcileOwner
 
   useEffect(() => {
     const sync = createLabPositionSync({ token: liveToken })
@@ -281,8 +338,26 @@ export function useLabPositionSync(args: {
   // The signed-in hint was wrong (stale cookie): nothing to wait for.
   useEffect(() => {
     if (args.authToken !== undefined || authLoading || session) return
+    armWrites()
     settleInitial()
-  }, [args.authToken, authLoading, session, settleInitial])
+  }, [args.authToken, armWrites, authLoading, session, settleInitial])
+
+  // Ownership first: nothing may merge or be written under the wrong account.
+  useEffect(() => {
+    reconcileOwnerRef.current?.(ownerId)
+  }, [ownerId])
+
+  // Safety net. Writes held for the account's record are released after this
+  // even if the record never answers, so a genuinely new reader's first
+  // session is not dropped for good. The server's acknowledgement guard is
+  // what protects an existing row from anything written in that state.
+  useEffect(() => {
+    if (writesArmedRef.current) return
+    const id = window.setTimeout(armWrites, LAB_POSITION_WRITE_ARM_MS)
+    return () => window.clearTimeout(id)
+    // Armed once, on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Warm the GET as soon as the token is known.
   useEffect(() => {
@@ -298,24 +373,36 @@ export function useLabPositionSync(args: {
     if (args.book.chaptersProvisional || args.book.chapters.length === 0) return
     let cancelled = false
     const chapters = args.book.chapters
+    reconcileOwnerRef.current?.(ownerId)
     void cloudRecord(liveToken).then((cloud) => {
       if (cancelled) return
       if (!cloud) {
         // Failed or empty answer: paint the local place now; the next
-        // chapter list retries the fetch.
+        // chapter list retries the fetch. The verdict is in either way, so
+        // the reader may write again.
         if (cloudFetchRef.current?.token === liveToken) cloudFetchRef.current = null
+        armWrites()
         settleInitial()
         return
       }
       const controller = controllerRef.current
       if (!controller) return
-      const next = controller.applyCloud(cloud, chapters, labLibraryBookId(bookRef.current))
+      // A device record that was never this account's does not outrank the
+      // account's own row, however recent its clock says it is.
+      const preferIncomingSettle = shouldPreferAccountSettle(controller.state(), cloud, ownershipRef.current)
+      const next = controller.applyCloud(cloud, chapters, labLibraryBookId(bookRef.current), { preferIncomingSettle })
+      ownershipRef.current = 'own'
+      // The reader painted a place it invented (the bounded wait expired
+      // before this answered) — it has nothing of its own to lose, so the
+      // account's record resolves it like a first paint.
+      const paintedInventedPlace = !writesArmedRef.current
+      armWrites()
       // Latch only now: the record was merged against the real chapter list.
       cloudDoneRef.current = true
-      writeLabPositionLocal(next)
+      writeLabPositionLocal(next, { authoritative: true })
       syncRef.current?.persist(next)
       setFinishedRevision(revision => revision + 1)
-      const initial = !initialResolvedRef.current
+      const initial = !initialResolvedRef.current || (paintedInventedPlace && !args.interactedRef?.current)
       settleInitial()
       const resume = resumePlace(next)
       const current = bookRef.current
@@ -342,12 +429,14 @@ export function useLabPositionSync(args: {
       onResolvedPlaceRef.current?.(resume)
     })
     return () => { cancelled = true }
-  }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, cloudRecord, liveToken, settleInitial])
+  }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, armWrites, cloudRecord, liveToken, ownerId, settleInitial])
 
   const notePlace = useCallback((reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => {
     // Nothing is painted while the first place is still being resolved; a
-    // note now would persist the provisional tuple.
-    if (args.writesSuspended || !initialResolvedRef.current) return
+    // note now would persist the provisional tuple. And a signed-in reader
+    // showing a place it invented writes nothing at all until its account's
+    // record has answered.
+    if (args.writesSuspended || !initialResolvedRef.current || !writesArmedRef.current) return
     const book = bookRef.current
     const controller = controllerRef.current
     if (!controller) return

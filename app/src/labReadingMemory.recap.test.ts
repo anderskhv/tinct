@@ -124,12 +124,17 @@ function mountShell() {
 }
 
 let recapCalls: Array<Record<string, unknown>> = []
+let cloudPosition: LabPositionState | null = null
 
 function stubFetch() {
   vi.stubGlobal('fetch', vi.fn(async (input: unknown, init?: RequestInit) => {
     const url = String(input)
     if (url.startsWith('/lab/catalogue.json')) {
       return { ok: true, status: 200, json: async () => catalogueJson() } as unknown as Response
+    }
+    if (url.includes('/api/lab-position')) {
+      if (!cloudPosition) return { ok: false, status: 404, json: async () => ({}) } as unknown as Response
+      return { ok: true, status: 200, json: async () => cloudPosition } as unknown as Response
     }
     if (url.includes('/api/lab-recap')) {
       const body = JSON.parse(String(init?.body ?? '{}')) as Record<string, unknown>
@@ -180,6 +185,7 @@ beforeEach(() => {
   vi.resetModules()
   localStorage.clear()
   recapCalls = []
+  cloudPosition = null
   vi.useFakeTimers({ shouldAdvanceTime: true })
   vi.setSystemTime(NOW)
 })
@@ -291,5 +297,39 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     const section = await renderLibrary(sessions, positions)
     const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
     expect(bibleRow.querySelector('.lib-recap-row-recap')).toBeNull()
+  })
+})
+
+/**
+ * The 2026-09-07 incident, at the library. The device record is a signed-out
+ * Genesis 1 pin written minutes ago; the account's row is a real Bible
+ * history settled in Proverbs 17 a day earlier. The hero must say what the
+ * account read, not what this device last guessed.
+ */
+describe('recap hero after a sign-in', () => {
+  it('the account row wins the resume over a signed-out Genesis pin on the device', async () => {
+    cloudPosition = {
+      ...positionState([biblePlace(ago(DAY))], 'proverbs'),
+      owner: USER,
+      lastSettledAt: ago(DAY),
+      updatedAt: ago(DAY),
+      deviceId: 'device-b',
+    }
+    const genesis = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 0, updatedAt: ago(MINUTE) })
+    const section = await renderLibrary(
+      [bibleSession(ago(DAY))],
+      { ...positionState([genesis], 'genesis'), lastSettledAt: ago(MINUTE), updatedAt: ago(MINUTE) },
+    )
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
+  })
+
+  it('another account’s device record is not this viewer’s library', async () => {
+    cloudPosition = { ...positionState([], null), owner: USER, deviceId: 'device-b', lastSettledAt: 0, updatedAt: 0 }
+    const section = await renderLibrary(
+      [],
+      { ...positionState([biblePlace(ago(MINUTE))], 'proverbs'), owner: 'user-someone-else' },
+    )
+    expect(section.hidden).toBe(true)
   })
 })

@@ -41,7 +41,7 @@ import { clearDeviceReadingMemory, readDeviceReadingMemory } from './readingMemo
 import { loadRecap, type RecapAuth, type RecapLoadResult } from './readingMemory/recapLoad'
 import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
-import { mergeLabPositionStatesByTime, type LabPositionState } from './lab/labPosition'
+import { accountLabPositionRecord, type LabPositionState } from './lab/labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
@@ -158,9 +158,12 @@ async function loadPositions(auth: RecapAuth): Promise<LabPositionState | null> 
   } catch {
     return null
   }
-  if (!auth.token || !isOnline()) return local
+  // Read-only, but account-aware: another account's device record is not this
+  // viewer's library, and a signed-out record does not outrank the account's
+  // own row (2026-09-07).
+  if (!auth.token || !auth.userId || !isOnline()) return accountLabPositionRecord(local, null, auth.userId)
   const cloud = await fetchLabPositionCloud(auth.token).catch(() => null)
-  return cloud ? mergeLabPositionStatesByTime(local, cloud) : local
+  return accountLabPositionRecord(local, cloud, auth.userId)
 }
 
 /** Books the app marked finished (`tinct:book-completed:<id>`). */

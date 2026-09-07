@@ -23,7 +23,10 @@ function kvKey(userId: string): string {
 
 async function readStored(env: LabPositionEnv, userId: string): Promise<LabPositionState> {
   const raw = await env.RATE_LIMIT?.get(kvKey(userId), 'json')
-  return parseLabPositionState(raw, userId)
+  // The row is this account's by construction, so it always reads back tagged
+  // with the account. A client compares that tag against the record on its
+  // device to tell its own history from a guest's or another account's.
+  return { ...parseLabPositionState(raw, userId), owner: userId }
 }
 
 export async function handleLabPosition(
@@ -64,7 +67,16 @@ export async function handleLabPosition(
   const current = await readStored(env, user.id)
   // Chapter existence is a client concern. Server last-write-wins per biblical
   // book so two devices cannot clobber each other's Romans/Genesis pins.
-  const stored = mergeWithoutChapterGate(current, incoming)
+  //
+  // The one thing last-write-wins must NOT decide is the resume pointer. A
+  // client that has never seen the stored resume — a wiped device painting the
+  // Genesis 1 fallback, a PUT that raced ahead of its own GET — may add its
+  // pin, but may not demote the account's place to it (2026-09-07). Whatever
+  // the client claims about ownership is ignored: the row is the account's.
+  const stored = {
+    ...mergeWithoutChapterGate(current, incoming, { requireSettleAcknowledgement: true }),
+    owner: user.id,
+  }
   await env.RATE_LIMIT.put(kvKey(user.id), JSON.stringify(stored))
   return jsonResponse(stored, 200, request)
 }

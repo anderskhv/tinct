@@ -41,6 +41,13 @@ export const LAB_POSITION_DEBOUNCE_MS = 1_000
  * (see `shouldFollowLateCloudResume`).
  */
 export const LAB_INITIAL_CLOUD_WAIT_MS = 3_000
+/**
+ * How long a signed-in reader with no stored place holds its position writes
+ * while it waits for the account's record. Beyond this the reader writes
+ * again (a new reader's first session must not be lost); the server's
+ * settle-acknowledgement guard is what protects an existing row from then on.
+ */
+export const LAB_POSITION_WRITE_ARM_MS = 30_000
 
 export type LabPlaceReason =
   | 'open-book'
@@ -90,6 +97,14 @@ function withReaderState(place: LabBookPlace, readerState?: LabReaderStateSnapsh
 export interface LabPositionState {
   books: Record<string, LabBookPlace>
   /**
+   * Account the record belongs to; null while the reader is signed out.
+   * The position record has no per-place owner the way reading memory does —
+   * it is one device-wide record — so this single tag is what tells a
+   * sign-in whether the record on this device is the account's own history,
+   * a signed-out reader's, or another account's (2026-09-07 incident).
+   */
+  owner?: string | null
+  /**
    * Chapters the reader turned past (or heard to the end), keyed by library
    * bookId (`bible`, `odyssey`, …) with sequential chapter numbers, sorted.
    */
@@ -105,10 +120,11 @@ export interface LabChapterRef {
   title: string
 }
 
-export function emptyLabPositionState(deviceId: string): LabPositionState {
+export function emptyLabPositionState(deviceId: string, owner: string | null = null): LabPositionState {
   return {
     books: {},
     finished: {},
+    owner,
     lastSettledBookId: null,
     lastSettledAt: 0,
     updatedAt: 0,
@@ -277,7 +293,8 @@ export function parseLabPositionState(raw: unknown, fallbackDeviceId = 'lab'): L
     : null
   const lastSettledAt = isFiniteInt(src.lastSettledAt, 0, 1e15) ? src.lastSettledAt : 0
   const updatedAt = isFiniteInt(src.updatedAt, 0, 1e15) ? src.updatedAt : 0
-  return { books, finished: parseFinishedChapters(src.finished), lastSettledBookId, lastSettledAt, updatedAt, deviceId }
+  const owner = typeof src.owner === 'string' && src.owner && src.owner.length <= 80 ? src.owner : null
+  return { books, finished: parseFinishedChapters(src.finished), owner, lastSettledBookId, lastSettledAt, updatedAt, deviceId }
 }
 
 export function resumePlace(state: LabPositionState): LabBookPlace | null {
@@ -303,6 +320,79 @@ export function chapterExistsOnClient(place: LabBookPlace, chapters: LabChapterR
   const sequential = inBook.find(item => item.number === place.sequentialChapter)
   if (sequential) return Number(parseBiblicalPlaceTitle(sequential.title).chapter) === place.chapterNumber
   return inBook.some(item => Number(parseBiblicalPlaceTitle(item.title).chapter) === place.chapterNumber)
+}
+
+/**
+ * Sign-in ownership (2026-09-07).
+ *
+ * The record on a device belongs to whoever wrote it. On sign-in:
+ *  - the account's own record is kept untouched;
+ *  - a signed-out record is *adopted* (retagged) — a guest who reads and then
+ *    makes an account keeps their place — but it is not yet the account's
+ *    history, so it may not outrank the account's own row (see
+ *    `preferIncomingSettle` below);
+ *  - another account's record is dropped. It is not this reader's place, and
+ *    pushing it to the new account's row is a cross-account leak. Nothing is
+ *    lost: that account's row still holds it.
+ */
+export type LabPositionOwnership = 'own' | 'adopted' | 'dropped'
+
+export interface LabPositionAdoption {
+  state: LabPositionState
+  status: LabPositionOwnership
+}
+
+export function adoptLabPositionRecord(state: LabPositionState, userId: string | null): LabPositionAdoption {
+  const owner = state.owner ?? null
+  if (!userId) return { state, status: 'own' }
+  if (owner === userId) return { state, status: 'own' }
+  if (owner === null) return { state: { ...state, owner: userId }, status: 'adopted' }
+  return { state: emptyLabPositionState(state.deviceId, userId), status: 'dropped' }
+}
+
+/**
+ * Does `candidate` know the book `known` currently resumes in? A record that
+ * has ever merged with `known` carries that book's place; a record written on
+ * a device that never saw it does not.
+ *
+ * This is the guard that stops a boot fallback from becoming an account's
+ * resume. A wiped device paints Genesis 1, settles it, and PUTs before the
+ * GET it started has answered — that record has never heard of Jeremiah, so
+ * it may add its Genesis pin but may not move the account's resume.
+ */
+export function knowsSettledBook(candidate: LabPositionState, known: LabPositionState): boolean {
+  const settledId = known.lastSettledBookId
+  if (!settledId) return true
+  if (!known.books[settledId]) return true
+  return Boolean(candidate.books[settledId])
+}
+
+/**
+ * Whether the account's row should win the resume outright, ignoring clock
+ * order: the device record was not the account's own (signed-out or wiped)
+ * AND the account's row has never heard of the book it settles in. Both
+ * halves matter — a long-standing device whose record predates the `owner`
+ * tag still resumes where it left off, and a device that genuinely read a
+ * new book offline keeps it once the row has seen it.
+ */
+export function shouldPreferAccountSettle(local: LabPositionState, cloud: LabPositionState, ownership: LabPositionOwnership): boolean {
+  if (ownership === 'own') return false
+  return !knowsSettledBook(cloud, local)
+}
+
+export interface LabPositionMergeOptions {
+  /**
+   * Take the incoming record's settle whenever it has one this client can
+   * open, whatever the clocks say. Used on sign-in when the device record was
+   * never this account's.
+   */
+  preferIncomingSettle?: boolean
+  /**
+   * Refuse to move the settle to a record that does not know the settled book
+   * it would replace. The server's rule: no client may demote a resume it has
+   * never seen.
+   */
+  requireSettleAcknowledgement?: boolean
 }
 
 export function isNewerPlace(candidate: LabBookPlace, known: LabBookPlace | null | undefined): boolean {
@@ -347,7 +437,13 @@ export function shouldFollowLateCloudResume(args: {
   return incoming.paragraphIndex > current.paragraphIndex
 }
 
-export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId = 'bible'): LabPositionState {
+export function mergeLabPositionStates(
+  local: LabPositionState,
+  cloud: LabPositionState,
+  chapters: LabChapterRef[],
+  libraryBookId = 'bible',
+  options: LabPositionMergeOptions = {},
+): LabPositionState {
   const books: Record<string, LabBookPlace> = { ...local.books }
   for (const [bookId, incoming] of Object.entries(cloud.books)) {
     if (!shouldApplyCloudBookPlace({
@@ -365,7 +461,7 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
   const cloudResume = cloud.lastSettledBookId ? books[cloud.lastSettledBookId] : null
   if (
     cloud.lastSettledBookId
-    && cloud.lastSettledAt > local.lastSettledAt
+    && (options.preferIncomingSettle || cloud.lastSettledAt > local.lastSettledAt)
     && cloudResume
     && chapterExistsOnClient(cloudResume, chapters, libraryBookId)
   ) {
@@ -376,6 +472,7 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
   return {
     books,
     finished: unionFinishedChapters(local.finished, cloud.finished),
+    owner: local.owner ?? cloud.owner ?? null,
     lastSettledBookId,
     lastSettledAt,
     updatedAt: Math.max(local.updatedAt, cloud.updatedAt),
@@ -388,7 +485,11 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
  * settle wins. Used by the server (chapter existence is a client concern) and
  * by the localStorage layer so an older tab cannot regress a newer record.
  */
-export function mergeLabPositionStatesByTime(local: LabPositionState, incoming: LabPositionState): LabPositionState {
+export function mergeLabPositionStatesByTime(
+  local: LabPositionState,
+  incoming: LabPositionState,
+  options: LabPositionMergeOptions = {},
+): LabPositionState {
   const books = { ...local.books }
   for (const [bookId, place] of Object.entries(incoming.books)) {
     if (place.bookId !== bookId) continue
@@ -396,18 +497,38 @@ export function mergeLabPositionStatesByTime(local: LabPositionState, incoming: 
   }
   let lastSettledBookId = local.lastSettledBookId
   let lastSettledAt = local.lastSettledAt
-  if (incoming.lastSettledAt > local.lastSettledAt && incoming.lastSettledBookId && books[incoming.lastSettledBookId]) {
+  const settleMoves = incoming.lastSettledBookId
+    && Boolean(books[incoming.lastSettledBookId])
+    && (options.preferIncomingSettle || incoming.lastSettledAt > local.lastSettledAt)
+    && (!options.requireSettleAcknowledgement || knowsSettledBook(incoming, local))
+  if (settleMoves) {
     lastSettledBookId = incoming.lastSettledBookId
     lastSettledAt = incoming.lastSettledAt
   }
   return {
     books,
     finished: unionFinishedChapters(local.finished, incoming.finished),
+    owner: incoming.owner ?? local.owner ?? null,
     lastSettledBookId,
     lastSettledAt,
     updatedAt: Math.max(local.updatedAt, incoming.updatedAt),
     deviceId: incoming.deviceId || local.deviceId,
   }
+}
+
+/**
+ * The record a signed-in viewer should read: the device record reconciled
+ * against the account (another account's is dropped, a signed-out one
+ * adopted), merged with the account's row, with the row winning the resume
+ * when the device record was never this account's. The library reads through
+ * this so its hero says the same thing the reader will open.
+ */
+export function accountLabPositionRecord(local: LabPositionState, cloud: LabPositionState | null, userId: string | null): LabPositionState {
+  const adoption = adoptLabPositionRecord(local, userId)
+  if (!cloud) return adoption.state
+  return mergeLabPositionStatesByTime(adoption.state, cloud, {
+    preferIncomingSettle: shouldPreferAccountSettle(adoption.state, cloud, adoption.status),
+  })
 }
 
 export function settleReason(reason: LabPlaceReason): boolean {
@@ -434,7 +555,7 @@ export interface LabPositionController {
    * suspension gate can drop it; persisted at once.
    */
   finish(input: { bookId: string; sequentialChapter: number; now?: number }): LabPositionState
-  applyCloud(cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId?: string): LabPositionState
+  applyCloud(cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId?: string, options?: LabPositionMergeOptions): LabPositionState
   resume(): LabBookPlace | null
   flush(): LabPositionState
 }
@@ -576,8 +697,8 @@ export function createLabPositionController(opts: {
       persist('immediate')
       return state
     },
-    applyCloud(cloud, chapters, libraryBookId = 'bible') {
-      state = mergeLabPositionStates(state, cloud, chapters, libraryBookId)
+    applyCloud(cloud, chapters, libraryBookId = 'bible', options = {}) {
+      state = mergeLabPositionStates(state, cloud, chapters, libraryBookId, options)
       return state
     },
     resume: () => resumePlace(state),
