@@ -20,12 +20,11 @@
       --tov5-safe-bottom: env(safe-area-inset-bottom, 0px);
       --tov5-safe-left: env(safe-area-inset-left, 0px);
     }
-    html { min-width: 320px; min-height: 100%; background: #f4f0e9; }
-    body { min-width: 320px; min-height: 100%; margin: 0; padding: 12px; background: #f4f0e9; }
+    /* Full-bleed at every width (2026-09-07): the dark ground is the page
+       ground. No off-white frame, no rounded card, on phone, tablet or desktop. */
+    html { min-width: 320px; min-height: 100%; background: #071723; }
+    body { min-width: 320px; min-height: 100%; margin: 0; padding: 0; background: #071723; }
     button, input { -webkit-tap-highlight-color: transparent; }
-    @media (max-width: 520px) {
-      body { padding: 8px 0 0; }
-    }
   </style>
   <script src="/lab/library-boot.js?v=20260907-1"></script>
   <style>
@@ -256,10 +255,10 @@
 </div>
 
 <style>
-  #tinct-onboarding-worlds-v5 { width:100%; padding:4px 0 12px; font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:light-dark(#2f2b25,#f4f1ea); }
+  #tinct-onboarding-worlds-v5 { width:100%; padding:0; font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:light-dark(#2f2b25,#f4f1ea); }
   #tinct-onboarding-worlds-v5 * { box-sizing:border-box; }
   #tinct-onboarding-worlds-v5 button { font:inherit; color:inherit; }
-  #tinct-onboarding-worlds-v5 .tov5-shell { display:grid; justify-items:center; gap:14px; }
+  #tinct-onboarding-worlds-v5 .tov5-shell { display:grid; justify-items:center; gap:0; }
   #tinct-onboarding-worlds-v5 .tov5-picker,#tinct-onboarding-worlds-v5 .tov5-note { display:none!important; }
   #tinct-onboarding-worlds-v5 .tov5-picker { width:min(720px,100%); display:grid; gap:7px; }
   #tinct-onboarding-worlds-v5 .tov5-picker>div { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:5px; }
@@ -268,7 +267,7 @@
   #tinct-onboarding-worlds-v5 .tov5-picker button[aria-pressed="true"] { color:var(--primary-foreground); background:var(--primary); border-color:var(--primary); opacity:1; }
   #tinct-onboarding-worlds-v5 .tov5-view { display:none; width:100%; justify-content:center; }
   #tinct-onboarding-worlds-v5 .tov5-view.is-current { display:flex; }
-  #tinct-onboarding-worlds-v5 .tov5-simple-landing { position:relative; isolation:isolate; width:min(1440px,calc(100vw - 24px)); aspect-ratio:1440/900; overflow:hidden; border-radius:24px; color:#f4eddf; background:#071723; box-shadow:0 24px 70px rgba(5,13,18,.34),0 0 0 1px rgba(255,255,255,.08); }
+  #tinct-onboarding-worlds-v5 .tov5-simple-landing { position:relative; isolation:isolate; display:flex; flex-direction:column; width:100%; min-height:100dvh; overflow:hidden; color:#f4eddf; background:#071723; }
   #tinct-onboarding-worlds-v5 .tov5-simple-worlds { position:absolute; inset:-2%; z-index:-4; overflow:hidden; background:#071723; }
   #tinct-onboarding-worlds-v5 .tov5-simple-world { position:absolute; inset:-3%; opacity:0; transform:scale(1.01); will-change:opacity,transform; animation:tov5-simple-dissolve 42s ease-in-out infinite,tov5-simple-drift 14s ease-in-out infinite alternate; }
   #tinct-onboarding-worlds-v5 .tov5-simple-world:before,#tinct-onboarding-worlds-v5 .tov5-simple-world:after { content:""; position:absolute; inset:0; }
@@ -284,14 +283,14 @@
   #tinct-onboarding-worlds-v5 .tov5-simple-scrim { position:absolute; inset:0; z-index:-2; background:linear-gradient(90deg,rgba(5,12,16,.83) 0%,rgba(5,12,16,.68) 42%,rgba(5,12,16,.23) 77%,rgba(5,12,16,.38) 100%),linear-gradient(180deg,rgba(4,9,12,.2),transparent 42%,rgba(4,9,12,.58) 100%); }
   @keyframes tov5-simple-dissolve { 0%,24%{opacity:1}33.333%,90%{opacity:0}100%{opacity:1} }
   @keyframes tov5-simple-drift { from{transform:scale(1.01) translate3d(-.25%,.15%,0)}to{transform:scale(1.026) translate3d(.35%,-.2%,0)} }
-  #tinct-onboarding-worlds-v5 .tov5-simple-header { position:absolute; z-index:3; left:0; right:0; top:0; height:82px; display:flex; align-items:center; justify-content:space-between; padding:0 5.4%; border-bottom:1px solid rgba(255,255,255,.09); }
-  #tinct-onboarding-worlds-v5 .tov5-simple-wordmark { font:500 23px/1 Georgia,"Times New Roman",serif; letter-spacing:-.02em; }
-  #tinct-onboarding-worlds-v5 .tov5-simple-actions { display:flex; align-items:center; gap:18px; }
-  #tinct-onboarding-worlds-v5 .tov5-simple-actions a { display:grid; place-items:center; color:inherit; text-decoration:none; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-header { position:relative; z-index:3; flex:none; min-height:82px; display:flex; flex-wrap:nowrap; align-items:center; justify-content:space-between; gap:16px; padding:0 5.4%; border-bottom:1px solid rgba(255,255,255,.09); }
+  #tinct-onboarding-worlds-v5 .tov5-simple-wordmark { flex:none; font:500 23px/1 Georgia,"Times New Roman",serif; letter-spacing:-.02em; white-space:nowrap; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-actions { flex:none; display:flex; align-items:center; gap:18px; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-actions a { display:grid; place-items:center; color:inherit; text-decoration:none; white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .tov5-simple-about { padding:10px 2px; color:rgba(244,237,225,.68)!important; font-size:12px; }
   #tinct-onboarding-worlds-v5 .tov5-simple-about:hover { color:#f4ede1!important; }
   #tinct-onboarding-worlds-v5 .tov5-simple-sign-in { min-height:38px; padding:0 14px; border:1px solid rgba(255,255,255,.21); border-radius:12px; background:rgba(255,255,255,.025); color:#eee6d9!important; font-size:12px; }
-  #tinct-onboarding-worlds-v5 .tov5-simple-hero { position:absolute; z-index:2; left:8.3%; top:50%; width:49%; transform:translateY(-44%); }
+  #tinct-onboarding-worlds-v5 .tov5-simple-hero { position:relative; z-index:2; flex:1 1 auto; display:flex; flex-direction:column; justify-content:center; width:100%; padding:clamp(40px,6vh,64px) 8.3% clamp(56px,9vh,96px); }
   #tinct-onboarding-worlds-v5 .tov5-simple-hero h1 { max-width:650px; margin:0; color:#f5ede0; font:500 clamp(42px,5.3vw,77px)/.97 Georgia,"Times New Roman",serif; letter-spacing:-.055em; text-wrap:balance; }
   #tinct-onboarding-worlds-v5 .tov5-simple-hero>p { max-width:570px; margin:24px 0 0; color:rgba(241,232,217,.79); font:clamp(15px,1.45vw,20px)/1.45 Georgia,"Times New Roman",serif; }
   #tinct-onboarding-worlds-v5 .tov5-simple-entry { width:min(310px,100%); margin-top:30px; }
@@ -626,16 +625,16 @@
   #tinct-onboarding-worlds-v5.is-hires .tov5-picker,#tinct-onboarding-worlds-v5.is-hires .tov5-note { display:none; }
   #tinct-onboarding-worlds-v5.is-hires .tov5-phone { margin-top:20px; margin-bottom:780px; transform:scale(2); transform-origin:top center; }
   #tinct-onboarding-worlds-v5.is-hires .tov5-zoom { margin-top:20px; margin-bottom:900px; transform:scale(2); transform-origin:top center; }
-  @media(max-width:600px) {
-#tinct-onboarding-worlds-v5 .tov5-simple-landing { width:min(390px,100%); aspect-ratio:390/844; border-radius:34px; }
-#tinct-onboarding-worlds-v5 .tov5-simple-header { height:68px; padding:0 20px; }
+  @media(max-width:520px) {
+#tinct-onboarding-worlds-v5 .tov5-simple-landing { display:block; width:100%; }
+#tinct-onboarding-worlds-v5 .tov5-simple-header { position:absolute; left:0; right:0; top:0; height:68px; min-height:0; padding:0 20px; }
 #tinct-onboarding-worlds-v5 .tov5-simple-wordmark { font-size:24px; }
 #tinct-onboarding-worlds-v5 .tov5-simple-actions { gap:12px; }
 #tinct-onboarding-worlds-v5 .tov5-simple-about { font-size:11px; }
 #tinct-onboarding-worlds-v5 .tov5-simple-sign-in { min-height:39px; padding:0 13px; font-size:12px; }
 #tinct-onboarding-worlds-v5 .tov5-simple-scrim { background:linear-gradient(180deg,rgba(4,10,14,.5) 0%,rgba(4,10,14,.62) 48%,rgba(4,10,14,.84) 100%),linear-gradient(90deg,rgba(4,10,14,.38),transparent 82%); }
 #tinct-onboarding-worlds-v5 .tov5-simple-world.odyssey { background-position:64% center; }
-#tinct-onboarding-worlds-v5 .tov5-simple-hero { left:24px; right:24px; top:116px; width:auto; transform:none; }
+#tinct-onboarding-worlds-v5 .tov5-simple-hero { position:absolute; display:block; left:24px; right:24px; top:116px; width:auto; padding:0; transform:none; }
 #tinct-onboarding-worlds-v5 .tov5-simple-hero h1 { max-width:335px; font-size:49px; line-height:.98; letter-spacing:-.05em; }
 #tinct-onboarding-worlds-v5 .tov5-simple-hero>p { max-width:310px; margin-top:22px; font-size:17px; line-height:1.47; }
 #tinct-onboarding-worlds-v5 .tov5-simple-entry { position:absolute; top:570px; left:0; width:100%; margin:0; }
@@ -715,9 +714,9 @@
   /* Shared post-landing canvas: broad enough for desktop, still edge-to-edge on a phone. */
   #tinct-onboarding-worlds-v5,#tinct-onboarding-worlds-v5 .tov5-shell,#tinct-onboarding-worlds-v5 .tov5-view { min-width:0; max-width:100%; }
   #tinct-onboarding-worlds-v5 .tov5-view { overflow-x:clip; }
-  #tinct-onboarding-worlds-v5 .tov5-zoom { width:min(1440px,calc(100vw - 24px)); min-width:0; max-width:100%; }
+  #tinct-onboarding-worlds-v5 .tov5-zoom { width:100%; min-width:0; max-width:100%; min-height:100dvh; border:0; border-radius:0; box-shadow:none; }
   /* Book overview follows one vertical reading order at every width. */
-  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { min-height:min(760px,calc(100dvh - 24px)); }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { min-height:100dvh; }
   #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:min(960px,100%); margin:0 auto; display:block; padding:42px 48px 50px; }
   #tinct-onboarding-worlds-v5 .tov5-book-identity { display:grid; grid-template-columns:220px minmax(0,1fr); gap:38px; align-items:end; }
   #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:220px; height:330px; }
@@ -730,7 +729,7 @@
   #tinct-onboarding-worlds-v5 .tov5-book-description { max-width:720px; margin:27px 0 0; color:rgba(255,253,247,.9); font:19px/1.5 Georgia,serif; text-wrap:pretty; }
   #tinct-onboarding-worlds-v5 .tov5-choose-edition { width:min(420px,100%); min-height:58px; margin-top:28px; font-size:15px; }
   /* Edition metadata belongs to each choice; selection is exclusive with Both. */
-  #tinct-onboarding-worlds-v5 .tov5-edition-zoom { min-height:min(760px,calc(100dvh - 24px)); padding:38px 42px 42px; }
+  #tinct-onboarding-worlds-v5 .tov5-edition-zoom { min-height:100dvh; padding:38px 42px 42px; }
   #tinct-onboarding-worlds-v5 .tov5-edition-head { grid-template-columns:82px minmax(0,1fr); gap:22px; max-width:1120px; margin:0 auto 28px; }
   #tinct-onboarding-worlds-v5 .tov5-edition-head img { width:82px; height:123px; }
   #tinct-onboarding-worlds-v5 .tov5-edition-head h2 { font-size:clamp(32px,3vw,46px); }
@@ -765,7 +764,7 @@
   #tinct-onboarding-worlds-v5 .tov5-character-gallery button { min-width:0; flex:auto; }
   #tinct-onboarding-worlds-v5 .tov5-begin-book { grid-column:1/-1; width:min(420px,100%); justify-self:center; position:static; min-height:58px; margin-top:2px; font-size:15px; }
   @media (min-width:521px) and (max-width:899px) {
-#tinct-onboarding-worlds-v5 .tov5-zoom,#tinct-onboarding-worlds-v5 .tov5-preface-zoom { width:calc(100vw - 24px); }
+#tinct-onboarding-worlds-v5 .tov5-zoom,#tinct-onboarding-worlds-v5 .tov5-preface-zoom { width:100%; }
 #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:min(680px,100%); padding:34px 38px 42px; }
 #tinct-onboarding-worlds-v5 .tov5-book-identity { grid-template-columns:190px minmax(0,1fr); gap:30px; }
 #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:190px; height:285px; }
