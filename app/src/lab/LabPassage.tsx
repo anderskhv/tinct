@@ -50,6 +50,12 @@ interface LabPassageProps {
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
   onToggleControls?: () => void
+  /**
+   * Identity of the reader typography (font, size, alignment, spacing,
+   * margins). Those arrive as root CSS variables rather than props; the
+   * continued-tail measurement re-runs when this key changes.
+   */
+  layoutKey?: string
 }
 
 function wordSpacing(
@@ -269,6 +275,7 @@ export function LabPassage({
   pageTurn,
   onPageTurn,
   onToggleControls,
+  layoutKey = '',
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -310,11 +317,33 @@ export function LabPassage({
     if (longPressRef.current) clearTimeout(longPressRef.current)
   }, [])
 
-  // Fill depends on font, size, margins and alignment, which arrive as root
-  // CSS variables rather than props, so re-measure after every commit.
+  // The tail measurement strips `is-tail-full`, forces a layout with the tail
+  // start-aligned, then puts the class back. Doing that after every commit
+  // meant two forced relayouts per animation frame while audio follow moved
+  // the highlight — the highlight itself never changes a word's box. So only
+  // re-measure when what fills a line can change: the painted lines, the
+  // stage branch, columns, the typography key, and (below) the width.
+  const paintedLinesKey = readingLines
+    .map(line => `${line.paragraphIndex}:${line.from}:${line.words.length}`)
+    .join('|')
+  const paintedBranch = hearing && followActive ? 'hearing' : hearing && !browseWhileListening ? 'plain' : 'reading'
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
-  })
+  }, [paintedLinesKey, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
+
+  useEffect(() => {
+    const article = articleRef.current
+    if (!article || typeof ResizeObserver !== 'function') return
+    let lastWidth: number | null = null
+    const observer = new ResizeObserver((entries) => {
+      const width = entries[entries.length - 1]?.contentRect.width ?? article.clientWidth
+      if (lastWidth != null && Math.abs(width - lastWidth) < 0.5) return
+      lastWidth = width
+      markFullContinuedTails(article)
+    })
+    observer.observe(article)
+    return () => observer.disconnect()
+  }, [])
 
   useLayoutEffect(() => {
     const stage = pageStageRef.current

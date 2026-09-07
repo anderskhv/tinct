@@ -83,6 +83,25 @@ export function labAudioFileUrl(
   return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/${file}`, 'file')
 }
 
+/** Granularity of the playback clock the reader re-renders on (seconds). */
+export const LAB_PLAYBACK_CLOCK_STEP_SECONDS = 0.25
+
+/**
+ * The follow paint moves per word, but the React clock behind the progress
+ * bar and the first-15-seconds checks must not tick at 60 Hz: each tick is
+ * a full reader render. Hold `previous` until `next` is a step ahead; any
+ * move backwards (a seek, a new clip) is taken exactly.
+ */
+export function steppedPlaybackTime(
+  previous: number,
+  next: number,
+  step = LAB_PLAYBACK_CLOCK_STEP_SECONDS,
+): number {
+  if (!Number.isFinite(next)) return previous
+  if (next < previous) return next
+  return next - previous >= step ? next : previous
+}
+
 export function clipsFromFollowParagraphs(paragraphs: FollowParagraph[]): LabAudioClip[] {
   return paragraphs.flatMap((paragraph) => {
     if (!paragraph.file || paragraph.index < 0) return []

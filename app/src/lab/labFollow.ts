@@ -198,6 +198,21 @@ export function followWordTarget(paragraph: FollowParagraph, wordIndex: number):
   return target
 }
 
+/**
+ * True when two targets paint the same words. The 60 Hz playback tick
+ * resolves a fresh target object every frame; only a changed target should
+ * reach React, or the whole reader re-renders on every frame.
+ */
+export function isSameFollowTarget(a: FollowTarget, b: FollowTarget): boolean {
+  if (a === b) return true
+  if (a.kind === 'none') return b.kind === 'none'
+  if (a.kind === 'paragraph') return b.kind === 'paragraph' && a.paragraphIndex === b.paragraphIndex
+  if (b.kind !== 'word') return false
+  if (a.paragraphIndex !== b.paragraphIndex || a.wordIndex !== b.wordIndex || a.granularity !== b.granularity) return false
+  if (!a.span || !b.span) return !a.span && !b.span
+  return a.span.from === b.span.from && a.span.to === b.span.to
+}
+
 /** Paint role of one painted word under a follow target; null when not word-following. */
 export function followWordRole(
   follow: FollowTarget,

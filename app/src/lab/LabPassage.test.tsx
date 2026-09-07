@@ -2,6 +2,8 @@
 
 import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import {
   LAB_CONTINUED_TAIL_MIN_FILL,
   LabPassage,
@@ -230,5 +232,143 @@ describe('sentence-level hearing follow', () => {
     expect(line.getAttribute('data-follow-granularity')).toBe('sentence')
     const current = [...line.querySelectorAll('[data-testid="lab-word"].is-current')]
     expect(current.map(el => el.getAttribute('data-word-index'))).toEqual(['6', '7', '8', '9', '10'])
+  })
+})
+
+describe('audio follow paint is layout-neutral', () => {
+  const paragraphs = [
+    'In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep.',
+    'And God said, Let there be light: and there was light.',
+  ]
+  const timed = (text: string): TimedWord[] => text.split(' ')
+    .map((word, index) => ({ text: word, start: index * 0.5, end: (index + 1) * 0.5 }))
+  const followParagraphs = paragraphs.map((text, index) => ({ index, text, file: `p${index}.mp3`, words: timed(text) }))
+  // A page tail: paragraph 0 continues past the slice, so the line is `is-continued`.
+  const page: ChapterHearingPage = { paragraphIndex: 0, from: 0, to: 12 }
+  const props = (wordIndex: number, layoutKey = 'garamond|1.3|justify') => ({
+    ...passageProps(paragraphs, page),
+    followParagraphs,
+    playing: true,
+    inlineHearingPaint: true,
+    follow: { kind: 'word' as const, paragraphIndex: 0, wordIndex },
+    layoutKey,
+  })
+  const flushObservers = () => new Promise(resolve => setTimeout(resolve, 0))
+  const labCss = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+
+  it('every follow rule in lab.css changes only color, background or decoration-break', () => {
+    const rules = [...labCss.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+    const followRules = rules.filter(([, selector]) => /\.is-(current|spoken|upcoming|line|paragraph-current)\b/.test(selector)
+      && /lab-(passage|hearing)/.test(selector))
+    expect(followRules.length).toBeGreaterThan(8)
+    const paintOnly = new Set(['color', 'background', 'background-color', 'box-decoration-break', '-webkit-box-decoration-break'])
+    for (const [, selector, body] of followRules) {
+      for (const declaration of body.split(';')) {
+        const [property, value] = declaration.split(':').map(part => part.trim())
+        if (!property) continue
+        // The resting word is weight 400; a follow rule may restate that, never change it.
+        if (property === 'font-weight') {
+          expect(value, selector.trim()).toBe('400')
+          continue
+        }
+        expect(paintOnly.has(property), `${selector.trim()} sets ${property}`).toBe(true)
+      }
+    }
+  })
+
+  it('a current word keeps the resting word\'s font, spacing, padding, border and display', () => {
+    const style = document.createElement('style')
+    style.textContent = labCss
+    document.head.appendChild(style)
+    try {
+      render(<div className="lab is-desktop"><LabPassage {...props(3)} /></div>)
+      const spans = [...screen.getByTestId('lab-reading-stage').querySelectorAll<HTMLElement>('[data-testid="lab-word"]')]
+      expect(spans[3].className).toContain('is-current')
+      const box = (el: HTMLElement) => {
+        const cs = getComputedStyle(el)
+        return {
+          display: cs.display,
+          fontWeight: cs.fontWeight,
+          fontSize: cs.fontSize,
+          fontStyle: cs.fontStyle,
+          letterSpacing: cs.letterSpacing,
+          wordSpacing: cs.wordSpacing,
+          padding: [cs.paddingTop, cs.paddingRight, cs.paddingBottom, cs.paddingLeft].join(' '),
+          border: [cs.borderTopWidth, cs.borderRightWidth, cs.borderBottomWidth, cs.borderLeftWidth].join(' '),
+          margin: [cs.marginTop, cs.marginRight, cs.marginBottom, cs.marginLeft].join(' '),
+          verticalAlign: cs.verticalAlign,
+          lineHeight: cs.lineHeight,
+          boxDecorationBreak: cs.getPropertyValue('box-decoration-break'),
+        }
+      }
+      // The sheet is applied: the rest word carries the resting rule's decoration-break.
+      expect(box(spans[2]).boxDecorationBreak).toBe('clone')
+      expect(box(spans[3])).toEqual(box(spans[2]))
+      expect(box(spans[3])).toEqual(box(spans[11]))
+    } finally {
+      style.remove()
+    }
+  })
+
+  it('moves the highlight by toggling a class on the same word spans', async () => {
+    const { rerender } = render(<LabPassage {...props(3)} />)
+    const stage = screen.getByTestId('lab-reading-stage')
+    const spans = [...stage.querySelectorAll('[data-testid="lab-word"]')]
+    expect(spans[3].className).toContain('is-current')
+    const records: MutationRecord[] = []
+    const observer = new MutationObserver(list => records.push(...list))
+    observer.observe(stage, { childList: true, subtree: true, attributes: true, characterData: true })
+    rerender(<LabPassage {...props(4)} />)
+    await flushObservers()
+    observer.disconnect()
+    const after = [...stage.querySelectorAll('[data-testid="lab-word"]')]
+    expect(after.length).toBe(spans.length)
+    expect(after.every((el, index) => el === spans[index])).toBe(true)
+    expect(spans[3].className).not.toContain('is-current')
+    expect(spans[4].className).toContain('is-current')
+    expect(records.filter(record => record.type !== 'attributes')).toHaveLength(0)
+    expect(records.every(record => record.attributeName === 'class')).toBe(true)
+    expect(new Set(records.map(record => record.target))).toEqual(new Set([spans[3], spans[4]]))
+  })
+
+  it('does not re-measure the continued tail when only the spoken word changes', async () => {
+    const { rerender } = render(<LabPassage {...props(3)} />)
+    const stage = screen.getByTestId('lab-reading-stage')
+    const line = stage.querySelector<HTMLElement>('.lab-hearing-line.is-continued')!
+    expect(line).not.toBeNull()
+    // Give the line a layout: one full first line, and a last line at the fill threshold.
+    const box = { x: 0, y: 0, top: 0, left: 20, right: 320, bottom: 60, width: 300, height: 60, toJSON() {} }
+    vi.spyOn(line, 'getBoundingClientRect').mockReturnValue(box as DOMRect)
+    const rects = (list: Array<[number, number, number]>) => ({
+      length: list.length,
+      item: () => null,
+      [Symbol.iterator]: function* () {
+        for (const [left, right, bottom] of list) yield { left, right, bottom, top: bottom - 20, height: 20, width: right - left } as DOMRect
+      },
+    }) as unknown as DOMRectList
+    const spans = [...line.querySelectorAll<HTMLElement>(':scope > span')]
+    spans.forEach((span, index) => {
+      const last = index === spans.length - 1
+      vi.spyOn(span, 'getClientRects').mockReturnValue(rects([last ? [20, 20 + 300 * LAB_CONTINUED_TAIL_MIN_FILL, 40] : [20, 320, 20]]))
+    })
+    // A typography change re-measures and marks the tail full.
+    rerender(<LabPassage {...props(3, 'garamond|1.5|justify')} />)
+    expect(line.classList.contains('is-tail-full')).toBe(true)
+
+    const records: MutationRecord[] = []
+    const observer = new MutationObserver(list => records.push(...list))
+    observer.observe(line, { attributes: true })
+    rerender(<LabPassage {...props(4, 'garamond|1.5|justify')} />)
+    rerender(<LabPassage {...props(5, 'garamond|1.5|justify')} />)
+    await flushObservers()
+    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(records).toHaveLength(0)
+
+    // Typography changes still re-measure (the class is stripped, then restored).
+    rerender(<LabPassage {...props(5, 'garamond|1.7|justify')} />)
+    await flushObservers()
+    observer.disconnect()
+    expect(records.length).toBeGreaterThan(0)
+    expect(line.classList.contains('is-tail-full')).toBe(true)
   })
 })
