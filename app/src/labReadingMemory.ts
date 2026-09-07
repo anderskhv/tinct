@@ -8,11 +8,13 @@
  *
  *  - READING NOW · N — every book in progress, newest first by the newer of
  *    the two stores. The first is the hero: the eyebrow names the chapter
- *    Continue resumes in, the headline is the stored automatic summary or
- *    the exact excerpt when they describe that chapter (else the truthful
- *    location line), the book is named under it, one cream "Continue
- *    reading" pill. The rest are quiet rows: cover, title, "Last time ·
- *    <chapter>", the stored summary when it describes that chapter.
+ *    Continue resumes in, the headline says where in it the reader is
+ *    ("You’re in the middle of Proverbs 17"), and under it a "so far" line
+ *    summarises the chapter up to that place — shown at once from the
+ *    device cache, else requested from `/api/lab-recap` and filled in when
+ *    it arrives, never an error. The book is named under it, one cream
+ *    "Continue reading" pill. The rest are quiet rows: cover, title, "Last
+ *    time · <chapter>", the stored summary when it describes that chapter.
  *  - FINISHED · N — books whose newest session completed the final chapter,
  *    or that the app marked `book-completed:*`. Quiet rows with a check.
  *
@@ -36,6 +38,9 @@ import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
 import { mergeLabPositionStatesByTime, type LabPositionState } from './lab/labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionStore'
+import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
+import { recapCacheKey, type LabRecapRequest } from './recapSummary'
+import { readStoredRecapSummary, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import {
   heroHeadline,
   inProgressLabel,
@@ -55,7 +60,7 @@ interface CatalogueBook {
   author: string
   art?: { src: string; srcSet: string } | null
   editions: Array<{ key: string; label: string; style?: string; language?: string; availability?: { chapterText?: boolean } }>
-  readingStructure?: { chapters?: Array<{ number: number; title: string }> } | null
+  readingStructure?: { chapters?: Array<{ number: number; title: string; paragraphCount?: number }> } | null
 }
 
 interface CoverSource {
@@ -168,7 +173,7 @@ function bookInfos(books: Map<string, CatalogueBook>): Map<string, LibraryBookIn
   return new Map([...books.values()].map(book => [book.id, {
     id: book.id,
     title: book.title,
-    chapters: (book.readingStructure?.chapters ?? []).map(chapter => ({ number: chapter.number, title: chapter.title })),
+    chapters: (book.readingStructure?.chapters ?? []).map(chapter => ({ number: chapter.number, title: chapter.title, paragraphCount: chapter.paragraphCount })),
   }]))
 }
 
@@ -210,14 +215,134 @@ function publishMode(mode: LibraryMode): void {
 
 const sectionHead = (label: string, count: number, attr: string) => `<header class="lib-index-head lib-sec-head" ${attr}><span class="lib-eyebrow is-dim">${escapeHtml(label)}</span><span class="lib-cnt">${count}</span></header>`
 
-function heroMarkup(hero: ReadingListRow, rendered: RecapLoadResult | null, books: Map<string, CatalogueBook>): string {
+/**
+ * The "so far" request for the hero's place, or null when the summary is out
+ * of scope: no recorded edition, or a Danish edition (English only for now).
+ */
+function summaryRequestFor(hero: ReadingListRow, books: Map<string, CatalogueBook>): LabRecapRequest | null {
+  const { target } = hero
+  if (!target.editionKey) return null
   const book = books.get(hero.bookId)
-  const card = rendered && hero.session && rendered.card.provenance.sessionId === hero.session.id ? rendered.card : null
+  const edition = book?.editions.find(item => item.key === target.editionKey)
+  if (edition?.language === 'da' || target.editionKey.endsWith('-da')) return null
+  return {
+    bookId: hero.bookId,
+    editionKey: target.editionKey,
+    chapterNumber: target.chapterNumber,
+    paragraphIndex: target.paragraphIndex,
+    completed: hero.progress === 'finished',
+    ...(hero.includePreviousChapter ? { previousChapterNumber: target.chapterNumber - 1 } : {}),
+    bookTitle: bookTitle(book, hero.bookId),
+  }
+}
+
+function summaryKeyFor(hero: ReadingListRow, request: LabRecapRequest): string {
+  return recapCacheKey({
+    bookId: request.bookId,
+    editionKey: request.editionKey,
+    chapterNumber: request.chapterNumber,
+    paragraphIndex: request.paragraphIndex,
+    paragraphCount: hero.target.paragraphCount,
+    completed: request.completed === true,
+    previousChapterNumber: request.previousChapterNumber ?? null,
+  })
+}
+
+function deviceStorage(): Storage | null {
+  try {
+    return typeof localStorage === 'undefined' ? null : localStorage
+  } catch {
+    return null
+  }
+}
+
+type SummaryLineStatus = 'pending' | 'none' | 'cached' | 'fresh' | 'loading' | 'unavailable' | 'offline' | 'account-required'
+
+/**
+ * Per page load: keys being fetched or that failed. A re-render during a
+ * request must not start a second one, and a failed key is not retried until
+ * the next library load — the hero degrades to its position line.
+ */
+const summaryOutcomes = new Map<string, 'loading' | 'unavailable'>()
+
+function heroSummaryLine(key: string): HTMLElement | null {
+  return section?.querySelector<HTMLElement>(`[data-recap-summary-key="${CSS.escape(key)}"]`) ?? null
+}
+
+/** Set the status only while the hero for this key is the one on screen. */
+function setSummaryStatus(key: string, status: SummaryLineStatus): void {
+  if (section && heroSummaryLine(key)) section.dataset.summaryLine = status
+}
+
+function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): void {
+  const line = heroSummaryLine(key)
+  if (!line || !section) return
+  line.textContent = summary
+  line.hidden = false
+  section.dataset.summaryLine = status
+}
+
+/**
+ * Fill the hero's "so far" line. The position line is already on screen;
+ * this only ever adds text. Device cache first (the library opens complete
+ * on a repeat visit); otherwise, online and allowed, one request. The
+ * anonymous free AI action is spent only on a request that succeeds, and a
+ * cache hit costs nothing. Any failure leaves the line hidden.
+ */
+async function fillHeroSummary(hero: ReadingListRow, books: Map<string, CatalogueBook>): Promise<void> {
+  if (!section) return
+  const request = summaryRequestFor(hero, books)
+  if (!request) {
+    section.dataset.summaryLine = 'none'
+    return
+  }
+  const key = summaryKeyFor(hero, request)
+  const storage = deviceStorage()
+  const cached = readStoredRecapSummary(storage, key)
+  if (cached) {
+    showSummary(key, cached, 'cached')
+    return
+  }
+  const outcome = summaryOutcomes.get(key)
+  if (outcome) {
+    setSummaryStatus(key, outcome)
+    return
+  }
+  if (!isOnline()) {
+    setSummaryStatus(key, 'offline')
+    return
+  }
+  summaryOutcomes.set(key, 'loading')
+  setSummaryStatus(key, 'loading')
+  const auth = await readAuth()
+  const decision = decideLabAiAction({ signedIn: Boolean(auth.userId) })
+  if (!decision.allowed) {
+    summaryOutcomes.delete(key)
+    setSummaryStatus(key, 'account-required')
+    return
+  }
+  const result = await requestLabRecapSummary({ request, token: auth.token }).catch(() => ({ ok: false as const, error: 'request failed' }))
+  if (!result.ok) {
+    summaryOutcomes.set(key, 'unavailable')
+    setSummaryStatus(key, 'unavailable')
+    return
+  }
+  summaryOutcomes.delete(key)
+  if (decision.reason === 'free' && !result.response.cached) recordLabAiAction()
+  storeRecapSummary(storage, key, result.response.summary, Date.now())
+  showSummary(key, result.response.summary, 'fresh')
+}
+
+function heroMarkup(hero: ReadingListRow, books: Map<string, CatalogueBook>): string {
+  const book = books.get(hero.bookId)
   const note = progressNote(hero.target, hero.session)
+  const request = summaryRequestFor(hero, books)
+  const summaryKey = request ? summaryKeyFor(hero, request) : ''
   return `<div class="lib-recap-hero" data-recap-hero="${escapeHtml(hero.bookId)}">
       <div class="lib-recap-head">
         <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(hero.target.chapterLabel))}</p>
-        <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(hero, card))}</h1>
+        <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(hero))}</h1>
+        <p class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" hidden></p>
       </div>
       <div class="lib-recap-cover">${coverMarkup(book, hero.bookId)}</div>
       <div class="lib-recap-meta">
@@ -254,15 +379,18 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   section.dataset.summaryStatus = heroCard ? rendered!.summaryStatus : 'unavailable'
   section.dataset.continueSource = hero?.target.source ?? ''
   section.dataset.continueChapter = hero ? String(hero.target.chapterNumber) : ''
+  section.dataset.progress = hero?.progress ?? ''
+  section.dataset.summaryLine = hero ? 'pending' : 'none'
   section.dataset.readingNow = String(list.readingNow.length)
   section.dataset.finished = String(list.finished.length)
   const readingNow = hero
-    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}${heroMarkup(hero, rendered, books)}<div class="lib-recap-others" data-recap-others>${list.readingNow.slice(1).map(row => rowMarkup(row, books)).join('')}</div></section>`
+    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}${heroMarkup(hero, books)}<div class="lib-recap-others" data-recap-others>${list.readingNow.slice(1).map(row => rowMarkup(row, books)).join('')}</div></section>`
     : ''
   const finished = list.finished.length
     ? `<section class="lib-finished" data-finished-section aria-label="Finished">${sectionHead('Finished', list.finished.length, 'data-finished-head')}<div class="lib-recap-others" data-finished-rows>${list.finished.map(row => finishedMarkup(row, books)).join('')}</div></section>`
     : ''
   section.innerHTML = readingNow + finished
+  if (hero) void fillHeroSummary(hero, books).catch(() => {})
 }
 
 async function performRender(): Promise<void> {

@@ -453,7 +453,8 @@ test('renders the returning reader from reading memory: recap headline, one pill
   await expect(recap).toHaveAttribute('data-body-kind', 'excerpt')
   await expect(recap).toHaveAttribute('data-completed', 'false')
   await expect(recap.getByTestId('lab-recap-eyebrow')).toHaveText('Last time you read · Genesis 1')
-  await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^“In the beginning God created/)
+  await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^You’re (at the start|in the middle|near the end) of Genesis 1$/)
+  await expect(recap.getByTestId('lab-recap-summary')).toHaveCount(1)
   await expect(recap.getByTestId('lab-recap-book')).toHaveText('The Bible')
   await expect(recap.locator('[data-recap-continue]')).toHaveCount(1)
   await expect(recap.locator('[data-reading-now-head] .lib-eyebrow')).toHaveText('Reading now')
@@ -516,13 +517,13 @@ test('resumes at the reader\'s own newer position instead of an older reading-me
   await expect(recap).toHaveAttribute('data-continue-source', 'position')
   await expect(recap).toHaveAttribute('data-continue-chapter', '857')
   await expect(recap.getByTestId('lab-recap-eyebrow')).toHaveText('Last time you read · Daniel 7')
-  await expect(recap.getByTestId('lab-recap-headline')).toHaveText('You stopped in Daniel 7')
+  await expect(recap.getByTestId('lab-recap-headline')).toHaveText('You’re in the middle of Daniel 7')
   await recap.locator('[data-recap-continue]').click()
   await expect(page).toHaveURL(/\/lab\/reader$/)
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'bible')
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '857')
 
-  // the other way round: a newer memory session wins and keeps its excerpt.
+  // the other way round: a newer memory session wins and the headline follows it.
   // (Opening the reader just wrote a fresh Daniel 7 record; age it first.)
   await page.goBack()
   await waitForPreReader(page)
@@ -537,7 +538,7 @@ test('resumes at the reader\'s own newer position instead of an older reading-me
   await openPreReader(page, '/lab/library?autoplay=0')
   await expect(recap).toHaveAttribute('data-continue-source', 'memory')
   await expect(recap).toHaveAttribute('data-continue-chapter', '1')
-  await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^“In the beginning God created/)
+  await expect(recap.getByTestId('lab-recap-headline')).toHaveText(/^You’re (at the start|in the middle|near the end) of Genesis 1$/)
 })
 
 test('opens a non-showcase book with catalogue-backed detail and editions', async ({ page }) => {
