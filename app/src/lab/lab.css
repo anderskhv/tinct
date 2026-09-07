@@ -4611,3 +4611,956 @@
 }
 .lab.is-night .lab-account-nudge { color: var(--lab-ink-muted); border-color: var(--lab-border); }
 .lab.is-night .lab-account-nudge a { color: var(--lab-ink); }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Reader chrome V2 — the preview shell behind `?chrome=v2`.
+
+   Everything below is scoped to `[data-chrome-version="v2"]`, which only the
+   flagged lab reader routes stamp. Without the flag not one of these rules
+   can match, so today's chrome is untouched.
+
+   Values come off the reader-chrome canvas (round 8) and the super-button
+   canvas (artboards 16–17): a 16px blur living in the panel, 35% fill on
+   paper and 45% on night, a light dim over a page that is never blurred, a
+   56px icon gutter with 22px icons, 17px labels and 52px rows.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.lab[data-chrome-version="v2"] {
+  --lab-v2-panel-ink: 250, 247, 239;
+  --lab-v2-panel-fill: 0.35;
+  --lab-v2-panel-fill-top: 0.44;
+  --lab-v2-panel-blur: 16px;
+  --lab-v2-page-dim: rgba(28, 24, 18, 0.08);
+  --lab-v2-hairline: rgba(32, 26, 19, 0.12);
+  --lab-v2-chevron: #81796b;
+  --lab-v2-menu-top: calc(3.1rem + env(safe-area-inset-top, 0px));
+  --lab-v2-disc: rgba(159, 141, 109, 0.26);
+  --lab-v2-disc-open: rgba(159, 141, 109, 0.16);
+}
+
+.lab[data-chrome-version="v2"].is-night {
+  --lab-v2-panel-ink: 52, 46, 39;
+  --lab-v2-panel-fill: 0.45;
+  --lab-v2-panel-fill-top: 0.54;
+  --lab-v2-page-dim: rgba(0, 0, 0, 0.14);
+  --lab-v2-hairline: rgba(250, 246, 238, 0.13);
+  --lab-v2-chevron: #b8b0a4;
+  --lab-v2-disc: rgba(232, 214, 185, 0.2);
+  --lab-v2-disc-open: rgba(232, 214, 185, 0.12);
+}
+
+/* The one surface. Panel, transport and compare card all draw on it: a fill
+   of the paper colour over a blur the panel carries itself, denser at the top
+   so the first row's label never sits on the thinnest part of it. */
+.lab[data-chrome-version="v2"] .lab-super-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  box-shadow: 0 14px 40px rgba(20, 15, 8, 0.2);
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────── */
+
+/* Two 44px targets, 2px apart. The width is held whether or not the buttons
+   are on screen, so the title never moves when the chrome hides. */
+.lab[data-chrome-version="v2"].is-phone .lab-header-controls,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-header-controls {
+  width: 5.75rem;
+  min-width: 5.75rem;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-play,
+.lab[data-chrome-version="v2"] .lab-super {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-play svg {
+  display: block;
+}
+
+/* The t's target is pulled 4px left so the optical gap to Play closes; the
+   glyph is nudged 0.4 right inside it so the mark still sits centred. */
+.lab[data-chrome-version="v2"] .lab-super {
+  position: relative;
+  transform: translateX(-4px);
+  contain: layout paint;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-nudge,
+.lab[data-chrome-version="v2"] .lab-super-spin,
+.lab[data-chrome-version="v2"] .lab-super-pulse {
+  display: grid;
+  place-items: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-nudge {
+  transform: translateX(0.4px);
+}
+
+.lab[data-chrome-version="v2"] .lab-super-mark {
+  display: block;
+  transition: opacity 80ms ease-out;
+}
+
+/* No container at rest. The disc is the only one the button ever gets. */
+.lab[data-chrome-version="v2"] .lab-super-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--lab-v2-disc);
+  opacity: 0;
+  transition: opacity 80ms ease-out;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-pressed .lab-super-disc {
+  opacity: 1;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-pressed .lab-super-mark {
+  opacity: 0.92;
+}
+
+/* The quieter disc holds while the menu is open. */
+.lab[data-chrome-version="v2"] .lab-super.is-open .lab-super-disc {
+  background: var(--lab-v2-disc-open);
+  opacity: 1;
+}
+
+/* The wordmark's teal full stop, at the letter's baseline right. */
+.lab[data-chrome-version="v2"] .lab-super-stop {
+  position: absolute;
+  top: 21.6px;
+  left: 27.5px;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #1f4a5c;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.has-hint .lab-super-stop {
+  opacity: 1;
+}
+
+/* The first view. 0 → 405° — the × angle — held, then settled back to 360°;
+   the scale rides a second element so the rotation keeps one curve. */
+@keyframes lab-super-spin {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.34, 0, 0.66, 1);
+  }
+  68.182% {
+    transform: rotate(405deg);
+    animation-timing-function: linear;
+  }
+  77.273% {
+    transform: rotate(405deg);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lab-super-pulse {
+  0% { transform: scale(1); }
+  34.091% { transform: scale(1.06); }
+  68.182% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes lab-super-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-spin {
+  animation: lab-super-spin 440ms both;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-pulse {
+  animation: lab-super-pulse 440ms linear both;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-arriving .lab-super-mark {
+  animation: lab-super-arrive 240ms ease-out both;
+}
+
+/* Reduced motion: the mark fades in, and the ladder's two ends cross-fade in
+   place of stepping through it. */
+.lab[data-chrome-version="v2"] .lab-super.is-reduced .lab-super-frame {
+  transition: opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-spin,
+  .lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-pulse {
+    animation: none;
+  }
+}
+
+/* Hidden chrome: the chevron goes with the pill, and the title is left as
+   plain dimmed text. The two buttons are not rendered at all. */
+.lab[data-chrome-version="v2"][data-reader-controls="hidden"] .lab-header-chevron {
+  opacity: 0;
+}
+
+/* ── Super-menu ──────────────────────────────────────────────────────── */
+
+/* The top bar sits above the menu layer so the × stays pressable: the mark
+   that opened the menu is also the way back out of it. The dim therefore
+   covers the page and not the header, which at 8% is a difference nobody
+   sees and a reachable close button is not. */
+.lab[data-chrome-version="v2"] .lab-header {
+  position: relative;
+  z-index: 330;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 320;
+}
+
+/* The page behind is dimmed, never blurred: the reader has to be able to
+   read the words through the panel. */
+.lab[data-chrome-version="v2"] .lab-super-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--lab-v2-page-dim);
+  cursor: default;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-panel {
+  position: absolute;
+  top: var(--lab-v2-menu-top);
+  right: 12px;
+  width: 300px;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 18px 0 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row + .lab-super-row {
+  border-top: 1px solid var(--lab-v2-hairline);
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-icon {
+  flex: 0 0 56px;
+  width: 56px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-icon svg {
+  display: block;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-label {
+  flex: 1 1 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-chevron {
+  color: var(--lab-v2-chevron);
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* ── Transport ───────────────────────────────────────────────────────── */
+
+/* The same surface, in place. The bar keeps the box it has today — border
+   width included, so the page break never moves — and only its paint
+   changes. */
+.lab[data-chrome-version="v2"].is-phone .lab-phone-bar,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-phone-bar {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  border-top-color: transparent;
+  box-shadow: 0 -6px 20px rgba(20, 15, 8, 0.08);
+}
+
+/* Playing is a state the reader must be able to see and stop at any moment.
+   The header and its two buttons dim with the chrome; the transport does
+   not, for as long as playback continues. */
+.lab[data-chrome-version="v2"][data-reader-controls="hidden"][data-transport="open"]:not(.has-phone-ask) .lab-phone-bar {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* ── The V2 sheet ────────────────────────────────────────────────────────
+   Reading settings, Advanced settings, the font picker and Account: one box,
+   four layers, one height. Switching layer must never resize the window, so
+   the height is a constant — capped against a short viewport, but capped
+   identically for all four, so they stay the same height as each other. */
+
+.lab[data-chrome-version="v2"] {
+  --lab-v2-sheet-height: min(452px, 88vh);
+  --lab-v2-sheet-fill: 0.46;
+  --lab-v2-sheet-fill-top: 0.55;
+  --lab-v2-well: rgba(251, 248, 242, 0.42);
+  --lab-v2-track: rgba(32, 26, 19, 0.14);
+  --lab-v2-track-fill: rgba(32, 26, 19, 0.45);
+  --lab-v2-knob: #fbf8f1;
+  --lab-v2-quiet: #675b4b;
+  --lab-v2-faint: #81796b;
+}
+
+.lab[data-chrome-version="v2"].is-night {
+  --lab-v2-sheet-fill: 0.52;
+  --lab-v2-sheet-fill-top: 0.61;
+  --lab-v2-well: rgba(58, 52, 44, 0.42);
+  --lab-v2-track: rgba(250, 246, 238, 0.16);
+  --lab-v2-track-fill: rgba(250, 246, 238, 0.5);
+  --lab-v2-knob: #d9d2c6;
+  --lab-v2-quiet: #b8b0a4;
+  --lab-v2-faint: #9c948a;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 340;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--lab-v2-sheet-height);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  color: var(--lab-ink);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  box-shadow: 0 -12px 36px rgba(20, 15, 8, 0.2);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 12px 14px 8px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head.is-titled {
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head.is-centred .lab-v2-title {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head.is-titled .lab-v2-title {
+  font-size: 19px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-dismiss,
+.lab[data-chrome-version="v2"] .lab-v2-confirm,
+.lab[data-chrome-version="v2"] .lab-v2-back {
+  flex: 0 0 auto;
+  min-width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-dismiss {
+  background: var(--lab-v2-disc-open);
+  color: var(--lab-v2-quiet);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-confirm {
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  font-size: 14px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-back {
+  padding: 0 10px;
+  background: var(--lab-v2-disc-open);
+  color: var(--lab-v2-quiet);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 14px 16px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet[data-layer="reading"] .lab-v2-sheet-body {
+  padding: 0 16px 14px;
+}
+
+/* Theme cards. Book, Light and Dark — the reader picks a page, not a system. */
+.lab[data-chrome-version="v2"] .lab-v2-themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 2px 0 12px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme-face {
+  width: 100%;
+  height: 60px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  box-shadow: inset 0 0 0 1px rgba(32, 26, 19, 0.12);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-book .lab-v2-theme-face { background: #d8c8a7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-light .lab-v2-theme-face { background: #f4f0e7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-dark .lab-v2-theme-face { background: #2e2a24; color: #faf6ee; }
+
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-active .lab-v2-theme-face {
+  outline: 2px solid var(--lab-ink);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme-label {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-size {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  box-shadow: inset 0 -1px 0 var(--lab-v2-hairline);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-size-small,
+.lab[data-chrome-version="v2"] .lab-v2-size-large {
+  flex: 0 0 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  color: var(--lab-v2-quiet);
+}
+.lab[data-chrome-version="v2"] .lab-v2-size-small { font-size: 14px; }
+.lab[data-chrome-version="v2"] .lab-v2-size-large { font-size: 22px; }
+
+/* One slider, everywhere: a hairline track, a fill to the thumb, a plain
+   round thumb. Painted by the UA — nothing here measures anything. */
+.lab[data-chrome-version="v2"] .lab-v2-slider {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-v2-track);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-v2-track);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-v2-track-fill);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lab-v2-knob);
+  box-shadow: 0 1px 4px rgba(20, 15, 8, 0.28);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lab-v2-knob);
+  box-shadow: 0 1px 4px rgba(20, 15, 8, 0.28);
+}
+
+/* Rows. The label on the left, the value right-aligned in mono, a hairline
+   between — the same grammar the menu uses, at the sheet's smaller scale. */
+.lab[data-chrome-version="v2"] .lab-v2-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 46px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row + .lab-v2-row {
+  box-shadow: inset 0 1px 0 var(--lab-v2-hairline);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row.is-step {
+  min-height: 48px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row-icon svg { display: block; }
+
+.lab[data-chrome-version="v2"] .lab-v2-row-label {
+  flex: 1 1 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-value.is-plain {
+  font-size: 12.5px;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-value-chevron {
+  color: var(--lab-v2-chevron);
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* The select carries the interaction; the value beside it carries the look. */
+.lab[data-chrome-version="v2"] .lab-v2-row-select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-step-value {
+  flex: 0 0 52px;
+  width: 52px;
+  text-align: right;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11.5px;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-rows {
+  padding: 0;
+}
+
+/* Advanced's groups: a small-caps label over a soft well. */
+.lab[data-chrome-version="v2"] .lab-v2-group-label {
+  margin: 12px 0 6px 4px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 9.6px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lab-v2-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-group {
+  padding: 0 14px;
+  border-radius: 14px;
+  background: var(--lab-v2-well);
+  box-shadow: 0 1px 2px rgba(20, 15, 8, 0.08);
+  overflow: hidden;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 22px;
+  padding: 2px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #b9a98d;
+  border-radius: 999px;
+  background: #d8c9ad;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle.is-on {
+  background: var(--lab-accent, #1f4a5c);
+  border-color: var(--lab-accent, #1f4a5c);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle-knob {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ece7db;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle.is-on .lab-v2-toggle-knob {
+  margin-left: auto;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-foot {
+  padding: 12px 0 4px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-pill {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-v2-disc-open);
+  color: inherit;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-pill svg { display: block; }
+
+/* The font picker. Every name in its own face, at reading size. */
+.lab[data-chrome-version="v2"] .lab-v2-row.is-font {
+  min-height: 52px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-font-name {
+  flex: 1 1 auto;
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-check {
+  flex: 0 0 20px;
+  width: 20px;
+  text-align: right;
+  font-size: 15px;
+  color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-check.is-on {
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-note {
+  margin: 8px 4px 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lab-v2-quiet);
+}
+
+/* Account. Today's content, on the sheet the other layers use. */
+.lab[data-chrome-version="v2"] .lab-v2-account-card {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin: 4px 0 2px;
+  border-radius: 14px;
+  background: var(--lab-v2-well);
+  box-shadow: 0 1px 2px rgba(20, 15, 8, 0.08);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-account-card strong {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-account-card span {
+  flex: 0 0 auto;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-year-stats {
+  display: flex;
+  gap: 22px;
+  padding-bottom: 6px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-year-stats span {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-year-stats strong {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  color: var(--lab-ink);
+  margin-right: 4px;
+}
+
+/* The vertical swipe has to reach the reader before the browser claims it as
+   a pan: a touch the UA treats as scrolling ends in pointercancel, and the
+   swap never sees it. The page is paginated to fit, so there is nothing to
+   pan — and pinch-zoom is left alone, because that one is the reader's.
+
+   It has to reach the words, not just the article: the browser intersects
+   touch-action from the element the finger actually lands on upward, and the
+   finger lands on a word. Verified in Chromium — on the article alone the
+   touch still ends in pointercancel.
+
+   Only the flagged phone reader, and only when a compare edition is on. */
+.lab[data-chrome-version="v2"].is-phone .lab-page-wrap.can-swap .lab-passage,
+.lab[data-chrome-version="v2"].is-phone .lab-page-wrap.can-swap .lab-passage *,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap.can-swap .lab-passage,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap.can-swap .lab-passage * {
+  touch-action: pinch-zoom;
+}
+
+/* ── Compare ─────────────────────────────────────────────────────────────
+   A whole-page swap on a vertical swipe, and two quiet labels: the edition's
+   name over the page, and "Compare version" beside the progress. The chrome
+   never explains the swipe — that belongs in the edition picker. */
+
+.lab[data-chrome-version="v2"] .lab-v2-edition-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 10.7px;
+  letter-spacing: 0.035em;
+  color: var(--lab-v2-quiet);
+  pointer-events: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-page-wrap.has-edition-name {
+  padding-top: 1.4rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-compare-mark {
+  margin-left: 10px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 9.6px;
+  letter-spacing: 0.05em;
+  color: var(--lab-v2-faint);
+}
+
+/* ── Desktop chrome ──────────────────────────────────────────────────────
+   The same two controls, in the ring the desktop header already gives its
+   buttons: 42px discs at the top right, Play then the t. */
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-play,
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 1px solid var(--lab-border);
+  background: rgba(var(--lab-v2-panel-ink), 0.62);
+  box-shadow: 0 8px 24px rgba(53, 43, 30, 0.08);
+}
+
+/* The t's target is pulled left against Play on the phone, where the two sit
+   2px apart with no containers. The desktop pair has its own 8px gap and its
+   own rings, so the nudge would push the mark off its ring. */
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+  transform: none;
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super-panel {
+  top: calc(4.6rem + env(safe-area-inset-top, 0px));
+  right: 24px;
+}
+
+/* The sheet keeps its shape on a wide window: a sheet, not a full-bleed band. */
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-sheet {
+  left: 50%;
+  right: auto;
+  width: min(420px, calc(100% - 48px));
+  transform: translateX(-50%);
+  border-radius: 20px 20px 0 0;
+}
+
+/* ── One surface, everywhere ─────────────────────────────────────────────
+   The menu, the transport, the sheets, the chapter picker, the speed
+   popover and the composer are all the same paint: a fill of the paper
+   colour over a blur each panel carries itself, denser at the top so a
+   first label never sits on the thinnest part of it. The page behind is
+   never blurred — the words have to read through. */
+
+.lab[data-chrome-version="v2"] .lab-audio-speed-popover,
+.lab[data-chrome-version="v2"] .lab-toc,
+.lab[data-chrome-version="v2"] .lab-ask-composer {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+}
+
+/* The chapter picker is a full-height layer, so it takes the sheets' denser
+   fill rather than the menu's — a list this long has to hold at reading
+   distance, and the page behind it still shows through. */
+.lab[data-chrome-version="v2"] .lab-toc {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill))
+  );
+}

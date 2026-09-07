@@ -865,6 +865,23 @@ export function labSwipePageDirection(
   return deltaX < 0 ? 1 : -1
 }
 
+/**
+ * The Compare swap: a decisive vertical swipe, up or down.
+ *
+ * Vertical because horizontal already means the next page, and the two must
+ * never be able to fire on the same gesture — a swipe that is not clearly one
+ * axis is neither. The chrome never says any of this: the swipe is learned in
+ * the edition picker, not on the page.
+ */
+export function labSwipeCompareSwap(
+  deltaX: number,
+  deltaY: number,
+  threshold = 52,
+): boolean {
+  if (Math.abs(deltaY) < threshold) return false
+  return Math.abs(deltaY) > Math.abs(deltaX) * 1.2
+}
+
 /** Short taps in the outer thirds turn pages; the centre remains selection-safe. */
 export function labTapPageDirection(
   clientX: number,

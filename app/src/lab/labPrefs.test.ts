@@ -12,6 +12,13 @@ import {
   LAB_MAX_FONT_SIZE,
   LAB_MIN_FONT_SIZE,
   LAB_PREFS_KEY,
+  LAB_ACCESSIBILITY_FONTS,
+  LAB_FONT_LABELS,
+  LAB_READING_FONTS,
+  LAB_V1_DEFAULT_FONT,
+  LAB_V2_DEFAULT_FONT,
+  labFontFamilyCss,
+  labReadingFont,
   labFootProgress,
   labFootProgressPages,
   labProgressKnobLive,
@@ -244,5 +251,56 @@ describe('lab sign-in URLs', () => {
     expect(labSignInUrl()).toBe(LAB_SIGN_IN_URL)
     expect(labAccountUrl('')).toBe(LAB_ACCOUNT_URL)
     expect(LAB_SIGN_IN_URL).toBe(`/lab/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`)
+  })
+})
+
+describe('the reading faces', () => {
+  it('offers Literata first and keeps Atkinson in its own accessibility group', () => {
+    expect(LAB_READING_FONTS).toEqual(['literata', 'garamond', 'baskerville', 'sourceserif'])
+    expect(LAB_ACCESSIBILITY_FONTS).toEqual(['atkinson'])
+    expect(LAB_READING_FONTS).not.toContain('atkinson')
+    expect(LAB_FONT_LABELS.literata).toBe('Literata')
+    expect(LAB_FONT_LABELS.atkinson).toBe('Atkinson Hyperlegible')
+  })
+
+  it('sets each face in its own family, with a face that exists behind it', () => {
+    expect(labFontFamilyCss('literata')).toContain("'Literata'")
+    expect(labFontFamilyCss('atkinson')).toContain("'Atkinson Hyperlegible'")
+    // Every face falls back to one the reader already ships.
+    for (const family of [...LAB_READING_FONTS, ...LAB_ACCESSIBILITY_FONTS]) {
+      expect(labFontFamilyCss(family)).toMatch(/(EB Garamond|IBM Plex Sans)/)
+    }
+  })
+
+  it('moves the default in V2 only, and never moves a face a reader picked', () => {
+    // Never chosen: the new reader gets the new default, today's reader does not.
+    expect(labReadingFont(null, true)).toBe(LAB_V2_DEFAULT_FONT)
+    expect(labReadingFont(null, false)).toBe(LAB_V1_DEFAULT_FONT)
+    expect(LAB_V2_DEFAULT_FONT).toBe('literata')
+    expect(LAB_V1_DEFAULT_FONT).toBe('garamond')
+    // Chosen: the choice holds in both chromes, including the old three.
+    for (const family of ['garamond', 'baskerville', 'sourceserif', 'literata', 'atkinson'] as const) {
+      expect(labReadingFont(family, true)).toBe(family)
+      expect(labReadingFont(family, false)).toBe(family)
+    }
+  })
+
+  it('carries a stored face across the store that did not know it', () => {
+    // The three the store has always known parse unchanged...
+    for (const family of ['garamond', 'baskerville', 'sourceserif'] as const) {
+      expect(parseLabPrefs({ fontFamily: family }).fontFamily).toBe(family)
+    }
+    // ...the two it did not, too, and a face nobody can read is "never chosen"
+    // rather than a face nobody picked.
+    expect(parseLabPrefs({ fontFamily: 'literata' }).fontFamily).toBe('literata')
+    expect(parseLabPrefs({ fontFamily: 'atkinson' }).fontFamily).toBe('atkinson')
+    expect(parseLabPrefs({ fontFamily: 'papyrus' }).fontFamily).toBeNull()
+    expect(DEFAULT_LAB_PREFS.fontFamily).toBeNull()
+  })
+
+  it('round-trips a new face through the store', () => {
+    writeLabPrefs({ ...DEFAULT_LAB_PREFS, fontFamily: 'atkinson' })
+    expect(readLabPrefs().fontFamily).toBe('atkinson')
+    expect(parseLabStoredPrefs(JSON.parse(localStorage.getItem(LAB_PREFS_KEY)!)).phone.fontFamily).toBe('atkinson')
   })
 })

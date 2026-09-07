@@ -12,7 +12,7 @@ import {
 import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
-import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
+import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
 
@@ -49,6 +49,8 @@ interface LabPassageProps {
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
+  /** Compare's whole-page swap. A vertical swipe, and nothing that says so. */
+  onCompareSwap?: () => void
   onToggleControls?: () => void
   /**
    * Identity of the reader typography (font, size, alignment, spacing,
@@ -274,6 +276,7 @@ export function LabPassage({
   onSeekToWord,
   pageTurn,
   onPageTurn,
+  onCompareSwap,
   onToggleControls,
   layoutKey = '',
 }: LabPassageProps) {
@@ -390,6 +393,7 @@ export function LabPassage({
       startedAt: event.timeStamp,
       selecting: false,
       touch: touchSelection,
+      pointerType: event.pointerType,
     }
     dragRef.current = drag
     if (touchSelection && selectionPlace) {
@@ -454,6 +458,22 @@ export function LabPassage({
     const deltaX = event.clientX - drag.startX
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
+    // Compare's whole-page swap is the vertical swipe, and it is checked
+    // first: the two gestures are on different axes and must never both fire.
+    // A swipe is a finger. A mouse dragged down the page is selecting text,
+    // and always has been; the menu's Compare row is the pointer's way in.
+    if (
+      onCompareSwap
+      && drag.pointerType !== 'mouse'
+      && !selectingRange
+      && !drag.selecting
+      && labSwipeCompareSwap(deltaX, deltaY)
+    ) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      onCompareSwap()
+      return
+    }
     const swipe = onPageTurn && !selectingRange && !drag.selecting
       ? labSwipePageDirection(deltaX, deltaY)
       : null
