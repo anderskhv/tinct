@@ -10,11 +10,14 @@ import {
   LAB_SUPER_SPIN_SETTLE_DEG,
   LAB_SUPER_SPIN_SETTLE_MS,
   LAB_SUPER_SPIN_TO_OVERSHOOT_MS,
+  LAB_TEE_MORPH_FRAMES,
+  LAB_TEE_MORPH_FRAME_COUNT,
   LAB_TEE_REST,
   labSpinEase,
   labTeeEase,
   labTeeFrame,
   labTeeFrameAt,
+  labTeeFrameIndexAt,
 } from './labSuperGlyph'
 
 /**
@@ -161,5 +164,33 @@ describe('the morph timeline', () => {
     expect(LAB_SUPER_SPIN_HOLD_MS).toBe(40)
     // 405° is the × angle, which is why the spin passes through it.
     expect(LAB_SUPER_SPIN_OVERSHOOT_DEG - LAB_SUPER_SPIN_SETTLE_DEG).toBe(LAB_TEE_CROSS.rotate)
+  })
+})
+
+describe('the pre-drawn morph ladder', () => {
+  it('runs from the letter to the × without repeating a shape', () => {
+    expect(LAB_TEE_MORPH_FRAMES).toHaveLength(LAB_TEE_MORPH_FRAME_COUNT)
+    expect(LAB_TEE_MORPH_FRAMES[0].stemPath).toBe(LAB_TEE_REST.stemPath)
+    expect(LAB_TEE_MORPH_FRAMES[LAB_TEE_MORPH_FRAME_COUNT - 1].stemPath).toBe(LAB_TEE_CROSS.stemPath)
+    const shapes = new Set(LAB_TEE_MORPH_FRAMES.map(frame => `${frame.stemPath}|${frame.barPath}`))
+    expect(shapes.size).toBe(LAB_TEE_MORPH_FRAME_COUNT)
+  })
+
+  it('steps finer than a 120 Hz display can resolve', () => {
+    expect(LAB_TEE_MORPH_MS / (LAB_TEE_MORPH_FRAME_COUNT - 1)).toBeLessThan(1000 / 120)
+  })
+
+  it('picks the frame the eased curve is on, and lands on both ends', () => {
+    expect(labTeeFrameIndexAt(0, true)).toBe(0)
+    expect(labTeeFrameIndexAt(LAB_TEE_MORPH_MS, true)).toBe(LAB_TEE_MORPH_FRAME_COUNT - 1)
+    expect(labTeeFrameIndexAt(0, false)).toBe(LAB_TEE_MORPH_FRAME_COUNT - 1)
+    expect(labTeeFrameIndexAt(LAB_TEE_MORPH_MS, false)).toBe(0)
+    // Monotonic, and never stuck: the midpoint is passed through, not rested on.
+    let previous = -1
+    for (let ms = 0; ms <= LAB_TEE_MORPH_MS; ms += 5) {
+      const index = labTeeFrameIndexAt(ms, true)
+      expect(index).toBeGreaterThanOrEqual(previous)
+      previous = index
+    }
   })
 })

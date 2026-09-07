@@ -212,3 +212,32 @@ export function labTeeFrameAt(elapsedMs: number, open: boolean, durationMs = LAB
   const eased = labTeeEase(t)
   return labTeeFrame(open ? eased : 1 - eased)
 }
+
+/**
+ * The morph, pre-drawn.
+ *
+ * Release 3.11 leaves no room for per-frame layout, and changing a path's `d`
+ * is exactly that — a contained relayout of the SVG on every frame. So the
+ * morph is drawn once, as a ladder of static frames, and animating it is a
+ * matter of showing one and hiding another: opacity only, layout never.
+ *
+ * Twenty-nine frames put under 8 ms between them over the 220 ms morph —
+ * finer than a 120 Hz display can resolve — and the odd count means the
+ * midpoint of the ladder is the midpoint of the morph.
+ */
+export const LAB_TEE_MORPH_FRAME_COUNT = 29
+
+export const LAB_TEE_MORPH_FRAMES: LabTeeFrame[] = Array.from(
+  { length: LAB_TEE_MORPH_FRAME_COUNT },
+  (_, index) => labTeeFrame(index / (LAB_TEE_MORPH_FRAME_COUNT - 1)),
+)
+
+/** Which drawn frame the morph is showing at `elapsedMs`. */
+export function labTeeFrameIndexAt(
+  elapsedMs: number,
+  open: boolean,
+  durationMs = LAB_TEE_MORPH_MS,
+): number {
+  const progress = labTeeFrameAt(elapsedMs, open, durationMs).progress
+  return Math.round(progress * (LAB_TEE_MORPH_FRAME_COUNT - 1))
+}

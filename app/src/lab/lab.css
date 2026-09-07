@@ -4805,23 +4805,10 @@
   animation: lab-super-arrive 240ms ease-out both;
 }
 
-/* Reduced motion: the mark fades in, and the × cross-fades in place of the
-   morph. The two shapes are both drawn, so nothing has to be rebuilt. */
-.lab[data-chrome-version="v2"] .lab-super-letter,
-.lab[data-chrome-version="v2"] .lab-super-cross {
+/* Reduced motion: the mark fades in, and the ladder's two ends cross-fade in
+   place of stepping through it. */
+.lab[data-chrome-version="v2"] .lab-super.is-reduced .lab-super-frame {
   transition: opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.lab[data-chrome-version="v2"] .lab-super-cross {
-  opacity: 0;
-}
-
-.lab[data-chrome-version="v2"] .lab-super.is-open .lab-super-letter {
-  opacity: 0;
-}
-
-.lab[data-chrome-version="v2"] .lab-super.is-open .lab-super-cross {
-  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4838,6 +4825,15 @@
 }
 
 /* ── Super-menu ──────────────────────────────────────────────────────── */
+
+/* The top bar sits above the menu layer so the × stays pressable: the mark
+   that opened the menu is also the way back out of it. The dim therefore
+   covers the page and not the header, which at 8% is a difference nobody
+   sees and a reachable close button is not. */
+.lab[data-chrome-version="v2"] .lab-header {
+  position: relative;
+  z-index: 330;
+}
 
 .lab[data-chrome-version="v2"] .lab-super-layer {
   position: absolute;

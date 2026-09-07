@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import {
   LAB_SUPER_SPIN_MS,
-  LAB_TEE_CROSS,
-  LAB_TEE_REST,
-  labTeeFrameAt,
-  type LabTeeFrame,
+  LAB_TEE_MORPH_FRAMES,
+  labTeeFrameIndexAt,
 } from './labSuperGlyph'
 
 export interface LabSuperButtonProps {
@@ -20,16 +18,7 @@ export interface LabSuperButtonProps {
   label?: string
 }
 
-function Tee({ frame }: { frame: LabTeeFrame }) {
-  return (
-    <g transform={frame.rotateTransform}>
-      <g transform={frame.skewTransform}>
-        <path d={frame.stemPath} />
-        <path d={frame.barPath} />
-      </g>
-    </g>
-  )
-}
+const LAST_FRAME = LAB_TEE_MORPH_FRAMES.length - 1
 
 /**
  * The super button: the drawn "t" that opens the reader's menu.
@@ -39,11 +28,11 @@ function Tee({ frame }: { frame: LabTeeFrame }) {
  * runs the same 220 ms in reverse. The first time a reader ever sees it, and
  * only then, it spins once.
  *
- * Everything that moves here moves on `transform` and `opacity`, except the
- * ×-morph itself, which is a genuine geometry morph — the spec is explicit
- * that the midpoint must be neither letter nor ×. That morph writes `d` on two
- * paths inside a `contain: layout paint` button, so it never reads layout back
- * and never reaches the page.
+ * Nothing here does layout work while it moves. The morph is a ladder of
+ * pre-drawn frames — every one of them in the DOM from the start, laid out
+ * once — and running it means raising one frame's opacity and dropping
+ * another's. The spin and the press disc are transform and opacity. Under
+ * reduced motion the same ladder cross-fades end to end instead of stepping.
  */
 export function LabSuperButton({
   open,
@@ -54,50 +43,43 @@ export function LabSuperButton({
   reducedMotion = false,
   label = 'Menu',
 }: LabSuperButtonProps) {
-  const stemRef = useRef<SVGPathElement>(null)
-  const barRef = useRef<SVGPathElement>(null)
-  const rotateRef = useRef<SVGGElement>(null)
-  const skewRef = useRef<SVGGElement>(null)
-  const markRef = useRef<SVGSVGElement>(null)
+  const frameRefs = useRef<(SVGGElement | null)[]>([])
+  const shownRef = useRef(open ? LAST_FRAME : 0)
   const spinRef = useRef<HTMLSpanElement>(null)
-  const paintedRef = useRef(open)
+  const openRef = useRef(open)
   const [pressed, setPressed] = useState(false)
   const [spinning, setSpinning] = useState(false)
 
-  // The morph. One rAF loop over the eased curve, writing the two paths and
-  // the two group transforms; nothing is measured, so nothing is forced.
   useEffect(() => {
-    if (reducedMotion) return
-    if (paintedRef.current === open) return
-    paintedRef.current = open
-    const mark = markRef.current
-    mark?.style.setProperty('will-change', 'transform')
+    const show = (index: number) => {
+      if (index === shownRef.current) return
+      frameRefs.current[shownRef.current]?.style.setProperty('opacity', '0')
+      frameRefs.current[index]?.style.setProperty('opacity', '1')
+      shownRef.current = index
+    }
+    if (openRef.current === open) return
+    openRef.current = open
+    // Reduced motion never steps through the morph: the two ends cross-fade,
+    // which is the same two opacities under a CSS transition.
+    if (reducedMotion) {
+      show(open ? LAST_FRAME : 0)
+      return
+    }
     let raf = 0
     let start = 0
-    const paint = (frame: LabTeeFrame) => {
-      rotateRef.current?.setAttribute('transform', frame.rotateTransform)
-      skewRef.current?.setAttribute('transform', frame.skewTransform)
-      stemRef.current?.setAttribute('d', frame.stemPath)
-      barRef.current?.setAttribute('d', frame.barPath)
-    }
     const step = (now: number) => {
       if (!start) start = now
-      const frame = labTeeFrameAt(now - start, open)
-      paint(frame)
-      const done = open ? frame.progress >= 1 : frame.progress <= 0
-      if (done) {
-        mark?.style.removeProperty('will-change')
-        return
-      }
+      const index = labTeeFrameIndexAt(now - start, open)
+      show(index)
+      if (index === (open ? LAST_FRAME : 0)) return
       raf = requestAnimationFrame(step)
     }
     raf = requestAnimationFrame(step)
     return () => {
       cancelAnimationFrame(raf)
-      mark?.style.removeProperty('will-change')
-      // A morph cut short still leaves the mark on the state it was heading
-      // for: an interrupted × is not a resting shape.
-      paint(open ? LAB_TEE_CROSS : LAB_TEE_REST)
+      // A morph cut short still lands on the state it was heading for: an
+      // interrupted × is not a resting shape.
+      show(open ? LAST_FRAME : 0)
     }
   }, [open, reducedMotion])
 
@@ -124,10 +106,11 @@ export function LabSuperButton({
     }
   }, [firstView, onFirstViewEnd, reducedMotion])
 
-  const rest = open ? LAB_TEE_CROSS : LAB_TEE_REST
+  const initialFrame = openRef.current ? LAST_FRAME : 0
   const classes = ['lab-super']
   if (open) classes.push('is-open')
   if (pressed) classes.push('is-pressed')
+  if (reducedMotion) classes.push('is-reduced')
   if (spinning) classes.push(reducedMotion ? 'is-arriving' : 'is-spinning')
   if (hint && !open) classes.push('has-hint')
 
@@ -152,7 +135,6 @@ export function LabSuperButton({
         <span className="lab-super-spin" ref={spinRef}>
           <span className="lab-super-pulse">
             <svg
-              ref={markRef}
               className="lab-super-mark"
               width="24"
               height="24"
@@ -164,21 +146,21 @@ export function LabSuperButton({
               strokeLinejoin="round"
               aria-hidden="true"
             >
-              {reducedMotion ? (
-                // Reduced motion never morphs: the two shapes cross-fade, and
-                // the mark is drawn twice so neither has to be rebuilt.
-                <>
-                  <g className="lab-super-letter"><Tee frame={LAB_TEE_REST} /></g>
-                  <g className="lab-super-cross"><Tee frame={LAB_TEE_CROSS} /></g>
-                </>
-              ) : (
-                <g ref={rotateRef} transform={rest.rotateTransform}>
-                  <g ref={skewRef} transform={rest.skewTransform}>
-                    <path ref={stemRef} d={rest.stemPath} />
-                    <path ref={barRef} d={rest.barPath} />
+              {LAB_TEE_MORPH_FRAMES.map((frame, index) => (
+                <g
+                  key={index}
+                  className="lab-super-frame"
+                  data-frame={index}
+                  ref={node => { frameRefs.current[index] = node }}
+                  style={{ opacity: index === initialFrame ? 1 : 0 }}
+                  transform={frame.rotateTransform}
+                >
+                  <g transform={frame.skewTransform}>
+                    <path d={frame.stemPath} />
+                    <path d={frame.barPath} />
                   </g>
                 </g>
-              )}
+              ))}
             </svg>
           </span>
         </span>

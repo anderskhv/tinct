@@ -6,7 +6,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
-import { LAB_TEE_CROSS, LAB_TEE_REST } from './labSuperGlyph'
+import { LAB_TEE_CROSS, LAB_TEE_MORPH_FRAMES, LAB_TEE_REST } from './labSuperGlyph'
 import { labSuperMenuRows } from './labSuperMenu'
 
 afterEach(() => {
@@ -119,12 +119,21 @@ describe('the V2 top bar', () => {
     expect(mark.getAttribute('stroke')).toBe('currentColor')
     expect(mark.getAttribute('stroke-width')).toBe('1.6')
     expect(mark.getAttribute('stroke-linecap')).toBe('round')
-    const paths = mark.querySelectorAll('path')
+    // The morph is a ladder of pre-drawn frames; only the first is showing.
+    const frames = [...mark.querySelectorAll('.lab-super-frame')] as HTMLElement[]
+    expect(frames).toHaveLength(LAB_TEE_MORPH_FRAMES.length)
+    expect(frames.filter(frame => frame.style.opacity === '1')).toHaveLength(1)
+    expect(frames[0].style.opacity).toBe('1')
+    const paths = frames[0].querySelectorAll('path')
     expect(paths).toHaveLength(2)
     expect(paths[0].getAttribute('d')).toBe(LAB_TEE_REST.stemPath)
     expect(paths[1].getAttribute('d')).toBe(LAB_TEE_REST.barPath)
     // The 11° lean, applied about y = 12.
-    expect(mark.querySelector('g > g')!.getAttribute('transform')).toBe(LAB_TEE_REST.skewTransform)
+    expect(frames[0].querySelector('g')!.getAttribute('transform')).toBe(LAB_TEE_REST.skewTransform)
+    // And the far end of the ladder is the ×.
+    const cross = frames[frames.length - 1].querySelectorAll('path')
+    expect(cross[0].getAttribute('d')).toBe(LAB_TEE_CROSS.stemPath)
+    expect(cross[1].getAttribute('d')).toBe(LAB_TEE_CROSS.barPath)
     // No container at rest.
     expect(screen.getByTestId('lab-super').classList.contains('is-open')).toBe(false)
   })
@@ -198,6 +207,13 @@ describe('the super-menu', () => {
     expect(root().getAttribute('data-super-menu')).toBe('open')
     expect(screen.getByTestId('lab-super').getAttribute('aria-expanded')).toBe('true')
 
+    // The × is the way back out: pressing the mark again closes it.
+    fireEvent.click(screen.getByTestId('lab-super'))
+    await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
+    expect(screen.getByTestId('lab-super').getAttribute('aria-expanded')).toBe('false')
+
+    // So is the page behind it.
+    fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-scrim'))
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
@@ -329,10 +345,11 @@ describe('the first view', () => {
       { timeout: 2000 },
     )
     expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
-    // Reduced motion cross-fades the × instead of morphing it: both marks are drawn.
-    const mark = screen.getByTestId('lab-super').querySelector('svg.lab-super-mark')!
-    expect(mark.querySelector('.lab-super-letter path')!.getAttribute('d')).toBe(LAB_TEE_REST.stemPath)
-    expect(mark.querySelector('.lab-super-cross path')!.getAttribute('d')).toBe(LAB_TEE_CROSS.stemPath)
+    // Reduced motion cross-fades the ladder's ends instead of stepping it.
+    expect(screen.getByTestId('lab-super').classList.contains('is-reduced')).toBe(true)
+    const frames = [...screen.getByTestId('lab-super').querySelectorAll('.lab-super-frame')] as HTMLElement[]
+    expect(frames[0].style.opacity).toBe('1')
+    expect(frames[frames.length - 1].style.opacity).toBe('0')
   })
 
   it('clears the teal full stop the first time the menu is opened', () => {
