@@ -53,6 +53,48 @@ export interface LabStoredPrefs {
   shared: LabSharedPrefs
   phone: LabAppearancePrefs
   desktop: LabAppearancePrefs
+  /**
+   * One-shot reader introductions, keyed by who saw them: the account when
+   * someone is signed in, the device when nobody is. It rides in the reader
+   * prefs so it follows the same store and the same sign-out lifecycle as
+   * every other reading preference.
+   */
+  seenOnce: Record<string, boolean>
+}
+
+/** The super button's first view — the spin — is shown once per identity. */
+export const LAB_SUPER_FIRST_VIEW = 'super-first-view'
+/** The teal full stop is cleared the first time the menu is opened. */
+export const LAB_SUPER_MENU_OPENED = 'super-menu-opened'
+
+/**
+ * Who a one-shot introduction has been shown to. Signed in, that is the
+ * account, so a second device does not replay it; signed out, the device is
+ * the only identity there is.
+ */
+export function labSeenOnceIdentity(accountId: string | null | undefined): string {
+  return accountId ? `account:${accountId}` : 'device'
+}
+
+function seenOnceKey(what: string, accountId: string | null | undefined): string {
+  return `${what}:${labSeenOnceIdentity(accountId)}`
+}
+
+export function labSeenOnce(what: string, accountId: string | null | undefined): boolean {
+  return readLabStoredPrefs().seenOnce[seenOnceKey(what, accountId)] === true
+}
+
+export function markLabSeenOnce(what: string, accountId: string | null | undefined): void {
+  if (typeof localStorage === 'undefined') return
+  const key = seenOnceKey(what, accountId)
+  try {
+    const current = readLabStoredPrefs()
+    if (current.seenOnce[key] === true) return
+    const next: LabStoredPrefs = { ...current, seenOnce: { ...current.seenOnce, [key]: true } }
+    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
+  } catch {
+    /* quota / private mode */
+  }
 }
 
 export interface LabPrefs extends LabSharedPrefs, LabAppearancePrefs {
@@ -155,6 +197,15 @@ function parseAppearance(
   }
 }
 
+function parseSeenOnce(raw: unknown): Record<string, boolean> {
+  if (!raw || typeof raw !== 'object') return {}
+  const seen: Record<string, boolean> = {}
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+    if (value === true) seen[key] = true
+  }
+  return seen
+}
+
 function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
   const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
   const parsedSpeed = typeof src.audioSpeed === 'number' && Number.isFinite(src.audioSpeed)
@@ -202,6 +253,7 @@ export function parseLabStoredPrefs(raw: unknown): LabStoredPrefs {
       shared: parseShared(src.shared, DEFAULT_LAB_SHARED),
       phone: parseAppearance(src.phone, DEFAULT_LAB_APPEARANCE),
       desktop: parseAppearance(src.desktop, DEFAULT_LAB_APPEARANCE),
+      seenOnce: parseSeenOnce(src.seenOnce),
     }
   }
 
@@ -213,6 +265,7 @@ export function parseLabStoredPrefs(raw: unknown): LabStoredPrefs {
     shared: parseShared(src, DEFAULT_LAB_SHARED),
     phone: { ...appearance, progressDisplay: { ...appearance.progressDisplay } },
     desktop: { ...appearance, progressDisplay: { ...appearance.progressDisplay } },
+    seenOnce: parseSeenOnce(src.seenOnce),
   }
 }
 
@@ -264,6 +317,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       shared: parseShared(prefs, current.shared),
       phone: profile === 'phone' ? appearance : current.phone,
       desktop: profile === 'desktop' ? appearance : current.desktop,
+      seenOnce: current.seenOnce,
     }
     localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
   } catch {
