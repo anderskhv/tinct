@@ -20,6 +20,7 @@
  */
 import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type ReadingSession } from '../readingMemory'
 import { READING_SESSION_GAP_MS } from '../readingMemory/recorder'
+import { isHiddenFromReadingNow } from '../lab/labPosition'
 import type { LabBookPlace, LabPositionState } from '../lab/labPosition'
 import { chapterProgress, includesPreviousChapter, positionLine, type ChapterProgress } from './recapPosition'
 
@@ -286,8 +287,8 @@ export function movedBackIntoBook(input: {
 }
 
 /**
- * Reading now (every in-progress book, newest first by the newer of the two
- * stores) and Finished (newest session completed on the book's final chapter,
+ * Reading now (every in-progress book the reader has not taken off the list,
+ * newest first by the newer of the two stores) and Finished (newest session completed on the book's final chapter,
  * the position record's finished mark on that chapter, or an app
  * `book-completed` mark). A finished book returns to Reading now only when
  * the reader has since moved back into it (`movedBackIntoBook`).
@@ -314,6 +315,10 @@ export function readingList(input: ReadingListInput): ReadingList {
       finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
       continue
     }
+    // Taken off the list by the reader. Nothing about the book was deleted —
+    // the place, the notes, the highlights and the chat are all still there,
+    // and reading it again writes a newer place, which lists it once more.
+    if (input.positions && isHiddenFromReadingNow(input.positions, bookId)) continue
     const finishedChapters = new Set<number>(input.positions?.finished?.[bookId] ?? [])
     const progress = chapterProgress({
       paragraphIndex: target.paragraphIndex,

@@ -35,6 +35,7 @@ function positions(places: LabBookPlace[], lastSettledBookId: string | null = nu
   return {
     books: Object.fromEntries(places.map(item => [item.bookId, item])),
     finished,
+    hidden: {},
     lastSettledBookId,
     lastSettledAt: lastSettledBookId ? T0 : 0,
     updatedAt: Math.max(0, ...places.map(item => item.updatedAt)),

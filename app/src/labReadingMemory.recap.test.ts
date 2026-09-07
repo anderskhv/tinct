@@ -12,8 +12,9 @@
  *     request goes out and the summary appears. A summary the device already
  *     cached for that exact place is shown either way.
  *  2. A daily Bible reader who read something else afterwards. The Bible
- *     drops out of the hero slot, and a quiet row's line comes from the
- *     stored session summary or the device cache — never from a request.
+ *     drops out of the centre of the Reading-now row and carries no line of
+ *     its own; scrolling it back to the middle shows the device's cached
+ *     line at once, and orders a fresh one only once the row settles there.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { READING_MEMORY_DEVICE_KEY } from './readingMemory/deviceStore'
@@ -93,6 +94,7 @@ function positionState(places: LabBookPlace[], settled: string | null, finished:
   return {
     books: Object.fromEntries(places.map(item => [item.bookId, item])),
     finished,
+    hidden: {},
     lastSettledBookId: settled,
     lastSettledAt: NOW,
     updatedAt: NOW,
@@ -266,37 +268,147 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     ], 'plato-republic'),
   })
 
-  it('gives the hero — and the only generated summary — to the newest book, not to the Bible', async () => {
+  it('gives the focus — and the only generated summary — to the newest book, not to the Bible', async () => {
     const { sessions, positions } = morningBibleEveningRepublic()
     const section = await renderLibrary(sessions, positions)
     expect(section.dataset.book).toBe('plato-republic')
     expect(section.dataset.readingNow).toBe('2')
+    expect(section.dataset.nowFocus).toBe('0')
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
-    const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
-    expect(bibleRow.textContent).toContain('Last time · Proverbs 17')
+    // Every book in progress is a cover in the same row. The Bible is there,
+    // named, but it carries no line of its own: the caption under the row
+    // belongs to the book in the middle, and there is only one of it.
+    const bibleCard = section.querySelector<HTMLElement>('[data-now-book="bible"]')!
+    const bibleOpen = bibleCard.querySelector<HTMLElement>('[data-recap-open]')!
+    expect(bibleOpen.getAttribute('aria-label')).toContain('Proverbs 17')
+    expect(bibleOpen.getAttribute('aria-current')).toBe('false')
+    expect(bibleCard.querySelector('[data-now-remove]')!.getAttribute('aria-label'))
+      .toBe('Remove The Bible from currently reading')
+    expect(section.querySelectorAll('[data-testid=lab-recap-summary]')).toHaveLength(1)
+    expect(section.querySelector('.lib-recap-row-recap')).toBeNull()
   })
 
-  it('shows the Bible row the summary this device already has for that place, with no extra request', async () => {
+  it('shows the Bible the summary this device already has once it is the centred book, with no extra request', async () => {
     cacheSummary(
       recapCacheKey({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 645, paragraphIndex: 2, paragraphCount: 6, completed: false }),
       'Solomon weighs quiet bread against a house of strife.',
     )
     const { sessions, positions } = morningBibleEveningRepublic()
     const section = await renderLibrary(sessions, positions)
-    const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
-    expect(bibleRow.querySelector('.lib-recap-row-recap')!.textContent).toBe('Solomon weighs quiet bread against a house of strife.')
+    // Scrolling the Bible to the middle is a tap on a card that sits back.
+    section.querySelector<HTMLElement>('[data-now-book="bible"] [data-recap-open]')!.click()
+    await flush()
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent)
+      .toBe('Solomon weighs quiet bread against a house of strife.')
+    expect(section.dataset.summaryLine).toBe('cached')
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
   })
 
-  it('leaves the row line out when the device has no summary for the place it resumes at', async () => {
-    cacheSummary(
-      recapCacheKey({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 631, paragraphIndex: 0, paragraphCount: 3, completed: false }),
-      'A summary of yesterday’s chapter.',
-    )
+  it('asks for the centred book only once the row settles on it, never while scrolling past', async () => {
     const { sessions, positions } = morningBibleEveningRepublic()
     const section = await renderLibrary(sessions, positions)
-    const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
-    expect(bibleRow.querySelector('.lib-recap-row-recap')).toBeNull()
+    section.querySelector<HTMLElement>('[data-now-book="bible"] [data-recap-open]')!.click()
+    await flush()
+    // The caption is the Bible's, but nothing has been ordered for it yet.
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.hasAttribute('hidden')).toBe(true)
+    expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
+    await vi.advanceTimersByTimeAsync(800)
+    await flush()
+    expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic', 'bible'])
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('So far in bible 645.')
+  })
+})
+
+/**
+ * Taking a book off Reading now. The control is the classic app's: a round ×
+ * on the corner of the card, one tap, no confirmation. Removing must delete
+ * nothing — the place, the notes, the highlights, the chat and the sessions
+ * all survive — and reading the book again must list it once more, at the
+ * page it was left on.
+ */
+describe('remove a book from Reading now', () => {
+  const twoBooks = () => ({
+    sessions: [
+      bibleSession(ago(9 * HOUR)),
+      sessionFor(platoDialogueFixture(), { id: 'republic', state: 'progressed', startedAt: ago(2 * HOUR), lastActiveAt: ago(90 * MINUTE), page: 2, owner: USER }),
+    ],
+    positions: positionState([
+      biblePlace(ago(9 * HOUR) + MINUTE),
+      place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 1, primaryEditionKey: 'original-en', updatedAt: ago(89 * MINUTE) }),
+    ], 'plato-republic'),
+  })
+
+  /** Everything about a book that is not the list itself. */
+  function seedBookBelongings() {
+    localStorage.setItem('tinct:notes:bible', JSON.stringify([{ id: 'n1', text: 'Quiet bread.' }]))
+    localStorage.setItem('chat-history:bible', JSON.stringify([{ role: 'user', content: 'Who is Solomon?', bookId: 'bible' }]))
+    localStorage.setItem('tinct:highlights:bible', JSON.stringify([{ id: 'h1', color: 'amber' }]))
+  }
+
+  function storedPositions() {
+    return JSON.parse(localStorage.getItem(LAB_POSITION_STORAGE_KEY)!) as LabPositionState
+  }
+
+  it('takes the centred book off the list, leaves everything else about it alone, and falls through to the next', async () => {
+    const { sessions, positions } = twoBooks()
+    seedBookBelongings()
+    const section = await renderLibrary(sessions, positions)
+    expect(section.dataset.readingNow).toBe('2')
+    expect(section.dataset.book).toBe('plato-republic')
+
+    section.querySelector<HTMLElement>('[data-now-book="plato-republic"] [data-now-remove]')!.click()
+    await flush()
+
+    // Off the list, and the hero is now the book behind it.
+    expect(section.dataset.readingNow).toBe('1')
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-now-book="plato-republic"]')).toBeNull()
+    expect(section.querySelector('[data-now-book="bible"]')).not.toBeNull()
+
+    // Nothing was deleted. The place is byte-for-byte the place it was.
+    const stored = storedPositions()
+    expect(stored.books['plato-republic']).toEqual(positions.books['plato-republic'])
+    expect(stored.hidden['plato-republic']).toBeGreaterThan(0)
+    expect(localStorage.getItem('tinct:notes:bible')).toContain('Quiet bread.')
+    expect(localStorage.getItem('chat-history:bible')).toContain('Who is Solomon?')
+    expect(localStorage.getItem('tinct:highlights:bible')).toContain('h1')
+    expect(Object.keys(JSON.parse(localStorage.getItem(READING_MEMORY_DEVICE_KEY)!).sessions)).toHaveLength(2)
+  })
+
+  it('lists the book again the moment it is read again, at the place it was left', async () => {
+    const { sessions, positions } = twoBooks()
+    const section = await renderLibrary(sessions, positions)
+    section.querySelector<HTMLElement>('[data-now-book="plato-republic"] [data-now-remove]')!.click()
+    await flush()
+    expect(section.querySelector('[data-now-book="plato-republic"]')).toBeNull()
+
+    // Reading it again writes a newer place. Nothing un-hides it explicitly.
+    const hiddenAt = storedPositions().hidden['plato-republic']
+    const reopened = {
+      ...storedPositions(),
+      books: {
+        ...storedPositions().books,
+        'plato-republic': { ...positions.books['plato-republic'], paragraphIndex: 3, updatedAt: hiddenAt + 1_000, rev: 2 },
+      },
+    }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(reopened))
+    await (window as unknown as { __tinctLabReadingMemory: { render: () => Promise<void> } }).__tinctLabReadingMemory.render()
+    await flush()
+
+    expect(section.dataset.readingNow).toBe('2')
+    const card = section.querySelector<HTMLElement>('[data-now-book="plato-republic"]')!
+    expect(card).not.toBeNull()
+    expect(storedPositions().books['plato-republic'].paragraphIndex).toBe(3)
+  })
+
+  it('names the book in the control, the way the classic app does', async () => {
+    const { sessions, positions } = twoBooks()
+    const section = await renderLibrary(sessions, positions)
+    const control = section.querySelector<HTMLElement>('[data-now-book="bible"] [data-now-remove]')!
+    expect(control.getAttribute('aria-label')).toBe('Remove The Bible from currently reading')
+    expect(control.textContent).toBe('×')
   })
 })
 

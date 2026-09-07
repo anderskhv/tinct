@@ -3,7 +3,7 @@
  *
  * Shared by catalogue-runtime.js (the library view) and the unit tests in
  * src/preReader/libraryModel.test.ts. Everything the library decides —
- * which palette it wears, which covers sit on the popular shelf, which one
+ * which world it wears, which covers sit on the popular shelf, which one
  * is selected, whether the slide-in reveal runs, whether the reader is new or
  * returning, which houses the index lists and with what counts, what the
  * search→open→back snapshot holds — lives here so it can be tested without a
@@ -14,8 +14,6 @@ export const REVEAL_SESSION_KEY = 'tinct:lab-library-revealed'
 export const READING_MEMORY_DEVICE_KEY = 'tinct:reading-memory'
 /** The reader's own position store (per-book records + lastSettledBookId). */
 export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-position'
-/** The reader's appearance preferences; `theme` lives per profile (phone / desktop). */
-export const LAB_PREFS_DEVICE_KEY = 'tinct-lab-prefs'
 /** Where the library parks its state when it is left, so Back can put it back. */
 export const LIBRARY_RETURN_SESSION_KEY = 'tinct:lab-library-return'
 /** The shelf selection, kept for the length of the browser session. */
@@ -27,57 +25,55 @@ export const REVEAL_DURATION_MS = 520
 export const REVEAL_FIRST_DELAY_MS = 120
 export const REVEAL_STAGGER_MS = 70
 
-/**
- * The reader's profile boundary (`PHONE_QUERY` in the reader): the library
- * reads the same appearance profile the reader would use at this width.
- */
-export const LAB_PHONE_PROFILE_MAX_WIDTH = 1024
-
 export function normalizeLibraryText(value) {
   return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim()
 }
 
-// ------------------------------------------------------------------ palette
-
-const LAB_THEMES = new Set(['system', 'light', 'dark', 'book'])
+// ------------------------------------------------------------- landing world
 
 /**
- * The reader's stored theme for a profile: v2 prefs keep one appearance per
- * profile; v1 was one flat object (`theme`, or the older `darkMode`).
- * Anything unreadable is `system`.
+ * The three worlds the landing page crossfades behind its headline. The
+ * pre-reader is one continuous surface: whichever of these the landing was
+ * showing when the reader pressed Start reading is the ground the library,
+ * the book page and the edition screen then wear. Before 2026-09-07 the
+ * library instead wore the READER's theme (light paper by default), so the
+ * reader walked out of a dark world into a white page mid-journey.
  */
-export function labThemeFromPrefs(raw, profile = 'phone') {
-  if (typeof raw !== 'string' || !raw) return 'system'
-  try {
-    const parsed = JSON.parse(raw)
-    if (!parsed || typeof parsed !== 'object') return 'system'
-    const appearance = parsed.version === 2 && parsed[profile] && typeof parsed[profile] === 'object' ? parsed[profile] : parsed
-    if (LAB_THEMES.has(appearance.theme)) return appearance.theme
-    if (parsed.version !== 2 && typeof appearance.darkMode === 'boolean') return appearance.darkMode ? 'dark' : 'light'
-    return 'system'
-  } catch {
-    return 'system'
+export const LANDING_WORLDS = ['odyssey', 'pride', 'frankenstein']
+
+/** What the library falls back to when it was reached without the landing. */
+export const DEFAULT_LANDING_WORLD = 'odyssey'
+
+/** Where the landing parks the world it was showing when it was left. */
+export const LANDING_WORLD_SESSION_KEY = 'tinct:lab-landing-world'
+
+/** A stored or supplied world id, or null when it is not one of ours. */
+export function landingWorldFrom(value) {
+  return typeof value === 'string' && LANDING_WORLDS.includes(value) ? value : null
+}
+
+/**
+ * Which world the landing is showing right now. The three layers crossfade
+ * on one 42s animation, so the one on screen is simply the most opaque;
+ * reading the opacities back beats recomputing the animation's phase,
+ * because it stays true if the timing is ever retuned.
+ *
+ * `layers` are `{ world, opacity }`. Ties keep the earlier layer, which is
+ * the one painted underneath.
+ */
+export function mostVisibleWorld(layers) {
+  let best = null
+  let bestOpacity = -1
+  for (const layer of Array.isArray(layers) ? layers : []) {
+    const world = landingWorldFrom(layer?.world)
+    if (!world) continue
+    const opacity = Number.isFinite(layer.opacity) ? layer.opacity : 0
+    if (opacity > bestOpacity + 1e-6) {
+      best = world
+      bestOpacity = opacity
+    }
   }
-}
-
-export function labProfileForWidth(width) {
-  return Number.isFinite(width) && width <= LAB_PHONE_PROFILE_MAX_WIDTH ? 'phone' : 'desktop'
-}
-
-/**
- * Which palette the library wears: `dark` (the locked navy) for the dark
- * theme, `book` (the reader's book theme paper) and `light` (the reader's
- * light paper) for those themes, and `system` following prefers-color-scheme.
- */
-export function libraryPaletteFor(theme, systemDark = false) {
-  if (theme === 'dark') return 'dark'
-  if (theme === 'book') return 'book'
-  if (theme === 'light') return 'light'
-  return systemDark ? 'dark' : 'light'
-}
-
-export function libraryPaletteFromPrefs(raw, profile, systemDark) {
-  return libraryPaletteFor(labThemeFromPrefs(raw, profile), systemDark)
+  return best
 }
 
 // -------------------------------------------------------------------- books
@@ -291,18 +287,23 @@ export function searchPlaceholder(catalogue) {
 
 /**
  * What the library parks when it is left (a book opened from search, the
- * reader, a link): the scroll position from before the search began, the
- * shelf selection, the open house, and whether the search must be cleared on
- * return. Back restores exactly this instead of a stale results view.
+ * reader, a link): the scroll position, the shelf selection, the open house,
+ * the live search query, and the book that was opened. Back restores exactly
+ * this — including the search results the reader was looking at, scrolled to
+ * the book they came from.
+ *
+ * Before 2026-09-07 a snapshot taken during a search threw the query away and
+ * rewound to the pre-search scroll position, so one Back press undid two
+ * steps: the book page AND the search. That is the "back goes back twice" bug.
  */
 export function librarySnapshot(input) {
   const query = typeof input.query === 'string' ? input.query.trim() : ''
-  const preSearchScrollY = Number.isFinite(input.preSearchScrollY) ? input.preSearchScrollY : null
   return {
-    scrollY: Math.max(0, Math.round(query && preSearchScrollY !== null ? preSearchScrollY : (Number.isFinite(input.scrollY) ? input.scrollY : 0))),
+    scrollY: Math.max(0, Math.round(Number.isFinite(input.scrollY) ? input.scrollY : 0)),
     shelfIndex: Number.isInteger(input.shelfIndex) && input.shelfIndex >= 0 ? input.shelfIndex : 0,
     expandedHouseId: typeof input.expandedHouseId === 'string' && input.expandedHouseId ? input.expandedHouseId : null,
-    clearSearch: Boolean(query),
+    query,
+    bookId: typeof input.bookId === 'string' && input.bookId ? input.bookId : null,
   }
 }
 
@@ -315,10 +316,101 @@ export function parseLibrarySnapshot(raw) {
       scrollY: parsed.scrollY,
       shelfIndex: parsed.shelfIndex,
       expandedHouseId: parsed.expandedHouseId,
-      query: parsed.clearSearch === true ? 'x' : '',
-      preSearchScrollY: parsed.scrollY,
+      query: parsed.query,
+      bookId: parsed.bookId,
     })
   } catch {
     return null
   }
+}
+
+// ------------------------------------------------------------ reading time
+
+/** The stated default when nothing has been learned about this reader. */
+export const DEFAULT_WORDS_PER_MINUTE = 250
+
+/**
+ * Minutes to read `wordCount` words at `wordsPerMinute`. Null when the book
+ * has no word count — the book page then says nothing rather than guessing.
+ */
+export function readingMinutes(wordCount, wordsPerMinute = DEFAULT_WORDS_PER_MINUTE) {
+  const words = Number.isFinite(wordCount) && wordCount > 0 ? wordCount : null
+  const wpm = Number.isFinite(wordsPerMinute) && wordsPerMinute > 0 ? wordsPerMinute : DEFAULT_WORDS_PER_MINUTE
+  if (words === null) return null
+  return Math.max(1, Math.round(words / wpm))
+}
+
+/** "40 min", "6 hr", "12 hr 30 min" — the shape the book page's stat pill wears. */
+export function formatReadingTime(minutes) {
+  if (!Number.isFinite(minutes) || minutes <= 0) return null
+  const whole = Math.round(minutes)
+  if (whole < 60) return `${whole} min`
+  const hours = Math.floor(whole / 60)
+  const rest = whole % 60
+  if (hours >= 10 || rest === 0) return `${hours} hr`
+  return `${hours} hr ${rest} min`
+}
+
+/**
+ * A reader's own words-per-minute, when the reader has one, else null. The
+ * reader's speed model (src/hooks/useReadingSpeed.ts) stores per book under
+ * `tinct:reading-speed:{bookId}`; a learned entry carries enough sampled time
+ * to be worth stating. Values outside 80–1200 wpm are noise, not a reader.
+ */
+export function readerWordsPerMinute(records) {
+  const samples = (Array.isArray(records) ? records : []).map(record => {
+    if (!record || typeof record !== 'object') return null
+    const words = Number(record.totalWordsRead)
+    const seconds = Number(record.totalSecondsSpent)
+    if (!Number.isFinite(words) || !Number.isFinite(seconds) || seconds < 120 || words < 500) return null
+    const wpm = (words / seconds) * 60
+    return wpm >= 80 && wpm <= 1200 ? wpm : null
+  }).filter(value => value !== null)
+  if (!samples.length) return null
+  return Math.round(samples.reduce((total, value) => total + value, 0) / samples.length)
+}
+
+/**
+ * The book page's reading-time line. When the reader has a measured speed the
+ * copy says so, so the number is never mistaken for a claim about them.
+ */
+export function readingTimeLine(wordCount, readerWpm = null) {
+  const measured = Number.isFinite(readerWpm) && readerWpm > 0
+  const wpm = measured ? readerWpm : DEFAULT_WORDS_PER_MINUTE
+  const label = formatReadingTime(readingMinutes(wordCount, wpm))
+  if (!label) return null
+  return {
+    value: label,
+    wordsPerMinute: Math.round(wpm),
+    measured,
+    note: measured ? `at your ${Math.round(wpm)} words a minute` : `at ${DEFAULT_WORDS_PER_MINUTE} words a minute`,
+  }
+}
+
+// --------------------------------------------------------- centred shelf
+
+/**
+ * Which shelf item is the focused one: the item whose centre is nearest the
+ * centre of the scroller. The IntersectionObserver in catalogue-runtime.js
+ * does this natively while a finger is on the row; this pure version is what
+ * the tests assert and what the runtime falls back to when the observer is
+ * unavailable.
+ *
+ * `items` are `{ left, width }` in the scroller's content coordinates.
+ */
+export function centredShelfIndex(items, scrollLeft, clientWidth) {
+  if (!Array.isArray(items) || !items.length) return 0
+  const centre = (Number.isFinite(scrollLeft) ? scrollLeft : 0) + (Number.isFinite(clientWidth) ? clientWidth : 0) / 2
+  let best = 0
+  let bestDistance = Infinity
+  items.forEach((item, index) => {
+    const left = Number.isFinite(item?.left) ? item.left : 0
+    const width = Number.isFinite(item?.width) ? item.width : 0
+    const distance = Math.abs(left + width / 2 - centre)
+    if (distance < bestDistance - 0.5) {
+      bestDistance = distance
+      best = index
+    }
+  })
+  return best
 }

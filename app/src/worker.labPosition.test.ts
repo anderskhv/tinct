@@ -35,6 +35,7 @@ function romansState(): LabPositionState {
       },
     },
     finished: {},
+    hidden: {},
     lastSettledBookId: 'romans',
     lastSettledAt: 50_000,
     updatedAt: 50_000,
@@ -201,6 +202,7 @@ describe('lab-position route', () => {
     const get = await handleLabPosition(new Request('https://tinct.app/api/lab-position', { method: 'GET' }), env, verify)
     expect((await get.json() as LabPositionState).finished).toEqual({ bible: [746, 780, 781], odyssey: [1] })
   })
+
   it('a device that never saw the stored resume cannot demote it to its boot fallback', async () => {
     // The 2026-09-07 incident. The account's row resumes Jeremiah 38. A
     // device whose local record was wiped (sign-out) paints the Genesis 1
@@ -258,5 +260,21 @@ describe('lab-position route', () => {
     expect((await stored.json() as LabPositionState).owner).toBe(userId)
     const got = await handleLabPosition(new Request('https://tinct.app/api/lab-position'), env, verify)
     expect((await got.json() as LabPositionState).owner).toBe(userId)
+  })
+
+  it('PUT carries "off the Reading-now list" between devices, newest hide per book', async () => {
+    const kv = memoryKv()
+    const env = { RATE_LIMIT: kv as unknown as KVNamespace }
+    const verify = async () => ({ id: userId, email: 'reader@example.com' })
+    const put = (body: unknown) => handleLabPosition(
+      new Request('https://tinct.app/api/lab-position', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }),
+      env,
+      verify,
+    )
+    await put({ ...romansState(), hidden: { odyssey: 5_000 } })
+    const second = await put({ ...romansState(), updatedAt: 1_000, deviceId: 'tablet', hidden: { odyssey: 2_000, bible: 9_000 } })
+    expect((await second.json() as LabPositionState).hidden).toEqual({ odyssey: 5_000, bible: 9_000 })
+    const get = await handleLabPosition(new Request('https://tinct.app/api/lab-position', { method: 'GET' }), env, verify)
+    expect((await get.json() as LabPositionState).hidden).toEqual({ odyssey: 5_000, bible: 9_000 })
   })
 })

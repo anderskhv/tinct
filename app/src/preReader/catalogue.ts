@@ -32,21 +32,21 @@ export interface PreReaderCoverArt {
   srcSet: string
 }
 
-/** Pilot v2 covers under public/covers/v2 (the ten titles that have art). */
-export const LAB_COVER_ART_BOOK_IDS: readonly string[] = [
-  'bible',
-  'odyssey',
-  'the-republic',
-  'pride-and-prejudice',
-  'hamlet',
-  'the-histories',
-  'the-art-of-war',
-  'frankenstein',
-  'meditations',
-  'frederick-douglass',
-]
+/**
+ * Cover art under public/covers/v2: the whole published collection. Every
+ * registered book ships a 540×810 WebP named after its registry id, so the
+ * list is derived from BOOKS rather than hand-maintained — a new book without
+ * art fails the asset test in labCoverArt.test.ts instead of silently falling
+ * back to the typographic placeholder.
+ */
+export const LAB_COVER_ART_BOOK_IDS: readonly string[] = BOOKS.map(book => book.id)
 
-/** Covers with a 2× variant (under ~150 KB each); the rest ship at 1× only. */
+/**
+ * Covers with a 1080×1620 2× variant. The v2 masters are 1024×1536, so a 2×
+ * derivative is an upscale with no extra detail; it exists only for the pilot
+ * titles that shipped one. Everything else serves the 540×810 asset, which
+ * already covers the largest cover slot (220 CSS px) at 2× device pixels.
+ */
 export const LAB_COVER_ART_2X_BOOK_IDS: readonly string[] = [
   'odyssey',
   'the-republic',

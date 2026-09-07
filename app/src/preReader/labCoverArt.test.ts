@@ -1,6 +1,7 @@
 import { existsSync, statSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { BOOKS } from '../data/bookRegistry'
 import {
   LAB_COVER_ART_2X_BOOK_IDS,
   LAB_COVER_ART_BOOK_IDS,
@@ -13,7 +14,8 @@ import {
 const publicRoot = resolve(process.cwd(), 'public')
 
 describe('lab cover art assets', () => {
-  it('ships every declared pilot cover at 1x, and 2x only where declared, each under the size budget', () => {
+  it('ships a cover for every published book at 1x, and 2x only where declared, each under the size budget', () => {
+    expect(LAB_COVER_ART_BOOK_IDS).toEqual(BOOKS.map(book => book.id))
     for (const id of LAB_COVER_ART_BOOK_IDS) {
       const oneX = resolve(publicRoot, 'covers/v2', `${id}.webp`)
       expect(existsSync(oneX), oneX).toBe(true)
@@ -24,7 +26,9 @@ describe('lab cover art assets', () => {
     }
   })
 
-  it('attaches art only to the pilot titles and gives every book a one-line blurb', () => {
+  it('attaches art to every published book and gives every book a one-line blurb', () => {
+    const withoutArt = PRE_READER_CATALOGUE.books.filter(book => book.art === null).map(book => book.id)
+    expect(withoutArt).toEqual([])
     for (const book of PRE_READER_CATALOGUE.books) {
       expect(book.art === null).toBe(!LAB_COVER_ART_BOOK_IDS.includes(book.id))
       if (book.art) {

@@ -121,9 +121,13 @@
       root.querySelector('[data-book-detail-author]').textContent=book.author;
       root.querySelector('[data-book-detail-title]').textContent=book.title;
       root.querySelector('[data-book-detail-summary]').textContent=book.summary;
-      root.querySelector('[data-book-pages]').textContent=book.pages;
-      root.querySelector('[data-book-read-time]').textContent=book.readTime;
-      root.querySelector('[data-book-listen-time]').textContent=book.listenTime;
+      // The book page's stat pills are catalogue-driven (catalogue-runtime.js
+      // renders them into [data-book-stats]); the demo's hardcoded lengths no
+      // longer have a home. Written only if a legacy slot is still present.
+      const legacyStat=(selector,value)=>{const node=root.querySelector(selector);if(node)node.textContent=value};
+      legacyStat('[data-book-pages]',book.pages);
+      legacyStat('[data-book-read-time]',book.readTime);
+      legacyStat('[data-book-listen-time]',book.listenTime);
       root.querySelector('[data-preface-title]').textContent=book.title;
       root.querySelector('[data-preface-answer]').value='';
       root.querySelector('[data-preface-relevance]').textContent=prefaces[key].relevance;
