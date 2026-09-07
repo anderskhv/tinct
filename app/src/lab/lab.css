@@ -4935,3 +4935,510 @@
   transform: none;
   pointer-events: auto;
 }
+
+/* ── The V2 sheet ────────────────────────────────────────────────────────
+   Reading settings, Advanced settings, the font picker and Account: one box,
+   four layers, one height. Switching layer must never resize the window, so
+   the height is a constant — capped against a short viewport, but capped
+   identically for all four, so they stay the same height as each other. */
+
+.lab[data-chrome-version="v2"] {
+  --lab-v2-sheet-height: min(452px, 88vh);
+  --lab-v2-sheet-fill: 0.46;
+  --lab-v2-sheet-fill-top: 0.55;
+  --lab-v2-well: rgba(251, 248, 242, 0.42);
+  --lab-v2-track: rgba(32, 26, 19, 0.14);
+  --lab-v2-track-fill: rgba(32, 26, 19, 0.45);
+  --lab-v2-knob: #fbf8f1;
+  --lab-v2-quiet: #675b4b;
+  --lab-v2-faint: #81796b;
+}
+
+.lab[data-chrome-version="v2"].is-night {
+  --lab-v2-sheet-fill: 0.52;
+  --lab-v2-sheet-fill-top: 0.61;
+  --lab-v2-well: rgba(58, 52, 44, 0.42);
+  --lab-v2-track: rgba(250, 246, 238, 0.16);
+  --lab-v2-track-fill: rgba(250, 246, 238, 0.5);
+  --lab-v2-knob: #d9d2c6;
+  --lab-v2-quiet: #b8b0a4;
+  --lab-v2-faint: #9c948a;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 340;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--lab-v2-sheet-height);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  color: var(--lab-ink);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  box-shadow: 0 -12px 36px rgba(20, 15, 8, 0.2);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 12px 14px 8px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head.is-titled {
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head.is-centred .lab-v2-title {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-head.is-titled .lab-v2-title {
+  font-size: 19px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-dismiss,
+.lab[data-chrome-version="v2"] .lab-v2-confirm,
+.lab[data-chrome-version="v2"] .lab-v2-back {
+  flex: 0 0 auto;
+  min-width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-dismiss {
+  background: var(--lab-v2-disc-open);
+  color: var(--lab-v2-quiet);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-confirm {
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  font-size: 14px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-back {
+  padding: 0 10px;
+  background: var(--lab-v2-disc-open);
+  color: var(--lab-v2-quiet);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 14px 16px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-sheet[data-layer="reading"] .lab-v2-sheet-body {
+  padding: 0 16px 14px;
+}
+
+/* Theme cards. Book, Light and Dark — the reader picks a page, not a system. */
+.lab[data-chrome-version="v2"] .lab-v2-themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 2px 0 12px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme-face {
+  width: 100%;
+  height: 60px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  box-shadow: inset 0 0 0 1px rgba(32, 26, 19, 0.12);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-book .lab-v2-theme-face { background: #d8c8a7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-light .lab-v2-theme-face { background: #f4f0e7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-dark .lab-v2-theme-face { background: #2e2a24; color: #faf6ee; }
+
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-active .lab-v2-theme-face {
+  outline: 2px solid var(--lab-ink);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-theme-label {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-size {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  box-shadow: inset 0 -1px 0 var(--lab-v2-hairline);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-size-small,
+.lab[data-chrome-version="v2"] .lab-v2-size-large {
+  flex: 0 0 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  color: var(--lab-v2-quiet);
+}
+.lab[data-chrome-version="v2"] .lab-v2-size-small { font-size: 14px; }
+.lab[data-chrome-version="v2"] .lab-v2-size-large { font-size: 22px; }
+
+/* One slider, everywhere: a hairline track, a fill to the thumb, a plain
+   round thumb. Painted by the UA — nothing here measures anything. */
+.lab[data-chrome-version="v2"] .lab-v2-slider {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-v2-track);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-v2-track);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-v2-track-fill);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lab-v2-knob);
+  box-shadow: 0 1px 4px rgba(20, 15, 8, 0.28);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lab-v2-knob);
+  box-shadow: 0 1px 4px rgba(20, 15, 8, 0.28);
+}
+
+/* Rows. The label on the left, the value right-aligned in mono, a hairline
+   between — the same grammar the menu uses, at the sheet's smaller scale. */
+.lab[data-chrome-version="v2"] .lab-v2-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 46px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row + .lab-v2-row {
+  box-shadow: inset 0 1px 0 var(--lab-v2-hairline);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row.is-step {
+  min-height: 48px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-row-icon svg { display: block; }
+
+.lab[data-chrome-version="v2"] .lab-v2-row-label {
+  flex: 1 1 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-value.is-plain {
+  font-size: 12.5px;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-value-chevron {
+  color: var(--lab-v2-chevron);
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* The select carries the interaction; the value beside it carries the look. */
+.lab[data-chrome-version="v2"] .lab-v2-row-select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-step-value {
+  flex: 0 0 52px;
+  width: 52px;
+  text-align: right;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11.5px;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-rows {
+  padding: 0;
+}
+
+/* Advanced's groups: a small-caps label over a soft well. */
+.lab[data-chrome-version="v2"] .lab-v2-group-label {
+  margin: 12px 0 6px 4px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 9.6px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lab-v2-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-group {
+  padding: 0 14px;
+  border-radius: 14px;
+  background: var(--lab-v2-well);
+  box-shadow: 0 1px 2px rgba(20, 15, 8, 0.08);
+  overflow: hidden;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 22px;
+  padding: 2px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #b9a98d;
+  border-radius: 999px;
+  background: #d8c9ad;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle.is-on {
+  background: var(--lab-accent, #1f4a5c);
+  border-color: var(--lab-accent, #1f4a5c);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle-knob {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ece7db;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-toggle.is-on .lab-v2-toggle-knob {
+  margin-left: auto;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-foot {
+  padding: 12px 0 4px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-pill {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-v2-disc-open);
+  color: inherit;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-pill svg { display: block; }
+
+/* The font picker. Every name in its own face, at reading size. */
+.lab[data-chrome-version="v2"] .lab-v2-row.is-font {
+  min-height: 52px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-font-name {
+  flex: 1 1 auto;
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-check {
+  flex: 0 0 20px;
+  width: 20px;
+  text-align: right;
+  font-size: 15px;
+  color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-check.is-on {
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-note {
+  margin: 8px 4px 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lab-v2-quiet);
+}
+
+/* Account. Today's content, on the sheet the other layers use. */
+.lab[data-chrome-version="v2"] .lab-v2-account-card {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin: 4px 0 2px;
+  border-radius: 14px;
+  background: var(--lab-v2-well);
+  box-shadow: 0 1px 2px rgba(20, 15, 8, 0.08);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-account-card strong {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-account-card span {
+  flex: 0 0 auto;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-year-stats {
+  display: flex;
+  gap: 22px;
+  padding-bottom: 6px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-year-stats span {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-year-stats strong {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  color: var(--lab-ink);
+  margin-right: 4px;
+}

@@ -261,7 +261,14 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-settings'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
-    expect(screen.getByTestId('lab-settings-sheet')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
+  })
+
+  it('opens Account on the same sheet rather than leaving the book', () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-account'))
+    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
   })
 })
 

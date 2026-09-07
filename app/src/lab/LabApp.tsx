@@ -42,6 +42,8 @@ import { useAuth } from '../hooks/useAuth'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu'
+import { LabV2Sheet } from './LabV2Sheet'
+import type { LabV2SheetLayer } from './labV2Sheet'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
 import {
@@ -367,6 +369,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
+  const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
   const [superFirstView, setSuperFirstView] = useState(false)
   const [superHint, setSuperHint] = useState(false)
   const superFirstViewRef = useRef(false)
@@ -1965,7 +1968,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     || phoneAsk
     || chrome === 'talking'
     || gearOpen
-    || (chromeV2 && superMenuOpen)
+    || (chromeV2 && (superMenuOpen || superSheet !== null))
   const canPrevChapter = prevLabChapter(book.chapters, book.chapterNumber) != null
   const canNextChapter = nextLabChapter(book.chapters, book.chapterNumber) != null
   const currentOpeningTitle = book.bookTitle === LAB_COPY.bookTitle
@@ -2882,11 +2885,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
     if (id === 'compare') { handleMobileCompare(); return }
-    if (id === 'settings') { setSettingsSection('reading'); setGearOpen(true); return }
+    if (id === 'settings') { setSuperSheet('reading'); return }
+    if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
-    window.location.assign(id === 'library' ? LAB_LIBRARY_URL : labAccountUrl(signInReturnTo))
-  }, [handleChat, handleMobileCompare, handleTalk, rememberLibraryPlace, signInReturnTo])
+    window.location.assign(LAB_LIBRARY_URL)
+  }, [handleChat, handleMobileCompare, handleTalk, rememberLibraryPlace])
 
   // The first view: 400 ms after the first page has laid out, never on load
   // and never over playing audio. Marked seen the moment it starts, so an
@@ -2998,6 +3002,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         'data-chrome-version': 'v2',
         'data-transport': audioBarActive ? 'open' : 'closed',
         'data-super-menu': superMenuOpen ? 'open' : 'closed',
+        'data-super-sheet': superSheet ?? 'closed',
       } : {})}
       data-voice-history-fixture={voiceHistoryFixture ? 'true' : 'false'}
       data-audio-speed={String(listen.speed)}
@@ -3120,6 +3125,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           compare={mobileCompareEnabled}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
+        />
+      )}
+      {chromeV2 && showPhoneChrome && !frontispieceVisible && (
+        <LabV2Sheet
+          layer={superSheet}
+          onLayer={setSuperSheet}
+          onClose={() => setSuperSheet(null)}
+          prefs={prefs}
+          onPrefs={updatePrefs}
+          editions={bookEditions}
+          returnTo={signInReturnTo}
         />
       )}
       {!frontispieceVisible && secondBookNudge && (
