@@ -21,6 +21,22 @@ describe('Library 2 published reading structures', () => {
     }
   })
 
+  it('says which editions ship as chapter shards, so nothing has to probe for a manifest', () => {
+    for (const book of catalogue.books) {
+      for (const edition of book.editions) expect(typeof edition.chapterShards).toBe('boolean')
+    }
+    const shards = (bookId: string, editionKey: string) =>
+      catalogue.books.find(book => book.id === bookId)!.editions.find(edition => edition.key === editionKey)!.chapterShards
+    // Sharded: the manifest exists and the runtime may fetch it.
+    expect(shards('bible', 'kjv-en')).toBe(true)
+    expect(shards('war-and-peace', 'original-en')).toBe(true)
+    // Whole-book JSON: fetching a manifest here is exactly the 404 we removed.
+    expect(shards('odyssey', 'original-en')).toBe(false)
+    expect(shards('odyssey', 'modern-en')).toBe(false)
+    expect(shards('the-republic', 'original-en')).toBe(false)
+    expect(shards('pride-and-prejudice', 'modern-en')).toBe(false)
+  })
+
   it('uses the real chapter extent instead of a chapter-local page percentage', () => {
     const bible = catalogue.books.find(book => book.id === 'bible')!
     const odyssey = catalogue.books.find(book => book.id === 'odyssey')!

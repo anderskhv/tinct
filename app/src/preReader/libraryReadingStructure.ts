@@ -14,8 +14,24 @@ export interface LibraryReadingStructure {
   chapters: LibraryReadingChapter[]
 }
 
+type SerializedBook = SerializablePreReaderCatalogue['books'][number]
+type SerializedEdition = SerializedBook['editions'][number]
+
+/**
+ * An edition as the browser sees it, plus the one thing only the build knows:
+ * whether this edition is published as chapter shards
+ * (`/data/editions-chapters/{bookId}-{editionKey}/`) or as one whole-book
+ * JSON. Without the flag the runtime had to *probe* for the manifest and take
+ * the 404 as its answer, which meant every library and book-page load fired a
+ * handful of 404s at the reader's console for the books that are not sharded
+ * (odyssey, the-republic, pride-and-prejudice…). The build already reads
+ * these manifests to publish the reading structure, so it can simply say.
+ */
+export type LibraryEditionWithShards = SerializedEdition & { chapterShards: boolean }
+
 export type LibraryCatalogueWithStructure = SerializablePreReaderCatalogue & {
-  books: Array<SerializablePreReaderCatalogue['books'][number] & {
+  books: Array<Omit<SerializedBook, 'editions'> & {
+    editions: LibraryEditionWithShards[]
     readingStructure: LibraryReadingStructure
   }>
 }
@@ -44,8 +60,17 @@ function normalizeChapters(chapters: ChapterLike[]): LibraryReadingChapter[] {
   })
 }
 
+function manifestPathFor(publicDirectory: string, bookId: string, editionKey: string): string {
+  return path.join(publicDirectory, 'data', 'editions-chapters', `${bookId}-${editionKey}`, 'manifest.json')
+}
+
+/** True when this edition ships as chapter shards with a manifest beside them. */
+export function hasChapterShards(publicDirectory: string, bookId: string, editionKey: string): boolean {
+  return fs.existsSync(manifestPathFor(publicDirectory, bookId, editionKey))
+}
+
 function readStructure(publicDirectory: string, bookId: string, editionKey: string): LibraryReadingStructure {
-  const manifestPath = path.join(publicDirectory, 'data', 'editions-chapters', `${bookId}-${editionKey}`, 'manifest.json')
+  const manifestPath = manifestPathFor(publicDirectory, bookId, editionKey)
   const editionPath = path.join(publicDirectory, 'data', 'editions', `${bookId}-${editionKey}.json`)
   const sourcePath = fs.existsSync(manifestPath) ? manifestPath : editionPath
   if (!fs.existsSync(sourcePath)) throw new Error(`No published reading structure for ${bookId}/${editionKey}`)
@@ -70,6 +95,10 @@ export function addLibraryReadingStructures(
       if (!edition) throw new Error(`Published book ${book.id} has no readable non-Danish edition`)
       return {
         ...book,
+        editions: book.editions.map(item => ({
+          ...item,
+          chapterShards: hasChapterShards(publicDirectory, book.id, item.key),
+        })),
         readingStructure: readStructure(publicDirectory, book.id, edition.key),
       }
     }),

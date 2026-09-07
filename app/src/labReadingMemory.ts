@@ -117,7 +117,7 @@ function buildVersion(): string {
 async function loadCatalogue(): Promise<Map<string, CatalogueBook>> {
   if (catalogue) return catalogue
   try {
-    const response = await fetch('/lab/catalogue.json?v=20260905-1')
+    const response = await fetch('/lab/catalogue.json?v=20260907-4')
     if (!response.ok) throw new Error(String(response.status))
     const data = await response.json() as { books?: CatalogueBook[] }
     catalogue = new Map((data.books ?? []).map(book => [book.id, book]))

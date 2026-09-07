@@ -733,7 +733,7 @@ import {
     const token = ++versionSampleRenderToken
     const keys = [...new Set([...root.querySelectorAll('[data-version-sample]')].map(node => node.dataset.versionSample))]
     await Promise.all(keys.map(async key => {
-      const text = await loadEditionSample(book.id, key)
+      const text = await loadEditionSample(book, key)
       if (token !== versionSampleRenderToken || state.selectedBookId !== book.id) return
       root.querySelectorAll(`[data-version-sample="${CSS.escape(key)}"]`).forEach(node => {
         node.textContent = text ? `“${text.length > 150 ? `${text.slice(0, 150).trim()}…` : text}”` : 'Sample unavailable for this edition.'
@@ -809,17 +809,32 @@ import {
     }
   }
 
-  async function loadEditionSample(bookId, editionKey) {
+  /**
+   * Whether this edition is published as chapter shards. The build writes the
+   * flag into the catalogue (src/preReader/libraryReadingStructure.ts), so the
+   * sample never has to probe for a manifest that does not exist — probing was
+   * worth six 404s in the console on every library and book-page load, one per
+   * English edition of the books that ship as one whole-book JSON.
+   */
+  function hasChapterShards(book, editionKey) {
+    return book?.editions?.find(edition => edition.key === editionKey)?.chapterShards === true
+  }
+
+  async function loadEditionSample(book, editionKey) {
+    const bookId = book.id
     const cacheKey = `${bookId}:${editionKey}`
     if (editionSampleCache.has(cacheKey)) return editionSampleCache.get(cacheKey)
+    const sharded = hasChapterShards(book, editionKey)
     const request = (async () => {
-      const manifestUrl = `/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/manifest.json?v=20260904-1`
-      const manifest = await fetchJsonIfAvailable(manifestUrl)
-      const chapterPath = manifest?.chapters?.find(chapter => chapter?.path)?.path
-      if (chapterPath) {
-        const chapter = await fetchJsonIfAvailable(`/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/${encodeURIComponent(chapterPath)}?v=20260904-1`)
-        const chapterSample = firstReadableParagraph(chapter)
-        if (chapterSample) return chapterSample
+      if (sharded) {
+        const manifestUrl = `/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/manifest.json?v=20260904-1`
+        const manifest = await fetchJsonIfAvailable(manifestUrl)
+        const chapterPath = manifest?.chapters?.find(chapter => chapter?.path)?.path
+        if (chapterPath) {
+          const chapter = await fetchJsonIfAvailable(`/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/${encodeURIComponent(chapterPath)}?v=20260904-1`)
+          const chapterSample = firstReadableParagraph(chapter)
+          if (chapterSample) return chapterSample
+        }
       }
       const edition = await fetchJsonIfAvailable(`/data/editions/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}.json?v=20260904-1`)
       return firstReadableParagraph(edition)
@@ -841,7 +856,7 @@ import {
     sample.classList.toggle('is-comparison', Boolean(compare))
     heading.textContent = compare ? `${primary.label} and ${compare.label}` : primary?.label || 'Selected edition'
     body.innerHTML = '<p class="tov5-edition-sample-loading">Loading from the published text…</p>'
-    const texts = await Promise.all(choices.map(edition => loadEditionSample(book.id, edition.key)))
+    const texts = await Promise.all(choices.map(edition => loadEditionSample(book, edition.key)))
     if (token !== editionSampleRenderToken) return
     sample.setAttribute('aria-busy', 'false')
     body.innerHTML = choices.map((edition, index) => `<article data-edition-sample-text="${escapeHtml(edition.key)}"><small>${escapeHtml(editionChoiceLabel(edition))}</small><strong>${escapeHtml(edition.label)}</strong><p>${texts[index] ? escapeHtml(texts[index]) : 'Sample unavailable for this published edition.'}</p></article>`).join('')
@@ -1193,7 +1208,7 @@ import {
   // The library restores its own scroll position on the way back.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-  fetch('/lab/catalogue.json?v=20260905-1').then(response => {
+  fetch('/lab/catalogue.json?v=20260907-4').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {
