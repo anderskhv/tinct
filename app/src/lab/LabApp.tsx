@@ -3152,7 +3152,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareActive && !chapterCoverTitle ? ' has-edition-name' : ''}`}
+          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareActive && !chapterCoverTitle ? ' has-edition-name' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
@@ -3287,7 +3287,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
           />
         )}
-        {!showPhoneChrome && !frontispieceVisible && (
+        {/* V2 has no rail. Play is in the top bar and Compare, Chat and Talk
+            are in the menu, which is what the menu is for — a rail beside it
+            would be a second copy of the same four things. */}
+        {!showPhoneChrome && !frontispieceVisible && !chromeV2 && (
           <nav className="lab-desktop-action-rail" data-testid="lab-desktop-action-rail" aria-label="Reader actions">
             <button
               type="button"

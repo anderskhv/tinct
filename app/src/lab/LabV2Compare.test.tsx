@@ -42,9 +42,9 @@ function renderPhone(props: Record<string, unknown> = {}) {
   )
 }
 
-function swipe(node: Element, dx: number, dy: number) {
-  fireEvent.pointerDown(node, { pointerId: 1, clientX: 180, clientY: 400, timeStamp: 0 })
-  fireEvent.pointerUp(node, { pointerId: 1, clientX: 180 + dx, clientY: 400 + dy, timeStamp: 220 })
+function swipe(node: Element, dx: number, dy: number, pointerType = 'touch') {
+  fireEvent.pointerDown(node, { pointerId: 1, pointerType, clientX: 180, clientY: 400, timeStamp: 0 })
+  fireEvent.pointerUp(node, { pointerId: 1, pointerType, clientX: 180 + dx, clientY: 400 + dy, timeStamp: 220 })
 }
 
 describe('the compare gesture', () => {
@@ -77,6 +77,16 @@ describe('the compare gesture', () => {
     swipe(screen.getByTestId('lab-book'), 0, 110)
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
     expect(screen.getByTestId('lab-book').textContent).toContain('Old wording')
+  })
+
+  it('is a finger, not a mouse: a drag down the page is still a selection', () => {
+    withCompare()
+    renderPhone()
+    swipe(screen.getByTestId('lab-book'), 0, -110, 'mouse')
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    // The pointer's way into Compare is the menu row, which is there.
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.getByTestId('lab-super-row-compare')).toBeTruthy()
   })
 
   it('does nothing without a compare edition, and offers no Compare anywhere', () => {

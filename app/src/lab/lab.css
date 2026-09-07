@@ -5443,6 +5443,24 @@
   margin-right: 4px;
 }
 
+/* The vertical swipe has to reach the reader before the browser claims it as
+   a pan: a touch the UA treats as scrolling ends in pointercancel, and the
+   swap never sees it. The page is paginated to fit, so there is nothing to
+   pan — and pinch-zoom is left alone, because that one is the reader's.
+
+   It has to reach the words, not just the article: the browser intersects
+   touch-action from the element the finger actually lands on upward, and the
+   finger lands on a word. Verified in Chromium — on the article alone the
+   touch still ends in pointercancel.
+
+   Only the flagged phone reader, and only when a compare edition is on. */
+.lab[data-chrome-version="v2"].is-phone .lab-page-wrap.can-swap .lab-passage,
+.lab[data-chrome-version="v2"].is-phone .lab-page-wrap.can-swap .lab-passage *,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap.can-swap .lab-passage,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap.can-swap .lab-passage * {
+  touch-action: pinch-zoom;
+}
+
 /* ── Compare ─────────────────────────────────────────────────────────────
    A whole-page swap on a vertical swipe, and two quiet labels: the edition's
    name over the page, and "Compare version" beside the progress. The chrome

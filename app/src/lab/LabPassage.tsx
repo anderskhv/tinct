@@ -393,6 +393,7 @@ export function LabPassage({
       startedAt: event.timeStamp,
       selecting: false,
       touch: touchSelection,
+      pointerType: event.pointerType,
     }
     dragRef.current = drag
     if (touchSelection && selectionPlace) {
@@ -459,7 +460,15 @@ export function LabPassage({
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
     // Compare's whole-page swap is the vertical swipe, and it is checked
     // first: the two gestures are on different axes and must never both fire.
-    if (onCompareSwap && !selectingRange && !drag.selecting && labSwipeCompareSwap(deltaX, deltaY)) {
+    // A swipe is a finger. A mouse dragged down the page is selecting text,
+    // and always has been; the menu's Compare row is the pointer's way in.
+    if (
+      onCompareSwap
+      && drag.pointerType !== 'mouse'
+      && !selectingRange
+      && !drag.selecting
+      && labSwipeCompareSwap(deltaX, deltaY)
+    ) {
       dragRef.current = null
       setLocalSelecting(null)
       onCompareSwap()

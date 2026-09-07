@@ -281,6 +281,8 @@ describe('the desktop', () => {
     // Desktop chrome does not hide, so the two controls are never gated on a
     // reveal the desktop reader has no way to ask for.
     expect(screen.queryByTestId('lab-gear')).toBeNull()
+    // And no rail: Play is in the top bar, the rest is in the menu.
+    expect(screen.queryByTestId('lab-desktop-action-rail')).toBeNull()
 
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.getByTestId('lab-super-menu')).toBeTruthy()
@@ -292,6 +294,7 @@ describe('the desktop', () => {
     render(<LabApp pathname="/lab/desktop" search="" source={fallbackLabSource()} authToken={null} />)
     expect(root().getAttribute('data-chrome-version')).toBeNull()
     expect(screen.getByTestId('lab-gear')).toBeTruthy()
+    expect(screen.getByTestId('lab-desktop-action-rail')).toBeTruthy()
     expect(screen.queryByTestId('lab-super')).toBeNull()
   })
 })
