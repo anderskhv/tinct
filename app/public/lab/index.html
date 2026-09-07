@@ -1229,7 +1229,12 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      any more (the caption under the row names the focused book), and the
      focused book is the one scrolled to the middle. */
   #tinct-onboarding-worlds-v5 .lib-popular { gap:10px; }
-  #tinct-onboarding-worlds-v5 .lib-shelf { gap:16px; padding-bottom:6px; scroll-snap-type:x mandatory; scroll-padding-left:50%; }
+  /* scroll-padding is where a snapped cover comes to rest. Without a right
+     padding the end-snapped last cover parks against the viewport edge and
+     the row can still be nudged the width of the page margin; without a left
+     one on desktop, "start" means the container's edge and the row jumps the
+     margin's width the moment it overflows, clipping the first cover. */
+  #tinct-onboarding-worlds-v5 .lib-shelf { gap:16px; padding-bottom:6px; scroll-snap-type:x mandatory; scroll-padding-left:50%; scroll-padding-right:var(--lib-pad-r); }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:center; scroll-snap-stop:always; }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item .lib-cover-copy { display:none; }
   /* The row can centre its FIRST cover — on a phone, where the row always
@@ -1245,7 +1250,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-shelf::before { content:''; flex:0 0 calc(50% - var(--lib-shelf-w) / 2 - 16px); }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item:last-child { scroll-snap-align:end; }
   @media (min-width:900px) {
-    #tinct-onboarding-worlds-v5 .lib-shelf { scroll-padding-left:0; }
+    #tinct-onboarding-worlds-v5 .lib-shelf { scroll-padding-left:var(--lib-pad-l); }
     #tinct-onboarding-worlds-v5 .lib-shelf::before { display:none; }
     #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:start; }
     #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item:last-child { scroll-snap-align:end; }
@@ -1260,7 +1265,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      belongs to the book in the middle. */
   #tinct-onboarding-worlds-v5 .lib-recap .lib-eyebrow { color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-reading-now { gap:10px; }
-  #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-right:var(--lib-pad-r); }
   #tinct-onboarding-worlds-v5 .lib-now-shelf::-webkit-scrollbar { display:none; }
   /* A leading spacer only: the first cover can come to the middle, the last
      one ends the track at the page's right margin. A trailing spacer let the
