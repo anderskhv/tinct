@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, noarchive">
-  <meta name="theme-color" content="#0b2034">
+  <meta name="theme-color" content="#071723">
   <title>Tinct</title>
   <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
@@ -26,7 +26,7 @@
     body { min-width: 320px; min-height: 100%; margin: 0; padding: 0; background: #071723; }
     button, input { -webkit-tap-highlight-color: transparent; }
   </style>
-  <script src="/lab/library-boot.js?v=20260907-1"></script>
+  <script src="/lab/library-boot.js?v=20260907-3"></script>
   <style>
     /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
        from the first frame. catalogue-runtime.js drops the attribute once it
@@ -48,7 +48,7 @@
     #tinct-onboarding-worlds-v5 .lib-boot-skel .lib-lede.lib-boot-bar { width:40%; }
     #tinct-onboarding-worlds-v5 .lib-boot-skel .lib-cta { opacity:.6; }
   </style>
-  <script src="/lab/icons.js?v=20260903-2" defer></script>
+  <script src="/lab/icons.js?v=20260907-1" defer></script>
 </head>
 <body>
 <div id="tinct-onboarding-worlds-v5">
@@ -132,7 +132,7 @@
 
     <section class="tov5-view" data-view-panel="library">
       <div class="lib" data-library data-library-mode="new">
-        <div class="lib-atmos" aria-hidden="true"><svg viewBox="0 0 1440 1440" preserveAspectRatio="xMaxYMin slice"><circle cx="1480" cy="-120" r="40" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="118" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="196" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="274" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="352" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="430" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="508" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="586" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="664" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="742" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="820" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="898" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="976" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1054" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1132" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1210" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1288" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1366" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1444" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1522" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1600" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/><circle cx="1480" cy="-120" r="1678" fill="none" stroke="rgba(243,236,220,0.045)" stroke-width="1"/></svg><div class="lib-glow"></div><div class="lib-band"></div></div>
+        <div class="lib-atmos" data-lib-atmos aria-hidden="true"><div class="lib-world"><span class="tov5-simple-world odyssey"></span><span class="tov5-simple-world pride"></span><span class="tov5-simple-world frankenstein"></span></div><div class="lib-world-scrim"></div></div>
         <div class="lib-content">
           <header class="lib-hdr">
             <button type="button" class="lib-wm" data-library-home aria-label="Tinct — back to the start">Tinct.</button>
@@ -160,12 +160,13 @@
       <div class="tov5-zoom tov5-book-detail-zoom">
         <img class="tov5-secondary-world-art" src="" data-book-detail-world-art alt="" aria-hidden="true">
         <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
-        <header class="tov5-book-detail-top"><button type="button" data-view="library"><i data-lucide="arrow-left" aria-hidden="true"></i> Library</button><b>Tinct.</b><span></span></header>
+        <header class="tov5-book-detail-top"><button type="button" data-library-back><i data-lucide="arrow-left" aria-hidden="true"></i> Library</button><b>Tinct.</b><span></span></header>
         <main class="tov5-book-detail-body">
           <div class="tov5-book-identity"><img class="tov5-book-detail-cover" src="" data-book-detail-cover alt="The Odyssey"><section class="tov5-book-detail-copy"><small data-book-detail-author>Homer</small><h2 data-book-detail-title>The Odyssey</h2></section></div>
-          <div class="tov5-book-length"><span><i data-lucide="book-open" aria-hidden="true"></i><b data-book-pages>541 pages</b><small>Print length</small></span><span><i data-lucide="glasses" aria-hidden="true"></i><b data-book-read-time>12 hours</b><small>Reading</small></span><span><i data-lucide="headphones" aria-hidden="true"></i><b data-book-listen-time>14 hours</b><small>Listening</small></span></div>
+          <div class="tov5-book-length" data-book-stats aria-label="About this book"></div>
           <p class="tov5-book-description" data-book-detail-summary>After ten years of war, Odysseus begins the long journey home to Ithaca—while his son searches for news and his household is overrun by rivals.</p>
-          <button type="button" class="tov5-choose-edition" data-view="edition">Start reading <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <div class="tov5-versions" data-book-versions></div>
+          <button type="button" class="tov5-choose-edition" data-begin-reading>Start reading <i data-lucide="arrow-right" aria-hidden="true"></i></button>
         </main>
       </div>
     </section>
@@ -267,8 +268,8 @@
   #tinct-onboarding-worlds-v5 .tov5-picker button[aria-pressed="true"] { color:var(--primary-foreground); background:var(--primary); border-color:var(--primary); opacity:1; }
   #tinct-onboarding-worlds-v5 .tov5-view { display:none; width:100%; justify-content:center; }
   #tinct-onboarding-worlds-v5 .tov5-view.is-current { display:flex; }
-  #tinct-onboarding-worlds-v5 .tov5-simple-landing { position:relative; isolation:isolate; display:flex; flex-direction:column; width:100%; min-height:100dvh; overflow:hidden; color:#f4eddf; background:#071723; }
-  #tinct-onboarding-worlds-v5 .tov5-simple-worlds { position:absolute; inset:-2%; z-index:-4; overflow:hidden; background:#071723; }
+  #tinct-onboarding-worlds-v5 .tov5-simple-landing { position:relative; isolation:isolate; display:flex; flex-direction:column; width:100%; min-height:100dvh; overflow:hidden; color:var(--lib-cream,#f4eddf); background:var(--lib-ground,#071723); }
+  #tinct-onboarding-worlds-v5 .tov5-simple-worlds { position:absolute; inset:-2%; z-index:-4; overflow:hidden; background:var(--lib-ground,#071723); }
   #tinct-onboarding-worlds-v5 .tov5-simple-world { position:absolute; inset:-3%; opacity:0; transform:scale(1.01); will-change:opacity,transform; animation:tov5-simple-dissolve 42s ease-in-out infinite,tov5-simple-drift 14s ease-in-out infinite alternate; }
   #tinct-onboarding-worlds-v5 .tov5-simple-world:before,#tinct-onboarding-worlds-v5 .tov5-simple-world:after { content:""; position:absolute; inset:0; }
   #tinct-onboarding-worlds-v5 .tov5-simple-world.odyssey { opacity:1; background:radial-gradient(ellipse at 76% 28%,rgba(242,194,121,.42),transparent 16%),radial-gradient(ellipse at 73% 38%,rgba(225,166,91,.18),transparent 31%),linear-gradient(167deg,transparent 0 59%,rgba(176,146,100,.14) 59.4% 60%,transparent 60.5%),linear-gradient(180deg,#132c3a 0%,#16485b 46%,#0d3444 47%,#082632 100%); animation-delay:0s; }
@@ -396,7 +397,7 @@
   #tinct-onboarding-worlds-v5 .tov5-frame-dots button[aria-pressed="true"] { width:26px; background:var(--tov5-pill-active); opacity:1; }
   #tinct-onboarding-worlds-v5 .tov5-footer { position:absolute; z-index:5; left:0; right:0; bottom:9px; padding:0 23px; background:none; }
   #tinct-onboarding-worlds-v5 .tov5-footer>button { width:100%; min-height:49px; border:0; border-radius:16px; color:#24211c; background:var(--tov5-button); font-weight:500; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.16); }
-  #tinct-onboarding-worlds-v5 .tov5-zoom { --tov5-world-accent:#f2c16e; --tov5-world-ink:#174f6d; position:relative; width:min(680px,calc(100vw - 24px)); overflow:hidden; border:1px solid rgba(255,255,255,.28); border-radius:20px; color:#28241e; background:#0b2034; box-shadow:0 18px 48px rgba(24,20,15,.24); }
+  #tinct-onboarding-worlds-v5 .tov5-zoom { --tov5-world-accent:#f2c16e; --tov5-world-ink:#174f6d; position:relative; width:min(680px,calc(100vw - 24px)); overflow:hidden; border:1px solid rgba(255,255,255,.28); border-radius:20px; color:#28241e; background:var(--lib-ground,#071723); box-shadow:0 18px 48px rgba(24,20,15,.24); }
   #tinct-onboarding-worlds-v5 .tov5-zoom[data-book-world="meditations"] { --tov5-world-accent:#f0bd66; --tov5-world-ink:#7a4d24; }
   #tinct-onboarding-worlds-v5 .tov5-zoom[data-book-world="frankenstein"] { --tov5-world-accent:#b9e5c8; --tov5-world-ink:#315b55; }
   #tinct-onboarding-worlds-v5 .tov5-zoom[data-book-world="pride"] { --tov5-world-accent:#f3c0b6; --tov5-world-ink:#7d4654; }
@@ -899,21 +900,28 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
 </style>
 
 <style id="lab-library-locked">
-  /* Locked /lab library (2026-09): the landing page's language — navy ground,
-     cream type, amber eyebrow, one warm glow, concentric rings. Playfair for
+  /* Locked /lab library (2026-09): the landing page's language — its ground,
+     its cream type, its rules, its world behind everything. Playfair for
      headlines, EB Garamond for reading text, IBM Plex Mono for eyebrows and
      counts, IBM Plex Sans for pills. Mobile per the 390 artboard, desktop per
      the 1440 artboard; intermediate widths scroll the shelf and use two index
      columns.
 
-     Round 2: the composition is unchanged; the palette follows the reader's
-     theme preference (html[data-lib-palette], set by catalogue-runtime.js from
-     tinct-lab-prefs). Every colour is a token below, defined once per palette:
-     dark (the locked navy), light (the reader's light paper) and book (the
-     reader's book-theme paper). */
-  :root { --lib-ground:#0c1920; --lib-cream:#f3ecdc; --lib-amber:#c9a25a; --lib-muted:#8d8672; --lib-lede:#cfc6b2; --lib-rule:rgba(243,236,220,.12); --lib-rule-strong:rgba(243,236,220,.22); --lib-ring:rgba(243,236,220,.045); --lib-glow-a:rgba(201,162,90,.20); --lib-glow-b:rgba(201,162,90,.06); --lib-band:rgba(243,236,220,.05); --lib-shadow:rgba(0,0,0,.45); --lib-shadow-soft:rgba(0,0,0,.4); --lib-cover-ground:#0c1920; --lib-cover-frame:rgba(243,236,220,.3); --lib-cover-spine:rgba(0,0,0,.3); --lib-select-glow:rgba(201,162,90,.18); --lib-cta-bg:#f3ecdc; --lib-cta-fg:#0c1920; }
-  :root[data-lib-palette="light"] { --lib-ground:#ece7db; --lib-cream:#0b0b0b; --lib-amber:#8a6a2b; --lib-muted:#6a6256; --lib-lede:#3f3a32; --lib-rule:rgba(11,11,11,.12); --lib-rule-strong:rgba(11,11,11,.3); --lib-ring:rgba(11,11,11,.05); --lib-glow-a:rgba(201,162,90,.26); --lib-glow-b:rgba(201,162,90,.08); --lib-band:rgba(255,255,255,.3); --lib-shadow:rgba(40,30,10,.28); --lib-shadow-soft:rgba(40,30,10,.22); --lib-cover-ground:#2c2417; --lib-cover-frame:rgba(243,236,220,.3); --lib-cover-spine:rgba(0,0,0,.25); --lib-select-glow:rgba(201,162,90,.42); --lib-cta-bg:#0b0b0b; --lib-cta-fg:#ece7db; }
-  :root[data-lib-palette="book"] { --lib-ground:#e7dcc7; --lib-cream:#201a13; --lib-amber:#8a6a2b; --lib-muted:#675b4b; --lib-lede:#4a4034; --lib-rule:rgba(32,26,19,.14); --lib-rule-strong:rgba(32,26,19,.32); --lib-ring:rgba(32,26,19,.055); --lib-glow-a:rgba(201,162,90,.28); --lib-glow-b:rgba(201,162,90,.08); --lib-band:rgba(255,250,240,.3); --lib-shadow:rgba(40,30,10,.3); --lib-shadow-soft:rgba(40,30,10,.24); --lib-cover-ground:#2c2417; --lib-cover-frame:rgba(243,236,220,.3); --lib-cover-spine:rgba(0,0,0,.25); --lib-select-glow:rgba(201,162,90,.42); --lib-cta-bg:#201a13; --lib-cta-fg:#e7dcc7; }
+     Round 3 (2026-09-07) — one world, not two products. The library used to
+     follow the READER's theme (html[data-lib-palette] from tinct-lab-prefs),
+     which meant the default reader walked out of the landing's dark world
+     into white paper halfway through the pre-reader, over a fan of faint
+     concentric rings the landing has never had. The pre-reader now has ONE
+     palette — the landing's — and behind it the landing's own world layers,
+     pinned to whichever world the landing was showing when the reader pressed
+     Start reading (html[data-lib-world], set by library-boot.js in the head
+     and kept by catalogue-runtime.js). The reader's own paper/night themes
+     are untouched: they begin at the reader. */
+  /* The landing's colours, named once. --lib-ground and --lib-cream are the
+     landing's own #071723 / #f4eddf; the rules are its 9% white hairlines;
+     the CTA is its Start-reading button. --lib-accent replaces the old amber
+     eyebrow: the landing has no gold in it, so neither does the library. */
+  :root { --lib-ground:#071723; --lib-cream:#f4eddf; --lib-accent:rgba(244,237,223,.72); --lib-muted:rgba(238,230,215,.62); --lib-lede:rgba(241,232,217,.82); --lib-rule:rgba(255,255,255,.10); --lib-rule-strong:rgba(255,255,255,.22); --lib-shadow:rgba(0,0,0,.5); --lib-shadow-soft:rgba(0,0,0,.42); --lib-cover-ground:#0c1920; --lib-cover-frame:rgba(244,237,223,.3); --lib-cover-spine:rgba(0,0,0,.34); --lib-select-glow:rgba(244,237,223,.16); --lib-cta-bg:#eee4d1; --lib-cta-fg:#16252a; --lib-focus:#f8ecd1; }
 
   html:has(#tinct-onboarding-worlds-v5 [data-view-panel="library"].is-current) { background:var(--lib-ground); }
   body:has(#tinct-onboarding-worlds-v5 [data-view-panel="library"].is-current) { padding:0; background:var(--lib-ground); }
@@ -922,14 +930,26 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
 
   #tinct-onboarding-worlds-v5 .lib { --lib-pf:'Playfair Display',Georgia,serif; --lib-serif:'EB Garamond',Georgia,'Times New Roman',serif; --lib-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace; --lib-sans:'IBM Plex Sans',system-ui,sans-serif; --lib-pad-l:max(14px,var(--tov5-safe-left)); --lib-pad-r:max(14px,var(--tov5-safe-right)); position:relative; isolation:isolate; width:100%; min-height:100dvh; overflow:hidden; color:var(--lib-cream); background:var(--lib-ground); font-family:var(--lib-serif); -webkit-font-smoothing:antialiased; }
   #tinct-onboarding-worlds-v5 .lib a { color:var(--lib-cream); text-decoration:none; }
-  #tinct-onboarding-worlds-v5 .lib a:hover { color:var(--lib-amber); }
+  #tinct-onboarding-worlds-v5 .lib a:hover { color:#ffffff; }
   #tinct-onboarding-worlds-v5 .lib button { font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
-  #tinct-onboarding-worlds-v5 .lib :focus-visible { outline:2px solid var(--lib-amber); outline-offset:3px; }
-  #tinct-onboarding-worlds-v5 .lib-atmos { position:absolute; inset:0; z-index:0; pointer-events:none; }
-  #tinct-onboarding-worlds-v5 .lib-atmos svg { position:absolute; inset:0; width:100%; height:100%; }
-  #tinct-onboarding-worlds-v5 .lib-atmos circle { stroke:var(--lib-ring); }
-  #tinct-onboarding-worlds-v5 .lib-glow { position:absolute; right:-10%; top:-8%; width:70%; height:60%; background:radial-gradient(ellipse at center,var(--lib-glow-a) 0%,var(--lib-glow-b) 35%,rgba(201,162,90,0) 65%); }
-  #tinct-onboarding-worlds-v5 .lib-band { position:absolute; left:-20%; right:-20%; top:52%; height:32%; background:linear-gradient(170deg,rgba(243,236,220,0) 30%,var(--lib-band) 50%,rgba(243,236,220,0) 70%); }
+  #tinct-onboarding-worlds-v5 .lib :focus-visible { outline:2px solid var(--lib-focus); outline-offset:3px; }
+  /* The landing's world, held still. Fixed to the viewport, because the
+     library scrolls and a world that scrolls with it reads as wallpaper.
+     The layers are the landing's own .tov5-simple-world elements — the same
+     rules, so the two surfaces cannot drift apart — with the crossfade
+     stopped and the chosen world alone left standing. */
+  #tinct-onboarding-worlds-v5 .lib-atmos { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:var(--lib-ground); }
+  #tinct-onboarding-worlds-v5 .lib-world { position:absolute; inset:-2%; overflow:hidden; }
+  #tinct-onboarding-worlds-v5 .lib-world .tov5-simple-world { animation:none; opacity:0; transform:scale(1.02); }
+  html:not([data-lib-world]) #tinct-onboarding-worlds-v5 .lib-world .tov5-simple-world.odyssey,
+  html[data-lib-world="odyssey"] #tinct-onboarding-worlds-v5 .lib-world .tov5-simple-world.odyssey,
+  html[data-lib-world="pride"] #tinct-onboarding-worlds-v5 .lib-world .tov5-simple-world.pride,
+  html[data-lib-world="frankenstein"] #tinct-onboarding-worlds-v5 .lib-world .tov5-simple-world.frankenstein { opacity:1; }
+  /* Heavier than the landing's scrim on purpose: the landing keeps its type
+     in the dark left third, while the library sets text across the full
+     width and down a long scroll. Everything below is read against
+     #071723 at 82–92%, which is what the cream type was drawn for. */
+  #tinct-onboarding-worlds-v5 .lib-world-scrim { position:absolute; inset:0; background:linear-gradient(180deg,rgba(7,23,35,.78) 0%,rgba(7,23,35,.86) 46%,rgba(7,23,35,.93) 100%),linear-gradient(90deg,rgba(4,10,14,.72) 0%,rgba(4,10,14,.5) 46%,rgba(4,10,14,.34) 78%,rgba(4,10,14,.5) 100%); }
   #tinct-onboarding-worlds-v5 .lib-content { position:relative; z-index:1; }
 
   #tinct-onboarding-worlds-v5 .lib-hdr { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:calc(22px + var(--tov5-safe-top)) var(--lib-pad-r) 18px var(--lib-pad-l); border-bottom:1px solid var(--lib-rule); }
@@ -947,7 +967,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   }
 
   #tinct-onboarding-worlds-v5 .lib-main { display:flex; flex-direction:column; gap:44px; padding:28px var(--lib-pad-r) calc(56px + var(--tov5-safe-bottom)) var(--lib-pad-l); }
-  #tinct-onboarding-worlds-v5 .lib-eyebrow { margin:0; font-family:var(--lib-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--lib-amber); }
+  #tinct-onboarding-worlds-v5 .lib-eyebrow { margin:0; font-family:var(--lib-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--lib-accent); }
   #tinct-onboarding-worlds-v5 .lib-eyebrow.is-dim { color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-h1 { margin:0; font-family:var(--lib-pf); font-weight:400; font-size:30px; line-height:1.08; letter-spacing:-.01em; color:var(--lib-cream); text-wrap:balance; }
   #tinct-onboarding-worlds-v5 .lib-lede { margin:0; font-size:16.5px; line-height:1.45; color:var(--lib-lede); max-width:340px; }
@@ -1018,19 +1038,13 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
   #tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
 
-  /* Returning reader: Reading now (hero first, then quiet rows) and Finished. */
+  /* Returning reader: Reading now (one row of covers, one caption for the
+     book in the middle) and Finished (quiet rows). */
   #tinct-onboarding-worlds-v5 .lib-recap[hidden] { display:none; }
   #tinct-onboarding-worlds-v5 .lib-recap { display:flex; flex-direction:column; gap:44px; }
   #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { display:flex; flex-direction:column; gap:22px; }
-  #tinct-onboarding-worlds-v5 .lib-recap-hero { display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-areas:"head head" "cover meta"; gap:22px 18px; align-items:end; }
-  #tinct-onboarding-worlds-v5 .lib-recap-head { grid-area:head; display:flex; flex-direction:column; gap:22px; }
-  #tinct-onboarding-worlds-v5 .lib-recap-head .lib-h1 { line-height:1.2; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary { margin:0; font-size:16.5px; line-height:1.5; color:var(--lib-lede); max-width:52ch; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none; }
-  #tinct-onboarding-worlds-v5 .lib-recap-cover { grid-area:cover; }
-  #tinct-onboarding-worlds-v5 .lib-recap-meta { grid-area:meta; display:flex; flex-direction:column; gap:14px; }
-  #tinct-onboarding-worlds-v5 .lib-recap-meta .lib-lede { font-size:19px; max-width:none; }
-  #tinct-onboarding-worlds-v5 .lib-recap-cta { display:flex; align-items:center; gap:24px; }
   #tinct-onboarding-worlds-v5 .lib .lib-cta { display:inline-flex; align-items:center; justify-content:center; font-family:var(--lib-sans); font-size:16px; font-weight:500; color:var(--lib-cta-fg); background:var(--lib-cta-bg); border-radius:999px; padding:13px 26px; line-height:1.2; white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .lib-cta-note { display:none; font-family:var(--lib-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-recap-others { border-top:1px solid var(--lib-rule-strong); }
@@ -1043,8 +1057,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-recap-row-copy { display:flex; flex-direction:column; gap:5px; min-width:0; }
   #tinct-onboarding-worlds-v5 .lib-recap-row-t { font-size:19px; line-height:1.2; }
   #tinct-onboarding-worlds-v5 .lib .lib-recap-row .lib-eyebrow { font-size:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  #tinct-onboarding-worlds-v5 .lib-recap-row-recap { font-style:italic; font-size:15px; line-height:1.35; color:var(--lib-lede); }
-  #tinct-onboarding-worlds-v5 .lib-check { flex:none; width:18px; height:18px; stroke:var(--lib-amber); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  #tinct-onboarding-worlds-v5 .lib-check { flex:none; width:18px; height:18px; stroke:var(--lib-accent); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
   #tinct-onboarding-worlds-v5 .lib .lib-recap-row.is-finished .lib-recap-row-t { color:var(--lib-lede); }
 
   @media (min-width:601px) {
@@ -1069,13 +1082,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; margin:0; padding:0; overflow:visible; }
     #tinct-onboarding-worlds-v5 .lib-grid-item { flex:none; }
     #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { gap:28px; }
-    #tinct-onboarding-worlds-v5 .lib-recap-hero { grid-template-columns:220px minmax(0,1fr); grid-template-rows:auto 1fr; grid-template-areas:"cover head" "cover meta"; gap:22px 48px; align-items:start; }
-    #tinct-onboarding-worlds-v5 .lib-recap-head { padding-top:12px; }
-    #tinct-onboarding-worlds-v5 .lib-recap-head .lib-h1 { font-size:46px; line-height:1.15; }
-    #tinct-onboarding-worlds-v5 .lib-recap-meta { gap:22px; }
     #tinct-onboarding-worlds-v5 .lib-recap-summary { font-size:18px; line-height:1.5; }
-    #tinct-onboarding-worlds-v5 .lib-recap-meta .lib-lede { font-size:22px; }
-    #tinct-onboarding-worlds-v5 .lib-recap-cta { margin-top:8px; }
     #tinct-onboarding-worlds-v5 .lib .lib-cta { font-size:18px; padding:18px 40px; }
     #tinct-onboarding-worlds-v5 .lib-cta-note { display:block; }
     #tinct-onboarding-worlds-v5 .lib-recap-others { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
@@ -1086,13 +1093,169 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(3,minmax(0,1fr)); }
     #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(6,minmax(0,1fr)); }
     #tinct-onboarding-worlds-v5 .lib-grid { grid-template-columns:repeat(8,minmax(0,1fr)); }
-    #tinct-onboarding-worlds-v5 .lib-recap-hero { grid-template-columns:300px minmax(0,1fr); gap:22px 72px; }
     #tinct-onboarding-worlds-v5 .lib-recap-others { grid-template-columns:repeat(3,minmax(0,1fr)); }
   }
 </style>
 
-<script src="/lab/interaction-runtime.js?v=20260905-1" defer></script>
-<script type="module" src="/lab/catalogue-runtime.js?v=20260906-1"></script>
+<style id="lab-book-page">
+  /* Book page (2026-09-07) — one page, always.
+     Cover, title, author, stat pills (no grey helper text under them), the
+     description, the two version dropdowns with a real sample of each
+     translation, Both, and Start reading. The column never scrolls past its
+     action: the description is what gives way when the viewport is short. */
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:104px; --bp-gap:14px; height:100dvh; min-height:100dvh; display:flex; flex-direction:column; overflow:hidden; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-top { flex:none; z-index:4; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body { position:relative; z-index:3; flex:1 1 auto; min-height:0; width:min(720px,100%); margin:0 auto; display:flex; flex-direction:column; gap:var(--bp-gap); padding:16px max(16px,var(--tov5-safe-right)) calc(16px + var(--tov5-safe-bottom)) max(16px,var(--tov5-safe-left)); }
+  #tinct-onboarding-worlds-v5 .tov5-book-identity { flex:none; display:grid; grid-template-columns:var(--bp-cover) minmax(0,1fr); gap:16px; align-items:end; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { width:var(--bp-cover); height:calc(var(--bp-cover) * 1.5); margin:0; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-copy { margin:0; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { margin:6px 0 0; font-size:clamp(24px,6.2vw,34px); line-height:1.02; }
+
+  /* Stat pills: the number and nothing else. */
+  #tinct-onboarding-worlds-v5 .tov5-book-length { flex:none; display:flex; flex-wrap:wrap; gap:8px; margin:0; max-width:none; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length span { display:inline-flex; align-items:center; gap:7px; min-height:0; padding:7px 12px; border:1px solid rgba(255,255,255,.24); border-radius:999px; background:rgba(255,255,255,.07); }
+  #tinct-onboarding-worlds-v5 .tov5-book-length svg { width:14px; height:14px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length b { display:inline; margin:0; font:400 12px/1.2 'IBM Plex Mono',ui-monospace,monospace; letter-spacing:.02em; color:#fffdf7; white-space:nowrap; }
+  #tinct-onboarding-worlds-v5 .tov5-book-length small { display:none; }
+
+  #tinct-onboarding-worlds-v5 .tov5-book-description { flex:0 1 auto; min-height:0; overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--bp-lines,5); margin:0; color:rgba(255,253,247,.9); font:16px/1.45 Georgia,serif; text-wrap:pretty; }
+
+  /* The two version dropdowns and Both. */
+  #tinct-onboarding-worlds-v5 .tov5-versions { flex:none; display:flex; flex-wrap:wrap; align-items:stretch; gap:8px; }
+  #tinct-onboarding-worlds-v5 .tov5-version { position:relative; flex:1 1 190px; min-width:0; }
+  #tinct-onboarding-worlds-v5 .tov5-version-btn { width:100%; min-height:52px; display:grid; grid-template-columns:minmax(0,1fr) 16px; align-items:center; gap:8px; padding:8px 12px; border:1px solid rgba(255,255,255,.3); border-radius:10px; background:rgba(255,255,255,.07); color:#fffdf7; text-align:left; cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .tov5-version-btn>span { min-width:0; display:flex; flex-direction:column; gap:2px; }
+  #tinct-onboarding-worlds-v5 .tov5-version-role { font:400 8.5px/1 'IBM Plex Mono',ui-monospace,monospace; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,253,247,.6); }
+  #tinct-onboarding-worlds-v5 .tov5-version-name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:14px/1.2 Georgia,serif; }
+  #tinct-onboarding-worlds-v5 .tov5-version-chev { width:14px; height:14px; fill:none; stroke:rgba(255,253,247,.7); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:transform .16s ease; }
+  #tinct-onboarding-worlds-v5 .tov5-version-btn[aria-expanded="true"] .tov5-version-chev { transform:rotate(180deg); }
+  #tinct-onboarding-worlds-v5 .tov5-version.is-off .tov5-version-btn { border-color:rgba(255,255,255,.2); background:rgba(255,255,255,.04); }
+  #tinct-onboarding-worlds-v5 .tov5-version.is-off .tov5-version-name { color:rgba(255,253,247,.78); }
+  #tinct-onboarding-worlds-v5 .tov5-version-both { flex:0 0 auto; min-height:52px; padding:8px 18px; border:1px solid rgba(255,255,255,.3); border-radius:10px; background:rgba(255,255,255,.07); color:#fffdf7; font:14px/1 Georgia,serif; cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .tov5-version-both[aria-pressed="true"] { border-color:var(--tov5-world-accent); background:var(--tov5-world-accent); color:#1a1408; }
+  #tinct-onboarding-worlds-v5 .tov5-version-both[hidden] { display:none; }
+
+  /* The list: translation names with a sample of that translation's opening.
+     It floats above the page so opening it never moves Start reading. */
+  #tinct-onboarding-worlds-v5 .tov5-version-menu { position:absolute; left:0; right:0; bottom:calc(100% + 6px); z-index:20; max-height:min(52dvh,340px); overflow-y:auto; overscroll-behavior:contain; padding:6px; border:1px solid rgba(255,255,255,.3); border-radius:12px; background:#10283a; box-shadow:0 22px 48px rgba(0,0,0,.5); }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu[hidden] { display:none; }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu button { display:block; width:100%; padding:10px 12px; border:0; border-radius:8px; background:transparent; color:#fffdf7; text-align:left; cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu button+button { margin-top:2px; }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu button[aria-selected="true"] { background:rgba(255,255,255,.12); }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu button:hover,#tinct-onboarding-worlds-v5 .tov5-version-menu button:focus-visible { background:rgba(255,255,255,.16); }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu b { display:block; font:400 14px/1.2 Georgia,serif; }
+  #tinct-onboarding-worlds-v5 .tov5-version-menu i { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; margin-top:4px; color:rgba(255,253,247,.66); font:italic 12px/1.35 Georgia,serif; }
+
+  /* The primary action is the landing's Start-reading button, unchanged from
+     screen to screen: cream fill, dark ink, one shape. It used to take the
+     open book's own ink, so the same action was brown on Pride and Prejudice
+     and blue on the Odyssey — three products' worth of buttons in one flow. */
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition,
+  #tinct-onboarding-worlds-v5 .tov5-continue,
+  #tinct-onboarding-worlds-v5 .tov5-begin-book { border:1px solid rgba(255,255,255,.72); background:var(--lib-cta-bg); color:var(--lib-cta-fg); box-shadow:0 12px 32px rgba(0,0,0,.21),inset 0 1px 0 rgba(255,255,255,.84); }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition svg,
+  #tinct-onboarding-worlds-v5 .tov5-continue svg,
+  #tinct-onboarding-worlds-v5 .tov5-begin-book svg { stroke:var(--lib-cta-fg); }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition { flex:none; width:100%; min-height:52px; margin:0; border-radius:10px; font-size:15px; }
+
+  /* The edition screen is off the main path now (the book page chooses the
+     versions), but it is still reachable by URL: keep its action in view too. */
+  #tinct-onboarding-worlds-v5 .tov5-continue { position:sticky; bottom:max(8px,var(--tov5-safe-bottom)); z-index:5; }
+
+  /* Short viewports: the description gives way first, then the cover. */
+  @media (max-height:760px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:92px; --bp-gap:11px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { --bp-lines:3; font-size:15px; }
+  }
+  @media (max-height:620px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:78px; --bp-gap:9px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { padding-top:10px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { --bp-lines:2; font-size:14px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:clamp(21px,5.4vw,26px); }
+    #tinct-onboarding-worlds-v5 .tov5-version-btn,#tinct-onboarding-worlds-v5 .tov5-version-both,#tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition { min-height:46px; }
+  }
+  /* Phone on its side: cover beside the copy, one short column of controls. */
+  @media (max-height:480px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:104px; --bp-gap:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-top { height:44px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:min(880px,100%); display:grid; grid-template-columns:var(--bp-cover) minmax(0,1fr); grid-template-rows:auto auto minmax(0,1fr) auto auto; column-gap:16px; row-gap:8px; padding-top:8px; padding-bottom:calc(8px + var(--tov5-safe-bottom)); }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-cover { grid-column:1; grid-row:1 / span 5; align-self:start; }
+    #tinct-onboarding-worlds-v5 .tov5-book-identity { display:contents; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy { grid-column:2; grid-row:1; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:22px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-length { grid-column:2; grid-row:2; }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { grid-column:2; grid-row:3; --bp-lines:2; font-size:13.5px; }
+    #tinct-onboarding-worlds-v5 .tov5-versions { grid-column:2; grid-row:4; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition { grid-column:2; grid-row:5; min-height:44px; }
+    #tinct-onboarding-worlds-v5 .tov5-version-menu { max-height:min(64dvh,220px); }
+  }
+  @media (min-width:900px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:180px; --bp-gap:20px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { width:min(860px,100%); padding:28px 40px calc(28px + var(--tov5-safe-bottom)); }
+    #tinct-onboarding-worlds-v5 .tov5-book-identity { gap:28px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:clamp(36px,3.4vw,50px); }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { font-size:18px; --bp-lines:4; }
+    /* The desktop column is centred, so the version row and the action are
+       one width: the choice and the button read as one block. */
+    #tinct-onboarding-worlds-v5 .tov5-versions { flex-wrap:nowrap; width:min(560px,100%); }
+    #tinct-onboarding-worlds-v5 .tov5-version { flex:1 1 0; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition { width:min(560px,100%); min-height:58px; }
+    #tinct-onboarding-worlds-v5 .tov5-version-menu { max-height:min(48dvh,380px); }
+  }
+
+  /* Library — the popular row and the returning reader's row.
+     One tightened gap under the covers; the row carries no per-cover caption
+     any more (the caption under the row names the focused book), and the
+     focused book is the one scrolled to the middle. */
+  #tinct-onboarding-worlds-v5 .lib-popular { gap:10px; }
+  #tinct-onboarding-worlds-v5 .lib-shelf { gap:16px; padding-bottom:6px; scroll-snap-type:x mandatory; scroll-padding-left:50%; }
+  #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:center; scroll-snap-stop:always; }
+  #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item .lib-cover-copy { display:none; }
+  /* The row can centre its first and last cover — on a phone, where the row
+     always overflows. On a wide screen that spacer parks the first cover in
+     the middle of an empty half-row, so above 900px the shelf starts where
+     the page starts and simply snaps to whichever cover the reader stops on. */
+  #tinct-onboarding-worlds-v5 .lib-shelf::before,#tinct-onboarding-worlds-v5 .lib-shelf::after { content:''; flex:0 0 calc(50% - var(--lib-shelf-w) / 2 - 16px); }
+  @media (min-width:900px) {
+    #tinct-onboarding-worlds-v5 .lib-shelf { scroll-padding-left:0; }
+    #tinct-onboarding-worlds-v5 .lib-shelf::before,#tinct-onboarding-worlds-v5 .lib-shelf::after { display:none; }
+    #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:start; }
+  }
+  #tinct-onboarding-worlds-v5 .lib-caption { gap:8px; min-height:150px; }
+  @media (min-width:900px) {
+    #tinct-onboarding-worlds-v5 .lib-caption { min-height:130px; }
+  }
+
+  /* Returning reader: every card in the same quiet style, in a row that
+     scrolls like the popular one. No amber, no per-card summary — the summary
+     belongs to the book in the middle. */
+  #tinct-onboarding-worlds-v5 .lib-recap .lib-eyebrow { color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-reading-now { gap:10px; }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf::-webkit-scrollbar { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf::before,#tinct-onboarding-worlds-v5 .lib-now-shelf::after { content:''; flex:0 0 calc(50% - 62px - 16px); }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::before,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::after { display:none; }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-item { position:relative; flex:0 0 124px; display:flex; flex-direction:column; text-align:left; scroll-snap-align:center; scroll-snap-stop:always; opacity:.55; transition:opacity .32s ease; }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-item.is-focused { opacity:1; }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-open { display:block; width:100%; text-align:left; }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-item .lib-cover { box-shadow:0 14px 30px var(--lib-shadow-soft); }
+  #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-height:132px; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:26px; line-height:1.14; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; font-size:15.5px; line-height:1.45; color:var(--lib-lede); max-width:52ch; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary[hidden] { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-now-cta { display:flex; align-items:center; gap:16px; margin-top:2px; }
+  @media (min-width:900px) {
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:36px; }
+    #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 148px; }
+    #tinct-onboarding-worlds-v5 .lib-now-shelf::before,#tinct-onboarding-worlds-v5 .lib-now-shelf::after { flex-basis:calc(50% - 74px - 16px); }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    #tinct-onboarding-worlds-v5 .lib .lib-now-item { transition:none; }
+  }
+</style>
+
+<script src="/lab/interaction-runtime.js?v=20260907-2" defer></script>
+<script type="module" src="/lab/catalogue-runtime.js?v=20260907-3"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>

@@ -222,3 +222,88 @@ export function libraryViewRequested(pathname: string, search = ''): boolean {
   const query = search.startsWith('?') ? search.slice(1) : search
   return new URLSearchParams(query).get('view') === 'library'
 }
+
+// ------------------------------------------------------------- lab entry
+
+/**
+ * How long after the last page of reading a signed-in reader is taken
+ * straight back into the book instead of the library. Three days: long
+ * enough to cover a weekend away from a half-read chapter, short enough that
+ * a book abandoned last month does not hijack the front door.
+ */
+export const LAB_RESUME_WINDOW_MS = 3 * 24 * 60 * 60 * 1000
+
+/** Where `/lab` should land. `null` means the URL already asks for something specific. */
+export type LabEntryTarget = 'landing' | 'library' | 'reader'
+
+/**
+ * The bare entry paths into the lab: `/lab`, `/lab/`, `/lab/landing`. The
+ * marketing root `/` is a different document and is not decided here.
+ */
+export function isLabEntryPath(pathname: string, search = ''): boolean {
+  const path = pathname.split('?')[0].split('#')[0].replace(/\/+$/, '')
+  if (path !== '/lab' && path !== '/lab/landing') return false
+  const query = search.startsWith('?') ? search.slice(1) : search
+  const params = new URLSearchParams(query)
+  // A deep link that names a view or a book is an explicit request; leave it.
+  return !params.get('view') && !params.get('book')
+}
+
+/**
+ * The newest moment this device recorded reading: the reader's position
+ * record (per-book `updatedAt`, plus `lastSettledAt`) and the reading-memory
+ * mirror (`lastActiveAt` on each session). Null when nothing has been read.
+ */
+export function labLastReadAt(storage: StorageLike | null = browserStorage()): number | null {
+  if (!storage) return null
+  const stamps: number[] = []
+  const push = (value: unknown) => {
+    if (typeof value === 'number' && Number.isFinite(value) && value > 0) stamps.push(value)
+  }
+  const read = (key: string): unknown => {
+    try {
+      const raw = storage.getItem(key)
+      return raw ? JSON.parse(raw) as unknown : null
+    } catch {
+      return null
+    }
+  }
+  const position = read('tinct-lab-position') as { books?: Record<string, { updatedAt?: unknown }>; lastSettledAt?: unknown } | null
+  if (position && typeof position === 'object') {
+    push(position.lastSettledAt)
+    for (const place of Object.values(position.books ?? {})) push(place?.updatedAt)
+  }
+  const memory = read('tinct:reading-memory') as { sessions?: Record<string, { lastActiveAt?: unknown; endedAt?: unknown }> } | null
+  if (memory && typeof memory === 'object') {
+    for (const session of Object.values(memory.sessions ?? {})) {
+      push(session?.lastActiveAt)
+      push(session?.endedAt)
+    }
+  }
+  return stamps.length ? Math.max(...stamps) : null
+}
+
+/**
+ * Where a hit on `/lab` should go.
+ *
+ * A signed-in reader never sees the landing page. If they read within
+ * `LAB_RESUME_WINDOW_MS` they go straight back into the book at the place
+ * the library's Continue card resolves; otherwise, and when there is no
+ * reading at all, they go to the library. Signed-out readers keep the
+ * landing page.
+ */
+export function labEntryTarget(input: {
+  pathname: string
+  search?: string
+  signedIn: boolean
+  lastReadAt: number | null
+  now?: number
+}): LabEntryTarget | null {
+  if (!isLabEntryPath(input.pathname, input.search ?? '')) return null
+  if (!input.signedIn) return 'landing'
+  const last = input.lastReadAt
+  if (typeof last !== 'number' || !Number.isFinite(last) || last <= 0) return 'library'
+  const now = input.now ?? Date.now()
+  // A clock that ran backwards still means the reader was just here.
+  return now - last <= LAB_RESUME_WINDOW_MS ? 'reader' : 'library'
+}

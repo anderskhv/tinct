@@ -361,33 +361,50 @@ test('reduces the phone side paddings to 14px and heads Popular like an index ro
   expect(heads.count).toBe('8')
 })
 
-for (const [theme, scheme, palette, expectedGround] of [
-  ['dark', 'light', 'dark', 'rgb(12, 25, 32)'],
-  ['book', 'dark', 'book', 'rgb(231, 220, 199)'],
-  ['light', 'dark', 'light', 'rgb(236, 231, 219)'],
-  ['system', 'dark', 'dark', 'rgb(12, 25, 32)'],
-  ['system', 'light', 'light', 'rgb(236, 231, 219)'],
+/**
+ * One world, whatever the reader's own reading theme is. The pre-reader keeps
+ * the landing's ground from the landing through the library to the book page;
+ * the reader's paper/night themes begin at the reader.
+ */
+for (const [theme, scheme] of [
+  ['dark', 'light'],
+  ['book', 'dark'],
+  ['light', 'dark'],
+  ['system', 'dark'],
+  ['system', 'light'],
 ] as const) {
-  test(`wears the reader's ${theme} theme under a ${scheme} system scheme`, async ({ page }) => {
+  test(`keeps the landing's ground in the library under a ${theme} reader theme and a ${scheme} system scheme`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: scheme, reducedMotion: 'reduce' })
     await page.goto('/lab/library?autoplay=0')
     await page.evaluate(theme => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: {}, phone: { theme }, desktop: { theme } })), theme)
     await openPreReader(page, '/lab/library?autoplay=0')
-    await expect(page.locator('html')).toHaveAttribute('data-lib-palette', palette)
-    expect(await page.evaluate(() => window.__tinctLabPreReader.libraryState().palette)).toBe(palette)
-    await expect(page.locator('.lib')).toHaveCSS('background-color', expectedGround)
-    await expect(page.locator('body')).toHaveCSS('background-color', expectedGround)
-    const ink = await page.locator('.lib-h1').evaluate(element => getComputedStyle(element).color)
-    expect(ink).toBe(palette === 'dark' ? 'rgb(243, 236, 220)' : palette === 'book' ? 'rgb(32, 26, 19)' : 'rgb(11, 11, 11)')
+    await expect(page.locator('html')).toHaveAttribute('data-lib-world', 'odyssey')
+    await expect(page.locator('.lib')).toHaveCSS('background-color', 'rgb(7, 23, 35)')
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(7, 23, 35)')
+    expect(await page.locator('.lib-h1').evaluate(element => getComputedStyle(element).color)).toBe('rgb(244, 237, 223)')
+    // The rejected line art is gone: no rings behind the library.
+    expect(await page.locator('.lib-atmos svg').count()).toBe(0)
   })
 }
 
-test('follows a system scheme change live when the theme is system', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'light' })
-  await openPreReader(page, '/lab/library?autoplay=0')
-  await expect(page.locator('html')).toHaveAttribute('data-lib-palette', 'light')
-  await page.emulateMedia({ colorScheme: 'dark' })
-  await expect(page.locator('html')).toHaveAttribute('data-lib-palette', 'dark')
+test('carries the world the landing was showing into the library', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await openPreReader(page, '/lab/landing?autoplay=0')
+  // Pin the crossfade so the assertion is about the carry-over, not timing.
+  await page.evaluate(() => {
+    document.querySelectorAll<HTMLElement>('[data-view-panel="landing"] .tov5-simple-world').forEach(node => {
+      node.style.animation = 'none'
+      node.style.opacity = node.classList.contains('pride') ? '1' : '0'
+    })
+  })
+  await page.getByRole('button', { name: 'Start reading' }).click()
+  await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
+  await expect(page.locator('html')).toHaveAttribute('data-lib-world', 'pride')
+  expect(await page.evaluate(() => sessionStorage.getItem('tinct:lab-landing-world'))).toBe('pride')
+  expect(await page.evaluate(() => window.__tinctLabPreReader.libraryState().world)).toBe('pride')
+  // And it survives a direct reload of the library, painted in the head.
+  await page.reload()
+  await expect(page.locator('html')).toHaveAttribute('data-lib-world', 'pride')
 })
 
 for (const viewport of [PHONE, DESKTOP]) {
@@ -403,15 +420,16 @@ for (const viewport of [PHONE, DESKTOP]) {
     await searchLibrary(page, 'republic')
     await page.locator('[data-search-results] [data-catalogue-book="the-republic"]').click()
     await expect(page.locator('[data-view-panel="book-detail"]')).toHaveClass(/is-current/)
-    expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-library-return') || 'null'))).toMatchObject({ scrollY: preSearchScrollY, shelfIndex: 3, clearSearch: true })
+    expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem('tinct:lab-library-return') || 'null'))).toMatchObject({ shelfIndex: 3, query: 'republic', bookId: 'the-republic' })
     await page.evaluate(() => history.back())
     await expect(page.locator('[data-view-panel="library"]')).toHaveClass(/is-current/)
-    await expect(page.locator('[data-library-search]')).toHaveValue('')
-    await expect(page.locator('[data-index-label]')).toHaveText('All books')
-    await expect(page.locator('[data-index-house]').first()).toBeVisible()
+    // One Back is one step: the results the reader was looking at, with the
+    // book they opened on screen. It does not also undo the search.
+    await expect(page.locator('[data-library-search]')).toHaveValue('republic')
+    await expect(page.locator('[data-index-label]')).toHaveText('Search results')
     await expect(page.locator('[data-shelf-index="3"]')).toHaveAttribute('aria-current', 'true')
     await expect(page.locator('[data-popular-title]')).toHaveText('Pride and Prejudice')
-    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(preSearchScrollY)
+    await expect(page.locator('[data-search-results] [data-catalogue-book="the-republic"]')).toBeInViewport()
     expect(await page.evaluate(() => sessionStorage.getItem('tinct:lab-library-return'))).toBeNull()
   })
 }
@@ -459,10 +477,11 @@ test('renders the returning reader from reading memory: recap headline, one pill
   await expect(recap.locator('[data-recap-continue]')).toHaveCount(1)
   await expect(recap.locator('[data-reading-now-head] .lib-eyebrow')).toHaveText('Reading now')
   await expect(recap.locator('[data-reading-now-head] .lib-cnt')).toHaveText('2')
-  await expect(recap.locator('[data-reading-now-section] > :nth-child(2)')).toHaveAttribute('data-recap-hero', 'bible')
-  await expect(recap.locator('[data-recap-open]')).toHaveCount(1)
-  await expect(recap.locator('[data-recap-open="meditations"] .lib-recap-row-t')).toHaveText('Meditations')
-  await expect(recap.locator('[data-recap-open="meditations"] .lib-eyebrow')).toHaveText('Last time · Book 1')
+  // One row of covers, one caption for the book in the middle.
+  await expect(recap.locator('[data-now-shelf] [data-now-book]')).toHaveCount(2)
+  await expect(recap.locator('[data-now-shelf] [data-now-book]').first()).toHaveAttribute('data-now-book', 'bible')
+  await expect(recap.locator('[data-now-book="meditations"] [data-recap-open]')).toHaveAttribute('aria-label', /Continue Meditations from Book 1/)
+  await expect(recap.locator('.lib-recap-row-recap')).toHaveCount(0)
   await expect(recap.locator('[data-finished-section]')).toHaveCount(0)
   await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular')
   await expect(page.locator('[data-popular-shelf]')).toHaveClass(/lib-grid/)
@@ -487,9 +506,9 @@ test('lists every book in progress under Reading now and completed books under F
   await expect(recap).toHaveAttribute('data-reading-now', '2')
   await expect(recap).toHaveAttribute('data-finished', '2')
   await expect(recap.locator('[data-reading-now-head] .lib-cnt')).toHaveText('2')
-  await expect(recap.locator('[data-recap-hero]')).toHaveAttribute('data-recap-hero', 'bible')
-  await expect(recap.locator('[data-recap-open]')).toHaveCount(1)
-  await expect(recap.locator('[data-recap-open="odyssey"] .lib-eyebrow')).toHaveText('Last time · Book 5')
+  await expect(recap).toHaveAttribute('data-book', 'bible')
+  await expect(recap.locator('[data-now-shelf] [data-now-book]')).toHaveCount(2)
+  await expect(recap.locator('[data-now-book="odyssey"] [data-recap-open]')).toHaveAttribute('aria-label', /Continue The Odyssey from Book 5/)
   await expect(recap.locator('[data-finished-head] .lib-eyebrow')).toHaveText('Finished')
   await expect(recap.locator('[data-finished-head] .lib-cnt')).toHaveText('2')
   expect(await recap.locator('[data-finished-book]').evaluateAll(rows => rows.map(row => row.getAttribute('data-finished-book')))).toEqual(['meditations', 'hamlet'])
@@ -550,15 +569,23 @@ test('opens a non-showcase book with catalogue-backed detail and editions', asyn
     'tov5-book-identity',
     'tov5-book-length',
     'tov5-book-description',
+    'tov5-versions',
     'tov5-choose-edition',
   ])
-  await page.getByRole('button', { name: 'Start reading' }).click()
-  expect(await page.locator('[data-catalogue-edition]').count()).toBeGreaterThan(0)
-  await expect(page.locator('[data-select-edition="modern-da"]')).toHaveCount(0)
-  await expect(page.locator('.tov5-edition-grid')).not.toContainText('Danish')
-  await expect(page.locator('.tov5-edition-grid')).not.toContainText('Dansk')
-  await expect(page.locator('.tov5-edition-grid')).toContainText('Original public-domain text')
-  await expect(page.locator('.tov5-edition-grid')).toContainText('Tinct AI adaptation')
+  // The stat pills carry no grey helper line any more.
+  await expect(page.locator('.tov5-book-length small')).toHaveCount(0)
+  await expect(page.locator('[data-book-stats]')).toHaveAttribute('data-reading-time', /\d/)
+  // Two dropdowns and a Both button, on the same page as Start reading.
+  await expect(page.locator('[data-version-toggle="primary"]')).toBeVisible()
+  await expect(page.locator('[data-version-toggle="compare"]')).toBeVisible()
+  await expect(page.locator('[data-version-both]')).toBeVisible()
+  await page.locator('[data-version-toggle="primary"]').click()
+  const menu = page.locator('[data-version-menu="primary"]')
+  await expect(menu.locator('[data-version-pick]')).toHaveCount(2)
+  await expect(menu).not.toContainText('Danish')
+  await expect(menu).not.toContainText('Dansk')
+  await expect(menu).not.toContainText('public-domain')
+  await expect(menu.locator('[data-version-sample]').first()).not.toHaveText(/Loading the opening/, { timeout: 20000 })
 })
 
 test('keeps the English V1 choices and Both mutually exclusive in one compact phone surface', async ({ page }) => {
@@ -934,7 +961,8 @@ declare global {
       selectBook: (bookId: string) => Promise<boolean>
       visibleBooks: () => Array<Record<string, any>>
       openBook: (bookId: string) => Promise<boolean>
-      libraryState: () => { mode: 'new' | 'returning'; shelfIndex: number; shelf: string[]; query: string; expandedHouseId: string | null; palette: 'dark' | 'light' | 'book'; preSearchScrollY: number | null }
+      libraryState: () => { mode: 'new' | 'returning'; shelfIndex: number; shelf: string[]; query: string; expandedHouseId: string | null; world: 'odyssey' | 'pride' | 'frankenstein' }
+      openBookPage: (bookId: string) => Promise<boolean>
       selectionState: () => { primaryEditionKey: string | null; compareEditionKey: string | null; revision: number }
       renderEditionsForTest: (book: Record<string, any>) => void
     }

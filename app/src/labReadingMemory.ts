@@ -49,7 +49,6 @@ import { readStoredRecapSummary, requestLabRecapSummary, shouldRequestRecapSumma
 import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import {
   heroHeadline,
-  inProgressLabel,
   libraryModeFor,
   readingList,
   recapEyebrow,
@@ -305,7 +304,11 @@ function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): 
  * exists costs nothing, is true of the place on screen, and stops the line
  * from disappearing when the reader bounces back to the library.
  */
-async function fillHeroSummary(hero: ReadingListRow, books: Map<string, CatalogueBook>): Promise<void> {
+async function fillHeroSummary(
+  hero: ReadingListRow,
+  books: Map<string, CatalogueBook>,
+  allowRequest = true,
+): Promise<void> {
   if (!section) return
   const request = summaryRequestFor(hero, books)
   if (!request) {
@@ -317,6 +320,13 @@ async function fillHeroSummary(hero: ReadingListRow, books: Map<string, Catalogu
   const cached = readStoredRecapSummary(storage, key)
   if (cached) {
     showSummary(key, cached, 'cached')
+    return
+  }
+  // Scrolling PAST a book is not asking about it. The caption repaints on
+  // every focus change with allowRequest false — cache and status only — and
+  // the caller schedules the one request after the focus has settled.
+  if (!allowRequest) {
+    setSummaryStatus(key, summaryOutcomes.get(key) ?? 'pending')
     return
   }
   // Away for less than LAB_RECAP_MIN_AWAY_MS: the hero says where the reader
@@ -360,57 +370,156 @@ async function fillHeroSummary(hero: ReadingListRow, books: Map<string, Catalogu
   showSummary(key, result.response.summary, 'fresh')
 }
 
-function heroMarkup(hero: ReadingListRow, books: Map<string, CatalogueBook>): string {
-  const book = books.get(hero.bookId)
-  const note = progressNote(hero.target, hero.session)
-  const request = summaryRequestFor(hero, books)
-  const summaryKey = request ? summaryKeyFor(hero, request) : ''
-  return `<div class="lib-recap-hero" data-recap-hero="${escapeHtml(hero.bookId)}">
-      <div class="lib-recap-head">
-        <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(hero.target.chapterLabel))}</p>
-        <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(hero))}</h1>
-        <p class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" hidden></p>
-      </div>
-      <div class="lib-recap-cover">${coverMarkup(book, hero.bookId)}</div>
-      <div class="lib-recap-meta">
-        <p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, hero.bookId))}</p>
-        <div class="lib-recap-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(hero.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>
-      </div>
-    </div>`
-}
-
 /**
- * The one line of prose under a quiet Reading-now row: the summary stored
- * inside the book's own reading session when it describes the chapter
- * Continue resumes in, else a "so far" summary this device already holds for
- * exactly that place.
- *
- * A row never asks for one. The stored session summary is only ever
- * generated for the newest session across all books, so a book read earlier
- * in the day — the Bible, for a daily reader who opens something else after
- * it — used to lose its line the moment it stopped being the hero, even
- * though the device still had the line it showed an hour before. Reading the
- * cache back costs nothing: no request, no model call, and the cache key is
- * the place itself, so the line can only appear where it is true.
+ * Reading now (2026-09-07): one row of covers that scrolls like the popular
+ * shelf, and one caption under it for the book in the middle. Every card is
+ * the same card — no hero above a stack of quiet rows, no amber accent, and
+ * no per-card "so far" summary: the summary belongs to the book you scrolled
+ * to, and there is only ever one of it on screen.
  */
-function rowSummary(row: ReadingListRow, books: Map<string, CatalogueBook>): string | null {
-  if (row.recap) return row.recap
-  const request = summaryRequestFor(row, books)
-  if (!request) return null
-  return readStoredRecapSummary(deviceStorage(), summaryKeyFor(row, request))
+function nowShelfMarkup(rows: ReadingListRow[], books: Map<string, CatalogueBook>, focused: number): string {
+  return rows.map((row, index) => {
+    const title = bookTitle(books.get(row.bookId), row.bookId)
+    return `<div class="lib-now-item${index === focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${index === focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId)}</button></div>`
+  }).join('')
 }
 
-function rowMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
+function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
-  const title = bookTitle(book, row.bookId)
-  const summary = rowSummary(row, books)
-  return `<button type="button" class="lib-recap-row" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(book, row.bookId)}<span class="lib-recap-row-copy"><span class="lib-recap-row-t">${escapeHtml(title)}</span><span class="lib-eyebrow is-dim">${escapeHtml(inProgressLabel(row))}</span>${summary ? `<span class="lib-recap-row-recap">${escapeHtml(summary)}</span>` : ''}</span><svg class="lib-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>`
+  const note = progressNote(row.target, row.session)
+  const request = summaryRequestFor(row, books)
+  const summaryKey = request ? summaryKeyFor(row, request) : ''
+  return `<p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.target.chapterLabel))}</p>
+      <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(row))}</h1>
+      <p class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" hidden></p>
+      <p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, row.bookId))}</p>
+      <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
 }
 
 function finishedMarkup(row: ReadingList['finished'][number], books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
   const title = bookTitle(book, row.bookId)
   return `<button type="button" class="lib-recap-row is-finished" data-finished-book="${escapeHtml(row.bookId)}" aria-label="${escapeHtml(`${title} — finished. Open again`)}">${coverMarkup(book, row.bookId)}<span class="lib-recap-row-copy"><span class="lib-recap-row-t">${escapeHtml(title)}</span><span class="lib-eyebrow is-dim">Finished</span></span><svg class="lib-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>`
+}
+
+/** The book the reading-now row is centred on. */
+let nowFocus = 0
+let nowObserver: IntersectionObserver | null = null
+let nowQuietUntil = 0
+let nowSettleTimer: ReturnType<typeof setTimeout> | null = null
+
+/**
+ * How long the row must hold still on a book before its "so far" line is
+ * asked for. Scrolling across four covers to reach the fifth must not order
+ * four summaries; stopping on one is the reader asking about it.
+ */
+const NOW_SETTLE_MS = 700
+
+function reducedMotion(): boolean {
+  return typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+/**
+ * Repaint the caption for the focused book and fill its summary — only its
+ * own. `immediate` is the book the library opened on: the reader arrived at
+ * it rather than scrolling to it, so it asks straight away.
+ */
+function renderNowCaption(immediate = false): void {
+  if (!section) return
+  const rows = lastList.readingNow
+  const row = rows[nowFocus]
+  const caption = section.querySelector<HTMLElement>('[data-now-caption]')
+  if (!caption || !row) return
+  const books = catalogue ?? new Map<string, CatalogueBook>()
+  const card = nowFocus === 0 && lastRendered && row.session && lastRendered.card.provenance.sessionId === row.session.id
+    ? lastRendered.card
+    : null
+  caption.innerHTML = nowCaptionMarkup(row, books)
+  section.dataset.book = row.bookId
+  section.dataset.sessionState = row.session?.state ?? 'none'
+  section.dataset.bodyKind = card ? card.bodyKind : row.recap ? 'summary' : 'location-only'
+  section.dataset.continueSource = row.target.source
+  section.dataset.continueChapter = String(row.target.chapterNumber)
+  section.dataset.progress = row.progress ?? ''
+  section.dataset.summaryLine = 'pending'
+  section.dataset.nowFocus = String(nowFocus)
+  section.querySelectorAll<HTMLElement>('[data-now-index]').forEach(item => {
+    const focused = Number(item.dataset.nowIndex) === nowFocus
+    item.classList.toggle('is-focused', focused)
+    item.setAttribute('aria-current', String(focused))
+  })
+  // Whatever this device already knows about the place, immediately; the one
+  // request only once the row has settled here.
+  if (nowSettleTimer) clearTimeout(nowSettleTimer)
+  if (immediate) {
+    void fillHeroSummary(row, books, true).catch(() => {})
+    return
+  }
+  const settled = nowFocus
+  void fillHeroSummary(row, books, false).catch(() => {})
+  nowSettleTimer = setTimeout(() => {
+    nowSettleTimer = null
+    if (settled !== nowFocus) return
+    void fillHeroSummary(row, books, true).catch(() => {})
+  }, NOW_SETTLE_MS)
+}
+
+function setNowFocus(index: number, scroll = false): void {
+  const rows = lastList.readingNow
+  const next = Math.max(0, Math.min(rows.length - 1, index))
+  if (next === nowFocus && section?.querySelector('[data-now-caption]')?.childElementCount) return
+  nowFocus = next
+  renderNowCaption()
+  if (!scroll) return
+  const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
+  const item = shelf?.querySelector<HTMLElement>(`[data-now-index="${next}"]`)
+  if (shelf && item) centreNowItem(shelf, item)
+}
+
+function centreNowItem(shelf: HTMLElement, item: HTMLElement): void {
+  const target = Math.max(0, Math.min(
+    shelf.scrollWidth - shelf.clientWidth,
+    item.offsetLeft - shelf.offsetLeft + item.offsetWidth / 2 - shelf.clientWidth / 2,
+  ))
+  if (Math.abs(target - shelf.scrollLeft) < 2) return
+  nowQuietUntil = Date.now() + 420
+  if (typeof shelf.scrollTo === 'function') shelf.scrollTo({ left: target, behavior: reducedMotion() ? 'auto' : 'smooth' })
+  else shelf.scrollLeft = target
+}
+
+/** Centre detection, the same rule the popular shelf uses. */
+function observeNowShelf(): void {
+  nowObserver?.disconnect()
+  nowObserver = null
+  const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
+  if (!shelf || lastList.readingNow.length < 2) return
+  if (typeof IntersectionObserver === 'function') {
+    nowObserver = new IntersectionObserver(entries => {
+      if (Date.now() < nowQuietUntil) return
+      const visible = entries.filter(entry => entry.isIntersecting)
+      const hit = visible[visible.length - 1]
+      if (!hit) return
+      const index = Number((hit.target as HTMLElement).dataset.nowIndex)
+      if (Number.isInteger(index) && index !== nowFocus) setNowFocus(index)
+    }, { root: shelf, rootMargin: '0px -50% 0px -50%', threshold: 0 })
+    shelf.querySelectorAll('[data-now-index]').forEach(item => nowObserver!.observe(item))
+  }
+  let frame = 0
+  shelf.addEventListener('scroll', () => {
+    if (frame || Date.now() < nowQuietUntil) return
+    frame = requestAnimationFrame(() => {
+      frame = 0
+      const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')]
+      const centre = shelf.scrollLeft + shelf.clientWidth / 2
+      let best = 0
+      let bestDistance = Infinity
+      items.forEach((item, index) => {
+        const distance = Math.abs(item.offsetLeft - shelf.offsetLeft + item.offsetWidth / 2 - centre)
+        if (distance < bestDistance - 0.5) { bestDistance = distance; best = index }
+      })
+      if (best !== nowFocus) setNowFocus(best)
+    })
+  }, { passive: true })
 }
 
 function renderSections(list: ReadingList, rendered: RecapLoadResult | null): void {
@@ -434,14 +543,20 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   section.dataset.summaryLine = hero ? 'pending' : 'none'
   section.dataset.readingNow = String(list.readingNow.length)
   section.dataset.finished = String(list.finished.length)
+  nowFocus = 0
   const readingNow = hero
-    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}${heroMarkup(hero, books)}<div class="lib-recap-others" data-recap-others>${list.readingNow.slice(1).map(row => rowMarkup(row, books)).join('')}</div></section>`
+    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}<div class="lib-now-shelf${list.readingNow.length < 2 ? ' is-single' : ''}" data-now-shelf role="group" aria-label="Books you are reading">${nowShelfMarkup(list.readingNow, books, 0)}</div><div class="lib-now-caption" data-now-caption aria-live="polite"></div></section>`
     : ''
   const finished = list.finished.length
     ? `<section class="lib-finished" data-finished-section aria-label="Finished">${sectionHead('Finished', list.finished.length, 'data-finished-head')}<div class="lib-recap-others" data-finished-rows>${list.finished.map(row => finishedMarkup(row, books)).join('')}</div></section>`
     : ''
   section.innerHTML = readingNow + finished
-  if (hero) void fillHeroSummary(hero, books).catch(() => {})
+  if (!hero) return
+  renderNowCaption(true)
+  observeNowShelf()
+  const shelf = section.querySelector<HTMLElement>('[data-now-shelf]')
+  const item = shelf?.querySelector<HTMLElement>('[data-now-index="0"]')
+  if (shelf && item) requestAnimationFrame(() => centreNowItem(shelf, item))
 }
 
 async function performRender(): Promise<void> {
@@ -589,6 +704,13 @@ section?.addEventListener('click', (event) => {
   const row = target.closest<HTMLElement>('[data-recap-open]')
   if (row) {
     event.preventDefault()
+    // A card that sits back comes to the middle first; the card already in
+    // the middle opens the book where it was left.
+    const index = Number(row.closest<HTMLElement>('[data-now-index]')?.dataset.nowIndex)
+    if (Number.isInteger(index) && index !== nowFocus) {
+      setNowFocus(index, true)
+      return
+    }
     continueReading(row.dataset.recapOpen)
     return
   }

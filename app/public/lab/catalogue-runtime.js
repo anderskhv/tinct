@@ -1,8 +1,11 @@
 import { wholeBookProgress } from './library-2-model.js'
 import {
-  LAB_PHONE_PROFILE_MAX_WIDTH,
+  DEFAULT_LANDING_WORLD,
+  LANDING_WORLD_SESSION_KEY,
+  centredShelfIndex,
+  landingWorldFrom,
+  mostVisibleWorld,
   LAB_POSITION_DEVICE_KEY,
-  LAB_PREFS_DEVICE_KEY,
   LIBRARY_RETURN_SESSION_KEY,
   LIBRARY_SHELF_SESSION_KEY,
   READING_MEMORY_DEVICE_KEY,
@@ -10,9 +13,7 @@ import {
   claimReveal,
   filterIndexBooks,
   indexHouses,
-  labProfileForWidth,
   libraryModeFromDeviceMemory,
-  libraryPaletteFromPrefs,
   librarySnapshot,
   libraryViewFromLocation,
   moveSelection,
@@ -20,10 +21,12 @@ import {
   popularBooks,
   popularHead,
   publishedCount,
+  readerWordsPerMinute,
+  readingTimeLine,
   revealDelayMs,
   searchPlaceholder,
   shelfScrollLeft,
-} from './library-model.js?v=20260906-1'
+} from './library-model.js?v=20260907-2'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -49,15 +52,20 @@ import {
     shelfBooks: [],
     shelfIndex: 0,
     expandedHouseId: null,
-    /** 'dark' | 'light' | 'book' — the reader's theme preference, applied to the library. */
-    palette: 'dark',
-    /** window.scrollY when the current search began; null while no search is active. */
-    preSearchScrollY: null,
+    /** The landing world the whole pre-reader is wearing. */
+    world: DEFAULT_LANDING_WORLD,
   }
   const coverCache = new Map()
   const worldCache = new Map()
   const editionSampleCache = new Map()
   let editionSampleRenderToken = 0
+  /**
+   * The version list's samples have their own token. They used to share the
+   * edition screen's, and the book page renders both in one pass — so the
+   * edition screen's render always bumped the token out from under the
+   * version list and every row stayed on "Loading the opening…".
+   */
+  let versionSampleRenderToken = 0
 
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -125,6 +133,9 @@ import {
   }
 
   function showView(view) {
+    // Read the crossfade before the landing panel is hidden: a hidden layer
+    // has no computed opacity to read.
+    if (view !== 'landing' && root.querySelector('[data-view-panel="landing"]')?.classList.contains('is-current')) captureLandingWorld()
     root.querySelectorAll('[data-view-panel]').forEach(panel => panel.classList.toggle('is-current', panel.dataset.viewPanel === view))
     root.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)))
     // The boot paint (lab/index.html) chose the first panel from the URL; the
@@ -138,11 +149,35 @@ import {
     return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}`
   }
 
+  /**
+   * SPA entries this runtime pushed itself. Back out of a book page by
+   * popping one of them (`history.back()`), never by pushing another copy of
+   * the library: pushing made the browser Back button walk *forward* into the
+   * book page again, which is the "back goes back twice" report.
+   */
+  let pushedEntries = 0
+
   function navigateView(view, replace = false) {
-    if (view !== 'library') rememberLibrary()
+    if (view !== 'library') rememberLibrary(view === 'book-detail' || view === 'edition' ? state.selectedBookId : null)
     showView(view)
     const method = replace ? 'replaceState' : 'pushState'
     history[method]({ view, bookId: state.selectedBookId }, '', routeFor(view))
+    if (!replace) pushedEntries += 1
+  }
+
+  /** The book page's own Back: one step, to the library it came from. */
+  function leaveBookPage() {
+    if (new URLSearchParams(location.search).get('from') === 'library-2') {
+      location.assign('/lab/library-2')
+      return
+    }
+    if (pushedEntries > 0) {
+      history.back()
+      return
+    }
+    // Opened straight into a book page (a link, a share): there is nothing to
+    // pop, so replace this entry with the library rather than growing history.
+    navigateView('library', true)
   }
 
   function applyWorld(book) {
@@ -267,23 +302,43 @@ import {
     try { return localStorage.getItem(key) } catch { return null }
   }
 
-  // Theme carry-over: the library wears the reader's theme for the profile
-  // the reader would use at this width (phone ≤ 1024px, else desktop);
-  // `system` follows prefers-color-scheme. Tokens live in lab/index.html
-  // under html[data-lib-palette].
-  const darkScheme = window.matchMedia('(prefers-color-scheme: dark)')
-  const phoneProfile = window.matchMedia(`(max-width: ${LAB_PHONE_PROFILE_MAX_WIDTH}px)`)
-  function applyPalette() {
-    const profile = labProfileForWidth(phoneProfile.matches ? LAB_PHONE_PROFILE_MAX_WIDTH : LAB_PHONE_PROFILE_MAX_WIDTH + 1)
-    const palette = libraryPaletteFromPrefs(readLocal(LAB_PREFS_DEVICE_KEY), profile, darkScheme.matches)
-    state.palette = palette
-    document.documentElement.dataset.libPalette = palette
+  // World carry-over. The pre-reader is one surface: the library, the book
+  // page and the edition screen wear the world the landing was showing when
+  // the reader left it, so Start reading changes what is on the page and not
+  // what the page is made of. Tokens and world layers live in lab/index.html
+  // under html[data-lib-world]; library-boot.js sets the same attribute in
+  // the head so a direct hit on /lab/library paints in the right world.
+  function applyWorldGround(world) {
+    const next = landingWorldFrom(world) || landingWorldFrom(readSession(LANDING_WORLD_SESSION_KEY)) || DEFAULT_LANDING_WORLD
+    state.world = next
+    document.documentElement.dataset.libWorld = next
   }
-  applyPalette()
-  darkScheme.addEventListener('change', applyPalette)
-  phoneProfile.addEventListener('change', applyPalette)
-  window.addEventListener('storage', event => { if (event.key === null || event.key === LAB_PREFS_DEVICE_KEY) applyPalette() })
-  window.addEventListener('pageshow', applyPalette)
+
+  /**
+   * The world the landing is showing at this instant, read off the crossfade
+   * itself. Called as the landing is left, and parked for the session so a
+   * later direct hit on the library opens in the same world.
+   */
+  function captureLandingWorld() {
+    const nodes = [...root.querySelectorAll('[data-view-panel="landing"] .tov5-simple-world')]
+    // A layer with no box has never been painted: the boot paint hides the
+    // landing panel outright when the URL asks for the library, and reading
+    // opacities off a display:none panel returns the stylesheet's defaults —
+    // which would quietly overwrite the world the reader actually left with
+    // the first one in the file on every library reload.
+    if (!nodes.some(node => node.getClientRects().length > 0)) return
+    const layers = nodes.map(node => ({
+      world: [...node.classList].find(name => name !== 'tov5-simple-world') || '',
+      opacity: Number.parseFloat(getComputedStyle(node).opacity),
+    }))
+    const world = mostVisibleWorld(layers)
+    if (!world) return
+    writeSession(LANDING_WORLD_SESSION_KEY, world)
+    applyWorldGround(world)
+  }
+
+  applyWorldGround(null)
+  window.addEventListener('pageshow', () => applyWorldGround(null))
 
   function setLibraryMode(mode) {
     if (mode !== 'new' && mode !== 'returning') return
@@ -296,7 +351,7 @@ import {
 
   function shelfItem(book, index) {
     const selected = index === state.shelfIndex
-    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}${coverLabels(book)}</button>`
+    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}</button>`
   }
 
   /** The popular head, in the index row's language: "POPULAR" left, the count right. One place to change or cut. */
@@ -316,22 +371,14 @@ import {
     caption.innerHTML = `<h1 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h1><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
   }
 
-  /** Horizontal only: the shelf reserves its tallest state, so a selection never moves the page. */
-  function revealShelfItem(shelf, item) {
-    const style = getComputedStyle(shelf)
-    const left = shelfScrollLeft({
-      scrollLeft: shelf.scrollLeft,
-      clientWidth: shelf.clientWidth,
-      itemLeft: item.offsetLeft - shelf.offsetLeft,
-      itemWidth: item.offsetWidth,
-      padLeft: parseFloat(style.paddingLeft) || 0,
-      padRight: parseFloat(style.paddingRight) || 0,
-    })
-    if (left !== shelf.scrollLeft) shelf.scrollTo({ left, behavior: reducedMotion() ? 'auto' : 'smooth' })
-  }
-
-  function setShelfIndex(index, focus = false) {
+  /**
+   * The focused book. `scroll` centres it (a tap, a keypress, a restore);
+   * the centre observer passes scroll:false because the finger already put
+   * the cover where it is — re-scrolling would fight the gesture.
+   */
+  function setShelfIndex(index, focus = false, scroll = true) {
     const next = moveSelection(index, 0, state.shelfBooks.length)
+    const changed = state.shelfIndex !== next
     state.shelfIndex = next
     writeSession(LIBRARY_SHELF_SESSION_KEY, String(next))
     const shelf = root.querySelector('[data-popular-shelf]')
@@ -341,10 +388,89 @@ import {
       item.setAttribute('aria-current', String(selected))
       if (selected) {
         if (focus) item.focus({ preventScroll: true })
-        revealShelfItem(shelf, item)
+        if (scroll) centreShelfItem(shelf, item)
       }
     })
-    renderCaption()
+    if (changed || !root.querySelector('[data-popular-title]')) renderCaption()
+  }
+
+  /**
+   * Centre-snap is the phone's row: the middle of the scroller is where the
+   * reader is looking, so that is where the focus is. A wide screen shows the
+   * whole shelf at once and has no middle to speak of — there the selection
+   * moves only when the reader taps or arrows, and the row scrolls the
+   * minimum it needs to (the CSS above drops the centring spacers to match).
+   */
+  const centreSnap = window.matchMedia('(max-width: 899px)')
+  // Crossing that boundary changes how the shelf behaves; rebuild it so the
+  // observer and the CSS spacers agree.
+  centreSnap.addEventListener('change', () => { if (state.catalogue) renderPopular() })
+
+  /** Bring an item to the middle of its row (scroll-snap does the rest). */
+  function centreShelfItem(shelf, item) {
+    const style = getComputedStyle(shelf)
+    const target = centreSnap.matches
+      ? Math.max(0, Math.min(
+        shelf.scrollWidth - shelf.clientWidth,
+        item.offsetLeft - shelf.offsetLeft + item.offsetWidth / 2 - shelf.clientWidth / 2,
+      ))
+      : shelfScrollLeft({
+        scrollLeft: shelf.scrollLeft,
+        clientWidth: shelf.clientWidth,
+        itemLeft: item.offsetLeft - shelf.offsetLeft,
+        itemWidth: item.offsetWidth,
+        padLeft: parseFloat(style.paddingLeft) || 0,
+        padRight: parseFloat(style.paddingRight) || 0,
+      })
+    if (Math.abs(target - shelf.scrollLeft) < 2) return
+    suppressCentreDetection()
+    shelf.scrollTo({ left: target, behavior: reducedMotion() ? 'auto' : 'smooth' })
+  }
+
+  // --- centre detection -----------------------------------------------------
+  // Scrolling the row moves the focus: whichever cover is in the middle of the
+  // row is the book the caption describes. An IntersectionObserver watching a
+  // one-pixel strip down the middle of the scroller reports the crossing
+  // without a scroll handler; the geometric fallback (centredShelfIndex) runs
+  // on browsers without one and after a programmatic scroll settles.
+  let centreObserver = null
+  let centreQuietUntil = 0
+  const suppressCentreDetection = () => { centreQuietUntil = Date.now() + 420 }
+
+  function shelfGeometry(shelf) {
+    return [...shelf.querySelectorAll('[data-shelf-index]')].map(item => ({
+      left: item.offsetLeft - shelf.offsetLeft,
+      width: item.offsetWidth,
+    }))
+  }
+
+  function focusCentred(shelf) {
+    if (Date.now() < centreQuietUntil) return
+    const index = centredShelfIndex(shelfGeometry(shelf), shelf.scrollLeft, shelf.clientWidth)
+    if (index !== state.shelfIndex) setShelfIndex(index, false, false)
+  }
+
+  function observeShelfCentre(shelf) {
+    centreObserver?.disconnect()
+    centreObserver = null
+    if (state.libraryMode !== 'new' || !state.shelfBooks.length || !centreSnap.matches) return
+    if (typeof IntersectionObserver === 'function') {
+      centreObserver = new IntersectionObserver(entries => {
+        if (Date.now() < centreQuietUntil) return
+        const hit = entries.filter(entry => entry.isIntersecting).at(-1)
+        if (!hit) return
+        const index = Number(hit.target.dataset.shelfIndex)
+        if (Number.isInteger(index) && index !== state.shelfIndex) setShelfIndex(index, false, false)
+      }, { root: shelf, rootMargin: '0px -50% 0px -50%', threshold: 0 })
+      shelf.querySelectorAll('[data-shelf-index]').forEach(item => centreObserver.observe(item))
+    }
+    // The observer does not fire while a smooth scroll is suppressed, and it
+    // is absent in older engines: settle the focus from geometry either way.
+    let frame = 0
+    shelf.addEventListener('scroll', () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => { frame = 0; focusCentred(shelf) })
+    }, { passive: true })
   }
 
   function renderPopular() {
@@ -369,6 +495,12 @@ import {
       shelf.innerHTML = state.shelfBooks.map(book => `<button type="button" class="lib-grid-item" data-shelf-book="${escapeHtml(book.id)}" aria-label="${escapeHtml(book.title)}">${coverImage(book)}${coverLabels(book)}</button>`).join('')
     }
     renderCaption()
+    observeShelfCentre(shelf)
+    // Put the focused cover in the middle once the row has a width.
+    requestAnimationFrame(() => {
+      const item = shelf.querySelector(`[data-shelf-index="${state.shelfIndex}"]`)
+      if (item) centreShelfItem(shelf, item)
+    })
   }
 
   /** A cover cell: art when the book has it, else the typographic placeholder; title and author underneath. */
@@ -404,14 +536,14 @@ import {
   // that instead of a stale results view.
   const isLibraryCurrent = () => root.querySelector('[data-view-panel="library"]')?.classList.contains('is-current') === true
 
-  function rememberLibrary() {
+  function rememberLibrary(bookId = null) {
     if (!state.catalogue || !isLibraryCurrent()) return
     writeSession(LIBRARY_RETURN_SESSION_KEY, JSON.stringify(librarySnapshot({
       scrollY: window.scrollY,
-      preSearchScrollY: state.preSearchScrollY,
       shelfIndex: state.shelfIndex,
       expandedHouseId: state.expandedHouseId,
       query: state.query,
+      bookId,
     })))
   }
 
@@ -419,15 +551,25 @@ import {
     const snapshot = parseLibrarySnapshot(readSession(LIBRARY_RETURN_SESSION_KEY))
     if (!snapshot || !state.catalogue) return false
     removeSession(LIBRARY_RETURN_SESSION_KEY)
-    if (snapshot.clearSearch || state.query) {
-      root.querySelector('[data-library-search]').value = ''
-      state.query = ''
-      state.preSearchScrollY = null
-    }
+    // The search the reader was looking at is part of where they were. Back
+    // returns to those results, scrolled to the book they opened — not to the
+    // library as it stood before the search began.
+    const search = root.querySelector('[data-library-search]')
+    if (search.value !== snapshot.query) search.value = snapshot.query
+    state.query = snapshot.query
     state.expandedHouseId = snapshot.expandedHouseId
     renderIndex()
     if (state.libraryMode === 'new' && state.shelfBooks.length) setShelfIndex(snapshot.shelfIndex)
-    const settle = () => window.scrollTo({ top: snapshot.scrollY, left: 0, behavior: 'auto' })
+    const settle = () => {
+      const cell = snapshot.bookId ? root.querySelector(`[data-catalogue-book="${CSS.escape(snapshot.bookId)}"]`) : null
+      if (cell) {
+        const box = cell.getBoundingClientRect()
+        const top = box.top + window.scrollY - Math.max(0, (window.innerHeight - box.height) / 2)
+        window.scrollTo({ top: Math.max(0, Math.round(top)), left: 0, behavior: 'auto' })
+        return
+      }
+      window.scrollTo({ top: snapshot.scrollY, left: 0, behavior: 'auto' })
+    }
     settle()
     requestAnimationFrame(settle)
     return true
@@ -465,6 +607,61 @@ import {
     return true
   }
 
+  /**
+   * The reader's own words-per-minute, when the reader's speed model has
+   * learned one (src/hooks/useReadingSpeed.ts writes `tinct:reading-speed:*`).
+   * Null means the book page states the fixed 250 wpm instead.
+   */
+  function readerWpm() {
+    const records = []
+    try {
+      for (let index = 0; index < localStorage.length; index += 1) {
+        const key = localStorage.key(index)
+        if (!key || !key.startsWith('tinct:reading-speed:')) continue
+        const value = readJson(key)
+        if (value && typeof value === 'object') records.push(value)
+      }
+    } catch { return null }
+    return readerWordsPerMinute(records)
+  }
+
+  const statPill = (icon, value, title) => `<span title="${escapeHtml(title)}"><i data-lucide="${icon}" aria-hidden="true"></i><b>${escapeHtml(value)}</b></span>`
+
+  /**
+   * The stat pills: how long the text is, how long it takes — the whole book
+   * for a book not started, and what is left of it for one in progress — and
+   * whether it can be heard. The value carries the meaning; the grey helper
+   * line that used to sit under each one is gone.
+   *
+   * The pace is the reader's own when the reader's speed model has learned
+   * one, otherwise a stated 250 words a minute. The pill's title says which,
+   * so the number is never a silent claim about the reader.
+   */
+  function renderStats(book) {
+    const wpm = readerWpm()
+    const time = readingTimeLine(book.wordCount, wpm)
+    const percent = state.pendingResume ? progressFor(state.pendingResume) : null
+    const left = Number.isFinite(percent) && percent > 0 && percent < 100
+      ? readingTimeLine(Math.round(book.wordCount * (1 - percent / 100)), wpm)
+      : null
+    const pills = [
+      statPill('book-open', formatWordCount(book.wordCount), 'Length of the published text'),
+      time ? statPill('glasses', time.value, `Time to read the whole book ${time.note}`) : '',
+      left ? statPill('flag', `${left.value} left`, `Time to finish from where you stopped ${left.note}`) : '',
+      book.availability.audio ? statPill('headphones', 'Audiobook', 'Read aloud, chapter by chapter') : '',
+    ].filter(Boolean)
+    const stats = root.querySelector('[data-book-stats]')
+    stats.innerHTML = pills.join('')
+    stats.dataset.readingTime = time ? time.value : ''
+    stats.dataset.readingTimeLeft = left ? left.value : ''
+    stats.dataset.readingTimeMeasured = time ? String(time.measured) : 'false'
+    stats.setAttribute('aria-label', [
+      'About this book',
+      time ? `${time.value} to read ${time.note}` : '',
+      left ? `${left.value} left to finish` : '',
+    ].filter(Boolean).join(' — '))
+  }
+
   function renderDetail(book) {
     const cover = coverFor(book)
     root.querySelector('[data-book-detail-cover]').src = cover.src
@@ -473,14 +670,122 @@ import {
     root.querySelector('[data-book-detail-author]').textContent = book.author
     root.querySelector('[data-book-detail-title]').textContent = book.title
     root.querySelector('[data-book-detail-summary]').textContent = book.summary
-    root.querySelector('[data-book-pages]').textContent = formatWordCount(book.wordCount)
-    root.querySelector('[data-book-pages]').nextElementSibling.textContent = 'Published text'
-    const editions = v1Editions(book)
-    root.querySelector('[data-book-read-time]').textContent = `${editions.length} ${editions.length === 1 ? 'edition' : 'editions'}`
-    root.querySelector('[data-book-read-time]').nextElementSibling.textContent = 'Available'
-    root.querySelector('[data-book-listen-time]').textContent = book.availability.audio ? 'Available' : 'Unavailable'
-    root.querySelector('[data-book-listen-time]').nextElementSibling.textContent = 'Audio'
+    renderStats(book)
+    renderVersions(book)
     root.querySelector('.tov5-choose-edition').childNodes[0].textContent = state.pendingResume ? 'Continue reading ' : 'Start reading '
+    if (window.lucide) window.lucide.createIcons()
+  }
+
+  // ------------------------------------------------------------- versions
+  // Two dropdowns, because a book can carry more than two versions: one for
+  // the version being read, one for the version it is compared against. Each
+  // row is the translation's name and a sample of that translation's own
+  // opening, so the choice is made by reading, not by reading metadata.
+  // "Both" is not a version — it is the button that opens the two together.
+
+  /** The translation's name, and nothing else. */
+  function translationName(edition) {
+    if (edition.style === 'modern') return `Tinct Modern ${languageName(edition.language)}`
+    if (edition.translator) return edition.year ? `${edition.translator} · ${edition.year}` : edition.translator
+    if (edition.style === 'original') return edition.year ? `Original · ${edition.year}` : 'Original text'
+    return edition.label
+  }
+
+  function compareCandidates(book, primaryKey) {
+    const editions = v1Editions(book)
+    const primary = editions.find(edition => edition.key === primaryKey)
+    if (!primary?.aligned) return []
+    return editions.filter(edition => edition.key !== primary.key && edition.availability.compare)
+  }
+
+  const versionMenuMarkup = (which, editions, selectedKey) => editions.map(edition => `<button type="button" role="option" data-version-pick="${escapeHtml(which)}" data-version-edition="${escapeHtml(edition.key)}" aria-selected="${edition.key === selectedKey}"><b>${escapeHtml(translationName(edition))}</b><i data-version-sample="${escapeHtml(edition.key)}">Loading the opening…</i></button>`).join('')
+
+  const chevronDown = '<svg class="tov5-version-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>'
+
+  function versionField(which, role, editions, selectedKey, off) {
+    const selected = editions.find(edition => edition.key === selectedKey)
+    return `<div class="tov5-version${off ? ' is-off' : ''}" data-version-field="${which}">
+      <button type="button" class="tov5-version-btn" data-version-toggle="${which}" aria-expanded="false" aria-haspopup="listbox" aria-label="${escapeHtml(role)}: ${escapeHtml(selected ? translationName(selected) : 'choose')}"><span><span class="tov5-version-role">${escapeHtml(role)}</span><span class="tov5-version-name" data-version-name="${which}">${escapeHtml(selected ? translationName(selected) : 'Choose')}</span></span>${chevronDown}</button>
+      <div class="tov5-version-menu" data-version-menu="${which}" role="listbox" aria-label="${escapeHtml(role)}" hidden>${versionMenuMarkup(which, editions, selectedKey)}</div>
+    </div>`
+  }
+
+  function renderVersions(book) {
+    const editions = v1Editions(book).filter(edition => edition.availability.chapterText)
+    const host = root.querySelector('[data-book-versions]')
+    if (!host) return
+    const primaryKey = state.selectedEditionKey
+    const candidates = compareCandidates(book, primaryKey)
+    const compareKey = candidates.find(edition => edition.key === state.compareEditionKey)?.key || candidates[0]?.key || null
+    const both = Boolean(state.compareEditionKey)
+    host.innerHTML = [
+      versionField('primary', 'Version', editions, primaryKey, false),
+      candidates.length ? versionField('compare', 'Compare with', candidates, compareKey, !both) : '',
+      candidates.length ? `<button type="button" class="tov5-version-both" data-version-both aria-pressed="${both}">Both</button>` : '',
+    ].filter(Boolean).join('')
+    host.dataset.versionCount = String(editions.length)
+    host.dataset.compareCount = String(candidates.length)
+    void fillVersionSamples(book)
+  }
+
+  /** Each row shows that translation's own opening; fetched once per edition. */
+  async function fillVersionSamples(book) {
+    const token = ++versionSampleRenderToken
+    const keys = [...new Set([...root.querySelectorAll('[data-version-sample]')].map(node => node.dataset.versionSample))]
+    await Promise.all(keys.map(async key => {
+      const text = await loadEditionSample(book.id, key)
+      if (token !== versionSampleRenderToken || state.selectedBookId !== book.id) return
+      root.querySelectorAll(`[data-version-sample="${CSS.escape(key)}"]`).forEach(node => {
+        node.textContent = text ? `“${text.length > 150 ? `${text.slice(0, 150).trim()}…` : text}”` : 'Sample unavailable for this edition.'
+      })
+    }))
+  }
+
+  function closeVersionMenus(except = null) {
+    root.querySelectorAll('[data-version-menu]').forEach(menu => {
+      if (menu === except) return
+      menu.hidden = true
+      menu.previousElementSibling?.setAttribute('aria-expanded', 'false')
+    })
+  }
+
+  function toggleVersionMenu(which) {
+    const menu = root.querySelector(`[data-version-menu="${which}"]`)
+    if (!menu) return
+    const open = menu.hidden
+    closeVersionMenus(menu)
+    menu.hidden = !open
+    menu.previousElementSibling?.setAttribute('aria-expanded', String(open))
+  }
+
+  function pickVersion(which, editionKey) {
+    const book = selectedBook()
+    if (!book) return
+    if (which === 'primary') {
+      const candidates = compareCandidates(book, editionKey)
+      const compare = candidates.find(edition => edition.key === state.compareEditionKey)?.key
+        || (state.compareEditionKey ? candidates[0]?.key : null)
+      selectEdition(editionKey, compare || null)
+    } else {
+      // Choosing something to compare against is choosing to read both.
+      selectEdition(state.selectedEditionKey, editionKey)
+    }
+    closeVersionMenus()
+  }
+
+  function toggleBoth() {
+    const book = selectedBook()
+    if (!book) return
+    if (state.compareEditionKey) {
+      selectEdition(state.selectedEditionKey, null)
+      return
+    }
+    const candidates = compareCandidates(book, state.selectedEditionKey)
+    const chosen = root.querySelector('[data-version-name="compare"]')?.closest('[data-version-field]')
+      ? candidates.find(edition => edition.key === root.querySelector('[data-version-menu="compare"] [aria-selected="true"]')?.dataset.versionEdition)
+      : null
+    if (!candidates.length) return
+    selectEdition(state.selectedEditionKey, (chosen || candidates[0]).key)
   }
 
   const languageName = language => ({ en: 'English', da: 'Danish' })[language] || language.toUpperCase()
@@ -591,7 +896,10 @@ import {
     state.selectedEditionKey = primaryEditionKey
     state.compareEditionKey = compareEditionKey
     state.selectionRevision += 1
-    renderEditions(selectedBook())
+    const book = selectedBook()
+    renderEditions(book)
+    renderVersions(book)
+    if (window.lucide) window.lucide.createIcons()
     return true
   }
 
@@ -672,15 +980,25 @@ import {
       localStorage.setItem('tinct:library', JSON.stringify([...ids]))
     } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
-    rememberLibrary()
+    rememberLibrary(book.id)
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
     window.location.assign('/lab/reader')
     return true
   }
 
-  /** The cover is the button: open the book in the reader through the existing handoff. */
-  async function openBookFromShelf(bookId) {
+  /**
+   * The cover is the button: it opens the book's page. Every book in the
+   * library reaches the same page — before this, a cover on the popular row
+   * went straight into the reader, so books that were only reachable there
+   * (pride-and-prejudice among them) had no book page at all.
+   */
+  async function openBookPage(bookId) {
+    return selectBook(bookId, 'book-detail', true)
+  }
+
+  /** Straight into the reader — the resume paths (recap Continue, finished books) still use it. */
+  async function openBookInReader(bookId) {
     if (!await selectBook(bookId, 'library')) return false
     return openReader()
   }
@@ -706,13 +1024,36 @@ import {
     if (shelfBook) {
       event.preventDefault(); event.stopImmediatePropagation()
       const index = Number(shelfBook.dataset.shelfIndex)
-      // New reader: a tap on a cover that sits back selects it; a tap on the
-      // selected cover opens the book. Returning reader: every cover opens.
+      // A tap on a cover that sits back brings it to the middle; a tap on the
+      // cover in the middle opens its book page — the same page every other
+      // route into a book opens. No cover jumps straight into the reader.
       if (state.libraryMode === 'new' && Number.isInteger(index) && index !== state.shelfIndex) {
         setShelfIndex(index)
         return
       }
-      await openBookFromShelf(shelfBook.dataset.shelfBook)
+      await openBookPage(shelfBook.dataset.shelfBook)
+      return
+    }
+    const versionToggle = event.target.closest('[data-version-toggle]')
+    if (versionToggle) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      toggleVersionMenu(versionToggle.dataset.versionToggle)
+      return
+    }
+    const versionPick = event.target.closest('[data-version-pick]')
+    if (versionPick) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      pickVersion(versionPick.dataset.versionPick, versionPick.dataset.versionEdition)
+      return
+    }
+    if (event.target.closest('[data-version-both]')) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      toggleBoth()
+      return
+    }
+    if (event.target.closest('[data-library-back]')) {
+      event.preventDefault(); event.stopImmediatePropagation()
+      leaveBookPage()
       return
     }
     const houseRow = event.target.closest('[data-index-house]')
@@ -757,9 +1098,6 @@ import {
       renderCharacter(state.onboarding.cast[Number(character.dataset.catalogueCharacter)], Number(character.dataset.catalogueCharacter))
       return
     }
-    if (event.target.closest('.tov5-choose-edition')) {
-      event.preventDefault(); event.stopImmediatePropagation(); renderEditions(selectedBook()); navigateView('edition'); return
-    }
     if (event.target.closest('.tov5-continue')) {
       event.preventDefault(); event.stopImmediatePropagation(); openReader(); return
     }
@@ -780,11 +1118,17 @@ import {
         return
       }
     }
+    if (event.key === 'Escape' && root.querySelector('[data-version-menu]:not([hidden])')) {
+      event.preventDefault()
+      const which = root.querySelector('[data-version-menu]:not([hidden])').dataset.versionMenu
+      closeVersionMenus()
+      root.querySelector(`[data-version-toggle="${which}"]`)?.focus({ preventScroll: true })
+      return
+    }
     if (event.key === 'Escape' && target?.matches('[data-library-search]') && state.query) {
       event.preventDefault()
       target.value = ''
       state.query = ''
-      state.preSearchScrollY = null
       renderIndex()
       return
     }
@@ -797,12 +1141,17 @@ import {
     else selectEdition(state.selectedEditionKey, compareCard.dataset.compareEdition)
   })
 
+  // A tap anywhere else closes an open version list.
+  document.addEventListener('click', event => {
+    if (!root.querySelector('[data-version-menu]:not([hidden])')) return
+    const target = event.target instanceof Element ? event.target : null
+    if (target?.closest('[data-version-menu],[data-version-toggle]')) return
+    closeVersionMenus()
+  })
+
   root.addEventListener('input', event => {
     if (!event.target.matches('[data-library-search]')) return
-    const next = event.target.value
-    if (next.trim() && !state.query.trim()) state.preSearchScrollY = window.scrollY
-    if (!next.trim()) state.preSearchScrollY = null
-    state.query = next
+    state.query = event.target.value
     renderIndex()
   })
 
@@ -810,14 +1159,15 @@ import {
     ready: false,
     createHandoff,
     selectBook,
-    openBook: openBookFromShelf,
+    openBook: openBookInReader,
+    openBookPage,
     visibleBooks,
     coverFor: bookId => state.booksById.has(bookId) ? coverFor(state.booksById.get(bookId)) : null,
     bookProgress: (bookId, place) => {
       const book = state.booksById.get(bookId)
       return book ? wholeBookProgress(book, place, progressRecord(bookId), completionRecord(bookId).completed) : null
     },
-    libraryState: () => ({ mode: state.libraryMode, shelfIndex: state.shelfIndex, shelf: state.shelfBooks.map(book => book.id), query: state.query, expandedHouseId: state.expandedHouseId, palette: state.palette, preSearchScrollY: state.preSearchScrollY }),
+    libraryState: () => ({ mode: state.libraryMode, shelfIndex: state.shelfIndex, shelf: state.shelfBooks.map(book => book.id), query: state.query, expandedHouseId: state.expandedHouseId, world: state.world }),
     setLibraryMode,
     selectionState: () => ({ primaryEditionKey: state.selectedEditionKey, compareEditionKey: state.compareEditionKey, revision: state.selectionRevision }),
     continuations: () => state.continuations.map(item => ({ ...item, progress: progressFor(item) })),
@@ -877,6 +1227,7 @@ import {
   })
 
   window.addEventListener('popstate', async () => {
+    pushedEntries = Math.max(0, pushedEntries - 1)
     if (!state.catalogue) return
     const params = new URLSearchParams(location.search)
     const bookId = params.get('book')

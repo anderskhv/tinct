@@ -7,16 +7,21 @@ import {
   columnise,
   filterIndexBooks,
   indexHouses,
-  labProfileForWidth,
-  labThemeFromPrefs,
   libraryModeFromDeviceMemory,
-  libraryPaletteFor,
-  libraryPaletteFromPrefs,
+  DEFAULT_LANDING_WORLD,
+  LANDING_WORLDS,
+  landingWorldFrom,
+  mostVisibleWorld,
+  centredShelfIndex,
+  formatReadingTime,
   librarySnapshot,
   moveSelection,
   parseLibrarySnapshot,
   popularBooks,
   popularHead,
+  readerWordsPerMinute,
+  readingMinutes,
+  readingTimeLine,
   publishedCount,
   revealDelayMs,
   revealTotalMs,
@@ -85,28 +90,37 @@ describe('locked library model', () => {
     expect(popularHead(undefined)).toEqual({ label: 'Popular', count: '0' })
   })
 
-  it('reads the reader theme per profile and picks the palette', () => {
-    const v2 = JSON.stringify({ version: 2, shared: {}, phone: { theme: 'book' }, desktop: { theme: 'dark' } })
-    expect(labThemeFromPrefs(v2, 'phone')).toBe('book')
-    expect(labThemeFromPrefs(v2, 'desktop')).toBe('dark')
-    expect(labThemeFromPrefs(JSON.stringify({ theme: 'light' }), 'phone')).toBe('light')
-    expect(labThemeFromPrefs(JSON.stringify({ darkMode: true }), 'phone')).toBe('dark')
-    expect(labThemeFromPrefs(JSON.stringify({ darkMode: false }), 'desktop')).toBe('light')
-    expect(labThemeFromPrefs(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'sepia' } }), 'phone')).toBe('system')
-    expect(labThemeFromPrefs(null)).toBe('system')
-    expect(labThemeFromPrefs('{oops')).toBe('system')
-    expect(labProfileForWidth(390)).toBe('phone')
-    expect(labProfileForWidth(1024)).toBe('phone')
-    expect(labProfileForWidth(1025)).toBe('desktop')
-    expect(labProfileForWidth(1440)).toBe('desktop')
-    expect(libraryPaletteFor('dark', false)).toBe('dark')
-    expect(libraryPaletteFor('book', true)).toBe('book')
-    expect(libraryPaletteFor('light', true)).toBe('light')
-    expect(libraryPaletteFor('system', true)).toBe('dark')
-    expect(libraryPaletteFor('system', false)).toBe('light')
-    expect(libraryPaletteFor(undefined, true)).toBe('dark')
-    expect(libraryPaletteFromPrefs(v2, 'phone', true)).toBe('book')
-    expect(libraryPaletteFromPrefs(null, 'desktop', false)).toBe('light')
+  it('carries the landing world the reader left, and nothing that is not one of ours', () => {
+    expect(LANDING_WORLDS).toEqual(['odyssey', 'pride', 'frankenstein'])
+    expect(DEFAULT_LANDING_WORLD).toBe('odyssey')
+    expect(landingWorldFrom('pride')).toBe('pride')
+    expect(landingWorldFrom('frankenstein')).toBe('frankenstein')
+    expect(landingWorldFrom('meditations')).toBeNull()
+    expect(landingWorldFrom(null)).toBeNull()
+    expect(landingWorldFrom(42)).toBeNull()
+  })
+
+  it('reads the world off the crossfade: the most opaque layer is the one on screen', () => {
+    expect(mostVisibleWorld([
+      { world: 'odyssey', opacity: 0.06 },
+      { world: 'pride', opacity: 0.94 },
+      { world: 'frankenstein', opacity: 0 },
+    ])).toBe('pride')
+    // Mid-dissolve, the one that is winning is the one the reader sees.
+    expect(mostVisibleWorld([
+      { world: 'odyssey', opacity: 0.48 },
+      { world: 'pride', opacity: 0.52 },
+      { world: 'frankenstein', opacity: 0 },
+    ])).toBe('pride')
+    // A tie keeps the layer underneath rather than flickering to the next.
+    expect(mostVisibleWorld([
+      { world: 'odyssey', opacity: 0.5 },
+      { world: 'pride', opacity: 0.5 },
+    ])).toBe('odyssey')
+    expect(mostVisibleWorld([{ world: 'nope', opacity: 1 }])).toBeNull()
+    expect(mostVisibleWorld([{ world: 'odyssey', opacity: Number.NaN }])).toBe('odyssey')
+    expect(mostVisibleWorld([])).toBeNull()
+    expect(mostVisibleWorld(null)).toBeNull()
   })
 
   it('prefers the registry description and falls back to the taxonomy one-liner', () => {
@@ -126,17 +140,54 @@ describe('locked library model', () => {
     expect(shelfScrollLeft({ ...base, scrollLeft: 300, itemLeft: 400, itemWidth: 124 })).toBe(300)
   })
 
-  it('parks the pre-search state on leave and parses it back on return', () => {
-    const searched = librarySnapshot({ scrollY: 900, preSearchScrollY: 320, shelfIndex: 3, expandedHouseId: 'drama', query: 'republic' })
-    expect(searched).toEqual({ scrollY: 320, shelfIndex: 3, expandedHouseId: 'drama', clearSearch: true })
-    const plain = librarySnapshot({ scrollY: 900.4, preSearchScrollY: 320, shelfIndex: 1, expandedHouseId: null, query: '' })
-    expect(plain).toEqual({ scrollY: 900, shelfIndex: 1, expandedHouseId: null, clearSearch: false })
-    expect(librarySnapshot({ query: '  ', shelfIndex: -2 })).toEqual({ scrollY: 0, shelfIndex: 0, expandedHouseId: null, clearSearch: false })
+  it('parks the live search and the opened book on leave, and parses it back on return', () => {
+    const searched = librarySnapshot({ scrollY: 900, shelfIndex: 3, expandedHouseId: 'drama', query: 'republic', bookId: 'the-republic' })
+    expect(searched).toEqual({ scrollY: 900, shelfIndex: 3, expandedHouseId: 'drama', query: 'republic', bookId: 'the-republic' })
+    const plain = librarySnapshot({ scrollY: 900.4, shelfIndex: 1, expandedHouseId: null, query: '' })
+    expect(plain).toEqual({ scrollY: 900, shelfIndex: 1, expandedHouseId: null, query: '', bookId: null })
+    expect(librarySnapshot({ query: '  ', shelfIndex: -2 })).toEqual({ scrollY: 0, shelfIndex: 0, expandedHouseId: null, query: '', bookId: null })
     expect(parseLibrarySnapshot(JSON.stringify(searched))).toEqual(searched)
     expect(parseLibrarySnapshot(JSON.stringify(plain))).toEqual(plain)
     expect(parseLibrarySnapshot(null)).toBeNull()
     expect(parseLibrarySnapshot('nope')).toBeNull()
-    expect(parseLibrarySnapshot('[]')).toEqual({ scrollY: 0, shelfIndex: 0, expandedHouseId: null, clearSearch: false })
+    expect(parseLibrarySnapshot('[]')).toEqual({ scrollY: 0, shelfIndex: 0, expandedHouseId: null, query: '', bookId: null })
+  })
+
+  it('states a reading time from the word count, and says so when the speed is the reader\'s own', () => {
+    expect(readingMinutes(2500)).toBe(10)
+    expect(readingMinutes(2500, 500)).toBe(5)
+    expect(readingMinutes(0)).toBeNull()
+    expect(readingMinutes(null)).toBeNull()
+    expect(readingMinutes(10, 250)).toBe(1)
+    expect(formatReadingTime(45)).toBe('45 min')
+    expect(formatReadingTime(60)).toBe('1 hr')
+    expect(formatReadingTime(150)).toBe('2 hr 30 min')
+    expect(formatReadingTime(700)).toBe('11 hr')
+    expect(formatReadingTime(0)).toBeNull()
+    expect(readingTimeLine(120_000)).toEqual({ value: '8 hr', wordsPerMinute: 250, measured: false, note: 'at 250 words a minute' })
+    expect(readingTimeLine(120_000, 400)).toEqual({ value: '5 hr', wordsPerMinute: 400, measured: true, note: 'at your 400 words a minute' })
+    expect(readingTimeLine(null)).toBeNull()
+  })
+
+  it('reads a words-per-minute out of the reader speed records, ignoring thin or absurd ones', () => {
+    expect(readerWordsPerMinute([])).toBeNull()
+    expect(readerWordsPerMinute([{ totalWordsRead: 100, totalSecondsSpent: 60 }])).toBeNull()
+    expect(readerWordsPerMinute([{ totalWordsRead: 6000, totalSecondsSpent: 30 }])).toBeNull()
+    expect(readerWordsPerMinute([{ totalWordsRead: 6000, totalSecondsSpent: 1200 }])).toBe(300)
+    expect(readerWordsPerMinute([
+      { totalWordsRead: 6000, totalSecondsSpent: 1200 },
+      { totalWordsRead: 5000, totalSecondsSpent: 1500 },
+    ])).toBe(250)
+    expect(readerWordsPerMinute(null)).toBeNull()
+  })
+
+  it('focuses the shelf item nearest the centre of the scroller', () => {
+    const items = [{ left: 0, width: 120 }, { left: 136, width: 120 }, { left: 272, width: 120 }]
+    expect(centredShelfIndex(items, 0, 200)).toBe(0)
+    expect(centredShelfIndex(items, 136, 200)).toBe(1)
+    expect(centredShelfIndex(items, 272, 200)).toBe(2)
+    expect(centredShelfIndex(items, 1000, 200)).toBe(2)
+    expect(centredShelfIndex([], 0, 200)).toBe(0)
   })
 
   it('staggers the reveal from the artboard timings', () => {

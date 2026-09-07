@@ -10,6 +10,7 @@
     'chevron-down': '<path d="m6 9 6 6 6-6"/>',
     'chevron-right': '<path d="m9 18 6-6-6-6"/>',
     'chevron-up': '<path d="m18 15-6-6-6 6"/>',
+    'flag': '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
     'glasses': '<circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M10 15h4"/><path d="m2 15 2-8h3"/><path d="m22 15-2-8h-3"/>',
     'headphones': '<path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v6a2 2 0 0 0 2 2h2v-8H4Z"/><path d="M20 13v6a2 2 0 0 1-2 2h-2v-8h4Z"/>',
     'message-circle': '<path d="M21 15a4 4 0 0 1-4 4H8l-5 3 1.7-5.1A8 8 0 1 1 21 15Z"/>',

@@ -14,6 +14,31 @@
   var MEMORY_KEY = 'tinct:reading-memory'
   var POSITION_KEY = 'tinct-lab-position'
   var MAX_AGE = 30 * 24 * 60 * 60 * 1000
+  /**
+   * A signed-in reader who read within this window is taken straight back
+   * into the book; anything older, or no reading at all, opens the library.
+   * A signed-in reader never sees the landing page.
+   * Mirrors LAB_RESUME_WINDOW_MS in src/lab/labLibraryBoot.ts — the unit test
+   * there and labLibraryBoot.bootScript.test.ts hold the two together.
+   */
+  var LAB_RESUME_WINDOW_MS = 3 * 24 * 60 * 60 * 1000
+  /**
+   * The landing's three worlds, and where the landing parks the one it was
+   * showing when it was left. The whole pre-reader wears it, so a direct hit
+   * on /lab/library must set it before the first paint — otherwise the
+   * library opens in one world and swaps to another a frame later.
+   * Mirrors LANDING_WORLDS / LANDING_WORLD_SESSION_KEY in lab/library-model.js.
+   */
+  var LANDING_WORLDS = ['odyssey', 'pride', 'frankenstein']
+  var LANDING_WORLD_SESSION_KEY = 'tinct:lab-landing-world'
+  var DEFAULT_LANDING_WORLD = 'odyssey'
+
+  function landingWorld(session) {
+    try {
+      var stored = session ? session.getItem(LANDING_WORLD_SESSION_KEY) : null
+      return LANDING_WORLDS.indexOf(stored) >= 0 ? stored : DEFAULT_LANDING_WORLD
+    } catch (e) { return DEFAULT_LANDING_WORLD }
+  }
 
   function readJson(storage, key) {
     try { var raw = storage.getItem(key); return raw ? JSON.parse(raw) : null } catch (e) { return null }
@@ -45,6 +70,41 @@
   }
   function hasCookie(cookie) {
     try { return (cookie || '').split(';').some(function (part) { return part.trim() === 'tinct_auth=1' }) } catch (e) { return false }
+  }
+  /** Bare entry: /lab, /lab/, /lab/landing, with no view or book asked for. */
+  function labEntryPath(loc) {
+    var path = String(loc.pathname || '').replace(/\/+$/, '')
+    if (path !== '/lab' && path !== '/lab/landing') return false
+    try {
+      var params = new URLSearchParams(loc.search || '')
+      return !params.get('view') && !params.get('book')
+    } catch (e) { return true }
+  }
+  /** Newest reading this device recorded: the position record and the reading-memory mirror. */
+  function lastReadAt(storage) {
+    var stamps = []
+    var push = function (value) { if (typeof value === 'number' && isFinite(value) && value > 0) stamps.push(value) }
+    var position = readJson(storage, POSITION_KEY)
+    if (position && typeof position === 'object') {
+      push(position.lastSettledAt)
+      var books = position.books && typeof position.books === 'object' ? position.books : {}
+      for (var bookKey in books) if (books[bookKey]) push(books[bookKey].updatedAt)
+    }
+    var memory = readJson(storage, MEMORY_KEY)
+    if (memory && typeof memory === 'object') {
+      var sessions = memory.sessions && typeof memory.sessions === 'object' ? memory.sessions : {}
+      for (var id in sessions) if (sessions[id]) { push(sessions[id].lastActiveAt); push(sessions[id].endedAt) }
+    }
+    if (!stamps.length) return null
+    return Math.max.apply(null, stamps)
+  }
+  /** 'landing' | 'library' | 'reader', or null when the URL already asks for something specific. */
+  function entryTarget(loc, signedIn, storage, now) {
+    if (!labEntryPath(loc)) return null
+    if (!signedIn) return 'landing'
+    var last = storage ? lastReadAt(storage) : null
+    if (typeof last !== 'number' || !isFinite(last) || last <= 0) return 'library'
+    return (now || Date.now()) - last <= LAB_RESUME_WINDOW_MS ? 'reader' : 'library'
   }
   function libraryRequested(loc) {
     var path = String(loc.pathname || '').replace(/\/+$/, '')
@@ -93,7 +153,15 @@
     var signedIn = Boolean(user) || hasCookie(cookie)
     var snapshot = storage ? snapshotFor(storage, user ? user.id : null, now) : null
     var returning = Boolean(snapshot && snapshot.hero) || (storage ? deviceHasReading(storage) : false)
-    return { library: libraryRequested(loc), signedIn: signedIn, user: user, snapshot: snapshot, returning: returning }
+    var entry = entryTarget(loc, signedIn, storage, now)
+    return {
+      library: libraryRequested(loc) || entry === 'library',
+      signedIn: signedIn,
+      user: user,
+      snapshot: snapshot,
+      returning: returning,
+      entry: entry,
+    }
   }
 
   function el(tag, className, textContent) {
@@ -131,55 +199,50 @@
     var wrap = el('section', 'lib-reading-now')
     wrap.setAttribute('data-reading-now-section', '')
     wrap.setAttribute('aria-label', 'Reading now')
+    wrap.appendChild(sectionHead('Reading now', hero ? Math.max(1, snapshot.readingNow) : '', 'data-reading-now-head'))
+    var shelf = el('div', 'lib-now-shelf is-single')
+    shelf.setAttribute('data-now-shelf', '')
+    var card = el('div', 'lib-now-item is-focused')
+    card.setAttribute('data-now-index', '0')
+    var open = el('button', 'lib-now-open')
+    open.type = 'button'
+    if (hero) {
+      card.setAttribute('data-now-book', hero.bookId)
+      open.setAttribute('data-recap-open', hero.bookId)
+    }
+    open.appendChild(coverNode(hero))
+    card.appendChild(open)
+    shelf.appendChild(card)
+    wrap.appendChild(shelf)
+    var caption = el('div', 'lib-now-caption')
+    caption.setAttribute('data-now-caption', '')
     if (hero) {
       section.setAttribute('data-boot-recap', 'snapshot')
-      wrap.appendChild(sectionHead('Reading now', Math.max(1, snapshot.readingNow), 'data-reading-now-head'))
-      var card = el('div', 'lib-recap-hero')
-      card.setAttribute('data-recap-hero', hero.bookId)
-      var head = el('div', 'lib-recap-head')
-      head.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
-      head.appendChild(el('h1', 'lib-h1', hero.headline))
-      card.appendChild(head)
-      var coverWrap = el('div', 'lib-recap-cover')
-      coverWrap.appendChild(coverNode(hero))
-      card.appendChild(coverWrap)
-      var meta = el('div', 'lib-recap-meta')
-      meta.appendChild(el('p', 'lib-lede', hero.title))
-      var cta = el('div', 'lib-recap-cta')
+      caption.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
+      caption.appendChild(el('h1', 'lib-h1', hero.headline))
+      caption.appendChild(el('p', 'lib-lede', hero.title))
+      var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
       button.type = 'button'
       button.setAttribute('data-recap-continue', hero.bookId)
       cta.appendChild(button)
       if (hero.note) cta.appendChild(el('span', 'lib-cta-note', hero.note))
-      meta.appendChild(cta)
-      card.appendChild(meta)
-      wrap.appendChild(card)
+      caption.appendChild(cta)
     } else {
       section.setAttribute('data-boot-recap', 'skeleton')
       section.setAttribute('aria-busy', 'true')
-      wrap.appendChild(sectionHead('Reading now', '', 'data-reading-now-head'))
-      var skeleton = el('div', 'lib-recap-hero lib-boot-skel')
-      var skHead = el('div', 'lib-recap-head')
-      skHead.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
-      skHead.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
-      skeleton.appendChild(skHead)
-      var skCover = el('div', 'lib-recap-cover')
-      skCover.appendChild(coverNode(null))
-      skeleton.appendChild(skCover)
-      var skMeta = el('div', 'lib-recap-meta')
-      skMeta.appendChild(el('p', 'lib-lede lib-boot-bar'))
-      var skCta = el('div', 'lib-recap-cta')
+      caption.className = 'lib-now-caption lib-boot-skel'
+      caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
+      caption.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
+      caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
+      var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')
       skButton.type = 'button'
       skButton.setAttribute('data-recap-continue', '')
       skCta.appendChild(skButton)
-      skMeta.appendChild(skCta)
-      skeleton.appendChild(skMeta)
-      wrap.appendChild(skeleton)
+      caption.appendChild(skCta)
     }
-    var others = el('div', 'lib-recap-others')
-    others.setAttribute('data-recap-others', '')
-    wrap.appendChild(others)
+    wrap.appendChild(caption)
     section.appendChild(wrap)
     section.hidden = false
   }
@@ -234,11 +297,37 @@
     document.addEventListener('DOMContentLoaded', attempt)
   }
 
-  window.__tinctLabBoot = { state: null, bootState: bootState, paint: paint, observe: observe }
+  window.__tinctLabBoot = {
+    state: null,
+    bootState: bootState,
+    paint: paint,
+    observe: observe,
+    entryTarget: entryTarget,
+    lastReadAt: lastReadAt,
+    landingWorld: landingWorld,
+    LANDING_WORLDS: LANDING_WORLDS,
+    RESUME_WINDOW_MS: LAB_RESUME_WINDOW_MS,
+  }
   try {
     var state = bootState(location, document.cookie, window.localStorage)
     window.__tinctLabBoot.state = state
     var html = document.documentElement
+    // A signed-in reader never lands on the landing page. This runs in a
+    // blocking <head> script, before the parser reaches the panels, so the
+    // decision is made before the first paint — no landing flash.
+    if (state.entry === 'reader') {
+      location.replace('/lab/reader')
+      return
+    }
+    if (state.entry === 'library') {
+      // Rewrite in place rather than navigating: catalogue-runtime.js reads
+      // the URL when it loads, so this costs no extra request and cannot
+      // flash the landing panel.
+      try { history.replaceState(history.state, '', '/lab/library' + (location.search || '')) } catch (e) { /* history blocked */ }
+    }
+    var session = null
+    try { session = window.sessionStorage } catch (e) { session = null }
+    html.setAttribute('data-lib-world', landingWorld(session))
     if (state.library) html.setAttribute('data-lab-boot-view', 'library')
     if (state.signedIn) html.setAttribute('data-lab-auth-hint', 'signed-in')
     if (state.returning) html.setAttribute('data-lab-boot-mode', 'returning')

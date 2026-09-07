@@ -12,8 +12,9 @@
  *     request goes out and the summary appears. A summary the device already
  *     cached for that exact place is shown either way.
  *  2. A daily Bible reader who read something else afterwards. The Bible
- *     drops out of the hero slot, and a quiet row's line comes from the
- *     stored session summary or the device cache — never from a request.
+ *     drops out of the centre of the Reading-now row and carries no line of
+ *     its own; scrolling it back to the middle shows the device's cached
+ *     line at once, and orders a fresh one only once the row settles there.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { READING_MEMORY_DEVICE_KEY } from './readingMemory/deviceStore'
@@ -260,36 +261,54 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     ], 'plato-republic'),
   })
 
-  it('gives the hero — and the only generated summary — to the newest book, not to the Bible', async () => {
+  it('gives the focus — and the only generated summary — to the newest book, not to the Bible', async () => {
     const { sessions, positions } = morningBibleEveningRepublic()
     const section = await renderLibrary(sessions, positions)
     expect(section.dataset.book).toBe('plato-republic')
     expect(section.dataset.readingNow).toBe('2')
+    expect(section.dataset.nowFocus).toBe('0')
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
-    const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
-    expect(bibleRow.textContent).toContain('Last time · Proverbs 17')
+    // Every book in progress is a cover in the same row. The Bible is there,
+    // named, but it carries no line of its own: the caption under the row
+    // belongs to the book in the middle, and there is only one of it.
+    const bibleCard = section.querySelector<HTMLElement>('[data-now-book="bible"]')!
+    const bibleOpen = bibleCard.querySelector<HTMLElement>('[data-recap-open]')!
+    expect(bibleOpen.getAttribute('aria-label')).toContain('Proverbs 17')
+    expect(bibleOpen.getAttribute('aria-current')).toBe('false')
+    expect(section.querySelectorAll('[data-testid=lab-recap-summary]')).toHaveLength(1)
+    expect(section.querySelector('.lib-recap-row-recap')).toBeNull()
   })
 
-  it('shows the Bible row the summary this device already has for that place, with no extra request', async () => {
+  it('shows the Bible the summary this device already has once it is the centred book, with no extra request', async () => {
     cacheSummary(
       recapCacheKey({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 645, paragraphIndex: 2, paragraphCount: 6, completed: false }),
       'Solomon weighs quiet bread against a house of strife.',
     )
     const { sessions, positions } = morningBibleEveningRepublic()
     const section = await renderLibrary(sessions, positions)
-    const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
-    expect(bibleRow.querySelector('.lib-recap-row-recap')!.textContent).toBe('Solomon weighs quiet bread against a house of strife.')
+    // Scrolling the Bible to the middle is a tap on a card that sits back.
+    section.querySelector<HTMLElement>('[data-now-book="bible"] [data-recap-open]')!.click()
+    await flush()
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent)
+      .toBe('Solomon weighs quiet bread against a house of strife.')
+    expect(section.dataset.summaryLine).toBe('cached')
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
   })
 
-  it('leaves the row line out when the device has no summary for the place it resumes at', async () => {
-    cacheSummary(
-      recapCacheKey({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 631, paragraphIndex: 0, paragraphCount: 3, completed: false }),
-      'A summary of yesterday’s chapter.',
-    )
+  it('asks for the centred book only once the row settles on it, never while scrolling past', async () => {
     const { sessions, positions } = morningBibleEveningRepublic()
     const section = await renderLibrary(sessions, positions)
-    const bibleRow = section.querySelector<HTMLElement>('[data-recap-open="bible"]')!
-    expect(bibleRow.querySelector('.lib-recap-row-recap')).toBeNull()
+    section.querySelector<HTMLElement>('[data-now-book="bible"] [data-recap-open]')!.click()
+    await flush()
+    // The caption is the Bible's, but nothing has been ordered for it yet.
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.hasAttribute('hidden')).toBe(true)
+    expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
+    await vi.advanceTimersByTimeAsync(800)
+    await flush()
+    expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic', 'bible'])
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('So far in bible 645.')
   })
 })
+
