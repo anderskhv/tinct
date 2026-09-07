@@ -272,6 +272,30 @@ describe('the super-menu', () => {
   })
 })
 
+describe('the desktop', () => {
+  it('gets the same two controls, and the same menu and sheet behind them', () => {
+    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    expect(root().getAttribute('data-chrome-version')).toBe('v2')
+    expect(screen.getByTestId('lab-v2-play')).toBeTruthy()
+    expect(screen.getByTestId('lab-super')).toBeTruthy()
+    // Desktop chrome does not hide, so the two controls are never gated on a
+    // reveal the desktop reader has no way to ask for.
+    expect(screen.queryByTestId('lab-gear')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.getByTestId('lab-super-menu')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
+  })
+
+  it('keeps today\u2019s desktop chrome without the flag', () => {
+    render(<LabApp pathname="/lab/desktop" search="" source={fallbackLabSource()} authToken={null} />)
+    expect(root().getAttribute('data-chrome-version')).toBeNull()
+    expect(screen.getByTestId('lab-gear')).toBeTruthy()
+    expect(screen.queryByTestId('lab-super')).toBeNull()
+  })
+})
+
 describe('the transport', () => {
   it('opens from the top Play, which then shows a pause', async () => {
     stubAudio()

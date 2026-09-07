@@ -2884,13 +2884,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'compare') { handleMobileCompare(); return }
+    if (id === 'compare') { (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)(); return }
     if (id === 'settings') { setSuperSheet('reading'); return }
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     window.location.assign(LAB_LIBRARY_URL)
-  }, [handleChat, handleMobileCompare, handleTalk, rememberLibraryPlace])
+  }, [handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
 
   // The first view: 400 ms after the first page has laid out, never on load
   // and never over playing audio. Marked seen the moment it starts, so an
@@ -3066,7 +3066,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           </button>
         </div>
         <div className="lab-header-controls">
-          {chromeV2 && showPhoneChrome ? (phoneReaderControlsVisible ? (
+          {chromeV2 ? ((!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
               <button
                 type="button"
@@ -3119,15 +3119,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
         </p>
       </header>}
-      {chromeV2 && showPhoneChrome && !frontispieceVisible && (
+      {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
           open={superMenuOpen}
-          compare={mobileCompareEnabled}
+          compare={showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
       )}
-      {chromeV2 && showPhoneChrome && !frontispieceVisible && (
+      {chromeV2 && !frontispieceVisible && (
         <LabV2Sheet
           layer={superSheet}
           onLayer={setSuperSheet}

@@ -5473,3 +5473,44 @@
   letter-spacing: 0.05em;
   color: var(--lab-v2-faint);
 }
+
+/* ── Desktop chrome ──────────────────────────────────────────────────────
+   The same two controls, in the ring the desktop header already gives its
+   buttons: 42px discs at the top right, Play then the t. */
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-play,
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 1px solid var(--lab-border);
+  background: rgba(var(--lab-v2-panel-ink), 0.62);
+  box-shadow: 0 8px 24px rgba(53, 43, 30, 0.08);
+}
+
+/* The t's target is pulled left against Play on the phone, where the two sit
+   2px apart with no containers. The desktop pair has its own 8px gap and its
+   own rings, so the nudge would push the mark off its ring. */
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+  transform: none;
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super-panel {
+  top: calc(4.6rem + env(safe-area-inset-top, 0px));
+  right: 24px;
+}
+
+/* The sheet keeps its shape on a wide window: a sheet, not a full-bleed band. */
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-sheet {
+  left: 50%;
+  right: auto;
+  width: min(420px, calc(100% - 48px));
+  transform: translateX(-50%);
+  border-radius: 20px 20px 0 0;
+}
