@@ -5514,3 +5514,35 @@
   transform: translateX(-50%);
   border-radius: 20px 20px 0 0;
 }
+
+/* ── One surface, everywhere ─────────────────────────────────────────────
+   The menu, the transport, the sheets, the chapter picker, the speed
+   popover and the composer are all the same paint: a fill of the paper
+   colour over a blur each panel carries itself, denser at the top so a
+   first label never sits on the thinnest part of it. The page behind is
+   never blurred — the words have to read through. */
+
+.lab[data-chrome-version="v2"] .lab-audio-speed-popover,
+.lab[data-chrome-version="v2"] .lab-toc,
+.lab[data-chrome-version="v2"] .lab-ask-composer {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+}
+
+/* The chapter picker is a full-height layer, so it takes the sheets' denser
+   fill rather than the menu's — a list this long has to hold at reading
+   distance, and the page behind it still shows through. */
+.lab[data-chrome-version="v2"] .lab-toc {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill))
+  );
+}
