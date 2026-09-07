@@ -4611,3 +4611,331 @@
 }
 .lab.is-night .lab-account-nudge { color: var(--lab-ink-muted); border-color: var(--lab-border); }
 .lab.is-night .lab-account-nudge a { color: var(--lab-ink); }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Reader chrome V2 — the preview shell behind `?chrome=v2`.
+
+   Everything below is scoped to `[data-chrome-version="v2"]`, which only the
+   flagged lab reader routes stamp. Without the flag not one of these rules
+   can match, so today's chrome is untouched.
+
+   Values come off the reader-chrome canvas (round 8) and the super-button
+   canvas (artboards 16–17): a 16px blur living in the panel, 35% fill on
+   paper and 45% on night, a light dim over a page that is never blurred, a
+   56px icon gutter with 22px icons, 17px labels and 52px rows.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.lab[data-chrome-version="v2"] {
+  --lab-v2-panel-ink: 250, 247, 239;
+  --lab-v2-panel-fill: 0.35;
+  --lab-v2-panel-fill-top: 0.44;
+  --lab-v2-panel-blur: 16px;
+  --lab-v2-page-dim: rgba(28, 24, 18, 0.08);
+  --lab-v2-hairline: rgba(32, 26, 19, 0.12);
+  --lab-v2-chevron: #81796b;
+  --lab-v2-menu-top: calc(3.1rem + env(safe-area-inset-top, 0px));
+  --lab-v2-disc: rgba(159, 141, 109, 0.26);
+  --lab-v2-disc-open: rgba(159, 141, 109, 0.16);
+}
+
+.lab[data-chrome-version="v2"].is-night {
+  --lab-v2-panel-ink: 52, 46, 39;
+  --lab-v2-panel-fill: 0.45;
+  --lab-v2-panel-fill-top: 0.54;
+  --lab-v2-page-dim: rgba(0, 0, 0, 0.14);
+  --lab-v2-hairline: rgba(250, 246, 238, 0.13);
+  --lab-v2-chevron: #b8b0a4;
+  --lab-v2-disc: rgba(232, 214, 185, 0.2);
+  --lab-v2-disc-open: rgba(232, 214, 185, 0.12);
+}
+
+/* The one surface. Panel, transport and compare card all draw on it: a fill
+   of the paper colour over a blur the panel carries itself, denser at the top
+   so the first row's label never sits on the thinnest part of it. */
+.lab[data-chrome-version="v2"] .lab-super-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  box-shadow: 0 14px 40px rgba(20, 15, 8, 0.2);
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────── */
+
+/* Two 44px targets, 2px apart. The width is held whether or not the buttons
+   are on screen, so the title never moves when the chrome hides. */
+.lab[data-chrome-version="v2"].is-phone .lab-header-controls,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-header-controls {
+  width: 5.75rem;
+  min-width: 5.75rem;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-play,
+.lab[data-chrome-version="v2"] .lab-super {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-play svg {
+  display: block;
+}
+
+/* The t's target is pulled 4px left so the optical gap to Play closes; the
+   glyph is nudged 0.4 right inside it so the mark still sits centred. */
+.lab[data-chrome-version="v2"] .lab-super {
+  position: relative;
+  transform: translateX(-4px);
+  contain: layout paint;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-nudge,
+.lab[data-chrome-version="v2"] .lab-super-spin,
+.lab[data-chrome-version="v2"] .lab-super-pulse {
+  display: grid;
+  place-items: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-nudge {
+  transform: translateX(0.4px);
+}
+
+.lab[data-chrome-version="v2"] .lab-super-mark {
+  display: block;
+  transition: opacity 80ms ease-out;
+}
+
+/* No container at rest. The disc is the only one the button ever gets. */
+.lab[data-chrome-version="v2"] .lab-super-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--lab-v2-disc);
+  opacity: 0;
+  transition: opacity 80ms ease-out;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-pressed .lab-super-disc {
+  opacity: 1;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-pressed .lab-super-mark {
+  opacity: 0.92;
+}
+
+/* The quieter disc holds while the menu is open. */
+.lab[data-chrome-version="v2"] .lab-super.is-open .lab-super-disc {
+  background: var(--lab-v2-disc-open);
+  opacity: 1;
+}
+
+/* The wordmark's teal full stop, at the letter's baseline right. */
+.lab[data-chrome-version="v2"] .lab-super-stop {
+  position: absolute;
+  top: 21.6px;
+  left: 27.5px;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #1f4a5c;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.has-hint .lab-super-stop {
+  opacity: 1;
+}
+
+/* The first view. 0 → 405° — the × angle — held, then settled back to 360°;
+   the scale rides a second element so the rotation keeps one curve. */
+@keyframes lab-super-spin {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.34, 0, 0.66, 1);
+  }
+  68.182% {
+    transform: rotate(405deg);
+    animation-timing-function: linear;
+  }
+  77.273% {
+    transform: rotate(405deg);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lab-super-pulse {
+  0% { transform: scale(1); }
+  34.091% { transform: scale(1.06); }
+  68.182% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes lab-super-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-spin {
+  animation: lab-super-spin 440ms both;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-pulse {
+  animation: lab-super-pulse 440ms linear both;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-arriving .lab-super-mark {
+  animation: lab-super-arrive 240ms ease-out both;
+}
+
+/* Reduced motion: the mark fades in, and the × cross-fades in place of the
+   morph. The two shapes are both drawn, so nothing has to be rebuilt. */
+.lab[data-chrome-version="v2"] .lab-super-letter,
+.lab[data-chrome-version="v2"] .lab-super-cross {
+  transition: opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lab[data-chrome-version="v2"] .lab-super-cross {
+  opacity: 0;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-open .lab-super-letter {
+  opacity: 0;
+}
+
+.lab[data-chrome-version="v2"] .lab-super.is-open .lab-super-cross {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-spin,
+  .lab[data-chrome-version="v2"] .lab-super.is-spinning .lab-super-pulse {
+    animation: none;
+  }
+}
+
+/* Hidden chrome: the chevron goes with the pill, and the title is left as
+   plain dimmed text. The two buttons are not rendered at all. */
+.lab[data-chrome-version="v2"][data-reader-controls="hidden"] .lab-header-chevron {
+  opacity: 0;
+}
+
+/* ── Super-menu ──────────────────────────────────────────────────────── */
+
+.lab[data-chrome-version="v2"] .lab-super-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 320;
+}
+
+/* The page behind is dimmed, never blurred: the reader has to be able to
+   read the words through the panel. */
+.lab[data-chrome-version="v2"] .lab-super-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--lab-v2-page-dim);
+  cursor: default;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-panel {
+  position: absolute;
+  top: var(--lab-v2-menu-top);
+  right: 12px;
+  width: 300px;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 18px 0 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row + .lab-super-row {
+  border-top: 1px solid var(--lab-v2-hairline);
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-icon {
+  flex: 0 0 56px;
+  width: 56px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-icon svg {
+  display: block;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-label {
+  flex: 1 1 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.lab[data-chrome-version="v2"] .lab-super-row-chevron {
+  color: var(--lab-v2-chevron);
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* ── Transport ───────────────────────────────────────────────────────── */
+
+/* The same surface, in place. The bar keeps the box it has today — border
+   width included, so the page break never moves — and only its paint
+   changes. */
+.lab[data-chrome-version="v2"].is-phone .lab-phone-bar,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-phone-bar {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  border-top-color: transparent;
+  box-shadow: 0 -6px 20px rgba(20, 15, 8, 0.08);
+}
+
+/* Playing is a state the reader must be able to see and stop at any moment.
+   The header and its two buttons dim with the chrome; the transport does
+   not, for as long as playback continues. */
+.lab[data-chrome-version="v2"][data-reader-controls="hidden"][data-transport="open"]:not(.has-phone-ask) .lab-phone-bar {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
