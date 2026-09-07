@@ -347,6 +347,11 @@
 .lab-hearing-word {
   display: inline;
   font-synthesis: none;
+  /* The follow highlight may only change color and background. Every box
+     property it needs (decoration-break for a wrapped span) is set at rest,
+     so marking a word current changes nothing the line breaker can see. */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .lab-passage.is-hearing .lab-hearing-word.is-spoken {

@@ -8,6 +8,7 @@ import {
   followParagraphFromManifest,
   followThresholdFromSidecar,
   followWordRole,
+  isSameFollowTarget,
   isSentenceTerminator,
   mergeSidecarWords,
   followTimeFromAudio,
@@ -435,5 +436,30 @@ describe('sentence-level follow for weakly aligned paragraphs', () => {
     for (const token of ['Noah,', 'the', '"Let', 'e.g', 'Mr']) {
       expect(isSentenceTerminator(token)).toBe(false)
     }
+  })
+})
+
+describe('isSameFollowTarget', () => {
+  const word = (paragraphIndex: number, wordIndex: number) => ({ kind: 'word' as const, paragraphIndex, wordIndex })
+
+  it('treats a freshly resolved target for the same word as unchanged', () => {
+    expect(isSameFollowTarget(word(2, 7), word(2, 7))).toBe(true)
+    expect(isSameFollowTarget({ kind: 'none' }, { kind: 'none' })).toBe(true)
+    expect(isSameFollowTarget({ kind: 'paragraph', paragraphIndex: 1 }, { kind: 'paragraph', paragraphIndex: 1 })).toBe(true)
+  })
+
+  it('sees every move that would paint different words', () => {
+    expect(isSameFollowTarget(word(2, 7), word(2, 8))).toBe(false)
+    expect(isSameFollowTarget(word(2, 7), word(3, 7))).toBe(false)
+    expect(isSameFollowTarget(word(2, 7), { kind: 'paragraph', paragraphIndex: 2 })).toBe(false)
+    expect(isSameFollowTarget(word(2, 7), { kind: 'none' })).toBe(false)
+    expect(isSameFollowTarget({ kind: 'paragraph', paragraphIndex: 1 }, { kind: 'paragraph', paragraphIndex: 2 })).toBe(false)
+  })
+
+  it('compares the sentence span, not only the word inside it', () => {
+    const span = (from: number, to: number) => ({ ...word(1, 4), granularity: 'sentence' as const, span: { from, to, start: 0, end: 1 } })
+    expect(isSameFollowTarget(span(2, 9), span(2, 9))).toBe(true)
+    expect(isSameFollowTarget(span(2, 9), span(2, 10))).toBe(false)
+    expect(isSameFollowTarget(span(2, 9), word(1, 4))).toBe(false)
   })
 })

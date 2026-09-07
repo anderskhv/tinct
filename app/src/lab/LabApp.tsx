@@ -1888,6 +1888,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (passage) passage.scrollTop = 0
   }, [book.chapterTitle, readingPageIndex, readingPage?.paragraphIndex, readingPage?.from, readingPage?.to, readingPage?.segments])
   const readingTail = chapterPageTail(readingPage)
+  // Typography that reaches the page as root CSS variables; LabPassage
+  // re-measures continued page tails only when it changes.
+  const readerLayoutKey = [
+    prefs.fontFamily,
+    prefs.fontSize,
+    prefs.alignment,
+    prefs.lineSpacing,
+    prefs.margins,
+    prefs.paragraphSpacing,
+  ].join('|')
   const isOnline = readOnline(online)
   const frontispieceVisible = chapterCoverTitle != null
   // The chapter heading appears once, naming the chapter that will be read:
@@ -3032,6 +3042,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             peek={chrome === 'hearing' && peekBook}
             readingPage={readingPage}
             chapterPages={readingPages}
+            layoutKey={readerLayoutKey}
             highlights={mobileCompareActive ? [] : highlightsApi.chapterHighlights}
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}

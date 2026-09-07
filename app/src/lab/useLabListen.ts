@@ -7,6 +7,7 @@ import {
   labAudioManifestUrl,
   labAudioSidecarUrl,
   readLabWordSidecar,
+  steppedPlaybackTime,
   type LabAudioClip,
   type LabAudioTitleClip,
 } from './labListen'
@@ -14,6 +15,7 @@ import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossCli
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
+  isSameFollowTarget,
   mergeSidecarWords,
   paragraphHasWordTimings,
   wordsFromManifestParagraph,
@@ -115,12 +117,16 @@ export function useLabListen(options: UseLabListenOptions) {
     if (Number.isFinite(time) && (time > 0 || positionRef.current.time === 0 || positionRef.current.clipIndex !== index)) {
       positionRef.current = { clipIndex: index, time: Math.max(0, time) }
     }
-    setCurrentTime(positionRef.current.time)
-    setFollow(followPlayingClip(
+    // Both updates are no-ops for React while the painted word and the
+    // stepped clock are unchanged, so a frame with nothing new to show
+    // re-renders nothing. positionRef stays exact for seeking/persistence.
+    setCurrentTime(previous => steppedPlaybackTime(previous, positionRef.current.time))
+    const next = followPlayingClip(
       paragraphsRef.current,
       clip,
       positionRef.current.time + LAB_FOLLOW_LEAD_SECONDS,
-    ))
+    )
+    setFollow(previous => isSameFollowTarget(previous, next) ? previous : next)
   }, [])
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {

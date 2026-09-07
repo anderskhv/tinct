@@ -11,6 +11,8 @@ import {
   labAudioSidecarUrl,
   loadLabAudioChapter,
   readLabWordSidecar,
+  LAB_PLAYBACK_CLOCK_STEP_SECONDS,
+  steppedPlaybackTime,
 } from './labListen'
 import { LAB_FOLLOW_LEAD_SECONDS } from './useLabListen'
 
@@ -160,5 +162,23 @@ describe('lab bible audio paths', () => {
       kind: 'paragraph',
       paragraphIndex: 0,
     })
+  })
+})
+
+describe('steppedPlaybackTime', () => {
+  it('holds the reader clock still between steps so a 60 Hz tick renders nothing', () => {
+    expect(steppedPlaybackTime(4, 4.016)).toBe(4)
+    expect(steppedPlaybackTime(4, 4 + LAB_PLAYBACK_CLOCK_STEP_SECONDS - 0.001)).toBe(4)
+    expect(steppedPlaybackTime(4, 4 + LAB_PLAYBACK_CLOCK_STEP_SECONDS)).toBe(4 + LAB_PLAYBACK_CLOCK_STEP_SECONDS)
+  })
+
+  it('takes any move backwards exactly: a seek or a new clip starts from its true time', () => {
+    expect(steppedPlaybackTime(24.9, 0)).toBe(0)
+    expect(steppedPlaybackTime(10, 9.95)).toBe(9.95)
+    expect(steppedPlaybackTime(0, 0)).toBe(0)
+  })
+
+  it('ignores a clock that is not a number', () => {
+    expect(steppedPlaybackTime(3, Number.NaN)).toBe(3)
   })
 })
