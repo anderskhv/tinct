@@ -18,7 +18,10 @@ import {
   moveSelection,
   parseLibrarySnapshot,
   popularBooks,
-  popularHead,
+  popularLead,
+  popularShelfSize,
+  shelfFocusIndex,
+  showPopularShelf,
   readerWordsPerMinute,
   readingMinutes,
   readingTimeLine,
@@ -85,9 +88,43 @@ describe('locked library model', () => {
     expect(moveSelection(7, 1, 8)).toBe(7)
     expect(moveSelection(99, 0, 8)).toBe(7)
     expect(moveSelection(3, 0, 0)).toBe(0)
-    expect(popularHead(8)).toEqual({ label: 'Popular', count: '8' })
-    expect(popularHead(0)).toEqual({ label: 'Popular', count: '0' })
-    expect(popularHead(undefined)).toEqual({ label: 'Popular', count: '0' })
+    expect(popularLead()).toEqual({
+      title: 'Pick your first book',
+      row: 'Popular choices',
+      more: 'The search and all 100 books are further down.',
+    })
+  })
+
+  it('shows the popular row only to a reader with nothing in Reading now', () => {
+    expect(showPopularShelf('new')).toBe(true)
+    expect(showPopularShelf('returning')).toBe(false)
+  })
+
+  it('grows the popular row with the viewport so a wide track is not half empty', () => {
+    // Phone: eight covers already overflow a 390px track.
+    expect(popularShelfSize(320)).toBe(8)
+    expect(popularShelfSize(390)).toBe(8)
+    expect(popularShelfSize(768)).toBe(8)
+    // Desktop: eight 136px covers leave a wide band, so the row carries more.
+    expect(popularShelfSize(1024)).toBe(8)
+    expect(popularShelfSize(1440)).toBe(10)
+    expect(popularShelfSize(1920)).toBe(13)
+    // Never fewer than the phone's row, whatever it is handed.
+    expect(popularShelfSize(0)).toBe(8)
+    expect(popularShelfSize(Number.NaN)).toBe(8)
+  })
+
+  it('focuses the last cover at the end of the track, where there is no room to centre it', () => {
+    const items = [{ left: 0, width: 124 }, { left: 140, width: 124 }, { left: 280, width: 124 }]
+    // Mid-track: nearest the centre, as before.
+    expect(shelfFocusIndex(items, 140, 200, 600)).toBe(1)
+    // Both ends: the cover at that end, which the centre rule cannot reach.
+    expect(shelfFocusIndex(items, 0, 200, 600)).toBe(0)
+    expect(shelfFocusIndex(items, 400, 200, 600)).toBe(2)
+    expect(shelfFocusIndex(items, 399.5, 200, 600)).toBe(2)
+    // A row that does not scroll has no end to be at: the first cover.
+    expect(shelfFocusIndex(items, 0, 600, 600)).toBe(0)
+    expect(shelfFocusIndex([], 0, 200, 600)).toBe(0)
   })
 
   it('carries the landing world the reader left, and nothing that is not one of ours', () => {

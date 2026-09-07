@@ -26,7 +26,7 @@
     body { min-width: 320px; min-height: 100%; margin: 0; padding: 0; background: #071723; }
     button, input { -webkit-tap-highlight-color: transparent; }
   </style>
-  <script src="/lab/library-boot.js?v=20260907-3"></script>
+  <script src="/lab/library-boot.js?v=20260907-4"></script>
   <style>
     /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
        from the first frame. catalogue-runtime.js drops the attribute once it
@@ -141,9 +141,10 @@
           <main class="lib-main">
             <section class="lib-recap" data-reading-memory-recap hidden aria-label="What you read last"></section>
             <section class="lib-popular" data-library-popular aria-label="Popular books">
-              <header class="lib-index-head lib-sec-head" data-popular-head><span class="lib-eyebrow is-dim" data-popular-eyebrow>Popular</span><span class="lib-cnt" data-popular-count></span></header>
+              <header class="lib-popular-lead" data-popular-head><h1 class="lib-h1" data-popular-lead-title></h1><p class="lib-eyebrow is-dim" data-popular-lead-row></p></header>
               <div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
               <div class="lib-caption" data-popular-caption aria-live="polite"></div>
+              <p class="lib-popular-more" data-popular-lead-more></p>
             </section>
             <label class="lib-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" data-library-search placeholder="Search books" aria-label="Search by title or author" autocomplete="off" spellcheck="false"></label>
             <section class="lib-index" aria-label="All books">
@@ -984,14 +985,19 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-cover::after { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--lib-cover-spine); }
   /* Title and author under a cover, fixed height so nothing below moves. */
   #tinct-onboarding-worlds-v5 .lib-cover-copy { display:flex; flex-direction:column; gap:2px; margin-top:10px; min-height:52px; }
-  #tinct-onboarding-worlds-v5 .lib-bt,#tinct-onboarding-worlds-v5 .lib-cell-t { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:13.5px; line-height:1.25; color:var(--lib-cream); }
-  #tinct-onboarding-worlds-v5 .lib-ba,#tinct-onboarding-worlds-v5 .lib-cell-a { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; line-height:1.3; color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-cell-t { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:13.5px; line-height:1.25; color:var(--lib-cream); }
+  #tinct-onboarding-worlds-v5 .lib-cell-a { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; line-height:1.3; color:var(--lib-muted); }
 
   /* Popular shelf — new reader: the selected cover stands taller and lit, the
      rest sit back. The shelf reserves the height of the tallest state
      (--lib-shelf-lift) and the selection scales with a transform from the
      cover's foot, so selecting never moves the page. */
   #tinct-onboarding-worlds-v5 .lib-popular { --lib-shelf-w:124px; --lib-shelf-scale:1.22; --lib-shelf-lift:44px; display:flex; flex-direction:column; gap:22px; }
+  /* The lead over the row, for the reader who has nothing yet: the action in
+     the page's headline face, the row named quietly under it, and one line
+     under the row saying where the rest of the library is. */
+  #tinct-onboarding-worlds-v5 .lib-popular-lead { display:flex; flex-direction:column; gap:8px; margin:0; padding:0; border:0; }
+  #tinct-onboarding-worlds-v5 .lib-popular-more { margin:0; font-size:15px; line-height:1.4; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:var(--lib-shelf-lift) var(--lib-pad-r) 12px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
   #tinct-onboarding-worlds-v5 .lib-shelf::-webkit-scrollbar { display:none; }
   #tinct-onboarding-worlds-v5 .lib-shelf-item { position:relative; flex:0 0 var(--lib-shelf-w); display:flex; flex-direction:column; text-align:left; opacity:.55; transition:opacity .32s ease; }
@@ -1000,6 +1006,9 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected .lib-cover { transform:scale(var(--lib-shelf-scale)); box-shadow:0 18px 40px var(--lib-shadow),0 0 64px var(--lib-select-glow); }
   #tinct-onboarding-worlds-v5 .lib-caption { display:flex; flex-direction:column; gap:10px; min-height:176px; }
   #tinct-onboarding-worlds-v5 .lib-caption:empty { display:none; }
+  /* The action above the row is the page's headline; the focused book's name
+     is its subject, one step down. */
+  #tinct-onboarding-worlds-v5 .lib-caption .lib-h1 { font-size:24px; }
   @keyframes lib-rail-in { from { transform:translateX(56px); } to { transform:translateX(0); } }
   @keyframes lib-cover-in { from { opacity:0; } to { opacity:1; } }
   #tinct-onboarding-worlds-v5 .lib-shelf.is-revealing .lib-shelf-item { animation:lib-rail-in 520ms cubic-bezier(.2,.7,.2,1) both; animation-delay:var(--lib-delay,120ms); }
@@ -1008,11 +1017,6 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-shelf.is-revealing .lib-shelf-item,#tinct-onboarding-worlds-v5 .lib-shelf.is-revealing .lib-cover { animation:none; }
     #tinct-onboarding-worlds-v5 .lib-shelf-item,#tinct-onboarding-worlds-v5 .lib-shelf-item .lib-cover,#tinct-onboarding-worlds-v5 .lib-chev { transition:none; }
   }
-
-  /* Popular shelf — returning reader: uniform size. */
-  #tinct-onboarding-worlds-v5 .lib-grid { display:flex; gap:14px; margin-right:calc(-1 * var(--lib-pad-r)); padding:4px var(--lib-pad-r) 12px 0; overflow-x:auto; scrollbar-width:none; }
-  #tinct-onboarding-worlds-v5 .lib-grid::-webkit-scrollbar { display:none; }
-  #tinct-onboarding-worlds-v5 .lib-grid-item { flex:0 0 132px; display:flex; flex-direction:column; text-align:left; }
 
   /* Search: one hairline row between the popular books and the index. */
   #tinct-onboarding-worlds-v5 .lib-search { display:flex; align-items:center; gap:14px; padding:18px 0; border-top:1px solid var(--lib-rule); border-bottom:1px solid var(--lib-rule); cursor:text; }
@@ -1043,8 +1047,18 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-recap[hidden] { display:none; }
   #tinct-onboarding-worlds-v5 .lib-recap { display:flex; flex-direction:column; gap:44px; }
   #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { display:flex; flex-direction:column; gap:22px; }
-  #tinct-onboarding-worlds-v5 .lib-recap-summary { margin:0; font-size:16.5px; line-height:1.5; color:var(--lib-lede); max-width:52ch; }
-  #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none; }
+  /* The "so far" line arrives after the page does — from the device cache in
+     the same frame, from /api/lab-recap a second later, or never. So it is a
+     block of a FIXED number of lines from the first paint: the text fades
+     into space that is already there instead of pushing the book, the button
+     and everything below it down the page. A longer summary is clamped at a
+     whole line with the ellipsis the clamp draws; a shorter one leaves the
+     rest of the block empty. --lib-recap-lines is the reserved line count. */
+  #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:8; margin:0; font-size:16.5px; line-height:1.5; color:var(--lib-lede); max-width:52ch; height:calc(var(--lib-recap-lines) * 1.5em); overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); opacity:0; transition:opacity .28s ease; }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary.is-shown { opacity:1; }
+  @media (prefers-reduced-motion:reduce) {
+    #tinct-onboarding-worlds-v5 .lib-recap-summary { transition:none; }
+  }
   #tinct-onboarding-worlds-v5 .lib .lib-cta { display:inline-flex; align-items:center; justify-content:center; font-family:var(--lib-sans); font-size:16px; font-weight:500; color:var(--lib-cta-fg); background:var(--lib-cta-bg); border-radius:999px; padding:13px 26px; line-height:1.2; white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .lib-cta-note { display:none; font-family:var(--lib-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-recap-others { border-top:1px solid var(--lib-rule-strong); }
@@ -1068,10 +1082,13 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-popular { --lib-shelf-w:136px; --lib-shelf-scale:1.3; --lib-shelf-lift:64px; gap:28px; }
     #tinct-onboarding-worlds-v5 .lib-shelf { gap:24px; }
     #tinct-onboarding-worlds-v5 .lib-caption { gap:14px; padding-top:8px; min-height:220px; }
+    #tinct-onboarding-worlds-v5 .lib-popular-lead { gap:10px; }
+    #tinct-onboarding-worlds-v5 .lib-popular-more { font-size:17px; }
     #tinct-onboarding-worlds-v5 .lib-h1 { font-size:56px; }
+    #tinct-onboarding-worlds-v5 .lib-caption .lib-h1 { font-size:34px; }
     #tinct-onboarding-worlds-v5 .lib-lede { font-size:22px; max-width:680px; }
-    #tinct-onboarding-worlds-v5 .lib-bt,#tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
-    #tinct-onboarding-worlds-v5 .lib-ba,#tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
+    #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
+    #tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
     #tinct-onboarding-worlds-v5 .lib-search { gap:16px; padding:22px 0; }
     #tinct-onboarding-worlds-v5 .lib-search svg { width:20px; height:20px; }
     #tinct-onboarding-worlds-v5 .lib-search input { font-size:22px; }
@@ -1079,8 +1096,6 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
     #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px 24px; padding:24px 0 28px; }
     #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:17px; }
-    #tinct-onboarding-worlds-v5 .lib-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; margin:0; padding:0; overflow:visible; }
-    #tinct-onboarding-worlds-v5 .lib-grid-item { flex:none; }
     #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { gap:28px; }
     #tinct-onboarding-worlds-v5 .lib-recap-summary { font-size:18px; line-height:1.5; }
     #tinct-onboarding-worlds-v5 .lib .lib-cta { font-size:18px; padding:18px 40px; }
@@ -1092,7 +1107,6 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   @media (min-width:1100px) {
     #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(3,minmax(0,1fr)); }
     #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(6,minmax(0,1fr)); }
-    #tinct-onboarding-worlds-v5 .lib-grid { grid-template-columns:repeat(8,minmax(0,1fr)); }
     #tinct-onboarding-worlds-v5 .lib-recap-others { grid-template-columns:repeat(3,minmax(0,1fr)); }
   }
 </style>
@@ -1118,7 +1132,14 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .tov5-book-length b { display:inline; margin:0; font:400 12px/1.2 'IBM Plex Mono',ui-monospace,monospace; letter-spacing:.02em; color:#fffdf7; white-space:nowrap; }
   #tinct-onboarding-worlds-v5 .tov5-book-length small { display:none; }
 
-  #tinct-onboarding-worlds-v5 .tov5-book-description { flex:0 1 auto; min-height:0; overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--bp-lines,5); margin:0; color:rgba(255,253,247,.9); font:16px/1.45 Georgia,serif; text-wrap:pretty; }
+  /* The description is a box of whole lines. It used to be `flex:0 1 auto`
+     with `overflow:hidden`, so on a screen where the column had to give way
+     the flex shrink took it to a height that was not a multiple of the line
+     box and the last line was cut through the middle of the letters — the cut
+     line in the owner's desktop screenshot. Its height is now exactly
+     --bp-lines lines (the media queries below shorten it on short viewports),
+     so the clamp always ends on a whole line with the clamp's own ellipsis. */
+  #tinct-onboarding-worlds-v5 .tov5-book-description { flex:none; height:calc(var(--bp-lines,5) * 1.45em); overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--bp-lines,5); margin:0; color:rgba(255,253,247,.9); font:16px/1.45 Georgia,serif; text-wrap:pretty; }
 
   /* The two version dropdowns and Both. */
   #tinct-onboarding-worlds-v5 .tov5-versions { flex:none; display:flex; flex-wrap:wrap; align-items:stretch; gap:8px; }
@@ -1211,15 +1232,23 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-shelf { gap:16px; padding-bottom:6px; scroll-snap-type:x mandatory; scroll-padding-left:50%; }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:center; scroll-snap-stop:always; }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item .lib-cover-copy { display:none; }
-  /* The row can centre its first and last cover — on a phone, where the row
-     always overflows. On a wide screen that spacer parks the first cover in
-     the middle of an empty half-row, so above 900px the shelf starts where
-     the page starts and simply snaps to whichever cover the reader stops on. */
-  #tinct-onboarding-worlds-v5 .lib-shelf::before,#tinct-onboarding-worlds-v5 .lib-shelf::after { content:''; flex:0 0 calc(50% - var(--lib-shelf-w) / 2 - 16px); }
+  /* The row can centre its FIRST cover — on a phone, where the row always
+     overflows. There is no matching spacer after the last one: that spacer
+     let the row scroll a whole empty slot past its last cover, which is the
+     gap the owner saw. The last cover instead snaps to the end of the track
+     and finishes at the page's right margin; shelfFocusIndex in
+     library-model.js knows that the cover at the end of the track is the
+     focused one, since it can no longer reach the middle.
+     On a wide screen the leading spacer would park the first cover in the
+     middle of an empty half-row, so above 900px it goes too and the row
+     starts where the page starts. */
+  #tinct-onboarding-worlds-v5 .lib-shelf::before { content:''; flex:0 0 calc(50% - var(--lib-shelf-w) / 2 - 16px); }
+  #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item:last-child { scroll-snap-align:end; }
   @media (min-width:900px) {
     #tinct-onboarding-worlds-v5 .lib-shelf { scroll-padding-left:0; }
-    #tinct-onboarding-worlds-v5 .lib-shelf::before,#tinct-onboarding-worlds-v5 .lib-shelf::after { display:none; }
+    #tinct-onboarding-worlds-v5 .lib-shelf::before { display:none; }
     #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:start; }
+    #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item:last-child { scroll-snap-align:end; }
   }
   #tinct-onboarding-worlds-v5 .lib-caption { gap:8px; min-height:150px; }
   @media (min-width:900px) {
@@ -1233,13 +1262,17 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-reading-now { gap:10px; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf::-webkit-scrollbar { display:none; }
-  #tinct-onboarding-worlds-v5 .lib-now-shelf::before,#tinct-onboarding-worlds-v5 .lib-now-shelf::after { content:''; flex:0 0 calc(50% - 62px - 16px); }
+  /* A leading spacer only: the first cover can come to the middle, the last
+     one ends the track at the page's right margin. A trailing spacer let the
+     row scroll a whole empty slot past the last cover. */
+  #tinct-onboarding-worlds-v5 .lib-now-shelf::before { content:''; flex:0 0 calc(50% - 62px - 16px); }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-item:last-child { scroll-snap-align:end; }
   /* `is-single` is markup-time (one book); `is-flush` is measured after
      layout (every cover already fits). Either way the row starts at the
      margin, under the caption that names the book. */
   #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush { scroll-snap-type:none; }
-  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::before,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::after,
-  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush::before,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush::after { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::before,
+  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush::before { display:none; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item { position:relative; flex:0 0 124px; display:flex; flex-direction:column; text-align:left; scroll-snap-align:center; scroll-snap-stop:always; opacity:.55; transition:opacity .32s ease; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item.is-focused { opacity:1; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-open { display:block; width:100%; text-align:left; }
@@ -1251,13 +1284,15 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-remove:hover { background:rgba(7,23,35,.9); }
   #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-height:132px; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:26px; line-height:1.14; }
-  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; font-size:15.5px; line-height:1.45; color:var(--lib-lede); max-width:52ch; }
-  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary[hidden] { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; font-size:15.5px; line-height:1.45; color:var(--lib-lede); max-width:52ch; height:calc(var(--lib-recap-lines) * 1.45em); }
   #tinct-onboarding-worlds-v5 .lib-now-cta { display:flex; align-items:center; gap:16px; margin-top:2px; }
+  @media (min-width:601px) {
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { max-width:66ch; }
+  }
   @media (min-width:900px) {
     #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:36px; }
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 148px; }
-    #tinct-onboarding-worlds-v5 .lib-now-shelf::before,#tinct-onboarding-worlds-v5 .lib-now-shelf::after { flex-basis:calc(50% - 74px - 16px); }
+    #tinct-onboarding-worlds-v5 .lib-now-shelf::before { flex-basis:calc(50% - 74px - 16px); }
   }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { transition:none; }

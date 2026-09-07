@@ -129,11 +129,48 @@ export function moveSelection(index, delta, count) {
 }
 
 /**
- * The popular section head, in the index row's language: the label on the
- * left, the count on the right. One place to change (or cut) it.
+ * The lead over the popular row. Only a reader with nothing in Reading now
+ * ever sees this row (see `showPopularShelf`), so the lead is written for
+ * that reader: an action in the page's headline face, the row named quietly
+ * under it, and a line saying that the rest of the library is further down.
+ * One place to change or cut the copy.
  */
-export function popularHead(count) {
-  return { label: 'Popular', count: String(Number.isInteger(count) && count > 0 ? count : 0) }
+export function popularLead() {
+  return {
+    title: 'Pick your first book',
+    row: 'Popular choices',
+    more: 'The search and all 100 books are further down.',
+  }
+}
+
+/**
+ * Whether the library shows the popular row at all. A reader who already has
+ * books in Reading now has picked; showing them a shelf of first suggestions
+ * above their own books is the library talking over them. The row is for the
+ * reader who has nothing yet.
+ */
+export function showPopularShelf(mode) {
+  return mode !== 'returning'
+}
+
+/**
+ * How many covers the popular row carries at this width. Eight fills a phone
+ * and overflows it; a 1440 or 1920 desktop shows all eight at once with a
+ * wide empty band to their right, so the row grows with the viewport — one
+ * cover more than fits, so the row still reads as something to scroll.
+ *
+ * `padding`, `cover` and `gap` mirror the CSS in lab/index.html.
+ */
+export function popularShelfSize(viewportWidth, size = POPULAR_SHELF_SIZE) {
+  const width = Number.isFinite(viewportWidth) && viewportWidth > 0 ? viewportWidth : 0
+  if (width <= 0) return size
+  const wide = width >= 601
+  const padding = wide ? 48 : 14
+  const cover = wide ? 136 : 124
+  const gap = wide ? 24 : 16
+  const track = Math.max(0, width - padding * 2)
+  const fits = Math.ceil((track + gap) / (cover + gap))
+  return Math.max(size, fits + 1)
 }
 
 /**
@@ -414,3 +451,25 @@ export function centredShelfIndex(items, scrollLeft, clientWidth) {
   })
   return best
 }
+
+/**
+ * Which cover a scrolling row is focused on.
+ *
+ * Nearest the centre, except at the ends of the track. The row's last cover
+ * ends at the page's right margin — there is no trailing spacer to carry it
+ * into the middle, because that spacer is what let the row scroll a whole
+ * empty slot past its last cover — so at the end of the track the focus is
+ * the last cover, and at the start it is the first.
+ *
+ * `items` are `{ left, width }` in the scroller's content coordinates.
+ */
+export function shelfFocusIndex(items, scrollLeft, clientWidth, scrollWidth) {
+  if (!Array.isArray(items) || !items.length) return 0
+  const left = Number.isFinite(scrollLeft) ? scrollLeft : 0
+  const client = Number.isFinite(clientWidth) ? clientWidth : 0
+  const max = Math.max(0, (Number.isFinite(scrollWidth) ? scrollWidth : 0) - client)
+  if (max > 0 && left >= max - 1) return items.length - 1
+  if (left <= 1) return 0
+  return centredShelfIndex(items, left, client)
+}
+

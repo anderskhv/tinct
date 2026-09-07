@@ -229,6 +229,11 @@
       section.setAttribute('data-boot-recap', 'snapshot')
       caption.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
       caption.appendChild(el('h1', 'lib-h1', hero.headline))
+      // The reserved "so far" block, empty. src/labReadingMemory.ts renders
+      // the same block a moment later and fades the text into it; painting it
+      // here too means the confirmed render is the same height as this one,
+      // and coming back from the reader does not shove the page down.
+      caption.appendChild(el('p', 'lib-recap-summary'))
       caption.appendChild(el('p', 'lib-lede', hero.title))
       var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
@@ -243,6 +248,7 @@
       caption.className = 'lib-now-caption lib-boot-skel'
       caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
       caption.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
+      caption.appendChild(el('p', 'lib-recap-summary'))
       caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')
@@ -283,6 +289,12 @@
     paintPill(root, state)
     var lib = root.querySelector('.lib[data-library]')
     if (lib && state.returning) lib.setAttribute('data-library-mode', 'returning')
+    // A reader with books of their own never sees the popular row (see
+    // showPopularShelf in lab/library-model.js). Hiding it here rather than
+    // when the catalogue lands keeps the page from collapsing a section's
+    // height under the reader a moment after it painted.
+    var popular = root.querySelector('[data-library-popular]')
+    if (popular && state.returning) popular.hidden = true
     var section = root.querySelector('[data-reading-memory-recap]')
     if (section && state.library && state.returning) paintRecap(section, state)
   }

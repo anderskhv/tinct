@@ -47,6 +47,11 @@ import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, requestLabRecapSummary, shouldRequestRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
+// The Reading-now row and the popular row scroll by the same rule, so they
+// read the focused cover out of the same function rather than each keeping a
+// copy of it. library-model.js is a plain pure-function module; the bundler
+// takes this one export and leaves the rest.
+import { shelfFocusIndex } from '../public/lab/library-model.js'
 import {
   heroHeadline,
   libraryModeFor,
@@ -284,11 +289,18 @@ function setSummaryStatus(key: string, status: SummaryLineStatus): void {
   if (section && heroSummaryLine(key)) section.dataset.summaryLine = status
 }
 
+/**
+ * Fill the reserved "so far" block. The block is already on the page at its
+ * full height (lab/index.html reserves --lib-recap-lines lines from the first
+ * paint), so this only ever fades text into space that is there: the book,
+ * the button and everything under them never move when a summary arrives, is
+ * replaced by another book's, or never comes.
+ */
 function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): void {
   const line = heroSummaryLine(key)
   if (!line || !section) return
   line.textContent = summary
-  line.hidden = false
+  line.classList.add('is-shown')
   section.dataset.summaryLine = status
 }
 
@@ -407,7 +419,7 @@ function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>
   const summaryKey = request ? summaryKeyFor(row, request) : ''
   return `<p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.target.chapterLabel))}</p>
       <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(row))}</h1>
-      <p class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" hidden></p>
+      <p class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}"></p>
       <p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, row.bookId))}</p>
       <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
 }
@@ -521,6 +533,23 @@ function fitNowShelf(): void {
   shelf.classList.toggle('is-flush', content <= shelf.clientWidth + 1)
 }
 
+/**
+ * Which cover the row is on, from its geometry: nearest the middle, and at
+ * either end of the track the cover at that end. The last cover finishes the
+ * track at the page's margin (there is no trailing spacer — that spacer let
+ * the row scroll an empty slot past it), so it can never come to the middle
+ * and the end-of-track case is how it is ever focused.
+ */
+function focusNowFromGeometry(shelf: HTMLElement): void {
+  if (Date.now() < nowQuietUntil) return
+  const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')].map(item => ({
+    left: item.offsetLeft - shelf.offsetLeft,
+    width: item.offsetWidth,
+  }))
+  const index = shelfFocusIndex(items, shelf.scrollLeft, shelf.clientWidth, shelf.scrollWidth)
+  if (index !== nowFocus) setNowFocus(index)
+}
+
 /** Centre detection, the same rule the popular shelf uses. */
 function observeNowShelf(): void {
   nowObserver?.disconnect()
@@ -531,13 +560,12 @@ function observeNowShelf(): void {
   // book the library opened on until the reader taps another cover.
   if (shelf.classList.contains('is-flush')) return
   if (typeof IntersectionObserver === 'function') {
+    // The observer only says "the row moved past the middle"; the geometry
+    // decides which cover that is, so both paths answer the same way at the
+    // end of the track.
     nowObserver = new IntersectionObserver(entries => {
-      if (Date.now() < nowQuietUntil) return
-      const visible = entries.filter(entry => entry.isIntersecting)
-      const hit = visible[visible.length - 1]
-      if (!hit) return
-      const index = Number((hit.target as HTMLElement).dataset.nowIndex)
-      if (Number.isInteger(index) && index !== nowFocus) setNowFocus(index)
+      if (!entries.some(entry => entry.isIntersecting)) return
+      focusNowFromGeometry(shelf)
     }, { root: shelf, rootMargin: '0px -50% 0px -50%', threshold: 0 })
     shelf.querySelectorAll('[data-now-index]').forEach(item => nowObserver!.observe(item))
   }
@@ -551,15 +579,7 @@ function observeNowShelf(): void {
     if (frame || Date.now() < nowQuietUntil) return
     frame = requestAnimationFrame(() => {
       frame = 0
-      const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')]
-      const centre = shelf.scrollLeft + shelf.clientWidth / 2
-      let best = 0
-      let bestDistance = Infinity
-      items.forEach((item, index) => {
-        const distance = Math.abs(item.offsetLeft - shelf.offsetLeft + item.offsetWidth / 2 - centre)
-        if (distance < bestDistance - 0.5) { bestDistance = distance; best = index }
-      })
-      if (best !== nowFocus) setNowFocus(best)
+      focusNowFromGeometry(shelf)
     })
   }, { passive: true })
 }

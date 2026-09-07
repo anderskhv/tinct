@@ -209,8 +209,10 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
+    // The block is on the page at its reserved height either way; only the
+    // text is missing, so nothing below it moves when one does arrive.
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
-    expect(line.hidden).toBe(true)
+    expect(line.classList.contains('is-shown')).toBe(false)
     expect(line.textContent).toBe('')
   })
 
@@ -229,7 +231,7 @@ describe('recap hero: a short absence is not summarised', () => {
     }])
     expect(section.dataset.summaryLine).toBe('fresh')
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
-    expect(line.hidden).toBe(false)
+    expect(line.classList.contains('is-shown')).toBe(true)
     expect(line.textContent).toBe('So far in bible 645.')
   })
 
@@ -312,7 +314,7 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     await flush()
     // The caption is the Bible's, but nothing has been ordered for it yet.
     expect(section.dataset.book).toBe('bible')
-    expect(section.querySelector('[data-testid=lab-recap-summary]')!.hasAttribute('hidden')).toBe(true)
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.classList.contains('is-shown')).toBe(false)
     expect(recapCalls.map(call => call.bookId)).toEqual(['plato-republic'])
     await vi.advanceTimersByTimeAsync(800)
     await flush()

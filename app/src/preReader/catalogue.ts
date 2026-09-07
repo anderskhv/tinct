@@ -59,8 +59,10 @@ export const LAB_COVER_ART_2X_BOOK_IDS: readonly string[] = [
 ]
 
 /**
- * The popular shelf, in shelf order (left to right). Eight titles with art;
- * Meditations and Frederick Douglass have art but are not on the shelf.
+ * The popular shelf, in shelf order (left to right). The first eight are the
+ * row a phone shows; the rest carry it across a wide desktop, where eight
+ * covers leave a wide empty band at the right of the track. How many of them
+ * a given viewport shows is `popularShelfSize` in lab/library-model.js.
  */
 export const LAB_POPULAR_BOOK_IDS: readonly string[] = [
   'odyssey',
@@ -71,6 +73,14 @@ export const LAB_POPULAR_BOOK_IDS: readonly string[] = [
   'frankenstein',
   'the-art-of-war',
   'the-histories',
+  'crime-and-punishment',
+  'jane-eyre',
+  'meditations',
+  'moby-dick',
+  'divine-comedy',
+  'iliad',
+  'walden',
+  'frederick-douglass',
 ]
 
 export function labCoverArt(bookId: string): PreReaderCoverArt | null {

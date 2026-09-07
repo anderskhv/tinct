@@ -2,7 +2,6 @@ import { wholeBookProgress } from './library-2-model.js'
 import {
   DEFAULT_LANDING_WORLD,
   LANDING_WORLD_SESSION_KEY,
-  centredShelfIndex,
   landingWorldFrom,
   mostVisibleWorld,
   LAB_POSITION_DEVICE_KEY,
@@ -19,14 +18,17 @@ import {
   moveSelection,
   parseLibrarySnapshot,
   popularBooks,
-  popularHead,
+  popularLead,
+  popularShelfSize,
   publishedCount,
   readerWordsPerMinute,
   readingTimeLine,
   revealDelayMs,
   searchPlaceholder,
+  shelfFocusIndex,
   shelfScrollLeft,
-} from './library-model.js?v=20260907-2'
+  showPopularShelf,
+} from './library-model.js?v=20260907-4'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -347,18 +349,22 @@ import {
     if (state.catalogue) renderPopular()
   }
 
-  const coverLabels = book => `<span class="lib-cover-copy"><span class="lib-bt">${escapeHtml(book.title)}</span><span class="lib-ba">${escapeHtml(book.author)}</span></span>`
-
   function shelfItem(book, index) {
     const selected = index === state.shelfIndex
     return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}</button>`
   }
 
-  /** The popular head, in the index row's language: "POPULAR" left, the count right. One place to change or cut. */
-  function renderPopularHead() {
-    const head = popularHead(state.shelfBooks.length)
-    root.querySelector('[data-popular-eyebrow]').textContent = head.label
-    root.querySelector('[data-popular-count]').textContent = head.count
+  /**
+   * The lead over the popular row. Only a reader with nothing in Reading now
+   * sees this row at all, so it is written for that reader: the action in the
+   * page's headline face, the row named quietly under it, and one line
+   * saying where the rest of the library is. Copy lives in library-model.js.
+   */
+  function renderPopularLead() {
+    const lead = popularLead()
+    root.querySelector('[data-popular-lead-title]').textContent = lead.title
+    root.querySelector('[data-popular-lead-row]').textContent = lead.row
+    root.querySelector('[data-popular-lead-more]').textContent = lead.more
   }
 
   function renderCaption() {
@@ -368,7 +374,7 @@ import {
       return
     }
     const book = state.shelfBooks[state.shelfIndex]
-    caption.innerHTML = `<h1 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h1><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
+    caption.innerHTML = `<h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
   }
 
   /**
@@ -405,6 +411,11 @@ import {
   // Crossing that boundary changes how the shelf behaves; rebuild it so the
   // observer and the CSS spacers agree.
   centreSnap.addEventListener('change', () => { if (state.catalogue) renderPopular() })
+  // A wider window carries more covers; rebuild only when that number changes.
+  window.addEventListener('resize', () => {
+    if (!state.catalogue) return
+    if (popularShelfSize(window.innerWidth) !== shelfSize) renderPopular()
+  })
 
   /** Bring an item to the middle of its row (scroll-snap does the rest). */
   function centreShelfItem(shelf, item) {
@@ -446,7 +457,7 @@ import {
 
   function focusCentred(shelf) {
     if (Date.now() < centreQuietUntil) return
-    const index = centredShelfIndex(shelfGeometry(shelf), shelf.scrollLeft, shelf.clientWidth)
+    const index = shelfFocusIndex(shelfGeometry(shelf), shelf.scrollLeft, shelf.clientWidth, shelf.scrollWidth)
     if (index !== state.shelfIndex) setShelfIndex(index, false, false)
   }
 
@@ -455,12 +466,12 @@ import {
     centreObserver = null
     if (state.libraryMode !== 'new' || !state.shelfBooks.length || !centreSnap.matches) return
     if (typeof IntersectionObserver === 'function') {
+      // The observer only says "the row moved past the middle"; shelfFocusIndex
+      // decides which cover that is, so the crossing rule and the end-of-track
+      // rule are the same rule in both paths.
       centreObserver = new IntersectionObserver(entries => {
-        if (Date.now() < centreQuietUntil) return
-        const hit = entries.filter(entry => entry.isIntersecting).at(-1)
-        if (!hit) return
-        const index = Number(hit.target.dataset.shelfIndex)
-        if (Number.isInteger(index) && index !== state.shelfIndex) setShelfIndex(index, false, false)
+        if (!entries.some(entry => entry.isIntersecting)) return
+        focusCentred(shelf)
       }, { root: shelf, rootMargin: '0px -50% 0px -50%', threshold: 0 })
       shelf.querySelectorAll('[data-shelf-index]').forEach(item => centreObserver.observe(item))
     }
@@ -473,26 +484,37 @@ import {
     }, { passive: true })
   }
 
+  /** How many covers the row is carrying, so a resize only rebuilds when that changes. */
+  let shelfSize = 0
+
+  /**
+   * The popular row. It exists for the reader who has nothing in Reading now:
+   * a reader who has already picked keeps their own books and the row is not
+   * rendered at all (`showPopularShelf`). Its length follows the viewport, so
+   * a 1440 or 1920 track is not eight covers and a wide empty band.
+   */
   function renderPopular() {
     const shelf = root.querySelector('[data-popular-shelf]')
     const section = root.querySelector('[data-library-popular]')
     library().dataset.libraryMode = state.libraryMode
-    state.shelfBooks = popularBooks(state.catalogue)
+    shelfSize = popularShelfSize(window.innerWidth)
+    state.shelfBooks = showPopularShelf(state.libraryMode) ? popularBooks(state.catalogue, shelfSize) : []
     state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
     section.hidden = state.shelfBooks.length === 0
-    renderPopularHead()
-    if (state.libraryMode === 'new') {
-      shelf.className = 'lib-shelf'
-      shelf.innerHTML = state.shelfBooks.map(shelfItem).join('')
-      // Slide in from the right, one after another — once per session.
-      if (claimReveal(safeSessionStorage(), reducedMotion())) {
-        shelf.classList.add('is-revealing')
-        const last = shelf.querySelector(`[data-shelf-index="${state.shelfBooks.length - 1}"] .lib-cover`)
-        last?.addEventListener('animationend', () => shelf.classList.remove('is-revealing'), { once: true })
-      }
-    } else {
-      shelf.className = 'lib-grid'
-      shelf.innerHTML = state.shelfBooks.map(book => `<button type="button" class="lib-grid-item" data-shelf-book="${escapeHtml(book.id)}" aria-label="${escapeHtml(book.title)}">${coverImage(book)}${coverLabels(book)}</button>`).join('')
+    if (section.hidden) {
+      shelf.innerHTML = ''
+      centreObserver?.disconnect()
+      centreObserver = null
+      return
+    }
+    renderPopularLead()
+    shelf.className = 'lib-shelf'
+    shelf.innerHTML = state.shelfBooks.map(shelfItem).join('')
+    // Slide in from the right, one after another — once per session.
+    if (claimReveal(safeSessionStorage(), reducedMotion())) {
+      shelf.classList.add('is-revealing')
+      const last = shelf.querySelector(`[data-shelf-index="${state.shelfBooks.length - 1}"] .lib-cover`)
+      last?.addEventListener('animationend', () => shelf.classList.remove('is-revealing'), { once: true })
     }
     renderCaption()
     observeShelfCentre(shelf)
