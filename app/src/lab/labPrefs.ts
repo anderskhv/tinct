@@ -22,6 +22,42 @@ export const LAB_MAX_FONT_SIZE = 2.2
 export const LAB_FONT_SIZES = [LAB_MIN_FONT_SIZE, 1.0, 1.2, 1.5, 1.8, LAB_MAX_FONT_SIZE] as const
 export const LAB_FONT_FAMILIES: FontFamily[] = ['garamond', 'baskerville', 'sourceserif']
 
+/**
+ * The reading faces the lab offers.
+ *
+ * `FontFamily` is the production type and stays exactly the three faces the
+ * shipping reader knows; widening it would reach every V1 settings surface.
+ * The lab's own store carries two more — Literata, the new default, and
+ * Atkinson Hyperlegible, offered for a need rather than a taste.
+ */
+export type LabFontFamily = FontFamily | 'literata' | 'atkinson'
+
+/** Picker order: the four reading faces, then Accessibility on its own. */
+export const LAB_READING_FONTS: LabFontFamily[] = ['literata', 'garamond', 'baskerville', 'sourceserif']
+export const LAB_ACCESSIBILITY_FONTS: LabFontFamily[] = ['atkinson']
+
+export const LAB_FONT_LABELS: Record<LabFontFamily, string> = {
+  literata: 'Literata',
+  garamond: 'EB Garamond',
+  baskerville: 'Libre Baskerville',
+  sourceserif: 'Source Serif 4',
+  atkinson: 'Atkinson Hyperlegible',
+}
+
+/**
+ * Literata is V2's default reading face; the reader that ships today keeps
+ * the face it ships with. A reader who has actually chosen a face keeps that
+ * choice in both, which is what `null` is for: it is the difference between
+ * "never picked" and "picked Garamond", and only the first one moves.
+ */
+export const LAB_V2_DEFAULT_FONT: LabFontFamily = 'literata'
+export const LAB_V1_DEFAULT_FONT: LabFontFamily = 'garamond'
+
+export function labReadingFont(family: LabFontFamily | null, chromeV2: boolean): LabFontFamily {
+  if (family) return family
+  return chromeV2 ? LAB_V2_DEFAULT_FONT : LAB_V1_DEFAULT_FONT
+}
+
 export type LabTheme = 'system' | 'light' | 'dark' | 'book'
 export type LabTextAlignment = 'left' | 'justify'
 export type LabLineSpacing = 'compact' | 'comfortable' | 'open'
@@ -31,7 +67,8 @@ export type LabAppearanceProfile = 'phone' | 'desktop'
 
 export interface LabAppearancePrefs {
   theme: LabTheme
-  fontFamily: FontFamily
+  /** `null` is "never chosen" — see `labReadingFont`. */
+  fontFamily: LabFontFamily | null
   fontSize: number
   alignment: LabTextAlignment
   lineSpacing: LabLineSpacing
@@ -109,7 +146,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   audioSpeed: 1,
   darkMode: false,
   theme: 'system',
-  fontFamily: 'garamond',
+  fontFamily: null,
   fontSize: 1.3,
   alignment: 'justify',
   lineSpacing: 'comfortable',
@@ -140,9 +177,11 @@ export function effectiveLabAudioEdition(prefs: LabPrefs, editions: Edition[] = 
   return syncLabAudioEdition(prefs, editions).audioEdition
 }
 
-export function labFontFamilyCss(family: FontFamily): string {
+export function labFontFamilyCss(family: LabFontFamily): string {
   if (family === 'baskerville') return "'Libre Baskerville', 'EB Garamond', Georgia, serif"
   if (family === 'sourceserif') return "'Source Serif 4', 'EB Garamond', Georgia, serif"
+  if (family === 'literata') return "'Literata', 'EB Garamond', Georgia, serif"
+  if (family === 'atkinson') return "'Atkinson Hyperlegible', 'IBM Plex Sans', system-ui, sans-serif"
   return "'EB Garamond', Georgia, 'Times New Roman', serif"
 }
 
@@ -154,8 +193,15 @@ function isScope(value: unknown): value is ProgressScope {
   return value === 'book' || value === 'section' || value === 'chapter'
 }
 
-function isFamily(value: unknown): value is FontFamily {
+/**
+ * Stored faces, including the two the store did not know before. A reader
+ * whose prefs predate them still parses — the old three are still the old
+ * three — and an unreadable value falls back to "never chosen" rather than
+ * to a face nobody picked.
+ */
+function isFamily(value: unknown): value is LabFontFamily {
   return value === 'garamond' || value === 'baskerville' || value === 'sourceserif'
+    || value === 'literata' || value === 'atkinson'
 }
 
 function isTheme(value: unknown): value is LabTheme {

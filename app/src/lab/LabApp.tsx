@@ -53,6 +53,7 @@ import {
   markLabSeenOnce,
   bibleEditions,
   labFontFamilyCss,
+  labReadingFont,
   labFootProgress,
   labReaderProgressLabel,
   editionLabelFor,
@@ -313,6 +314,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const layoutOverride = labLayoutOverride(path)
   const voiceVersion = labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const chromeV2 = labChromeVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : '')) === 'v2'
+  // The face on the page. A reader who has never picked one reads V2's new
+  // default in V2 and the face today's reader has always set in V1.
   const [isPhone, setIsPhone] = useState(() => readPhoneSurface(layoutOverride))
   const [showPhoneChrome, setShowPhoneChrome] = useState(() => {
     const phone = readPhoneSurface(layoutOverride)
@@ -332,6 +335,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return syncLabAudioEdition(restored, book.editions?.length ? book.editions : bibleEditions())
   })
   const bookEditions = book.editions?.length ? book.editions : bibleEditions()
+  // The face on the page. A reader who has never picked one reads V2's new
+  // default in V2 and the face today's reader has always set in V1.
+  const readingFont = labReadingFont(prefs.fontFamily, chromeV2)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
   const resolvedTheme = prefs.theme === 'system' ? (systemDark ? 'dark' : 'light') : prefs.theme
@@ -1092,7 +1098,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
-  }, [book.bookId, book.chapterNumber, prefs.fontFamily, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
+  }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
     if (nativePhonePaging) return
@@ -1131,7 +1137,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     unmeasuredTriesRef.current = 0
     setSettleIndex(nativePhonePaging ? null : 0)
     settleIndexRef.current = nativePhonePaging ? null : 0
-  }, [prefs.fontFamily, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, nativePhonePaging])
+  }, [readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, nativePhonePaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -1620,7 +1626,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, prefs.fontFamily, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, nativePhonePaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, nativePhonePaging])
 
   useLayoutEffect(() => {
     if (
@@ -1920,7 +1926,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Typography that reaches the page as root CSS variables; LabPassage
   // re-measures continued page tails only when it changes.
   const readerLayoutKey = [
-    prefs.fontFamily,
+    readingFont,
     prefs.fontSize,
     prefs.alignment,
     prefs.lineSpacing,
@@ -2996,7 +3002,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-voice-history-fixture={voiceHistoryFixture ? 'true' : 'false'}
       data-audio-speed={String(listen.speed)}
       style={{
-        ['--lab-font-reader' as string]: labFontFamilyCss(prefs.fontFamily),
+        ['--lab-font-reader' as string]: labFontFamilyCss(readingFont),
         ['--lab-font-size' as string]: String(prefs.fontSize),
         ['--lab-text-align' as string]: prefs.alignment,
         ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
@@ -3207,7 +3213,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               layoutKey={[
                 book.chapterNumber,
                 readerEditionKey,
-                prefs.fontFamily,
+                readingFont,
                 prefs.fontSize,
                 prefs.alignment,
                 prefs.lineSpacing,
