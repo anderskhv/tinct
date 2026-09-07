@@ -1234,7 +1234,12 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf::-webkit-scrollbar { display:none; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf::before,#tinct-onboarding-worlds-v5 .lib-now-shelf::after { content:''; flex:0 0 calc(50% - 62px - 16px); }
-  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::before,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::after { display:none; }
+  /* `is-single` is markup-time (one book); `is-flush` is measured after
+     layout (every cover already fits). Either way the row starts at the
+     margin, under the caption that names the book. */
+  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush { scroll-snap-type:none; }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::before,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::after,
+  #tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush::before,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush::after { display:none; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item { position:relative; flex:0 0 124px; display:flex; flex-direction:column; text-align:left; scroll-snap-align:center; scroll-snap-stop:always; opacity:.55; transition:opacity .32s ease; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item.is-focused { opacity:1; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-open { display:block; width:100%; text-align:left; }

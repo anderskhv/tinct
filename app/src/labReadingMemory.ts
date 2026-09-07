@@ -490,6 +490,7 @@ function setNowFocus(index: number, scroll = false): void {
 }
 
 function centreNowItem(shelf: HTMLElement, item: HTMLElement): void {
+  if (shelf.classList.contains('is-flush')) return
   const target = Math.max(0, Math.min(
     shelf.scrollWidth - shelf.clientWidth,
     item.offsetLeft - shelf.offsetLeft + item.offsetWidth / 2 - shelf.clientWidth / 2,
@@ -500,12 +501,32 @@ function centreNowItem(shelf: HTMLElement, item: HTMLElement): void {
   else shelf.scrollLeft = target
 }
 
+/**
+ * The centring spacers are for a row that overflows. A row whose covers all
+ * fit — two books on a tablet, one on a phone — would otherwise park them in
+ * the middle of an empty rail, away from the caption that names them. Only
+ * measurement knows which case this is, so the class is set here rather than
+ * guessed at a breakpoint.
+ */
+function fitNowShelf(): void {
+  const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
+  if (!shelf) return
+  const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')]
+  if (!items.length) return
+  const gap = Number.parseFloat(getComputedStyle(shelf).columnGap) || 0
+  const content = items.reduce((total, item) => total + item.offsetWidth, 0) + gap * (items.length - 1)
+  shelf.classList.toggle('is-flush', content <= shelf.clientWidth + 1)
+}
+
 /** Centre detection, the same rule the popular shelf uses. */
 function observeNowShelf(): void {
   nowObserver?.disconnect()
   nowObserver = null
   const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
   if (!shelf || lastList.readingNow.length < 2) return
+  // A row that does not scroll has no middle to read: the focus stays on the
+  // book the library opened on until the reader taps another cover.
+  if (shelf.classList.contains('is-flush')) return
   if (typeof IntersectionObserver === 'function') {
     nowObserver = new IntersectionObserver(entries => {
       if (Date.now() < nowQuietUntil) return
@@ -517,6 +538,11 @@ function observeNowShelf(): void {
     }, { root: shelf, rootMargin: '0px -50% 0px -50%', threshold: 0 })
     shelf.querySelectorAll('[data-now-index]').forEach(item => nowObserver!.observe(item))
   }
+  // The shelf is re-created on every render and observeNowShelf may run twice
+  // for one of them (once before layout, once after it settles): mark the
+  // element so the scroll fallback is attached exactly once per row.
+  if (shelf.dataset.nowScrollBound === '1') return
+  shelf.dataset.nowScrollBound = '1'
   let frame = 0
   shelf.addEventListener('scroll', () => {
     if (frame || Date.now() < nowQuietUntil) return
@@ -566,10 +592,11 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   section.innerHTML = readingNow + finished
   if (!hero) return
   renderNowCaption(true)
+  fitNowShelf()
   observeNowShelf()
   const shelf = section.querySelector<HTMLElement>('[data-now-shelf]')
   const item = shelf?.querySelector<HTMLElement>('[data-now-index="0"]')
-  if (shelf && item) requestAnimationFrame(() => centreNowItem(shelf, item))
+  if (shelf && item) requestAnimationFrame(() => { fitNowShelf(); observeNowShelf(); centreNowItem(shelf, item) })
 }
 
 async function performRender(): Promise<void> {
