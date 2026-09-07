@@ -12,7 +12,8 @@ import {
 } from './labPosition'
 import { clearLabPositionLocal, readLabPositionLocal } from './labPositionStore'
 import { bibleFallbackSource, type LabChapter, type LabSource } from './labSource'
-import { bookFromResumePlace, bootLabReading, useLabPositionSync } from './useLabPositionSync'
+import { bookFromResumePlace, bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
+import { readLabPrefs } from './labPrefs'
 
 const PHONE = 'phone-device'
 const DESK = 'desk-device'
@@ -132,24 +133,36 @@ const harness: {
   notePlace: ReturnType<typeof useLabPositionSync>['notePlace'] | null
   markChapterFinished: ReturnType<typeof useLabPositionSync>['markChapterFinished'] | null
   finishedChapters: Set<number>
-} = { notePlace: null, markChapterFinished: null, finishedChapters: new Set() }
+  initialPositionResolved: boolean | null
+  /** Every value `initialPositionResolved` took, in render order. */
+  resolvedTrail: boolean[]
+} = { notePlace: null, markChapterFinished: null, finishedChapters: new Set(), initialPositionResolved: null, resolvedTrail: [] }
 
 function Harness(props: {
   book: LabSource
   placeRef: MutableRefObject<{ paragraphIndex: number; wordIndex: number }>
   onRemoteResume: (place: LabBookPlace) => void
+  onResolvedPlace?: (place: LabBookPlace) => void
+  interactedRef?: MutableRefObject<boolean>
   token?: string | null
+  sourceLocked?: boolean
+  initialCloudWaitMs?: number
 }) {
-  const { notePlace, markChapterFinished, finishedChapters } = useLabPositionSync({
+  const { notePlace, markChapterFinished, finishedChapters, initialPositionResolved } = useLabPositionSync({
     book: props.book,
     placeRef: props.placeRef,
-    sourceLocked: false,
+    sourceLocked: props.sourceLocked ?? false,
     authToken: props.token === undefined ? 'signed-in' : props.token,
     onRemoteResume: props.onRemoteResume,
+    onResolvedPlace: props.onResolvedPlace,
+    interactedRef: props.interactedRef,
+    initialCloudWaitMs: props.initialCloudWaitMs,
   })
   harness.notePlace = notePlace
   harness.markChapterFinished = markChapterFinished
   harness.finishedChapters = finishedChapters
+  if (harness.resolvedTrail[harness.resolvedTrail.length - 1] !== initialPositionResolved) harness.resolvedTrail.push(initialPositionResolved)
+  harness.initialPositionResolved = initialPositionResolved
   return null
 }
 
@@ -168,6 +181,8 @@ afterEach(() => {
   harness.notePlace = null
   harness.markChapterFinished = null
   harness.finishedChapters = new Set()
+  harness.initialPositionResolved = null
+  harness.resolvedTrail = []
   try { localStorage.removeItem('tinct-lab-finished-chapters') } catch { /* jsdom */ }
   clearLabPositionLocal()
   try { localStorage.removeItem(LAB_POSITION_DEVICE_KEY) } catch { /* jsdom */ }
@@ -231,15 +246,21 @@ describe('cloud merge gate (Proverbs 17 / Hebrews 3 flip-flop)', () => {
     expect(readLabPositionLocal(PHONE).lastSettledBookId).toBe('hebrews')
   })
 
-  it('never asks the cloud while the book only has the fallback chapter list', async () => {
+  it('never merges the cloud while the book only has the fallback chapter list', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledHebrewsCloud()))
     localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
     const api = stubPositionApi(Promise.resolve(settledHebrewsCloud()))
+    const onRemoteResume = vi.fn()
     const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
 
-    render(<Harness book={bootLabReading().book} placeRef={placeRef} onRemoteResume={() => {}} />)
+    render(<Harness book={bootLabReading().book} placeRef={placeRef} onRemoteResume={onRemoteResume} />)
     await settle()
 
-    expect(api.gets()).toHaveLength(0)
+    // The GET is warmed at once so the merge does not wait on the network,
+    // but nothing is merged or followed against the Genesis fallback list.
+    expect(api.gets()).toHaveLength(1)
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(harness.initialPositionResolved).toBe(false)
     expect(readLabPositionLocal(PHONE).lastSettledBookId).toBe('proverbs')
   })
 
@@ -277,13 +298,156 @@ describe('cloud merge gate (Proverbs 17 / Hebrews 3 flip-flop)', () => {
     await settle()
     expect(onRemoteResume).not.toHaveBeenCalled()
 
+    // The failed answer resolved the first place: the reader painted Proverbs.
+    expect(harness.initialPositionResolved).toBe(true)
+
     answer = settledHebrewsCloud()
     api.calls.length = 0
     vi.unstubAllGlobals()
     const retry = stubPositionApi(Promise.resolve(answer))
     view.rerender(<Harness book={manifestBook(646)} placeRef={placeRef} onRemoteResume={onRemoteResume} />)
     await waitFor(() => expect(retry.gets()).toHaveLength(1))
-    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'hebrews' })))
+    // The retried record merges (Hebrews is the settled book for the next
+    // open) but a painted reader is never moved to another book.
+    await waitFor(() => expect(readLabPositionLocal(PHONE).lastSettledBookId).toBe('hebrews'))
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+  })
+})
+
+describe('initial resolution: one place before first paint', () => {
+  function proverbs18(over: Partial<LabBookPlace> = {}): LabBookPlace {
+    return proverbs17({ chapterNumber: 18, sequentialChapter: 646, paragraphIndex: 0, wordIndex: 0, pageIndex: 0, updatedAt: 300_000, deviceId: DESK, rev: 1, ...over })
+  }
+
+  it('signed out: resolved at once, the local place is final', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const api = stubPositionApi(Promise.resolve(settledHebrewsCloud()))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} token={null} />)
+    await settle()
+    expect(harness.resolvedTrail).toEqual([true])
+    expect(api.gets()).toHaveLength(0)
+    expect(onRemoteResume).not.toHaveBeenCalled()
+  })
+
+  it('a library handoff is the resolved place: the cloud never moves it', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const api = stubPositionApi(Promise.resolve(settledHebrewsCloud()))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} sourceLocked />)
+    await settle()
+    expect(harness.resolvedTrail).toEqual([true])
+    expect(api.gets()).toHaveLength(0)
+    expect(onRemoteResume).not.toHaveBeenCalled()
+  })
+
+  it('local Proverbs 17, cloud Hebrews 3 newer: stays unresolved until the merge, then moves exactly once', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const cloud = deferred<LabPositionState | null>()
+    stubPositionApi(cloud.promise)
+    const onRemoteResume = vi.fn()
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    const view = render(<Harness book={bootLabReading().book} placeRef={placeRef} onRemoteResume={onRemoteResume} />)
+    expect(harness.initialPositionResolved).toBe(false)
+    view.rerender(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={onRemoteResume} />)
+    await settle()
+    // Manifest in, cloud still pending: nothing may paint yet.
+    expect(harness.initialPositionResolved).toBe(false)
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    await act(async () => { cloud.resolve(settledHebrewsCloud()) })
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    expect(onRemoteResume).toHaveBeenCalledTimes(1)
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'hebrews', sequentialChapter: 1136 }))
+    expect(harness.resolvedTrail).toEqual([false, true])
+  })
+
+  it('local Proverbs 17 newer than cloud Hebrews 3: resolves to the local place, no move', async () => {
+    const local = settledProverbsLocal()
+    local.books.proverbs = proverbs17({ updatedAt: 300_000, rev: 9 })
+    local.lastSettledAt = 300_000
+    local.updatedAt = 300_000
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(local))
+    stubPositionApi(Promise.resolve(settledHebrewsCloud()))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(harness.resolvedTrail).toEqual([false, true])
+  })
+
+  it('cloud same chapter, further in: restores the place without a reload', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const further = { ...settledProverbsLocal(), books: { proverbs: proverbs17({ paragraphIndex: 9, wordIndex: 2, updatedAt: 250_000, deviceId: DESK }) }, lastSettledAt: 250_000, updatedAt: 250_000, deviceId: DESK }
+    stubPositionApi(Promise.resolve(further))
+    const onRemoteResume = vi.fn()
+    const onResolvedPlace = vi.fn()
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={onRemoteResume} onResolvedPlace={onResolvedPlace} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(onResolvedPlace).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2 }))
+    expect(placeRef.current).toEqual({ paragraphIndex: 9, wordIndex: 2 })
+  })
+
+  it('a failed cloud answer resolves to the local place', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    stubPositionApi(Promise.resolve(null))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    expect(onRemoteResume).not.toHaveBeenCalled()
+  })
+
+  it('the bounded wait paints the local place; a late record for another book is merged, never followed', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const cloud = deferred<LabPositionState | null>()
+    stubPositionApi(cloud.promise)
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} initialCloudWaitMs={5} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    await act(async () => { cloud.resolve(settledHebrewsCloud()) })
+    await waitFor(() => expect(readLabPositionLocal(PHONE).lastSettledBookId).toBe('hebrews'))
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+  })
+
+  it('a late record inside the same book is followed forward only, and never after the reader touched the page', async () => {
+    const run = async (cloudState: LabPositionState, interacted: boolean) => {
+      localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+      const cloud = deferred<LabPositionState | null>()
+      stubPositionApi(cloud.promise)
+      const onRemoteResume = vi.fn()
+      const onResolvedPlace = vi.fn()
+      const interactedRef = { current: interacted }
+      const view = render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} onResolvedPlace={onResolvedPlace} interactedRef={interactedRef} initialCloudWaitMs={5} />)
+      await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+      await act(async () => { cloud.resolve(cloudState) })
+      await settle()
+      await settle()
+      view.unmount()
+      clearLabPositionLocal()
+      vi.unstubAllGlobals()
+      return { onRemoteResume, onResolvedPlace }
+    }
+    const forward: LabPositionState = { ...emptyLabPositionState(DESK), books: { proverbs: proverbs18() }, lastSettledBookId: 'proverbs', lastSettledAt: 300_000, updatedAt: 300_000 }
+    const back: LabPositionState = { ...emptyLabPositionState(DESK), books: { proverbs: proverbs17({ chapterNumber: 16, sequentialChapter: 644, updatedAt: 300_000, deviceId: DESK }) }, lastSettledBookId: 'proverbs', lastSettledAt: 300_000, updatedAt: 300_000 }
+    const sameFurther: LabPositionState = { ...emptyLabPositionState(DESK), books: { proverbs: proverbs17({ paragraphIndex: 8, updatedAt: 300_000, deviceId: DESK }) }, lastSettledBookId: 'proverbs', lastSettledAt: 300_000, updatedAt: 300_000 }
+
+    const followed = await run(forward, false)
+    expect(followed.onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'proverbs', sequentialChapter: 646 }))
+
+    const backward = await run(back, false)
+    expect(backward.onRemoteResume).not.toHaveBeenCalled()
+    expect(backward.onResolvedPlace).not.toHaveBeenCalled()
+
+    const touched = await run(forward, true)
+    expect(touched.onRemoteResume).not.toHaveBeenCalled()
+
+    const further = await run(sameFurther, false)
+    expect(further.onRemoteResume).not.toHaveBeenCalled()
+    expect(further.onResolvedPlace).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 8 }))
   })
 })
 
@@ -293,6 +457,9 @@ describe('writes from the reader', () => {
     const api = stubPositionApi(Promise.resolve(null))
     const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
     render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    // The cloud answered (empty): the first place is resolved and notes flow.
+    await settle()
+    expect(harness.initialPositionResolved).toBe(true)
 
     act(() => { harness.notePlace!('page-turn', { paragraphIndex: 5, wordIndex: 0 }) })
     const stored = readLabPositionLocal(PHONE)
@@ -307,6 +474,7 @@ describe('writes from the reader', () => {
     const api = stubPositionApi(Promise.resolve(null))
     const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
     render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    await settle()
 
     act(() => { harness.notePlace!('hide') })
     await settle()
@@ -362,5 +530,30 @@ describe('finished chapters sync with the position record', () => {
       expect(harness.finishedChapters).toEqual(new Set([644, 1134]))
     })
     expect(readLabPositionLocal(PHONE).finished).toEqual({ bible: [644, 1134], odyssey: [2] })
+  })
+})
+
+describe('remoteResumeSelection', () => {
+  const prefs = { ...readLabPrefs('phone'), primaryEdition: 'kjv-en', compareEdition: 'web-en', compareOpen: false }
+
+  it('a biblical pin is the Bible, in the current editions', () => {
+    const selection = remoteResumeSelection(hebrews3(), { libraryBookId: 'bible', prefs })
+    expect(selection).toMatchObject({ bookId: 'bible', primaryEditionKey: 'kjv-en', compareEditionKey: undefined })
+    expect(selection?.prefs).toBe(prefs)
+  })
+
+  it('a registry pin is that book, never the open book\'s loader with its chapter number (Crito 3 is not Genesis 3)', () => {
+    const crito: LabBookPlace = { ...hebrews3(), bookId: 'crito', headerBook: 'Crito', chapterNumber: 3, sequentialChapter: 3, primaryEditionKey: undefined }
+    const selection = remoteResumeSelection(crito, { libraryBookId: 'bible', prefs })
+    expect(selection?.bookId).toBe('crito')
+    expect(selection?.primaryEditionKey).not.toBe('kjv-en')
+    expect(selection?.prefs.primaryEdition).toBe(selection?.primaryEditionKey)
+    expect(selection?.prefs).not.toBe(prefs)
+  })
+
+  it('keeps the edition the registry pin was read in when that book offers it', () => {
+    const odyssey: LabBookPlace = { ...hebrews3(), bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2, primaryEditionKey: 'modern-en' }
+    const selection = remoteResumeSelection(odyssey, { libraryBookId: 'crito', prefs })
+    expect(selection).toMatchObject({ bookId: 'odyssey', primaryEditionKey: 'modern-en' })
   })
 })

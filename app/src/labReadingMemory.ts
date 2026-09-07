@@ -36,6 +36,7 @@ import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
 import { mergeLabPositionStatesByTime, type LabPositionState } from './lab/labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionStore'
+import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import {
   heroHeadline,
   inProgressLabel,
@@ -93,6 +94,8 @@ let lastList: ReadingList = { readingNow: [], finished: [] }
 let summaryBudgetSpent = false
 let renderChain: Promise<void> = Promise.resolve()
 let renderQueued = false
+/** A Continue tapped on the boot-painted recap before the first confirmed render; served by that render. */
+let pendingContinue: string | null = null
 
 function preReader(): LabPreReaderApi | undefined {
   return (window as Window & { __tinctLabPreReader?: LabPreReaderApi }).__tinctLabPreReader
@@ -245,6 +248,8 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   const hero = list.readingNow[0] ?? null
   const heroCard = hero && rendered && hero.session && rendered.card.provenance.sessionId === hero.session.id ? rendered.card : null
   section.hidden = false
+  delete section.dataset.bootRecap
+  section.removeAttribute('aria-busy')
   section.dataset.testid = 'lab-recap-card'
   section.dataset.book = hero?.bookId ?? ''
   section.dataset.sessionState = hero?.session?.state ?? 'none'
@@ -305,12 +310,49 @@ async function performRender(): Promise<void> {
     section.hidden = true
     section.innerHTML = ''
     delete section.dataset.testid
+    delete section.dataset.bootRecap
+    section.removeAttribute('aria-busy')
     publishMode(mode)
+    clearLabLibraryBootSnapshot()
+    pendingContinue = null
     return
   }
   renderSections(list, rendered)
   publishMode(mode)
+  writeLabLibraryBootSnapshot(bootSnapshot(list, rendered, auth.userId, books))
   window.dispatchEvent(new CustomEvent('tinct:lab-reading-memory-rendered', { detail: { card: rendered?.card ?? null, readingNow: list.readingNow.length, finished: list.finished.length } }))
+  if (pendingContinue !== null) {
+    const bookId = pendingContinue
+    pendingContinue = null
+    continueReading(bookId || undefined)
+  }
+}
+
+/**
+ * What the inline boot script in lab/index.html paints next time, before any
+ * script has loaded: the confirmed hero, for this account.
+ */
+function bootSnapshot(list: ReadingList, rendered: RecapLoadResult | null, userId: string | null, books: Map<string, CatalogueBook>): LabLibraryBootSnapshot {
+  const hero = list.readingNow[0] ?? null
+  const card = hero && rendered && hero.session && rendered.card.provenance.sessionId === hero.session.id ? rendered.card : null
+  const book = hero ? books.get(hero.bookId) : undefined
+  const cover = hero ? coverFor(book, hero.bookId) : null
+  return {
+    v: 1,
+    at: Date.now(),
+    userId,
+    readingNow: list.readingNow.length,
+    finished: list.finished.length,
+    hero: hero ? {
+      bookId: hero.bookId,
+      title: bookTitle(book, hero.bookId),
+      chapterLabel: hero.target.chapterLabel,
+      headline: heroHeadline(hero, card),
+      coverSrc: safeCoverSource(cover?.src),
+      coverSrcSet: safeCoverSource(cover?.src) && cover?.srcSet ? cover.srcSet : null,
+      note: progressNote(hero.target, hero.session),
+    } : null,
+  }
 }
 
 /** Renders never overlap; a request during a render runs once more afterwards. */
@@ -354,6 +396,11 @@ function openAt(target: ContinueTarget): void {
 }
 
 function continueReading(bookId?: string): void {
+  if (lastList.readingNow.length === 0 && (renderQueued || lastRendered === null)) {
+    // Tapped on the boot paint: the first confirmed render carries it out.
+    pendingContinue = bookId ?? ''
+    return
+  }
   const row = bookId ? lastList.readingNow.find(candidate => candidate.bookId === bookId) : lastList.readingNow[0]
   if (row) openAt(row.target)
 }

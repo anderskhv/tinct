@@ -1,5 +1,7 @@
 import { supabase } from './services/supabase'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
+import { accountInitial, displayNameFor } from './lab/labAuthDisplay'
+import { labSignedInHint, readCachedSupabaseUser } from './lab/labLibraryBoot'
 
 export type LabAuthState = {
   ready: boolean
@@ -9,24 +11,7 @@ export type LabAuthState = {
   name: string | null
 }
 
-type UserLike = { email?: string | null; user_metadata?: Record<string, unknown> | null } | null | undefined
-
-export function displayNameFor(user: UserLike): string | null {
-  if (!user) return null
-  const metadata = user.user_metadata ?? {}
-  const candidates = [metadata.full_name, metadata.name, metadata.given_name, metadata.first_name]
-  for (const candidate of candidates) {
-    if (typeof candidate === 'string' && candidate.trim()) return candidate.trim().split(/\s+/)[0]
-  }
-  const local = typeof user.email === 'string' ? user.email.split('@')[0].trim() : ''
-  return local || null
-}
-
-/** The account glyph's letter: the first letter of the display name. */
-export function accountInitial(name: string | null): string {
-  const first = (name ?? '').trim().charAt(0)
-  return first ? first.toLocaleUpperCase() : ''
-}
+export { displayNameFor, accountInitial } from './lab/labAuthDisplay'
 
 function span(className: string, text: string, hidden = false): HTMLSpanElement {
   const element = document.createElement('span')
@@ -76,7 +61,12 @@ async function resolveAuthState() {
   }
 }
 
-publish({ ready: false, signedIn: false, email: null, name: null })
+// Provisional state from the persisted session / signed-in cookie, so the
+// header never shows "Sign in" to a signed-in device while getSession()
+// resolves. The inline boot script in lab/index.html paints the same hint
+// before this module has loaded.
+const cached = readCachedSupabaseUser()
+publish({ ready: false, signedIn: labSignedInHint(), email: cached?.email ?? null, name: cached?.name ?? null })
 void resolveAuthState()
 
 if (supabase) {

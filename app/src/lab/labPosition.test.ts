@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
+  shouldFollowLateCloudResume,
   biblicalBookId,
   chapterExistsOnClient,
   createLabPositionController,
@@ -122,8 +123,35 @@ describe('biblical book identity', () => {
       bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2,
       sequentialChapter: 2, paragraphIndex: 4, wordIndex: 7,
     })
-    expect(chapterExistsOnClient(place, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }])).toBe(true)
-    expect(chapterExistsOnClient({ ...place, sequentialChapter: 3, chapterNumber: 3 }, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }])).toBe(false)
+    expect(chapterExistsOnClient(place, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }], 'odyssey')).toBe(true)
+    expect(chapterExistsOnClient({ ...place, sequentialChapter: 3, chapterNumber: 3 }, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }], 'odyssey')).toBe(false)
+    // Another registry book's list never validates this pin.
+    expect(chapterExistsOnClient(place, [{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }], 'meditations')).toBe(false)
+  })
+
+  it('a Bible manifest validates only Bible pins: a registry pin never coincides with a sequential index', () => {
+    const bible = [
+      { number: 1, title: 'Genesis 1' },
+      { number: 3, title: 'Genesis 3' },
+      { number: 1136, title: 'Hebrews 3' },
+    ]
+    const crito3: LabBookPlace = {
+      bookId: 'crito', headerBook: 'Crito', chapterNumber: 3, sequentialChapter: 3,
+      paragraphIndex: 0, wordIndex: 0, updatedAt: 10, deviceId: DEVICE, rev: 1,
+    }
+    expect(chapterExistsOnClient(crito3, bible)).toBe(false)
+    expect(chapterExistsOnClient(crito3, bible, 'bible')).toBe(false)
+    const hebrews3: LabBookPlace = { ...crito3, bookId: 'hebrews', headerBook: 'Hebrews', chapterNumber: 3, sequentialChapter: 1136 }
+    expect(chapterExistsOnClient(hebrews3, bible)).toBe(true)
+    expect(chapterExistsOnClient({ ...hebrews3, chapterNumber: 4, sequentialChapter: 1137 }, bible)).toBe(false)
+    // A Bible pin is not a chapter of a registry book's list.
+    expect(chapterExistsOnClient(hebrews3, [{ number: 1136, title: 'Chapter 1136' }], 'odyssey')).toBe(false)
+    // Merge in the Bible context: the Crito settle is not adopted, so the reader cannot open "Genesis 3" for it.
+    const local: LabPositionState = { ...emptyLabPositionState(DEVICE), books: { genesis: { ...hebrews3, bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1 } }, lastSettledBookId: 'genesis', lastSettledAt: 10, updatedAt: 10 }
+    const cloud: LabPositionState = { ...emptyLabPositionState('desk'), books: { crito: { ...crito3, updatedAt: 99 } }, lastSettledBookId: 'crito', lastSettledAt: 99, updatedAt: 99 }
+    const merged = mergeLabPositionStates(local, cloud, bible, 'bible')
+    expect(merged.books.crito).toBeUndefined()
+    expect(merged.lastSettledBookId).toBe('genesis')
   })
 })
 
@@ -484,5 +512,19 @@ describe('finished chapters in the position record', () => {
     expect(causes).toEqual(['immediate'])
     expect(withFinishedChapter(first, 'bible', 0, 10_000)).toBe(first)
     expect(withFinishedChapter(first, 'odyssey', 3, 10_000).finished).toEqual({ bible: [780], odyssey: [3] })
+  })
+})
+
+describe('shouldFollowLateCloudResume', () => {
+  const current = { bookId: 'proverbs', sequentialChapter: 645, paragraphIndex: 3 }
+  it('follows a newer record only forward inside the same book', () => {
+    expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'proverbs', sequentialChapter: 646, paragraphIndex: 0 }, interacted: false })).toBe(true)
+    expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'proverbs', sequentialChapter: 645, paragraphIndex: 8 }, interacted: false })).toBe(true)
+    expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'proverbs', sequentialChapter: 645, paragraphIndex: 3 }, interacted: false })).toBe(false)
+    expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'proverbs', sequentialChapter: 644, paragraphIndex: 20 }, interacted: false })).toBe(false)
+  })
+  it('never crosses books and never moves a touched page', () => {
+    expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'hebrews', sequentialChapter: 1136, paragraphIndex: 0 }, interacted: false })).toBe(false)
+    expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'proverbs', sequentialChapter: 646, paragraphIndex: 0 }, interacted: true })).toBe(false)
   })
 })

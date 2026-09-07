@@ -33,6 +33,14 @@ export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-device-id'
 export const LAB_POSITION_DIRTY_KEY = 'tinct-lab-position-dirty'
 export const LAB_POSITION_DWELL_MS = 25_000
 export const LAB_POSITION_DEBOUNCE_MS = 1_000
+/**
+ * How long a signed-in reader waits for the cloud record (and the chapter
+ * manifest it is validated against) before painting the local place. The
+ * reader shows one resolved position from its first paint; after this
+ * window a late cloud record may only move it forward inside the same book
+ * (see `shouldFollowLateCloudResume`).
+ */
+export const LAB_INITIAL_CLOUD_WAIT_MS = 3_000
 
 export type LabPlaceReason =
   | 'open-book'
@@ -277,20 +285,24 @@ export function resumePlace(state: LabPositionState): LabBookPlace | null {
   return state.books[state.lastSettledBookId] ?? null
 }
 
-export function chapterExistsOnClient(place: LabBookPlace, chapters: LabChapterRef[]): boolean {
+/**
+ * Whether a pin names a chapter this client can open, given the library book
+ * whose chapter list is loaded (`libraryBookId`: `bible` or a registry id).
+ * A Bible manifest validates only Bible pins — a book of that manifest and a
+ * chapter of that book — so a registry pin whose chapter number happens to
+ * coincide with a sequential Bible index (Crito 3 vs Genesis 3) is never
+ * accepted. A registry chapter list validates only pins of that same book.
+ */
+export function chapterExistsOnClient(place: LabBookPlace, chapters: LabChapterRef[], libraryBookId = 'bible'): boolean {
   if (chapters.length === 0) return false
-  const sequential = chapters.find(item => item.number === place.sequentialChapter)
-  if (sequential) {
-    const parsed = parseBiblicalPlaceTitle(sequential.title)
-    const bibleScoped = biblicalBookId(parsed.book) === biblicalBookId(place.headerBook)
-    return bibleScoped
-      ? biblicalBookId(parsed.book) === place.bookId
-      : sequential.number === place.chapterNumber
+  if (libraryBookId !== 'bible') {
+    return place.bookId === libraryBookId && chapters.some(item => item.number === place.sequentialChapter)
   }
-  return chapters.some((item) => {
-    const parsed = parseBiblicalPlaceTitle(item.title)
-    return biblicalBookId(parsed.book) === place.bookId && Number(parsed.chapter) === place.chapterNumber
-  })
+  const inBook = chapters.filter(item => biblicalBookId(parseBiblicalPlaceTitle(item.title).book) === place.bookId)
+  if (inBook.length === 0) return false
+  const sequential = inBook.find(item => item.number === place.sequentialChapter)
+  if (sequential) return Number(parseBiblicalPlaceTitle(sequential.title).chapter) === place.chapterNumber
+  return inBook.some(item => Number(parseBiblicalPlaceTitle(item.title).chapter) === place.chapterNumber)
 }
 
 export function isNewerPlace(candidate: LabBookPlace, known: LabBookPlace | null | undefined): boolean {
@@ -305,16 +317,37 @@ export function shouldApplyCloudBookPlace(args: {
   incoming: LabBookPlace | null | undefined
   local: LabBookPlace | null | undefined
   chapters: LabChapterRef[]
+  /** Library book the chapter list belongs to (`bible` or a registry id). */
+  libraryBookId?: string
 }): boolean {
-  const { contextBookId, incoming, local, chapters } = args
+  const { contextBookId, incoming, local, chapters, libraryBookId = 'bible' } = args
   if (!incoming) return false
   if (incoming.bookId !== contextBookId) return false
   if (local && local.bookId !== incoming.bookId) return false
-  if (!chapterExistsOnClient(incoming, chapters)) return false
+  if (!chapterExistsOnClient(incoming, chapters, libraryBookId)) return false
   return isNewerPlace(incoming, local)
 }
 
-export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositionState, chapters: LabChapterRef[]): LabPositionState {
+/**
+ * A cloud record that lands after the reader has painted. The initial
+ * resolution (before first paint) may move anywhere the merge says; a late
+ * arrival may only move the reader forward inside the book it is already in,
+ * and never once the reader has touched the page. The merge itself already
+ * guarantees the incoming place is the newer record.
+ */
+export function shouldFollowLateCloudResume(args: {
+  current: { bookId: string; sequentialChapter: number; paragraphIndex: number }
+  incoming: Pick<LabBookPlace, 'bookId' | 'sequentialChapter' | 'paragraphIndex'>
+  interacted: boolean
+}): boolean {
+  const { current, incoming, interacted } = args
+  if (interacted) return false
+  if (incoming.bookId !== current.bookId) return false
+  if (incoming.sequentialChapter !== current.sequentialChapter) return incoming.sequentialChapter > current.sequentialChapter
+  return incoming.paragraphIndex > current.paragraphIndex
+}
+
+export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId = 'bible'): LabPositionState {
   const books: Record<string, LabBookPlace> = { ...local.books }
   for (const [bookId, incoming] of Object.entries(cloud.books)) {
     if (!shouldApplyCloudBookPlace({
@@ -322,6 +355,7 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
       incoming,
       local: books[bookId],
       chapters,
+      libraryBookId,
     })) continue
     books[bookId] = incoming
   }
@@ -333,7 +367,7 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
     cloud.lastSettledBookId
     && cloud.lastSettledAt > local.lastSettledAt
     && cloudResume
-    && chapterExistsOnClient(cloudResume, chapters)
+    && chapterExistsOnClient(cloudResume, chapters, libraryBookId)
   ) {
     lastSettledBookId = cloud.lastSettledBookId
     lastSettledAt = cloud.lastSettledAt
@@ -400,7 +434,7 @@ export interface LabPositionController {
    * suspension gate can drop it; persisted at once.
    */
   finish(input: { bookId: string; sequentialChapter: number; now?: number }): LabPositionState
-  applyCloud(cloud: LabPositionState, chapters: LabChapterRef[]): LabPositionState
+  applyCloud(cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId?: string): LabPositionState
   resume(): LabBookPlace | null
   flush(): LabPositionState
 }
@@ -542,8 +576,8 @@ export function createLabPositionController(opts: {
       persist('immediate')
       return state
     },
-    applyCloud(cloud, chapters) {
-      state = mergeLabPositionStates(state, cloud, chapters)
+    applyCloud(cloud, chapters, libraryBookId = 'bible') {
+      state = mergeLabPositionStates(state, cloud, chapters, libraryBookId)
       return state
     },
     resume: () => resumePlace(state),

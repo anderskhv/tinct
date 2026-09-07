@@ -215,6 +215,19 @@ export function libraryModeFromDeviceMemory(rawMemory, rawPosition = null) {
 // -------------------------------------------------------------------- index
 
 /** Houses as index rows with counts; stubs hidden; empty houses omitted. */
+/**
+ * Whether the URL asks for the library: `/lab/library`, `/library` (the
+ * launch route) or `?view=library` on the pre-reader page. Mirrors
+ * `libraryViewRequested` in src/lab/labLibraryBoot.ts and the inline boot
+ * script in lab/index.html.
+ */
+export function libraryViewFromLocation(pathname, search = '') {
+  const path = String(pathname || '').split('?')[0].split('#')[0].replace(/\/+$/, '')
+  if (path === '/lab/library' || path === '/library') return true
+  const query = String(search || '')
+  return new URLSearchParams(query.startsWith('?') ? query.slice(1) : query).get('view') === 'library'
+}
+
 export function indexHouses(catalogue) {
   const books = listableBooks(catalogue)
   return (catalogue?.houses || []).map(house => {

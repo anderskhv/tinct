@@ -48,8 +48,10 @@ export function labStatusLine(
       ? 'Talking · tap the circle to stop'
       : 'Talking · tap × to stop'
   }
-  if (state === 'hearing') return `Hearing · ${chapterLabel}`
-  return `Reading · ${chapterLabel}`
+  // No label while the chapter is still being resolved: the status names a
+  // chapter only once it is the one that will be read.
+  if (state === 'hearing') return chapterLabel ? `Hearing · ${chapterLabel}` : 'Hearing'
+  return chapterLabel ? `Reading · ${chapterLabel}` : 'Reading'
 }
 
 export function labAfterTalk(returnTo: LabReturnTo): LabChromeState {

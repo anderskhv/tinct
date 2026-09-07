@@ -110,6 +110,13 @@
   min-width: 0;
 }
 
+/* First place still being resolved (local record + cloud record): the page
+   stays laid out for pagination but paints nothing, so the first visible
+   chapter is the resolved one. */
+.lab-page-wrap.is-resolving > * {
+  visibility: hidden;
+}
+
 .lab-chapter-cover {
   --lab-cover-ground: #18364a;
   --lab-cover-shade: #102737;
