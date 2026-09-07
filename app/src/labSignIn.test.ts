@@ -97,34 +97,34 @@ describe('lab sign-in providers', () => {
     await flush()
   }
 
-  it('renders Google, Apple and GitHub above the email form, in that order, in sign-in mode', async () => {
+  it('renders Google and Apple above the email form, in that order, in sign-in mode', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
     await mount('?returnTo=%2Flab%2Flibrary')
     const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')!
     expect(root.dataset.mode).toBe('signin')
-    expect(providerButtons().map(button => button.dataset.oauth)).toEqual(['google', 'apple', 'github'])
-    expect(providerButtons().map(button => button.textContent?.trim())).toEqual([
-      'Continue with Google', 'Continue with Apple', 'Continue with GitHub',
+    expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google', 'apple'])
+    expect(providerButtons().filter(button => !button.hidden).map(button => button.textContent?.trim())).toEqual([
+      'Continue with Google', 'Continue with Apple',
     ])
-    expect(providerButtons().every(button => button.hidden === false)).toBe(true)
+    // The GitHub button keeps its markup but is hidden by the capability list.
+    expect(providerButtons().filter(button => button.hidden).map(button => button.dataset.oauth)).toEqual(['github'])
     // Above the email form: the provider block precedes the email field.
     const block = document.querySelector('[data-auth-providers]')!
     const email = document.querySelector('[data-email-field]')!
     expect(block.compareDocumentPosition(email) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   })
 
-  it('renders the same three buttons in create-account mode', async () => {
+  it('renders the same two buttons in create-account mode', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
     await mount('?mode=create&returnTo=%2Flab%2Flibrary')
     expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('create')
-    expect(providerButtons().map(button => button.dataset.oauth)).toEqual(['google', 'apple', 'github'])
-    expect(providerButtons().some(button => button.hidden)).toBe(false)
+    expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google', 'apple'])
   })
 
   it('sends each provider through Supabase OAuth with the reader\'s returnTo', async () => {
     // One mount per provider: a started round-trip leaves the page busy (it
     // is about to navigate), so the other buttons are correctly disabled.
-    for (const provider of ['google', 'apple', 'github']) {
+    for (const provider of ['google', 'apple']) {
       vi.resetModules()
       document.body.innerHTML = ''
       auth.signInWithOAuth.mockClear()

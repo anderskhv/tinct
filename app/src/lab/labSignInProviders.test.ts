@@ -12,9 +12,10 @@ import {
 } from './labSignInProviders'
 
 describe('lab sign-in providers', () => {
-  it('offers Google, Apple and GitHub, in that order', () => {
+  it('has markup for three providers but offers only Google and Apple', () => {
     expect([...LAB_OAUTH_PROVIDERS]).toEqual(['google', 'apple', 'github'])
-    expect([...LAB_SIGN_IN_PROVIDERS]).toEqual(['google', 'apple', 'github'])
+    // GitHub dropped 2026-09-07: its noreply address can never link by email.
+    expect([...LAB_SIGN_IN_PROVIDERS]).toEqual(['google', 'apple'])
   })
 
   it('treats the capability list as the whole rule, and never trusts an unknown name', () => {

@@ -32,7 +32,12 @@ export const LAB_OAUTH_PROVIDERS: readonly LabOAuthProvider[] = ['google', 'appl
  * The providers actually offered. Remove one line to hide a provider that is
  * not configured yet; the button disappears and nothing else changes.
  */
-export const LAB_SIGN_IN_PROVIDERS: readonly LabOAuthProvider[] = ['google', 'apple', 'github']
+// GitHub dropped 2026-09-07 (owner decision): it returns
+// `<id>+<login>@users.noreply.github.com` unless the reader has a public
+// primary email, so it can never link by email to an existing account —
+// a second sign-in with it silently makes a duplicate reader. Our readers
+// are not developers; it earned nothing and cost exactly that confusion.
+export const LAB_SIGN_IN_PROVIDERS: readonly LabOAuthProvider[] = ['google', 'apple']
 
 export const LAB_OAUTH_PROVIDER_NAMES: Readonly<Record<LabOAuthProvider, string>> = Object.freeze({
   google: 'Google',
