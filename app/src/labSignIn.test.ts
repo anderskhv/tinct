@@ -7,6 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 const auth = {
   signOut: vi.fn(async () => ({ error: null })),
   getSession: vi.fn(async () => ({ data: { session: { user: { email: 'reader@example.com' } } } })),
+  signInWithOAuth: vi.fn(async (_options: unknown) => ({ data: { url: null, provider: 'google' }, error: null as { message: string } | null })),
 }
 vi.mock('./services/supabase', () => ({ supabase: { auth }, isSupabaseConfigured: () => true }))
 
@@ -22,9 +23,12 @@ async function flush() {
 
 beforeEach(() => {
   localStorage.clear()
+  sessionStorage.clear()
   vi.resetModules()
   auth.signOut.mockClear()
   auth.getSession.mockClear()
+  auth.signInWithOAuth.mockClear()
+  auth.signInWithOAuth.mockImplementation(async () => ({ data: { url: null, provider: 'google' }, error: null }))
 })
 afterEach(() => {
   document.body.innerHTML = ''
@@ -79,5 +83,126 @@ describe('lab sign-in runtime', () => {
     expect(localStorage.getItem('tinct-lab-highlights')).toBeNull()
     expect(localStorage.getItem('tinct-lab-prefs')).toBe('{"version":2}')
     expect(localStorage.getItem('tinct-lab-device-id')).toBe('device-1')
+  })
+})
+
+describe('lab sign-in providers', () => {
+  const providerButtons = () => [...document.querySelectorAll<HTMLButtonElement>('[data-oauth]')]
+
+  async function mount(search = '') {
+    history.replaceState(null, '', `/lab/sign-in${search}`)
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+  }
+
+  it('renders Google, Apple and GitHub above the email form, in that order, in sign-in mode', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?returnTo=%2Flab%2Flibrary')
+    const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')!
+    expect(root.dataset.mode).toBe('signin')
+    expect(providerButtons().map(button => button.dataset.oauth)).toEqual(['google', 'apple', 'github'])
+    expect(providerButtons().map(button => button.textContent?.trim())).toEqual([
+      'Continue with Google', 'Continue with Apple', 'Continue with GitHub',
+    ])
+    expect(providerButtons().every(button => button.hidden === false)).toBe(true)
+    // Above the email form: the provider block precedes the email field.
+    const block = document.querySelector('[data-auth-providers]')!
+    const email = document.querySelector('[data-email-field]')!
+    expect(block.compareDocumentPosition(email) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  })
+
+  it('renders the same three buttons in create-account mode', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?mode=create&returnTo=%2Flab%2Flibrary')
+    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('create')
+    expect(providerButtons().map(button => button.dataset.oauth)).toEqual(['google', 'apple', 'github'])
+    expect(providerButtons().some(button => button.hidden)).toBe(false)
+  })
+
+  it('sends each provider through Supabase OAuth with the reader\'s returnTo', async () => {
+    // One mount per provider: a started round-trip leaves the page busy (it
+    // is about to navigate), so the other buttons are correctly disabled.
+    for (const provider of ['google', 'apple', 'github']) {
+      vi.resetModules()
+      document.body.innerHTML = ''
+      auth.signInWithOAuth.mockClear()
+      auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+      await mount('?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+      document.querySelector<HTMLButtonElement>(`[data-oauth="${provider}"]`)!.click()
+      await flush()
+      expect(auth.signInWithOAuth).toHaveBeenCalledTimes(1)
+      expect(auth.signInWithOAuth).toHaveBeenCalledWith({
+        provider,
+        options: { redirectTo: `${location.origin}/lab/sign-in?returnTo=%2Flab%2Freader%3Fvoice%3Dv2` },
+      })
+    }
+  })
+
+  it('falls back to the library for a foreign returnTo on the provider round-trip too', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?returnTo=https%3A%2F%2Fevil.example%2Fsteal')
+    document.querySelector<HTMLButtonElement>('[data-oauth="apple"]')!.click()
+    await flush()
+    expect(auth.signInWithOAuth).toHaveBeenCalledWith({
+      provider: 'apple',
+      options: { redirectTo: `${location.origin}/lab/sign-in?returnTo=%2Flab%2Flibrary` },
+    })
+  })
+
+  it('hides a provider that is taken out of the capability list', async () => {
+    vi.resetModules()
+    document.body.innerHTML = ''
+    vi.doMock('./lab/labSignInProviders', async () => {
+      const actual = await vi.importActual<typeof import('./lab/labSignInProviders')>('./lab/labSignInProviders')
+      return { ...actual, LAB_SIGN_IN_PROVIDERS: ['google', 'github'] as const }
+    })
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?returnTo=%2Flab%2Flibrary')
+    expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google', 'github'])
+    document.querySelector<HTMLButtonElement>('[data-oauth="apple"]')!.click()
+    await flush()
+    expect(auth.signInWithOAuth).not.toHaveBeenCalled()
+    vi.doUnmock('./lab/labSignInProviders')
+  })
+
+  it('reports a provider that is not enabled when the round-trip comes back, and cleans the URL', async () => {
+    const description = 'Unsupported provider: provider is not enabled'
+    sessionStorage.setItem('tinct:lab-oauth-provider', 'apple')
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount(`?returnTo=%2Flab%2Flibrary#error=server_error&error_code=validation_failed&error_description=${encodeURIComponent(description)}`)
+    const status = document.querySelector<HTMLElement>('[data-auth-status]')!
+    expect(status.hidden).toBe(false)
+    expect(status.dataset.tone).toBe('error')
+    expect(status.textContent).toBe('Apple sign-in isn’t available yet. Use your email below, or another provider.')
+    expect(location.hash).toBe('')
+    expect(sessionStorage.getItem('tinct:lab-oauth-provider')).toBeNull()
+    // Still a usable sign-in form, not a blank redirect.
+    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('signin')
+    expect(providerButtons().every(button => button.disabled === false)).toBe(true)
+  })
+
+  it('passes the raw description through when it does not know which provider was tried', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?returnTo=%2Flab%2Flibrary&error=access_denied')
+    expect(document.querySelector<HTMLElement>('[data-auth-status]')!.textContent).toBe('access_denied')
+    expect(new URLSearchParams(location.search).has('error')).toBe(false)
+    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/lab/library')
+  })
+
+  it('shows the error notice when signInWithOAuth itself fails, and stays usable', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?returnTo=%2Flab%2Flibrary')
+    auth.signInWithOAuth.mockImplementationOnce(async () => ({
+      data: { url: null, provider: 'apple' },
+      error: { message: 'Unsupported provider: provider is not enabled' },
+    }))
+    document.querySelector<HTMLButtonElement>('[data-oauth="apple"]')!.click()
+    await flush()
+    const status = document.querySelector<HTMLElement>('[data-auth-status]')!
+    expect(status.hidden).toBe(false)
+    expect(status.dataset.tone).toBe('error')
+    expect(status.textContent).toBe('Apple sign-in isn’t available yet. Use your email below, or another provider.')
+    expect(providerButtons().every(button => button.disabled === false)).toBe(true)
   })
 })

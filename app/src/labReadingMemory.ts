@@ -12,9 +12,14 @@
  *    ("You’re in the middle of Proverbs 17"), and under it a "so far" line
  *    summarises the chapter up to that place — shown at once from the
  *    device cache, else requested from `/api/lab-recap` and filled in when
- *    it arrives, never an error. The book is named under it, one cream
+ *    it arrives, never an error. A summary is only GENERATED after an hour
+ *    away from that book (LAB_RECAP_MIN_AWAY_MS); come back sooner and the
+ *    hero is the position line alone. The book is named under it, one cream
  *    "Continue reading" pill. The rest are quiet rows: cover, title, "Last
- *    time · <chapter>", the stored summary when it describes that chapter.
+ *    time · <chapter>", and one line of prose when there is a truthful one
+ *    to show — the stored session summary for that chapter, else a "so far"
+ *    summary this device already cached for that exact place. A row never
+ *    asks for a new one.
  *  - FINISHED · N — books whose newest session completed the final chapter,
  *    or that the app marked `book-completed:*`. Quiet rows with a check.
  *
@@ -40,7 +45,7 @@ import { mergeLabPositionStatesByTime, type LabPositionState } from './lab/labPo
 import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
-import { readStoredRecapSummary, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
+import { readStoredRecapSummary, requestLabRecapSummary, shouldRequestRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import {
   heroHeadline,
@@ -259,7 +264,7 @@ function deviceStorage(): Storage | null {
   }
 }
 
-type SummaryLineStatus = 'pending' | 'none' | 'cached' | 'fresh' | 'loading' | 'unavailable' | 'offline' | 'account-required'
+type SummaryLineStatus = 'pending' | 'none' | 'cached' | 'fresh' | 'loading' | 'unavailable' | 'offline' | 'account-required' | 'recent'
 
 /**
  * Per page load: keys being fetched or that failed. A re-render during a
@@ -288,9 +293,17 @@ function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): 
 /**
  * Fill the hero's "so far" line. The position line is already on screen;
  * this only ever adds text. Device cache first (the library opens complete
- * on a repeat visit); otherwise, online and allowed, one request. The
- * anonymous free AI action is spent only on a request that succeeds, and a
- * cache hit costs nothing. Any failure leaves the line hidden.
+ * on a repeat visit); otherwise, away long enough, online and allowed, one
+ * request. The anonymous free AI action is spent only on a request that
+ * succeeds, and a cache hit costs nothing. Any failure leaves the line
+ * hidden.
+ *
+ * Cache decision (owner rule, 2026-09-07): the device cache is read BEFORE
+ * the away-threshold, so a summary this device already holds for exactly
+ * this place is still shown after a short absence. The rule is about not
+ * *producing* a summary of a five-minute break — showing one that already
+ * exists costs nothing, is true of the place on screen, and stops the line
+ * from disappearing when the reader bounces back to the library.
  */
 async function fillHeroSummary(hero: ReadingListRow, books: Map<string, CatalogueBook>): Promise<void> {
   if (!section) return
@@ -304,6 +317,17 @@ async function fillHeroSummary(hero: ReadingListRow, books: Map<string, Catalogu
   const cached = readStoredRecapSummary(storage, key)
   if (cached) {
     showSummary(key, cached, 'cached')
+    return
+  }
+  // Away for less than LAB_RECAP_MIN_AWAY_MS: the hero says where the reader
+  // is and stops there. No request is sent, so there is no model call, no
+  // spent free action and no cache write.
+  if (!shouldRequestRecapSummary({
+    sessionLastActiveAt: hero.session?.lastActiveAt ?? null,
+    placeUpdatedAt: hero.target.at,
+    now: Date.now(),
+  })) {
+    setSummaryStatus(key, 'recent')
     return
   }
   const outcome = summaryOutcomes.get(key)
@@ -355,10 +379,32 @@ function heroMarkup(hero: ReadingListRow, books: Map<string, CatalogueBook>): st
     </div>`
 }
 
+/**
+ * The one line of prose under a quiet Reading-now row: the summary stored
+ * inside the book's own reading session when it describes the chapter
+ * Continue resumes in, else a "so far" summary this device already holds for
+ * exactly that place.
+ *
+ * A row never asks for one. The stored session summary is only ever
+ * generated for the newest session across all books, so a book read earlier
+ * in the day — the Bible, for a daily reader who opens something else after
+ * it — used to lose its line the moment it stopped being the hero, even
+ * though the device still had the line it showed an hour before. Reading the
+ * cache back costs nothing: no request, no model call, and the cache key is
+ * the place itself, so the line can only appear where it is true.
+ */
+function rowSummary(row: ReadingListRow, books: Map<string, CatalogueBook>): string | null {
+  if (row.recap) return row.recap
+  const request = summaryRequestFor(row, books)
+  if (!request) return null
+  return readStoredRecapSummary(deviceStorage(), summaryKeyFor(row, request))
+}
+
 function rowMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
   const title = bookTitle(book, row.bookId)
-  return `<button type="button" class="lib-recap-row" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(book, row.bookId)}<span class="lib-recap-row-copy"><span class="lib-recap-row-t">${escapeHtml(title)}</span><span class="lib-eyebrow is-dim">${escapeHtml(inProgressLabel(row))}</span>${row.recap ? `<span class="lib-recap-row-recap">${escapeHtml(row.recap)}</span>` : ''}</span><svg class="lib-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>`
+  const summary = rowSummary(row, books)
+  return `<button type="button" class="lib-recap-row" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(book, row.bookId)}<span class="lib-recap-row-copy"><span class="lib-recap-row-t">${escapeHtml(title)}</span><span class="lib-eyebrow is-dim">${escapeHtml(inProgressLabel(row))}</span>${summary ? `<span class="lib-recap-row-recap">${escapeHtml(summary)}</span>` : ''}</span><svg class="lib-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>`
 }
 
 function finishedMarkup(row: ReadingList['finished'][number], books: Map<string, CatalogueBook>): string {
@@ -447,7 +493,7 @@ async function performRender(): Promise<void> {
   }
   renderSections(list, rendered)
   publishMode(mode)
-  writeLabLibraryBootSnapshot(bootSnapshot(list, rendered, auth.userId, books))
+  writeLabLibraryBootSnapshot(bootSnapshot(list, auth.userId, books))
   window.dispatchEvent(new CustomEvent('tinct:lab-reading-memory-rendered', { detail: { card: rendered?.card ?? null, readingNow: list.readingNow.length, finished: list.finished.length } }))
   if (pendingContinue !== null) {
     const bookId = pendingContinue
@@ -460,9 +506,8 @@ async function performRender(): Promise<void> {
  * What the inline boot script in lab/index.html paints next time, before any
  * script has loaded: the confirmed hero, for this account.
  */
-function bootSnapshot(list: ReadingList, rendered: RecapLoadResult | null, userId: string | null, books: Map<string, CatalogueBook>): LabLibraryBootSnapshot {
+function bootSnapshot(list: ReadingList, userId: string | null, books: Map<string, CatalogueBook>): LabLibraryBootSnapshot {
   const hero = list.readingNow[0] ?? null
-  const card = hero && rendered && hero.session && rendered.card.provenance.sessionId === hero.session.id ? rendered.card : null
   const book = hero ? books.get(hero.bookId) : undefined
   const cover = hero ? coverFor(book, hero.bookId) : null
   return {
@@ -475,7 +520,7 @@ function bootSnapshot(list: ReadingList, rendered: RecapLoadResult | null, userI
       bookId: hero.bookId,
       title: bookTitle(book, hero.bookId),
       chapterLabel: hero.target.chapterLabel,
-      headline: heroHeadline(hero, card),
+      headline: heroHeadline(hero),
       coverSrc: safeCoverSource(cover?.src),
       coverSrcSet: safeCoverSource(cover?.src) && cover?.srcSet ? cover.srcSet : null,
       note: progressNote(hero.target, hero.session),

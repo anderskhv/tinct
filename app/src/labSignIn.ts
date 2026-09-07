@@ -1,4 +1,15 @@
 import { safeLabReturnTo } from './lab/labSignInReturn'
+import {
+  LAB_OAUTH_PENDING_KEY,
+  LAB_SIGN_IN_PROVIDERS,
+  isLabOAuthProvider,
+  labOAuthErrorMessage,
+  labOAuthProviderOffered,
+  labOAuthRedirectTo,
+  labOAuthReturnError,
+  withoutOAuthReturnParams,
+  type LabOAuthProvider,
+} from './lab/labSignInProviders'
 import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
@@ -30,6 +41,7 @@ function setStatus(message = '', tone: 'error' | 'success' | 'neutral' = 'neutra
 function setBusy(busy: boolean) {
   root?.setAttribute('aria-busy', String(busy))
   if (submit) submit.disabled = busy
+  root?.querySelectorAll<HTMLButtonElement>('[data-oauth]').forEach(button => { button.disabled = busy })
 }
 
 function setMode(next: Mode) {
@@ -108,22 +120,98 @@ async function submitAuth(event: SubmitEvent) {
   }
 }
 
+/** Supabase hands back an AuthError instance; a thrown value may be anything. */
+function messageOf(value: unknown): string | null {
+  if (typeof value === 'string') return value
+  const message = value && typeof value === 'object' ? (value as { message?: unknown }).message : null
+  return typeof message === 'string' ? message : null
+}
+
+/**
+ * Hide any "continue with" button whose provider is not in the capability
+ * list. The markup carries all three; `LAB_SIGN_IN_PROVIDERS` decides which
+ * of them a reader sees.
+ */
+function applyProviderCapabilities() {
+  root?.querySelectorAll<HTMLButtonElement>('[data-oauth]').forEach(button => {
+    button.hidden = !labOAuthProviderOffered(button.dataset.oauth, LAB_SIGN_IN_PROVIDERS)
+  })
+}
+
+/**
+ * The provider whose round-trip is in flight, kept across the redirect so
+ * the returning page can name it in the error notice. Session-scoped and
+ * best-effort: private mode simply gets the unnamed message.
+ */
+function rememberPendingProvider(provider: LabOAuthProvider | null) {
+  try {
+    if (provider) sessionStorage.setItem(LAB_OAUTH_PENDING_KEY, provider)
+    else sessionStorage.removeItem(LAB_OAUTH_PENDING_KEY)
+  } catch { /* private mode */ }
+}
+
+function pendingProvider(): LabOAuthProvider | null {
+  try {
+    const stored = sessionStorage.getItem(LAB_OAUTH_PENDING_KEY)
+    return isLabOAuthProvider(stored) ? stored : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * The reader came back from a provider that refused (most often one this
+ * Supabase project has not switched on yet). Say so in the page's own
+ * notice instead of showing a fresh, silent sign-in form, and clean the
+ * error off the URL so a reload does not repeat it.
+ */
+function reportProviderReturnError(): boolean {
+  const returned = labOAuthReturnError(location.search, location.hash)
+  const provider = pendingProvider()
+  rememberPendingProvider(null)
+  if (!returned) return false
+  history.replaceState(null, '', withoutOAuthReturnParams(location.href))
+  setStatus(provider ? labOAuthErrorMessage(provider, returned.description) : returned.description, 'error')
+  return true
+}
+
+/**
+ * Start a provider round-trip. Every provider goes through the same Supabase
+ * OAuth path and the same already-validated `returnTo` the Google button has
+ * always used, so the reader lands back where they were.
+ */
+async function signInWithProvider(button: HTMLElement) {
+  const provider = button.dataset.oauth
+  if (!supabase || !labOAuthProviderOffered(provider, LAB_SIGN_IN_PROVIDERS)) return
+  setBusy(true)
+  setStatus()
+  rememberPendingProvider(provider)
+  let failure: unknown = null
+  try {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: labOAuthRedirectTo(location.origin, returnTo) },
+    })
+    failure = error ?? null
+  } catch (thrown) {
+    failure = thrown
+  }
+  // A started round-trip navigates away, so only a call that failed outright
+  // gets this far. A provider the project has not enabled does NOT fail here
+  // — Supabase builds the /authorize URL and goes; that failure comes back on
+  // the return trip and `reportProviderReturnError` handles it.
+  if (!failure) return
+  rememberPendingProvider(null)
+  setStatus(labOAuthErrorMessage(provider, messageOf(failure)), 'error')
+  setBusy(false)
+}
+
 root?.addEventListener('click', async event => {
-  const target = (event.target as Element).closest<HTMLElement>('[data-set-mode], [data-google], [data-sign-out], [data-return]')
+  const target = (event.target as Element).closest<HTMLElement>('[data-set-mode], [data-oauth], [data-sign-out], [data-return]')
   if (!target) return
   if (target.dataset.setMode) setMode(target.dataset.setMode as Mode)
   if (target.hasAttribute('data-return')) returnToLibrary()
-  if (target.hasAttribute('data-google') && supabase) {
-    setBusy(true)
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: `${location.origin}/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}` },
-    })
-    if (error) {
-      setStatus(error.message, 'error')
-      setBusy(false)
-    }
-  }
+  if (target.hasAttribute('data-oauth')) await signInWithProvider(target)
   if (target.hasAttribute('data-sign-out') && supabase) {
     setBusy(true)
     const { error } = await supabase.auth.signOut()
@@ -143,6 +231,7 @@ form?.addEventListener('submit', submitAuth)
 async function initialize() {
   const back = root?.querySelector<HTMLAnchorElement>('[data-auth-back]')
   if (back) back.href = returnTo
+  applyProviderCapabilities()
   if (!supabase) {
     setMode(mode)
     setStatus('Sign in is temporarily unavailable.', 'error')
@@ -154,6 +243,9 @@ async function initialize() {
   if (data.session?.user) setSignedInCookie()
   if (data.session?.user && mode !== 'reset' && mode !== 'create') setMode('account')
   else setMode(mode)
+  // After setMode, which clears the status line.
+  if (!data.session?.user) reportProviderReturnError()
+  else rememberPendingProvider(null)
   if (root) root.dataset.ready = 'true'
 }
 

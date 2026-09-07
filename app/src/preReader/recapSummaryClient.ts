@@ -6,12 +6,82 @@
  *
  * The cache lives under the `tinct:` namespace so sign-out wipes it with the
  * rest of the device's user data.
+ *
+ * A short absence is not summarised. Owner rule (2026-09-07): the "so far"
+ * line is for a reader coming back to a book after being away from it, not
+ * for someone who stepped out of the reader a minute ago — that reader
+ * already knows where they are. `shouldRequestRecapSummary` is the whole of
+ * that rule and the hero asks it before it asks the network.
  */
 import { LAB_RECAP_ROUTE, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
+
+/**
+ * Away from a book for at least this long before a "so far" summary is
+ * generated for it. Below it the hero says where the reader is and nothing
+ * more: no request, no model call, no cache write.
+ */
+export const LAB_RECAP_MIN_AWAY_MS = 60 * 60 * 1000
 
 export const RECAP_SUMMARY_STORAGE_KEY = 'tinct:lab-recap-summaries'
 /** Entries kept per device, newest first. */
 export const RECAP_SUMMARY_STORAGE_MAX = 24
+
+export interface RecapAwayInput {
+  /**
+   * `lastActiveAt` of the book's newest reading-memory session, when there is
+   * one. This is the primary clock.
+   */
+  sessionLastActiveAt?: number | null
+  /**
+   * The position record's timestamp for the place Continue resumes in. Used
+   * only when there is no usable session timestamp.
+   */
+  placeUpdatedAt?: number | null
+  now: number
+}
+
+/**
+ * When the reader was last in this book: the memory session's `lastActiveAt`,
+ * falling back to the position record's timestamp. Null when neither store
+ * carries a usable clock value.
+ */
+export function recapLastSeenAt(input: RecapAwayInput): number | null {
+  const session = input.sessionLastActiveAt
+  if (typeof session === 'number' && Number.isFinite(session) && session > 0) return session
+  const place = input.placeUpdatedAt
+  if (typeof place === 'number' && Number.isFinite(place) && place > 0) return place
+  return null
+}
+
+/**
+ * How long the reader has been away from this book, or null when neither
+ * store said when they were last in it. A clock that runs backwards (a
+ * record written "in the future" by a skewed device) reads as 0 — away for
+ * no time at all — rather than as a negative age.
+ */
+export function recapAwayMs(input: RecapAwayInput): number | null {
+  const lastSeen = recapLastSeenAt(input)
+  if (lastSeen === null || !Number.isFinite(input.now)) return null
+  return Math.max(0, input.now - lastSeen)
+}
+
+/**
+ * Whether the hero may ask the Worker for a "so far" summary of this place.
+ *
+ * At or above the threshold: yes — an hour away is long enough that a
+ * reminder of the chapter earns its cost. Below it: no, and the caller must
+ * skip the request entirely rather than send it and hide the answer.
+ *
+ * Unknown age (no session and no position timestamp) is NOT "recent": the
+ * gap is unmeasured, not small, so the request goes ahead exactly as it did
+ * before this rule existed. A plumbing regression that lost the timestamps
+ * would then cost a few summaries, not silently delete the feature.
+ */
+export function shouldRequestRecapSummary(input: RecapAwayInput & { minAwayMs?: number }): boolean {
+  const away = recapAwayMs(input)
+  if (away === null) return true
+  return away >= (input.minAwayMs ?? LAB_RECAP_MIN_AWAY_MS)
+}
 
 export interface StoredRecapSummary {
   summary: string
