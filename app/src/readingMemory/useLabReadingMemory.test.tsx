@@ -1,10 +1,10 @@
 // @vitest-environment jsdom
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { chapterHearingPages } from '../lab/labHearing'
 import { READING_MEMORY_DEVICE_KEY, READING_MEMORY_QUEUE_KEY, deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory } from './deviceStore'
-import { platoDialogueFixture, sessionFor } from './fixtures.test-helpers'
+import { fakeVersionedCloud, platoDialogueFixture, sessionFor } from './fixtures.test-helpers'
 import { applyReadingMemoryEvent, emptyReadingMemory, eventFromSession, latestReadingSession } from './sessions'
 import { useLabReadingMemory, type LabReadingMemoryInput } from './useLabReadingMemory'
 
@@ -104,6 +104,44 @@ describe('useLabReadingMemory (reader observer)', () => {
     const session = latestReadingSession(readDeviceReadingMemory())
     expect(session?.state).toBe('completed')
     expect(typeof session?.completedAt).toBe('number')
+  })
+
+  it('reports the chapter completed to the reader when a forward turn lands on the final page with the last word on it', () => {
+    const onChapterCompleted = vi.fn()
+    const pages = chapterHearingPages(platoDialogueFixture().paragraphs, null)
+    const lastPage = pages.length - 1
+    expect(lastPage).toBeGreaterThan(0)
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ onChapterCompleted }) })
+    // Landing on the final page from a backward retreat is not completion.
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'previous' })))
+    expect(onChapterCompleted).not.toHaveBeenCalled()
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next' })))
+    expect(onChapterCompleted).toHaveBeenCalledWith(1)
+    expect(latestReadingSession(readDeviceReadingMemory())?.state).toBe('completed')
+    // The reader marks the chapter finished; the transition must not report it a second time, and pages that are not settled never do.
+    onChapterCompleted.mockClear()
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next', finishedChapters: new Set([1]) })))
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next', pagesSettled: false })))
+    expect(onChapterCompleted).not.toHaveBeenCalled()
+  })
+
+  it('signing in merges the account\'s cloud copy into the device mirror without touching the open session', async () => {
+    const fixture = platoDialogueFixture()
+    const cloudOnly = sessionFor({ ...fixture, chapterNumber: 2, chapterLabel: 'Book II' }, { id: 'cloud-only', seq: 6, state: 'completed', startedAt: Date.UTC(2026, 8, 1, 6), lastActiveAt: Date.UTC(2026, 8, 1, 6, 30), endedAt: Date.UTC(2026, 8, 1, 6, 30), owner: 'user-1' })
+    const fake = fakeVersionedCloud({ state: applyReadingMemoryEvent(emptyReadingMemory(), eventFromSession(cloudOnly)), rev: 3 })
+    const cloudFor = () => fake.cloud
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ cloudFor }) })
+    const anonymous = latestReadingSession(readDeviceReadingMemory())
+    expect(readDeviceReadingMemory().sessions['cloud-only']).toBeUndefined()
+
+    await act(async () => { rerender(inputFor({ userId: 'user-1', cloudFor })) })
+    await waitFor(() => {
+      expect(readDeviceReadingMemory().sessions['cloud-only']).toMatchObject({ seq: 6, state: 'completed', owner: 'user-1' })
+    })
+    // The adopted anonymous session and the account's continuing session are both still there, and drained to the cloud.
+    await waitFor(() => expect(fake.row()?.state.sessions[anonymous!.id]?.owner).toBe('user-1'))
+    expect(readDeviceReadingMemory().sessions[anonymous!.id]?.owner).toBe('user-1')
+    expect(fake.row()?.state.sessions['cloud-only']?.seq).toBe(6)
   })
 
   it('a chapter already in the finished set at mount is not treated as completed', () => {

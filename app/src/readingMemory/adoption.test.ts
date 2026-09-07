@@ -2,7 +2,7 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import { clearLocalUserData } from '../services/storage'
-import { adoptReadingMemoryOnSignIn, commitReadingMemoryAdoption, planReadingMemoryAdoption, stageReadingMemoryAdoption } from './adoption'
+import { adoptReadingMemoryOnSignIn, hydrateReadingMemoryFromCloud, commitReadingMemoryAdoption, planReadingMemoryAdoption, stageReadingMemoryAdoption } from './adoption'
 import { READING_MEMORY_DEVICE_KEY, deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory } from './deviceStore'
 import { chapterFixtures, fakeVersionedCloud, memoryStorage, sessionFor } from './fixtures.test-helpers'
 import { applyReadingMemoryEvents, emptyReadingMemory, eventFromSession } from './sessions'
@@ -101,6 +101,32 @@ describe('sign-in adoption of signed-out reading', () => {
     const pending = deviceReadingMemoryQueue().pending()
     expect(pending.map(event => event.sessionId)).toEqual(['orphan'])
     expect(pending[0].session.owner).toBe('user-next')
+  })
+
+  it('hydrates the device mirror from the cloud copy: union, higher seq wins, nothing dropped, read failures ignored', async () => {
+    const storage = memoryStorage()
+    const [genesis, james, plato] = chapterFixtures()
+    const onDevice = sessionFor(genesis, { id: 'g1', seq: 3, state: 'progressed', startedAt: 1_000, owner: 'user-a' })
+    const staleOnDevice = sessionFor(james, { id: 'j1', seq: 2, state: 'progressed', startedAt: 2_000, owner: 'user-a' })
+    writeDeviceReadingMemory(applyReadingMemoryEvents(emptyReadingMemory(), [onDevice, staleOnDevice].map(eventFromSession)), storage)
+    const inCloud = sessionFor(plato, { id: 'p1', seq: 5, state: 'completed', startedAt: 3_000, lastActiveAt: 4_000, owner: 'user-a' })
+    const newerInCloud = sessionFor(james, { id: 'j1', seq: 4, state: 'completed', startedAt: 2_000, lastActiveAt: 5_000, owner: 'user-a' })
+    const fake = fakeVersionedCloud({ state: applyReadingMemoryEvents(emptyReadingMemory(), [inCloud, newerInCloud].map(eventFromSession)), rev: 7 })
+
+    const merged = await hydrateReadingMemoryFromCloud({ cloud: fake.cloud, storage })
+    expect(Object.keys(merged!.sessions).sort()).toEqual(['g1', 'j1', 'p1'])
+    const device = readDeviceReadingMemory(storage)
+    expect(device.sessions.g1.seq).toBe(3)
+    expect(device.sessions.j1).toMatchObject({ seq: 4, state: 'completed' })
+    expect(device.sessions.p1).toMatchObject({ seq: 5, state: 'completed' })
+    expect(fake.commits).toEqual([])
+
+    // Nothing in the cloud, or no cloud, or a failing read: the mirror stays as it is.
+    const before = storage.dump()
+    expect(await hydrateReadingMemoryFromCloud({ cloud: fakeVersionedCloud(null).cloud, storage })).toBeNull()
+    expect(await hydrateReadingMemoryFromCloud({ cloud: null, storage })).toBeNull()
+    expect(await hydrateReadingMemoryFromCloud({ cloud: { read: async () => { throw new Error('offline') }, commit: fake.cloud.commit }, storage })).toBeNull()
+    expect(storage.dump()).toEqual(before)
   })
 
   it('leaves the device untouched when there is nothing to adopt or drop', () => {

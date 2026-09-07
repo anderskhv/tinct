@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { chapterPageSegments, type ChapterHearingPage } from '../lab/labHearing'
 import { readLabDeviceId } from '../lab/labPositionStore'
-import { adoptReadingMemoryOnSignIn } from './adoption'
+import { adoptReadingMemoryOnSignIn, hydrateReadingMemoryFromCloud } from './adoption'
 import { createSupabaseReadingMemoryCloud } from './cloud'
 import { deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory } from './deviceStore'
-import { drainReadingMemoryQueue, type ReadingMemoryQueue } from './queue'
+import { drainReadingMemoryQueue, type ReadingMemoryCloud, type ReadingMemoryQueue } from './queue'
 import { createReadingMemoryRecorder, detectCompletionSignal, type ReadingMemoryRecorder } from './recorder'
 import { wordCount } from './textRange'
 
@@ -33,6 +33,16 @@ export interface LabReadingMemoryInput {
   finishedChapters: ReadonlySet<number>
   /** Optional override; defaults to the live Supabase session. */
   userId?: string | null
+  /**
+   * The reader turned forward onto the final page and it rendered the
+   * chapter's last word — the same signal that completes the memory session.
+   * The reader uses it to keep a durable finished mark in the position
+   * record, which syncs and survives the memory cap and the sign-out wipe.
+   * Not called when the chapter is already in `finishedChapters`.
+   */
+  onChapterCompleted?: (chapterNumber: number) => void
+  /** Cloud factory override (tests); defaults to the Supabase versioned row. */
+  cloudFor?: (userId: string) => ReadingMemoryCloud | null
 }
 
 export function useLabReadingMemory(input: LabReadingMemoryInput): void {
@@ -43,6 +53,10 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
   const previousFinishedRef = useRef<ReadonlySet<number> | null>(null)
   const userIdRef = useRef<string | null>(userId)
   userIdRef.current = userId
+  const onChapterCompletedRef = useRef(input.onChapterCompleted)
+  onChapterCompletedRef.current = input.onChapterCompleted
+  const cloudForRef = useRef(input.cloudFor ?? createSupabaseReadingMemoryCloud)
+  cloudForRef.current = input.cloudFor ?? createSupabaseReadingMemoryCloud
   const drainTimerRef = useRef<number | null>(null)
 
   const scheduleDrain = (immediate = false) => {
@@ -50,7 +64,7 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
     if (!uid || typeof window === 'undefined') return
     const run = () => {
       drainTimerRef.current = null
-      const cloud = createSupabaseReadingMemoryCloud(uid)
+      const cloud = cloudForRef.current(uid)
       const queue = queueRef.current
       if (!cloud || !queue) return
       void drainReadingMemoryQueue(queue, cloud).catch(() => {})
@@ -102,6 +116,10 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
       previousFinishedChapters: previousFinishedRef.current,
     })
     previousFinishedRef.current = input.finishedChapters
+    const ready = input.ready && input.pagesSettled
+    if (completionSignal && ready && !input.finishedChapters.has(input.chapterNumber)) {
+      onChapterCompletedRef.current?.(input.chapterNumber)
+    }
     recorder.observe({
       bookId: input.bookId,
       editionKey: input.editionKey,
@@ -112,7 +130,7 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
       totalPages: input.pages.length,
       pageStart,
       pageEnd,
-      ready: input.ready && input.pagesSettled,
+      ready,
       completionSignal,
     })
   })
@@ -140,17 +158,21 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
   }, [])
 
   // Signed-out → signed-in: sessions recorded by no account are adopted by
-  // this one (retagged, queued, drained), and the recorder re-reads the
-  // rewritten store so it never writes the pre-adoption copy back.
+  // this one (retagged, queued, drained); the account's cloud copy is merged
+  // into the device mirror (a wiped or new device gets its chapter states
+  // back); and the recorder re-reads the rewritten store so it never writes
+  // the pre-adoption copy back.
   useEffect(() => {
     if (!userId) return
     let cancelled = false
-    const cloud = createSupabaseReadingMemoryCloud(userId)
-    void adoptReadingMemoryOnSignIn({ userId, cloud, drain: false }).then(() => {
-      if (cancelled) return
-      recorderRef.current?.reload()
-      scheduleDrain(true)
-    })
+    const cloud = cloudForRef.current(userId)
+    void adoptReadingMemoryOnSignIn({ userId, cloud, drain: false })
+      .then(() => hydrateReadingMemoryFromCloud({ cloud }))
+      .then(() => {
+        if (cancelled) return
+        recorderRef.current?.reload()
+        scheduleDrain(true)
+      })
     return () => { cancelled = true }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId])

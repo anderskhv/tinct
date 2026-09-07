@@ -1870,10 +1870,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0,
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
+    // Reading onto the final page (last word on screen) is the same fact the
+    // memory session records as completed; keep it in the synced position
+    // record so it outlives the 50-session memory and a sign-out wipe.
+    onChapterCompleted: markChapterFinished,
   })
   // Picker rows: the position record's finished signal cross-checked with
   // reading memory (a `completed` session marks Finished even if the flag was
-  // missed; any session or pin marks In progress). Read when the picker opens.
+  // missed; any session or pin marks In progress; a chat in a chapter with no
+  // surviving reading record marks Visited). Read when the picker opens.
   const pickerStatuses = useMemo(() => {
     if (!tocOpen) return new Map()
     return labChapterStatuses({
@@ -1883,8 +1888,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       memory: readDeviceReadingMemory(),
       position: readPositionState(),
       viewer: authUser?.id ?? null,
+      conversations: readLabTalkHistory(biblicalBook),
     })
-  }, [authUser?.id, book.bookId, book.chapters, finishedChapters, readPositionState, tocOpen])
+  }, [authUser?.id, biblicalBook, book.bookId, book.chapters, finishedChapters, readPositionState, tocOpen])
   const footProgress = labFootProgress({
     chapterNumber: book.chapterNumber,
     chapterLabel: book.chapterLabel,
@@ -2352,9 +2358,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   audioChapterCompleteRef.current = () => {
     const next = nextLabChapter(book.chapters, book.chapterNumber)
-    if (next == null) return false
-    // Hearing a chapter out is finishing it, same as turning past the last page.
+    // Hearing a chapter out is finishing it, same as turning past the last
+    // page — on the book's final chapter too, where there is nothing to open.
     markChapterFinished(book.chapterNumber)
+    if (next == null) return false
     void goToChapter(next, 'start')
     return true
   }
@@ -2449,8 +2456,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     const next = nextLabChapter(book.chapters, book.chapterNumber)
+    // Turning past the last page finishes the chapter — on the book's final
+    // chapter too, so the library can show the book as finished without
+    // depending on a reading-memory session that may since have been pruned.
+    markChapterFinished(book.chapterNumber)
     if (next != null) {
-      markChapterFinished(book.chapterNumber)
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }

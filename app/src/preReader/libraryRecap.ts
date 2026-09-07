@@ -225,10 +225,31 @@ export function recapForTarget(session: ReadingSession | null, target: ContinueT
 }
 
 /**
+ * The reader has moved back into a finished book: the position pin sits in
+ * an earlier chapter, or on an earlier page of the final chapter than the
+ * completed session reached. A pin written at that same final page — the
+ * reader leaving the page writes one on hide/pagehide — is not re-reading,
+ * so it must not demote the book. A pin older than the completion is stale.
+ */
+export function movedBackIntoBook(input: {
+  place: LabBookPlace
+  lastChapter: number
+  /** The completed final-chapter session, when there is one. */
+  session: ReadingSession | null
+}): boolean {
+  const { place, lastChapter, session } = input
+  if (session && place.updatedAt <= session.lastActiveAt) return false
+  if (place.sequentialChapter < lastChapter) return true
+  if (!session || place.sequentialChapter !== lastChapter) return false
+  return (place.pageIndex ?? 0) + 1 < session.anchor.page
+}
+
+/**
  * Reading now (every in-progress book, newest first by the newer of the two
  * stores) and Finished (newest session completed on the book's final chapter,
- * or an app `book-completed` mark). A book whose position record is newer
- * than its completed session is being read again and stays in Reading now.
+ * the position record's finished mark on that chapter, or an app
+ * `book-completed` mark). A finished book returns to Reading now only when
+ * the reader has since moved back into it (`movedBackIntoBook`).
  */
 export function readingList(input: ReadingListInput): ReadingList {
   const sessions = newestSessionsByBook(input.memory, input.viewer)
@@ -243,9 +264,12 @@ export function readingList(input: ReadingListInput): ReadingList {
     const place = places.get(bookId) ?? null
     const target = continueTargetFor({ book, session, place })
     if (!target) continue
-    const finishedBySession = session !== null && session.state === 'completed' && lastChapterNumber(book) === session.anchor.chapterNumber
-    const readingAgain = finishedBySession && place !== null && place.updatedAt > session.lastActiveAt
-    if (completedMarks.has(bookId) || (finishedBySession && !readingAgain)) {
+    const lastChapter = lastChapterNumber(book)
+    const finishedBySession = session !== null && session.state === 'completed' && lastChapter !== null && lastChapter === session.anchor.chapterNumber
+    const finishedByMark = lastChapter !== null && (input.positions?.finished?.[bookId] ?? []).includes(lastChapter)
+    const readingAgain = place !== null && lastChapter !== null
+      && movedBackIntoBook({ place, lastChapter, session: finishedBySession ? session : null })
+    if (completedMarks.has(bookId) || ((finishedBySession || finishedByMark) && !readingAgain)) {
       finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
       continue
     }
