@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isLabPath, labLayoutOverride, labSurface, labVoiceVersion } from './labRoute'
+import { isLabPath, labChromeVersion, labLayoutOverride, labSurface, labVoiceVersion } from './labRoute'
 
 describe('lab routes', () => {
   it('treats /lab and nested paths as the demo', () => {
@@ -70,5 +70,47 @@ describe('lab voice version flag', () => {
     expect(isLabPath('/lab/reader?voice=v2')).toBe(true)
     expect(labSurface('/lab/reader?voice=v2')).toBe('reader')
     expect(labLayoutOverride('/lab/reader?voice=v2')).toBeNull()
+  })
+})
+
+describe('lab chrome version flag', () => {
+  it('defaults every lab route to the chrome that ships today', () => {
+    expect(labChromeVersion('/lab')).toBe('v1')
+    expect(labChromeVersion('/lab/')).toBe('v1')
+    expect(labChromeVersion('/lab/library')).toBe('v1')
+    expect(labChromeVersion('/lab/landing')).toBe('v1')
+    expect(labChromeVersion('/lab/reader')).toBe('v1')
+    expect(labChromeVersion('/lab/phone')).toBe('v1')
+    expect(labChromeVersion('/lab/desktop')).toBe('v1')
+    expect(labChromeVersion('/lab/reader', '')).toBe('v1')
+    expect(labChromeVersion('/lab/reader', '?chrome=v1')).toBe('v1')
+    expect(labChromeVersion('/lab/reader', '?chrome=')).toBe('v1')
+    expect(labChromeVersion('/lab/reader', '?chrome=v3')).toBe('v1')
+  })
+
+  it('enables Chrome V2 on each lab reader route with the flag', () => {
+    expect(labChromeVersion('/lab/reader', '?chrome=v2')).toBe('v2')
+    expect(labChromeVersion('/lab/phone', '?chrome=v2')).toBe('v2')
+    expect(labChromeVersion('/lab/desktop', '?chrome=v2')).toBe('v2')
+    expect(labChromeVersion('/lab/reader/', '?chrome=v2')).toBe('v2')
+    expect(labChromeVersion('/lab/phone?chrome=v2')).toBe('v2')
+    expect(labChromeVersion('/lab/phone?from=library&chrome=V2')).toBe('v2')
+    expect(labChromeVersion('/lab/phone?chrome=v2#p3')).toBe('v2')
+    expect(labChromeVersion('/lab/phone', 'chrome=v2')).toBe('v2')
+  })
+
+  it('never lets the preview flag reach the library, the landing page or production routes', () => {
+    expect(labChromeVersion('/lab', '?chrome=v2')).toBe('v1')
+    expect(labChromeVersion('/lab/library', '?chrome=v2')).toBe('v1')
+    expect(labChromeVersion('/lab/landing', '?chrome=v2')).toBe('v1')
+    expect(labChromeVersion('/read', '?chrome=v2')).toBe('v1')
+    expect(labChromeVersion('/', '?chrome=v2')).toBe('v1')
+  })
+
+  it('reads the two preview flags independently', () => {
+    expect(labChromeVersion('/lab/reader', '?voice=v2')).toBe('v1')
+    expect(labVoiceVersion('/lab/reader', '?chrome=v2')).toBe('v1')
+    expect(labChromeVersion('/lab/reader', '?voice=v2&chrome=v2')).toBe('v2')
+    expect(labVoiceVersion('/lab/reader', '?voice=v2&chrome=v2')).toBe('v2')
   })
 })
