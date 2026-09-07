@@ -36,19 +36,18 @@ import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
 import { gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
+import { dumpLabTalkTurns, fetchLabChatHistoryCloud, LAB_CHAT_BOOK_ID } from './labTalkHistory'
 import {
-  createLabChatHistorySync,
-  dumpLabTalkTurns,
-  fetchLabChatHistoryCloud,
-  LAB_CHAT_BOOK_ID,
-  mergeLabChatHistoryStates,
-  persistLabTalkTurn,
-  readLabAskTurns,
-  readLabChatHistoryLocal,
-  readLabTalkHistory,
-  resolveLabChatBook,
-  writeLabChatHistoryLocal,
-} from './labTalkHistory'
+  appendLabChatTurn,
+  createLabChatCloudWriter,
+  createLabChatHistoryCloud,
+  migrateLegacyLabChatHistoryCloud,
+  migrateLegacyLabChatHistoryLocal,
+  readAllLabBookChats,
+  readLabBookChat,
+  turnsFromConversations,
+} from './labChatHistory'
+import type { ChatConversation } from '../types'
 import {
   buildLabVoiceControlInstructions,
   labVoiceActionEntry,
@@ -67,6 +66,7 @@ function nextId() {
 export interface UseLabAskOptions {
   bookTitle: string
   bookAuthor: string
+  /** Biblical book / registry title; display only. History is keyed by `bookId`. */
   headerBook?: string
   chapterLabel: string
   chapterNumber?: number
@@ -81,6 +81,8 @@ export interface UseLabAskOptions {
   /** Registry book id + edition key. Both present → requests carry `book` and the worker can read other chapters. */
   bookId?: string
   editionKey?: string
+  /** Signed-in user id for the versioned cloud row; defaults to the live Supabase user. `null` = signed out. */
+  userId?: string | null
   chapterCount?: number
   /** Rendered page for the trail's "Now:" line; read at send time. */
   getPage?: () => { pageNumber: number; totalPages: number } | null
@@ -100,14 +102,24 @@ export function useLabAsk(options: UseLabAskOptions) {
   const { session, likelyAuthenticated } = useAuth()
   const voiceVersion: LabVoiceVersion = options.voiceVersion === 'v2' ? 'v2' : 'v1'
   const isVoiceV2 = voiceVersion === 'v2'
-  const chatBook = resolveLabChatBook(options.headerBook || options.chapterLabel)
-  const chatBookId = chatBook?.bookId ?? ''
+  // History is one row per registry book, shared with the classic reader
+  // (`chat-history:{bookId}`). The Bible is one book, as in the registry.
+  const chatBookId = options.bookId || ''
   const [typedLoading, setTypedLoading] = useState(false)
-  const [turns, setTurns] = useState<LabAskTurn[]>(() => readLabAskTurns(chatBookId))
+  // `conversations` is this book's stored history (classic shape, for the
+  // chapter picker); `turns` is the displayed thread: the stored history on
+  // open, then the live turns as they stream. Storage writes run alongside.
+  const [conversations, setConversations] = useState<ChatConversation[]>(() => {
+    migrateLegacyLabChatHistoryLocal()
+    return readLabBookChat(chatBookId)
+  })
+  const [turns, setTurns] = useState<LabAskTurn[]>(() => turnsFromConversations(conversations))
   const loadedForBookRef = useRef(chatBookId)
   if (loadedForBookRef.current !== chatBookId) {
     loadedForBookRef.current = chatBookId
-    const hydrated = readLabAskTurns(chatBookId)
+    const stored = readLabBookChat(chatBookId)
+    const hydrated = turnsFromConversations(stored)
+    setConversations(stored)
     setTurns(hydrated)
     dumpLabTalkTurns(hydrated)
   }
@@ -117,11 +129,11 @@ export function useLabAsk(options: UseLabAskOptions) {
   const sendingRef = useRef(false)
   const optionsRef = useRef(options)
   optionsRef.current = options
-  const chatBookRef = useRef(chatBook)
-  chatBookRef.current = chatBook
+  const chatBookIdRef = useRef(chatBookId)
+  chatBookIdRef.current = chatBookId
 
   const sessionToken = session?.access_token ?? null
-  const viewerId = session?.user?.id ?? null
+  const viewerId = options.userId !== undefined ? options.userId : (session?.user?.id ?? null)
 
   // Chapters the reader visited during this session, with their opening
   // lines, for the companion's reading trail. Read-only observation of the
@@ -188,32 +200,58 @@ export function useLabAsk(options: UseLabAskOptions) {
     if (!decision.allowed) optionsRef.current.onAccountPrompt?.({ action, text })
     return decision.allowed
   }, [signedIn])
-  const syncRef = useRef(createLabChatHistorySync({ token: liveToken }))
-  useEffect(() => {
-    syncRef.current = createLabChatHistorySync({ token: liveToken })
-  }, [liveToken])
+  // Signed in: the same versioned `user_data` row the classic reader
+  // writes (commit_user_data with an expected rev). One writer per account.
+  const cloudWriter = useMemo(() => {
+    if (!viewerId) return null
+    const cloud = createLabChatHistoryCloud(viewerId)
+    return cloud ? createLabChatCloudWriter(cloud) : null
+  }, [viewerId])
+  const cloudWriterRef = useRef(cloudWriter)
+  cloudWriterRef.current = cloudWriter
 
-  useEffect(() => {
-    const onOnline = () => { void syncRef.current.flush() }
-    window.addEventListener('online', onOnline)
-    return () => window.removeEventListener('online', onOnline)
+  /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
+  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
+    const bookId = chatBookIdRef.current
+    if (!bookId) return
+    const next = appendLabChatTurn(bookId, message, chapterNumber, paragraphIndex)
+    if (loadedForBookRef.current === bookId) setConversations(next)
+    cloudWriterRef.current?.push(bookId, next)
   }, [])
 
+  // Open / sign-in / book change: fold the retired KV blob in once per
+  // account, then merge this book's cloud row with the local mirror.
   useEffect(() => {
-    if (!liveToken) return
+    if (!viewerId || !cloudWriter || !chatBookId) return
     let cancelled = false
-    void fetchLabChatHistoryCloud(liveToken).then((cloud) => {
-      if (cancelled || !cloud) return
-      const merged = mergeLabChatHistoryStates(readLabChatHistoryLocal(), cloud)
-      writeLabChatHistoryLocal(merged)
-      const bookId = chatBookRef.current?.bookId ?? ''
-      if (loadedForBookRef.current !== bookId) return
-      const hydrated = readLabAskTurns(bookId, merged)
-      setTurns(hydrated)
-      dumpLabTalkTurns(hydrated)
-    })
-    return () => { cancelled = true }
-  }, [liveToken])
+    const run = async () => {
+      await migrateLegacyLabChatHistoryCloud({
+        userId: viewerId,
+        fetchLegacy: () => fetchLabChatHistoryCloud(liveToken),
+      })
+      const merged = await cloudWriter.sync(chatBookId)
+      if (cancelled || loadedForBookRef.current !== chatBookId) return
+      setConversations(merged)
+      const hydrated = turnsFromConversations(merged)
+      // A reply still streaming (not stored yet) survives the re-hydration.
+      setTurns((current) => {
+        const stored = new Set(hydrated.map(turn => turn.id))
+        const pending = current.filter(turn => !stored.has(turn.id))
+        const next = pending.length > 0 ? [...hydrated, ...pending] : hydrated
+        dumpLabTalkTurns(next)
+        return next
+      })
+    }
+    void run()
+    const onOnline = () => { void run() }
+    window.addEventListener('online', onOnline)
+    return () => {
+      cancelled = true
+      window.removeEventListener('online', onOnline)
+    }
+    // liveToken only feeds the one-time legacy fetch; a token refresh must not re-sync.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chatBookId, cloudWriter, viewerId])
 
   const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
@@ -238,7 +276,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.editionKey,
   ])
   const rememberedLabTurns = useMemo(() => {
-    const acrossLibrary = readLabTalkHistory()
+    const acrossLibrary = readAllLabBookChats()
       .sort((a, b) => a.endTimestamp - b.endTimestamp)
       .flatMap(conversation => conversation.messages.map(message => ({
         role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
@@ -329,12 +367,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     isAudioPlaying: false,
     pausePlayback: () => null,
     resumePlayback: () => { optionsRef.current.onResumeListen?.() },
-    recordMessage: (message, chapterNumber, paragraphIndex) => {
-      const book = chatBookRef.current
-      if (!book) return
-      const state = persistLabTalkTurn(message, chapterNumber, paragraphIndex, book)
-      syncRef.current.persist(state)
-    },
+    recordMessage: recordTurn,
     appendLocalMessage,
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
@@ -434,20 +467,16 @@ export function useLabAsk(options: UseLabAskOptions) {
       dumpLabTalkTurns(next)
       return next
     })
-    const book = chatBookRef.current
-    if (book) {
-      const state = persistLabTalkTurn({
-        id: userTurn.id,
-        role: 'user',
-        content: text,
-        timestamp: Date.now(),
-        bookId: book.bookId,
-        chapterNumber: options.chapterNumber ?? 1,
-        isComplete: true,
-        source: 'text',
-      }, options.chapterNumber ?? 1, options.paragraphIndex, book)
-      syncRef.current.persist(state)
-    }
+    recordTurn({
+      id: userTurn.id,
+      role: 'user',
+      content: text,
+      timestamp: Date.now(),
+      bookId: chatBookIdRef.current,
+      chapterNumber: options.chapterNumber ?? 1,
+      isComplete: true,
+      source: 'text',
+    }, options.chapterNumber ?? 1, options.paragraphIndex)
     setNotice(null)
 
     const authToken = await resolveLabVoiceToken({
@@ -463,6 +492,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       // consent to the lookup. The model gets the tools; the app ignores any
       // move or resume marker it might still emit for that turn.
       const lookupConsent = affirmativeAnswersLookupOffer(text, previousAssistant)
+      // The companion's window stays the last 20 turns; only the displayed history grew.
       const history = [...turns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
@@ -543,19 +573,16 @@ export function useLabAsk(options: UseLabAskOptions) {
           dumpLabTalkTurns(next)
           return next
         })
-        if (book) {
-          const state = persistLabTalkTurn({
-            id: assistantTurn.id,
-            role: 'assistant',
-            content: skipped.text,
-            timestamp: Date.now(),
-            bookId: book.bookId,
-            chapterNumber: options.chapterNumber ?? 1,
-            isComplete: true,
-            source: 'text',
-          }, options.chapterNumber ?? 1, options.paragraphIndex, book)
-          syncRef.current.persist(state)
-        }
+        recordTurn({
+          id: assistantTurn.id,
+          role: 'assistant',
+          content: skipped.text,
+          timestamp: Date.now(),
+          bookId: chatBookIdRef.current,
+          chapterNumber: options.chapterNumber ?? 1,
+          isComplete: true,
+          source: 'text',
+        }, options.chapterNumber ?? 1, options.paragraphIndex)
       }
       if (parsed.speed != null) {
         optionsRef.current.onSetPlaybackSpeed?.(parsed.speed)
@@ -589,10 +616,12 @@ export function useLabAsk(options: UseLabAskOptions) {
       sendingRef.current = false
       setTypedLoading(false)
     }
-  }, [askContextNow, gateAiAction, options.authToken, readTrail, sessionToken, turns])
+  }, [askContextNow, gateAiAction, options.authToken, readTrail, recordTurn, sessionToken, turns])
 
   return {
     turns,
+    /** This book's stored history (classic shape), for the chapter picker. */
+    conversations,
     notice,
     typedLoading,
     conversationState: isVoiceV2

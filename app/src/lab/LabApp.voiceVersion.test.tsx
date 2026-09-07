@@ -13,6 +13,7 @@ afterEach(() => {
   try { localStorage.removeItem('tinct-lab-prefs') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-position') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:chat-history:bible') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
 })

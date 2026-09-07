@@ -26,6 +26,10 @@ interface LabAskPaneProps {
 
 /** Within this many pixels of the bottom counts as "at the bottom". */
 export const LAB_ASK_FOLLOW_PX = 80
+/** Turns rendered when the thread opens; older ones are added in windows of this size. */
+export const LAB_ASK_WINDOW = 40
+/** Scrolling within this many pixels of the top reveals the next window of older turns. */
+export const LAB_ASK_LOAD_MORE_PX = 120
 /** Breathing room above a reply pinned to the top of the viewport. */
 export const LAB_ASK_REPLY_TOP_GAP = 8
 
@@ -75,6 +79,21 @@ export function LabAskPane({
   const threadRef = useRef<HTMLDivElement | null>(null)
   const lastTurnIdRef = useRef<string | null>(null)
   const didPositionThreadRef = useRef(false)
+  // Windowing: the whole history is in `turns`, the DOM holds the newest
+  // LAB_ASK_WINDOW plus whatever the reader revealed by scrolling up. A new
+  // oldest turn (open, book switch, cloud merge) resets the window to the
+  // newest messages; appends keep it.
+  const [hiddenCount, setHiddenCount] = useState(() => Math.max(0, turns.length - LAB_ASK_WINDOW))
+  const oldestTurnIdRef = useRef<string | undefined>(turns[0]?.id)
+  if (oldestTurnIdRef.current !== turns[0]?.id) {
+    oldestTurnIdRef.current = turns[0]?.id
+    setHiddenCount(Math.max(0, turns.length - LAB_ASK_WINDOW))
+  }
+  const hidden = Math.min(hiddenCount, Math.max(0, turns.length - 1))
+  const visibleTurns = hidden > 0 ? turns.slice(hidden) : turns
+  // Height before older turns were prepended, so the message under the
+  // reader's eye stays where it was.
+  const revealAnchorRef = useRef<{ scrollHeight: number; scrollTop: number } | null>(null)
   // Where we last pinned the thread, and whether the reader has scrolled
   // since. A reader who is reading older messages is never yanked down;
   // one who is at (or within LAB_ASK_FOLLOW_PX of) the bottom keeps following.
@@ -143,13 +162,38 @@ export function LabAskPane({
     holdReplyTop(node, reply)
   }, [holdReplyTop, pinToBottom, setSpacer])
 
+  const revealOlder = useCallback(() => {
+    const node = threadRef.current
+    if (!node || hidden === 0) return
+    revealAnchorRef.current = { scrollHeight: node.scrollHeight, scrollTop: node.scrollTop }
+    pinnedScrollTopRef.current = null
+    nearBottomRef.current = false
+    setHiddenCount(current => Math.max(0, Math.min(current, hidden) - LAB_ASK_WINDOW))
+  }, [hidden])
+
   const onThreadScroll = useCallback(() => {
     const node = threadRef.current
     if (!node) return
+    if (hidden > 0 && node.scrollTop <= LAB_ASK_LOAD_MORE_PX && revealAnchorRef.current === null) {
+      revealOlder()
+      return
+    }
     if (pinnedScrollTopRef.current !== null && node.scrollTop === pinnedScrollTopRef.current) return
     pinnedScrollTopRef.current = null
     nearBottomRef.current = isNearBottom(node)
-  }, [])
+  }, [hidden, revealOlder])
+
+  // Older turns were prepended: keep the reader's line still.
+  useLayoutEffect(() => {
+    const node = threadRef.current
+    const anchor = revealAnchorRef.current
+    if (!node || !anchor) return
+    revealAnchorRef.current = null
+    const grown = node.scrollHeight - anchor.scrollHeight
+    node.scrollTop = Math.max(0, anchor.scrollTop + grown)
+    pinnedScrollTopRef.current = null
+    nearBottomRef.current = isNearBottom(node)
+  }, [hidden])
 
   useLayoutEffect(() => {
     const node = threadRef.current
@@ -338,9 +382,19 @@ export function LabAskPane({
       {empty ? (
         <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
       ) : (
-        <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll}>
-          {turns.map((turn, index) => {
-            const previousChapter = turns[index - 1]?.chapterNumber
+        <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
+          {hidden > 0 && (
+            <button
+              type="button"
+              className="lab-ask-older"
+              data-testid="lab-ask-older"
+              onClick={revealOlder}
+            >
+              {hidden === 1 ? '1 earlier message' : `${hidden} earlier messages`}
+            </button>
+          )}
+          {visibleTurns.map((turn, index) => {
+            const previousChapter = visibleTurns[index - 1]?.chapterNumber
             const chapterLabel = turn.chapterNumber != null ? chapterLabels[turn.chapterNumber] : undefined
             const showChapter = !!chapterLabel && turn.chapterNumber !== previousChapter
             return (

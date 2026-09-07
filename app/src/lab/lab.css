@@ -782,6 +782,27 @@
   scroll-padding-bottom: 1.75rem;
 }
 
+.lab-ask-older {
+  display: block;
+  width: max-content;
+  margin: 0.15rem auto 0.9rem;
+  padding: 0.22rem 0.7rem;
+  border: 1px solid rgba(122, 111, 92, 0.24);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink-muted, #7a6f5c);
+  font: inherit;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.lab.is-night .lab-ask-older {
+  border-color: var(--lab-border);
+  color: var(--lab-ink-muted);
+}
+
 .lab-ask-location {
   position: sticky;
   top: 0;

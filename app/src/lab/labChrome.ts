@@ -196,6 +196,24 @@ export function labVisualViewportHeightPx(
   return Math.round(vv || inner)
 }
 
+/**
+ * Whether opening Chat should put the caret in the composer. On the desktop
+ * layout with a fine pointer the reader expects to type straight away; on a
+ * phone (or any touch surface) a programmatic focus() raises the keyboard
+ * over the conversation, so the reader taps the field when they want it.
+ * Layout alone is not enough: a tablet can show the desktop layout.
+ */
+export function labShouldAutofocusComposer(input: {
+  phoneChrome: boolean
+  /** `(pointer: fine)` match; null/undefined when matchMedia is unavailable. */
+  pointerFine?: boolean | null
+  maxTouchPoints?: number
+}): boolean {
+  if (input.phoneChrome) return false
+  if (typeof input.pointerFine === 'boolean') return input.pointerFine
+  return (input.maxTouchPoints ?? 0) === 0
+}
+
 /** A focused text field is the only thing that puts the software keyboard in front of the shell. */
 export function labTextEntryFocused(active: Element | null | undefined): boolean {
   if (!active) return false

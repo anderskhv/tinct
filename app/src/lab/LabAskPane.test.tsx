@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { LabAskPane } from './LabAskPane'
+import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_WINDOW, LabAskPane } from './LabAskPane'
 import type { LabConversationState } from './labAsk'
 
 afterEach(() => {
@@ -310,16 +310,22 @@ describe('lab ask thread above composer', () => {
 })
 
 describe('lab ask thread opens at the newest message', () => {
-  const metrics = { scrollHeight: 0, clientHeight: 300 }
+  // perTurn > 0 derives scrollHeight from the rendered turns, so the thread
+  // grows when older turns are prepended (windowing tests).
+  const metrics = { scrollHeight: 0, clientHeight: 300, perTurn: 0 }
   const scrollHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
   const clientHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
   const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
 
   beforeEach(() => {
     metrics.scrollHeight = 2000
+    metrics.perTurn = 0
     Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
       configurable: true,
-      get(this: HTMLElement) { return isThread(this) ? metrics.scrollHeight : 0 },
+      get(this: HTMLElement) {
+        if (!isThread(this)) return 0
+        return metrics.perTurn > 0 ? this.querySelectorAll('.lab-ask-turn').length * metrics.perTurn : metrics.scrollHeight
+      },
     })
     Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
       configurable: true,
@@ -359,6 +365,61 @@ describe('lab ask thread opens at the newest message', () => {
     render(<LabAskPane {...props} turns={history(40)} />)
     const thread = screen.getByTestId('lab-ask-thread')
     expect(thread.scrollTop).toBe(2000)
+  })
+
+  it('renders only the newest window of a long history and reveals older turns on scroll-to-top, keeping the line in place', () => {
+    metrics.perTurn = 50
+    const turns = history(120)
+    const { rerender } = render(<LabAskPane {...props} turns={turns} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    expect(LAB_ASK_WINDOW).toBe(40)
+    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(40)
+    expect(screen.getAllByTestId('lab-ask-turn-user')[0].textContent).toContain('Turn 80 ')
+    expect(thread.getAttribute('data-hidden-turns')).toBe('80')
+    expect(screen.getByTestId('lab-ask-older').textContent).toBe('80 earlier messages')
+    expect(thread.scrollTop).toBe(2000)
+
+    // Reading upward: near the top, the next 40 are prepended and the
+    // reader's line stays where it was (scrollTop grows by the added height).
+    thread.scrollTop = LAB_ASK_LOAD_MORE_PX - 20
+    fireEvent.scroll(thread)
+    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(80)
+    expect(screen.getAllByTestId('lab-ask-turn-user')[0].textContent).toContain('Turn 40 ')
+    expect(thread.getAttribute('data-hidden-turns')).toBe('40')
+    expect(thread.scrollTop).toBe(LAB_ASK_LOAD_MORE_PX - 20 + 2000)
+
+    // The button is the same reveal for readers who do not scroll.
+    fireEvent.click(screen.getByTestId('lab-ask-older'))
+    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(120)
+    expect(screen.queryByTestId('lab-ask-older')).toBeNull()
+    expect(thread.getAttribute('data-hidden-turns')).toBe('0')
+
+    // A new reply appends without re-hiding what was revealed.
+    rerender(<LabAskPane {...props} turns={history(120, [{ id: 'a-new', role: 'assistant', content: 'A fresh reply.' }])} />)
+    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(121)
+  })
+
+  it('resets the window to the newest messages when a different history opens', () => {
+    const { rerender } = render(<LabAskPane {...props} turns={history(120)} />)
+    fireEvent.click(screen.getByTestId('lab-ask-older'))
+    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(80)
+    // Ends on the reader's own question, so the thread pins to the bottom.
+    const other = Array.from({ length: 91 }, (_, i) => ({
+      id: `o${i}`,
+      role: (i % 2 === 0 ? 'user' : 'assistant') as 'user' | 'assistant',
+      content: `Other book turn ${i}.`,
+      source: 'typed' as const,
+    }))
+    rerender(<LabAskPane {...props} turns={other} />)
+    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(40)
+    expect(screen.getByTestId('lab-ask-older').textContent).toBe('51 earlier messages')
+    expect(screen.getByTestId('lab-ask-thread').scrollTop).toBe(2000)
+  })
+
+  it('shows the chapter label for the first visible turn of a window', () => {
+    const turns = history(120).map((turn, i) => ({ ...turn, chapterNumber: i < 100 ? 3 : 4 }))
+    render(<LabAskPane {...props} turns={turns} chapterLabels={{ 3: 'Genesis 3', 4: 'Genesis 4' }} />)
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 3', 'Genesis 4'])
   })
 
   it('follows a new assistant message while the reader is at the bottom', () => {

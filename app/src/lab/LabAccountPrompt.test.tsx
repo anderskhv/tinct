@@ -15,6 +15,7 @@ const DEVICE_KEYS = [
   'tinct-lab-position',
   'tinct:reading-memory',
   'tinct:chat-history:lab',
+  'tinct:chat-history:bible',
 ]
 
 afterEach(() => {

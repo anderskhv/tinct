@@ -11,7 +11,7 @@ import { hearingPages } from './labHearing'
 import { LabVoiceGate } from './LabConversation'
 import { bibleFallbackSource, fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { followParagraphFromManifest } from './labFollow'
-import { persistLabTalkTurn } from './labTalkHistory'
+import { appendLabChatTurn } from './labChatHistory'
 import { readLabPositionLocal } from './labPositionStore'
 import { READING_MEMORY_DEVICE_KEY } from '../readingMemory'
 
@@ -27,6 +27,9 @@ afterEach(() => {
   try { localStorage.removeItem('tinct-lab-highlights') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct-lab-highlights-tap-cleanup-v1') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:chat-history:lab') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:chat-history:bible') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:chat-history:odyssey') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:lab-chat-history-legacy-cloud-migrated') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:lab-ai-actions') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:lab-second-book-nudge') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
@@ -2652,17 +2655,107 @@ describe('lab passage headline pages', () => {
     expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
   })
 
-  it('focuses the chat composer synchronously from the Chat tab tap', () => {
+  it('opens the phone Chat sheet on the conversation without focusing the composer (no keyboard)', async () => {
     const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    appendLabChatTurn('bible', {
+      id: 'earlier', role: 'user', content: 'Who is speaking here?', timestamp: 1_777_300_000_000, isComplete: true, source: 'text',
+    }, 1, 0)
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     expect(screen.queryByTestId('lab-ask-input')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-chat'))
-    // No waitFor: iOS only raises the keyboard when focus() runs inside the tap.
     const input = screen.getByTestId('lab-ask-input')
-    expect(document.activeElement).toBe(input)
-    expect(focus).toHaveBeenCalledTimes(1)
-    expect(focus).toHaveBeenCalledWith({ preventScroll: true })
+    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Who is speaking here?')
+    expect(document.activeElement).not.toBe(input)
+    expect(focus).not.toHaveBeenCalled()
+    expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
+    // Nothing focuses it later either (no effect-driven focus on the phone).
+    await act(async () => { await Promise.resolve() })
+    expect(focus).not.toHaveBeenCalled()
+    // The reader's own tap still raises the keyboard chrome.
+    fireEvent.focus(input)
     expect(screen.getByTestId('lab-root').className).toContain('has-phone-keyboard')
+  })
+
+  it('does not focus the composer when a phone Talk fails and falls back to Chat', async () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-phone-talk'))
+    expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
+    expect(document.activeElement).not.toBe(screen.getByTestId('lab-ask-input'))
+    expect(focus).not.toHaveBeenCalled()
+    expect(screen.getByTestId('lab-root').className).not.toContain('has-phone-keyboard')
+  })
+
+  it('does not focus the composer when the account sheet hands a held draft back on the phone', async () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input).includes('/api/lab-chat')) {
+        return { ok: true, status: 200, json: async () => ({ content: [{ text: 'A reply from the page.' }] }) }
+      }
+      return { ok: false, status: 404, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-phone-chat'))
+    const input = screen.getByTestId('lab-ask-input')
+    fireEvent.change(input, { target: { value: 'Who wrote this?' } })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    expect((await screen.findByTestId('lab-ask-turn-assistant')).textContent).toContain('A reply from the page.')
+    fireEvent.change(input, { target: { value: 'And when?' } })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    await screen.findByTestId('lab-account-sheet')
+    fireEvent.click(screen.getByTestId('lab-account-dismiss'))
+    expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
+    expect((screen.getByTestId('lab-ask-input') as HTMLInputElement).value).toBe('And when?')
+    expect(document.activeElement).not.toBe(screen.getByTestId('lab-ask-input'))
+    expect(focus).not.toHaveBeenCalled()
+  })
+
+  it('focuses the composer when Chat opens on the desktop layout with a fine pointer', () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    vi.stubGlobal('matchMedia', (query: string) => ({
+      matches: query === '(pointer: fine)',
+      media: query,
+      addEventListener() { /* noop */ },
+      removeEventListener() { /* noop */ },
+      addListener() { /* noop */ },
+      removeListener() { /* noop */ },
+    }))
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    fireEvent.click(screen.getByTestId('lab-desktop-chat'))
+    expect(document.activeElement).toBe(screen.getByTestId('lab-ask-input'))
+    expect(focus).toHaveBeenCalledWith({ preventScroll: true })
+    // Re-renders do not keep re-focusing; closing and reopening does.
+    fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
+    fireEvent.click(screen.getByTestId('lab-desktop-chat'))
+    expect(focus).toHaveBeenCalledTimes(2)
+  })
+
+  it('leaves the composer alone on the desktop layout when the pointer is coarse (tablet)', () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    vi.stubGlobal('matchMedia', (query: string) => ({
+      matches: false,
+      media: query,
+      addEventListener() { /* noop */ },
+      removeEventListener() { /* noop */ },
+      addListener() { /* noop */ },
+      removeListener() { /* noop */ },
+    }))
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    fireEvent.click(screen.getByTestId('lab-desktop-chat'))
+    expect(screen.getByTestId('lab-ask-input')).toBeTruthy()
+    expect(focus).not.toHaveBeenCalled()
+  })
+
+  it('focuses the composer when a desktop Talk fails and the companion stays open as Chat', async () => {
+    const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat'))
+    expect(document.activeElement).toBe(screen.getByTestId('lab-ask-input'))
+    expect(focus).toHaveBeenCalledTimes(1)
   })
 
   it('does not steal focus when the sheet opens from Ask about instead of the tab', () => {
@@ -3912,39 +4005,70 @@ describe('lab ask history persist', () => {
     }
   }
 
-  it('hydrates the Romans thread on open and hides it on Genesis', () => {
-    persistLabTalkTurn({
-      id: 'keller',
-      role: 'user',
-      content: 'What would Keller say about this?',
-      timestamp: 1_777_300_000_000,
-      isComplete: true,
-      source: 'text',
-    }, 8, 0, { bookId: 'romans', headerBook: 'Romans' })
-    persistLabTalkTurn({
+  it('opens the whole Bible history in Romans and Genesis alike, under chapter labels', () => {
+    appendLabChatTurn('bible', {
       id: 'g1',
       role: 'user',
       content: 'Who is speaking in the beginning?',
+      timestamp: 1_777_300_000_000,
+      isComplete: true,
+      source: 'text',
+    }, 1, 0)
+    appendLabChatTurn('bible', {
+      id: 'keller',
+      role: 'user',
+      content: 'What would Keller say about this?',
       timestamp: 1_777_300_000_100,
       isComplete: true,
       source: 'text',
-    }, 1, 0, { bookId: 'genesis', headerBook: 'Genesis' })
+    }, 1054, 0)
 
     render(<LabApp pathname="/lab/desktop" source={romansSource()} authToken={null} />)
     openDesktopAsk()
-    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Keller')
-    expect(screen.queryByText('Who is speaking in the beginning?')).toBeNull()
+    expect(screen.getAllByTestId('lab-ask-turn-user').map(node => node.textContent)).toEqual([
+      expect.stringContaining('beginning'),
+      expect.stringContaining('Keller'),
+    ])
+    // The fixture's chapter list only labels Genesis; a labelled chapter change shows as a divider.
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toContain('Genesis 1')
     cleanup()
 
     render(<LabApp pathname="/lab/desktop" source={bibleFallbackSource()} authToken={null} />)
     openDesktopAsk()
-    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('beginning')
-    expect(screen.queryByText('Keller')).toBeNull()
-    cleanup()
+    expect(screen.getAllByTestId('lab-ask-turn-user')).toHaveLength(2)
+    expect(localStorage.getItem('tinct:chat-history:lab')).toBeNull()
+  })
 
+  it('migrates the retired lab blob into the per-book row once and shows the old conversations', () => {
+    localStorage.setItem('tinct:chat-history:lab', JSON.stringify({
+      updatedAt: 1_777_300_000_100,
+      books: {
+        romans: {
+          bookId: 'romans',
+          headerBook: 'Romans',
+          updatedAt: 1_777_300_000_100,
+          conversations: [{
+            id: 'conv_lab_romans_1',
+            bookId: 'romans',
+            chapterNumber: 1054,
+            startTimestamp: 1_777_300_000_000,
+            endTimestamp: 1_777_300_000_100,
+            preview: 'Old lab question',
+            messages: [
+              { id: 'old1', role: 'user', content: 'Old lab question', timestamp: 1_777_300_000_000, bookId: 'romans', chapterNumber: 1054 },
+              { id: 'old2', role: 'assistant', content: 'Old lab answer.', timestamp: 1_777_300_000_100, bookId: 'romans', chapterNumber: 1054 },
+            ],
+          }],
+        },
+      },
+    }))
     render(<LabApp pathname="/lab/desktop" source={romansSource()} authToken={null} />)
     openDesktopAsk()
-    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Keller')
+    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Old lab question')
+    expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Old lab answer.')
+    expect(localStorage.getItem('tinct:chat-history:lab')).toBeNull()
+    const row = JSON.parse(localStorage.getItem('tinct:chat-history:bible') || '[]')
+    expect(row[0].messages.map((m: { bookId: string }) => m.bookId)).toEqual(['bible', 'bible'])
   })
 
   it('guest typed Ask does not write cloud history', async () => {
@@ -3965,7 +4089,9 @@ describe('lab ask history persist', () => {
     fireEvent.click(screen.getByTestId('lab-ask-send'))
     expect((await screen.findByTestId('lab-ask-turn-assistant')).textContent).toContain('Paul wrote Romans.')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-chat-history'))).toBe(false)
-    expect(localStorage.getItem('tinct:chat-history:lab')).toContain('Who wrote Romans?')
+    expect(localStorage.getItem('tinct:chat-history:lab')).toBeNull()
+    expect(localStorage.getItem('tinct:chat-history:bible')).toContain('Who wrote Romans?')
+    expect(localStorage.getItem('tinct:chat-history:bible')).toContain('Paul wrote Romans.')
   })
 })
 

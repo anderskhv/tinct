@@ -3,6 +3,7 @@ import { flushSync } from 'react-dom'
 import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
+  labShouldAutofocusComposer,
   bindLabVisualViewportHeight,
   isLabPhoneSurface,
   shouldShowLabPhoneFooter,
@@ -72,7 +73,6 @@ import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { HighlightColor } from '../types'
 import { type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
-import { readLabTalkHistory } from './labTalkHistory'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt'
@@ -686,6 +686,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     onResumeListen: () => resumeListenRef.current(),
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
+    userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     voiceToolAdapter,
     voiceVersion,
     onVoiceToolAction: (entry) => {
@@ -2648,14 +2649,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     stayInAskRef.current = true
-    // iOS raises the keyboard only for a focus() that runs synchronously
-    // inside the tap, so commit the sheet now and focus before returning.
-    // Every other way into the sheet (Ask about, voice view) stays unfocused.
-    flushSync(() => openPhoneAsk())
+    // The phone sheet opens on the conversation, scrolled to the newest
+    // message, with no focus(): a programmatic focus raises the keyboard
+    // over the thread. The reader taps the field when they want to type.
+    // Talk → Chat, the account sheet handing a draft back, and Ask about
+    // all come through here or openPhoneAsk and stay unfocused as well.
+    openPhoneAsk()
     if (ask.voiceActive) ask.stopVoice()
     else stayInAskRef.current = false
-    askInputRef.current?.focus({ preventScroll: true })
   }, [ask, chrome, desktopAskOpen, interruptHearForAsk, openPhoneAsk, resumeListenAfterAsk, showPhoneChrome])
+
+  // Desktop keeps the autofocus: when the companion opens as Chat (from the
+  // rail, from a Talk that fell back to Chat, from Ask about) the caret goes
+  // to the composer — but only on a fine-pointer surface. A tablet showing
+  // the desktop layout would get the keyboard instead, so it is left alone.
+  const desktopChatOpen = !showPhoneChrome && desktopAskOpen && chrome !== 'talking'
+  const desktopChatWasOpenRef = useRef(false)
+  useEffect(() => {
+    const wasOpen = desktopChatWasOpenRef.current
+    desktopChatWasOpenRef.current = desktopChatOpen
+    if (!desktopChatOpen || wasOpen) return
+    const pointerFine = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+      ? window.matchMedia('(pointer: fine)').matches
+      : null
+    const autofocus = labShouldAutofocusComposer({
+      phoneChrome: showPhoneChrome,
+      pointerFine,
+      maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
+    })
+    if (autofocus) askInputRef.current?.focus({ preventScroll: true })
+  }, [desktopChatOpen, showPhoneChrome])
 
   const handleBarListen = useCallback(() => {
     setGearOpen(false)
@@ -3295,7 +3318,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             finishedChapters={labFinishedChapterSet(pickerStatuses)}
             statuses={pickerStatuses}
             highlights={highlightsApi.highlights}
-            conversations={readLabTalkHistory(biblicalBook)}
+            conversations={ask.conversations}
             onSelectChapter={(number) => {
               setTocOpen(false)
               if (listen.playing) void browseToChapter(number, 'start')

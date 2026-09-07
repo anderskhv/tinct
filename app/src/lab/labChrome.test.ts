@@ -1,7 +1,9 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
+import { bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+  labShouldAutofocusComposer,
+} from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -491,5 +493,19 @@ describe('labKeyboardPageDirection', () => {
     expect(labKeyboardPageDirection('PageUp')).toBe(-1)
     expect(labKeyboardPageDirection('Enter')).toBeNull()
     expect(labKeyboardPageDirection('ArrowDown')).toBeNull()
+  })
+})
+
+describe('chat composer autofocus', () => {
+  it('focuses only on the desktop layout with a fine pointer', () => {
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: true, maxTouchPoints: 0 })).toBe(true)
+    // Phone: never, whatever the pointer says.
+    expect(labShouldAutofocusComposer({ phoneChrome: true, pointerFine: true, maxTouchPoints: 0 })).toBe(false)
+    expect(labShouldAutofocusComposer({ phoneChrome: true, pointerFine: null, maxTouchPoints: 5 })).toBe(false)
+    // Tablet in the desktop layout: a coarse pointer means a keyboard would pop.
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: false, maxTouchPoints: 5 })).toBe(false)
+    // No matchMedia (older engines, jsdom): touch points decide, not the viewport width.
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: null, maxTouchPoints: 0 })).toBe(true)
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: undefined, maxTouchPoints: 2 })).toBe(false)
   })
 })
