@@ -10,6 +10,7 @@ import {
   withoutOAuthReturnParams,
   type LabOAuthProvider,
 } from './lab/labSignInProviders'
+import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
 import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
@@ -82,9 +83,11 @@ async function submitAuth(event: SubmitEvent) {
   try {
     const values = credentials()
     if (mode === 'signin') {
-      const { error } = await supabase.auth.signInWithPassword(values)
+      const { data, error } = await supabase.auth.signInWithPassword(values)
       if (error) throw error
       setSignedInCookie()
+      // A different account than this device last held: wipe before it reads.
+      reconcileLabDeviceIdentity(data.session?.user?.id)
       returnToLibrary()
     } else if (mode === 'create') {
       const { data, error } = await supabase.auth.signUp({
@@ -94,6 +97,7 @@ async function submitAuth(event: SubmitEvent) {
       if (error) throw error
       if (data.session) {
         setSignedInCookie()
+        reconcileLabDeviceIdentity(data.session.user?.id)
         returnToLibrary()
       } else {
         setStatus('Check your email to confirm your account, then return here to sign in.', 'success')
@@ -238,6 +242,9 @@ async function initialize() {
     return
   }
   const { data } = await supabase.auth.getSession()
+  // Every lab sign-in comes back through this page — email and each provider
+  // round-trip alike — so it is where a changed identity is caught.
+  reconcileLabDeviceIdentity(data.session?.user?.id)
   const accountEmail = root?.querySelector<HTMLElement>('[data-account-email]')
   if (accountEmail) accountEmail.textContent = data.session?.user.email || ''
   if (data.session?.user) setSignedInCookie()

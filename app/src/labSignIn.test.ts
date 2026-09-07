@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const auth = {
   signOut: vi.fn(async () => ({ error: null })),
-  getSession: vi.fn(async () => ({ data: { session: { user: { email: 'reader@example.com' } } } })),
+  getSession: vi.fn(async () => ({ data: { session: { user: { id: 'user-a', email: 'reader@example.com' } } } })),
   signInWithOAuth: vi.fn(async (_options: unknown) => ({ data: { url: null, provider: 'google' }, error: null as { message: string } | null })),
 }
 vi.mock('./services/supabase', () => ({ supabase: { auth }, isSupabaseConfigured: () => true }))
@@ -29,6 +29,7 @@ beforeEach(() => {
   auth.getSession.mockClear()
   auth.signInWithOAuth.mockClear()
   auth.signInWithOAuth.mockImplementation(async () => ({ data: { url: null, provider: 'google' }, error: null }))
+  auth.getSession.mockImplementation(async () => ({ data: { session: { user: { id: 'user-a', email: 'reader@example.com' } } } }))
 })
 afterEach(() => {
   document.body.innerHTML = ''
@@ -204,5 +205,44 @@ describe('lab sign-in providers', () => {
     expect(status.dataset.tone).toBe('error')
     expect(status.textContent).toBe('Apple sign-in isn’t available yet. Use your email below, or another provider.')
     expect(providerButtons().every(button => button.disabled === false)).toBe(true)
+  })
+})
+
+/**
+ * Signing in with a second provider makes a second account. Every lab
+ * sign-in — email and each provider round-trip — comes back through this
+ * page, so it is where a changed identity is caught before the new account
+ * reads anything (2026-09-07).
+ */
+describe('lab sign-in: device identity', () => {
+  it('wipes the device when a different account signs in without a sign-out', async () => {
+    localStorage.setItem('tinct:lab-device-user', 'user-a')
+    localStorage.setItem('tinct-lab-position', 'user a place')
+    localStorage.setItem('tinct:chat-history:lab', 'user a chat')
+    auth.getSession.mockImplementation(async () => ({ data: { session: { user: { id: 'user-github', email: 'reader@example.com' } } } }))
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+    expect(localStorage.getItem('tinct-lab-position')).toBeNull()
+    expect(localStorage.getItem('tinct:chat-history:lab')).toBeNull()
+    expect(localStorage.getItem('tinct:lab-device-user')).toBe('user-github')
+  })
+
+  it('a first sign-in keeps what the reader read signed out', async () => {
+    localStorage.setItem('tinct-lab-position', 'guest place')
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+    expect(localStorage.getItem('tinct-lab-position')).toBe('guest place')
+    expect(localStorage.getItem('tinct:lab-device-user')).toBe('user-a')
+  })
+
+  it('the same account returning is left alone', async () => {
+    localStorage.setItem('tinct:lab-device-user', 'user-a')
+    localStorage.setItem('tinct-lab-position', 'their place')
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+    expect(localStorage.getItem('tinct-lab-position')).toBe('their place')
   })
 })
