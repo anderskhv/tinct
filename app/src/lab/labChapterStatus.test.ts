@@ -70,6 +70,27 @@ describe('lab chapter statuses', () => {
     expect(statuses.get(780)).toMatchObject({ kind: 'finished', page: 1, lastReadAt: 5_000, finishedAt: 1_000 })
   })
 
+  it('a chat conversation marks a chapter Visited, below any reading record', () => {
+    const statuses = labChapterStatuses({
+      bookId: 'bible',
+      chapterNumbers: chapters,
+      finished: new Set([780]),
+      memory: memory(session('b', 781, 'progressed', 2_000)),
+      conversations: [
+        { chapterNumber: 780, endTimestamp: 9_000 },
+        { chapterNumber: 781, endTimestamp: 9_000 },
+        { chapterNumber: 782, endTimestamp: 4_000 },
+        { chapterNumber: 999, endTimestamp: 4_000 },
+      ],
+    })
+    expect(statuses.get(780)?.kind).toBe('finished')
+    expect(statuses.get(781)).toMatchObject({ kind: 'in-progress', lastReadAt: 9_000 })
+    expect(statuses.get(782)).toMatchObject({ kind: 'visited', lastReadAt: 4_000 })
+    expect(statuses.get(999)).toBeUndefined()
+    expect([...labFinishedChapterSet(statuses)]).toEqual([780])
+    expect(labLastReadAt(statuses)).toBe(9_000)
+  })
+
   it('formats one honest line per state', () => {
     const date = (value: number) => `d${value}`
     expect(labChapterStatusLine(undefined, true, date)).toBe('Reading now')
@@ -79,5 +100,7 @@ describe('lab chapter statuses', () => {
     expect(labChapterStatusLine({ kind: 'in-progress' }, false, date)).toBe('In progress')
     expect(labChapterStatusLine({ kind: 'in-progress', page: 2, totalPages: 9, lastReadAt: 4 }, false, date)).toBe('In progress · page 2 of 9 · last read d4')
     expect(labChapterStatusLine({ kind: 'in-progress', page: 2, lastReadAt: 4 }, false, date)).toBe('In progress · last read d4')
+    expect(labChapterStatusLine({ kind: 'visited' }, false, date)).toBe('Visited')
+    expect(labChapterStatusLine({ kind: 'visited', lastReadAt: 4 }, false, date)).toBe('Visited · d4')
   })
 })

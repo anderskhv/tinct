@@ -1,6 +1,6 @@
 import { browserKeyValueStorage, deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory, type KeyValueStorage } from './deviceStore'
 import { drainReadingMemoryQueue, type DrainResult, type ReadingMemoryCloud } from './queue'
-import { READING_MEMORY_VERSION, eventFromSession } from './sessions'
+import { READING_MEMORY_VERSION, eventFromSession, mergeReadingMemory } from './sessions'
 import type { ReadingMemoryState, ReadingSession } from './types'
 
 /**
@@ -64,6 +64,32 @@ export function commitReadingMemoryAdoption(plan: ReadingMemoryAdoptionPlan, sto
   queue.retain(event => event.session.owner === plan.userId)
   if (Object.keys(plan.state.sessions).length > 0 || plan.dropped.length > 0) writeDeviceReadingMemory(plan.state, storage)
   for (const session of plan.adopted) queue.push(eventFromSession(session))
+}
+
+/**
+ * Merge the account's cloud copy into the device mirror (per session the
+ * higher seq wins; nothing is dropped). The reader calls this on sign-in so
+ * a device whose mirror was wiped at sign-out, or that never held the
+ * account's sessions, shows the same chapter states as the account's other
+ * devices without a library visit. Read failures leave the mirror as is.
+ */
+export async function hydrateReadingMemoryFromCloud(input: {
+  cloud: ReadingMemoryCloud | null
+  storage?: KeyValueStorage | null
+}): Promise<ReadingMemoryState | null> {
+  if (!input.cloud) return null
+  const storage = input.storage === undefined ? browserKeyValueStorage() : input.storage
+  let row: Awaited<ReturnType<ReadingMemoryCloud['read']>>
+  try {
+    row = await input.cloud.read()
+  } catch {
+    return null
+  }
+  if (!row || Object.keys(row.state.sessions).length === 0) return null
+  const device = readDeviceReadingMemory(storage)
+  const merged = mergeReadingMemory(device, row.state)
+  if (merged !== device) writeDeviceReadingMemory(merged, storage)
+  return merged
 }
 
 export interface ReadingMemoryAdoptionResult {

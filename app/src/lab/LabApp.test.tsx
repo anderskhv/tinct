@@ -1915,6 +1915,29 @@ describe('lab bible book', () => {
     expect(genesis1Progress).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
   })
 
+  it('turning past the last page of the final chapter marks it finished in the position record', async () => {
+    render(<LabApp pathname="/lab/phone" source={{
+      ...bibleFallbackSource(),
+      paragraphs: ['In the beginning God created the heaven and the earth.'],
+      followParagraphs: [{ index: 0, text: 'In the beginning God created the heaven and the earth.' }],
+      chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }],
+    }} />)
+    const root = screen.getByTestId('lab-root')
+    expect(root.getAttribute('data-chapter')).toBe('1')
+    // No next chapter: the forward control is not offered, but a forward turn still ends the chapter.
+    expect(screen.queryByTestId('lab-page-next')).toBeNull()
+    expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+
+    fireEvent.keyDown(document.body, { key: 'ArrowRight' })
+    await waitFor(() => {
+      expect(readLabPositionLocal().finished.bible).toEqual([1])
+    })
+    // Still on the same (last) chapter and page; nothing was lost.
+    expect(root.getAttribute('data-chapter')).toBe('1')
+    expect(root.getAttribute('data-cover-page')).toBe('false')
+    expect(screen.getByTestId('lab-passage-headline').textContent).toContain('Genesis 1')
+  })
+
   it('puts a book cover one swipe before Genesis 1 without changing reading position', () => {
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),

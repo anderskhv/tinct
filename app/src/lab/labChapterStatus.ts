@@ -1,7 +1,7 @@
 import type { LabPositionState } from './labPosition'
 import { visibleToViewer, type ReadingMemoryState } from '../readingMemory'
 
-export type LabChapterStatusKind = 'not-started' | 'in-progress' | 'finished'
+export type LabChapterStatusKind = 'not-started' | 'visited' | 'in-progress' | 'finished'
 
 /**
  * One truthful line per chapter for the picker. Every field is a stored fact:
@@ -9,6 +9,9 @@ export type LabChapterStatusKind = 'not-started' | 'in-progress' | 'finished'
  *    out (position record), or reading memory holds a `completed` session;
  *  - `in-progress`: any recorded reading session, or a position pin, sits in
  *    that chapter;
+ *  - `visited`: no reading record survives (memory keeps the last 50
+ *    sessions and is wiped at sign-out), but a chat conversation was held in
+ *    the chapter, so the reader was there;
  *  - otherwise `not-started`.
  */
 export interface LabChapterStatus {
@@ -31,14 +34,16 @@ export interface LabChapterStatusInput {
   position?: LabPositionState | null
   /** Signed-in account, or null; other accounts' sessions never count. */
   viewer?: string | null
+  /** Chat conversations held in this book (sequential chapter numbers). */
+  conversations?: ReadonlyArray<{ chapterNumber: number; endTimestamp: number }>
 }
+
+const KIND_RANK: Record<LabChapterStatusKind, number> = { 'not-started': 0, visited: 1, 'in-progress': 2, finished: 3 }
 
 function bump(map: Map<number, LabChapterStatus>, chapter: number, patch: LabChapterStatus): void {
   const prev = map.get(chapter) || { kind: 'not-started' }
   const newer = (patch.lastReadAt ?? 0) >= (prev.lastReadAt ?? 0)
-  const kind: LabChapterStatusKind = prev.kind === 'finished' || patch.kind === 'finished'
-    ? 'finished'
-    : (prev.kind === 'in-progress' || patch.kind === 'in-progress' ? 'in-progress' : 'not-started')
+  const kind: LabChapterStatusKind = KIND_RANK[patch.kind] > KIND_RANK[prev.kind] ? patch.kind : prev.kind
   map.set(chapter, {
     kind,
     page: newer ? (patch.page ?? prev.page) : (prev.page ?? patch.page),
@@ -80,6 +85,10 @@ export function labChapterStatuses(input: LabChapterStatusInput): Map<number, La
       })
     }
   }
+  for (const conversation of input.conversations ?? []) {
+    if (!wanted.has(conversation.chapterNumber)) continue
+    bump(map, conversation.chapterNumber, { kind: 'visited', lastReadAt: conversation.endTimestamp })
+  }
   return map
 }
 
@@ -104,6 +113,7 @@ export function labChapterStatusLine(
   if (current) return 'Reading now'
   if (!status || status.kind === 'not-started') return 'Not started'
   if (status.kind === 'finished') return status.finishedAt ? `Finished · ${formatDate(status.finishedAt)}` : 'Finished'
+  if (status.kind === 'visited') return status.lastReadAt ? `Visited · ${formatDate(status.lastReadAt)}` : 'Visited'
   const parts = ['In progress']
   if (status.page && status.totalPages) parts.push(`page ${status.page} of ${status.totalPages}`)
   if (status.lastReadAt) parts.push(`last read ${formatDate(status.lastReadAt)}`)
