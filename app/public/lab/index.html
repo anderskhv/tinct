@@ -1139,7 +1139,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      line in the owner's desktop screenshot. Its height is now exactly
      --bp-lines lines (the media queries below shorten it on short viewports),
      so the clamp always ends on a whole line with the clamp's own ellipsis. */
-  #tinct-onboarding-worlds-v5 .tov5-book-description { flex:none; height:calc(var(--bp-lines,5) * 1.45em); overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--bp-lines,5); margin:0; color:rgba(255,253,247,.9); font:16px/1.45 Georgia,serif; text-wrap:pretty; }
+  #tinct-onboarding-worlds-v5 .tov5-book-description { flex:none; max-height:calc(var(--bp-lines,5) * 1.45em); overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--bp-lines,5); margin:0; color:rgba(255,253,247,.9); font:16px/1.45 Georgia,serif; text-wrap:pretty; }
 
   /* The two version dropdowns and Both. */
   #tinct-onboarding-worlds-v5 .tov5-versions { flex:none; display:flex; flex-wrap:wrap; align-items:stretch; gap:8px; }
@@ -1222,6 +1222,22 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .tov5-version { flex:1 1 0; }
     #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition { width:min(560px,100%); min-height:58px; }
     #tinct-onboarding-worlds-v5 .tov5-version-menu { max-height:min(48dvh,380px); }
+  }
+  /* Short and wide — a laptop with a shallow window, a tablet on its side.
+     The width rules above are written for a tall desktop column and sit later
+     in the file than the height rules, so they outranked them: the cover
+     stayed 180px and the description stayed four 18px lines, and the only
+     thing that gave way was the description's own box, sliced through a line
+     by the flex shrink. The page gives way here instead. */
+  @media (min-width:900px) and (max-height:760px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:128px; --bp-gap:14px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { padding-top:18px; padding-bottom:calc(18px + var(--tov5-safe-bottom)); }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:clamp(28px,2.6vw,36px); }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { font-size:16px; --bp-lines:3; }
+  }
+  @media (min-width:900px) and (max-height:660px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:104px; --bp-gap:10px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { font-size:15px; --bp-lines:2; }
   }
 
   /* Library — the popular row and the returning reader's row.
