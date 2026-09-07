@@ -7,6 +7,7 @@ import {
   readStoredRecapSummary,
   recapAwayMs,
   recapLastSeenAt,
+  recapSummaryPermission,
   requestLabRecapSummary,
   shouldRequestRecapSummary,
   storeRecapSummary,
@@ -124,5 +125,80 @@ describe('away threshold before a summary is generated', () => {
   it('honours an explicit threshold override', () => {
     expect(shouldRequestRecapSummary({ sessionLastActiveAt: ago(90_000), now: NOW, minAwayMs: 60_000 })).toBe(true)
     expect(shouldRequestRecapSummary({ sessionLastActiveAt: ago(30_000), now: NOW, minAwayMs: 60_000 })).toBe(false)
+  })
+})
+
+/**
+ * The whole "when may the hero show a so-far line" rule, in the one place it
+ * lives. Two conditions: coming straight back out of THIS book's reader, and
+ * having been away from the book for less than an hour.
+ */
+describe('recapSummaryPermission', () => {
+  const NOW = 1_700_000_000_000
+  const HOUR = 60 * 60 * 1000
+  const origin = (bookId: string, agoMs: number) => ({ bookId, at: NOW - agoMs })
+
+  it('shows nothing for the book the reader has just come out of — no cache, no request', () => {
+    const decision = recapSummaryPermission({
+      bookId: 'bible',
+      origin: origin('bible', 30 * 1000),
+      sessionLastActiveAt: NOW - 40 * 1000,
+      now: NOW,
+    })
+    expect(decision).toEqual({ cache: false, request: false, reason: 'from-reader' })
+  })
+
+  it('still shows nothing for that book when the device already holds an old summary of it', () => {
+    // The reader was last in this chapter days ago and there is a cached line
+    // for it, but they have just been looking at the page: the away rule would
+    // allow both, and the origin still says no.
+    const decision = recapSummaryPermission({
+      bookId: 'bible',
+      origin: origin('bible', 10 * 1000),
+      sessionLastActiveAt: NOW - 72 * HOUR,
+      now: NOW,
+    })
+    expect(decision.reason).toBe('from-reader')
+    expect(decision.cache).toBe(false)
+  })
+
+  it('leaves every other book on the normal rules', () => {
+    // Came out of the Odyssey; the hero is the Bible, read three hours ago.
+    expect(recapSummaryPermission({
+      bookId: 'bible',
+      origin: origin('odyssey', 30 * 1000),
+      sessionLastActiveAt: NOW - 3 * HOUR,
+      now: NOW,
+    })).toEqual({ cache: true, request: true, reason: 'allowed' })
+    // Same, but the Bible was open five minutes ago: cache yes, request no.
+    expect(recapSummaryPermission({
+      bookId: 'bible',
+      origin: origin('odyssey', 30 * 1000),
+      sessionLastActiveAt: NOW - 5 * 60 * 1000,
+      now: NOW,
+    })).toEqual({ cache: true, request: false, reason: 'recent' })
+  })
+
+  it('summarises a fresh visit an hour or more after reading', () => {
+    expect(recapSummaryPermission({ bookId: 'bible', origin: null, sessionLastActiveAt: NOW - HOUR, now: NOW }))
+      .toEqual({ cache: true, request: true, reason: 'allowed' })
+    expect(recapSummaryPermission({ bookId: 'bible', sessionLastActiveAt: NOW - 59 * 60 * 1000, now: NOW }).reason)
+      .toBe('recent')
+  })
+
+  it('stops honouring a stale origin: a tab left open is not "just back from the reader"', () => {
+    expect(recapSummaryPermission({
+      bookId: 'bible',
+      origin: origin('bible', LAB_RECAP_MIN_AWAY_MS + 1000),
+      sessionLastActiveAt: NOW - 5 * HOUR,
+      now: NOW,
+    }).reason).toBe('allowed')
+    // A marker written "in the future" by a skewed clock is not honoured either.
+    expect(recapSummaryPermission({
+      bookId: 'bible',
+      origin: { bookId: 'bible', at: NOW + 60_000 },
+      sessionLastActiveAt: NOW - 5 * HOUR,
+      now: NOW,
+    }).reason).toBe('allowed')
   })
 })

@@ -45,14 +45,15 @@ import { accountLabPositionRecord, mergeLabPositionStatesByTime, withHiddenFromR
 import { fetchLabPositionCloud, putLabPositionCloud, readLabPositionLocal, writeLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
-import { readStoredRecapSummary, requestLabRecapSummary, shouldRequestRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
+import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
 // The Reading-now row and the popular row scroll by the same rule, so they
 // read the focused cover out of the same function rather than each keeping a
 // copy of it. library-model.js is a plain pure-function module; the bundler
 // takes this one export and leaves the rest.
-import { shelfFocusIndex } from '../public/lab/library-model.js'
+import { readReaderOrigin, shelfFocusIndex, writeReaderOrigin } from '../public/lab/library-model.js'
 import {
+  catalogueBookIdForPlace,
   heroHeadline,
   libraryModeFor,
   readingList,
@@ -271,7 +272,29 @@ function deviceStorage(): Storage | null {
   }
 }
 
-type SummaryLineStatus = 'pending' | 'none' | 'cached' | 'fresh' | 'loading' | 'unavailable' | 'offline' | 'account-required' | 'recent'
+type SummaryLineStatus = 'pending' | 'none' | 'cached' | 'fresh' | 'loading' | 'unavailable' | 'offline' | 'account-required' | 'recent' | 'from-reader'
+
+function sessionStore(): Storage | null {
+  try {
+    return typeof sessionStorage === 'undefined' ? null : sessionStorage
+  } catch {
+    return null
+  }
+}
+
+/**
+ * The book this visit to the reader started on, named as the CATALOGUE names
+ * it. The library and the book page record the catalogue id, but the boot
+ * script's resume redirect can only see the reader's own position record —
+ * and the reader pins the Bible per biblical book (`jeremiah`, `proverbs`),
+ * never as `bible`. Same mapping the position store gets.
+ */
+function readerOrigin(books: Map<string, CatalogueBook>) {
+  const origin = readReaderOrigin(sessionStore())
+  if (!origin) return null
+  const bookId = catalogueBookIdForPlace({ bookId: origin.bookId }, books)
+  return bookId ? { bookId, at: origin.at } : null
+}
 
 /**
  * Per page load: keys being fetched or that failed. A re-render during a
@@ -332,9 +355,24 @@ async function fillHeroSummary(
   }
   const key = summaryKeyFor(hero, request)
   const storage = deviceStorage()
-  const cached = readStoredRecapSummary(storage, key)
+  // Both halves of the rule — the hour away from the book, and the return
+  // straight back out of that book's own reader — live in
+  // preReader/recapSummaryClient.ts.
+  const permission = recapSummaryPermission({
+    bookId: hero.bookId,
+    origin: readerOrigin(books),
+    sessionLastActiveAt: hero.session?.lastActiveAt ?? null,
+    placeUpdatedAt: hero.target.at,
+    now: Date.now(),
+  })
+  const cached = permission.cache ? readStoredRecapSummary(storage, key) : null
   if (cached) {
     showSummary(key, cached, 'cached')
+    return
+  }
+  // Came out of this book's reader: the position line is the whole hero.
+  if (permission.reason === 'from-reader') {
+    setSummaryStatus(key, 'from-reader')
     return
   }
   // Scrolling PAST a book is not asking about it. The caption repaints on
@@ -347,11 +385,7 @@ async function fillHeroSummary(
   // Away for less than LAB_RECAP_MIN_AWAY_MS: the hero says where the reader
   // is and stops there. No request is sent, so there is no model call, no
   // spent free action and no cache write.
-  if (!shouldRequestRecapSummary({
-    sessionLastActiveAt: hero.session?.lastActiveAt ?? null,
-    placeUpdatedAt: hero.target.at,
-    now: Date.now(),
-  })) {
+  if (!permission.request) {
     setSummaryStatus(key, 'recent')
     return
   }
@@ -736,13 +770,17 @@ function openAt(target: ContinueTarget): void {
   }) : null
   if (intent) {
     try { sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent)) } catch { /* private mode */ }
+    // Where this visit to the reader started, so the library it comes back to
+    // knows not to recap the book the reader has just been looking at.
+    writeReaderOrigin(sessionStore(), target.bookId, Date.now())
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
     window.location.assign('/lab/reader')
     return
   }
   // The place's edition is not offered by the library (e.g. a Danish
   // edition): open the book in its default edition; the reader restores its
-  // own saved place.
+  // own saved place. The book page hands off from there and records the
+  // origin itself (lab/catalogue-runtime.js).
   void api?.openBook?.(target.bookId)
 }
 

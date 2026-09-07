@@ -26,6 +26,7 @@ import {
   revealDelayMs,
   searchPlaceholder,
   shelfFocusIndex,
+  writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
 } from './library-model.js?v=20260907-4'
@@ -1009,6 +1010,9 @@ import {
     })
     if (!intent) return false
     window.__tinctLabLastHandoff = intent
+    // Where this visit to the reader started, so the library it comes back to
+    // knows not to recap the book the reader has just been looking at.
+    writeReaderOrigin(safeSessionStorage(), book.id, Date.now())
     try {
       sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent))
       const saved = readJson('tinct:library')

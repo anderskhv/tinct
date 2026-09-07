@@ -186,6 +186,7 @@ function biblePlace(updatedAt: number): LabBookPlace {
 beforeEach(() => {
   vi.resetModules()
   localStorage.clear()
+  sessionStorage.clear()
   recapCalls = []
   cloudPosition = null
   vi.useFakeTimers({ shouldAdvanceTime: true })
@@ -195,6 +196,7 @@ beforeEach(() => {
 afterEach(() => {
   document.body.innerHTML = ''
   localStorage.clear()
+  sessionStorage.clear()
   vi.unstubAllGlobals()
   vi.useRealTimers()
 })
@@ -254,6 +256,91 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.dataset.book).toBe('bible')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
+  })
+})
+
+/**
+ * Coming back to the library out of a book's own reader. The reader has just
+ * been looking at the page: the hero says where they are and stops there —
+ * no request, and not even a summary this device already holds. Every other
+ * book keeps the ordinary rules. Both conditions live in
+ * preReader/recapSummaryClient.ts (`recapSummaryPermission`).
+ */
+describe('back out of the book\u2019s own reader', () => {
+  const leftReaderOn = (bookId: string, at = ago(20 * 1000)) => {
+    sessionStorage.setItem('tinct:lab-reader-origin', JSON.stringify({ v: 1, bookId, at }))
+  }
+
+  it('shows the position line and nothing else for the book just left', async () => {
+    leftReaderOn('bible')
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * HOUR))],
+      positionState([biblePlace(ago(30 * 1000))], 'proverbs'),
+    )
+    expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent)
+      .toBe('You\u2019re in the middle of Proverbs 17')
+    expect(section.dataset.summaryLine).toBe('from-reader')
+    expect(recapCalls).toEqual([])
+    const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
+    expect(line.classList.contains('is-shown')).toBe(false)
+    expect(line.textContent).toBe('')
+  })
+
+  it('does not even show a summary this device already cached for that place', async () => {
+    cacheSummary(
+      recapCacheKey({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 645, paragraphIndex: 2, paragraphCount: 6, completed: false }),
+      'Cached line for Proverbs 17.',
+    )
+    leftReaderOn('bible')
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * DAY))],
+      positionState([biblePlace(ago(3 * DAY))], 'proverbs'),
+    )
+    expect(section.dataset.summaryLine).toBe('from-reader')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('')
+    expect(recapCalls).toEqual([])
+  })
+
+  it('recognises the reader\u2019s own Bible id: the boot redirect records `proverbs`, the hero is `bible`', async () => {
+    leftReaderOn('proverbs')
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * HOUR))],
+      positionState([biblePlace(ago(30 * 1000))], 'proverbs'),
+    )
+    expect(section.dataset.book).toBe('bible')
+    expect(section.dataset.summaryLine).toBe('from-reader')
+    expect(recapCalls).toEqual([])
+  })
+
+  it('leaves a different book on the ordinary rules', async () => {
+    leftReaderOn('plato-republic')
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * HOUR))],
+      positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
+    )
+    expect(section.dataset.book).toBe('bible')
+    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toBe('So far in bible 645.')
+  })
+
+  it('summarises a fresh visit an hour later, when nothing says the reader came from the book', async () => {
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * HOUR))],
+      positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
+    )
+    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
+  })
+
+  it('stops honouring the marker once it is older than the away threshold', async () => {
+    leftReaderOn('bible', ago(2 * HOUR))
+    const section = await renderLibrary(
+      [bibleSession(ago(3 * HOUR))],
+      positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
+    )
+    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
   })
 })
 

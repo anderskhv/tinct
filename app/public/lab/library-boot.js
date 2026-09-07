@@ -32,6 +32,14 @@
   var LANDING_WORLDS = ['odyssey', 'pride', 'frankenstein']
   var LANDING_WORLD_SESSION_KEY = 'tinct:lab-landing-world'
   var DEFAULT_LANDING_WORLD = 'odyssey'
+  /**
+   * Where the pre-reader records the book it last sent the reader into, so a
+   * library reached straight back out of that book shows the position line
+   * and no recap. Mirrors READER_ORIGIN_SESSION_KEY in lab/library-model.js;
+   * this file writes it for the signed-in resume redirect below, which is the
+   * one way into the reader that does not pass through the library.
+   */
+  var READER_ORIGIN_SESSION_KEY = 'tinct:lab-reader-origin'
 
   function landingWorld(session) {
     try {
@@ -80,6 +88,17 @@
       return !params.get('view') && !params.get('book')
     } catch (e) { return true }
   }
+  /** The book the resume redirect is about to open: the reader's own settled book. */
+  function settledBookId(storage) {
+    var position = readJson(storage, POSITION_KEY)
+    if (!position || typeof position !== 'object') return null
+    var id = position.lastSettledBookId
+    if (typeof id !== 'string' || !id) return null
+    var books = position.books && typeof position.books === 'object' ? position.books : {}
+    var place = books[id]
+    return place && typeof place.bookId === 'string' && place.bookId ? place.bookId : id
+  }
+
   /** Newest reading this device recorded: the position record and the reading-memory mirror. */
   function lastReadAt(storage) {
     var stamps = []
@@ -337,6 +356,13 @@
     // blocking <head> script, before the parser reaches the panels, so the
     // decision is made before the first paint — no landing flash.
     if (state.entry === 'reader') {
+      // The one way into the reader that does not pass through the library:
+      // record it the same way, so the library this reader reaches next knows
+      // which book they have just come out of.
+      try {
+        var origin = settledBookId(window.localStorage)
+        if (origin) window.sessionStorage.setItem(READER_ORIGIN_SESSION_KEY, JSON.stringify({ v: 1, bookId: origin, at: Date.now() }))
+      } catch (e) { /* storage blocked */ }
       location.replace('/lab/reader')
       return
     }

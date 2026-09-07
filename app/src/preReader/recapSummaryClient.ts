@@ -10,8 +10,9 @@
  * A short absence is not summarised. Owner rule (2026-09-07): the "so far"
  * line is for a reader coming back to a book after being away from it, not
  * for someone who stepped out of the reader a minute ago — that reader
- * already knows where they are. `shouldRequestRecapSummary` is the whole of
- * that rule and the hero asks it before it asks the network.
+ * already knows where they are. `recapSummaryPermission` is the whole of that
+ * rule — both conditions, the hour away and the return straight out of the
+ * book's own reader — and the hero asks it before it asks the network.
  */
 import { LAB_RECAP_ROUTE, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
 
@@ -81,6 +82,61 @@ export function shouldRequestRecapSummary(input: RecapAwayInput & { minAwayMs?: 
   const away = recapAwayMs(input)
   if (away === null) return true
   return away >= (input.minAwayMs ?? LAB_RECAP_MIN_AWAY_MS)
+}
+
+/** Where the pre-reader parked the book it last opened the reader on, in this browser session. */
+export interface RecapReaderOrigin {
+  bookId: string
+  at: number
+}
+
+export interface RecapSummaryPermission {
+  /** May the hero show a summary this device already holds for this place? */
+  cache: boolean
+  /** May the hero ask the Worker for one? */
+  request: boolean
+  reason: 'from-reader' | 'recent' | 'allowed'
+}
+
+/**
+ * Everything the hero is allowed to do about a "so far" summary, in one
+ * place. Two conditions, and they are different conditions:
+ *
+ *  1. **Straight back out of this book's reader** (`from-reader`). The reader
+ *     went into this book from here and has come back to the library in the
+ *     same browser session: they know what they just read, so the hero shows
+ *     the position line and nothing else — no request, and not even a
+ *     summary this device already has. Showing one would be the library
+ *     recapping the page the reader was looking at a moment ago.
+ *
+ *  2. **Away from the book for less than `LAB_RECAP_MIN_AWAY_MS`**
+ *     (`recent`, the release-3.12 rule). Nothing is *generated* for a
+ *     five-minute break — no request, no model call, no spent free action —
+ *     but a summary this device already holds is still shown, because it
+ *     costs nothing and is true of the place on screen.
+ *
+ * The origin marker is honoured only while it is fresh (the same hour that
+ * governs rule 2). A tab left open on the library all afternoon is no longer
+ * "just back from the reader".
+ */
+export function recapSummaryPermission(input: RecapAwayInput & {
+  bookId: string
+  origin?: RecapReaderOrigin | null
+  minAwayMs?: number
+}): RecapSummaryPermission {
+  const minAwayMs = input.minAwayMs ?? LAB_RECAP_MIN_AWAY_MS
+  const origin = input.origin
+  const fromThisBooksReader = Boolean(
+    origin
+    && origin.bookId === input.bookId
+    && Number.isFinite(origin.at)
+    && Number.isFinite(input.now)
+    && input.now - origin.at >= 0
+    && input.now - origin.at < minAwayMs,
+  )
+  if (fromThisBooksReader) return { cache: false, request: false, reason: 'from-reader' }
+  if (!shouldRequestRecapSummary({ ...input, minAwayMs })) return { cache: true, request: false, reason: 'recent' }
+  return { cache: true, request: true, reason: 'allowed' }
 }
 
 export interface StoredRecapSummary {

@@ -18,6 +18,13 @@ export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-position'
 export const LIBRARY_RETURN_SESSION_KEY = 'tinct:lab-library-return'
 /** The shelf selection, kept for the length of the browser session. */
 export const LIBRARY_SHELF_SESSION_KEY = 'tinct:lab-library-shelf'
+/**
+ * Where the pre-reader records that it has just sent the reader INTO a book,
+ * so that a library reached straight back out of that book knows where the
+ * reader came from. Per browser session; mirrored as a literal in
+ * lab/library-boot.js, which writes it for the signed-in resume redirect.
+ */
+export const READER_ORIGIN_SESSION_KEY = 'tinct:lab-reader-origin'
 export const POPULAR_SHELF_SIZE = 8
 
 /** Reveal timing from the locked artboards: 56px travel, staggered starts. */
@@ -473,3 +480,37 @@ export function shelfFocusIndex(items, scrollLeft, clientWidth, scrollWidth) {
   return centredShelfIndex(items, left, client)
 }
 
+// ------------------------------------------------------ came from the reader
+
+/**
+ * Record that the reader is being opened on `bookId` from here. Written on
+ * the way out, read on the way back — see `recapSummaryPermission` in
+ * src/preReader/recapSummaryClient.ts for what the library does with it.
+ */
+export function writeReaderOrigin(storage, bookId, now) {
+  if (!storage || typeof bookId !== 'string' || !bookId) return
+  try {
+    storage.setItem(READER_ORIGIN_SESSION_KEY, JSON.stringify({ v: 1, bookId, at: Number.isFinite(now) ? now : Date.now() }))
+  } catch {
+    // Storage blocked: the library falls back to the away-time rule alone.
+  }
+}
+
+/** The recorded origin, or null when there is none or it is unreadable. */
+export function readReaderOrigin(storage) {
+  let raw = null
+  try {
+    raw = storage ? storage.getItem(READER_ORIGIN_SESSION_KEY) : null
+  } catch {
+    return null
+  }
+  if (!raw) return null
+  try {
+    const parsed = JSON.parse(raw)
+    if (!parsed || parsed.v !== 1 || typeof parsed.bookId !== 'string' || !parsed.bookId) return null
+    const at = Number.isFinite(parsed.at) ? parsed.at : null
+    return at === null ? null : { bookId: parsed.bookId, at }
+  } catch {
+    return null
+  }
+}
