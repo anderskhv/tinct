@@ -481,6 +481,7 @@ test('renders the returning reader from reading memory: recap headline, one pill
   await expect(recap.locator('[data-now-shelf] [data-now-book]')).toHaveCount(2)
   await expect(recap.locator('[data-now-shelf] [data-now-book]').first()).toHaveAttribute('data-now-book', 'bible')
   await expect(recap.locator('[data-now-book="meditations"] [data-recap-open]')).toHaveAttribute('aria-label', /Continue Meditations from Book 1/)
+  await expect(recap.locator('[data-now-book="meditations"] [data-now-remove]')).toHaveAttribute('aria-label', 'Remove Meditations from currently reading')
   await expect(recap.locator('.lib-recap-row-recap')).toHaveCount(0)
   await expect(recap.locator('[data-finished-section]')).toHaveCount(0)
   await expect(page.locator('[data-popular-eyebrow]')).toHaveText('Popular')

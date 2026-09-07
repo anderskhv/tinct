@@ -41,8 +41,8 @@ import { clearDeviceReadingMemory, readDeviceReadingMemory } from './readingMemo
 import { loadRecap, type RecapAuth, type RecapLoadResult } from './readingMemory/recapLoad'
 import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
-import { mergeLabPositionStatesByTime, type LabPositionState } from './lab/labPosition'
-import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionStore'
+import { mergeLabPositionStatesByTime, withHiddenFromReadingNow, type LabPositionState } from './lab/labPosition'
+import { fetchLabPositionCloud, putLabPositionCloud, readLabPositionLocal, writeLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, requestLabRecapSummary, shouldRequestRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
@@ -380,8 +380,21 @@ async function fillHeroSummary(
 function nowShelfMarkup(rows: ReadingListRow[], books: Map<string, CatalogueBook>, focused: number): string {
   return rows.map((row, index) => {
     const title = bookTitle(books.get(row.bookId), row.bookId)
-    return `<div class="lib-now-item${index === focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${index === focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId)}</button></div>`
+    return `<div class="lib-now-item${index === focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${index === focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId)}</button>${removeMarkup(row.bookId, title)}</div>`
   }).join('')
+}
+
+/**
+ * Take a book off the list — the classic app's control, in the classic app's
+ * place: a small round × pinned to the top-right corner of the card in
+ * Continue reading (BookStore.tsx `.library-continue-remove`), one tap, no
+ * confirmation, labelled "Remove {title} from currently reading". As there,
+ * it removes nothing: the place, the notes, the highlights, the chat and the
+ * reading-memory sessions all stay, and opening the book again lists it once
+ * more at the page it was left on.
+ */
+function removeMarkup(bookId: string, title: string): string {
+  return `<button type="button" class="lib-now-remove" data-now-remove="${escapeHtml(bookId)}" aria-label="${escapeHtml(`Remove ${title} from currently reading`)}" title="Remove from currently reading">×</button>`
 }
 
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
@@ -683,6 +696,31 @@ function openAt(target: ContinueTarget): void {
   void api?.openBook?.(target.bookId)
 }
 
+/**
+ * Take a book off the Reading-now list. One timestamp through the same
+ * versioned record the position pins ride in (`tinct-lab-position`, merged
+ * locally and PUT to /api/lab-position), so the list agrees on every device.
+ * Nothing is deleted here, and nothing else is touched.
+ */
+async function hideFromReadingNow(bookId: string): Promise<void> {
+  if (!bookId) return
+  const auth = await readAuth()
+  try {
+    const local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
+    const next = withHiddenFromReadingNow(local, bookId, Date.now())
+    if (next === local) return
+    const stored = writeLabPositionLocal(next)
+    if (auth.token && isOnline()) void putLabPositionCloud(auth.token, stored).catch(() => {})
+  } catch {
+    // Storage blocked: the list is what the store says, so there is nothing
+    // to hide and nothing to report.
+    return
+  }
+  // The hero falls through to the next book by itself: the list is rebuilt
+  // from the store, and the focus starts again at its first card.
+  await render()
+}
+
 function continueReading(bookId?: string): void {
   if (lastList.readingNow.length === 0 && (renderQueued || lastRendered === null)) {
     // Tapped on the boot paint: the first confirmed render carries it out.
@@ -699,6 +737,12 @@ section?.addEventListener('click', (event) => {
   if (continueButton) {
     event.preventDefault()
     continueReading(continueButton.dataset.recapContinue)
+    return
+  }
+  const remove = target.closest<HTMLElement>('[data-now-remove]')
+  if (remove?.dataset.nowRemove) {
+    event.preventDefault()
+    void hideFromReadingNow(remove.dataset.nowRemove)
     return
   }
   const row = target.closest<HTMLElement>('[data-recap-open]')

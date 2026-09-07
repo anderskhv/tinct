@@ -212,6 +212,15 @@
     }
     open.appendChild(coverNode(hero))
     card.appendChild(open)
+    if (hero) {
+      // Same control as the confirmed render (labReadingMemory.ts) and as the
+      // classic app's Continue-reading pill, so it does not appear a frame late.
+      var remove = el('button', 'lib-now-remove', '\u00d7')
+      remove.type = 'button'
+      remove.setAttribute('data-now-remove', hero.bookId)
+      remove.setAttribute('aria-label', 'Remove ' + hero.title + ' from currently reading')
+      card.appendChild(remove)
+    }
     shelf.appendChild(card)
     wrap.appendChild(shelf)
     var caption = el('div', 'lib-now-caption')

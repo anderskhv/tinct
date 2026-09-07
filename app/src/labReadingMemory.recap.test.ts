@@ -94,6 +94,7 @@ function positionState(places: LabBookPlace[], settled: string | null, finished:
   return {
     books: Object.fromEntries(places.map(item => [item.bookId, item])),
     finished,
+    hidden: {},
     lastSettledBookId: settled,
     lastSettledAt: NOW,
     updatedAt: NOW,
@@ -275,6 +276,8 @@ describe('a daily Bible reader who opens another book afterwards', () => {
     const bibleOpen = bibleCard.querySelector<HTMLElement>('[data-recap-open]')!
     expect(bibleOpen.getAttribute('aria-label')).toContain('Proverbs 17')
     expect(bibleOpen.getAttribute('aria-current')).toBe('false')
+    expect(bibleCard.querySelector('[data-now-remove]')!.getAttribute('aria-label'))
+      .toBe('Remove The Bible from currently reading')
     expect(section.querySelectorAll('[data-testid=lab-recap-summary]')).toHaveLength(1)
     expect(section.querySelector('.lib-recap-row-recap')).toBeNull()
   })
@@ -312,3 +315,93 @@ describe('a daily Bible reader who opens another book afterwards', () => {
   })
 })
 
+/**
+ * Taking a book off Reading now. The control is the classic app's: a round ×
+ * on the corner of the card, one tap, no confirmation. Removing must delete
+ * nothing — the place, the notes, the highlights, the chat and the sessions
+ * all survive — and reading the book again must list it once more, at the
+ * page it was left on.
+ */
+describe('remove a book from Reading now', () => {
+  const twoBooks = () => ({
+    sessions: [
+      bibleSession(ago(9 * HOUR)),
+      sessionFor(platoDialogueFixture(), { id: 'republic', state: 'progressed', startedAt: ago(2 * HOUR), lastActiveAt: ago(90 * MINUTE), page: 2, owner: USER }),
+    ],
+    positions: positionState([
+      biblePlace(ago(9 * HOUR) + MINUTE),
+      place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 1, primaryEditionKey: 'original-en', updatedAt: ago(89 * MINUTE) }),
+    ], 'plato-republic'),
+  })
+
+  /** Everything about a book that is not the list itself. */
+  function seedBookBelongings() {
+    localStorage.setItem('tinct:notes:bible', JSON.stringify([{ id: 'n1', text: 'Quiet bread.' }]))
+    localStorage.setItem('chat-history:bible', JSON.stringify([{ role: 'user', content: 'Who is Solomon?', bookId: 'bible' }]))
+    localStorage.setItem('tinct:highlights:bible', JSON.stringify([{ id: 'h1', color: 'amber' }]))
+  }
+
+  function storedPositions() {
+    return JSON.parse(localStorage.getItem(LAB_POSITION_STORAGE_KEY)!) as LabPositionState
+  }
+
+  it('takes the centred book off the list, leaves everything else about it alone, and falls through to the next', async () => {
+    const { sessions, positions } = twoBooks()
+    seedBookBelongings()
+    const section = await renderLibrary(sessions, positions)
+    expect(section.dataset.readingNow).toBe('2')
+    expect(section.dataset.book).toBe('plato-republic')
+
+    section.querySelector<HTMLElement>('[data-now-book="plato-republic"] [data-now-remove]')!.click()
+    await flush()
+
+    // Off the list, and the hero is now the book behind it.
+    expect(section.dataset.readingNow).toBe('1')
+    expect(section.dataset.book).toBe('bible')
+    expect(section.querySelector('[data-now-book="plato-republic"]')).toBeNull()
+    expect(section.querySelector('[data-now-book="bible"]')).not.toBeNull()
+
+    // Nothing was deleted. The place is byte-for-byte the place it was.
+    const stored = storedPositions()
+    expect(stored.books['plato-republic']).toEqual(positions.books['plato-republic'])
+    expect(stored.hidden['plato-republic']).toBeGreaterThan(0)
+    expect(localStorage.getItem('tinct:notes:bible')).toContain('Quiet bread.')
+    expect(localStorage.getItem('chat-history:bible')).toContain('Who is Solomon?')
+    expect(localStorage.getItem('tinct:highlights:bible')).toContain('h1')
+    expect(Object.keys(JSON.parse(localStorage.getItem(READING_MEMORY_DEVICE_KEY)!).sessions)).toHaveLength(2)
+  })
+
+  it('lists the book again the moment it is read again, at the place it was left', async () => {
+    const { sessions, positions } = twoBooks()
+    const section = await renderLibrary(sessions, positions)
+    section.querySelector<HTMLElement>('[data-now-book="plato-republic"] [data-now-remove]')!.click()
+    await flush()
+    expect(section.querySelector('[data-now-book="plato-republic"]')).toBeNull()
+
+    // Reading it again writes a newer place. Nothing un-hides it explicitly.
+    const hiddenAt = storedPositions().hidden['plato-republic']
+    const reopened = {
+      ...storedPositions(),
+      books: {
+        ...storedPositions().books,
+        'plato-republic': { ...positions.books['plato-republic'], paragraphIndex: 3, updatedAt: hiddenAt + 1_000, rev: 2 },
+      },
+    }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(reopened))
+    await (window as unknown as { __tinctLabReadingMemory: { render: () => Promise<void> } }).__tinctLabReadingMemory.render()
+    await flush()
+
+    expect(section.dataset.readingNow).toBe('2')
+    const card = section.querySelector<HTMLElement>('[data-now-book="plato-republic"]')!
+    expect(card).not.toBeNull()
+    expect(storedPositions().books['plato-republic'].paragraphIndex).toBe(3)
+  })
+
+  it('names the book in the control, the way the classic app does', async () => {
+    const { sessions, positions } = twoBooks()
+    const section = await renderLibrary(sessions, positions)
+    const control = section.querySelector<HTMLElement>('[data-now-book="bible"] [data-now-remove]')!
+    expect(control.getAttribute('aria-label')).toBe('Remove The Bible from currently reading')
+    expect(control.textContent).toBe('×')
+  })
+})

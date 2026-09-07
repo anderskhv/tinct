@@ -1239,6 +1239,11 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item.is-focused { opacity:1; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-open { display:block; width:100%; text-align:left; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item .lib-cover { box-shadow:0 14px 30px var(--lib-shadow-soft); }
+  /* Take it off the list — the classic app's control, in the classic app's
+     place: a small round × on the top-right corner of the card, one tap, no
+     confirmation. It removes the book from the list and nothing else. */
+  #tinct-onboarding-worlds-v5 .lib .lib-now-remove { position:absolute; top:6px; right:6px; z-index:2; display:grid; place-items:center; width:26px; height:26px; border:1px solid var(--lib-rule-strong); border-radius:999px; background:rgba(7,23,35,.72); color:var(--lib-cream); font:16px/1 var(--lib-sans); }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-remove:hover { background:rgba(7,23,35,.9); }
   #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-height:132px; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:26px; line-height:1.14; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; font-size:15.5px; line-height:1.45; color:var(--lib-lede); max-width:52ch; }

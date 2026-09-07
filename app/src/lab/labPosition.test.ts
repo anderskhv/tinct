@@ -11,8 +11,12 @@ import {
   parseLabPositionState,
   placeFromChapterRef,
   resumePlace,
+  isHiddenFromReadingNow,
+  mergeHiddenFromReadingNow,
+  parseHiddenFromReadingNow,
   unionFinishedChapters,
   withFinishedChapter,
+  withHiddenFromReadingNow,
   shouldApplyCloudBookPlace,
   type LabBookPlace,
   type LabChapterRef,
@@ -512,6 +516,50 @@ describe('finished chapters in the position record', () => {
     expect(causes).toEqual(['immediate'])
     expect(withFinishedChapter(first, 'bible', 0, 10_000)).toBe(first)
     expect(withFinishedChapter(first, 'odyssey', 3, 10_000).finished).toEqual({ bible: [780], odyssey: [3] })
+  })
+})
+
+describe('taking a book off the Reading-now list', () => {
+  const readAt = (at: number) => ({
+    ...emptyLabPositionState(DEVICE),
+    books: { odyssey: place({ bookId: 'odyssey', headerBook: 'The Odyssey', updatedAt: at }) },
+  })
+
+  it('parses only real timestamps, and a missing field is an empty map', () => {
+    expect(parseLabPositionState({ books: {} }, DEVICE).hidden).toEqual({})
+    expect(parseHiddenFromReadingNow({ odyssey: 5_000, bible: 'soon', '': 1, iliad: 0 })).toEqual({ odyssey: 5_000 })
+    expect(parseHiddenFromReadingNow(null)).toEqual({})
+    expect(parseLabPositionState({ books: {}, hidden: { odyssey: 5_000 } }, DEVICE).hidden).toEqual({ odyssey: 5_000 })
+  })
+
+  it('hides the book without touching its place, and lists it again the moment it is read', () => {
+    const before = readAt(4_000)
+    const hidden = withHiddenFromReadingNow(before, 'odyssey', 5_000)
+    expect(isHiddenFromReadingNow(hidden, 'odyssey')).toBe(true)
+    // The pin is exactly what it was: removal is not deletion.
+    expect(hidden.books.odyssey).toBe(before.books.odyssey)
+    expect(hidden.finished).toBe(before.finished)
+    // Reading it again writes a newer place, which is all it takes to return.
+    const readAgain: LabPositionState = {
+      ...hidden,
+      books: { odyssey: place({ bookId: 'odyssey', headerBook: 'The Odyssey', updatedAt: 6_000, paragraphIndex: 12 }) },
+    }
+    expect(isHiddenFromReadingNow(readAgain, 'odyssey')).toBe(false)
+    expect(readAgain.books.odyssey.paragraphIndex).toBe(12)
+    // A book nobody hid is never hidden, and a hide of nothing is a no-op.
+    expect(isHiddenFromReadingNow(before, 'odyssey')).toBe(false)
+    expect(isHiddenFromReadingNow(hidden, 'bible')).toBe(false)
+    expect(withHiddenFromReadingNow(before, '', 5_000)).toBe(before)
+    expect(withHiddenFromReadingNow(hidden, 'odyssey', 5_000)).toBe(hidden)
+  })
+
+  it('syncs: the newest hide per book survives both merges, in either direction', () => {
+    const phone: LabPositionState = { ...emptyLabPositionState(DEVICE), hidden: { odyssey: 5_000 }, updatedAt: 5_000 }
+    const laptop: LabPositionState = { ...emptyLabPositionState('desk'), hidden: { odyssey: 2_000, bible: 9_000 }, updatedAt: 9_000 }
+    expect(mergeLabPositionStatesByTime(phone, laptop).hidden).toEqual({ odyssey: 5_000, bible: 9_000 })
+    expect(mergeLabPositionStatesByTime(laptop, phone).hidden).toEqual({ odyssey: 5_000, bible: 9_000 })
+    expect(mergeLabPositionStates(phone, laptop, []).hidden).toEqual({ odyssey: 5_000, bible: 9_000 })
+    expect(mergeHiddenFromReadingNow({}, {})).toEqual({})
   })
 })
 

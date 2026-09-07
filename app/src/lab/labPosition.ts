@@ -94,6 +94,20 @@ export interface LabPositionState {
    * bookId (`bible`, `odyssey`, …) with sequential chapter numbers, sorted.
    */
   finished: Record<string, number[]>
+  /**
+   * Books the reader took off the Reading-now list, keyed by library bookId,
+   * valued with the moment they did it. Nothing is deleted: the place, the
+   * notes, the highlights, the chat and the reading-memory sessions are all
+   * untouched — the book simply stops being listed.
+   *
+   * Hidden-ness is a comparison, not a boolean, which is why one timestamp is
+   * enough: the book is hidden while the hide is at least as new as its place.
+   * Opening the book writes a newer place, so it returns to the list by
+   * itself, at the place it was left — no un-hide write, and therefore no
+   * tombstone to sync and nothing to go stale between devices. Merging is
+   * max-per-book, so a hide on the phone reaches the laptop with the pins.
+   */
+  hidden: Record<string, number>
   lastSettledBookId: string | null
   lastSettledAt: number
   updatedAt: number
@@ -109,6 +123,7 @@ export function emptyLabPositionState(deviceId: string): LabPositionState {
   return {
     books: {},
     finished: {},
+    hidden: {},
     lastSettledBookId: null,
     lastSettledAt: 0,
     updatedAt: 0,
@@ -277,7 +292,62 @@ export function parseLabPositionState(raw: unknown, fallbackDeviceId = 'lab'): L
     : null
   const lastSettledAt = isFiniteInt(src.lastSettledAt, 0, 1e15) ? src.lastSettledAt : 0
   const updatedAt = isFiniteInt(src.updatedAt, 0, 1e15) ? src.updatedAt : 0
-  return { books, finished: parseFinishedChapters(src.finished), lastSettledBookId, lastSettledAt, updatedAt, deviceId }
+  return {
+    books,
+    finished: parseFinishedChapters(src.finished),
+    hidden: parseHiddenFromReadingNow(src.hidden),
+    lastSettledBookId,
+    lastSettledAt,
+    updatedAt,
+    deviceId,
+  }
+}
+
+// ------------------------------------------------- hidden from Reading now
+
+const MAX_HIDDEN_BOOKS = 500
+
+export function parseHiddenFromReadingNow(raw: unknown): Record<string, number> {
+  if (!raw || typeof raw !== 'object') return {}
+  const hidden: Record<string, number> = {}
+  for (const [bookId, at] of Object.entries(raw as Record<string, unknown>)) {
+    if (!bookId || bookId.length > 80) continue
+    if (!isFiniteInt(at, 1, 1e15)) continue
+    hidden[bookId] = at
+    if (Object.keys(hidden).length >= MAX_HIDDEN_BOOKS) break
+  }
+  return hidden
+}
+
+/** Newest hide per book wins, so the list agrees across devices. */
+export function mergeHiddenFromReadingNow(a: Record<string, number>, b: Record<string, number>): Record<string, number> {
+  const out: Record<string, number> = { ...a }
+  for (const [bookId, at] of Object.entries(b)) {
+    if (!(bookId in out) || at > out[bookId]) out[bookId] = at
+  }
+  return out
+}
+
+/**
+ * Whether the book is off the Reading-now list. It is, while the reader's
+ * hide is at least as new as the book's own place: reading it again writes a
+ * newer place and puts it back, at the same page.
+ */
+export function isHiddenFromReadingNow(state: Pick<LabPositionState, 'hidden' | 'books'>, bookId: string): boolean {
+  const hiddenAt = state.hidden?.[bookId] ?? 0
+  if (hiddenAt <= 0) return false
+  return hiddenAt >= (state.books?.[bookId]?.updatedAt ?? 0)
+}
+
+/** Take a book off the list. Writes one timestamp; deletes nothing. */
+export function withHiddenFromReadingNow(state: LabPositionState, bookId: string, now: number): LabPositionState {
+  if (!bookId || !isFiniteInt(now, 1, 1e15)) return state
+  if (state.hidden[bookId] === now) return state
+  return {
+    ...state,
+    hidden: mergeHiddenFromReadingNow(state.hidden, { [bookId]: now }),
+    updatedAt: Math.max(state.updatedAt, now),
+  }
 }
 
 export function resumePlace(state: LabPositionState): LabBookPlace | null {
@@ -376,6 +446,7 @@ export function mergeLabPositionStates(local: LabPositionState, cloud: LabPositi
   return {
     books,
     finished: unionFinishedChapters(local.finished, cloud.finished),
+    hidden: mergeHiddenFromReadingNow(local.hidden, cloud.hidden),
     lastSettledBookId,
     lastSettledAt,
     updatedAt: Math.max(local.updatedAt, cloud.updatedAt),
@@ -403,6 +474,7 @@ export function mergeLabPositionStatesByTime(local: LabPositionState, incoming: 
   return {
     books,
     finished: unionFinishedChapters(local.finished, incoming.finished),
+    hidden: mergeHiddenFromReadingNow(local.hidden, incoming.hidden),
     lastSettledBookId,
     lastSettledAt,
     updatedAt: Math.max(local.updatedAt, incoming.updatedAt),
