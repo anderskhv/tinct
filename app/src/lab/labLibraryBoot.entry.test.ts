@@ -122,7 +122,7 @@ describe('the blocking boot script agrees with the module', () => {
   it('replaces the entry with the reader for a signed-in reader who read within the window', () => {
     const result = runBoot('/lab/landing', 'tinct_auth=1', readRecently)
     expect(result.entry).toBe('reader')
-    expect(result.replaced).toEqual(['/lab/reader'])
+    expect(result.replaced).toEqual(['/lab/reader?chrome=v2'])
     // Nothing was painted before the redirect.
     expect(result.attributes['data-lab-boot-view']).toBeUndefined()
   })

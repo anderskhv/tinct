@@ -422,7 +422,7 @@
       } catch (e) { /* storage blocked */ }
       var preview = new URLSearchParams(location.search)
       var trial = preview.get('voiceTrial')
-      location.replace(preview.get('chrome') === 'v2' ? '/lab/reader?chrome=v2' + (trial === 'full' || trial === 'mini' ? '&voiceTrial=' + trial : '') : '/lab/reader')
+      location.replace('/lab/reader?chrome=v2' + (trial === 'full' || trial === 'mini' ? '&voiceTrial=' + trial : ''))
       return
     }
     if (state.entry === 'library') {

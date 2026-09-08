@@ -515,10 +515,9 @@ export function readReaderOrigin(storage) {
   }
 }
 
-/** Keep explicit reader experiments through library and book selection. */
+/** Library selections open the new reader, preserving an explicit voice trial. */
 export function readerPreviewSearch(search) {
   const source = new URLSearchParams(search)
-  if (source.get('chrome') !== 'v2') return ''
   const trial = source.get('voiceTrial')
   return `?chrome=v2${trial === 'full' || trial === 'mini' ? `&voiceTrial=${trial}` : ''}`
 }
