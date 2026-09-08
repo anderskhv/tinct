@@ -276,12 +276,14 @@ describe('worker SEO routing', () => {
     expect(await marketing.text()).toContain('odyssey marketing')
 
     const fromApp = await worker.fetch(new Request('https://tinct.app/read/odyssey?from=app'), env as never, ctx)
-    expect(await fromApp.text()).toContain('app shell')
+    expect(fromApp.status).toBe(302)
+    expect(fromApp.headers.get('Location')).toBe('/lab/?book=odyssey&view=book-detail')
 
     const signedIn = await worker.fetch(new Request('https://tinct.app/read/odyssey', {
       headers: { Cookie: 'tinct_auth=1' },
     }), env as never, ctx)
-    expect(await signedIn.text()).toContain('app shell')
+    expect(signedIn.status).toBe(302)
+    expect(signedIn.headers.get('Location')).toBe('/lab/?book=odyssey&view=book-detail')
   })
 
   it('serves the standalone /lab entry and nested reader as noindex surfaces', async () => {
@@ -303,10 +305,35 @@ describe('worker SEO routing', () => {
     expect(await head.text()).toBe('')
   })
 
-  it('keeps /app on the production SPA shell', async () => {
+  it.each(['GET', 'HEAD'])('serves the promoted homepage without noindex (%s)', async method => {
+    const response = await worker.fetch(new Request('https://tinct.app/', { method }), routerEnv() as never, ctx)
+    expect(response.status).toBe(200)
+    expect(response.headers.get('X-Robots-Tag')).toBeNull()
+    expect(response.headers.get('Cache-Control')).toBe('no-store')
+    const body = await response.text()
+    if (method === 'HEAD') expect(body).toBe('')
+    else {
+      expect(body).toContain('tinct-onboarding-worlds-v5')
+      expect(body).not.toContain('noindex')
+      expect(body).toContain('href="https://tinct.app/"')
+    }
+  })
+
+  it.each([
+    ['/reader', '/lab/reader?chrome=v2'],
+    ['/app?signin=1', '/lab/sign-in'],
+    ['/library', '/lab/library'],
+    ['/app?book=ulysses', '/lab/?book=ulysses&view=book-detail'],
+  ])('preserves public navigation intent from %s', async (path, target) => {
+    const response = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
+    expect(response.status).toBe(302)
+    expect(response.headers.get('Location')).toBe(target)
+  })
+
+  it('opens the promoted library from /app', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
-    expect(await resp.text()).toContain('app shell')
+    expect(resp.status).toBe(302)
+    expect(resp.headers.get('Location')).toBe('/lab/library')
   })
 
   it('serves unknown app paths as noindex SPA fallback', async () => {

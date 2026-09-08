@@ -6,7 +6,8 @@ vi.mock('../data/editionLoader', () => ({ loadEditionWindow: vi.fn() }))
 const context = { bookId:'bible', editionKey:'kjv-en', bookTitle:'The Bible', bookAuthor:'Various', chapterLabel:'Genesis 2', chapterNumber:2, paragraphIndex:0, paragraphs:['The heavens and the earth were finished.'], readingAngle:'' }
 beforeEach(() => vi.mocked(loadEditionWindow).mockResolvedValue({chapters:[{number:1,title:'Genesis 1',paragraphs:['Let there be light.']},{number:2,title:'Genesis 2',paragraphs:context.paragraphs},{number:3,title:'Genesis 3',paragraphs:['Later text.']}]}))
 describe('direct voice trial', () => {
-  it('requires both explicit flags and a lab reader route', () => {
+  it('defaults the new reader to full voice and keeps mini opt-in', () => {
+    expect(labVoiceTrial('/lab/reader', '?chrome=v2')).toBe('full')
     expect(labVoiceTrial('/lab/phone','?chrome=v2&voiceTrial=full')).toBe('full')
     expect(labVoiceTrial('/lab/reader?chrome=v2&voiceTrial=mini')).toBe('mini')
     for (const path of ['/app','/lab/library','/lab/reader']) expect(labVoiceTrial(path,'?voiceTrial=full')).toBeNull()

@@ -2008,9 +2008,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // standing so it can say "Disconnected" and offer to reconnect; only End
     // conversation (or Reconnect failing) takes it down.
     if (voiceCallSurfaceRef.current && callOpenRef.current) {
-      if (!voiceTrial || ask.voiceConnection !== 'idle') return
-      setCallOpen(false)
-      callAnchorRef.current = null
+      return
     }
     if (phoneAskOpenRef.current) {
       setChrome(current => {

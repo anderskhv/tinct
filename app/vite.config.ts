@@ -103,13 +103,8 @@ export default defineConfig(({ mode, command }) => {
     {
       name: 'anthropic-proxy',
       configureServer(server) {
-        // Production has a build-time swap: `mv dist/index.html dist/app.html
-        // && cp dist/landing.html dist/index.html`. So `/` serves the static
-        // landing page in prod. Dev doesn't run that swap, so `/` would serve
-        // the SPA — making sign-out (which redirects to `/`) drop the user
-        // into the BookStore instead of the landing page. Mirror the swap
-        // in dev: at `/` (and `/index.html`), serve `public/landing.html`.
-        // SPA still reachable at `/read` and friends.
+        // Mirror the promoted public homepage while keeping the lab routes
+        // available for the catalogue, sign-in and reader.
         server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
           const url = req.url || ''
           // Strip query string for the path comparison
@@ -145,7 +140,7 @@ export default defineConfig(({ mode, command }) => {
             return
           }
           if (pathOnly === '/' || pathOnly === '/index.html') {
-            const landingPath = path.join(process.cwd(), 'public', 'landing.html')
+            const landingPath = path.join(process.cwd(), 'public', 'lab', 'index.html')
             if (fs.existsSync(landingPath)) {
               res.writeHead(200, { 'Content-Type': 'text/html' })
               fs.createReadStream(landingPath).pipe(res)

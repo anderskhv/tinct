@@ -322,37 +322,39 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       })
     }
 
-    // Root URL serves the landing page (which is index.html after build swap).
-    // SPA is available at /app.html and /app. Plain /read is now the static
-    // crawlable library hub, so signed-in app traffic must not redirect there.
-    //
-    // Signed-in short-circuit: if the client has a `tinct_auth=1` cookie
-      // (set by the SPA in useAuth on sign-in, cleared on sign-out), 302 to
-      // /app before serving landing.html. This is deterministic across
-    // browsers/devices and far more reliable than the inline-script
-    // localStorage probe in landing.html. That inline script remains as a
-    // fallback for cookie-disabled browsers.
-    if (url.pathname === '/' && request.method === 'GET') {
-      const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
-      const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
-      if (hasAuthCookie) {
-        return new Response(null, {
-          status: 302,
-          headers: { Location: '/app', 'Cache-Control': 'no-store' },
-        })
+    // Promote the proven catalogue/reader flow at the public entry. The
+    // boot script handles anonymous, returning and recently-reading users.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
+      const home = await serveLabPreReader(request.method, url, env, '/lab/')
+      if (home) {
+        const html = request.method === 'HEAD' ? null : (await home.text())
+          .replace(/<meta\s+name="robots"[^>]*>/i, '')
+          .replace(/<title>[^<]*<\/title>/i, '<title>Tinct — A New Way to Read</title>')
+          .replace('</head>', '<meta name="description" content="Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading."><link rel="canonical" href="https://tinct.app/"></head>')
+        const response = new Response(html, home)
+        response.headers.delete('X-Robots-Tag')
+        response.headers.delete('Content-Length')
+        response.headers.delete('ETag')
+        return response
       }
-      // For signed-out users, serve landing.html but mark it no-store so the
-      // Cloudflare edge doesn't cache the Worker's response. Without this,
-      // CF caches the first (no-cookie) response and subsequent requests —
-      // even with the auth cookie — are served from edge without re-running
-      // the Worker, which silently breaks the signed-in redirect.
-      const resp = await env.ASSETS.fetch(request)
-      const newResp = new Response(resp.body, resp)
-      newResp.headers.set('Cache-Control', 'no-store')
-      for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-        newResp.headers.set(key, value)
+      return new Response('Temporarily unavailable', { status: 503, headers: { 'Cache-Control': 'no-store' } })
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && ['/app', '/library', '/reader'].includes(url.pathname)) {
+      const destination = new URL(url.toString())
+      if (url.searchParams.has('signin')) {
+        destination.pathname = '/lab/sign-in'
+        destination.searchParams.delete('signin')
+      } else if (url.pathname === '/reader') {
+        destination.pathname = '/lab/reader'
+        destination.searchParams.set('chrome', 'v2')
+      } else if (url.searchParams.has('book')) {
+        destination.pathname = '/lab/'
+        destination.searchParams.set('view', 'book-detail')
+      } else {
+        destination.pathname = '/lab/library'
       }
-      return newResp
+      return new Response(null, { status: 302, headers: { Location: destination.pathname + destination.search, 'Cache-Control': 'no-store' } })
     }
 
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
@@ -449,6 +451,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       if (!url.search && !hasAuthCookie) {
         const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
         if (staticBookResp) return staticBookResp
+      }
+      if ((url.search || hasAuthCookie) && (BOOK_META[bookId] || GENERATED_BOOK_META[bookId])) {
+        const target = new URL('/lab/', url.origin)
+        target.searchParams.set('book', bookId)
+        target.searchParams.set('view', 'book-detail')
+        return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
       }
       // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
       // generated meta from bookRegistry is the fallback so every book in

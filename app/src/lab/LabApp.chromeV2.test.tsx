@@ -103,9 +103,9 @@ describe('the chrome V2 flag', () => {
     expect(screen.getByTestId('lab-gear')).toBeTruthy()
   })
 
-  it('keeps the two preview flags independent', () => {
+  it('uses the tested voice experience by default with the new chrome', () => {
     renderPhone('?chrome=v2')
-    expect(root().getAttribute('data-voice-version')).toBe('v1')
+    expect(root().getAttribute('data-voice-version')).toBe('v2')
     expect(root().getAttribute('data-chrome-version')).toBe('v2')
   })
 })

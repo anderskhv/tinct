@@ -6,6 +6,7 @@ import { chapterHearingPages } from '../lab/labHearing'
 import { READING_MEMORY_DEVICE_KEY, READING_MEMORY_QUEUE_KEY, deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory } from './deviceStore'
 import { fakeVersionedCloud, platoDialogueFixture, sessionFor } from './fixtures.test-helpers'
 import { applyReadingMemoryEvent, emptyReadingMemory, eventFromSession, latestReadingSession } from './sessions'
+import type { ReadingMemoryCloud } from './queue'
 import { useLabReadingMemory, type LabReadingMemoryInput } from './useLabReadingMemory'
 
 afterEach(() => {
@@ -56,16 +57,18 @@ describe('useLabReadingMemory (reader observer)', () => {
 
   it('signing in adopts the signed-out sessions on the device and continues under the account', async () => {
     const fixture = platoDialogueFixture()
+    // Cloud hydration may remain pending while the reader turns a page.
+    const cloudFor = (): ReadingMemoryCloud => ({ read: () => new Promise(() => {}), commit: async () => { throw new Error('No commit while hydration is pending') } })
     const earlier = sessionFor(fixture, { id: 'earlier', state: 'progressed', startedAt: Date.UTC(2026, 8, 1, 6), lastActiveAt: Date.UTC(2026, 8, 1, 6, 10), endedAt: Date.UTC(2026, 8, 1, 6, 10), owner: null })
     const foreign = sessionFor(fixture, { id: 'foreign', state: 'started', startedAt: Date.UTC(2026, 8, 1, 5), endedAt: Date.UTC(2026, 8, 1, 5), owner: 'someone-else' })
     writeDeviceReadingMemory(applyReadingMemoryEvent(applyReadingMemoryEvent(emptyReadingMemory(), eventFromSession(earlier)), eventFromSession(foreign)))
-    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor() })
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ cloudFor }) })
     const anonymous = latestReadingSession(readDeviceReadingMemory())
     expect(anonymous?.id).not.toBe('earlier')
     expect(anonymous?.owner).toBeNull()
     expect(deviceReadingMemoryQueue().pending()).toEqual([])
 
-    await act(async () => { rerender(inputFor({ userId: 'user-1' })) })
+    await act(async () => { rerender(inputFor({ userId: 'user-1', cloudFor })) })
     await waitFor(() => {
       const device = readDeviceReadingMemory()
       expect(device.sessions.earlier?.owner).toBe('user-1')
@@ -83,7 +86,7 @@ describe('useLabReadingMemory (reader observer)', () => {
     for (const event of queued) expect(event.session.owner).toBe('user-1')
 
     // The recorder re-read the adopted store: its next write keeps every owner.
-    await act(async () => { rerender(inputFor({ userId: 'user-1', pageIndex: 1 })) })
+    await act(async () => { rerender(inputFor({ userId: 'user-1', pageIndex: 1, cloudFor })) })
     for (const session of Object.values(readDeviceReadingMemory().sessions)) expect(session.owner).toBe('user-1')
   })
 

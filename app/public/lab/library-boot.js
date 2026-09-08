@@ -87,7 +87,7 @@
   /** Bare entry: /lab, /lab/, /lab/landing, with no view or book asked for. */
   function labEntryPath(loc) {
     var path = String(loc.pathname || '').replace(/\/+$/, '')
-    if (path !== '/lab' && path !== '/lab/landing') return false
+    if (path !== '' && path !== '/lab' && path !== '/lab/landing') return false
     try {
       var params = new URLSearchParams(loc.search || '')
       return !params.get('view') && !params.get('book')

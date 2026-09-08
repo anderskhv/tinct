@@ -166,7 +166,11 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
     if (!userId) return
     let cancelled = false
     const cloud = cloudForRef.current(userId)
-    void adoptReadingMemoryOnSignIn({ userId, cloud, drain: false })
+    const adoption = adoptReadingMemoryOnSignIn({ userId, cloud, drain: false })
+    // Adoption rewrites the device synchronously. Reload before waiting for
+    // the network: a page turn during hydration must not restore old owners.
+    recorderRef.current?.reload()
+    void adoption
       .then(() => hydrateReadingMemoryFromCloud({ cloud }))
       .then(() => {
         if (cancelled) return

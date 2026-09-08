@@ -34,7 +34,7 @@ function mountRoot(): HTMLElement {
 const SESSION = JSON.stringify({ access_token: 'x', user: { id: 'user-a', email: 'anders@example.com', user_metadata: { full_name: 'Anders Hvelplund' } } })
 const SNAPSHOT = { v: 1, at: Date.now() - 5_000, userId: 'user-a', readingNow: 2, finished: 0, hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: 'You stopped in Proverbs 17', coverSrc: '/covers/bible.jpg', coverSrcSet: null, note: '12% read' } }
 
-beforeEach(() => { localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
+beforeEach(() => { history.replaceState(null, '', '/'); document.cookie = 'tinct_auth=; Max-Age=0; path=/'; localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
 afterEach(() => { localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
 
 const READER_ORIGIN_KEY = 'tinct:lab-reader-origin'

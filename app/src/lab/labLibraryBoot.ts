@@ -242,7 +242,7 @@ export type LabEntryTarget = 'landing' | 'library' | 'reader'
  */
 export function isLabEntryPath(pathname: string, search = ''): boolean {
   const path = pathname.split('?')[0].split('#')[0].replace(/\/+$/, '')
-  if (path !== '/lab' && path !== '/lab/landing') return false
+  if (path !== '' && path !== '/lab' && path !== '/lab/landing') return false
   const query = search.startsWith('?') ? search.slice(1) : search
   const params = new URLSearchParams(query)
   // A deep link that names a view or a book is an explicit request; leave it.

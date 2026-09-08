@@ -25,7 +25,7 @@ describe('lab entry: a signed-in reader never sees the landing page', () => {
     expect(isLabEntryPath('/lab')).toBe(true)
     expect(isLabEntryPath('/lab/')).toBe(true)
     expect(isLabEntryPath('/lab/landing')).toBe(true)
-    expect(isLabEntryPath('/')).toBe(false)
+    expect(isLabEntryPath('/')).toBe(true)
     expect(isLabEntryPath('/lab/library')).toBe(false)
     expect(isLabEntryPath('/lab/reader')).toBe(false)
     expect(isLabEntryPath('/lab', '?view=landing')).toBe(false)
