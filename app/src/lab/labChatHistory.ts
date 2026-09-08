@@ -231,6 +231,7 @@ function appendTurnToConversations(
   bookId: string,
   chapterNumber: number,
   paragraphIndex: number | undefined,
+  continued = false,
 ): ChatConversation[] {
   const now = enriched.timestamp
   const last = current[current.length - 1]
@@ -238,7 +239,7 @@ function appendTurnToConversations(
     last
     && last.bookId === bookId
     && last.chapterNumber === chapterNumber
-    && now - last.endTimestamp < CONVERSATION_GAP_MS
+    && (continued || now - last.endTimestamp < CONVERSATION_GAP_MS)
   ) {
     if (last.messages.some(item => item.id === enriched.id)) return current
     const lastMsg = last.messages[last.messages.length - 1]
@@ -300,9 +301,15 @@ export function appendLabChatTurn(
   message: ChatMessage,
   chapterNumber = 1,
   paragraphIndex?: number,
+  conversationId?: string,
 ): ChatConversation[] {
-  const current = readLabBookChat(bookId)
+  let current = readLabBookChat(bookId)
   if (!bookId) return current
+  if (conversationId) {
+    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    if (!target) return current
+    current = [...current.filter(item => item.id !== target.id), target]
+  }
   const content = (message.content || '').trim()
   if (!content) return current
   const now = message.timestamp || Date.now()
@@ -314,7 +321,7 @@ export function appendLabChatTurn(
     paragraphIndex,
     timestamp: now,
   }
-  const next = trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex))
+  const next = trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
   if (next === current) return current
   writeLabBookChat(bookId, next)
   return next
@@ -454,6 +461,7 @@ export async function syncLabBookChatWithCloud(input: {
   cloud: LabChatHistoryCloud
   /** Remembers the rev of the row this device last saw, for later commits. */
   revs?: Map<string, number>
+  onUnavailable?: () => void
 }): Promise<ChatConversation[]> {
   const { bookId, cloud } = input
   const local = readLabBookChat(bookId)
@@ -476,6 +484,7 @@ export async function syncLabBookChatWithCloud(input: {
     }
     return readLabBookChat(bookId)
   } catch {
+    input.onUnavailable?.()
     return local
   }
 }
@@ -532,8 +541,8 @@ export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<s
       if (!inFlight.has(bookId)) void run(bookId)
     },
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
-    sync(bookId: string) {
-      return syncLabBookChatWithCloud({ bookId, cloud, revs })
+    sync(bookId: string, onUnavailable?: () => void) {
+      return syncLabBookChatWithCloud({ bookId, cloud, revs, onUnavailable })
     },
     isDirty: () => dirty,
     revs,

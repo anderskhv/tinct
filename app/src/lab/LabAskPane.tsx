@@ -7,6 +7,8 @@ import { LabMarkdown } from './LabMarkdown'
 interface LabAskPaneProps {
   conversationState: LabConversationState
   chromeV2?: boolean
+  focusTurnId?: string | null
+  onBackToContents?: () => void
   dictationState?: 'idle' | 'starting' | 'listening'
   onStopVoice?: () => void
   voiceActive: boolean
@@ -63,6 +65,8 @@ function VoiceIcon() {
 export function LabAskPane({
   conversationState,
   chromeV2 = false,
+  focusTurnId,
+  onBackToContents,
   dictationState = 'idle',
   onStopVoice,
   voiceActive: _voiceActive,
@@ -236,6 +240,21 @@ export function LabAskPane({
     lastTurnIdRef.current = lastTurn?.id ?? null
   }, [holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
 
+  const focusedTurnRef = useRef<string | null>(null)
+  useLayoutEffect(() => {
+    if (!chromeV2 || !focusTurnId || focusedTurnRef.current === focusTurnId) return
+    const index = turns.findIndex(turn => turn.id === focusTurnId)
+    if (index < 0) return
+    if (hidden > index) { setHiddenCount(index); return }
+    const body = threadRef.current
+    const row = Array.from(body?.querySelectorAll<HTMLElement>('[data-turn-id]') || []).find(node => node.dataset.turnId === focusTurnId)
+    if (!body || !row) return
+    body.scrollTop = Math.max(0, row.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop)
+    nearBottomRef.current = false
+    pinnedScrollTopRef.current = null
+    focusedTurnRef.current = focusTurnId
+  }, [chromeV2, focusTurnId, hidden, turns])
+
   // The phone keyboard shrinks the thread; keep the newest message in view
   // when the reader was already at the bottom.
   useEffect(() => {
@@ -391,6 +410,7 @@ export function LabAskPane({
           </button>
         </div>
       )}
+      {chromeV2 && onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
       {empty ? (
         <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
       ) : (
@@ -415,6 +435,7 @@ export function LabAskPane({
                 <div
                   className={`lab-ask-turn is-${turn.role}`}
                   data-testid={`lab-ask-turn-${turn.role}`}
+                  {...(chromeV2 ? { 'data-turn-id': turn.id } : {})}
                 >
                   {chromeV2 && turn.timestamp != null && Number.isFinite(turn.timestamp) && (
                     <time className="lab-ask-time" dateTime={new Date(turn.timestamp).toISOString()}>

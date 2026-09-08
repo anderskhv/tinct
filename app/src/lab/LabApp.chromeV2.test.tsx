@@ -175,12 +175,12 @@ describe('reveal', () => {
     fireEvent.pointerDown(chapter, { pointerId: 2 })
     fireEvent.click(chapter)
     expect(root().getAttribute('data-reader-controls')).toBe('visible')
-    expect(screen.queryByTestId('lab-bible-tree')).toBeNull()
+    expect(screen.queryByTestId('lab-contents-v2')).toBeNull()
     expect(screen.getByTestId('lab-super')).toBeTruthy()
 
     // Now that the chrome is up, the pill is a control again.
     fireEvent.click(screen.getByTestId('lab-header-chapter'))
-    expect(screen.getByTestId('lab-bible-tree')).toBeTruthy()
+    expect(screen.getByTestId('lab-contents-v2')).toBeTruthy()
   })
 
   it('still opens the picker after a press that revealed but never became a click', () => {
@@ -195,11 +195,11 @@ describe('reveal', () => {
     fireEvent.pointerDown(chapter, { pointerId: 2 })
     fireEvent.pointerCancel(chapter, { pointerId: 2 })
     expect(root().getAttribute('data-reader-controls')).toBe('visible')
-    expect(screen.queryByTestId('lab-bible-tree')).toBeNull()
+    expect(screen.queryByTestId('lab-contents-v2')).toBeNull()
     // The next tap on the pill is a tap on the pill.
     fireEvent.pointerDown(screen.getByTestId('lab-header-chapter'), { pointerId: 3 })
     fireEvent.click(screen.getByTestId('lab-header-chapter'))
-    expect(screen.getByTestId('lab-bible-tree')).toBeTruthy()
+    expect(screen.getByTestId('lab-contents-v2')).toBeTruthy()
   })
 
   it('opens the picker from the pill whenever the chrome is already up', () => {
@@ -207,7 +207,7 @@ describe('reveal', () => {
     expect(root().getAttribute('data-reader-controls')).toBe('visible')
     fireEvent.pointerDown(screen.getByTestId('lab-header-chapter'), { pointerId: 1 })
     fireEvent.click(screen.getByTestId('lab-header-chapter'))
-    expect(screen.getByTestId('lab-bible-tree')).toBeTruthy()
+    expect(screen.getByTestId('lab-contents-v2')).toBeTruthy()
   })
 
   it('keeps the progress line live and tappable while the chrome is hidden', () => {

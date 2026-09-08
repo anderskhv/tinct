@@ -17,6 +17,9 @@ export interface LabHighlightRange {
 
 export interface LabHighlight {
   id: string
+  /** V2 records their source; older unscoped marks are retained separately. */
+  bookId?: string
+  editionKey?: string
   chapterNumber: number
   paragraphIndex: number
   fromWord: number

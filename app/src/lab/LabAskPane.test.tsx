@@ -556,3 +556,10 @@ it('shows stored dates in V2 and keeps older messages accessible', () => {
   fireEvent.click(screen.getByText('← Back to book'))
   expect(onDone).toHaveBeenCalledOnce()
 })
+
+it('reveals the requested old conversation beyond the initial history window', () => {
+  const turns = Array.from({ length: 60 }, (_, index) => ({ id: `selected-${index}`, role: 'user' as const, content: `History question ${index}`, source: 'typed' as const }))
+  render(<LabAskPane chromeV2 focusTurnId="selected-2" conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} phoneSheet />)
+  expect(screen.getByText('History question 2')).toBeTruthy()
+  expect(document.querySelector('[data-turn-id="selected-2"]')).toBeTruthy()
+})

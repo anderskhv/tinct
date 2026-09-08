@@ -11,22 +11,24 @@ import {
   type LabHighlightRange,
 } from './labHighlights'
 
-export function useLabHighlights(chapterNumber: number) {
+export function useLabHighlights(chapterNumber: number, scope?: { bookId: string; editionKey: string }) {
   const [highlights, setHighlights] = useState<LabHighlight[]>(() => readLabHighlights())
   const highlightsRef = useRef(highlights)
   highlightsRef.current = highlights
+  const inScope = (highlight: LabHighlight) => !scope || (highlight.bookId === scope.bookId && highlight.editionKey === scope.editionKey)
+  const visibleHighlights = useMemo(() => highlights.filter(inScope), [highlights, scope?.bookId, scope?.editionKey])
 
   useEffect(() => {
     writeLabHighlights(highlights)
   }, [highlights])
 
   const chapterHighlights = useMemo(
-    () => highlights.filter(h => h.chapterNumber === chapterNumber),
-    [highlights, chapterNumber],
+    () => visibleHighlights.filter(h => h.chapterNumber === chapterNumber),
+    [highlights, chapterNumber, scope?.bookId, scope?.editionKey],
   )
 
   const addOrReuse = useCallback((range: LabHighlightRange, color: LabHighlightColor = 'gold') => {
-    const list = highlightsRef.current
+    const list = highlightsRef.current.filter(inScope)
     const existing = list.find(h => sameHighlightRange(h, range, chapterNumber))
     if (existing) return existing
     if (
@@ -43,19 +45,20 @@ export function useLabHighlights(chapterNumber: number) {
       if (single) return single
     }
     const created = createLabHighlight(chapterNumber, range, color)
+    if (scope) Object.assign(created, scope)
     setHighlights(current => mergeLabHighlight(current, created))
     return created
-  }, [chapterNumber])
+  }, [chapterNumber, scope?.bookId, scope?.editionKey])
 
   const findRange = useCallback((range: LabHighlightRange) => (
-    highlightsRef.current.find(h => sameHighlightRange(h, range, chapterNumber))
-  ), [chapterNumber])
+    highlightsRef.current.find(h => inScope(h) && sameHighlightRange(h, range, chapterNumber))
+  ), [chapterNumber, scope?.bookId, scope?.editionKey])
 
   const findContainingRange = useCallback((range: LabHighlightRange) => (
     [...highlightsRef.current]
       .reverse()
-      .find(h => highlightContainsRange(h, range, chapterNumber))
-  ), [chapterNumber])
+      .find(h => inScope(h) && highlightContainsRange(h, range, chapterNumber))
+  ), [chapterNumber, scope?.bookId, scope?.editionKey])
 
   const setColor = useCallback((id: string, color: LabHighlightColor) => {
     setHighlights(current => current.map(h => h.id === id ? { ...h, color } : h))
@@ -74,7 +77,8 @@ export function useLabHighlights(chapterNumber: number) {
   }, [])
 
   return {
-    highlights,
+    highlights: visibleHighlights,
+    unassignedHighlights: highlights.filter(h => !h.bookId || !h.editionKey),
     chapterHighlights,
     findRange,
     findContainingRange,

@@ -299,3 +299,29 @@ describe('lab chat history cloud sync (versioned user_data row)', () => {
     expect(readLabBookChat('bible')).toHaveLength(1)
   })
 })
+
+describe('explicit contents continuation', () => {
+  it('appends to the selected old conversation without losing its ID or unrelated threads', () => {
+    const older = conversation('older', 'bible', 44, [message({ id: 'old-question', content: 'Why the cup?', chapterNumber: 44 })])
+    const newer = conversation('newer', 'bible', 45, [message({ id: 'new-question', timestamp: 1_777_400_000_000 })])
+    writeLabBookChat('bible', [older, newer])
+    const next = appendLabChatTurn('bible', message({ id: 'follow-up', content: 'And what about Judah?', timestamp: 1_778_000_000_000 }), 44, 2, 'older')
+    expect(next.find(item => item.id === 'older')?.messages.map(item => item.id)).toEqual(['old-question', 'follow-up'])
+    expect(next.find(item => item.id === 'newer')).toEqual(newer)
+    expect(next).toHaveLength(2)
+  })
+  it('rejects a missing or wrong-chapter continuation', () => {
+    const target = conversation('older', 'bible', 44, [message()])
+    writeLabBookChat('bible', [target])
+    expect(appendLabChatTurn('bible', message({ id: 'bad' }), 45, 0, 'older')).toEqual([target])
+    expect(appendLabChatTurn('odyssey', message({ id: 'bad' }), 44, 0, 'older')).toEqual([])
+    expect(readLabBookChat('bible')).toEqual([target])
+  })
+  it('reports cloud unavailability while preserving the local mirror', async () => {
+    const target = conversation('older', 'bible', 44, [message()])
+    writeLabBookChat('bible', [target])
+    const onUnavailable = vi.fn()
+    const result = await syncLabBookChatWithCloud({ bookId: 'bible', cloud: { read: vi.fn().mockRejectedValue(new Error('offline')), commit: vi.fn() }, onUnavailable })
+    expect(result).toEqual([target]); expect(onUnavailable).toHaveBeenCalledOnce()
+  })
+})

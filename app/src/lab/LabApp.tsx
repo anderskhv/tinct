@@ -35,6 +35,8 @@ import {
   type LabVoiceGatePhase,
 } from './labChrome'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
+import { LabContentsV2 } from './LabContentsV2'
+import type { ContentsPlace } from './labContents'
 import { readLabBookChat } from './labChatHistory'
 import { labChapterStatuses, labFinishedChapterSet } from './labChapterStatus'
 import { readDeviceReadingMemory } from '../readingMemory'
@@ -88,7 +90,7 @@ import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearin
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
-import type { HighlightColor } from '../types'
+import type { ChatConversation, HighlightColor } from '../types'
 import { type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
@@ -375,6 +377,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
+  const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
+  const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
@@ -769,6 +773,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
     bookId: book.bookId || 'bible',
     editionKey: readerEditionKey,
+    conversationId: chromeV2 && contentsConversation?.bookId === (book.bookId || 'bible') && contentsConversation.chapterNumber === book.chapterNumber ? contentsConversation.id : undefined,
     chapterCount: book.chapters.length,
     getPage: () => askPageRef.current,
     playbackInterrupted: () => playbackInterruptedRef.current(),
@@ -837,7 +842,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     placeRef,
     readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
-    writesSuspended: handoffWritesSuspended || remoteResumePending,
+    writesSuspended: handoffWritesSuspended || remoteResumePending || (chromeV2 && tocOpen),
     authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
@@ -1210,7 +1215,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const nativePaintPageRef = useRef<string | null>(null)
   const nativePaintSettledRef = useRef<string | null>(null)
-  const highlightsApi = useLabHighlights(book.chapterNumber)
+  const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition } : undefined)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
@@ -2161,7 +2166,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     pageIndex: readingPageIndex,
     pages: readingPages,
     pagesSettled: nativePhonePaging ? nativePagesRevision > 0 : settleIndex === null,
-    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0,
+    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && (!chromeV2 || !tocOpen),
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
     // Reading onto the final page (last word on screen) is the same fact the
@@ -2598,6 +2603,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
     } catch {
       if (navigation === chapterNavigationRef.current) {
+        setContentsTarget(null)
         setReaderLoadError('That chapter is temporarily unavailable. Your current reading place has been preserved.')
       }
       return
@@ -2657,6 +2663,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     } catch {
       if (navigation === chapterNavigationRef.current) {
         setAudioChapterTransitioning(false)
+        setContentsTarget(null)
         setReaderLoadError('That chapter is temporarily unavailable. Your current reading place has been preserved.')
       }
       return
@@ -3080,6 +3087,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [ask])
 
   const handleChat = useCallback(() => {
+    if (chromeV2) setContentsConversation(null)
     setGearOpen(false)
     setTocOpen(false)
     setVoiceGate('off')
@@ -3102,7 +3110,59 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     openPhoneAsk()
     if (ask.voiceActive) ask.stopVoice()
     else stayInAskRef.current = false
-  }, [ask, chrome, desktopAskOpen, interruptHearForAsk, openPhoneAsk, resumeListenAfterAsk, showPhoneChrome])
+  }, [ask, chrome, chromeV2, desktopAskOpen, interruptHearForAsk, openPhoneAsk, resumeListenAfterAsk, showPhoneChrome])
+
+  const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false) => {
+    const bookId = book.bookId || 'bible'
+    if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
+    setTocOpen(false)
+    setPhoneAskOpen(false)
+    setDesktopAskOpen(false)
+    setContentsConversation(chat || null)
+    if (chat) interruptHearForAsk()
+    if (mobileCompareActive) handleMobileCompare()
+    setContentsTarget({ ...place, bookId, navigation: chapterNavigationRef.current + (place.chapterNumber !== book.chapterNumber ? 1 : 0), chapterOnly, chat })
+    if (place.chapterNumber !== book.chapterNumber) {
+      if (listen.playing && !chat) void browseToChapter(place.chapterNumber, 'start')
+      else {
+        void goToChapter(place.chapterNumber, 'start')
+        // Continuing a conversation pauses playback through its source move.
+        if (chat) { keepPlayingChapterRef.current = null; setAudioChapterTransitioning(false) }
+      }
+    }
+  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, mobileCompareActive])
+
+  useEffect(() => {
+    if (!contentsTarget || tocOpen || initialResolving) return
+    if (contentsTarget.navigation !== chapterNavigationRef.current || contentsTarget.bookId !== (book.bookId || 'bible')) { setContentsTarget(null); return }
+    if (contentsTarget.chapterNumber !== book.chapterNumber || mobileCompareActive) return
+    if (chapterCoverTitle && !contentsTarget.chapterOnly) { setChapterCoverTitle(null); return }
+    if (!chapterCoverTitle && !pagesStableRef.current) return
+    const paragraphIndex = Math.max(0, Math.min(book.paragraphs.length - 1, contentsTarget.paragraphIndex))
+    const wordIndex = Math.max(0, Math.min(Math.max(0, (book.paragraphs[paragraphIndex] || '').split(/\s+/).length - 1), contentsTarget.wordIndex))
+    const place = { paragraphIndex, wordIndex }
+    const pageIndex = contentsTarget.chapterOnly ? 0 : pageIndexForPlace(readingPages, paragraphIndex, wordIndex)
+    placeRef.current = place
+    pageAnchorRef.current = place
+    readingPageIndexRef.current = pageIndex
+    readerStateRef.current = { ...readerStateRef.current, pageIndex }
+    setReadingPageIndex(pageIndex)
+    setFocusParagraph(paragraphIndex)
+    // The contents overlay suspended writes. Commit only the loaded, coherent
+    // destination, never the book/range that was merely browsed in the menu.
+    notePlace('chapter-jump', place)
+    if (contentsTarget.chat) {
+      setPhoneAskOpen(showPhoneChrome)
+      setDesktopAskOpen(!showPhoneChrome)
+    }
+    setContentsTarget(null)
+  }, [book.bookId, book.chapterNumber, book.paragraphs, chapterCoverTitle, contentsTarget, initialResolving, mobileCompareActive, nativePagesRevision, notePlace, readingPages, settleIndex, showPhoneChrome, tocOpen])
+
+  const returnToContents = useCallback(() => {
+    setPhoneAskOpen(false)
+    setDesktopAskOpen(false)
+    setTocOpen(true)
+  }, [])
 
   // Desktop keeps the autofocus: when the companion opens as Chat (from the
   // rail, from a Talk that fell back to Chat, from Ask about) the caret goes
@@ -3608,6 +3668,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         {((!showPhoneChrome && desktopAskOpen) || phoneAsk) && (
           <LabAskPane
             chromeV2={chromeV2}
+            focusTurnId={chromeV2 ? contentsConversation?.messages.find(message => message.role === 'user')?.id : undefined}
+            onBackToContents={chromeV2 && contentsConversation ? returnToContents : undefined}
             dictationState={dictation.state}
             onStopVoice={chromeV2 ? (callOpen ? endCall : ask.stopVoice) : undefined}
             conversationState={ask.conversationState}
@@ -3961,7 +4023,30 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         desktop={!showPhoneChrome}
       />
 
-      {tocOpen && (
+      {chromeV2 && <LabContentsV2
+        open={tocOpen}
+        bookId={book.bookId || 'bible'}
+        title={book.bookTitle}
+        editionKey={prefs.primaryEdition}
+        editionLabel={primaryEditionLabel}
+        chapters={book.chapters}
+        chaptersReady={!book.chaptersProvisional}
+        sections={book.sections}
+        currentChapter={book.chapterNumber}
+        currentPage={chapterProgress.currentPage}
+        totalPages={chapterProgress.totalPages}
+        statuses={pickerStatuses}
+        conversations={ask.conversations}
+        historyStatus={ask.historyStatus}
+        highlights={highlightsApi.highlights}
+        unassignedHighlights={highlightsApi.unassignedHighlights}
+        onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
+        onOpenPassage={place => openContentsPassage(place)}
+        onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
+        onWarmChapter={warmChapterTexts}
+        onClose={() => setTocOpen(false)}
+      />}
+      {tocOpen && !chromeV2 && (
         <div className="lab-toc" data-testid="lab-toc">
           <LabPhoneBibleTree
             quickBookNavigation={chromeV2}

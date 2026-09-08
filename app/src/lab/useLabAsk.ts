@@ -82,6 +82,8 @@ export interface UseLabAskOptions {
   onAccountPrompt?: (request: LabAccountPromptRequest) => void
   /** Registry book id + edition key. Both present → requests carry `book` and the worker can read other chapters. */
   bookId?: string
+  /** Explicit V2 continuation chosen in contents; never a cross-book thread. */
+  conversationId?: string | null
   editionKey?: string
   /** Signed-in user id for the versioned cloud row; defaults to the live Supabase user. `null` = signed out. */
   userId?: string | null
@@ -110,6 +112,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   // (`chat-history:{bookId}`). The Bible is one book, as in the registry.
   const chatBookId = options.bookId || ''
   const [typedLoading, setTypedLoading] = useState(false)
+  const [historyStatus, setHistoryStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
   // `conversations` is this book's stored history (classic shape, for the
   // chapter picker); `turns` is the displayed thread: the stored history on
   // open, then the live turns as they stream. Storage writes run alongside.
@@ -218,7 +221,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
     const bookId = chatBookIdRef.current
     if (!bookId) return
-    const next = appendLabChatTurn(bookId, message, chapterNumber, paragraphIndex)
+    const next = appendLabChatTurn(bookId, message, chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
     if (loadedForBookRef.current === bookId) setConversations(next)
     cloudWriterRef.current?.push(bookId, next)
   }, [])
@@ -226,15 +229,18 @@ export function useLabAsk(options: UseLabAskOptions) {
   // Open / sign-in / book change: fold the retired KV blob in once per
   // account, then merge this book's cloud row with the local mirror.
   useEffect(() => {
-    if (!viewerId || !cloudWriter || !chatBookId) return
+    if (!viewerId || !cloudWriter || !chatBookId) { setHistoryStatus('ready'); return }
     let cancelled = false
     const run = async () => {
+      setHistoryStatus('loading')
       await migrateLegacyLabChatHistoryCloud({
         userId: viewerId,
         fetchLegacy: () => fetchLabChatHistoryCloud(liveToken),
       })
-      const merged = await cloudWriter.sync(chatBookId)
+      let unavailable = false
+      const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true })
       if (cancelled || loadedForBookRef.current !== chatBookId) return
+      setHistoryStatus(unavailable ? 'unavailable' : 'ready')
       setConversations(merged)
       const hydrated = turnsFromConversations(merged)
       // A reply still streaming (not stored yet) survives the re-hydration.
@@ -246,8 +252,9 @@ export function useLabAsk(options: UseLabAskOptions) {
         return next
       })
     }
-    void run()
-    const onOnline = () => { void run() }
+    const failed = () => { if (!cancelled) setHistoryStatus('unavailable') }
+    void run().catch(failed)
+    const onOnline = () => { void run().catch(failed) }
     window.addEventListener('online', onOnline)
     return () => {
       cancelled = true
@@ -289,12 +296,16 @@ export function useLabAsk(options: UseLabAskOptions) {
       })))
     return acrossLibrary.length > 0 ? acrossLibrary : turns
   }, [turns])
+  const selectedConversationTurns = useMemo(() => {
+    const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
+    return selected ? turnsFromConversations([selected]) : null
+  }, [options.conversationId, conversations, chatBookId])
   const talkInstructions = useMemo(
     () => buildLabVoiceControlInstructions(
       options.voiceTrial ? buildDirectVoiceInstructions(askContext) : isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
-      options.voiceTrial ? turns : rememberedLabTurns,
+      selectedConversationTurns ?? (options.voiceTrial ? turns : rememberedLabTurns),
     ) + (options.quietCompanionHandoff ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
-    [askContext, isVoiceV2, rememberedLabTurns, turns, options.quietCompanionHandoff, options.voiceTrial],
+    [askContext, isVoiceV2, rememberedLabTurns, selectedConversationTurns, turns, options.quietCompanionHandoff, options.voiceTrial],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
@@ -504,13 +515,15 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     setTypedLoading(true)
     try {
-      const previousAssistant = [...turns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
+      const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookIdRef.current) : null
+      const contextTurns = selected ? turnsFromConversations([selected]) : turns
+      const previousAssistant = [...contextTurns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
       // "Yes!!" after "we could go back a few chapters and have a look?" is
       // consent to the lookup. The model gets the tools; the app ignores any
       // move or resume marker it might still emit for that turn.
       const lookupConsent = affirmativeAnswersLookupOffer(text, previousAssistant)
       // The companion's window stays the last 20 turns; only the displayed history grew.
-      const history = [...turns, userTurn]
+      const history = [...contextTurns, userTurn]
         .slice(-20)
         .map(turn => ({ role: turn.role, content: turn.content }))
       const headers: Record<string, string> = {
@@ -634,12 +647,13 @@ export function useLabAsk(options: UseLabAskOptions) {
       sendingRef.current = false
       setTypedLoading(false)
     }
-  }, [askContextNow, gateAiAction, options.authToken, readTrail, recordTurn, sessionToken, turns])
+  }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations])
 
   return {
     turns,
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
+    historyStatus,
     notice,
     typedLoading,
     conversationState: isVoiceV2
