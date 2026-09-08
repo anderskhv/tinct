@@ -5611,19 +5611,83 @@
   bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px));
 }
 
-/* The column reaches down to the rail: 2.5rem of rail over the inset. */
+/* The hidden column the page map is measured in reserves the same clearance
+   the painted page is held to (LAB_OVERFLOW_CLEAR_PX). Without it the map
+   proposes a line the paint then rejects — harmless while the trim pass runs,
+   but the trim pass is off during playback, and that is exactly when the
+   transport has just shortened the column. Reserving it in the flow means
+   the map is right the first time, playing or not. */
+.lab[data-chrome-version="v2"].is-phone .lab-native-page-flow,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-native-page-flow {
+  height: calc(100% - 24px);
+}
+
+/* The progress line, at the smallest footprint that still reads.
+   Painted it is the mono line itself and a little air — 20px — and it is
+   only as wide as its own text, so the page keeps the rest of the row: a
+   tap in the outer third is still a page turn, a tap in the middle still
+   toggles the chrome. Tappable it is 44px tall and wider than it looks,
+   because the hit area is a transparent inset around the painted row
+   rather than painted chrome. Every pixel that buys back goes to the
+   column below. */
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-chapter-progress.is-interactive,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-chapter-progress.is-interactive {
+  position: relative;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 100%;
+  min-height: 20px;
+  margin: 0 auto;
+  padding: 0 0.75rem;
+}
+
+/* The hit area. It reaches up into the column's foot margin, where the last
+   line never sits, and out to a comfortable width — 44px tall in all. */
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-chapter-progress.is-interactive::before,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-chapter-progress.is-interactive::before {
+  content: '';
+  position: absolute;
+  inset: -19px -0.5rem -5px;
+}
+
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail {
+  min-height: 0;
+}
+
+/* The box the reserved foot actually is.
+   `.lab-bottom-chrome` is what pagination measures — it is handed to
+   `measureLabPageMetrics` as the chrome boundary — and it is a fixed 3rem
+   whatever is inside it. That is why the bar's removal bought only a few
+   pixels: the reserved foot never moved. Under the flag it is exactly what
+   the foot now holds, and the body's padding agrees with it, so the column
+   grows by the whole difference. */
+.lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
+.lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome,
 .lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-body {
-  padding-bottom: calc(2.5rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
+  height: auto;
+  padding-bottom: calc(1.25rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
+}
+
+.lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
+.lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
+  height: calc(1.25rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
+  padding-bottom: 0;
 }
 
 /* With the transport up the rail sits above it, and the column ends above
-   the rail: 2.5rem of rail over the 3.72rem the transport takes. The box
+   the rail: 20px of rail over the 3.72rem the transport takes. The box
    changes height here, so the page map is recomputed — anchored on the word
    being spoken — rather than left to run under the rail. */
 .lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-body {
-  padding-bottom: calc(6.22rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+}
+
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
+  height: calc(4.97rem + env(safe-area-inset-bottom, 0px));
 }
 
 /* Desktop: the rail's column is gone, and its width goes to the page. */
