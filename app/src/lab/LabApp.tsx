@@ -1907,6 +1907,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [listen])
 
   const resumeListenAfterAsk = useCallback((forceHearing = false) => {
+    if (voiceTrial && forceHearing) {
+      // An explicit resume command ends the call successfully. Leaving the
+      // surface mounted would mislabel that intentional stop as a disconnect.
+      setCallOpen(false)
+      callAnchorRef.current = null
+    }
     ask.stopVoice()
     if (stayInAskRef.current) {
       stayInAskRef.current = false
@@ -1932,7 +1938,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setChrome('hearing')
     if (listen.src) listen.resume()
     else void listen.start(placeRef.current)
-  }, [ask, listen])
+  }, [ask, listen, voiceTrial])
   resumeListenRef.current = () => resumeListenAfterAsk(true)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
@@ -1965,7 +1971,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // The call surface owns its own ending. A dropped connection leaves it
     // standing so it can say "Disconnected" and offer to reconnect; only End
     // conversation (or Reconnect failing) takes it down.
-    if (voiceCallSurfaceRef.current && callOpenRef.current) return
+    if (voiceCallSurfaceRef.current && callOpenRef.current) {
+      if (!voiceTrial || ask.voiceConnection !== 'idle') return
+      setCallOpen(false)
+      callAnchorRef.current = null
+    }
     if (phoneAskOpenRef.current) {
       setChrome(current => {
         if (current !== 'talking') return current
@@ -1982,7 +1992,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (!askNoticeRef.current) setDesktopAskOpen(false)
       setChrome(current => (current === 'talking' ? labAfterTalk(returnToRef.current) : current))
     }
-  }, [ask.voiceActive, resumeListenAfterAsk])
+  }, [ask.voiceActive, ask.voiceConnection, resumeListenAfterAsk, voiceTrial])
 
   useEffect(() => {
     setVoiceGate(current => nextLabVoiceGate(

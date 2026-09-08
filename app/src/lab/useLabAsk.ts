@@ -339,7 +339,9 @@ export function useLabAsk(options: UseLabAskOptions) {
   const appendLocalMessage = useCallback((message: ChatMessage) => {
     const content = (message.content || '').trim()
     if (!content) return
-    if (message.role === 'user' && isResumeListenCommand(content)) {
+    // Direct Realtime owns its command turn. Stopping from this transcript
+    // callback would tear down the connection before its tool can reply.
+    if (!optionsRef.current.voiceTrial && message.role === 'user' && isResumeListenCommand(content)) {
       optionsRef.current.onResumeListen?.()
       return
     }
