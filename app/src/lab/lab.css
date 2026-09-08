@@ -6203,3 +6203,11 @@
 
 .lab[data-chrome-version="v2"] .lab-audio-speed-done { min-height:44px; padding:6px 12px; border:1px solid currentColor; border-radius:999px; color:inherit; background:transparent; font:inherit; cursor:pointer; }
 .lab[data-chrome-version="v2"] .lab-audio-speed-heading output { margin-left:auto; }
+
+/* Tick labels follow the 0.5–3 linear range and the 20px thumb centre. */
+.lab[data-chrome-version="v2"] .lab-audio-speed-scale { position:relative; display:block; height:1.2em; margin:4px 10px 0; }
+.lab[data-chrome-version="v2"] .lab-audio-speed-scale span { position:absolute; transform:translateX(-50%); }
+.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(1) { left:0%; }
+.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(2) { left:20%; }
+.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(3) { left:60%; }
+.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(4) { left:100%; }

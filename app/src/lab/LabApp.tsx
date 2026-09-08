@@ -3906,6 +3906,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           </div>
           <input
             id="lab-audio-speed-slider"
+            className={chromeV2 ? 'lab-v2-slider' : undefined}
             data-testid="lab-audio-speed-slider"
             type="range"
             min="0.5"
