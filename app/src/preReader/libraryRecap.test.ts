@@ -268,3 +268,9 @@ describe('library recap helpers', () => {
     expect(other.readingNow[0].includePreviousChapter).toBe(false)
   })
 })
+
+it('includes finished books whose old reading sessions and positions are absent', () => {
+  const list = readingList({ memory: emptyReadingMemory(), viewer: null, positions: null, books, completedBookIds: new Set(['hamlet']) })
+  expect(list.finished.map(book => book.bookId)).toEqual(['hamlet'])
+  expect(list.readingNow).toEqual([])
+})

@@ -325,3 +325,10 @@ describe('explicit contents continuation', () => {
     expect(result).toEqual([target]); expect(onUnavailable).toHaveBeenCalledOnce()
   })
 })
+
+it('rejects the verified stale Bible duplicate but keeps its original War and Peace thread', () => {
+  const reply = message({ id: 'msg_1780517006661_4', role: 'assistant', content: 'The Vicomte is French.' })
+  expect(parseChatConversations([conversation('old-copy', 'bible', 5, [reply])], 'bible')).toEqual([])
+  const original = conversation('original', 'war-and-peace', 5, [message({ id: 'question', content: 'Is he French?' }), reply])
+  expect(parseChatConversations([original], 'war-and-peace')[0].messages).toHaveLength(2)
+})

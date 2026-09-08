@@ -102,17 +102,10 @@ function StepRow({
   return (
     <div className="lab-v2-row is-step">
       <span className="lab-v2-row-icon" aria-hidden="true">{icon}</span>
-      <input
-        className="lab-v2-slider"
-        type="range"
-        aria-label={label}
-        data-testid={testId}
-        min={0}
-        max={steps.length - 1}
-        step={1}
-        value={index}
-        onChange={event => onChange(labStepAt(steps as string[], Number(event.target.value)))}
-      />
+      <select className="lab-v2-step-select" aria-label={label} data-testid={testId} value={index}
+        onChange={event => onChange(labStepAt(steps as string[], Number(event.target.value)))}>
+        {steps.map((step, i) => <option key={step} value={i}>{step[0].toUpperCase() + step.slice(1)}</option>)}
+      </select>
       <span className="lab-v2-step-value">{display}</span>
     </div>
   )

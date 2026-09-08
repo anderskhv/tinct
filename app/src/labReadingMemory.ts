@@ -51,7 +51,7 @@ import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapsh
 // read the focused cover out of the same function rather than each keeping a
 // copy of it. library-model.js is a plain pure-function module; the bundler
 // takes this one export and leaves the rest.
-import { readReaderOrigin, shelfFocusIndex, writeReaderOrigin } from '../public/lab/library-model.js'
+import { readerPreviewSearch, readReaderOrigin, shelfFocusIndex, writeReaderOrigin } from '../public/lab/library-model.js'
 import {
   catalogueBookIdForPlace,
   heroHeadline,
@@ -706,9 +706,10 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   section.dataset.summaryLine = hero ? 'pending' : 'none'
   section.dataset.readingNow = String(list.readingNow.length)
   section.dataset.finished = String(list.finished.length)
-  nowFocus = 0
+  const focusedBook = section.querySelector<HTMLElement>('.lib-now-item.is-focused')?.dataset.nowBook
+  nowFocus = Math.max(0, list.readingNow.findIndex(row => row.bookId === focusedBook))
   const readingNow = hero
-    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}<div class="lib-now-shelf${list.readingNow.length < 2 ? ' is-single' : ''}" data-now-shelf role="group" aria-label="Books you are reading">${nowShelfMarkup(list.readingNow, books, 0)}</div><div class="lib-now-caption" data-now-caption aria-live="polite"></div></section>`
+    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}<div class="lib-now-shelf${list.readingNow.length < 2 ? ' is-single' : ''}" data-now-shelf role="group" aria-label="Books you are reading">${nowShelfMarkup(list.readingNow, books, nowFocus)}</div><div class="lib-now-caption" data-now-caption aria-live="polite"></div></section>`
     : ''
   const finished = list.finished.length
     ? `<section class="lib-finished" data-finished-section aria-label="Finished">${sectionHead('Finished', list.finished.length, 'data-finished-head')}<div class="lib-recap-others" data-finished-rows>${list.finished.map(row => finishedMarkup(row, books)).join('')}</div></section>`
@@ -719,12 +720,27 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   fitNowShelf()
   observeNowShelf()
   const shelf = section.querySelector<HTMLElement>('[data-now-shelf]')
-  const item = shelf?.querySelector<HTMLElement>('[data-now-index="0"]')
+  const item = shelf?.querySelector<HTMLElement>(`[data-now-index="${nowFocus}"]`)
   if (shelf && item) requestAnimationFrame(() => { fitNowShelf(); observeNowShelf(); centreNowItem(shelf, item) })
 }
 
 async function performRender(): Promise<void> {
   if (!section) return
+  // Paint all locally known books before recap generation or cloud latency.
+  const [auth] = await Promise.all([readAuth(), loadCatalogue()])
+  const books = catalogue ?? new Map<string, CatalogueBook>()
+  const paintList = (positions: LabPositionState | null) => {
+    const list = readingList({ memory: readDeviceReadingMemory(), viewer: auth.userId, positions, books: bookInfos(books), completedBookIds: completedBookIds() })
+    if (libraryModeFor(list) !== 'new') { lastList = list; renderSections(list, null); publishMode(libraryModeFor(list)) }
+  }
+  paintList(accountLabPositionRecord(readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID), null, auth.userId))
+  const positionsReady = loadPositions(auth).then(positions => { paintList(positions); return positions })
+  const completionsReady = auth.userId && supabase ? supabase.from('user_data').select('key,value').eq('user_id', auth.userId).like('key', 'book-completed:%').then(({ data, error }) => {
+    if (!error) for (const row of data ?? []) {
+      if (row.value != null) localStorage.setItem(`tinct:${row.key}`, JSON.stringify(row.value))
+      else localStorage.removeItem(`tinct:${row.key}`)
+    }
+  }).then(async () => paintList(await positionsReady)).catch(() => {}) : Promise.resolve()
   const [, rendered] = await Promise.all([
     loadCatalogue(),
     loadRecap({
@@ -740,6 +756,7 @@ async function performRender(): Promise<void> {
       bookTitle: bookId => catalogue?.get(bookId)?.title,
       online: isOnline,
       allowSummary: !summaryBudgetSpent,
+      onMemoryReady: () => { void positionsReady.then(paintList) },
     }),
   ])
   if (rendered?.summaryAttempted) summaryBudgetSpent = true
@@ -747,9 +764,8 @@ async function performRender(): Promise<void> {
   // loadRecap has already merged the cloud copy into the device mirror; the
   // viewer sees no-account sessions and their own account's sessions. The
   // position store is read the same way (device, plus cloud when signed in).
-  const auth = await readAuth()
-  const positions = await loadPositions(auth)
-  const books = catalogue ?? new Map<string, CatalogueBook>()
+  const positions = await positionsReady
+  await completionsReady
   const list = readingList({
     memory: readDeviceReadingMemory(),
     viewer: auth.userId,
@@ -841,7 +857,7 @@ function openAt(target: ContinueTarget): void {
     // knows not to recap the book the reader has just been looking at.
     writeReaderOrigin(sessionStore(), target.bookId, Date.now())
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
-    window.location.assign(new URLSearchParams(window.location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
+    window.location.assign(`/lab/reader${readerPreviewSearch(window.location.search)}`)
     return
   }
   // The place's edition is not offered by the library (e.g. a Danish

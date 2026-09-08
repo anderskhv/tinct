@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { flushSync } from 'react-dom'
+import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
@@ -3277,7 +3278,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
-    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}?chrome=v2` : LAB_LIBRARY_URL)
+    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search) || '?chrome=v2'}` : LAB_LIBRARY_URL)
   }, [chromeV2, handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
 
   // The first view: 400 ms after the first page has laid out, never on load
@@ -3586,6 +3587,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
           {chapterCoverTitle ? (
             <LabChapterCover
+              imageSrc={chromeV2 && chapterCoverTitle === book.bookTitle ? `/covers/v2/${book.bookId || 'bible'}.webp` : undefined}
               title={chapterCoverTitle}
               series={chapterCoverTitle === book.bookTitle ? book.bookAuthor : book.bookTitle}
               editionLabel={book.editionLabel}

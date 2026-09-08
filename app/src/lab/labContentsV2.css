@@ -67,3 +67,9 @@
 .lab-contents-v2 .lc-older { border-bottom:1px solid var(--lc-line);padding:12px 0; }
 .lab-contents-v2 mark { color:inherit;background:color-mix(in srgb,var(--lc-accent) 25%,transparent); }
 .lab[data-chrome-version="v2"] .lab-ask-back-contents { min-height:44px;font-size:12px;color:var(--lab-ink-muted);background:none;border:0;cursor:pointer;padding:8px 12px; }
+
+.lc-row > span { min-width:0; }
+.lc-row > span small { display:block; margin-top:8px; font:14px/1.4 system-ui,sans-serif; color:var(--lab-ink-muted); }
+
+.lab-contents-v2 .lc-panel[data-view="books"] .lc-header { min-height:64px; }
+.lab-contents-v2 .lc-panel[data-view="books"] .lc-header h2 { left:70px; text-align:left; font:32px/1.2 Georgia,serif; color:var(--lab-ink); }

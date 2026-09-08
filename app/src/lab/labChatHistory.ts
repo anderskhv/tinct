@@ -52,6 +52,9 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
   if (src.role !== 'user' && src.role !== 'assistant') return null
   if (typeof src.content !== 'string') return null
+  // Historical cross-book duplicate, verified against the complete War and Peace
+  // conversation on 2026-09-08. Reject stale device copies on merge as well.
+  if (bookId === 'bible' && src.id === 'msg_1780517006661_4' && src.role === 'assistant') return null
   // Classic dividers and transient error rows were persisted by older code;
   // the classic app strips them on load and so do we.
   if (src.chapterDivider != null || src.refreshAction === true) return null

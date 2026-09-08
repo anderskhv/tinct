@@ -514,3 +514,11 @@ export function readReaderOrigin(storage) {
     return null
   }
 }
+
+/** Keep explicit reader experiments through library and book selection. */
+export function readerPreviewSearch(search) {
+  const source = new URLSearchParams(search)
+  if (source.get('chrome') !== 'v2') return ''
+  const trial = source.get('voiceTrial')
+  return `?chrome=v2${trial === 'full' || trial === 'mini' ? `&voiceTrial=${trial}` : ''}`
+}

@@ -1,5 +1,6 @@
 import { wholeBookProgress } from './library-2-model.js'
 import {
+  readerPreviewSearch,
   DEFAULT_LANDING_WORLD,
   LANDING_WORLD_SESSION_KEY,
   landingWorldFrom,
@@ -146,11 +147,11 @@ import {
     document.documentElement.removeAttribute('data-lab-boot-view')
   }
 
-  const chromeV2Preview = new URLSearchParams(location.search).get('chrome') === 'v2'
+  const previewSearch = readerPreviewSearch(location.search)
   function routeFor(view, bookId = state.selectedBookId) {
-    if (view === 'landing') return chromeV2Preview ? '/lab/landing?chrome=v2' : '/lab/landing'
-    if (view === 'library') return chromeV2Preview ? '/lab/library?chrome=v2' : '/lab/library'
-    return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}${chromeV2Preview ? '&chrome=v2' : ''}`
+    if (view === 'landing') return `/lab/landing${previewSearch}`
+    if (view === 'library') return `/lab/library${previewSearch}`
+    return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}${previewSearch.replace('?', '&')}`
   }
 
   /**
@@ -722,7 +723,7 @@ import {
     return editions.filter(edition => edition.key !== primary.key && edition.availability.compare)
   }
 
-  const versionMenuMarkup = (which, editions, selectedKey) => editions.map(edition => `<button type="button" role="option" data-version-pick="${escapeHtml(which)}" data-version-edition="${escapeHtml(edition.key)}" aria-selected="${edition.key === selectedKey}"><b>${escapeHtml(translationName(edition))}</b><i data-version-sample="${escapeHtml(edition.key)}">Loading the opening…</i></button>`).join('')
+  const versionMenuMarkup = (which, editions, selectedKey) => editions.map(edition => `<button type="button" role="option" data-version-pick="${escapeHtml(which)}" data-version-edition="${escapeHtml(edition.key)}" aria-selected="${edition.key === selectedKey}"><b>${escapeHtml(translationName(edition))}</b></button>`).join('')
 
   const chevronDown = '<svg class="tov5-version-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>'
 
@@ -730,6 +731,7 @@ import {
     const selected = editions.find(edition => edition.key === selectedKey)
     return `<div class="tov5-version${off ? ' is-off' : ''}" data-version-field="${which}">
       <button type="button" class="tov5-version-btn" data-version-toggle="${which}" aria-expanded="false" aria-haspopup="listbox" aria-label="${escapeHtml(role)}: ${escapeHtml(selected ? translationName(selected) : 'choose')}"><span><span class="tov5-version-role">${escapeHtml(role)}</span><span class="tov5-version-name" data-version-name="${which}">${escapeHtml(selected ? translationName(selected) : 'Choose')}</span></span>${chevronDown}</button>
+      <p class="tov5-version-preview" data-version-sample="${escapeHtml(selectedKey || '')}">Loading the opening…</p>
       <div class="tov5-version-menu" data-version-menu="${which}" role="listbox" aria-label="${escapeHtml(role)}" hidden>${versionMenuMarkup(which, editions, selectedKey)}</div>
     </div>`
   }
@@ -760,7 +762,7 @@ import {
       const text = await loadEditionSample(book, key)
       if (token !== versionSampleRenderToken || state.selectedBookId !== book.id) return
       root.querySelectorAll(`[data-version-sample="${CSS.escape(key)}"]`).forEach(node => {
-        node.textContent = text ? `“${text.length > 150 ? `${text.slice(0, 150).trim()}…` : text}”` : 'Sample unavailable for this edition.'
+        node.textContent = text ? `“${text.length > 650 ? `${text.slice(0, 650).trim()}…` : text}”` : 'Sample unavailable for this edition.'
       })
     }))
   }
@@ -769,7 +771,7 @@ import {
     root.querySelectorAll('[data-version-menu]').forEach(menu => {
       if (menu === except) return
       menu.hidden = true
-      menu.previousElementSibling?.setAttribute('aria-expanded', 'false')
+      menu.closest('[data-version-field]')?.querySelector('[data-version-toggle]')?.setAttribute('aria-expanded', 'false')
     })
   }
 
@@ -779,7 +781,7 @@ import {
     const open = menu.hidden
     closeVersionMenus(menu)
     menu.hidden = !open
-    menu.previousElementSibling?.setAttribute('aria-expanded', String(open))
+    menu.closest('[data-version-field]')?.querySelector('[data-version-toggle]')?.setAttribute('aria-expanded', String(open))
   }
 
   function pickVersion(which, editionKey) {
@@ -820,7 +822,8 @@ import {
     const chapters = Array.isArray(payload?.chapters) ? payload.chapters : []
     const paragraphs = Array.isArray(payload?.paragraphs) ? payload.paragraphs : chapters.flatMap(chapter => Array.isArray(chapter?.paragraphs) ? chapter.paragraphs : [])
     const cleaned = paragraphs.map(paragraph => String(paragraph || '').replace(/\s+/g, ' ').trim()).filter(Boolean)
-    return cleaned.find(paragraph => paragraph.length >= 80) || cleaned[0] || null
+    const first = Math.max(0, cleaned.findIndex(paragraph => paragraph.length >= 80))
+    return cleaned.slice(first, first + 4).join(' ').slice(0, 900) || null
   }
 
   async function fetchJsonIfAvailable(url) {
@@ -1025,7 +1028,7 @@ import {
     rememberLibrary(book.id)
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
-    window.location.assign(new URLSearchParams(window.location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
+    window.location.assign(`/lab/reader${previewSearch}`)
     return true
   }
 

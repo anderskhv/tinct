@@ -5,6 +5,7 @@ interface LabChapterCoverProps {
   title: string
   series: string
   editionLabel: string
+  imageSrc?: string
   ground?: string
   accent?: string
   onPageTurn: (direction: LabPageTurnDirection) => void
@@ -17,7 +18,7 @@ export function labCoverTone(title: string): number {
   return hash % 5
 }
 
-export function LabChapterCover({ title, series, editionLabel, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
+export function LabChapterCover({ title, series, editionLabel, imageSrc, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
   const coverRef = useRef<HTMLElement>(null)
   const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
 
@@ -69,13 +70,13 @@ export function LabChapterCover({ title, series, editionLabel, ground, accent, o
         else if (tap == null && Math.abs(deltaX) <= 10 && Math.abs(deltaY) <= 10) onToggleControls()
       }}
     >
-      <div className="lab-chapter-cover-book">
+      {imageSrc ? <img className="lab-chapter-cover-art" src={imageSrc} alt={`${title} cover`} draggable={false} /> : <div className="lab-chapter-cover-book">
         <span className="lab-chapter-cover-series">{series}</span>
         <span className="lab-chapter-cover-mark" aria-hidden="true">{title.slice(0, 1)}</span>
         <h2>{title}</h2>
         <span className="lab-chapter-cover-rule" aria-hidden="true" />
         <small>{editionLabel}</small>
-      </div>
+      </div>}
     </article>
   )
 }

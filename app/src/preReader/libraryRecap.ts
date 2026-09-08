@@ -297,13 +297,17 @@ export function readingList(input: ReadingListInput): ReadingList {
   const sessions = newestSessionsByBook(input.memory, input.viewer)
   const places = positionPlacesByBook(input.positions, input.books)
   const completedMarks = input.completedBookIds ?? new Set<string>()
-  const bookIds = new Set<string>([...sessions.keys(), ...places.keys()])
+  const bookIds = new Set<string>([...sessions.keys(), ...places.keys(), ...completedMarks])
   const readingNow: ReadingListRow[] = []
   const finished: FinishedRow[] = []
   for (const bookId of bookIds) {
     const book = input.books.get(bookId)
     const session = sessions.get(bookId) ?? null
     const place = places.get(bookId) ?? null
+    if (book && completedMarks.has(bookId)) {
+      finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
+      continue
+    }
     const target = continueTargetFor({ book, session, place })
     if (!target) continue
     const lastChapter = lastChapterNumber(book)

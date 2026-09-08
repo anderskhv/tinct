@@ -40,7 +40,7 @@ describe('V2 contents browsing', () => {
   it('browses books and ranges without navigating or changing the actual reading footer', () => {
     const p = props(); render(<LabContentsV2 {...p} />)
     fireEvent.click(screen.getByRole('button', { name: 'Change Bible book, Genesis' }))
-    fireEvent.click(screen.getByRole('button', { name: 'Psalms' }))
+    fireEvent.click(screen.getByRole('button', { name: /^Psalms/ }))
     expect(screen.getByRole('button', { name: 'Your reading place, Genesis 44, page 2 of 4' })).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: 'Jump to' }))
     fireEvent.click(screen.getByRole('button', { name: 'Browse chapters 1 to 10' }))
@@ -51,7 +51,7 @@ describe('V2 contents browsing', () => {
   it('opens the requested local chapter', () => {
     const p = props(); render(<LabContentsV2 {...p} />)
     fireEvent.click(screen.getByRole('button', { name: 'Change Bible book, Genesis' }))
-    fireEvent.click(screen.getByRole('button', { name: 'Psalms' }))
+    fireEvent.click(screen.getByRole('button', { name: /^Psalms/ }))
     fireEvent.click(screen.getByRole('button', { name: 'Jump to' }))
     fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '3' } })
     fireEvent.submit(screen.getByRole('spinbutton').closest('form')!)
@@ -66,16 +66,11 @@ describe('V2 contents browsing', () => {
     fireEvent.click(word.closest('button')!)
     expect(p.onOpenPassage).toHaveBeenCalledWith(expect.objectContaining({ chapterNumber: 51, paragraphIndex: 0, wordIndex: 1 }))
   })
-  it('opens the exact conversation and source, retaining search on return', async () => {
+  it('opens the exact conversation directly in chat', async () => {
     const p = props(); render(<LabContentsV2 {...p} />)
     fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'cup' } })
     fireEvent.click(await screen.findByTestId('contents-chat-cup-chat'))
-    await screen.findByText('Judah offers himself instead.')
-    fireEvent.click(screen.getByRole('button', { name: 'Back to overview' }))
-    expect((screen.getByRole('textbox') as HTMLInputElement).value).toBe('cup')
-    fireEvent.click(screen.getByTestId('contents-chat-cup-chat'))
-    fireEvent.click(screen.getByRole('button', { name: 'Continue this conversation' }))
     expect(p.onContinueConversation).toHaveBeenCalledExactlyOnceWith(chat)
   })
   it('does not present missing text or pending history as an empty result', async () => {
@@ -114,4 +109,13 @@ it('uses ordinary book chapter titles without a Bible book picker', () => {
   render(<LabContentsV2 {...p} bookId="romeo-and-juliet" title="Romeo and Juliet" sections={undefined} chapters={[{ number: 1, title: 'Act 1, Scene 1 — A Public Place in Verona' }]} currentChapter={1} highlights={[]} />)
   expect(screen.getByText('Act 1, Scene 1 — A Public Place in Verona', { selector: 'strong' })).toBeTruthy()
   expect(screen.queryByRole('button', { name: /Change Bible book/ })).toBeNull()
+})
+
+it('keeps chapter annotations collapsed until requested', () => {
+  render(<LabContentsV2 {...props()} />)
+  expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: '1 chat · 1 highlight' }))
+  expect(screen.getByTestId('contents-chat-cup-chat')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: '1 chat · 1 highlight' }))
+  expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
 })

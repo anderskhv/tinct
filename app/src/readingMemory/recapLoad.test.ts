@@ -273,3 +273,13 @@ describe('position restore after an offline stretch', () => {
     expect(await anonymous.load()).toBeNull()
   })
 })
+
+it('publishes the merged history before fetching the recap passage', async () => {
+  const fixture = chapterFixtures()[0]
+  const h = harness({ device: [sessionFor(fixture, { state: 'progressed', owner: null, startedAt: T0, lastActiveAt: T0 })], online: false })
+  const ready = vi.fn()
+  h.deps.onMemoryReady = ready
+  h.deps.loadChapter = async () => { expect(ready).toHaveBeenCalledOnce(); return null }
+  await h.load()
+  expect(ready).toHaveBeenCalledOnce()
+})

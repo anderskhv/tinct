@@ -25,8 +25,9 @@
     html { min-width: 320px; min-height: 100%; background: #071723; }
     body { min-width: 320px; min-height: 100%; margin: 0; padding: 0; background: #071723; }
     button, input { -webkit-tap-highlight-color: transparent; }
-  </style>
-  <script src="/lab/library-boot.js?v=20260908-4"></script>
+
+</style>
+  <script src="/lab/library-boot.js?v=20260908-5"></script>
   <style>
     /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
        from the first frame. catalogue-runtime.js drops the attribute once it
@@ -1322,10 +1323,15 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { transition:none; }
   }
+  #tinct-onboarding-worlds-v5 .tov5-versions { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); width:100%; }
+  #tinct-onboarding-worlds-v5 .tov5-version-both { grid-column:1 / -1; width:100%; }
+  #tinct-onboarding-worlds-v5 .tov5-version-preview { margin:12px 0 0; font:16px/1.5 Georgia,serif; color:rgba(255,253,247,.9); }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { overflow-y:auto; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body { flex:0 0 auto; }
 </style>
 
 <script src="/lab/interaction-runtime.js?v=20260907-2" defer></script>
-<script type="module" src="/lab/catalogue-runtime.js?v=20260907-4"></script>
+<script type="module" src="/lab/catalogue-runtime.js?v=20260908-5"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>

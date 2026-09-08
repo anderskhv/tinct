@@ -301,3 +301,10 @@ describe('libraryViewFromLocation', () => {
     expect(libraryViewFromLocation('/lab/reader', '')).toBe(false)
   })
 })
+
+it('keeps Full voice and the new reader through library navigation', async () => {
+  const { readerPreviewSearch } = await import('../../public/lab/library-model.js')
+  expect(readerPreviewSearch('?chrome=v2&voiceTrial=full&book=bible')).toBe('?chrome=v2&voiceTrial=full')
+  expect(readerPreviewSearch('?chrome=v2&voiceTrial=unknown')).toBe('?chrome=v2')
+  expect(readerPreviewSearch('')).toBe('')
+})

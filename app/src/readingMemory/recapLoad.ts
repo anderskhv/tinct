@@ -36,6 +36,8 @@ export interface RecapLoadDeps {
   format?: RecapFormatOptions
   /** False to forbid a summary attempt in this load (budget spent already). */
   allowSummary?: boolean
+  /** The account-scoped history is ready, before fetching chapter text or generating a recap. */
+  onMemoryReady?: () => void
   /** A user-initiated retry ignores the time back-off (never the attempt cap). */
   manualSummary?: boolean
 }
@@ -129,6 +131,7 @@ export async function loadRecap(deps: RecapLoadDeps): Promise<RecapLoadResult | 
   let session = latestReadingSession(state, visibleToViewer(auth.userId))
   if (!session) return null
 
+  deps.onMemoryReady?.()
   const chapter = await deps.loadChapter(session.anchor)
   const paragraphs = chapter?.paragraphs ?? null
 

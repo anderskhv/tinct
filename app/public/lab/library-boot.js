@@ -420,7 +420,9 @@
         var origin = (state.snapshot && state.snapshot.hero && state.snapshot.hero.bookId) || settledBookId(window.localStorage)
         if (origin) window.sessionStorage.setItem(READER_ORIGIN_SESSION_KEY, JSON.stringify({ v: 1, bookId: origin, at: Date.now() }))
       } catch (e) { /* storage blocked */ }
-      location.replace(new URLSearchParams(location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
+      var preview = new URLSearchParams(location.search)
+      var trial = preview.get('voiceTrial')
+      location.replace(preview.get('chrome') === 'v2' ? '/lab/reader?chrome=v2' + (trial === 'full' || trial === 'mini' ? '&voiceTrial=' + trial : '') : '/lab/reader')
       return
     }
     if (state.entry === 'library') {
