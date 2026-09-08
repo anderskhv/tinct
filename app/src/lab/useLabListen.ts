@@ -30,6 +30,8 @@ import {
 export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 
 export interface UseLabListenOptions {
+  /** V2: cancelled or superseded play requests cannot skip or repaint clips. */
+  guardPlaybackRequests?: boolean
   bookId?: string
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
@@ -70,6 +72,8 @@ export function useLabListen(options: UseLabListenOptions) {
   const playClipRef = useRef<(index: number, offsetSeconds: number, andPlay?: boolean) => boolean>(() => false)
   const switchingRef = useRef(false)
   const playingRef = useRef(false)
+  const playRequestRef = useRef(0)
+  const requestIsCurrent = (request: number) => !optionsRef.current.guardPlaybackRequests || request === playRequestRef.current
   const optionsRef = useRef(options)
   optionsRef.current = options
   paragraphsRef.current = followParagraphs
@@ -85,6 +89,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [])
 
   useEffect(() => {
+    playRequestRef.current += 1
     setFollowParagraphs(options.followParagraphs)
     clipsRef.current = []
     setClips([])
@@ -196,6 +201,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playing, speed, syncFollow])
 
   useEffect(() => () => {
+    playRequestRef.current += 1
     detachRef.current?.()
     const audio = audioRef.current
     if (audio) {
@@ -206,6 +212,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [])
 
   const playClip = useCallback((index: number, offsetSeconds: number, andPlay = true) => {
+    const request = ++playRequestRef.current
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) return false
@@ -222,6 +229,7 @@ export function useLabListen(options: UseLabListenOptions) {
       try { audio.load() } catch { /* ignore */ }
     }
     const applyOffset = () => {
+      if (!requestIsCurrent(request)) return
       if (offsetSeconds > 0 || audio.currentTime !== offsetSeconds) {
         try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
       }
@@ -229,7 +237,7 @@ export function useLabListen(options: UseLabListenOptions) {
     applyOffset()
     if (!sameSrc) audio.addEventListener('loadedmetadata', applyOffset, { once: true })
     applyRate(audio, speed)
-    const armed = () => { switchingRef.current = false }
+    const armed = () => { if (requestIsCurrent(request)) switchingRef.current = false }
     audio.addEventListener('playing', armed, { once: true })
     audio.addEventListener('timeupdate', armed, { once: true })
     if (!andPlay) {
@@ -245,11 +253,19 @@ export function useLabListen(options: UseLabListenOptions) {
     playingRef.current = true
     setPlaying(true)
     audio.play().then(() => {
+      if (!requestIsCurrent(request)) return
       applyRate(audio, speed)
       switchingRef.current = false
       syncFollow(index, audio.currentTime || offsetSeconds)
-    }).catch(() => {
+    }).catch(error => {
+      if (!requestIsCurrent(request)) return
       switchingRef.current = false
+      if (optionsRef.current.guardPlaybackRequests && (error?.name === 'AbortError' || error?.name === 'NotAllowedError')) {
+        playingRef.current = false
+        setPlaying(false)
+        setFollow({ kind: 'none' })
+        return
+      }
       if (index + 1 < clipsRef.current.length) {
         playClipRef.current(index + 1, 0, true)
         return
@@ -370,14 +386,16 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [commitFollowParagraphs])
 
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
+    const request = ++playRequestRef.current
     const clips = await resolveClips()
-    if (clips.length === 0) return false
+    if (!requestIsCurrent(request) || clips.length === 0) return false
     return playPlace(clips, place, true, true)
   }, [playPlace, resolveClips])
 
   const startAtPlace = useCallback(async (place: { paragraphIndex: number; wordIndex?: number }) => {
+    const request = ++playRequestRef.current
     const clips = await resolveClips()
-    if (clips.length === 0) return false
+    if (!requestIsCurrent(request) || clips.length === 0) return false
     return playPlace(clips, place, true, false)
   }, [playPlace, resolveClips])
 
@@ -388,6 +406,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playPlace, playing])
 
   const pause = useCallback(() => {
+    playRequestRef.current += 1
     audioRef.current?.pause()
     playingRef.current = false
     setPlaying(false)
@@ -395,6 +414,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [])
 
   const resume = useCallback(() => {
+    const request = ++playRequestRef.current
     const audio = audioRef.current
     if (!audio?.src) {
       void start()
@@ -402,17 +422,20 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     applyRate(audio, speed)
     audio.play().then(() => {
+      if (!requestIsCurrent(request)) return
       applyRate(audio, speed)
       playingRef.current = true
       setPlaying(true)
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }).catch(() => {
+      if (!requestIsCurrent(request)) return
       playingRef.current = false
       setPlaying(false)
     })
   }, [applyRate, speed, start, syncFollow])
 
   const stop = useCallback(() => {
+    playRequestRef.current += 1
     const audio = audioRef.current
     if (audio) {
       audio.pause()

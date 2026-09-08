@@ -805,6 +805,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
 
   const listen = useLabListen({
+    guardPlaybackRequests: chromeV2,
     bookId: listenSource.bookId,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
