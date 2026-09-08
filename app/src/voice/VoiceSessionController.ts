@@ -69,11 +69,22 @@ export interface VoiceSessionCallbacks {
   onApplicationTool?: VoiceApplicationToolHandler
 }
 
+/**
+ * Transport truth, reported separately from what the session is doing. It
+ * moves only on observed WebRTC / data-channel events and on the two explicit
+ * ends (`stop`, `fail`) — never on a timer and never on a guess.
+ */
+export type VoiceConnectionState = 'idle' | 'connecting' | 'connected' | 'disconnected'
+
 export interface VoiceUiSnapshot {
   state: VoiceModeState
   mode: VoiceMachineSnapshot['mode']
   /** Voice V2 only. Event-derived work phase; V1 always reports `idle`. */
   activity: VoiceActivityPhase
+  /** Transport only. Independent of microphone and assistant activity. */
+  connection: VoiceConnectionState
+  /** The reader muted the outgoing microphone. The assistant may still speak. */
+  micMuted: boolean
   resumeInSeconds: number | null
   error: string | null
   isActive: boolean
@@ -109,12 +120,21 @@ type RealtimeEvent = VoiceRealtimeEvent
 
 function snapshotFrom(
   machine: VoiceMachineSnapshot,
-  extra: { activity?: VoiceActivityPhase; resumeInSeconds?: number | null; error?: string | null; userSpeechStarted?: boolean } = {},
+  extra: {
+    activity?: VoiceActivityPhase
+    connection?: VoiceConnectionState
+    micMuted?: boolean
+    resumeInSeconds?: number | null
+    error?: string | null
+    userSpeechStarted?: boolean
+  } = {},
 ): VoiceUiSnapshot {
   return {
     state: machine.state,
     mode: machine.mode,
     activity: extra.activity ?? 'idle',
+    connection: extra.connection ?? 'idle',
+    micMuted: extra.micMuted === true,
     resumeInSeconds: extra.resumeInSeconds ?? null,
     error: extra.error ?? null,
     isActive: isVoiceSessionActive(machine.state),
@@ -210,6 +230,14 @@ export class VoiceSessionController {
   private assistantLineFinished = false
   private micUnmuteTimer: number | null = null
   private connectionLossTimer: number | null = null
+  /** Transport truth. Only observed connection events move it. */
+  private connection: VoiceConnectionState = 'idle'
+  /** Reader-owned microphone mute. Survives the internal barge-in unmute. */
+  private micMuted = false
+  /** Read-only tap on the assistant's own playback, for the speaking indicator. */
+  private assistantAnalyser: AnalyserNode | null = null
+  private assistantSource: MediaStreamAudioSourceNode | null = null
+  private assistantLevelData: Uint8Array<ArrayBuffer> | null = null
   private sessionStartedAt: number | null = null
   private speechStoppedAt: number | null = null
   private latencyTurnNumber = 0
@@ -232,6 +260,8 @@ export class VoiceSessionController {
   getSnapshot(): VoiceUiSnapshot {
     return snapshotFrom(this.machine, {
       activity: this.activity,
+      connection: this.connection,
+      micMuted: this.micMuted,
       resumeInSeconds: this.currentResumeSeconds(),
       userSpeechStarted: this.userSpeechStarted,
     })
@@ -244,6 +274,8 @@ export class VoiceSessionController {
     }
 
     this.closed = false
+    this.connection = 'connecting'
+    this.micMuted = false
     this.voiceVersion = input.voiceVersion === 'v2' ? 'v2' : 'v1'
     this.resetV2Turn()
     this.activity = this.isV2() ? 'connecting' : 'idle'
@@ -376,6 +408,8 @@ export class VoiceSessionController {
 
   stop(): void {
     this.closed = true
+    this.connection = 'idle'
+    this.micMuted = false
     this.activity = 'idle'
     this.userSpeechStarted = false
     this.lastUtteranceConfirmed = false
@@ -400,6 +434,7 @@ export class VoiceSessionController {
 
   dispose(): void {
     this.closed = true
+    this.connection = 'idle'
     this.restoreBook({ speakClose: false })
   }
 
@@ -453,6 +488,8 @@ export class VoiceSessionController {
     this.voiceVersion = input.voiceVersion === 'v2' ? 'v2' : 'v1'
     this.resetV2Turn()
     this.activity = 'idle'
+    this.connection = 'connected'
+    this.micMuted = false
     this.honorModelResume = input.honorModelResume === true
     this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
@@ -532,6 +569,8 @@ export class VoiceSessionController {
   private emit(error: string | null = null): void {
     this.callbacks.onSnapshot(snapshotFrom(this.machine, {
       activity: this.activity,
+      connection: this.connection,
+      micMuted: this.micMuted,
       resumeInSeconds: this.currentResumeSeconds(),
       error,
       userSpeechStarted: this.userSpeechStarted,
@@ -617,6 +656,10 @@ export class VoiceSessionController {
 
   private fail(error: string): void {
     this.activity = 'idle'
+    // A start that never reached the data channel and a live call that dropped
+    // are both "not connected". The UI decides which sound that deserves from
+    // whether the call had connected before.
+    this.connection = 'disconnected'
     this.resetV2Turn()
     this.machine = INITIAL_VOICE_SNAPSHOT
     this.turn = INITIAL_VOICE_TURN
@@ -686,12 +729,17 @@ export class VoiceSessionController {
     this.remoteAudio = remoteAudio
     pc.ontrack = event => {
       remoteAudio.srcObject = event.streams[0]
+      this.attachAssistantAnalyser(event.streams[0])
       void remoteAudio.play().catch(() => { /* autoplay may be unlocked by the tap */ })
     }
     pc.onconnectionstatechange = () => {
       if (pc.connectionState === 'connected') {
         if (this.connectionLossTimer != null) window.clearTimeout(this.connectionLossTimer)
         this.connectionLossTimer = null
+        if (this.connection !== 'connected') {
+          this.connection = 'connected'
+          this.emit()
+        }
         return
       }
       if (pc.connectionState === 'failed') {
@@ -716,6 +764,8 @@ export class VoiceSessionController {
     this.dc = dc
     const dataChannelReady = new Promise<void>(resolve => {
       dc.addEventListener('open', () => {
+        this.connection = 'connected'
+        this.emit()
         this.sendSessionUpdate()
         this.sendLabGreeting()
         resolve()
@@ -2053,22 +2103,87 @@ export class VoiceSessionController {
     this.micUnmuteTimer = null
   }
 
+  /**
+   * Mute or unmute the outgoing microphone at the reader's request. It stands
+   * above the barge-in settle: an internal unmute never re-opens a mic the
+   * reader closed. The assistant keeps speaking either way.
+   */
+  setMicMuted(muted: boolean): void {
+    if (this.micMuted === muted) return
+    this.micMuted = muted
+    this.setOutgoingMicEnabled(!muted)
+    this.emit()
+  }
+
+  /**
+   * Loudness of the assistant's own playback, 0-1, or `null` when no tap
+   * exists (no AudioContext, or the browser refused the remote stream). The
+   * caller must not invent a level when this returns null.
+   */
+  getAssistantLevel(): number | null {
+    const analyser = this.assistantAnalyser
+    const data = this.assistantLevelData
+    if (!analyser || !data) return null
+    try {
+      analyser.getByteTimeDomainData(data)
+    } catch {
+      return null
+    }
+    let sum = 0
+    for (let i = 0; i < data.length; i += 1) {
+      const value = (data[i] - 128) / 128
+      sum += value * value
+    }
+    const rms = Math.sqrt(sum / data.length)
+    return Math.max(0, Math.min(1, rms * 4))
+  }
+
+  /** Read-only branch off the assistant's remote track. Playback stays on the audio element. */
+  private attachAssistantAnalyser(stream: MediaStream): void {
+    this.detachAssistantAnalyser()
+    if (typeof AudioContext === 'undefined') return
+    try {
+      this.unlockLabAudioContext()
+      const ctx = this.labAudioContext
+      if (!ctx) return
+      const source = ctx.createMediaStreamSource(stream)
+      const analyser = ctx.createAnalyser()
+      analyser.fftSize = 256
+      source.connect(analyser)
+      this.assistantSource = source
+      this.assistantAnalyser = analyser
+      this.assistantLevelData = new Uint8Array(new ArrayBuffer(analyser.fftSize))
+    } catch {
+      this.detachAssistantAnalyser()
+    }
+  }
+
+  private detachAssistantAnalyser(): void {
+    try { this.assistantSource?.disconnect() } catch { /* ignore */ }
+    try { this.assistantAnalyser?.disconnect() } catch { /* ignore */ }
+    this.assistantSource = null
+    this.assistantAnalyser = null
+    this.assistantLevelData = null
+  }
+
   private setOutgoingMicEnabled(enabled: boolean): void {
-    this.localStream?.getAudioTracks?.().forEach(track => { track.enabled = enabled })
+    const live = enabled && !this.micMuted
+    this.localStream?.getAudioTracks?.().forEach(track => { track.enabled = live })
     try {
       this.pc?.getSenders().forEach(sender => {
-        if (sender.track?.kind === 'audio') sender.track.enabled = enabled
+        if (sender.track?.kind === 'audio') sender.track.enabled = live
       })
     } catch { /* ignore */ }
   }
 
   private teardownConnection(): void {
+    this.detachAssistantAnalyser()
     try { this.dc?.close() } catch { /* ignore */ }
     this.dc = null
     try { this.pc?.getSenders().forEach(sender => sender.track?.stop()) } catch { /* ignore */ }
     try { this.pc?.close() } catch { /* ignore */ }
     this.pc = null
-    this.localStream?.getTracks().forEach(track => track.stop())
+    this.localStream?.getTracks?.().forEach(track => track.stop())
     this.localStream = null
     if (this.remoteAudio) {
       try { this.remoteAudio.pause() } catch { /* ignore */ }

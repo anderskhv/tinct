@@ -67,6 +67,8 @@ const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   state: 'reading',
   mode: 'conversation',
   activity: 'idle',
+  connection: 'idle',
+  micMuted: false,
   resumeInSeconds: null,
   error: null,
   isActive: false,
@@ -243,6 +245,14 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   return {
     state: ui.state,
     activity: ui.activity,
+    /** Transport only, reported apart from microphone and assistant activity. */
+    connection: ui.connection,
+    micMuted: ui.micMuted,
+    setMicMuted: (muted: boolean) => {
+      controllerRef.current?.setMicMuted(muted)
+    },
+    /** Real loudness of the assistant's playback, or null when no tap exists. */
+    getAssistantLevel: () => controllerRef.current?.getAssistantLevel() ?? null,
     isActive: ui.isActive,
     error: ui.error,
     resumeInSeconds: ui.resumeInSeconds,
