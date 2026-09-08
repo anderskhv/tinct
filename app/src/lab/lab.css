@@ -4612,6 +4612,18 @@
 .lab.is-night .lab-account-nudge { color: var(--lab-ink-muted); border-color: var(--lab-border); }
 .lab.is-night .lab-account-nudge a { color: var(--lab-ink); }
 
+/* The two call-circle motions. Keyframes cannot carry a selector, so they
+   live above the V2 region; only V2 rules ever reference them. */
+@keyframes lab-call-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lab-call-breathe {
+  0%, 100% { transform: scale(0.92); opacity: 0.78; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.
 
@@ -5749,3 +5761,337 @@
 .lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-mic { order: 1; }
 .lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-voice { order: 2; }
 .lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-send { order: 3; }
+
+
+/* ── The phone call surface ────────────────────────────────────────────────
+   A quiet circle, one large status line, and the connection kept apart from
+   it. Phone only; every rule is behind the flag like the rest of V2. */
+
+.lab[data-chrome-version="v2"] {
+  --lab-call-accent: #1f4a5c;
+  --lab-call-accent-soft: rgba(31, 74, 92, 0.16);
+  --lab-call-hairline: rgba(11, 11, 11, 0.12);
+}
+
+.lab[data-chrome-version="v2"].is-night {
+  --lab-call-accent: #86b6c6;
+  --lab-call-accent-soft: rgba(134, 182, 198, 0.18);
+  --lab-call-hairline: rgba(250, 246, 238, 0.16);
+}
+
+/* z-index sits above the V2 header (330): a call owns the whole screen. */
+.lab[data-chrome-version="v2"] .lab-call {
+  position: fixed;
+  inset: 0;
+  z-index: 340;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  padding:
+    calc(1.35rem + env(safe-area-inset-top, 0px))
+    1.5rem
+    calc(1.6rem + env(safe-area-inset-bottom, 0px));
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  text-align: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-connection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lab-ink-muted);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-connection-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--lab-ink-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-call[data-connection="connected"] .lab-call-connection-dot {
+  background: var(--lab-call-accent);
+}
+
+.lab[data-chrome-version="v2"] .lab-call[data-connection="lost"] .lab-call-connection-dot {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--lab-call-accent);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-connection-value { color: var(--lab-ink); }
+
+.lab[data-chrome-version="v2"] .lab-call-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-circle {
+  position: relative;
+  width: min(56vw, 232px);
+  height: min(56vw, 232px);
+  display: grid;
+  place-items: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-ring-track {
+  fill: none;
+  stroke: var(--lab-call-hairline);
+  stroke-width: 2;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-ring-mark {
+  fill: none;
+  stroke: var(--lab-call-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+}
+
+/* A closed circle while the line is open, a broken ring while it is not. */
+.lab[data-chrome-version="v2"] .lab-call-circle[data-broken="true"] .lab-call-ring-mark {
+  stroke-dasharray: 118 422;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-circle.motion-rotate .lab-call-ring-mark {
+  animation: lab-call-turn 2.8s linear infinite;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-circle.is-disconnected .lab-call-ring-track { stroke: transparent; }
+
+.lab[data-chrome-version="v2"] .lab-call-circle.is-disconnected .lab-call-ring-mark {
+  stroke: var(--lab-call-accent);
+  stroke-width: 6;
+  stroke-dasharray: 74 44;
+  animation: none;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-core {
+  position: relative;
+  width: 52%;
+  height: 52%;
+  border-radius: 50%;
+  background: var(--lab-call-accent);
+  opacity: 0.9;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-circle.motion-breathe .lab-call-core {
+  animation: lab-call-breathe 4.2s ease-in-out infinite;
+}
+
+/* Speaking: the size is the assistant's own loudness, written frame by frame
+   from an analyser on her playback. With no level the circle simply rests. */
+.lab[data-chrome-version="v2"] .lab-call-circle.motion-pulse .lab-call-core {
+  transform: scale(calc(0.82 + var(--lab-call-level, 0) * 0.34));
+  transition: transform 60ms linear;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-circle.is-muted .lab-call-core,
+.lab[data-chrome-version="v2"] .lab-call-circle.is-disconnected .lab-call-core {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--lab-call-accent-soft);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-circle.is-connecting .lab-call-core,
+.lab[data-chrome-version="v2"] .lab-call-circle.is-thinking .lab-call-core {
+  opacity: 0.35;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-status {
+  margin: 0;
+  font-family: 'Playfair Display', 'EB Garamond', Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-micoff,
+.lab[data-chrome-version="v2"] .lab-call-help,
+.lab[data-chrome-version="v2"] .lab-call-notice {
+  margin: -0.7rem 0 0;
+  max-width: 22rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: var(--lab-ink-muted);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-micoff {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--lab-ink);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-transcript {
+  border: 0;
+  background: none;
+  padding: 0.4rem 0.2rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.02rem;
+  color: var(--lab-call-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-buttons {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-button {
+  flex: 1;
+  min-height: 3rem;
+  border: 1px solid var(--lab-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-button.is-on {
+  border-color: var(--lab-call-accent);
+  background: var(--lab-call-accent-soft);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-button.is-end,
+.lab[data-chrome-version="v2"] .lab-call-button.is-reconnect {
+  border-color: var(--lab-call-accent);
+  background: var(--lab-call-accent);
+  color: var(--lab-paper);
+}
+
+/* On a dropped call Reconnect is the one obvious action, so End steps back
+   to an outline rather than competing with it. */
+.lab[data-chrome-version="v2"] .lab-call[data-connection="lost"] .lab-call-button.is-end {
+  background: transparent;
+  border-color: var(--lab-border);
+  color: var(--lab-ink);
+}
+
+/* The compact controls that stay over the transcript while the call runs. */
+.lab[data-chrome-version="v2"] .lab-call-bar {
+  flex: none;
+  z-index: 301;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--lab-surface);
+  border-bottom: 1px solid var(--lab-border);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-status {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  border: 0;
+  background: none;
+  padding: 0.25rem 0;
+  text-align: left;
+  color: var(--lab-ink);
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--lab-call-accent);
+  flex: none;
+  align-self: center;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-dot.is-disconnected,
+.lab[data-chrome-version="v2"] .lab-call-bar-dot.is-muted {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--lab-call-accent);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-back {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex: none;
+  align-self: center;
+  color: var(--lab-ink-muted);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-connection {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lab-ink-muted);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-action {
+  flex: none;
+  border: 1px solid var(--lab-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink);
+  padding: 0.4rem 0.62rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-action.is-on {
+  border-color: var(--lab-call-accent);
+  background: var(--lab-call-accent-soft);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-bar-action.is-end {
+  border-color: var(--lab-call-accent);
+  background: var(--lab-call-accent);
+  color: var(--lab-paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-call-circle .lab-call-ring-mark,
+  .lab[data-chrome-version="v2"] .lab-call-circle .lab-call-core {
+    animation: none !important;
+    transition: none !important;
+  }
+}
