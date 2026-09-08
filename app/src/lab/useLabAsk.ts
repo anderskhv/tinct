@@ -1,3 +1,5 @@
+import type { VoiceTrial } from '../voice/voiceTrial'
+import { BOOK_PASSAGE_TOOL, buildDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
@@ -96,6 +98,7 @@ export interface UseLabAskOptions {
   onVoiceToolSessionStart?: () => void
   /** `'v2'` only from `/lab/reader?voice=v2`. Defaults to Voice V1. */
   quietCompanionHandoff?: boolean
+  voiceTrial?: VoiceTrial | null
   voiceVersion?: LabVoiceVersion
 }
 
@@ -288,18 +291,18 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [turns])
   const talkInstructions = useMemo(
     () => buildLabVoiceControlInstructions(
-      isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
-      rememberedLabTurns,
+      options.voiceTrial ? buildDirectVoiceInstructions(askContext) : isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
+      options.voiceTrial ? turns : rememberedLabTurns,
     ) + (options.quietCompanionHandoff ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
-    [askContext, isVoiceV2, rememberedLabTurns, options.quietCompanionHandoff],
+    [askContext, isVoiceV2, rememberedLabTurns, turns, options.quietCompanionHandoff, options.voiceTrial],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
-    () => mergeLabVoiceTools(isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS).map(tool =>
-      options.quietCompanionHandoff && tool.name === 'ask_companion'
+    () => mergeLabVoiceTools(options.voiceTrial ? [...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL] : isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS).map(tool =>
+      options.quietCompanionHandoff && tool && typeof tool === 'object' && 'name' in tool && tool.name === 'ask_companion'
         ? { ...tool, description: "Ask Tinct's reading companion for a book answer. Call silently, wait for the result, then speak the supplied answer. Never use for playback controls." }
         : tool),
-    [isVoiceV2, options.quietCompanionHandoff],
+    [isVoiceV2, options.quietCompanionHandoff, options.voiceTrial],
   )
 
   const onTinctVoiceTool = useCallback(async (
@@ -307,10 +310,13 @@ export function useLabAsk(options: UseLabAskOptions) {
     arguments_: Record<string, unknown>,
     callId: string,
   ) => {
+    if (optionsRef.current.voiceTrial && name === 'get_book_passage') {
+      return retrieveVoicePassage(askContextNow(await readTrail()), arguments_)
+    }
     const result = await tinctVoiceTools.onTool(name, arguments_, callId)
     optionsRef.current.onVoiceToolAction?.(labVoiceActionEntry(name, arguments_, callId, result))
     return result
-  }, [tinctVoiceTools.onTool])
+  }, [tinctVoiceTools.onTool, askContextNow, readTrail])
 
   const onCompanionAsk = useCallback(async (question: string, notify?: CompanionAskNotify) => {
     const authToken = await resolveLabVoiceToken({
@@ -360,7 +366,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     authToken: liveToken,
     isAnonymous: !liveToken,
     labGuest: true,
-    bookId: LAB_CHAT_BOOK_ID,
+    bookId: options.voiceTrial ? (options.bookId || LAB_CHAT_BOOK_ID) : LAB_CHAT_BOOK_ID,
+    ...(options.voiceTrial ? { editionKey: options.editionKey, editionLabel: options.editionLabel } : {}),
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
     chapterNumber: options.chapterNumber ?? 1,
@@ -384,7 +391,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       tinctVoiceTools.resetUndo()
       optionsRef.current.onVoiceToolSessionStart?.()
     },
-    onCompanionAsk,
+    onCompanionAsk: options.voiceTrial ? undefined : onCompanionAsk,
+    voiceTrial: options.voiceTrial,
     honorModelResume: true,
     quietCompanionHandoff: options.quietCompanionHandoff,
     setPlaybackSpeed: (rate) => optionsRef.current.onSetPlaybackSpeed?.(rate),

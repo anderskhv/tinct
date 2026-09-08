@@ -1,3 +1,4 @@
+import { VOICE_TRIAL_MODELS, type VoiceTrial } from './voiceTrial'
 import { apiUrl } from '../utils/apiUrl'
 import { ASSISTANT_PACE_SPEED, affirmativeAnswersLookupOffer, isLabPlaybackSkip, lookupQuestionFromOffer, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace, type LabPlaybackSkip, cleanLabVoiceTranscript } from '../lab/labAsk'
 import { shouldResumePlaybackAfterNavigation, type LabPlaybackNavigationOutcome } from '../lab/labVoiceControls'
@@ -109,6 +110,7 @@ export interface StartVoiceSessionInput {
   /** Lab-only. Production leaves this unset so shouldHonorModelResume still gates the tool. */
   honorModelResume?: boolean
   /** V2 reader: wait silently and always speak the completed companion answer. */
+  voiceTrial?: VoiceTrial | null
   quietCompanionHandoff?: boolean
   /** Lab-only. Realtime audio.output.speed. */
   assistantPace?: AssistantPace
@@ -202,6 +204,11 @@ export class VoiceSessionController {
   private instructions: string | null = null
   private tools: readonly unknown[] | null = null
   private applicationTools: readonly unknown[] = []
+  private voiceTrial: VoiceTrial | null = null
+  private model: string = VOICE_REALTIME_MODEL
+  private trialTranscriptPending = false
+  private trialTurn = 0
+  private trialQueuedResponse: Record<string, unknown> | null = null
   private quietCompanionHandoff = false
   private honorModelResume = false
   private assistantPace: AssistantPace = 'normal'
@@ -310,6 +317,11 @@ export class VoiceSessionController {
     this.tools = input.tools ?? null
     this.applicationTools = input.applicationTools ?? []
     this.honorModelResume = input.honorModelResume === true
+    this.voiceTrial = input.voiceTrial ?? null
+    this.model = this.voiceTrial ? VOICE_TRIAL_MODELS[this.voiceTrial] : VOICE_REALTIME_MODEL
+    this.trialTranscriptPending = false
+    this.trialQueuedResponse = null
+    this.trialTurn = 0
     this.quietCompanionHandoff = input.quietCompanionHandoff === true
     if (input.assistantPace) this.assistantPace = input.assistantPace
     this.onCompanionAsk = input.onCompanionAsk
@@ -336,6 +348,7 @@ export class VoiceSessionController {
       const tokenPromise = fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
         method: 'POST',
         headers: tokenHeaders,
+        ...(this.voiceTrial ? { body: JSON.stringify({ voiceTrial: this.voiceTrial }) } : {}),
       })
       const [mediaResult, tokenResult] = await Promise.allSettled([mediaPromise, tokenPromise])
       if (this.closed) {
@@ -389,7 +402,7 @@ export class VoiceSessionController {
           kind: 'session_setup',
           at: Date.now(),
           sessionSetupMs: Math.round(monotonicNow() - this.sessionStartedAt),
-          model: VOICE_REALTIME_MODEL,
+          model: this.model,
         })
       }
     } catch (error) {
@@ -454,7 +467,9 @@ export class VoiceSessionController {
       && context.bookId
       && (this.context.bookId !== context.bookId || this.context.chapterNumber !== context.chapterNumber),
     )
+    const trialContextChanged = movedToDifferentPassage || this.context?.paragraphIndex !== context.paragraphIndex
     this.context = context
+    if (this.voiceTrial && trialContextChanged && context.visibleText) this.instructions = context.visibleText
     if (movedToDifferentPassage) {
       // Refresh the pause anchor if the audio engine has already moved with
       // the reader. Otherwise refuse the stale anchor rather than jumping
@@ -468,7 +483,7 @@ export class VoiceSessionController {
       this.anchor = refreshedMatches ? refreshed!.anchor : null
       if (!refreshedMatches) this.shouldResumeBook = false
     }
-    if (this.machine.state !== 'reading') this.sendSessionUpdate()
+    if (this.machine.state !== 'reading' && (!this.voiceTrial || trialContextChanged)) this.sendSessionUpdate()
   }
 
   testAssistantPace(): AssistantPace {
@@ -478,6 +493,7 @@ export class VoiceSessionController {
   testPrimeSession(input: {
     audio: VoiceAudioEngine
     honorModelResume?: boolean
+    voiceTrial?: VoiceTrial | null
     quietCompanionHandoff?: boolean
     lastUserIntent?: VoiceIntent
     onCompanionAsk?: StartVoiceSessionInput['onCompanionAsk']
@@ -496,6 +512,11 @@ export class VoiceSessionController {
     this.connection = 'connected'
     this.micMuted = false
     this.honorModelResume = input.honorModelResume === true
+    this.voiceTrial = input.voiceTrial ?? null
+    this.model = this.voiceTrial ? VOICE_TRIAL_MODELS[this.voiceTrial] : VOICE_REALTIME_MODEL
+    this.trialTranscriptPending = false
+    this.trialQueuedResponse = null
+    this.trialTurn = 0
     this.quietCompanionHandoff = input.quietCompanionHandoff === true
     this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
@@ -652,7 +673,7 @@ export class VoiceSessionController {
       at: Date.now(),
       turnNumber: this.latencyTurnNumber,
       speechStoppedToFirstAudioMs: Math.round(monotonicNow() - this.speechStoppedAt),
-      model: VOICE_REALTIME_MODEL,
+      model: this.model,
     })
   }
 
@@ -854,8 +875,9 @@ export class VoiceSessionController {
       session,
     }))
     if (this.honorModelResume) {
+      const alreadyReady = this.sessionVadReady
       this.sessionVadReady = true
-      this.sendEvent({ type: 'input_audio_buffer.clear' })
+      if (!this.voiceTrial || !alreadyReady) this.sendEvent({ type: 'input_audio_buffer.clear' })
     }
   }
 
@@ -865,6 +887,11 @@ export class VoiceSessionController {
     // holding lines and the answer itself; a stray response.create is how the
     // Realtime model ended up narrating "I'm still waiting on the companion…".
     if (payload.type === 'response.create' && this.hopPending && !this.hopResponseAllowed) return
+    if (this.voiceTrial && payload.type === 'response.create' && this.turn.responseOpen) {
+      this.trialQueuedResponse = payload
+      this.v2CreateOutstanding = true
+      return
+    }
     this.dc.send(JSON.stringify(payload))
     if (this.isV2() && payload.type === 'response.create') this.v2CreateOutstanding = true
   }
@@ -968,6 +995,10 @@ export class VoiceSessionController {
 
   private confirmUserSpeech(): void {
     this.bargeInTimer = null
+    this.trialTurn += 1
+    this.trialQueuedResponse = null
+    this.trialTranscriptPending = false
+    this.clearForceResponseTimer()
     this.lastUtteranceConfirmed = true
     this.userSpeechStarted = true
     this.assistantLineFinished = false
@@ -1039,10 +1070,11 @@ export class VoiceSessionController {
     this.clearLabUserTurnWatch()
     this.dispatch({ type: 'USER_SPEECH_END' })
     this.noteV2UserTurnEnded()
+    if (this.voiceTrial) { this.trialTranscriptPending = true; this.noteSpeechStoppedForLatency() }
     this.lastUtteranceConfirmed = false
     if (!this.firstUserTurnCommitted) {
       this.firstUserTurnCommitted = true
-      this.sendEvent({ type: 'input_audio_buffer.clear' })
+      if (!this.voiceTrial) this.sendEvent({ type: 'input_audio_buffer.clear' })
     }
     this.ensureResponseAfterUserSpeech()
   }
@@ -1056,6 +1088,7 @@ export class VoiceSessionController {
   }
 
   private shouldDiscardUserTranscript(): boolean {
+    if (this.voiceTrial) return !this.trialTranscriptPending
     if (!this.honorModelResume) return false
     if (this.lastUtteranceConfirmed) return false
     return this.assistantIsSpeaking()
@@ -1115,6 +1148,11 @@ export class VoiceSessionController {
         if (this.isV2() && (event.type === 'response.done' || event.type === 'response.cancelled')) {
           this.settleV2Response(event, cancelled, turnResult.signal)
         }
+        if (this.voiceTrial && !this.turn.responseOpen && this.trialQueuedResponse && !this.v2UserSpeaking) {
+          const queued = this.trialQueuedResponse
+          this.trialQueuedResponse = null
+          this.sendEvent(queued)
+        }
         return
       }
       case 'response.output_audio_transcript.delta':
@@ -1139,6 +1177,13 @@ export class VoiceSessionController {
         this.callbacks.onTurn('user', text)
         const intent = classifyVoiceUtterance(text)
         this.lastUserIntent = intent
+        if (this.voiceTrial) {
+          this.trialTranscriptPending = false
+          this.clearForceResponseTimer()
+          this.setActivity('preparing_answer')
+          this.sendEvent({ type: 'response.create' })
+          return
+        }
         // Decide who answers before creating any speech, not after its first word.
         if (this.quietCompanionHandoff && !this.isV2()) {
           this.clearForceResponseTimer()
@@ -1161,6 +1206,13 @@ export class VoiceSessionController {
         this.dispatch({ type: 'INTENT', intent })
         return
       }
+      case 'conversation.item.input_audio_transcription.failed':
+        if (this.voiceTrial) {
+          this.trialTranscriptPending = false
+          this.clearForceResponseTimer()
+          this.noticeV2Failure()
+        }
+        return
       case 'response.output_audio_transcript.done':
       case 'response.audio_transcript.done': {
         if (!this.acceptAssistantTranscript(event.type || '')) return
@@ -1837,9 +1889,15 @@ export class VoiceSessionController {
         } catch { /* malformed tool arguments are handled by the application tool */ }
       }
 
+      const requestedTurn = this.trialTurn
       try {
         const result = await this.callbacks.onApplicationTool(name, arguments_, callId)
         if (this.closed) return
+        if (this.voiceTrial && requestedTurn !== this.trialTurn) {
+          this.sendFunctionOutput(callId, { ok: false, reason: 'interrupted' })
+          this.applyTurnResult(noteToolCallHandled(this.turn))
+          return
+        }
         this.sendEvent({
           type: 'conversation.item.create',
           item: {
@@ -1878,6 +1936,15 @@ export class VoiceSessionController {
   }
 
   private ensureResponseAfterUserSpeech(): void {
+    if (this.voiceTrial) {
+      this.clearForceResponseTimer()
+      this.forceResponseTimer = window.setTimeout(() => {
+        if (!this.trialTranscriptPending || this.closed) return
+        this.trialTranscriptPending = false
+        this.noticeV2Failure()
+      }, 10000)
+      return
+    }
     if (!this.honorModelResume || (this.quietCompanionHandoff && !this.isV2())) return
     this.awaitingModelResponse = true
     this.clearForceResponseTimer()
@@ -1936,6 +2003,12 @@ export class VoiceSessionController {
     this.clearLabUserTurnWatch()
     this.dispatch({ type: 'USER_SPEECH_END' })
     this.noteV2UserTurnEnded()
+    if (this.voiceTrial) {
+      this.trialTranscriptPending = true
+      this.sendEvent({ type: 'input_audio_buffer.commit' })
+      this.ensureResponseAfterUserSpeech()
+      return
+    }
     this.sendEvent({ type: 'input_audio_buffer.commit' })
     if (this.honorModelResume && !this.firstUserTurnCommitted) {
       this.firstUserTurnCommitted = true
@@ -1959,7 +2032,7 @@ export class VoiceSessionController {
   }
 
   private ignoringFirstResponseBargeIn(): boolean {
-    return this.honorModelResume && !this.firstAssistantDone && (
+    return !this.voiceTrial && this.honorModelResume && !this.firstAssistantDone && (
       this.firstUserTurnCommitted || this.assistantIsSpeaking()
     )
   }
@@ -1981,6 +2054,11 @@ export class VoiceSessionController {
   }
 
   private sendLabGreeting(): void {
+    if (this.voiceTrial) {
+      this.firstAssistantDone = true
+      this.setOutgoingMicEnabled(true)
+      return
+    }
     if (!this.honorModelResume || this.greetingRequested) return
     this.greetingRequested = true
     this.sendEvent({

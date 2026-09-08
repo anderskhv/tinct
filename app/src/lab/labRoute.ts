@@ -55,3 +55,11 @@ export function labChromeVersion(pathname: string, search?: string): LabChromeVe
   const params = new URLSearchParams(query.startsWith('?') ? query.slice(1) : query)
   return params.get('chrome')?.trim().toLowerCase() === 'v2' ? 'v2' : 'v1'
 }
+
+/** A trial requires both explicit flags on a reader route. */
+export function labVoiceTrial(pathname: string, search?: string): import('../voice/voiceTrial').VoiceTrial | null {
+  if (labChromeVersion(pathname, search) !== 'v2') return null
+  const query = search ?? pathname.split('#')[0].split('?')[1] ?? ''
+  const value = new URLSearchParams(query).get('voiceTrial')
+  return value === 'full' || value === 'mini' ? value : null
+}

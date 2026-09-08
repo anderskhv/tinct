@@ -1,3 +1,4 @@
+import type { VoiceTrial } from '../voice/voiceTrial'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { VoiceSessionController, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
@@ -51,6 +52,7 @@ export interface UseVoiceSessionOptions {
   onSessionStart?: () => void
   honorModelResume?: boolean
   /** V2 reader: wait silently and always speak the completed companion answer. */
+  voiceTrial?: VoiceTrial | null
   quietCompanionHandoff?: boolean
   /** Lab-only. Production AudioStrip leaves this unset. */
   setPlaybackSpeed?: (rate: number) => void
@@ -111,7 +113,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
           const next = [...previous, sample].slice(-20)
           if (typeof window !== 'undefined') {
             ;(window as Window & { __tinctVoiceDebug?: unknown }).__tinctVoiceDebug = {
-              model: VOICE_REALTIME_MODEL,
+              model: sample.model,
               samples: next,
             }
           }
@@ -204,6 +206,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       applicationTools: opts.applicationTools,
       honorModelResume: opts.honorModelResume,
       quietCompanionHandoff: opts.quietCompanionHandoff,
+      voiceTrial: opts.voiceTrial,
       assistantPace: opts.assistantPace,
       onCompanionAsk: opts.onCompanionAsk,
       voiceVersion: opts.voiceVersion,

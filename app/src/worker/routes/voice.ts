@@ -1,3 +1,4 @@
+import { parseVoiceTrial, VOICE_TRIAL_MODELS } from '../../voice/voiceTrial'
 import { VOICE_REALTIME_MODEL } from '../../voice/types'
 import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
 import { jsonResponse } from '../lib/responses'
@@ -48,6 +49,10 @@ export async function handleVoiceSession(
   const apiKey = env.OPENAI_API_KEY
   if (!apiKey) return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
 
+  // The trial is explicit; arbitrary model names are never accepted.
+  const body = await request.json().catch(() => null) as { voiceTrial?: unknown } | null
+  const trial = parseVoiceTrial(body?.voiceTrial)
+  const model = trial ? VOICE_TRIAL_MODELS[trial] : VOICE_REALTIME_MODEL
   const allowLabGuest = options?.allowLabGuest === true
   const user = allowLabGuest ? null : await verifyUser(env, request)
   if (!allowLabGuest) {
@@ -96,7 +101,7 @@ export async function handleVoiceSession(
       body: JSON.stringify({
         session: {
           type: 'realtime',
-          model: VOICE_REALTIME_MODEL,
+          model,
           audio: { output: { voice: 'marin' } },
         },
       }),
@@ -115,7 +120,7 @@ export async function handleVoiceSession(
     return jsonResponse({
       value: data.value,
       expires_at: data.expires_at ?? null,
-      model: VOICE_REALTIME_MODEL,
+      model,
     }, 200, request)
   } catch {
     return jsonResponse({ error: 'Could not start a voice session.' }, 500, request)

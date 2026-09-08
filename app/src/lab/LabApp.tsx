@@ -67,7 +67,7 @@ import {
   type LabAppearanceProfile,
   type LabReaderProgressMode,
 } from './labPrefs'
-import { labChromeVersion, labLayoutOverride, labVoiceVersion } from './labRoute'
+import { labChromeVersion, labLayoutOverride, labVoiceVersion, labVoiceTrial } from './labRoute'
 import { useLabDictation } from './useLabDictation'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
@@ -317,7 +317,8 @@ function readOnline(override?: boolean): boolean {
 export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
-  const voiceVersion = labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
+  const voiceTrial = labVoiceTrial(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
+  const voiceVersion = voiceTrial ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const chromeV2 = labChromeVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : '')) === 'v2'
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
@@ -776,7 +777,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     onPlaybackSkip: (kind) => skipRef.current(kind),
     userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     voiceToolAdapter,
-    quietCompanionHandoff: chromeV2,
+    quietCompanionHandoff: chromeV2 && !voiceTrial,
+    voiceTrial,
     voiceVersion,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
