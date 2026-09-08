@@ -4459,7 +4459,9 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
   expect(audio.src).not.toContain('title.mp3')
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   expect(audio.paused).toBe(true)
+  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('open')
   fireEvent.click(screen.getByTestId('lab-page-next'))
+  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('closed')
   const first = screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!
   const index = Number(first.dataset.wordIndex)
   expect(index).toBeGreaterThan(0)

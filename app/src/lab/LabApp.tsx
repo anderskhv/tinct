@@ -2088,19 +2088,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     fullscreen,
     phoneAsk,
   })
+  const [pausedTransportVisible, setPausedTransportVisible] = useState(false)
+  useEffect(() => {
+    if (chromeV2 && listen.playing) setPausedTransportVisible(true)
+  }, [chromeV2, listen.playing])
+  useEffect(() => { setPausedTransportVisible(false) }, [book.bookId, book.chapterNumber])
   const audioBarActive = showPhoneChrome
     && phoneBarPossible
     && !phoneAsk
     && !mobileCompareActive
-    && (listen.playing || audioChapterTransitioning)
+    && (listen.playing || audioChapterTransitioning || (chromeV2 && pausedTransportVisible))
+  const desktopAudioBarActive = !showPhoneChrome && (listen.playing || (chromeV2 && pausedTransportVisible))
   // V2 has no reading bar. Play is in the top bar and Chat, Talk and Compare
   // are in the menu; what the foot holds is the progress line, and the
   // transport for as long as audio plays. The space the bar took goes to the
   // page. V1 keeps the bar it ships with.
   const showPhoneBar = phoneBarPossible && (!chromeV2 || audioBarActive)
   useEffect(() => {
-    if (showPhoneChrome ? !audioBarActive : !listen.playing) setSpeedPopoverOpen(false)
-  }, [audioBarActive, listen.playing, showPhoneChrome])
+    if (showPhoneChrome ? !audioBarActive : !desktopAudioBarActive) setSpeedPopoverOpen(false)
+  }, [audioBarActive, desktopAudioBarActive, showPhoneChrome])
   // V2 lets the chrome hide while audio plays — the transport is what stays
   // on screen, at full opacity, so playback can always be seen and stopped.
   const phoneReaderControlsVisible = readerControlsVisible
@@ -2427,6 +2433,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     openAtEndRef.current = false
     setOpenAtEnd(false)
     const activeAnchor = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
+    if (chromeV2 && !listen.playing) {
+      transportAnchorRef.current = { scope: transportScopeRef.current, place: activeAnchor }
+      setPausedTransportVisible(false)
+    }
     pageAnchorRef.current = activeAnchor
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
     const previousPageIndex = readingPageIndexRef.current
@@ -2447,7 +2457,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       placeRef.current = primaryAnchor
       notePlace('page-turn', primaryAnchor)
     }
-  }, [commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
+  }, [chromeV2, commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
 
   const handleMobileCompare = useCallback(() => {
     if (!mobileCompareEnabled) return
@@ -2832,7 +2842,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
-    if (chrome === 'hearing' && !opts?.force) {
+    if (chrome === 'hearing' && !opts?.force && (!chromeV2 || listen.playing)) {
       if (chromeV2 && nativePhonePaging) {
         const head = pageAnchorOf(readingPages[readingPageIndex])
         transportAnchorRef.current = head ? { scope: transportScopeRef.current, place: head } : null
@@ -3452,7 +3462,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
+          className={`lab-page-wrap${chromeV2 && !nativePhonePaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
@@ -3727,11 +3737,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </nav>
       )}
 
-      {!showPhoneChrome && listen.playing && (
+      {desktopAudioBarActive && (
         <section className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
           <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
-          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-label={LAB_COPY.pause}><PauseIcon size={22} /></button>
+          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-label={chromeV2 && !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{chromeV2 && !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
@@ -3741,7 +3751,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </section>
       )}
 
-      {(audioBarActive || (!showPhoneChrome && listen.playing)) && speedPopoverOpen && (
+      {(audioBarActive || desktopAudioBarActive) && speedPopoverOpen && (
         <section
           id="lab-audio-speed-popover"
           className="lab-audio-speed-popover"
@@ -3786,9 +3796,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 : ['pause', 'back', 'speed', 'forward', 'talk'] as const
               ).map(control => ({
                 pause: (
-                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-label="Pause and return to reading" data-testid="lab-listen">
-                    <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{LAB_COPY.pause}</span>
-                    <PauseIcon size={21} />
+                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-label={chromeV2 ? (listen.playing ? 'Pause audiobook' : 'Resume audiobook') : 'Pause and return to reading'} data-testid="lab-listen">
+                    <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{chromeV2 && !listen.playing ? 'Resume' : LAB_COPY.pause}</span>
+                    {chromeV2 && !listen.playing ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
                   </button>
                 ),
                 back: (

@@ -5483,13 +5483,14 @@
   color: var(--lab-v2-faint);
 }
 
-/* The version pill. The menu's surface, centred low on the page; opacity is
+/* The version pill. The menu's surface, centred near the top of the page; opacity is
    the only thing that moves, and the element is gone when it ends, so no
    will-change outlives it. */
 .lab[data-chrome-version="v2"] .lab-v2-version-pill {
   position: absolute;
   left: 50%;
-  bottom: 4.6rem;
+  top: 1rem;
+  bottom: auto;
   z-index: 3;
   /* Its own compositor layer: the fade is the layer's alpha, so it never
      asks the page under it to repaint. */
@@ -5512,10 +5513,10 @@
   pointer-events: none;
   contain: layout paint;
   will-change: opacity;
-  animation: lab-v2-version-pill 1300ms linear both;
+  animation: lab-v2-version-pill 2600ms linear both;
 }
 
-/* In for 120ms, held to the second, out over the last 300ms. */
+/* A gentle arrival, a two-second hold, then fade away. */
 @keyframes lab-v2-version-pill {
   0% { opacity: 0; }
   9.23% { opacity: 1; }
@@ -5525,7 +5526,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .lab[data-chrome-version="v2"] .lab-v2-version-pill {
-    animation: lab-v2-version-pill-still 1000ms steps(1, end) both;
+    animation: lab-v2-version-pill-still 2600ms steps(1, end) both;
   }
   @keyframes lab-v2-version-pill-still {
     0% { opacity: 1; }
@@ -6133,3 +6134,17 @@
 }
 
 .lab[data-chrome-version="v2"] .lab-ask-toolbar { justify-content: flex-start; }
+
+/* Keep metadata above the message instead of squeezing its text column. */
+.lab[data-chrome-version="v2"] .lab-ask-turn {
+  flex-direction: column; min-width: 0;
+}
+.lab[data-chrome-version="v2"] .lab-ask-time { flex: none; }
+.lab[data-chrome-version="v2"] .lab-ask-reply,
+.lab[data-chrome-version="v2"] .lab-ask-user { min-width: 0; overflow-wrap: anywhere; }
+
+/* Measuring the page must not expose its intermediate word counts. The
+   hidden passage keeps its geometry available to the existing measurer. */
+.lab[data-chrome-version="v2"] .lab-page-wrap.is-measuring-visible-page > .lab-passage {
+  visibility: hidden;
+}

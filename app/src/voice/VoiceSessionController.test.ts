@@ -1800,3 +1800,31 @@ describe('V2 reader quiet companion handoff', () => {
     controller.stop()
   })
 })
+
+
+describe('quiet handoff routes the question before speech', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  it('waits for the transcript, asks once, and emits only the completed answer', async () => {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+    vi.useFakeTimers()
+    const sent: string[] = []
+    let finish!: (answer: string) => void
+    const query = vi.fn(() => new Promise<string>(resolve => { finish = resolve }))
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, quietCompanionHandoff: true, send: data => sent.push(data), onCompanionAsk: query })
+    controller.testRealtime({ type: 'input_audio_buffer.speech_started' })
+    await vi.advanceTimersByTimeAsync(600)
+    controller.testRealtime({ type: 'input_audio_buffer.speech_stopped' })
+    await vi.advanceTimersByTimeAsync(350)
+    expect(sent.map(item => JSON.parse(item)).filter(e => e.type === 'response.create')).toHaveLength(0)
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'What is the firmament in Genesis?' })
+    expect(query).toHaveBeenCalledTimes(1)
+    expect(sent.map(item => JSON.parse(item)).filter(e => ['response.cancel', 'output_audio_buffer.clear', 'response.create'].includes(e.type))).toHaveLength(0)
+    finish('The firmament separates the waters above from the waters below.')
+    await vi.advanceTimersByTimeAsync(1)
+    const responses = sent.map(item => JSON.parse(item)).filter(e => e.type === 'response.create')
+    expect(responses).toHaveLength(1)
+    expect(responses[0].response.instructions).toContain('The firmament separates')
+    controller.stop()
+  })
+})

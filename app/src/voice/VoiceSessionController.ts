@@ -829,7 +829,7 @@ export class VoiceSessionController {
                 type: 'semantic_vad',
                 eagerness: LAB_SEMANTIC_VAD_EAGERNESS,
                 interrupt_response: LAB_VAD_INTERRUPT_RESPONSE,
-                create_response: LAB_VAD_CREATE_RESPONSE,
+                create_response: this.quietCompanionHandoff ? false : LAB_VAD_CREATE_RESPONSE,
               }
             : {
                 type: 'semantic_vad',
@@ -1139,6 +1139,15 @@ export class VoiceSessionController {
         this.callbacks.onTurn('user', text)
         const intent = classifyVoiceUtterance(text)
         this.lastUserIntent = intent
+        // Decide who answers before creating any speech, not after its first word.
+        if (this.quietCompanionHandoff && !this.isV2()) {
+          this.clearForceResponseTimer()
+          this.awaitingModelResponse = false
+          if (intent === 'none') this.noteEscalationCandidate(text)
+          if (this.pendingEscalation) this.escalateNow()
+          else if (!this.hopPending) this.sendEvent({ type: 'response.create' })
+          return
+        }
         if (intent === 'none') {
           this.noteEscalationCandidate(text)
           return
@@ -1869,7 +1878,7 @@ export class VoiceSessionController {
   }
 
   private ensureResponseAfterUserSpeech(): void {
-    if (!this.honorModelResume) return
+    if (!this.honorModelResume || (this.quietCompanionHandoff && !this.isV2())) return
     this.awaitingModelResponse = true
     this.clearForceResponseTimer()
     this.forceResponseTimer = window.setTimeout(() => {
