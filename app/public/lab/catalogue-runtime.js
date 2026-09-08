@@ -30,7 +30,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260907-4'
+} from './library-model.js?v=20260908-6'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
