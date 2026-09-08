@@ -1334,12 +1334,30 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .tov5-versions { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); width:100%; }
   #tinct-onboarding-worlds-v5 .tov5-version-both { grid-column:1 / -1; width:100%; }
   #tinct-onboarding-worlds-v5 .tov5-version-preview { margin:12px 0 0; font:16px/1.5 Georgia,serif; color:rgba(255,253,247,.9); }
-  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { overflow-y:auto; }
-  #tinct-onboarding-worlds-v5 .tov5-book-detail-body { flex:0 0 auto; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { overflow:hidden; --bp-cover:96px; --bp-gap:10px; }
+  #tinct-onboarding-worlds-v5 .tov5-book-detail-body { flex:1 1 auto; padding-top:12px; padding-bottom:calc(12px + var(--tov5-safe-bottom)); }
+  #tinct-onboarding-worlds-v5 .tov5-book-description { --bp-lines:2; }
+  #tinct-onboarding-worlds-v5 .tov5-version-preview { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; margin-top:8px; font-size:15px; line-height:1.4; }
+  @media (max-height:620px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom { --bp-cover:56px; --bp-gap:8px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { padding:8px 16px calc(8px + var(--tov5-safe-bottom)); }
+    #tinct-onboarding-worlds-v5 .tov5-book-description { --bp-lines:1; font-size:14px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:26px; }
+    #tinct-onboarding-worlds-v5 .tov5-version-preview { -webkit-line-clamp:2; }
+    #tinct-onboarding-worlds-v5 .tov5-version-btn,
+    #tinct-onboarding-worlds-v5 .tov5-version-both,
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition { min-height:44px; }
+  }
+  @media (max-height:480px) {
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-body { grid-template-rows:auto auto auto minmax(0,1fr) auto; gap:6px; }
+    #tinct-onboarding-worlds-v5 .tov5-version-preview { -webkit-line-clamp:1; margin-top:4px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-length span { padding:4px 8px; }
+    #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 { font-size:22px; }
+  }
 </style>
 
 <script src="/lab/interaction-runtime.js?v=20260907-2" defer></script>
-<script type="module" src="/lab/catalogue-runtime.js?v=20260908-7"></script>
+<script type="module" src="/lab/catalogue-runtime.js?v=20260908-8"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>

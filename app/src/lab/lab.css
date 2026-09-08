@@ -6200,3 +6200,6 @@
   white-space: nowrap;
   cursor: pointer;
 }
+
+.lab[data-chrome-version="v2"] .lab-audio-speed-done { min-height:44px; padding:6px 12px; border:1px solid currentColor; border-radius:999px; color:inherit; background:transparent; font:inherit; cursor:pointer; }
+.lab[data-chrome-version="v2"] .lab-audio-speed-heading output { margin-left:auto; }

@@ -359,6 +359,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
   const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
+  useEffect(() => {
+    if (!speedPopoverOpen) return
+    const outside = (event: PointerEvent) => {
+      const target = event.target
+      if (target instanceof Element && target.closest('#lab-audio-speed-popover, [data-testid="lab-hearing-speed"]')) return
+      setSpeedPopoverOpen(false)
+    }
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSpeedPopoverOpen(false)
+    }
+    document.addEventListener('pointerdown', outside, true)
+    document.addEventListener('keydown', escape)
+    return () => {
+      document.removeEventListener('pointerdown', outside, true)
+      document.removeEventListener('keydown', escape)
+    }
+  }, [speedPopoverOpen])
+
   const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(next, bookEditions)
@@ -3884,6 +3902,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           <div className="lab-audio-speed-heading">
             <span>Playback speed</span>
             <output htmlFor="lab-audio-speed-slider">{listen.speed}×</output>
+            {chromeV2 && <button type="button" className="lab-audio-speed-done" onClick={() => setSpeedPopoverOpen(false)}>Done</button>}
           </div>
           <input
             id="lab-audio-speed-slider"

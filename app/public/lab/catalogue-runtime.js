@@ -762,7 +762,8 @@ import {
       const text = await loadEditionSample(book, key)
       if (token !== versionSampleRenderToken || state.selectedBookId !== book.id) return
       root.querySelectorAll(`[data-version-sample="${CSS.escape(key)}"]`).forEach(node => {
-        node.textContent = text ? `“${text.length > 650 ? `${text.slice(0, 650).trim()}…` : text}”` : 'Sample unavailable for this edition.'
+        const words = text?.trim().split(/\s+/) ?? []
+        node.textContent = text ? `“${words.slice(0, 28).join(' ')}${words.length > 28 ? '…' : ''}”` : 'Sample unavailable for this edition.'
       })
     }))
   }
