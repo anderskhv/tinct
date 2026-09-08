@@ -11,3 +11,5 @@ Full tests: 140 files, 1,543 passed, including V1 snapshot. Build and verify-bun
 Deploy succeeded. Worker version: e14c2d85-094e-40b8-8bac-e21376b6b46e. Live bundle: /assets/index-B802AYlE.js; SHA256: 50b170ec5d0c14065093d4aadb0062eb425835ae451b754eb0f71439f8bb6950. Production bytes match the local build; refreshed routing import verified.
 
 Production regression passed at 1423×772, including later-page reload while the hidden measurement host remained active. Passage visibility was visible and the screenshot contains actual book text. Screenshot: `/Users/andershvelplund/.codex/visualizations/2026/09/08/01a07ff0-a87f-7031-8b2f-d050d06d52bd/desktop-text-fix/production.png`.
+
+Additional visual verification: six successive production screenshots each contained 2,521 dark text pixels in the first-line region, with matching on-screen word bounds and visible text. The regression now also asserts painted text pixels in the screenshot, excluding the header and footer, rather than relying on DOM presence alone.
