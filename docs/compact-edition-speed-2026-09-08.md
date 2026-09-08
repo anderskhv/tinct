@@ -11,3 +11,5 @@ Deployed via npm run deploy: Worker a88d2f45-120b-4448-a675-f1cbf6391d4e. Produc
 Live Chromium playback verification passed: changed to 1.75×, closed with Done, reopened, and dismissed by tapping the chapter heading. Selected speed remained 1.75×. Speed-open and speed-dismissed screenshots saved alongside the edition-layout images.
 
 Follow-up: slider tick labels now follow the numeric 0.5–3 range (0%, 20%, 60%, 100%) rather than equal spacing. Uses the existing V2 20px thumb so label centres account for its travel inset.
+
+Speed-label correction deployed: Worker 4e9fc63c-455d-4400-a480-a0e6bde939ab, bundle index-CPuU_rcb.js, SHA256 5374ceb7b18655980df9d639b639de8b18e7984da922d7c8113d71baa26f6298 (live/local match). Live 390×664 browser check: 1× label centre 102.04px, expected thumb centre 102.14px; within 0.1px. Done and outside dismissal remain working. All 1,549 tests and build gates passed. Screenshot: `/Users/andershvelplund/.codex/visualizations/2026/09/08/01a07ff0-a87f-7031-8b2f-d050d06d52bd/compact-editions/speed-aligned.png`.
