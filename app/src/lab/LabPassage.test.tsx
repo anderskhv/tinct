@@ -372,3 +372,15 @@ describe('audio follow paint is layout-neutral', () => {
     expect(line.classList.contains('is-tail-full')).toBe(true)
   })
 })
+
+
+it('keeps future words grey while browsing away from the audio page', () => {
+  const paragraphs = ['One two three four five six seven eight.']
+  const pages = fixedWordPages(paragraphs, 4)
+  const { container } = render(<LabPassage {...passageProps(paragraphs, pages[1])}
+    browseWhileListening inlineHearingPaint playing
+    follow={{ kind: 'word', paragraphIndex: 0, wordIndex: 1 }} />)
+  expect(container.querySelectorAll('.is-upcoming')).toHaveLength(4)
+  expect(container.querySelector('.is-current')).toBeNull()
+  expect(container.textContent).toContain('five')
+})

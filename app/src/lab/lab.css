@@ -6180,3 +6180,23 @@
 .lab[data-chrome-version="v2"].is-frontispiece.is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"].is-frontispiece.has-phone-chrome:not(.has-phone-ask) .lab-body { padding-bottom:0; }
 .lab[data-chrome-version="v2"].is-desktop .lab-chapter-cover-art { object-fit:contain; background:var(--lab-cover-ground); }
+
+/* Audio browsing changes ink only; it never changes the page measurements. */
+.lab[data-chrome-version="v2"] .lab-passage.is-inline-hearing .lab-hearing-word.is-upcoming { color: #706e69; }
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-inline-hearing .lab-hearing-word.is-upcoming { color: #9e9a93; }
+.lab[data-chrome-version="v2"] .lab-back-to-audio {
+  pointer-events: auto;
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid var(--lab-muted);
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  font: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+}

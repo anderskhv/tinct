@@ -4471,3 +4471,19 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
   await waitFor(() => expect(audio.paused).toBe(false))
   expect(audio.currentTime).toBe(index * 0.3)
 })
+
+
+it('returns from V2 audio browsing without seeking or restarting playback', async () => {
+  const audio = new FakeAudio()
+  vi.stubGlobal('Audio', class { constructor() { return audio } })
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={sourceWithManyWords()} />)
+  fireEvent.click(screen.getByTestId('lab-v2-play'))
+  await waitFor(() => expect(screen.getByTestId('lab-hearing')).toBeTruthy())
+  fireEvent.click(screen.getByTestId('lab-page-next'))
+  await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
+  const time = audio.currentTime
+  fireEvent.click(screen.getByTestId('lab-back-to-audio'))
+  expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
+  expect(audio.currentTime).toBe(time)
+  expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+})

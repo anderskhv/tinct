@@ -995,6 +995,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const root = document.documentElement
     const prev = root.getAttribute('data-theme')
     const prevColorScheme = root.style.colorScheme
+    const prevRootBackground = root.style.backgroundColor
+    const prevBodyBackground = document.body.style.backgroundColor
     const existingThemeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
     const themeColor = existingThemeColor ?? document.createElement('meta')
     const previousThemeColor = themeColor.getAttribute('content')
@@ -1005,9 +1007,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     root.setAttribute('data-theme', resolvedTheme)
     root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
     themeColor.content = resolvedTheme === 'dark' ? '#2e2a24' : resolvedTheme === 'book' ? '#e7dcc7' : '#f2eee4'
+    root.style.backgroundColor = themeColor.content
+    document.body.style.backgroundColor = themeColor.content
     return () => {
       root.setAttribute('data-theme', prev ?? 'light')
       root.style.colorScheme = prevColorScheme
+      root.style.backgroundColor = prevRootBackground
+      document.body.style.backgroundColor = prevBodyBackground
       if (!existingThemeColor) themeColor.remove()
       else if (previousThemeColor == null) themeColor.removeAttribute('content')
       else themeColor.content = previousThemeColor
@@ -3607,7 +3613,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             compareParagraphs={book.compareParagraphs}
             compare={desktopCompareActive && desktopCompareEnabled}
             mode={showPhoneChrome && showHearing ? 'hearing' : 'reading'}
-            follow={showHearing && listen.playing && !browseWhileListening ? listen.follow : { kind: 'none' }}
+            follow={showHearing && listen.playing && (chromeV2 || !browseWhileListening) ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
             playing={listen.playing}
@@ -3615,7 +3621,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             currentTime={listen.currentTime}
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
-            inlineHearingPaint={!showPhoneChrome && showHearing && listen.playing && !browseWhileListening}
+            inlineHearingPaint={showHearing && listen.playing && (chromeV2 ? (!showPhoneChrome || browseWhileListening) : !showPhoneChrome && !browseWhileListening)}
             onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.playing) listen.pause()
@@ -3788,6 +3794,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       </div>
 
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
+      {chromeV2 && browseWhileListening && listen.playing && !phoneAsk && listen.follow.kind !== 'none' && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-back-to-audio" onClick={() => {
+          const follow = listen.follow
+          if (follow.kind === 'none') return
+          const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
+          browseWhileListeningRef.current = false
+          setBrowseWhileListening(false)
+          setChapterCoverTitle(null)
+          setReadingPageIndex(pageIndexForPlace(readingPages, follow.paragraphIndex, wordIndex))
+        }}>Back to audio</button>
+      )}
       {showReaderRail && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
           {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (

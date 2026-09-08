@@ -35,6 +35,7 @@
  * the local mirrors, writes wait in the queue and drain on `online`.
  */
 import { supabase } from './services/supabase'
+import { completedLibraryBookId } from './preReader/libraryCompletion'
 import { createSupabaseReadingMemoryCloud, clearCloudReadingMemory } from './readingMemory/cloud'
 import { loadChapterText } from './readingMemory/chapterText'
 import { clearDeviceReadingMemory, readDeviceReadingMemory } from './readingMemory/deviceStore'
@@ -171,13 +172,17 @@ async function loadPositions(auth: RecapAuth): Promise<LabPositionState | null> 
   return accountLabPositionRecord(local, cloud, auth.userId)
 }
 
-/** Books the app marked finished (`tinct:book-completed:<id>`). */
+/** Explicit completion markers and the legacy reader’s terminal progress records. */
 function completedBookIds(): Set<string> {
   const ids = new Set<string>()
   try {
     for (let index = 0; index < localStorage.length; index += 1) {
       const key = localStorage.key(index)
-      if (key && key.startsWith(BOOK_COMPLETED_PREFIX) && key.length > BOOK_COMPLETED_PREFIX.length) ids.add(key.slice(BOOK_COMPLETED_PREFIX.length))
+      if (!key || (!key.startsWith(BOOK_COMPLETED_PREFIX) && !key.startsWith('tinct:progress:'))) continue
+      try {
+        const id = completedLibraryBookId(key, JSON.parse(localStorage.getItem(key) ?? 'null'))
+        if (id) ids.add(id)
+      } catch { /* A malformed legacy record must not hide other finished books. */ }
     }
   } catch {
     // storage blocked
@@ -735,7 +740,7 @@ async function performRender(): Promise<void> {
   }
   paintList(accountLabPositionRecord(readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID), null, auth.userId))
   const positionsReady = loadPositions(auth).then(positions => { paintList(positions); return positions })
-  const completionsReady = auth.userId && supabase ? supabase.from('user_data').select('key,value').eq('user_id', auth.userId).like('key', 'book-completed:%').then(({ data, error }) => {
+  const completionsReady = auth.userId && supabase ? supabase.from('user_data').select('key,value').eq('user_id', auth.userId).or('key.like.book-completed:*,key.like.progress:*').then(({ data, error }) => {
     if (!error) for (const row of data ?? []) {
       if (row.value != null) localStorage.setItem(`tinct:${row.key}`, JSON.stringify(row.value))
       else localStorage.removeItem(`tinct:${row.key}`)

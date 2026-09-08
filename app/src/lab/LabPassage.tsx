@@ -589,12 +589,14 @@ export function LabPassage({
                       const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
                       const selecting = activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
-                      const inlineCurrent = inlineHearingPaint
-                        && followWordRole(follow, paragraphIndex, absoluteWord) === 'current'
+                      const inlineRole = inlineHearingPaint
+                        ? followWordRole(follow, paragraphIndex, absoluteWord)
+                          ?? (follow.kind === 'paragraph' ? (paragraphIndex < follow.paragraphIndex ? 'spoken' : paragraphIndex > follow.paragraphIndex ? 'upcoming' : null) : null)
+                        : null
                       return (
                         <span
                           key={`${lineIndex}-${wordIndex}`}
-                          className={`${labHighlightCssClass(color, selecting)}${inlineCurrent ? ' is-current' : ''}`}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineRole ? ` is-${inlineRole}` : ''}`}
                           data-testid="lab-word"
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
