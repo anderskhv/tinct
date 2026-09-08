@@ -679,6 +679,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>>(() => {})
 
   const openLabVoiceView = useCallback((view: VoiceTinctView) => {
+    if (chromeV2 && view === 'read') {
+      endCallRef.current()
+      return
+    }
     setVoiceLabView(view)
     setTocOpen(false)
     if (view !== 'settings') setGearOpen(false)
@@ -696,7 +700,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     } else if (view === 'cast') {
       setInTheBookOpen(true)
     }
-  }, [showPhoneChrome])
+  }, [chromeV2, showPhoneChrome])
 
   const restoreLabVoiceView = useCallback((snapshot: LabVoiceViewSnapshot) => {
     setVoiceLabView(snapshot.view)

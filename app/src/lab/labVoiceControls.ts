@@ -109,7 +109,7 @@ function fixtureActivity(input: LabVoiceHistoryInput) {
     chapter_number: input.source.chapterNumber,
     chapter_title: input.source.chapterLabel,
     edition: input.source.editionLabel,
-    mode: 'read',
+    mode: 'read' as const,
     started_at: new Date(yesterdayAt(now, 20, 5)).toISOString(),
     last_active_at: new Date(yesterdayAt(now, 20, 22)).toISOString(),
     paragraph_range: start === end ? `${start + 1}` : `${start + 1}–${end + 1}`,

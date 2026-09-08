@@ -98,3 +98,16 @@ it('persists research sources as clickable links beside the voice answer', async
   expect(link.getAttribute('href')).toBe('https://gospelinlife.com/example')
   expect(localStorage.getItem('tinct:chat-history:bible')).toContain('https://gospelinlife.com/example')
 })
+
+it('also closes voice without starting audio when the model uses the open-reader tool', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
+  vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: () => new Promise(() => {}) } })
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2&voiceTrial=full" source={fallbackLabSource()} authToken={null} />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-talk'))
+  await screen.findByTestId('lab-call')
+  await act(async () => { await captured.options?.onApplicationTool?.('open_tinct_view', {view:'read'}, 'return') })
+  expect(screen.queryByTestId('lab-call')).toBeNull()
+  expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
+  expect(screen.queryByTestId('lab-voice-notice')).toBeNull()
+})
