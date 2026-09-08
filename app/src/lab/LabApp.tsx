@@ -43,8 +43,8 @@ import { LabSettingsSheet } from './LabSettingsSheet'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu'
 import { LabV2Sheet } from './LabV2Sheet'
-import type { LabV2SheetLayer } from './labV2Sheet'
-import { LAB_SUPER_FIRST_VIEW_DELAY_MS } from './labSuperGlyph'
+import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
+import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
 import {
   LAB_LIBRARY_URL,
@@ -93,7 +93,7 @@ import { readLabPositionLocal } from './labPositionStore'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt'
 import { labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
-import { mapLabCompareAnchor } from './labCompare'
+import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -485,6 +485,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   workingPagesRef.current = draftPages
   const mobilePrimaryPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const mobileCompareReturnPlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
+  /**
+   * V2 Compare: where the compare page has to begin. The primary page's first
+   * word, carried to the same aligned paragraph of the compare edition; every
+   * page map the compare edition produces is split so a page starts exactly
+   * there, and that page is the one shown.
+   */
+  const mobileCompareHeadRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
+  /** The transient pill that names the version just swapped to. */
+  const [versionPill, setVersionPill] = useState<{ label: string; nonce: number } | null>(null)
   // A later page or chapter action owns the reader. This prevents an older
   // async chapter response from replacing the tuple after the user turned back.
   const chapterNavigationRef = useRef(0)
@@ -1163,19 +1172,33 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
 
-  const applyNativePages = useCallback((next: ChapterHearingPage[]) => {
+  const applyNativePages = useCallback((incoming: ChapterHearingPage[]) => {
+    let next = incoming
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
+    // V1's bar never changes height, so a page map that arrives mid-playback
+    // is noise and is dropped. V2's transport opens and closes over the page,
+    // and the column changes height with it: the new map is taken, anchored
+    // on the word being spoken, so the reader stays on their paragraph and
+    // follow resolves the right page of the new map on its next tick.
+    const playing = listenPlayingRef.current
     if (
       !nativePhonePaging
-      || listenPlayingRef.current
+      || (playing && !chromeV2)
       || browseWhileListeningRef.current
       || next.length === 0
     ) return
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
-    const keep = mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current ?? pageAnchorOf(current[currentIndex])
+    const keep = playing
+      ? (placeRef.current ?? pageAnchorRef.current)
+      : (mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current ?? pageAnchorOf(current[currentIndex]))
+    // In V2 Compare the page is anchored, not merely found: the compare
+    // edition's own pagination is split at the primary page's head so a page
+    // begins at the same verse, however differently the two editions break.
+    const compareHead = chromeV2 ? mobileCompareHeadRef.current : null
+    if (compareHead) next = splitLabPagesAtAnchor(next, compareHead)
     const landing = chapterLandingRef.current
 
     pagesStableRef.current = true
@@ -1223,7 +1246,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // rendered-page verification now that the font-settled preflight is the
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
-  }, [nativePhonePaging])
+  }, [chromeV2, nativePhonePaging])
 
   const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
     browseWhileListeningRef.current = false
@@ -1948,16 +1971,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const showHearing = !mobileCompareActive && !peekBook && !phoneAsk && (
     chrome === 'hearing' || (chrome === 'talking' && returnTo === 'hearing')
   )
-  const showPhoneBar = !frontispieceVisible && !fullscreen && labShowPhoneBar({
+  const phoneBarPossible = !frontispieceVisible && !fullscreen && labShowPhoneBar({
     phoneChrome: showPhoneChrome,
     fullscreen,
     phoneAsk,
   })
   const audioBarActive = showPhoneChrome
-    && showPhoneBar
+    && phoneBarPossible
     && !phoneAsk
     && !mobileCompareActive
     && (listen.playing || audioChapterTransitioning)
+  // V2 has no reading bar. Play is in the top bar and Chat, Talk and Compare
+  // are in the menu; what the foot holds is the progress line, and the
+  // transport for as long as audio plays. The space the bar took goes to the
+  // page. V1 keeps the bar it ships with.
+  const showPhoneBar = phoneBarPossible && (!chromeV2 || audioBarActive)
   useEffect(() => {
     if (showPhoneChrome ? !audioBarActive : !listen.playing) setSpeedPopoverOpen(false)
   }, [audioBarActive, listen.playing, showPhoneChrome])
@@ -2317,15 +2345,34 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const sourceAnchor = nextActive ? { ...placeRef.current } : visiblePageAnchor
     if (nextActive) mobilePrimaryPagesRef.current = current
     const targetParagraphs = nextActive ? book.compareParagraphs : book.paragraphs
-    const mapped = nextActive
-      ? mapLabCompareAnchor(readerParagraphs, targetParagraphs, sourceAnchor)
-      : { ...placeRef.current }
+    // V2's compare page is anchored on the primary page's FIRST WORD, carried
+    // to the same aligned paragraph — the persisted place is a separate thing
+    // and is left exactly where it is. V1 keeps mapping the place itself.
+    const compareHead = nextActive && chromeV2
+      ? mapLabCompareAnchor(readerParagraphs, targetParagraphs, visiblePageAnchor)
+      : null
+    const mapped = compareHead
+      ?? (nextActive
+        ? mapLabCompareAnchor(readerParagraphs, targetParagraphs, sourceAnchor)
+        : { ...placeRef.current })
     const primaryAnchor = nextActive ? sourceAnchor : mapped
     const budget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
     const settledPrimaryPages = !nextActive ? mobilePrimaryPagesRef.current : null
-    const nextPages = settledPrimaryPages
+    let nextPages = settledPrimaryPages
       ?? chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null)
-    const nextIndex = pageIndexForPlace(nextPages, mapped.paragraphIndex, mapped.wordIndex)
+    // The compare page begins at the head, whatever the compare edition's own
+    // breaks are; the native pass that follows is held to the same head.
+    if (compareHead) nextPages = splitLabPagesAtAnchor(nextPages, compareHead)
+    mobileCompareHeadRef.current = compareHead
+    const nextIndex = compareHead
+      ? restorePageIndexForAnchor(nextPages, compareHead)
+      : pageIndexForPlace(nextPages, mapped.paragraphIndex, mapped.wordIndex)
+    if (chromeV2) {
+      setVersionPill(pill => ({
+        label: nextActive ? compareEditionLabel : primaryEditionLabel,
+        nonce: (pill?.nonce ?? 0) + 1,
+      }))
+    }
 
     // Entering Compare interrupts playback, but returning to Read is a pure
     // reader-mode transition. The Read action must not mutate the audio tuple.
@@ -2354,7 +2401,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(nextPages)
     setReadingPageIndex(nextIndex)
     setMobileCompareActive(nextActive)
-  }, [book.compareParagraphs, book.paragraphs, listen, mobileCompareActive, mobileCompareEnabled, notePlace, readerParagraphs])
+  }, [book.compareParagraphs, book.paragraphs, chromeV2, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs])
 
   const handleDesktopCompare = useCallback(() => {
     if (!desktopCompareEnabled) return
@@ -2893,8 +2940,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
 
   // The first view: 400 ms after the first page has laid out, never on load
-  // and never over playing audio. Marked seen the moment it starts, so an
-  // interrupted spin still never runs a second time.
+  // and never over playing audio. It runs at most once per visit; it counts
+  // as seen — and so never runs again — only once it has reached the ×. A
+  // finger landing on the page in the first half-second cuts it short, and a
+  // spin cut before anyone could have seen it is not the one view they get.
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
   useEffect(() => {
     if (!chromeV2 || !readerLaidOut) return
@@ -2903,13 +2952,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const timer = window.setTimeout(() => {
       if (superFirstViewRef.current || listenPlayingRef.current) return
       superFirstViewRef.current = true
-      markLabSeenOnce(LAB_SUPER_FIRST_VIEW, accountId)
       setSuperFirstView(true)
     }, LAB_SUPER_FIRST_VIEW_DELAY_MS)
     return () => window.clearTimeout(timer)
   }, [accountId, chromeV2, readerLaidOut])
 
-  const handleFirstViewEnd = useCallback(() => setSuperFirstView(false), [])
+  // The version pill leaves on a clock, not on animationend: a clock still
+  // runs when the animation was cut short, and it is the same clock in both
+  // motion settings. Its length is the animation's.
+  useEffect(() => {
+    if (!versionPill) return
+    const timer = window.setTimeout(() => {
+      setVersionPill(current => current?.nonce === versionPill.nonce ? null : current)
+    }, LAB_V2_VERSION_PILL_MS)
+    return () => window.clearTimeout(timer)
+  }, [versionPill])
+
+  const handleFirstViewEnd = useCallback((seen: boolean) => {
+    setSuperFirstView(false)
+    if (seen) markLabSeenOnce(LAB_SUPER_FIRST_VIEW, accountId)
+  }, [accountId])
 
   const closePhoneAsk = useCallback(() => {
     resumeListenAfterAsk()
@@ -3034,6 +3096,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           // the same press is swallowed too — otherwise the chapter pill under
           // the finger would open the contents on the press that revealed it.
           onPointerDownCapture: (event: ReactPointerEvent) => {
+            // The swallow belongs to the press that revealed, and to nothing
+            // after it. A press that never became a click — a finger that
+            // slid off, a touch the browser took as a scroll — left the flag
+            // set, and the next tap on the pill was swallowed as if it were
+            // the reveal. Every press starts clean; only a press on hidden
+            // chrome sets the flag, and only the click of that press is
+            // swallowed.
+            revealOnlyRef.current = false
             if (phoneReaderControlsVisible) return
             event.preventDefault()
             event.stopPropagation()
@@ -3075,7 +3145,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 aria-label={audioBarActive ? LAB_COPY.pause : LAB_COPY.play}
                 onClick={handleBarListen}
               >
-                {audioBarActive ? <PauseIcon size={18} /> : <PlayIcon size={18} />}
+                {audioBarActive ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>
               <LabSuperButton
                 open={superMenuOpen}
@@ -3152,17 +3222,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareActive && !chapterCoverTitle ? ' has-edition-name' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
+          className={`lab-page-wrap${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
         >
-          {/* In Compare, the page is headed by the edition it is showing —
-              centred, in the page-number treatment, where a running head
-              belongs. It names what the reader is looking at; it does not
-              explain how they got here. */}
-          {chromeV2 && showPhoneChrome && mobileCompareActive && !chapterCoverTitle && (
-            <span className="lab-v2-edition-name" data-testid="lab-v2-edition-name">{compareEditionLabel}</span>
+          {/* The version just swapped to, named for about a second and then
+              gone. It sits on the page the reader landed on, every swap, and
+              never stays: the page carries no running head. */}
+          {chromeV2 && showPhoneChrome && versionPill && (
+            <div
+              key={versionPill.nonce}
+              className="lab-v2-version-pill"
+              data-testid="lab-v2-version-pill"
+              role="status"
+            >
+              {versionPill.label}
+            </div>
           )}
           {chapterCoverTitle ? (
             <LabChapterCover
@@ -3373,9 +3449,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
               onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
             >
-              <span className="lab-chapter-progress-info">{footProgressLabel}</span>
-              {chromeV2 && mobileCompareActive && (
-                <span className="lab-v2-compare-mark" data-testid="lab-v2-compare-mark">Compare version</span>
+              {chromeV2 && mobileCompareActive ? (
+                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">Compare version</span>
+              ) : (
+                <span className="lab-chapter-progress-info">{footProgressLabel}</span>
               )}
             </button>
           ) : (

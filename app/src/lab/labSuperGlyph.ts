@@ -43,6 +43,18 @@ export const LAB_SUPER_SPIN_SETTLE_MS = LAB_SUPER_SPIN_MS - LAB_SUPER_SPIN_TO_OV
 export const LAB_SUPER_SPIN_OVERSHOOT_DEG = 405
 export const LAB_SUPER_SPIN_SETTLE_DEG = 360
 export const LAB_SUPER_SPIN_PEAK_SCALE = 1.06
+/**
+ * Rendered size. The grid is 24 units and shipped at 24 px; the mark and Play
+ * now render 15% larger on the same 44 px targets, proportions untouched:
+ * the t's ink box is still 9.6 : 11.2 against Play's triangle, centred on
+ * 12/12 — only the unit grew, from 1 px to 1.15 px.
+ */
+export const LAB_V2_GLYPH_SCALE = 1.15
+/** The mark: 24 px → 27.6 px. */
+export const LAB_V2_MARK_PX = 24 * LAB_V2_GLYPH_SCALE
+/** Play: 18 px → 20.7 px. */
+export const LAB_V2_PLAY_PX = 18 * LAB_V2_GLYPH_SCALE
+
 /** Fires this long after the first page has laid out — never on load. */
 export const LAB_SUPER_FIRST_VIEW_DELAY_MS = 400
 /** `prefers-reduced-motion`: a fade in place of the spin. */

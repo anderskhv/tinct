@@ -136,6 +136,9 @@ describe('the V2 top bar', () => {
     expect(cross[1].getAttribute('d')).toBe(LAB_TEE_CROSS.barPath)
     // No container at rest.
     expect(screen.getByTestId('lab-super').classList.contains('is-open')).toBe(false)
+    // 15% larger than the grid, on the same targets: 27.6px and 20.7px.
+    expect(mark.getAttribute('width')).toBe('27.599999999999998')
+    expect(screen.getByTestId('lab-v2-play').querySelector('svg')!.getAttribute('width')).toBe('20.7')
   })
 
   it('leaves the title as plain dimmed text and no buttons when the chrome hides', () => {
@@ -176,6 +179,33 @@ describe('reveal', () => {
     expect(screen.getByTestId('lab-super')).toBeTruthy()
 
     // Now that the chrome is up, the pill is a control again.
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(screen.getByTestId('lab-bible-tree')).toBeTruthy()
+  })
+
+  it('still opens the picker after a press that revealed but never became a click', () => {
+    renderPhone()
+    const chapter = screen.getByTestId('lab-header-chapter')
+    const stage = screen.getByTestId('lab-reading-stage')
+    fireEvent.pointerDown(stage, { clientX: 195, clientY: 400, pointerId: 1 })
+    fireEvent.pointerUp(stage, { clientX: 195, clientY: 400, pointerId: 1 })
+    expect(root().getAttribute('data-reader-controls')).toBe('hidden')
+
+    // A finger lands on the pill and slides off: the browser sends no click.
+    fireEvent.pointerDown(chapter, { pointerId: 2 })
+    fireEvent.pointerCancel(chapter, { pointerId: 2 })
+    expect(root().getAttribute('data-reader-controls')).toBe('visible')
+    expect(screen.queryByTestId('lab-bible-tree')).toBeNull()
+    // The next tap on the pill is a tap on the pill.
+    fireEvent.pointerDown(screen.getByTestId('lab-header-chapter'), { pointerId: 3 })
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(screen.getByTestId('lab-bible-tree')).toBeTruthy()
+  })
+
+  it('opens the picker from the pill whenever the chrome is already up', () => {
+    renderPhone()
+    expect(root().getAttribute('data-reader-controls')).toBe('visible')
+    fireEvent.pointerDown(screen.getByTestId('lab-header-chapter'), { pointerId: 1 })
     fireEvent.click(screen.getByTestId('lab-header-chapter'))
     expect(screen.getByTestId('lab-bible-tree')).toBeTruthy()
   })
@@ -269,6 +299,30 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-account'))
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
+  })
+})
+
+describe('the foot', () => {
+  it('has no reading bar under V2 — only the progress line, and the transport while audio plays', async () => {
+    renderPhone()
+    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-chat')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-talk')).toBeNull()
+    // The progress line is there, live, with the chrome up.
+    expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
+    expect(root().getAttribute('data-transport')).toBe('closed')
+
+    stubAudio()
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(root().getAttribute('data-transport')).toBe('open'))
+    expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
+    expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
+  })
+
+  it('keeps the bar without the flag', () => {
+    renderPhone('')
+    expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
+    expect(screen.getByTestId('lab-phone-chat')).toBeTruthy()
   })
 })
 

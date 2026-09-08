@@ -5462,34 +5462,60 @@
 }
 
 /* ── Compare ─────────────────────────────────────────────────────────────
-   A whole-page swap on a vertical swipe, and two quiet labels: the edition's
-   name over the page, and "Compare version" beside the progress. The chrome
-   never explains the swipe — that belongs in the edition picker. */
-
-.lab[data-chrome-version="v2"] .lab-v2-edition-name {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  text-align: center;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  font-size: 10.7px;
-  letter-spacing: 0.035em;
-  color: var(--lab-v2-quiet);
-  pointer-events: none;
-}
-
-.lab[data-chrome-version="v2"] .lab-page-wrap.has-edition-name {
-  padding-top: 1.4rem;
-}
+   A whole-page swap on a vertical swipe. The compare page carries no running
+   head; its bottom line reads only "Compare version", and the version just
+   swapped to is named by a pill that stays for about a second and goes. The
+   chrome never explains the swipe — that belongs in the edition picker. */
 
 .lab[data-chrome-version="v2"] .lab-v2-compare-mark {
-  margin-left: 10px;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  font-size: 9.6px;
-  letter-spacing: 0.05em;
   color: var(--lab-v2-faint);
+}
+
+/* The version pill. The menu's surface, centred low on the page; opacity is
+   the only thing that moves, and the element is gone when it ends, so no
+   will-change outlives it. */
+.lab[data-chrome-version="v2"] .lab-v2-version-pill {
+  position: absolute;
+  left: 50%;
+  bottom: 4.6rem;
+  z-index: 3;
+  transform: translateX(-50%);
+  padding: 8px 14px 9px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
+    rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
+  );
+  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  box-shadow: 0 8px 24px rgba(20, 15, 8, 0.16);
+  color: var(--lab-ink);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+  pointer-events: none;
+  will-change: opacity;
+  animation: lab-v2-version-pill 1300ms linear both;
+}
+
+/* In for 120ms, held to the second, out over the last 300ms. */
+@keyframes lab-v2-version-pill {
+  0% { opacity: 0; }
+  9.23% { opacity: 1; }
+  76.92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-v2-version-pill {
+    animation: lab-v2-version-pill-still 1000ms steps(1, end) both;
+  }
+  @keyframes lab-v2-version-pill-still {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
 }
 
 /* ── Desktop chrome ──────────────────────────────────────────────────────
@@ -5564,3 +5590,98 @@
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill))
   );
 }
+
+
+/* ── The foot, without the bar ─────────────────────────────────────────
+   V2 has no reading bar: Play is in the top bar and the rest is in the menu.
+   What the foot holds is the progress line, in its own treatment and always
+   shown, and — for as long as audio plays — the transport, with the progress
+   line above it. The space the bar held goes to the page. The column's
+   bottom is measured from the rail itself, so the last line always clears it
+   and the home indicator; V1's rules for the rail are overridden here only. */
+
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail {
+  display: flex;
+  bottom: max(0.35rem, env(safe-area-inset-bottom, 0px));
+}
+
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail {
+  bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* The column reaches down to the rail: 2.5rem of rail over the inset. */
+.lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-body,
+.lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-body {
+  padding-bottom: calc(2.5rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
+}
+
+/* With the transport up the rail sits above it, and the column ends above
+   the rail: 2.5rem of rail over the 3.72rem the transport takes. The box
+   changes height here, so the page map is recomputed — anchored on the word
+   being spoken — rather than left to run under the rail. */
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-body,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-body {
+  padding-bottom: calc(6.22rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Desktop: the rail's column is gone, and its width goes to the page. */
+.lab[data-chrome-version="v2"].is-desktop .lab-body {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding-right: 30px;
+}
+
+/* ── Sizes ───────────────────────────────────────────────────────────────
+   The two glyphs render 15% larger on the same 44px targets: the mark
+   24 → 27.6px, Play 18 → 20.7px. Proportions are the grid's and untouched;
+   the full stop follows the mark's baseline right at the same scale. */
+.lab[data-chrome-version="v2"] .lab-super-stop {
+  top: 21.5px;
+  left: 28.3px;
+  width: 5px;
+  height: 5px;
+}
+
+/* ── Follow paint ──────────────────────────────────────────────────────
+   Unspoken text at 55% of the reading ink, spoken text at full ink, and a
+   wash under the current word or sentence that reads on both palettes.
+   Colour and background only — nothing the line breaker can see. Numbers
+   in labHearingPaint.ts, pinned by its test. */
+.lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-upcoming {
+  color: #706e69;
+}
+
+.lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-spoken {
+  color: var(--lab-ink);
+}
+
+.lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
+.lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
+  color: var(--lab-ink);
+  background: #dccbaa;
+}
+
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-upcoming {
+  color: #9e9a93;
+}
+
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-spoken {
+  color: var(--lab-ink);
+}
+
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
+  color: var(--lab-ink);
+  background: #6b5738;
+}
+
+/* ── The composer ──────────────────────────────────────────────────────
+   mic · talk · send. Send is the terminal action and sits at the right
+   edge; the two ways of speaking come before it. Order only — the DOM, and
+   V1's composer, are as they were. */
+.lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-input { order: 0; }
+.lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-mic { order: 1; }
+.lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-voice { order: 2; }
+.lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-send { order: 3; }

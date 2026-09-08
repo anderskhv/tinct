@@ -110,3 +110,10 @@ export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
   font: 'Font',
   account: 'Account',
 }
+
+/**
+ * How long the version pill stays: in over 120ms, held to the second, out
+ * over the last 300ms. Reduced motion shows it without the fade for the same
+ * time. The CSS animation and the clock that removes the element agree.
+ */
+export const LAB_V2_VERSION_PILL_MS = 1300

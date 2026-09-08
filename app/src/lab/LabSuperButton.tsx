@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import {
   LAB_SUPER_SPIN_MS,
+  LAB_SUPER_SPIN_TO_OVERSHOOT_MS,
   LAB_TEE_MORPH_FRAMES,
+  LAB_V2_MARK_PX,
   labTeeFrameIndexAt,
 } from './labSuperGlyph'
 
@@ -13,7 +15,11 @@ export interface LabSuperButtonProps {
   /** Run the once-ever spin. The parent owns when that is allowed. */
   firstView?: boolean
   /** Called when the spin finishes or a touch ends it — either way, it is seen. */
-  onFirstViewEnd?: () => void
+  /**
+   * `seen` is whether the spin got as far as the × before it ended. A spin
+   * cut short by a finger in its first frames was not seen by anyone.
+   */
+  onFirstViewEnd?: (seen: boolean) => void
   reducedMotion?: boolean
   label?: string
 }
@@ -90,12 +96,16 @@ export function LabSuperButton({
     setSpinning(true)
     const spin = spinRef.current
     spin?.style.setProperty('will-change', 'transform')
+    const startedAt = performance.now()
     const finish = () => {
       window.clearTimeout(timer)
       window.removeEventListener('pointerdown', finish, true)
       spin?.style.removeProperty('will-change')
       setSpinning(false)
-      onFirstViewEnd?.()
+      // Seen once it has reached the ×: a touch in the first frames ends it
+      // before it has shown anything, and that does not spend the one view.
+      const ran = performance.now() - startedAt
+      onFirstViewEnd?.(reducedMotion || ran >= LAB_SUPER_SPIN_TO_OVERSHOOT_MS)
     }
     const timer = window.setTimeout(finish, reducedMotion ? 240 : LAB_SUPER_SPIN_MS)
     window.addEventListener('pointerdown', finish, true)
@@ -106,7 +116,6 @@ export function LabSuperButton({
     }
   }, [firstView, onFirstViewEnd, reducedMotion])
 
-  const initialFrame = openRef.current ? LAST_FRAME : 0
   const classes = ['lab-super']
   if (open) classes.push('is-open')
   if (pressed) classes.push('is-pressed')
@@ -136,8 +145,8 @@ export function LabSuperButton({
           <span className="lab-super-pulse">
             <svg
               className="lab-super-mark"
-              width="24"
-              height="24"
+              width={LAB_V2_MARK_PX}
+              height={LAB_V2_MARK_PX}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -151,8 +160,17 @@ export function LabSuperButton({
                   key={index}
                   className="lab-super-frame"
                   data-frame={index}
-                  ref={node => { frameRefs.current[index] = node }}
-                  style={{ opacity: index === initialFrame ? 1 : 0 }}
+                  // The opacity is the morph's, not React's: set once on
+                  // mount, and after that only `show()` writes it. A style
+                  // prop would be reasserted on every render, and a render
+                  // mid-morph — the press disc, a parent's state — would
+                  // put the ladder back at one end with the loop halfway up.
+                  ref={node => {
+                    frameRefs.current[index] = node
+                    if (node && !node.style.opacity) {
+                      node.style.opacity = index === shownRef.current ? '1' : '0'
+                    }
+                  }}
                   transform={frame.rotateTransform}
                 >
                   <g transform={frame.skewTransform}>
