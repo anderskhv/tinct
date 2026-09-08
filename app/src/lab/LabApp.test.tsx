@@ -4459,6 +4459,8 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
   expect(audio.src).not.toContain('title.mp3')
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   expect(audio.paused).toBe(true)
+  expect(screen.getByTestId('lab-v2-play').getAttribute('aria-label')).toBe('Play')
+  expect(screen.getByTestId('lab-listen').getAttribute('aria-label')).toBe('Resume audiobook')
   expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('open')
   fireEvent.click(screen.getByTestId('lab-page-next'))
   expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('closed')

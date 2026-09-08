@@ -3380,10 +3380,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
-                aria-label={audioBarActive ? LAB_COPY.pause : LAB_COPY.play}
+                aria-label={listen.playing ? LAB_COPY.pause : LAB_COPY.play}
                 onClick={handleBarListen}
               >
-                {audioBarActive ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
+                {listen.playing ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>
               <LabSuperButton
                 open={superMenuOpen}
