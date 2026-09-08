@@ -73,6 +73,8 @@ import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
+import { LabVoiceCall, LabVoiceCallBar } from './LabVoiceCall'
+import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
@@ -324,6 +326,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return readPhoneFooter(layoutOverride, phone)
   })
   const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
+  // The full-screen call interface is Chrome V2, phone only. Every other
+  // surface keeps the conversation overlay it ships with, untouched.
+  const voiceCallSurface = chromeV2 && showPhoneChrome
+  const voiceCallSurfaceRef = useRef(voiceCallSurface)
+  voiceCallSurfaceRef.current = voiceCallSurface
   const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
   const { user: authUser, likelyAuthenticated } = useAuth()
   const boot = bootLabReading(source)
@@ -436,6 +443,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
+  // The phone call surface. `callOpen` is the reader's own intent: it stays
+  // true through a dropped connection, so a call that lost its transport can
+  // say so and offer to reconnect instead of vanishing.
+  const [callOpen, setCallOpen] = useState(false)
+  const callOpenRef = useRef(false)
+  callOpenRef.current = callOpen
+  const callAnchorRef = useRef<LabCallAnchor | null>(null)
+  const endCallRef = useRef<() => void>(() => {})
+  // True from the moment the reader asks for a call until the session reports
+  // its first transport fact. It is the only place "no report yet" is read as
+  // connecting; after that, no session means no connection.
+  const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
   // Account policy (labAccountPrompt.ts): reading is always free; an
   // anonymous reader's second AI action shows a sheet and is not sent; a
   // second book shows one quiet line under the header, once per device.
@@ -1930,6 +1949,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     if (!wasTalking) return
+    // The call surface owns its own ending. A dropped connection leaves it
+    // standing so it can say "Disconnected" and offer to reconnect; only End
+    // conversation (or Reconnect failing) takes it down.
+    if (voiceCallSurfaceRef.current && callOpenRef.current) return
     if (phoneAskOpenRef.current) {
       setChrome(current => {
         if (current !== 'talking') return current
@@ -2019,7 +2042,32 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // of a handoff whose chapter is still loading. A signed-out boot from the
   // device record is final and paints at once.
   const paintedChapterLabel = initialResolving || handoffWritesSuspended ? '' : book.chapterLabel
-  const voiceOverlayOpen = showPhoneChrome && chrome === 'talking' && !phoneAskOpen
+  const voiceOverlayOpen = showPhoneChrome && !voiceCallSurface && chrome === 'talking' && !phoneAskOpen
+  // The full-screen call, and what is left of it while the transcript is open.
+  const callFullScreen = voiceCallSurface && callOpen && !phoneAskOpen
+  const callBarVisible = voiceCallSurface && callOpen && phoneAskOpen
+  const callConnection = callAwaitingConnection && ask.voiceConnection === 'idle'
+    ? ('connecting' as const)
+    : ask.voiceConnection
+  const callView = labCallView({
+    connection: callConnection,
+    activity: ask.conversationState,
+    micMuted: ask.micMuted,
+  })
+  // The first transport fact the session reports ends the grace window.
+  useEffect(() => {
+    if (ask.voiceConnection === 'idle') return
+    setCallAwaitingConnection(false)
+  }, [ask.voiceConnection])
+  // A connect that never lands is a failed call, not a permanent "Connecting."
+  useEffect(() => {
+    if (!callOpen || callConnection !== 'connecting') return
+    const timer = window.setTimeout(() => {
+      setCallAwaitingConnection(false)
+      ask.failStart()
+    }, LAB_CONNECTING_FAIL_MS)
+    return () => window.clearTimeout(timer)
+  }, [ask.failStart, callConnection, callOpen])
   const phoneAsk = showPhoneChrome && phoneAskOpen
   const showHearing = !mobileCompareActive && !peekBook && !phoneAsk && (
     chrome === 'hearing' || (chrome === 'talking' && returnTo === 'hearing')
@@ -2324,6 +2372,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [phoneAskOpen])
 
   const leaveTalking = useCallback(() => {
+    if (voiceCallSurfaceRef.current && callOpenRef.current) {
+      endCallRef.current()
+      return
+    }
     resumeListenAfterAsk()
   }, [resumeListenAfterAsk])
 
@@ -2869,10 +2921,73 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPeekBook(false)
   }, [interruptHearForAsk])
 
+  /** Where the dialogue began, captured before anything the call does can move it. */
+  const captureCallAnchor = useCallback(() => {
+    callAnchorRef.current = {
+      bookId: book.bookId || 'bible',
+      chapterNumber: book.chapterNumber,
+      pageIndex: readingPageIndexRef.current,
+      paragraphIndex: placeRef.current.paragraphIndex,
+      wordIndex: placeRef.current.wordIndex,
+    }
+  }, [book.bookId, book.chapterNumber])
+
+  /**
+   * Give the reading place back. Same book only, and only when the call
+   * actually moved it — a restore that would be a no-op writes nothing.
+   */
+  const restoreCallAnchor = useCallback(() => {
+    const anchor = callAnchorRef.current
+    callAnchorRef.current = null
+    const restore = labCallRestore(anchor, {
+      bookId: book.bookId || 'bible',
+      chapterNumber: book.chapterNumber,
+      pageIndex: readingPageIndexRef.current,
+    })
+    if (restore.kind === 'none') return
+    const place = { paragraphIndex: restore.paragraphIndex, wordIndex: restore.wordIndex }
+    if (restore.kind === 'page') {
+      placeRef.current = place
+      pageAnchorRef.current = place
+      readingPageIndexRef.current = restore.pageIndex
+      readerStateRef.current = { ...readerStateRef.current, pageIndex: restore.pageIndex }
+      setReadingPageIndex(restore.pageIndex)
+      notePlace('mode-change', place)
+      return
+    }
+    // A chapter move: hand the landing effect the page and place to restore.
+    // goToChapter clears both refs on the way in, so they are set right after
+    // its synchronous prefix has run.
+    const pending = goToChapter(restore.chapterNumber, 'start')
+    restorePlaceRef.current = place
+    restorePageRef.current = restore.pageIndex
+    placeRef.current = place
+    void pending
+  }, [book.bookId, book.chapterNumber, goToChapter, notePlace])
+
+  const startCallVoice = useCallback(() => {
+    void ask.startVoice().then((started) => {
+      // A start the account policy or the microphone refused leaves nothing to
+      // show a call for; the notice already says why.
+      if (!started) setCallOpen(false)
+    })
+  }, [ask])
+
   const handleTalk = useCallback(() => {
     setGearOpen(false)
     setTocOpen(false)
     interruptHearForAsk()
+    if (voiceCallSurface) {
+      captureCallAnchor()
+      setCallAwaitingConnection(true)
+      setChrome('talking')
+      setPhoneAskOpen(false)
+      setInTheBookOpen(false)
+      setPeekBook(false)
+      setCallOpen(true)
+      startCallVoice()
+      return
+    }
     setVoiceGate('connecting')
     setChrome('talking')
     if (!showPhoneChrome) {
@@ -2886,7 +3001,37 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     void ask.startVoice().then((started) => {
       if (!started) setVoiceGate('off')
     })
-  }, [ask, interruptHearForAsk, openPhoneAsk, showPhoneChrome])
+  }, [ask, captureCallAnchor, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
+
+  /** The call's own end: stop the session, close the surface, give the place back. */
+  const endCall = useCallback(() => {
+    setCallOpen(false)
+    ask.stopVoice()
+    ask.setMicMuted(false)
+    resumeListenAfterAsk()
+    restoreCallAnchor()
+  }, [ask, restoreCallAnchor, resumeListenAfterAsk])
+
+  endCallRef.current = endCall
+
+  /** "See transcript in real time." — the existing chat view, call still live. */
+  const openCallTranscript = useCallback(() => {
+    setGearOpen(false)
+    setTocOpen(false)
+    setInTheBookOpen(false)
+    setPeekBook(false)
+    setPhoneAskOpen(true)
+  }, [])
+
+  const reconnectCall = useCallback(() => {
+    ask.stopVoice()
+    setCallAwaitingConnection(true)
+    startCallVoice()
+  }, [ask, startCallVoice])
+
+  const toggleCallMute = useCallback(() => {
+    ask.setMicMuted(!ask.micMuted)
+  }, [ask])
 
   const handleChat = useCallback(() => {
     setGearOpen(false)
@@ -3403,6 +3548,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
         </div>
         )}
+        {callBarVisible && (
+          <LabVoiceCallBar
+            view={callView}
+            onMuteToggle={toggleCallMute}
+            onEnd={endCall}
+            onReturn={() => setPhoneAskOpen(false)}
+          />
+        )}
         {((!showPhoneChrome && desktopAskOpen) || phoneAsk) && (
           <LabAskPane
             conversationState={ask.conversationState}
@@ -3787,8 +3940,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </div>
       )}
 
-      {showPhoneChrome && voiceGate !== 'off' && (
+      {showPhoneChrome && !voiceCallSurface && voiceGate !== 'off' && (
         <LabVoiceGate phase={voiceGate === 'ready' ? 'ready' : 'connecting'} />
+      )}
+
+      {callFullScreen && (
+        <LabVoiceCall
+          view={callView}
+          getAssistantLevel={ask.getAssistantLevel}
+          reducedMotion={reducedMotion}
+          notice={ask.notice}
+          onMuteToggle={toggleCallMute}
+          onTranscript={openCallTranscript}
+          onEnd={endCall}
+          onReconnect={reconnectCall}
+        />
       )}
 
       {voiceOverlayOpen && (

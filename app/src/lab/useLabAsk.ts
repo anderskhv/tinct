@@ -633,6 +633,11 @@ export function useLabAsk(options: UseLabAskOptions) {
       }),
     voiceVersion,
     voiceActive: voice.isActive || starting,
+    /** Transport truth, reported apart from microphone/assistant activity. */
+    voiceConnection: starting && voice.connection === 'idle' ? 'connecting' as const : voice.connection,
+    micMuted: voice.micMuted,
+    setMicMuted: voice.setMicMuted,
+    getAssistantLevel: voice.getAssistantLevel,
     userSpeechStarted: voice.userSpeechStarted,
     startVoice,
     stopVoice,
