@@ -6148,3 +6148,21 @@
 .lab[data-chrome-version="v2"] .lab-page-wrap.is-measuring-visible-page > .lab-passage {
   visibility: hidden;
 }
+
+/* Startup failures must remain visible when V2 has no transport bar. */
+.lab[data-chrome-version="v2"] .lab-v2-notice {
+  position:absolute;z-index:90;pointer-events:auto;bottom:calc(18px + env(safe-area-inset-bottom));
+  left:18px;right:18px;margin:0;padding:14px 16px;border:1px solid var(--lab-border);
+  border-radius:14px;background:var(--lab-paper);color:var(--lab-ink);
+  box-shadow:0 6px 24px #0002;font:14px/1.5 system-ui,sans-serif;
+}
+.lab[data-chrome-version="v2"] .lab-v2-notice p { margin:0; }
+.lab[data-chrome-version="v2"] .lab-v2-notice button {
+  display:block;min-height:44px;margin-top:4px;padding:8px 0;border:0;
+  background:transparent;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-notice { padding-right:52px; }
+.lab[data-chrome-version="v2"] .lab-v2-notice .lab-v2-notice-dismiss {
+  position:absolute;right:4px;top:4px;width:44px;margin:0;text-decoration:none;font-size:22px;
+}

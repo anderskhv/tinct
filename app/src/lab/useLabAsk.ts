@@ -131,6 +131,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     dumpLabTalkTurns(hydrated)
   }
   const [notice, setNotice] = useState<string | null>(null)
+  const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
   const [assistantPace, setAssistantPace] = useState<AssistantPace>('normal')
   const sendingRef = useRef(false)
@@ -655,6 +656,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     conversations,
     historyStatus,
     notice,
+    dismissNotice,
     typedLoading,
     conversationState: isVoiceV2
       ? labConversationStateV2({ activity: voice.activity, starting })

@@ -3868,9 +3868,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </section>
       )}
 
+      {chromeV2 && ask.notice && !(showPhoneChrome ? phoneAsk : desktopAskOpen) && !callOpen && (
+        <aside className="lab-v2-notice" role="alert" data-testid="lab-voice-notice">
+          <p>{ask.notice}</p>
+          <button type="button" className="lab-v2-notice-dismiss" onClick={ask.dismissNotice} aria-label="Dismiss message">×</button>
+          {/balance|credit|messages remaining|top up/i.test(ask.notice) && (
+            <button type="button" onClick={() => setSuperSheet('account')}>View account</button>
+          )}
+        </aside>
+      )}
       {showPhoneBar && (
         <footer className="lab-phone-bar" data-testid="lab-phone-bar">
-          {ask.notice && !phoneAsk && (
+          {!chromeV2 && ask.notice && !phoneAsk && (
             <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
           )}
           <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : `is-read ${mobileCompareEnabled ? 'has-4' : 'has-3'}`}`}>
