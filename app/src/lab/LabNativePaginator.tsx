@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useRef, type ReactNode } from 'react'
+import { Fragment, memo, useLayoutEffect, useRef, type ReactNode } from 'react'
 import {
   LAB_ORPHAN_PAGE_WORDS,
   chapterPagesCover,
@@ -237,7 +237,7 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
   return <p className="lab-hearing-line">{rendered}</p>
 }
 
-export function LabNativePaginator({
+export const LabNativePaginator = memo(function LabNativePaginator({
   chapterTitle,
   paragraphs,
   layoutKey,
@@ -335,4 +335,4 @@ export function LabNativePaginator({
       </article>
     </div>
   )
-}
+})

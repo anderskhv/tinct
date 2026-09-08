@@ -9,6 +9,19 @@ import { LabNativePaginator, balanceNativeChapterTail, nativePagesFromPlacements
 afterEach(cleanup)
 
 describe('native phone pagination', () => {
+  it('does not traverse the chapter again on an unrelated parent render', () => {
+    const paragraphs = ['one two three'];
+    const map = vi.spyOn(paragraphs, 'map');
+    const props = { chapterTitle: 'Chapter', paragraphs, layoutKey: 'one', onPages: vi.fn() };
+    const view = render(createElement(LabNativePaginator, props));
+    const calls = map.mock.calls.length;
+    view.rerender(createElement(LabNativePaginator, { ...props }));
+    expect(map.mock.calls.length).toBe(calls);
+    view.rerender(createElement(LabNativePaginator, { ...props, paragraphs: ['new chapter'] }));
+    expect(view.container.textContent).toContain('new chapter');
+    map.mockRestore();
+  });
+
   it('turns browser column placements into exact multi-paragraph pages', () => {
     const placements: LabNativeWordPlacement[] = [
       { pageIndex: 0, paragraphIndex: 0, wordIndex: 0 },

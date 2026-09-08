@@ -1247,8 +1247,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
-  const nativePaintPageRef = useRef<string | null>(null)
-  const nativePaintSettledRef = useRef<string | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition } : undefined)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
@@ -1317,8 +1315,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     unmeasuredTriesRef.current = 0
     lastAdjustRef.current = null
     beforeGrowPagesRef.current = null
-    nativePaintPageRef.current = null
-    nativePaintSettledRef.current = null
     settleIndexRef.current = null
     setSettleIndex(null)
     const wrapRect = pageWrapRef.current?.getBoundingClientRect()
@@ -1795,69 +1791,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
     if (nativePhonePaging) {
       const pages = readingPagesRef.current
-      const page = pages[pageIdx]
-      const head = pageAnchorOf(page)
-      const paintPage = `${book.chapterNumber}:${pageIdx}:${head?.paragraphIndex ?? -1}:${head?.wordIndex ?? -1}`
-      if (nativePaintPageRef.current !== paintPage) {
-        nativePaintPageRef.current = paintPage
-        lastAdjustRef.current = null
-        beforeGrowPagesRef.current = null
-      }
-
-      if (labPageFitsPaint(painted)) {
-        if (nativePaintSettledRef.current === paintPage) return
-        const estimated = growPaintedPageIfSlack(
-          pages,
-          pageIdx,
-          painted,
-          lastAdjustRef.current,
-          readerParagraphs,
-        )
-        const next = lastAdjustRef.current === 'bounded'
-          ? pages
-          : sameChapterPages(estimated, pages)
-            ? growPageByFirstOmittedWord(pages, pageIdx, readerParagraphs)
-            : estimated
-        if (sameChapterPages(next, pages)) return
-        beforeGrowPagesRef.current = pages
-        lastAdjustRef.current = 'grow'
-        workingPagesRef.current = next
-        readingPagesRef.current = next
-        setDraftPages(next)
-        setReadingPages(next)
-        return
-      }
-
-      // The column preflight and the visible word paint do not always wrap a
-      // hyphenated word identically. If a visible growth trial overflows,
-      // restore the last page map that actually fit and stop at that bound.
-      if (lastAdjustRef.current === 'grow' && beforeGrowPagesRef.current) {
-        const fitted = beforeGrowPagesRef.current
-        const trialWords = Math.max(
-          1,
-          leftoverWordCount(page) - leftoverWordCount(fitted[pageIdx]),
-        )
-        if (trialWords > 1) {
-          const refined = growPageByWords(fitted, pageIdx, Math.max(1, Math.floor(trialWords / 2)))
-          if (!sameChapterPages(refined, fitted)) {
-            beforeGrowPagesRef.current = fitted
-            lastAdjustRef.current = 'grow'
-            workingPagesRef.current = refined
-            readingPagesRef.current = refined
-            setDraftPages(refined)
-            setReadingPages(refined)
-            return
-          }
-        }
-        beforeGrowPagesRef.current = null
-        lastAdjustRef.current = 'bounded'
-        nativePaintSettledRef.current = paintPage
-        workingPagesRef.current = fitted
-        readingPagesRef.current = fitted
-        setDraftPages(fitted)
-        setReadingPages(fitted)
-        return
-      }
+      // The native chapter map already supplies a complete page. Growing it
+      // word by word here causes repeated synchronous layouts before paint
+      // and changes later page boundaries on every navigation.
+      if (labPageFitsPaint(painted)) return
 
       const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
       if (sameChapterPages(next, pages)) return
@@ -3660,7 +3597,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             highlights={mobileCompareActive ? [] : highlightsApi.chapterHighlights}
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
-            pageTurn={pageTurn}
+            pageTurn={chromeV2 ? undefined : pageTurn}
             onSelectRange={phoneAsk || mobileCompareActive ? undefined : handleSelectRange}
             onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
               ? (direction) => {
