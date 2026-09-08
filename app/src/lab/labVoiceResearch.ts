@@ -24,6 +24,6 @@ export async function researchVoiceQuestion(query: unknown, token: string | null
 }
 
 export function voiceSourceLinks(sources: VoiceSource[]): string {
-  return sources.filter(source => /^https?:\/\//i.test(source.url)).map(source =>
-    `[${source.title.replace(/[\[\]\\\n\r]/g, ' ')}](${source.url.replace(/[<>()\s]/g, char => `%${char.charCodeAt(0).toString(16)}`)})`).join(' · ')
+  return sources.filter(source => /^https?:\/\//i.test(source.url)).map((source, index) =>
+    `[${index + 1}](${source.url.replace(/[<>()\s]/g, char => `%${char.charCodeAt(0).toString(16)}`)} "${source.title.replace(/["\n\r]/g, ' ')}")`).join(' · ')
 }

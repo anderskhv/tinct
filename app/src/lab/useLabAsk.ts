@@ -224,7 +224,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const voiceResearchTurnRef = useRef(0)
   const withVoiceSources = (message: ChatMessage): ChatMessage => {
     const links = message.role === 'assistant' && message.source === 'voice' ? voiceSourceLinks(voiceSourcesRef.current) : ''
-    return links ? { ...message, content: `${message.content}\n\n${links}` } : message
+    return links ? { ...message, content: `${message.content}\n\nSources: ${links}` } : message
   }
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */

@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 
-const INLINE_MARKDOWN = /(\*\*[^*\n]+\*\*|__[^_\n]+__|`[^`\n]+`|\*[^*\n]+\*|_[^_\n]+_|\[[^\]\n]+\]\(https?:\/\/[^)\s]+\))/g
+const INLINE_MARKDOWN = /(\*\*[^*\n]+\*\*|__[^_\n]+__|`[^`\n]+`|\*[^*\n]+\*|_[^_\n]+_|\[[^\]\n]+\]\(https?:\/\/[^)\s]+(?: "[^"\n]*")?\))/g
 
 function inlineNodes(value: string): ReactNode[] {
   return value.split(INLINE_MARKDOWN).filter(Boolean).map((part, index) => {
@@ -13,9 +13,9 @@ function inlineNodes(value: string): ReactNode[] {
     if ((part.startsWith('*') && part.endsWith('*')) || (part.startsWith('_') && part.endsWith('_'))) {
       return <em key={index}>{part.slice(1, -1)}</em>
     }
-    const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)$/)
+    const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)\s]+)(?: "([^"\n]*)")?\)$/)
     if (link) {
-      return <a key={index} href={link[2]} target="_blank" rel="noreferrer">{link[1]}</a>
+      return <a key={index} href={link[2]} title={link[3]} target="_blank" rel="noreferrer">{link[1]}</a>
     }
     return <Fragment key={index}>{part}</Fragment>
   })

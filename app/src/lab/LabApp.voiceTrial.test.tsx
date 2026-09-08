@@ -94,8 +94,9 @@ it('persists research sources as clickable links beside the voice answer', async
   act(() => { captured.options?.appendLocalMessage(answer); captured.options?.recordMessage(answer, 1, 0) })
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-  const link = await screen.findByRole('link', { name: 'Sermon archive' })
+  const link = await screen.findByRole('link', { name: '1' })
   expect(link.getAttribute('href')).toBe('https://gospelinlife.com/example')
+  expect(link.getAttribute('title')).toBe('Sermon archive')
   expect(localStorage.getItem('tinct:chat-history:bible')).toContain('https://gospelinlife.com/example')
 })
 
