@@ -26,7 +26,7 @@
     body { min-width: 320px; min-height: 100%; margin: 0; padding: 0; background: #071723; }
     button, input { -webkit-tap-highlight-color: transparent; }
   </style>
-  <script src="/lab/library-boot.js?v=20260907-4"></script>
+  <script src="/lab/library-boot.js?v=20260908-4"></script>
   <style>
     /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
        from the first frame. catalogue-runtime.js drops the attribute once it
@@ -1044,20 +1044,12 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
 
   /* Returning reader: Reading now (one row of covers, one caption for the
      book in the middle) and Finished (quiet rows). */
+  #tinct-onboarding-worlds-v5 .lib-popular[hidden] { display:none; }
   #tinct-onboarding-worlds-v5 .lib-recap[hidden] { display:none; }
   #tinct-onboarding-worlds-v5 .lib-recap { display:flex; flex-direction:column; gap:44px; }
   #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { display:flex; flex-direction:column; gap:22px; }
-  /* The "so far" line arrives after the page does — from the device cache in
-     the same frame, from /api/lab-recap a second later, or never. So it is a
-     block of THREE lines from the first paint: the text fades into space
-     that is already there instead of pushing the book, the button and
-     everything below down the page, and a longer summary is clamped at a
-     whole line with the ellipsis the clamp draws.
-     Three lines is the summary at a glance. The reader who wants the rest
-     taps the block — it is a button, so the whole 3-line box is the target
-     (67px on a phone, well past 44) — and one quiet mono word under it says
-     which way the tap goes. It opens collapsed every time: what is worth
-     remembering is the place, not whether a paragraph was open. */
+  /* Optional recaps stay hidden until text is available. A slow or absent
+     summary must not leave a blank hole above Continue reading. */
   #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:3; display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; margin:0; padding:0; border:0; background:none; text-align:left; font-family:inherit; color:var(--lib-lede); max-width:52ch; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary-text { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); overflow:hidden; width:100%; height:calc(var(--lib-recap-lines) * 1.5em); font-size:16.5px; line-height:1.5; color:var(--lib-lede); opacity:0; transition:opacity .28s ease,height .3s cubic-bezier(.2,.7,.2,1); }
@@ -1262,7 +1254,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      the row can still be nudged the width of the page margin; without a left
      one on desktop, "start" means the container's edge and the row jumps the
      margin's width the moment it overflows, clipping the first cover. */
-  #tinct-onboarding-worlds-v5 .lib-shelf { gap:16px; padding-bottom:6px; scroll-snap-type:x mandatory; scroll-padding-left:50%; scroll-padding-right:var(--lib-pad-r); }
+  #tinct-onboarding-worlds-v5 .lib-shelf { gap:16px; padding-bottom:6px; scroll-snap-type:x mandatory; scroll-padding-left:50%; scroll-padding-left:var(--lib-pad-l); scroll-padding-right:var(--lib-pad-r); }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item { scroll-snap-align:center; scroll-snap-stop:always; }
   #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item .lib-cover-copy { display:none; }
   /* The row can centre its FIRST cover — on a phone, where the row always
@@ -1293,12 +1285,11 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      belongs to the book in the middle. */
   #tinct-onboarding-worlds-v5 .lib-recap .lib-eyebrow { color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-reading-now { gap:10px; }
-  #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-right:var(--lib-pad-r); }
+  #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-left:var(--lib-pad-l); scroll-padding-right:var(--lib-pad-r); }
   #tinct-onboarding-worlds-v5 .lib-now-shelf::-webkit-scrollbar { display:none; }
-  /* A leading spacer only: the first cover can come to the middle, the last
-     one ends the track at the page's right margin. A trailing spacer let the
-     row scroll a whole empty slot past the last cover. */
-  #tinct-onboarding-worlds-v5 .lib-now-shelf::before { content:''; flex:0 0 calc(50% - 62px - 16px); }
+  /* Start with the first cover against the content gutter, ready to open. */
+  #tinct-onboarding-worlds-v5 .lib-now-shelf::before { display:none; }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-item:first-child { scroll-snap-align:start; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item:last-child { scroll-snap-align:end; }
   /* `is-single` is markup-time (one book); `is-flush` is measured after
      layout (every cover already fits). Either way the row starts at the

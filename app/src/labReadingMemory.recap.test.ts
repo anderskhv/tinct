@@ -211,10 +211,10 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
-    // The three-line block is on the page either way; only the text is
-    // missing, so nothing below it moves when one does arrive.
+    // An optional recap with no text must not reserve blank space.
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(false)
+    expect(line.hidden).toBe(true)
     expect(line.textContent).toBe('')
   })
 
@@ -234,6 +234,7 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.dataset.summaryLine).toBe('fresh')
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(true)
+    expect(line.hidden).toBe(false)
     expect(line.textContent).toContain('So far in bible 645.')
   })
 

@@ -145,7 +145,7 @@ describe('lab/index.html boot script', () => {
    * on exactly the same terms, or the page grows or shrinks three lines a
    * frame after it paints — which is the return-from-the-reader jump.
    */
-  it('reserves the three-line summary block, and leaves it out coming back from the hero\'s reader', () => {
+  it('keeps the optional summary hidden until ready, and leaves it out coming back from the hero\'s reader', () => {
     localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', SESSION)
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))
     const boot = runBoot()
@@ -157,6 +157,7 @@ describe('lab/index.html boot script', () => {
     expect(block).toBeTruthy()
     expect(block.tagName).toBe('BUTTON')
     expect(block.disabled).toBe(true)
+    expect(block.hidden).toBe(true)
     expect(block.querySelector('.lib-recap-summary-text')?.textContent).toBe('')
     expect(block.querySelector('.lib-recap-summary-more')?.textContent).toBe('')
 

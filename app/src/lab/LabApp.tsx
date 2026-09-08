@@ -1144,7 +1144,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         restorePlaceRef.current = null
         placeRef.current = place
         const idx = pageIndexForPlace(next, place.paragraphIndex, place.wordIndex)
-        pageAnchorRef.current = pageAnchorOf(next[idx])
+        // A draft page boundary is not the saved reading place. Carry the
+        // exact word through to the font-settled paginator on refresh.
+        pageAnchorRef.current = chromeV2 ? place : pageAnchorOf(next[idx])
         readingPageIndexRef.current = idx
         setReadingPageIndex(idx)
       } else if (!nativePhonePaging && restorePageRef.current != null) {
@@ -1252,6 +1254,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
+    // The first native map replaces an estimated map. Restore from the saved
+    // word itself, never from the estimated page that happened to contain it.
+    const restoring = chromeV2 && restorePlaceRef.current
+      && next.some(page => chapterPageSegments(page).some(segment => segment.paragraphIndex === restorePlaceRef.current!.paragraphIndex))
+      ? restorePlaceRef.current : null
+    if (restoring) {
+      next = splitLabPagesAtAnchor(next, restoring)
+      pageAnchorRef.current = restoring
+      restorePlaceRef.current = null
+    }
     const keep = playing
       ? (placeRef.current ?? pageAnchorRef.current)
       : (mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current ?? pageAnchorOf(current[currentIndex]))

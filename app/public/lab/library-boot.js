@@ -243,6 +243,7 @@
   /** The same element the confirmed render builds, with no text in it yet. */
   function summaryBlock() {
     var block = el('button', 'lib-recap-summary')
+    block.hidden = true
     block.type = 'button'
     block.disabled = true
     block.setAttribute('data-expandable', 'false')

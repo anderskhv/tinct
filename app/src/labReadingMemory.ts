@@ -312,22 +312,14 @@ function setSummaryStatus(key: string, status: SummaryLineStatus): void {
   if (section && heroSummaryLine(key)) section.dataset.summaryLine = status
 }
 
-/**
- * Fill the reserved "so far" block. The block is already on the page at its
- * collapsed height — three lines, from the first paint (lab/index.html) — so
- * this only ever fades text into space that is there: the book, the button
- * and everything under them never move when a summary arrives, is replaced
- * by another book's, or never comes.
- *
- * Whether it can be opened is a question about this summary at this width,
- * so it is asked of the rendered text rather than guessed from its length.
- */
+/** Reveal a recap only once text is available; the reader can continue immediately. */
 function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): void {
   const line = heroSummaryLine(key)
   if (!line || !section) return
   const text = line.querySelector<HTMLElement>('.lib-recap-summary-text')
   if (!text) return
   text.textContent = summary
+  line.hidden = false
   line.classList.add('is-shown')
   section.dataset.summaryLine = status
   markExpandable(line, text)
@@ -499,8 +491,7 @@ function removeMarkup(bookId: string, title: string): string {
 }
 
 /**
- * Whether this caption reserves a "so far" block at all. Three lines is a
- * small reservation, but a reader who has just walked out of this book's
+ * Whether this caption can show a "so far" block. A reader who has just walked out of this book's
  * reader is never getting a summary — the rule says so synchronously — so
  * the block is not there rather than empty. lab/library-boot.js asks exactly
  * the same question of exactly the same marker before it paints, so the
@@ -518,7 +509,7 @@ function summaryBlockReserved(row: ReadingListRow, books: Map<string, CatalogueB
 
 /** The block: a button, so the whole three-line box is the tap target. */
 function summaryMarkup(summaryKey: string): string {
-  return `<button type="button" class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-expandable="false" disabled><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
+  return `<button type="button" class="lib-recap-summary" hidden data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-expandable="false" disabled><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
 }
 
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
