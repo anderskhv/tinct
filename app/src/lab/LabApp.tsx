@@ -421,6 +421,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const readerEditionKey = mobileCompareActive && mobileCompareEnabled
     ? prefs.compareEdition
     : prefs.primaryEdition
+  // The edition that is not on screen. While Compare is available the reader
+  // is always one swipe from it, so it is paginated in the background and the
+  // swap has nothing left to measure.
+  const standbyParagraphs = mobileCompareActive && mobileCompareEnabled
+    ? book.paragraphs
+    : book.compareParagraphs
+  const standbyEditionKey = mobileCompareActive && mobileCompareEnabled
+    ? prefs.primaryEdition
+    : prefs.compareEdition
   const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, bookEditions)
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, bookEditions)
   const nativePhonePaging = showPhoneChrome && browserHasNativePaging()
@@ -492,6 +501,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
    * there, and that page is the one shown.
    */
   const mobileCompareHeadRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
+  /**
+   * The standby edition's page map, measured off-screen and keyed by the
+   * layout it was measured in. A swap reads it instead of paginating, so the
+   * incoming page is committed in the same paint as everything else.
+   */
+  const standbyPagesRef = useRef<{ key: string; pages: ChapterHearingPage[] } | null>(null)
+  /**
+   * The page map a swap has just committed, with the paragraphs it belongs
+   * to. The content-change effect below re-paginates whenever the reader's
+   * paragraphs change — which a swap is — and its estimate would overwrite
+   * the measured map for the one frame before the native pass restores it.
+   * That overwrite is what the reader saw as the flicker.
+   */
+  const swapCommittedRef = useRef<{ paragraphs: string[]; pages: ChapterHearingPage[] } | null>(null)
   /** The transient pill that names the version just swapped to. */
   const [versionPill, setVersionPill] = useState<{ label: string; nonce: number } | null>(null)
   // A later page or chapter action owns the reader. This prevents an older
@@ -1059,10 +1082,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const settledPrimaryPages = contentChanged && !mobileCompareActive
       ? mobilePrimaryPagesRef.current
       : null
+    // Entering Compare is the mirror of leaving it: the map is already
+    // settled, so it is adopted rather than estimated again.
+    const swapped = contentChanged && swapCommittedRef.current?.paragraphs === readerParagraphs
+      ? swapCommittedRef.current.pages
+      : null
     const next = settledPrimaryPages
+      ?? swapped
       ?? chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
-    if (settledPrimaryPages) {
-      mobilePrimaryPagesRef.current = null
+    swapCommittedRef.current = null
+    if (settledPrimaryPages || swapped) {
+      if (settledPrimaryPages) mobilePrimaryPagesRef.current = null
       pagesStableRef.current = true
       didBudgetPageRef.current = true
       setSettleIndex(null)
@@ -1247,6 +1277,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
   }, [chromeV2, nativePhonePaging])
+
+  /**
+   * The standby map, off the critical path entirely: a ref write, no state,
+   * so measuring the edition nobody is reading can never cause a render.
+   */
+  const applyStandbyPages = useCallback((pages: ChapterHearingPage[]) => {
+    if (pages.length === 0) return
+    standbyPagesRef.current = { key: standbyKeyRef.current, pages }
+  }, [])
 
   const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
     browseWhileListeningRef.current = false
@@ -1951,6 +1990,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const readingTail = chapterPageTail(readingPage)
   // Typography that reaches the page as root CSS variables; LabPassage
   // re-measures continued page tails only when it changes.
+  const layoutKeyFor = (editionKey: string) => [
+    book.chapterNumber,
+    editionKey,
+    readingFont,
+    prefs.fontSize,
+    prefs.alignment,
+    prefs.lineSpacing,
+    prefs.margins,
+    prefs.paragraphSpacing,
+    fullscreen ? 'fullscreen' : 'windowed',
+  ].join(':')
+  const standbyKey = layoutKeyFor(standbyEditionKey)
+  const standbyKeyRef = useRef(standbyKey)
+  standbyKeyRef.current = standbyKey
   const readerLayoutKey = [
     readingFont,
     prefs.fontSize,
@@ -2358,12 +2411,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const primaryAnchor = nextActive ? sourceAnchor : mapped
     const budget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
     const settledPrimaryPages = !nextActive ? mobilePrimaryPagesRef.current : null
+    // The measured map beats the budget estimate, and it is the map the
+    // native pass would have produced 50ms later anyway: taking it here is
+    // what turns the swap from two paints into one.
+    const measured = standbyPagesRef.current?.key === standbyKey ? standbyPagesRef.current.pages : null
     let nextPages = settledPrimaryPages
-      ?? chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null)
+      ?? (measured?.length ? measured : chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null))
     // The compare page begins at the head, whatever the compare edition's own
     // breaks are; the native pass that follows is held to the same head.
     if (compareHead) nextPages = splitLabPagesAtAnchor(nextPages, compareHead)
     mobileCompareHeadRef.current = compareHead
+    if (chromeV2) swapCommittedRef.current = { paragraphs: targetParagraphs, pages: nextPages }
     const nextIndex = compareHead
       ? restorePageIndexForAnchor(nextPages, compareHead)
       : pageIndexForPlace(nextPages, mapped.paragraphIndex, mapped.wordIndex)
@@ -2401,7 +2459,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(nextPages)
     setReadingPageIndex(nextIndex)
     setMobileCompareActive(nextActive)
-  }, [book.compareParagraphs, book.paragraphs, chromeV2, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs])
+  }, [book.compareParagraphs, book.paragraphs, chromeV2, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs, standbyKey])
 
   const handleDesktopCompare = useCallback(() => {
     if (!desktopCompareEnabled) return
@@ -3312,18 +3370,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             <LabNativePaginator
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
-              layoutKey={[
-                book.chapterNumber,
-                readerEditionKey,
-                readingFont,
-                prefs.fontSize,
-                prefs.alignment,
-                prefs.lineSpacing,
-                prefs.margins,
-                prefs.paragraphSpacing,
-                fullscreen ? 'fullscreen' : 'windowed',
-              ].join(':')}
+              layoutKey={layoutKeyFor(readerEditionKey)}
               onPages={applyNativePages}
+            />
+          )}
+          {/* The standby edition, measured in the same box while nobody is
+              looking at it. It writes a ref and touches no state, so it can
+              never paint; the swap reads it and commits the incoming page in
+              one go instead of showing an estimate and correcting it. */}
+          {chromeV2 && !chapterCoverTitle && nativePhonePaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
+            <LabNativePaginator
+              chapterTitle={book.chapterTitle}
+              paragraphs={standbyParagraphs}
+              layoutKey={standbyKey}
+              onPages={applyStandbyPages}
             />
           )}
           {!chapterCoverTitle && !nativePhonePaging && settleIndex != null && draftPages[settleIndex] && (

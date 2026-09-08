@@ -13,6 +13,7 @@ import { LAB_V2_VERSION_PILL_MS } from './labV2Sheet'
 afterEach(() => {
   cleanup()
   vi.useRealTimers()
+  vi.unstubAllGlobals()
   try { localStorage.clear() } catch { /* jsdom */ }
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
@@ -154,6 +155,44 @@ describe('what Compare says about itself', () => {
     }} />)
     swipe(screen.getByTestId('lab-book'), 0, -110)
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+  })
+})
+
+describe('the standby edition', () => {
+  /** jsdom has no columns; the paginator only mounts when the browser does. */
+  function withNativePaging() {
+    vi.stubGlobal('CSS', { supports: () => true })
+  }
+
+  it('is measured off-screen whenever Compare is available, so a swap has nothing to compute', () => {
+    withNativePaging()
+    withCompare()
+    renderPhone()
+    // Two hidden measuring columns: the edition on screen, and the one a
+    // swipe away. Both are aria-hidden and neither can paint.
+    const hosts = screen.getAllByTestId('lab-native-page-measure')
+    expect(hosts).toHaveLength(2)
+    for (const host of hosts) {
+      expect(host.getAttribute('aria-hidden')).toBe('true')
+      expect(host.classList.contains('lab-page-measure')).toBe(true)
+    }
+  })
+
+  it('is not measured when there is nothing to swap to', () => {
+    withNativePaging()
+    renderPhone()
+    expect(screen.getAllByTestId('lab-native-page-measure')).toHaveLength(1)
+  })
+
+  it('is not measured without the flag', () => {
+    withNativePaging()
+    withCompare()
+    render(<LabApp pathname="/lab/phone" search="" authToken={null} source={{
+      ...fallbackLabSource(),
+      paragraphs: ['Old wording begins here and continues through the original passage.'],
+      compareParagraphs: ['Modern wording starts here and continues through the comparison passage.'],
+    }} />)
+    expect(screen.getAllByTestId('lab-native-page-measure')).toHaveLength(1)
   })
 })
 

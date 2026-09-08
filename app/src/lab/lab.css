@@ -5479,7 +5479,9 @@
   left: 50%;
   bottom: 4.6rem;
   z-index: 3;
-  transform: translateX(-50%);
+  /* Its own compositor layer: the fade is the layer's alpha, so it never
+     asks the page under it to repaint. */
+  transform: translateX(-50%) translateZ(0);
   padding: 8px 14px 9px;
   border-radius: 999px;
   background: linear-gradient(
@@ -5496,6 +5498,7 @@
   letter-spacing: 0.035em;
   white-space: nowrap;
   pointer-events: none;
+  contain: layout paint;
   will-change: opacity;
   animation: lab-v2-version-pill 1300ms linear both;
 }
