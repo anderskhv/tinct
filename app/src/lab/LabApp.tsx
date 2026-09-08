@@ -3237,7 +3237,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
-    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search) || '?chrome=v2'}` : LAB_LIBRARY_URL)
+    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
   }, [chromeV2, handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
 
   // The first view: 400 ms after the first page has laid out, never on load

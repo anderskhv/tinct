@@ -519,5 +519,5 @@ export function readReaderOrigin(storage) {
 export function readerPreviewSearch(search) {
   const source = new URLSearchParams(search)
   const trial = source.get('voiceTrial')
-  return `?chrome=v2${trial === 'full' || trial === 'mini' ? `&voiceTrial=${trial}` : ''}`
+  return trial === 'mini' ? '?voiceTrial=mini' : ''
 }

@@ -147,6 +147,8 @@ function isLabPathname(pathname: string): boolean {
 }
 
 const LAB_PRE_READER_PATHS = new Map([
+  ['/library', '/lab/'],
+  ['/library/', '/lab/'],
   ['/lab', '/lab/'],
   ['/lab/', '/lab/'],
   ['/lab/landing', '/lab/'],
@@ -340,21 +342,28 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return new Response('Temporarily unavailable', { status: 503, headers: { 'Cache-Control': 'no-store' } })
     }
 
-    if ((request.method === 'GET' || request.method === 'HEAD') && ['/app', '/library', '/reader'].includes(url.pathname)) {
+    if (request.method === 'GET' || request.method === 'HEAD') {
       const destination = new URL(url.toString())
-      if (url.searchParams.has('signin')) {
-        destination.pathname = '/lab/sign-in'
-        destination.searchParams.delete('signin')
-      } else if (url.pathname === '/reader') {
-        destination.pathname = '/lab/reader'
-        destination.searchParams.set('chrome', 'v2')
-      } else if (url.searchParams.has('book')) {
-        destination.pathname = '/lab/'
-        destination.searchParams.set('view', 'book-detail')
-      } else {
-        destination.pathname = '/lab/library'
+      if (url.pathname === '/lab/reader' && url.searchParams.get('chrome') === 'v2') {
+        destination.pathname = '/reader'
+      } else if (url.pathname === '/lab/library') {
+        destination.pathname = '/library'
+      } else if (url.pathname === '/app') {
+        if (url.searchParams.has('signin')) {
+          destination.pathname = '/lab/sign-in'
+          destination.searchParams.delete('signin')
+        } else {
+          destination.pathname = '/library'
+          if (url.searchParams.has('book')) destination.searchParams.set('view', 'book-detail')
+        }
       }
-      return new Response(null, { status: 302, headers: { Location: destination.pathname + destination.search, 'Cache-Control': 'no-store' } })
+      if (destination.pathname === '/reader' || destination.pathname === '/library') {
+        destination.searchParams.delete('chrome')
+        if (destination.searchParams.get('voiceTrial') === 'full') destination.searchParams.delete('voiceTrial')
+      }
+      if (destination.pathname + destination.search !== url.pathname + url.search) {
+        return new Response(null, { status: 302, headers: { Location: destination.pathname + destination.search, 'Cache-Control': 'no-store' } })
+      }
     }
 
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the

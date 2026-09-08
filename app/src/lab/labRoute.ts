@@ -1,7 +1,7 @@
 /** Paths that serve the private reading-chrome demo. */
 export function isLabPath(pathname: string): boolean {
   const path = pathname.split('?')[0].split('#')[0]
-  return path === '/lab' || path.startsWith('/lab/')
+  return path === '/reader' || path === '/reader/' || path === '/lab' || path.startsWith('/lab/')
 }
 
 export type LabLayoutOverride = 'phone' | 'desktop' | null
@@ -31,7 +31,7 @@ export type LabVoiceVersion = 'v1' | 'v2'
 export function labVoiceVersion(pathname: string, search?: string): LabVoiceVersion {
   const [pathPart, inlineQuery = ''] = pathname.split('#')[0].split('?')
   const path = pathPart.replace(/\/+$/, '')
-  if (path !== '/lab/reader') return 'v1'
+  if (path !== '/lab/reader' && path !== '/reader') return 'v1'
   const query = search !== undefined ? search : inlineQuery
   const params = new URLSearchParams(query.startsWith('?') ? query.slice(1) : query)
   return params.get('voice')?.trim().toLowerCase() === 'v2' ? 'v2' : 'v1'
@@ -50,6 +50,7 @@ const LAB_READER_PATHS = ['/lab/reader', '/lab/phone', '/lab/desktop']
 export function labChromeVersion(pathname: string, search?: string): LabChromeVersion {
   const [pathPart, inlineQuery = ''] = pathname.split('#')[0].split('?')
   const path = pathPart.replace(/\/+$/, '')
+  if (path === '/reader') return 'v2'
   if (!LAB_READER_PATHS.includes(path)) return 'v1'
   const query = search !== undefined ? search : inlineQuery
   const params = new URLSearchParams(query.startsWith('?') ? query.slice(1) : query)

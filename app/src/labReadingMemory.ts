@@ -862,7 +862,7 @@ function openAt(target: ContinueTarget): void {
     // knows not to recap the book the reader has just been looking at.
     writeReaderOrigin(sessionStore(), target.bookId, Date.now())
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
-    window.location.assign(`/lab/reader${readerPreviewSearch(window.location.search)}`)
+    window.location.assign(`/reader${readerPreviewSearch(window.location.search)}`)
     return
   }
   // The place's edition is not offered by the library (e.g. a Danish

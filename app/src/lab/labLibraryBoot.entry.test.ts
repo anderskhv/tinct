@@ -122,7 +122,7 @@ describe('the blocking boot script agrees with the module', () => {
   it('replaces the entry with the reader for a signed-in reader who read within the window', () => {
     const result = runBoot('/lab/landing', 'tinct_auth=1', readRecently)
     expect(result.entry).toBe('reader')
-    expect(result.replaced).toEqual(['/lab/reader?chrome=v2'])
+    expect(result.replaced).toEqual(['/reader'])
     // Nothing was painted before the redirect.
     expect(result.attributes['data-lab-boot-view']).toBeUndefined()
   })
@@ -131,13 +131,13 @@ describe('the blocking boot script agrees with the module', () => {
     const result = runBoot('/lab', 'tinct_auth=1', readLongAgo)
     expect(result.entry).toBe('library')
     expect(result.replaced).toEqual([])
-    expect(result.rewritten).toEqual(['/lab/library'])
+    expect(result.rewritten).toEqual(['/library'])
     expect(result.attributes['data-lab-boot-view']).toBe('library')
   })
 
   it('rewrites the entry to the library when there is no reading at all', () => {
     const result = runBoot('/lab', 'tinct_auth=1', {})
     expect(result.entry).toBe('library')
-    expect(result.rewritten).toEqual(['/lab/library'])
+    expect(result.rewritten).toEqual(['/library'])
   })
 })

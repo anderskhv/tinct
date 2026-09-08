@@ -153,7 +153,7 @@ describe('worker SEO SPA metadata', () => {
 })
 
 describe('worker SEO routing', () => {
-  it.each(['/lab', '/lab/', '/lab/landing', '/lab/library'])('serves the standalone noindex lab at %s', async (pathname) => {
+  it.each(['/lab', '/lab/', '/lab/landing', '/library'])('serves the standalone noindex lab at %s', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
     expect(resp.headers.get('Cache-Control')).toBe('no-store')
@@ -320,20 +320,27 @@ describe('worker SEO routing', () => {
   })
 
   it.each([
-    ['/reader', '/lab/reader?chrome=v2'],
+    ['/lab/reader?chrome=v2&book=bible&chapter=3&voiceTrial=full', '/reader?book=bible&chapter=3'],
     ['/app?signin=1', '/lab/sign-in'],
-    ['/library', '/lab/library'],
-    ['/app?book=ulysses', '/lab/?book=ulysses&view=book-detail'],
+    ['/lab/library?chrome=v2', '/library'],
+    ['/app?book=ulysses', '/library?book=ulysses&view=book-detail'],
   ])('preserves public navigation intent from %s', async (path, target) => {
     const response = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
     expect(response.status).toBe(302)
     expect(response.headers.get('Location')).toBe(target)
   })
 
+  it.each(['/reader', '/reader/', '/library', '/library/'])('serves clean public route %s without redirecting to lab', async (path) => {
+    const response = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
+    expect(response.status).toBe(200)
+    expect(response.headers.get('Location')).toBeNull()
+    expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
+  })
+
   it('opens the promoted library from /app', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
     expect(resp.status).toBe(302)
-    expect(resp.headers.get('Location')).toBe('/lab/library')
+    expect(resp.headers.get('Location')).toBe('/library')
   })
 
   it('serves unknown app paths as noindex SPA fallback', async () => {

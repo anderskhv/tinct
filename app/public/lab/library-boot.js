@@ -422,14 +422,14 @@
       } catch (e) { /* storage blocked */ }
       var preview = new URLSearchParams(location.search)
       var trial = preview.get('voiceTrial')
-      location.replace('/lab/reader?chrome=v2' + (trial === 'full' || trial === 'mini' ? '&voiceTrial=' + trial : ''))
+      location.replace('/reader' + (trial === 'mini' ? '?voiceTrial=mini' : ''))
       return
     }
     if (state.entry === 'library') {
       // Rewrite in place rather than navigating: catalogue-runtime.js reads
       // the URL when it loads, so this costs no extra request and cannot
       // flash the landing panel.
-      try { history.replaceState(history.state, '', '/lab/library' + (location.search || '')) } catch (e) { /* history blocked */ }
+      try { history.replaceState(history.state, '', '/library' + (location.search || '')) } catch (e) { /* history blocked */ }
     }
     var session = null
     try { session = window.sessionStorage } catch (e) { session = null }

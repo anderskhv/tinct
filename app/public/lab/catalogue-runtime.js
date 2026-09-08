@@ -30,7 +30,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260908-6'
+} from './library-model.js?v=20260908-9'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -149,9 +149,9 @@ import {
 
   const previewSearch = readerPreviewSearch(location.search)
   function routeFor(view, bookId = state.selectedBookId) {
-    if (view === 'landing') return `/lab/landing${previewSearch}`
-    if (view === 'library') return `/lab/library${previewSearch}`
-    return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}${previewSearch.replace('?', '&')}`
+    if (view === 'landing') return `/${previewSearch}`
+    if (view === 'library') return `/library${previewSearch}`
+    return `/library?book=${encodeURIComponent(bookId)}${view === 'book-detail' ? '' : `&view=${encodeURIComponent(view)}`}${previewSearch.replace('?', '&')}`
   }
 
   /**
@@ -1029,7 +1029,7 @@ import {
     rememberLibrary(book.id)
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
-    window.location.assign(`/lab/reader${previewSearch}`)
+    window.location.assign(`/reader${previewSearch}`)
     return true
   }
 
@@ -1251,7 +1251,7 @@ import {
     const params = new URLSearchParams(location.search)
     const requested = params.get('book')
     const routeView = libraryViewFromLocation(location.pathname, location.search) ? 'library' : 'landing'
-    const requestedView = params.get('view')
+    const requestedView = params.get('view') || (requested ? 'book-detail' : null)
     const allowedViews = new Set(['landing', 'library', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
   }).then(() => {
@@ -1278,7 +1278,7 @@ import {
     const params = new URLSearchParams(location.search)
     const bookId = params.get('book')
     const path = location.pathname.replace(/\/+$/, '')
-    const view = libraryViewFromLocation(path, location.search) ? 'library' : path === '/lab/landing' || path === '/lab' ? (params.get('view') || 'landing') : 'landing'
+    const view = params.get('view') || (bookId ? 'book-detail' : libraryViewFromLocation(path, location.search) ? 'library' : 'landing')
     if (view !== 'library') rememberLibrary()
     if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) {
       await selectBook(bookId, view)

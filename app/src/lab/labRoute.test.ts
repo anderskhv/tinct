@@ -114,3 +114,9 @@ describe('lab chrome version flag', () => {
     expect(labVoiceVersion('/lab/reader', '?voice=v2&chrome=v2')).toBe('v2')
   })
 })
+
+ it('opens the public reader with production chrome and voice without flags', () => {
+   expect(isLabPath('/reader')).toBe(true)
+   expect(labChromeVersion('/reader')).toBe('v2')
+   expect(labChromeVersion('/reader/')).toBe('v2')
+ })
