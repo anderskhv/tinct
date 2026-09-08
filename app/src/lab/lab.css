@@ -6143,8 +6143,9 @@
 .lab[data-chrome-version="v2"] .lab-ask-reply,
 .lab[data-chrome-version="v2"] .lab-ask-user { min-width: 0; overflow-wrap: anywhere; }
 
-/* Measuring the page must not expose its intermediate word counts. The
-   hidden passage keeps its geometry available to the existing measurer. */
+/* Phone measurement must not expose intermediate word counts. Desktop
+   settles earlier pages in the background when resuming deep in a chapter;
+   its readable passage must stay visible throughout that work. */
 .lab[data-chrome-version="v2"] .lab-page-wrap.is-measuring-visible-page > .lab-passage {
   visibility: hidden;
 }

@@ -3565,7 +3565,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${chromeV2 && !nativePhonePaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
+          className={`lab-page-wrap${chromeV2 && showPhoneChrome && !nativePhonePaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
