@@ -5082,7 +5082,7 @@
 }
 
 .lab[data-chrome-version="v2"] .lab-v2-sheet[data-layer="reading"] .lab-v2-sheet-body {
-  padding: 0 16px 14px;
+  padding: 8px 16px 14px;
 }
 
 /* Theme cards. Book, Light and Dark — the reader picks a page, not a system. */
@@ -5598,6 +5598,9 @@
    fill rather than the menu's — a list this long has to hold at reading
    distance, and the page behind it still shows through. */
 .lab[data-chrome-version="v2"] .lab-toc {
+  position: absolute;
+  inset: 0;
+  z-index: 350;
   background: linear-gradient(
     180deg,
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill-top)),
@@ -5736,8 +5739,11 @@
   color: var(--lab-ink);
 }
 
-.lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
 .lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
+  background: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current {
   color: var(--lab-ink);
   background: #dccbaa;
 }
@@ -5750,8 +5756,7 @@
   color: var(--lab-ink);
 }
 
-.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
-.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current {
   color: var(--lab-ink);
   background: #6b5738;
 }
@@ -6098,3 +6103,33 @@
     transition: none !important;
   }
 }
+
+/* V2 contents controls remain reachable above the chapter scroll. */
+.lab[data-chrome-version="v2"] .lab-map-book-jump {
+  display: flex; align-items: center; gap: 12px; flex: 0 0 auto;
+  margin: 0 16px; padding: 8px 0 12px; border-bottom: 1px solid var(--lab-border);
+  font: 12px 'IBM Plex Mono', monospace;
+}
+.lab[data-chrome-version="v2"] .lab-map-book-jump select {
+  flex: 1; min-width: 0; min-height: 36px; color: var(--lab-ink);
+  background: var(--lab-paper); border: 1px solid var(--lab-border); border-radius: 8px;
+  padding: 4px 8px; font: 18px 'EB Garamond', Georgia, serif;
+}
+
+.lab[data-chrome-version="v2"] .lab-ask-time {
+  display: block; margin: 0 0 4px; color: var(--lab-ink-muted);
+  font: 10px 'IBM Plex Mono', monospace;
+}
+.lab[data-chrome-version="v2"] .lab-ask-toolbar { display: flex; flex: 0 0 auto; padding: 6px 0 10px; }
+.lab[data-chrome-version="v2"] .lab-ask-done {
+  min-height: 36px; padding: 4px 10px; border: 0; border-radius: 18px;
+  color: var(--lab-ink); background: var(--lab-surface); font: 14px 'EB Garamond', Georgia, serif;
+}
+.lab[data-chrome-version="v2"] .lab-ask.is-phone-sheet .lab-ask-chrome {
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+}
+.lab[data-chrome-version="v2"] .lab-ask-mic[aria-pressed="true"] {
+  color: var(--lab-paper); background: var(--lab-ink); border-radius: 50%;
+}
+
+.lab[data-chrome-version="v2"] .lab-ask-toolbar { justify-content: flex-start; }

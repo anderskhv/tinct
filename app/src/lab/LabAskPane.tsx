@@ -6,6 +6,9 @@ import { LabMarkdown } from './LabMarkdown'
 
 interface LabAskPaneProps {
   conversationState: LabConversationState
+  chromeV2?: boolean
+  dictationState?: 'idle' | 'starting' | 'listening'
+  onStopVoice?: () => void
   voiceActive: boolean
   typedLoading: boolean
   turns: LabAskTurn[]
@@ -59,6 +62,9 @@ function VoiceIcon() {
 
 export function LabAskPane({
   conversationState,
+  chromeV2 = false,
+  dictationState = 'idle',
+  onStopVoice,
   voiceActive: _voiceActive,
   typedLoading,
   turns,
@@ -259,6 +265,11 @@ export function LabAskPane({
   const noticeNode = (notice || localError) && (
     <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}</p>
   )
+  const dictationNode = chromeV2 && dictationState !== 'idle' && (
+    <p className="lab-ask-voice-status" role="status" data-testid="lab-dictation-status">
+      {dictationState === 'starting' ? 'Starting microphone…' : 'Listening — tap the microphone to stop'}
+    </p>
+  )
   const statusNode = conversationState !== 'idle' && (
     <p
       className={`lab-ask-voice-status is-${conversationState}`}
@@ -306,7 +317,8 @@ export function LabAskPane({
         type="button"
         className="lab-ask-icon lab-ask-mic"
         onClick={onMic}
-        aria-label={LAB_COPY.micLabel}
+        aria-label={chromeV2 ? (dictationState === 'idle' ? 'Dictate a question' : 'Stop dictation') : LAB_COPY.micLabel}
+        {...(chromeV2 ? { 'aria-pressed': dictationState !== 'idle', disabled: conversationState !== 'idle' } : {})}
         data-testid="lab-ask-mic"
       >
         <MicIcon />
@@ -331,7 +343,7 @@ export function LabAskPane({
         <button
           type="button"
           className={`lab-ask-icon lab-ask-voice is-${conversationState} is-alive`}
-          onClick={onMic}
+          onClick={onStopVoice ?? onMic}
           aria-label={LAB_COPY.stopTalk}
           data-testid="lab-ask-voice"
           data-voice-phase={conversationState}
@@ -375,7 +387,7 @@ export function LabAskPane({
             onClick={onDone}
             data-testid="lab-ask-done"
           >
-            {LAB_COPY.done}
+            {chromeV2 ? '← Back to book' : LAB_COPY.done}
           </button>
         </div>
       )}
@@ -404,6 +416,11 @@ export function LabAskPane({
                   className={`lab-ask-turn is-${turn.role}`}
                   data-testid={`lab-ask-turn-${turn.role}`}
                 >
+                  {chromeV2 && turn.timestamp != null && Number.isFinite(turn.timestamp) && (
+                    <time className="lab-ask-time" dateTime={new Date(turn.timestamp).toISOString()}>
+                      {new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(turn.timestamp)}
+                    </time>
+                  )}
                   {turn.role === 'user' ? (
                     <p className="lab-ask-user">
                       <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
@@ -428,12 +445,14 @@ export function LabAskPane({
       {phoneSheet ? (
         <div className="lab-ask-chrome" data-testid="lab-ask-chrome">
           {noticeNode}
+          {dictationNode}
           {statusNode}
           {composerNode}
         </div>
       ) : (
         <>
           {noticeNode}
+          {dictationNode}
           {statusNode}
           {composerNode}
         </>

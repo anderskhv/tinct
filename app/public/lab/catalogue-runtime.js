@@ -146,10 +146,11 @@ import {
     document.documentElement.removeAttribute('data-lab-boot-view')
   }
 
+  const chromeV2Preview = new URLSearchParams(location.search).get('chrome') === 'v2'
   function routeFor(view, bookId = state.selectedBookId) {
-    if (view === 'landing') return '/lab/landing'
-    if (view === 'library') return '/lab/library'
-    return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}`
+    if (view === 'landing') return chromeV2Preview ? '/lab/landing?chrome=v2' : '/lab/landing'
+    if (view === 'library') return chromeV2Preview ? '/lab/library?chrome=v2' : '/lab/library'
+    return `/lab/?autoplay=0&book=${encodeURIComponent(bookId)}&view=${encodeURIComponent(view)}${chromeV2Preview ? '&chrome=v2' : ''}`
   }
 
   /**
@@ -1024,7 +1025,7 @@ import {
     rememberLibrary(book.id)
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
-    window.location.assign('/lab/reader')
+    window.location.assign(new URLSearchParams(window.location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
     return true
   }
 

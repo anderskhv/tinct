@@ -50,6 +50,8 @@ export interface UseVoiceSessionOptions {
   /** Clears session-scoped application state such as the voice undo stack. */
   onSessionStart?: () => void
   honorModelResume?: boolean
+  /** V2 reader: wait silently and always speak the completed companion answer. */
+  quietCompanionHandoff?: boolean
   /** Lab-only. Production AudioStrip leaves this unset. */
   setPlaybackSpeed?: (rate: number) => void
   /** Lab-only. Production AudioStrip leaves this unset. */
@@ -201,6 +203,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       tools: opts.tools,
       applicationTools: opts.applicationTools,
       honorModelResume: opts.honorModelResume,
+      quietCompanionHandoff: opts.quietCompanionHandoff,
       assistantPace: opts.assistantPace,
       onCompanionAsk: opts.onCompanionAsk,
       voiceVersion: opts.voiceVersion,

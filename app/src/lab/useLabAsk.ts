@@ -95,6 +95,7 @@ export interface UseLabAskOptions {
   onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
   onVoiceToolSessionStart?: () => void
   /** `'v2'` only from `/lab/reader?voice=v2`. Defaults to Voice V1. */
+  quietCompanionHandoff?: boolean
   voiceVersion?: LabVoiceVersion
 }
 
@@ -289,13 +290,16 @@ export function useLabAsk(options: UseLabAskOptions) {
     () => buildLabVoiceControlInstructions(
       isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
       rememberedLabTurns,
-    ),
-    [askContext, isVoiceV2, rememberedLabTurns],
+    ) + (options.quietCompanionHandoff ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
+    [askContext, isVoiceV2, rememberedLabTurns, options.quietCompanionHandoff],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
-    () => mergeLabVoiceTools(isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS),
-    [isVoiceV2],
+    () => mergeLabVoiceTools(isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS).map(tool =>
+      options.quietCompanionHandoff && tool.name === 'ask_companion'
+        ? { ...tool, description: "Ask Tinct's reading companion for a book answer. Call silently, wait for the result, then speak the supplied answer. Never use for playback controls." }
+        : tool),
+    [isVoiceV2, options.quietCompanionHandoff],
   )
 
   const onTinctVoiceTool = useCallback(async (
@@ -338,6 +342,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       role: message.role === 'assistant' ? 'assistant' : 'user',
       content,
       source: 'voice',
+      timestamp: message.timestamp,
       chapterNumber: message.chapterNumber ?? optionsRef.current.chapterNumber,
       paragraphIndex: message.paragraphIndex ?? optionsRef.current.paragraphIndex,
       cancelled: message.isComplete === false,
@@ -381,6 +386,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     },
     onCompanionAsk,
     honorModelResume: true,
+    quietCompanionHandoff: options.quietCompanionHandoff,
     setPlaybackSpeed: (rate) => optionsRef.current.onSetPlaybackSpeed?.(rate),
     skipPlayback: (kind) => optionsRef.current.onPlaybackSkip?.(kind),
     assistantPace,
@@ -459,6 +465,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       role: 'user',
       content: text,
       source: 'typed',
+      timestamp: Date.now(),
       chapterNumber: options.chapterNumber ?? 1,
       paragraphIndex: options.paragraphIndex,
     }
@@ -562,6 +569,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           role: 'assistant',
           content: skipped.text,
           source: 'typed',
+          timestamp: Date.now(),
           chapterNumber: options.chapterNumber ?? 1,
           paragraphIndex: options.paragraphIndex,
         }

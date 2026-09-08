@@ -108,6 +108,8 @@ export interface StartVoiceSessionInput {
   applicationTools?: readonly unknown[]
   /** Lab-only. Production leaves this unset so shouldHonorModelResume still gates the tool. */
   honorModelResume?: boolean
+  /** V2 reader: wait silently and always speak the completed companion answer. */
+  quietCompanionHandoff?: boolean
   /** Lab-only. Realtime audio.output.speed. */
   assistantPace?: AssistantPace
   /** Lab-only. Production AudioStrip leaves this unset. V2 may return a structured result. */
@@ -200,6 +202,7 @@ export class VoiceSessionController {
   private instructions: string | null = null
   private tools: readonly unknown[] | null = null
   private applicationTools: readonly unknown[] = []
+  private quietCompanionHandoff = false
   private honorModelResume = false
   private assistantPace: AssistantPace = 'normal'
   private onCompanionAsk: StartVoiceSessionInput['onCompanionAsk'] = undefined
@@ -307,6 +310,7 @@ export class VoiceSessionController {
     this.tools = input.tools ?? null
     this.applicationTools = input.applicationTools ?? []
     this.honorModelResume = input.honorModelResume === true
+    this.quietCompanionHandoff = input.quietCompanionHandoff === true
     if (input.assistantPace) this.assistantPace = input.assistantPace
     this.onCompanionAsk = input.onCompanionAsk
     this.audio = input.audio
@@ -474,6 +478,7 @@ export class VoiceSessionController {
   testPrimeSession(input: {
     audio: VoiceAudioEngine
     honorModelResume?: boolean
+    quietCompanionHandoff?: boolean
     lastUserIntent?: VoiceIntent
     onCompanionAsk?: StartVoiceSessionInput['onCompanionAsk']
     context?: VoiceReaderContext
@@ -491,6 +496,7 @@ export class VoiceSessionController {
     this.connection = 'connected'
     this.micMuted = false
     this.honorModelResume = input.honorModelResume === true
+    this.quietCompanionHandoff = input.quietCompanionHandoff === true
     this.applicationTools = input.applicationTools ?? []
     this.onCompanionAsk = input.onCompanionAsk
     this.lastUserIntent = input.lastUserIntent ?? 'none'
@@ -1235,6 +1241,7 @@ export class VoiceSessionController {
   }
 
   private speakCoverLine(text: string): boolean {
+    if (this.quietCompanionHandoff) return false
     const line = text.replace(/\s+/g, ' ').trim()
     if (!line || !this.dc || this.dc.readyState !== 'open') return false
     this.holdingLine = line
@@ -1260,7 +1267,7 @@ export class VoiceSessionController {
     this.hopPending = true
     this.hopOverrunCancelled = false
     this.holdingLine = null
-    this.armStillLookingTimer()
+    if (!this.quietCompanionHandoff) this.armStillLookingTimer()
   }
 
   private endHop(): void {
@@ -1514,7 +1521,7 @@ export class VoiceSessionController {
     await this.waitUntilQuietForHop()
     this.endHop()
     if (this.closed) return
-    if (!this.alreadySpeakingThisTurn() && full) {
+    if ((this.quietCompanionHandoff || !this.alreadySpeakingThisTurn()) && full) {
       this.sendHopResponse({
         type: 'response.create',
         response: {
@@ -1525,11 +1532,12 @@ export class VoiceSessionController {
   }
 
   private waitUntilQuietForHop(): Promise<void> {
-    if (!this.turn.audioPlaying) return Promise.resolve()
+    const busy = () => this.turn.audioPlaying || (this.quietCompanionHandoff && this.turn.responseOpen)
+    if (!busy()) return Promise.resolve()
     return new Promise(resolve => {
       const started = Date.now()
       const tick = () => {
-        if (!this.turn.audioPlaying || this.closed || Date.now() - started > 10_000) resolve()
+        if (!busy() || this.closed || Date.now() - started > 10_000) resolve()
         else window.setTimeout(tick, 50)
       }
       tick()

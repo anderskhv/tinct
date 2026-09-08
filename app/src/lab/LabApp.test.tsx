@@ -4448,3 +4448,22 @@ describe('lab keyboard page turns', () => {
     expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(second)
   })
 })
+
+it('V2 plays from the new visible page after pausing and browsing, without replaying the chapter title', async () => {
+  const audio = new FakeAudio()
+  audio.duration = 500
+  vi.stubGlobal('Audio', class { constructor() { return audio } })
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...sourceWithManyWords(), audioTitle: { kind: 'title', file: 'title.mp3', duration: 2 } }} />)
+  fireEvent.click(screen.getByTestId('lab-v2-play'))
+  await waitFor(() => expect(audio.paused).toBe(false))
+  expect(audio.src).not.toContain('title.mp3')
+  fireEvent.click(screen.getByTestId('lab-v2-play'))
+  expect(audio.paused).toBe(true)
+  fireEvent.click(screen.getByTestId('lab-page-next'))
+  const first = screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!
+  const index = Number(first.dataset.wordIndex)
+  expect(index).toBeGreaterThan(0)
+  fireEvent.click(screen.getByTestId('lab-v2-play'))
+  await waitFor(() => expect(audio.paused).toBe(false))
+  expect(audio.currentTime).toBe(index * 0.3)
+})

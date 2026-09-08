@@ -41,8 +41,8 @@ import { readDeviceReadingMemory } from '../readingMemory'
 import { useAuth } from '../hooks/useAuth'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import { LabSuperButton } from './LabSuperButton'
-import { LabSuperMenu } from './LabSuperMenu'
-import { LabV2Sheet } from './LabV2Sheet'
+import { LabSuperMenu } from './LabSuperMenu.tsx'
+import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
@@ -68,12 +68,13 @@ import {
   type LabReaderProgressMode,
 } from './labPrefs'
 import { labChromeVersion, labLayoutOverride, labVoiceVersion } from './labRoute'
+import { useLabDictation } from './useLabDictation'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
-import { LabVoiceCall, LabVoiceCallBar } from './LabVoiceCall'
+import { LabVoiceCall, LabVoiceCallBar } from './LabVoiceCall.tsx'
 import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
@@ -92,7 +93,7 @@ import { type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
-import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt'
+import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
@@ -775,6 +776,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     onPlaybackSkip: (kind) => skipRef.current(kind),
     userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     voiceToolAdapter,
+    quietCompanionHandoff: chromeV2,
     voiceVersion,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
@@ -1217,6 +1219,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
+  const transportScopeRef = useRef('')
+  transportScopeRef.current = `${book.bookId}:${book.chapterNumber}:${readerEditionKey}:${nativePhonePaging}`
+  const transportAnchorRef = useRef<{ scope: string; place: { paragraphIndex: number; wordIndex: number } } | null>(null)
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
@@ -1248,6 +1253,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // begins at the same verse, however differently the two editions break.
     const compareHead = chromeV2 ? mobileCompareHeadRef.current : null
     if (compareHead) next = splitLabPagesAtAnchor(next, compareHead)
+    if (chromeV2 && transportAnchorRef.current) {
+      if (transportAnchorRef.current.scope === transportScopeRef.current) {
+        next = splitLabPagesAtAnchor(next, transportAnchorRef.current.place)
+      }
+      transportAnchorRef.current = null
+    }
     const landing = chapterLandingRef.current
 
     pagesStableRef.current = true
@@ -2822,6 +2833,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
     if (chrome === 'hearing' && !opts?.force) {
+      if (chromeV2 && nativePhonePaging) {
+        const head = pageAnchorOf(readingPages[readingPageIndex])
+        transportAnchorRef.current = head ? { scope: transportScopeRef.current, place: head } : null
+      }
       listen.pause()
       browseWhileListeningRef.current = false
       setBrowseWhileListening(false)
@@ -2859,13 +2874,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
     const follow = listen.follow
-    const onThisPage = follow.kind === 'word' && (showPhoneChrome
+    const onThisPage = follow.kind === 'word' && (showPhoneChrome && !chromeV2
       ? !!page && follow.paragraphIndex === page.paragraphIndex
         && follow.wordIndex >= page.from && follow.wordIndex < page.to
       : followOnReadingPage(follow, readingPages, readingPageIndex))
     placeRef.current = onThisPage
       ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
       : place
+    if (chromeV2) {
+      const head = pageAnchorOf(page)
+      transportAnchorRef.current = head && nativePhonePaging ? { scope: transportScopeRef.current, place: head } : null
+      pageAnchorRef.current = head
+    }
     flushSync(() => setListenSource({
       bookId: book.bookId || 'bible',
       chapterNumber: book.chapterNumber,
@@ -2881,8 +2901,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setInTheBookOpen(false)
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
-    else void listen.start(placeRef.current)
-  }, [chrome, listen, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+    else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
+  }, [book, chrome, chromeV2, listen, nativePhonePaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   const handleHeaderListen = useCallback(() => {
     if (peekBook && chrome === 'hearing') {
@@ -2893,7 +2913,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     startHearing()
   }, [chrome, peekBook, startHearing])
 
+  const dictation = useLabDictation(book.bookId || 'bible', setDraft)
+
   const handleMic = useCallback(() => {
+    if (chromeV2) { dictation.toggle(draft); return }
     if (ask.voiceActive) {
       if (showPhoneChrome) {
         ask.stopVoice()
@@ -2905,7 +2928,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     interruptHearForAsk()
     setDesktopAskOpen(true)
     void ask.toggleInChatVoice()
-  }, [ask, interruptHearForAsk, resumeListenAfterAsk, showPhoneChrome])
+  }, [ask, chromeV2, dictation, draft, interruptHearForAsk, resumeListenAfterAsk, showPhoneChrome])
 
   const handleVoiceMode = useCallback(() => {
     interruptHearForAsk()
@@ -2974,6 +2997,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [ask])
 
   const handleTalk = useCallback(() => {
+    dictation.stop()
     setGearOpen(false)
     setTocOpen(false)
     interruptHearForAsk()
@@ -3001,7 +3025,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     void ask.startVoice().then((started) => {
       if (!started) setVoiceGate('off')
     })
-  }, [ask, captureCallAnchor, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
+  }, [ask, captureCallAnchor, dictation.stop, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
 
   /** The call's own end: stop the session, close the surface, give the place back. */
   const endCall = useCallback(() => {
@@ -3097,7 +3121,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         startHearing()
         return
       }
-      if (listen.src) {
+      if (listen.src && !chromeV2) {
         listen.resume()
         return
       }
@@ -3105,7 +3129,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     startHearing()
-  }, [chrome, handleMobileCompare, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing])
+  }, [chrome, chromeV2, handleMobileCompare, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing])
 
   // ── Chrome V2 ────────────────────────────────────────────────────────
   const accountId = authUser?.id ?? null
@@ -3139,8 +3163,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
-    window.location.assign(LAB_LIBRARY_URL)
-  }, [handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
+    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}?chrome=v2` : LAB_LIBRARY_URL)
+  }, [chromeV2, handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
 
   // The first view: 400 ms after the first page has laid out, never on load
   // and never over playing audio. It runs at most once per visit; it counts
@@ -3177,8 +3201,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [accountId])
 
   const closePhoneAsk = useCallback(() => {
-    resumeListenAfterAsk()
-  }, [resumeListenAfterAsk])
+    if (callOpen) endCall()
+    else resumeListenAfterAsk()
+  }, [callOpen, endCall, resumeListenAfterAsk])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) {
@@ -3396,6 +3421,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <LabSuperMenu
           open={superMenuOpen}
           compare={showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled}
+          compareActive={showPhoneChrome ? mobileCompareActive : desktopCompareActive}
+          phone={showPhoneChrome}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -3558,17 +3585,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
         {((!showPhoneChrome && desktopAskOpen) || phoneAsk) && (
           <LabAskPane
+            chromeV2={chromeV2}
+            dictationState={dictation.state}
+            onStopVoice={chromeV2 ? (callOpen ? endCall : ask.stopVoice) : undefined}
             conversationState={ask.conversationState}
             voiceActive={ask.voiceActive}
             typedLoading={ask.typedLoading}
             turns={ask.turns}
             draft={draft}
-            onDraftChange={setDraft}
-            onSubmit={handleAsk}
+            onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
+            onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
             onMic={handleMic}
-            onVoiceMode={handleVoiceMode}
-            notice={ask.notice}
-            onDone={phoneAsk ? undefined : closePhoneAsk}
+            onVoiceMode={chromeV2 ? () => {
+              dictation.stop()
+              handleTalk()
+              if (showPhoneChrome) setPhoneAskOpen(true)
+            } : handleVoiceMode}
+            notice={chromeV2 ? (dictation.notice || ask.notice) : ask.notice}
+            onDone={phoneAsk && !chromeV2 ? undefined : () => { dictation.stop(); closePhoneAsk() }}
             phoneSheet={!!phoneAsk}
             desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
             onKeyboardOpenChange={setPhoneKeyboardOpen}
@@ -3908,6 +3942,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {tocOpen && (
         <div className="lab-toc" data-testid="lab-toc">
           <LabPhoneBibleTree
+            quickBookNavigation={chromeV2}
             title={book.bookTitle}
             chapters={book.chapters}
             currentChapter={book.chapterNumber}

@@ -544,3 +544,15 @@ describe('lab ask thread shows the answer begin', () => {
     expect(thread.scrollTop).toBe(5100)
   })
 })
+
+it('shows stored dates in V2 and keeps older messages accessible', () => {
+  const onDone = vi.fn()
+  const turns = Array.from({ length: 45 }, (_, index) => ({ id: `dated-${index}`, role: 'user' as const, content: `Saved question ${index}`, source: 'typed' as const, timestamp: Date.UTC(2026, 8, 1, 9, index) }))
+  render(<LabAskPane chromeV2 conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} onDone={onDone} phoneSheet />)
+  expect(document.querySelector('time')?.getAttribute('datetime')).toBe(new Date(turns[5].timestamp).toISOString())
+  fireEvent.click(screen.getByTestId('lab-ask-older'))
+  expect(screen.getByText('Saved question 0')).toBeTruthy()
+  expect(document.querySelectorAll('time')).toHaveLength(45)
+  fireEvent.click(screen.getByText('← Back to book'))
+  expect(onDone).toHaveBeenCalledOnce()
+})

@@ -419,7 +419,7 @@
         var origin = (state.snapshot && state.snapshot.hero && state.snapshot.hero.bookId) || settledBookId(window.localStorage)
         if (origin) window.sessionStorage.setItem(READER_ORIGIN_SESSION_KEY, JSON.stringify({ v: 1, bookId: origin, at: Date.now() }))
       } catch (e) { /* storage blocked */ }
-      location.replace('/lab/reader')
+      location.replace(new URLSearchParams(location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
       return
     }
     if (state.entry === 'library') {

@@ -1775,3 +1775,28 @@ describe('VoiceSessionController every book utterance reaches the companion', ()
     expect(query).not.toHaveBeenCalled()
   })
 })
+
+describe('V2 reader quiet companion handoff', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  it('speaks the completed answer after an earlier acknowledgement without another filler turn', async () => {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+    const sent: string[] = []
+    let finish!: (text: string) => void
+    const query = vi.fn(() => new Promise<string>(resolve => { finish = resolve }))
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine({ anchor: ANCHOR, wasPlaying: false }), honorModelResume: true, quietCompanionHandoff: true, send: data => sent.push(data), onCompanionAsk: query })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done', response: { status: 'completed' } })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    sent.length = 0
+    const pending = controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'ask_companion', call_id: 'quiet-hop', arguments: '{"question":"Why do the families fight?"}' })
+    expect(sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create')).toHaveLength(0)
+    finish('Their inherited feud shapes the choices of the younger generation.')
+    await pending
+    const responses = sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create')
+    expect(responses).toHaveLength(1)
+    expect(responses[0].response.instructions).toContain('Their inherited feud shapes the choices of the younger generation.')
+    controller.stop()
+  })
+})

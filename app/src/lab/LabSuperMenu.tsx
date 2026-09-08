@@ -5,6 +5,8 @@ export interface LabSuperMenuProps {
   open: boolean
   /** No compare edition chosen means no Compare row at all. */
   compare: boolean
+  compareActive?: boolean
+  phone?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -71,7 +73,7 @@ function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, compare, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, compare, compareActive, phone, onSelect, onClose }: LabSuperMenuProps) {
   useEffect(() => {
     if (!open) return
     const onKey = (event: KeyboardEvent) => {
@@ -82,7 +84,7 @@ export function LabSuperMenu({ open, compare, onSelect, onClose }: LabSuperMenuP
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ compare })
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ compare, compareActive, phone })
 
   return (
     <div className="lab-super-layer" data-testid="lab-super-layer">

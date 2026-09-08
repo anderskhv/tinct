@@ -240,3 +240,16 @@ describe('where the compare page begins', () => {
     expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(leftProgress)
   })
 })
+
+it('updates the menu action after a compare swap and restores the primary text', () => {
+  withCompare()
+  renderPhone()
+  fireEvent.click(screen.getByTestId('lab-super'))
+  expect(screen.getByTestId('lab-super-row-compare').textContent).toBe('Compare Version')
+  fireEvent.click(screen.getByTestId('lab-super-row-compare'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-super'))
+  expect(screen.getByTestId('lab-super-row-compare').textContent).toBe('Main Version')
+  fireEvent.click(screen.getByTestId('lab-super-row-compare'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+})

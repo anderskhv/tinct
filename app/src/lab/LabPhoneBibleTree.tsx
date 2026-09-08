@@ -6,7 +6,7 @@ import { buildLabBibleTree, chapterRowsForBook, labTreeProgressLabel, type LabTr
 import { labChapterStatusLine, labLastReadAt, type LabChapterStatus } from './labChapterStatus'
 
 type Filter = 'all' | 'highlights' | 'chats'
-interface Props { title: string; chapters: LabChapter[]; currentChapter: number; sections?: Section[]; finishedChapters: Set<number>; statuses?: Map<number, LabChapterStatus>; highlights?: LabHighlight[]; conversations?: ChatConversation[]; onSelectChapter: (number: number) => void; onSelectHighlight?: (highlight: LabHighlight) => void; onOpenConversation?: (conversation: ChatConversation) => void; onNewConversation?: (chapter: number) => void; onWarmChapter?: (number: number) => void; onClose: () => void }
+interface Props { quickBookNavigation?: boolean; title: string; chapters: LabChapter[]; currentChapter: number; sections?: Section[]; finishedChapters: Set<number>; statuses?: Map<number, LabChapterStatus>; highlights?: LabHighlight[]; conversations?: ChatConversation[]; onSelectChapter: (number: number) => void; onSelectHighlight?: (highlight: LabHighlight) => void; onOpenConversation?: (conversation: ChatConversation) => void; onNewConversation?: (chapter: number) => void; onWarmChapter?: (number: number) => void; onClose: () => void }
 
 /** Put the current row in the top third of the scrolling body so the reader sees where they are and what comes next. */
 function scrollCurrentIntoView(body: HTMLElement | null) {
@@ -27,8 +27,20 @@ function findPath(nodes: LabTreeNode[], chapter: number, path: LabTreeNode[] = [
 }
 function formatDate(value: number) { return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' }).format(new Date(value)) }
 
-export function LabPhoneBibleTree({ title, chapters, currentChapter, sections, finishedChapters, statuses, highlights = [], conversations = [], onSelectChapter, onSelectHighlight, onOpenConversation, onNewConversation, onWarmChapter, onClose }: Props) {
+export function LabPhoneBibleTree({ quickBookNavigation = false, title, chapters, currentChapter, sections, finishedChapters, statuses, highlights = [], conversations = [], onSelectChapter, onSelectHighlight, onOpenConversation, onNewConversation, onWarmChapter, onClose }: Props) {
   const tree = useMemo(() => buildLabBibleTree(sections, chapters), [sections, chapters])
+  const bookPaths = useMemo(() => {
+    const result: LabTreeNode[][] = []
+    const collect = (nodes: LabTreeNode[], parent: LabTreeNode[] = []) => {
+      for (const node of nodes) {
+        const next = [...parent, node]
+        if (node.kind === 'book') result.push(next)
+        else if (node.children) collect(node.children, next)
+      }
+    }
+    collect(tree)
+    return result
+  }, [tree])
   const currentPath = useMemo(() => findPath(tree, currentChapter), [tree, currentChapter])
   const [path, setPath] = useState<LabTreeNode[]>(() => currentPath)
   const [filter, setFilter] = useState<Filter>('all')
@@ -69,6 +81,21 @@ export function LabPhoneBibleTree({ title, chapters, currentChapter, sections, f
   return <div className="toc-overlay lab-tree" data-testid="lab-bible-tree"><div className="toc-panel lab-tree-panel">
     <header className="lab-map-head"><button type="button" className="lab-map-back" onClick={onClose} aria-label="Back to reader">←</button>{searching ? <div className="lab-map-search"><input ref={inputRef} value={query} onChange={event => setQuery(event.target.value)} placeholder="Search this book" /><button type="button" onClick={() => { setSearching(false); setQuery('') }}>Cancel</button></div> : <><div><h2>{title}</h2>{path.length === 0 && <small>{lastReadAt ? `Last read ${formatDate(lastReadAt)} · ` : ''}{percentFinished}% finished</small>}</div><button type="button" className="lab-map-search-button" onClick={() => setSearching(true)} aria-label="Search">⌕</button></>}</header>
     {!searching && <div className="lab-map-filters">{(['all', 'highlights', 'chats'] as Filter[]).map(value => <button type="button" key={value} className={filter === value ? 'is-active' : ''} onClick={() => setFilter(value)}>{value[0].toUpperCase() + value.slice(1)}</button>)}</div>}
+    {quickBookNavigation && bookPaths.length > 1 && !searching && <label className="lab-map-book-jump">
+      <span>Book</span>
+      <select aria-label="Bible book" value={active?.kind === 'book' ? active.key : ''} onChange={event => {
+        const next = bookPaths.find(items => items[items.length - 1].key === event.target.value)
+        if (!next) return
+        setConversationChapter(null)
+        setSelectedConversation(null)
+        setFilter('all')
+        setPath(next)
+        if (bodyRef.current) bodyRef.current.scrollTop = 0
+      }}>
+        <option value="" disabled>Choose a book</option>
+        {bookPaths.map(items => { const item = items[items.length - 1]; return <option key={item.key} value={item.key}>{item.title}</option> })}
+      </select>
+    </label>}
     <main className="lab-map-body" ref={bodyRef}>
       {searching ? <div className="lab-map-results">{!lower && <p>Search chapters, highlights, and conversations.</p>}{searchChapters.map(chapter => <button key={`c-${chapter.number}`} onClick={() => onSelectChapter(chapter.number)}><small>Chapter</small><strong>{chapter.title}</strong></button>)}{searchHighlights.map(item => <button key={item.id} onClick={() => onSelectHighlight?.(item)}><small>Highlight</small><strong>{item.note || `Highlighted passage in ${chapters.find(c => c.number === item.chapterNumber)?.title}`}</strong></button>)}{searchChats.map(item => <button key={item.id} onClick={() => { setConversationChapter(item.chapterNumber); setSearching(false) }}><small>Chat</small><strong>{item.preview}</strong></button>)}</div>
       : selectedConversation ? <section><button className="lab-map-crumb" onClick={() => setSelectedConversation(null)}>← Conversations</button><div className="lab-map-section-title"><h3>{chapters.find(item => item.number === selectedConversation.chapterNumber)?.title}</h3><small>{formatDate(selectedConversation.startTimestamp)}</small></div><div className="lab-map-source">Source passage · paragraph {(selectedConversation.paragraphIndex ?? 0) + 1}</div><div className="lab-map-thread">{selectedConversation.messages.map(message => <div key={message.id} className={`is-${message.role}`}><small>{message.role === 'user' ? 'You' : 'Tinct'}</small><p>{message.content}</p></div>)}</div><button className="lab-map-new-chat" onClick={() => onOpenConversation?.(selectedConversation)}>Continue this conversation</button></section>

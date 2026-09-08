@@ -289,7 +289,7 @@
     } catch {
       return false
     }
-    window.location.assign('/lab/reader')
+    window.location.assign(new URLSearchParams(window.location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
     return true
   }
 

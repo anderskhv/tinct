@@ -21,12 +21,12 @@ export interface LabSuperMenuRow {
  * Compare is absent entirely when no compare edition is chosen — not disabled,
  * not greyed. Compare only exists once a second version is picked.
  */
-export function labSuperMenuRows(input: { compare: boolean }): LabSuperMenuRow[] {
+export function labSuperMenuRows(input: { compare: boolean; compareActive?: boolean; phone?: boolean }): LabSuperMenuRow[] {
   const rows: LabSuperMenuRow[] = [
     { id: 'chat', label: 'Chat' },
     { id: 'talk', label: 'Talk' },
   ]
-  if (input.compare) rows.push({ id: 'compare', label: 'Compare' })
+  if (input.compare) rows.push({ id: 'compare', label: input.compareActive ? 'Main Version' : 'Compare Version' })
   rows.push(
     { id: 'library', label: 'Library', ruleBefore: true },
     { id: 'settings', label: 'Reading settings', chevron: true },

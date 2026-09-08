@@ -850,7 +850,7 @@ function openAt(target: ContinueTarget): void {
     // knows not to recap the book the reader has just been looking at.
     writeReaderOrigin(sessionStore(), target.bookId, Date.now())
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
-    window.location.assign('/lab/reader')
+    window.location.assign(new URLSearchParams(window.location.search).get('chrome') === 'v2' ? '/lab/reader?chrome=v2' : '/lab/reader')
     return
   }
   // The place's edition is not offered by the library (e.g. a Danish

@@ -2,7 +2,7 @@
 
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt'
+import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { LabApp } from './LabApp'
 import { LAB_AI_ACTIONS_KEY, LAB_SECOND_BOOK_NUDGE_KEY } from './labAccountPrompt'
 import { LAB_COPY } from './labCopy'

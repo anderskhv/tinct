@@ -185,6 +185,7 @@ export function turnsFromConversations(conversations: ChatConversation[]): LabAs
     id: message.id,
     role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
     content: message.content,
+    timestamp: message.timestamp,
     source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
     chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
     paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
