@@ -1,3 +1,5 @@
+import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
+import { labVoiceRequestsAudio } from './labVoiceControls'
 import type { VoiceTrial } from '../voice/voiceTrial'
 import { BOOK_PASSAGE_TOOL, buildDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -92,7 +94,7 @@ export interface UseLabAskOptions {
   getPage?: () => { pageNumber: number; totalPages: number } | null
   /** True when opening this companion paused a playing audiobook (the session started from playback). */
   playbackInterrupted?: () => boolean
-  onResumeListen?: () => void
+  onResumeListen?: (forceAudio?: boolean) => void
   onSetPlaybackSpeed?: (rate: number) => void
   onPlaybackSkip?: (kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>
   voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
@@ -218,11 +220,18 @@ export function useLabAsk(options: UseLabAskOptions) {
   const cloudWriterRef = useRef(cloudWriter)
   cloudWriterRef.current = cloudWriter
 
+  const voiceSourcesRef = useRef<VoiceSource[]>([])
+  const voiceResearchTurnRef = useRef(0)
+  const withVoiceSources = (message: ChatMessage): ChatMessage => {
+    const links = message.role === 'assistant' && message.source === 'voice' ? voiceSourceLinks(voiceSourcesRef.current) : ''
+    return links ? { ...message, content: `${message.content}\n\n${links}` } : message
+  }
+
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
   const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
     const bookId = chatBookIdRef.current
     if (!bookId) return
-    const next = appendLabChatTurn(bookId, message, chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
+    const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
     if (loadedForBookRef.current === bookId) setConversations(next)
     cloudWriterRef.current?.push(bookId, next)
   }, [])
@@ -305,12 +314,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     () => buildLabVoiceControlInstructions(
       options.voiceTrial ? buildDirectVoiceInstructions(askContext) : isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
       selectedConversationTurns ?? (options.voiceTrial ? turns : rememberedLabTurns),
-    ) + (options.quietCompanionHandoff ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
+    ) + (options.quietCompanionHandoff && !options.voiceTrial ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
     [askContext, isVoiceV2, rememberedLabTurns, selectedConversationTurns, turns, options.quietCompanionHandoff, options.voiceTrial],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
-    () => mergeLabVoiceTools(options.voiceTrial ? [...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL] : isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS).map(tool =>
+    () => mergeLabVoiceTools(options.voiceTrial ? [...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL] : isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS).map(tool =>
       options.quietCompanionHandoff && tool && typeof tool === 'object' && 'name' in tool && tool.name === 'ask_companion'
         ? { ...tool, description: "Ask Tinct's reading companion for a book answer. Call silently, wait for the result, then speak the supplied answer. Never use for playback controls." }
         : tool),
@@ -322,13 +331,21 @@ export function useLabAsk(options: UseLabAskOptions) {
     arguments_: Record<string, unknown>,
     callId: string,
   ) => {
+    if (optionsRef.current.voiceTrial && name === 'search_reading_sources') {
+      const turn = voiceResearchTurnRef.current
+      const bookId = optionsRef.current.bookId
+      const token = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
+      const result = await researchVoiceQuestion(arguments_.query, token)
+      if (turn === voiceResearchTurnRef.current && bookId === optionsRef.current.bookId && result.sources) voiceSourcesRef.current = result.sources
+      return result
+    }
     if (optionsRef.current.voiceTrial && name === 'get_book_passage') {
       return retrieveVoicePassage(askContextNow(await readTrail()), arguments_)
     }
     const result = await tinctVoiceTools.onTool(name, arguments_, callId)
     optionsRef.current.onVoiceToolAction?.(labVoiceActionEntry(name, arguments_, callId, result))
     return result
-  }, [tinctVoiceTools.onTool, askContextNow, readTrail])
+  }, [tinctVoiceTools.onTool, askContextNow, readTrail, sessionToken])
 
   const onCompanionAsk = useCallback(async (question: string, notify?: CompanionAskNotify) => {
     const authToken = await resolveLabVoiceToken({
@@ -348,13 +365,19 @@ export function useLabAsk(options: UseLabAskOptions) {
     })
   }, [askContextNow, isVoiceV2, readTrail, sessionToken])
 
+  const lastVoiceRequestRef = useRef('')
   const appendLocalMessage = useCallback((message: ChatMessage) => {
-    const content = (message.content || '').trim()
+    if (message.role === 'user') {
+      voiceResearchTurnRef.current += 1
+      voiceSourcesRef.current = []
+    }
+    const content = (withVoiceSources(message).content || '').trim()
     if (!content) return
+    if (message.role === 'user') lastVoiceRequestRef.current = content
     // Direct Realtime owns its command turn. Stopping from this transcript
     // callback would tear down the connection before its tool can reply.
     if (!optionsRef.current.voiceTrial && message.role === 'user' && isResumeListenCommand(content)) {
-      optionsRef.current.onResumeListen?.()
+      optionsRef.current.onResumeListen?.(isVoiceV2 ? labVoiceRequestsAudio(content) : true)
       return
     }
     const incoming: LabAskTurn = {
@@ -392,7 +415,10 @@ export function useLabAsk(options: UseLabAskOptions) {
     visibleText: talkInstructions,
     isAudioPlaying: false,
     pausePlayback: () => null,
-    resumePlayback: () => { optionsRef.current.onResumeListen?.() },
+    resumePlayback: () => {
+      setNotice(null)
+      optionsRef.current.onResumeListen?.(isVoiceV2 ? labVoiceRequestsAudio(lastVoiceRequestRef.current) : true)
+    },
     recordMessage: recordTurn,
     appendLocalMessage,
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
@@ -419,13 +445,14 @@ export function useLabAsk(options: UseLabAskOptions) {
   // Voice V2: a mid-session failure is shown, not swallowed. The notice
   // clears the moment the reader starts a new turn. V1 keeps its own path.
   useEffect(() => {
-    if (!isVoiceV2 || !voice.error) return
-    setNotice(voice.error)
-  }, [isVoiceV2, voice.error])
+    if (!isVoiceV2) return
+    if (voice.activity === 'speaking') setNotice(null)
+    else if (voice.error) setNotice(voice.error)
+  }, [isVoiceV2, voice.error, voice.activity])
   useEffect(() => {
-    if (!isVoiceV2 || !voice.userSpeechStarted) return
+    if (!isVoiceV2 || (!voice.userSpeechStarted && voice.activity !== 'speaking')) return
     setNotice(null)
-  }, [isVoiceV2, voice.userSpeechStarted])
+  }, [isVoiceV2, voice.userSpeechStarted, voice.activity])
 
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive || starting) return true

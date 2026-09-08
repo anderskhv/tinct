@@ -1568,8 +1568,8 @@ describe('lab chrome', () => {
 
   it('keeps voice resume distinct from simply returning to Read', () => {
     const app = readFileSync(resolve(__dirname, 'LabApp.tsx'), 'utf8')
-    expect(app).toContain('resumeListenRef.current = () => resumeListenAfterAsk(true)')
-    expect(app).toContain("const shouldHear = forceHearing || pausedForAskRef.current || returnToRef.current === 'hearing'")
+    expect(app).toContain('resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)')
+    expect(app).toContain("const shouldHear = forceHearing || interruptedAudio")
   })
 
   it('returns to Read before opening Chat after audio is paused', async () => {

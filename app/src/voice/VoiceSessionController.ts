@@ -610,6 +610,7 @@ export class VoiceSessionController {
 
   /** V2 only: publish a phase change the moment the event that proves it arrives. */
   private setActivity(next: VoiceActivityPhase): void {
+    if (this.turn.audioPlaying && next !== 'idle' && next !== 'connecting') next = 'speaking'
     if (!this.isV2() || this.activity === next) return
     this.activity = next
     this.emit()
@@ -638,7 +639,9 @@ export class VoiceSessionController {
     this.v2CreateOutstanding = false
     this.awaitingModelResponse = false
     this.clearForceResponseTimer()
-    this.activity = 'listening'
+    // A response may finish generating before its WebRTC audio starts or drains.
+    // A late error must not relabel audible speech as listening.
+    this.activity = this.turn.audioPlaying ? 'speaking' : 'listening'
     this.emit(VOICE_V2_FAILURE_NOTICE)
   }
 
@@ -1009,6 +1012,7 @@ export class VoiceSessionController {
     if (this.honorModelResume && this.firstAssistantDone && (this.assistantIsSpeaking() || v2PreparingAnswer)) {
       this.sendEvent({ type: 'response.cancel' })
       this.sendEvent({ type: 'output_audio_buffer.clear' })
+      if (this.isV2()) this.turn = { ...this.turn, audioPlaying: false }
     }
     this.v2UserSpeaking = true
     this.dispatch({ type: 'USER_SPEECH_START' })
@@ -1251,6 +1255,10 @@ export class VoiceSessionController {
     if (signal === 'speech_end') return
     if (this.turn.audioPlaying || this.v2TurnBusy()) return
     if (this.v2SpokeThisResponse) return
+    // response.done is generation completion, not proof of failed playback.
+    // WebRTC's buffer.started can arrive after this data-channel message.
+    if (!cancelled && event.response?.status !== 'failed' && event.response?.output?.some(item =>
+      item.content?.some(part => part.type === 'audio' || part.type === 'output_audio'))) return
     if (event.response?.status === 'failed') {
       this.noticeV2Failure()
       return

@@ -199,7 +199,7 @@ export class TinctVoiceToolController<ViewSnapshot = unknown> {
       return {
         output: recall,
         responseInstructions: recall.ok && recall.activities.length > 0
-          ? 'Using only the reading-history result, give a warm 5–15 second recap in one or two sentences. Then ask exactly one light follow-up: “Does that ring a bell, or would you like a deeper summary?” Do not mention tools, stored data, or profiling. Do not resume the book.'
+          ? (recall.lab_fixture_used ? 'Explicitly say this is demo history, not the reader’s actual activity. ' : '') + 'Using only the reading-history result, give a warm 5–15 second recap in one or two sentences. Then ask exactly one light follow-up: “Does that ring a bell, or would you like a deeper summary?” Do not mention tools, stored data, or profiling. Do not resume the book.'
           : `Briefly say you could not find any reading activity for ${recall.period_label}. Offer to check another day. Do not invent a passage and do not call another tool.`,
       }
     }

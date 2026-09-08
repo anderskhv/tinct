@@ -1,3 +1,4 @@
+import { handleVoiceResearch } from './worker/routes/voiceResearch'
 /**
  * Cloudflare Worker entry point.
  * Handles /api/* routes and falls through to static assets for everything else.
@@ -156,6 +157,7 @@ export default {
     switch (url.pathname) {
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
+      case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)

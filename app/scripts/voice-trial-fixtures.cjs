@@ -13,6 +13,10 @@ const questions = {
     long: 'Please explain the literary structure of this chapter in detail, taking about a minute.',
     interrupt: 'Stop. Give me just one sentence.',
     resume: 'Please resume the audiobook now.',
+    back: 'Thank you. Can you take me back to the book?',
+    keller: 'Has Tim Keller ever commented on Genesis one?',
+    quran: 'Is Genesis one exactly the same as the creation account in the Quran?',
+    yesterday: 'Could you check whether I read Jeremiah yesterday?',
 };
 fs.mkdirSync(output, { recursive: true });
 fs.writeFileSync(path.join(output, 'questions.json'), JSON.stringify(questions, null, 2));

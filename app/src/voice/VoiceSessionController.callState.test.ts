@@ -89,3 +89,21 @@ describe('the session snapshot', () => {
     expect(controller.getAssistantLevel()).toBeNull()
   })
 })
+
+it('waits for WebRTC playout when generation finishes before buffer.started', async () => {
+  const { controller, snapshots } = harness()
+  await controller.testRealtime({ type: 'response.created' })
+  await controller.testRealtime({ type: 'response.done', response: { status: 'completed', output: [
+    { type: 'message', content: [{ type: 'audio', transcript: 'Here is the answer.' }] },
+  ] } })
+  expect(snapshots.some(snapshot => snapshot.error)).toBe(false)
+  await controller.testRealtime({ type: 'output_audio_buffer.started' })
+  expect(controller.getSnapshot().activity).toBe('speaking')
+  // A subsequent response may be preparing while the earlier audio drains.
+  await controller.testRealtime({ type: 'response.created' })
+  expect(controller.getSnapshot().activity).toBe('speaking')
+  await controller.testRealtime({ type: 'response.done', response: { status: 'completed' } })
+  await controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+  expect(controller.getSnapshot().activity).toBe('listening')
+  expect(snapshots.some(snapshot => snapshot.error)).toBe(false)
+})

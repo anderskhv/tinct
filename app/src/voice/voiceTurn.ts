@@ -18,7 +18,7 @@ export type VoiceRealtimeEvent = {
   item?: { transcript?: string; name?: string; call_id?: string; arguments?: string }
   response?: {
     status?: string
-    output?: Array<{ type?: string }>
+    output?: Array<{ type?: string; content?: Array<{ type?: string; transcript?: string }> }>
   }
 }
 

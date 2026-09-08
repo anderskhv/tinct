@@ -411,7 +411,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>('book')
   const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
-  const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(true)
+  const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(!chromeV2)
   const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
@@ -672,7 +672,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const chapterTitleRef = useRef(book.chapterTitle)
   const chapterNumberRef = useRef(book.chapterNumber)
   chapterNumberRef.current = book.chapterNumber
-  const resumeListenRef = useRef<() => void>(() => {})
+  const startHearingRef = useRef<() => void>(() => {})
+  const resumeListenRef = useRef<(forceAudio?: boolean) => void>(() => {})
   const setSpeedRef = useRef<(rate: number) => void>(() => {})
   const listenSpeedRef = useRef(1)
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>>(() => {})
@@ -736,6 +737,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       source: book,
       paragraphIndex: focusParagraph ?? placeRef.current.paragraphIndex,
       fixtureEnabled: voiceHistoryFixture,
+      userId: authUser?.id ?? null,
     }),
   })
 
@@ -777,7 +779,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterCount: book.chapters.length,
     getPage: () => askPageRef.current,
     playbackInterrupted: () => playbackInterruptedRef.current(),
-    onResumeListen: () => resumeListenRef.current(),
+    onResumeListen: forceAudio => resumeListenRef.current(forceAudio),
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
     userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
@@ -1924,13 +1926,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [listen])
 
   const resumeListenAfterAsk = useCallback((forceHearing = false) => {
-    if (voiceTrial && forceHearing) {
+    if (chromeV2 && callOpen) {
       // An explicit resume command ends the call successfully. Leaving the
       // surface mounted would mislabel that intentional stop as a disconnect.
       setCallOpen(false)
-      callAnchorRef.current = null
     }
     ask.stopVoice()
+    if (chromeV2) ask.dismissNotice()
     if (stayInAskRef.current) {
       stayInAskRef.current = false
       setVoiceGate('off')
@@ -1944,19 +1946,30 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Closing Talk returns to the mode it interrupted. The explicit voice
     // command "resume the audiobook" is different: it must begin audio even
     // when Talk was opened from ordinary reading.
-    const shouldHear = forceHearing || pausedForAskRef.current || returnToRef.current === 'hearing'
+    const interruptedAudio = pausedForAskRef.current || returnToRef.current === 'hearing'
+    const shouldHear = forceHearing || interruptedAudio
     pausedForAskRef.current = false
     if (!shouldHear) {
       setChrome('reading')
       return
     }
+    if (chromeV2 && forceHearing && !interruptedAudio) {
+      startHearingRef.current()
+      return
+    }
     setReturnTo('hearing')
     returnToRef.current = 'hearing'
     setChrome('hearing')
+    if (chromeV2) {
+      // A voice return uses the same source/follow boundary as pressing Play.
+      browseWhileListeningRef.current = false
+      setBrowseWhileListening(false)
+      setInTheBookOpen(false)
+    }
     if (listen.src) listen.resume()
-    else void listen.start(placeRef.current)
-  }, [ask, listen, voiceTrial])
-  resumeListenRef.current = () => resumeListenAfterAsk(true)
+    else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
+  }, [ask, listen, voiceTrial, chromeV2, callOpen])
+  resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
     setAccountPrompt(null)
@@ -2944,6 +2957,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
   }, [book, chrome, chromeV2, listen, nativePhonePaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+
+  startHearingRef.current = () => startHearing({ force: true })
 
   const handleHeaderListen = useCallback(() => {
     if (peekBook && chrome === 'hearing') {
