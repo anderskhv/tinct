@@ -127,3 +127,53 @@ remaining-key inventory, scripts and screenshots are under:
 The [readiness plan](word-sync-readiness-2026-09-09.md) remains authoritative for
 the broader repair strategy. Raw recovery artifacts are not app assets and
 were not added to the production bundle.
+
+## Pod 2 ledger extension — September 9
+
+Evidence-only reconciliation completed; no generation, publication, pod startup
+or volume deletion. Local and authenticated R2 archive bytes match SHA256
+`be162114814d5a22f417fc9b71f01e9d22c7192d4e0eff48bb80bf2eb679ebcb`.
+The archive contains only the full ledger, identical to the loose log (SHA256
+`63f565cb3042ab10be82f91d1418b3816c57f0337ae7430e04747219b9b4acfe`).
+Both inventories are empty. Supplied HEAD/status records say `f5b23de` and clean;
+the three generator hashes match the previously verified commit hashes. These
+records establish supplied provenance, not a fresh inspection of the stopped pod.
+
+The first banner is not the whole run. The appended ledger records:
+
+- September 5: 19-target start, only five edition banners reached, 1,454 unique
+  chapter events; 1,047 uploaded, 223 failures and 183 skips, with one unfinished
+  generation and no terminal Done counter.
+- September 7: an upload preflight error (`wrangler not found`), then a 43-target
+  start that failed importing `faster_whisper` before any chapter event.
+- September 7–8: a second 43-target start, all 43 edition banners and all 2,373
+  declared chapters accounted for exactly once at terminal status: **318 uploaded,
+  789 failed, 1,266 skipped**. This exactly matches Done. Earlier attempts overlap
+  these same chapters; do not add their counters. Of 223 earlier failures, 219
+  fail again and four become validated skips.
+
+There is one actual handoff difference: it requests `beowulf/original-en`, but
+this completed run records `beowulf/modern-en`. The other 42 targets match. This
+ledger contains no original-English Beowulf events; it does not prove no other
+pod attempted that edition. The launch script was not recovered from the pod.
+
+The final failures classify as 761 alignment, 16 historical HTTP 404, eight
+network, three missing-paragraph entries and one invalid-audio error. No upload
+failures or publication candidates remain in this recovery. Fresh authenticated
+R2 HEAD checks find **788 absent, one present** (`bible/modern-en/ch844`). That
+present file was not content-validated by this extension. The 788 absences exactly
+match the intersection with the retained missing baseline. Public Python HEAD
+requests were blocked (403/transport errors), so origin presence is reported
+explicitly. Old HTTP 404s do not identify a currently missing MP3; old alignment
+failures are not fresh acoustic diagnoses.
+
+The repair inventory now retains pod 2 history: 38 keys overlap earlier pod 1/4
+records, 751 are additional keys (750 absent and one present). It has 2,658 history
+records for 2,655 unique chapter keys, preserving three pre-existing cross-pod
+duplicates. The baseline-adjusted missing count remains **4,253**; this audit did
+not restore anything or perform a fresh whole-corpus inventory.
+
+Evidence in the directory above: `pod2-ledger-summary.json`,
+`pod2-ledger-events.json`, `pod2-repair-inventory.json`, `pod2-r2-archive.json` and
+the extended `recovery-repair-inventory.json`. The reported pod stop, seven-minute
+CPU fallback and estimated cost were not independently verified here.

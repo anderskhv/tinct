@@ -272,3 +272,19 @@ Across the two full ledgers, 1,797 historical failures remain: 1,718 alignment,
 All 110 logged upload failures now have verified sidecars (108 restored here,
 two already present). Diagnose the remaining failure paths and obtain other
 shard logs before planning targeted generation; no GPU action was taken.
+
+
+### Pod 2 recovery ledger reconciled — September 9
+
+The full appended ledger proves a completed 43-edition run after interrupted
+starts: 2,373 terminal chapter results, exactly 318 uploads / 789 failures /
+1,266 skips. Beowulf **modern-en** ran where the handoff requested original-en;
+42 other targets match. No recovered sidecars or publication candidates.
+Authenticated origin checks find 788 failed keys absent and Bible modern-en
+chapter 844 present (content not validated here). All 788 absences are already
+in the retained baseline; 4,253 baseline-adjusted missing remains unchanged.
+Historical diagnoses and fresh presence checks are kept separate. The combined
+repair inventory preserves overlaps and prior history. See the
+[pod 2 evidence extension](audio-recovery-publication-2026-09-09.md#pod-2-ledger-extension--september-9)
+for run boundaries, hashes, target discrepancy and counters. Pod state/cost
+reports were not independently verified; no infrastructure was changed.
