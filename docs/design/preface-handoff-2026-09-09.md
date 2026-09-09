@@ -1,6 +1,7 @@
 # Optional prefaces — approved coding handoff
 
-Date: 2026-09-09. Status: approved for implementation; not yet shipped.
+Date: 2026-09-09. Status: implemented, deployed and verified on tinct.app.
+Release evidence: [Optional prefaces](../prefaces-release-2026-09-09.md).
 Source task: 01a0820f-f0aa-7ce2-ab2b-6b015decbf6b.
 Anders: “Okay, I like this. So let's implement it. It should be handed over to the coding agent”.
 
