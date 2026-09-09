@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { cleanup, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { SelectionPopup, type SelectionInfo, type SelectionPopupProps } from './SelectionPopup'
 import type { DictResult } from '../../services/dictionary'
@@ -189,5 +189,31 @@ describe('SelectionPopup', () => {
     screen.getByText('Save').click()
     expect(onUpdateHighlightNote).toHaveBeenCalledWith('hl_1', 'a kept note')
     expect(dismissPopup).toHaveBeenCalled()
+  })
+})
+
+
+describe('character reminder', () => {
+  const card = { id: 'leonce', kind: 'person', role: null, name: 'Mr. Pontellier', subtitle: 'The man in the opening scene', body: 'A brief released reminder.' }
+  const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
+  it('keeps dictionary and highlighting accessible without revealing a hidden role', () => {
+    const input = props({ selection: selection({ character }), popupMode: 'character' })
+    render(<SelectionPopup {...input} />)
+    expect(screen.getByRole('dialog')).toBe(document.activeElement)
+    expect(screen.getByRole('heading', { name: 'Mr. Pontellier' })).toBeTruthy()
+    expect(screen.queryByText('Major figure')).toBeNull()
+    expect(screen.getAllByTitle(/Highlight /)).toHaveLength(5)
+    fireEvent.click(screen.getByRole('button', { name: 'Dictionary' }))
+    expect(input.onDefine).toHaveBeenCalledOnce()
+    fireEvent.click(screen.getByRole('button', { name: 'Character gallery' }))
+    expect(input.setPopupMode).toHaveBeenCalledWith('gallery')
+    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' })
+    expect(input.dismissPopup).toHaveBeenCalledOnce()
+  })
+  it('shows only the supplied released gallery with no whole-book totals', () => {
+    render(<SelectionPopup {...props({ selection: selection({ character }), popupMode: 'gallery' })} />)
+    expect(screen.getByRole('heading', { name: 'In this passage' })).toBeTruthy()
+    expect(screen.queryByText('Introduced by this passage')).toBeNull()
+    expect(screen.queryByText(/Arobin/)).toBeNull()
   })
 })

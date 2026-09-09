@@ -1,3 +1,5 @@
+import { useCharacterCards } from '../services/characters/useCharacterCards'
+import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookPreface } from './LabBookPreface'
 import { getBookPreface } from '../data/bookPrefaces'
 import { LabChapterEnd } from './LabChapterEnd'
@@ -1279,8 +1281,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition } : undefined)
+  const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
+  const compareCharacters = useCharacterCards(book.bookId, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange }) | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -2385,21 +2389,31 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
   }, [dismissSelectionPopup, selectionPopup])
 
-  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number) => {
+  // A new passage/view invalidates a frozen card, including while edition data loads.
+  useEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+
+  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare') => {
+    if (initialResolving || frontispieceVisible || phoneAskOpen) return
+    const comparison = side === 'compare' || mobileCompareActive
+    const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
+    const paragraphs = comparison ? book.compareParagraphs : book.paragraphs
+    const paragraph = paragraphs[range.paragraphIndex] || ''
+    const offsets = range.endParagraphIndex === range.paragraphIndex ? wordSelectionOffsets(paragraph, range.fromWord, range.toWord) : null
     // A completed selection is a saved gold highlight immediately. The menu
     // edits that record; dismissing it never throws the reader's work away.
-    const existing = highlightsApi.findRange(range) ?? highlightsApi.findContainingRange(range)
-    const highlight = existing ?? highlightsApi.addOrReuse(range, 'gold')
-    const mode = defaultPopupMode(range.text, existing?.id)
+    const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
+    const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
+    const highlight = existing ?? (character ? undefined : highlightsApi.addOrReuse(range, 'gold', editionKey))
+    const mode = character ? 'character' as const : defaultPopupMode(range.text, existing?.id)
     setPopupMode(mode)
-    setNoteInput(highlight.note || '')
+    setNoteInput(highlight?.note || '')
     if (mode === 'define') define.begin(range.text)
     const anchorY = clientY
     const showBelow = window.innerHeight - anchorY > anchorY
     const mobile = typeof window !== 'undefined'
       && typeof window.matchMedia === 'function'
       && window.matchMedia('(max-width: 768px)').matches
-    const estimatedHeight = mode === 'define' ? 220 : 64
+    const estimatedHeight = mode === 'define' || mode === 'character' ? 280 : 64
     const chromeEl = bottomChromeRef.current
     const chromeTop = chromeEl?.getBoundingClientRect().top ?? window.innerHeight
     const bottomInset = Math.max(48, window.innerHeight - chromeTop + 8)
@@ -2417,12 +2431,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       endOffset: range.toWord,
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
-      existingHighlightId: highlight.id,
-      existingNote: highlight.note,
-      homeMode: mode,
+      existingHighlightId: highlight?.id,
+      existingNote: highlight?.note,
+      homeMode: character ? 'colors' : defaultPopupMode(range.text, existing?.id),
+      character: character ?? undefined,
+      editionKey,
       range,
     })
-  }, [define, highlightsApi])
+  }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
 
   useEffect(() => {
     if (!phoneAskOpen) setPhoneKeyboardOpen(false)
@@ -3663,11 +3679,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             readingPage={readingPage}
             chapterPages={readingPages}
             layoutKey={readerLayoutKey}
-            highlights={mobileCompareActive ? [] : highlightsApi.chapterHighlights}
+            highlights={mobileCompareActive ? highlightsApi.allHighlights.filter(h => h.bookId === book.bookId && h.editionKey === prefs.compareEdition && h.chapterNumber === book.chapterNumber) : highlightsApi.chapterHighlights}
+            keyboardSelection={chromeV2}
+            compareHighlights={highlightsApi.allHighlights.filter(h => h.bookId === book.bookId && h.editionKey === prefs.compareEdition && h.chapterNumber === book.chapterNumber)}
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
+            selectingComparison={!mobileCompareActive && selectionPopup?.editionKey === prefs.compareEdition}
             pageTurn={chromeV2 ? undefined : pageTurn}
-            onSelectRange={phoneAsk || mobileCompareActive ? undefined : handleSelectRange}
+            onSelectRange={phoneAsk ? undefined : handleSelectRange}
             onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
               ? (direction) => {
                   setReaderControlsVisible(false)
@@ -4246,13 +4265,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           currentHighlightColor={selectionPopup.existingHighlightId
-            ? highlightsApi.highlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.color
+            ? highlightsApi.allHighlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.color
             : undefined}
           onColorClick={(color: HighlightColor) => {
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
             } else if (selectionPopup.range) {
-              highlightsApi.addOrReuse(selectionPopup.range, color)
+              highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey)
             }
             dismissSelectionPopup()
           }}
@@ -4277,7 +4296,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
           onRequestNote={() => {
             if (!selectionPopup.existingHighlightId && selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, 'gold')
+              const created = highlightsApi.addOrReuse(selectionPopup.range, 'gold', selectionPopup.editionKey)
               setSelectionPopup(current => current ? {
                 ...current,
                 existingHighlightId: created.id,

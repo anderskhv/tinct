@@ -46,10 +46,13 @@ interface LabPassageProps {
   peek?: boolean
   readingPage?: ChapterHearingPage
   chapterPages?: ChapterHearingPage[]
+  keyboardSelection?: boolean
+  compareHighlights?: LabHighlight[]
+  selectingComparison?: boolean
   highlights?: LabHighlight[]
   chapterNumber?: number
   selectingRange?: LabHighlightRange | null
-  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number) => void
+  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare') => void
   browseWhileListening?: boolean
   inlineHearingPaint?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
@@ -278,6 +281,9 @@ export function LabPassage({
   peek,
   readingPage,
   chapterPages,
+  keyboardSelection = false,
+  compareHighlights = [],
+  selectingComparison = false,
   highlights = [],
   chapterNumber = 0,
   selectingRange = null,
@@ -319,6 +325,8 @@ export function LabPassage({
     startedAt: number
     selecting: boolean
     touch: boolean
+    comparison: boolean
+    pointerType: string
   } | null>(null)
   const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const lastSelectionPageTurnAtRef = useRef(0)
@@ -386,9 +394,9 @@ export function LabPassage({
     dragRef.current = null
     setLocalSelecting(null)
     if (!drag?.start || !drag.end || !onSelectRange) return
-    const range = buildHighlightRange(paragraphs, drag.start, drag.end)
-    if (!range.text.trim()) return
-    onSelectRange(range, event.clientX, event.clientY)
+    const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.end)
+    if (!range?.text.trim()) return
+    onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined)
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
@@ -416,6 +424,7 @@ export function LabPassage({
       startedAt: event.timeStamp,
       selecting: false,
       touch: touchSelection,
+      comparison: !!(event.target as Element).closest('.lab-book-col-compare'),
       pointerType: event.pointerType,
     }
     dragRef.current = drag
@@ -423,7 +432,7 @@ export function LabPassage({
       longPressRef.current = setTimeout(() => {
         if (dragRef.current !== drag) return
         drag.selecting = true
-        setLocalSelecting(buildHighlightRange(paragraphs, selectionPlace, selectionPlace))
+        setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, selectionPlace, selectionPlace))
       }, 300)
     }
   }
@@ -442,15 +451,16 @@ export function LabPassage({
       }
       if (drag.touch || distance < 3 || !drag.start || !onSelectRange) return
       drag.selecting = true
-      setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.start))
+      setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start))
     }
     const pointTarget = typeof document.elementFromPoint === 'function'
       ? document.elementFromPoint(event.clientX, event.clientY)
       : null
-    const place = wordPlaceFromTarget(event.target) || wordPlaceFromTarget(pointTarget)
-    if (place) drag.end = place
+    const target = pointTarget || event.target as Element
+    const place = wordPlaceFromTarget(target)
+    if (place) drag.end = !!(target as Element)?.closest('.lab-book-col-compare') === drag.comparison ? place : null
     if (drag.start && drag.end && onSelectRange) {
-      setLocalSelecting(buildHighlightRange(paragraphs, drag.start, drag.end))
+      setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.end))
     }
     if (!drag.start || !onPageTurn || Date.now() - lastSelectionPageTurnAtRef.current < 900) return
     const rect = event.currentTarget.getBoundingClientRect()
@@ -560,7 +570,7 @@ export function LabPassage({
                     {renderWordGroups(line.words, (word, wordIndex, spacing) => {
                       const absoluteWord = wordBase + wordIndex
                       const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
-                      const selecting = activeSelecting
+                      const selecting = !((localSelecting && dragRef.current?.comparison) || (!localSelecting && selectingComparison)) && activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
                       const inlineRole = inlineHearingPaint
                         ? followWordRole(follow, paragraphIndex, absoluteWord)
@@ -612,6 +622,23 @@ export function LabPassage({
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
       data-passage-mode={mode}
+      tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
+      aria-keyshortcuts={keyboardSelection && onSelectRange ? 'Shift+F10' : undefined}
+      onKeyDown={event => {
+        if (!keyboardSelection || !onSelectRange || hearing || !(event.key === 'F10' && event.shiftKey)) return
+        const selection = window.getSelection()
+        const anchor = selection?.anchorNode?.nodeType === Node.TEXT_NODE ? selection.anchorNode.parentElement : selection?.anchorNode as Element | null
+        const focus = selection?.focusNode?.nodeType === Node.TEXT_NODE ? selection.focusNode.parentElement : selection?.focusNode as Element | null
+        if (!anchor || !focus || !event.currentTarget.contains(anchor) || !event.currentTarget.contains(focus)) return
+        const start = wordPlaceFromTarget(anchor), end = wordPlaceFromTarget(focus)
+        const comparison = !!anchor.closest('.lab-book-col-compare')
+        if (!start || !end || comparison !== !!focus.closest('.lab-book-col-compare')) return
+        const range = buildHighlightRange(comparison ? compareParagraphs : paragraphs, start, end)
+        if (!range) return
+        event.preventDefault(); event.stopPropagation()
+        const rect = focus.getBoundingClientRect()
+        onSelectRange(range, rect.left, rect.bottom, comparison ? 'compare' : undefined)
+      }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerEnd}
@@ -671,7 +698,7 @@ export function LabPassage({
               const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
               const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
               if (!alignCompare && !text) return null
-              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{text}</p>
+              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{words.slice(segment.from, segment.to).map((word, index) => <span key={index} className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{index > 0 ? ' ' : ''}{word.text}</span>)}</p>
             })}
           </div>
         )}

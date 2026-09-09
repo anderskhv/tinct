@@ -1,14 +1,16 @@
-import type { CSSProperties, RefObject } from 'react'
+import { useEffect, useState, type CSSProperties, type RefObject } from 'react'
+import type { CharacterSelection } from '../../services/characters/characterCards'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
 import type { SelectionSegment } from './selectionGeometry'
 import { defaultPopupMode, type SelectionPopupHomeMode } from './selectionPopupMode'
 
-export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define'
+export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery'
 
 // The selection/highlight action popup. Presentational: all state + handlers are
 // owned by Reader.tsx and passed in. Extracted from Reader.tsx (slice 4).
 export interface SelectionInfo {
+  character?: CharacterSelection
   x: number
   y: number
   text: string
@@ -174,7 +176,21 @@ export function SelectionPopup({
   lab = false,
 }: SelectionPopupProps) {
   const homeMode = homeModeFor(selection)
-  const showActionBar = popupMode === 'define' || popupMode === 'colors'
+  const [galleryId, setGalleryId] = useState<string | null>(null)
+  useEffect(() => { setGalleryId(null) }, [selection.character])
+  useEffect(() => {
+    if (!selection.character) return
+    const previous = document.activeElement as HTMLElement | null
+    return () => { if (previous?.isConnected) previous.focus({ preventScroll: true }) }
+  }, [selection.character])
+  useEffect(() => {
+    if (selection.character && (popupMode === 'character' || popupMode === 'gallery')) popupRef.current?.focus({ preventScroll: true })
+  }, [selection.character, popupMode, popupRef])
+  const character = selection.character
+  const card = galleryId ? character?.gallery.find(entry => entry.card.id === galleryId)?.card : character?.card
+  const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Mentioned in passing' }
+
+  const showActionBar = popupMode === 'define' || popupMode === 'colors' || (popupMode === 'character' && !galleryId)
   const showDefinePanel = popupMode === 'define' || (lab && popupMode === 'main' && homeMode === 'define')
   const headword = defineResult?.word || defineQuery
   const showDefineInput = popupMode === 'define' && !headword && !defineLoading
@@ -182,6 +198,21 @@ export function SelectionPopup({
   return (
     <div
       ref={popupRef}
+      tabIndex={-1}
+      role={character ? 'dialog' : undefined}
+      aria-label={character ? 'People at this passage' : undefined}
+      onKeyDown={event => {
+        if (!character) return
+        event.stopPropagation()
+        if (event.key === 'Escape') { event.preventDefault(); dismissPopup() }
+        if (event.key === 'Tab') {
+          const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button, input, textarea, [tabindex="0"]')).filter(el => !el.hasAttribute('disabled'))
+          const index = controls.indexOf(document.activeElement as HTMLElement)
+          if (controls.length && (event.shiftKey ? index <= 0 : index === controls.length - 1 || index < 0)) {
+            event.preventDefault(); controls[event.shiftKey ? controls.length - 1 : 0].focus()
+          }
+        }
+      }}
       className={`selection-popup${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-popup-mode={popupMode}
       data-popup-home={homeMode}
@@ -195,6 +226,29 @@ export function SelectionPopup({
       onMouseUp={e => e.stopPropagation()}
       onTouchEnd={e => e.stopPropagation()}
     >
+      {character && (popupMode === 'character' || popupMode === 'gallery') && (
+        <div className="popup-character">
+          <div className="popup-character-heading"><small>At this passage</small><button type="button" onClick={dismissPopup} aria-label="Close character card">×</button></div>
+          {popupMode === 'character' && card && <>
+            <h2>{card.name}</h2>
+            {card.role && <small>{roles[card.role]}</small>}
+            <p className="popup-character-subtitle">{card.subtitle}</p>
+            <p>{card.body}</p>
+            <div className="popup-character-actions">{!galleryId ? <button type="button" onClick={onDefine}>Dictionary</button> : <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}<button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>
+          </>}
+          {popupMode === 'gallery' && <>
+            <h2>Character gallery</h2>
+            <div className="popup-character-gallery">
+              {[true, false].map(inPassage => {
+                const entries = character.gallery.filter(entry => entry.inPassage === inPassage)
+                return entries.length ? <section key={String(inPassage)}><h3>{inPassage ? 'In this passage' : 'Introduced by this passage'}</h3>{entries.map(({ card: entry }) => <button type="button" key={entry.id} onClick={() => { setGalleryId(entry.id); setPopupMode('character') }}><strong>{entry.name}</strong><span>{entry.subtitle}</span></button>)}</section> : null
+              })}
+            </div>
+            <button type="button" onClick={() => { setGalleryId(null); setPopupMode('character') }}>Back to selected name</button>
+          </>}
+        </div>
+      )}
+      {character && popupMode === 'define' && <button className="popup-button" onClick={() => { setGalleryId(null); setPopupMode('character') }}>Back to character</button>}
       {showDefinePanel && (
         <div className="popup-define">
           {showDefineInput ? (

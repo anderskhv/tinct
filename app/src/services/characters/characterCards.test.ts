@@ -1,0 +1,81 @@
+import { beforeAll, describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { comparePoint, releasedCard, resolveCharacter, verifyCharacters, wordSelectionOffsets, type CharacterAsset, type VerifiedCharacters } from './characterCards'
+const asset: CharacterAsset = JSON.parse(readFileSync('public/data/characters/the-awakening.v1.json', 'utf8'))
+const verified: Record<string, VerifiedCharacters> = {}
+beforeAll(async () => {
+  for (const key of ['original-en', 'modern-en']) {
+    const raw = readFileSync(`public/data/editions/the-awakening-${key}.json`)
+    verified[key] = (await verifyCharacters(asset, 'the-awakening', key, Uint8Array.from(raw).buffer))!
+    expect(verified[key]).not.toBeNull()
+  }
+})
+describe.each(['original-en', 'modern-en'])('%s', key => {
+  it('resolves all reviewed spans, preserves highlights and rejects changed text', () => {
+    const data = verified[key]
+    for (const m of data.edition.mentions) {
+      const text = data.paragraphs[m.chapterNumber][m.paragraphIndex]
+      const args = [data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text] as const
+      expect(resolveCharacter(...args)?.card.id).toBe(m.characterId)
+      expect(resolveCharacter(...args, true)).toBeNull()
+      expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text + ' changed')).toBeNull()
+    }
+  })
+  it('releases snapshots precisely at their own boundary, including earlier return and role gates', () => {
+    const { edition } = verified[key]
+    for (const c of edition.characters) {
+      for (const s of c.snapshots) {
+        const at = s.availableAt
+        const latest = c.snapshots.filter(s => comparePoint(s.availableAt, at) <= 0).slice(-1)[0]!
+        expect(releasedCard(edition, c.id, at)?.body).toBe(latest.body)
+        const prior = c.snapshots.filter(s => comparePoint(s.availableAt, at) < 0).slice(-1)[0]
+        expect(releasedCard(edition, c.id, { ...at, offset: at.offset - 1 })?.body).toBe(prior?.body)
+      }
+      const first = releasedCard(edition, c.id, c.firstMention)
+      releasedCard(edition, c.id, { chapterNumber: 39, paragraphIndex: 999, offset: 999 })
+      expect(releasedCard(edition, c.id, c.firstMention)).toEqual(first)
+    }
+    const arobin = edition.characters.find(c => c.id === 'arobin')!
+    expect(releasedCard(edition, 'arobin', arobin.firstMention)?.role).toBeNull()
+    expect(releasedCard(edition, 'arobin', arobin.roleVisibleAt)?.role).toBe('major')
+  })
+  it('handles nested relationships, token selections, and ambiguous crossings', () => {
+    const data = verified[key]
+    for (const id of ['edna', 'leonce', 'sylvano', 'sylvano-wife', 'celina', 'celina-husband', 'philomel', 'philomel-mother']) {
+      const m = data.edition.mentions.find(m => m.characterId === id)!
+      expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, data.paragraphs[m.chapterNumber][m.paragraphIndex])?.card.id).toBe(id)
+    }
+    const m = data.edition.mentions.find(m => m.characterId === 'leonce')!
+    const text = data.paragraphs[m.chapterNumber][m.paragraphIndex]
+    expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.endOffset - 10, m.endOffset, text)?.card.id).toBe('leonce')
+    expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, text.length, text)).toBeNull()
+    const ambiguous = { ...data, edition: { ...data.edition, mentions: [...data.edition.mentions, { ...m, characterId: 'edna' }] } }
+    expect(resolveCharacter(ambiguous, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text)).toBeNull()
+  })
+  it('gallery carries only released fields and passage relevance', () => {
+    const data = verified[key], m = data.edition.mentions[0]
+    const result = resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, data.paragraphs[m.chapterNumber][m.paragraphIndex])!
+    expect(result.cutoff.offset).toBe(m.endOffset)
+    expect(result.gallery.some(e => e.card.id === 'arobin')).toBe(false)
+    for (const entry of result.gallery) expect(Object.keys(entry.card).sort()).toEqual(['id','kind','role','name','subtitle','body'].sort())
+    expect(result.gallery.find(e => e.card.id === m.characterId)?.inPassage).toBe(true)
+  })
+})
+it('rejects stale source/hash, unsupported schema/edition/book, and preserves modern omission', async () => {
+  const raw = Uint8Array.from(readFileSync('public/data/editions/the-awakening-original-en.json')).buffer
+  expect(await verifyCharacters(asset, 'the-awakening', 'modern-da', raw)).toBeNull()
+  expect(await verifyCharacters(asset, 'odyssey', 'original-en', raw)).toBeNull()
+  expect(await verifyCharacters({ ...asset, normalization: 'other' }, 'the-awakening', 'original-en', raw)).toBeNull()
+  expect(await verifyCharacters(asset, 'the-awakening', 'original-en', new TextEncoder().encode('{}').buffer)).toBeNull()
+  const changed = structuredClone(asset); changed.editions['original-en'].paragraphHashes['1'][0] = 'changed'
+  expect(await verifyCharacters(changed, 'the-awakening', 'original-en', raw)).toBeNull()
+  expect(verified['modern-en'].edition.characters.some(c => c.id === 'holy-ghost')).toBe(false)
+})
+it('maps punctuation and UTF16 word anchors without surname search', () => {
+  const text = '😀 Mrs. Pontellier, and Mrs. Pontellier.'
+  expect(wordSelectionOffsets(text, 2, 3)).toEqual([8, 18])
+  expect(wordSelectionOffsets(text, 5, 6)).toEqual([29, 39])
+  expect(wordSelectionOffsets(text, 8, 9)).toBeNull()
+  expect(wordSelectionOffsets('Mrs. Pontellier’s.', 0, 2)).toEqual([0, 15])
+  expect(wordSelectionOffsets('Sylvano’s wife', 0, 2)).toEqual([0, 14])
+})
