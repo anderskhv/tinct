@@ -1,0 +1,73 @@
+{
+  "bookId": "phaedrus",
+  "status": "unreviewed-source-candidates",
+  "warning": "Aliases may be ambiguous, future identities, titles, or different people. First regex match is NOT a validated first mention. Existing thread prose is intentionally not copied.",
+  "candidates": [
+    {
+      "id": "socrates",
+      "candidateName": "Socrates",
+      "unreviewedAliases": [
+        "Socrates"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 1,
+          "paragraphIndex": 9,
+          "alias": "Socrates",
+          "context": "PHAEDRUS: My tale, Socrates, is one of your sort, for love was the theme which occupied us--love after a fashion: Lysias has been writing about a fair youth who was being tempted, but not by a lover; and this was the point: he ingeniously proved that the non-lover should be accepted rather than the lover."
+        },
+        "modern-en": {
+          "chapter": 1,
+          "paragraphIndex": 9,
+          "alias": "Socrates",
+          "context": "PHAEDRUS: My tale, Socrates, is right up your alley — love was the subject. Love after a fashion, at least: Lysias has written a piece about a beautiful young man who is being courted, but not by a lover. The clever twist is that he argues the non-lover should be preferred to the lover."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "phaedrus",
+      "candidateName": "Phaedrus",
+      "unreviewedAliases": [
+        "Phaedrus"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 1,
+          "paragraphIndex": 0,
+          "alias": "Phaedrus",
+          "context": "SOCRATES: My dear Phaedrus, whence come you, and whither are you going?"
+        },
+        "modern-en": {
+          "chapter": 1,
+          "paragraphIndex": 0,
+          "alias": "Phaedrus",
+          "context": "SOCRATES: My dear Phaedrus, where are you coming from, and where are you going?"
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "lysias",
+      "candidateName": "Lysias",
+      "unreviewedAliases": [
+        "Lysias"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 1,
+          "paragraphIndex": 1,
+          "alias": "Lysias",
+          "context": "PHAEDRUS: I come from Lysias the son of Cephalus, and I am going to take a walk outside the wall, for I have been sitting with him the whole morning; and our common friend Acumenus tells me that it is much more refreshing to walk in the open air than to be shut up in a cloister."
+        },
+        "modern-en": {
+          "chapter": 1,
+          "paragraphIndex": 1,
+          "alias": "Lysias",
+          "context": "PHAEDRUS: I'm coming from Lysias, the son of Cephalus, and I'm off to take a walk outside the city wall. I've been sitting with him all morning, and our mutual friend Acumenus tells me it's much more refreshing to walk in the open air than to be cooped up indoors."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    }
+  ]
+}

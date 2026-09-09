@@ -1,7 +1,7 @@
 {
   "observedOn": "2026-09-09",
   "source": "app/src/data/bookRegistry.ts BOOKS",
-  "registrySha256": "4bf1d1d4d76189c95d3f69e088c1fa63c77f7f5b9e0b84949922bdd008f7c5cc",
+  "registrySha256": "7176c8d9929dcfc508f14ad7c7ff37a0d93d48949fee1e590e7a17b49011fcc7",
   "publishedCount": 100,
   "books": [
     {
@@ -10,7 +10,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/odyssey-modern-en.json",
+          "sha256": "813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc",
+          "chapters": 24,
+          "paragraphs": 1027
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/odyssey-original-en.json",
+          "sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+          "chapters": 24,
+          "paragraphs": 1027
+        }
+      ],
+      "existingThreadCandidates": 26,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "ulysses",
@@ -18,15 +35,52 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/ulysses-modern-en.json",
+          "sha256": "ac853e0de7c6f8da3edecb426136e8037f39f03e4c7218fa15611bee241233a6",
+          "chapters": 18,
+          "paragraphs": 7148
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/ulysses-original-en.json",
+          "sha256": "ddc3418890b6a623e7c9bcb730272fe01539e86a2872c268eed43dbe01121428",
+          "chapters": 18,
+          "paragraphs": 7148
+        }
+      ],
+      "existingThreadCandidates": 20,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "war-and-peace",
       "title": "War and Peace",
-      "contentStatus": "not-started",
+      "contentStatus": "recognition-draft",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/war-and-peace-modern-en.json",
+          "sha256": "d3ecdb9d013f45e5681b1c091b6a018564e33d7eab1072cb247c284698a5f3f6",
+          "chapters": 365,
+          "paragraphs": 11340
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/war-and-peace-original-en.json",
+          "sha256": "6112db117bbc36641e45240ff4a0ecd7d63a2975bdd691a6ad1624a6c6879864",
+          "chapters": 365,
+          "paragraphs": 11340
+        }
+      ],
+      "existingThreadCandidates": 30,
+      "nextAction": "Review 45 draft entries and extend complete source inventory; reject ambiguous inherited aliases"
     },
     {
       "bookId": "bible",
@@ -34,7 +88,31 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "kjv-en",
+          "path": "app/public/data/editions/bible-kjv-en.json",
+          "sha256": "53823ea3d19a3d7b986563f9fb7015be4a75bb102bd6e6a714ee64ceed0ff26e",
+          "chapters": 1189,
+          "paragraphs": 6704
+        },
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/bible-modern-en.json",
+          "sha256": "1e0c8eae139ce08e299b72f0f21aeaa22e099b66b81269a4fd988c728cb75c4e",
+          "chapters": 1189,
+          "paragraphs": 6704
+        },
+        {
+          "edition": "web-en",
+          "path": "app/public/data/editions/bible-web-en.json",
+          "sha256": "46d206635dc79214cb29a8b27f392f3d4a5f856bdedb3441315973f542c4eeae",
+          "chapters": 1189,
+          "paragraphs": 6704
+        }
+      ],
+      "existingThreadCandidates": 305,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "gilgamesh",
@@ -42,15 +120,49 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/gilgamesh-modern-en.json",
+          "sha256": "419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c",
+          "chapters": 12,
+          "paragraphs": 253
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/gilgamesh-original-en.json",
+          "sha256": "1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc",
+          "chapters": 12,
+          "paragraphs": 253
+        }
+      ],
+      "existingThreadCandidates": 16,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "hamlet",
       "title": "Hamlet",
-      "contentStatus": "not-started",
+      "contentStatus": "recognition-draft",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/hamlet-modern-en.json",
+          "sha256": "b355830766b696812decba35f95dee0ee68ff7662e36370194a129bc2147fda5",
+          "chapters": 20,
+          "paragraphs": 1391
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/hamlet-original-en.json",
+          "sha256": "77f9bf6e33516a710b6e7a747cd0ae3e1518eca29483c0470341f69d8de6e58f",
+          "chapters": 20,
+          "paragraphs": 1391
+        }
+      ],
+      "existingThreadCandidates": 13,
+      "nextAction": "Review full play and reference coverage; resolve same-name father/son and player/king bindings"
     },
     {
       "bookId": "macbeth",
@@ -58,7 +170,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/macbeth-modern-en.json",
+          "sha256": "0c85273086804fdd02abee81842de15338b61a2288bb26805e9b2f2d505d02f1",
+          "chapters": 28,
+          "paragraphs": 806
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/macbeth-original-en.json",
+          "sha256": "2650bcc666428a808584fd6f99534f71474a4e99a085c7ae6b87234e24e30608",
+          "chapters": 28,
+          "paragraphs": 806
+        }
+      ],
+      "existingThreadCandidates": 13,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "midsummer",
@@ -66,7 +195,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/midsummer-modern-en.json",
+          "sha256": "f9eca722e0488f7a4f44fd865e487d2ed0361fab9b783b11ff3ccd32b43a8666",
+          "chapters": 9,
+          "paragraphs": 641
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/midsummer-original-en.json",
+          "sha256": "9ddba0b7d8617c6c0d2c0f5a31659f43ded8b51f03cb95808a63ae04c341ad4e",
+          "chapters": 9,
+          "paragraphs": 641
+        }
+      ],
+      "existingThreadCandidates": 16,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "romeo-and-juliet",
@@ -74,7 +220,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/romeo-and-juliet-modern-en.json",
+          "sha256": "47fdf4f9a1b309f6747b48d00add73181cff9cd0a4c0063f81774a1a8a95bae6",
+          "chapters": 25,
+          "paragraphs": 1062
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/romeo-and-juliet-original-en.json",
+          "sha256": "d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276",
+          "chapters": 25,
+          "paragraphs": 1062
+        }
+      ],
+      "existingThreadCandidates": 15,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-tempest",
@@ -82,7 +245,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-tempest-modern-en.json",
+          "sha256": "ddbade7e7141e485ae8a36fb6b34401a95c87de48054ff9d2053c5fb8d1e063f",
+          "chapters": 10,
+          "paragraphs": 790
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-tempest-original-en.json",
+          "sha256": "c7b057ac30de314a239d6ebc1f133bf36195d1e4a0109650ceb97a25a972ac23",
+          "chapters": 10,
+          "paragraphs": 790
+        }
+      ],
+      "existingThreadCandidates": 12,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-art-of-war",
@@ -90,7 +270,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-art-of-war-modern-en.json",
+          "sha256": "bf41e7a3a441202531c419e259f908a16b2e0f32fc2fd38beef00755e5267cf5",
+          "chapters": 13,
+          "paragraphs": 445
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-art-of-war-original-en.json",
+          "sha256": "60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61",
+          "chapters": 13,
+          "paragraphs": 445
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "pride-and-prejudice",
@@ -98,7 +295,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/pride-and-prejudice-modern-en.json",
+          "sha256": "d914bb2dc33dfb525d7c21b142cc1ae4ea85dcfdd84378c2a839c90d90c250e1",
+          "chapters": 61,
+          "paragraphs": 2060
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/pride-and-prejudice-original-en.json",
+          "sha256": "5a44024668550ab8cdae47579bd798b5b60c8e3e1401043b6d9f8777081760c6",
+          "chapters": 61,
+          "paragraphs": 2060
+        }
+      ],
+      "existingThreadCandidates": 15,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "crime-and-punishment",
@@ -106,7 +320,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/crime-and-punishment-modern-en.json",
+          "sha256": "914bcdfae396792477d90f788ce30ed684732dc89eb4abc76d4c126a9c963834",
+          "chapters": 41,
+          "paragraphs": 3904
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/crime-and-punishment-original-en.json",
+          "sha256": "6609777b2dfca00fa10c7d0f4d2599b2b617f029f8a1689714ce96c60627a978",
+          "chapters": 41,
+          "paragraphs": 3904
+        }
+      ],
+      "existingThreadCandidates": 14,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-republic",
@@ -114,7 +345,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-republic-modern-en.json",
+          "sha256": "02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57",
+          "chapters": 10,
+          "paragraphs": 4308
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-republic-original-en.json",
+          "sha256": "338cc5908ed34b108c6775dad4e437feccb19ba86f6fdcd868ea5821d777b0a6",
+          "chapters": 10,
+          "paragraphs": 4308
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "meditations",
@@ -122,7 +370,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/meditations-modern-en.json",
+          "sha256": "e551f78e2ed26d47d2a24b8acded4996bf3044c0b9301b37f14cf283d634a254",
+          "chapters": 12,
+          "paragraphs": 412
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/meditations-original-en.json",
+          "sha256": "4f811221abc8dd107da81c1a1ec7d75107094246c4353cd1884bba2943241afb",
+          "chapters": 12,
+          "paragraphs": 412
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "divine-comedy",
@@ -130,7 +395,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/divine-comedy-modern-en.json",
+          "sha256": "5938ed2727d6a26ed7928e97b382254d7d2acfd382d180604e97b518a2660ad2",
+          "chapters": 100,
+          "paragraphs": 4812
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/divine-comedy-original-en.json",
+          "sha256": "494a37942b0005c1a6ca5fab8720dcd8db1f1a7c1ec80831d7bab9bdcbd4c452",
+          "chapters": 100,
+          "paragraphs": 4812
+        }
+      ],
+      "existingThreadCandidates": 22,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "jane-eyre",
@@ -138,7 +420,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/jane-eyre-modern-en.json",
+          "sha256": "bbfe4c30163ecf07291e2fa5faef69d1e57348644afe2ab0dfc96edff3cecad0",
+          "chapters": 38,
+          "paragraphs": 4047
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/jane-eyre-original-en.json",
+          "sha256": "055aad5e04c0c9dbb32969c57cbcc54aa5e00c012256cd3debbce0577cbe5f96",
+          "chapters": 38,
+          "paragraphs": 4047
+        }
+      ],
+      "existingThreadCandidates": 16,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-aeneid",
@@ -146,7 +445,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-aeneid-modern-en.json",
+          "sha256": "1e9b6dd64911f96374ae6e9322379d4eb30a9d9dfc8e0a994e717c71f3a05c07",
+          "chapters": 12,
+          "paragraphs": 544
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-aeneid-original-en.json",
+          "sha256": "4a763d99af704695d1fbe4fc6c9740c2335dedc7bbf7e2b22aff8af23903aaf0",
+          "chapters": 12,
+          "paragraphs": 544
+        }
+      ],
+      "existingThreadCandidates": 15,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "paradise-lost",
@@ -154,7 +470,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/paradise-lost-modern-en.json",
+          "sha256": "87727e7760ea487d5b4527570d9bdaeaeb3158c782ed372f9c0a554cbf8562ba",
+          "chapters": 12,
+          "paragraphs": 1188
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/paradise-lost-original-en.json",
+          "sha256": "56c47aa192f17e38ae996d1abfc268dc0090a8c365a2e8f7578160dea2f81185",
+          "chapters": 12,
+          "paragraphs": 1188
+        }
+      ],
+      "existingThreadCandidates": 15,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "frankenstein",
@@ -162,7 +495,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/frankenstein-modern-en.json",
+          "sha256": "a3550019107ecb1f2de9e296c8a18b7077bf5c39c6469ae7668d8aac87de44c8",
+          "chapters": 28,
+          "paragraphs": 764
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/frankenstein-original-en.json",
+          "sha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
+          "chapters": 28,
+          "paragraphs": 764
+        }
+      ],
+      "existingThreadCandidates": 12,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-manual",
@@ -170,7 +520,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-manual-modern-en.json",
+          "sha256": "2ac0db1347defd5bea73e993f4db672a37136f53bcf69423dab544de20040f35",
+          "chapters": 52,
+          "paragraphs": 68
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-manual-original-en.json",
+          "sha256": "23835259e0a0d52214f7554e44b0adaf44c5ec5e8a356bd196d3ccb948dc803e",
+          "chapters": 52,
+          "paragraphs": 68
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "apology",
@@ -178,7 +545,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/apology-modern-en.json",
+          "sha256": "f09399f0fe5348b3e3e809044f9907175515d9a6b113edd1dadd6a98a2444e4b",
+          "chapters": 3,
+          "paragraphs": 92
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/apology-original-en.json",
+          "sha256": "a951009eaf834d24ac88e79ffdea2841d939897b88a52d821cd9a7710b303fe8",
+          "chapters": 3,
+          "paragraphs": 92
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "symposium",
@@ -186,7 +570,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/symposium-modern-en.json",
+          "sha256": "7816d1eb6ac9cc6d178c4c123bbeb8ad6daced1f7d7fc8c036f2bded3b8fcce8",
+          "chapters": 8,
+          "paragraphs": 217
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/symposium-original-en.json",
+          "sha256": "e2943777fd54eaaa0888076c5c03a9104bc1b1ffa681a5362ab114e327f797c0",
+          "chapters": 8,
+          "paragraphs": 217
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "phaedo",
@@ -194,7 +595,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/phaedo-modern-en.json",
+          "sha256": "2c46156a475567697bb7aadb6a66d362e08ea37cc23fc80d124c2be7e0cff8c7",
+          "chapters": 9,
+          "paragraphs": 652
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/phaedo-original-en.json",
+          "sha256": "c2a1b3b99c2826d41e1692c521d889b3a324afd762723210c7817960ea6c3044",
+          "chapters": 9,
+          "paragraphs": 652
+        }
+      ],
+      "existingThreadCandidates": 9,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "crito",
@@ -202,7 +620,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/crito-modern-en.json",
+          "sha256": "5ff432e7e028e7caff6b11984a50ca0db43f3ce976b68af8f5466f7f23293add",
+          "chapters": 3,
+          "paragraphs": 95
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/crito-original-en.json",
+          "sha256": "19dbc33de3076411f4abedfd1016529a244dc3ac9b31fe1f792e629e219fd0b7",
+          "chapters": 3,
+          "paragraphs": 95
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "phaedrus",
@@ -210,7 +645,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/phaedrus-modern-en.json",
+          "sha256": "a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c",
+          "chapters": 6,
+          "paragraphs": 408
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/phaedrus-original-en.json",
+          "sha256": "687f5a5e9b73892ce4226633fa3371ba3394bc728edbed38d6147303df6c542c",
+          "chapters": 6,
+          "paragraphs": 408
+        }
+      ],
+      "existingThreadCandidates": 3,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "poetics",
@@ -218,7 +670,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/poetics-modern-en.json",
+          "sha256": "20c7f0695e0360b9ea800ae11c0720bfe38d1e7e85b828d0a19bed542a9b175e",
+          "chapters": 26,
+          "paragraphs": 130
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/poetics-original-en.json",
+          "sha256": "00113ffc33cceda9f2e3efd76a4e2c6f0d058b0174554248beba39c82354dd27",
+          "chapters": 26,
+          "paragraphs": 130
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "moby-dick",
@@ -226,7 +695,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/moby-dick-modern-en.json",
+          "sha256": "2ab04dd727bbe5804b7acf1d05f578cfed5aef17c08d7d72b6db9101f8c1763c",
+          "chapters": 136,
+          "paragraphs": 2432
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/moby-dick-original-en.json",
+          "sha256": "30974242d9ee3eae074671da0b424c0ef5d8b00258acf43cf27d92905136c952",
+          "chapters": 136,
+          "paragraphs": 2432
+        }
+      ],
+      "existingThreadCandidates": 15,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "great-expectations",
@@ -234,7 +720,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/great-expectations-modern-en.json",
+          "sha256": "760e685ddbc2b7cf547b644a10c7869da7be2b73a448909d56dbd24ec61484b1",
+          "chapters": 59,
+          "paragraphs": 3835
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/great-expectations-original-en.json",
+          "sha256": "e4c4863487b9b9ce4cabb8a64cb518ee3038cb31169dbac220569522dc1b6e70",
+          "chapters": 59,
+          "paragraphs": 3835
+        }
+      ],
+      "existingThreadCandidates": 19,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-histories",
@@ -242,7 +745,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-histories-modern-en.json",
+          "sha256": "d79ea955070c9d8cbfae1b6153f0087d263d6aa87cc59e410e69fb427f744d54",
+          "chapters": 1525,
+          "paragraphs": 1626
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-histories-original-en.json",
+          "sha256": "f442e468e59838d5783d0c30d14b3f180e06c4175261913597d5f2182c22de31",
+          "chapters": 1525,
+          "paragraphs": 1626
+        }
+      ],
+      "existingThreadCandidates": 7,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "niels-lyhne",
@@ -250,7 +770,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/niels-lyhne-modern-en.json",
+          "sha256": "88dc925851aae72fa3602b26917ec696e13a8499117c98298e71c6909f87521a",
+          "chapters": 14,
+          "paragraphs": 912
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/niels-lyhne-original-en.json",
+          "sha256": "5f30145593a20bee6deb22f8a524314193b9bf5319c053c6e0b6afd547872d37",
+          "chapters": 14,
+          "paragraphs": 912
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "imitation-of-christ",
@@ -258,7 +795,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/imitation-of-christ-modern-en.json",
+          "sha256": "8805af64c4357b3f56e843e5c4c43b5746622547d774e2237711205000c727aa",
+          "chapters": 114,
+          "paragraphs": 774
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/imitation-of-christ-original-en.json",
+          "sha256": "43902ea5bf50af978562e161b9e3202475777fc150ab067a8af13e144e54d0a2",
+          "chapters": 114,
+          "paragraphs": 774
+        }
+      ],
+      "existingThreadCandidates": 2,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "jerusalem",
@@ -266,18 +820,52 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/jerusalem-modern-en.json",
+          "sha256": "6cdbf3a5904a26d5edffc0ad45325f29af16e8cd6bc0a959f92450c3b33c00ee",
+          "chapters": 18,
+          "paragraphs": 1787
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/jerusalem-original-en.json",
+          "sha256": "747b53bedd58d9ba65877185247a8545dac4bddcd1e8219cf5315da00cdac47c",
+          "chapters": 18,
+          "paragraphs": 1787
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-awakening",
       "title": "The Awakening",
       "contentStatus": "source-reviewed-pilot",
-      "appStatus": "not-integrated",
+      "appStatus": "production-verified",
       "reviewedEditions": [
         "original-en",
         "modern-en"
       ],
-      "nextAction": "Integrate and review pilot in reader"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-awakening-modern-en.json",
+          "sha256": "06a1d8570cba2c315f444cbbb455dc57aa9b25853198f00643256f69ba24ccf1",
+          "chapters": 39,
+          "paragraphs": 1044
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-awakening-original-en.json",
+          "sha256": "78824e511ea979f2f1a1b41d67105d161559c0a9dcff3bbb826e9814dbf44703",
+          "chapters": 39,
+          "paragraphs": 1044
+        }
+      ],
+      "existingThreadCandidates": 12,
+      "nextAction": "Shorten remaining running reminders under the approved recognition-first policy; preserve existing source gates"
     },
     {
       "bookId": "brothers-karamazov",
@@ -285,7 +873,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/brothers-karamazov-modern-en.json",
+          "sha256": "5b2d957d5fdca2f1c6374afe61fd7a3e72e2316f06f5bc1f5796939485f91378",
+          "chapters": 96,
+          "paragraphs": 5836
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/brothers-karamazov-original-en.json",
+          "sha256": "b8ada3e43c6f997a0d55f77e1f22bb769f021071aaeff3d0cb25dcd1acb80736",
+          "chapters": 96,
+          "paragraphs": 5836
+        }
+      ],
+      "existingThreadCandidates": 21,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "iliad",
@@ -293,7 +898,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/iliad-modern-en.json",
+          "sha256": "d424a2e68fd2e302781a4f2ecd4ce3f85ff84c7b80f35b066a32f342cd59fa75",
+          "chapters": 24,
+          "paragraphs": 1137
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/iliad-original-en.json",
+          "sha256": "3ba331f36cb935cb861bedb51994a4d410cda83013ba8c63bb04a126bb45e86c",
+          "chapters": 24,
+          "paragraphs": 1137
+        }
+      ],
+      "existingThreadCandidates": 32,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "nicomachean-ethics",
@@ -301,7 +923,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/nicomachean-ethics-modern-en.json",
+          "sha256": "c6128f1563bbe0eb4c95a4d31b9355efe834dc010b976e25b568cd49968bcdcf",
+          "chapters": 10,
+          "paragraphs": 1195
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/nicomachean-ethics-original-en.json",
+          "sha256": "214c4025cd1ef25c68685bf7207bc0d59552a3cdc5a85df6becb8ae99c90df1c",
+          "chapters": 10,
+          "paragraphs": 1195
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "the-prince",
@@ -309,7 +948,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/the-prince-modern-en.json",
+          "sha256": "b9145c66f97bbdf5373a974f843da6bacb6aaeb1bb5ac60f7b49dbda42e2be17",
+          "chapters": 27,
+          "paragraphs": 254
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/the-prince-original-en.json",
+          "sha256": "288e7bcf4427ef042d2d90214c130756d32273c2ae75ea7da84ad7dd97ff1e95",
+          "chapters": 27,
+          "paragraphs": 254
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "beyond-good-and-evil",
@@ -317,7 +973,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/beyond-good-and-evil-modern-en.json",
+          "sha256": "5b14eaa83a4b695afc10e74b203001ac33490f732a1fb42c141749687859d08a",
+          "chapters": 11,
+          "paragraphs": 325
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/beyond-good-and-evil-original-en.json",
+          "sha256": "a906a663863727ff37c8e40b5561165088d6835111f736210604dbf95f484e43",
+          "chapters": 11,
+          "paragraphs": 325
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "kant-groundwork",
@@ -325,7 +998,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/kant-groundwork-modern-en.json",
+          "sha256": "2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d",
+          "chapters": 4,
+          "paragraphs": 193
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/kant-groundwork-original-en.json",
+          "sha256": "39baa06718f8c7378638c7b389876fae8f5e089aa9774ed8495b6203285e1ae7",
+          "chapters": 4,
+          "paragraphs": 193
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "beowulf",
@@ -333,7 +1023,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/beowulf-modern-en.json",
+          "sha256": "e015cde16836f30df6af311f08d15bcbb7b9fcdf0bac4bce1dd180276e00b16a",
+          "chapters": 43,
+          "paragraphs": 375
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/beowulf-original-en.json",
+          "sha256": "18c82694331e87f4cdde7be99e9aba59cb4181b98a74a4bdc446e651c77e5c6a",
+          "chapters": 43,
+          "paragraphs": 375
+        }
+      ],
+      "existingThreadCandidates": 9,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "candide",
@@ -341,7 +1048,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/candide-modern-en.json",
+          "sha256": "136767b698e00213fd92520233136c3e1ed5b12b409ec781eb3832d9394ffb9a",
+          "chapters": 30,
+          "paragraphs": 709
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/candide-original-en.json",
+          "sha256": "fd3eff9b64e01756c82a13f9fda47f0553a379377077f8feb5b7e3ff8e01a37d",
+          "chapters": 30,
+          "paragraphs": 709
+        }
+      ],
+      "existingThreadCandidates": 7,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "democracy-in-america",
@@ -349,7 +1073,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/democracy-in-america-modern-en.json",
+          "sha256": "347cc8f0729f7fe0520163d153554a78e36d82e87b8c59777f4745a74e545662",
+          "chapters": 96,
+          "paragraphs": 2258
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/democracy-in-america-original-en.json",
+          "sha256": "9fbec200460aebc0c454ac87814dd7c13d93a1eff0c4c467078591c3bd5f35a4",
+          "chapters": 96,
+          "paragraphs": 2258
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "oedipus-rex",
@@ -357,7 +1098,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/oedipus-rex-modern-en.json",
+          "sha256": "f96170b779e2c9faf1050b0ad4fa43222dc42ab4f96b2b58a5c372e09dc21281",
+          "chapters": 11,
+          "paragraphs": 474
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/oedipus-rex-original-en.json",
+          "sha256": "44edb377baee3bf5968e15927e1e6e9d581e4a8052eac4609fb49db9253b7926",
+          "chapters": 11,
+          "paragraphs": 474
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "oedipus-at-colonus",
@@ -365,7 +1123,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/oedipus-at-colonus-modern-en.json",
+          "sha256": "5c18460809bf2eacfd1d3f17e5f31b7959f2fada81ddccc59a3588ba92683a7b",
+          "chapters": 11,
+          "paragraphs": 566
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/oedipus-at-colonus-original-en.json",
+          "sha256": "72f7f95bf433c0ba963a3e14521b6ca31c5811f1ba3478fb7af52f6f59c29b6e",
+          "chapters": 11,
+          "paragraphs": 566
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "antigone",
@@ -373,7 +1148,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/antigone-modern-en.json",
+          "sha256": "923ec3c1b9bcc3e1c2ddeeae4b6e65e4a1dfd72a425f769f02ff12565cdd05ff",
+          "chapters": 11,
+          "paragraphs": 318
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/antigone-original-en.json",
+          "sha256": "628086763bedd01d73e653b9a372cb0f679a2870f524e8f25bf2703e663bf61b",
+          "chapters": 11,
+          "paragraphs": 318
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "genealogy-of-morals",
@@ -381,7 +1173,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/genealogy-of-morals-modern-en.json",
+          "sha256": "72ca79453b9a485fa0a8277df452809dba80b87ecaf6985121e020ef51d30a9c",
+          "chapters": 4,
+          "paragraphs": 124
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/genealogy-of-morals-original-en.json",
+          "sha256": "2377b4157b8e28c24a35bcb25e98c2b51a25be3abf0cb5bde71a59aa75550f4f",
+          "chapters": 4,
+          "paragraphs": 124
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "descartes-meditations",
@@ -389,7 +1198,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/descartes-meditations-modern-en.json",
+          "sha256": "789863ff9c80db5b86ba5d351db4ad2b1067dab0539bd118a7d66a2aba65ea51",
+          "chapters": 9,
+          "paragraphs": 144
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/descartes-meditations-original-en.json",
+          "sha256": "98e410390472e0f6e3701987e10f2b44974cdac1e277ba4d520a9e959103961a",
+          "chapters": 9,
+          "paragraphs": 144
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "on-liberty",
@@ -397,7 +1223,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/on-liberty-modern-en.json",
+          "sha256": "12be1b0b5132554b0e19863654e4c0fa077e0cc267962106ed5e6e80eb6f1ff7",
+          "chapters": 5,
+          "paragraphs": 126
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/on-liberty-original-en.json",
+          "sha256": "ce17fe17570e069d551921dbbf21ff84ac6d268fe6e624ebb8d64ba3a6d1c979",
+          "chapters": 5,
+          "paragraphs": 126
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "utilitarianism",
@@ -405,7 +1248,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/utilitarianism-modern-en.json",
+          "sha256": "7457e909ce911b5043c692ccf51e7ce30266b5824aec22c10997931dfb737361",
+          "chapters": 5,
+          "paragraphs": 94
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/utilitarianism-original-en.json",
+          "sha256": "29360c7dbdc7de58c0b4e5794df9dfca5b9ca0199644499f45663130ea3c3acf",
+          "chapters": 5,
+          "paragraphs": 94
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "peloponnesian-war",
@@ -413,7 +1273,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/peloponnesian-war-modern-en.json",
+          "sha256": "c035038d032ca4ec110b18df43b68d5a15c33cfef7c934170699a51313b90f75",
+          "chapters": 26,
+          "paragraphs": 998
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/peloponnesian-war-original-en.json",
+          "sha256": "e50ada55ab4db8be8238f5b201f241478ff145f75073b79e09af48472e5f3d6a",
+          "chapters": 26,
+          "paragraphs": 998
+        }
+      ],
+      "existingThreadCandidates": 17,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "aristotle-politics",
@@ -421,7 +1298,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/aristotle-politics-modern-en.json",
+          "sha256": "8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224",
+          "chapters": 8,
+          "paragraphs": 478
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/aristotle-politics-original-en.json",
+          "sha256": "0bf42e46f4c5c3738c11c437513f104b0e92847432128873d10a49f9fc16c2fc",
+          "chapters": 8,
+          "paragraphs": 478
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "leviathan",
@@ -429,7 +1323,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/leviathan-modern-en.json",
+          "sha256": "e3462f5d27dbc2f5af67dcc97ef4e37907d98977ab0c87730b9b13eea9fb0133",
+          "chapters": 49,
+          "paragraphs": 1337
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/leviathan-original-en.json",
+          "sha256": "3ec71396aaa6dd3717e75900cffb1ecdd457189a6e945ef2e2be6ca96b41deb5",
+          "chapters": 49,
+          "paragraphs": 1337
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "fear-and-trembling",
@@ -437,7 +1348,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/fear-and-trembling-modern-en.json",
+          "sha256": "152776f19e1b707b610d2bee033d6984ed0f1e26826b314e2d0541d9c0b49132",
+          "chapters": 8,
+          "paragraphs": 232
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/fear-and-trembling-original-en.json",
+          "sha256": "d6f7ab72adfe4c161c5ab69b5bedda7e3bb519a92b0050d8b0b6f07d294e45a1",
+          "chapters": 8,
+          "paragraphs": 232
+        }
+      ],
+      "existingThreadCandidates": 8,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "communist-manifesto",
@@ -445,7 +1373,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/communist-manifesto-modern-en.json",
+          "sha256": "909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62",
+          "chapters": 5,
+          "paragraphs": 213
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/communist-manifesto-original-en.json",
+          "sha256": "8b5b839176167eefeff135ee6e2a66d631af44293367540d09fa92e18cbdd5d3",
+          "chapters": 5,
+          "paragraphs": 213
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "second-treatise",
@@ -453,7 +1398,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/second-treatise-modern-en.json",
+          "sha256": "177b364414c437af89fe5d09b8922d71ff772ccf7da6ec2e64c710ed061269bf",
+          "chapters": 19,
+          "paragraphs": 301
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/second-treatise-original-en.json",
+          "sha256": "efbd7cabd14ed99f98aabae7a95f48e8102db75f0b7aaae0054d0ffe4675b0d0",
+          "chapters": 19,
+          "paragraphs": 301
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "hume-enquiry",
@@ -461,7 +1423,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/hume-enquiry-modern-en.json",
+          "sha256": "8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290",
+          "chapters": 19,
+          "paragraphs": 318
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/hume-enquiry-original-en.json",
+          "sha256": "49ce7d94889fd07f4cad5b5a8e81f15d3fb2c6707c33a6444e961d61d511f8b9",
+          "chapters": 19,
+          "paragraphs": 318
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "social-contract",
@@ -469,7 +1448,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/social-contract-modern-en.json",
+          "sha256": "cf7facb77bfc5bafc99cb4d7a236fd4f59d5f9ffc4554c6f063ee8daae273843",
+          "chapters": 48,
+          "paragraphs": 491
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/social-contract-original-en.json",
+          "sha256": "7bf5ababb7c4dfe1cec0230d44f64960d8b447c4802b6a716b52d770a5854157",
+          "chapters": 48,
+          "paragraphs": 491
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "wealth-of-nations",
@@ -477,7 +1473,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/wealth-of-nations-modern-en.json",
+          "sha256": "d894aec39397bf2acd501fa3825eabbe0a60de6566bfee1b7a4272e3adf3f946",
+          "chapters": 32,
+          "paragraphs": 2173
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/wealth-of-nations-original-en.json",
+          "sha256": "986785410f5c74e8e0d6efd4b963e93e80461eb2ec619788eb3e772d87f90c4b",
+          "chapters": 32,
+          "paragraphs": 2173
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "werther",
@@ -485,7 +1498,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/werther-modern-en.json",
+          "sha256": "f45d353204e356b34bd473e250ed557c8ec899d83cfd8076aeb7ee16b1a05bc0",
+          "chapters": 84,
+          "paragraphs": 354
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/werther-original-en.json",
+          "sha256": "db7393bfc33628a2f6eda4afbdac9918093740440ed4d6c5e23fe0e29dfdc374",
+          "chapters": 84,
+          "paragraphs": 354
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "faust-part-1",
@@ -493,7 +1523,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/faust-part-1-modern-en.json",
+          "sha256": "9e66da5b45267bfb3cae70905897d9f9c1397bd1d1c8b080bf325cda0046d28b",
+          "chapters": 28,
+          "paragraphs": 895
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/faust-part-1-original-en.json",
+          "sha256": "bff236838e6e5ee6baeb7afd16c6b1c1b2872f87605f21e79e4cd5198a997395",
+          "chapters": 28,
+          "paragraphs": 895
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "oresteia",
@@ -501,7 +1548,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/oresteia-modern-en.json",
+          "sha256": "861b154ade47183257f3bfe4e503fa758404a0e421659baa246840e3eb1aecfd",
+          "chapters": 26,
+          "paragraphs": 771
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/oresteia-original-en.json",
+          "sha256": "c6189c462535c35845f110ed8a4c4fab2ac5be8ca9e5ce0879fc185fea54818c",
+          "chapters": 26,
+          "paragraphs": 771
+        }
+      ],
+      "existingThreadCandidates": 16,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "bacchae",
@@ -509,7 +1573,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/bacchae-modern-en.json",
+          "sha256": "9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3",
+          "chapters": 11,
+          "paragraphs": 336
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/bacchae-original-en.json",
+          "sha256": "fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539",
+          "chapters": 11,
+          "paragraphs": 336
+        }
+      ],
+      "existingThreadCandidates": 8,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "medea",
@@ -517,7 +1598,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/medea-modern-en.json",
+          "sha256": "2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae",
+          "chapters": 7,
+          "paragraphs": 241
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/medea-original-en.json",
+          "sha256": "6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731",
+          "chapters": 7,
+          "paragraphs": 241
+        }
+      ],
+      "existingThreadCandidates": 9,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "confessions",
@@ -525,7 +1623,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/confessions-modern-en.json",
+          "sha256": "420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e",
+          "chapters": 13,
+          "paragraphs": 462
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/confessions-original-en.json",
+          "sha256": "64b39a8ae77d7175c904625fcc0bf3de13cb59e346e964b37ec8f5e47d95a6d7",
+          "chapters": 13,
+          "paragraphs": 462
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "notes-from-underground",
@@ -533,7 +1648,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/notes-from-underground-modern-en.json",
+          "sha256": "8df3e74890b26ce3febb108540f3a7a32fd3afdc93b1d047cbe6b053793a0449",
+          "chapters": 21,
+          "paragraphs": 495
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/notes-from-underground-original-en.json",
+          "sha256": "c600f3f5ac6508240ab0bf733bff2b8944ef082c08d14b7834df52977698c237",
+          "chapters": 21,
+          "paragraphs": 495
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "magna-carta",
@@ -541,7 +1673,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/magna-carta-modern-en.json",
+          "sha256": "cf7d388da295fff52af25f55d6dd692644b4ca96b521db4e9dc2525deaa5f586",
+          "chapters": 1,
+          "paragraphs": 74
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/magna-carta-original-en.json",
+          "sha256": "ca7447fb99a427bd9e12b00dcb4a0f5c7452f6da410b4111eb35d47bfacc560f",
+          "chapters": 1,
+          "paragraphs": 74
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "us-founding-documents",
@@ -549,7 +1698,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/us-founding-documents-modern-en.json",
+          "sha256": "4c6888a7cc0b24e1fa68f8781b71d052243828710063173f634c2ef8dcd8873b",
+          "chapters": 4,
+          "paragraphs": 153
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/us-founding-documents-original-en.json",
+          "sha256": "0972836459be1c06334145b4ae0130ae75f6355bdefab52e10fa9b3f2e2e953a",
+          "chapters": 4,
+          "paragraphs": 153
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "federalist-papers",
@@ -557,7 +1723,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/federalist-papers-modern-en.json",
+          "sha256": "1974574ebce6859b2c7fdde48b524360b6348e0492e425861e8259076297278d",
+          "chapters": 85,
+          "paragraphs": 1279
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/federalist-papers-original-en.json",
+          "sha256": "c733011184b5b42d48ac29dc73660ee631d039df0ff0572761724c7e0509d7e8",
+          "chapters": 85,
+          "paragraphs": 1279
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "frederick-douglass",
@@ -565,7 +1748,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/frederick-douglass-modern-en.json",
+          "sha256": "695db129557f339345670d8ea3abeceae6625101d91c530891ee303fe8321b0b",
+          "chapters": 12,
+          "paragraphs": 162
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/frederick-douglass-original-en.json",
+          "sha256": "64bc808575f553642c412702be86b9a26164b15d63bc4266471645858b5e930a",
+          "chapters": 12,
+          "paragraphs": 162
+        }
+      ],
+      "existingThreadCandidates": 12,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "a-little-princess",
@@ -573,7 +1773,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/a-little-princess-modern-en.json",
+          "sha256": "5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020",
+          "chapters": 19,
+          "paragraphs": 1701
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/a-little-princess-original-en.json",
+          "sha256": "db6f42f1bdcc817ab8762339790b40606fd6512e95464ef4222af6e86aed1cdb",
+          "chapters": 19,
+          "paragraphs": 1701
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "jungle-book",
@@ -581,7 +1798,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/jungle-book-modern-en.json",
+          "sha256": "821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640",
+          "chapters": 7,
+          "paragraphs": 944
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/jungle-book-original-en.json",
+          "sha256": "f1a9afbb1c7ee5ab30915e4c394588f6537ed74adc0880d514ff850b61e17d0b",
+          "chapters": 7,
+          "paragraphs": 944
+        }
+      ],
+      "existingThreadCandidates": 17,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "around-the-world-80-days",
@@ -589,7 +1823,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/around-the-world-80-days-modern-en.json",
+          "sha256": "13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af",
+          "chapters": 37,
+          "paragraphs": 1613
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/around-the-world-80-days-original-en.json",
+          "sha256": "e23ae1708c6e03657d0f542e70465cc32ba772fd21a6936d9cf7f1a63b5417d9",
+          "chapters": 37,
+          "paragraphs": 1613
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "heart-of-darkness",
@@ -597,7 +1848,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/heart-of-darkness-modern-en.json",
+          "sha256": "169c288c26f0c8c07be6d181855123cd982023a0b780262576944f5833afa435",
+          "chapters": 3,
+          "paragraphs": 198
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/heart-of-darkness-original-en.json",
+          "sha256": "9d7234592e087f7d60a6dd460551347da283d5225fdcf81099a4b78b62bcede8",
+          "chapters": 3,
+          "paragraphs": 198
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "discourse-on-inequality",
@@ -605,7 +1873,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/discourse-on-inequality-modern-en.json",
+          "sha256": "78356e4ffdf62ec28c056fe871521967da428d31fafe694cad8b064f7019c62f",
+          "chapters": 4,
+          "paragraphs": 170
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/discourse-on-inequality-original-en.json",
+          "sha256": "d3e7e7975ac634b98f685abcd7f6aae64b3621a74db31e1d229f2b6cfc4ba3bd",
+          "chapters": 4,
+          "paragraphs": 170
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "jekyll-and-hyde",
@@ -613,7 +1898,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/jekyll-and-hyde-modern-en.json",
+          "sha256": "308ad53a5c88f4b7a8a6ec618d184d636f4e7884b5a897e9f6407cef9eb3e654",
+          "chapters": 10,
+          "paragraphs": 339
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/jekyll-and-hyde-original-en.json",
+          "sha256": "dc134b812fa478e45dfbe647db97ad0294463587b4b68a01a956f5c9fb34532b",
+          "chapters": 10,
+          "paragraphs": 339
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "walden",
@@ -621,7 +1923,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/walden-modern-en.json",
+          "sha256": "d2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec",
+          "chapters": 18,
+          "paragraphs": 502
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/walden-original-en.json",
+          "sha256": "880a909fb8da73db303b4b2ea43be64a1800bdafd82ffcac7cb2847232ed5cb3",
+          "chapters": 18,
+          "paragraphs": 502
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "vindication-rights-of-woman",
@@ -629,7 +1948,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/vindication-rights-of-woman-modern-en.json",
+          "sha256": "4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63",
+          "chapters": 15,
+          "paragraphs": 778
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/vindication-rights-of-woman-original-en.json",
+          "sha256": "3e168f00ba7901f8a31cc36902f0046e9555d6fd5245566c437b029331e91aac",
+          "chapters": 15,
+          "paragraphs": 778
+        }
+      ],
+      "existingThreadCandidates": 0,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "comedy-of-errors",
@@ -637,7 +1973,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/comedy-of-errors-modern-en.json",
+          "sha256": "6319d77729e29c7b62f5f8f651469fcbd2cffb337b4e3b67367c364ee2698353",
+          "chapters": 11,
+          "paragraphs": 690
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/comedy-of-errors-original-en.json",
+          "sha256": "84bba3a2afd91e5fa77f769259098cb68b45748e9e3f8a8f355a82215e0f354c",
+          "chapters": 11,
+          "paragraphs": 690
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "merchant-of-venice",
@@ -645,7 +1998,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/merchant-of-venice-modern-en.json",
+          "sha256": "a15d3a630dbfe538acdc0adc6db09ba391483c375fd24a02746a9a43b8443641",
+          "chapters": 20,
+          "paragraphs": 779
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/merchant-of-venice-original-en.json",
+          "sha256": "4897042eb44535622771253d9f1155d184c56b1b7450e17a3b2fcfa98ecbad20",
+          "chapters": 20,
+          "paragraphs": 779
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "henry-v",
@@ -653,7 +2023,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/henry-v-modern-en.json",
+          "sha256": "f2b9cab47fef45f65a6bb9b53aec30aaaaa33e9944de3e62ee482df133b9bb42",
+          "chapters": 23,
+          "paragraphs": 883
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/henry-v-original-en.json",
+          "sha256": "c66a930a2d877fc78b00c4a793a4c63d550f2042609b51c922ec3d9a18da081b",
+          "chapters": 23,
+          "paragraphs": 883
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "as-you-like-it",
@@ -661,7 +2048,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/as-you-like-it-modern-en.json",
+          "sha256": "df270fa2b605950982107d654d395fe0eaa0226208f9a5b185d06d7da2b5f8e4",
+          "chapters": 17,
+          "paragraphs": 901
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/as-you-like-it-original-en.json",
+          "sha256": "2c04249b4ea528612cfa8f41031ed7a78fff2e453f15fbccf7d55f03905ce179",
+          "chapters": 17,
+          "paragraphs": 901
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "winters-tale",
@@ -669,7 +2073,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/winters-tale-modern-en.json",
+          "sha256": "b85a81abca26b0a3d5ba2afe80e39afc13618c44b1de3addff024be57d53c346",
+          "chapters": 15,
+          "paragraphs": 911
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/winters-tale-original-en.json",
+          "sha256": "e725492b2ca705fc0dc46687b555a88e106100dff1b76a2cc0900473ea0b4295",
+          "chapters": 15,
+          "paragraphs": 911
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "julius-caesar",
@@ -677,7 +2098,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/julius-caesar-modern-en.json",
+          "sha256": "ab371bca564b2e2fa495d17fa53c243dd33131b2b18f886c1682db0a40d9915c",
+          "chapters": 18,
+          "paragraphs": 997
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/julius-caesar-original-en.json",
+          "sha256": "5368eeed767055335f97e708cd163dfb2fa17576a7cf4909844236438d8c087c",
+          "chapters": 18,
+          "paragraphs": 997
+        }
+      ],
+      "existingThreadCandidates": 5,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "twelfth-night",
@@ -685,7 +2123,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/twelfth-night-modern-en.json",
+          "sha256": "95580e0b935cdfce4931acc61bd345c90b2ebbbae92bad677f09909ed2a5a5a0",
+          "chapters": 18,
+          "paragraphs": 1120
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/twelfth-night-original-en.json",
+          "sha256": "bf69ddee77f588e6032f726a7cb81a18b3d60ca37f380ed2d76a5f9d756baed3",
+          "chapters": 18,
+          "paragraphs": 1120
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "measure-for-measure",
@@ -693,7 +2148,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/measure-for-measure-modern-en.json",
+          "sha256": "d0e5a5ae2cf437bb6abaa4002d938224ec977e5d6f17360d7482d7e7a12f8331",
+          "chapters": 17,
+          "paragraphs": 1006
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/measure-for-measure-original-en.json",
+          "sha256": "b99ee3fc8f98dca8ec96d44d1f88d3851a67c34b575ea3818d1616e32d22b343",
+          "chapters": 17,
+          "paragraphs": 1006
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "henry-iv-part-2",
@@ -701,7 +2173,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/henry-iv-part-2-modern-en.json",
+          "sha256": "5488605e212b451b6693e21690babd7690cb5f295a62ffac479519cb394cd203",
+          "chapters": 19,
+          "paragraphs": 1081
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/henry-iv-part-2-original-en.json",
+          "sha256": "5312386825366dc9945e915fa5474a680d89fcc2dbceb740f84288a4f5e2f38c",
+          "chapters": 19,
+          "paragraphs": 1081
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "merry-wives-of-windsor",
@@ -709,7 +2198,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/merry-wives-of-windsor-modern-en.json",
+          "sha256": "9c5531e4d3ff43f4604e08517a3059460d3aee6f9f59fde3282fa61203f61010",
+          "chapters": 23,
+          "paragraphs": 1155
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/merry-wives-of-windsor-original-en.json",
+          "sha256": "4ee59167c634e42eb81ede9d58ec481aedf55931bfd5fd953b9c0713a2c6b280",
+          "chapters": 23,
+          "paragraphs": 1155
+        }
+      ],
+      "existingThreadCandidates": 12,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "othello",
@@ -717,7 +2223,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/othello-modern-en.json",
+          "sha256": "5beb0f0093ef10f1d725b797c3eef7cdfe370b3d74be8738f4fd01431dbdb04d",
+          "chapters": 15,
+          "paragraphs": 1391
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/othello-original-en.json",
+          "sha256": "a8e8ae40b054bce1b60dcba35fcd194f08e74829fcc0faa6665456f962b5d1df",
+          "chapters": 15,
+          "paragraphs": 1391
+        }
+      ],
+      "existingThreadCandidates": 8,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "king-lear",
@@ -725,7 +2248,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/king-lear-modern-en.json",
+          "sha256": "9f4719b82396b06f919866a68fcfab53427865248f959dd6eff16e80b04b920c",
+          "chapters": 26,
+          "paragraphs": 1371
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/king-lear-original-en.json",
+          "sha256": "6a8c008eae10905969decc11ef6f7c56e563c68de8597f11f7c52dc3d7732bb5",
+          "chapters": 26,
+          "paragraphs": 1371
+        }
+      ],
+      "existingThreadCandidates": 11,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "much-ado-about-nothing",
@@ -733,7 +2273,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/much-ado-about-nothing-modern-en.json",
+          "sha256": "3b92db2e6ffc9d6b06eb0e3e6b15edaba45f2ed3495ddb2cb999c5b10eddf1af",
+          "chapters": 17,
+          "paragraphs": 1118
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/much-ado-about-nothing-original-en.json",
+          "sha256": "dd00eb7a88235b9852807ce3d52b7bc5c99d2dd391816465e063fffd0d2c7628",
+          "chapters": 17,
+          "paragraphs": 1118
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "taming-of-the-shrew",
@@ -741,7 +2298,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/taming-of-the-shrew-modern-en.json",
+          "sha256": "65f0c9c6d2da2732126c82386f4da63be0089283e42ef7001697c53dc8882376",
+          "chapters": 12,
+          "paragraphs": 1021
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/taming-of-the-shrew-original-en.json",
+          "sha256": "2fa6c01140bd2544025574f3b486668695917743734092cf297cce0ddce72b8e",
+          "chapters": 12,
+          "paragraphs": 1021
+        }
+      ],
+      "existingThreadCandidates": 7,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "antony-and-cleopatra",
@@ -749,7 +2323,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/antony-and-cleopatra-modern-en.json",
+          "sha256": "6cd4739c60b8cda93545514560503eca9bfeef36355dff9896a6a087bf4c2654",
+          "chapters": 42,
+          "paragraphs": 1513
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/antony-and-cleopatra-original-en.json",
+          "sha256": "1e768f7514f9746ced869799b520c0592a96165101c6a8be4f1f5347093a8a8b",
+          "chapters": 42,
+          "paragraphs": 1513
+        }
+      ],
+      "existingThreadCandidates": 9,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "richard-iii",
@@ -757,7 +2348,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/richard-iii-modern-en.json",
+          "sha256": "30204ef16006235b5dfad0a5281469da176f220f6b89e97f071efb523ce56b6f",
+          "chapters": 25,
+          "paragraphs": 1420
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/richard-iii-original-en.json",
+          "sha256": "891ead74f6cbcfa6acd05afc92b3e7798c4aa2105a1e7011086e8b2853e3a449",
+          "chapters": 25,
+          "paragraphs": 1420
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "coriolanus",
@@ -765,7 +2373,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/coriolanus-modern-en.json",
+          "sha256": "cb7175962445184e3d28082130a5eee53b66dee497c1f92d9d516f512de8b488",
+          "chapters": 29,
+          "paragraphs": 1379
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/coriolanus-original-en.json",
+          "sha256": "d0381f3053901dbbf81876e9ef4ce8a4dd2829d40c50c3b199a959c5da8468da",
+          "chapters": 29,
+          "paragraphs": 1379
+        }
+      ],
+      "existingThreadCandidates": 8,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "cymbeline",
@@ -773,7 +2398,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/cymbeline-modern-en.json",
+          "sha256": "9fbacf6307e227a64ec6ccb4624a1afc4b41b890f045904eb2ca1276040580b0",
+          "chapters": 29,
+          "paragraphs": 1133
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/cymbeline-original-en.json",
+          "sha256": "5f25167f50db13c867e42eaa594a989b52651e122034987181c5065cfd919749",
+          "chapters": 29,
+          "paragraphs": 1133
+        }
+      ],
+      "existingThreadCandidates": 9,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "anna-karenina",
@@ -781,7 +2423,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/anna-karenina-modern-en.json",
+          "sha256": "e19b01c5f4c5264ba44191e90cb08c6436d485a44ed30277311e7d4c918bcfb7",
+          "chapters": 239,
+          "paragraphs": 7442
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/anna-karenina-original-en.json",
+          "sha256": "6318124f6f65f5deef18f48553b01e219487ccd87fbfee1db90e36d63e25cbf0",
+          "chapters": 239,
+          "paragraphs": 7442
+        }
+      ],
+      "existingThreadCandidates": 16,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "don-quixote",
@@ -789,7 +2448,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/don-quixote-modern-en.json",
+          "sha256": "6610ca122d1db97f18ec521c390c73ff15360073ed919c7598d6efa6ad44bdf2",
+          "chapters": 126,
+          "paragraphs": 3939
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/don-quixote-original-en.json",
+          "sha256": "f7f7785e59136d881566bd893f76d3661a027e7c094cfacc5937f350b4e4e2f3",
+          "chapters": 126,
+          "paragraphs": 3939
+        }
+      ],
+      "existingThreadCandidates": 22,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "essays-montaigne",
@@ -797,7 +2473,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/essays-montaigne-modern-en.json",
+          "sha256": "b9a1d95cff1ad62b23d0250e242ed8f7541bf0a77495faf52f1a9cad6338b4ed",
+          "chapters": 107,
+          "paragraphs": 4897
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/essays-montaigne-original-en.json",
+          "sha256": "2d7353e85164e3a1426003ae17857136460edc0e2dab21a1ee0ee507c8076dd5",
+          "chapters": 107,
+          "paragraphs": 4897
+        }
+      ],
+      "existingThreadCandidates": 10,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     },
     {
       "bookId": "ivan-ilyich",
@@ -805,7 +2498,24 @@
       "contentStatus": "not-started",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
-      "nextAction": "Review actual text, classify entity types, author and validate position-gated cards"
+      "sources": [
+        {
+          "edition": "modern-en",
+          "path": "app/public/data/editions/ivan-ilyich-modern-en.json",
+          "sha256": "1bb15d1bc0758feadd7ccd239ecc5f8b87d53b9676915d4b3e222d9235e0d5a6",
+          "chapters": 12,
+          "paragraphs": 298
+        },
+        {
+          "edition": "original-en",
+          "path": "app/public/data/editions/ivan-ilyich-original-en.json",
+          "sha256": "2b9d02f6a874058e212f44b6f0c978db24171aa66d4623a6ebf5242a11d4ccda",
+          "chapters": 12,
+          "paragraphs": 298
+        }
+      ],
+      "existingThreadCandidates": 6,
+      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
     }
   ],
   "excludedStaged": [

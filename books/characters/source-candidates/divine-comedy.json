@@ -1,0 +1,529 @@
+{
+  "bookId": "divine-comedy",
+  "status": "unreviewed-source-candidates",
+  "warning": "Aliases may be ambiguous, future identities, titles, or different people. First regex match is NOT a validated first mention. Existing thread prose is intentionally not copied.",
+  "candidates": [
+    {
+      "id": "dante",
+      "candidateName": "Dante",
+      "unreviewedAliases": [
+        "Dante",
+        "the Pilgrim",
+        "the Poet",
+        "I"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 1,
+          "paragraphIndex": 0,
+          "alias": "I",
+          "context": "Midway upon the journey of our life\nI found myself within a forest dark,\nFor the straightforward pathway had been lost."
+        },
+        "modern-en": {
+          "chapter": 1,
+          "paragraphIndex": 0,
+          "alias": "I",
+          "context": "Halfway through the journey of my life, I found myself lost in a dark forest, for the straight path ahead had vanished."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "virgil",
+      "candidateName": "Virgil",
+      "unreviewedAliases": [
+        "Virgil",
+        "Vergil",
+        "the Poet",
+        "my Guide",
+        "my Master",
+        "my Leader",
+        "my Lord",
+        "the Mantuan",
+        "the Sage"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 2,
+          "paragraphIndex": 24,
+          "alias": "my Lord",
+          "context": "When I shall be in presence of my Lord,\nFull often will I praise thee unto him.’\nThen paused she, and thereafter I began:"
+        },
+        "modern-en": {
+          "chapter": 1,
+          "paragraphIndex": 26,
+          "alias": "Virgil",
+          "context": "\"Are you truly that Virgil, that wellspring from which such a broad river of eloquence flows?\" I replied, my face flushing with awe."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "beatrice",
+      "candidateName": "Beatrice",
+      "unreviewedAliases": [
+        "Beatrice",
+        "the Lady",
+        "my Lady"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 2,
+          "paragraphIndex": 23,
+          "alias": "Beatrice",
+          "context": "Beatrice am I, who do bid thee go;\nI come from there, where I would fain return;\nLove moved me, which compelleth me to speak."
+        },
+        "modern-en": {
+          "chapter": 2,
+          "paragraphIndex": 23,
+          "alias": "Beatrice",
+          "context": "I am Beatrice, and I bid you go. I come from the place where I long to return. Love moved me — love compels me to speak."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "francesca",
+      "candidateName": "Francesca da Rimini",
+      "unreviewedAliases": [
+        "Francesca",
+        "Francesca da Rimini",
+        "Paolo"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 5,
+          "paragraphIndex": 38,
+          "alias": "Francesca",
+          "context": "Then unto them I turned me, and I spake,\nAnd I began: “Thine agonies, Francesca,\nSad and compassionate to weeping make me."
+        },
+        "modern-en": {
+          "chapter": 5,
+          "paragraphIndex": 38,
+          "alias": "Francesca",
+          "context": "Then I turned to them and spoke: \"Francesca, your suffering makes me weep with sadness and compassion."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "farinata",
+      "candidateName": "Farinata degli Uberti",
+      "unreviewedAliases": [
+        "Farinata",
+        "Farinata degli Uberti"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 6,
+          "paragraphIndex": 26,
+          "alias": "Farinata",
+          "context": "Farinata and Tegghiaio, once so worthy,\nJacopo Rusticucci, Arrigo, and Mosca,\nAnd others who on good deeds set their thoughts,"
+        },
+        "modern-en": {
+          "chapter": 6,
+          "paragraphIndex": 26,
+          "alias": "Farinata",
+          "context": "Farinata and Tegghiaio, who were once so worthy, Jacopo Rusticucci, Arrigo, and Mosca, and the others who set their minds on doing good —"
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "ulysses",
+      "candidateName": "Ulysses",
+      "unreviewedAliases": [
+        "Ulysses",
+        "Odysseus",
+        "Ulisse"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 26,
+          "paragraphIndex": 18,
+          "alias": "Ulysses",
+          "context": "He answered me: “Within there are tormented\nUlysses and Diomed, and thus together\nThey unto vengeance run as unto wrath."
+        },
+        "modern-en": {
+          "chapter": 26,
+          "paragraphIndex": 18,
+          "alias": "Ulysses",
+          "context": "He answered: \"Within it, Ulysses and Diomedes are tormented together. They rush toward vengeance as once they rushed toward wrath."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "ugolino",
+      "candidateName": "Count Ugolino",
+      "unreviewedAliases": [
+        "Ugolino",
+        "Count Ugolino"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 33,
+          "paragraphIndex": 4,
+          "alias": "Count Ugolino",
+          "context": "Thou hast to know I was Count Ugolino,\nAnd this one was Ruggieri the Archbishop;\nNow I will tell thee why I am such a neighbour."
+        },
+        "modern-en": {
+          "chapter": 33,
+          "paragraphIndex": 4,
+          "alias": "Count Ugolino",
+          "context": "You should know that I was Count Ugolino, and this one is Archbishop Ruggieri. Now I will tell you why I am such a neighbor to him."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "lucifer",
+      "candidateName": "Lucifer",
+      "unreviewedAliases": [
+        "Lucifer",
+        "Satan",
+        "Dis",
+        "Beelzebub",
+        "the emperor of the kingdom of grief"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 7,
+          "paragraphIndex": 0,
+          "alias": "Satan",
+          "context": "“Pape Satan, Pape Satan, Aleppe!”\nThus Plutus with his clucking voice began;\nAnd that benignant Sage, who all things knew,"
+        },
+        "modern-en": {
+          "chapter": 7,
+          "paragraphIndex": 0,
+          "alias": "Satan",
+          "context": "\"Pape Satan, pape Satan, aleppe!\" Plutus clucked in his garbled voice. And the gentle Sage, who understood all things,"
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "statius",
+      "candidateName": "Statius",
+      "unreviewedAliases": [
+        "Statius"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 55,
+          "paragraphIndex": 30,
+          "alias": "Statius",
+          "context": "Statius the people name me still on earth;\nI sang of Thebes, and then of great Achilles;\nBut on the way fell with my second burden."
+        },
+        "modern-en": {
+          "chapter": 55,
+          "paragraphIndex": 30,
+          "alias": "Statius",
+          "context": "Statius, the people still call me on earth. I sang of Thebes and then of great Achilles, but I fell along the way with my second burden."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "bernard",
+      "candidateName": "St. Bernard of Clairvaux",
+      "unreviewedAliases": [
+        "Bernard",
+        "St. Bernard",
+        "the holy old man"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 78,
+          "paragraphIndex": 26,
+          "alias": "Bernard",
+          "context": "So much so that the venerable Bernard\nFirst bared his feet, and after so great peace\nRan, and, in running, thought himself too slow."
+        },
+        "modern-en": {
+          "chapter": 78,
+          "paragraphIndex": 26,
+          "alias": "Bernard",
+          "context": "So much so that the venerable Bernard was the first to strip his feet bare. He ran after such great peace and, even running, thought himself too slow."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "cato",
+      "candidateName": "Cato of Utica",
+      "unreviewedAliases": [
+        "Cato"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 14,
+          "paragraphIndex": 4,
+          "alias": "Cato",
+          "context": "The soil was of an arid and thick sand,\nNot of another fashion made than that\nWhich by the feet of Cato once was pressed."
+        },
+        "modern-en": {
+          "chapter": 14,
+          "paragraphIndex": 4,
+          "alias": "Cato",
+          "context": "The ground was thick, dry sand — no different from the sand once pressed beneath the feet of Cato."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "brunetto",
+      "candidateName": "Brunetto Latini",
+      "unreviewedAliases": [
+        "Brunetto",
+        "Ser Brunetto",
+        "Brunetto Latini"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 15,
+          "paragraphIndex": 9,
+          "alias": "Ser Brunetto",
+          "context": "His recognition by my intellect;\nAnd bowing down my face unto his own,\nI made reply, “Are you here, Ser Brunetto?”"
+        },
+        "modern-en": {
+          "chapter": 15,
+          "paragraphIndex": 9,
+          "alias": "Ser Brunetto",
+          "context": "My mind recognized him. Leaning down toward his face, I replied: \"Are you here, Ser Brunetto?\""
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "thomas-aquinas",
+      "candidateName": "Thomas Aquinas",
+      "unreviewedAliases": [
+        "Thomas",
+        "Thomas Aquinas",
+        "Thomas of Aquinas",
+        "Aquinas"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 54,
+          "paragraphIndex": 22,
+          "alias": "Thomas",
+          "context": "Charles came to Italy, and for amends\nA victim made of Conradin, and then\nThrust Thomas back to heaven, for amends."
+        },
+        "modern-en": {
+          "chapter": 54,
+          "paragraphIndex": 22,
+          "alias": "Thomas",
+          "context": "Charles came to Italy, and for amends made a victim of Conradin. Then he thrust Thomas back to heaven — for amends."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "cacciaguida",
+      "candidateName": "Cacciaguida",
+      "unreviewedAliases": [
+        "Cacciaguida"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 82,
+          "paragraphIndex": 44,
+          "alias": "Cacciaguida",
+          "context": "Did Mary give me, with loud cries invoked,\nAnd in your ancient Baptistery at once\nChristian and Cacciaguida I became."
+        },
+        "modern-en": {
+          "chapter": 82,
+          "paragraphIndex": 44,
+          "alias": "Cacciaguida",
+          "context": "Mary gave me — called upon with loud cries in her labor pains — and in your ancient Baptistery I became both a Christian and Cacciaguida."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "sordello",
+      "candidateName": "Sordello",
+      "unreviewedAliases": [
+        "Sordello"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 40,
+          "paragraphIndex": 24,
+          "alias": "Sordello",
+          "context": "Rose tow’rds him from the place where first it was,\nSaying: “O Mantuan, I am Sordello\nOf thine own land!” and one embraced the other."
+        },
+        "modern-en": {
+          "chapter": 40,
+          "paragraphIndex": 24,
+          "alias": "Sordello",
+          "context": "Leapt toward him from where it stood, crying: \"O Mantuan, I am Sordello, from your own land!\" And they embraced each other."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "forese",
+      "candidateName": "Forese Donati",
+      "unreviewedAliases": [
+        "Forese",
+        "Forese Donati"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 57,
+          "paragraphIndex": 15,
+          "alias": "Forese",
+          "context": "This spark within me wholly re-enkindled\nMy recognition of his altered face,\nAnd I recalled the features of Forese."
+        },
+        "modern-en": {
+          "chapter": 57,
+          "paragraphIndex": 15,
+          "alias": "Forese",
+          "context": "This spark reignited in me the full recognition of his altered features, and I recalled the face of Forese."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "manfred",
+      "candidateName": "Manfred of Sicily",
+      "unreviewedAliases": [
+        "Manfred",
+        "Manfredi"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 37,
+          "paragraphIndex": 37,
+          "alias": "Manfredi",
+          "context": "Then said he with a smile: “I am Manfredi,\nThe grandson of the Empress Costanza;\nTherefore, when thou returnest, I beseech thee"
+        },
+        "modern-en": {
+          "chapter": 37,
+          "paragraphIndex": 37,
+          "alias": "Manfredi",
+          "context": "Then he said with a smile: \"I am Manfredi, grandson of the Empress Constance. Therefore I beg you, when you return,"
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "matelda",
+      "candidateName": "Matelda",
+      "unreviewedAliases": [
+        "Matelda",
+        "Matilda",
+        "the beautiful lady"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 62,
+          "paragraphIndex": 49,
+          "alias": "the beautiful lady",
+          "context": "Then to the beautiful lady turned mine eyes."
+        },
+        "modern-en": {
+          "chapter": 62,
+          "paragraphIndex": 49,
+          "alias": "the beautiful lady",
+          "context": "Then I turned my eyes back to the beautiful lady."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "mary",
+      "candidateName": "The Virgin Mary",
+      "unreviewedAliases": [
+        "Mary",
+        "the Virgin",
+        "Our Lady",
+        "the Queen of Heaven"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 37,
+          "paragraphIndex": 12,
+          "alias": "Mary",
+          "context": "Mortals, remain contented at the ‘Quia;’\nFor if ye had been able to see all,\nNo need there were for Mary to give birth;"
+        },
+        "modern-en": {
+          "chapter": 37,
+          "paragraphIndex": 12,
+          "alias": "Mary",
+          "context": "Mortals, be content with the 'because.' For if you had been able to see everything, there would have been no need for Mary to give birth."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "charon",
+      "candidateName": "Charon",
+      "unreviewedAliases": [
+        "Charon"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 3,
+          "paragraphIndex": 31,
+          "alias": "Charon",
+          "context": "And unto him the Guide: “Vex thee not, Charon;\nIt is so willed there where is power to do\nThat which is willed; and farther question not.”"
+        },
+        "modern-en": {
+          "chapter": 3,
+          "paragraphIndex": 31,
+          "alias": "Charon",
+          "context": "My Guide replied: \"Charon, do not torment yourself. It is willed where the power exists to do what is willed. Ask nothing more.\""
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "minos",
+      "candidateName": "Minos",
+      "unreviewedAliases": [
+        "Minos"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 5,
+          "paragraphIndex": 1,
+          "alias": "Minos",
+          "context": "There standeth Minos horribly, and snarls;\nExamines the transgressions at the entrance;\nJudges, and sends according as he girds him."
+        },
+        "modern-en": {
+          "chapter": 5,
+          "paragraphIndex": 1,
+          "alias": "Minos",
+          "context": "There stands Minos, snarling hideously. He examines each soul's sins at the entrance, judges them, and assigns their depth by the coils of his tail."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    },
+    {
+      "id": "pier-della-vigna",
+      "candidateName": "Pier della Vigna",
+      "unreviewedAliases": [
+        "Pier della Vigna",
+        "Pier"
+      ],
+      "firstCandidateMatches": {
+        "original-en": {
+          "chapter": 28,
+          "paragraphIndex": 24,
+          "alias": "Pier",
+          "context": "Call to remembrance Pier da Medicina,\nIf e’er thou see again the lovely plain\nThat from Vercelli slopes to Marcabo,"
+        },
+        "modern-en": {
+          "chapter": 28,
+          "paragraphIndex": 24,
+          "alias": "Pier",
+          "context": "Remember Pier da Medicina, if you ever see again the lovely plain that slopes from Vercelli down to Marcabo."
+        }
+      },
+      "reviewStatus": "unreviewed"
+    }
+  ]
+}

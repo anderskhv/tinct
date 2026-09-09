@@ -99,3 +99,14 @@ The literal King of Prussia and the nickname for old Prince Bolkonski require se
 Read Chapter 1 in `app/public/data/editions/war-and-peace-original-en.json` and `war-and-peace-modern-en.json`. Paragraph indices (zero-based): opening identities 1; daughter 7 and 24; diplomatic discussion 10–19; guests 17; Funke 18–22; children 26–31; Bolkonski family 35–41. Later first names are ordinary identity orientation, not chapter-one quotations.
 
 Lavater’s background was checked against the [University of Delaware Press description of his work on physiognomy](https://udpress.udel.edu/book-title/physiognomy-in-profile-lavaters-impact-on-european-culture/). Political cards intentionally give only the identifying roles needed for this conversation, without biographies or later historical outcomes.
+
+## Categories approved by Anders
+
+| Category | Entries |
+| --- | --- |
+| Central | Andrei Bolkonski; Marya Bolkonskaya |
+| Major | Prince Vasili; Hélène; Anatole; Old Prince Bolkonski; Napoleon; Kutuzov |
+| Supporting | Anna Pavlovna; Hippolyte; Lise; Emperor Alexander |
+| Reference | Mortemart; Abbé Morio; Baron Funke; Novosiltsev; Hardenberg; Haugwitz; Wintzingerode; Lavater; Dowager Empress; the King of Prussia; mentioned family groups |
+
+These are editorial classifications across the work. Their visibility at Chapter 1 still requires review; a mention must not automatically advertise later importance.

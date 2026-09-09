@@ -30,3 +30,14 @@ Supplementary identity references used for this revision: [Poetry Foundation on 
 Runtime publishing: character assets currently have immutable cache headers. Bump the content revision in the request URL whenever copy changes; verify the actual reader and fetched asset on production, not only the uploaded file.
 
 War and Peace Chapter 1 sample: `war-and-peace/chapter-one-draft.md`. This tests concise recognition cards and deliberately avoids conversation-by-conversation updates.
+
+## Approved categories
+
+- **Central:** a principal figure whose experience or perspective carries the work.
+- **Major:** substantial involvement across the work without being one of its central figures.
+- **Supporting:** a recurring or locally important participant.
+- **Reference:** a person or family chiefly mentioned, cited, or discussed rather than participating substantially.
+
+Classification is editorial and work-specific. A historical figure may be central or major, not automatically Reference. Whole-book importance differs from prominence in the opening scene. Gate a category when showing it would advertise future importance. Categories do not justify a longer card.
+
+For philosophical dialogues, classify participants by their part in the dialogue; cited thinkers normally remain references. For treatises, documents, and essays, provide useful people/reference identification without inventing a fictional cast or calling the author a protagonist. For scripture and collections, record the relevant section as well as whole-work context; no chapter should display a gallery of everyone appearing anywhere in the collection.
