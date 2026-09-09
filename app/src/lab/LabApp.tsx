@@ -674,7 +674,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const chapterLandingRef = useRef<'start' | 'end' | null>(null)
   const landingChapterRef = useRef<number | null>(null)
   const handoffPlace = readerHandoff
-    ? { paragraphIndex: readerHandoff.savedPlace?.paragraphIndex ?? 0, wordIndex: 0 }
+    ? { paragraphIndex: readerHandoff.savedPlace?.paragraphIndex ?? 0, wordIndex: readerHandoff.savedPlace?.wordIndex ?? 0 }
     : null
   const initialPlace = handoffPlace ?? boot.place
   const placeRef = useRef(initialPlace)
@@ -3840,7 +3840,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               aria-label={LAB_COPY.previous}
               onClick={goPrev}
             >
-              {showPhoneChrome ? '←' : '‹'}
+              {showPhoneChrome ? '←' : <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 6-6 6 6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>}
             </button>
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
@@ -3877,7 +3877,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               aria-label={LAB_COPY.next}
               onClick={goNext}
             >
-              {showPhoneChrome ? '→' : '›'}
+              {showPhoneChrome ? '→' : <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>}
             </button>
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null

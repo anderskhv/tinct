@@ -146,7 +146,7 @@ describe('library recap helpers', () => {
     const memory = sessionFor({ ...bibleChapterFixture(), chapterNumber: 857, chapterLabel: 'Daniel 7' }, { id: 'b-daniel', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 10_000, page: 2 })
     const james = place({ bookId: 'james', headerBook: 'James', chapterNumber: 1, sequentialChapter: 1147, paragraphIndex: 3, wordIndex: 12, pageIndex: 1, primaryEditionKey: 'kjv-en', updatedAt: T0 + 60_000 })
     const target = continueTargetFor({ book: books.get('bible'), session: memory, place: james })
-    expect(target).toMatchObject({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1147, chapterLabel: 'James 1', pageIndex: 1, paragraphIndex: 3, source: 'position', at: T0 + 60_000 })
+    expect(target).toMatchObject({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1147, chapterLabel: 'James 1', pageIndex: 1, paragraphIndex: 3, wordIndex: 12, source: 'position', at: T0 + 60_000 })
 
     const list = readingList({ memory: memoryOf(memory), viewer: null, positions: positions([james], 'james'), books })
     expect(list.readingNow).toHaveLength(1)

@@ -51,6 +51,7 @@ export interface ContinueTarget {
   /** 0-based rendered page for the reader handoff. */
   pageIndex: number
   paragraphIndex: number
+  wordIndex: number
   /** Paragraphs in the chapter per the catalogue; null when unknown. */
   paragraphCount: number | null
   source: 'position' | 'memory'
@@ -185,6 +186,7 @@ export function continueTargetFor(input: {
       chapterLabel: placeLabel(book, place),
       pageIndex: Math.max(0, place.pageIndex ?? 0),
       paragraphIndex: Math.max(0, place.paragraphIndex),
+      wordIndex: Math.max(0, place.wordIndex),
       paragraphCount: chapterParagraphCount(book, place.sequentialChapter),
       source: 'position',
       at: place.updatedAt,
@@ -198,6 +200,7 @@ export function continueTargetFor(input: {
     chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`),
     pageIndex: Math.max(0, session.anchor.page - 1),
     paragraphIndex: session.anchor.paragraphIndex,
+    wordIndex: session.anchor.wordIndex,
     paragraphCount: chapterParagraphCount(book, session.anchor.chapterNumber),
     source: 'memory',
     at: session.lastActiveAt,

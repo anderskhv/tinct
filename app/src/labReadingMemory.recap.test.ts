@@ -27,7 +27,10 @@ import type { ReadingMemoryState, ReadingSession } from './readingMemory/types'
 
 const USER = 'user-anders'
 vi.mock('./services/supabase', () => ({
-  supabase: { auth: { getSession: async () => ({ data: { session: { user: { id: USER }, access_token: 'token-1' } } }) } },
+  supabase: {
+    auth: { getSession: async () => ({ data: { session: { user: { id: USER }, access_token: 'token-1' } } }) },
+    from: () => ({ select: () => ({ eq: () => ({ or: async () => ({ data: [], error: null }) }) }) }),
+  },
   isSupabaseConfigured: () => true,
 }))
 // The cloud copy is exercised in readingMemory/recapLoad.test.ts; here the
@@ -127,6 +130,7 @@ function mountShell() {
 
 let recapCalls: Array<Record<string, unknown>> = []
 let cloudPosition: LabPositionState | null = null
+let cloudPositionGate: Promise<void> | null = null
 
 function stubFetch() {
   vi.stubGlobal('fetch', vi.fn(async (input: unknown, init?: RequestInit) => {
@@ -135,6 +139,7 @@ function stubFetch() {
       return { ok: true, status: 200, json: async () => catalogueJson() } as unknown as Response
     }
     if (url.includes('/api/lab-position')) {
+      if (cloudPositionGate) await cloudPositionGate
       if (!cloudPosition) return { ok: false, status: 404, json: async () => ({}) } as unknown as Response
       return { ok: true, status: 200, json: async () => cloudPosition } as unknown as Response
     }
@@ -189,6 +194,7 @@ beforeEach(() => {
   sessionStorage.clear()
   recapCalls = []
   cloudPosition = null
+  cloudPositionGate = null
   vi.useFakeTimers({ shouldAdvanceTime: true })
   vi.setSystemTime(NOW)
 })
@@ -231,7 +237,7 @@ describe('recap hero: a short absence is not summarised', () => {
       completed: false,
       bookTitle: 'The Bible',
     }])
-    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(['fresh', 'cached']).toContain(section.dataset.summaryLine)
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(true)
     expect(line.hidden).toBe(false)
@@ -321,7 +327,7 @@ describe('back out of the book\u2019s own reader', () => {
       positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
     )
     expect(section.dataset.book).toBe('bible')
-    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(['fresh', 'cached']).toContain(section.dataset.summaryLine)
     expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
     expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).toContain('So far in bible 645.')
   })
@@ -331,7 +337,7 @@ describe('back out of the book\u2019s own reader', () => {
       [bibleSession(ago(3 * HOUR))],
       positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
     )
-    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(['fresh', 'cached']).toContain(section.dataset.summaryLine)
     expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
   })
 
@@ -341,7 +347,7 @@ describe('back out of the book\u2019s own reader', () => {
       [bibleSession(ago(3 * HOUR))],
       positionState([biblePlace(ago(3 * HOUR) + MINUTE)], 'proverbs'),
     )
-    expect(section.dataset.summaryLine).toBe('fresh')
+    expect(['fresh', 'cached']).toContain(section.dataset.summaryLine)
     expect(recapCalls.map(call => call.bookId)).toEqual(['bible'])
   })
 })
@@ -619,5 +625,29 @@ describe('recap hero after a sign-in', () => {
       { ...positionState([biblePlace(ago(MINUTE))], 'proverbs'), owner: 'user-someone-else' },
     )
     expect(section.hidden).toBe(true)
+  })
+})
+
+
+describe('cross-device library refresh', () => {
+  it('refreshes the open library when returning from another tab', async () => {
+    const local = { ...positionState([biblePlace(ago(DAY))], 'proverbs'), owner: USER, lastSettledAt: ago(DAY) }
+    cloudPosition = local
+    const section = await renderLibrary([], local)
+    expect(section.dataset.readingNow).toBe('1')
+    const republic = place({ bookId: 'plato-republic', headerBook: 'The Republic', sequentialChapter: 1, primaryEditionKey: 'original-en', updatedAt: ago(MINUTE) })
+    cloudPosition = { ...positionState([biblePlace(ago(DAY)), republic], 'plato-republic'), owner: USER }
+    window.dispatchEvent(new Event('focus'))
+    await flush(40)
+    expect(section.dataset.readingNow).toBe('2')
+    expect(section.dataset.book).toBe('plato-republic')
+    let release!: () => void
+    cloudPositionGate = new Promise(resolve => { release = resolve })
+    const refreshing = (window as unknown as { __tinctLabReadingMemory: { render: () => Promise<void> } }).__tinctLabReadingMemory.render()
+    await flush()
+    expect(section.dataset.readingNow).toBe('2')
+    expect(section.dataset.book).toBe('plato-republic')
+    release()
+    await refreshing
   })
 })

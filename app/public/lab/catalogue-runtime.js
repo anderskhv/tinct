@@ -998,7 +998,7 @@ import {
     }
     if (selection.savedPlace) {
       const place = selection.savedPlace
-      if (place.bookId !== book.id || !Number.isInteger(place.chapterNumber) || place.chapterNumber < 1 || (place.page !== undefined && (!Number.isInteger(place.page) || place.page < 0)) || (place.paragraphIndex !== undefined && (!Number.isInteger(place.paragraphIndex) || place.paragraphIndex < 0))) return null
+      if (place.bookId !== book.id || !Number.isInteger(place.chapterNumber) || place.chapterNumber < 1 || (place.page !== undefined && (!Number.isInteger(place.page) || place.page < 0)) || (place.paragraphIndex !== undefined && (!Number.isInteger(place.paragraphIndex) || place.paragraphIndex < 0)) || (place.wordIndex !== undefined && (!Number.isInteger(place.wordIndex) || place.wordIndex < 0))) return null
       intent.savedPlace = { ...place }
     }
     return intent

@@ -367,12 +367,12 @@ export function useLabPositionSync(args: {
 
   // Warm the GET as soon as the token is known.
   useEffect(() => {
-    if (args.sourceLocked || !liveToken || cloudDoneRef.current) return
+    if (!liveToken || cloudDoneRef.current) return
     void cloudRecord(liveToken)
   }, [args.sourceLocked, cloudRecord, liveToken])
 
   useEffect(() => {
-    if (args.sourceLocked || !liveToken || cloudDoneRef.current) return
+    if (!liveToken || cloudDoneRef.current) return
     // The boot render spreads the Genesis fallback (two chapters) under the
     // resume place; merging against that list would discard every cloud
     // place outside Genesis 1-2. Wait for the loaded manifest.
@@ -394,6 +394,18 @@ export function useLabPositionSync(args: {
       }
       const controller = controllerRef.current
       if (!controller) return
+      if (args.sourceLocked) {
+        // The handoff locks navigation, not account synchronisation. Keep all
+        // account pins, but never let this response replace the chosen page.
+        const next = accountLabPositionRecord(controller.state(), cloud, ownerId)
+        controller.replace(next)
+        ownershipRef.current = 'own'
+        cloudDoneRef.current = true
+        writeLabPositionLocal(next, { authoritative: true })
+        syncRef.current?.persist(next)
+        setFinishedRevision(revision => revision + 1)
+        return
+      }
       if (args.resolveBeforePaint) {
         const candidate = resumePlace(accountLabPositionRecord(controller.state(), cloud, ownerId))
         if (candidate) {
@@ -411,7 +423,17 @@ export function useLabPositionSync(args: {
       // A device record that was never this account's does not outrank the
       // account's own row, however recent its clock says it is.
       const preferIncomingSettle = shouldPreferAccountSettle(controller.state(), cloud, ownershipRef.current)
-      const next = controller.applyCloud(cloud, chapters, validationBookId, { preferIncomingSettle })
+      const inventory = accountLabPositionRecord(controller.state(), cloud, ownerId)
+      const validated = controller.applyCloud(cloud, chapters, validationBookId, { preferIncomingSettle })
+      // Chapter validation governs navigation in the loaded book. Other books
+      // still belong in the device library; their manifests aren't loaded here.
+      const books = { ...validated.books }
+      for (const [id, pin] of Object.entries(inventory.books)) {
+        const pinLibrary = getBook(id)?.id ?? 'bible'
+        if (pinLibrary !== validationBookId) books[id] = pin
+      }
+      const next = { ...validated, books }
+      controller.replace(next)
       ownershipRef.current = 'own'
       // The reader painted a place it invented (the bounded wait expired
       // before this answered) — it has nothing of its own to lose, so the

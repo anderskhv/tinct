@@ -6365,6 +6365,7 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-turn-btn {
   position: fixed; top: 50%; transform: translateY(-50%);
   width: 42px; height: 64px; border-radius: 22px;
+  display: grid; place-items: center; padding: 0; line-height: 1;
   border: 1px solid color-mix(in srgb, var(--lab-border) 55%, transparent);
   background: color-mix(in srgb, var(--lab-paper) 65%, transparent);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);

@@ -3139,7 +3139,7 @@ describe('lab page turn identity', () => {
     const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
 
     expect(progress()).toBe('1 of 5')
-    expect(screen.getByTestId('lab-page-next').textContent).toBe('›')
+    expect(screen.getByRole('button', { name: 'Next', exact: true })).toBe(screen.getByTestId('lab-page-next'))
     for (let i = 0; i < 12; i++) {
       fireEvent.click(screen.getByTestId('lab-page-next'))
       expect(line()).toContain('p1w0')

@@ -84,7 +84,7 @@ interface LabPreReaderApi {
   createHandoff?: (selection: {
     bookId: string
     primaryEditionKey: string
-    savedPlace?: { bookId: string; chapterNumber: number; page?: number; paragraphIndex?: number }
+    savedPlace?: { bookId: string; chapterNumber: number; page?: number; paragraphIndex?: number; wordIndex?: number }
   }) => unknown | null
   openBook?: (bookId: string) => Promise<boolean>
   coverFor?: (bookId: string) => CoverSource | null
@@ -110,6 +110,8 @@ let lastList: ReadingList = { readingNow: [], finished: [] }
 let summaryBudgetSpent = false
 let renderChain: Promise<void> = Promise.resolve()
 let renderQueued = false
+let positionsResolving = true
+let renderedViewer: string | null | undefined
 /** A Continue tapped on the boot-painted recap before the first confirmed render; served by that render. */
 let pendingContinue: string | null = null
 
@@ -538,6 +540,7 @@ function finishedMarkup(row: ReadingList['finished'][number], books: Map<string,
 
 /** The book the reading-now row is centred on. */
 let nowFocus = 0
+let nowFocusChosen = false
 let nowObserver: IntersectionObserver | null = null
 let nowQuietUntil = 0
 let nowSettleTimer: ReturnType<typeof setTimeout> | null = null
@@ -603,6 +606,7 @@ function setNowFocus(index: number, scroll = false): void {
   const next = Math.max(0, Math.min(rows.length - 1, index))
   if (next === nowFocus && section?.querySelector('[data-now-caption]')?.childElementCount) return
   nowFocus = next
+  nowFocusChosen = true
   renderNowCaption()
   if (!scroll) return
   const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
@@ -711,7 +715,8 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   section.dataset.summaryLine = hero ? 'pending' : 'none'
   section.dataset.readingNow = String(list.readingNow.length)
   section.dataset.finished = String(list.finished.length)
-  const focusedBook = section.querySelector<HTMLElement>('.lib-now-item.is-focused')?.dataset.nowBook
+  // Preserve a deliberate cover selection, never the stale boot/local hero.
+  const focusedBook = nowFocusChosen ? section.querySelector<HTMLElement>('.lib-now-item.is-focused')?.dataset.nowBook : undefined
   nowFocus = Math.max(0, list.readingNow.findIndex(row => row.bookId === focusedBook))
   const readingNow = hero
     ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}<div class="lib-now-shelf${list.readingNow.length < 2 ? ' is-single' : ''}" data-now-shelf role="group" aria-label="Books you are reading">${nowShelfMarkup(list.readingNow, books, nowFocus)}</div><div class="lib-now-caption" data-now-caption aria-live="polite"></div></section>`
@@ -731,6 +736,7 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
 
 async function performRender(): Promise<void> {
   if (!section) return
+  positionsResolving = true
   // Paint all locally known books before recap generation or cloud latency.
   const [auth] = await Promise.all([readAuth(), loadCatalogue()])
   const books = catalogue ?? new Map<string, CatalogueBook>()
@@ -738,8 +744,27 @@ async function performRender(): Promise<void> {
     const list = readingList({ memory: readDeviceReadingMemory(), viewer: auth.userId, positions, books: bookInfos(books), completedBookIds: completedBookIds() })
     if (libraryModeFor(list) !== 'new') { lastList = list; renderSections(list, null); publishMode(libraryModeFor(list)) }
   }
-  paintList(accountLabPositionRecord(readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID), null, auth.userId))
-  const positionsReady = loadPositions(auth).then(positions => { paintList(positions); return positions })
+  if (renderedViewer !== auth.userId) {
+    // Local data is only a first-paint preview. Replaying it on every auth,
+    // catalogue or focus event briefly replaces a newer confirmed cloud list.
+    nowFocusChosen = false
+    lastList = { readingNow: [], finished: [] }
+    section.innerHTML = ''
+    section.hidden = true
+    paintList(accountLabPositionRecord(readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID), null, auth.userId))
+    renderedViewer = auth.userId
+  }
+  const positionsReady = loadPositions(auth).then(positions => {
+    paintList(positions)
+    positionsResolving = false
+    // Continue needs the current position, not an optional generated recap.
+    if (pendingContinue !== null) {
+      const bookId = pendingContinue
+      pendingContinue = null
+      continueReading(bookId || undefined)
+    }
+    return positions
+  })
   const completionsReady = auth.userId && supabase ? supabase.from('user_data').select('key,value').eq('user_id', auth.userId).or('key.like.book-completed:*,key.like.progress:*').then(({ data, error }) => {
     if (!error) for (const row of data ?? []) {
       if (row.value != null) localStorage.setItem(`tinct:${row.key}`, JSON.stringify(row.value))
@@ -854,7 +879,7 @@ function openAt(target: ContinueTarget): void {
   const intent = editionKey ? api?.createHandoff?.({
     bookId: target.bookId,
     primaryEditionKey: editionKey,
-    savedPlace: { bookId: target.bookId, chapterNumber: target.chapterNumber, page: target.pageIndex, paragraphIndex: target.paragraphIndex },
+    savedPlace: { bookId: target.bookId, chapterNumber: target.chapterNumber, page: target.pageIndex, paragraphIndex: target.paragraphIndex, wordIndex: target.wordIndex },
   }) : null
   if (intent) {
     try { sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent)) } catch { /* private mode */ }
@@ -898,8 +923,8 @@ async function hideFromReadingNow(bookId: string): Promise<void> {
 }
 
 function continueReading(bookId?: string): void {
-  if (lastList.readingNow.length === 0 && (renderQueued || lastRendered === null)) {
-    // Tapped on the boot paint: the first confirmed render carries it out.
+  if (positionsResolving || (lastList.readingNow.length === 0 && (renderQueued || lastRendered === null))) {
+    // A local preview can be stale. Wait for the account position verdict.
     pendingContinue = bookId ?? ''
     return
   }
@@ -918,7 +943,7 @@ section?.addEventListener('click', (event) => {
   const continueButton = target.closest<HTMLElement>('[data-recap-continue]')
   if (continueButton) {
     event.preventDefault()
-    continueReading(continueButton.dataset.recapContinue)
+    continueReading(nowFocusChosen ? continueButton.dataset.recapContinue : undefined)
     return
   }
   const remove = target.closest<HTMLElement>('[data-now-remove]')
@@ -950,6 +975,18 @@ section?.addEventListener('click', (event) => {
 window.addEventListener('tinct:lab-auth-state', () => { void render() })
 window.addEventListener('tinct:lab-catalogue-ready', () => { void render() })
 window.addEventListener('pageshow', () => { void render() })
+// A tab can stay open while another device adds books or moves the position.
+// Focus/visibility are separate browser events; coalesce the pair.
+let returnRefreshTimer: ReturnType<typeof setTimeout> | null = null
+const refreshOnReturn = () => {
+  if (document.visibilityState === 'hidden' || returnRefreshTimer !== null) return
+  returnRefreshTimer = setTimeout(() => {
+    returnRefreshTimer = null
+    void render()
+  }, 0)
+}
+window.addEventListener('focus', refreshOnReturn)
+document.addEventListener('visibilitychange', refreshOnReturn)
 window.addEventListener('online', () => { void render() })
 window.addEventListener('offline', () => { void render() })
 

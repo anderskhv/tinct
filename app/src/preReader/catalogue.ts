@@ -186,6 +186,7 @@ export interface SavedReaderPlaceInput {
   chapterNumber: number
   page?: number
   paragraphIndex?: number
+  wordIndex?: number
 }
 
 export interface SavedProgressInput extends SavedReaderPlaceInput {
@@ -468,7 +469,8 @@ function validPlace(place: SavedReaderPlaceInput | undefined, bookId: string): p
     && Number.isInteger(place.chapterNumber)
     && place.chapterNumber >= 1
     && (place.page === undefined || (Number.isInteger(place.page) && place.page >= 0))
-    && (place.paragraphIndex === undefined || (Number.isInteger(place.paragraphIndex) && place.paragraphIndex >= 0)),
+    && (place.paragraphIndex === undefined || (Number.isInteger(place.paragraphIndex) && place.paragraphIndex >= 0))
+    && (place.wordIndex === undefined || (Number.isInteger(place.wordIndex) && place.wordIndex >= 0)),
   )
 }
 

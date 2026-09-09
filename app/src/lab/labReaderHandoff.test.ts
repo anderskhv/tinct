@@ -17,12 +17,12 @@ describe('Lab reader handoff', () => {
       bookId: 'odyssey',
       primaryEditionKey: 'original-en',
       compareEditionKey: 'modern-en',
-      savedPlace: { bookId: 'odyssey', chapterNumber: 2, page: 3, paragraphIndex: 4 },
+      savedPlace: { bookId: 'odyssey', chapterNumber: 2, page: 3, paragraphIndex: 4, wordIndex: 7 },
     })
     const handoff = consumeLabReaderHandoff(storage)
     expect(storage.getItem).toHaveBeenCalledWith(LAB_READER_HANDOFF_KEY)
     expect(storage.removeItem).toHaveBeenCalledWith(LAB_READER_HANDOFF_KEY)
-    expect(handoff).toMatchObject({ bookId: 'odyssey', savedPlace: { chapterNumber: 2 } })
+    expect(handoff).toMatchObject({ bookId: 'odyssey', savedPlace: { chapterNumber: 2, paragraphIndex: 4, wordIndex: 7 } })
     expect(consumeLabReaderHandoff(storage)).toBeNull()
   })
 

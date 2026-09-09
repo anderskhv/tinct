@@ -369,15 +369,29 @@ describe('initial resolution: one place before first paint', () => {
     expect(onRemoteResume).not.toHaveBeenCalled()
   })
 
-  it('a library handoff is the resolved place: the cloud never moves it', async () => {
+  it('a library handoff still downloads account pins without moving the chosen place', async () => {
     localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
     const api = stubPositionApi(Promise.resolve(settledHebrewsCloud()))
     const onRemoteResume = vi.fn()
     render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} sourceLocked />)
     await settle()
     expect(harness.resolvedTrail).toEqual([true])
-    expect(api.gets()).toHaveLength(0)
+    expect(api.gets()).toHaveLength(1)
+    expect(readLabPositionLocal(PHONE).books.hebrews).toEqual(hebrews3())
     expect(onRemoteResume).not.toHaveBeenCalled()
+  })
+
+  it('retains other account books while validating the resume against the current manifest', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const odyssey = hebrews3({ bookId: 'odyssey', headerBook: 'The Odyssey', sequentialChapter: 2, chapterNumber: 2 })
+    const cloud = settledHebrewsCloud()
+    cloud.books.odyssey = odyssey
+    stubPositionApi(Promise.resolve(cloud))
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} />)
+    await settle()
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'hebrews', sequentialChapter: 1136 }))
+    expect(readLabPositionLocal(PHONE).books.odyssey).toEqual(odyssey)
   })
 
   it('local Proverbs 17, cloud Hebrews 3 newer: stays unresolved until the merge, then moves exactly once', async () => {
