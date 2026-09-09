@@ -67,8 +67,9 @@
         <main class="tov5-simple-hero">
           <h1>Fall in love with the books that matter.</h1>
           <p>Immerse yourself in the world's greatest books. Read, listen and talk with them at will – in a language and style that speaks to you.</p>
-          <div class="tov5-simple-entry"><button class="tov5-simple-start" type="button" data-start-catalogue>Start reading</button><p>Free to read · No account required</p><details class="tov5-simple-pricing" data-pricing-note><summary>What's free</summary><p>Reading is free, with no account, for as long as you like.</p><p>A free account adds cross-device sync and 30 days of Premium.</p><p>Premium is $3/mo: AI chat and voice, audiobook, Cast, offline mode, and the reading journal.</p></details></div>
+          <div class="tov5-simple-entry"><button class="tov5-simple-start" type="button" data-start-catalogue>Start reading</button></div>
         </main>
+        <div class="entry-cover-field" data-entry-covers aria-hidden="true"></div><button type="button" class="entry-motion" data-entry-motion hidden aria-pressed="false">Pause covers</button>
       </section>
       <div class="tov5-phone" data-book-world="odyssey" data-frame="library-demo" hidden aria-hidden="true">
         <img class="tov5-world-art" src="" data-world-art alt="">
@@ -137,19 +138,19 @@
         <div class="lib-content">
           <header class="lib-hdr">
             <button type="button" class="lib-wm" data-library-home aria-label="Tinct — back to the start">Tinct.</button>
-            <nav class="lib-nav" aria-label="Site links"><a class="lib-lnk" href="/about">About</a><a class="lib-pill" data-lab-auth-link data-lab-auth-name data-auth-return-to="/library" href="/lab/sign-in?returnTo=%2Flibrary">Sign in</a></nav>
+            <nav class="lib-nav" aria-label="Site links"><div class="entry-search-slot" data-search-slot></div><button class="entry-search-toggle" type="button" data-search-toggle aria-label="Open search" aria-expanded="false" aria-controls="library-search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button><a class="lib-lnk" href="/about">About</a><a class="lib-pill" data-lab-auth-link data-lab-auth-name data-auth-return-to="/library" href="/lab/sign-in?returnTo=%2Flibrary">Sign in</a></nav>
           </header>
           <main class="lib-main">
             <section class="lib-recap" data-reading-memory-recap hidden aria-label="What you read last"></section>
             <section class="lib-popular" data-library-popular aria-label="Popular books">
               <header class="lib-popular-lead" data-popular-head><h1 class="lib-h1" data-popular-lead-title></h1><p class="lib-eyebrow is-dim" data-popular-lead-row></p></header>
-              <div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
+              <div class="entry-featured" data-featured></div><div class="entry-shelf-arrows"><button type="button" data-shelf-scroll="-1" aria-label="Previous books">‹</button><button type="button" data-shelf-scroll="1" aria-label="Next books">›</button></div><div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
               <div class="lib-caption" data-popular-caption aria-live="polite"></div>
-              <p class="lib-popular-more" data-popular-lead-more></p>
+              <p class="lib-popular-more" data-popular-lead-more></p><button class="entry-full-library" type="button" data-full-library>See full library <span aria-hidden="true">→</span></button>
             </section>
-            <label class="lib-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" data-library-search placeholder="Search books" aria-label="Search by title or author" autocomplete="off" spellcheck="false"></label>
+            <label class="lib-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" id="library-search-input" data-library-search placeholder="Search books" aria-label="Search by title or author" autocomplete="off" spellcheck="false"></label>
             <section class="lib-index" aria-label="All books">
-              <header class="lib-index-head"><span class="lib-eyebrow is-dim" data-index-label>All books</span><span class="lib-cnt" data-index-count></span></header>
+              <button class="entry-library-back" type="button" data-library-selection>← Book selection</button><header class="lib-index-head"><span class="lib-eyebrow is-dim" data-index-label>All books</span><span class="lib-cnt" data-index-count></span></header>
               <div class="lib-index-body" data-library-index></div>
             </section>
           </main>
@@ -166,9 +167,8 @@
         <main class="tov5-book-detail-body">
           <div class="tov5-book-identity"><img class="tov5-book-detail-cover" src="" data-book-detail-cover alt="The Odyssey"><section class="tov5-book-detail-copy"><small data-book-detail-author>Homer</small><h2 data-book-detail-title>The Odyssey</h2></section></div>
           <div class="tov5-book-length" data-book-stats aria-label="About this book"></div>
-          <p class="tov5-book-description" data-book-detail-summary>After ten years of war, Odysseus begins the long journey home to Ithaca—while his son searches for news and his household is overrun by rivals.</p>
-          <div class="tov5-versions" data-book-versions></div>
-          <button type="button" class="tov5-choose-edition" data-begin-reading>Start reading <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <p class="tov5-book-description"><span data-book-detail-summary></span> <button type="button" class="entry-preface-link" data-inline-preface aria-expanded="false" aria-controls="entry-preface" hidden>Read full preface</button></p><section id="entry-preface" class="entry-preface" data-inline-preface-body hidden></section>
+          <button type="button" class="tov5-choose-edition" data-open-picker>Start reading <i data-lucide="arrow-right" aria-hidden="true"></i></button>
         </main>
       </div>
     </section>
@@ -177,47 +177,14 @@
       <div class="tov5-zoom tov5-edition-zoom">
         <img class="tov5-secondary-world-art" src="" data-edition-world-art alt="" aria-hidden="true">
         <div class="tov5-secondary-world-scrim" aria-hidden="true"></div>
-        <header class="tov5-edition-head"><img src="" data-cover="odyssey" alt=""><div><small>The Odyssey</small><h2>Choose how it should meet you.</h2><p>You can change this anytime.</p></div></header>
-        <div class="tov5-edition-surface">
-          <div class="tov5-edition-grid" role="group" aria-label="Edition choices">
-          <article data-edition-card="classic">
-            <button type="button" class="tov5-edition-dropdown" data-edition-menu-button="human"><span><small>Classic text</small><b data-edition-classic-name>Samuel Butler · 1900</b><em>Human translation · Demanding</em></span><i data-lucide="chevron-down" aria-hidden="true"></i></button>
-            <p data-edition-classic-copy>“Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy…”</p>
-            <button type="button" data-edition-choice="classic" aria-pressed="false"><span></span>Choose classic</button>
-          </article>
-          <article class="is-selected" data-edition-card="modern">
-            <button type="button" class="tov5-edition-dropdown" data-edition-menu-button="ai"><span><small>Clear modern English</small><b>Tinct Clear · 2026</b><em>AI translation · Accessible</em></span><i data-lucide="chevron-down" aria-hidden="true"></i></button>
-            <p data-edition-modern-copy>“Tell me about the clever man who wandered far after the fall of Troy. He saw the cities of many people and learned how they thought.”</p>
-            <button type="button" data-edition-choice="modern" aria-pressed="true"><span></span>Choose modern</button>
-          </article>
-          </div>
-          <article class="tov5-both" data-edition-card="both" data-edition-choice="both" role="button" tabindex="0" aria-pressed="false">
-            <div class="tov5-both-choice">
-              <span class="tov5-edition-radio" aria-hidden="true"></span>
-              <div><small>Both</small><strong>Read and compare both versions.</strong></div>
-            </div>
-          </article>
-          <section class="tov5-edition-sample" data-edition-sample aria-live="polite" aria-busy="true">
-            <header><small>Real text sample</small><strong data-edition-sample-heading>Loading selected edition…</strong></header>
-            <div class="tov5-edition-sample-body" data-edition-sample-body><p>Loading from the published text…</p></div>
-          </section>
-          <button type="button" class="tov5-continue">Continue with Modern</button>
-
-          <div class="tov5-menu" data-edition-menu="human" role="dialog" aria-label="Human translations">
-          <header><div><small>Classic text</small><strong>Choose a human translation</strong></div><button type="button" data-close-menu aria-label="Close"><i data-lucide="x" aria-hidden="true"></i></button></header>
-          <button type="button" aria-pressed="true"><span><b>Samuel Butler · 1900</b><small>Human translation · Demanding</small></span><i data-lucide="check" aria-hidden="true"></i></button>
-          <button type="button"><span><b>Alexander Pope · 1726</b><small>Human translation · Very demanding</small></span></button>
-          <button type="button"><span><b>George Chapman · 1615</b><small>Human translation · Very demanding</small></span></button>
-          </div>
-          <div class="tov5-menu" data-edition-menu="ai" role="dialog" aria-label="AI translations">
-          <header><div><small>Modern English</small><strong>Choose an AI translation</strong></div><button type="button" data-close-menu aria-label="Close"><i data-lucide="x" aria-hidden="true"></i></button></header>
-          <button type="button" aria-pressed="true"><span><b>Tinct Clear · 2026</b><small>AI translation · Accessible</small></span><i data-lucide="check" aria-hidden="true"></i></button>
-          <button type="button"><span><b>Tinct Simple · 2026</b><small>AI translation · Easiest</small></span></button>
-          <p>Difficulty describes reading effort—not quality.</p>
-          </div>
-        </div>
+        <header class="entry-top"><button type="button" data-about-book>← About the book</button><b>Tinct.</b><span>2 / 2</span></header>
+        <main class="entry-picker-body"><header class="tov5-edition-head"><div><small data-picker-book></small><h2>Choose your edition</h2></div><img data-picker-cover alt=""></header>
+          <div class="tov5-versions" data-book-versions></div>
+          <div class="entry-picker-footer"><span data-picker-selection aria-live="polite"></span><button type="button" class="tov5-continue">Start reading →</button></div>
+        </main>
       </div>
     </section>
+
 
     <section class="tov5-view" data-view-panel="preface" hidden inert aria-hidden="true">
       <div class="tov5-zoom tov5-preface-zoom">
@@ -1356,8 +1323,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   }
 </style>
 
-<script src="/lab/interaction-runtime.js?v=20260907-2" defer></script>
-<script type="module" src="/lab/catalogue-runtime.js?v=20260908-9"></script>
+<link rel="stylesheet" href="/lab/entry.css?v=20260909-1">
+<script type="module" src="/lab/catalogue-runtime.js?v=20260909-entry-1"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>

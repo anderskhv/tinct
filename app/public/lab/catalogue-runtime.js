@@ -1,3 +1,4 @@
+import { fullShelf, pairedSamples } from './entry-model.js?v=20260909-1'
 import { wholeBookProgress } from './library-2-model.js'
 import {
   readerPreviewSearch,
@@ -47,6 +48,10 @@ import {
     compareEditionKey: null,
     selectionRevision: 0,
     query: '',
+    fullLibrary: false,
+    searchOpen: false,
+    sampleExpanded: false,
+    prefaceToken: 0,
     onboarding: null,
     continuations: [],
     pendingResume: null,
@@ -137,6 +142,9 @@ import {
   }
 
   function showView(view) {
+    state.fullLibrary = view === 'library-index'
+    if (state.fullLibrary) view = 'library'
+    library().dataset.fullLibrary = String(state.fullLibrary)
     // Read the crossfade before the landing panel is hidden: a hidden layer
     // has no computed opacity to read.
     if (view !== 'landing' && root.querySelector('[data-view-panel="landing"]')?.classList.contains('is-current')) captureLandingWorld()
@@ -145,11 +153,63 @@ import {
     // The boot paint (lab/index.html) chose the first panel from the URL; the
     // runtime owns the panels from here.
     document.documentElement.removeAttribute('data-lab-boot-view')
+    renderLandingCovers()
   }
+
+  function renderFeatured() {
+    const host=root.querySelector('[data-featured]'), book=state.shelfBooks[state.shelfIndex]
+    host.innerHTML=book ? `<button type="button" class="entry-featured-cover" data-featured-open aria-label="About ${escapeHtml(book.title)}">${coverImage(book)}</button><div><small>${escapeHtml(book.author)}</small><h2>${escapeHtml(book.title)}</h2><p>${escapeHtml(book.summary)}</p><button type="button" class="entry-start" data-featured-open>Start reading <span aria-hidden="true">→</span></button></div>` : ''
+  }
+  function updateShelfArrows() {
+    const shelf=root.querySelector('[data-popular-shelf]')
+    root.querySelector('[data-shelf-scroll="-1"]').disabled=shelf.scrollLeft<2
+    root.querySelector('[data-shelf-scroll="1"]').disabled=shelf.scrollLeft+shelf.clientWidth>=shelf.scrollWidth-2
+  }
+  function arrangeSearch() {
+    const search=root.querySelector('.lib-search'),slot=root.querySelector('[data-search-slot]')
+    if(centreSnap.matches) {root.querySelector('.lib-main').insertBefore(search,root.querySelector('.lib-index'));search.hidden=false;root.querySelector('[data-library-search]').tabIndex=0}
+    else {slot.append(search);search.hidden=!state.searchOpen;root.querySelector('[data-library-search]').tabIndex=state.searchOpen?0:-1}
+  }
+  function toggleSearch(open=!state.searchOpen) {
+    state.searchOpen=open
+    const button=root.querySelector('[data-search-toggle]');button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close search':'Open search')
+    arrangeSearch()
+    if(open) root.querySelector('[data-library-search]').focus()
+    else {state.query='';root.querySelector('[data-library-search]').value='';renderIndex();button.focus()}
+  }
+  const prefaceCache=new Map()
+  async function renderInlinePreface(book) {
+    const token=++state.prefaceToken,button=root.querySelector('[data-inline-preface]'),body=root.querySelector('[data-inline-preface-body]')
+    button.hidden=true;body.hidden=true;body.innerHTML='';button.textContent='Read full preface';button.setAttribute('aria-expanded','false')
+    if(!prefaceCache.has(book.id)) prefaceCache.set(book.id,fetchJsonIfAvailable(`/lab/prefaces/${encodeURIComponent(book.id)}.json?v=20260909-1`))
+    const preface=await prefaceCache.get(book.id)
+    if(token!==state.prefaceToken || state.selectedBookId!==book.id || !Array.isArray(preface?.paragraphs)) return
+    body.innerHTML=`<p class="entry-preface-attribution">Preface · Tinct · English</p>${preface.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}`
+    button.hidden=false
+  }
+  let motionPaused=false,coverVisible=true
+  function updateMotion() {
+    const active=root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')
+    root.querySelector('[data-entry-covers]').classList.toggle('is-paused',motionPaused||document.hidden||!coverVisible||!active||reducedMotion())
+    const button=root.querySelector('[data-entry-motion]');button.textContent=motionPaused?'Play covers':'Pause covers';button.setAttribute('aria-pressed',String(motionPaused));button.hidden=centreSnap.matches||reducedMotion()
+  }
+  function renderLandingCovers() {
+    const host=root.querySelector('[data-entry-covers]')
+    if(centreSnap.matches || !state.catalogue || !root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')) {updateMotion();return}
+    if(!host.children.length) {
+      const books=fullShelf(state.catalogue).filter(book=>book.art?.src?.startsWith('/covers/v2/')).slice(0,18)
+      host.innerHTML=[0,1,2].map(col=>{const group=books.filter((_,i)=>i%3===col);return `<div class="entry-cover-column" style="--duration:${240+col*30}s">${[...group,...group].map(book=>coverImage(book)).join('')}</div>`}).join('')
+    }
+    updateMotion()
+  }
+  document.addEventListener('visibilitychange',updateMotion)
+  if(typeof IntersectionObserver==='function') new IntersectionObserver(entries=>{coverVisible=entries[0]?.isIntersecting;updateMotion()}).observe(root.querySelector('[data-entry-covers]'))
+  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',updateMotion)
 
   const previewSearch = readerPreviewSearch(location.search)
   function routeFor(view, bookId = state.selectedBookId) {
     if (view === 'landing') return `/${previewSearch}`
+    if (view === 'library-index') return `/library?view=library-index${previewSearch.replace('?', '&')}`
     if (view === 'library') return `/library${previewSearch}`
     return `/library?book=${encodeURIComponent(bookId)}${view === 'book-detail' ? '' : `&view=${encodeURIComponent(view)}`}${previewSearch.replace('?', '&')}`
   }
@@ -354,7 +414,7 @@ import {
 
   function shelfItem(book, index) {
     const selected = index === state.shelfIndex
-    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, true)}</button>`
+    return `<button type="button" class="lib-shelf-item${selected ? ' is-selected' : ''}" data-shelf-book="${escapeHtml(book.id)}" data-shelf-index="${index}" aria-label="${escapeHtml(book.title)}" aria-current="${selected ? 'true' : 'false'}" style="--lib-delay:${revealDelayMs(index)}ms">${coverImage(book, centreSnap.matches)}<span class="entry-shelf-title">${escapeHtml(book.title)}</span></button>`
   }
 
   /**
@@ -377,6 +437,7 @@ import {
       return
     }
     const book = state.shelfBooks[state.shelfIndex]
+    renderFeatured()
     caption.innerHTML = `<h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
   }
 
@@ -397,7 +458,7 @@ import {
       item.setAttribute('aria-current', String(selected))
       if (selected) {
         if (focus) item.focus({ preventScroll: true })
-        if (scroll) centreShelfItem(shelf, item)
+        if (scroll && (centreSnap.matches || focus)) centreShelfItem(shelf, item)
       }
     })
     if (changed || !root.querySelector('[data-popular-title]')) renderCaption()
@@ -413,7 +474,7 @@ import {
   const centreSnap = window.matchMedia('(max-width: 899px)')
   // Crossing that boundary changes how the shelf behaves; rebuild it so the
   // observer and the CSS spacers agree.
-  centreSnap.addEventListener('change', () => { if (state.catalogue) renderPopular() })
+  centreSnap.addEventListener('change', () => { if (state.catalogue) {renderPopular();arrangeSearch();renderLandingCovers()} })
   // A wider window carries more covers; rebuild only when that number changes.
   window.addEventListener('resize', () => {
     if (!state.catalogue) return
@@ -501,7 +562,7 @@ import {
     const section = root.querySelector('[data-library-popular]')
     library().dataset.libraryMode = state.libraryMode
     shelfSize = popularShelfSize(window.innerWidth)
-    state.shelfBooks = showPopularShelf(state.libraryMode) ? popularBooks(state.catalogue, shelfSize) : []
+    state.shelfBooks = showPopularShelf(state.libraryMode) ? (centreSnap.matches ? popularBooks(state.catalogue, shelfSize) : fullShelf(state.catalogue)) : []
     state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
     section.hidden = state.shelfBooks.length === 0
     if (section.hidden) {
@@ -514,13 +575,15 @@ import {
     shelf.className = 'lib-shelf'
     shelf.innerHTML = state.shelfBooks.map(shelfItem).join('')
     // Slide in from the right, one after another — once per session.
-    if (claimReveal(safeSessionStorage(), reducedMotion())) {
+    if (centreSnap.matches && claimReveal(safeSessionStorage(), reducedMotion())) {
       shelf.classList.add('is-revealing')
       const last = shelf.querySelector(`[data-shelf-index="${state.shelfBooks.length - 1}"] .lib-cover`)
       last?.addEventListener('animationend', () => shelf.classList.remove('is-revealing'), { once: true })
     }
     renderCaption()
     observeShelfCentre(shelf)
+    shelf.addEventListener('scroll', updateShelfArrows, {passive:true})
+    requestAnimationFrame(updateShelfArrows)
     // Put the focused cover in the middle once the row has a width.
     requestAnimationFrame(() => {
       const item = shelf.querySelector(`[data-shelf-index="${state.shelfIndex}"]`)
@@ -533,6 +596,7 @@ import {
   const bookCells = (books, attr = '') => `<div class="lib-cells"${attr ? ` ${attr}` : ''}>${books.map(bookCell).join('')}</div>`
 
   function renderIndex() {
+    library().dataset.searching = String(Boolean(state.query.trim()))
     const body = root.querySelector('[data-library-index]')
     const label = root.querySelector('[data-index-label]')
     const count = root.querySelector('[data-index-count]')
@@ -608,6 +672,7 @@ import {
   }
 
   function renderLibrary() {
+    arrangeSearch()
     root.querySelector('[data-library-search]').placeholder = searchPlaceholder(state.catalogue)
     renderPopular()
     renderIndex()
@@ -618,12 +683,13 @@ import {
   async function selectBook(bookId, destination = 'book-detail', updateHistory = false) {
     const book = state.booksById.get(bookId)
     if (!book) return false
+    const changingBook = state.selectedBookId !== book.id || !state.selectedEditionKey
     state.selectedBookId = book.id
     state.pendingResume = state.continuations.find(item => item.bookId === book.id) || null
     const resumePrimary = v1Editions(book).find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
-    state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
+    if (changingBook) state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
-    state.compareEditionKey = resumeCompare?.key || null
+    if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.sampleExpanded = false }
     applyWorld(book)
     renderDetail(book)
     renderEditions(book)
@@ -696,7 +762,7 @@ import {
     root.querySelector('[data-book-detail-title]').textContent = book.title
     root.querySelector('[data-book-detail-summary]').textContent = book.summary
     renderStats(book)
-    renderVersions(book)
+    void renderInlinePreface(book)
     root.querySelector('.tov5-choose-edition').childNodes[0].textContent = state.pendingResume ? 'Continue reading ' : 'Start reading '
     if (window.lucide) window.lucide.createIcons()
   }
@@ -731,7 +797,7 @@ import {
     const selected = editions.find(edition => edition.key === selectedKey)
     return `<div class="tov5-version${off ? ' is-off' : ''}" data-version-field="${which}">
       <button type="button" class="tov5-version-btn" data-version-toggle="${which}" aria-expanded="false" aria-haspopup="listbox" aria-label="${escapeHtml(role)}: ${escapeHtml(selected ? translationName(selected) : 'choose')}"><span><span class="tov5-version-role">${escapeHtml(role)}</span><span class="tov5-version-name" data-version-name="${which}">${escapeHtml(selected ? translationName(selected) : 'Choose')}</span></span>${chevronDown}</button>
-      <p class="tov5-version-preview" data-version-sample="${escapeHtml(selectedKey || '')}">Loading the opening…</p>
+      <button type="button" class="tov5-version-preview" data-version-read="${escapeHtml(selectedKey || '')}" aria-pressed="${!state.compareEditionKey && state.selectedEditionKey === selectedKey}" aria-label="Read ${escapeHtml(selected ? translationName(selected) : '')}"><span data-version-sample="${escapeHtml(selectedKey || '')}">Loading the passage…</span></button>
       <div class="tov5-version-menu" data-version-menu="${which}" role="listbox" aria-label="${escapeHtml(role)}" hidden>${versionMenuMarkup(which, editions, selectedKey)}</div>
     </div>`
   }
@@ -739,7 +805,6 @@ import {
   function renderVersions(book) {
     const editions = v1Editions(book).filter(edition => edition.availability.chapterText)
     const host = root.querySelector('[data-book-versions]')
-    if (!host) return
     const primaryKey = state.selectedEditionKey
     const candidates = compareCandidates(book, primaryKey)
     const compareKey = candidates.find(edition => edition.key === state.compareEditionKey)?.key || candidates[0]?.key || null
@@ -747,6 +812,7 @@ import {
     host.innerHTML = [
       versionField('primary', 'Version', editions, primaryKey, false),
       candidates.length ? versionField('compare', 'Compare with', candidates, compareKey, !both) : '',
+      '<button type="button" class="entry-sample-more" data-sample-more hidden>Read a little more</button>',
       candidates.length ? `<button type="button" class="tov5-version-both" data-version-both aria-pressed="${both}">Both</button>` : '',
     ].filter(Boolean).join('')
     host.dataset.versionCount = String(editions.length)
@@ -754,18 +820,18 @@ import {
     void fillVersionSamples(book)
   }
 
-  /** Each row shows that translation's own opening; fetched once per edition. */
   async function fillVersionSamples(book) {
     const token = ++versionSampleRenderToken
-    const keys = [...new Set([...root.querySelectorAll('[data-version-sample]')].map(node => node.dataset.versionSample))]
-    await Promise.all(keys.map(async key => {
-      const text = await loadEditionSample(book, key)
-      if (token !== versionSampleRenderToken || state.selectedBookId !== book.id) return
-      root.querySelectorAll(`[data-version-sample="${CSS.escape(key)}"]`).forEach(node => {
-        const words = text?.trim().split(/\s+/) ?? []
-        node.textContent = text ? `“${words.slice(0, 28).join(' ')}${words.length > 28 ? '…' : ''}”` : 'Sample unavailable for this edition.'
-      })
-    }))
+    const nodes = [...root.querySelectorAll('[data-version-sample]')]
+    const keys = nodes.map(node => node.dataset.versionSample)
+    const payloads = await Promise.all(keys.map(key => loadEditionSample(book,key)))
+    if (token !== versionSampleRenderToken || state.selectedBookId !== book.id) return
+    const samples = pairedSamples(book.id,keys,payloads)
+    nodes.forEach((node,i) => { node.textContent = samples[i]?.[state.sampleExpanded ? 'full' : 'short'] || 'Sample unavailable for this edition.' })
+    const more = root.querySelector('[data-sample-more]')
+    more.hidden = !samples.some(sample => sample && sample.full !== sample.short)
+    more.textContent = state.sampleExpanded ? 'Read less' : 'Read a little more'
+    more.setAttribute('aria-expanded',String(state.sampleExpanded))
   }
 
   function closeVersionMenus(except = null) {
@@ -860,78 +926,25 @@ import {
         const chapterPath = manifest?.chapters?.find(chapter => chapter?.path)?.path
         if (chapterPath) {
           const chapter = await fetchJsonIfAvailable(`/data/editions-chapters/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}/${encodeURIComponent(chapterPath)}?v=20260904-1`)
-          const chapterSample = firstReadableParagraph(chapter)
-          if (chapterSample) return chapterSample
+          if (chapter?.paragraphs?.length) return chapter
         }
       }
       const edition = await fetchJsonIfAvailable(`/data/editions/${encodeURIComponent(bookId)}-${encodeURIComponent(editionKey)}.json?v=20260904-1`)
-      return firstReadableParagraph(edition)
+      return edition
     })()
     editionSampleCache.set(cacheKey, request)
     return request
   }
 
-  async function renderEditionSample(book) {
-    const sample = root.querySelector('[data-edition-sample]')
-    const heading = root.querySelector('[data-edition-sample-heading]')
-    const body = root.querySelector('[data-edition-sample-body]')
-    const editions = v1Editions(book)
-    const primary = editions.find(edition => edition.key === state.selectedEditionKey)
-    const compare = editions.find(edition => edition.key === state.compareEditionKey)
-    const choices = [primary, compare].filter(Boolean)
-    const token = ++editionSampleRenderToken
-    sample.setAttribute('aria-busy', 'true')
-    sample.classList.toggle('is-comparison', Boolean(compare))
-    heading.textContent = compare ? `${primary.label} and ${compare.label}` : primary?.label || 'Selected edition'
-    body.innerHTML = '<p class="tov5-edition-sample-loading">Loading from the published text…</p>'
-    const texts = await Promise.all(choices.map(edition => loadEditionSample(book, edition.key)))
-    if (token !== editionSampleRenderToken) return
-    sample.setAttribute('aria-busy', 'false')
-    body.innerHTML = choices.map((edition, index) => `<article data-edition-sample-text="${escapeHtml(edition.key)}"><small>${escapeHtml(editionChoiceLabel(edition))}</small><strong>${escapeHtml(edition.label)}</strong><p>${texts[index] ? escapeHtml(texts[index]) : 'Sample unavailable for this published edition.'}</p></article>`).join('')
-  }
-
   function renderEditions(book) {
-    const editions = v1Editions(book)
     const cover = coverFor(book)
-    root.querySelector('.tov5-edition-head img').src = cover.src
-    root.querySelector('.tov5-edition-head img').srcset = cover.srcSet
-    root.querySelector('.tov5-edition-head img').alt = book.title
-    root.querySelector('.tov5-edition-head small').textContent = book.title
-    const grid = root.querySelector('.tov5-edition-grid')
-    grid.dataset.editionCount = String(editions.length)
-    grid.innerHTML = editions.map(edition => {
-      const selected = !state.compareEditionKey && edition.key === state.selectedEditionKey
-      const metadata = [languageName(edition.language), edition.year, edition.provenanceLabel, edition.availability.audio ? 'Text and audio available' : 'Text available'].filter(Boolean).join(' · ')
-      const choiceLabel = editionChoiceLabel(edition)
-      return `<article data-catalogue-edition="${edition.key}" data-select-edition="${edition.key}" data-edition-kind="${edition.style}" class="${selected ? 'is-selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="Choose ${escapeHtml(choiceLabel)}: ${escapeHtml(edition.label)}"><div class="tov5-edition-dropdown"><span><small>${editionTitle(edition)}</small><b>${escapeHtml(edition.label)}</b><em>${escapeHtml(metadata)}</em></span></div><div class="tov5-edition-select" aria-hidden="true"><span></span>${escapeHtml(choiceLabel)}</div></article>`
-    }).join('')
-    root.querySelectorAll('[data-edition-menu]').forEach(menu => { menu.hidden = true })
-    updateCompareOption(book)
-    updateContinueLabel(book)
-    void renderEditionSample(book)
-  }
-
-  function updateCompareOption(book) {
-    const editions = v1Editions(book)
-    const primary = editions.find(edition => edition.key === state.selectedEditionKey)
-    const compare = primary?.aligned ? editions.find(edition => edition.key !== primary.key && edition.availability.compare) : null
-    const both = root.querySelector('.tov5-both')
-    both.hidden = !compare
-    if (compare) {
-      both.querySelector('strong').textContent = `${primary.label} + ${compare.label}`
-      both.dataset.compareEdition = compare.key
-      both.setAttribute('aria-label', `Choose Both: compare ${primary.label} and ${compare.label}`)
-    } else {
-      delete both.dataset.compareEdition
-      both.removeAttribute('aria-label')
-    }
-    both.classList.toggle('is-selected', Boolean(compare && state.compareEditionKey))
-    both.setAttribute('aria-pressed', String(Boolean(compare && state.compareEditionKey)))
-  }
-
-  function updateContinueLabel(book) {
-    const edition = v1Editions(book).find(item => item.key === state.selectedEditionKey)
-    root.querySelector('.tov5-continue').textContent = state.compareEditionKey ? 'Continue with Both' : `Continue with ${edition ? editionChoiceLabel(edition) : 'selected edition'}`
+    root.querySelector('[data-picker-cover]').src = cover.src
+    root.querySelector('[data-picker-cover]').srcset = cover.srcSet
+    root.querySelector('[data-picker-book]').textContent = book.title
+    const primary = book.editions.find(e => e.key === state.selectedEditionKey)
+    const compare = book.editions.find(e => e.key === state.compareEditionKey)
+    root.querySelector('[data-picker-selection]').textContent = [primary,compare].filter(Boolean).map(translationName).join(' + ')
+    renderVersions(book)
   }
 
   function selectEdition(primaryEditionKey, compareEditionKey = null) {
@@ -941,7 +954,6 @@ import {
     state.selectionRevision += 1
     const book = selectedBook()
     renderEditions(book)
-    renderVersions(book)
     if (window.lucide) window.lucide.createIcons()
     return true
   }
@@ -1050,6 +1062,21 @@ import {
   }
 
   root.addEventListener('click', async event => {
+    const target = event.target instanceof Element ? event.target : null
+    const scrollButton = target?.closest('[data-shelf-scroll]')
+    if (scrollButton) { const shelf = root.querySelector('[data-popular-shelf]'); shelf.scrollBy({left:Number(scrollButton.dataset.shelfScroll)*shelf.clientWidth*.75,behavior:reducedMotion()?'auto':'smooth'}); return }
+    if (target?.closest('[data-search-toggle]')) { toggleSearch(); return }
+    if (target?.closest('[data-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }
+    if (target?.closest('[data-library-selection]')) { navigateView('library'); return }
+    if (target?.closest('[data-featured-open]')) { await openBookPage(state.shelfBooks[state.shelfIndex].id); return }
+    if (target?.closest('[data-open-picker]')) { if(state.pendingResume) openReader(); else {renderEditions(selectedBook());navigateView('edition');window.scrollTo(0,0)} return }
+    if (target?.closest('[data-about-book]')) { navigateView('book-detail');window.scrollTo(0,0);return }
+    if (target?.closest('[data-inline-preface]')) { const body=root.querySelector('[data-inline-preface-body]');body.hidden=!body.hidden;const button=root.querySelector('[data-inline-preface]');button.setAttribute('aria-expanded',String(!body.hidden));button.textContent=body.hidden?'Read full preface':'Close preface';return }
+    if (target?.closest('[data-sample-more]')) {state.sampleExpanded=!state.sampleExpanded;void fillVersionSamples(selectedBook());return}
+    const readSide=target?.closest('[data-version-read]')
+    if(readSide) {selectEdition(readSide.dataset.versionRead);return}
+    if(target?.closest('[data-entry-motion]')) { motionPaused=!motionPaused;updateMotion();return }
+
     const directView = event.target.closest('[data-view="library"],[data-view="landing"]')
     if (directView) {
       event.preventDefault(); event.stopImmediatePropagation()
@@ -1073,7 +1100,7 @@ import {
       // A tap on a cover that sits back brings it to the middle; a tap on the
       // cover in the middle opens its book page — the same page every other
       // route into a book opens. No cover jumps straight into the reader.
-      if (state.libraryMode === 'new' && Number.isInteger(index) && index !== state.shelfIndex) {
+      if (!centreSnap.matches || (state.libraryMode === 'new' && Number.isInteger(index) && index !== state.shelfIndex)) {
         setShelfIndex(index)
         return
       }
@@ -1171,6 +1198,7 @@ import {
       root.querySelector(`[data-version-toggle="${which}"]`)?.focus({ preventScroll: true })
       return
     }
+    if (event.key === 'Escape' && state.searchOpen && !centreSnap.matches) {event.preventDefault();toggleSearch(false);return}
     if (event.key === 'Escape' && target?.matches('[data-library-search]') && state.query) {
       event.preventDefault()
       target.value = ''
@@ -1252,7 +1280,7 @@ import {
     const requested = params.get('book')
     const routeView = libraryViewFromLocation(location.pathname, location.search) ? 'library' : 'landing'
     const requestedView = params.get('view') || (requested ? 'book-detail' : null)
-    const allowedViews = new Set(['landing', 'library', 'book-detail', 'edition'])
+    const allowedViews = new Set(['landing', 'library', 'library-index', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
   }).then(() => {
     if (isLibraryCurrent() && isBackForwardLoad()) restoreLibrary()
@@ -1283,7 +1311,7 @@ import {
     if (bookId && state.booksById.has(bookId) && (view === 'book-detail' || view === 'edition')) {
       await selectBook(bookId, view)
     } else {
-      showView(view === 'library' ? 'library' : 'landing')
+      showView(view === 'library' || view === 'library-index' ? view : 'landing')
       if (view === 'library') restoreLibrary()
     }
   })

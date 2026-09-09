@@ -11,6 +11,12 @@ const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   path.resolve(process.cwd(), 'public'),
 ))
 
+// The entry uses the same exact approved text files as the reader registry.
+const entryPrefaces = new Map(JSON.parse(serializedPreReaderCatalogue).books.flatMap((book: { id: string }) => {
+  const file = path.resolve(process.cwd(), 'src/data/prefaces', `${book.id}.txt`)
+  return fs.existsSync(file) ? [[book.id, JSON.stringify({bookId:book.id, language:'en', paragraphs:fs.readFileSync(file,'utf8').trim().split(/\n\s*\n/)})]] : []
+}))
+
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const isCapacitor = process.env.CAPACITOR === 'true'
@@ -87,12 +93,19 @@ export default defineConfig(({ mode, command }) => {
     {
       name: 'lab-pre-reader-catalogue',
       configureServer(server) {
+        server.middlewares.use('/lab/prefaces/', (req,res) => {
+          const id=decodeURIComponent((req.url || '').split('?')[0].replace(/^\//,'').replace(/\.json$/,''))
+          const source=entryPrefaces.get(id)
+          res.writeHead(source ? 200 : 404, {'Content-Type':'application/json; charset=utf-8'})
+          res.end(source || '{}')
+        })
         server.middlewares.use('/lab/catalogue.json', (_req, res) => {
           res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
           res.end(serializedPreReaderCatalogue)
         })
       },
       generateBundle() {
+        for(const [id,source] of entryPrefaces) this.emitFile({type:'asset',fileName:`lab/prefaces/${id}.json`,source:source as string})
         this.emitFile({
           type: 'asset',
           fileName: 'lab/catalogue.json',
