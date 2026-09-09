@@ -35,11 +35,16 @@ async function main() {
    await page.waitForTimeout(2400)
    assert.equal(await page.getByTestId('lab-chapter-end').count(),0,'No actions at chapter opening')
    for(let i=0;i<60&&await page.getByTestId('lab-chapter-end').count()===0;i++) {await page.keyboard.press('ArrowRight'); await page.waitForTimeout(100)}
-   await page.getByRole('button',{name:'Prepare for next'}).scrollIntoViewIfNeeded()
+   await page.getByRole('button',{name:'Prepare for the next chapter'}).scrollIntoViewIfNeeded()
    assert.equal(calls.length,0,'Rendering a chapter end must not call Chat')
+   assert.equal(await page.getByRole('heading',{name:'End of chapter',exact:true}).count(),1)
+   if(config.width>=800) {
+    const bounds=await page.evaluate(()=>({article:document.querySelector('.lab-page-wrap > .lab-passage').getBoundingClientRect().bottom,footer:document.querySelector('.lab-desktop-page-footers').getBoundingClientRect().top}))
+    assert.ok(bounds.article<bounds.footer,'Scrollable chapter ending must clear page numbers')
+   }
    const before=await state(page)
    await page.screenshot({path:path.join(dir,`${config.name}-end.png`)})
-   await page.getByRole('button',{name:'Prepare for next'}).click()
+   await page.getByRole('button',{name:'Prepare for the next chapter'}).click()
    await page.getByTestId('lab-ask-turn-assistant').filter({hasText:answer}).waitFor()
    assert.equal(calls.length,1)
    assert.equal(calls[0].messages.at(-1).content,'Prepare me for the next chapter.')
@@ -73,9 +78,11 @@ async function main() {
    assert.equal((await state(page)).place,before.place)
    assert.equal(calls.length,2,'Reload cannot rerun chapter actions')
    // Forward navigation still advances to the actual next chapter.
-   await page.keyboard.press('ArrowRight'); await page.waitForTimeout(800)
+   await page.getByRole('button',{name:'Continue to next chapter'}).click(); await page.waitForTimeout(800)
    const after=await state(page)
-   assert.notEqual(after.chapter,before.chapter)
+   assert.equal(after.chapter,'780')
+   assert.match(after.place, /0:0$/, 'Continue opens at the start')
+   assert.equal(calls.length,2,'Continue does not call Chat')
    results.push({name:config.name,before,afterChapter:after.chapter,calls:calls.length})
   } finally {await browser.close()}
  }

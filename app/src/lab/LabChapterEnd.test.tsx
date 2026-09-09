@@ -3,14 +3,29 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { LabChapterEnd } from './LabChapterEnd'
 afterEach(cleanup)
-it('is optional UI with no automatic action, and offers only discussion at the book end', () => {
- const onDiscuss=vi.fn(),onPrepare=vi.fn()
- const {rerender}=render(<LabChapterEnd label="Canto XXXIII" hasNext={false} busy={false} onDiscuss={onDiscuss} onPrepare={onPrepare} />)
- expect(onDiscuss).not.toHaveBeenCalled();expect(onPrepare).not.toHaveBeenCalled()
- expect(screen.getByText('End of Canto XXXIII')).toBeTruthy()
- expect(screen.queryByRole('button',{name:/Prepare/})).toBeNull()
- fireEvent.click(screen.getByRole('button',{name:/Discuss/}));expect(onDiscuss).toHaveBeenCalledTimes(1)
- rerender(<LabChapterEnd label="Canto XXXII" hasNext busy onDiscuss={onDiscuss} onPrepare={onPrepare} />)
- fireEvent.click(screen.getByRole('button',{name:/Prepare/}));expect(onPrepare).not.toHaveBeenCalled()
- expect(screen.getAllByRole('button')).toHaveLength(2)
+it('offers only discussion at the book end, without automatic actions', () => {
+  const onContinue = vi.fn(), onDiscuss = vi.fn(), onPrepare = vi.fn()
+  render(<LabChapterEnd hasNext={false} busy={false} onContinue={onContinue} onDiscuss={onDiscuss} onPrepare={onPrepare} />)
+  expect(screen.getByRole('heading', { name: 'End of chapter' })).toBeTruthy()
+  expect(screen.getAllByRole('button')).toHaveLength(1)
+  expect(onContinue).not.toHaveBeenCalled()
+  expect(onDiscuss).not.toHaveBeenCalled()
+  expect(onPrepare).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: 'Discuss this chapter' }))
+  expect(onDiscuss).toHaveBeenCalledTimes(1)
+})
+it('keeps Continue available while chat is busy and isolates it from reader gestures', () => {
+  const onContinue = vi.fn(), onDiscuss = vi.fn(), onPrepare = vi.fn(), onReaderClick = vi.fn(), onReaderPointer = vi.fn()
+  render(<div onClick={onReaderClick} onPointerDown={onReaderPointer}>
+    <LabChapterEnd hasNext busy onContinue={onContinue} onDiscuss={onDiscuss} onPrepare={onPrepare} />
+  </div>)
+  const buttons = screen.getAllByRole('button')
+  expect(buttons.map(b => b.textContent)).toEqual(['Continue to next chapter', 'Discuss this chapter', 'Prepare for the next chapter'])
+  fireEvent.pointerDown(buttons[0]); fireEvent.click(buttons[0])
+  fireEvent.click(buttons[1]); fireEvent.click(buttons[2])
+  expect(onContinue).toHaveBeenCalledTimes(1)
+  expect(onReaderClick).not.toHaveBeenCalled()
+  expect(onReaderPointer).not.toHaveBeenCalled()
+  expect(onDiscuss).not.toHaveBeenCalled()
+  expect(onPrepare).not.toHaveBeenCalled()
 })

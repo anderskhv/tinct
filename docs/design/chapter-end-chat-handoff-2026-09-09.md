@@ -18,11 +18,15 @@ new database schema, dependencies, or a personal end-of-book retrospective.
 
 ## Locked experience
 
-1. Beneath the final passage, show a quiet **End of chapter {label}** marker.
-   Use the book's chapter naming convention where appropriate (e.g. canto).
-2. Show exactly two optional actions:
-   - **Discuss this chapter**
-   - **Prepare for next**
+1. Beneath the final passage, show **End of chapter** as a small muted italic
+   reader-serif heading inside one softly outlined panel.
+2. Offer **Continue to next chapter** first, with a warm fill and the same
+   monochrome chevron as the reader controls. Follow it with quieter separated
+   rows: **Discuss this chapter** and **Prepare for the next chapter**.
+   This September 9 revision was approved after mobile and desktop wireframes;
+   it supersedes the detached chapter-specific marker and two emoji-arrow buttons.
+   On desktop the panel follows the final passage in its leaf. Source pagination
+   remains unchanged; a full terminal page scrolls above the fixed page numbers.
 3. Keep normal forward navigation readily available. Neither action opens
    automatically, requires an answer, or blocks continued reading.
 4. **Discuss this chapter** opens Chat and submits the visible user message
@@ -54,8 +58,8 @@ Inspected live at https://tinct.app/reader during this conversation on September
   reader/chat text and composer.
 
 [Approved interaction mockup](chapter-end-chat-mockup.html) starts in the
-Discuss result. Back to book reveals the two actions; both are clickable.
-This is an illustrative mockup, not production code or a pixel specification.
+Discuss result. Back to book reveals the original two actions; both are clickable.
+That original mockup’s chapter-end styling is superseded by the September 9 approved panel revision above. Chat behavior remains unchanged. It is not production code or a pixel specification.
 The live production component styling wins over mockup approximations,
 particularly control sizes, message styling, and footer geometry.
 
@@ -153,7 +157,7 @@ Jeremiah's comparison, or the final pronouncement.
 - Chapter-end controls are UI, not source text. Do not introduce empty or
   stranded pages, change text/audio anchors, include controls in highlights,
   or corrupt progress, Compare synchronization, or chapter completion.
-- Hide Prepare when there is no next chapter. Discuss can still discuss the
+- Hide Continue and Prepare when there is no next chapter. Discuss can still discuss the
   last chapter; do not silently turn it into a whole-book retrospective.
 - If the next chapter cannot be loaded, show the normal retry/error affordance;
   do not improvise a preview from the title alone.

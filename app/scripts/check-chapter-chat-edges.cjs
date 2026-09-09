@@ -11,7 +11,8 @@ async function main(){const results=[];for(const [desktop,chapter] of [[false,77
  if(chapter===779){await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await p.waitForTimeout(500)}
  for(let i=0;i<60&&await p.getByTestId('lab-chapter-end').count()===0;i++){await p.keyboard.press('ArrowRight');await p.waitForTimeout(100)}
  const root=p.getByTestId('lab-root');const place=await root.getAttribute('data-place')
- assert.equal(await p.getByRole('button',{name:'Prepare for next'}).count(),chapter===1189?0:1)
+ assert.equal(await p.getByRole('button',{name:'Prepare for the next chapter'}).count(),chapter===1189?0:1)
+ assert.equal(await p.getByRole('button',{name:'Continue to next chapter'}).count(),chapter===1189?0:1)
  await p.getByRole('button',{name:'Discuss this chapter'}).scrollIntoViewIfNeeded()
  assert.equal(requests.length,0)
  await p.screenshot({path:path.join(dir,(desktop?'desktop':'phone')+'-'+chapter+'-end.png')})

@@ -61,3 +61,24 @@ Walkthrough screenshots, request/state results and verification logs:
 Repeat with `app/scripts/check-chapter-chat.cjs` and `check-chapter-chat-edges.cjs`, using `TEST_ORIGIN=https://tinct.app` and an `ARTIFACT_DIR`. They use isolated browser contexts, actual book data and intercepted Chat responses; no real user account is written and no model call is made. Physical iPhone testing and live model-output evaluation were not performed.
 
 A separate pre-existing content issue was observed during the final-chapter fixture: the Bible WEB edition's Revelation 22 includes Project Gutenberg license material in its last paragraph. Final-chapter playback checks therefore use the clean KJV text, and WEB Compare is checked in Jeremiah 34. This release does not alter edition content. That content cleanup remains separate from this feature.
+
+## Approved panel revision — September 9
+
+Anders approved mobile and desktop wireframes replacing the detached heading and
+emoji-arrow buttons with one integrated panel. The heading now reads “End of
+chapter” in muted italic EB Garamond. “Continue to next chapter” comes first with
+a warm fill and the reader's monochrome chevron; discussion and preparation are
+quieter rows. Both next-chapter actions are absent on the final chapter.
+
+Continue calls the existing forward-navigation path, including registry successor
+lookup, chapter completion and start landing; it neither opens Chat nor calls a
+model. Busy Chat never disables Continue. Existing discussion/preparation request
+identity and persistence are unchanged. The desktop terminal scroller now ends
+above the fixed page numbers; its content measurement area is preserved by an
+equal padding adjustment. Source pagination and audio anchors are unchanged.
+
+Verification before shipping: 146 test files / 1,586 tests passed; build and
+verify-bundle passed. Local WebKit phone and small phone with large text, plus
+Chromium desktop, passed discussion, preparation, return/reload position and
+Continue to the actual next chapter at 0:0 without a Chat call. Production
+verification will be appended after deployment.

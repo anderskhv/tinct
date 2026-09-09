@@ -6414,19 +6414,31 @@
   overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; touch-action: pan-y;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.has-chapter-end .lab-book-columns { height: auto; }
+/* Keep the terminal-page scroller above the fixed leaf numbers. Subtract
+   the same space from its padding so the measured source area is unchanged. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage.has-chapter-end {
+  height: calc(100% - 40px); padding-bottom: calc(var(--desktop-pad-bottom) - 40px);
+}
 .lab[data-chrome-version="v2"] .lab-chapter-end {
-  padding: 24px 0 8px; margin: 0; color: var(--lab-ink); user-select: none;
+  padding: 18px 16px 4px; margin: 24px 0 8px; color: var(--lab-ink); user-select: none;
+  border: 1px solid var(--lab-border); border-radius: 18px;
+  background: color-mix(in srgb, var(--lab-paper) 75%, var(--lab-surface));
 }
 .lab[data-chrome-version="v2"] .lab-chapter-end-label {
-  text-align: center; color: var(--lab-muted); font: 12px/1.5 'IBM Plex Mono', monospace; margin: 0 0 14px;
+  text-align: left; color: var(--lab-muted); font: italic 18px/1.4 'EB Garamond', Georgia, serif; margin: 0 4px 14px;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: grid; gap: 8px; }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: grid; gap: 0; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  min-height: 44px; padding: 10px 14px; border: 1px solid var(--lab-border); border-radius: 14px;
-  background: color-mix(in srgb, var(--lab-paper) 78%, transparent); color: var(--lab-ink);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  min-height: 50px; padding: 13px 4px; border: 0; border-radius: 0;
+  background: transparent; color: var(--lab-ink);
   font: 18px/1.4 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer;
 }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button + button:not(.lab-chapter-end-continue + button) { border-top: 1px solid var(--lab-border); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-end-continue {
+  background: var(--lab-surface); border-radius: 11px; padding: 13px 12px; margin-bottom: 5px;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-end-continue svg { flex-shrink: 0; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { background: var(--lab-surface); }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:disabled { opacity: .5; cursor: wait; }
 .lab[data-chrome-version="v2"] .lab-ask-notice .lab-text-btn { margin-left: 8px; text-decoration: underline; }

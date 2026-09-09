@@ -3621,7 +3621,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           ) : <LabPassage
             pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
             chapterEnd={showChapterEnd ? <LabChapterEnd
-              label={book.chapterLabel} hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
+              hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')} onPrepare={() => handleChapterChat('prepare')}
             /> : undefined}
             desktopSpread={desktopSpread}
