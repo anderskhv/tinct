@@ -21,4 +21,16 @@ Anders approved both changes in the reader task: speed up resolving the latest s
 - Existing WebKit audio/Compare full-chapter transition check passed with deferred supporting data.
 - Chrome DevTools MCP was not available; used the repository's Playwright browser harness and network interception rather than claiming Core Web Vitals measurements.
 
-Deployment and production verification: pending.
+## Deployment and production verification
+
+- Code commit: `31deb002`.
+- `npm run deploy` succeeded using Node 24 from the clean shipping worktree. Build and bundle verification ran again within deployment.
+- Worker version: `c473d52e-3839-4c25-84b5-2992d8facea5`.
+- Bundle: `/assets/index-DzhVAjby.js`. Live bytes matched the built file exactly; SHA256 `5fe8ebba85c8f01cdd386903532750e0ba9aa3c578737b69a4855f7326cc1fe5`.
+- All 15 production smoke checks passed.
+- Live WebKit checks passed for slow supporting data, a four-second position response, and a cross-library resume. Each first paint contained the expected saved paragraph/word. Auth/account data was isolated using intercepted fixture responses; this did not modify Anders's reading history.
+- Live WebKit phone and desktop chapter shortcut checks passed, including opening at zero, resuming at 3:7, and keeping the bookmark across a reload.
+- Also opened `https://tinct.app/lab/phone?chrome=v2` at 390×844, verified the live bundle, and captured the reader.
+- Production artifacts: `/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-reader-return`. Includes `webkit-continue-phone.png`, `webkit-continue-desktop.png`, `webkit-resumed-phone.png`, `webkit-return-results.json`, `safari-lab-phone.png`, and `bundle.json`.
+- Real iPhone/e-ink hardware and production account write-propagation latency were not measured. Existing cloud sync semantics remain; these changes remove client-side loading dependencies and retain exact content anchors.
+
