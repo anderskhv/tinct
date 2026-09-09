@@ -42,4 +42,22 @@ The instruction supplies the actual next text, asks for opening setup rather tha
 
 ## Verification and deployment
 
-Pending final deployment confirmation.
+Shipped from clean commit `09435135` on `codex/reader-stabilization-20260908`. The unrelated main-checkout work was preserved.
+
+- Full suite: **146 files / 1,582 tests passed**. Focused coverage includes source/display separation, actual nonconsecutive successor, final-chapter UI, duplicate taps, missing source and retry, account-gated replay, balance errors, command suppression, history restoration and wrong-book writes.
+- `npm run build` and `npm run verify-bundle` passed, then the approved `npm run deploy` repeated both gates and succeeded using Node 24. This was a direct npm deployment; there is no GitHub Actions run for this release.
+- Live tinct.app: WebKit 390×844 phone, WebKit 360×640 phone with 1.8 font preference, and Chrome 1440×950 desktop. Both actions, actual Jeremiah 34→35 source identity, short visible requests, intact composer controls, existing history, exact source-word/place return, reload and ordinary next-chapter navigation passed.
+- Live mobile and desktop Compare: discussion uses the active mobile comparison edition or desktop primary edition, as intended. Final Revelation 22 offers Discuss only. Actual audiobook playback pauses when Chat opens; returning uses the existing resume behavior and retains the chapter.
+- `/lab/phone` entry also opened and was captured. The new feature is on the current V2 `/reader`, as specified by the brief; the legacy phone lab entry is not redesigned.
+- Existing mobile audio/Compare regression: full Jeremiah 43–44 word coverage, stable forward/back pages, footer clearance, Compare restoration, audio browsing/resize/return all passed locally. Existing desktop regression passed full Democracy in America Read/Compare coverage and alignment, cold-font first-paint stability, refreshes, audio controls and cover containment.
+- **15/15 production smoke checks passed**. Live HTML references `index-CK0sHDd_.js`; downloaded bytes match the deployed build exactly.
+
+Worker version: `b4c15b14-f723-4162-83c4-dc0cdc8bafd5`.
+Bundle SHA256: `b9e9a36b4c6a5525f6d21602e3f0541abefaefbc9d8a41d92622e42d2716feb3`.
+
+Walkthrough screenshots, request/state results and verification logs:
+`/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-chapter-chat/`
+
+Repeat with `app/scripts/check-chapter-chat.cjs` and `check-chapter-chat-edges.cjs`, using `TEST_ORIGIN=https://tinct.app` and an `ARTIFACT_DIR`. They use isolated browser contexts, actual book data and intercepted Chat responses; no real user account is written and no model call is made. Physical iPhone testing and live model-output evaluation were not performed.
+
+A separate pre-existing content issue was observed during the final-chapter fixture: the Bible WEB edition's Revelation 22 includes Project Gutenberg license material in its last paragraph. Final-chapter playback checks therefore use the clean KJV text, and WEB Compare is checked in Jeremiah 34. This release does not alter edition content. That content cleanup remains separate from this feature.

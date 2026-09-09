@@ -1,6 +1,6 @@
 # Chapter-end chat — locked implementation brief
 
-Status: implemented against the production reader; final deployment verification in progress.
+Status: implemented, deployed and verified on tinct.app on 2026-09-09.
 Release record: [Chapter-end Chat](../chapter-end-chat-2026-09-09.md).
 Decision date: 2026-09-09.
 Source: Anders's chapter-end feature discussion in this conversation, ending with
