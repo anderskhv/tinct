@@ -12,7 +12,7 @@ def V(e,at,subtitle,body,name=None):
 e=C('edna','Edna Pontellier','central','Edna Pontellier|Mrs. Pontellier|Mrs Pontellier|Madame Pontellier|Edna',[1,13],'The woman returning from the beach','The woman whose experience we follow. She has returned from bathing with Robert, the young man who stays to talk with her while her husband goes out.')
 V(e,[4,11],'The woman finding her own way','The young mother spending the summer at Grand Isle. She is less at ease than the other guests with their intimate conversation. Her affectionate friend Adèle often brings her sewing to sit with her.')
 V(e,[7,30],'The woman opening up to her friend','Usually reserved, she has begun sharing memories and feelings with Adèle, her friend from the cottages. She recalls a childhood in Kentucky and a marriage that offered security without fulfilling her romantic dreams.')
-V(e,[10,11],'The woman who has learned to swim','The young mother whose summer at Grand Isle we follow. She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.')
+V(e,[10,11],'The woman who has learned to swim','She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.')
 V(e,[11,15],'The woman resisting her husband’s wishes','After her first independent swim, she has refused her husband’s demand that she come indoors. She is surprised by the strength of her own resistance.')
 V(e,[15,54],'The woman missing Robert','Robert’s sudden departure has left her distressed. She recognizes her feelings for the young man who spent so much of the summer with her as an infatuation.')
 V(e,[19,9],'The woman making time for painting','Back in New Orleans, she has abandoned her usual reception afternoons and begun working seriously at painting. Her husband is bewildered by her refusal to organize her days around the household.')
@@ -207,7 +207,26 @@ first_look=json.loads(Path(__file__).with_name('first_look.json').read_text())
 for e in entities:
  name,subtitle,body=first_look[e['id']]
  e['introduction']={'name':name,'subtitle':subtitle,'body':body}
+ # Identity remains available after the first card: later bodies carry developments.
+ # These subtitles were individually authored and reviewed in first_look.json.
+ for snapshot in e['snapshots']:
+  snapshot['subtitle']=subtitle
+ # Cultural references do not acquire a new identity as the plot advances.
+ if e['kind']=='cultural-figure':
+  e['snapshots'][0]['body']=body
 
-out={'schemaVersion':1,'bookId':'the-awakening','language':'en','editorialStatus':'agent-authored-source-reviewed-pilot','scope':'All 39 chapters; named cast, distinctive recurring unnamed figures, and named cultural references. English original and modern edition bindings.','anchorPolicy':'Snapshot after means paragraph END, not paragraph start. At first mention, use the separately reviewed minimal identification card; its name and body must reveal no later actions, relationships, or outcomes. Story role has its own release gate.','entities':entities}
+# Opening reminders must not undo the useful identification at the first name.
+opening_revisions={
+ 'leonce':'Léonce is Edna Pontellier’s husband and a New Orleans broker. Their two young sons are playing nearby while he tries to read his newspaper at Grand Isle.',
+ 'madame-lebrun':'Madame Lebrun owns and runs the Grand Isle summer boarding house and cottages where the Pontelliers are staying. She is directing the servants as the guests relax.',
+ 'robert':'Robert is Madame Lebrun’s elder son, home for the summer from his work in New Orleans. He has returned from the beach with Edna and stays to talk when Léonce goes out.',
+ 'edna':'Edna Pontellier is the novel’s central character, married to Léonce and the mother of Raoul and Etienne. She has returned from bathing with Robert, who stays to talk while her husband goes out.',
+}
+for e in entities:
+ if e['id'] in opening_revisions:
+  e['snapshots'][0]['body']=opening_revisions[e['id']]
+
+
+out={'schemaVersion':1,'contentVersion':'2026-09-09.2','bookId':'the-awakening','language':'en','editorialStatus':'agent-authored-source-reviewed-pilot','scope':'All 39 chapters; named cast, distinctive recurring unnamed figures, and named cultural references. English original and modern edition bindings.','anchorPolicy':'Snapshot after means paragraph END, not paragraph start. At first mention, supply useful baseline identity: ordinary family relationships, occupation, and setting may be identified before their explanatory paragraph. Do not reveal concealed identities, later relationship changes, actions, motives, revelations, or outcomes. Keep stable identity in later subtitles. Story role has its own release gate.','entities':entities}
 Path(__file__).with_name('editorial.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
 print(len(entities),'entities;',sum(len(e['snapshots']) for e in entities),'authored snapshots')

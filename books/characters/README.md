@@ -1,6 +1,6 @@
 # Position-aware character content
 
-Prepared 2026-09-09 for the approved character-card design. This is an offline content pilot and executable handoff contract, not an installed app feature.
+Prepared 2026-09-09 for the approved character-card design. The Awakening pilot is integrated into the reader. Content authoring and compilation remain offline. See the [editorial policy](EDITORIAL-POLICY.md) before writing or revising cards.
 
 Start with [the implementation handoff](../../docs/design/character-cards-implementation-handoff-2026-09-09.md), [the Awakening pilot](the-awakening/README.md), and [current library coverage](library-coverage.md).
 
@@ -14,7 +14,7 @@ Each character has `firstMention`, independently gated `roleVisibleAt`, and snap
 
 At cutoff C, choose the latest snapshot whose `availableAt <= C`; show no card before first mention. Hide the story-role label until its separate gate. The gallery uses the same cutoff. The standalone reference implementation intentionally returns only released fields; do not send future aliases, names or snapshot bodies to rendered components.
 
-Full reminders unlock at paragraph **end**, conservatively avoiding information later in a paragraph. First-encounter cards unlock at the end of the matched name. They provide minimal editorial identification of the figure being introduced, with no later actions or plot outcomes. This is an editorial policy, not a claim that every identification word appears before the selected name. Evidence records locate the source trigger; they are not an independent fact-level proof of every retained sentence. Source review remains necessary.
+Full reminders unlock at paragraph **end**, conservatively avoiding information later in a paragraph. First-encounter cards unlock at the end of the matched name. They provide useful baseline identity, including ordinary family relationships, occupation, and setting, without concealed identities or later plot developments. This is an editorial policy, not a claim that every identification word appears before the selected name. Evidence records locate the source trigger; they are not an independent fact-level proof of every retained sentence. Source review remains necessary.
 
 Story roles are `central`, `major`, `supporting`, `reference`. They express reviewed whole-book narrative weight, separately from current-passage relevance. References, families, recurring unnamed figures and unresolved names have explicit kinds. Do not pretend every entry is an individual fictional character or give family groups duplicate person counts.
 

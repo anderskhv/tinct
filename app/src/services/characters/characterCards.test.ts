@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
-import { comparePoint, releasedCard, resolveCharacter, verifyCharacters, wordSelectionOffsets, type CharacterAsset, type VerifiedCharacters } from './characterCards'
+import { loadCharacters, comparePoint, releasedCard, resolveCharacter, verifyCharacters, wordSelectionOffsets, type CharacterAsset, type VerifiedCharacters } from './characterCards'
 const asset: CharacterAsset = JSON.parse(readFileSync('public/data/characters/the-awakening.v1.json', 'utf8'))
 const verified: Record<string, VerifiedCharacters> = {}
 beforeAll(async () => {
@@ -78,4 +78,16 @@ it('maps punctuation and UTF16 word anchors without surname search', () => {
   expect(wordSelectionOffsets(text, 8, 9)).toBeNull()
   expect(wordSelectionOffsets('Mrs. Pontellier’s.', 0, 2)).toEqual([0, 15])
   expect(wordSelectionOffsets('Sylvano’s wife', 0, 2)).toEqual([0, 14])
+})
+
+it('requests the current content revision instead of an immutable old URL', async () => {
+  const fetcher = vi.fn(async (url: string) => url.includes('/characters/')
+    ? { ok: true, json: async () => asset }
+    : { ok: true, arrayBuffer: async () => Uint8Array.from(readFileSync('public/data/editions/the-awakening-original-en.json')).buffer })
+  vi.stubGlobal('fetch', fetcher)
+  try {
+    expect(await loadCharacters('the-awakening', 'original-en')).not.toBeNull()
+    const url = new URL(fetcher.mock.calls[0][0], 'https://tinct.app')
+    expect(url.searchParams.get('v')).toBe(asset.contentVersion)
+  } finally { vi.unstubAllGlobals() }
 })

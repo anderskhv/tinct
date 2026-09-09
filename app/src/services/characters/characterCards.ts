@@ -43,7 +43,7 @@ export function loadCharacters(bookId?: string, editionKey?: string): Promise<Ve
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
+      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=2026-09-09.2`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
       if (!asset.ok || !source.ok) return null
       return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
     } catch { return null }
