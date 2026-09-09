@@ -33,4 +33,12 @@ Safari owns persistent permissions. Apple documents per-site exceptions through 
 
 ## Release
 
-Pending deployment and production verification; record actual release evidence below.
+Deployed code commit `9600aa76` using `npm run deploy` from the clean shipping worktree with Node 24. Deploy succeeded: Worker `391d12cc-a7d8-45a2-b1ff-96dd59eef9b5`.
+
+Production entry bundle: `index-D-CDcviP.js`; live/local SHA256 both `f74b217cb5f10ef42c191025b9d01e10d8557a87d59e8b959a6f2c017b605afe`. The production HTML points to that bundle.
+
+The full transition regression passed on **tinct.app** in WebKit and Chromium, including complete chapters, forward/backward stability, Compare return, paused transport close, browsing during playback, resize and Back to audio. Live composer verification passed with the simulated keyboard viewport. Additional visual smoke checks passed at 390×844 on `/lab/phone?chrome=v2` and 1440×900 on `/reader` in dark theme.
+
+All 15 production smoke checks passed. The smoke script had stale expectations for the old landing title and `/app` SPA route (now a redirect to `/library`), and assumed auth configuration lived in the entry bundle. Updated it to check `/reader`, accept the current JS prefix and inspect the reachable static import graph just as verify-bundle does. These are QA script updates only; the deployed reader code is unchanged.
+
+Artifacts: `/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-reader-stability/` — `webkit-788-compare.png`, `webkit-789-closed.png`, `phone-844.png`, `desktop.png`, `production-composer-empty.png`, `production-composer-typing.png`, and both browser result JSON files. Physical iPhone permission sheets/keyboard remain a stated test limitation, not a claimed reproduction.
