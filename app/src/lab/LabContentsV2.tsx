@@ -15,6 +15,7 @@ interface Props {
   chaptersReady: boolean
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
+  onOpenCover?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
   onOpenPassage: (place: ContentsPlace) => void; onContinueConversation: (conversation: ChatConversation) => void
 }
@@ -176,6 +177,7 @@ export function LabContentsV2(props: Props) {
     <div className="lc-panel" role="dialog" aria-modal="true" aria-label="Contents and conversations" ref={panelRef} data-testid="lab-contents-v2" data-view={view}>
       <header className="lc-header"><button onClick={back} aria-label={view === 'chapters' ? 'Back to book' : 'Back to overview'}><Icon name="back" /></button><h2>{view === 'books' ? 'Books' : view === 'jump' ? 'Find a chapter' : view === 'highlight' ? 'Highlight' : title}</h2><button onClick={() => changeView('search')} aria-label="Search contents" className={['chapters', 'search'].includes(view) ? '' : 'lc-invisible'}><Icon name="search" /></button></header>
       <div className="lc-controls">
+        {view === 'chapters' && props.onOpenCover && <button type="button" className="lc-more" onClick={props.onOpenCover}>Cover and preface</button>}
         {view === 'chapters' && <><div className="lc-path">{bible ? <button className="lc-book" onClick={() => { setBookQuery(''); setBookGroup(selectedBook.group); changeView('books') }} aria-label={`Change Bible book, ${selectedBook.title}`}>{selectedBook.title}<Icon name="down" /></button> : <h3>{title}</h3>}<button className="lc-jump" onClick={() => { setJump(''); changeView('jump') }}>Jump to<Icon name="down" /></button></div><nav className="lc-tabs" aria-label="Contents filter">{(['all', 'chats', 'highlights'] as Filter[]).map(value => <button key={value} aria-pressed={filter === value} onClick={() => { saveScroll(); setFilter(value) }}>{value[0].toUpperCase() + value.slice(1)}</button>)}</nav></>}
         {view === 'books' && <><input aria-label="Find a Bible book" placeholder="Find a book" value={bookQuery} onChange={event => setBookQuery(event.target.value)} /><nav className="lc-tabs" aria-label="Testament">{[...new Set(books.map(book => book.group))].filter(Boolean).map(group => <button key={group} aria-pressed={bookGroup === group} onClick={() => setBookGroup(group)}>{group}</button>)}</nav></>}
         {view === 'search' && <><input aria-label={`Search ${title}`} placeholder="Words or a chapter reference" value={query} onChange={event => setQuery(event.target.value)} /><small className="lc-scope">{title} · {editionLabel} · conversations and highlights</small></>}

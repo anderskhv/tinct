@@ -1,0 +1,35 @@
+.lab .lab-book-preface {
+  position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; background: var(--lab-paper); color: var(--lab-ink);
+  font-family: 'EB Garamond', Georgia, serif; overscroll-behavior: contain;
+}
+.lab .lab-book-preface::backdrop { background: var(--lab-paper); }
+.lab .lab-preface-scroll { height: 100%; overflow-y: auto; overscroll-behavior: contain; }
+.lab .lab-preface-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 28px; color: var(--lab-muted); }
+.lab .lab-preface-top > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab .lab-book-preface button { font: inherit; color: inherit; cursor: pointer; min-height: 44px; }
+.lab .lab-preface-top button { background: transparent; border: 0; padding: 8px 0; flex-shrink: 0; }
+.lab .lab-preface-cover-layout { max-width: 1080px; margin: 24px auto; padding: 0 36px 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 64px; }
+.lab .lab-preface-cover-art { display: block; width: 100%; max-height: 70dvh; object-fit: contain; }
+.lab .lab-preface-preview h1 { font: 400 32px/1.25 'Playfair Display', Georgia, serif; }
+.lab .lab-preface-preview p, .lab .lab-preface-article > p { font-size: calc(22px * var(--lab-font-size, 1.3) / 1.3); line-height: var(--lab-line-height, 1.55); }
+.lab .lab-preface-link { background: transparent; border: 0; padding: 8px 0; text-decoration: underline; text-underline-offset: 4px; font-size: 19px; }
+.lab .lab-preface-language { color: var(--lab-muted); }
+.lab .lab-book-preface .lab-preface-primary { display: block; width: 100%; margin-top: 22px; padding: 14px 18px; border: 1px solid var(--lab-border); border-radius: 16px; background: var(--lab-surface); color: var(--lab-ink); font-size: 20px; }
+.lab .lab-preface-article { max-width: 700px; margin: 32px auto 64px; padding: 0 28px; }
+.lab .lab-preface-article h1 { font: 400 36px/1.25 'Playfair Display', Georgia, serif; margin: 0 0 12px; }
+.lab .lab-preface-article .lab-preface-byline { color: var(--lab-muted); font-size: 17px; margin-bottom: 32px; }
+.lab .lab-preface-byline span { display: block; font-size: 14px; margin-top: 5px; }
+.lab .lab-preface-article > p { margin: 0 0 1em; }
+@media (max-width: 760px) {
+  .lab .lab-preface-top { padding: 10px 22px; font-size: 16px; }
+  .lab .lab-preface-cover-layout { display: block; max-width: 440px; padding: 0 24px 30px; margin-top: 8px; }
+  .lab .lab-preface-cover-art { max-height: 43dvh; }
+  .lab .lab-preface-preview { border-top: 1px solid var(--lab-border); margin-top: 22px; padding-top: 12px; }
+  .lab .lab-preface-preview h1 { display: none; }
+  .lab .lab-preface-preview p { margin: 0; }
+  .lab .lab-preface-article { margin-top: 24px; padding: 0 24px; }
+}
+
+.lab .lab-preface-top > span:focus, .lab .lab-preface-article h1:focus { outline: none; }
+.lab .lab-preface-preview p, .lab .lab-preface-article > p { font-family: var(--lab-font-reader, 'EB Garamond', Georgia, serif); }
