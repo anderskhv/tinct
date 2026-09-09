@@ -1,6 +1,6 @@
 # Library prefaces — September 9, 2026
 
-Status: editorial batch complete; sent to Move coding to Codex on 2026-09-09 for integration and verified shipping. New batch deployment has not been verified here.
+Status: integrated, deployed and verified on tinct.app on 2026-09-09. See [release evidence](../../library-prefaces-release-2026-09-09.md).
 
 [Read all 100 prefaces](INDEX.md) · [Import package](prefaces.json) · [Manifest](manifest.json) · [Coverage checks](qa.json) · [Research and scope review](research/reference-checks.md)
 
