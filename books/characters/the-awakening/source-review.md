@@ -24,7 +24,7 @@ Edna did not reveal so much as all this to Madame Ratignolle that summer day whe
 
 A quick vision of death smote her soul, and for a second of time appalled and enfeebled her senses. But by an effort she rallied her staggering faculties and managed to regain the land.
 
-**Card:** The young mother whose summer at Grand Isle we follow. She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.
+**Card:** She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.
 
 ## original-en · edna · 11:15
 
@@ -1086,7 +1086,7 @@ Edna did not reveal all of this to Madame Ratignolle that summer afternoon with 
 
 A quick vision of death struck her soul, and for a moment appalled and enfeebled her senses. But by an effort she rallied her faltering faculties and managed to regain the land.
 
-**Card:** The young mother whose summer at Grand Isle we follow. She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.
+**Card:** She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.
 
 ## modern-en · edna · 11:15
 

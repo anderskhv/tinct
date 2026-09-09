@@ -28,7 +28,7 @@ Usually reserved, she has begun sharing memories and feelings with Adèle, her f
 
 **After chapter 10, paragraph 12** — The novel’s central character; Léonce’s wife
 
-The young mother whose summer at Grand Isle we follow. She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.
+She has just learned to swim alone, feeling an exhilarating freedom before a sudden fear sent her back toward the shore.
 
 **After chapter 11, paragraph 16** — The novel’s central character; Léonce’s wife
 

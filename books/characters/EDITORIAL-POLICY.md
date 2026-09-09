@@ -10,7 +10,7 @@ For example, Léonce Pontellier is Edna’s husband and a New Orleans broker; Ed
 
 Later actions, changing relationships, private motives, revelations, and outcomes remain tied to the point where the reader encounters them. Robert can be identified as Madame Lebrun’s son immediately; his feelings for Edna, departure, return, and farewell remain separate gated developments. Arobin’s first incidental mention must not announce his later relationship with Edna or his whole-book importance.
 
-Keep the identifying subtitle across later reminders when the identity remains true. Let the body explain what has changed. If identity itself changes or is revealed, author a gated subtitle change rather than applying this pilot’s stable-subtitle approach mechanically to another book.
+Keep the identifying subtitle across later reminders when the identity remains true. Let the body explain what has changed. Once the reader knows the protagonist, omit repeated framing such as “the young mother whose summer we follow”; begin with the relevant development. If identity itself changes or is revealed, author a gated subtitle change rather than applying this pilot’s stable-subtitle approach mechanically to another book.
 
 For cultural references, explain the reference plainly. Do not merely say “the figure mentioned here.” Add only useful, checked context; avoid irrelevant biography or the ending of an embedded story. Keep uncertainty explicit: the text does not establish who or what Gluglu is, or name the Goncourt book. Attribute gossip and interpretation rather than turning them into narrator-certified facts.
 
