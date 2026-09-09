@@ -26,3 +26,5 @@ For cultural references, explain the reference plainly. Do not merely say “the
 The Awakening revision 2026-09-09.2 applies this review to 86 introductions and 177 later snapshots across all 39 chapters. Later bodies were retained where useful, opening bodies corrected, and stable identity subtitles supplied throughout. Source bindings and plot gates are unchanged. This is authoring-agent review, not independent editorial approval.
 
 Supplementary identity references used for this revision: [Poetry Foundation on Emerson](https://www.poetryfoundation.org/poets/ralph-waldo-emerson) and [Metropolitan Opera on Isolde](https://www.metopera.org/discover/articles/death-becomes-her2/). Novel-specific relationships and events were checked against the repository’s English edition text.
+
+Runtime publishing: character assets currently have immutable cache headers. Bump the content revision in the request URL whenever copy changes; verify the actual reader and fetched asset on production, not only the uploaded file.
