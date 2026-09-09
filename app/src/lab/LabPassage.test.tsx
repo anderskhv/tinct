@@ -256,12 +256,12 @@ describe('audio follow paint is layout-neutral', () => {
   const flushObservers = () => new Promise(resolve => setTimeout(resolve, 0))
   const labCss = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
 
-  it('every follow rule in lab.css changes only color, background or decoration-break', () => {
+  it('every follow rule in lab.css changes only ink and decoration, never text geometry', () => {
     const rules = [...labCss.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)]
     const followRules = rules.filter(([, selector]) => /\.is-(current|spoken|upcoming|line|paragraph-current)\b/.test(selector)
       && /lab-(passage|hearing)/.test(selector))
     expect(followRules.length).toBeGreaterThan(8)
-    const paintOnly = new Set(['color', 'background', 'background-color', 'box-decoration-break', '-webkit-box-decoration-break'])
+    const paintOnly = new Set(['color', 'background', 'background-color', 'box-decoration-break', '-webkit-box-decoration-break', 'text-decoration', 'text-decoration-color', 'text-underline-offset', 'box-shadow'])
     for (const [, selector, body] of followRules) {
       for (const declaration of body.split(';')) {
         const [property, value] = declaration.split(':').map(part => part.trim())
@@ -383,4 +383,14 @@ it('keeps future words grey while browsing away from the audio page', () => {
   expect(container.querySelectorAll('.is-upcoming')).toHaveLength(4)
   expect(container.querySelector('.is-current')).toBeNull()
   expect(container.textContent).toContain('five')
+})
+
+
+it('marks the active paragraph in desktop inline audio when word timings are unavailable', () => {
+  const paragraphs = ['First paragraph.', 'Second paragraph.']
+  render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 2 })}
+    playing inlineHearingPaint follow={{ kind: 'paragraph', paragraphIndex: 0 }} />)
+  expect(screen.getByTestId('lab-book').className).toContain('has-paragraph-follow')
+  expect(screen.getByTestId('lab-reading-stage').querySelector('.is-paragraph-current')?.textContent).toBe('First paragraph.')
+  expect(screen.getByTestId('lab-book').querySelectorAll('.lab-hearing-word.is-current')).toHaveLength(0)
 })

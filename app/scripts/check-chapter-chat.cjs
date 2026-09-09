@@ -16,6 +16,7 @@ async function main() {
   const browser=await config.engine.launch()
   try {
    const page=await browser.newPage({viewport:{width:config.width,height:config.height},isMobile:config.width<800,hasTouch:config.width<800})
+   await page.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
    const calls=[]
    await page.route('**/api/{chat,lab-chat}',async route=>{
     calls.push(route.request().postDataJSON())

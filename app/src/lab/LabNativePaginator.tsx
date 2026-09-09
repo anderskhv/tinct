@@ -15,6 +15,7 @@ import {
   type ChapterPageSegment,
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
+import { measuredDesktopPages } from './LabDesktopPaginator'
 
 export interface LabNativeWordPlacement {
   pageIndex: number
@@ -241,11 +242,13 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   chapterTitle,
   paragraphs,
   layoutKey,
+  fillPages = false,
   onPages,
 }: {
   chapterTitle: string
   paragraphs: string[]
   layoutKey: string
+  fillPages?: boolean
   onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
@@ -278,7 +281,56 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           wordIndex,
         })
       })
-      const pages = nativePagesFromPlacements(placements)
+      let pages = nativePagesFromPlacements(placements)
+      if (fillPages) {
+        // The column flow keeps whole words together. The visible leaf allows
+        // hyphenation, so that conservative map can leave several lines empty.
+        // Fit actual leaf fragments offscreen, once per layout, before exposing
+        // the map. Navigation then only selects a page; it never grows it live.
+        const surface = host.querySelector<HTMLElement>('[data-native-fragment-surface]')!
+        const header = surface.querySelector<HTMLElement>('.lab-passage-header')!
+        const stage = surface.querySelector<HTMLElement>('.lab-hearing-stage')!
+        const sourceWords = paragraphs.map(tokenizeHearingWords)
+        pages = measuredDesktopPages(sourceWords.map(words => words.length), (segments, first) => {
+          header.hidden = !first
+          stage.replaceChildren()
+          for (const segment of segments) {
+            const words = sourceWords[segment.paragraphIndex].slice(segment.from, segment.to)
+            const p = document.createElement('p')
+            p.className = 'lab-hearing-line'
+            // Match renderWordGroups: spacing belongs inside the word span,
+            // including the no-wrap verse unit. Column-flow markup deliberately
+            // puts it outside; cloning that markup changes Bible line breaks.
+            const makeWord = (index: number) => {
+              const span = document.createElement('span')
+              span.className = 'lab-hearing-word'
+              span.dataset.nativeWord = 'true'
+              span.append(nativeWordSpacing(words[index], index, words[index - 1]))
+              if (isLabVerseMarker(words[index].text)) {
+                const marker = document.createElement('span')
+                marker.className = 'lab-verse-mark'
+                marker.textContent = labVerseMarkerDisplay(words[index].text) + (index < words.length - 1 ? '\u00a0' : '')
+                span.append(marker)
+              } else span.append(words[index].text)
+              return span
+            }
+            for (let index = 0; index < words.length; index++) {
+              if (isLabVerseMarker(words[index].text) && words[index + 1]) {
+                const unit = document.createElement('span')
+                unit.className = 'lab-verse-unit'
+                unit.append(makeWord(index), makeWord(index + 1))
+                p.append(unit)
+                index++
+              } else p.append(makeWord(index))
+            }
+            stage.append(p)
+          }
+          const last = [...stage.querySelectorAll('[data-native-word]')].at(-1)
+          const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
+          return labPageFitsPaint({ lastBottom, chromeTop: host.getBoundingClientRect().bottom })
+        })
+        stage.replaceChildren()
+      }
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)) {
         onPages(pages, paragraphs)
       }
@@ -313,7 +365,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       observer?.disconnect()
       document.fonts?.removeEventListener?.('loadingdone', schedule)
     }
-  }, [chapterTitle, paragraphs, layoutKey, onPages])
+  }, [chapterTitle, paragraphs, layoutKey, fillPages, onPages])
 
   return (
     <div ref={hostRef} className="lab-page-measure lab-native-page-measure" aria-hidden="true" data-testid="lab-native-page-measure">
@@ -333,6 +385,10 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           </div>
         </div>
       </article>
+      {fillPages && <article className="lab-passage lab-book is-reading lab-native-fragment-surface" data-native-fragment-surface>
+        <header className="lab-passage-header"><h1 className="lab-passage-headline">{chapterTitle}</h1></header>
+        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" /></div></div>
+      </article>}
     </div>
   )
 })

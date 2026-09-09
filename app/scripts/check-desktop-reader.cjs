@@ -16,7 +16,7 @@ async function snap(p){return p.locator('.lab-page-wrap > .lab-passage').evaluat
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(120)}
 async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80);const a=await snap(p);await p.waitForTimeout(100);assert.deepEqual((await snap(p)).keys,a.keys,'Stable page after turn');assert.ok(a.bottom<a.limit,`Text ${a.bottom} overlaps footer ${a.limit}`);return a}
 (async()=>{const b=await({chromium,webkit}[engine]).launch();const results=[];try{
- const p=await b.newPage({viewport:{width:1440,height:950}});p.on('pageerror',e=>console.log('PAGE ERROR',e.message));
+ const p=await b.newPage({viewport:{width:1440,height:950}});await p.route('**/api/**',r=>/\/api\/audio-(?:file|manifest)\?/.test(r.request().url())?r.continue():r.fulfill({status:404,body:'{}'}));p.on('pageerror',e=>console.log('PAGE ERROR',e.message));
  await p.addInitScript(()=>{if(!localStorage.getItem('desktop-fixture')){localStorage.setItem('desktop-fixture','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'democracy-in-america',primaryEditionKey:'original-en',compareEditionKey:'modern-en',savedPlace:{bookId:'democracy-in-america',chapterNumber:1,paragraphIndex:0,page:0}}))}});
  // A deliberately cold font must settle before any page is exposed as ready.
  await p.route('**/fonts/*.woff2',async route=>{await new Promise(resolve=>setTimeout(resolve,700));await route.continue()});
@@ -41,7 +41,7 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
  results.push({coldFontFirstPaintFrames:firstPaints.length,stable:true});
 
  for(const mode of ['read','compare']){
- if(mode==='compare'){await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await ready(p)}
+ if(mode==='compare'){if(await p.getByTestId('lab-root').getAttribute('data-reader-controls')==='hidden')await p.locator('.lab-header').click({position:{x:20,y:20}});await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await ready(p)}
  await p.screenshot({path:out+'/'+engine+'-'+mode+'.png'});
  const first=await snap(p), all=[...first.keys], target=[...first.compare], pages=[first.keys];
  assert.ok(first.bottom<first.limit,`First ${mode} text overlaps footer`);
@@ -70,6 +70,6 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
  await p.screenshot({path:out+'/'+engine+'-audio.png'});await p.getByTestId('lab-v2-play').click();await p.waitForTimeout(250);assert.ok((await snap(p)).bottom<(await snap(p)).limit);
  results.push({reload:true,speedKeyboardAndPointer:true});
  await p.close();
- const cover=await b.newPage({viewport:{width:1440,height:950}});await cover.addInitScript(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'democracy-in-america',primaryEditionKey:'original-en'})));await cover.goto(origin+'/reader');await cover.getByTestId('lab-chapter-cover').waitFor();await cover.waitForTimeout(500);const r=await cover.locator('.lab-chapter-cover-art').evaluate(e=>({height:e.getBoundingClientRect().height,fit:getComputedStyle(e).objectFit,screen:innerHeight}));assert.ok(r.height<=r.screen);assert.equal(r.fit,'contain');await cover.screenshot({path:out+'/'+engine+'-cover.png'});results.push({cover:r});await cover.close();
+ const cover=await b.newPage({viewport:{width:1440,height:950}});await cover.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await cover.addInitScript(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'democracy-in-america',primaryEditionKey:'original-en'})));await cover.goto(origin+'/reader');await cover.getByTestId('lab-chapter-cover').waitFor();await cover.waitForTimeout(500);const r=await cover.locator('.lab-chapter-cover-art').evaluate(e=>({height:e.getBoundingClientRect().height,fit:getComputedStyle(e).objectFit,screen:innerHeight}));assert.ok(r.height<=r.screen);assert.equal(r.fit,'contain');await cover.screenshot({path:out+'/'+engine+'-cover.png'});results.push({cover:r});await cover.close();
  console.log(JSON.stringify(results,null,2));fs.writeFileSync(out+'/'+engine+'-results.json',JSON.stringify(results,null,2));
 }finally{await b.close()}})().catch(e=>{console.error(e);process.exit(1)});

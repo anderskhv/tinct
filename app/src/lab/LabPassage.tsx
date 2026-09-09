@@ -549,6 +549,7 @@ export function LabPassage({
                     id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
                       'lab-hearing-line',
+                      inlineHearingPaint && follow.kind === 'paragraph' && follow.paragraphIndex === paragraphIndex ? 'is-paragraph-current' : '',
                       lineContinuesParagraph(paragraphs, line) ? 'is-continued' : '',
                       markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
@@ -598,7 +599,7 @@ export function LabPassage({
         'lab-book',
         'is-reading',
         hearing && !browseWhileListening ? 'is-hearing' : '',
-        followActive && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
+        (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',
         browseWhileListening ? 'is-browse-listen' : '',
         dimmed ? 'is-dimmed' : '',

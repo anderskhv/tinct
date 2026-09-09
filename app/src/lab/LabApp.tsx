@@ -2231,7 +2231,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const measuredWordsPerPage = fullPageWordCounts.length > 0
     ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)]
     : Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
-  const phoneProgressLabel = labReaderProgressLabel({
+  const progressInput = {
     mode: readerProgressMode,
     currentPage: chapterProgress.currentPage,
     totalPages: chapterProgress.totalPages,
@@ -2240,14 +2240,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterWordsRead: chapterProgress.wordsRead,
     chapterWordCounts: book.chapters,
     wordsPerPage: measuredWordsPerPage,
-  })
+  }
+  const phoneProgressLabel = labReaderProgressLabel(progressInput)
+  const desktopProgressLabel = labReaderProgressLabel({ ...progressInput, mode: 'book' }).split(' · ').at(-1)
   // No figure until the chapter list is real and the place is resolved: the
   // boot list has two chapters and would read "1 / 2 of book" for a moment.
   const footProgressLabel = initialResolving || (book.chaptersProvisional && book.paragraphs.length === 0)
     ? ''
     : showPhoneChrome
       ? phoneProgressLabel
-      : `${chapterProgress.currentPage}${desktopSpread && chapterProgress.currentPage < chapterProgress.totalPages ? `–${chapterProgress.currentPage + 1}` : ''} of ${chapterProgress.totalPages}`
+      : desktopPaging ? `${desktopProgressLabel} of book` : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
     if (!showHearing) return
@@ -2783,7 +2785,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph, markChapterFinished])
   skipRef.current = applyPlaybackSkip
 
+  const quietDesktopAfterTurn = useCallback(() => {
+    if (!desktopPaging) return
+    setReaderControlsVisible(false)
+    if (!listen.playing) { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }
+  }, [desktopPaging, listen.playing])
+
   const goNext = useCallback(() => {
+    quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
       chapterNavigationRef.current += 1
@@ -2816,9 +2825,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn])
 
   const goPrev = useCallback(() => {
+    quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       chapterNavigationRef.current += 1
       const previousChapter = prevLabChapter(book.chapters, book.chapterNumber)
@@ -2849,7 +2859,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread])
+  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
@@ -3400,7 +3410,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-fullscreen={fullscreen ? 'true' : 'false'}
       data-reader-controls={frontispieceVisible
         ? 'hidden'
-        : showPhoneChrome ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
+        : showPhoneChrome || desktopPaging ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
       data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
       data-desktop-paging={desktopPaging ? 'true' : undefined}
@@ -3438,7 +3448,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       )}
       {!frontispieceVisible && <header
         className="lab-header"
-        {...(chromeV2 && showPhoneChrome ? {
+        {...(chromeV2 && (showPhoneChrome || desktopPaging) ? {
           // Hidden chrome: a press anywhere in the top bar reveals it and does
           // nothing else. Caught on the way down, and the click that follows
           // the same press is swallowed too — otherwise the chapter pill under
@@ -3667,8 +3677,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               ? () => setReaderControlsVisible(visible => !visible)
               : undefined}
           />}
+          {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
+            <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{chapterProgress.currentPage}</span></span>
+            <span>{desktopCompareActive ? <><b>Compare · {editionLabelFor(prefs.compareEdition, bookEditions)}</b><span>{chapterProgress.currentPage}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{chapterProgress.currentPage + 1}</span> : null}</span>
+          </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
+              fillPages={chromeV2}
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
               layoutKey={layoutKeyFor(readerEditionKey)}
@@ -3686,6 +3701,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               one go instead of showing an estimate and correcting it. */}
           {chromeV2 && !chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
             <LabNativePaginator
+              fillPages={chromeV2}
               chapterTitle={book.chapterTitle}
               paragraphs={standbyParagraphs}
               layoutKey={standbyKey}
@@ -3808,7 +3824,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
       </div>
 
-      {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
+      {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {chromeV2 && recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0
         && recentChapterReturn.libraryBookId === (book.bookId || 'bible')
@@ -3893,13 +3909,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
-            <span>{book.chapterLabel} · {primaryEditionLabel}</span>
+            <span>{editionLabelFor(audioEditionKey, bookEditions)}</span>
             <i><b style={{ width: `${Math.max(0, Math.min(100, ((listen.currentTime || 0) / Math.max(1, listen.clips[listen.clipIndex]?.duration || 1)) * 100))}%` }} /></i>
           </div>
+          {chromeV2 && !listen.playing && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
+            onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
         </section>
       )}
 
-      {chromeV2 && (audioBarActive || desktopAudioBarActive) && !listen.playing && !phoneAsk && <button
+      {chromeV2 && showPhoneChrome && audioBarActive && !listen.playing && !phoneAsk && <button
         type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
         onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
       >×</button>}

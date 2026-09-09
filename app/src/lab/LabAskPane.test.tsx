@@ -570,7 +570,7 @@ describe('V2 multiline composer and copying', () => {
     typedLoading: false, turns: [], onDraftChange: vi.fn(), onSubmit: vi.fn(),
     onMic: vi.fn(), onVoiceMode: vi.fn(), phoneSheet: true,
   }
-  it('grows the writing area, retains voice, and uses Enter for a new line', () => {
+  it('grows the writing area, swaps voice for send, and uses Enter for a new line', () => {
     const onSubmit = vi.fn()
     const { rerender } = render(<LabAskPane {...base} draft="" onSubmit={onSubmit} />)
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
@@ -579,7 +579,7 @@ describe('V2 multiline composer and copying', () => {
     Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 120 })
     rerender(<LabAskPane {...base} draft={'First line\nSecond line'} onSubmit={onSubmit} />)
     expect(field.style.height).toBe('120px')
-    expect(screen.getByTestId('lab-ask-voice')).toBeTruthy()
+    expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
     expect(screen.getByTestId('lab-ask-send').hidden).toBe(false)
     expect(fireEvent.keyDown(field, { key: 'Enter' })).toBe(true)
     expect(onSubmit).not.toHaveBeenCalled()
@@ -617,13 +617,17 @@ describe('chat dictation control', () => {
     expect(screen.getByRole('button', { name: 'Dictate a question' }).querySelector('path')).toBeTruthy()
     for (const dictationState of ['starting', 'listening'] as const) {
       rerender(<LabAskPane {...props} dictationState={dictationState} />)
+      expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
       const stop = screen.getByRole('button', { name: 'Stop dictation' })
       expect(stop.querySelector('rect')?.getAttribute('width')).toBe('12')
       expect(stop.querySelector('path')).toBeNull()
       fireEvent.click(stop)
     }
     expect(onMic).toHaveBeenCalledTimes(2)
+    rerender(<LabAskPane {...props} dictationState="idle" draft="A dictated question" />)
+    expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
     rerender(<LabAskPane {...props} dictationState="idle" />)
+    expect(screen.getByTestId('lab-ask-voice')).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Dictate a question' }).querySelector('path')).toBeTruthy()
   })
 })

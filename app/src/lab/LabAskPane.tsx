@@ -414,7 +414,7 @@ export function LabAskPane({
           <span className="lab-ask-voice-x" aria-hidden="true">×</span>
         </button>
       )}
-      {conversationState === 'idle' && (chromeV2 || !canSend) && (
+      {conversationState === 'idle' && !canSend && (!chromeV2 || dictationState === 'idle') && (
         <button
           type="button"
           className="lab-ask-icon lab-ask-voice"
