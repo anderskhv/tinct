@@ -359,6 +359,18 @@ describe('lab chrome inset invariant', () => {
     expect(labScrollportOverflows(wrap)).toBe(false)
   })
 
+  it('allows terminal action scrolling without treating UI as ink or accepting source overflow', () => {
+    document.body.innerHTML = '<div class="lab-page-wrap"><article class="lab-passage has-chapter-end"><p class="lab-hearing-line"><span data-testid="lab-word">last</span></p><section class="lab-chapter-end"><button>Discuss</button></section></article></div>'
+    const wrap = document.querySelector('.lab-page-wrap') as HTMLElement
+    const passage = document.querySelector('.lab-passage') as HTMLElement
+    Object.defineProperty(passage, 'scrollHeight', { configurable: true, value: 700 })
+    Object.defineProperty(passage, 'clientHeight', { configurable: true, value: 500 })
+    expect(labScrollportOverflows(wrap)).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 590, chromeTop: 560, scrollOverflow: labScrollportOverflows(wrap) })).toBe(false)
+    passage.querySelector('.lab-chapter-end')!.remove()
+    expect(labScrollportOverflows(wrap)).toBe(true)
+  })
+
   it('clamps chrome top to the visible visualViewport, never 100vh', () => {
     expect(labVisibleBottomPx({ height: 628, offsetTop: 0 }, 844)).toBe(628)
     expect(labVisibleBottomPx({ height: 628, offsetTop: 12 }, 844)).toBe(640)

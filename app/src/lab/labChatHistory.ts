@@ -1,3 +1,4 @@
+import { parseChapterChatAction } from './labChapterChat'
 import type { ChatConversation, ChatMessage } from '../types'
 import { BOOKS } from '../data/bookRegistry'
 import { localStorageProvider } from '../services/storage'
@@ -69,6 +70,7 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
     content,
     timestamp,
     bookId,
+    chapterAction: parseChapterChatAction(src.chapterAction, bookId),
     chapterNumber: isFiniteInt(src.chapterNumber, 1, 5000) ? src.chapterNumber : undefined,
     paragraphIndex: isFiniteInt(src.paragraphIndex, 0, 10_000) ? src.paragraphIndex : undefined,
     ...(typeof src.highlightedText === 'string' && src.highlightedText ? { highlightedText: src.highlightedText.slice(0, 2000) } : {}),
@@ -186,6 +188,8 @@ export function sameChatConversations(a: ChatConversation[], b: ChatConversation
 export function turnsFromConversations(conversations: ChatConversation[]): LabAskTurn[] {
   return conversations.flatMap(conversation => conversation.messages.map(message => ({
     id: message.id,
+    bookId: conversation.bookId,
+    chapterAction: message.chapterAction,
     role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
     content: message.content,
     timestamp: message.timestamp,
@@ -307,7 +311,7 @@ export function appendLabChatTurn(
   conversationId?: string,
 ): ChatConversation[] {
   let current = readLabBookChat(bookId)
-  if (!bookId) return current
+  if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
   if (conversationId) {
     const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
     if (!target) return current

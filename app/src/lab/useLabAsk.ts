@@ -1,3 +1,4 @@
+import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
 import type { VoiceTrial } from '../voice/voiceTrial'
@@ -137,6 +138,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const [starting, setStarting] = useState(false)
   const [assistantPace, setAssistantPace] = useState<AssistantPace>('normal')
   const sendingRef = useRef(false)
+  const gatedChapterRef = useRef<ChapterChatRequest | undefined>(undefined)
+  const [failedTyped, setFailedTyped] = useState<{ text: string; chapterRequest?: ChapterChatRequest; context: LabAskContext; userTurn: LabAskTurn } | null>(null)
   const optionsRef = useRef(options)
   optionsRef.current = options
   const chatBookIdRef = useRef(chatBookId)
@@ -230,7 +233,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
   const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
     const bookId = chatBookIdRef.current
-    if (!bookId) return
+    if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
     const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
     if (loadedForBookRef.current === bookId) setConversations(next)
     cloudWriterRef.current?.push(bookId, next)
@@ -302,6 +305,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       .flatMap(conversation => conversation.messages.map(message => ({
         role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
         content: `${conversation.bookId}: ${message.content}`,
+        chapterAction: message.chapterAction,
         cancelled: message.isComplete === false,
       })))
     return acrossLibrary.length > 0 ? acrossLibrary : turns
@@ -313,7 +317,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const talkInstructions = useMemo(
     () => buildLabVoiceControlInstructions(
       options.voiceTrial ? buildDirectVoiceInstructions(askContext) : isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
-      selectedConversationTurns ?? (options.voiceTrial ? turns : rememberedLabTurns),
+      (selectedConversationTurns ?? (options.voiceTrial ? turns : rememberedLabTurns)).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
     ) + (options.quietCompanionHandoff && !options.voiceTrial ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
     [askContext, isVoiceV2, rememberedLabTurns, selectedConversationTurns, turns, options.quietCompanionHandoff, options.voiceTrial],
   )
@@ -499,50 +503,73 @@ export function useLabAsk(options: UseLabAskOptions) {
     await startVoice()
   }, [startVoice, starting, stopVoice, voice.isActive])
 
-  const sendTyped = useCallback(async (content: string) => {
+  const sendTyped = useCallback(async (content: string, chapterRequest?: ChapterChatRequest, retry?: { context: LabAskContext; userTurn: LabAskTurn }) => {
     const text = content.trim()
-    if (!text || sendingRef.current) return
-    if (isResumeListenCommand(text)) {
+    const gated = gatedChapterRef.current
+    if (!chapterRequest && gated && gated.action.bookId === chatBookIdRef.current
+      && text === CHAPTER_CHAT_MESSAGES[gated.action.kind]) chapterRequest = gated
+    const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
+    if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
+    const requestContext = chapterRequest?.context ?? retry?.context ?? askContextNow([])
+    const requestChapter = requestContext.chapterNumber ?? 1
+    const requestParagraph = requestContext.paragraphIndex
+    const stillHere = () => requestBookId === chatBookIdRef.current
+    if (!chapterRequest && isResumeListenCommand(text)) {
       options.onResumeListen?.()
       return
     }
-    if (!gateAiAction('chat', text)) return
+    if (!gateAiAction('chat', text)) { gatedChapterRef.current = chapterRequest; return }
+    gatedChapterRef.current = undefined
     sendingRef.current = true
+    setTypedLoading(true)
+    setFailedTyped(null)
 
-    const userTurn: LabAskTurn = {
+    const userTurn: LabAskTurn = retry?.userTurn ?? {
+      bookId: requestBookId,
+      chapterAction: chapterRequest?.action,
       id: nextId(),
       role: 'user',
       content: text,
       source: 'typed',
       timestamp: Date.now(),
-      chapterNumber: options.chapterNumber ?? 1,
-      paragraphIndex: options.paragraphIndex,
+      chapterNumber: requestChapter,
+      paragraphIndex: requestParagraph,
     }
-    setTurns(current => {
-      const next = [...current, userTurn]
-      dumpLabTalkTurns(next)
-      return next
-    })
-    recordTurn({
-      id: userTurn.id,
-      role: 'user',
-      content: text,
-      timestamp: Date.now(),
-      bookId: chatBookIdRef.current,
-      chapterNumber: options.chapterNumber ?? 1,
-      isComplete: true,
-      source: 'text',
-    }, options.chapterNumber ?? 1, options.paragraphIndex)
+    if (!retry) {
+      setTurns(current => {
+        if (!stillHere()) return current
+        const next = [...current, userTurn]
+        dumpLabTalkTurns(next)
+        return next
+      })
+      recordTurn({
+        id: userTurn.id,
+        role: 'user',
+        content: text,
+        timestamp: Date.now(),
+        bookId: requestBookId,
+        chapterNumber: requestChapter,
+        isComplete: true,
+        source: 'text',
+        chapterAction: chapterRequest?.action,
+      }, requestChapter, requestParagraph)
+    }
     setNotice(null)
 
-    const authToken = await resolveLabVoiceToken({
-      override: options.authToken,
-      sessionToken,
-      readSession: readSupabaseAccessToken,
-    })
-
-    setTypedLoading(true)
+    const fail = (message: string) => {
+      if (!stillHere()) return
+      setNotice(message)
+      setFailedTyped({ text, chapterRequest, context: requestContext, userTurn })
+    }
     try {
+      let actionSystem: string | undefined
+      if (chapterRequest) {
+        try { actionSystem = buildChapterChatInstructions(chapterRequest, await loadChapterChatTarget(chapterRequest)) }
+        catch { fail('Couldn’t load the chapter. Please try again.'); return }
+      }
+      if (!stillHere()) return
+      const authToken = await resolveLabVoiceToken({ override: options.authToken, sessionToken, readSession: readSupabaseAccessToken })
+      if (!stillHere()) return
       const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookIdRef.current) : null
       const contextTurns = selected ? turnsFromConversations([selected]) : turns
       const previousAssistant = [...contextTurns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
@@ -551,14 +578,15 @@ export function useLabAsk(options: UseLabAskOptions) {
       // move or resume marker it might still emit for that turn.
       const lookupConsent = affirmativeAnswersLookupOffer(text, previousAssistant)
       // The companion's window stays the last 20 turns; only the displayed history grew.
-      const history = [...contextTurns, userTurn]
+      const history = [...(chapterRequest?.action.kind === 'prepare' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
         .slice(-20)
-        .map(turn => ({ role: turn.role, content: turn.content }))
+        .map(turn => ({ role: turn.role, content: turn.id === userTurn.id && chapterRequest ? turn.content : chapterChatHistoryContent(turn) }))
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
       }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
-      const context = askContextNow(await readTrail())
+      const context = { ...requestContext, readingTrail: chapterRequest ? undefined : await readTrail() }
+      if (!stillHere()) return
       const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         headers,
@@ -567,17 +595,18 @@ export function useLabAsk(options: UseLabAskOptions) {
           max_tokens: 1024,
           stream: true,
           effort: COMPANION_EFFORT_TYPED,
-          system: buildLabAskInstructions(context),
+          system: actionSystem ?? buildLabAskInstructions(context),
           messages: history,
           ...labCompanionBookFields(context),
         }),
       })
+      if (!stillHere()) return
       if (response.status === 401) {
-        setNotice(authToken ? LAB_COPY.signInAsk : LAB_COPY.askUnavailable)
+        fail(authToken ? LAB_COPY.signInAsk : LAB_COPY.askUnavailable)
         return
       }
       if (response.status === 402) {
-        setNotice(LAB_COPY.balanceEmpty)
+        fail(LAB_COPY.balanceEmpty)
         return
       }
       if (!response.ok) {
@@ -587,44 +616,51 @@ export function useLabAsk(options: UseLabAskOptions) {
         const message = typeof data.error === 'string'
           ? data.error
           : data.error?.message || LAB_COPY.askUnavailable
-        setNotice(message)
+        fail(message)
         return
       }
       let assistantId = nextId()
       const rawReply = await readAnthropicResponse(response, (accumulated) => {
         const content = accumulated.trim()
-        if (!content) return
+        if (!content || !stillHere()) return
         setTurns(current => {
+          if (!stillHere()) return current
           const last = current[current.length - 1]
           const next = last?.id === assistantId
             ? [...current.slice(0, -1), { ...last, content }]
             : [...current, {
+                bookId: requestBookId,
+                chapterAction: chapterRequest?.action,
                 id: assistantId,
                 role: 'assistant' as const,
                 content,
                 source: 'typed' as const,
-                chapterNumber: options.chapterNumber ?? 1,
-                paragraphIndex: options.paragraphIndex,
+                chapterNumber: requestChapter,
+                paragraphIndex: requestParagraph,
               }]
           dumpLabTalkTurns(next)
           return next
         })
       })
+      if (!stillHere()) return
       const resumed = labTypedResume(rawReply)
       const parsed = labTypedSpeed(resumed.text)
       const paced = labTypedPace(parsed.text)
       const skipped = labTypedSkip(paced.text)
       if (skipped.text) {
         const assistantTurn: LabAskTurn = {
+          bookId: requestBookId,
+          chapterAction: chapterRequest?.action,
           id: assistantId || nextId(),
           role: 'assistant',
           content: skipped.text,
           source: 'typed',
           timestamp: Date.now(),
-          chapterNumber: options.chapterNumber ?? 1,
-          paragraphIndex: options.paragraphIndex,
+          chapterNumber: requestChapter,
+          paragraphIndex: requestParagraph,
         }
         setTurns(current => {
+          if (!stillHere()) return current
           const last = current[current.length - 1]
           const next = last?.id === assistantTurn.id
             ? [...current.slice(0, -1), assistantTurn]
@@ -637,21 +673,22 @@ export function useLabAsk(options: UseLabAskOptions) {
           role: 'assistant',
           content: skipped.text,
           timestamp: Date.now(),
-          bookId: chatBookIdRef.current,
-          chapterNumber: options.chapterNumber ?? 1,
+          bookId: requestBookId,
+          chapterNumber: requestChapter,
           isComplete: true,
           source: 'text',
-        }, options.chapterNumber ?? 1, options.paragraphIndex)
+          chapterAction: chapterRequest?.action,
+        }, requestChapter, requestParagraph)
       }
-      if (parsed.speed != null) {
+      if (!chapterRequest && parsed.speed != null) {
         optionsRef.current.onSetPlaybackSpeed?.(parsed.speed)
       }
-      if (paced.pace) {
+      if (!chapterRequest && paced.pace) {
         setAssistantPace(paced.pace)
         voice.setAssistantPace(paced.pace)
       }
-      const skip = lookupConsent ? null : skipped.skip
-      const resume = lookupConsent ? false : resumed.resume
+      const skip = (lookupConsent || chapterRequest) ? null : skipped.skip
+      const resume = (lookupConsent || chapterRequest) ? false : resumed.resume
       let resumeAfterNavigation = false
       if (skip) {
         // A move opens the reader at the new place. It plays only when this
@@ -670,7 +707,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         window.setTimeout(() => optionsRef.current.onResumeListen?.(), 0)
       }
     } catch {
-      setNotice(LAB_COPY.askUnavailable)
+      fail(LAB_COPY.askUnavailable)
     } finally {
       sendingRef.current = false
       setTypedLoading(false)
@@ -705,5 +742,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     failStart,
     toggleInChatVoice,
     sendTyped,
+    retryTyped: failedTyped && failedTyped.userTurn.bookId === chatBookId ? () => {
+      void sendTyped(failedTyped.text, failedTyped.chapterRequest, failedTyped)
+    } : undefined,
   }
 }

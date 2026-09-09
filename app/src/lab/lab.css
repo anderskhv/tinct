@@ -6406,3 +6406,30 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: var(--lab-surface); color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover:has(.lab-chapter-cover-art),
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover-art { background: var(--lab-paper); }
+
+/* Chapter-end actions are outside the source/pagination tree. A full final
+   page can scroll to its actions without making a new page or moving anchors. */
+.lab[data-chrome-version="v2"] .lab-passage.has-chapter-end {
+  overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; touch-action: pan-y;
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.has-chapter-end .lab-book-columns { height: auto; }
+.lab[data-chrome-version="v2"] .lab-chapter-end {
+  padding: 24px 0 8px; margin: 0; color: var(--lab-ink); user-select: none;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-end-label {
+  text-align: center; color: var(--lab-muted); font: 12px/1.5 'IBM Plex Mono', monospace; margin: 0 0 14px;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: grid; gap: 8px; }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 44px; padding: 10px 14px; border: 1px solid var(--lab-border); border-radius: 14px;
+  background: color-mix(in srgb, var(--lab-paper) 78%, transparent); color: var(--lab-ink);
+  font: 18px/1.4 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:disabled { opacity: .5; cursor: wait; }
+.lab[data-chrome-version="v2"] .lab-ask-notice .lab-text-btn { margin-left: 8px; text-decoration: underline; }
+.lab[data-chrome-version="v2"].is-phone .lab-page-wrap .lab-passage.is-end-scrollable,
+.lab[data-chrome-version="v2"].is-phone .lab-page-wrap .lab-passage.is-end-scrollable *,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap .lab-passage.is-end-scrollable,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap .lab-passage.is-end-scrollable * { touch-action: pan-y pinch-zoom; }

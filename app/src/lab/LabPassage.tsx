@@ -19,6 +19,7 @@ export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
   pendingLayout?: boolean
+  chapterEnd?: ReactNode
   desktopSpread?: boolean
   nextReadingPage?: ChapterHearingPage
   alignCompare?: boolean
@@ -251,6 +252,7 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
 
 export function LabPassage({
   pendingLayout = false,
+  chapterEnd,
   desktopSpread = false,
   nextReadingPage,
   alignCompare = false,
@@ -322,6 +324,7 @@ export function LabPassage({
   const lastSelectionPageTurnAtRef = useRef(0)
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
+  const [endScrollable, setEndScrollable] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
 
@@ -339,6 +342,17 @@ export function LabPassage({
     .map(line => `${line.paragraphIndex}:${line.from}:${line.words.length}`)
     .join('|')
   const paintedBranch = hearing && followActive ? 'hearing' : hearing && !browseWhileListening ? 'plain' : 'reading'
+  useLayoutEffect(() => {
+    const article = articleRef.current
+    if (!article) return
+    article.scrollTop = 0
+    const check = () => setEndScrollable(Boolean(chapterEnd && article.scrollHeight > article.clientHeight + 1))
+    check()
+    if (typeof ResizeObserver !== 'function') return
+    const observer = new ResizeObserver(check)
+    observer.observe(article)
+    return () => observer.disconnect()
+  }, [paintedLinesKey, nextReadingPage, compare, Boolean(chapterEnd), layoutKey])
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
   }, [paintedLinesKey, nextReadingPage, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
@@ -391,7 +405,7 @@ export function LabPassage({
     // A word at the left/right edge can still be long-pressed. A short release
     // remains an edge page turn, while the long-press timer wins for selection.
     const selectionPlace = place
-    if (selectionPlace && onSelectRange) event.preventDefault()
+    if (selectionPlace && onSelectRange && !(endScrollable && event.pointerType === 'touch')) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
     const touchSelection = event.pointerType === 'touch' && !!selectionPlace && !!onSelectRange
     const drag = {
@@ -473,6 +487,7 @@ export function LabPassage({
     // and always has been; the menu's Compare row is the pointer's way in.
     if (
       onCompareSwap
+      && !endScrollable
       && drag.pointerType !== 'mouse'
       && !selectingRange
       && !drag.selecting
@@ -589,6 +604,8 @@ export function LabPassage({
         dimmed ? 'is-dimmed' : '',
         compare ? 'is-compare' : '',
         desktopSpread ? 'is-spread' : '',
+        chapterEnd ? 'has-chapter-end' : '',
+        endScrollable ? 'is-end-scrollable' : '',
         alignCompare && compare ? 'is-aligned-compare' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
@@ -635,11 +652,13 @@ export function LabPassage({
               {renderReadingLines(readingLines)}
             </div>
           )}
+          {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
           </div>
+          {nextReadingPage && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
@@ -656,6 +675,7 @@ export function LabPassage({
           </div>
         )}
       </div>
+      {compare && chapterEnd}
       {hearing && !hideTransport && onTogglePlay && onSeek && onCycleSpeed && (
         <div className="lab-hearing-transport" data-testid="lab-hearing-transport">
           <button type="button" className="lab-text-btn" onClick={onTogglePlay} data-testid="lab-hearing-pause">

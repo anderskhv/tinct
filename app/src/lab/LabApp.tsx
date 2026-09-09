@@ -1,3 +1,5 @@
+import { LabChapterEnd } from './LabChapterEnd'
+import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { flushSync } from 'react-dom'
@@ -3320,6 +3322,28 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     void ask.sendTyped(value)
   }, [ask, interruptHearForAsk, resumeListenAfterAsk])
 
+  const handleChapterChat = useCallback((kind: 'discuss' | 'prepare') => {
+    if (ask.typedLoading || initialResolving || book.chaptersProvisional) return
+    // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
+    const request = createChapterChatRequest(kind, {
+      bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
+      editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, bookEditions),
+      chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel,
+      paragraphs: readerParagraphs, paragraphIndex: placeRef.current.paragraphIndex,
+      chapterCount: book.chapters.length,
+    }, book.chapters)
+    if (!request) return
+    dictation.stop()
+    interruptHearForAsk()
+    setDesktopAskOpen(true)
+    if (showPhoneChrome) setPhoneAskOpen(true)
+    void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
+  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome])
+
+  const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
+    && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
+    && readingPageIndex + (desktopSpread ? 1 : 0) >= readingPages.length - 1
+
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
     setInTheBookOpen(false)
@@ -3586,6 +3610,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           ) : <LabPassage
             pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
+            chapterEnd={showChapterEnd ? <LabChapterEnd
+              label={book.chapterLabel} hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
+              busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')} onPrepare={() => handleChapterChat('prepare')}
+            /> : undefined}
             desktopSpread={desktopSpread}
             nextReadingPage={desktopSpread ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
@@ -3709,6 +3737,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               handleTalk()
               if (showPhoneChrome) setPhoneAskOpen(true)
             } : handleVoiceMode}
+            onRetry={ask.retryTyped}
             notice={chromeV2 ? (dictation.notice || ask.notice) : ask.notice}
             onDone={phoneAsk && !chromeV2 ? undefined : () => { dictation.stop(); closePhoneAsk() }}
             phoneSheet={!!phoneAsk}

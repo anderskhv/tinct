@@ -376,6 +376,9 @@ export function labScrollportOverflows(root: HTMLElement): boolean {
     nodes.push(el)
   })
   for (const el of nodes) {
+    // Terminal actions can scroll after the source text. Ink overflow is
+    // still checked independently; UI height must never split source pages.
+    if (el.classList.contains('has-chapter-end') && el.querySelector('.lab-chapter-end')) continue
     if (el.scrollHeight > el.clientHeight) return true
   }
   return false

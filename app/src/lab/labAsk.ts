@@ -1,3 +1,4 @@
+import type { ChapterChatAction } from '../types'
 import type { VoiceModeState } from '../voice/types'
 import { VOICE_TOOLS } from '../voice/context'
 import { parseHearingSpeed } from './labHearing'
@@ -10,6 +11,8 @@ import type { LabReadingTrailEntry } from './labReadingTrail'
 export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'
 
 export interface LabAskTurn {
+  bookId?: string
+  chapterAction?: ChapterChatAction
   id: string
   role: 'user' | 'assistant'
   content: string

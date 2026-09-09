@@ -19,6 +19,7 @@ interface LabAskPaneProps {
   onSubmit: (value: string) => void
   onMic: () => void
   onVoiceMode: () => void
+  onRetry?: () => void
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
@@ -77,6 +78,7 @@ export function LabAskPane({
   onSubmit,
   onMic,
   onVoiceMode,
+  onRetry,
   notice,
   onDone,
   phoneSheet = false,
@@ -298,7 +300,7 @@ export function LabAskPane({
   }
 
   const noticeNode = (notice || localError) && (
-    <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}</p>
+    <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}{onRetry && !typedLoading && <button type="button" className="lab-text-btn" onClick={onRetry}>Try again</button>}</p>
   )
   const dictationNode = chromeV2 && dictationState !== 'idle' && (
     <p className="lab-ask-voice-status" role="status" data-testid="lab-dictation-status">
