@@ -9,7 +9,6 @@ async function openCover(p){if(await p.getByTestId('lab-root').getAttribute('dat
  await p.addInitScript(id=>{if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:id,primaryEditionKey:id==='bible'?'kjv-en':'original-en',compareEditionKey:id==='bible'?'web-en':'modern-en',savedPlace:{bookId:id,chapterNumber:2,paragraphIndex:1,wordIndex:5,page:0}}))}},id);
  await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(800);
  assert.equal(await p.getByTestId('lab-book-preface').count(),0,'Resumed book must open the reader');
- if(id==='democracy-in-america'){await p.getByTestId('lab-header-chapter').click();assert.equal(await p.getByRole('button',{name:'Cover and preface'}).count(),0);results.push({engine:engine.name(),id,unsupportedHidden:true});await p.close();continue}
  await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await p.waitForTimeout(500);
  const before=await state(p);await openCover(p);const panel=p.getByTestId('lab-book-preface');await panel.getByRole('button',{name:'Read preface'}).click();await p.waitForTimeout(500);
  const writes=await stored(p);await p.locator('.lab-preface-scroll').evaluate(e=>e.scrollTop=e.scrollHeight);await p.keyboard.press('ArrowRight');await p.waitForTimeout(1800);

@@ -3,7 +3,7 @@ const {chromium,webkit}=require('playwright'),assert=require('node:assert/strict
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5192',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-prefaces';fs.mkdirSync(dir,{recursive:true});
 async function location(p){return p.getByTestId('lab-root').evaluate(e=>({book:e.dataset.bookId,chapter:e.dataset.chapter,place:e.dataset.place}))}
 (async()=>{const results=[];for(const conf of [{name:'phone',engine:webkit,width:390,height:844},{name:'small',engine:webkit,width:360,height:640},{name:'desktop',engine:chromium,width:1440,height:950}]){
- const b=await conf.engine.launch();try{for(const id of ['odyssey','the-awakening','niels-lyhne','war-and-peace','symposium','bible']){
+ const b=await conf.engine.launch();try{for(const id of (process.env.PREFACE_BOOKS?.split(',') || ['odyssey','the-awakening','niels-lyhne','war-and-peace','symposium','bible'])){
  const p=await b.newPage({viewport:{width:conf.width,height:conf.height},isMobile:conf.width<800,hasTouch:conf.width<800});const calls=[];
  await p.route('**/api/**',r=>{calls.push(r.request().url());return r.fulfill({status:404,body:'{}'})});
  await p.addInitScript(({id,large})=>{if(!sessionStorage.getItem('preface-seeded')){sessionStorage.setItem('preface-seeded','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:id,primaryEditionKey:id==='bible'?'kjv-en':'original-en',compareEditionKey:id==='bible'?'web-en':'modern-en'}))}if(large)localStorage.setItem('tinct-lab-prefs',JSON.stringify({version:2,shared:{},phone:{fontSize:1.8,theme:'dark'},desktop:{fontSize:1.8,theme:'dark'}}))}, {id,large:conf.name==='small'});
