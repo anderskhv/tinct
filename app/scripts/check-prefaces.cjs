@@ -20,6 +20,8 @@ async function location(p){return p.getByTestId('lab-root').evaluate(e=>({book:e
  await p.keyboard.press('ArrowRight');await p.waitForTimeout(200);const saved=await location(p);
  if(await p.getByTestId('lab-root').getAttribute('data-reader-controls')==='hidden') await p.locator('.lab-header').click({position:{x:20,y:20}});
  await p.getByTestId('lab-header-chapter').click();await p.getByRole('button',{name:'Cover and preface'}).click();await panel.waitFor();
+ await panel.locator('img').evaluate(image=>image.decode());
+ assert.ok(await panel.locator('img').evaluate(image=>image.naturalWidth>0));
  await p.screenshot({path:`${dir}/${conf.name}-${id}-cover.png`});
  await panel.getByRole('button',{name:'Read preface'}).click();await panel.getByRole('heading',{name:'Before you begin'}).waitFor();
  assert.deepEqual(await location(p),saved);

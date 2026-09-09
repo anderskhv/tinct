@@ -78,7 +78,7 @@ export function LabBookPreface({ preface, title, cover, continued, reopened, rea
         <span ref={coverHeading} tabIndex={-1}>{title}</span>
       </header>
       {view === 'cover' ? <div className="lab-preface-cover-layout">
-        <img src={cover} alt={`${title} cover`} className="lab-preface-cover-art" />
+        <img src={cover} alt={`${title} cover`} width="540" height="810" className="lab-preface-cover-art" />
         <section className="lab-preface-preview" lang="en">
           <h1>{title}</h1>
           <p>{preface.preview}</p>
