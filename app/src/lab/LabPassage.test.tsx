@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { cleanup, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -393,4 +393,40 @@ it('marks the active paragraph in desktop inline audio when word timings are una
   expect(screen.getByTestId('lab-book').className).toContain('has-paragraph-follow')
   expect(screen.getByTestId('lab-reading-stage').querySelector('.is-paragraph-current')?.textContent).toBe('First paragraph.')
   expect(screen.getByTestId('lab-book').querySelectorAll('.lab-hearing-word.is-current')).toHaveLength(0)
+})
+
+
+describe('mouse word lookup and dragging', () => {
+  const text = ['one two three four']
+  const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
+  it('opens a clicked word as lookup, without turning a page or toggling chrome', () => {
+    const select = vi.fn(), turn = vi.fn(), toggle = vi.fn()
+    render(<LabPassage {...props()} onSelectRange={select} onPageTurn={turn} onToggleControls={toggle} />)
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 10, clientY: 20 })
+    fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 10, clientY: 20 })
+    expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 10, 20, undefined, 'lookup')
+    expect(turn).not.toHaveBeenCalled()
+    expect(toggle).not.toHaveBeenCalled()
+  })
+  it('continues a drag through blank space to the nearest word', () => {
+    const select = vi.fn()
+    render(<LabPassage {...props()} onSelectRange={select} />)
+    const words = screen.getAllByTestId('lab-word')
+    words.forEach((word, i) => vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left: i * 40, right: i * 40 + 30, top: 20, bottom: 40, width: 30, height: 20 } as DOMRect))
+    fireEvent.pointerDown(words[0], { pointerType: 'mouse', button: 0, clientX: 5, clientY: 30 })
+    fireEvent.pointerMove(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 105, clientY: 45 })
+    fireEvent.pointerUp(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 105, clientY: 45 })
+    expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 105, 45, undefined)
+  })
+  it('leaves short touch taps and secondary mouse buttons out of lookup', () => {
+    const select = vi.fn()
+    render(<LabPassage {...props()} onSelectRange={select} />)
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
+    fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
+    fireEvent.pointerDown(word, { pointerType: 'mouse', button: 2, clientX: 10, clientY: 20 })
+    fireEvent.pointerUp(word, { pointerType: 'mouse', button: 2, clientX: 10, clientY: 20 })
+    expect(select).not.toHaveBeenCalled()
+  })
 })

@@ -2392,18 +2392,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // A new passage/view invalidates a frozen card, including while edition data loads.
   useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
-  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare') => {
+  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup') => {
     if (initialResolving || frontispieceVisible || phoneAskOpen) return
     const comparison = side === 'compare' || mobileCompareActive
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
     const paragraphs = comparison ? book.compareParagraphs : book.paragraphs
     const paragraph = paragraphs[range.paragraphIndex] || ''
     const offsets = range.endParagraphIndex === range.paragraphIndex ? wordSelectionOffsets(paragraph, range.fromWord, range.toWord) : null
-    // A completed selection is a saved gold highlight immediately. The menu
-    // edits that record; dismissing it never throws the reader's work away.
+    // Dragged selections are saved gold highlights immediately. A mouse
+    // lookup opens controls without writing a mark; existing marks stay editable.
     const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
-    const highlight = existing ?? (character ? undefined : highlightsApi.addOrReuse(range, 'gold', editionKey))
+    const highlight = existing ?? (character || intent === 'lookup' ? undefined : highlightsApi.addOrReuse(range, 'gold', editionKey))
     const mode = character ? 'character' as const : defaultPopupMode(range.text, existing?.id)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')

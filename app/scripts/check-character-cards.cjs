@@ -14,7 +14,7 @@ async function press(word){await word.dispatchEvent('pointerdown',{pointerType:'
  const word=words.filter({hasText:'Pontellier'}).first();
  // Opening mention is shortly after the first page on phones.
  for(let i=0;i<4 && !await word.count();i++){await p.keyboard.press('ArrowRight');await p.waitForTimeout(250)}
- const before=await place(p);await press(word);await p.locator('[data-popup-mode="character"]').waitFor();
+ const before=await place(p);if(conf.width>=800) await word.click(); else await press(word);await p.locator('[data-popup-mode="character"]').waitFor();
  assert.match(await p.locator('.popup-character h2').innerText(),/Pontellier/);
  assert.deepEqual(await place(p),before);await p.waitForTimeout(300);await p.screenshot({path:`${dir}/${conf.name}-${edition}-card.png`});
  await p.getByRole('button',{name:'Character gallery',exact:true}).click();assert.equal(await p.locator('.popup-character-gallery').getByText('Alcée Arobin').count(),0);assert.deepEqual(await place(p),before);

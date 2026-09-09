@@ -52,7 +52,7 @@ interface LabPassageProps {
   highlights?: LabHighlight[]
   chapterNumber?: number
   selectingRange?: LabHighlightRange | null
-  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare') => void
+  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup') => void
   browseWhileListening?: boolean
   inlineHearingPaint?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
@@ -400,6 +400,7 @@ export function LabPassage({
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
+    if (event.button != null && event.button !== 0) return
     if ((event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
     // Hearing still owns the same page surface. It must accept edge taps and
     // swipes even though text selection is intentionally reading-only.
@@ -457,9 +458,27 @@ export function LabPassage({
       ? document.elementFromPoint(event.clientX, event.clientY)
       : null
     const target = pointTarget || event.target as Element
-    const place = wordPlaceFromTarget(target)
-    if (place) drag.end = !!(target as Element)?.closest('.lab-book-col-compare') === drag.comparison ? place : null
-    if (drag.start && drag.end && onSelectRange) {
+    let place = wordPlaceFromTarget(target)
+    const sameSide = !!(target as Element)?.closest('.lab-book-col-compare') === drag.comparison
+    // Mouse selection should continue through inter-word and inter-line space.
+    // Keep Compare isolated; the second Read leaf still belongs to the primary.
+    if (!place && drag.pointerType === 'mouse' && sameSide) {
+      let nearest: Element | null = null
+      let best = Infinity
+      for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"]')) {
+        if (!!word.closest('.lab-book-col-compare') !== drag.comparison) continue
+        const box = word.getBoundingClientRect()
+        if (!box.width || !box.height) continue
+        const dx = Math.max(box.left - event.clientX, 0, event.clientX - box.right)
+        const dy = Math.max(box.top - event.clientY, 0, event.clientY - box.bottom)
+        const distance = dx * dx + dy * dy
+        if (distance < best) { best = distance; nearest = word }
+      }
+      place = wordPlaceFromTarget(nearest)
+    }
+    const changed = place && sameSide && (place.paragraphIndex !== drag.end?.paragraphIndex || place.wordIndex !== drag.end?.wordIndex)
+    if (place && sameSide) drag.end = place
+    if (changed && drag.start && drag.end && onSelectRange) {
       setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.end))
     }
     if (!drag.start || !onPageTurn || Date.now() - lastSelectionPageTurnAtRef.current < 900) return
@@ -491,6 +510,14 @@ export function LabPassage({
     const deltaX = event.clientX - drag.startX
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
+    if (drag.pointerType === 'mouse' && !drag.selecting && drag.start && onSelectRange
+      && Math.abs(deltaX) < 3 && Math.abs(deltaY) < 3) {
+      const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start)
+      dragRef.current = null
+      setLocalSelecting(null)
+      if (range?.text.trim()) onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined, 'lookup')
+      return
+    }
     // Compare's whole-page swap is the vertical swipe, and it is checked
     // first: the two gestures are on different axes and must never both fire.
     // A swipe is a finger. A mouse dragged down the page is selecting text,

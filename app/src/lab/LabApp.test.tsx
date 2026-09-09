@@ -2503,8 +2503,6 @@ describe('lab passage headline pages', () => {
     const word = screen.getAllByTestId('lab-word')[1]
     fireEvent.pointerDown(word, { pointerId: 7, pointerType: 'touch', clientX: 195, clientY: 200 })
     fireEvent.pointerUp(word, { pointerId: 7, pointerType: 'touch', clientX: 195, clientY: 200 })
-    fireEvent.pointerDown(word, { pointerId: 71, pointerType: 'mouse', clientX: 195, clientY: 200 })
-    fireEvent.pointerUp(word, { pointerId: 71, pointerType: 'mouse', clientX: 195, clientY: 200 })
     vi.advanceTimersByTime(500)
     expect(select).not.toHaveBeenCalled()
 
@@ -2632,6 +2630,15 @@ describe('lab passage headline pages', () => {
     const css = readFileSync(resolve(process.cwd(), 'src/lab/lab.css'), 'utf8')
     expect(css).toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*background:\s*#e8dcc4/)
     expect(css).not.toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*box-shadow:/)
+  })
+
+  it('opens a desktop word lookup without saving an incidental highlight', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 190, clientY: 200 })
+    fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 190, clientY: 200 })
+    expect(document.querySelector('.selection-popup')).toBeTruthy()
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
   })
 
   it('saves a completed selection immediately and recolors that same range', async () => {
