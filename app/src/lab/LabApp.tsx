@@ -2153,14 +2153,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const currentOpeningTitle = book.bookTitle === LAB_COPY.bookTitle
     ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
     : null
-  const showReaderRail = !frontispieceVisible && !fullscreen && labShowReaderRail({
+  const showReaderRail = !frontispieceVisible && !fullscreen && (desktopPaging || labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
     pageCount: Math.max(readingPages.length, draftPages.length, workingPagesRef.current.length),
     playing: listen.playing,
     canPrevChapter,
     canNextChapter,
-  })
+  }))
   const markedIndexes = useMemo(() => new Set(marks.map(mark => mark.paragraphIndex)), [marks])
   const rawChapterProgress = labChapterProgress({
     paragraphs: readerParagraphs,
