@@ -147,7 +147,7 @@ export default defineConfig(({ mode, command }) => {
             next()
             return
           }
-          if (pathOnly === '/lab' || pathOnly === '/lab/' || pathOnly === '/lab/landing' || pathOnly === '/lab/library') {
+          if (pathOnly === '/lab' || pathOnly === '/lab/' || pathOnly === '/lab/landing' || pathOnly === '/lab/library' || pathOnly === '/library') {
             req.url = `/lab/index.html${url.slice(pathOnly.length)}`
             next()
             return

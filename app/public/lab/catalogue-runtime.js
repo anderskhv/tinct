@@ -46,6 +46,7 @@ import {
     selectedBookId: 'odyssey',
     selectedEditionKey: null,
     compareEditionKey: null,
+    previewCompareKey: null,
     selectionRevision: 0,
     query: '',
     fullLibrary: false,
@@ -126,7 +127,7 @@ import {
 
   function coverImage(book, eager = false) {
     const cover = coverFor(book)
-    return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async"${eager ? '' : ' loading="lazy"'}></span>`
+    return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${eager && cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async"${eager ? '' : ' loading="lazy"'}></span>`
   }
 
   function worldData(book) {
@@ -154,6 +155,7 @@ import {
     // runtime owns the panels from here.
     document.documentElement.removeAttribute('data-lab-boot-view')
     renderLandingCovers()
+    if(view === 'library') requestAnimationFrame(updateShelfArrows)
   }
 
   function renderFeatured() {
@@ -162,6 +164,7 @@ import {
   }
   function updateShelfArrows() {
     const shelf=root.querySelector('[data-popular-shelf]')
+    if (!centreSnap.matches && isLibraryCurrent()) writeSession('tinct:entry-shelf-left',String(shelf.scrollLeft))
     root.querySelector('[data-shelf-scroll="-1"]').disabled=shelf.scrollLeft<2
     root.querySelector('[data-shelf-scroll="1"]').disabled=shelf.scrollLeft+shelf.clientWidth>=shelf.scrollWidth-2
   }
@@ -200,6 +203,7 @@ import {
       const books=fullShelf(state.catalogue).filter(book=>book.art?.src?.startsWith('/covers/v2/')).slice(0,18)
       host.innerHTML=[0,1,2].map(col=>{const group=books.filter((_,i)=>i%3===col);return `<div class="entry-cover-column" style="--duration:${240+col*30}s">${[...group,...group].map(book=>coverImage(book)).join('')}</div>`}).join('')
     }
+    host.querySelectorAll('.entry-cover-column').forEach((column,index)=>column.style.setProperty('--duration',`${(column.clientWidth*1.5+20)*6/(5+index*.3)}s`))
     updateMotion()
   }
   document.addEventListener('visibilitychange',updateMotion)
@@ -586,6 +590,7 @@ import {
     requestAnimationFrame(updateShelfArrows)
     // Put the focused cover in the middle once the row has a width.
     requestAnimationFrame(() => {
+      if (!centreSnap.matches) {shelf.scrollLeft=Number(readSession('tinct:entry-shelf-left'))||0;updateShelfArrows();return}
       const item = shelf.querySelector(`[data-shelf-index="${state.shelfIndex}"]`)
       if (item) centreShelfItem(shelf, item)
     })
@@ -646,6 +651,9 @@ import {
     const search = root.querySelector('[data-library-search]')
     if (search.value !== snapshot.query) search.value = snapshot.query
     state.query = snapshot.query
+    state.searchOpen = Boolean(snapshot.query)
+    arrangeSearch()
+    root.querySelector('[data-search-toggle]').setAttribute('aria-expanded',String(state.searchOpen))
     state.expandedHouseId = snapshot.expandedHouseId
     renderIndex()
     if (state.libraryMode === 'new' && state.shelfBooks.length) setShelfIndex(snapshot.shelfIndex)
@@ -689,7 +697,7 @@ import {
     const resumePrimary = v1Editions(book).find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
     if (changingBook) state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
-    if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.sampleExpanded = false }
+    if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.previewCompareKey = null; state.sampleExpanded = false }
     applyWorld(book)
     renderDetail(book)
     renderEditions(book)
@@ -807,7 +815,8 @@ import {
     const host = root.querySelector('[data-book-versions]')
     const primaryKey = state.selectedEditionKey
     const candidates = compareCandidates(book, primaryKey)
-    const compareKey = candidates.find(edition => edition.key === state.compareEditionKey)?.key || candidates[0]?.key || null
+    const compareKey = candidates.find(edition => edition.key === (state.compareEditionKey || state.previewCompareKey))?.key || candidates[0]?.key || null
+    state.previewCompareKey = compareKey
     const both = Boolean(state.compareEditionKey)
     host.innerHTML = [
       versionField('primary', 'Version', editions, primaryKey, false),
@@ -949,6 +958,8 @@ import {
 
   function selectEdition(primaryEditionKey, compareEditionKey = null) {
     if (state.selectedEditionKey === primaryEditionKey && state.compareEditionKey === compareEditionKey) return false
+    if (primaryEditionKey !== state.selectedEditionKey && primaryEditionKey === state.previewCompareKey) state.previewCompareKey = state.selectedEditionKey
+    if (compareEditionKey) state.previewCompareKey = compareEditionKey
     state.selectedEditionKey = primaryEditionKey
     state.compareEditionKey = compareEditionKey
     state.selectionRevision += 1
@@ -1066,11 +1077,11 @@ import {
     const scrollButton = target?.closest('[data-shelf-scroll]')
     if (scrollButton) { const shelf = root.querySelector('[data-popular-shelf]'); shelf.scrollBy({left:Number(scrollButton.dataset.shelfScroll)*shelf.clientWidth*.75,behavior:reducedMotion()?'auto':'smooth'}); return }
     if (target?.closest('[data-search-toggle]')) { toggleSearch(); return }
-    if (target?.closest('[data-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }
+    if (target?.closest('[data-open-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }
     if (target?.closest('[data-library-selection]')) { navigateView('library'); return }
     if (target?.closest('[data-featured-open]')) { await openBookPage(state.shelfBooks[state.shelfIndex].id); return }
     if (target?.closest('[data-open-picker]')) { if(state.pendingResume) openReader(); else {renderEditions(selectedBook());navigateView('edition');window.scrollTo(0,0)} return }
-    if (target?.closest('[data-about-book]')) { navigateView('book-detail');window.scrollTo(0,0);return }
+    if (target?.closest('[data-about-book]')) { if(pushedEntries>0) history.back();else navigateView('book-detail',true);window.scrollTo(0,0);return }
     if (target?.closest('[data-inline-preface]')) { const body=root.querySelector('[data-inline-preface-body]');body.hidden=!body.hidden;const button=root.querySelector('[data-inline-preface]');button.setAttribute('aria-expanded',String(!body.hidden));button.textContent=body.hidden?'Read full preface':'Close preface';return }
     if (target?.closest('[data-sample-more]')) {state.sampleExpanded=!state.sampleExpanded;void fillVersionSamples(selectedBook());return}
     const readSide=target?.closest('[data-version-read]')

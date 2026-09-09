@@ -219,7 +219,8 @@ describe('worker SEO routing', () => {
     const scripts = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
     expect(scripts.length).toBeGreaterThan(0)
     expect(scripts.every(([, attributes, body]) => /\bsrc=/i.test(attributes) && body.trim() === '')).toBe(true)
-    expect(source).toMatch(/src="\/lab\/interaction-runtime\.js\?v=[\d-]+"/)
+    expect(source).toMatch(/src="\/lab\/catalogue-runtime\.js\?v=[\w-]+"/)
+    expect(source).not.toContain('src="/lab/interaction-runtime.js')
 
     const resp = await worker.fetch(new Request('https://tinct.app/lab/'), routerEnv() as never, ctx)
     const csp = resp.headers.get('Content-Security-Policy') || ''

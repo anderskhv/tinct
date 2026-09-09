@@ -120,3 +120,15 @@
 @keyframes entry-drift {from{transform:translateY(0)}to{transform:translateY(-50%)}}
 @keyframes entry-search-in {from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){#tinct-onboarding-worlds-v5 .entry-cover-column,#tinct-onboarding-worlds-v5 .entry-search-slot .lib-search {animation:none}}
+@media(min-width:900px){
+ #tinct-onboarding-worlds-v5 .lib .lib-wm {font:700 31px/1 Georgia,serif}
+ #tinct-onboarding-worlds-v5 .lib .entry-start {min-height:46px;width:auto;padding:12px 24px;border:1px solid #f0e6cb;border-radius:10px;background:#f0e6cb;color:#071723;font:14px/1.4 Arial,sans-serif}
+ #tinct-onboarding-worlds-v5 .lib .entry-shelf-arrows button {width:32px;height:32px;border:1px solid var(--lib-rule-strong);border-radius:50%;font:24px/1 Georgia,serif;display:grid;place-items:center}
+ #tinct-onboarding-worlds-v5 .lib .entry-search-toggle {width:34px;height:34px;padding:7px}
+}
+#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom,#tinct-onboarding-worlds-v5 .tov5-edition-zoom {padding:0}
+#tinct-onboarding-worlds-v5 .tov5-book-detail-body {width:100%;margin:0 auto}
+#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom>.tov5-secondary-world-art,#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom>.tov5-secondary-world-scrim,
+#tinct-onboarding-worlds-v5 .tov5-edition-zoom>.tov5-secondary-world-art,#tinct-onboarding-worlds-v5 .tov5-edition-zoom>.tov5-secondary-world-scrim {display:none}
+#tinct-onboarding-worlds-v5 .entry-cover-column {height:max-content}
+@media(max-width:899px){#tinct-onboarding-worlds-v5 .tov5-edition-head h2 {font-size:30px}}
