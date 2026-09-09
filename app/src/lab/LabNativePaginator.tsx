@@ -246,7 +246,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   chapterTitle: string
   paragraphs: string[]
   layoutKey: string
-  onPages: (pages: ChapterHearingPage[]) => void
+  onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
   const generationRef = useRef(0)
@@ -280,7 +280,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       })
       const pages = nativePagesFromPlacements(placements)
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)) {
-        onPages(pages)
+        onPages(pages, paragraphs)
       }
     }
 

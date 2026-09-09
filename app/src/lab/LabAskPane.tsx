@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref } from 'react'
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
@@ -24,7 +24,7 @@ interface LabAskPaneProps {
   phoneSheet?: boolean
   onKeyboardOpenChange?: (open: boolean) => void
   /** The host focuses this inside the Chat tap; iOS only raises the keyboard for a gesture-synchronous focus(). */
-  inputRef?: Ref<HTMLInputElement>
+  inputRef?: Ref<HTMLInputElement | HTMLTextAreaElement>
   chapterLabels?: Record<number, string>
   desktopCompanion?: 'chat' | 'talk'
 }
@@ -85,6 +85,22 @@ export function LabAskPane({
   chapterLabels = {},
   desktopCompanion,
 }: LabAskPaneProps) {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+  const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
+  useLayoutEffect(() => {
+    const field = textareaRef.current
+    if (!field) return
+    field.style.height = '0px'
+    field.style.height = `${Math.min(field.scrollHeight, 180)}px`
+  }, [draft, chromeV2])
+  const copyTurn = async (turn: LabAskTurn) => {
+    try {
+      await navigator.clipboard.writeText(turn.content)
+      setCopiedTurn(turn.id)
+    } catch {
+      setLocalError('Could not copy. Select the message to copy it.')
+    }
+  }
   const [localError, setLocalError] = useState<string | null>(null)
   const threadRef = useRef<HTMLDivElement | null>(null)
   const lastTurnIdRef = useRef<string | null>(null)
@@ -302,7 +318,7 @@ export function LabAskPane({
   )
   const composerNode = (
     <form
-      className="lab-ask-composer"
+      className={`lab-ask-composer${chromeV2 ? " is-multiline" : ""}`}
       data-testid="lab-ask-composer"
       data-voice-phase={conversationState}
       onSubmit={(event) => {
@@ -313,10 +329,31 @@ export function LabAskPane({
       <label className="lab-visually-hidden" htmlFor="lab-ask-input">
         {LAB_COPY.askPlaceholder}
       </label>
-      <input
+      {chromeV2 ? <textarea
         id="lab-ask-input"
         data-testid="lab-ask-input"
-        ref={inputRef}
+        ref={node => {
+          textareaRef.current = node
+          if (typeof inputRef === 'function') inputRef(node)
+          else if (inputRef) (inputRef as MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>).current = node
+        }}
+        rows={1}
+        className="lab-ask-input"
+        value={draft}
+        onFocus={() => onKeyboardOpenChange?.(true)}
+        onBlur={() => onKeyboardOpenChange?.(false)}
+        onChange={event => onDraftChange(event.target.value)}
+        onKeyDown={event => {
+          if (event.key === 'Enter' && (event.metaKey || event.ctrlKey) && !event.nativeEvent.isComposing) {
+            event.preventDefault()
+            submit()
+          }
+        }}
+        placeholder={LAB_COPY.askPlaceholder}
+      /> : (<input
+        id="lab-ask-input"
+        data-testid="lab-ask-input"
+        ref={inputRef as Ref<HTMLInputElement>}
         type="text"
         className="lab-ask-input"
         value={draft}
@@ -331,7 +368,7 @@ export function LabAskPane({
         }}
         placeholder={LAB_COPY.askPlaceholder}
         autoComplete="off"
-      />
+      />)}
       <button
         type="button"
         className="lab-ask-icon lab-ask-mic"
@@ -345,6 +382,7 @@ export function LabAskPane({
       <button
         type="button"
         className="lab-ask-send"
+        hidden={chromeV2 && !canSend}
         aria-label={LAB_COPY.sendLabel}
         data-testid="lab-ask-send"
         disabled={typedLoading}
@@ -356,7 +394,7 @@ export function LabAskPane({
         }}
         onClick={submit}
       >
-        {LAB_COPY.sendLabel}
+        {chromeV2 ? <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg> : LAB_COPY.sendLabel}
       </button>
       {conversationState !== 'idle' && (
         <button
@@ -370,7 +408,7 @@ export function LabAskPane({
           <span className="lab-ask-voice-x" aria-hidden="true">×</span>
         </button>
       )}
-      {conversationState === 'idle' && !canSend && (
+      {conversationState === 'idle' && (chromeV2 || !canSend) && (
         <button
           type="button"
           className="lab-ask-icon lab-ask-voice"
@@ -453,6 +491,9 @@ export function LabAskPane({
                       <LabMarkdown>{turn.content}</LabMarkdown>
                     </div>
                   )}
+                  {chromeV2 && <button type="button" className="lab-ask-copy" aria-label={copiedTurn === turn.id ? 'Copied' : turn.role === 'user' ? 'Copy question' : 'Copy answer'} onClick={() => void copyTurn(turn)}>
+                    {copiedTurn === turn.id ? '✓' : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeWidth="1.5"/></svg>}
+                  </button>}
                 </div>
               </Fragment>
             )

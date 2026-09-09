@@ -72,6 +72,20 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(getUserMedia).not.toHaveBeenCalled()
   })
 
+  it('requests the microphone once across call, transcript and composer changes', async () => {
+    const getUserMedia = vi.fn(() => new Promise(() => {}))
+    vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia } })
+    await openCall()
+    await waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1))
+    fireEvent.click(screen.getByTestId('lab-call-transcript'))
+    fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'A multiline\nquestion' } })
+    fireEvent.click(screen.getByTestId('lab-call-bar-return'))
+    await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
+    expect(getUserMedia).toHaveBeenCalledTimes(1)
+    fireEvent.click(screen.getByTestId('lab-call-end'))
+    expect(getUserMedia).toHaveBeenCalledTimes(1)
+  })
+
   describe('the transcript control', () => {
     it('opens the existing chat view with the call still live', async () => {
       await openCall()

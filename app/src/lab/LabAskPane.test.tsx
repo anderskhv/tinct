@@ -563,3 +563,44 @@ it('reveals the requested old conversation beyond the initial history window', (
   expect(screen.getByText('History question 2')).toBeTruthy()
   expect(document.querySelector('[data-turn-id="selected-2"]')).toBeTruthy()
 })
+
+describe('V2 multiline composer and copying', () => {
+  const base = {
+    chromeV2: true, conversationState: 'idle' as const, voiceActive: false,
+    typedLoading: false, turns: [], onDraftChange: vi.fn(), onSubmit: vi.fn(),
+    onMic: vi.fn(), onVoiceMode: vi.fn(), phoneSheet: true,
+  }
+  it('grows the writing area, retains voice, and uses Enter for a new line', () => {
+    const onSubmit = vi.fn()
+    const { rerender } = render(<LabAskPane {...base} draft="" onSubmit={onSubmit} />)
+    const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
+    expect(field.tagName).toBe('TEXTAREA')
+    expect(screen.getByTestId('lab-ask-send').hidden).toBe(true)
+    Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 120 })
+    rerender(<LabAskPane {...base} draft={'First line\nSecond line'} onSubmit={onSubmit} />)
+    expect(field.style.height).toBe('120px')
+    expect(screen.getByTestId('lab-ask-voice')).toBeTruthy()
+    expect(screen.getByTestId('lab-ask-send').hidden).toBe(false)
+    expect(fireEvent.keyDown(field, { key: 'Enter' })).toBe(true)
+    expect(onSubmit).not.toHaveBeenCalled()
+    fireEvent.keyDown(field, { key: 'Enter', ctrlKey: true })
+    expect(onSubmit).toHaveBeenCalledWith('First line\nSecond line')
+    Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 800 })
+    rerender(<LabAskPane {...base} draft={'Long question\n'.repeat(30)} />)
+    expect(field.style.height).toBe('180px')
+  })
+  it('copies the complete question and answer without speaker labels', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
+    render(<LabAskPane {...base} draft="" turns={[
+      { id: 'copy-q', role: 'user', content: 'What does this mean?\nSecond line.', source: 'typed' },
+      { id: 'copy-a', role: 'assistant', content: 'It means **this**.', source: 'typed' },
+    ]} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Copy question' }))
+    expect(writeText).toHaveBeenLastCalledWith('What does this mean?\nSecond line.')
+    await screen.findByRole('button', { name: 'Copied' })
+    fireEvent.click(screen.getByRole('button', { name: 'Copy answer' }))
+    expect(writeText).toHaveBeenLastCalledWith('It means **this**.')
+    await screen.findByRole('button', { name: 'Copy question' })
+  })
+})

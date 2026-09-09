@@ -17,6 +17,7 @@ import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, type L
 export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
+  pendingLayout?: boolean
   chapterTitle: string
   paragraphs: string[]
   compareParagraphs: string[]
@@ -245,6 +246,7 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
 }
 
 export function LabPassage({
+  pendingLayout = false,
   chapterTitle,
   paragraphs,
   compareParagraphs,
@@ -518,6 +520,7 @@ export function LabPassage({
   return (
     <article
       ref={articleRef}
+      style={pendingLayout ? { visibility: 'hidden' } : undefined}
       className={[
         'lab-passage',
         'lab-book',

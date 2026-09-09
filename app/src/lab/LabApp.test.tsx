@@ -4463,13 +4463,17 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
   expect(screen.getByTestId('lab-listen').getAttribute('aria-label')).toBe('Resume audiobook')
   expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('open')
   fireEvent.click(screen.getByTestId('lab-page-next'))
-  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('closed')
+  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('open')
   const first = screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!
   const index = Number(first.dataset.wordIndex)
   expect(index).toBeGreaterThan(0)
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(audio.paused).toBe(false))
   expect(audio.currentTime).toBe(index * 0.3)
+  fireEvent.click(screen.getByTestId('lab-v2-play'))
+  fireEvent.click(screen.getByRole('button', { name: 'Close audio controls' }))
+  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('closed')
+  expect(audio.paused).toBe(true)
 })
 
 

@@ -99,7 +99,7 @@ import { readLabPositionLocal } from './labPositionStore'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
-import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
+import { mapLabCompareAnchor } from './labCompare'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -436,7 +436,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
-  const askInputRef = useRef<HTMLInputElement | null>(null)
+  const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
   /** Rendered page for the companion's reading trail; written once chapter progress is known. */
   const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
   const playbackInterruptedRef = useRef<() => boolean>(() => false)
@@ -504,6 +504,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerHandoff?.savedPlace?.page ?? boot.resume?.pageIndex ?? 0,
   )
   const [nativePagesRevision, setNativePagesRevision] = useState(0)
+  const [nativeMeasuredContent, setNativeMeasuredContent] = useState<string[] | null>(null)
+  const nativeContentRef = useRef(readerParagraphs)
+  nativeContentRef.current = readerParagraphs
   const readerStateRef = useRef<LabReaderStateSnapshot>({
     pageIndex: readingPageIndex,
     primaryEditionKey: prefs.primaryEdition,
@@ -538,13 +541,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   workingPagesRef.current = draftPages
   const mobilePrimaryPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const mobileCompareReturnPlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
-  /**
-   * V2 Compare: where the compare page has to begin. The primary page's first
-   * word, carried to the same aligned paragraph of the compare edition; every
-   * page map the compare edition produces is split so a page starts exactly
-   * there, and that page is the one shown.
-   */
-  const mobileCompareHeadRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   /**
    * The standby edition's page map, measured off-screen and keyed by the
    * layout it was measured in. A swap reads it instead of paginating, so the
@@ -1258,15 +1254,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
-  const transportScopeRef = useRef('')
-  transportScopeRef.current = `${book.bookId}:${book.chapterNumber}:${readerEditionKey}:${nativePhonePaging}`
-  const transportAnchorRef = useRef<{ scope: string; place: { paragraphIndex: number; wordIndex: number } } | null>(null)
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
 
-  const applyNativePages = useCallback((incoming: ChapterHearingPage[]) => {
-    let next = incoming
+  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[]) => {
+    if (measuredContent && measuredContent !== nativeContentRef.current) return
+    const next = incoming
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
     // V1's bar never changes height, so a page map that arrives mid-playback
@@ -1278,9 +1272,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (
       !nativePhonePaging
       || (playing && !chromeV2)
-      || browseWhileListeningRef.current
+      || (browseWhileListeningRef.current && !chromeV2)
       || next.length === 0
     ) return
+    setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
@@ -1290,24 +1285,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       && next.some(page => chapterPageSegments(page).some(segment => segment.paragraphIndex === restorePlaceRef.current!.paragraphIndex))
       ? restorePlaceRef.current : null
     if (restoring) {
-      next = splitLabPagesAtAnchor(next, restoring)
       pageAnchorRef.current = restoring
       restorePlaceRef.current = null
     }
-    const keep = playing
+    const keep = restoring ?? (playing && !browseWhileListeningRef.current
       ? (placeRef.current ?? pageAnchorRef.current)
-      : (mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current ?? pageAnchorOf(current[currentIndex]))
-    // In V2 Compare the page is anchored, not merely found: the compare
-    // edition's own pagination is split at the primary page's head so a page
-    // begins at the same verse, however differently the two editions break.
-    const compareHead = chromeV2 ? mobileCompareHeadRef.current : null
-    if (compareHead) next = splitLabPagesAtAnchor(next, compareHead)
-    if (chromeV2 && transportAnchorRef.current) {
-      if (transportAnchorRef.current.scope === transportScopeRef.current) {
-        next = splitLabPagesAtAnchor(next, transportAnchorRef.current.place)
-      }
-      transportAnchorRef.current = null
-    }
+      : (mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current ?? pageAnchorOf(current[currentIndex])))
     const landing = chapterLandingRef.current
 
     pagesStableRef.current = true
@@ -1782,7 +1765,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!wrap || !chromeEl) return
     const passage = [...wrap.querySelectorAll('.lab-passage')]
       .find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
-    if (!passage) return
+    if (!passage || (nativePhonePaging && nativeMeasuredContent !== readerParagraphs)) return
     const painted = measureVisiblePageOverflow(wrap, passage, chromeEl)
     if (!painted) return
 
@@ -1812,7 +1795,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = pageIdx
     setSettleIndex(pageIdx)
-  }, [readingPageIndex, readingPages, nativePagesRevision, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging, readerControlsVisible, gearOpen, chrome, readerParagraphs, book.chapterNumber])
+  }, [readingPageIndex, readingPages, nativePagesRevision, nativeMeasuredContent, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging, readerControlsVisible, gearOpen, chrome, readerParagraphs, book.chapterNumber])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {
@@ -2440,10 +2423,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     openAtEndRef.current = false
     setOpenAtEnd(false)
     const activeAnchor = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
-    if (chromeV2 && !listen.playing) {
-      transportAnchorRef.current = { scope: transportScopeRef.current, place: activeAnchor }
-      setPausedTransportVisible(false)
-    }
     pageAnchorRef.current = activeAnchor
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
     const previousPageIndex = readingPageIndexRef.current
@@ -2495,12 +2474,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // native pass would have produced 50ms later anyway: taking it here is
     // what turns the swap from two paints into one.
     const measured = standbyPagesRef.current?.key === standbyKey ? standbyPagesRef.current.pages : null
-    let nextPages = settledPrimaryPages
+    const nextPages = settledPrimaryPages
       ?? (measured?.length ? measured : chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null))
-    // The compare page begins at the head, whatever the compare edition's own
-    // breaks are; the native pass that follows is held to the same head.
-    if (compareHead) nextPages = splitLabPagesAtAnchor(nextPages, compareHead)
-    mobileCompareHeadRef.current = compareHead
+    // Find the natural page containing the mapped verse. Splitting at the
+    // anchor creates a short leftover page without reflowing the chapter.
     if (chromeV2) swapCommittedRef.current = { paragraphs: targetParagraphs, pages: nextPages }
     const nextIndex = compareHead
       ? restorePageIndexForAnchor(nextPages, compareHead)
@@ -2852,10 +2829,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
     if (chrome === 'hearing' && !opts?.force && (!chromeV2 || listen.playing)) {
-      if (chromeV2 && nativePhonePaging) {
-        const head = pageAnchorOf(readingPages[readingPageIndex])
-        transportAnchorRef.current = head ? { scope: transportScopeRef.current, place: head } : null
-      }
       listen.pause()
       browseWhileListeningRef.current = false
       setBrowseWhileListening(false)
@@ -2902,7 +2875,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       : place
     if (chromeV2) {
       const head = pageAnchorOf(page)
-      transportAnchorRef.current = head && nativePhonePaging ? { scope: transportScopeRef.current, place: head } : null
       pageAnchorRef.current = head
     }
     flushSync(() => setListenSource({
@@ -3563,6 +3535,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
           ) : <LabPassage
+            pendingLayout={chromeV2 && nativePhonePaging && nativeMeasuredContent !== readerParagraphs}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
@@ -3828,6 +3801,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           </div>
         </section>
       )}
+
+      {chromeV2 && (audioBarActive || desktopAudioBarActive) && !listen.playing && !phoneAsk && <button
+        type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
+        onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
+      >×</button>}
 
       {(audioBarActive || desktopAudioBarActive) && speedPopoverOpen && (
         <section

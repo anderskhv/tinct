@@ -17,3 +17,7 @@ Build and verify-bundle passed. Deployed with npm run deploy (success): Worker `
 Production mobile regression passed: 204,108,97,98,99,165,105,96ms at 4× CPU throttle, median 105ms versus baseline median about 1.2s. Forward/backward content checks passed. Screenshot: `/Users/andershvelplund/.codex/visualizations/2026/09/08/01a07ff0-a87f-7031-8b2f-d050d06d52bd/compact-editions/page-turns-mobile.png`.
 
 Production desktop at 1440×900 and 4× CPU throttle: eight page turns 17–24ms, median 22ms. All pages nonempty; forward/backward content stable. Desktop's paragraph-sized pages can legitimately be shorter than the mobile test's 40-character assertion, so the adapted desktop check uses nonempty text. Screenshot: same artifact directory, `page-turns-desktop.png`.
+
+## 9 September follow-up
+
+The original verification omitted audio/Compare transitions. Their measured-page splitting created fragment pages exposed by the growth-loop removal. Superseded anchor behavior and expanded regression coverage are documented in [reader-transitions-2026-09-09.md](reader-transitions-2026-09-09.md). The fast page-turn path remains.

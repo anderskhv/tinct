@@ -6211,3 +6211,91 @@
 .lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(2) { left:20%; }
 .lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(3) { left:60%; }
 .lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(4) { left:100%; }
+
+/* The composer gives writing a full-width row; actions never squeeze it. */
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 24px;
+}
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-input {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 28px;
+  max-height: min(180px, 30dvh);
+  box-sizing: border-box;
+  padding: 2px 4px;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0;
+  resize: none;
+  overflow-y: auto;
+  font: 18px/1.45 'EB Garamond', Georgia, serif;
+  color: inherit;
+  white-space: pre-wrap;
+}
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline button {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-mic { order: 1; }
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-voice { order: 2; }
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-send { order: 3; background: var(--lab-ink); color: var(--lab-paper); }
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline button[hidden] { display: none; }
+.lab[data-chrome-version="v2"] .lab-ask-copy {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-top: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--lab-ink-muted);
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"] .lab-audio-dismiss {
+  position: absolute;
+  right: 10px;
+  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  z-index: 230;
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--lab-border);
+  border-radius: 50%;
+  color: var(--lab-ink);
+  background: var(--lab-paper);
+}
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-passage,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-passage { padding-top: .4rem; }
+.lab[data-chrome-version="v2"].is-phone .lab-passage-header,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-passage-header { margin-bottom: .4rem; padding-bottom: 0; }
+
+/* Audio status/notice changes must not alter the passage's measured box.
+   The transport reserves its space in lab-body for both play and pause. */
+.lab[data-chrome-version="v2"].is-phone .lab-passage,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-passage {
+  padding-bottom: .5rem;
+}
+
+.lab[data-chrome-version="v2"] .lab-audio-dismiss::before {
+  content: ''; position: absolute; inset: -8px;
+}
+
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon svg { width: 22px; height: 22px; }
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-mic { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-voice[data-voice-phase="idle"] { background: var(--lab-ink); color: var(--lab-paper); }
