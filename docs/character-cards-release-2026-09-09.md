@@ -35,7 +35,7 @@ Escape. Names remain ordinary prose.
 ## Verification before release
 
 - Content compilation freshness check and all 10 Python contract tests passed.
-- Full app suite: 150 files, 1,610 tests passed, including every pilot span and
+- Full app suite: 150 files, 1,611 tests passed, including every pilot span and
   snapshot boundary in both editions, nested names, hidden Arobin role, earlier
   passage return, modern omission, stale source/hash, invalid editions, ambiguous
   spans, late preload/context changes, gallery fields and popup controls.
@@ -60,6 +60,26 @@ or references, so no person totals are shown.
 
 ## Deployment and production evidence
 
-Pending final reconciled build, deployment and live verification. Do not interpret
-local browser checks as production evidence. The agent will append the deployed
-Worker version, exact bundle hash, smoke-test result and artifact directory here.
+Shipped from reconciled commit `7f23fc86` using Node 24 `CI=1 npm run deploy`.
+The command rebuilt and passed bundle verification; direct deployment succeeded.
+Worker version: `4e62e96f-6bfb-4dc6-be32-558534a437df`.
+Bundle: `assets/index-CVpewRY0.js`.
+SHA256: `e7af459275e738de978e0af0c687994ad6e9d6d569c7de2e445fff10781b94c0`.
+Live bundle and sidecar bytes exactly match the build. All 15 production smoke
+checks passed. No GitHub Actions deployment was used for this direct release.
+
+The complete browser matrix above passed on tinct.app, including missing/slow
+fallback, keyboard, both editions, Read/Compare and early/middle/late chapters.
+Real production audiobook playback was started and paused; its exact source,
+clock and reader location survived card, gallery and dismissal. `/lab/phone`
+was opened at 390×844 and captured. Independent small-screen WebKit checks at
+360×640 in dark mode with large text passed both editions. Context invalidation
+uses a layout effect so the prior card clears before the new context paints.
+
+One initial local full-matrix Compare gesture timed out; the isolated case and
+complete repeated matrix passed without a product change. Production also passed.
+This remains automated browser coverage, not a physical-device guarantee.
+
+Artifacts: `/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-character-release/`
+(`local`, `production`, `audio-production`, `bundle.json`, `lab-phone-production.png`).
+Additional small-screen evidence: `tinct-character-cards/local-small/` beside it.
