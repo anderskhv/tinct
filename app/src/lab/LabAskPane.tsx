@@ -302,7 +302,7 @@ export function LabAskPane({
   )
   const dictationNode = chromeV2 && dictationState !== 'idle' && (
     <p className="lab-ask-voice-status" role="status" data-testid="lab-dictation-status">
-      {dictationState === 'starting' ? 'Starting microphone…' : 'Listening — tap the microphone to stop'}
+      {dictationState === 'starting' ? 'Starting microphone…' : 'Listening — tap stop to finish'}
     </p>
   )
   const statusNode = conversationState !== 'idle' && (
@@ -377,7 +377,11 @@ export function LabAskPane({
         {...(chromeV2 ? { 'aria-pressed': dictationState !== 'idle', disabled: conversationState !== 'idle' } : {})}
         data-testid="lab-ask-mic"
       >
-        <MicIcon />
+        {chromeV2 && dictationState !== 'idle' ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="6" y="6" width="12" height="12" rx="2" />
+          </svg>
+        ) : <MicIcon />}
       </button>
       <button
         type="button"

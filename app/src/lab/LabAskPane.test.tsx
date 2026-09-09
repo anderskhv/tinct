@@ -604,3 +604,26 @@ describe('V2 multiline composer and copying', () => {
     await screen.findByRole('button', { name: 'Copy question' })
   })
 })
+
+describe('chat dictation control', () => {
+  it('shows a stop square while starting and listening, then restores the microphone', () => {
+    const onMic = vi.fn()
+    const props = {
+      chromeV2: true, conversationState: 'idle' as const, voiceActive: false,
+      typedLoading: false, turns: [], draft: '', onDraftChange: vi.fn(),
+      onSubmit: vi.fn(), onMic, onVoiceMode: vi.fn(),
+    }
+    const { rerender } = render(<LabAskPane {...props} dictationState="idle" />)
+    expect(screen.getByRole('button', { name: 'Dictate a question' }).querySelector('path')).toBeTruthy()
+    for (const dictationState of ['starting', 'listening'] as const) {
+      rerender(<LabAskPane {...props} dictationState={dictationState} />)
+      const stop = screen.getByRole('button', { name: 'Stop dictation' })
+      expect(stop.querySelector('rect')?.getAttribute('width')).toBe('12')
+      expect(stop.querySelector('path')).toBeNull()
+      fireEvent.click(stop)
+    }
+    expect(onMic).toHaveBeenCalledTimes(2)
+    rerender(<LabAskPane {...props} dictationState="idle" />)
+    expect(screen.getByRole('button', { name: 'Dictate a question' }).querySelector('path')).toBeTruthy()
+  })
+})

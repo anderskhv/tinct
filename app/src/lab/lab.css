@@ -6296,6 +6296,17 @@
   content: ''; position: absolute; inset: -8px;
 }
 
-.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon svg { width: 22px; height: 22px; }
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon svg { width: 20px; height: 20px; }
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-mic { background: var(--lab-surface); }
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-voice[data-voice-phase="idle"] { background: var(--lab-ink); color: var(--lab-paper); }
+
+/* Smaller painted controls, with the same 44px touch targets. */
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon {
+  box-sizing: border-box;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+.lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-mic[aria-pressed="true"] {
+  background-color: var(--lab-ink);
+  color: var(--lab-paper);
+}
