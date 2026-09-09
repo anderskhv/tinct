@@ -45,6 +45,9 @@ function routerEnv() {
         if (url.pathname === '/lab/sign-in/') {
           return new Response(labSignIn, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
+        if (url.pathname === '/lab/prefaces/odyssey.json') {
+          return Response.json({ marker: 'complete approved preface' })
+        }
         if (url.pathname === '/lab/catalogue.json') {
           return Response.json({ marker: 'published catalogue' })
         }
@@ -185,6 +188,7 @@ describe('worker SEO routing', () => {
 
   it.each([
     ['/lab/catalogue.json', 'application/json', 'published catalogue'],
+    ['/lab/prefaces/odyssey.json', 'application/json', 'complete approved preface'],
     ['/lab/catalogue-runtime.js', 'text/javascript', '__labRuntimeLoaded'],
     ['/lab/interaction-runtime.js', 'text/javascript', '__labInteractionsLoaded'],
     ['/lab/library-2-runtime.js', 'text/javascript', '__labLibrary2Loaded'],

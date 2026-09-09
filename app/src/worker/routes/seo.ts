@@ -161,6 +161,7 @@ const LAB_PRE_READER_PATHS = new Map([
 
 function isLabStaticAssetPath(pathname: string): boolean {
   return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
+    || /^\/lab\/prefaces\/[a-z0-9-]+\.json$/.test(pathname)
 }
 
 async function serveLabPreReader(
