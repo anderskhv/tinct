@@ -1,6 +1,6 @@
 # The Awakening character pilot
 
-Prepared 2026-09-09. Complete first editorial pass through all 39 chapters, source-reviewed by the authoring agent; not independently copy-edited and not integrated into the app.
+Prepared 2026-09-09. Complete first editorial pass through all 39 chapters, source-reviewed by the authoring agent; not independently copy-edited. The initial pilot shipped; revision 2026-09-09.2 improves orientation after reader feedback.
 
 - **86 entries**, including central and minor people, recurring unnamed figures, families and cultural references.
 - **86 first-encounter cards + 177 later reminder snapshots**: 263 authored descriptions, shared where the English editions support the same facts.
@@ -19,8 +19,10 @@ The modern English text omits the Holy Ghost reference in original chapter VI. T
 
 Coverage means named people/references plus selected distinctive unnamed figures, not every pronoun or incidental anonymous person. Names embedded in property and venue references may keep dictionary behavior. Excluded as character entries: Klein’s hotel, Lecompte’s stables, street/place names, Sèvres/Angostura, musical work titles such as Zampa and The Poet and Peasant, general exclamations and personifications. Places remain outside this first feature.
 
-Family groups are separate kinds, not additional individual characters. Nested relationship labels are intentional: selecting “Sylvano’s wife” resolves the wife; selecting just “Sylvano” resolves the husband. Ambiguous surnames have reviewed occurrence overrides. Generic pronoun resolution is not attempted. These decisions require browser-level selection tests before shipping.
+Family groups are separate kinds, not additional individual characters. Nested relationship labels are intentional: selecting “Sylvano’s wife” resolves the wife; selecting just “Sylvano” resolves the husband. Ambiguous surnames have reviewed occurrence overrides. Generic pronoun resolution is not attempted. These decisions have browser-level coverage in the shipped pilot.
 
-## Next step
+## Current revision
 
-Implement against this pilot using the [handoff](../../../docs/design/character-cards-implementation-handoff-2026-09-09.md), then review actual early/middle/late reading experiences. Only after that should the same contract be used to author the remaining library. The current content is reviewable and mechanically checked; the feature has not shipped.
+Revision 2026-09-09.2 rewrites all 86 introductions, preserves useful identity in all 177 later subtitles, and corrects opening reminders. Existing plot gates, mention spans, and edition text remain unchanged. Follow the [editorial policy](../EDITORIAL-POLICY.md) for subsequent books. The revised copy is prepared locally; publication is a separate step.
+
+Validation for this revision: 12 Python content tests and 12 reader-service tests passed; app build and bundle verification passed. Opening card/gallery browser checks passed in original and modern English on mobile WebKit and desktop Chromium. The phone card was visually inspected. An explicit comparison with the shipped content confirmed unchanged edition fingerprints, paragraph hashes, all 2,836 mention bindings, and every snapshot/story-role release location. Runtime and compiled content copies are identical. No deployment was performed.

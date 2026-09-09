@@ -94,7 +94,7 @@ def compile_book(book):
             snapshots=[]
             intro=e.get('introduction')
             if intro:
-                snapshots.append({'id':e['id']+'-introduction','availableAt':firstPoint,'name':intro.get('name',first['text']),'subtitle':intro['subtitle'],'body':intro['body'],'evidence':[{'chapterNumber':first['chapterNumber'],'paragraphIndex':first['paragraphIndex'],'throughOffset':first['endOffset']}],'editorialBasis':'Minimal non-plot identification, reviewed at first mention; no later actions or outcomes.'})
+                snapshots.append({'id':e['id']+'-introduction','availableAt':firstPoint,'name':intro.get('name',first['text']),'subtitle':intro['subtitle'],'body':intro['body'],'evidence':[{'chapterNumber':first['chapterNumber'],'paragraphIndex':first['paragraphIndex'],'throughOffset':first['endOffset']}],'editorialBasis':'Reviewed baseline identity, including ordinary relationships, occupation, and setting; no concealed identity or later plot development. See editorial policy.'})
             for i,s in enumerate(e['snapshots']):
                 ch,pi=s['after'];assert (ch,pi) in paras,(e['id'],s['after'])
                 gate=point(ch,pi,u16(paras[ch,pi]));assert key(gate)>=key(firstPoint),(e['id'],'snapshot predates mention')
@@ -108,8 +108,8 @@ def compile_book(book):
     a=paragraphs(json.loads((ROOT/f'app/public/data/editions/{book}-original-en.json').read_text()))
     b=paragraphs(json.loads((ROOT/f'app/public/data/editions/{book}-modern-en.json').read_text()))
     assert list(a)==list(b), 'Edition structure differs; explicit alignment needed'
-    compiled={'schemaVersion':1,'bookId':book,'language':'en','contentVersion':'2026-09-09.1','reviewStatus':'source-reviewed-pilot','offsetUnit':'utf16','normalization':'prose-reader-v1','editions':editions}
-    report={'bookId':book,'chapterCount':39,'entities':len(entities),'authoredSnapshots':sum(len(e['snapshots']) for e in entities),'firstMentionCards':sum(bool(e.get('introduction')) for e in entities),'editions':{ed:{'mentions':len(d['mentions']),'sourceSha256':d['sourceSha256'],'ignoredContexts':len(d['ignoredContextMatches'])} for ed,d in editions.items()},'reviewLimits':['Source reviewed by the authoring agent; not independently reviewed by another editor.','English edition alignment verified at all card-update paragraphs; no Danish bindings or copy.','Generic pronouns and every unnamed incidental person are not claimed as entity coverage.','App integration, gesture behavior, and production verification are not yet implemented.']}
+    compiled={'schemaVersion':1,'bookId':book,'language':'en','contentVersion':source['contentVersion'],'reviewStatus':'source-reviewed-pilot','offsetUnit':'utf16','normalization':'prose-reader-v1','editions':editions}
+    report={'bookId':book,'chapterCount':39,'entities':len(entities),'authoredSnapshots':sum(len(e['snapshots']) for e in entities),'firstMentionCards':sum(bool(e.get('introduction')) for e in entities),'editions':{ed:{'mentions':len(d['mentions']),'sourceSha256':d['sourceSha256'],'ignoredContexts':len(d['ignoredContextMatches'])} for ed,d in editions.items()},'reviewLimits':['Source reviewed by the authoring agent; not independently reviewed by another editor.','English edition alignment verified at all card-update paragraphs; no Danish bindings or copy.','Generic pronouns and every unnamed incidental person are not claimed as entity coverage.','This report validates content bindings; app and production verification are recorded separately.']}
     return compiled,report,readable
 
 def main():
@@ -120,6 +120,16 @@ def main():
         text=json.dumps(data,ensure_ascii=False,indent=2)+'\n';path=folder/name
         if args.check:assert path.read_text()==text,f'Stale compiled file: {path}'
         else:path.write_text(text)
+    source=json.loads((folder/'editorial.json').read_text())
+    cards=['# The Awakening: complete editorial card draft','','**Editorial document: contains spoilers through Chapter XXXIX.** Reader display must use compiled position gates, never this file.','','Revision '+source['contentVersion']+'. Baseline identity is available from first mention; later developments remain gated. Paragraph numbers below are one-based.','']
+    for e in source['entities']:
+        cards.extend([f"## {e['editorialName']}",'',f"{e['kind']} · {e['storyRole']} · `{e['id']}`",'','**First encounter**','',f"**{e['introduction']['name']} — {e['introduction']['subtitle']}**",'',e['introduction']['body'],''])
+        for snapshot in e['snapshots']:
+            ch,pi=snapshot['after']
+            cards.extend([f"**After chapter {ch}, paragraph {pi+1}** — {snapshot['subtitle']}",'',snapshot['body'],''])
+    card_text='\n'.join(cards)
+    if args.check:assert (folder/'cards.md').read_text()==card_text,'Stale cards.md'
+    else:(folder/'cards.md').write_text(card_text)
     if not args.check:
         lines=['# The Awakening: source and card review','', 'Editorial worksheet; includes later plot. All paragraph indices are zero-based.','']
         for edition,id,ch,pi,text,body in readable:

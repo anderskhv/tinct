@@ -68,6 +68,30 @@ class CharacterContractTests(unittest.TestCase):
         for card in gallery(self.ed, point(39,999,999)):
             self.assertEqual(set(card), {'id','kind','role','name','subtitle','body'})
 
+    def test_opening_orientation_survives_first_paragraph_update(self):
+        for edition in self.package['editions'].values():
+            for character_id, terms in {
+                'leonce': ['Edna', 'husband', 'broker'],
+                'madame-lebrun': ['Grand Isle', 'cottages'],
+                'edna': ['central character', 'Léonce'],
+                'robert': ['Madame Lebrun', 'son'],
+            }.items():
+                character = next(c for c in edition['characters'] if c['id'] == character_id)
+                for snapshot in character['snapshots'][:2]:
+                    card = reminder(edition, character_id, snapshot['availableAt'])
+                    copy = card['subtitle'] + ' ' + card['body']
+                    for term in terms:
+                        self.assertIn(term, copy)
+
+    def test_robert_orientation_does_not_release_later_relationship(self):
+        for edition in self.package['editions'].values():
+            character = next(c for c in edition['characters'] if c['id'] == 'robert')
+            early = reminder(edition, 'robert', character['firstMention'])
+            self.assertNotIn('love', early['body'].lower())
+            self.assertNotIn('farewell', early['body'].lower())
+            declaration = next(s for s in character['snapshots'] if s['availableAt']['chapterNumber'] == 36)
+            self.assertIn('loving Edna', reminder(edition, 'robert', declaration['availableAt'])['body'])
+
     def test_utf16_not_python_character_count(self):
         self.assertEqual(u16('A😀B'),4)
         self.assertEqual(normalized('one\n  two'), 'one two')

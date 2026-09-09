@@ -6,7 +6,7 @@ Editorial worksheet; includes later plot. All paragraph indices are zero-based.
 
 “Well, send him about his business when he bores you, Edna,” instructed her husband as he prepared to leave.
 
-**Card:** The woman whose experience we follow. She has returned from bathing with Robert, the young man who stays to talk with her while her husband goes out.
+**Card:** Edna Pontellier is the novel’s central character, married to Léonce and the mother of Raoul and Etienne. She has returned from bathing with Robert, who stays to talk while her husband goes out.
 
 ## original-en · edna · 4:11
 
@@ -90,7 +90,7 @@ She looked into the distance, and the old terror flamed up for an instant, then 
 
 Once in a while he withdrew his glance from the newspaper and looked about him. There was more noise than ever over at the house. The main building was called “the house,” to distinguish it from the cottages. The chattering and whistling birds were still at it. Two young girls, the Farival twins, were playing a duet from “Zampa” upon the piano. Madame Lebrun was bustling in and out, giving orders in a high key to a yard-boy whenever she got inside the house, and directions in an equally high voice to a dining-room servant whenever she got outside. She was a fresh, pretty woman, clad always in white with elbow sleeves. Her starched skirts crinkled as she came and went. Farther down, before one of the cottages, a lady in black was walking demurely up and down, telling her beads. A good many persons of the pension had gone over to the Chênière Caminada in Beaudelet’s lugger to hear mass. Some young people were out under the water-oaks playing croquet. Mr. Pontellier’s two children were there—sturdy little fellows of four and five. A quadroon nurse followed them about with a faraway, meditative air.
 
-**Card:** The bespectacled man trying to read while the holiday house bustles around him. He has two small boys playing nearby.
+**Card:** Léonce is Edna Pontellier’s husband and a New Orleans broker. Their two young sons are playing nearby while he tries to read his newspaper at Grand Isle.
 
 ## original-en · leonce · 2:9
 
@@ -132,7 +132,7 @@ Edna admired the skill of his maneuver, and avoided any occasion to balk his int
 
 “Well, send him about his business when he bores you, Edna,” instructed her husband as he prepared to leave.
 
-**Card:** The young man who returned from the beach with Edna. He chooses to stay and talk with her when her husband invites him to go out.
+**Card:** Robert is Madame Lebrun’s elder son, home for the summer from his work in New Orleans. He has returned from the beach with Edna and stays to talk when Léonce goes out.
 
 ## original-en · robert · 2:6
 
@@ -300,7 +300,7 @@ He did not answer, except to continue to caress her. He did not say good night u
 
 Once in a while he withdrew his glance from the newspaper and looked about him. There was more noise than ever over at the house. The main building was called “the house,” to distinguish it from the cottages. The chattering and whistling birds were still at it. Two young girls, the Farival twins, were playing a duet from “Zampa” upon the piano. Madame Lebrun was bustling in and out, giving orders in a high key to a yard-boy whenever she got inside the house, and directions in an equally high voice to a dining-room servant whenever she got outside. She was a fresh, pretty woman, clad always in white with elbow sleeves. Her starched skirts crinkled as she came and went. Farther down, before one of the cottages, a lady in black was walking demurely up and down, telling her beads. A good many persons of the pension had gone over to the Chênière Caminada in Beaudelet’s lugger to hear mass. Some young people were out under the water-oaks playing croquet. Mr. Pontellier’s two children were there—sturdy little fellows of four and five. A quadroon nurse followed them about with a faraway, meditative air.
 
-**Card:** The busy woman in white giving directions to servants while the guests relax around the house.
+**Card:** Madame Lebrun owns and runs the Grand Isle summer boarding house and cottages where the Pontelliers are staying. She is directing the servants as the guests relax.
 
 ## original-en · madame-lebrun · 2:6
 
@@ -960,25 +960,25 @@ Madame Lebrun was busily engaged at the sewing-machine. A little black girl sat 
 
 “Could any one fathom the cruelty beneath that fair exterior?” murmured Robert. “She knew that I adored her once, and she let me adore her. It was ‘Robert, come; go; stand up; sit down; do this; do that; see if the baby sleeps; my thimble, please, that I left God knows where. Come and read Daudet to me while I sew.’”
 
-**Card:** Robert recalls being asked to read this author aloud while Adèle sewed.
+**Card:** Daudet is the author of the story Robert reads to Edna. He is a literary reference, not a member of the holiday party.
 
 ## original-en · napoleon · 7:22
 
 Edna often wondered at one propensity which sometimes had inwardly disturbed her without causing any outward show or manifestation on her part. At a very early age—perhaps it was when she traversed the ocean of waving grass—she remembered that she had been passionately enamored of a dignified and sad-eyed cavalry officer who visited her father in Kentucky. She could not leave his presence when he was there, nor remove her eyes from his face, which was something like Napoleon’s, with a lock of black hair failing across the forehead. But the cavalry officer melted imperceptibly out of her existence.
 
-**Card:** The narrator compares the face of Edna’s childhood cavalry officer to his, including a lock of dark hair over the forehead.
+**Card:** Napoleon is invoked to describe the appearance of an officer Edna remembers. He is not a character in the action.
 
 ## original-en · goncourt · 8:22
 
 “I promised to lend her the Goncourt. Don’t forget to take it down when you go; it’s there on the bookshelf over the small table.” Clatter, clatter, clatter, bang! for the next five or eight minutes.
 
-**Card:** Madame Lebrun uses the name for a book she has promised to lend Edna and asks Robert to take it downstairs.
+**Card:** Goncourt is the author’s name given for a book Madame Lebrun lends Edna through Robert. The passage does not identify the title.
 
 ## original-en · chopin · 9:24
 
 But she was mistaken about “those others.” Her playing had aroused a fever of enthusiasm. “What passion!” “What an artist!” “I have always said no one could play Chopin like Mademoiselle Reisz!” “That last prelude! Bon Dieu! It shakes a man!”
 
-**Card:** The guests praise the pianist’s performance of his music after Edna has been deeply moved by her playing.
+**Card:** Chopin is a composer represented in Mademoiselle Reisz’s piano repertoire. This is a musical reference, not a reference to the novel’s author, Kate Chopin.
 
 ## original-en · chopin · 21:33
 
@@ -990,43 +990,43 @@ Edna did not know when the Impromptu began or ended. She sat in the sofa corner 
 
 Edna did not know when the Impromptu began or ended. She sat in the sofa corner reading Robert’s letter by the fading light. Mademoiselle had glided from the Chopin into the quivering love notes of Isolde’s song, and back again to the Impromptu with its soulful and poignant longing.
 
-**Card:** The pianist moves from Chopin into the love music described as Isolde’s song while Edna reads Robert’s letter.
+**Card:** Isolde is the Irish princess in Wagner’s opera Tristan und Isolde. Mademoiselle Reisz plays music evoking her love.
 
 ## original-en · emerson · 24:11
 
 Then Edna sat in the library after dinner and read Emerson until she grew sleepy. She realized that she had neglected her reading, and determined to start anew upon a course of improving studies, now that her time was completely her own to do with as she liked.
 
-**Card:** Edna reads his work in the library after her husband and children have gone away. She plans to renew her neglected reading.
+**Card:** Ralph Waldo Emerson is an American essayist and poet. Edna takes up his work as she returns to reading.
 
 ## original-en · dante · 25:6
 
 The dinner was quiet and uninteresting, save for the cheerful efforts of Arobin to enliven things. Mrs. Highcamp deplored the absence of her daughter from the races, and tried to convey to her what she had missed by going to the “Dante reading” instead of joining them. The girl held a geranium leaf up to her nose and said nothing, but looked knowing and noncommittal. Mr. Highcamp was a plain, bald-headed man, who only talked under compulsion. He was unresponsive. Mrs. Highcamp was full of delicate courtesy and consideration toward her husband. She addressed most of her conversation to him at table. They sat in the library after dinner and read the evening papers together under the droplight; while the younger people went into the drawing-room near by and talked. Miss Highcamp played some selections from Grieg upon the piano. She seemed to have apprehended all of the composer’s coldness and none of his poetry. While Edna listened she could not help wondering if she had lost her taste for music.
 
-**Card:** Miss Highcamp attended a reading of his work instead of going to the races with her mother and Edna.
+**Card:** Dante is the author whose work features at a reading attended by Miss Highcamp.
 
 ## original-en · grieg · 25:6
 
 The dinner was quiet and uninteresting, save for the cheerful efforts of Arobin to enliven things. Mrs. Highcamp deplored the absence of her daughter from the races, and tried to convey to her what she had missed by going to the “Dante reading” instead of joining them. The girl held a geranium leaf up to her nose and said nothing, but looked knowing and noncommittal. Mr. Highcamp was a plain, bald-headed man, who only talked under compulsion. He was unresponsive. Mrs. Highcamp was full of delicate courtesy and consideration toward her husband. She addressed most of her conversation to him at table. They sat in the library after dinner and read the evening papers together under the droplight; while the younger people went into the drawing-room near by and talked. Miss Highcamp played some selections from Grieg upon the piano. She seemed to have apprehended all of the composer’s coldness and none of his poetry. While Edna listened she could not help wondering if she had lost her taste for music.
 
-**Card:** Miss Highcamp plays selections from his music at home. Edna finds the performance cold and wonders whether her own taste for music has changed.
+**Card:** Grieg is the composer of music Miss Highcamp plays on the piano.
 
 ## original-en · beethoven · 26:3
 
 It was misty, with heavy, lowering atmosphere, one afternoon, when Edna climbed the stairs to the pianist’s apartments under the roof. Her clothes were dripping with moisture. She felt chilled and pinched as she entered the room. Mademoiselle was poking at a rusty stove that smoked a little and warmed the room indifferently. She was endeavoring to heat a pot of chocolate on the stove. The room looked cheerless and dingy to Edna as she entered. A bust of Beethoven, covered with a hood of dust, scowled at her from the mantelpiece.
 
-**Card:** A dusty bust of him stands in the pianist’s apartment when Edna arrives in the rain.
+**Card:** Beethoven is a composer. A bust of him stands in Mademoiselle Reisz’s apartment.
 
 ## original-en · venus · 39:0
 
 Victor, with hammer and nails and scraps of scantling, was patching a corner of one of the galleries. Mariequita sat near by, dangling her legs, watching him work, and handing him nails from the tool-box. The sun was beating down upon them. The girl had covered her head with her apron folded into a square pad. They had been talking for an hour or more. She was never tired of hearing Victor describe the dinner at Mrs. Pontellier’s. He exaggerated every detail, making it appear a veritable Lucullean feast. The flowers were in tubs, he said. The champagne was quaffed from huge golden goblets. Venus rising from the foam could have presented no more entrancing a spectacle than Mrs. Pontellier, blazing with beauty and diamonds at the head of the board, while the other women were all of them youthful houris, possessed of incomparable charms. She got it into her head that Victor was in love with Mrs. Pontellier, and he gave her evasive answers, framed so as to confirm her belief. She grew sullen and cried a little, threatening to go off and leave him to his fine ladies. There were a dozen men crazy about her at the Chênière; and since it was the fashion to be in love with married people, why, she could run away any time she liked to New Orleans with Célina’s husband.
 
-**Card:** Victor invokes her rising from the sea as he exaggerates Edna’s beauty at the dinner party he is describing to Mariequita.
+**Card:** Venus is the figure rising from the sea in Victor’s comparison of Edna’s beauty. She is a mythological reference.
 
 ## original-en · virgin · 5:3
 
 Mrs. Pontellier liked to sit and gaze at her fair companion as she might look upon a faultless Madonna.
 
-**Card:** Edna compares the beautiful Adèle to a Madonna, a sacred image of the mother of Jesus.
+**Card:** The Virgin Mary is a Christian sacred figure. A Madonna is an image of her; the novel uses such images in comparisons of women’s beauty.
 
 ## original-en · virgin · 9:4
 
@@ -1038,7 +1038,7 @@ At an early hour in the evening the Farival twins were prevailed upon to play th
 
 In short, Mrs. Pontellier was beginning to realize her position in the universe as a human being, and to recognize her relations as an individual to the world within and about her. This may seem like a ponderous weight of wisdom to descend upon the soul of a young woman of twenty-eight—perhaps more wisdom than the Holy Ghost is usually pleased to vouchsafe to any woman.
 
-**Card:** The narrator invokes the Holy Ghost while commenting on the new self-understanding dawning on Edna.
+**Card:** The Holy Ghost is another name for the Holy Spirit. The narrator invokes this religious figure in an aside.
 
 ## original-en · gluglu · 32:8
 
@@ -1068,7 +1068,7 @@ The Pontelliers and Ratignolles walked ahead; the women leaning upon the arms of
 
 “Well, send him on his way when he bores you, Edna,” her husband said as he prepared to leave.
 
-**Card:** The woman whose experience we follow. She has returned from bathing with Robert, the young man who stays to talk with her while her husband goes out.
+**Card:** Edna Pontellier is the novel’s central character, married to Léonce and the mother of Raoul and Etienne. She has returned from bathing with Robert, who stays to talk while her husband goes out.
 
 ## modern-en · edna · 4:11
 
@@ -1152,7 +1152,7 @@ She looked into the distance, and the old terror flamed up for an instant, then 
 
 Every so often he looked up from the paper and glanced around. The noise from the main house was louder than ever. The Farival twins were playing a piano duet from Zampa. Madame Lebrun was bustling in and out, calling instructions in a high voice to a yard boy whenever she was inside, and directions in the same high voice to a dining-room servant whenever she came out. She was a bright, pretty woman who always wore white, with short sleeves, her stiff skirts rustling as she moved. Farther along, in front of one of the cottages, a woman in black walked back and forth at a slow, deliberate pace, counting her beads. Many of the pension’s guests had gone across to the Chêniere Caminada in Beaudelet’s boat to hear mass. Some young people were out under the water oaks playing croquet. Mr. Pontellier’s two children were among them — sturdy little boys of four and five. A quadroon nurse followed them at a distance with a distant, dreamy air.
 
-**Card:** The bespectacled man trying to read while the holiday house bustles around him. He has two small boys playing nearby.
+**Card:** Léonce is Edna Pontellier’s husband and a New Orleans broker. Their two young sons are playing nearby while he tries to read his newspaper at Grand Isle.
 
 ## modern-en · leonce · 2:9
 
@@ -1194,7 +1194,7 @@ Edna admired the skill of his maneuver, and avoided any occasion to balk his int
 
 “Well, send him on his way when he bores you, Edna,” her husband said as he prepared to leave.
 
-**Card:** The young man who returned from the beach with Edna. He chooses to stay and talk with her when her husband invites him to go out.
+**Card:** Robert is Madame Lebrun’s elder son, home for the summer from his work in New Orleans. He has returned from the beach with Edna and stays to talk when Léonce goes out.
 
 ## modern-en · robert · 2:6
 
@@ -1362,7 +1362,7 @@ He did not answer, except to continue to caress her. He did not say good night u
 
 Every so often he looked up from the paper and glanced around. The noise from the main house was louder than ever. The Farival twins were playing a piano duet from Zampa. Madame Lebrun was bustling in and out, calling instructions in a high voice to a yard boy whenever she was inside, and directions in the same high voice to a dining-room servant whenever she came out. She was a bright, pretty woman who always wore white, with short sleeves, her stiff skirts rustling as she moved. Farther along, in front of one of the cottages, a woman in black walked back and forth at a slow, deliberate pace, counting her beads. Many of the pension’s guests had gone across to the Chêniere Caminada in Beaudelet’s boat to hear mass. Some young people were out under the water oaks playing croquet. Mr. Pontellier’s two children were among them — sturdy little boys of four and five. A quadroon nurse followed them at a distance with a distant, dreamy air.
 
-**Card:** The busy woman in white giving directions to servants while the guests relax around the house.
+**Card:** Madame Lebrun owns and runs the Grand Isle summer boarding house and cottages where the Pontelliers are staying. She is directing the servants as the guests relax.
 
 ## modern-en · madame-lebrun · 2:6
 
@@ -2022,25 +2022,25 @@ Madame Lebrun was busy at the sewing machine. A little black girl sat on the flo
 
 “Can anyone fathom the cruelty beneath that beautiful exterior?” murmured Robert. “She knew that I adored her once, and she let me adore her. It was ‘Robert, come; go; stand up; sit down; do this; do that; check if the baby is sleeping; my thimble, please, I left it God knows where. Come and read Daudet to me while I sew.’”
 
-**Card:** Robert recalls being asked to read this author aloud while Adèle sewed.
+**Card:** Daudet is the author of the story Robert reads to Edna. He is a literary reference, not a member of the holiday party.
 
 ## modern-en · napoleon · 7:22
 
 Edna had long wondered at one tendency that sometimes disturbed her inwardly without ever showing itself outwardly. Very early — perhaps when she was walking through the ocean of waving grass — she remembered being passionately taken with a handsome, sad-eyed cavalry officer who visited her father in Kentucky. She couldn’t leave his presence when he was there, or take her eyes from his face, which was something like Napoleon’s, with a lock of black hair falling across the forehead. But the cavalry officer faded, imperceptibly, out of her life.
 
-**Card:** The narrator compares the face of Edna’s childhood cavalry officer to his, including a lock of dark hair over the forehead.
+**Card:** Napoleon is invoked to describe the appearance of an officer Edna remembers. He is not a character in the action.
 
 ## modern-en · goncourt · 8:22
 
 “I promised to lend her the Goncourt. Don’t forget to take it down when you go; it’s there on the shelf above the small table.” Clatter, clatter, clatter, bang! — for the next five or eight minutes.
 
-**Card:** Madame Lebrun uses the name for a book she has promised to lend Edna and asks Robert to take it downstairs.
+**Card:** Goncourt is the author’s name given for a book Madame Lebrun lends Edna through Robert. The passage does not identify the title.
 
 ## modern-en · chopin · 9:24
 
 But she was wrong about “those others.” Her playing had aroused a fever of enthusiasm. “What passion!” “What an artist!” “I have always said no one could play Chopin like Mademoiselle Reisz!” “That last prelude! Bon Dieu! It shakes a man!”
 
-**Card:** The guests praise the pianist’s performance of his music after Edna has been deeply moved by her playing.
+**Card:** Chopin is a composer represented in Mademoiselle Reisz’s piano repertoire. This is a musical reference, not a reference to the novel’s author, Kate Chopin.
 
 ## modern-en · chopin · 21:33
 
@@ -2052,43 +2052,43 @@ Edna did not know when the Impromptu began or ended. She sat in the corner of th
 
 Edna did not know when the Impromptu began or ended. She sat in the corner of the sofa, reading Robert’s letter in the fading light. Mademoiselle had glided from the Chopin into the quivering love notes of Isolde’s song, and back again to the Impromptu with its soulful and poignant longing.
 
-**Card:** The pianist moves from Chopin into the love music described as Isolde’s song while Edna reads Robert’s letter.
+**Card:** Isolde is the Irish princess in Wagner’s opera Tristan und Isolde. Mademoiselle Reisz plays music evoking her love.
 
 ## modern-en · emerson · 24:11
 
 Then Edna sat in the library after dinner and read Emerson until she grew sleepy. She realized she had neglected her reading and determined to start anew upon a course of improving studies, now that her time was completely her own to do with as she liked.
 
-**Card:** Edna reads his work in the library after her husband and children have gone away. She plans to renew her neglected reading.
+**Card:** Ralph Waldo Emerson is an American essayist and poet. Edna takes up his work as she returns to reading.
 
 ## modern-en · dante · 25:6
 
 The dinner was quiet and unremarkable, save for Arobin’s cheerful efforts to enliven things. Mrs. Highcamp lamented her daughter’s absence from the races and tried to convey what she had missed by going to the “Dante reading” instead. The girl held a geranium leaf to her nose and said nothing, but looked knowing and noncommittal. Mr. Highcamp was a plain, bald-headed man who spoke only under compulsion. He was unresponsive. Mrs. Highcamp was full of delicate courtesy and consideration toward her husband and addressed most of her conversation to him at dinner. They sat in the library afterward and read the evening papers together under the lamp, while the younger people went into the drawing room nearby and talked. Miss Highcamp played some selections from Grieg upon the piano. She seemed to have grasped all of the composer’s coldness and none of his poetry. While Edna listened she could not help wondering if she had lost her taste for music.
 
-**Card:** Miss Highcamp attended a reading of his work instead of going to the races with her mother and Edna.
+**Card:** Dante is the author whose work features at a reading attended by Miss Highcamp.
 
 ## modern-en · grieg · 25:6
 
 The dinner was quiet and unremarkable, save for Arobin’s cheerful efforts to enliven things. Mrs. Highcamp lamented her daughter’s absence from the races and tried to convey what she had missed by going to the “Dante reading” instead. The girl held a geranium leaf to her nose and said nothing, but looked knowing and noncommittal. Mr. Highcamp was a plain, bald-headed man who spoke only under compulsion. He was unresponsive. Mrs. Highcamp was full of delicate courtesy and consideration toward her husband and addressed most of her conversation to him at dinner. They sat in the library afterward and read the evening papers together under the lamp, while the younger people went into the drawing room nearby and talked. Miss Highcamp played some selections from Grieg upon the piano. She seemed to have grasped all of the composer’s coldness and none of his poetry. While Edna listened she could not help wondering if she had lost her taste for music.
 
-**Card:** Miss Highcamp plays selections from his music at home. Edna finds the performance cold and wonders whether her own taste for music has changed.
+**Card:** Grieg is the composer of music Miss Highcamp plays on the piano.
 
 ## modern-en · beethoven · 26:3
 
 It was misty, with a heavy, lowering atmosphere, one afternoon, when Edna climbed the stairs to the pianist’s apartments under the roof. Her clothes were dripping with moisture. She felt chilled and pinched as she entered the room. Mademoiselle was crouching before a rusty stove that smoked a little and warmed the room poorly. She was trying to heat a pot of chocolate on the stove. The room looked cheerless and dingy to Edna as she entered. A bust of Beethoven, covered with a hood of dust, scowled at her from the mantelpiece.
 
-**Card:** A dusty bust of him stands in the pianist’s apartment when Edna arrives in the rain.
+**Card:** Beethoven is a composer. A bust of him stands in Mademoiselle Reisz’s apartment.
 
 ## modern-en · venus · 39:0
 
 Victor, with hammer and nails and scraps of scantling, was patching a corner of one of the galleries. Mariequita sat near by, dangling her legs, watching him work, and handing him nails from the tool-box. The sun was beating down upon them. The girl had covered her head with her apron folded into a square pad. They had been talking for an hour or more. She was never tired of hearing Victor describe the dinner at Mrs. Pontellier’s. He exaggerated every detail, making it appear a veritable Lucullean feast. The flowers were in tubs, he said. The champagne was quaffed from huge golden goblets. Venus rising from the foam could have presented no more entrancing a spectacle than Mrs. Pontellier, blazing with beauty and diamonds at the head of the board, while the other women were all of them youthful houris, possessed of incomparable charms. She got it into her head that Victor was in love with Mrs. Pontellier, and he gave her evasive answers, framed so as to confirm her belief. She grew sullen and cried a little, threatening to go off and leave him to his fine ladies. There were a dozen men crazy about her at the Chêniere; and since it was the fashion to be in love with married people, why, she could run away any time she liked to New Orleans with Célina’s husband.
 
-**Card:** Victor invokes her rising from the sea as he exaggerates Edna’s beauty at the dinner party he is describing to Mariequita.
+**Card:** Venus is the figure rising from the sea in Victor’s comparison of Edna’s beauty. She is a mythological reference.
 
 ## modern-en · virgin · 5:3
 
 Mrs. Pontellier liked to sit and look at her radiant companion the way one might contemplate a flawless Madonna.
 
-**Card:** Edna compares the beautiful Adèle to a Madonna, a sacred image of the mother of Jesus.
+**Card:** The Virgin Mary is a Christian sacred figure. A Madonna is an image of her; the novel uses such images in comparisons of women’s beauty.
 
 ## modern-en · virgin · 9:4
 
