@@ -82,3 +82,34 @@ verify-bundle passed. Local WebKit phone and small phone with large text, plus
 Chromium desktop, passed discussion, preparation, return/reload position and
 Continue to the actual next chapter at 0:0 without a Chat call. Production
 verification will be appended after deployment.
+
+### Panel production verification
+
+The panel revision shipped from clean app commit `bbfd2888` using the approved
+Node 24 `npm run deploy` path. The build used the repository's CI public-client
+configuration fallback because this shipping worktree's deploy-only `.env` does
+not include the public Vite values; verify-bundle confirmed the required values
+and absence of secrets. Direct deployment succeeded; no GitHub Actions run was
+used. Worker version: `400c02f8-1acc-40ed-87e4-434ff4afc14a`.
+
+Live bundle: `assets/index-Bn3_djGr.js`.
+SHA256: `ab14d0316e2a584875d20b9ab4fb4e23658128ce6247f9efaa16870f95478320`.
+Live downloaded bytes match the deployed build exactly; 15/15 smoke checks passed.
+
+WebKit at 390×844 and 360×640 with large text, plus Chromium at 1440×950,
+passed the integrated heading/actions, actual Jeremiah 34→35 continuation to
+position 0:0 with no Chat call, both existing Chat requests, Back to book and
+reload position. Light and dark screenshots were inspected. Desktop scroller
+bounds clear the fixed page numbers. Live mobile and desktop Compare and final
+Revelation 22 passed the action visibility and Chat return checks; the last
+chapter exposes only Discuss. `/lab/phone` was also opened and captured.
+
+Chat responses were intercepted with authored fixtures: no model API was called.
+The optional existing audiobook-start assertion timed out on Revelation 22; the
+Compare/final-chapter run was repeated with `SKIP_AUDIO_VERIFY=1` and passed.
+Audio-start behavior is not claimed as reverified by this UI release. No audio
+code changed. Some speculative adjacent-chapter prefetches logged access-control
+errors during the edge run; tested chapter loading and actions completed.
+
+Artifacts, results and logs:
+`/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-chapter-panel/`

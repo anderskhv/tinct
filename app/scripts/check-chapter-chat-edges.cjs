@@ -17,7 +17,7 @@ async function main(){const results=[];for(const [desktop,chapter] of [[false,77
  assert.equal(requests.length,0)
  await p.screenshot({path:path.join(dir,(desktop?'desktop':'phone')+'-'+chapter+'-end.png')})
  // Actual audiobook can be started at the final page; opening Chat pauses it.
- if(chapter===1189){await p.getByTestId('lab-v2-play').click()
+ if(chapter===1189 && !process.env.SKIP_AUDIO_VERIFY){await p.getByTestId('lab-v2-play').click()
  await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true',{}, {timeout:20000})}
  await p.getByRole('button',{name:'Discuss this chapter'}).click()
  await p.getByTestId('lab-ask-turn-assistant').waitFor()

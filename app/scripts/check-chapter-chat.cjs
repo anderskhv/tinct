@@ -44,6 +44,10 @@ async function main() {
    }
    const before=await state(page)
    await page.screenshot({path:path.join(dir,`${config.name}-end.png`)})
+   await page.emulateMedia({colorScheme:'dark'})
+   await page.waitForTimeout(100)
+   await page.screenshot({path:path.join(dir,`${config.name}-end-dark.png`)})
+   await page.emulateMedia({colorScheme:'light'})
    await page.getByRole('button',{name:'Prepare for the next chapter'}).click()
    await page.getByTestId('lab-ask-turn-assistant').filter({hasText:answer}).waitFor()
    assert.equal(calls.length,1)
