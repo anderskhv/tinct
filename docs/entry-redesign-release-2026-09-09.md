@@ -22,3 +22,18 @@ Returning readers retain account-confirmed direct resume. No reader position wri
 The first live entry check caught nested preface URLs being served as the reader SPA. The Worker static asset predicate now explicitly routes those JSON files to ASSETS; a regression covers this concrete production path. Final deployment and live visual evidence follow below.
 
 Artifacts: `/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-entry-redesign/`.
+
+## Final production release
+
+Shipped from clean app commit `33606162` with Node 24 and the approved `npm run deploy` path after build and verify-bundle passed. Direct deployment succeeded; there is no GitHub Actions run for this release.
+
+- Worker: `9a1ae6f7-0d15-4ea8-a009-64c7d0a84ed1`.
+- Live bundle: `assets/index-B48GpBfm.js`.
+- SHA256: `e2eb292329b08b9ad83ce005aa6fdd07fc94da1f2246bf2590e1634ff6cc8b7e`.
+- Live bundle, entry CSS/runtime/model, Odyssey preface and the current versioned Awakening character asset match deployed files byte-for-byte.
+- All four production entry viewport flows passed; Chromium desktop and WebKit small phone passed the additional motion, arrow, search and long-preface checks. Screenshots were inspected for landing, library, introduction and picker. `/lab/phone` was also captured.
+- All 15 production smoke checks passed. The immediate first-deploy smoke hit the old HTML/new-assets propagation window; the final unqualified `/reader` URL and all asset checks passed after deployment settled.
+
+Production account-resume fixtures passed before the final routing-only fix; that fix touches only `/lab/prefaces/*.json`. These are controlled browser account fixtures, not a physical-device or real-account test. No live AI call was made.
+
+Browser scripts: `app/scripts/check-entry-redesign.cjs`, `check-entry-details.cjs`, `check-library-cross-device.cjs`. Evidence and logs are in the artifact directory above; `deployed-bytes.json` records exact hashes.
