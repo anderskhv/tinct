@@ -55,7 +55,21 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     const schedule = () => {
       const revision = ++generation
       cancelAnimationFrame(frame)
-      void Promise.resolve(document.fonts?.ready).then(() => {
+      // An empty measurement tree has not requested the reading font yet.
+      // Request the actual body and heading faces before awaiting fonts.ready;
+      // otherwise the first map can be measured with the fallback font.
+      const rows = host.querySelector<HTMLElement>('.lab-desktop-measure-rows')!
+      const heading = host.querySelector<HTMLElement>('.lab-passage-headline')!
+      const probe = document.createElement('p')
+      probe.className = 'lab-hearing-line'
+      probe.textContent = paragraphs.join(' ')
+      rows.replaceChildren(probe)
+      const fonts = document.fonts
+      const requested = fonts ? [
+        fonts.load(getComputedStyle(probe).font, probe.textContent),
+        fonts.load(getComputedStyle(heading).font, chapterTitle),
+      ] : []
+      void Promise.allSettled(requested).then(() => fonts?.ready).then(() => {
         if (cancelled || revision !== generation) return
         frame = requestAnimationFrame(() => {
           if (cancelled || revision !== generation || host.clientWidth < 10 || host.clientHeight < 10) return

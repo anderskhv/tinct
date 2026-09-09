@@ -18,7 +18,26 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
 (async()=>{const b=await({chromium,webkit}[engine]).launch();const results=[];try{
  const p=await b.newPage({viewport:{width:1440,height:950}});p.on('pageerror',e=>console.log('PAGE ERROR',e.message));
  await p.addInitScript(()=>{if(!localStorage.getItem('desktop-fixture')){localStorage.setItem('desktop-fixture','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'democracy-in-america',primaryEditionKey:'original-en',compareEditionKey:'modern-en',savedPlace:{bookId:'democracy-in-america',chapterNumber:1,paragraphIndex:0,page:0}}))}});
+ // A deliberately cold font must settle before any page is exposed as ready.
+ await p.route('**/fonts/*.woff2',async route=>{await new Promise(resolve=>setTimeout(resolve,700));await route.continue()});
+ await p.addInitScript(()=>{
+   window.__desktopFirstPaints=[];
+   function capture(){
+     if(document.querySelector('.lab')?.dataset.readerReady==='true'){
+       const words=[...document.querySelectorAll('.lab-page-wrap > .lab-passage [data-testid="lab-word"]')];
+       window.__desktopFirstPaints.push({count:words.length,bottom:Math.max(...words.map(e=>e.getBoundingClientRect().bottom)),limit:document.querySelector('.lab-bottom-chrome')?.getBoundingClientRect().top});
+     }
+     if(window.__desktopFirstPaints.length<24)requestAnimationFrame(capture);
+   }
+   requestAnimationFrame(capture);
+ });
  await p.goto(origin+'/reader');await ready(p);
+ await p.waitForFunction(()=>window.__desktopFirstPaints.length===24);
+ const firstPaints=await p.evaluate(()=>window.__desktopFirstPaints);
+ assert.ok(firstPaints.every(frame=>frame.bottom<frame.limit),'Every initial visible frame clears footer');
+ assert.equal(new Set(firstPaints.map(frame=>frame.count)).size,1,'Cold fonts never repaint a different page');
+ results.push({coldFontFirstPaintFrames:firstPaints.length,stable:true});
+
  for(const mode of ['read','compare']){
  if(mode==='compare'){await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await ready(p)}
  await p.screenshot({path:out+'/'+engine+'-'+mode+'.png'});
