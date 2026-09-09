@@ -81,6 +81,9 @@ async function main() {
           const focus = await page.locator('[data-reading-memory-recap]').getAttribute('data-book')
           if (focus !== 'democracy-in-america') fs.writeFileSync(path.join(artifacts, `${engine}-focus-debug.json`), JSON.stringify(await page.evaluate(() => window.__focusTrace), null, 2))
           assert.equal(focus, 'democracy-in-america')
+          await page.locator('[data-now-shelf] img').evaluateAll(async imgs => {
+            await Promise.all(imgs.filter(img => { const r = img.getBoundingClientRect(); return r.left < innerWidth && r.right > 0 }).map(img => img.decode().catch(() => {})))
+          })
           await page.screenshot({ path: path.join(artifacts, `${engine}-${scenario}.png`) })
           results.push({ scenario, books: 5, latest: 'democracy-in-america', gets })
           await page.close()

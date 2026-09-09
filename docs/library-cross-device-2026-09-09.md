@@ -19,4 +19,18 @@ Full suite: 146 files / 1,584 tests passed. Focused library refresh regression a
 
 Existing WebKit reader-return regression passed: delayed supporting data, a four-second position response, and a different-book resume all paint the correct saved position first.
 
-Production deployment and live verification are recorded below after shipping.
+## Production release
+
+Shipped from clean code commit `8d47a85b` using Node 24 and the approved `npm run deploy` path, which repeated build and bundle verification successfully. This was a direct deployment; no GitHub Actions run was created for it.
+
+- Worker version: `7a239b79-1a30-45e9-a719-84305962911a`.
+- Live bundle: `index-DfSjHtrX.js`.
+- SHA256: `808b4dbf5955ac1cda25e2d65182d052db9db3ce7855aa80be2e815eb55ede87`.
+- Downloaded production reader bundle, `lab/reading-memory.js`, and `lab/catalogue-runtime.js` match the deployed build byte for byte.
+- All four cross-device scenarios passed on **tinct.app** in Chrome 1440×1000 and WebKit 390×844: five books, latest-book restore, exact paragraph/word, explicit Bible selection, and continued account synchronization after handoff. Desktop SVG centering passed.
+- **15/15 production smoke checks passed**. The legacy `/lab/phone` entry was opened and captured in addition to the current `/reader` checks.
+
+Walkthrough screenshots, fixture results and deployment/smoke logs:
+`/Users/andershvelplund/.codex/visualizations/2026/09/09/tinct-library-sync/`
+
+These are real production frontend/browser checks with intercepted account records, plus the earlier read-only real-account server inspection. The user's actual desktop browser state and a physical iPhone were not inspected; no claim is made that every historical client state was recovered. Existing server-side position records were left intact.
