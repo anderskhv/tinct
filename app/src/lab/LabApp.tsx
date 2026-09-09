@@ -85,7 +85,7 @@ import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabC
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
-import type { LabReaderStateSnapshot } from './labPosition'
+import { recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
@@ -397,6 +397,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
+  const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
   const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
@@ -864,7 +865,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     placeRef,
     readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
-    writesSuspended: handoffWritesSuspended || remoteResumePending || (chromeV2 && tocOpen),
+    resolveBeforePaint: chromeV2,
+    writesSuspended: handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
     authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
@@ -878,7 +880,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (pagesStableRef.current && readingPagesRef.current.length > 0) {
         const idx = pageIndexForPlace(readingPagesRef.current, place.paragraphIndex, place.wordIndex)
         restorePlaceRef.current = null
-        pageAnchorRef.current = pageAnchorOf(readingPagesRef.current[idx])
+        pageAnchorRef.current = chromeV2 ? { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex } : pageAnchorOf(readingPagesRef.current[idx])
         readingPageIndexRef.current = idx
         setReadingPageIndex(idx)
       }
@@ -891,14 +893,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const selection = remoteResumeSelection(place, { libraryBookId: currentLibraryBookId, prefs })
       if (!selection) return
       setChapterCoverTitle(null)
-      restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
-      placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
-      restorePageRef.current = null
       // Own the reader like any chapter navigation: an older in-flight load
       // (the local chapter, an edition change) must not land after this one.
       const navigation = ++chapterNavigationRef.current
       setRemoteResumePending(true)
       void loadLabBookSource({
+        readingFirst: chromeV2,
         bookId: selection.bookId,
         chapterNumber: place.sequentialChapter,
         primaryEditionKey: selection.primaryEditionKey,
@@ -906,15 +906,28 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         audioEditionKey: selection.bookId === currentLibraryBookId ? audioEditionKey : undefined,
       }).then((loaded) => {
         if (navigation !== chapterNavigationRef.current) return
+        if (loaded.chapterNumber !== place.sequentialChapter || !loaded.paragraphs.length) {
+          throw new Error('Resume chapter unavailable')
+        }
+        // Install the anchor only with its own chapter. An outgoing native
+        // measurement must never consume the incoming chapter's saved word.
+        const paragraphIndex = Math.min(place.paragraphIndex, loaded.paragraphs.length - 1)
+        const wordIndex = Math.min(place.wordIndex, Math.max(0, tokenizeHearingWords(loaded.paragraphs[paragraphIndex]).length - 1))
+        restorePlaceRef.current = { paragraphIndex, wordIndex }
+        placeRef.current = restorePlaceRef.current
+        restorePageRef.current = null
+        setReaderLoadError('')
         if (selection.prefs !== prefs) updatePrefs(selection.prefs)
         setBook(loaded)
-      }).catch(() => {}).finally(() => {
+      }).catch(() => {
+        if (navigation === chapterNavigationRef.current) setReaderLoadError('Your saved chapter is temporarily unavailable. Please reload to try again.')
+      }).finally(() => {
         if (navigation === chapterNavigationRef.current) setRemoteResumePending(false)
       })
     },
   })
   const initialResolving = !initialPositionResolved || remoteResumePending
-  const positionWritesSuspended = handoffWritesSuspended || initialResolving
+  const positionWritesSuspended = handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
   // reader knows the account and the place: hand them over when leaving for
   // the library and whenever the page is hidden, so the library never has to
@@ -1058,6 +1071,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? prefs.compareEdition
       : undefined
     loadLabBookSource({
+        readingFirst: chromeV2,
       bookId: activeBookId,
       chapterNumber: wanted,
       primaryEditionKey,
@@ -1088,6 +1102,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
     return () => { cancelled = true }
   }, [source, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
+
+  useEffect(() => {
+    if (!book.supplement) return
+    let cancelled = false
+    void book.supplement.then(supporting => {
+      if (!cancelled) setBook(current => current === book ? { ...current, ...supporting, supplement: undefined } : current)
+    }).catch(() => {})
+    return () => { cancelled = true }
+  }, [book])
 
   const openAtEndRef = useRef(false)
 
@@ -2407,6 +2430,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   ), [book.paragraphs, mobileCompareActive, readerParagraphs])
 
   const goToPage = useCallback((index: number) => {
+    setRecentChapterReturn(null)
     mobileCompareReturnPlaceRef.current = null
     chapterNavigationRef.current += 1
     const reading = readingPagesRef.current
@@ -2531,6 +2555,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [desktopCompareActive, desktopCompareEnabled, notePlace])
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    setRecentChapterReturn(null)
     const navigation = ++chapterNavigationRef.current
     if (listen.playing) {
       browseWhileListeningRef.current = true
@@ -2562,6 +2587,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     let loaded: LabSource
     try {
       loaded = await loadLabBookSource({
+        readingFirst: chromeV2,
         bookId: book.bookId || 'bible',
         chapterNumber: number,
         primaryEditionKey: prefs.primaryEdition,
@@ -2587,6 +2613,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.bookId, bookEditions, listen.playing, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+    setRecentChapterReturn(null)
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
@@ -2621,6 +2648,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     let loaded: LabSource
     try {
       loaded = await loadLabBookSource({
+        readingFirst: chromeV2,
         bookId: book.bookId || 'bible',
         chapterNumber: number,
         primaryEditionKey: prefs.primaryEdition,
@@ -3079,6 +3107,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
+    const chapter = book.chapters.find(ch => ch.number === place.chapterNumber)!
+    const remembered = chapterOnly ? recentChapterPlace(readPositionState(), bookId, chapter, prefs.primaryEdition) : null
     setTocOpen(false)
     setPhoneAskOpen(false)
     setDesktopAskOpen(false)
@@ -3094,7 +3124,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         if (chat) { keepPlayingChapterRef.current = null; setAudioChapterTransitioning(false) }
       }
     }
-  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, mobileCompareActive])
+    setRecentChapterReturn(remembered ? { ...remembered, libraryBookId: bookId } : null)
+  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, mobileCompareActive, readPositionState, prefs.primaryEdition])
 
   useEffect(() => {
     if (!contentsTarget || tocOpen || initialResolving) return
@@ -3722,6 +3753,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       </div>
 
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome">
+      {chromeV2 && recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
+        && !mobileCompareActive && !listen.playing && readingPageIndex === 0
+        && recentChapterReturn.libraryBookId === (book.bookId || 'bible')
+        && recentChapterReturn.sequentialChapter === book.chapterNumber
+        && recentChapterReturn.paragraphIndex < book.paragraphs.length
+        && (!recentChapterReturn.primaryEditionKey || recentChapterReturn.primaryEditionKey === prefs.primaryEdition) && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-continue-chapter" onClick={() => {
+          openContentsPassage({ chapterNumber: book.chapterNumber, paragraphIndex: recentChapterReturn.paragraphIndex, wordIndex: recentChapterReturn.wordIndex })
+        }}>Continue from last position</button>
+      )}
       {chromeV2 && browseWhileListening && listen.playing && !phoneAsk && listen.follow.kind !== 'none' && (
         <button type="button" className="lab-back-to-audio" data-testid="lab-back-to-audio" onClick={() => {
           const follow = listen.follow

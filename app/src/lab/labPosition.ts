@@ -96,6 +96,8 @@ function withReaderState(place: LabBookPlace, readerState?: LabReaderStateSnapsh
 
 export interface LabPositionState {
   books: Record<string, LabBookPlace>
+  /** Recent chapter bookmarks; additive to the existing synced record, not the global resume pointer. */
+  recentChapters?: Record<string, LabBookPlace>
   /**
    * Account the record belongs to; null while the reader is signed out.
    * The position record has no per-place owner the way reading memory does —
@@ -312,6 +314,7 @@ export function parseLabPositionState(raw: unknown, fallbackDeviceId = 'lab'): L
   return {
     books,
     owner,
+    recentChapters: parseRecentChapters(src.recentChapters),
     finished: parseFinishedChapters(src.finished),
     hidden: parseHiddenFromReadingNow(src.hidden),
     lastSettledBookId,
@@ -542,6 +545,7 @@ export function mergeLabPositionStates(
 
   return {
     books,
+    recentChapters: mergeRecentChapters(local.recentChapters, cloud.recentChapters),
     finished: unionFinishedChapters(local.finished, cloud.finished),
     owner: local.owner ?? cloud.owner ?? null,
     hidden: mergeHiddenFromReadingNow(local.hidden, cloud.hidden),
@@ -579,6 +583,7 @@ export function mergeLabPositionStatesByTime(
   }
   return {
     books,
+    recentChapters: mergeRecentChapters(local.recentChapters, incoming.recentChapters),
     finished: unionFinishedChapters(local.finished, incoming.finished),
     owner: incoming.owner ?? local.owner ?? null,
     hidden: mergeHiddenFromReadingNow(local.hidden, incoming.hidden),
@@ -730,6 +735,11 @@ export function createLabPositionController(opts: {
     note(input) {
       const now = input.now ?? nowFn()
       const place = { ...input.place, updatedAt: now, deviceId: opts.deviceId }
+      // Merely opening a chapter must not replace its useful bookmark with zero.
+      if (input.reason !== 'chapter-jump' && input.reason !== 'open-book' && input.reason !== 'mode-change'
+        && (place.paragraphIndex > 0 || place.wordIndex > 0)) {
+        state = { ...state, recentChapters: mergeRecentChapters(state.recentChapters, { [recentChapterKey(place)]: place }) }
+      }
       const settled = state.lastSettledBookId
       const sameSettled = settled === place.bookId
       const firstPin = !settled
@@ -782,4 +792,41 @@ export function createLabPositionController(opts: {
       return state
     },
   }
+}
+
+export const LAB_RECENT_CHAPTER_MS = 7 * 24 * 60 * 60 * 1000
+// Bounded so the existing position endpoint remains a small request.
+const MAX_RECENT_CHAPTERS = 64
+export function recentChapterKey(place: Pick<LabBookPlace, 'bookId' | 'sequentialChapter'>): string {
+  return `${place.bookId}:${place.sequentialChapter}`
+}
+export function parseRecentChapters(raw: unknown): Record<string, LabBookPlace> {
+  if (!raw || typeof raw !== 'object') return {}
+  const entries = Object.entries(raw).flatMap(([key, value]) => {
+    const place = parseLabBookPlace(value)
+    return place && key === recentChapterKey(place) ? [[key, place] as const] : []
+  })
+  return Object.fromEntries(entries.sort((a, b) => b[1].updatedAt - a[1].updatedAt).slice(0, MAX_RECENT_CHAPTERS))
+}
+export function mergeRecentChapters(a?: Record<string, LabBookPlace>, b?: Record<string, LabBookPlace>): Record<string, LabBookPlace> {
+  const result = { ...a }
+  for (const [key, place] of Object.entries(b || {})) {
+    if (isNewerPlace(place, result[key])) result[key] = place
+  }
+  return parseRecentChapters(result)
+}
+export function recentChapterPlace(state: LabPositionState, libraryBookId: string, chapter: LabChapterRef, editionKey: string, now = Date.now()): LabBookPlace | null {
+  const bookId = libraryBookId === 'bible' ? biblicalBookId(parseBiblicalPlaceTitle(chapter.title).book) : libraryBookId
+  const key = recentChapterKey({ bookId, sequentialChapter: chapter.number })
+  const recent = state.recentChapters?.[key]
+  const legacy = state.books[bookId]
+  const place = recent && (!legacy || legacy.sequentialChapter !== chapter.number || !isNewerPlace(legacy, recent))
+    ? recent : legacy
+  if (!place || place.sequentialChapter !== chapter.number || place.bookId !== bookId) return null
+  if (now < place.updatedAt || now - place.updatedAt > LAB_RECENT_CHAPTER_MS) return null
+  if (state.finished[libraryBookId]?.includes(chapter.number)) return null
+  if (place.primaryEditionKey && place.primaryEditionKey !== editionKey) return null
+  if (place.paragraphIndex === 0 && place.wordIndex === 0) return recent && recent !== place
+    ? recentChapterPlace({ ...state, books: {} }, libraryBookId, chapter, editionKey, now) : null
+  return place
 }

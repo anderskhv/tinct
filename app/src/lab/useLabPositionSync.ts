@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
-import { bibleFallbackSource, type LabSource } from './labSource'
+import { bibleFallbackSource, loadLabChapterList, type LabSource } from './labSource'
 import { getBook } from '../data/bookRegistry'
 import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
 import { prefsFromLabResumePlace } from './labReaderHandoff'
@@ -9,6 +9,7 @@ import {
   LAB_INITIAL_CLOUD_WAIT_MS,
   LAB_POSITION_WRITE_ARM_MS,
   adoptLabPositionRecord,
+  accountLabPositionRecord,
   biblicalBookId,
   createLabPositionController,
   finishedChaptersFor,
@@ -188,6 +189,8 @@ export function useLabPositionSync(args: {
   onResolvedPlace?: (place: LabBookPlace) => void
   /** Test hook: the initial cloud wait, ms. */
   initialCloudWaitMs?: number
+  /** Online V2 waits for the position verdict; never reveal a stale page on a timer. */
+  resolveBeforePaint?: boolean
 }): {
   notePlace: (reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => void
   /**
@@ -328,7 +331,7 @@ export function useLabPositionSync(args: {
   // Bounded wait: the local place paints after this even if the cloud (or the
   // manifest it is validated against) has not answered.
   useEffect(() => {
-    if (initialResolvedRef.current) return
+    if (initialResolvedRef.current || args.resolveBeforePaint) return
     const id = window.setTimeout(settleInitial, args.initialCloudWaitMs ?? LAB_INITIAL_CLOUD_WAIT_MS)
     return () => window.clearTimeout(id)
     // Armed once, on mount.
@@ -370,11 +373,12 @@ export function useLabPositionSync(args: {
     // The boot render spreads the Genesis fallback (two chapters) under the
     // resume place; merging against that list would discard every cloud
     // place outside Genesis 1-2. Wait for the loaded manifest.
-    if (args.book.chaptersProvisional || args.book.chapters.length === 0) return
+    if (!args.resolveBeforePaint && (args.book.chaptersProvisional || args.book.chapters.length === 0)) return
     let cancelled = false
-    const chapters = args.book.chapters
+    let chapters = args.book.chapters
+    let validationBookId = labLibraryBookId(args.book)
     reconcileOwnerRef.current?.(ownerId)
-    void cloudRecord(liveToken).then((cloud) => {
+    void cloudRecord(liveToken).then(async (cloud) => {
       if (cancelled) return
       if (!cloud) {
         // Failed or empty answer: paint the local place now; the next
@@ -387,10 +391,24 @@ export function useLabPositionSync(args: {
       }
       const controller = controllerRef.current
       if (!controller) return
+      if (args.resolveBeforePaint) {
+        const candidate = resumePlace(accountLabPositionRecord(controller.state(), cloud, ownerId))
+        if (candidate) {
+          const registered = getBook(candidate.bookId)
+          validationBookId = registered && registered.id !== 'bible' ? registered.id : 'bible'
+          if (args.book.chaptersProvisional || validationBookId !== labLibraryBookId(args.book)) {
+            const editions = validationBookId === 'bible' ? bibleEditions() : registered!.editions
+            const edition = editions.find(e => e.key === candidate.primaryEditionKey)
+              || editions.find(e => e.style === 'original' && e.language === 'en') || editions[0]
+            chapters = await loadLabChapterList(validationBookId, edition.key)
+            if (cancelled) return
+          }
+        }
+      }
       // A device record that was never this account's does not outrank the
       // account's own row, however recent its clock says it is.
       const preferIncomingSettle = shouldPreferAccountSettle(controller.state(), cloud, ownershipRef.current)
-      const next = controller.applyCloud(cloud, chapters, labLibraryBookId(bookRef.current), { preferIncomingSettle })
+      const next = controller.applyCloud(cloud, chapters, validationBookId, { preferIncomingSettle })
       ownershipRef.current = 'own'
       // The reader painted a place it invented (the bounded wait expired
       // before this answered) — it has nothing of its own to lose, so the
@@ -427,6 +445,8 @@ export function useLabPositionSync(args: {
       }
       args.placeRef.current = { paragraphIndex: resume.paragraphIndex, wordIndex: resume.wordIndex }
       onResolvedPlaceRef.current?.(resume)
+    }).catch(() => {
+      if (!cancelled) { armWrites(); settleInitial() }
     })
     return () => { cancelled = true }
   }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, armWrites, cloudRecord, liveToken, ownerId, settleInitial])

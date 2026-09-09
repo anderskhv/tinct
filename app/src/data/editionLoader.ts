@@ -427,3 +427,11 @@ export function preloadEdition(bookId: string, editionKey: EditionKey): void {
 export function isEditionCached(bookId: string, editionKey: EditionKey): boolean {
   return cache.has(`${bookId}-${editionKey}`)
 }
+
+/** The resume gate needs chapter identity, not a complete reading window. */
+export async function loadEditionChapterList(bookId: string, editionKey: EditionKey): Promise<Array<{ number: number; title: string }>> {
+  if (chapterShardWindowEnabled(bookId, editionKey)) {
+    return (await loadChapterShardManifest(bookId, editionKey)).chapters
+  }
+  return (await loadEdition(bookId, editionKey)).chapters
+}

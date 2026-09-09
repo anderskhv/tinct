@@ -149,3 +149,28 @@ describe('loadLabSource', () => {
     expect(bibleFallbackSource().bookTitle).toBe('The Bible')
   })
 })
+
+it('makes reading available without waiting for audio or cast, and only loads Compare when selected', async () => {
+  let release!: () => void
+  const supporting = new Promise<void>(r => { release = r })
+  const requested: string[] = []
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input)
+    requested.push(url)
+    if (url.includes('threads') || url.includes('audio-manifest')) {
+      await supporting
+      return new Response('{"characters":[],"paragraphs":[]}', { status: 200 })
+    }
+    if (url.includes('manifest.json')) return new Response(JSON.stringify({ chapters: [{ number: 645, title: 'Proverbs 17', path: 'ch0645.json' }] }))
+    if (url.includes('ch0645.json')) return new Response(JSON.stringify({ paragraphs: ['¹ Better is a dry morsel.'] }))
+    return new Response('{}', { status: 404 })
+  }))
+  const loaded = await loadLabBookSource({ bookId: 'bible', primaryEditionKey: 'kjv-en', chapterNumber: 645, readingFirst: true })
+  expect(loaded.paragraphs).toEqual(['¹ Better is a dry morsel.'])
+  expect(loaded.supplement).toBeDefined()
+  expect(requested.some(url => url.includes('modern-en'))).toBe(false)
+  release()
+  const extra = await loaded.supplement!
+  expect(extra.followParagraphs.length).toBe(1)
+  expect(loaded.paragraphs).toEqual(['¹ Better is a dry morsel.'])
+})

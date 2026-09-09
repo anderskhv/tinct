@@ -1,5 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
+  recentChapterPlace,
+  recentChapterKey,
+  LAB_RECENT_CHAPTER_MS,
   shouldFollowLateCloudResume,
   biblicalBookId,
   chapterExistsOnClient,
@@ -574,5 +577,37 @@ describe('shouldFollowLateCloudResume', () => {
   it('never crosses books and never moves a touched page', () => {
     expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'hebrews', sequentialChapter: 1136, paragraphIndex: 0 }, interacted: false })).toBe(false)
     expect(shouldFollowLateCloudResume({ current, incoming: { bookId: 'proverbs', sequentialChapter: 646, paragraphIndex: 0 }, interacted: true })).toBe(false)
+  })
+})
+
+describe('recent chapter bookmarks', () => {
+  const saved = () => place({ bookId: 'proverbs', headerBook: 'Proverbs', chapterNumber: 17, sequentialChapter: 645, paragraphIndex: 3, wordIndex: 7, primaryEditionKey: 'kjv-en' })
+  const chapter = { number: 645, title: 'Proverbs 17' }
+  it('retains separate chapters across navigation, reload and a second device', () => {
+    const controller = createLabPositionController({ deviceId: DEVICE })
+    controller.note({ place: saved(), reason: 'page-turn', now: 1000 })
+    controller.note({ place: { ...saved(), chapterNumber: 18, sequentialChapter: 646, paragraphIndex: 4 }, reason: 'page-turn', now: 2000 })
+    controller.note({ place: { ...saved(), paragraphIndex: 0, wordIndex: 0 }, reason: 'chapter-jump', now: 3000 })
+    const reloaded = parseLabPositionState(JSON.parse(JSON.stringify(controller.state())))
+    const remote = mergeLabPositionStatesByTime(emptyLabPositionState('e-ink'), reloaded)
+    expect(recentChapterPlace(remote, 'bible', chapter, 'kjv-en', 4000)?.paragraphIndex).toBe(3)
+    expect(remote.recentChapters?.['proverbs:646'].paragraphIndex).toBe(4)
+    expect(remote.lastSettledBookId).toBe('proverbs')
+  })
+  it('does not offer old, finished, different-edition or different-book positions', () => {
+    const state = { ...emptyLabPositionState(DEVICE), recentChapters: { [recentChapterKey(saved())]: saved() } }
+    expect(recentChapterPlace(state, 'bible', chapter, 'kjv-en', 2000)).toEqual(saved())
+    expect(recentChapterPlace(state, 'bible', chapter, 'kjv-en', 1001 + LAB_RECENT_CHAPTER_MS)).toBeNull()
+    expect(recentChapterPlace({ ...state, finished: { bible: [645] } }, 'bible', chapter, 'kjv-en', 2000)).toBeNull()
+    expect(recentChapterPlace(state, 'bible', chapter, 'web-en', 2000)).toBeNull()
+    expect(recentChapterPlace(state, 'odyssey', chapter, 'kjv-en', 2000)).toBeNull()
+  })
+  it('merges by recency rather than furthest word and preserves bookmarks from older clients', () => {
+    const a = { ...emptyLabPositionState(DEVICE), recentChapters: { [recentChapterKey(saved())]: saved() } }
+    const b = { ...emptyLabPositionState('phone'), recentChapters: { [recentChapterKey(saved())]: { ...saved(), paragraphIndex: 1, updatedAt: 2000 } } }
+    const merged = mergeLabPositionStatesByTime(a, b)
+    expect(merged.recentChapters?.['proverbs:645'].paragraphIndex).toBe(1)
+    expect(mergeLabPositionStatesByTime(merged, emptyLabPositionState('old-client')).recentChapters).toEqual(merged.recentChapters)
+    expect(parseLabPositionState({ ...a, recentChapters: { wrong: saved() } }).recentChapters).toEqual({})
   })
 })

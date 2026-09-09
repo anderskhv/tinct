@@ -11,6 +11,7 @@ import {
   type LabPositionState,
 } from './labPosition'
 import { clearLabPositionLocal, readLabPositionLocal } from './labPositionStore'
+import * as sourceModule from './labSource'
 import { bibleFallbackSource, type LabChapter, type LabSource } from './labSource'
 import { bookFromResumePlace, bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readLabPrefs } from './labPrefs'
@@ -181,6 +182,7 @@ function Harness(props: {
   ownerId?: string | null
   sourceLocked?: boolean
   initialCloudWaitMs?: number
+  resolveBeforePaint?: boolean
 }) {
   const { notePlace, markChapterFinished, finishedChapters, initialPositionResolved } = useLabPositionSync({
     book: props.book,
@@ -192,6 +194,7 @@ function Harness(props: {
     onResolvedPlace: props.onResolvedPlace,
     interactedRef: props.interactedRef,
     initialCloudWaitMs: props.initialCloudWaitMs,
+    resolveBeforePaint: props.resolveBeforePaint,
   })
   harness.notePlace = notePlace
   harness.markChapterFinished = markChapterFinished
@@ -679,5 +682,41 @@ describe('sign-in restore (2026-09-07 Genesis 1 incident)', () => {
       expect(body.books.jeremiah).toBeUndefined()
       expect(body.books.proverbs).toBeUndefined()
     }
+  })
+})
+
+describe('verified return before first paint', () => {
+  it('does not expose a stale place when the old paint deadline passes', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const cloud = deferred<LabPositionState | null>()
+    stubPositionApi(cloud.promise)
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} initialCloudWaitMs={5} resolveBeforePaint />)
+    await act(async () => { await new Promise(r => setTimeout(r, 25)) })
+    expect(harness.initialPositionResolved).toBe(false)
+    await act(async () => { cloud.resolve(settledHebrewsCloud()) })
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'hebrews', sequentialChapter: 1136 })))
+    expect(harness.initialPositionResolved).toBe(true)
+  })
+  it('validates the cloud destination from its manifest while local chapter text is still loading', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    stubPositionApi(Promise.resolve(settledHebrewsCloud()))
+    const load = vi.spyOn(sourceModule, 'loadLabChapterList').mockResolvedValue(MANIFEST)
+    const onRemoteResume = vi.fn()
+    render(<Harness book={bookFromResumePlace(proverbs17())} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} resolveBeforePaint />)
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ sequentialChapter: 1136 })))
+    expect(load).toHaveBeenCalledWith('bible', expect.any(String))
+    load.mockRestore()
+  })
+  it('also resolves a newer place in a different library book, using that book’s manifest', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const odyssey = { ...proverbs17(), bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2, updatedAt: 800000, primaryEditionKey: 'original-en' }
+    stubPositionApi(Promise.resolve({ ...settledHebrewsCloud(), books: { odyssey }, lastSettledBookId: 'odyssey', lastSettledAt: 800000 }))
+    const load = vi.spyOn(sourceModule, 'loadLabChapterList').mockResolvedValue([{ number: 1, title: 'Book 1' }, { number: 2, title: 'Book 2' }])
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} resolveBeforePaint />)
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'odyssey', sequentialChapter: 2 })))
+    expect(load).toHaveBeenCalledWith('odyssey', 'original-en')
+    load.mockRestore()
   })
 })

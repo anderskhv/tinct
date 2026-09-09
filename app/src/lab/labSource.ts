@@ -1,6 +1,6 @@
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { getBook } from '../data/bookRegistry'
-import { loadEditionWindow } from '../data/editionLoader'
+import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
@@ -54,6 +54,8 @@ export interface LabSource {
   chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
+  /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
+  supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
 }
 
 const ODYSSEY_PARAGRAPHS = [
@@ -360,23 +362,21 @@ export function prefetchLabChapterTexts(
 
 export async function loadLabSource(
   chapterNumber = 1,
-  editions?: { primary?: string; compare?: string; audio?: string },
+  editions?: { primary?: string; compare?: string; audio?: string; readingFirst?: boolean },
 ): Promise<LabSource> {
   const primary = editions?.primary || LAB_EDITION_KEY
   const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
   const audio = editions?.audio || LAB_EDITION_KEY
   try {
-    const [manifest, threadsJson] = await Promise.all([
-      loadBibleManifest(primary),
-      loadThreadsJson(),
-    ])
+    const threadsPromise = editions?.readingFirst ? undefined : loadThreadsJson().catch(() => ({ characters: [] }))
+    const manifest = await loadBibleManifest(primary)
     const entry = manifest.chapters.find(item => item.number === chapterNumber) || manifest.chapters[0]
     if (!entry) return bibleFallbackSource()
 
     const compareEntry = { ...entry, path: chapterPath(entry) }
     const [paragraphs, compareParagraphs] = await Promise.all([
       loadBibleChapterText(primary, entry),
-      loadBibleChapterText(compare, compareEntry).catch(() => []),
+      editions?.readingFirst && !editions.compare ? Promise.resolve([]) : loadBibleChapterText(compare, compareEntry).catch(() => []),
     ])
     if (paragraphs.length === 0) return bibleFallbackSource()
 
@@ -387,18 +387,22 @@ export async function loadLabSource(
       wordCount: item.wordCount,
     }))
 
-    const audioMetadata = await loadAudioFollowMetadata(paragraphs, entry.number, audio)
-    return sourceFromChapter({
+    const supplement = Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
+      .then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+    const supporting = editions?.readingFirst
+      ? { followParagraphs: paragraphs.map((text, index) => ({ index, text })), cast: [] }
+      : await supplement
+    return { ...sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
       paragraphs,
       compareParagraphs,
-      followParagraphs: audioMetadata.followParagraphs,
-      audioTitle: audioMetadata.audioTitle,
+      followParagraphs: supporting.followParagraphs,
+      audioTitle: 'audioTitle' in supporting ? supporting.audioTitle : undefined,
       chapters,
       sections: manifest.sections,
-      cast: spoilerSafeCast(threadsJson.characters || [], entry.number),
-    })
+      cast: supporting.cast,
+    }), ...(editions?.readingFirst ? { supplement } : {}) }
   } catch {
     return bibleFallbackSource()
   }
@@ -410,6 +414,7 @@ export interface LabBookSourceSelection {
   compareEditionKey?: string
   audioEditionKey?: string
   chapterNumber?: number
+  readingFirst?: boolean
 }
 
 /**
@@ -423,6 +428,7 @@ export async function loadLabBookSource(selection: LabBookSourceSelection): Prom
       primary: selection.primaryEditionKey,
       compare: selection.compareEditionKey,
       audio: selection.audioEditionKey,
+      readingFirst: selection.readingFirst,
     })
   }
 
@@ -444,12 +450,12 @@ export async function loadLabBookSource(selection: LabBookSourceSelection): Prom
   }
 
   const requestedChapter = selection.chapterNumber ?? 1
-  const [primaryData, compareData, threads] = await Promise.all([
+  const threadsPromise = selection.readingFirst ? undefined : loadBookThreadsJson(registryBook.id)
+  const [primaryData, compareData] = await Promise.all([
     loadEditionWindow(registryBook.id, primaryEdition.key, requestedChapter),
     compareEdition
       ? loadEditionWindow(registryBook.id, compareEdition.key, requestedChapter).catch(() => null)
       : Promise.resolve(null),
-    loadBookThreadsJson(registryBook.id),
   ])
   const entry = primaryData.chapters.find(chapter => chapter.number === requestedChapter)
     ?? primaryData.chapters.find(chapter => chapter.paragraphs.length > 0)
@@ -457,9 +463,15 @@ export async function loadLabBookSource(selection: LabBookSourceSelection): Prom
     throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
   }
   const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
-  const audioMetadata = audioEdition
-    ? await loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
-    : { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })) }
+  const supplement = Promise.all([
+    audioEdition
+      ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
+      : Promise.resolve({ followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })) }),
+    threadsPromise ?? loadBookThreadsJson(registryBook.id),
+  ]).then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+  const supporting: Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'> = selection.readingFirst
+    ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
+    : await supplement
 
   return {
     bookId: registryBook.id,
@@ -474,8 +486,8 @@ export async function loadLabBookSource(selection: LabBookSourceSelection): Prom
     headerChapter: entry.title,
     paragraphs: entry.paragraphs,
     compareParagraphs,
-    followParagraphs: audioMetadata.followParagraphs,
-    audioTitle: audioMetadata.audioTitle,
+    followParagraphs: supporting.followParagraphs,
+    audioTitle: 'audioTitle' in supporting ? supporting.audioTitle : undefined,
     chapters: primaryData.chapters.map(chapter => ({
       number: chapter.number,
       title: chapter.title,
@@ -484,6 +496,13 @@ export async function loadLabBookSource(selection: LabBookSourceSelection): Prom
         : undefined,
     })),
     sections: primaryData.sections,
-    cast: spoilerSafeCast(threads.characters || [], entry.number),
+    cast: supporting.cast,
+    ...(selection.readingFirst ? { supplement } : {}),
   }
+}
+
+/** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
+export async function loadLabChapterList(bookId: string, editionKey: string): Promise<LabChapter[]> {
+  if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
+  return loadEditionChapterList(bookId, editionKey)
 }

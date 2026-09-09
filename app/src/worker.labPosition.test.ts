@@ -278,3 +278,21 @@ describe('lab-position route', () => {
     expect((await get.json() as LabPositionState).hidden).toEqual({ odyssey: 5_000, bible: 9_000 })
   })
 })
+
+it('round-trips chapter bookmarks through the authenticated endpoint and retains them for older clients', async () => {
+  const kv = memoryKv()
+  const env = { RATE_LIMIT: kv as unknown as KVNamespace }
+  const verify = async () => ({ id: userId, email: 'fixture@example.invalid' })
+  const state = romansState()
+  state.recentChapters = { 'romans:1054': state.books.romans }
+  for (const body of [state, romansState()]) {
+    const response = await handleLabPosition(new Request('https://tinct.app/api/lab-position', {
+      method: 'PUT', body: JSON.stringify(body),
+    }), env, verify)
+    expect(response.status).toBe(200)
+  }
+  const response = await handleLabPosition(new Request('https://tinct.app/api/lab-position'), env, verify)
+  const stored = await response.json() as LabPositionState
+  expect(stored.recentChapters?.['romans:1054']).toEqual(state.books.romans)
+  expect(stored.owner).toBe(userId)
+})
