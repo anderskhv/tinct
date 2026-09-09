@@ -35,6 +35,13 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
  // Refresh a middle comparison page; the saved word must still be on a full page.
  await turn(p,'ArrowRight');await turn(p,'ArrowRight');const anchor=await p.getByTestId('lab-root').getAttribute('data-place');
  const beforeReload=await p.evaluate(()=>({stored:localStorage.getItem('tinct-lab-position'),place:document.querySelector('.lab').dataset.place}));await p.reload();await ready(p);const restored=await snap(p);fs.writeFileSync(out+'/'+engine+'-reload-debug.json',JSON.stringify({anchor,beforeReload,after:await p.getByTestId('lab-root').evaluate(e=>({...e.dataset})),keys:restored.keys},null,2));assert.ok(restored.keys.includes(anchor),'Reload retains saved word');assert.ok(restored.keys.length>60,'Reload has a full page');assert.ok(restored.bottom<restored.limit);await p.screenshot({path:out+'/'+engine+'-reload.png'});
+ // Repeated refreshes exercise the provisional-map/passive-effect race in WebKit.
+ for(let repeat=0;repeat<3;repeat++){
+   const saved=await p.getByTestId('lab-root').getAttribute('data-place');
+   await p.reload();await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');
+   const firstPaint=await snap(p);assert.ok(firstPaint.keys.includes(saved),'First measured paint contains saved word');
+   await p.waitForTimeout(700);assert.deepEqual((await snap(p)).keys,firstPaint.keys,'Refresh remains on the same measured page');
+ }
  // Actual playback; speed must respond to keyboard and pointer, with a usable popover.
  await p.getByTestId('lab-v2-play').click();await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true',{}, {timeout:25000});await p.waitForTimeout(300);
  await p.getByTestId('lab-hearing-speed').click();const slider=p.getByTestId('lab-audio-speed-slider');await slider.focus();await slider.press('ArrowRight');assert.equal(await slider.inputValue(),'1.25');
