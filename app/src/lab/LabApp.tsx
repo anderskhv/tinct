@@ -2390,7 +2390,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [dismissSelectionPopup, selectionPopup])
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
-  useEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare') => {
     if (initialResolving || frontispieceVisible || phoneAskOpen) return

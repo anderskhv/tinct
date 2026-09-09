@@ -178,7 +178,7 @@ export function Reader({
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
   const characters = useCharacterCards(bookId, editionKey)
-  useEffect(() => { setSelectionPopup(null) }, [bookId, editionKey, currentChapter, paragraphs, isActive])
+  useLayoutEffect(() => { setSelectionPopup(null) }, [bookId, editionKey, currentChapter, paragraphs, isActive])
   const openSelectionPopup = useCallback((info: SelectionInfo) => {
     if (!isActive) return
     const character = (info.segments?.length ?? 1) <= 1 ? resolveCharacter(characters, currentChapter ?? 0, info.paragraphIndex, info.startOffset, info.endOffset, paragraphs[info.paragraphIndex] || '', !!info.existingHighlightId || highlights.some(h => h.paragraphIndex === info.paragraphIndex && h.startOffset < info.endOffset && h.endOffset > info.startOffset)) : null

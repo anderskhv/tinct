@@ -173,7 +173,7 @@ export function SplitReader({
   const [issueSubmitting, setIssueSubmitting] = useState(false)
   const leftCharacters = useCharacterCards(bookId, primaryEditionKey)
   const rightCharacters = useCharacterCards(bookId, splitEditionKey)
-  useEffect(() => { setSelectionPopup(null) }, [bookId, primaryEditionKey, splitEditionKey, currentChapter, leftParagraphs, rightParagraphs])
+  useLayoutEffect(() => { setSelectionPopup(null) }, [bookId, primaryEditionKey, splitEditionKey, currentChapter, leftParagraphs, rightParagraphs])
   const openSelectionPopup = useCallback((info: SelectionInfo) => {
     if (readerRef.current && readerRef.current.getBoundingClientRect().width === 0) return
     const source = info.side === 'left' ? leftParagraphs : rightParagraphs
