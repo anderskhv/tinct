@@ -1,3 +1,4 @@
+import { LabDesktopPaginator } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
@@ -465,7 +466,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     : prefs.compareEdition
   const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, bookEditions)
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, bookEditions)
-  const nativePhonePaging = showPhoneChrome && browserHasNativePaging()
+  const desktopPaging = chromeV2 && !showPhoneChrome && browserHasNativePaging()
+  const desktopSpread = desktopPaging && !desktopCompareActive
+  const measuredPaging = (showPhoneChrome || desktopPaging) && browserHasNativePaging()
+  const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
@@ -506,6 +510,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   const [nativePagesRevision, setNativePagesRevision] = useState(0)
   const [nativeMeasuredContent, setNativeMeasuredContent] = useState<string[] | null>(null)
+  useLayoutEffect(() => { setNativeMeasuredContent(null) }, [desktopPaging])
   const nativeContentRef = useRef(readerParagraphs)
   nativeContentRef.current = readerParagraphs
   const readerStateRef = useRef<LabReaderStateSnapshot>({
@@ -1152,8 +1157,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       pagesStableRef.current = false
       didBudgetPageRef.current = false
       unmeasuredTriesRef.current = 0
-      setSettleIndex(nativePhonePaging ? null : 0)
-      settleIndexRef.current = nativePhonePaging ? null : 0
+      setSettleIndex(measuredPaging ? null : 0)
+      settleIndexRef.current = measuredPaging ? null : 0
     }
     if (readerParagraphs.length === 0) return
     const budget = pageMetrics ? labPageBudgetFromMetrics(pageMetrics) : null
@@ -1200,7 +1205,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         pageAnchorRef.current = chromeV2 ? place : pageAnchorOf(next[idx])
         readingPageIndexRef.current = idx
         setReadingPageIndex(idx)
-      } else if (!nativePhonePaging && restorePageRef.current != null) {
+      } else if (!measuredPaging && restorePageRef.current != null) {
         const idx = Math.max(0, Math.min(restorePageRef.current, next.length - 1))
         restorePageRef.current = null
         const anchor = pageAnchorOf(next[idx])
@@ -1217,14 +1222,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterTitle, mobileCompareActive, readerParagraphs, nativePhonePaging])
+  }, [book.chapterTitle, mobileCompareActive, readerParagraphs, measuredPaging])
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
   }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
-    if (nativePhonePaging) return
+    if (measuredPaging) return
     if (!pageMetrics || didBudgetPageRef.current || pagesStableRef.current) return
     if (readerParagraphs.length === 0) return
     const budget = labPageBudgetFromMetrics(pageMetrics)
@@ -1252,15 +1257,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     pagesStableRef.current = false
     setSettleIndex(0)
     settleIndexRef.current = 0
-  }, [pageMetrics, readerParagraphs, nativePhonePaging])
+  }, [pageMetrics, readerParagraphs, measuredPaging])
 
   useLayoutEffect(() => {
     didBudgetPageRef.current = false
     pagesStableRef.current = false
     unmeasuredTriesRef.current = 0
-    setSettleIndex(nativePhonePaging ? null : 0)
-    settleIndexRef.current = nativePhonePaging ? null : 0
-  }, [readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, nativePhonePaging])
+    setSettleIndex(measuredPaging ? null : 0)
+    settleIndexRef.current = measuredPaging ? null : 0
+  }, [readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -1293,7 +1298,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // follow resolves the right page of the new map on its next tick.
     const playing = listenPlayingRef.current
     if (
-      !nativePhonePaging
+      !measuredPaging
       || (playing && !chromeV2)
       || (browseWhileListeningRef.current && !chromeV2)
       || next.length === 0
@@ -1359,7 +1364,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // rendered-page verification now that the font-settled preflight is the
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
-  }, [chromeV2, nativePhonePaging])
+  }, [chromeV2, measuredPaging])
 
   /**
    * The standby map, off the critical path entirely: a ref write, no state,
@@ -1380,6 +1385,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const place = { paragraphIndex, wordIndex: snapped }
     placeRef.current = place
     const nextSource = {
+      bookId: book.bookId || 'bible',
       chapterNumber: book.chapterNumber,
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
@@ -1410,12 +1416,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     beforeGrowPagesRef.current = null
     mobileCompareReturnPlaceRef.current = null
     pagesStableRef.current = false
-    settleIndexRef.current = nativePhonePaging ? null : 0
-    setSettleIndex(nativePhonePaging ? null : 0)
-  }, [book.chapterTitle, nativePhonePaging])
+    settleIndexRef.current = measuredPaging ? null : 0
+    setSettleIndex(measuredPaging ? null : 0)
+  }, [book.chapterTitle, measuredPaging])
 
   useLayoutEffect(() => {
-    if (nativePhonePaging) return
+    if (measuredPaging) return
     const wrap = pageWrapRef.current
     const chromeEl = bottomChromeRef.current
     if (!wrap || !chromeEl || phoneAskOpen) return
@@ -1467,7 +1473,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const finishSettle = () => {
       const keep = pageAnchorRef.current
       let pages = workingPagesRef.current
-      if (keep) pages = ensurePageIdentity(pages, keep)
+      if (keep && !chromeV2) pages = ensurePageIdentity(pages, keep)
       workingPagesRef.current = pages
       setDraftPages(pages)
       const fixed = fixVisiblePagePaint(pages)
@@ -1704,7 +1710,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         window.removeEventListener('orientationchange', onJump)
       }
     }
-  }, [settleIndex, draftPages, phoneAskOpen, readerParagraphs, book.chapterTitle, nativePhonePaging])
+  }, [settleIndex, draftPages, phoneAskOpen, readerParagraphs, book.chapterTitle, measuredPaging])
 
   useLayoutEffect(() => {
     const wrap = pageWrapRef.current
@@ -1721,7 +1727,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         && pageMetricsRef.current
       ) return
       if (
-        !nativePhonePaging
+        !measuredPaging
         && pagesStableRef.current
         && labPageGeometryChanged(settledPageGeometryRef.current, geometry)
         && !lockPaginationRef.current
@@ -1774,11 +1780,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, nativePhonePaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
 
   useLayoutEffect(() => {
     if (
-      (nativePhonePaging ? nativePagesRevision === 0 : !pagesStableRef.current)
+      (measuredPaging ? nativePagesRevision === 0 : !pagesStableRef.current)
       || phoneAskOpen
       || listenPlayingRef.current
       || browseWhileListeningRef.current
@@ -1788,14 +1794,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!wrap || !chromeEl) return
     const passage = [...wrap.querySelectorAll('.lab-passage')]
       .find(el => !el.closest('.lab-page-measure')) as HTMLElement | undefined
-    if (!passage || (nativePhonePaging && nativeMeasuredContent !== readerParagraphs)) return
+    if (!passage || (measuredPaging && nativeMeasuredContent !== readerParagraphs)) return
+    if (desktopPaging) return
     const painted = measureVisiblePageOverflow(wrap, passage, chromeEl)
     if (!painted) return
 
     // Hidden preflight catches most pages. This visible-page check is the final
     // invariant for font/browser rounding differences on a page turn.
     const pageIdx = Math.max(0, Math.min(readingPageIndexRef.current, readingPagesRef.current.length - 1))
-    if (nativePhonePaging) {
+    if (measuredPaging) {
       const pages = readingPagesRef.current
       // The native chapter map already supplies a complete page. Growing it
       // word by word here causes repeated synchronous layouts before paint
@@ -1818,7 +1825,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = pageIdx
     setSettleIndex(pageIdx)
-  }, [readingPageIndex, readingPages, nativePagesRevision, nativeMeasuredContent, phoneAskOpen, listen.playing, browseWhileListening, nativePhonePaging, readerControlsVisible, gearOpen, chrome, readerParagraphs, book.chapterNumber])
+  }, [readingPageIndex, readingPages, nativePagesRevision, nativeMeasuredContent, phoneAskOpen, listen.playing, browseWhileListening, measuredPaging, readerControlsVisible, gearOpen, chrome, readerParagraphs, book.chapterNumber])
 
   useEffect(() => {
     if (chapterLandingRef.current === 'end') {
@@ -2048,6 +2055,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     prefs.paragraphSpacing,
     fullscreen ? 'fullscreen' : 'windowed',
   ].join(':')
+  const desktopLayoutKey = `${layoutKeyFor(readerEditionKey)}:${desktopCompareActive}:${book.bookId}`
+  const applyDesktopPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string) => {
+    applyNativePages(pages, content)
+    setDesktopMeasuredKey(key)
+  }, [applyNativePages])
   const standbyKey = layoutKeyFor(standbyEditionKey)
   const standbyKeyRef = useRef(standbyKey)
   standbyKeyRef.current = standbyKey
@@ -2093,7 +2105,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => window.clearTimeout(timer)
   }, [ask.failStart, callConnection, callOpen])
   const phoneAsk = showPhoneChrome && phoneAskOpen
-  const showHearing = !mobileCompareActive && !peekBook && !phoneAsk && (
+  const showHearing = !(showPhoneChrome && mobileCompareActive) && !peekBook && !phoneAsk && (
     chrome === 'hearing' || (chrome === 'talking' && returnTo === 'hearing')
   )
   const phoneBarPossible = !frontispieceVisible && !fullscreen && labShowPhoneBar({
@@ -2161,7 +2173,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     paragraphs: readerParagraphs,
     pageIndex: readingPageIndex,
     pages: readingPages,
-    pagesSettled: nativePhonePaging ? nativePagesRevision > 0 : settleIndex === null,
+    pagesSettled: measuredPaging ? nativePagesRevision > 0 : settleIndex === null,
     ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && (!chromeV2 || !tocOpen),
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
@@ -2227,7 +2239,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? ''
     : showPhoneChrome
       ? phoneProgressLabel
-      : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
+      : `${chapterProgress.currentPage}${desktopSpread && chapterProgress.currentPage < chapterProgress.totalPages ? `–${chapterProgress.currentPage + 1}` : ''} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
     if (!showHearing) return
@@ -2248,7 +2260,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
           && follow.wordIndex < page.to && follow.wordIndex >= page.from
-        : followOnReadingPage(follow, readingPages, readingPageIndex)
+        : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
       if (followAlreadyVisible) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
@@ -2266,7 +2278,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
-        : followOnReadingPage(follow, readingPages, readingPageIndex)
+        : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
       if (followAlreadyVisible) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
@@ -2278,13 +2290,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         return next === current ? current : next
       })
     }
-  }, [listen.follow, readingPages, readingPageIndex, showHearing, showPhoneChrome, listen.clipIndex, listen.currentTime])
+  }, [listen.follow, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, listen.clipIndex, listen.currentTime])
 
   useEffect(() => {
     if (!showHearing || !listen.playing || browseWhileListeningRef.current) return
     const follow = listen.follow
     if (follow.kind !== 'word' && follow.kind !== 'paragraph') return
-    if (!showPhoneChrome && followOnReadingPage(follow, readingPages, readingPageIndexRef.current)) return
+    if (!showPhoneChrome && (followOnReadingPage(follow, readingPages, readingPageIndexRef.current) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndexRef.current + 1))) return
     const next = follow.kind === 'word'
       ? pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
       : pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
@@ -2294,7 +2306,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (anchor) pageAnchorRef.current = anchor
     readingPageIndexRef.current = next
     setReadingPageIndex(next)
-  }, [readingPages, showHearing, showPhoneChrome, listen.playing, listen.follow])
+  }, [readingPages, showHearing, showPhoneChrome, desktopSpread, listen.playing, listen.follow])
 
   useEffect(() => {
     if ((book.bookId || 'bible') !== 'bible') return
@@ -2424,10 +2436,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [])
 
   const primaryAnchorFor = useCallback((anchor: { paragraphIndex: number; wordIndex: number }) => (
-    mobileCompareActive
+    showPhoneChrome && mobileCompareActive
       ? mapLabCompareAnchor(readerParagraphs, book.paragraphs, anchor)
       : anchor
-  ), [book.paragraphs, mobileCompareActive, readerParagraphs])
+  ), [book.paragraphs, mobileCompareActive, readerParagraphs, showPhoneChrome])
 
   const goToPage = useCallback((index: number) => {
     setRecentChapterReturn(null)
@@ -2782,7 +2794,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const working = workingPagesRef.current
     const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
-    const nextPage = adjacentPageIndex(pages.length, index, 1)
+    const nextPage = desktopSpread ? (index + 2 < pages.length ? index + 2 : null) : adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
       goToPage(nextPage)
       return
@@ -2796,7 +2808,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread])
 
   const goPrev = useCallback(() => {
     if (chapterCoverTitle) {
@@ -2819,7 +2831,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setChapterCoverTitle(openingTitle)
       return
     }
-    const prevPage = adjacentPageIndex(pages.length, index, -1)
+    const prevPage = desktopSpread ? (index > 0 ? Math.max(0, index - 2) : null) : adjacentPageIndex(pages.length, index, -1)
     if (prevPage != null) {
       goToPage(prevPage)
       return
@@ -2829,7 +2841,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing])
+  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
@@ -2921,7 +2933,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [book, chrome, chromeV2, listen, nativePhonePaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
@@ -3350,7 +3362,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-chapter={String(book.chapterNumber)}
       data-book-id={book.bookId || 'bible'}
       data-cover-page={chapterCoverTitle ? 'true' : 'false'}
-      data-reader-ready={book.paragraphs.length > 0 && !initialResolving ? 'true' : 'false'}
+      data-reader-ready={book.paragraphs.length > 0 && !initialResolving && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs) ? 'true' : 'false'}
       data-position-resolving={initialResolving ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
@@ -3361,13 +3373,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         : showPhoneChrome ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
       data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
+      data-desktop-paging={desktopPaging ? 'true' : undefined}
       data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
       data-desktop-panel={!showPhoneChrome && desktopAskOpen ? (chrome === 'talking' ? 'talk' : 'chat') : 'none'}
       data-voice-surface={voiceLabView}
       data-voice-version={voiceVersion}
       {...(chromeV2 ? {
         'data-chrome-version': 'v2',
-        'data-transport': audioBarActive ? 'open' : 'closed',
+        'data-transport': (showPhoneChrome ? audioBarActive : desktopAudioBarActive) ? 'open' : 'closed',
         'data-super-menu': superMenuOpen ? 'open' : 'closed',
         'data-super-sheet': superSheet ?? 'closed',
       } : {})}
@@ -3529,7 +3542,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${chromeV2 && showPhoneChrome && !nativePhonePaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
+          className={`lab-page-wrap${chromeV2 && showPhoneChrome && !measuredPaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
@@ -3566,7 +3579,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
           ) : <LabPassage
-            pendingLayout={chromeV2 && nativePhonePaging && nativeMeasuredContent !== readerParagraphs}
+            pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
+            desktopSpread={desktopSpread}
+            nextReadingPage={desktopSpread ? readingPages[readingPageIndex + 1] : undefined}
+            alignCompare={desktopPaging}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
@@ -3617,7 +3633,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               ? () => setReaderControlsVisible(visible => !visible)
               : undefined}
           />}
-          {!chapterCoverTitle && nativePhonePaging && (
+          {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
@@ -3625,11 +3641,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onPages={applyNativePages}
             />
           )}
+          {!chapterCoverTitle && desktopPaging && <LabDesktopPaginator
+            chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
+            comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
+            layoutKey={desktopLayoutKey} onPages={applyDesktopPages}
+          />}
           {/* The standby edition, measured in the same box while nobody is
               looking at it. It writes a ref and touches no state, so it can
               never paint; the swap reads it and commits the incoming page in
               one go instead of showing an estimate and correcting it. */}
-          {chromeV2 && !chapterCoverTitle && nativePhonePaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
+          {chromeV2 && !chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
             <LabNativePaginator
               chapterTitle={book.chapterTitle}
               paragraphs={standbyParagraphs}
@@ -3637,7 +3658,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onPages={applyStandbyPages}
             />
           )}
-          {!chapterCoverTitle && !nativePhonePaging && settleIndex != null && draftPages[settleIndex] && (
+          {!chapterCoverTitle && !measuredPaging && settleIndex != null && draftPages[settleIndex] && (
             <div
               className="lab-page-measure"
               ref={measureHostRef}

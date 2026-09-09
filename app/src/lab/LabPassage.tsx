@@ -1,3 +1,4 @@
+import { comparisonSegment } from './LabDesktopPaginator'
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
@@ -18,6 +19,9 @@ export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
   pendingLayout?: boolean
+  desktopSpread?: boolean
+  nextReadingPage?: ChapterHearingPage
+  alignCompare?: boolean
   chapterTitle: string
   paragraphs: string[]
   compareParagraphs: string[]
@@ -247,6 +251,9 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
 
 export function LabPassage({
   pendingLayout = false,
+  desktopSpread = false,
+  nextReadingPage,
+  alignCompare = false,
   chapterTitle,
   paragraphs,
   compareParagraphs,
@@ -334,7 +341,7 @@ export function LabPassage({
   const paintedBranch = hearing && followActive ? 'hearing' : hearing && !browseWhileListening ? 'plain' : 'reading'
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
-  }, [paintedLinesKey, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
+  }, [paintedLinesKey, nextReadingPage, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
 
   useEffect(() => {
     const article = articleRef.current
@@ -517,74 +524,21 @@ export function LabPassage({
     setLocalSelecting(null)
   }
 
-  return (
-    <article
-      ref={articleRef}
-      style={pendingLayout ? { visibility: 'hidden' } : undefined}
-      className={[
-        'lab-passage',
-        'lab-book',
-        'is-reading',
-        hearing && !browseWhileListening ? 'is-hearing' : '',
-        followActive && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
-        inlineHearingPaint ? 'is-inline-hearing' : '',
-        browseWhileListening ? 'is-browse-listen' : '',
-        dimmed ? 'is-dimmed' : '',
-        compare ? 'is-compare' : '',
-        peek ? 'is-peek' : '',
-      ].filter(Boolean).join(' ')}
-      data-testid="lab-book"
-      data-passage-mode={mode}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerEnd}
-      onPointerCancel={onPointerCancel}
-      onContextMenu={(event) => {
-        if (!hearing && onSelectRange) event.preventDefault()
-      }}
-    >
-      {showHeadline && (
-        <header className="lab-passage-header">
-          <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
-            {chapterTitle}
-          </h1>
-        </header>
-      )}
-      <div className="lab-book-columns">
-        <div className="lab-book-col">
-          {hearing && followActive ? (
-            <div className="lab-hearing" data-testid="lab-hearing">
-              <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord)}
-              </div>
-            </div>
-          ) : hearing && !browseWhileListening ? (
-            <div className="lab-hearing" data-testid="lab-hearing">
-              <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderPlainWords(readingLines, paragraphs)}
-              </div>
-            </div>
-          ) : (
-            <div
-              className="lab-hearing-stage"
-              data-testid="lab-reading-stage"
-              data-page-turn={pageTurn?.direction}
-              data-page-turn-nonce={pageTurn?.nonce}
-              ref={pageStageRef}
-            >
-              {readingLines.map((line, lineIndex) => {
+  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false) => (
+    pageLines.map((line, lineIndex) => {
                 const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
                 const wordBase = line.from ?? readingPage?.from ?? 0
                 return (
                   <p
                     key={lineIndex}
-                    id={`lab-p-${paragraphIndex}`}
+                    id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
                       'lab-hearing-line',
                       lineContinuesParagraph(paragraphs, line) ? 'is-continued' : '',
                       markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
                     ].filter(Boolean).join(' ')}
+                    style={alignCompare && compare ? { gridColumn: 1, gridRow: lineIndex + 1 } : undefined}
                     data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}
                   >
                     {renderWordGroups(line.words, (word, wordIndex, spacing) => {
@@ -617,10 +571,76 @@ export function LabPassage({
                     })}
                   </p>
                 )
-              })}
+              })
+  )
+
+  return (
+    <article
+      ref={articleRef}
+      style={pendingLayout ? { visibility: 'hidden' } : undefined}
+      className={[
+        'lab-passage',
+        'lab-book',
+        'is-reading',
+        hearing && !browseWhileListening ? 'is-hearing' : '',
+        followActive && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
+        inlineHearingPaint ? 'is-inline-hearing' : '',
+        browseWhileListening ? 'is-browse-listen' : '',
+        dimmed ? 'is-dimmed' : '',
+        compare ? 'is-compare' : '',
+        desktopSpread ? 'is-spread' : '',
+        alignCompare && compare ? 'is-aligned-compare' : '',
+        peek ? 'is-peek' : '',
+      ].filter(Boolean).join(' ')}
+      data-testid="lab-book"
+      data-passage-mode={mode}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerEnd}
+      onPointerCancel={onPointerCancel}
+      onContextMenu={(event) => {
+        if (!hearing && onSelectRange) event.preventDefault()
+      }}
+    >
+      {showHeadline && !desktopSpread && (
+        <header className="lab-passage-header">
+          <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
+            {chapterTitle}
+          </h1>
+        </header>
+      )}
+      <div className="lab-book-columns">
+        <div className="lab-book-col">
+          {desktopSpread && showHeadline && <header className="lab-passage-header"><h1 className="lab-passage-headline" data-testid="lab-passage-headline">{chapterTitle}</h1></header>}
+          {hearing && followActive ? (
+            <div className="lab-hearing" data-testid="lab-hearing">
+              <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
+                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord)}
+              </div>
+            </div>
+          ) : hearing && !browseWhileListening ? (
+            <div className="lab-hearing" data-testid="lab-hearing">
+              <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
+                {renderPlainWords(readingLines, paragraphs)}
+              </div>
+            </div>
+          ) : (
+            <div
+              className="lab-hearing-stage"
+              data-testid="lab-reading-stage"
+              data-page-turn={pageTurn?.direction}
+              data-page-turn-nonce={pageTurn?.nonce}
+              ref={pageStageRef}
+            >
+              {renderReadingLines(readingLines)}
             </div>
           )}
         </div>
+        {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
+          <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
+            {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
+          </div>
+        </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
             {readingLines.map((line, lineIndex) => {
@@ -628,8 +648,10 @@ export function LabPassage({
               const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
               const words = tokenizeHearingWords(source[paragraphIndex] || '')
               const from = line.from ?? readingPage?.from ?? 0
-              const text = words.slice(from, from + line.words.length).map(word => word.text).join(' ')
-              return text ? <p key={lineIndex} className="lab-hearing-line">{text}</p> : null
+              const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
+              const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
+              if (!alignCompare && !text) return null
+              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{text}</p>
             })}
           </div>
         )}

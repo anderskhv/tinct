@@ -237,6 +237,9 @@ export function useLabPositionSync(args: {
     if (args.sourceLocked) return true
     if (typeof navigator !== 'undefined' && navigator.onLine === false) return true
     if (args.authToken !== undefined) return !args.authToken
+    // A cached-session hint can be absent during OAuth/account restoration.
+    // Wait for the auth verdict before treating the local page as signed out.
+    if (args.resolveBeforePaint && authLoading) return false
     return !(session || likelyAuthenticated)
   })
   const initialResolvedRef = useRef(initialPositionResolved)

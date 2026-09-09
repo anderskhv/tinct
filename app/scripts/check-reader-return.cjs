@@ -18,7 +18,7 @@ async function main() {
   const results = []
   try {
     for (const scenario of ['slow-supporting-data', 'slow-position', 'different-book']) {
-      const page = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })
+      const page = await browser.newPage({ viewport: { width: Number(process.env.TEST_WIDTH || 390), height: Number(process.env.TEST_HEIGHT || 844) }, isMobile: !process.env.TEST_WIDTH, hasTouch: !process.env.TEST_WIDTH })
       let release
       const gate = new Promise(resolve => { release = resolve })
       const now = Date.now()
