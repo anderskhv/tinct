@@ -1,9 +1,17 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "awaiting-integration",
+  "appStatus": "live",
   "reviewedEditions": [
     "original-en",
     "modern-en"
   ],
-  "nextAction": "Release owner: integrate versioned asset and verify reader selections/production"
+  "nextAction": "Maintain source fingerprint checks on future edition changes",
+  "productionVerification": {
+    "reportedBy": "release owner",
+    "date": "2026-09-10",
+    "bundle": "index-BjPCOKB7.js",
+    "workerVersion": "1a6b54bb-0da9-40a4-abb0-d29816a45856",
+    "report": "docs/character-cards-macbeth-2026-09-10.md",
+    "checks": "Served bytes matched; 24 live phone/desktop scenarios and 15 smoke checks passed."
+  }
 }
