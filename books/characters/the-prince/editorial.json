@@ -1,0 +1,1818 @@
+{
+  "bookId": "the-prince",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Dedication, all 26 chapters and their surviving editorial notes in both English editions. Historical, religious, literary and editorial references, named families and specific ruler roles. Generic princes, offices and population names are not automatically individual people.",
+  "entities": [
+    {
+      "id": "lorenzo",
+      "name": "Lorenzo de’ Medici",
+      "body": "Lorenzo di Piero de’ Medici, the young Florentine ruler to whom Machiavelli dedicates the book.",
+      "aliases": [
+        "Lorenzo Di Piero De’ Medici",
+        "Lorenzo di Piero de’ Medici",
+        "Lorenzo di Piero de' Medici",
+        "Your Magnificence",
+        "your Magnificence"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "machiavelli",
+      "name": "Niccolò Machiavelli",
+      "body": "The Florentine diplomat and author of this advice on political power.",
+      "aliases": [
+        "Niccolò Machiavelli",
+        "Nicolo Machiavelli",
+        "Nicolo Machiavel",
+        "Machiavelli"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francesco",
+      "name": "Francesco Sforza",
+      "body": "The military commander who became Duke of Milan; Lodovico’s father.",
+      "aliases": [
+        "Francesco Sforza",
+        "Francesco"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ferdinand",
+      "name": "Ferdinand of Aragon",
+      "body": "Ferdinand II of Aragon, the Spanish king repeatedly used as an example of political strategy.",
+      "aliases": [
+        "Ferdinand of Aragon",
+        "Ferdinand II",
+        "Ferdinand",
+        "King of Spain"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "julius",
+      "name": "Pope Julius II",
+      "body": "Giuliano della Rovere, the pope whose military and political campaigns Machiavelli examines.",
+      "aliases": [
+        "Pope Julius the Second",
+        "Pope Julius II",
+        "Pope Julius",
+        "Julius the Second",
+        "Julius II",
+        "Julius",
+        "Giuliano della Rovere",
+        "Cardinal of San Pietro ad Vincula",
+        "San Pietro ad Vincula"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "louis12",
+      "name": "Louis XII",
+      "body": "The French king whose attempts to hold territory in Italy Machiavelli analyzes.",
+      "aliases": [
+        "Louis the Twelfth",
+        "Louis XII",
+        "King Louis",
+        "Louis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lodovico",
+      "name": "Lodovico Sforza",
+      "body": "The Duke of Milan known as Lodovico Moro; Francesco Sforza’s son and Beatrice d’Este’s husband.",
+      "aliases": [
+        "Duke Lodovico",
+        "Lodovico Moro",
+        "Lodovico"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beatrice",
+      "name": "Beatrice d’Este",
+      "body": "Lodovico Sforza’s wife, the duchess of Milan.",
+      "aliases": [
+        "Beatrice d’Este",
+        "Beatrice d'Este"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiochus",
+      "name": "Antiochus III",
+      "body": "The Seleucid king whose intervention in Greece brought him into conflict with Rome.",
+      "aliases": [
+        "Antiochus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip5",
+      "name": "Philip V of Macedon",
+      "body": "The Macedonian king who fought Rome and was defeated by Flamininus.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip2",
+      "name": "Philip II of Macedon",
+      "body": "Alexander the Great’s father, the Macedonian king cited on military power.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles8",
+      "name": "Charles VIII",
+      "body": "The French king whose invasion of Italy preceded the campaigns of Louis XII.",
+      "aliases": [
+        "Charles VIII",
+        "Charles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander6",
+      "name": "Pope Alexander VI",
+      "body": "Rodrigo Borgia, the pope and father of Cesare Borgia.",
+      "aliases": [
+        "Pope Alexander VI",
+        "Pope Alexander",
+        "Alexander the Sixth",
+        "Alexander VI"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jeanne",
+      "name": "Jeanne of France",
+      "body": "Louis XII’s first wife and Louis XI’s daughter.",
+      "aliases": [
+        "Jeanne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "louis11",
+      "name": "Louis XI",
+      "body": "The French king who was Charles VII’s son and Jeanne’s father.",
+      "aliases": [
+        "Louis the Eleventh",
+        "Louis XI"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anne",
+      "name": "Anne of Brittany",
+      "body": "The duchess of Brittany who married Charles VIII and later Louis XII.",
+      "aliases": [
+        "Anne of Brittany"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rouen",
+      "name": "Georges d’Amboise",
+      "body": "The French cardinal and archbishop of Rouen, an adviser to Louis XII.",
+      "aliases": [
+        "The Archbishop of Rouen",
+        "Georges d’Amboise",
+        "Cardinal Rouen",
+        "Rouen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cesare",
+      "name": "Cesare Borgia",
+      "body": "Pope Alexander VI’s son, the military ruler also called Duke Valentino.",
+      "aliases": [
+        "Cesare Borgia",
+        "Duke Valentino",
+        "Valentino",
+        "Cesare"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-great",
+      "name": "Alexander the Great",
+      "body": "The Macedonian conqueror and son of Philip II.",
+      "aliases": [
+        "Alexander the Great"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "darius3",
+      "name": "Darius III",
+      "body": "The Persian king whose empire Alexander the Great conquered.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "darius1",
+      "name": "Darius I",
+      "body": "The Persian king cited for installing dependent rulers in Greek territories.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pyrrhus",
+      "name": "Pyrrhus",
+      "body": "The king of Epirus cited in the discussion of holding conquered territory.",
+      "aliases": [
+        "Pyrrhus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cyrus",
+      "name": "Cyrus the Great",
+      "body": "The founder of the Persian Empire, used as a model of a ruler who establishes a new state.",
+      "aliases": [
+        "Cyrus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "savonarola",
+      "name": "Girolamo Savonarola",
+      "body": "The Florentine friar and religious reformer cited as an unarmed prophet.",
+      "aliases": [
+        "Fra Girolamo Savonarola"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hiero",
+      "name": "Hiero II",
+      "body": "The ruler of Syracuse used as an example of building power through one’s own forces.",
+      "aliases": [
+        "Hiero the Syracusan",
+        "Hiero of Syracuse",
+        "Hiero II",
+        "Hiero"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bianca-visconti",
+      "name": "Bianca Maria Visconti",
+      "body": "Francesco Sforza’s wife and Filippo Maria Visconti’s daughter.",
+      "aliases": [
+        "Bianca Maria Visconti"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "filippo",
+      "name": "Filippo Maria Visconti",
+      "body": "The Duke of Milan whose daughter Bianca Maria married Francesco Sforza.",
+      "aliases": [
+        "Filippo Visconti",
+        "Duke Filippo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vitellozzo",
+      "name": "Vitellozzo Vitelli",
+      "body": "The military commander, brother of Pagolo Vitelli and associate of Oliverotto da Fermo.",
+      "aliases": [
+        "Vitellozzo Vitelli",
+        "Vitellozzo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pagolo-orsini",
+      "name": "Paolo Orsini",
+      "body": "The Orsini commander who mediates the reconciliation with Cesare Borgia; called Signor Pagolo.",
+      "aliases": [
+        "Signor Pagolo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ramiro",
+      "name": "Ramiro d’Orco",
+      "body": "Cesare Borgia’s governor in the Romagna, also called Ramiro de Lorqua.",
+      "aliases": [
+        "Messer Ramiro d’Orco",
+        "Ramiro d’Orco",
+        "Ramiro de Lorqua",
+        "Ramiro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "riario-cardinal",
+      "name": "Raffaello Riario",
+      "body": "The cardinal of San Giorgio, named among those injured by Cesare Borgia.",
+      "aliases": [
+        "San Giorgio",
+        "Raffaello Riario"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ascanio",
+      "name": "Ascanio Sforza",
+      "body": "The cardinal of the Milanese Sforza family named among Cesare Borgia’s opponents.",
+      "aliases": [
+        "Ascanio Sforza",
+        "Ascanio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colonna-cardinal",
+      "name": "Giovanni Colonna",
+      "body": "The Colonna cardinal named among those with grounds to resent Cesare Borgia.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agathocles",
+      "name": "Agathocles",
+      "body": "The ruler of Syracuse used in the discussion of acquiring power through violence.",
+      "aliases": [
+        "Agathocles the Sicilian",
+        "Agathocles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hamilcar",
+      "name": "Hamilcar",
+      "body": "The Carthaginian commander in Sicily with whom Agathocles reaches an understanding.",
+      "aliases": [
+        "Amilcar",
+        "Hamilcar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oliverotto",
+      "name": "Oliverotto da Fermo",
+      "body": "The military commander and nephew of Giovanni Fogliani, discussed as a ruler who seizes power violently.",
+      "aliases": [
+        "Oliverotto da Fermo",
+        "Oliverotto"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fogliani",
+      "name": "Giovanni Fogliani",
+      "body": "Oliverotto da Fermo’s maternal uncle, who brings him up.",
+      "aliases": [
+        "Giovanni Fogliani"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pagolo-vitelli",
+      "name": "Paolo Vitelli",
+      "body": "The Florentine military commander called Pagolo Vitelli; Vitellozzo’s brother.",
+      "aliases": [
+        "Pagolo Vitelli"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "burd",
+      "name": "L. Arthur Burd",
+      "body": "The editor and commentator on The Prince cited in the translation’s notes.",
+      "aliases": [
+        "Mr Burd",
+        "Mr. Burd",
+        "Burd"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nabis",
+      "name": "Nabis",
+      "body": "The ruler of Sparta used in the argument about securing popular support.",
+      "aliases": [
+        "Nabis the Spartan",
+        "Nabis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scali",
+      "name": "Giorgio Scali",
+      "body": "The Florentine political leader cited as an example of misplaced reliance on popular support.",
+      "aliases": [
+        "Messer Giorgio Scali",
+        "Giorgio Scali"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "flamininus",
+      "name": "Titus Quinctius Flamininus",
+      "body": "The Roman commander who fought Philip V and Nabis.",
+      "aliases": [
+        "Flamininus",
+        "Titus Quintius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sixtus",
+      "name": "Pope Sixtus IV",
+      "body": "The pope cited in the account of papal authority and Rome’s rival baronial families.",
+      "aliases": [
+        "Sixtus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leo",
+      "name": "Pope Leo X",
+      "body": "Giovanni de’ Medici, the Medici pope reigning when Machiavelli writes.",
+      "aliases": [
+        "Pope Leo X",
+        "Pope Leo",
+        "Leo X",
+        "Cardinal de’ Medici",
+        "Cardinal de' Medici"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bacon",
+      "name": "Francis Bacon",
+      "body": "The English writer whose history of Henry VII is quoted in an editorial note.",
+      "aliases": [
+        "Lord Bacon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "henry7",
+      "name": "Henry VII of England",
+      "body": "The English king who is the subject of Bacon’s history cited in a note.",
+      "aliases": [
+        "Henry VII"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epaminondas",
+      "name": "Epaminondas",
+      "body": "The Theban commander mentioned in the discussion of mercenary armies.",
+      "aliases": [
+        "Epaminondas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "muzio",
+      "name": "Muzio Attendolo Sforza",
+      "body": "Francesco Sforza’s father, a mercenary captain employed by Joanna II of Naples.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "joanna",
+      "name": "Joanna II of Naples",
+      "body": "The queen of Naples who employs Sforza’s father.",
+      "aliases": [
+        "Queen Johanna of Naples",
+        "Johanna II",
+        "Johanna"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alfonso5",
+      "name": "Alfonso V of Aragon",
+      "body": "The Aragonese king to whom Joanna II turns for protection.",
+      "aliases": [
+        "King of Aragon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hawkwood",
+      "name": "John Hawkwood",
+      "body": "The English mercenary commander known in Italy as Giovanni Acuto.",
+      "aliases": [
+        "Sir John Hawkwood",
+        "John Hawkwood",
+        "Giovanni Acuto"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "braccio",
+      "name": "Braccio da Montone",
+      "body": "The mercenary captain whose military following rivals the Sforza commanders.",
+      "aliases": [
+        "Braccio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "carmagnola",
+      "name": "Carmagnola",
+      "body": "Francesco Bussone, the mercenary commander who serves Milan and Venice.",
+      "aliases": [
+        "Carmignuola",
+        "Francesco Bussone"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colleoni",
+      "name": "Bartolomeo Colleoni",
+      "body": "The Venetian commander from Bergamo, named among Venice’s hired captains.",
+      "aliases": [
+        "Bartolomeo Colleoni of Bergamo",
+        "Bartolomeo da Bergamo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sanseverino",
+      "name": "Roberto Sanseverino",
+      "body": "The military commander named among Venice’s hired captains.",
+      "aliases": [
+        "Roberto da San Severino",
+        "Roberto of San Severino"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pitigliano",
+      "name": "Niccolò Orsini",
+      "body": "The Count of Pitigliano, a military commander employed by Venice.",
+      "aliases": [
+        "Count of Pitigliano",
+        "count of Pitigliano",
+        "Nicolo Orsini"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ladislaus",
+      "name": "Ladislaus of Naples",
+      "body": "The king of Naples named in the note on Joanna II.",
+      "aliases": [
+        "Ladislao"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edward3",
+      "name": "Edward III of England",
+      "body": "The English king mentioned in the note on John Hawkwood.",
+      "aliases": [
+        "Edward III"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "donnina",
+      "name": "Donnina Visconti",
+      "body": "John Hawkwood’s wife and Bernabò Visconti’s daughter; called Domnia in the original edition.",
+      "aliases": [
+        "Domnia",
+        "Donnina"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bernabo",
+      "name": "Bernabò Visconti",
+      "body": "The ruler of Milan cited for conspicuous rewards and punishments; Donnina’s father.",
+      "aliases": [
+        "Bernabo Visconti",
+        "Bernabò Visconti",
+        "Messer Bernabo da Milano",
+        "Messer Bernabò of Milan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sigismund",
+      "name": "Sigismund of Austria",
+      "body": "The Habsburg duke named in the note on Roberto Sanseverino’s last campaign.",
+      "aliases": [
+        "Sigismund"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alberico",
+      "name": "Alberico da Barbiano",
+      "body": "The mercenary commander who leads the Company of St George; also called Alberigo da Conio.",
+      "aliases": [
+        "Alberigo da Conio",
+        "Alberico da Barbiano",
+        "Count of Cunio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john6",
+      "name": "John VI Kantakouzenos",
+      "body": "The Byzantine emperor cited for bringing Turkish auxiliary troops into Greece.",
+      "aliases": [
+        "The Emperor of Constantinople",
+        "Joannes Cantacuzenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles7",
+      "name": "Charles VII",
+      "body": "The French king cited for establishing his own military forces; Louis XI’s father.",
+      "aliases": [
+        "Charles the Seventh",
+        "Charles VII"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "balfour",
+      "name": "Arthur Balfour",
+      "body": "The British politician quoted in an editorial note on military obligations.",
+      "aliases": [
+        "Mr Balfour",
+        "Mr. Balfour"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philopoemen",
+      "name": "Philopoemen",
+      "body": "The Achaean leader cited for studying military situations even in peacetime.",
+      "aliases": [
+        "Philopoemen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Julius Caesar",
+      "body": "The Roman general and ruler cited as a model of political and military ambition.",
+      "aliases": [
+        "Caesar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scipio",
+      "name": "Scipio Africanus",
+      "body": "The Roman commander who defeated Hannibal, cited on military discipline and imitation of Cyrus.",
+      "aliases": [
+        "Scipio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xenophon",
+      "name": "Xenophon",
+      "body": "The Greek writer whose account of Cyrus supplies a model of princely conduct.",
+      "aliases": [
+        "Xenophon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "virgil",
+      "name": "Virgil",
+      "body": "The Roman poet quoted through Dido’s speech in the Aeneid.",
+      "aliases": [
+        "Virgil"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pitt",
+      "name": "Christopher Pitt",
+      "body": "The English translator credited for the verse from Virgil.",
+      "aliases": [
+        "Christopher Pitt"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hannibal",
+      "name": "Hannibal",
+      "body": "The Carthaginian commander cited for maintaining discipline in a diverse army.",
+      "aliases": [
+        "Hannibal"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fabius",
+      "name": "Fabius Maximus",
+      "body": "The Roman commander who criticizes Scipio’s leniency.",
+      "aliases": [
+        "Fabius Maximus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cicero",
+      "name": "Cicero",
+      "body": "The Roman statesman and philosopher whose On Duties is cited in a note.",
+      "aliases": [
+        "Cicero"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "south",
+      "name": "Robert South",
+      "body": "The English preacher quoted in the note on religion and political appearances.",
+      "aliases": [
+        "South"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "annibale1",
+      "name": "Annibale I Bentivoglio",
+      "body": "The earlier ruler of Bologna; Giovanni II’s father and Annibale II’s grandfather.",
+      "aliases": [
+        "Messer Annibale Bentivogli"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "annibale2",
+      "name": "Annibale II Bentivoglio",
+      "body": "The younger Annibale, grandson of the earlier Bolognese ruler.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "giovanni2",
+      "name": "Giovanni II Bentivoglio",
+      "body": "The ruler of Bologna who is Annibale I’s son and Annibale II’s father.",
+      "aliases": [
+        "Messer Giovanni Bentivogli",
+        "Giovanni Bentivogli",
+        "Messer Giovanni"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sante",
+      "name": "Sante Bentivoglio",
+      "body": "The Bentivoglio relative raised in Florence who is called to govern Bologna during Giovanni’s childhood.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boscoli",
+      "name": "Pietro Paolo Boscoli",
+      "body": "The Florentine conspirator whose case is mentioned in the note about Machiavelli’s arrest.",
+      "aliases": [
+        "Boscoli"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marcus",
+      "name": "Marcus Aurelius",
+      "body": "The Roman emperor and philosopher, father of Commodus.",
+      "aliases": [
+        "Marcus the philosopher",
+        "Marcus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "commodus",
+      "name": "Commodus",
+      "body": "The Roman emperor who succeeds his father, Marcus Aurelius.",
+      "aliases": [
+        "Commodus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pertinax",
+      "name": "Pertinax",
+      "body": "The Roman emperor who succeeds Commodus, discussed in relation to the army’s power.",
+      "aliases": [
+        "Pertinax"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "julian",
+      "name": "Didius Julianus",
+      "body": "The Roman emperor called Julian, who precedes Septimius Severus.",
+      "aliases": [
+        "Emperor Julian",
+        "Julian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "severus",
+      "name": "Septimius Severus",
+      "body": "The Roman emperor, father of Caracalla, examined as an example of force and cunning.",
+      "aliases": [
+        "Severus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caracalla",
+      "name": "Caracalla",
+      "body": "The Roman emperor and son of Septimius Severus, also called Antoninus.",
+      "aliases": [
+        "Antoninus Caracalla",
+        "Antoninus",
+        "Caracalla"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "macrinus",
+      "name": "Macrinus",
+      "body": "The Roman emperor who follows Caracalla, included in the survey of imperial rule.",
+      "aliases": [
+        "Macrinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elagabalus",
+      "name": "Elagabalus",
+      "body": "The Roman emperor called Heliogabalus in this translation.",
+      "aliases": [
+        "Heliogabalus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-severus",
+      "name": "Severus Alexander",
+      "body": "The Roman emperor discussed after Elagabalus, distinct from Alexander the Great and Pope Alexander VI.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maximinus",
+      "name": "Maximinus Thrax",
+      "body": "The Roman emperor who rises from the army after Severus Alexander.",
+      "aliases": [
+        "Maximinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "niger",
+      "name": "Pescennius Niger",
+      "body": "The eastern commander who competes with Septimius Severus for the Roman throne.",
+      "aliases": [
+        "Niger"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albinus",
+      "name": "Clodius Albinus",
+      "body": "The western commander whose imperial ambitions conflict with those of Septimius Severus.",
+      "aliases": [
+        "Albinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "petrucci",
+      "name": "Pandolfo Petrucci",
+      "body": "The ruler of Siena whose choice of advisers Machiavelli praises.",
+      "aliases": [
+        "Pandolfo Petrucci",
+        "Pandolfo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicolo-vitelli",
+      "name": "Niccolò Vitelli",
+      "body": "The ruler of Città di Castello cited for demolishing fortresses.",
+      "aliases": [
+        "Messer Nicolo Vitelli",
+        "Messer Niccolò Vitelli",
+        "Nicolo Vitelli",
+        "Niccolò Vitelli"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guidobaldo",
+      "name": "Guidobaldo da Montefeltro",
+      "body": "The Duke of Urbino cited in the discussion of fortresses.",
+      "aliases": [
+        "Guido Ubaldo",
+        "Duke of Urbino"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caterina",
+      "name": "Caterina Sforza",
+      "body": "The ruler of Forlì, wife of Girolamo Riario; called Catherine Sforza in the notes.",
+      "aliases": [
+        "Countess of Forli",
+        "Countess of Forlì",
+        "my lady of Forli",
+        "lady of Forlì",
+        "Catherine Sforza"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "girolamo",
+      "name": "Girolamo Riario",
+      "body": "Caterina Sforza’s husband and co-ruler at Forlì.",
+      "aliases": [
+        "Count Girolamo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "galeazzo",
+      "name": "Galeazzo Maria Sforza",
+      "body": "The Duke of Milan who is Caterina Sforza’s father.",
+      "aliases": [
+        "Galeazzo Sforza"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucrezia",
+      "name": "Lucrezia Landriani",
+      "body": "Caterina Sforza’s mother.",
+      "aliases": [
+        "Lucrezia Landriani"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fortunati",
+      "name": "Fortunati",
+      "body": "Caterina Sforza’s correspondent, quoted on Machiavelli’s appointment as envoy.",
+      "aliases": [
+        "Fortunati"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pasolini",
+      "name": "Count Pasolini",
+      "body": "The author of the biography of Caterina Sforza cited in the notes.",
+      "aliases": [
+        "Count Pasolini"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sylvester",
+      "name": "P. Sylvester",
+      "body": "The translator credited for the biography of Caterina Sforza.",
+      "aliases": [
+        "P. Sylvester"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "florio",
+      "name": "John Florio",
+      "body": "The lexicographer quoted on the Italian word for a trade guild.",
+      "aliases": [
+        "Florio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "staley",
+      "name": "Edgcumbe Staley",
+      "body": "The writer on Florentine guilds cited in the notes.",
+      "aliases": [
+        "Edgcumbe Staley"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wallace",
+      "name": "Donald Mackenzie Wallace",
+      "body": "The writer whose account of Russian labor associations is quoted in a note.",
+      "aliases": [
+        "Sir Mackenzie Wallace"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maude",
+      "name": "Aylmer Maude",
+      "body": "The writer consulted in the note on the Russian word artel.",
+      "aliases": [
+        "Aylmer Maude"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venafro",
+      "name": "Antonio da Venafro",
+      "body": "Pandolfo Petrucci’s adviser, used as an example of a well-chosen minister.",
+      "aliases": [
+        "Messer Antonio da Venafro",
+        "Antonio da Venafro",
+        "Venafro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "luca",
+      "name": "Fra Luca",
+      "body": "The agent of Emperor Maximilian whose account of the emperor’s indecision Machiavelli reports.",
+      "aliases": [
+        "Fra Luca"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maximilian",
+      "name": "Maximilian I",
+      "body": "The Holy Roman emperor whose way of consulting advisers Machiavelli criticizes.",
+      "aliases": [
+        "Maximilian I",
+        "Maximilian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mary-burgundy",
+      "name": "Mary of Burgundy",
+      "body": "Maximilian I’s first wife and Charles the Bold’s daughter.",
+      "aliases": [
+        "Mary"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-bold",
+      "name": "Charles the Bold",
+      "body": "The duke of Burgundy whose daughter Mary marries Maximilian I.",
+      "aliases": [
+        "Charles the Bold"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bianca-sforza",
+      "name": "Bianca Maria Sforza",
+      "body": "Maximilian I’s second wife, from Milan’s ruling family.",
+      "aliases": [
+        "Bianca Sforza"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "frederick",
+      "name": "Frederick the Great",
+      "body": "The Prussian king quoted on the power of chance in an editorial note.",
+      "aliases": [
+        "Frederick the Great"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sorel",
+      "name": "Albert Sorel",
+      "body": "The historian whose Eastern Question is cited for the remark attributed to Frederick the Great.",
+      "aliases": [
+        "Sorel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clement",
+      "name": "Pope Clement VII",
+      "body": "Giulio de’ Medici, the Medici cardinal identified as Clement VII in the final chapter’s note.",
+      "aliases": [
+        "Clement VII"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "petrarch",
+      "name": "Petrarch",
+      "body": "The Italian poet whose appeal for Italy closes Machiavelli’s exhortation.",
+      "aliases": [
+        "Petrarch"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dacre",
+      "name": "Edward Dacre",
+      "body": "The translator credited for the closing lines from Petrarch.",
+      "aliases": [
+        "Edward Dacre"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "moses",
+      "name": "Moses",
+      "body": "The biblical leader of the Israelites, cited as a founder and lawgiver.",
+      "aliases": [
+        "Moses"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "body": "The divine authority invoked in the discussions of founders, religion and Italy’s deliverance.",
+      "aliases": [
+        "God"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "romulus",
+      "name": "Romulus",
+      "body": "The legendary founder of Rome, used as a model of founding a new state.",
+      "aliases": [
+        "Romulus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "body": "The legendary Athenian king credited with uniting Athens.",
+      "aliases": [
+        "Theseus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "The Greek hero of the Trojan War, cited as Alexander’s model and Chiron’s pupil.",
+      "aliases": [
+        "Achilles"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chiron",
+      "name": "Chiron",
+      "body": "The centaur who teaches Achilles in Greek legend.",
+      "aliases": [
+        "Centaur Chiron",
+        "Chiron"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "body": "The queen of Carthage in Virgil’s Aeneid, quoted on the insecurity of a new reign.",
+      "aliases": [
+        "Dido"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "david",
+      "name": "David",
+      "body": "The biblical hero who refuses Saul’s armor before confronting Goliath.",
+      "aliases": [
+        "David"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saul",
+      "name": "Saul",
+      "body": "The biblical king who offers David his weapons and armor.",
+      "aliases": [
+        "Saul"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "goliath",
+      "name": "Goliath",
+      "body": "The Philistine champion confronted by David in the biblical story.",
+      "aliases": [
+        "Goliath"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ferrara",
+      "name": "The Este dukes of Ferrara",
+      "body": "The hereditary dynasty invoked through the attacks of 1484 and 1510, which fall under different dukes.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ercole",
+      "name": "Ercole I d’Este",
+      "body": "The Duke of Ferrara among the Italian rulers who make advances to Louis XII.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "turk",
+      "name": "The Ottoman sultan",
+      "body": "The Ottoman ruler, called the Turk, whose centralized government Machiavelli contrasts with France.",
+      "aliases": [
+        "Turk"
+      ],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "soldan",
+      "name": "The Mamluk sultan",
+      "body": "The ruler of Egypt, called the Soldan, whose power depends on the military elite.",
+      "aliases": [
+        "Soldan"
+      ],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orsini",
+      "name": "The Orsini family",
+      "body": "The Roman baronial family and its political and military following.",
+      "aliases": [
+        "Orsini"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colonna",
+      "name": "The Colonna family",
+      "body": "The Roman baronial family and faction also called the Colonnesi.",
+      "aliases": [
+        "Colonnesi",
+        "Colonna"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vitelli",
+      "name": "The Vitelli family",
+      "body": "The family of military commanders associated with Città di Castello.",
+      "aliases": [
+        "Vitelli",
+        "Vitelleschi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "baglioni",
+      "name": "The Baglioni family",
+      "body": "The Perugian ruling family named among Cesare Borgia’s opponents.",
+      "aliases": [
+        "Baglioni"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bentivogli",
+      "name": "The Bentivoglio family",
+      "body": "The ruling family of Bologna, called the Bentivogli in this translation.",
+      "aliases": [
+        "Bentivogli"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sforza-family",
+      "name": "The Sforza family",
+      "body": "The ruling dynasty of Milan established by Francesco Sforza.",
+      "aliases": [
+        "house of Sforza"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gracchi",
+      "name": "The Gracchi",
+      "body": "The Roman reforming brothers Tiberius and Gaius Gracchus, cited on reliance on popular support.",
+      "aliases": [
+        "Gracchi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "canneschi",
+      "name": "The Canneschi",
+      "body": "The Bolognese family whose conspiracy targets Annibale Bentivoglio.",
+      "aliases": [
+        "Canneschi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cancellieri",
+      "name": "The Cancellieri",
+      "body": "One of the rival Pistoian families named in the note on civil disorder.",
+      "aliases": [
+        "Cancellieri"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panciatichi",
+      "name": "The Panciatichi",
+      "body": "One of the rival Pistoian families named in the note on civil disorder.",
+      "aliases": [
+        "Panciatichi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bracceschi",
+      "name": "The Bracceschi",
+      "body": "The soldiers and captains of Braccio’s military following.",
+      "aliases": [
+        "Bracceschi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "medici",
+      "name": "The Medici family",
+      "body": "The Florentine ruling family addressed in the final appeal to liberate Italy.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mantua",
+      "name": "The Marquess of Mantua",
+      "body": "The Mantuan ruler named among the Italian allies sought by Louis XII.",
+      "aliases": [
+        "Marquess of Mantua"
+      ],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lords",
+      "name": "The lords of the smaller Italian states",
+      "body": "The rulers of Faenza, Pesaro, Rimini, Camerino and Piombino who seek friendship with Louis XII.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

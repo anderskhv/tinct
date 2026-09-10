@@ -43,7 +43,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Brothers Karamazov (`brothers-karamazov`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Iliad (`iliad`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Nicomachean Ethics (`nicomachean-ethics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Prince (`the-prince`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Prince (`the-prince`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Beyond Good and Evil (`beyond-good-and-evil`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Beowulf (`beowulf`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
