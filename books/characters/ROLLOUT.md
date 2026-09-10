@@ -12,8 +12,11 @@ Current registry inventory: 100 published books, 201 English source edition file
 
 - The Awakening: the prior 86-entry copy revision is live; further shortening of running reminders remains under the newly clarified recognition standard.
 - War and Peace: approved opening sample and categories; 45 baseline draft cards, still awaiting full source/alias/gate review.
-- Hamlet: 80-entry complete scoped package validated across all 20 scenes; handed to the release owner for integration.
-- Macbeth: 63-entry scoped package across all 28 scenes, validated and queued for integration.
+- Hamlet: complete scoped package live in both English editions; release owner verified production on September 10.
+- Macbeth: complete scoped package live in both English editions; release owner verified production on September 10.
+- Validated and queued: Crito, Apology, The Manual, The Art of War, Dr. Jekyll and Mr. Hyde, Oedipus Rex, Antigone.
+- The Tempest: validated card package, held separately for inherited song-speaker errors in the edition text.
+- Full package details and integration order: [RELEASE-QUEUE.md](RELEASE-QUEUE.md).
 - Bible: Baruch-only cards are live in KJV/WEB/modern English, maintained by the release owner; preserve them when expanding coverage.
 - All 100 books: source inventory and unreviewed candidate worksheet prepared. Existing Threads supply 1,134 candidates, not a completeness guarantee. Their plot summaries are deliberately not copied.
 
