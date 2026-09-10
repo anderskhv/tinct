@@ -233,9 +233,12 @@
     {
       "bookId": "romeo-and-juliet",
       "title": "Romeo and Juliet",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -253,7 +256,7 @@
         }
       ],
       "existingThreadCandidates": 15,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Release queue: review inherited doubled watchman label, integrate versioned asset and verify production"
     },
     {
       "bookId": "the-tempest",

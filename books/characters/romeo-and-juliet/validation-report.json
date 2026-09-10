@@ -1,0 +1,35 @@
+{
+  "bookId": "romeo-and-juliet",
+  "scope": "The prologues and all 24 scenes: main cast, differentiated servants, guest-list people and relatives, musicians, watchmen and named allusions.",
+  "authoredEntries": 100,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276",
+      "chapters": 25,
+      "paragraphs": 1062,
+      "entries": 99,
+      "mentions": 1605,
+      "omittedEntities": [
+        "gods"
+      ]
+    },
+    "modern-en": {
+      "sourceSha256": "47fdf4f9a1b309f6747b48d00add73181cff9cd0a4c0063f81774a1a8a95bae6",
+      "chapters": 25,
+      "paragraphs": 1062,
+      "entries": 96,
+      "mentions": 1626,
+      "omittedEntities": [
+        "aurora",
+        "jove",
+        "sun-god",
+        "jesus"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

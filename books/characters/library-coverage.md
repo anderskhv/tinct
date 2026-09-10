@@ -14,7 +14,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Hamlet (`hamlet`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Macbeth (`macbeth`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | A Midsummer Night's Dream (`midsummer`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Romeo and Juliet (`romeo-and-juliet`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Romeo and Juliet (`romeo-and-juliet`) | validated-package | Release queue: review inherited doubled watchman label, integrate versioned asset and verify production |
 | The Tempest (`the-tempest`) | validated-package | Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production |
 | The Art of War (`the-art-of-war`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Pride and Prejudice (`pride-and-prejudice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

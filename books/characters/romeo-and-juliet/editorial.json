@@ -1,0 +1,1240 @@
+{
+  "contentVersion": "2026-09-10.1",
+  "coverage": "The prologues and all 24 scenes: main cast, differentiated servants, guest-list people and relatives, musicians, watchmen and named allusions.",
+  "entities": [
+    {
+      "id": "romeo",
+      "name": "Romeo",
+      "category": "central",
+      "body": "Lord and Lady Montague’s son, one of the play’s two central lovers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ROMEO",
+        "Romeo"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            14,
+            22
+          ],
+          "body": "The young Montague, now Juliet’s husband."
+        }
+      ]
+    },
+    {
+      "id": "juliet",
+      "name": "Juliet",
+      "category": "central",
+      "body": "Lord and Lady Capulet’s daughter, the play’s other central lover.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "JULIET",
+        "Juliet",
+        "Jule",
+        "Julie"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            14,
+            22
+          ],
+          "body": "The young Capulet, now Romeo’s wife."
+        }
+      ]
+    },
+    {
+      "id": "nurse",
+      "name": "The Nurse",
+      "category": "major",
+      "body": "Juliet’s nurse and longtime companion, also called Angelica.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "NURSE",
+        "Nurse",
+        "Angelica"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lawrence",
+      "name": "Friar Lawrence",
+      "category": "major",
+      "body": "The Franciscan friar to whom Romeo turns for advice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "FRIAR LAWRENCE",
+        "Friar Lawrence",
+        "Lawrence"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mercutio",
+      "name": "Mercutio",
+      "category": "major",
+      "body": "Romeo’s friend and a relative of Prince Escalus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "MERCUTIO",
+        "Mercutio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "benvolio",
+      "name": "Benvolio",
+      "category": "major",
+      "body": "Romeo’s cousin and friend, a member of the Montague family.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BENVOLIO",
+        "Benvolio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tybalt",
+      "name": "Tybalt",
+      "category": "major",
+      "body": "Juliet’s cousin, Lady Capulet’s nephew.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "TYBALT",
+        "Tybalt",
+        "Tybalts",
+        "Prince of cats",
+        "Prince of Cats",
+        "King of Cats"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "capulet",
+      "name": "Lord Capulet",
+      "category": "major",
+      "body": "Juliet’s father and head of the Capulet household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CAPULET",
+        "Capulet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lady-capulet",
+      "name": "Lady Capulet",
+      "category": "major",
+      "body": "Juliet’s mother and Lord Capulet’s wife.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LADY CAPULET",
+        "Lady Capulet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "montague",
+      "name": "Lord Montague",
+      "category": "supporting",
+      "body": "Romeo’s father and head of the Montague household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "MONTAGUE",
+        "Montague"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lady-montague",
+      "name": "Lady Montague",
+      "category": "supporting",
+      "body": "Romeo’s mother and Lord Montague’s wife.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LADY MONTAGUE",
+        "Lady Montague"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "category": "major",
+      "body": "The young nobleman seeking to marry Juliet, a relative of the prince.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PARIS",
+        "Paris",
+        "County Paris",
+        "Count Paris"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prince",
+      "name": "Prince Escalus",
+      "category": "supporting",
+      "body": "The ruler of Verona.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PRINCE",
+        "Prince Escalus",
+        "Escalus",
+        "Prince",
+        "prince"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rosaline",
+      "name": "Rosaline",
+      "category": "supporting",
+      "body": "Capulet’s niece, the young woman Romeo admires at the start of the play.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Rosaline"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sampson",
+      "name": "Sampson",
+      "category": "supporting",
+      "body": "A servant of the Capulet household, companion of Gregory.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SAMPSON",
+        "Sampson"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gregory",
+      "name": "Gregory",
+      "category": "supporting",
+      "body": "A servant of the Capulet household, companion of Sampson.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "GREGORY",
+        "Gregory"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "abram",
+      "name": "Abram",
+      "category": "supporting",
+      "body": "A servant of the Montague household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ABRAM",
+        "Abram"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "balthasar",
+      "name": "Balthasar",
+      "category": "supporting",
+      "body": "Romeo’s servant.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BALTHASAR",
+        "Balthasar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peter",
+      "name": "Peter",
+      "category": "supporting",
+      "body": "The Capulet servant who accompanies the Nurse.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PETER",
+        "Peter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "john",
+      "name": "Friar John",
+      "category": "supporting",
+      "body": "A Franciscan friar associated with Friar Lawrence.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "FRIAR JOHN",
+        "Friar John"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apothecary",
+      "name": "The apothecary",
+      "category": "supporting",
+      "body": "The impoverished seller of medicines in Mantua.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "APOTHECARY",
+        "Apothecary",
+        "apothecary"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "page",
+      "name": "Paris’s page",
+      "category": "supporting",
+      "body": "The young attendant accompanying Paris.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "PAGE",
+        "Page"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cousin-capulet",
+      "name": "Capulet’s cousin",
+      "category": "supporting",
+      "body": "The older kinsman talking with Capulet at the feast.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "CAPULET’S COUSIN",
+        "CAPULET'S COUSIN",
+        "cousin Capulet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chorus",
+      "name": "The Chorus",
+      "category": "supporting",
+      "body": "The speaker who introduces the play and its second act.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "CHORUS",
+        "Chorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "capulets",
+      "name": "The Capulets",
+      "category": "supporting",
+      "body": "Juliet’s family and household, rivals of the Montagues.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Capulets",
+        "Capels",
+        "house of Capulet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "montagues",
+      "name": "The Montagues",
+      "category": "supporting",
+      "body": "Romeo’s family and household, rivals of the Capulets.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Montagues",
+        "house of Montague"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musicians",
+      "name": "The musicians",
+      "category": "supporting",
+      "body": "The musicians engaged for the Capulet household’s festivities.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Musicians",
+        "musicians"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "citizens",
+      "name": "The citizens of Verona",
+      "category": "supporting",
+      "body": "The townspeople drawn into the public disturbances.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Citizens"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "watch",
+      "name": "The watch",
+      "category": "supporting",
+      "body": "The officers responsible for keeping order in Verona.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Watch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gods",
+      "name": "The gods",
+      "category": "reference",
+      "body": "The divine powers invoked in the saying about lovers’ promises.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "gods"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "invitation-servant",
+      "name": "The invitation-bearing servant",
+      "category": "supporting",
+      "body": "The Capulet servant sent to find the guests named on a list.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dinner-servant",
+      "name": "The dinner-announcing servant",
+      "category": "supporting",
+      "body": "The servant who tells Lady Capulet that supper is ready.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "feast-first",
+      "name": "The first feast servant",
+      "category": "supporting",
+      "body": "The servant organizing the clearing and service at Capulet’s feast.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "feast-second",
+      "name": "The second feast servant",
+      "category": "supporting",
+      "body": "The servant answering his colleague during preparations at Capulet’s feast.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "torch-servant",
+      "name": "The servant by Romeo",
+      "category": "supporting",
+      "body": "The servant whom Romeo asks about Juliet at the feast.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "wedding-first",
+      "name": "The wedding invitation servant",
+      "category": "supporting",
+      "body": "The servant sent out with Capulet’s wedding invitations.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "wedding-second",
+      "name": "The servant hiring cooks",
+      "category": "supporting",
+      "body": "The servant whom Capulet sends to hire cooks.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kitchen-first",
+      "name": "The servant carrying supplies",
+      "category": "supporting",
+      "body": "The servant carrying provisions for the wedding cook.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kitchen-second",
+      "name": "The servant finding logs",
+      "category": "supporting",
+      "body": "The servant sent for firewood during the wedding preparations.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "citizen",
+      "name": "The first citizen",
+      "category": "supporting",
+      "body": "The Verona citizen speaking when the street fights draw the townspeople.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "FIRST CITIZEN"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "watch-first",
+      "name": "The first watchman",
+      "category": "supporting",
+      "body": "The watchman directing the search in the churchyard.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "FIRST WATCH"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "watch-second",
+      "name": "The second watchman",
+      "category": "supporting",
+      "body": "One of the officers searching the churchyard.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SECOND WATCH"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "watch-third",
+      "name": "The third watchman",
+      "category": "supporting",
+      "body": "Another officer searching the churchyard.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "THIRD WATCH"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musician-first",
+      "name": "Simon Catling",
+      "category": "supporting",
+      "body": "The first musician, whom Peter addresses as Simon Catling.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "FIRST MUSICIAN",
+        "Simon Catling"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musician-second",
+      "name": "Hugh Rebeck",
+      "category": "supporting",
+      "body": "The second musician, whom Peter addresses as Hugh Rebeck.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SECOND MUSICIAN",
+        "Hugh Rebeck"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musician-third",
+      "name": "James Soundpost",
+      "category": "supporting",
+      "body": "The third musician and singer, whom Peter addresses as James Soundpost.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "THIRD MUSICIAN",
+        "James Soundpost"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "susan-child",
+      "name": "Susan",
+      "category": "reference",
+      "body": "The Nurse’s daughter, who was the same age as Juliet.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Susan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nurse-husband",
+      "name": "The Nurse’s husband",
+      "category": "reference",
+      "body": "The Nurse’s late husband, recalled in her story about Juliet’s childhood.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "susan-grindstone",
+      "name": "Susan Grindstone",
+      "category": "reference",
+      "body": "The woman whom a servant wants admitted to Capulet’s feast.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Susan Grindstone"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nell",
+      "name": "Nell",
+      "category": "reference",
+      "body": "The woman named with Susan Grindstone at the feast.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nell"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antony",
+      "name": "Antony",
+      "category": "reference",
+      "body": "One of the Capulet household servants called during the feast.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Antony"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "potpan",
+      "name": "Potpan",
+      "category": "reference",
+      "body": "The Capulet servant called for during preparations at the feast.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Potpan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lucentio",
+      "name": "Lucentio",
+      "category": "reference",
+      "body": "The man whose wedding Capulet recalls while talking with his older kinsman.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lucentio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lucentio-son",
+      "name": "Lucentio’s son",
+      "category": "reference",
+      "body": "The son whose age Capulet’s cousin uses to date Lucentio’s wedding.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "tiberio",
+      "name": "Tiberio",
+      "category": "reference",
+      "body": "The father of one of the young men at Capulet’s feast.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tiberio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tiberio-son",
+      "name": "Tiberio’s son",
+      "category": "reference",
+      "body": "The young guest identified by the Nurse as Tiberio’s son and heir.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "petruchio",
+      "name": "Petruchio",
+      "category": "reference",
+      "body": "The young man whom the Nurse identifies among the departing guests.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Petruchio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "martino",
+      "name": "Signior Martino",
+      "category": "reference",
+      "body": "One of the people named on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Signior Martino",
+        "Martino"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "martino-wife",
+      "name": "Martino’s wife",
+      "category": "reference",
+      "body": "The wife invited with Signior Martino and their daughters.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "martino-daughters",
+      "name": "Martino’s daughters",
+      "category": "reference",
+      "body": "The daughters invited with Signior Martino and his wife.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "anselmo",
+      "name": "Count Anselmo",
+      "category": "reference",
+      "body": "The count named on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "County Anselmo",
+        "Count Anselmo",
+        "Anselmo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anselmo-sisters",
+      "name": "Anselmo’s sisters",
+      "category": "reference",
+      "body": "The sisters included with Count Anselmo on the guest list.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "utruvio",
+      "name": "Utruvio",
+      "category": "reference",
+      "body": "The deceased husband of a woman on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Utruvio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "utruvio-widow",
+      "name": "Utruvio’s widow",
+      "category": "reference",
+      "body": "The widowed woman invited to Capulet’s feast.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "placentio",
+      "name": "Signior Placentio",
+      "category": "reference",
+      "body": "One of the men on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Signior Placentio",
+        "Placentio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "placentio-nieces",
+      "name": "Placentio’s nieces",
+      "category": "reference",
+      "body": "The nieces invited with Signior Placentio.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "valentine",
+      "name": "Valentine",
+      "category": "reference",
+      "body": "Mercutio’s brother, included on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Valentine"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "uncle-capulet",
+      "name": "Capulet’s uncle",
+      "category": "reference",
+      "body": "The uncle listed among Capulet’s invited guests.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "uncle Capulet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "uncle-wife",
+      "name": "The uncle’s wife",
+      "category": "reference",
+      "body": "The wife invited with Capulet’s uncle and their daughters.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "uncle-daughters",
+      "name": "The uncle’s daughters",
+      "category": "reference",
+      "body": "The daughters invited with Capulet’s uncle and his wife.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "livia",
+      "name": "Livia",
+      "category": "reference",
+      "body": "The woman named alongside Rosaline on the guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Livia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "valentio",
+      "name": "Signior Valentio",
+      "category": "reference",
+      "body": "Tybalt’s cousin, named on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Signior Valentio",
+        "Valentio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lucio",
+      "name": "Lucio",
+      "category": "reference",
+      "body": "The guest named alongside Helena.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lucio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helena",
+      "name": "Helena",
+      "category": "reference",
+      "body": "The woman named alongside Lucio on Capulet’s guest list.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Helena"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "friar-companion",
+      "name": "Friar John’s companion",
+      "category": "reference",
+      "body": "The fellow friar whom John seeks out to accompany him.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "health-officials",
+      "name": "The health officials",
+      "category": "reference",
+      "body": "The town officials responsible for restrictions around plague-infected houses.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "category": "reference",
+      "body": "The Roman goddess of dawn.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Aurora"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "category": "reference",
+      "body": "The winged god of love, son of Venus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Young Abraham Cupid",
+        "Cupid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "category": "reference",
+      "body": "The goddess associated with chastity and the moon, also called Cynthia.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Dian",
+        "Diana",
+        "Cynthia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mab",
+      "name": "Queen Mab",
+      "category": "reference",
+      "body": "The tiny fairy queen in Mercutio’s speech about dreams.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Queen Mab",
+        "Mab"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "category": "reference",
+      "body": "The goddess of love and mother of Cupid.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Venus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cophetua",
+      "name": "King Cophetua",
+      "category": "reference",
+      "body": "The legendary king who falls in love with a beggar maid.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "King Cophetua",
+        "Cophetua"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "beggar-maid",
+      "name": "Cophetua’s beggar maid",
+      "category": "reference",
+      "body": "The poor young woman loved by King Cophetua in the ballad.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "beggar-maid",
+        "beggar maid",
+        "beggar girl"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "category": "reference",
+      "body": "Jupiter, the Roman king of the gods.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Jove"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "echo",
+      "name": "Echo",
+      "category": "reference",
+      "body": "The nymph whose voice repeats other people’s words.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Echo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sun-god",
+      "name": "The sun god",
+      "category": "reference",
+      "body": "The divine charioteer of the sun, invoked as Titan and Phoebus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Titan",
+        "Phoebus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phaeton",
+      "name": "Phaeton",
+      "category": "reference",
+      "body": "The youth who tries to drive the sun’s chariot in Greek myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Phaeton"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "francis",
+      "name": "Saint Francis",
+      "category": "reference",
+      "body": "Francis of Assisi, the saint associated with the friars’ order.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Saint Francis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus",
+      "category": "reference",
+      "body": "The Christian figure invoked as Jesu or Jesus.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Jesu",
+        "Jesus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mary",
+      "name": "Mary",
+      "category": "reference",
+      "body": "The mother of Jesus, invoked as Maria or Our Lady.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Maria",
+        "Our Lady"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "petrarch",
+      "name": "Petrarch",
+      "category": "reference",
+      "body": "The Italian poet celebrated for his love poetry about Laura.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Petrarch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "laura",
+      "name": "Laura",
+      "category": "reference",
+      "body": "The woman addressed in Petrarch’s love poetry.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Laura"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "category": "reference",
+      "body": "The queen of Carthage and lover of Aeneas in the Aeneid.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Dido"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cleopatra",
+      "name": "Cleopatra",
+      "category": "reference",
+      "body": "The Egyptian queen, invoked among famous women celebrated in love stories.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cleopatra"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "category": "reference",
+      "body": "The famed beauty associated with the Trojan War.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Helen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "category": "reference",
+      "body": "Leander’s beloved in the classical love story.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Hero"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thisbe",
+      "name": "Thisbe",
+      "category": "reference",
+      "body": "Pyramus’s beloved in the classical love story.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Thisbe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The deity invoked in prayers and exclamations throughout the play.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "category": "reference",
+      "body": "Luck imagined as a power governing human lives.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Fortune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "category": "reference",
+      "body": "Death personified in the characters’ imagery, sometimes as a rival lover.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Death"
+      ],
+      "snapshots": []
+    }
+  ]
+}
