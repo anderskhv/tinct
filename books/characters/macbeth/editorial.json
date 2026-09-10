@@ -1,0 +1,915 @@
+{
+  "schemaVersion": 1,
+  "bookId": "macbeth",
+  "language": "en",
+  "contentVersion": "2026-09-10.1",
+  "reviewStatus": "authoring-agent-reviewed",
+  "coverage": "All 28 scenes: named cast, speaking minor roles, supernatural figures, named cultural references and relevant groups. Generic crowds, pronouns, places and unnamed hypothetical figures are excluded.",
+  "entities": [
+    {
+      "id": "macbeth",
+      "name": "Macbeth",
+      "category": "central",
+      "body": "A Scottish nobleman and soldier, known as the Thane of Glamis. Lady Macbeth’s husband.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Macbeth",
+        "Thane of Glamis",
+        "Glamis"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            18
+          ],
+          "body": "A Scottish nobleman holding the titles Thane of Glamis and Thane of Cawdor. Lady Macbeth’s husband."
+        },
+        {
+          "after": [
+            11,
+            14
+          ],
+          "body": "King of Scotland and Lady Macbeth’s husband."
+        }
+      ]
+    },
+    {
+      "id": "lady-macbeth",
+      "name": "Lady Macbeth",
+      "category": "major",
+      "body": "Macbeth’s wife.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lady Macbeth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "banquo",
+      "name": "Banquo",
+      "category": "major",
+      "body": "A Scottish commander and Macbeth’s fellow soldier. Father of Fleance.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Banquo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fleance",
+      "name": "Fleance",
+      "category": "supporting",
+      "body": "Banquo’s young son.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Fleance"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "macduff",
+      "name": "Macduff",
+      "category": "major",
+      "body": "A Scottish nobleman, the Thane of Fife. Lady Macduff’s husband.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Macduff",
+        "Thane of Fife",
+        "Duff"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "duncan",
+      "name": "Duncan",
+      "category": "major",
+      "body": "King of Scotland and father of Malcolm and Donalbain.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Duncan"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            11,
+            14
+          ],
+          "body": "Scotland’s former king; father of Malcolm and Donalbain."
+        }
+      ]
+    },
+    {
+      "id": "malcolm",
+      "name": "Malcolm",
+      "category": "major",
+      "body": "Duncan’s elder son and Donalbain’s brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Malcolm",
+        "Prince of Cumberland"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            28,
+            26
+          ],
+          "body": "Duncan’s elder son, now acclaimed king of Scotland. Donalbain’s brother."
+        }
+      ]
+    },
+    {
+      "id": "donalbain",
+      "name": "Donalbain",
+      "category": "supporting",
+      "body": "Duncan’s younger son and Malcolm’s brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Donalbain"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "witches",
+      "name": "The three witches",
+      "category": "major",
+      "body": "The three supernatural women, also called the Weird Sisters.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Witches",
+        "Weird Sisters",
+        "Weird Women"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "first-witch",
+      "name": "First Witch",
+      "category": "supporting",
+      "body": "One of the three witches, distinguished by her numbered speaker label rather than a personal name.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "First Witch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "second-witch",
+      "name": "Second Witch",
+      "category": "supporting",
+      "body": "One of the three witches, distinguished by her numbered speaker label rather than a personal name.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Second Witch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "third-witch",
+      "name": "Third Witch",
+      "category": "supporting",
+      "body": "One of the three witches, distinguished by her numbered speaker label rather than a personal name.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Third Witch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ross",
+      "name": "Ross",
+      "category": "supporting",
+      "body": "A Scottish nobleman who carries news between the other characters.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ross"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "angus",
+      "name": "Angus",
+      "category": "supporting",
+      "body": "A Scottish nobleman, accompanying Ross when he brings news to Macbeth.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Angus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lennox",
+      "name": "Lennox",
+      "category": "supporting",
+      "body": "A Scottish nobleman at the royal court.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lennox"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "menteith",
+      "name": "Menteith",
+      "category": "supporting",
+      "body": "A Scottish nobleman among the commanders opposing Macbeth.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Menteith"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "caithness",
+      "name": "Caithness",
+      "category": "supporting",
+      "body": "A Scottish nobleman among the commanders opposing Macbeth.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Caithness"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lady-macduff",
+      "name": "Lady Macduff",
+      "category": "supporting",
+      "body": "Macduff’s wife and the mother of the boy in the scene at their home.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lady Macduff"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "macduff-son",
+      "name": "Macduff’s son",
+      "category": "supporting",
+      "body": "The young son of Macduff and Lady Macduff.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Son"
+      ],
+      "snapshots": [],
+      "chapters": [
+        19
+      ]
+    },
+    {
+      "id": "siward",
+      "name": "Siward",
+      "category": "supporting",
+      "body": "An English commander and the earl of Northumberland. Father of Young Siward.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Siward",
+        "Northumberland"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "young-siward",
+      "name": "Young Siward",
+      "category": "supporting",
+      "body": "Siward’s son, a young soldier in the army opposing Macbeth.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Young Siward"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "seyton",
+      "name": "Seyton",
+      "category": "supporting",
+      "body": "An attendant serving Macbeth at Dunsinane.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Seyton"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "porter",
+      "name": "The porter",
+      "category": "supporting",
+      "body": "The gatekeeper at Macbeth’s castle.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Porter"
+      ],
+      "snapshots": [],
+      "chapters": [
+        10
+      ]
+    },
+    {
+      "id": "soldier",
+      "name": "The wounded soldier",
+      "category": "supporting",
+      "body": "The wounded soldier who reports the battle to Duncan. Also addressed as Captain.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Soldier",
+        "Captain"
+      ],
+      "snapshots": [],
+      "chapters": [
+        2
+      ]
+    },
+    {
+      "id": "old-man",
+      "name": "The old man",
+      "category": "supporting",
+      "body": "The elderly man speaking with Ross outside Macbeth’s castle.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Old Man"
+      ],
+      "snapshots": [],
+      "chapters": [
+        11
+      ]
+    },
+    {
+      "id": "gentlewoman",
+      "name": "The gentlewoman",
+      "category": "supporting",
+      "body": "An attendant to Lady Macbeth.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Gentlewoman",
+        "Waiting-Gentlewoman"
+      ],
+      "snapshots": [],
+      "chapters": [
+        21
+      ]
+    },
+    {
+      "id": "scottish-doctor",
+      "name": "The Scottish doctor",
+      "category": "supporting",
+      "body": "The physician attending Lady Macbeth at Dunsinane.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Doctor",
+        "Doctor of Physic"
+      ],
+      "snapshots": [],
+      "chapters": [
+        21,
+        23
+      ]
+    },
+    {
+      "id": "english-doctor",
+      "name": "The English doctor",
+      "category": "supporting",
+      "body": "The physician at the English king’s court. A different doctor from the one at Dunsinane.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Doctor"
+      ],
+      "snapshots": [],
+      "chapters": [
+        20
+      ]
+    },
+    {
+      "id": "cawdor",
+      "name": "The Thane of Cawdor",
+      "category": "supporting",
+      "body": "A Scottish nobleman who holds the title Thane of Cawdor.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            18
+          ],
+          "name": "The former Thane of Cawdor",
+          "body": "The Scottish nobleman whose title of Thane of Cawdor is transferred to Macbeth."
+        }
+      ]
+    },
+    {
+      "id": "macdonwald",
+      "name": "Macdonwald",
+      "category": "reference",
+      "body": "A rebel leader fighting against King Duncan.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Macdonwald"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sweno",
+      "name": "Sweno",
+      "category": "reference",
+      "body": "The Norwegian king whose army fights Duncan’s forces.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sweno"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sinel",
+      "name": "Sinel",
+      "category": "reference",
+      "body": "Macbeth’s father, from whom he inherited the title Thane of Glamis.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sinel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "edward",
+      "name": "King Edward",
+      "category": "reference",
+      "body": "The English king, Edward the Confessor, at whose court Malcolm finds refuge.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Edward"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "graymalkin",
+      "name": "Graymalkin",
+      "category": "reference",
+      "body": "The First Witch’s familiar spirit, taking the form of a cat.",
+      "subtitle": "",
+      "kind": "supernatural-creature",
+      "aliases": [
+        "Graymalkin",
+        "Greymalkin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "paddock",
+      "name": "Paddock",
+      "category": "reference",
+      "body": "The Second Witch’s familiar spirit, taking the form of a toad.",
+      "subtitle": "",
+      "kind": "supernatural-creature",
+      "aliases": [
+        "Paddock"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "harpier",
+      "name": "Harpier",
+      "category": "reference",
+      "body": "The familiar spirit called by the Third Witch. The passage does not describe its form.",
+      "subtitle": "",
+      "kind": "supernatural-creature",
+      "aliases": [
+        "Harpier"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hecate",
+      "name": "Hecate",
+      "category": "supporting",
+      "body": "A goddess associated with witchcraft.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hecate"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            16,
+            2
+          ],
+          "body": "The goddess who presides over the witches and their magic."
+        }
+      ],
+      "roleAfter": [
+        16,
+        2
+      ]
+    },
+    {
+      "id": "bellona",
+      "name": "Bellona",
+      "category": "reference",
+      "body": "The Roman goddess of war.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Bellona"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "category": "reference",
+      "body": "The Roman god of the sea.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Neptune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "belzebub",
+      "name": "Belzebub",
+      "category": "reference",
+      "body": "A name for the devil, invoked in the porter’s joke about keeping the gates of hell.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Belzebub",
+        "Beelzebub"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorgon",
+      "name": "The Gorgon",
+      "category": "reference",
+      "body": "A monster of Greek mythology whose face turns those who look at it to stone.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Gorgon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "category": "reference",
+      "body": "Luck imagined as a female power favoring one side or another.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Fortune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "banquo-ghost",
+      "name": "Banquo’s ghost",
+      "category": "supporting",
+      "body": "The apparition of Banquo seen by Macbeth at the banquet.",
+      "subtitle": "",
+      "kind": "apparition",
+      "aliases": [
+        "Ghost of Banquo",
+        "Ghost"
+      ],
+      "snapshots": [],
+      "chapters": [
+        15
+      ]
+    },
+    {
+      "id": "armed-head",
+      "name": "The armed head",
+      "category": "reference",
+      "body": "The first apparition called up by the witches: a head wearing armor.",
+      "subtitle": "",
+      "kind": "apparition",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        18
+      ]
+    },
+    {
+      "id": "bloody-child",
+      "name": "The bloody child",
+      "category": "reference",
+      "body": "The second apparition called up by the witches: a child covered in blood.",
+      "subtitle": "",
+      "kind": "apparition",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        18
+      ]
+    },
+    {
+      "id": "crowned-child",
+      "name": "The crowned child",
+      "category": "reference",
+      "body": "The third apparition called up by the witches: a crowned child carrying a tree.",
+      "subtitle": "",
+      "kind": "apparition",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        18
+      ]
+    },
+    {
+      "id": "kings-vision",
+      "name": "The eight kings",
+      "category": "reference",
+      "body": "The line of crowned figures shown to Macbeth by the witches.",
+      "subtitle": "",
+      "kind": "apparition-group",
+      "aliases": [
+        "eight kings"
+      ],
+      "snapshots": [],
+      "chapters": [
+        18
+      ]
+    },
+    {
+      "id": "banquo-vision",
+      "name": "The vision of Banquo",
+      "category": "reference",
+      "body": "The figure of Banquo accompanying the line of kings in the witches’ vision.",
+      "subtitle": "",
+      "kind": "apparition",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        18
+      ]
+    },
+    {
+      "id": "first-murderer",
+      "name": "First Murderer",
+      "category": "supporting",
+      "body": "One of the men Macbeth engages for a secret task.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "First Murderer"
+      ],
+      "snapshots": [],
+      "chapters": [
+        12,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "second-murderer",
+      "name": "Second Murderer",
+      "category": "supporting",
+      "body": "One of the men Macbeth engages for a secret task.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Second Murderer"
+      ],
+      "snapshots": [],
+      "chapters": [
+        12,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "third-murderer",
+      "name": "Third Murderer",
+      "category": "supporting",
+      "body": "One of the men Macbeth engages for a secret task.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Third Murderer"
+      ],
+      "snapshots": [],
+      "chapters": [
+        12,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "murderers",
+      "name": "The murderers",
+      "category": "supporting",
+      "body": "The men whom Macbeth engages for a secret task.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Murderers",
+        "Both Murderers"
+      ],
+      "snapshots": [],
+      "chapters": [
+        12,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "macduff-murderer",
+      "name": "The intruder at Macduff’s home",
+      "category": "supporting",
+      "body": "One of the men who enter Lady Macduff’s home.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "First Murderer"
+      ],
+      "snapshots": [],
+      "chapters": [
+        19
+      ]
+    },
+    {
+      "id": "macduff-murderers",
+      "name": "The intruders at Macduff’s home",
+      "category": "supporting",
+      "body": "The group of men who enter Lady Macduff’s home.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Murderers"
+      ],
+      "snapshots": [],
+      "chapters": [
+        19
+      ]
+    },
+    {
+      "id": "lord",
+      "name": "The Scottish lord",
+      "category": "supporting",
+      "body": "The unnamed nobleman speaking with Lennox about Scotland.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        17
+      ]
+    },
+    {
+      "id": "lords",
+      "name": "The court lords",
+      "category": "supporting",
+      "body": "The noblemen gathered at the Scottish court.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Lords"
+      ],
+      "snapshots": [],
+      "chapters": [
+        12,
+        15
+      ]
+    },
+    {
+      "id": "messenger-inverness",
+      "name": "The messenger at Inverness",
+      "category": "supporting",
+      "body": "The messenger speaking to Lady Macbeth at Inverness.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Messenger"
+      ],
+      "snapshots": [],
+      "chapters": [
+        5
+      ]
+    },
+    {
+      "id": "messenger-fife",
+      "name": "The messenger at Fife",
+      "category": "supporting",
+      "body": "The unnamed messenger who comes to Lady Macduff.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Messenger"
+      ],
+      "snapshots": [],
+      "chapters": [
+        19
+      ]
+    },
+    {
+      "id": "messenger-dunsinane",
+      "name": "The lookout at Dunsinane",
+      "category": "supporting",
+      "body": "The lookout who reports to Macbeth at Dunsinane.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Messenger"
+      ],
+      "snapshots": [],
+      "chapters": [
+        25
+      ]
+    },
+    {
+      "id": "servant-torch",
+      "name": "The torch-bearing servant",
+      "category": "supporting",
+      "body": "The servant accompanying Macbeth with a torch.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Servant"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "servant-palace",
+      "name": "The palace servant",
+      "category": "supporting",
+      "body": "The servant attending Macbeth at the palace.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Servant"
+      ],
+      "snapshots": [],
+      "chapters": [
+        12
+      ]
+    },
+    {
+      "id": "servant-lady",
+      "name": "Lady Macbeth’s servant",
+      "category": "supporting",
+      "body": "The servant attending Lady Macbeth in this scene.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Servant"
+      ],
+      "snapshots": [],
+      "chapters": [
+        13
+      ]
+    },
+    {
+      "id": "servant-dunsinane",
+      "name": "The servant at Dunsinane",
+      "category": "supporting",
+      "body": "The servant who brings Macbeth news of the approaching army.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Servant"
+      ],
+      "snapshots": [],
+      "chapters": [
+        23
+      ]
+    }
+  ]
+}

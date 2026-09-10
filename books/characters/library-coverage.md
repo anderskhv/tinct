@@ -12,7 +12,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Bible (`bible`) | partial-baruch-only | Expand full Bible people/reference inventory while preserving live Baruch son of Neriah; authoritative source is shipping checkout books/characters/bible/baruch.json |
 | The Epic of Gilgamesh (`gilgamesh`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Hamlet (`hamlet`) | validated-package | Release owner: integrate versioned asset, verify reader selection and production |
-| Macbeth (`macbeth`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Macbeth (`macbeth`) | validated-package | Release owner: integrate versioned asset and verify reader selections/production |
 | A Midsummer Night's Dream (`midsummer`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Romeo and Juliet (`romeo-and-juliet`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Tempest (`the-tempest`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
