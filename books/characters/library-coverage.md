@@ -88,7 +88,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Henry V (`henry-v`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | As You Like It (`as-you-like-it`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| winters-tale (`winters-tale`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| winters-tale (`winters-tale`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Julius Caesar (`julius-caesar`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Twelfth Night (`twelfth-night`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Measure for Measure (`measure-for-measure`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
