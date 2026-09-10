@@ -30,7 +30,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Apology (`apology`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Symposium (`symposium`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Phaedo (`phaedo`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Crito (`crito`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Crito (`crito`) | validated-package | Release owner: integrate versioned asset and verify production |
 | Phaedrus (`phaedrus`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Poetics (`poetics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Moby Dick (`moby-dick`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
