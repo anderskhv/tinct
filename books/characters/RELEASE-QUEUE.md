@@ -95,6 +95,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | The Social Contract | e666213e | 96 / 96 | build_social_contract.py |
 | Frederick Douglass | 7964bb77 | 134 / 134 | build_frederick_douglass.py |
 | The Prince | 1abbe67a | 145 / 145 | build_the_prince.py |
+| The Taming of the Shrew | 5478a791 | 72 / 72 | build_taming_of_the_shrew.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -117,6 +118,8 @@ Discourse on Inequality separates Pliny the Elder/Younger and identifies Montesq
 Frederick Douglass is validated and included in the grouped handoff with The Prince. All eleven chapters and appendix; both source files match Tinct-reader-title. Review Hopkins/Isaac/Thomas/Henry namesakes, Frederick Johnson versus Nathan Johnson, ships excluded from people, and ten separate parody figures. The full content suite passes 316 tests. Queued, not production verified.
 
 The Prince is validated and included in the grouped handoff. Both sources match Tinct-reader-title. Namesakes include three Alexanders, two Philips, two Dariuses and multiple French kings. Release review: inherited notes 13:9 misidentify Joanna II as Ladislaus’s widow; 27:4 uses Giuliano for Giulio/Clement VII; 13:12 gives Colleoni’s death as 1457. Cards avoid repeating these errors. Rebuild if source bytes are repaired. All four source files in this batch match; full suite passes 326 tests.
+
+The Taming of the Shrew is validated for the next grouped handoff; both source files match Tinct-reader-title. Full suite: 335 tests. Review inherited omission of the opening Induction: twelve scenes begin at Act 1, but Sly’s framing interruption survives at 1:74–78. Cards cover those surviving speakers; absent Induction cast is not silently imported. Source restoration needs a rebuild. Lucentio/Tranio and Vincentio/Pedant are scoped, the scene-4 insult pedant is Lucentio, and Troilus is a dog.
 
 ## Held separately
 
