@@ -1,0 +1,739 @@
+{
+  "bookId": "the-tempest",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Both English editions: named cast, all printed speaker labels, distinct masque roles, named references and selected identifiable unnamed figures. Generic pronouns, imagined crowds and ordinary oaths excluded.",
+  "entities": [
+    {
+      "id": "prospero",
+      "name": "Prospero",
+      "category": "central",
+      "body": "Miranda’s father, a magician living with her on the island.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Prospero",
+        "Prosper"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            16
+          ],
+          "body": "Miranda’s father, a magician who was once Duke of Milan."
+        },
+        {
+          "after": [
+            9,
+            21
+          ],
+          "body": "Miranda’s father, the magician restored to his dukedom in Milan."
+        }
+      ]
+    },
+    {
+      "id": "miranda",
+      "name": "Miranda",
+      "category": "central",
+      "body": "Prospero’s daughter, brought up with him on the island.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Miranda"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            5,
+            24
+          ],
+          "body": "Prospero’s daughter, now pledged to marry Ferdinand."
+        }
+      ]
+    },
+    {
+      "id": "ariel",
+      "name": "Ariel",
+      "category": "major",
+      "body": "The spirit who serves Prospero and carries out his magic.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Ariel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "caliban",
+      "name": "Caliban",
+      "category": "major",
+      "body": "Sycorax’s son, an island inhabitant whom Prospero keeps in servitude.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Caliban",
+        "Cacaliban"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ferdinand",
+      "name": "Ferdinand",
+      "category": "major",
+      "body": "The prince of Naples, son of King Alonso.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ferdinand"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            5,
+            24
+          ],
+          "body": "Alonso’s son, the prince of Naples, now pledged to marry Miranda."
+        }
+      ]
+    },
+    {
+      "id": "alonso",
+      "name": "Alonso",
+      "category": "major",
+      "body": "King of Naples and father of Ferdinand and Claribel.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Alonso",
+        "King of Naples"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antonio",
+      "name": "Antonio",
+      "category": "major",
+      "body": "The Duke of Milan, traveling with King Alonso.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Antonio"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            22
+          ],
+          "body": "Prospero’s brother and Miranda’s uncle, now holding the dukedom of Milan."
+        },
+        {
+          "after": [
+            9,
+            28
+          ],
+          "body": "Prospero’s brother and Miranda’s uncle, the former Duke of Milan."
+        }
+      ]
+    },
+    {
+      "id": "sebastian",
+      "name": "Sebastian",
+      "category": "supporting",
+      "body": "King Alonso’s brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sebastian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gonzalo",
+      "name": "Gonzalo",
+      "category": "supporting",
+      "body": "An elderly counselor traveling with King Alonso.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gonzalo",
+        "Sir Prudence"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adrian",
+      "name": "Adrian",
+      "category": "supporting",
+      "body": "A lord in King Alonso’s traveling party.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Adrian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "francisco",
+      "name": "Francisco",
+      "category": "supporting",
+      "body": "A lord in King Alonso’s traveling party.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Francisco"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "trinculo",
+      "name": "Trinculo",
+      "category": "major",
+      "body": "King Alonso’s jester.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Trinculo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "stephano",
+      "name": "Stephano",
+      "category": "major",
+      "body": "King Alonso’s butler.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Stephano"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "boatswain",
+      "name": "The boatswain",
+      "category": "supporting",
+      "body": "The ship’s officer directing the sailors during the storm.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Boatswain"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "master",
+      "name": "The ship’s master",
+      "category": "supporting",
+      "body": "The captain of the ship carrying King Alonso’s party.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "mariners",
+      "name": "The mariners",
+      "category": "supporting",
+      "body": "The crew of the ship carrying King Alonso’s party.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Mariners"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sycorax",
+      "name": "Sycorax",
+      "category": "reference",
+      "body": "Caliban’s mother, a witch who lived on the island before Prospero.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sycorax"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "claribel",
+      "name": "Claribel",
+      "category": "reference",
+      "body": "Alonso’s daughter and Ferdinand’s sister, newly married to the King of Tunis.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Claribel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "king-tunis",
+      "name": "The King of Tunis",
+      "category": "reference",
+      "body": "Claribel’s husband and ruler of Tunis.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "King of Tunis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antonio-son",
+      "name": "Antonio’s son",
+      "category": "reference",
+      "body": "The unnamed son of Antonio, mentioned among the ship’s passengers.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "miranda-mother",
+      "name": "Miranda’s mother",
+      "category": "reference",
+      "body": "Prospero’s wife and Miranda’s mother. She is not named in the play.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "category": "reference",
+      "body": "The Roman sky and thunder god, also called Jupiter.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Jove",
+        "Jupiter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "category": "reference",
+      "body": "The Roman god of the sea.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Neptune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "setebos",
+      "name": "Setebos",
+      "category": "reference",
+      "body": "The god worshipped by Sycorax and invoked by Caliban.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Setebos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "category": "reference",
+      "body": "The legendary queen of Carthage, associated with Aeneas in Virgil’s Aeneid.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Dido"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeneas",
+      "name": "Aeneas",
+      "category": "reference",
+      "body": "The Trojan hero of Virgil’s Aeneid, associated with Dido at Carthage.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "AEneas",
+        "Aeneas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hymen",
+      "name": "Hymen",
+      "category": "reference",
+      "body": "The classical god of marriage, whose torch represents the wedding ceremony.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hymen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phoebus",
+      "name": "Phoebus",
+      "category": "reference",
+      "body": "A name for Apollo as the sun god, imagined driving a chariot across the sky.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Phoebus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "category": "reference",
+      "body": "The Roman goddess of love and mother of Cupid.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Venus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "category": "reference",
+      "body": "The winged god of love, Venus’s son.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Cupid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dis",
+      "name": "Dis",
+      "category": "reference",
+      "body": "The Roman ruler of the underworld, also called Pluto.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Dis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "category": "reference",
+      "body": "The Roman god of war, associated with Venus as her lover.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Mars"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "iris",
+      "name": "Iris",
+      "category": "supporting",
+      "body": "The rainbow goddess and messenger of Juno, portrayed in Prospero’s masque.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Iris"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "ceres",
+      "name": "Ceres",
+      "category": "supporting",
+      "body": "The goddess of agriculture, portrayed in Prospero’s masque.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Ceres"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "category": "supporting",
+      "body": "The queen of the gods and goddess of marriage, portrayed in Prospero’s masque.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Juno"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "nymphs",
+      "name": "The nymphs",
+      "category": "reference",
+      "body": "The water spirits, or Naiads, represented by dancers in Prospero’s masque.",
+      "subtitle": "",
+      "kind": "dramatic-group",
+      "aliases": [
+        "Nymphs",
+        "Naiads"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "reapers",
+      "name": "The reapers",
+      "category": "reference",
+      "body": "The harvest workers represented by dancers in Prospero’s masque.",
+      "subtitle": "",
+      "kind": "dramatic-group",
+      "aliases": [
+        "Reapers"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "The banquet figures",
+      "category": "supporting",
+      "body": "The strange figures who bring in and remove the banquet.",
+      "subtitle": "",
+      "kind": "spirit-group",
+      "aliases": [
+        "Shapes"
+      ],
+      "snapshots": [],
+      "chapters": [
+        7
+      ]
+    },
+    {
+      "id": "hounds",
+      "name": "The spirit hounds",
+      "category": "supporting",
+      "body": "The spirits appearing as hunting dogs under Prospero and Ariel’s direction.",
+      "subtitle": "",
+      "kind": "spirit-group",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "mountain",
+      "name": "Mountain",
+      "category": "reference",
+      "body": "One of the spirit hounds called by name during the chase.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Mountain"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "silver",
+      "name": "Silver",
+      "category": "reference",
+      "body": "One of the spirit hounds called by name during the chase.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Silver"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "fury",
+      "name": "Fury",
+      "category": "reference",
+      "body": "One of the spirit hounds called by name during the chase.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Fury"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "tyrant",
+      "name": "Tyrant",
+      "category": "reference",
+      "body": "One of the spirit hounds called by name during the chase.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Tyrant"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "mall",
+      "name": "Mall / Moll",
+      "category": "reference",
+      "body": "One of the women named in Stephano’s sailors’ song.",
+      "subtitle": "",
+      "kind": "song-figure",
+      "aliases": [
+        "Mall",
+        "Moll"
+      ],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "meg",
+      "name": "Meg",
+      "category": "reference",
+      "body": "One of the women named in Stephano’s sailors’ song.",
+      "subtitle": "",
+      "kind": "song-figure",
+      "aliases": [
+        "Meg"
+      ],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "marian",
+      "name": "Marian",
+      "category": "reference",
+      "body": "One of the women named in Stephano’s sailors’ song.",
+      "subtitle": "",
+      "kind": "song-figure",
+      "aliases": [
+        "Marian"
+      ],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "margery",
+      "name": "Margery",
+      "category": "reference",
+      "body": "One of the women named in Stephano’s sailors’ song.",
+      "subtitle": "",
+      "kind": "song-figure",
+      "aliases": [
+        "Margery"
+      ],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "kate",
+      "name": "Kate",
+      "category": "reference",
+      "body": "One of the women named in Stephano’s sailors’ song.",
+      "subtitle": "",
+      "kind": "song-figure",
+      "aliases": [
+        "Kate"
+      ],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "temperance",
+      "name": "Temperance",
+      "category": "reference",
+      "body": "A woman’s name in Antonio’s joke about the word “temperance”; no further identity is given.",
+      "subtitle": "",
+      "kind": "unresolved-figure",
+      "aliases": [
+        "Temperance"
+      ],
+      "snapshots": [],
+      "chapters": [
+        3
+      ]
+    },
+    {
+      "id": "nobody",
+      "name": "Nobody",
+      "category": "reference",
+      "body": "The comic figure of “Nobody,” invoked when Trinculo hears music without seeing a musician.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Nobody"
+      ],
+      "snapshots": [],
+      "chapters": [
+        6
+      ]
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "category": "reference",
+      "body": "Good or bad luck imagined as a female power.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Fortune"
+      ],
+      "snapshots": [],
+      "chapters": [
+        2
+      ]
+    },
+    {
+      "id": "fate",
+      "name": "Fate",
+      "category": "reference",
+      "body": "Destiny imagined as a power governing human lives.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Fate",
+        "Destiny"
+      ],
+      "snapshots": [],
+      "chapters": [
+        1,
+        7
+      ]
+    }
+  ]
+}

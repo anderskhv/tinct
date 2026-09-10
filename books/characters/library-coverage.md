@@ -11,11 +11,11 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | War and Peace (`war-and-peace`) | recognition-draft | Review 45 draft entries and extend complete source inventory; reject ambiguous inherited aliases |
 | The Bible (`bible`) | partial-baruch-only | Expand full Bible people/reference inventory while preserving live Baruch son of Neriah; authoritative source is shipping checkout books/characters/bible/baruch.json |
 | The Epic of Gilgamesh (`gilgamesh`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Hamlet (`hamlet`) | validated-package | Release owner: integrate versioned asset, verify reader selection and production |
+| Hamlet (`hamlet`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Macbeth (`macbeth`) | validated-package | Release owner: integrate versioned asset and verify reader selections/production |
 | A Midsummer Night's Dream (`midsummer`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Romeo and Juliet (`romeo-and-juliet`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Tempest (`the-tempest`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Tempest (`the-tempest`) | validated-package | Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production |
 | The Art of War (`the-art-of-war`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Pride and Prejudice (`pride-and-prejudice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

@@ -1,0 +1,31 @@
+{
+  "bookId": "the-tempest",
+  "scope": "Both English editions: named cast, all printed speaker labels, distinct masque roles, named references and selected identifiable unnamed figures. Generic pronouns, imagined crowds and ordinary oaths excluded.",
+  "authoredEntries": 52,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "c7b057ac30de314a239d6ebc1f133bf36195d1e4a0109650ceb97a25a972ac23",
+      "chapters": 10,
+      "paragraphs": 790,
+      "entries": 52,
+      "mentions": 1022,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "ddbade7e7141e485ae8a36fb6b34401a95c87de48054ff9d2053c5fb8d1e063f",
+      "chapters": 10,
+      "paragraphs": 790,
+      "entries": 50,
+      "mentions": 1030,
+      "omittedEntities": [
+        "hymen",
+        "phoebus"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

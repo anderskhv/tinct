@@ -1,9 +1,17 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "awaiting-integration",
+  "appStatus": "live",
   "reviewedEditions": [
     "original-en",
     "modern-en"
   ],
-  "nextAction": "Release owner: integrate versioned asset, verify reader selection and production"
+  "nextAction": "Maintain source fingerprint checks on future edition changes",
+  "productionVerification": {
+    "reportedBy": "release owner",
+    "date": "2026-09-10",
+    "bundle": "index-CfVbJ712.js",
+    "workerVersion": "68846e4f-a299-47a8-9691-7ad49406ade3",
+    "report": "docs/character-cards-hamlet-2026-09-10.md",
+    "checks": "Served bundle and sidecar bytes matched; 20 production reader scenarios and 15 smoke checks passed."
+  }
 }

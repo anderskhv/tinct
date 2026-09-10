@@ -147,7 +147,7 @@
       "bookId": "hamlet",
       "title": "Hamlet",
       "contentStatus": "validated-package",
-      "appStatus": "awaiting-integration",
+      "appStatus": "live",
       "reviewedEditions": [
         "original-en",
         "modern-en"
@@ -169,7 +169,7 @@
         }
       ],
       "existingThreadCandidates": 13,
-      "nextAction": "Release owner: integrate versioned asset, verify reader selection and production"
+      "nextAction": "Maintain source fingerprint checks on future edition changes"
     },
     {
       "bookId": "macbeth",
@@ -252,9 +252,12 @@
     {
       "bookId": "the-tempest",
       "title": "The Tempest",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -272,7 +275,7 @@
         }
       ],
       "existingThreadCandidates": 12,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production"
     },
     {
       "bookId": "the-art-of-war",
