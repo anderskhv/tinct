@@ -90,7 +90,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | As You Like It (`as-you-like-it`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | winters-tale (`winters-tale`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Julius Caesar (`julius-caesar`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Twelfth Night (`twelfth-night`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Twelfth Night (`twelfth-night`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Measure for Measure (`measure-for-measure`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Henry IV, Part 2 (`henry-iv-part-2`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Merry Wives of Windsor (`merry-wives-of-windsor`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

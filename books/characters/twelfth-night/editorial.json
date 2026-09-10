@@ -1,0 +1,879 @@
+{
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All eighteen scenes: full named cast, contextual disguises and mistaken identities, separate family references, staff, reported people, songs and classical/biblical allusions.",
+  "entities": [
+    {
+      "id": "viola",
+      "name": "Viola",
+      "category": "central",
+      "body": "The play’s main character, Sebastian’s twin sister, shipwrecked on the coast of Illyria.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "VIOLA",
+        "Viola"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            4,
+            1
+          ],
+          "body": "The main character, Sebastian’s twin sister, serving Orsino under the name Cesario."
+        },
+        {
+          "after": [
+            18,
+            153
+          ],
+          "body": "The main character, Sebastian’s twin sister and Orsino’s intended bride; Cesario is her assumed name."
+        }
+      ]
+    },
+    {
+      "id": "sebastian",
+      "name": "Sebastian",
+      "category": "major",
+      "body": "Viola’s twin brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SEBASTIAN",
+        "Sebastian",
+        "Roderigo"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            66
+          ],
+          "body": "Viola’s twin brother and Olivia’s husband."
+        }
+      ]
+    },
+    {
+      "id": "orsino",
+      "name": "Orsino",
+      "category": "major",
+      "body": "The Duke of Illyria, who is courting Olivia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "DUKE",
+        "Orsino",
+        "Duke",
+        "duke"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            153
+          ],
+          "body": "The Duke of Illyria, now intending to marry Viola."
+        }
+      ]
+    },
+    {
+      "id": "olivia",
+      "name": "Olivia",
+      "category": "major",
+      "body": "The wealthy countess whom Orsino is courting, and Sir Toby’s niece.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "OLIVIA",
+        "Countess Olivia",
+        "Lady Olivia",
+        "Olivia",
+        "Countess"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            66
+          ],
+          "body": "The wealthy countess, Sir Toby’s niece and Sebastian’s wife."
+        }
+      ]
+    },
+    {
+      "id": "toby",
+      "name": "Sir Toby Belch",
+      "category": "major",
+      "body": "Olivia’s uncle, a resident in her household and Sir Andrew’s drinking companion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SIR TOBY",
+        "Sir Toby Belch",
+        "Sir Toby",
+        "Toby"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            147
+          ],
+          "body": "Olivia’s uncle, now married to Maria."
+        }
+      ]
+    },
+    {
+      "id": "andrew",
+      "name": "Sir Andrew Aguecheek",
+      "category": "major",
+      "body": "Sir Toby’s companion, the knight seeking Olivia’s hand.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SIR ANDREW",
+        "Sir Andrew Aguecheek",
+        "Sir Andrew",
+        "Andrew Aguecheek",
+        "Aguecheek",
+        "Agueface"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "maria",
+      "name": "Maria",
+      "category": "major",
+      "body": "Olivia’s waiting-woman, who keeps watch over the household’s unruly guests.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "MARIA",
+        "Maria",
+        "Mistress Mary"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            147
+          ],
+          "body": "Olivia’s waiting-woman and Sir Toby’s wife."
+        }
+      ]
+    },
+    {
+      "id": "malvolio",
+      "name": "Malvolio",
+      "category": "major",
+      "body": "Olivia’s steward, responsible for managing her household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "MALVOLIO",
+        "Count Malvolio",
+        "Malvolio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "feste",
+      "name": "Feste",
+      "category": "major",
+      "body": "Olivia’s jester, labeled Clown in the dialogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CLOWN",
+        "Clown",
+        "Feste"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            16,
+            12
+          ],
+          "body": "Olivia’s jester, also appearing under the clerical name Sir Topas."
+        }
+      ]
+    },
+    {
+      "id": "antonio",
+      "name": "Antonio",
+      "category": "major",
+      "body": "The sea captain who helps Sebastian.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ANTONIO",
+        "Antonio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "valentine",
+      "name": "Valentine",
+      "category": "supporting",
+      "body": "Orsino’s attendant, sent to Olivia on his behalf.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "VALENTINE",
+        "Valentine"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "curio",
+      "name": "Curio",
+      "category": "supporting",
+      "body": "One of Orsino’s attendants.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CURIO",
+        "Curio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fabian",
+      "name": "Fabian",
+      "category": "supporting",
+      "body": "A member of Olivia’s household and Sir Toby’s companion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "FABIAN",
+        "Fabian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "captain",
+      "name": "Viola’s captain",
+      "category": "supporting",
+      "body": "The captain who helps Viola after the shipwreck.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "CAPTAIN",
+        "Captain"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "priest",
+      "name": "The Priest",
+      "category": "supporting",
+      "body": "The clergyman Olivia brings to solemnize her vows.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "PRIEST",
+        "Priest"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "officer-first",
+      "name": "The first officer",
+      "category": "supporting",
+      "body": "One of the Illyrian officers who arrest Antonio.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "FIRST OFFICER"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "officer-second",
+      "name": "The second officer",
+      "category": "supporting",
+      "body": "The other officer taking Antonio into custody.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SECOND OFFICER"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "olivia-servant",
+      "name": "Olivia’s servant",
+      "category": "supporting",
+      "body": "The attendant announcing Orsino’s messenger at Olivia’s house.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SERVANT",
+        "Servant"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "handmaid",
+      "name": "Olivia’s handmaid",
+      "category": "supporting",
+      "body": "The unnamed attendant who gives Olivia’s reply to Valentine.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "handmaid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sailors",
+      "name": "The shipwrecked sailors",
+      "category": "supporting",
+      "body": "The sailors with Viola and the captain on the coast.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Sailors",
+        "sailors"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musicians",
+      "name": "The musicians",
+      "category": "supporting",
+      "body": "The musicians attending Orsino’s household.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Musicians",
+        "Musician",
+        "musicians"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "father-sebastian",
+      "name": "Sebastian of Messaline",
+      "category": "reference",
+      "body": "The father of the twins Viola and Sebastian.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sebastian of Messaline"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "olivia-father",
+      "name": "Olivia’s father",
+      "category": "reference",
+      "body": "The deceased count, father of Olivia and her brother.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "olivia-brother",
+      "name": "Olivia’s brother",
+      "category": "reference",
+      "body": "The brother whose death Olivia is mourning.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "titus",
+      "name": "Titus",
+      "category": "reference",
+      "body": "Orsino’s nephew, mentioned in the account of the naval fighting.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Titus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dick",
+      "name": "Dick the surgeon",
+      "category": "reference",
+      "body": "The surgeon Sir Toby asks for after being injured.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dick Surgeon",
+        "Dick the surgeon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mall",
+      "name": "Mistress Mall",
+      "category": "reference",
+      "body": "The woman whose curtained portrait Sir Toby uses as a comparison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mistress Mall"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "quinapalus",
+      "name": "Quinapalus",
+      "category": "reference",
+      "body": "The invented authority Feste cites in his joke about wisdom and folly.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Quinapalus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pigrogromitus",
+      "name": "Pigrogromitus",
+      "category": "reference",
+      "body": "The invented figure in Feste’s nonsense, recalled by Sir Andrew.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Pigrogromitus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vapians",
+      "name": "The Vapians",
+      "category": "reference",
+      "body": "The imaginary people in Feste’s nonsense about crossing the equinoctial.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Vapians"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "myrmidons",
+      "name": "The Myrmidons",
+      "category": "reference",
+      "body": "Achilles’s warriors in Greek legend, incongruously invoked by Feste.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Myrmidons"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peg",
+      "name": "Peg-a-Ramsey",
+      "category": "reference",
+      "body": "The figure in a popular song whose name Toby applies to Malvolio.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Peg-a-Ramsey"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "babylon-man",
+      "name": "The man in Babylon",
+      "category": "reference",
+      "body": "The man mentioned in Sir Toby’s song fragment.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "strachy-lady",
+      "name": "The lady of the Strachy",
+      "category": "reference",
+      "body": "The woman whose marriage to a servant Malvolio cites as a precedent.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "lady of the Strachy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "wardrobe-yeoman",
+      "name": "The wardrobe servant",
+      "category": "reference",
+      "body": "The man said to have married the lady of the Strachy.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "yeoman of the wardrobe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sowter",
+      "name": "Sowter",
+      "category": "reference",
+      "body": "A stock hound-name used in Fabian’s metaphor about Malvolio following a scent.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Sowter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sophy",
+      "name": "The Sophy",
+      "category": "reference",
+      "body": "The Persian ruler referred to by his title in the characters’ comparisons and boasts.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Sophy",
+        "Shah of Persia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "capilet",
+      "name": "Capilet",
+      "category": "reference",
+      "body": "Sir Andrew’s gray horse.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Capilet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prague-hermit",
+      "name": "The hermit of Prague",
+      "category": "reference",
+      "body": "The supposed hermit in Feste’s invented anecdote.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "hermit of Prague"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorboduc",
+      "name": "King Gorboduc",
+      "category": "reference",
+      "body": "The legendary British king named in Feste’s anecdote.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "King Gorboduc"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorboduc-niece",
+      "name": "Gorboduc’s niece",
+      "category": "reference",
+      "body": "The supposed niece addressed by the hermit in Feste’s anecdote.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "robin",
+      "name": "Robin",
+      "category": "reference",
+      "body": "The man addressed in Feste’s song.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Robin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thyamis",
+      "name": "The Egyptian thief",
+      "category": "reference",
+      "body": "Thyamis, the bandit in Heliodorus’s romance, invoked in Orsino’s comparison about jealousy.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Egyptian thief"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "brownists",
+      "name": "The Brownists",
+      "category": "reference",
+      "body": "The religious separatists invoked in Sir Andrew’s comparison.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Brownist"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pythagoras",
+      "name": "Pythagoras",
+      "category": "reference",
+      "body": "The Greek philosopher associated here with the migration of souls between living creatures.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pythagoras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "arion",
+      "name": "Arion",
+      "category": "reference",
+      "body": "The legendary musician rescued at sea by a dolphin.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Arion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "category": "reference",
+      "body": "The goddess invoked in Orsino’s description of Cesario’s appearance.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Diana"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "category": "reference",
+      "body": "The Roman messenger god, invoked by Feste.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Mercury"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "category": "reference",
+      "body": "Jupiter, the king of the Roman gods.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Jove"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "penthesilea",
+      "name": "Penthesilea",
+      "category": "reference",
+      "body": "The Amazon queen whose name Sir Toby uses to address Maria.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Penthesilea"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lucrece",
+      "name": "Lucrece",
+      "category": "reference",
+      "body": "The Roman Lucretia, associated with chastity and invoked through Olivia’s seal.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lucrece"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pandarus",
+      "name": "Pandarus",
+      "category": "reference",
+      "body": "The go-between in the story of Troilus and Cressida.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Lord Pandarus",
+        "Pandarus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cressida",
+      "name": "Cressida",
+      "category": "reference",
+      "body": "Troilus’s beloved, invoked in Feste’s joke about begging.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Cressida"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "troilus",
+      "name": "Troilus",
+      "category": "reference",
+      "body": "The Trojan lover of Cressida.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Troilus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vulcan",
+      "name": "Vulcan",
+      "category": "reference",
+      "body": "The Roman smith-god, used as a comparison for a smoke-blackened face.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Vulcan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eve",
+      "name": "Eve",
+      "category": "reference",
+      "body": "The first woman in the biblical creation story.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Eve"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anne",
+      "name": "Saint Anne",
+      "category": "reference",
+      "body": "The saint traditionally identified as the Virgin Mary’s mother.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Saint Anne"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jezebel",
+      "name": "Jezebel",
+      "category": "reference",
+      "body": "The biblical queen whose name Sir Andrew uses as an insult.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Jezebel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "noah",
+      "name": "Noah",
+      "category": "reference",
+      "body": "The biblical survivor of the Flood.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Noah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "legion",
+      "name": "Legion",
+      "category": "reference",
+      "body": "The collective demonic name in the Gospel story of possession.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Legion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "satan",
+      "name": "Satan",
+      "category": "reference",
+      "body": "The devil, invoked in the characters’ jokes and accusations.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Satan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "beelzebub",
+      "name": "Beelzebub",
+      "category": "reference",
+      "body": "The demonic figure Feste invokes, named here as Belzebub.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Belzebub",
+        "Beelzebub"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The deity invoked in the characters’ prayers and exclamations.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vice",
+      "name": "The Vice",
+      "category": "reference",
+      "body": "The comic tempter of older morality plays, evoked in Feste’s song.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Vice"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "egyptians",
+      "name": "The Egyptians",
+      "category": "reference",
+      "body": "The people evoked in Feste’s reference to the biblical plague of darkness.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Egyptians"
+      ],
+      "snapshots": []
+    }
+  ]
+}
