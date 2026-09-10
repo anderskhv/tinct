@@ -38,18 +38,18 @@ describe('defaultPopupMode', () => {
     expect(defaultPopupMode('selfishness,')).toBe('define')
   })
 
-  it('opens colors for a multi-word phrase', () => {
-    expect(defaultPopupMode('selfishness and pride')).toBe('colors')
-    expect(defaultPopupMode('the wine-dark sea')).toBe('colors')
+  it('opens actions for a multi-word phrase', () => {
+    expect(defaultPopupMode('selfishness and pride')).toBe('main')
+    expect(defaultPopupMode('the wine-dark sea')).toBe('main')
   })
 
-  it('opens colors when tapping an existing highlight, even for one word', () => {
-    expect(defaultPopupMode('selfishness', 'hl_1')).toBe('colors')
-    expect(defaultPopupMode('selfishness and pride', 'hl_1')).toBe('colors')
+  it('opens actions when tapping an existing highlight, even for one word', () => {
+    expect(defaultPopupMode('selfishness', 'hl_1')).toBe('main')
+    expect(defaultPopupMode('selfishness and pride', 'hl_1')).toBe('main')
   })
 
-  it('opens colors for empty text', () => {
-    expect(defaultPopupMode('')).toBe('colors')
-    expect(defaultPopupMode('   ')).toBe('colors')
+  it('opens actions for empty text', () => {
+    expect(defaultPopupMode('')).toBe('main')
+    expect(defaultPopupMode('   ')).toBe('main')
   })
 })

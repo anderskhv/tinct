@@ -2374,23 +2374,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     define.setQuery('')
   }, [define])
 
-  useEffect(() => {
-    if (!selectionPopup) return
-    const onPointer = (event: PointerEvent) => {
-      const target = event.target as HTMLElement
-      if (target.closest('.selection-popup')) return
-      dismissSelectionPopup()
-    }
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') dismissSelectionPopup()
-    }
-    document.addEventListener('pointerdown', onPointer, true)
-    window.addEventListener('keydown', onKey)
-    return () => {
-      document.removeEventListener('pointerdown', onPointer, true)
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [dismissSelectionPopup, selectionPopup])
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
   useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
@@ -2402,11 +2385,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const paragraphs = comparison ? book.compareParagraphs : book.paragraphs
     const paragraph = paragraphs[range.paragraphIndex] || ''
     const offsets = range.endParagraphIndex === range.paragraphIndex ? wordSelectionOffsets(paragraph, range.fromWord, range.toWord) : null
-    // Dragged selections are saved gold highlights immediately. A mouse
-    // lookup opens controls without writing a mark; existing marks stay editable.
+    // Selection is temporary. Only an explicit Highlight or note action writes a mark.
     const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
-    const highlight = existing ?? (character || intent === 'lookup' || (range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord === 1) ? undefined : highlightsApi.addOrReuse(range, 'gold', editionKey))
+    const highlight = existing
     const mode = character ? 'character' as const : defaultPopupMode(range.text, existing?.id)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')
@@ -2436,7 +2418,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
       existingHighlightId: highlight?.id,
       existingNote: highlight?.note,
-      homeMode: character ? 'colors' : defaultPopupMode(range.text, existing?.id),
+      homeMode: character ? 'main' : defaultPopupMode(range.text, existing?.id),
       character: character ?? undefined,
       editionKey,
       range,
@@ -4289,9 +4271,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
             } else if (selectionPopup.range) {
-              highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey)
+              const created = highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey)
+              setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id } : current)
             }
-            dismissSelectionPopup()
           }}
           defineQuery={define.query}
           setDefineQuery={define.setQuery}
@@ -4324,8 +4306,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             setPopupMode('note')
           }}
           onExplain={() => {
-            if (selectionPopup.text) define.begin(selectionPopup.text)
-            setPopupMode('define')
+            const text = selectionPopup.text
+            dismissSelectionPopup()
+            handleChat()
+            setDraft(`About “${text}”: `)
           }}
           onCopy={() => {
             const text = selectionPopup.text

@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties, type RefObject } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import type { CharacterSelection } from '../../services/characters/characterCards'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
@@ -21,6 +21,7 @@ export interface SelectionInfo {
   showBelow?: boolean
   mobilePlacement?: 'bottom' | 'above-selection'
   existingHighlightId?: string
+  highlightIds?: string[]
   existingNote?: string
   noteEditMode?: boolean
   homeMode?: SelectionPopupHomeMode
@@ -114,35 +115,8 @@ function ChatIcon() {
   )
 }
 
-function IssueIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 2 L13 2 L10 9 L6 9 Z" />
-      <circle cx="8" cy="13" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
 
-function ShareIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 2 L8 11" />
-      <path d="M5 5 L8 2 L11 5" />
-      <path d="M3 9 L3 13 L13 13 L13 9" />
-    </svg>
-  )
-}
 
-function DefineIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 2 H12 A1 1 0 0 1 13 3 V13 A1 1 0 0 1 12 14 H4 A1 1 0 0 1 3 13 Z" />
-      <line x1="5.5" y1="5" x2="10.5" y2="5" />
-      <line x1="5.5" y1="8" x2="10.5" y2="8" />
-      <line x1="5.5" y1="11" x2="8.5" y2="11" />
-    </svg>
-  )
-}
 
 export function SelectionPopup({
   selection,
@@ -170,7 +144,6 @@ export function SelectionPopup({
   onRequestNote,
   onExplain,
   onCopy,
-  onShare,
   onDeleteHighlight,
   dismissPopup,
   lab = false,
@@ -190,8 +163,38 @@ export function SelectionPopup({
   const card = galleryId ? character?.gallery.find(entry => entry.card.id === galleryId)?.card : character?.card
   const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Mentioned in passing' }
 
-  const showActionBar = popupMode === 'define' || popupMode === 'colors' || (popupMode === 'character' && !galleryId)
-  const showDefinePanel = popupMode === 'define' || (lab && popupMode === 'main' && homeMode === 'define')
+  const showDefinePanel = popupMode === 'define'
+  const informationMode = character ? 'character' : homeMode === 'define' ? 'define' : null
+  const [lastColor, setLastColor] = useState<HighlightColor>(() => {
+    try { const saved = localStorage.getItem('tinct-highlight-color'); return HIGHLIGHT_COLORS.find(c => c.key === saved)?.key ?? 'gold' } catch { return 'gold' }
+  })
+  const applyColor = (color: HighlightColor) => {
+    setLastColor(color)
+    try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
+    onColorClick(color)
+    setPopupMode('colors')
+  }
+  const dismissRef = useRef(dismissPopup)
+  dismissRef.current = dismissPopup
+  useEffect(() => {
+    const outside = (event: PointerEvent) => {
+      if (popupRef.current?.contains(event.target as Node)) return
+      event.preventDefault(); event.stopImmediatePropagation()
+      // Keep swallowing the initiating gesture after this popup unmounts.
+      // Pointerdown alone does not suppress touchend or a subsequent click.
+      const types = ['pointerup', 'pointermove', 'mousedown', 'mouseup', 'touchstart', 'touchmove', 'touchend', 'click', 'contextmenu'] as const
+      const consume = (next: Event) => { next.preventDefault(); next.stopImmediatePropagation(); if (next.type === 'click') cleanup() }
+      const cleanup = () => { types.forEach(type => window.removeEventListener(type, consume, true)); window.removeEventListener('pointerdown', cleanup, true); clearTimeout(timer) }
+      types.forEach(type => window.addEventListener(type, consume, { capture: true, passive: false }))
+      const timer = window.setTimeout(cleanup, 10_000)
+      window.addEventListener('pointerdown', cleanup, { capture: true, once: true })
+      dismissRef.current()
+    }
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); dismissRef.current() } }
+    window.addEventListener('keydown', onKey, true)
+    window.addEventListener('pointerdown', outside, { capture: true, passive: false })
+    return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey, true) }
+  }, [popupRef])
   const headword = defineResult?.word || defineQuery
   const showDefineInput = popupMode === 'define' && !headword && !defineLoading
 
@@ -202,7 +205,6 @@ export function SelectionPopup({
       role={character ? 'dialog' : undefined}
       aria-label={character ? 'People at this passage' : undefined}
       onKeyDown={event => {
-        if (!character) return
         event.stopPropagation()
         if (event.key === 'Escape') { event.preventDefault(); dismissPopup() }
         if (event.key === 'Tab') {
@@ -213,7 +215,7 @@ export function SelectionPopup({
           }
         }
       }}
-      className={`selection-popup${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      className={`selection-popup is-compact${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-popup-mode={popupMode}
       data-popup-home={homeMode}
       style={{
@@ -228,13 +230,13 @@ export function SelectionPopup({
     >
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
-          <div className="popup-character-heading"><small>At this passage</small><button type="button" onClick={dismissPopup} aria-label="Close character card">×</button></div>
+          <div className="popup-character-heading"><small>At this passage</small><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
           {popupMode === 'character' && card && <>
             <h2>{card.name}</h2>
             {card.role && <small>{roles[card.role]}</small>}
             <p className="popup-character-subtitle">{card.subtitle}</p>
             <p>{card.body}</p>
-            <div className="popup-character-actions">{!galleryId ? <button type="button" onClick={onDefine}>Dictionary</button> : <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}<button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>
+
           </>}
           {popupMode === 'gallery' && <>
             <h2>Character gallery</h2>
@@ -251,6 +253,7 @@ export function SelectionPopup({
       {character && popupMode === 'define' && <button className="popup-button" onClick={() => { setGalleryId(null); setPopupMode('character') }}>Back to character</button>}
       {showDefinePanel && (
         <div className="popup-define">
+          <button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button>
           {showDefineInput ? (
             <div className="popup-define-head">
               <input
@@ -284,42 +287,6 @@ export function SelectionPopup({
               No definition found for &ldquo;{defineQuery}&rdquo;.
             </div>
           )}
-        </div>
-      )}
-
-      {showActionBar && (
-        <div className="popup-action-bar">
-          <div className="popup-colors">
-            {HIGHLIGHT_COLORS.map(c => (
-              <button
-                key={c.key}
-                type="button"
-                className={`popup-color-dot highlight-${c.key}${currentHighlightColor === c.key ? ' is-selected' : ''}`}
-                title={`Highlight ${c.label}`}
-                aria-label={`Highlight ${c.label}`}
-                aria-pressed={currentHighlightColor === c.key}
-                onClick={() => onColorClick(c.key)}
-              />
-            ))}
-          </div>
-          <button className="popup-bar-btn" onClick={onCopy} title="Copy text">
-            <CopyIcon />
-          </button>
-          <button className="popup-bar-btn" onClick={onRequestNote} title="Add a note">
-            <NoteIcon />
-          </button>
-          {selection.existingHighlightId && !lab && (
-            <button
-              className="popup-bar-btn popup-icon-btn-delete"
-              onClick={() => { onDeleteHighlight?.(selection.existingHighlightId!); dismissPopup() }}
-              title="Delete highlight"
-            >
-              <DeleteIcon />
-            </button>
-          )}
-          <button className="popup-bar-btn" onClick={() => setPopupMode('main')} title="More actions">
-            <MoreIcon />
-          </button>
         </div>
       )}
 
@@ -379,37 +346,16 @@ export function SelectionPopup({
         </div>
       )}
 
-      {popupMode === 'main' && (
-        <div className="popup-overflow">
-          <button className="popup-back-btn" onClick={() => setPopupMode(homeMode)} title="Back">‹</button>
-          <button className="popup-icon-btn" onClick={onExplain} title="Chat about this">
-            <ChatIcon />
-            <span className="popup-icon-label">Explain</span>
-          </button>
-          <button className="popup-icon-btn" onClick={() => setPopupMode('issue')} title="Report an issue">
-            <IssueIcon />
-            <span className="popup-icon-label">Report</span>
-          </button>
-          <button className="popup-icon-btn" onClick={() => { onShare?.(selection.text); dismissPopup(); window.getSelection()?.removeAllRanges() }} title="Share this quote">
-            <ShareIcon />
-            <span className="popup-icon-label">Share</span>
-          </button>
-          {homeMode !== 'define' && (
-            <button className="popup-icon-btn" onClick={onDefine} title="Define">
-              <DefineIcon />
-              <span className="popup-icon-label">Define</span>
-            </button>
-          )}
-          {lab && selection.existingHighlightId && (
-            <button
-              className="popup-icon-btn popup-icon-btn-delete"
-              onClick={() => { onDeleteHighlight?.(selection.existingHighlightId!); dismissPopup() }}
-              title="Delete highlight"
-            >
-              <DeleteIcon />
-              <span className="popup-icon-label">Delete</span>
-            </button>
-          )}
+      {(popupMode === 'main' || popupMode === 'colors') && (
+        <div className="popup-compact-menu">
+          {informationMode && <div className="popup-menu-heading"><button type="button" onClick={() => { setGalleryId(null); setPopupMode(informationMode) }} aria-label="Back to information">‹ Back</button></div>}
+          {selection.existingHighlightId ? <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Remove highlight</span></button>
+            : <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="m3 10 7-7 3 3-7 7H3zM2 15h12" /></svg><span>Highlight</span></button>}
+          {(popupMode === 'colors' || selection.existingHighlightId) && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}</div>}
+          <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
+          <button type="button" className="popup-menu-action" onClick={onExplain}><ChatIcon /><span>Ask</span></button>
+          <button type="button" className="popup-menu-action" onClick={onRequestNote}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
+          {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
         </div>
       )}
     </div>

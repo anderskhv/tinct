@@ -1,4 +1,4 @@
-export type SelectionPopupHomeMode = 'define' | 'colors'
+export type SelectionPopupHomeMode = 'define' | 'main'
 
 /** Wrapping punctuation around a selection, ignored for token count / lookup. */
 const WRAP_PUNCT_RE = /^[\s“”"'([{]+|[\s.,;:!?…”"')\]}]+$/g
@@ -19,13 +19,13 @@ export function isSingleWordSelection(text: string): boolean {
 }
 
 /**
- * Kindle-style default: a single word opens the dictionary; a phrase (or an
- * existing highlight) opens the colour bar. The icon toolbar is never first.
+ * A single word opens information; phrases and existing highlights open actions.
+ * Selection itself never saves a highlight.
  */
 export function defaultPopupMode(
   text: string,
   existingHighlightId?: string | null,
 ): SelectionPopupHomeMode {
-  if (existingHighlightId) return 'colors'
-  return isSingleWordSelection(text) ? 'define' : 'colors'
+  if (existingHighlightId) return 'main'
+  return isSingleWordSelection(text) ? 'define' : 'main'
 }

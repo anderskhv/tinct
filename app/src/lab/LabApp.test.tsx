@@ -2653,7 +2653,7 @@ describe('lab passage headline pages', () => {
     expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
   })
 
-  it('saves a completed selection immediately and recolors that same range', async () => {
+  it('saves only after Highlight and recolors that same range without closing', async () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     const page = screen.getByTestId('lab-book')
     vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
@@ -2665,6 +2665,8 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerMove(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
     fireEvent.pointerUp(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
     expect(document.querySelector('.selection-popup')).toBeTruthy()
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
     await waitFor(() => expect(localStorage.getItem('tinct-lab-highlights')).toContain('gold'))
     fireEvent.click(screen.getByTitle('Highlight Sky'))
     await waitFor(() => {
@@ -2672,16 +2674,18 @@ describe('lab passage headline pages', () => {
       expect(saved).toHaveLength(1)
       expect(saved[0].color).toBe('sky')
     })
-    expect(document.querySelector('.selection-popup')).toBeNull()
+    expect(document.querySelector('.selection-popup')).toBeTruthy()
     await waitFor(() => expect(screen.getAllByTestId('lab-word')[1].className).toContain('is-hl-sky'))
   })
 
   it('dismisses on the first outside press without discarding the highlight', async () => {
+    localStorage.removeItem('tinct-highlight-color')
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     const words = screen.getAllByTestId('lab-word')
     fireEvent.pointerDown(words[1], { pointerId: 91, pointerType: 'mouse', clientX: 150, clientY: 200 })
     fireEvent.pointerMove(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
     fireEvent.pointerUp(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
     await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
 
     fireEvent.pointerDown(document.body, { pointerId: 92, pointerType: 'touch', clientX: 10, clientY: 10 })
@@ -2689,6 +2693,8 @@ describe('lab passage headline pages', () => {
     const saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
     expect(saved).toHaveLength(1)
     expect(saved[0].color).toBe('gold')
+    fireEvent.pointerUp(document.body)
+    fireEvent.click(document.body)
   })
 
   it('hides the reader navigation while the iPhone keyboard owns the lower viewport', () => {

@@ -54,166 +54,75 @@ afterEach(() => {
   cleanup()
 })
 
-describe('SelectionPopup', () => {
-  it('single-word define mode shows the lookup immediately with colour dots, copy, and note', () => {
-    render(<SelectionPopup {...props({ popupMode: 'define', defineLoading: true, defineQuery: 'selfishness' })} />)
-
-    expect(screen.getByText('selfishness')).toBeTruthy()
-    expect(screen.getByText('Looking up…')).toBeTruthy()
-    expect(screen.getAllByTitle(/Highlight /)).toHaveLength(5)
-    expect(screen.getByTitle('Copy text')).toBeTruthy()
-    expect(screen.getByTitle('Add a note')).toBeTruthy()
-    expect(screen.queryByText('Highlight')).toBeNull()
-    expect(screen.queryByText('Type a word and press Enter to look it up.')).toBeNull()
-  })
-
-  it('shows the definition on the same card as the colour bar', () => {
-    const defineResult: DictResult = {
-      word: 'selfishness',
-      definitions: ['concern with one\'s own interests'],
-    }
-    render(<SelectionPopup {...props({ popupMode: 'define', defineLoading: false, defineResult })} />)
-
-    expect(screen.getByText('selfishness')).toBeTruthy()
-    expect(screen.getByText("concern with one's own interests")).toBeTruthy()
-    expect(screen.getByTitle('Highlight Gold')).toBeTruthy()
-  })
-
-  it('multi-word colors mode shows colour dots first, not the icon menu', () => {
-    render(<SelectionPopup {...props({
-      popupMode: 'colors',
-      selection: selection({ text: 'selfishness and pride', endOffset: 21 }),
-      defineQuery: '',
-      defineLoading: false,
-    })} />)
-
-    expect(screen.getAllByTitle(/Highlight /)).toHaveLength(5)
-    expect(screen.getByTitle('Copy text')).toBeTruthy()
-    expect(screen.getByTitle('Add a note')).toBeTruthy()
-    expect(screen.queryByText('Looking up…')).toBeNull()
-    expect(screen.queryByText('Highlight')).toBeNull()
-    expect(screen.queryByText('Define')).toBeNull()
-    expect(screen.queryByText('Explain')).toBeNull()
-  })
-
-  it('tapping a colour calls onColorClick without going through a submenu', async () => {
-    const onColorClick = vi.fn()
-    const { container } = render(<SelectionPopup {...props({
-      popupMode: 'colors',
-      selection: selection({ text: 'selfishness and pride' }),
-      onColorClick,
-    })} />)
-
-    const gold = container.querySelector('.popup-color-dot.highlight-gold') as HTMLButtonElement
-    gold.click()
-    expect(onColorClick).toHaveBeenCalledWith('gold')
-  })
-
-  it('existing highlight shows colours, note, and delete', () => {
-    render(<SelectionPopup {...props({
-      popupMode: 'colors',
-      selection: selection({ existingHighlightId: 'hl_1', existingNote: 'keep' }),
-    })} />)
-
-    expect(screen.getAllByTitle(/Highlight /)).toHaveLength(5)
-    expect(screen.getByTitle('Add a note')).toBeTruthy()
-    expect(screen.getByTitle('Delete highlight')).toBeTruthy()
-  })
-
-  it('keeps Explain and Report behind the overflow, not as the default', () => {
-    const setPopupMode = vi.fn()
-    const { rerender } = render(<SelectionPopup {...props({
-      popupMode: 'colors',
-      selection: selection({ text: 'selfishness and pride' }),
-      setPopupMode,
-    })} />)
-
-    expect(screen.queryByText('Explain')).toBeNull()
-    expect(screen.queryByText('Report')).toBeNull()
-
-    screen.getByTitle('More actions').click()
-    expect(setPopupMode).toHaveBeenCalledWith('main')
-
-    rerender(<SelectionPopup {...props({
-      popupMode: 'main',
-      selection: selection({ text: 'selfishness and pride' }),
-      setPopupMode,
-    })} />)
-
-    expect(screen.getByText('Explain')).toBeTruthy()
-    expect(screen.getByText('Report')).toBeTruthy()
-  })
-
-  it('keeps the Lab dictionary card stable when More replaces its action row', () => {
-    const sharedSelection = selection({ existingHighlightId: 'hl_1', homeMode: 'define' })
-    const { rerender, container } = render(<SelectionPopup {...props({
-      lab: true,
-      popupMode: 'define',
-      selection: sharedSelection,
-      defineLoading: false,
-      defineNotFound: true,
-      currentHighlightColor: 'sky',
-    })} />)
-
-    const card = container.querySelector('.selection-popup')
-    expect(card?.getAttribute('data-popup-home')).toBe('define')
-    expect(screen.getByText('No definition found for “selfishness”.')).toBeTruthy()
-    expect(screen.getByTitle('Highlight Sky').getAttribute('aria-pressed')).toBe('true')
-
-    rerender(<SelectionPopup {...props({
-      lab: true,
-      popupMode: 'main',
-      selection: sharedSelection,
-      defineLoading: false,
-      defineNotFound: true,
-      currentHighlightColor: 'sky',
-    })} />)
-
-    expect(container.querySelector('.selection-popup')).toBe(card)
-    expect(screen.getByText('No definition found for “selfishness”.')).toBeTruthy()
-    expect(screen.getByText('Explain')).toBeTruthy()
-    expect(screen.getByText('Delete')).toBeTruthy()
-  })
-
-  it('existing-highlight note editor still saves and can cancel without deleting', () => {
-    const onUpdateHighlightNote = vi.fn()
-    const dismissPopup = vi.fn()
-    render(<SelectionPopup {...props({
-      popupMode: 'note',
-      selection: selection({ existingHighlightId: 'hl_1' }),
-      noteInput: 'a kept note',
-      onUpdateHighlightNote,
-      dismissPopup,
-    })} />)
-
-    screen.getByText('Save').click()
-    expect(onUpdateHighlightNote).toHaveBeenCalledWith('hl_1', 'a kept note')
-    expect(dismissPopup).toHaveBeenCalled()
-  })
-})
-
-
-describe('character reminder', () => {
-  const card = { id: 'leonce', kind: 'person', role: null, name: 'Mr. Pontellier', subtitle: 'The man in the opening scene', body: 'A brief released reminder.' }
-  const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
-  it('keeps dictionary and highlighting accessible without revealing a hidden role', () => {
-    const input = props({ selection: selection({ character }), popupMode: 'character' })
+describe('compact selection popup', () => {
+  it('shows information and More without saving or exposing actions', () => {
+    const input = props({ defineLoading: false, defineResult: { word: 'selfishness', definitions: ['Concern for oneself.'] } })
     render(<SelectionPopup {...input} />)
-    expect(screen.getByRole('dialog')).toBe(document.activeElement)
-    expect(screen.getByRole('heading', { name: 'Mr. Pontellier' })).toBeTruthy()
-    expect(screen.queryByText('Major figure')).toBeNull()
-    expect(screen.getAllByTitle(/Highlight /)).toHaveLength(5)
-    fireEvent.click(screen.getByRole('button', { name: 'Dictionary' }))
-    expect(input.onDefine).toHaveBeenCalledOnce()
-    fireEvent.click(screen.getByRole('button', { name: 'Character gallery' }))
-    expect(input.setPopupMode).toHaveBeenCalledWith('gallery')
-    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' })
-    expect(input.dismissPopup).toHaveBeenCalledOnce()
+    expect(screen.getByText('Concern for oneself.')).toBeTruthy()
+    expect(screen.queryByRole('button', { name: 'Highlight' })).toBeNull()
+    expect(screen.queryByTitle('Highlight Gold')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
+    expect(input.setPopupMode).toHaveBeenCalledWith('main')
+    expect(input.onColorClick).not.toHaveBeenCalled()
   })
-  it('shows only the supplied released gallery with no whole-book totals', () => {
-    render(<SelectionPopup {...props({ selection: selection({ character }), popupMode: 'gallery' })} />)
-    expect(screen.getByRole('heading', { name: 'In this passage' })).toBeTruthy()
-    expect(screen.queryByText('Introduced by this passage')).toBeNull()
-    expect(screen.queryByText(/Arobin/)).toBeNull()
+  it('replaces information with actions, supports Back, and applies last colour immediately', () => {
+    localStorage.setItem('tinct-highlight-color', 'sky')
+    const input = props({ popupMode: 'main', defineLoading: false, defineResult: { word: 'selfishness', definitions: ['Concern for oneself.'] } })
+    render(<SelectionPopup {...input} />)
+    expect(screen.queryByText('Concern for oneself.')).toBeNull()
+    expect(screen.getAllByRole('button').map(b => b.textContent)).toEqual(['‹ Back', 'Highlight', 'Copy', 'Ask', 'Add note'])
+    fireEvent.click(screen.getByText('Highlight'))
+    expect(input.onColorClick).toHaveBeenCalledWith('sky')
+    expect(input.setPopupMode).toHaveBeenCalledWith('colors')
+    fireEvent.click(screen.getByRole('button', { name: 'Back to information' }))
+    expect(input.setPopupMode).toHaveBeenCalledWith('define')
+    localStorage.clear()
+  })
+  it('shows existing highlight colours and Edit note; recolouring keeps the popup', () => {
+    const input = props({ popupMode: 'main', selection: selection({ existingHighlightId: 'h', existingNote: 'kept' }) })
+    render(<SelectionPopup {...input} />)
+    expect(screen.getByText('Remove highlight')).toBeTruthy()
+    expect(screen.getByText('Edit note')).toBeTruthy()
+    fireEvent.click(screen.getByTitle('Highlight Rose'))
+    expect(input.onColorClick).toHaveBeenCalledWith('rose')
+    expect(input.dismissPopup).not.toHaveBeenCalled()
+    fireEvent.click(screen.getByText('Remove highlight'))
+    expect(input.onDeleteHighlight).toHaveBeenCalledWith('h')
+    localStorage.clear()
+  })
+  it('consumes the entire outside gesture without activating underlying controls', () => {
+    const underlying = vi.fn(), input = props()
+    const { unmount } = render(<><button onClick={underlying}>Outside</button><SelectionPopup {...input} /></>)
+    const outside = screen.getByText('Outside')
+    fireEvent.pointerDown(outside)
+    expect(input.dismissPopup).toHaveBeenCalledOnce()
+    fireEvent.pointerUp(outside)
+    fireEvent.click(outside)
+    expect(underlying).not.toHaveBeenCalled()
+    unmount()
+  })
+  it('saves notes explicitly and cancellation does not write edits', () => {
+    const input = props({ popupMode: 'note', selection: selection({ existingHighlightId: 'h' }), noteInput: 'new note' })
+    render(<SelectionPopup {...input} />)
+    fireEvent.click(screen.getByText('Cancel'))
+    expect(input.onUpdateHighlightNote).not.toHaveBeenCalled()
+    fireEvent.click(screen.getByText('Save'))
+    expect(input.onUpdateHighlightNote).toHaveBeenCalledWith('h', 'new note')
+  })
+  it('character info initially has only More and keeps spoiler gates and gallery', () => {
+    const card = { id: 'leonce', kind: 'person', role: null, name: 'Mr. Pontellier', subtitle: 'The man in the opening scene', body: 'A brief released reminder.' }
+    const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
+    const input = props({ popupMode: 'character', selection: selection({ character }) })
+    const { rerender } = render(<SelectionPopup {...input} />)
+    expect(screen.getByRole('heading', { name: 'Mr. Pontellier' })).toBeTruthy()
+    expect(screen.getAllByRole('button')).toHaveLength(1)
+    expect(screen.queryByText('Major figure')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
+    expect(input.setPopupMode).toHaveBeenCalledWith('main')
+    rerender(<SelectionPopup {...input} popupMode="main" />)
+    fireEvent.click(screen.getByText('Character gallery'))
+    expect(input.setPopupMode).toHaveBeenCalledWith('gallery')
+    fireEvent.click(screen.getByRole('button', { name: 'Back to information' }))
+    expect(input.setPopupMode).toHaveBeenCalledWith('character')
   })
 })

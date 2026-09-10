@@ -894,18 +894,11 @@ export function SplitReader({
     if (!selectionPopup) return
     if (selectionPopup.existingHighlightId) {
       onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      dismissPopup()
       return
     }
-    onHighlight(
-      selectionPopup.paragraphIndex,
-      selectionPopup.startOffset,
-      selectionPopup.endOffset,
-      selectionPopup.text,
-      color,
-      selectionPopup.side,
-    )
-    dismissPopup()
+    const created = onHighlight(selectionPopup.paragraphIndex, selectionPopup.startOffset,
+      selectionPopup.endOffset, selectionPopup.text, color, selectionPopup.side)
+    if (created?.id) setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id } : current)
     window.getSelection()?.removeAllRanges()
   }
 
@@ -1201,6 +1194,7 @@ export function SplitReader({
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           onColorClick={handleColorClick}
+          currentHighlightColor={(selectionPopup.side === 'left' ? leftHighlights : rightHighlights).find(h => h.id === selectionPopup.existingHighlightId)?.color}
           defineQuery={defineQuery}
           setDefineQuery={setDefineQuery}
           defineResult={defineResult}

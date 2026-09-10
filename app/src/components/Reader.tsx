@@ -1239,6 +1239,7 @@ export function Reader({
           endOffset: selectionPopup.endOffset,
           text: selectionPopup.text,
         }]
+    const ids: string[] = []
     let created: { id: string } | void
     for (const segment of segments) {
       if (segment.startOffset >= segment.endOffset) continue
@@ -1249,19 +1250,20 @@ export function Reader({
         segment.text,
         color,
       )
+      if (created?.id) ids.push(created.id)
     }
+    if (ids.length) setSelectionPopup(current => current ? { ...current, existingHighlightId: ids[0], highlightIds: ids } : current)
     return created
   }
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
     if (selectionPopup.existingHighlightId) {
-      onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      dismissPopup()
+      ;(selectionPopup.highlightIds ?? [selectionPopup.existingHighlightId]).forEach(id => onUpdateHighlightColor?.(id, color))
       return
     }
     createHighlightsFromSelection(color)
-    dismissPopup()
+    clearSelectionPreview()
     window.getSelection()?.removeAllRanges()
   }
 
@@ -1681,6 +1683,7 @@ export function Reader({
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           onColorClick={handleColorClick}
+          currentHighlightColor={highlights.find(h => h.id === selectionPopup.existingHighlightId)?.color}
           defineQuery={defineQuery}
           setDefineQuery={setDefineQuery}
           defineResult={defineResult}
