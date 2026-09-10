@@ -94,7 +94,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Measure for Measure (`measure-for-measure`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Henry IV, Part 2 (`henry-iv-part-2`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Merry Wives of Windsor (`merry-wives-of-windsor`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Othello (`othello`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Othello (`othello`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | King Lear (`king-lear`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Much Ado About Nothing (`much-ado-about-nothing`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Taming of the Shrew (`taming-of-the-shrew`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

@@ -1,0 +1,698 @@
+{
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All fifteen scenes: principal cast, differentiated civic and military speaking roles, family recollections, reported people and named allusions.",
+  "entities": [
+    {
+      "id": "othello",
+      "name": "Othello",
+      "category": "central",
+      "body": "The general serving Venice, Desdemona’s husband and the play’s central figure.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "OTHELLO",
+        "Othello",
+        "Moor",
+        "Moorship"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "desdemona",
+      "name": "Desdemona",
+      "category": "central",
+      "body": "Brabantio’s daughter and Othello’s wife.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "DESDEMONA",
+        "Desdemona",
+        "Desdemon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "iago",
+      "name": "Iago",
+      "category": "central",
+      "body": "Othello’s ensign and Emilia’s husband.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "IAGO",
+        "Iago"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            176
+          ],
+          "body": "Emilia’s husband, promoted by Othello from ensign to lieutenant."
+        }
+      ]
+    },
+    {
+      "id": "emilia",
+      "name": "Emilia",
+      "category": "major",
+      "body": "Iago’s wife and Desdemona’s attendant.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "EMILIA",
+        "Emilia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cassio",
+      "name": "Michael Cassio",
+      "category": "major",
+      "body": "The Florentine officer chosen as Othello’s lieutenant.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CASSIO",
+        "Michael Cassio",
+        "Cassio"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            93
+          ],
+          "body": "The Florentine officer dismissed from Othello’s lieutenancy."
+        },
+        {
+          "after": [
+            11,
+            137
+          ],
+          "body": "The Florentine officer appointed to succeed Othello in governing Cyprus."
+        }
+      ]
+    },
+    {
+      "id": "roderigo",
+      "name": "Roderigo",
+      "category": "major",
+      "body": "The Venetian gentleman pursuing Desdemona with Iago’s help.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "RODERIGO",
+        "Roderigo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "brabantio",
+      "name": "Brabantio",
+      "category": "major",
+      "body": "Desdemona’s father, a Venetian senator.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BRABANTIO",
+        "Brabantio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bianca",
+      "name": "Bianca",
+      "category": "supporting",
+      "body": "Cassio’s lover in Cyprus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BIANCA",
+        "Bianca"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "montano",
+      "name": "Montano",
+      "category": "supporting",
+      "body": "The governor of Cyprus whom Othello is sent to replace.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "MONTANO",
+        "Montano"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lodovico",
+      "name": "Lodovico",
+      "category": "supporting",
+      "body": "Desdemona’s kinsman, the envoy who comes from Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LODOVICO",
+        "Lodovico"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gratiano",
+      "name": "Gratiano",
+      "category": "supporting",
+      "body": "Brabantio’s brother and Desdemona’s uncle.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "GRATIANO",
+        "Gratiano"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "duke",
+      "name": "The Duke of Venice",
+      "category": "supporting",
+      "body": "The ruler of Venice, presiding over the council.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "DUKE",
+        "Duke",
+        "duke"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "senator-first",
+      "name": "The first senator",
+      "category": "supporting",
+      "body": "One of the Venetian senators discussing the military threat.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "FIRST SENATOR"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "senator-second",
+      "name": "The second senator",
+      "category": "supporting",
+      "body": "Another senator comparing reports about the enemy fleet.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SECOND SENATOR"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sailor",
+      "name": "The sailor",
+      "category": "supporting",
+      "body": "The sailor bringing Angelo’s report to the Venetian council.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SAILOR",
+        "Sailor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "venice-messenger",
+      "name": "The council messenger",
+      "category": "supporting",
+      "body": "The messenger bringing Montano’s report to the Venetian council.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cyprus-messenger",
+      "name": "The Cyprus messenger",
+      "category": "supporting",
+      "body": "The messenger reporting the crowd’s sighting of a sail off Cyprus.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "gentleman-first",
+      "name": "The first gentleman",
+      "category": "supporting",
+      "body": "One of Montano’s companions watching the sea from Cyprus.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "FIRST GENTLEMAN"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gentleman-second",
+      "name": "The second gentleman",
+      "category": "supporting",
+      "body": "The gentleman helping identify the ships arriving at Cyprus.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SECOND GENTLEMAN",
+        "second Gentleman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gentleman-third",
+      "name": "The third gentleman",
+      "category": "supporting",
+      "body": "The gentleman bringing news of the fleet to Montano in Cyprus.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "THIRD GENTLEMAN",
+        "third Gentleman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "herald",
+      "name": "Othello’s herald",
+      "category": "supporting",
+      "body": "The official who publicly reads Othello’s proclamation.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "HERALD",
+        "Herald"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "clown",
+      "name": "The Clown",
+      "category": "supporting",
+      "body": "Othello’s household servant, who jokes with the musicians and carries messages.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "CLOWN",
+        "Clown"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musician",
+      "name": "The first musician",
+      "category": "supporting",
+      "body": "The musician answering the Clown outside Othello’s residence.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "FIRST MUSICIAN"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musicians",
+      "name": "The musicians",
+      "category": "supporting",
+      "body": "The players Cassio brings to perform outside Othello’s residence.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Musicians"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "wine-servant",
+      "name": "The wine-serving servant",
+      "category": "supporting",
+      "body": "The attendant bringing wine to the officers’ gathering.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Servant"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "senators",
+      "name": "The Venetian senators",
+      "category": "supporting",
+      "body": "The council members overseeing Venice’s public and military affairs.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Senators"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "officers",
+      "name": "The officers",
+      "category": "supporting",
+      "body": "The military and civic officers attending the leading characters.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Officers"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gondolier",
+      "name": "The gondolier",
+      "category": "reference",
+      "body": "The boatman mentioned in Roderigo’s account of Desdemona’s departure.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "gondolier"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "angelo",
+      "name": "Signior Angelo",
+      "category": "reference",
+      "body": "The official whose naval report the sailor brings to Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Signior Angelo",
+        "Angelo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "marcus",
+      "name": "Marcus Luccicos",
+      "category": "reference",
+      "body": "The man the duke asks for during the council’s discussion of Cyprus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Marcus Luccicos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "iago-patrons",
+      "name": "Iago’s patrons",
+      "category": "reference",
+      "body": "The three influential Venetians whom Iago says supported his request for promotion.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "othello-mother",
+      "name": "Othello’s mother",
+      "category": "reference",
+      "body": "The mother recalled in Othello’s account of the handkerchief.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "othello-father",
+      "name": "Othello’s father",
+      "category": "reference",
+      "body": "The father recalled in Othello’s account of the handkerchief.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "egyptian",
+      "name": "The Egyptian woman",
+      "category": "reference",
+      "body": "The woman who, in Othello’s account, gave his mother the handkerchief and described its powers.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Egyptian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sibyl",
+      "name": "The sibyl",
+      "category": "reference",
+      "body": "The prophetess said by Othello to have sewn the handkerchief.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "sibyl"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "desdemona-mother",
+      "name": "Desdemona’s mother",
+      "category": "reference",
+      "body": "Brabantio’s wife, recalled in Desdemona’s story about her maid.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "barbary",
+      "name": "Barbary",
+      "category": "reference",
+      "body": "Desdemona’s mother’s maid, remembered for her willow song.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "barbary-lover",
+      "name": "Barbary’s lover",
+      "category": "reference",
+      "body": "The man recalled in Desdemona’s account of Barbary.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cannibals",
+      "name": "The Anthropophagi",
+      "category": "reference",
+      "body": "The man-eating people in Othello’s traveler’s tales.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Cannibals",
+        "Anthropophagi"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "headless-men",
+      "name": "The men with heads beneath their shoulders",
+      "category": "reference",
+      "body": "The marvelous people described in Othello’s traveler’s tales.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "turkish-fleet",
+      "name": "The Ottoman forces",
+      "category": "reference",
+      "body": "The forces threatening Venice’s possessions in the eastern Mediterranean.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Turks",
+        "Ottomites",
+        "Ottomans",
+        "Turkish fleet",
+        "Ottoman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aleppo-turk",
+      "name": "The man in Aleppo",
+      "category": "reference",
+      "body": "The Turkish man in Othello’s account of an incident in Aleppo.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "aleppo-venetian",
+      "name": "The Venetian in Aleppo",
+      "category": "reference",
+      "body": "The Venetian whom Othello recalls seeing attacked in Aleppo.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "judean",
+      "name": "The Judean in the comparison",
+      "category": "reference",
+      "body": "The figure in Othello’s comparison about throwing away a precious pearl; the precise identity is disputed.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Judean"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "janus",
+      "name": "Janus",
+      "category": "reference",
+      "body": "The Roman god associated with beginnings and doorways, traditionally shown with two faces.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Janus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "category": "reference",
+      "body": "The Roman god of love.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Cupid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "category": "reference",
+      "body": "Jupiter, the Roman king of the gods.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Jove"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "stephen",
+      "name": "King Stephen",
+      "category": "reference",
+      "body": "The English king in Iago’s drinking song.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "King Stephen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Julius Caesar",
+      "category": "reference",
+      "body": "The Roman commander used as a comparison for military ability.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cæsar",
+        "Caesar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hydra",
+      "name": "The Hydra",
+      "category": "reference",
+      "body": "The many-headed monster of Greek myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Hydra"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "category": "reference",
+      "body": "The goddess associated with chastity, invoked here as Dian.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Dian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peter",
+      "name": "Saint Peter",
+      "category": "reference",
+      "body": "The apostle traditionally associated with the keys of heaven.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Saint Peter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "category": "reference",
+      "body": "The mythical bringer of fire, invoked in Othello’s image of life-giving heat.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Promethean"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The deity invoked in the play’s prayers and exclamations.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "devil",
+      "name": "The devil",
+      "category": "reference",
+      "body": "The supernatural figure invoked in curses and accusations.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Devil",
+        "devil",
+        "Diablo"
+      ],
+      "snapshots": []
+    }
+  ]
+}
