@@ -154,3 +154,23 @@ describe.each(['original-en', 'modern-en'])('Macbeth runtime %s', key => {
     }
   })
 })
+
+describe.each(['crito', 'apology', 'the-manual', 'the-art-of-war'])('complete reviewed package %s', bookId => {
+  it.each(['original-en', 'modern-en'])('validates every paragraph and mention in %s, with release boundaries', async editionKey => {
+    const asset: CharacterAsset = JSON.parse(readFileSync(`public/data/characters/${bookId}.v1.json`, 'utf8'))
+    const raw = Uint8Array.from(readFileSync(`public/data/editions/${bookId}-${editionKey}.json`)).buffer
+    const data = (await verifyCharacters(asset, bookId, editionKey, raw))!
+    expect(data).not.toBeNull()
+    for (const mention of data.edition.mentions) {
+      const text = data.paragraphs[mention.chapterNumber][mention.paragraphIndex]
+      expect(resolveCharacter(data, mention.chapterNumber, mention.paragraphIndex, mention.startOffset, mention.endOffset, text)?.card.id).toBe(mention.characterId)
+      expect(resolveCharacter(data, mention.chapterNumber, mention.paragraphIndex, mention.startOffset, mention.endOffset, text, true)).toBeNull()
+    }
+    for (const character of data.edition.characters) {
+      expect(releasedCard(data.edition, character.id, { ...character.firstMention, offset: character.firstMention.offset - 1 })).toBeNull()
+      const first = releasedCard(data.edition, character.id, character.firstMention)
+      releasedCard(data.edition, character.id, { chapterNumber: 9999, paragraphIndex: 9999, offset: 9999 })
+      expect(releasedCard(data.edition, character.id, character.firstMention)).toEqual(first)
+    }
+  })
+})
